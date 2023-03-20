@@ -86,8 +86,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a5b29df5c12c37f21635f0ca646005683"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3f372d0a160fcb557b671b8faae9a30a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1render_1_1ShaderProgram.html#a3f372d0a160fcb557b671b8faae9a30a">operator=</a> (<a class="el" href="structeuphoria_1_1render_1_1ShaderProgram.html">ShaderProgram</a> &amp;&amp;)=delete</td></tr>
 <tr class="separator:a3f372d0a160fcb557b671b8faae9a30a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a17c520e8261aef20c0cff29889a72121"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1render_1_1ShaderProgram.html#a17c520e8261aef20c0cff29889a72121">pre_bind</a> (const <a class="el" href="structeuphoria_1_1render_1_1ShaderAttribute.html">ShaderAttribute</a> &amp;attribute)</td></tr>
-<tr class="separator:a17c520e8261aef20c0cff29889a72121"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f76683dc8775ac017a2d9b29ae2bb56"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1render_1_1ShaderProgram.html#a6f76683dc8775ac017a2d9b29ae2bb56">add_attribute</a> (const <a class="el" href="structeuphoria_1_1render_1_1ShaderAttribute.html">ShaderAttribute</a> &amp;attribute)</td></tr>
+<tr class="separator:a6f76683dc8775ac017a2d9b29ae2bb56"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae7c37e05e1fae08d404671575d9e0621"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1render_1_1ShaderProgram.html#ae7c37e05e1fae08d404671575d9e0621">load</a> (<a class="el" href="structeuphoria_1_1core_1_1vfs_1_1FileSystem.html">core::vfs::FileSystem</a> *fs, const <a class="el" href="structeuphoria_1_1core_1_1vfs_1_1FilePath.html">core::vfs::FilePath</a> &amp;file_path)</td></tr>
 <tr class="separator:ae7c37e05e1fae08d404671575d9e0621"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aabb4e5a6b5bce9cf21010a1b613f251d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1render_1_1ShaderProgram.html#aabb4e5a6b5bce9cf21010a1b613f251d">compile</a> (const <a class="el" href="namespaceeuphoria_1_1render_1_1gl.html#a1e51a806c069588703eeaa043bcd1bc3">gl::Char</a> *vertex_source, const <a class="el" href="namespaceeuphoria_1_1render_1_1gl.html#a1e51a806c069588703eeaa043bcd1bc3">gl::Char</a> *fragment_source, const <a class="el" href="namespaceeuphoria_1_1render_1_1gl.html#a1e51a806c069588703eeaa043bcd1bc3">gl::Char</a> *geometry_source=nullptr)</td></tr>
@@ -240,6 +240,26 @@ Static Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a6f76683dc8775ac017a2d9b29ae2bb56"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f76683dc8775ac017a2d9b29ae2bb56">&#9670;&nbsp;</a></span>add_attribute()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void euphoria::render::ShaderProgram::add_attribute </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structeuphoria_1_1render_1_1ShaderAttribute.html">ShaderAttribute</a> &amp;&#160;</td>
+          <td class="paramname"><em>attribute</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="shader_8cc_source.html#l00184">184</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
+
+</div>
+</div>
 <a id="aabb4e5a6b5bce9cf21010a1b613f251d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aabb4e5a6b5bce9cf21010a1b613f251d">&#9670;&nbsp;</a></span>compile()</h2>
 
@@ -440,26 +460,6 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-
-</div>
-</div>
-<a id="a17c520e8261aef20c0cff29889a72121"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a17c520e8261aef20c0cff29889a72121">&#9670;&nbsp;</a></span>pre_bind()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void euphoria::render::ShaderProgram::pre_bind </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="structeuphoria_1_1render_1_1ShaderAttribute.html">ShaderAttribute</a> &amp;&#160;</td>
-          <td class="paramname"><em>attribute</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="shader_8cc_source.html#l00184">184</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
 
 </div>
 </div>

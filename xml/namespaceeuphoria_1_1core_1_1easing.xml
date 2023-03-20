@@ -396,7 +396,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/easing.cc" line="87" column="13" bodyfile="libs/core/src/core/easing.cc" bodystart="87" bodyend="104" declfile="libs/core/src/core/easing.h" declline="30" declcolumn="13"/>
+        <location file="libs/core/src/core/easing.cc" line="87" column="13" bodyfile="libs/core/src/core/easing.cc" bodystart="87" bodyend="107" declfile="libs/core/src/core/easing.h" declline="30" declcolumn="13"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

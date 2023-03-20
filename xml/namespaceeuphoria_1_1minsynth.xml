@@ -432,11 +432,11 @@
         </inbodydescription>
         <location file="libs/minsynth/src/minsynth/synth.cc" line="51" column="5" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="51" bodyend="67" declfile="libs/minsynth/src/minsynth/synth.h" declline="92" declcolumn="17"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1minsynth_1abc7e56639fd61bbf02eea77afd601198" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1minsynth_1a3a26cc5bfbd90162402a0582ec99ff31" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
-        <definition>float euphoria::minsynth::tuning_to_base_frequency</definition>
+        <definition>float euphoria::minsynth::from_tuning_to_base_frequency</definition>
         <argsstring>(Tuning t)</argsstring>
-        <name>tuning_to_base_frequency</name>
+        <name>from_tuning_to_base_frequency</name>
         <param>
           <type><ref refid="namespaceeuphoria_1_1minsynth_1abcb8938753f56d87f51b518b93050955" kindref="member">Tuning</ref></type>
           <declname>t</declname>
@@ -449,11 +449,11 @@
         </inbodydescription>
         <location file="libs/minsynth/src/minsynth/synth.cc" line="70" column="5" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="70" bodyend="84" declfile="libs/minsynth/src/minsynth/synth.h" declline="98" declcolumn="11"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1minsynth_1a31971bc8b88be775990bea3242853c5f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1minsynth_1a1342f3c083494380b4f9591a87db4645" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
-        <definition>std::string euphoria::minsynth::midi_event_to_string</definition>
+        <definition>std::string euphoria::minsynth::from_midi_event_to_string</definition>
         <argsstring>(MidiEvent e)</argsstring>
-        <name>midi_event_to_string</name>
+        <name>from_midi_event_to_string</name>
         <param>
           <type><ref refid="namespaceeuphoria_1_1minsynth_1a821866f9bf9aa5172fdfd845bea67d7e" kindref="member">MidiEvent</ref></type>
           <declname>e</declname>
@@ -500,7 +500,7 @@
         </inbodydescription>
         <location file="libs/minsynth/src/minsynth/synth.cc" line="121" column="5" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="121" bodyend="132" declfile="libs/minsynth/src/minsynth/synth.h" declline="94" declcolumn="17"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1minsynth_1a51e00938dd1090d830e4233fd2cd189e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1minsynth_1ab72422178f689a313c15967ef9931a37" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>int</type>
@@ -509,9 +509,9 @@
           </param>
         </templateparamlist>
         <type>float</type>
-        <definition>float euphoria::minsynth::template_tone_to_frequency</definition>
+        <definition>float euphoria::minsynth::from_tone_to_frequency_impl</definition>
         <argsstring>(int tone, float base_frequency)</argsstring>
-        <name>template_tone_to_frequency</name>
+        <name>from_tone_to_frequency_impl</name>
         <param>
           <type>int</type>
           <declname>tone</declname>
@@ -528,11 +528,11 @@
         </inbodydescription>
         <location file="libs/minsynth/src/minsynth/synth.cc" line="180" column="5" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="180" bodyend="184"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1minsynth_1ae534d2024436bb44cbfec1de623b2eb6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1minsynth_1ae4a18d7841ed046178c72e520c9f3911" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
-        <definition>float euphoria::minsynth::tone_to_frequency</definition>
+        <definition>float euphoria::minsynth::from_tone_to_frequency</definition>
         <argsstring>(int tone, float base_frequency)</argsstring>
-        <name>tone_to_frequency</name>
+        <name>from_tone_to_frequency</name>
         <param>
           <type>int</type>
           <declname>tone</declname>

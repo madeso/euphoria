@@ -123,16 +123,16 @@
         </inbodydescription>
         <location file="libs/core/src/core/tracery.cc" line="564" column="21" bodyfile="libs/core/src/core/tracery.cc" bodystart="564" bodyend="582"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1tracery_1_1english_1aee5ba6bc561d813e3be68b180117a7a5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1tracery_1_1english_1a1ecbc5066c60d1ec810412388b1f2d0c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename T</type>
           </param>
         </templateparamlist>
         <type>std::shared_ptr&lt; <ref refid="structeuphoria_1_1core_1_1tracery_1_1Modifier" kindref="compound">Modifier</ref> &gt;</type>
-        <definition>std::shared_ptr&lt;Modifier&gt; euphoria::core::tracery::english::new_modifier</definition>
+        <definition>std::shared_ptr&lt;Modifier&gt; euphoria::core::tracery::english::make_modifier</definition>
         <argsstring>(T func)</argsstring>
-        <name>new_modifier</name>
+        <name>make_modifier</name>
         <param>
           <type>T</type>
           <declname>func</declname>

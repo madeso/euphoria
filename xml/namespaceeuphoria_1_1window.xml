@@ -98,7 +98,7 @@
         <definition>constexpr ImU32 euphoria::window::oc_white</definition>
         <argsstring></argsstring>
         <name>oc_white</name>
-        <initializer>= <ref refid="namespaceeuphoria_1_1window_1a8b65b003162602535796ca2553fcb785" kindref="member">oc_to_dear_imgui_color</ref>(open_color::white   )</initializer>
+        <initializer>= <ref refid="namespaceeuphoria_1_1window_1aed32ae477718aab3bb7f0b65ee4e3cf4" kindref="member">from_oc_to_dear_imgui_color</ref>(open_color::white   )</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -112,7 +112,7 @@
         <definition>constexpr ImU32 euphoria::window::oc_black</definition>
         <argsstring></argsstring>
         <name>oc_black</name>
-        <initializer>= <ref refid="namespaceeuphoria_1_1window_1a8b65b003162602535796ca2553fcb785" kindref="member">oc_to_dear_imgui_color</ref>(open_color::black   )</initializer>
+        <initializer>= <ref refid="namespaceeuphoria_1_1window_1aed32ae477718aab3bb7f0b65ee4e3cf4" kindref="member">from_oc_to_dear_imgui_color</ref>(open_color::black   )</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -126,7 +126,7 @@
         <definition>constexpr Colors euphoria::window::oc_gray</definition>
         <argsstring></argsstring>
         <name>oc_gray</name>
-        <initializer>= <ref refid="namespaceeuphoria_1_1window_1a8b65b003162602535796ca2553fcb785" kindref="member">oc_to_dear_imgui_color</ref>(open_color::gray   )</initializer>
+        <initializer>= <ref refid="namespaceeuphoria_1_1window_1aed32ae477718aab3bb7f0b65ee4e3cf4" kindref="member">from_oc_to_dear_imgui_color</ref>(open_color::gray   )</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -140,7 +140,7 @@
         <definition>constexpr Colors euphoria::window::oc_red</definition>
         <argsstring></argsstring>
         <name>oc_red</name>
-        <initializer>= <ref refid="namespaceeuphoria_1_1window_1a8b65b003162602535796ca2553fcb785" kindref="member">oc_to_dear_imgui_color</ref>(open_color::red    )</initializer>
+        <initializer>= <ref refid="namespaceeuphoria_1_1window_1aed32ae477718aab3bb7f0b65ee4e3cf4" kindref="member">from_oc_to_dear_imgui_color</ref>(open_color::red    )</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -154,7 +154,7 @@
         <definition>constexpr Colors euphoria::window::oc_pink</definition>
         <argsstring></argsstring>
         <name>oc_pink</name>
-        <initializer>= <ref refid="namespaceeuphoria_1_1window_1a8b65b003162602535796ca2553fcb785" kindref="member">oc_to_dear_imgui_color</ref>(open_color::pink   )</initializer>
+        <initializer>= <ref refid="namespaceeuphoria_1_1window_1aed32ae477718aab3bb7f0b65ee4e3cf4" kindref="member">from_oc_to_dear_imgui_color</ref>(open_color::pink   )</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -168,7 +168,7 @@
         <definition>constexpr Colors euphoria::window::oc_grape</definition>
         <argsstring></argsstring>
         <name>oc_grape</name>
-        <initializer>= <ref refid="namespaceeuphoria_1_1window_1a8b65b003162602535796ca2553fcb785" kindref="member">oc_to_dear_imgui_color</ref>(open_color::grape  )</initializer>
+        <initializer>= <ref refid="namespaceeuphoria_1_1window_1aed32ae477718aab3bb7f0b65ee4e3cf4" kindref="member">from_oc_to_dear_imgui_color</ref>(open_color::grape  )</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -182,7 +182,7 @@
         <definition>constexpr Colors euphoria::window::oc_violet</definition>
         <argsstring></argsstring>
         <name>oc_violet</name>
-        <initializer>= <ref refid="namespaceeuphoria_1_1window_1a8b65b003162602535796ca2553fcb785" kindref="member">oc_to_dear_imgui_color</ref>(open_color::violet )</initializer>
+        <initializer>= <ref refid="namespaceeuphoria_1_1window_1aed32ae477718aab3bb7f0b65ee4e3cf4" kindref="member">from_oc_to_dear_imgui_color</ref>(open_color::violet )</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -196,7 +196,7 @@
         <definition>constexpr Colors euphoria::window::oc_indigo</definition>
         <argsstring></argsstring>
         <name>oc_indigo</name>
-        <initializer>= <ref refid="namespaceeuphoria_1_1window_1a8b65b003162602535796ca2553fcb785" kindref="member">oc_to_dear_imgui_color</ref>(open_color::indigo )</initializer>
+        <initializer>= <ref refid="namespaceeuphoria_1_1window_1aed32ae477718aab3bb7f0b65ee4e3cf4" kindref="member">from_oc_to_dear_imgui_color</ref>(open_color::indigo )</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -210,7 +210,7 @@
         <definition>constexpr Colors euphoria::window::oc_blue</definition>
         <argsstring></argsstring>
         <name>oc_blue</name>
-        <initializer>= <ref refid="namespaceeuphoria_1_1window_1a8b65b003162602535796ca2553fcb785" kindref="member">oc_to_dear_imgui_color</ref>(open_color::blue   )</initializer>
+        <initializer>= <ref refid="namespaceeuphoria_1_1window_1aed32ae477718aab3bb7f0b65ee4e3cf4" kindref="member">from_oc_to_dear_imgui_color</ref>(open_color::blue   )</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -224,7 +224,7 @@
         <definition>constexpr Colors euphoria::window::oc_cyan</definition>
         <argsstring></argsstring>
         <name>oc_cyan</name>
-        <initializer>= <ref refid="namespaceeuphoria_1_1window_1a8b65b003162602535796ca2553fcb785" kindref="member">oc_to_dear_imgui_color</ref>(open_color::cyan   )</initializer>
+        <initializer>= <ref refid="namespaceeuphoria_1_1window_1aed32ae477718aab3bb7f0b65ee4e3cf4" kindref="member">from_oc_to_dear_imgui_color</ref>(open_color::cyan   )</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -238,7 +238,7 @@
         <definition>constexpr Colors euphoria::window::oc_teal</definition>
         <argsstring></argsstring>
         <name>oc_teal</name>
-        <initializer>= <ref refid="namespaceeuphoria_1_1window_1a8b65b003162602535796ca2553fcb785" kindref="member">oc_to_dear_imgui_color</ref>(open_color::teal   )</initializer>
+        <initializer>= <ref refid="namespaceeuphoria_1_1window_1aed32ae477718aab3bb7f0b65ee4e3cf4" kindref="member">from_oc_to_dear_imgui_color</ref>(open_color::teal   )</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -252,7 +252,7 @@
         <definition>constexpr Colors euphoria::window::oc_green</definition>
         <argsstring></argsstring>
         <name>oc_green</name>
-        <initializer>= <ref refid="namespaceeuphoria_1_1window_1a8b65b003162602535796ca2553fcb785" kindref="member">oc_to_dear_imgui_color</ref>(open_color::green  )</initializer>
+        <initializer>= <ref refid="namespaceeuphoria_1_1window_1aed32ae477718aab3bb7f0b65ee4e3cf4" kindref="member">from_oc_to_dear_imgui_color</ref>(open_color::green  )</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -266,7 +266,7 @@
         <definition>constexpr Colors euphoria::window::oc_lime</definition>
         <argsstring></argsstring>
         <name>oc_lime</name>
-        <initializer>= <ref refid="namespaceeuphoria_1_1window_1a8b65b003162602535796ca2553fcb785" kindref="member">oc_to_dear_imgui_color</ref>(open_color::lime   )</initializer>
+        <initializer>= <ref refid="namespaceeuphoria_1_1window_1aed32ae477718aab3bb7f0b65ee4e3cf4" kindref="member">from_oc_to_dear_imgui_color</ref>(open_color::lime   )</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -280,7 +280,7 @@
         <definition>constexpr Colors euphoria::window::oc_yellow</definition>
         <argsstring></argsstring>
         <name>oc_yellow</name>
-        <initializer>= <ref refid="namespaceeuphoria_1_1window_1a8b65b003162602535796ca2553fcb785" kindref="member">oc_to_dear_imgui_color</ref>(open_color::yellow )</initializer>
+        <initializer>= <ref refid="namespaceeuphoria_1_1window_1aed32ae477718aab3bb7f0b65ee4e3cf4" kindref="member">from_oc_to_dear_imgui_color</ref>(open_color::yellow )</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -294,7 +294,7 @@
         <definition>constexpr Colors euphoria::window::oc_orange</definition>
         <argsstring></argsstring>
         <name>oc_orange</name>
-        <initializer>= <ref refid="namespaceeuphoria_1_1window_1a8b65b003162602535796ca2553fcb785" kindref="member">oc_to_dear_imgui_color</ref>(open_color::orange )</initializer>
+        <initializer>= <ref refid="namespaceeuphoria_1_1window_1aed32ae477718aab3bb7f0b65ee4e3cf4" kindref="member">from_oc_to_dear_imgui_color</ref>(open_color::orange )</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -334,11 +334,11 @@
         </inbodydescription>
         <location file="libs/window/src/window/app.cc" line="38" column="5" bodyfile="libs/window/src/window/app.cc" bodystart="38" bodyend="95" declfile="libs/window/src/window/app.h" declline="40" declcolumn="9"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1window_1a1dfe9368adcadeaeb519d5182105d8b0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1window_1a47d1f359bd63a79fd12e9a59dba4ff8b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>void euphoria::window::do_canvas_scroll</definition>
+        <definition>void euphoria::window::react_to_canvas_scroll_events</definition>
         <argsstring>(Canvas *canvas)</argsstring>
-        <name>do_canvas_scroll</name>
+        <name>react_to_canvas_scroll_events</name>
         <param>
           <type><ref refid="structeuphoria_1_1window_1_1Canvas" kindref="compound">Canvas</ref> *</type>
           <declname>canvas</declname>
@@ -351,11 +351,11 @@
         </inbodydescription>
         <location file="libs/window/src/window/canvas.cc" line="126" column="5" bodyfile="libs/window/src/window/canvas.cc" bodystart="126" bodyend="132"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1window_1a2c47c0287b57bfcca122c2c505493e8f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1window_1a6a82e5fea0150ec0b2781dc6e58387c3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>void euphoria::window::do_canvas_zoom</definition>
+        <definition>void euphoria::window::react_to_canvas_zoom_events</definition>
         <argsstring>(Canvas *canvas, const CanvasConfig &amp;cc)</argsstring>
-        <name>do_canvas_zoom</name>
+        <name>react_to_canvas_zoom_events</name>
         <param>
           <type><ref refid="structeuphoria_1_1window_1_1Canvas" kindref="compound">Canvas</ref> *</type>
           <declname>canvas</declname>
@@ -466,11 +466,11 @@
         </inbodydescription>
         <location file="libs/window/src/window/key.cc" line="255" column="5" bodyfile="libs/window/src/window/key.cc" bodystart="255" bodyend="268" declfile="libs/window/src/window/key.h" declline="14" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1window_1a8b65b003162602535796ca2553fcb785" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1window_1aed32ae477718aab3bb7f0b65ee4e3cf4" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>constexpr ImU32</type>
-        <definition>constexpr ImU32 euphoria::window::oc_to_dear_imgui_color</definition>
+        <definition>constexpr ImU32 euphoria::window::from_oc_to_dear_imgui_color</definition>
         <argsstring>(open_color::Hex h)</argsstring>
-        <name>oc_to_dear_imgui_color</name>
+        <name>from_oc_to_dear_imgui_color</name>
         <param>
           <type>open_color::Hex</type>
           <declname>h</declname>
@@ -483,11 +483,11 @@
         </inbodydescription>
         <location file="libs/window/src/window/open_color.imgui.h" line="10" column="21" bodyfile="libs/window/src/window/open_color.imgui.h" bodystart="10" bodyend="24"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1window_1aca9f02c32095e810841feb87e2e05ab8" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1window_1a193e9eaefe377bb538f2a268f5c2aef9" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>constexpr <ref refid="namespaceeuphoria_1_1window_1aa9994c29d8b416a8de3c17366b6a423f" kindref="member">Colors</ref></type>
-        <definition>constexpr Colors euphoria::window::oc_to_dear_imgui_color</definition>
+        <definition>constexpr Colors euphoria::window::from_oc_to_dear_imgui_color</definition>
         <argsstring>(open_color::Hexs h)</argsstring>
-        <name>oc_to_dear_imgui_color</name>
+        <name>from_oc_to_dear_imgui_color</name>
         <param>
           <type>open_color::Hexs</type>
           <declname>h</declname>

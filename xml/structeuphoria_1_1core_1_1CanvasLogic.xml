@@ -86,11 +86,11 @@
         </inbodydescription>
         <location file="libs/core/src/core/canvaslogic.h" line="21" column="9" bodyfile="libs/core/src/core/canvaslogic.cc" bodystart="13" bodyend="35"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1CanvasLogic_1a8c9cb10795ddc9717b0c3d8d87d62746" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1CanvasLogic_1a766a23254bffaeeb60740f8a3f7639f3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref></type>
-        <definition>vec2f euphoria::core::CanvasLogic::screen_to_world</definition>
+        <definition>vec2f euphoria::core::CanvasLogic::from_screen_to_world</definition>
         <argsstring>(const vec2f &amp;p) const</argsstring>
-        <name>screen_to_world</name>
+        <name>from_screen_to_world</name>
         <param>
           <type>const <ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
           <declname>p</declname>
@@ -103,11 +103,11 @@
         </inbodydescription>
         <location file="libs/core/src/core/canvaslogic.h" line="24" column="9" bodyfile="libs/core/src/core/canvaslogic.cc" bodystart="44" bodyend="47"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1CanvasLogic_1ade8c8e108934471961ba2bc50687ca94" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1CanvasLogic_1a5e0cb6cd9a8b9c39111b3628c9e76235" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref></type>
-        <definition>vec2f euphoria::core::CanvasLogic::world_to_screen</definition>
+        <definition>vec2f euphoria::core::CanvasLogic::from_world_to_screen</definition>
         <argsstring>(const vec2f &amp;p) const</argsstring>
-        <name>world_to_screen</name>
+        <name>from_world_to_screen</name>
         <param>
           <type>const <ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
           <declname>p</declname>
@@ -147,12 +147,12 @@
     </collaborationgraph>
     <location file="libs/core/src/core/canvaslogic.h" line="9" column="1" bodyfile="libs/core/src/core/canvaslogic.h" bodystart="8" bodyend="28"/>
     <listofallmembers>
+      <member refid="structeuphoria_1_1core_1_1CanvasLogic_1a766a23254bffaeeb60740f8a3f7639f3" prot="public" virt="non-virtual"><scope>euphoria::core::CanvasLogic</scope><name>from_screen_to_world</name></member>
+      <member refid="structeuphoria_1_1core_1_1CanvasLogic_1a5e0cb6cd9a8b9c39111b3628c9e76235" prot="public" virt="non-virtual"><scope>euphoria::core::CanvasLogic</scope><name>from_world_to_screen</name></member>
       <member refid="structeuphoria_1_1core_1_1CanvasLogic_1a1ee29cc0b0ad533d4a0d1beef25772eb" prot="public" virt="non-virtual"><scope>euphoria::core::CanvasLogic</scope><name>pan</name></member>
       <member refid="structeuphoria_1_1core_1_1CanvasLogic_1ae32c0b3b9720e2b9ee3b4a77d095acc4" prot="public" virt="non-virtual"><scope>euphoria::core::CanvasLogic</scope><name>scale</name></member>
       <member refid="structeuphoria_1_1core_1_1CanvasLogic_1a5fdc476b0ea93a9e58ddde92fcca3320" prot="public" virt="non-virtual"><scope>euphoria::core::CanvasLogic</scope><name>scale_range</name></member>
-      <member refid="structeuphoria_1_1core_1_1CanvasLogic_1a8c9cb10795ddc9717b0c3d8d87d62746" prot="public" virt="non-virtual"><scope>euphoria::core::CanvasLogic</scope><name>screen_to_world</name></member>
       <member refid="structeuphoria_1_1core_1_1CanvasLogic_1a2cbd038ead7fdce0d36aa2a782a16ff4" prot="public" virt="non-virtual"><scope>euphoria::core::CanvasLogic</scope><name>scroll</name></member>
-      <member refid="structeuphoria_1_1core_1_1CanvasLogic_1ade8c8e108934471961ba2bc50687ca94" prot="public" virt="non-virtual"><scope>euphoria::core::CanvasLogic</scope><name>world_to_screen</name></member>
       <member refid="structeuphoria_1_1core_1_1CanvasLogic_1a0b42bc641f0f0c54e2fee7cac6c39960" prot="public" virt="non-virtual"><scope>euphoria::core::CanvasLogic</scope><name>zoom</name></member>
     </listofallmembers>
   </compounddef>

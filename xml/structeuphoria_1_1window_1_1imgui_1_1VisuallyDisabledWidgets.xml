@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/imgui_extra.h" line="135" column="9" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="287" bodyend="293"/>
+        <location file="libs/window/src/window/imgui_extra.h" line="135" column="9" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="289" bodyend="295"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1window_1_1imgui_1_1VisuallyDisabledWidgets_1a0520ebdc5dcc5323d610bb9113eab988" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -28,7 +28,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/imgui_extra.h" line="136" column="9" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="296" bodyend="300"/>
+        <location file="libs/window/src/window/imgui_extra.h" line="136" column="9" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="298" bodyend="302"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1window_1_1imgui_1_1VisuallyDisabledWidgets_1a2bc957a0c31132e43ecf63a20bed6ba8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>

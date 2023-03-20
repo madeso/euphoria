@@ -121,11 +121,11 @@
         </inbodydescription>
         <location file="libs/core/src/core/loadedfont.cc" line="58" column="14" bodyfile="libs/core/src/core/loadedfont.cc" bodystart="58" bodyend="62"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1FontData_1a90251a7c14817fdbe567a0f046ad7ff0" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1FontData_1a39852b4d35b6e3f4dc4a7db6eccec86c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>std::optional&lt; int &gt;</type>
-        <definition>std::optional&lt;int&gt; euphoria::core::FontData::glyph_index_to_unicode</definition>
+        <definition>std::optional&lt;int&gt; euphoria::core::FontData::from_glyph_index_to_unicode</definition>
         <argsstring>(int glyph) const</argsstring>
-        <name>glyph_index_to_unicode</name>
+        <name>from_glyph_index_to_unicode</name>
         <param>
           <type>int</type>
           <declname>glyph</declname>
@@ -165,7 +165,7 @@
       <member refid="structeuphoria_1_1core_1_1FontData_1ac20676ded4e99f2256f627b17de18105" prot="public" virt="non-virtual"><scope>euphoria::core::FontData</scope><name>define_codepoint</name></member>
       <member refid="structeuphoria_1_1core_1_1FontData_1afaed0cb32b0ec40a284024420fc2fe45" prot="public" virt="non-virtual"><scope>euphoria::core::FontData</scope><name>font</name></member>
       <member refid="structeuphoria_1_1core_1_1FontData_1ad3fa304b5e99c68cbf9d5726e3333dc6" prot="public" virt="non-virtual"><scope>euphoria::core::FontData</scope><name>FontData</name></member>
-      <member refid="structeuphoria_1_1core_1_1FontData_1a90251a7c14817fdbe567a0f046ad7ff0" prot="public" virt="non-virtual"><scope>euphoria::core::FontData</scope><name>glyph_index_to_unicode</name></member>
+      <member refid="structeuphoria_1_1core_1_1FontData_1a39852b4d35b6e3f4dc4a7db6eccec86c" prot="public" virt="non-virtual"><scope>euphoria::core::FontData</scope><name>from_glyph_index_to_unicode</name></member>
       <member refid="structeuphoria_1_1core_1_1FontData_1a09c46c42d984b73a3def0ce0eaf82f8e" prot="public" virt="non-virtual"><scope>euphoria::core::FontData</scope><name>index_to_unicode</name></member>
       <member refid="structeuphoria_1_1core_1_1FontData_1a3088b13ec1be6b21ae1c8b7e9a132b85" prot="public" virt="non-virtual"><scope>euphoria::core::FontData</scope><name>kernings</name></member>
       <member refid="structeuphoria_1_1core_1_1FontData_1a87648a781cb547e7123ca442619cc69e" prot="public" virt="non-virtual"><scope>euphoria::core::FontData</scope><name>line_height</name></member>

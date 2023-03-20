@@ -18,8 +18,8 @@
           <detaileddescription>
           </detaileddescription>
         </enumvalue>
-        <enumvalue id="namespaceeuphoria_1_1core_1_1palettes_1a8ecaf2244851e43b6a3811768984f17bacc6e788f93c674dc5b25ee9db208c679" prot="public">
-          <name>named_colors</name>
+        <enumvalue id="namespaceeuphoria_1_1core_1_1palettes_1a8ecaf2244851e43b6a3811768984f17bace9933cbb81b77dcad39168613e0301b" prot="public">
+          <name>get_named_colors</name>
           <briefdescription>
           </briefdescription>
           <detaileddescription>
@@ -420,11 +420,11 @@
         </inbodydescription>
         <location file="libs/core/src/core/palette.cc" line="160" column="9" bodyfile="libs/core/src/core/palette.cc" bodystart="160" bodyend="183" declfile="libs/core/src/core/palette.h" declline="144" declcolumn="9"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1palettes_1abc283e0850e26cdd3d1f5a868d674aff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1palettes_1a9adfda89d4b67fd3fcaf8c193705507e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>const <ref refid="structeuphoria_1_1core_1_1Palette" kindref="compound">Palette</ref> &amp;</type>
-        <definition>const Palette &amp; euphoria::core::palettes::named_colors</definition>
+        <definition>const Palette &amp; euphoria::core::palettes::get_named_colors</definition>
         <argsstring>()</argsstring>
-        <name>named_colors</name>
+        <name>get_named_colors</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>

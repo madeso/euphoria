@@ -211,7 +211,7 @@
       <member refid="structeuphoria_1_1gui_1_1Button_1a34179a54502fb5f06c9bf3bfae7a0b9a" prot="public" virt="non-virtual"><scope>euphoria::gui::CommandButton</scope><name>Button</name></member>
       <member refid="structeuphoria_1_1gui_1_1Button_1a6d5e7ecaeadc6ab4da6f65728b82d68e" prot="public" virt="non-virtual"><scope>euphoria::gui::CommandButton</scope><name>Button</name></member>
       <member refid="structeuphoria_1_1gui_1_1Button_1a17814f3e2fb2ab08469aa35b78c5098e" prot="public" virt="non-virtual"><scope>euphoria::gui::CommandButton</scope><name>Button</name></member>
-      <member refid="structeuphoria_1_1gui_1_1Button_1a9bcff32380a7aeb8a71da0cbab400963" prot="public" virt="virtual"><scope>euphoria::gui::CommandButton</scope><name>calculate_minimum_size</name></member>
+      <member refid="structeuphoria_1_1gui_1_1Button_1a594d328c404f458829324afe6784096d" prot="public" virt="virtual"><scope>euphoria::gui::CommandButton</scope><name>calc_minimum_size</name></member>
       <member refid="structeuphoria_1_1gui_1_1CommandButton_1ae1e5ed5a90d62e6357050dc4a8d6d75b" prot="public" virt="non-virtual"><scope>euphoria::gui::CommandButton</scope><name>cmd</name></member>
       <member refid="structeuphoria_1_1gui_1_1CommandButton_1abb09b9cd9c964b22717dec10380bbaab" prot="public" virt="non-virtual"><scope>euphoria::gui::CommandButton</scope><name>CommandButton</name></member>
       <member refid="structeuphoria_1_1gui_1_1Widget_1a612b9df04f3ad944e2fbb724af8b9e3c" prot="public" virt="non-virtual"><scope>euphoria::gui::CommandButton</scope><name>get_background_rect</name></member>

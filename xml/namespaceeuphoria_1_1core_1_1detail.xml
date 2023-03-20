@@ -60,11 +60,11 @@
         </inbodydescription>
         <location file="libs/core/src/core/camera3.editor.cc" line="54" column="9" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="54" bodyend="60"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1detail_1a6930f52ee4fea6681527d3bf90c69d58" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1detail_1af7d26127246e085448fcf812e370eb5a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="namespaceeuphoria_1_1core_1a1ec03d988d6a9065ce681392a857aa94" kindref="member">EditorCameraStyle3</ref></type>
-        <definition>EditorCameraStyle3 euphoria::core::detail::next_style</definition>
+        <definition>EditorCameraStyle3 euphoria::core::detail::get_next_style</definition>
         <argsstring>(EditorCameraStyle3 current_style)</argsstring>
-        <name>next_style</name>
+        <name>get_next_style</name>
         <param>
           <type><ref refid="namespaceeuphoria_1_1core_1a1ec03d988d6a9065ce681392a857aa94" kindref="member">EditorCameraStyle3</ref></type>
           <declname>current_style</declname>
@@ -77,11 +77,11 @@
         </inbodydescription>
         <location file="libs/core/src/core/camera3.editor.cc" line="64" column="9" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="64" bodyend="72"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1detail_1a14790c1c7a6968061060b96fed44b7ec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1detail_1a504b5fc72a0130bce3b8e195d4141109" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1detail_1_1CameraFrame" kindref="compound">CameraFrame</ref></type>
-        <definition>CameraFrame euphoria::core::detail::frame_from_editor</definition>
+        <definition>CameraFrame euphoria::core::detail::get_frame_from_editor</definition>
         <argsstring>(EditorCamera3 *editor)</argsstring>
-        <name>frame_from_editor</name>
+        <name>get_frame_from_editor</name>
         <param>
           <type><ref refid="structeuphoria_1_1core_1_1EditorCamera3" kindref="compound">EditorCamera3</ref> *</type>
           <declname>editor</declname>
@@ -94,11 +94,11 @@
         </inbodydescription>
         <location file="libs/core/src/core/camera3.editor.cc" line="77" column="21" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="77" bodyend="85"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1detail_1a62e914b6b96b608203f730ad0e8d059f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1detail_1a37482bef753f768b3247c8b6fbd27fbc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>void euphoria::core::detail::frame_to_editor</definition>
+        <definition>void euphoria::core::detail::set_frame_for_editor</definition>
         <argsstring>(const CameraFrame &amp;frame, EditorCamera3 *editor)</argsstring>
-        <name>frame_to_editor</name>
+        <name>set_frame_for_editor</name>
         <param>
           <type>const <ref refid="structeuphoria_1_1core_1_1detail_1_1CameraFrame" kindref="compound">CameraFrame</ref> &amp;</type>
           <declname>frame</declname>
@@ -161,11 +161,11 @@
         </inbodydescription>
         <location file="libs/core/src/core/camera3.editor.cc" line="568" column="25" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="568" bodyend="571" declfile="libs/core/src/core/camera3.editor.cc" declline="105" declcolumn="25"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1detail_1a38950345486322f8e51404774858e43f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1detail_1a98c610b8d527337413a1c20193a750c0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::optional&lt; float &gt;</type>
-        <definition>std::optional&lt;float&gt; euphoria::core::detail::calculate_zoom_move</definition>
+        <definition>std::optional&lt;float&gt; euphoria::core::detail::calc_zoom_move</definition>
         <argsstring>(int dx, int dy, float length, EditorCamera3 *owner)</argsstring>
-        <name>calculate_zoom_move</name>
+        <name>calc_zoom_move</name>
         <param>
           <type>int</type>
           <declname>dx</declname>
@@ -249,11 +249,11 @@
         </inbodydescription>
         <location file="libs/core/src/core/chatbot.cc" line="22" column="5" bodyfile="libs/core/src/core/chatbot.cc" bodystart="22" bodyend="38" declfile="libs/core/src/core/chatbot.h" declline="26" declcolumn="9"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1detail_1a61583e021ae4b35279a42d90e58b0340" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1detail_1a546b6e2255462630d801a5c583d0b493" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
-        <definition>int euphoria::core::detail::index_of_matched_input</definition>
+        <definition>int euphoria::core::detail::find_get_palette_sequential_pu_bu_gn</definition>
         <argsstring>(const std::vector&lt; std::string &gt; &amp;input, const detail::Input &amp;keywords)</argsstring>
-        <name>index_of_matched_input</name>
+        <name>find_get_palette_sequential_pu_bu_gn</name>
         <param>
           <type>const std::vector&lt; std::string &gt; &amp;</type>
           <declname>input</declname>

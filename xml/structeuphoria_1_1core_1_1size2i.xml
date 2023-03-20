@@ -45,11 +45,11 @@
         </inbodydescription>
         <location file="libs/core/src/core/size2.h" line="39" column="9" bodyfile="libs/core/src/core/size2.cc" bodystart="192" bodyend="196"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1size2i_1a4ae19d68cb200ef4d21ac2fe34de4d88" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1size2i_1a5b02e6f9f05e27493fe1cb6b6c03a037" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1vec2i" kindref="compound">vec2i</ref></type>
-        <definition>vec2i euphoria::core::size2i::calculate_center_offset_for</definition>
+        <definition>vec2i euphoria::core::size2i::calc_center_offset_for</definition>
         <argsstring>(const size2i &amp;o) const</argsstring>
-        <name>calculate_center_offset_for</name>
+        <name>calc_center_offset_for</name>
         <param>
           <type>const <ref refid="structeuphoria_1_1core_1_1size2i" kindref="compound">size2i</ref> &amp;</type>
           <declname>o</declname>
@@ -204,7 +204,7 @@
     </detaileddescription>
     <location file="libs/core/src/core/size2.h" line="35" column="1" bodyfile="libs/core/src/core/size2.h" bodystart="34" bodyend="53"/>
     <listofallmembers>
-      <member refid="structeuphoria_1_1core_1_1size2i_1a4ae19d68cb200ef4d21ac2fe34de4d88" prot="public" virt="non-virtual"><scope>euphoria::core::size2i</scope><name>calculate_center_offset_for</name></member>
+      <member refid="structeuphoria_1_1core_1_1size2i_1a5b02e6f9f05e27493fe1cb6b6c03a037" prot="public" virt="non-virtual"><scope>euphoria::core::size2i</scope><name>calc_center_offset_for</name></member>
       <member refid="structeuphoria_1_1core_1_1size2i_1a7172122e3fbe1de6e51e5316e9ba63df" prot="public" virt="non-virtual"><scope>euphoria::core::size2i</scope><name>create_from_height_width</name></member>
       <member refid="structeuphoria_1_1core_1_1size2i_1aa2b4a6b617215b8ea0720d3c47b390e6" prot="public" virt="non-virtual"><scope>euphoria::core::size2i</scope><name>create_from_square</name></member>
       <member refid="structeuphoria_1_1core_1_1size2i_1a91c7ddaca925f9e0f8690dc73e8d2ee9" prot="public" virt="non-virtual"><scope>euphoria::core::size2i</scope><name>create_from_width_height</name></member>

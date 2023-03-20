@@ -162,17 +162,17 @@ Functions</h2></td></tr>
 <tr class="memitem:a1de5da41ad47b6191f28557db5333e65"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core_1_1argparse.html#a1de5da41ad47b6191f28557db5333e65">parse_from_main</a> (<a class="el" href="structeuphoria_1_1core_1_1argparse_1_1Parser.html">Parser</a> *parser, int argc, char *argv[])</td></tr>
 <tr class="memdesc:a1de5da41ad47b6191f28557db5333e65"><td class="mdescLeft">&#160;</td><td class="mdescRight">helper function for parsing directly from main  <a href="namespaceeuphoria_1_1core_1_1argparse.html#a1de5da41ad47b6191f28557db5333e65">More...</a><br /></td></tr>
 <tr class="separator:a1de5da41ad47b6191f28557db5333e65"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4426a067e286c7ebc4cbe8455fd4e104"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core_1_1argparse.html#a4426a067e286c7ebc4cbe8455fd4e104">quote_and_combine_english_or</a> (const std::vector&lt; std::string &gt; &amp;matches)</td></tr>
-<tr class="separator:a4426a067e286c7ebc4cbe8455fd4e104"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f01506a3a5aedd5d58868fc162fad7a"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core_1_1argparse.html#a6f01506a3a5aedd5d58868fc162fad7a">add_quotes_and_combine_with_english_or</a> (const std::vector&lt; std::string &gt; &amp;matches)</td></tr>
+<tr class="separator:a6f01506a3a5aedd5d58868fc162fad7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acfe9425286b6e6ae5d598d4134dfbdf5"><td class="memTemplParams" colspan="2">template&lt;typename T , std::enable_if_t&lt; CustomArgparser&lt; T &gt;::value !=0, int &gt;  = 0&gt; </td></tr>
 <tr class="memitem:acfe9425286b6e6ae5d598d4134dfbdf5"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1Result.html">Result</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core_1_1argparse.html#acfe9425286b6e6ae5d598d4134dfbdf5">default_parse_function</a> (const std::string &amp;value)</td></tr>
 <tr class="separator:acfe9425286b6e6ae5d598d4134dfbdf5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7fd13ef03e5459e703f93401442e8a85"><td class="memTemplParams" colspan="2">template&lt;typename T , std::enable_if_t&lt; std::is_enum&lt; T &gt;::value==false, int &gt;  = 0&gt; </td></tr>
 <tr class="memitem:a7fd13ef03e5459e703f93401442e8a85"><td class="memTemplItemLeft" align="right" valign="top">std::optional&lt; std::string &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core_1_1argparse.html#a7fd13ef03e5459e703f93401442e8a85">default_describe</a> ()</td></tr>
 <tr class="separator:a7fd13ef03e5459e703f93401442e8a85"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a813a6a90d80cf259c3f6ea2730a51b1d"><td class="memTemplParams" colspan="2">template&lt;typename T , std::enable_if_t&lt; CustomArgparser&lt; T &gt;::value !=0, int &gt;  = 0&gt; </td></tr>
-<tr class="memitem:a813a6a90d80cf259c3f6ea2730a51b1d"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core_1_1argparse.html#a813a6a90d80cf259c3f6ea2730a51b1d">default_value_to_string</a> (const T &amp;t)</td></tr>
-<tr class="separator:a813a6a90d80cf259c3f6ea2730a51b1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8d8979063d781752d08a17804bf2170"><td class="memTemplParams" colspan="2">template&lt;typename T , std::enable_if_t&lt; CustomArgparser&lt; T &gt;::value !=0, int &gt;  = 0&gt; </td></tr>
+<tr class="memitem:ae8d8979063d781752d08a17804bf2170"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core_1_1argparse.html#ae8d8979063d781752d08a17804bf2170">from_default_value_to_string</a> (const T &amp;t)</td></tr>
+<tr class="separator:ae8d8979063d781752d08a17804bf2170"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -305,6 +305,26 @@ template&lt;typename T &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="a6f01506a3a5aedd5d58868fc162fad7a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f01506a3a5aedd5d58868fc162fad7a">&#9670;&nbsp;</a></span>add_quotes_and_combine_with_english_or()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string euphoria::core::argparse::add_quotes_and_combine_with_english_or </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; std::string &gt; &amp;&#160;</td>
+          <td class="paramname"><em>matches</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="default__parse_8cc_source.html#l00010">10</a> of file <a class="el" href="default__parse_8cc_source.html">default_parse.cc</a>.</p>
+
+</div>
+</div>
 <a id="a071c4e9181198c5f632ae1074f483272"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a071c4e9181198c5f632ae1074f483272">&#9670;&nbsp;</a></span>create_default_nargs()</h2>
 
@@ -368,8 +388,8 @@ template&lt;typename T , std::enable_if_t&lt; CustomArgparser&lt; T &gt;::value 
 
 </div>
 </div>
-<a id="a813a6a90d80cf259c3f6ea2730a51b1d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a813a6a90d80cf259c3f6ea2730a51b1d">&#9670;&nbsp;</a></span>default_value_to_string()</h2>
+<a id="ae8d8979063d781752d08a17804bf2170"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8d8979063d781752d08a17804bf2170">&#9670;&nbsp;</a></span>from_default_value_to_string()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -377,7 +397,7 @@ template&lt;typename T , std::enable_if_t&lt; CustomArgparser&lt; T &gt;::value 
 template&lt;typename T , std::enable_if_t&lt; CustomArgparser&lt; T &gt;::value !=0, int &gt;  = 0&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">std::string euphoria::core::argparse::default_value_to_string </td>
+          <td class="memname">std::string euphoria::core::argparse::from_default_value_to_string </td>
           <td>(</td>
           <td class="paramtype">const T &amp;&#160;</td>
           <td class="paramname"><em>t</em></td><td>)</td>
@@ -581,26 +601,6 @@ template&lt;typename T , std::enable_if_t&lt; CustomArgparser&lt; T &gt;::value 
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="argparse_8cc_source.html#l00232">232</a> of file <a class="el" href="argparse_8cc_source.html">argparse.cc</a>.</p>
-
-</div>
-</div>
-<a id="a4426a067e286c7ebc4cbe8455fd4e104"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4426a067e286c7ebc4cbe8455fd4e104">&#9670;&nbsp;</a></span>quote_and_combine_english_or()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string euphoria::core::argparse::quote_and_combine_english_or </td>
-          <td>(</td>
-          <td class="paramtype">const std::vector&lt; std::string &gt; &amp;&#160;</td>
-          <td class="paramname"><em>matches</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="default__parse_8cc_source.html#l00010">10</a> of file <a class="el" href="default__parse_8cc_source.html">default_parse.cc</a>.</p>
 
 </div>
 </div>

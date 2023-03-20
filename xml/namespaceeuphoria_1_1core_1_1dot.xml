@@ -19,11 +19,11 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="func">
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1dot_1ac6bf81472c6b464cbf94654297c1dbd8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1dot_1a149a00694e5320ee14c5fae5c1d4c04b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
-        <definition>std::string euphoria::core::dot::id_to_string</definition>
+        <definition>std::string euphoria::core::dot::from_id_to_string</definition>
         <argsstring>(NodeId id)</argsstring>
-        <name>id_to_string</name>
+        <name>from_id_to_string</name>
         <param>
           <type><ref refid="namespaceeuphoria_1_1core_1_1dot_1a1720f1180592f245e27686f462058778" kindref="member">NodeId</ref></type>
           <declname>id</declname>

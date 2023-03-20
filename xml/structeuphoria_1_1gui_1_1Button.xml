@@ -241,12 +241,12 @@
         </inbodydescription>
         <location file="libs/gui/src/gui/button.h" line="47" column="14" bodyfile="libs/gui/src/gui/button.cc" bodystart="30" bodyend="92"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1gui_1_1Button_1a9bcff32380a7aeb8a71da0cbab400963" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+      <memberdef kind="function" id="structeuphoria_1_1gui_1_1Button_1a594d328c404f458829324afe6784096d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
         <type><ref refid="structeuphoria_1_1core_1_1size2f" kindref="compound">core::size2f</ref></type>
-        <definition>core::size2f euphoria::gui::Button::calculate_minimum_size</definition>
+        <definition>core::size2f euphoria::gui::Button::calc_minimum_size</definition>
         <argsstring>() const override</argsstring>
-        <name>calculate_minimum_size</name>
-        <reimplements refid="structeuphoria_1_1gui_1_1Widget_1a48e7352c736424d3887d8c07ae57338d">calculate_minimum_size</reimplements>
+        <name>calc_minimum_size</name>
+        <reimplements refid="structeuphoria_1_1gui_1_1Widget_1ade558e59ce11364fe0e1066a523c357e">calc_minimum_size</reimplements>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -474,7 +474,7 @@
       <member refid="structeuphoria_1_1gui_1_1Button_1a34179a54502fb5f06c9bf3bfae7a0b9a" prot="public" virt="non-virtual"><scope>euphoria::gui::Button</scope><name>Button</name></member>
       <member refid="structeuphoria_1_1gui_1_1Button_1a6d5e7ecaeadc6ab4da6f65728b82d68e" prot="public" virt="non-virtual"><scope>euphoria::gui::Button</scope><name>Button</name></member>
       <member refid="structeuphoria_1_1gui_1_1Button_1a17814f3e2fb2ab08469aa35b78c5098e" prot="public" virt="non-virtual"><scope>euphoria::gui::Button</scope><name>Button</name></member>
-      <member refid="structeuphoria_1_1gui_1_1Button_1a9bcff32380a7aeb8a71da0cbab400963" prot="public" virt="virtual"><scope>euphoria::gui::Button</scope><name>calculate_minimum_size</name></member>
+      <member refid="structeuphoria_1_1gui_1_1Button_1a594d328c404f458829324afe6784096d" prot="public" virt="virtual"><scope>euphoria::gui::Button</scope><name>calc_minimum_size</name></member>
       <member refid="structeuphoria_1_1gui_1_1Widget_1a612b9df04f3ad944e2fbb724af8b9e3c" prot="public" virt="non-virtual"><scope>euphoria::gui::Button</scope><name>get_background_rect</name></member>
       <member refid="structeuphoria_1_1gui_1_1Widget_1aaa5ef093b28493ac7ab9d595ee32603c" prot="public" virt="non-virtual"><scope>euphoria::gui::Button</scope><name>get_client_rect</name></member>
       <member refid="structeuphoria_1_1gui_1_1Widget_1a9ca439de78ec9af54a1a153c537352b0" prot="public" virt="non-virtual"><scope>euphoria::gui::Button</scope><name>get_preferred_size</name></member>

@@ -98,13 +98,13 @@
         </inbodydescription>
         <location file="libs/gui/src/gui/layout.h" line="28" column="14"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1gui_1_1Layout_1af6fd2eb8a826c08e0add5fd78a3464d0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1gui_1_1Layout_1a1434745b12bb4c6103387035dbce6cc1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1size2f" kindref="compound">core::size2f</ref></type>
-        <definition>virtual core::size2f euphoria::gui::Layout::calculate_minimum_area</definition>
+        <definition>virtual core::size2f euphoria::gui::Layout::calc_minimum_area</definition>
         <argsstring>(const std::vector&lt; std::shared_ptr&lt; Widget &gt;&gt; &amp;widgets) const =0</argsstring>
-        <name>calculate_minimum_area</name>
-        <reimplementedby refid="structeuphoria_1_1gui_1_1TableLayout_1a39f6030608ef993a14ccea2ff0025c62">calculate_minimum_area</reimplementedby>
-        <reimplementedby refid="structeuphoria_1_1gui_1_1SingleRowLayout_1ad909ffbe6667b3ec1ed10a80cd00bcb1">calculate_minimum_area</reimplementedby>
+        <name>calc_minimum_area</name>
+        <reimplementedby refid="structeuphoria_1_1gui_1_1TableLayout_1a85d5c349d52858ac8fd29b1fca1630cd">calc_minimum_area</reimplementedby>
+        <reimplementedby refid="structeuphoria_1_1gui_1_1SingleRowLayout_1a5758573ccf803bdfaa10f16f9029a963">calc_minimum_area</reimplementedby>
         <param>
           <type>const std::vector&lt; std::shared_ptr&lt; <ref refid="structeuphoria_1_1gui_1_1Widget" kindref="compound">Widget</ref> &gt;&gt; &amp;</type>
           <declname>widgets</declname>
@@ -117,13 +117,13 @@
         </inbodydescription>
         <location file="libs/gui/src/gui/layout.h" line="31" column="9"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1gui_1_1Layout_1a59f1d59f5b936e31b12c8e25c4cd91a7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1gui_1_1Layout_1a6f6e4d58d760ad4f2f8856fc6f7d0eab" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
         <type>void</type>
-        <definition>virtual void euphoria::gui::Layout::do_layout</definition>
+        <definition>virtual void euphoria::gui::Layout::lay_out</definition>
         <argsstring>(std::vector&lt; std::shared_ptr&lt; Widget &gt;&gt; *widgets, const core::Rectf &amp;area) const =0</argsstring>
-        <name>do_layout</name>
-        <reimplementedby refid="structeuphoria_1_1gui_1_1TableLayout_1ab80b0e601533d63421a1ef312cef3793">do_layout</reimplementedby>
-        <reimplementedby refid="structeuphoria_1_1gui_1_1SingleRowLayout_1aabd0646610802ae4c06986f1629ba524">do_layout</reimplementedby>
+        <name>lay_out</name>
+        <reimplementedby refid="structeuphoria_1_1gui_1_1TableLayout_1a7284ac842074080e7508161e75328428">lay_out</reimplementedby>
+        <reimplementedby refid="structeuphoria_1_1gui_1_1SingleRowLayout_1ab731cf8ad67c0cd4eaf67517f419f665">lay_out</reimplementedby>
         <param>
           <type>std::vector&lt; std::shared_ptr&lt; <ref refid="structeuphoria_1_1gui_1_1Widget" kindref="compound">Widget</ref> &gt;&gt; *</type>
           <declname>widgets</declname>
@@ -165,8 +165,8 @@
     </inheritancegraph>
     <location file="libs/gui/src/gui/layout.h" line="19" column="1" bodyfile="libs/gui/src/gui/layout.h" bodystart="18" bodyend="43"/>
     <listofallmembers>
-      <member refid="structeuphoria_1_1gui_1_1Layout_1af6fd2eb8a826c08e0add5fd78a3464d0" prot="public" virt="pure-virtual"><scope>euphoria::gui::Layout</scope><name>calculate_minimum_area</name></member>
-      <member refid="structeuphoria_1_1gui_1_1Layout_1a59f1d59f5b936e31b12c8e25c4cd91a7" prot="public" virt="pure-virtual"><scope>euphoria::gui::Layout</scope><name>do_layout</name></member>
+      <member refid="structeuphoria_1_1gui_1_1Layout_1a1434745b12bb4c6103387035dbce6cc1" prot="public" virt="pure-virtual"><scope>euphoria::gui::Layout</scope><name>calc_minimum_area</name></member>
+      <member refid="structeuphoria_1_1gui_1_1Layout_1a6f6e4d58d760ad4f2f8856fc6f7d0eab" prot="public" virt="pure-virtual"><scope>euphoria::gui::Layout</scope><name>lay_out</name></member>
       <member refid="structeuphoria_1_1gui_1_1Layout_1aab9118341d8c1aa1a34728681ce65402" prot="public" virt="non-virtual"><scope>euphoria::gui::Layout</scope><name>Layout</name></member>
       <member refid="structeuphoria_1_1gui_1_1Layout_1abaff18c0db818ae857ccf54d13661782" prot="public" virt="non-virtual"><scope>euphoria::gui::Layout</scope><name>Layout</name></member>
       <member refid="structeuphoria_1_1gui_1_1Layout_1a3d3e1f642735910b281b8f65ee4ca9ea" prot="public" virt="non-virtual"><scope>euphoria::gui::Layout</scope><name>Layout</name></member>

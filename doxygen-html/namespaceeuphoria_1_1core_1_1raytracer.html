@@ -93,8 +93,8 @@ Functions</h2></td></tr>
 <tr class="separator:ae4ae9160da5d3933604b269404478ec3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a670080c0b34979da2d4db7920f69b825"><td class="memItemLeft" align="right" valign="top">std::optional&lt; <a class="el" href="structeuphoria_1_1core_1_1vec3f.html">vec3f</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core_1_1raytracer.html#a670080c0b34979da2d4db7920f69b825">refract</a> (const <a class="el" href="structeuphoria_1_1core_1_1unit3f.html">unit3f</a> &amp;uv, const <a class="el" href="structeuphoria_1_1core_1_1unit3f.html">unit3f</a> &amp;normal, float ni)</td></tr>
 <tr class="separator:a670080c0b34979da2d4db7920f69b825"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab6a01d76d3383e246e680f2d48cba402"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core_1_1raytracer.html#ab6a01d76d3383e246e680f2d48cba402">calculate_fresnel_factor</a> (float cosine, float ref_idx)</td></tr>
-<tr class="separator:ab6a01d76d3383e246e680f2d48cba402"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29dc6138ccbbf3ec335e905fbca9523f"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core_1_1raytracer.html#a29dc6138ccbbf3ec335e905fbca9523f">calc_fresnel_factor</a> (float cosine, float ref_idx)</td></tr>
+<tr class="separator:a29dc6138ccbbf3ec335e905fbca9523f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afaa38b089e3fc39a69ba2bb7dcc1c33f"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1Material.html">Material</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core_1_1raytracer.html#afaa38b089e3fc39a69ba2bb7dcc1c33f">create_diffuse_material</a> (const <a class="el" href="structeuphoria_1_1core_1_1rgb.html">rgb</a> &amp;albedo)</td></tr>
 <tr class="separator:afaa38b089e3fc39a69ba2bb7dcc1c33f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a256bb53fc6724684e0766eb5532ec568"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1Material.html">Material</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core_1_1raytracer.html#a256bb53fc6724684e0766eb5532ec568">create_metal_material</a> (const <a class="el" href="structeuphoria_1_1core_1_1rgb.html">rgb</a> &amp;albedo, float fuzz)</td></tr>
@@ -103,22 +103,22 @@ Functions</h2></td></tr>
 <tr class="separator:a40e7ae3408e08ce84920c293bc646a04"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a286dfbfda49ede1c12ab66c9f7a3edca"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1rgb.html">rgb</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core_1_1raytracer.html#a286dfbfda49ede1c12ab66c9f7a3edca">get_color</a> (const <a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1Scene.html">Scene</a> &amp;scene, const <a class="el" href="structeuphoria_1_1core_1_1UnitRay3f.html">UnitRay3f</a> &amp;ray, <a class="el" href="structeuphoria_1_1core_1_1Random.html">Random</a> *random, int depth)</td></tr>
 <tr class="separator:a286dfbfda49ede1c12ab66c9f7a3edca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a70fee066bc2d8b6ba8ab7718c92c2bc2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1rgb.html">rgb</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core_1_1raytracer.html#a70fee066bc2d8b6ba8ab7718c92c2bc2">gamma2_correct_color</a> (<a class="el" href="structeuphoria_1_1core_1_1rgb.html">rgb</a> color)</td></tr>
-<tr class="separator:a70fee066bc2d8b6ba8ab7718c92c2bc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab36e790cfeb1c8bda167f7cc9b113e60"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1rgb.html">rgb</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core_1_1raytracer.html#ab36e790cfeb1c8bda167f7cc9b113e60">correct_color_using_gamma2</a> (<a class="el" href="structeuphoria_1_1core_1_1rgb.html">rgb</a> color)</td></tr>
+<tr class="separator:ab36e790cfeb1c8bda167f7cc9b113e60"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a634651f16fd3b82293a2cf1ac367ca5f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core_1_1raytracer.html#a634651f16fd3b82293a2cf1ac367ca5f">raytrace</a> (<a class="el" href="structeuphoria_1_1core_1_1Image.html">Image</a> *aimage, const <a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1Scene.html">raytracer::Scene</a> &amp;scene, int number_of_samples)</td></tr>
 <tr class="separator:a634651f16fd3b82293a2cf1ac367ca5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeaef9bf1f1d66a4dba5443bf2b9f2c25"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1Object.html">Object</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core_1_1raytracer.html#aeaef9bf1f1d66a4dba5443bf2b9f2c25">create_sphere</a> (const <a class="el" href="structeuphoria_1_1core_1_1Sphere.html">Sphere</a> &amp;sphere, const <a class="el" href="structeuphoria_1_1core_1_1vec3f.html">vec3f</a> &amp;position, std::shared_ptr&lt; <a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1Material.html">Material</a> &gt; material)</td></tr>
 <tr class="separator:aeaef9bf1f1d66a4dba5443bf2b9f2c25"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="ab6a01d76d3383e246e680f2d48cba402"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab6a01d76d3383e246e680f2d48cba402">&#9670;&nbsp;</a></span>calculate_fresnel_factor()</h2>
+<a id="a29dc6138ccbbf3ec335e905fbca9523f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29dc6138ccbbf3ec335e905fbca9523f">&#9670;&nbsp;</a></span>calc_fresnel_factor()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">float euphoria::core::raytracer::calculate_fresnel_factor </td>
+          <td class="memname">float euphoria::core::raytracer::calc_fresnel_factor </td>
           <td>(</td>
           <td class="paramtype">float&#160;</td>
           <td class="paramname"><em>cosine</em>, </td>
@@ -138,6 +138,26 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="raytracer_8cc_source.html#l00248">248</a> of file <a class="el" href="raytracer_8cc_source.html">raytracer.cc</a>.</p>
+
+</div>
+</div>
+<a id="ab36e790cfeb1c8bda167f7cc9b113e60"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab36e790cfeb1c8bda167f7cc9b113e60">&#9670;&nbsp;</a></span>correct_color_using_gamma2()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structeuphoria_1_1core_1_1rgb.html">rgb</a> euphoria::core::raytracer::correct_color_using_gamma2 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structeuphoria_1_1core_1_1rgb.html">rgb</a>&#160;</td>
+          <td class="paramname"><em>color</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="raytracer_8cc_source.html#l00460">460</a> of file <a class="el" href="raytracer_8cc_source.html">raytracer.cc</a>.</p>
 
 </div>
 </div>
@@ -308,26 +328,6 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="raytracer_8cc_source.html#l00125">125</a> of file <a class="el" href="raytracer_8cc_source.html">raytracer.cc</a>.</p>
-
-</div>
-</div>
-<a id="a70fee066bc2d8b6ba8ab7718c92c2bc2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a70fee066bc2d8b6ba8ab7718c92c2bc2">&#9670;&nbsp;</a></span>gamma2_correct_color()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structeuphoria_1_1core_1_1rgb.html">rgb</a> euphoria::core::raytracer::gamma2_correct_color </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structeuphoria_1_1core_1_1rgb.html">rgb</a>&#160;</td>
-          <td class="paramname"><em>color</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="raytracer_8cc_source.html#l00460">460</a> of file <a class="el" href="raytracer_8cc_source.html">raytracer.cc</a>.</p>
 
 </div>
 </div>

@@ -118,11 +118,11 @@
         </inbodydescription>
         <location file="libs/core/src/core/raytracer.cc" line="227" column="5" bodyfile="libs/core/src/core/raytracer.cc" bodystart="228" bodyend="244"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1raytracer_1ab6a01d76d3383e246e680f2d48cba402" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1raytracer_1a29dc6138ccbbf3ec335e905fbca9523f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
-        <definition>float euphoria::core::raytracer::calculate_fresnel_factor</definition>
+        <definition>float euphoria::core::raytracer::calc_fresnel_factor</definition>
         <argsstring>(float cosine, float ref_idx)</argsstring>
-        <name>calculate_fresnel_factor</name>
+        <name>calc_fresnel_factor</name>
         <param>
           <type>float</type>
           <declname>cosine</declname>
@@ -227,11 +227,11 @@
         </inbodydescription>
         <location file="libs/core/src/core/raytracer.cc" line="371" column="5" bodyfile="libs/core/src/core/raytracer.cc" bodystart="372" bodyend="422"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1raytracer_1a70fee066bc2d8b6ba8ab7718c92c2bc2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1raytracer_1ab36e790cfeb1c8bda167f7cc9b113e60" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1rgb" kindref="compound">rgb</ref></type>
-        <definition>rgb euphoria::core::raytracer::gamma2_correct_color</definition>
+        <definition>rgb euphoria::core::raytracer::correct_color_using_gamma2</definition>
         <argsstring>(rgb color)</argsstring>
-        <name>gamma2_correct_color</name>
+        <name>correct_color_using_gamma2</name>
         <param>
           <type><ref refid="structeuphoria_1_1core_1_1rgb" kindref="compound">rgb</ref></type>
           <declname>color</declname>

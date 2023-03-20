@@ -34,11 +34,11 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1AxisAngle_1a9c95dfad29907665ba78728bedeab88e" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1AxisAngle_1afa3d95eacfb302c10e3eb0f1da16ddd0" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1AxisAngle" kindref="compound">AxisAngle</ref></type>
-        <definition>AxisAngle euphoria::core::AxisAngle::right_hand_around</definition>
+        <definition>AxisAngle euphoria::core::AxisAngle::from_right_hand_around</definition>
         <argsstring>(const unit3f &amp;axis, const core::angle &amp;angle)</argsstring>
-        <name>right_hand_around</name>
+        <name>from_right_hand_around</name>
         <param>
           <type>const <ref refid="structeuphoria_1_1core_1_1unit3f" kindref="compound">unit3f</ref> &amp;</type>
           <declname>axis</declname>
@@ -114,7 +114,7 @@
       <member refid="structeuphoria_1_1core_1_1AxisAngle_1a3aed066da49bf34561a689431a073b16" prot="public" virt="non-virtual"><scope>euphoria::core::AxisAngle</scope><name>angle</name></member>
       <member refid="structeuphoria_1_1core_1_1AxisAngle_1a8d0d22073bffd85f0c8378d9e646375f" prot="public" virt="non-virtual"><scope>euphoria::core::AxisAngle</scope><name>axis</name></member>
       <member refid="structeuphoria_1_1core_1_1AxisAngle_1a6dbd40dc4751a9e280f0516c6c3bb4db" prot="private" virt="non-virtual"><scope>euphoria::core::AxisAngle</scope><name>AxisAngle</name></member>
-      <member refid="structeuphoria_1_1core_1_1AxisAngle_1a9c95dfad29907665ba78728bedeab88e" prot="public" virt="non-virtual"><scope>euphoria::core::AxisAngle</scope><name>right_hand_around</name></member>
+      <member refid="structeuphoria_1_1core_1_1AxisAngle_1afa3d95eacfb302c10e3eb0f1da16ddd0" prot="public" virt="non-virtual"><scope>euphoria::core::AxisAngle</scope><name>from_right_hand_around</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

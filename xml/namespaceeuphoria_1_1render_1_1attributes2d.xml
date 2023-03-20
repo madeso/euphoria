@@ -14,13 +14,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/shaderattribute2d.cc" line="10" column="5" bodyfile="libs/render/src/render/shaderattribute2d.cc" bodystart="10" bodyend="20" declfile="libs/render/src/render/shaderattribute2d.h" declline="13" declcolumn="5"/>
+        <location file="libs/render/src/render/shaderattribute2d.cc" line="10" column="5" bodyfile="libs/render/src/render/shaderattribute2d.cc" bodystart="10" bodyend="20" declfile="libs/render/src/render/shaderattribute2d.h" declline="12" declcolumn="27"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1render_1_1attributes2d_1a59427c67bd9aa56edfa6347622eb5c1d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1render_1_1attributes2d_1afb07579a91c3186f75e68ad97a6b308d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>void euphoria::render::attributes2d::prebind_shader</definition>
+        <definition>void euphoria::render::attributes2d::add_attributes_to_shader</definition>
         <argsstring>(ShaderProgram *shader)</argsstring>
-        <name>prebind_shader</name>
+        <name>add_attributes_to_shader</name>
         <param>
           <type><ref refid="structeuphoria_1_1render_1_1ShaderProgram" kindref="compound">ShaderProgram</ref> *</type>
           <declname>shader</declname>
@@ -31,7 +31,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/shaderattribute2d.cc" line="24" column="5" bodyfile="libs/render/src/render/shaderattribute2d.cc" bodystart="24" bodyend="28" declfile="libs/render/src/render/shaderattribute2d.h" declline="16" declcolumn="5"/>
+        <location file="libs/render/src/render/shaderattribute2d.cc" line="23" column="10" bodyfile="libs/render/src/render/shaderattribute2d.cc" bodystart="23" bodyend="27" declfile="libs/render/src/render/shaderattribute2d.h" declline="14" declcolumn="10"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

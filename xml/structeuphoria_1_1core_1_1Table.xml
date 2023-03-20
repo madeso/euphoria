@@ -80,11 +80,11 @@
         </inbodydescription>
         <location file="libs/core/src/core/table.h" line="21" column="9"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Table_1ad0d8ca188b7bffe2dfd3c6e81d0c5ae0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Table_1ae0de378d7ce082192915d411e6fede13" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
-        <definition>void euphoria::core::Table&lt; T &gt;::new_row</definition>
+        <definition>void euphoria::core::Table&lt; T &gt;::add_row</definition>
         <argsstring>(T d=T())</argsstring>
-        <name>new_row</name>
+        <name>add_row</name>
         <param>
           <type>T</type>
           <declname>d</declname>
@@ -138,11 +138,11 @@
         </inbodydescription>
         <location file="libs/core/src/core/table.h" line="49" column="14" bodyfile="libs/core/src/core/table.h" bodystart="49" bodyend="58"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Table_1a75bac7baf4bc3204b7bb7b891fda5909" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Table_1aa9c590a0a7534caa8d14f48ddbb2df57" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
-        <definition>void euphoria::core::Table&lt; T &gt;::new_row</definition>
+        <definition>void euphoria::core::Table&lt; T &gt;::add_row</definition>
         <argsstring>(const std::vector&lt; T &gt; &amp;row, T d=T())</argsstring>
-        <name>new_row</name>
+        <name>add_row</name>
         <param>
           <type>const std::vector&lt; T &gt; &amp;</type>
           <declname>row</declname>
@@ -241,11 +241,11 @@
         </inbodydescription>
         <location file="libs/core/src/core/table.h" line="131" column="15" bodyfile="libs/core/src/core/table.h" bodystart="131" bodyend="134"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Table_1aff13b2fb39de53fedd99d7d8ecd9f56e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Table_1a4ed1c46db9a924ebbc96a9e91048f7e5" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>size_t</type>
-        <definition>size_t euphoria::core::Table&lt; T &gt;::data_index</definition>
+        <definition>size_t euphoria::core::Table&lt; T &gt;::get_data_index</definition>
         <argsstring>(Idx x, Idx y) const</argsstring>
-        <name>data_index</name>
+        <name>get_data_index</name>
         <param>
           <type><ref refid="structeuphoria_1_1core_1_1Table_1a8158f774e849914c5aecd89ab5c7a1f4" kindref="member">Idx</ref></type>
           <declname>x</declname>
@@ -449,21 +449,21 @@
     </detaileddescription>
     <location file="libs/core/src/core/table.h" line="18" column="1" bodyfile="libs/core/src/core/table.h" bodystart="17" bodyend="197"/>
     <listofallmembers>
+      <member refid="structeuphoria_1_1core_1_1Table_1ae0de378d7ce082192915d411e6fede13" prot="public" virt="non-virtual"><scope>euphoria::core::Table</scope><name>add_row</name></member>
+      <member refid="structeuphoria_1_1core_1_1Table_1aa9c590a0a7534caa8d14f48ddbb2df57" prot="public" virt="non-virtual"><scope>euphoria::core::Table</scope><name>add_row</name></member>
       <member refid="structeuphoria_1_1core_1_1Table_1a9eb3c65ca537a7a267844a012476eab2" prot="public" virt="non-virtual"><scope>euphoria::core::Table</scope><name>clear</name></member>
       <member refid="structeuphoria_1_1core_1_1Table_1a43f2001ad8ee9146504de2a84be80a36" prot="public" virt="non-virtual"><scope>euphoria::core::Table</scope><name>conv</name></member>
       <member refid="structeuphoria_1_1core_1_1Table_1a9d7f6d12ab62a7ff6b5b713acc1885b5" prot="private" virt="non-virtual"><scope>euphoria::core::Table</scope><name>data</name></member>
-      <member refid="structeuphoria_1_1core_1_1Table_1aff13b2fb39de53fedd99d7d8ecd9f56e" prot="public" virt="non-virtual"><scope>euphoria::core::Table</scope><name>data_index</name></member>
       <member refid="structeuphoria_1_1core_1_1Table_1a5bcee0aa3cb8eea63f585f31c48ad2df" prot="public" virt="non-virtual"><scope>euphoria::core::Table</scope><name>expand_width</name></member>
       <member refid="structeuphoria_1_1core_1_1Table_1a1b2a0621147844fc6e41961f6c8a6b5f" prot="public" virt="non-virtual"><scope>euphoria::core::Table</scope><name>from_height_width</name></member>
       <member refid="structeuphoria_1_1core_1_1Table_1a46cd939f6d02e7308d02fef52476b6c2" prot="public" virt="non-virtual"><scope>euphoria::core::Table</scope><name>from_width_height</name></member>
+      <member refid="structeuphoria_1_1core_1_1Table_1a4ed1c46db9a924ebbc96a9e91048f7e5" prot="public" virt="non-virtual"><scope>euphoria::core::Table</scope><name>get_data_index</name></member>
       <member refid="structeuphoria_1_1core_1_1Table_1ac6be94e7d0a32d6a7eb9928f14813195" prot="public" virt="non-virtual"><scope>euphoria::core::Table</scope><name>get_height</name></member>
       <member refid="structeuphoria_1_1core_1_1Table_1a6cb8c8f1dc3e864c14f24d886a3406f1" prot="public" virt="non-virtual"><scope>euphoria::core::Table</scope><name>get_indices</name></member>
       <member refid="structeuphoria_1_1core_1_1Table_1a689c452066d5094b7d403fadd66c3f37" prot="public" virt="non-virtual"><scope>euphoria::core::Table</scope><name>get_width</name></member>
       <member refid="structeuphoria_1_1core_1_1Table_1aa5d77015ea391a64e4c81d52826e7b6d" prot="private" virt="non-virtual"><scope>euphoria::core::Table</scope><name>height</name></member>
       <member refid="structeuphoria_1_1core_1_1Table_1a8158f774e849914c5aecd89ab5c7a1f4" prot="public" virt="non-virtual"><scope>euphoria::core::Table</scope><name>Idx</name></member>
       <member refid="structeuphoria_1_1core_1_1Table_1af9af076dd551dcd88b75831180d7fa33" prot="public" virt="non-virtual"><scope>euphoria::core::Table</scope><name>is_inside</name></member>
-      <member refid="structeuphoria_1_1core_1_1Table_1ad0d8ca188b7bffe2dfd3c6e81d0c5ae0" prot="public" virt="non-virtual"><scope>euphoria::core::Table</scope><name>new_row</name></member>
-      <member refid="structeuphoria_1_1core_1_1Table_1a75bac7baf4bc3204b7bb7b891fda5909" prot="public" virt="non-virtual"><scope>euphoria::core::Table</scope><name>new_row</name></member>
       <member refid="structeuphoria_1_1core_1_1Table_1a397f5f6884c4d3c9df52b391e5894bba" prot="public" virt="non-virtual"><scope>euphoria::core::Table</scope><name>operator()</name></member>
       <member refid="structeuphoria_1_1core_1_1Table_1ad9a91a438fa18d7e127a53405e87760d" prot="public" virt="non-virtual"><scope>euphoria::core::Table</scope><name>operator()</name></member>
       <member refid="structeuphoria_1_1core_1_1Table_1ae4e464f083a15e9bfec62b581be61335" prot="public" virt="non-virtual"><scope>euphoria::core::Table</scope><name>set_all</name></member>

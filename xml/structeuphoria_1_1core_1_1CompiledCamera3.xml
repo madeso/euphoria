@@ -79,11 +79,11 @@
         </inbodydescription>
         <location file="libs/core/src/core/camera3.h" line="20" column="9" bodyfile="libs/core/src/core/camera3.cc" bodystart="7" bodyend="13"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1CompiledCamera3_1af442a044ac641c4af70f416deca13d61" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1CompiledCamera3_1acfe59c04a48f9f283aceb150e005afe5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
-        <definition>vec3f euphoria::core::CompiledCamera3::world_to_clip</definition>
+        <definition>vec3f euphoria::core::CompiledCamera3::from_world_to_clip</definition>
         <argsstring>(const vec3f &amp;in_world) const</argsstring>
-        <name>world_to_clip</name>
+        <name>from_world_to_clip</name>
         <param>
           <type>const <ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
           <declname>in_world</declname>
@@ -96,11 +96,11 @@
         </inbodydescription>
         <location file="libs/core/src/core/camera3.h" line="22" column="16" bodyfile="libs/core/src/core/camera3.cc" bodystart="16" bodyend="22"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1CompiledCamera3_1ac56017d2c7c5e4d4b461f294a4b61c41" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1CompiledCamera3_1a9b10f59e254705736d60a7f436355b3d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
-        <definition>vec3f euphoria::core::CompiledCamera3::clip_to_world</definition>
+        <definition>vec3f euphoria::core::CompiledCamera3::from_clip_to_world</definition>
         <argsstring>(const vec3f &amp;in_clip) const</argsstring>
-        <name>clip_to_world</name>
+        <name>from_clip_to_world</name>
         <param>
           <type>const <ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
           <declname>in_clip</declname>
@@ -113,11 +113,11 @@
         </inbodydescription>
         <location file="libs/core/src/core/camera3.h" line="23" column="16" bodyfile="libs/core/src/core/camera3.cc" bodystart="25" bodyend="31"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1CompiledCamera3_1af613f3aec3d918f867d5b12891e4f6e4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1CompiledCamera3_1a931b524f2e73b6350538447114f313de" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1Ray3f" kindref="compound">Ray3f</ref></type>
-        <definition>Ray3f euphoria::core::CompiledCamera3::clip_to_world_ray</definition>
+        <definition>Ray3f euphoria::core::CompiledCamera3::from_clip_to_world_ray</definition>
         <argsstring>(const vec2f &amp;p) const</argsstring>
-        <name>clip_to_world_ray</name>
+        <name>from_clip_to_world_ray</name>
         <param>
           <type>const <ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
           <declname>p</declname>
@@ -153,14 +153,14 @@
     </collaborationgraph>
     <location file="libs/core/src/core/camera3.h" line="14" column="1" bodyfile="libs/core/src/core/camera3.h" bodystart="13" bodyend="25"/>
     <listofallmembers>
-      <member refid="structeuphoria_1_1core_1_1CompiledCamera3_1ac56017d2c7c5e4d4b461f294a4b61c41" prot="public" virt="non-virtual"><scope>euphoria::core::CompiledCamera3</scope><name>clip_to_world</name></member>
-      <member refid="structeuphoria_1_1core_1_1CompiledCamera3_1af613f3aec3d918f867d5b12891e4f6e4" prot="public" virt="non-virtual"><scope>euphoria::core::CompiledCamera3</scope><name>clip_to_world_ray</name></member>
       <member refid="structeuphoria_1_1core_1_1CompiledCamera3_1a97e6db893de2ba6df1d28143092c2382" prot="public" virt="non-virtual"><scope>euphoria::core::CompiledCamera3</scope><name>combined</name></member>
       <member refid="structeuphoria_1_1core_1_1CompiledCamera3_1a55bcc413191fa14bc5d9da7d51a21a35" prot="public" virt="non-virtual"><scope>euphoria::core::CompiledCamera3</scope><name>combined_inverted</name></member>
       <member refid="structeuphoria_1_1core_1_1CompiledCamera3_1a8a89f1b27fa82c437a3e7f93f19cb5ff" prot="public" virt="non-virtual"><scope>euphoria::core::CompiledCamera3</scope><name>CompiledCamera3</name></member>
+      <member refid="structeuphoria_1_1core_1_1CompiledCamera3_1a9b10f59e254705736d60a7f436355b3d" prot="public" virt="non-virtual"><scope>euphoria::core::CompiledCamera3</scope><name>from_clip_to_world</name></member>
+      <member refid="structeuphoria_1_1core_1_1CompiledCamera3_1a931b524f2e73b6350538447114f313de" prot="public" virt="non-virtual"><scope>euphoria::core::CompiledCamera3</scope><name>from_clip_to_world_ray</name></member>
+      <member refid="structeuphoria_1_1core_1_1CompiledCamera3_1acfe59c04a48f9f283aceb150e005afe5" prot="public" virt="non-virtual"><scope>euphoria::core::CompiledCamera3</scope><name>from_world_to_clip</name></member>
       <member refid="structeuphoria_1_1core_1_1CompiledCamera3_1a5f2eae5fae69a7f8cd9f4e18c171c738" prot="public" virt="non-virtual"><scope>euphoria::core::CompiledCamera3</scope><name>projection</name></member>
       <member refid="structeuphoria_1_1core_1_1CompiledCamera3_1ac920953756136eb7889f82a99cea6959" prot="public" virt="non-virtual"><scope>euphoria::core::CompiledCamera3</scope><name>view</name></member>
-      <member refid="structeuphoria_1_1core_1_1CompiledCamera3_1af442a044ac641c4af70f416deca13d61" prot="public" virt="non-virtual"><scope>euphoria::core::CompiledCamera3</scope><name>world_to_clip</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

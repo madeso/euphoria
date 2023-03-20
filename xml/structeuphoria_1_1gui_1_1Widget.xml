@@ -298,13 +298,13 @@
         </inbodydescription>
         <location file="libs/gui/src/gui/widget.h" line="64" column="9" bodyfile="libs/gui/src/gui/widget.cc" bodystart="71" bodyend="92"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1gui_1_1Widget_1a48e7352c736424d3887d8c07ae57338d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1gui_1_1Widget_1ade558e59ce11364fe0e1066a523c357e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1size2f" kindref="compound">core::size2f</ref></type>
-        <definition>virtual core::size2f euphoria::gui::Widget::calculate_minimum_size</definition>
+        <definition>virtual core::size2f euphoria::gui::Widget::calc_minimum_size</definition>
         <argsstring>() const =0</argsstring>
-        <name>calculate_minimum_size</name>
-        <reimplementedby refid="structeuphoria_1_1gui_1_1PanelWidget_1a7f991a044e6bf0300b546bd48fcf0593">calculate_minimum_size</reimplementedby>
-        <reimplementedby refid="structeuphoria_1_1gui_1_1Button_1a9bcff32380a7aeb8a71da0cbab400963">calculate_minimum_size</reimplementedby>
+        <name>calc_minimum_size</name>
+        <reimplementedby refid="structeuphoria_1_1gui_1_1PanelWidget_1a37757828cfaf0a5a33c70539384f5bbc">calc_minimum_size</reimplementedby>
+        <reimplementedby refid="structeuphoria_1_1gui_1_1Button_1a594d328c404f458829324afe6784096d">calc_minimum_size</reimplementedby>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -454,7 +454,7 @@
     </collaborationgraph>
     <location file="libs/gui/src/gui/widget.h" line="24" column="1" bodyfile="libs/gui/src/gui/widget.h" bodystart="23" bodyend="88"/>
     <listofallmembers>
-      <member refid="structeuphoria_1_1gui_1_1Widget_1a48e7352c736424d3887d8c07ae57338d" prot="public" virt="pure-virtual"><scope>euphoria::gui::Widget</scope><name>calculate_minimum_size</name></member>
+      <member refid="structeuphoria_1_1gui_1_1Widget_1ade558e59ce11364fe0e1066a523c357e" prot="public" virt="pure-virtual"><scope>euphoria::gui::Widget</scope><name>calc_minimum_size</name></member>
       <member refid="structeuphoria_1_1gui_1_1Widget_1a612b9df04f3ad944e2fbb724af8b9e3c" prot="public" virt="non-virtual"><scope>euphoria::gui::Widget</scope><name>get_background_rect</name></member>
       <member refid="structeuphoria_1_1gui_1_1Widget_1aaa5ef093b28493ac7ab9d595ee32603c" prot="public" virt="non-virtual"><scope>euphoria::gui::Widget</scope><name>get_client_rect</name></member>
       <member refid="structeuphoria_1_1gui_1_1Widget_1a9ca439de78ec9af54a1a153c537352b0" prot="public" virt="non-virtual"><scope>euphoria::gui::Widget</scope><name>get_preferred_size</name></member>

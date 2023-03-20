@@ -137,11 +137,11 @@
         </inbodydescription>
         <location file="libs/gui/src/gui/load.cc" line="82" column="5" bodyfile="libs/gui/src/gui/load.cc" bodystart="82" bodyend="88"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1gui_1add17737c4e2cbb092d43faf860fb5219" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1gui_1a9d8289fcba4c1b410652a759d9933d7b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1Lrud" kindref="compound">core::Lrud</ref>&lt; float &gt;</type>
-        <definition>core::Lrud&lt;float&gt; euphoria::gui::lrtb_from_gaf</definition>
+        <definition>core::Lrud&lt;float&gt; euphoria::gui::from_gaf_to_lrud</definition>
         <argsstring>(const ::gui::Lrtb &amp;lrtd)</argsstring>
-        <name>lrtb_from_gaf</name>
+        <name>from_gaf_to_lrud</name>
         <param>
           <type>const ::gui::Lrtb &amp;</type>
           <declname>lrtd</declname>

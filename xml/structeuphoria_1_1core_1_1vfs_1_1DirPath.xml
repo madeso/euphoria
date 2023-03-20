@@ -54,11 +54,11 @@
         </inbodydescription>
         <location file="libs/core/src/core/vfs_path.h" line="77" column="19" bodyfile="libs/core/src/core/vfs_path.cc" bodystart="252" bodyend="256"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1vfs_1_1DirPath_1ab5574ce1df2283852c8fe06961c21528" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1vfs_1_1DirPath_1aa13828f31bfdc7d420663ff1f20eed93" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1vfs_1_1DirPath" kindref="compound">DirPath</ref></type>
-        <definition>DirPath euphoria::core::vfs::DirPath::single_cd_copy</definition>
+        <definition>DirPath euphoria::core::vfs::DirPath::get_directory</definition>
         <argsstring>(const std::string &amp;single) const</argsstring>
-        <name>single_cd_copy</name>
+        <name>get_directory</name>
         <param>
           <type>const std::string &amp;</type>
           <declname>single</declname>
@@ -110,11 +110,11 @@
         </inbodydescription>
         <location file="libs/core/src/core/vfs_path.h" line="82" column="18" bodyfile="libs/core/src/core/vfs_path.cc" bodystart="286" bodyend="296"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1vfs_1_1DirPath_1aefdddd7083a7421252449f79ba2f4a30" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1vfs_1_1DirPath_1ad2b2acb74457125efa09d87cb19a8b77" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
-        <definition>std::string euphoria::core::vfs::DirPath::get_directory_name</definition>
+        <definition>std::string euphoria::core::vfs::DirPath::get_name</definition>
         <argsstring>() const</argsstring>
-        <name>get_directory_name</name>
+        <name>get_name</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -193,12 +193,12 @@
       <member refid="structeuphoria_1_1core_1_1vfs_1_1DirPath_1aeab59573c52b915c2c367572660573dc" prot="public" virt="non-virtual"><scope>euphoria::core::vfs::DirPath</scope><name>from_dirs</name></member>
       <member refid="structeuphoria_1_1core_1_1vfs_1_1DirPath_1a5e29804ee2705c9e842d881fdeffef21" prot="public" virt="non-virtual"><scope>euphoria::core::vfs::DirPath</scope><name>from_relative</name></member>
       <member refid="structeuphoria_1_1core_1_1vfs_1_1DirPath_1af4f74d8276b31645f570fdda5fafb3dc" prot="public" virt="non-virtual"><scope>euphoria::core::vfs::DirPath</scope><name>from_root</name></member>
-      <member refid="structeuphoria_1_1core_1_1vfs_1_1DirPath_1aefdddd7083a7421252449f79ba2f4a30" prot="public" virt="non-virtual"><scope>euphoria::core::vfs::DirPath</scope><name>get_directory_name</name></member>
+      <member refid="structeuphoria_1_1core_1_1vfs_1_1DirPath_1aa13828f31bfdc7d420663ff1f20eed93" prot="public" virt="non-virtual"><scope>euphoria::core::vfs::DirPath</scope><name>get_directory</name></member>
       <member refid="structeuphoria_1_1core_1_1vfs_1_1DirPath_1a79a8831ec1642374fec1509ff5e4faf6" prot="public" virt="non-virtual"><scope>euphoria::core::vfs::DirPath</scope><name>get_file</name></member>
+      <member refid="structeuphoria_1_1core_1_1vfs_1_1DirPath_1ad2b2acb74457125efa09d87cb19a8b77" prot="public" virt="non-virtual"><scope>euphoria::core::vfs::DirPath</scope><name>get_name</name></member>
       <member refid="structeuphoria_1_1core_1_1vfs_1_1DirPath_1ab9cc1c70beb888b5a6ba183479252e94" prot="public" virt="non-virtual"><scope>euphoria::core::vfs::DirPath</scope><name>get_parent_directory</name></member>
       <member refid="structeuphoria_1_1core_1_1vfs_1_1DirPath_1a0559aca93ad21a6e93d3b9c806f19713" prot="public" virt="non-virtual"><scope>euphoria::core::vfs::DirPath</scope><name>is_relative</name></member>
       <member refid="structeuphoria_1_1core_1_1vfs_1_1DirPath_1aed83116aecd74e5ae7f7928506a9e130" prot="public" virt="non-virtual"><scope>euphoria::core::vfs::DirPath</scope><name>path</name></member>
-      <member refid="structeuphoria_1_1core_1_1vfs_1_1DirPath_1ab5574ce1df2283852c8fe06961c21528" prot="public" virt="non-virtual"><scope>euphoria::core::vfs::DirPath</scope><name>single_cd_copy</name></member>
       <member refid="structeuphoria_1_1core_1_1vfs_1_1DirPath_1a4af220d10fe1fb779d8236aa87a86424" prot="public" virt="non-virtual"><scope>euphoria::core::vfs::DirPath</scope><name>split_directories</name></member>
     </listofallmembers>
   </compounddef>

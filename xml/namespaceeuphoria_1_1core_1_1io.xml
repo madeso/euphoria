@@ -3,11 +3,11 @@
   <compounddef id="namespaceeuphoria_1_1core_1_1io" kind="namespace" language="C++">
     <compoundname>euphoria::core::io</compoundname>
       <sectiondef kind="func">
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1io_1ad10b0e5d5c8e8d1b079d88faf91e9963" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1io_1a2bfb261fac20a029c9a25fdc6628f17e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>void euphoria::core::io::chunk_to_file</definition>
+        <definition>void euphoria::core::io::write_chunk_to_file</definition>
         <argsstring>(std::shared_ptr&lt; MemoryChunk &gt; chunk, const std::string &amp;full_path)</argsstring>
-        <name>chunk_to_file</name>
+        <name>write_chunk_to_file</name>
         <param>
           <type>std::shared_ptr&lt; <ref refid="structeuphoria_1_1core_1_1MemoryChunk" kindref="compound">MemoryChunk</ref> &gt;</type>
           <declname>chunk</declname>
@@ -24,11 +24,11 @@
         </inbodydescription>
         <location file="libs/core/src/core/io.cc" line="12" column="5" bodyfile="libs/core/src/core/io.cc" bodystart="13" bodyend="25" declfile="libs/core/src/core/io.h" declline="12" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1io_1a7a74bf82d8072eafe22bb94f123dac9e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1io_1ab38e282cb9bdc09ff8f1bdabb68829f1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::shared_ptr&lt; <ref refid="structeuphoria_1_1core_1_1MemoryChunk" kindref="compound">MemoryChunk</ref> &gt;</type>
-        <definition>std::shared_ptr&lt; MemoryChunk &gt; euphoria::core::io::file_to_chunk</definition>
+        <definition>std::shared_ptr&lt; MemoryChunk &gt; euphoria::core::io::read_file_to_chunk</definition>
         <argsstring>(const std::string &amp;full_path)</argsstring>
-        <name>file_to_chunk</name>
+        <name>read_file_to_chunk</name>
         <param>
           <type>const std::string &amp;</type>
           <declname>full_path</declname>
@@ -41,11 +41,11 @@
         </inbodydescription>
         <location file="libs/core/src/core/io.cc" line="36" column="5" bodyfile="libs/core/src/core/io.cc" bodystart="36" bodyend="64" declfile="libs/core/src/core/io.h" declline="19" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1io_1a357a1cc3107dc8779931f1aa2b3502b0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1io_1a19b1abddaf9df2e7d9b9737fe2be2e29" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::optional&lt; std::string &gt;</type>
-        <definition>std::optional&lt; std::string &gt; euphoria::core::io::file_to_string</definition>
+        <definition>std::optional&lt; std::string &gt; euphoria::core::io::read_file_to_string</definition>
         <argsstring>(const std::string &amp;full_path)</argsstring>
-        <name>file_to_string</name>
+        <name>read_file_to_string</name>
         <param>
           <type>const std::string &amp;</type>
           <declname>full_path</declname>

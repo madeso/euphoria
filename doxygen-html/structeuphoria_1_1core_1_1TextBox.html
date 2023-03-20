@@ -88,8 +88,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a83d4b82aa944cc1635ba943f2a4c872a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a17dd0acf7b4003fd42f92e64ccdd8323"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1TextBox.html">TextBox</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1TextBox.html#a17dd0acf7b4003fd42f92e64ccdd8323">put_box_copy</a> (int x, int y, const <a class="el" href="structeuphoria_1_1core_1_1TextBox.html">TextBox</a> &amp;b) const</td></tr>
 <tr class="separator:a17dd0acf7b4003fd42f92e64ccdd8323"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d328e7764a6d4d26bb6a5b3a83fd0b6"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1TextBox.html#a5d328e7764a6d4d26bb6a5b3a83fd0b6">to_string</a> (const <a class="el" href="structeuphoria_1_1core_1_1TextBoxStyle.html">TextBoxStyle</a> &amp;style=<a class="el" href="namespaceeuphoria_1_1core.html#a05915493fe83484dcce9bb7156240b67">terminal_style</a>()) const</td></tr>
-<tr class="separator:a5d328e7764a6d4d26bb6a5b3a83fd0b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae42931586ae7de5078594152e26aa77a"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1TextBox.html#ae42931586ae7de5078594152e26aa77a">to_string</a> (const <a class="el" href="structeuphoria_1_1core_1_1TextBoxStyle.html">TextBoxStyle</a> &amp;style=<a class="el" href="namespaceeuphoria_1_1core.html#af6f1d305ea7552ab92fb47f047054835">get_terminal_style</a>()) const</td></tr>
+<tr class="separator:ae42931586ae7de5078594152e26aa77a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af11e0290620be3aec30972b8efa2cef2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1TextBox.html#af11e0290620be3aec30972b8efa2cef2">get_horizontal_append_position</a> (int y, const <a class="el" href="structeuphoria_1_1core_1_1TextBox.html">TextBox</a> &amp;b) const</td></tr>
 <tr class="memdesc:af11e0290620be3aec30972b8efa2cef2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the earliest X coordinate where the given box could be placed.  <a href="structeuphoria_1_1core_1_1TextBox.html#af11e0290620be3aec30972b8efa2cef2">More...</a><br /></td></tr>
 <tr class="separator:af11e0290620be3aec30972b8efa2cef2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -113,7 +113,7 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:af5fbd143444b65809697d71890ab46c3"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structeuphoria_1_1core_1_1TextBox.html">TextBox</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1TextBox.html#af5fbd143444b65809697d71890ab46c3">from_string</a> (const std::string &amp;s, int x=0, int y=0)</td></tr>
 <tr class="separator:af5fbd143444b65809697d71890ab46c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad586b7d6d48582524a2ce9146cd8b1e9"><td class="memTemplParams" colspan="2">template&lt;typename T , typename TToStringFunc , typename TCountChildrenFunc , typename TOneLinerTestFunc , typename TSimpleTestFunc &gt; </td></tr>
-<tr class="memitem:ad586b7d6d48582524a2ce9146cd8b1e9"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="structeuphoria_1_1core_1_1TextBox.html">TextBox</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1TextBox.html#ad586b7d6d48582524a2ce9146cd8b1e9">create_tree_graph</a> (const T &amp;e, int maxwidth, TToStringFunc &amp;&amp;<a class="el" href="structeuphoria_1_1core_1_1TextBox.html#a5d328e7764a6d4d26bb6a5b3a83fd0b6">to_string</a>, TCountChildrenFunc &amp;&amp;count_children_func, TOneLinerTestFunc &amp;&amp;oneliner_test_func, TSimpleTestFunc &amp;&amp;simple_test_func, int margin=4, int firstx=2)</td></tr>
+<tr class="memitem:ad586b7d6d48582524a2ce9146cd8b1e9"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="structeuphoria_1_1core_1_1TextBox.html">TextBox</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1TextBox.html#ad586b7d6d48582524a2ce9146cd8b1e9">create_tree_graph</a> (const T &amp;e, int maxwidth, TToStringFunc &amp;&amp;<a class="el" href="structeuphoria_1_1core_1_1TextBox.html#ae42931586ae7de5078594152e26aa77a">to_string</a>, TCountChildrenFunc &amp;&amp;count_children_func, TOneLinerTestFunc &amp;&amp;oneliner_test_func, TSimpleTestFunc &amp;&amp;simple_test_func, int margin=4, int firstx=2)</td></tr>
 <tr class="memdesc:ad586b7d6d48582524a2ce9146cd8b1e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">An utility function that can be used to create a tree graph rendering from a structure.  <a href="structeuphoria_1_1core_1_1TextBox.html#ad586b7d6d48582524a2ce9146cd8b1e9">More...</a><br /></td></tr>
 <tr class="separator:ad586b7d6d48582524a2ce9146cd8b1e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -144,7 +144,7 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="textbox_8cc_source.html#l00219">219</a> of file <a class="el" href="textbox_8cc_source.html">textbox.cc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="textbox_8cc_source.html#l00221">221</a> of file <a class="el" href="textbox_8cc_source.html">textbox.cc</a>.</p>
 
 </div>
 </div>
@@ -172,7 +172,7 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="textbox_8cc_source.html#l00226">226</a> of file <a class="el" href="textbox_8cc_source.html">textbox.cc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="textbox_8cc_source.html#l00228">228</a> of file <a class="el" href="textbox_8cc_source.html">textbox.cc</a>.</p>
 
 </div>
 </div>
@@ -331,7 +331,7 @@ template&lt;typename T , typename TToStringFunc , typename TCountChildrenFunc , 
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="textbox_8cc_source.html#l00271">271</a> of file <a class="el" href="textbox_8cc_source.html">textbox.cc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="textbox_8cc_source.html#l00273">273</a> of file <a class="el" href="textbox_8cc_source.html">textbox.cc</a>.</p>
 
 </div>
 </div>
@@ -352,7 +352,7 @@ template&lt;typename T , typename TToStringFunc , typename TCountChildrenFunc , 
 
 <p>Calculate the current dimensions of the string. </p>
 
-<p class="definition">Definition at line <a class="el" href="textbox_8cc_source.html#l00358">358</a> of file <a class="el" href="textbox_8cc_source.html">textbox.cc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="textbox_8cc_source.html#l00360">360</a> of file <a class="el" href="textbox_8cc_source.html">textbox.cc</a>.</p>
 
 </div>
 </div>
@@ -385,7 +385,7 @@ template&lt;typename T , typename TToStringFunc , typename TCountChildrenFunc , 
 <p>Calculate the earliest X coordinate where the given box could be placed. </p>
 <p>without colliding with existing content in this box. Guaranteed to be &lt;= width(). Find leftmost position where box b can be appended into *this without overlap </p>
 
-<p class="definition">Definition at line <a class="el" href="textbox_8cc_source.html#l00452">452</a> of file <a class="el" href="textbox_8cc_source.html">textbox.cc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="textbox_8cc_source.html#l00454">454</a> of file <a class="el" href="textbox_8cc_source.html">textbox.cc</a>.</p>
 
 </div>
 </div>
@@ -405,7 +405,7 @@ template&lt;typename T , typename TToStringFunc , typename TCountChildrenFunc , 
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>width x height </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="textbox_8cc_source.html#l00379">379</a> of file <a class="el" href="textbox_8cc_source.html">textbox.cc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="textbox_8cc_source.html#l00381">381</a> of file <a class="el" href="textbox_8cc_source.html">textbox.cc</a>.</p>
 
 </div>
 </div>
@@ -438,7 +438,7 @@ template&lt;typename T , typename TToStringFunc , typename TCountChildrenFunc , 
 <p>Calculate the earliest Y coordinate where the given box could be placed without colliding with existing content in this box. </p>
 <p>Guaranteed to be &lt;= height(). Find topmost position where box b can be appended into *this without overlap </p>
 
-<p class="definition">Definition at line <a class="el" href="textbox_8cc_source.html#l00468">468</a> of file <a class="el" href="textbox_8cc_source.html">textbox.cc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="textbox_8cc_source.html#l00470">470</a> of file <a class="el" href="textbox_8cc_source.html">textbox.cc</a>.</p>
 
 </div>
 </div>
@@ -457,7 +457,7 @@ template&lt;typename T , typename TToStringFunc , typename TCountChildrenFunc , 
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="textbox_8cc_source.html#l00365">365</a> of file <a class="el" href="textbox_8cc_source.html">textbox.cc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="textbox_8cc_source.html#l00367">367</a> of file <a class="el" href="textbox_8cc_source.html">textbox.cc</a>.</p>
 
 </div>
 </div>
@@ -541,7 +541,7 @@ template&lt;typename F &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="textbox_8cc_source.html#l00281">281</a> of file <a class="el" href="textbox_8cc_source.html">textbox.cc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="textbox_8cc_source.html#l00283">283</a> of file <a class="el" href="textbox_8cc_source.html">textbox.cc</a>.</p>
 
 </div>
 </div>
@@ -577,7 +577,7 @@ template&lt;typename F &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="textbox_8cc_source.html#l00325">325</a> of file <a class="el" href="textbox_8cc_source.html">textbox.cc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="textbox_8cc_source.html#l00327">327</a> of file <a class="el" href="textbox_8cc_source.html">textbox.cc</a>.</p>
 
 </div>
 </div>
@@ -616,7 +616,7 @@ template&lt;typename F &gt; </div>
 <p>Place a single character in the given coordinate. </p>
 <p>Notice that behavior is undefined if the character is in 00-1F range. </p>
 
-<p class="definition">Definition at line <a class="el" href="textbox_8cc_source.html#l00235">235</a> of file <a class="el" href="textbox_8cc_source.html">textbox.cc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="textbox_8cc_source.html#l00237">237</a> of file <a class="el" href="textbox_8cc_source.html">textbox.cc</a>.</p>
 
 </div>
 </div>
@@ -667,7 +667,7 @@ template&lt;typename F &gt; </div>
 <p>Draw a horizontal line. </p>
 <p>If bef=true, the line starts from the left edge of the first character cell, otherwise it starts from its center. If aft=true, the line ends in the right edge of the last character cell, otherwise it ends in its center </p>
 
-<p class="definition">Definition at line <a class="el" href="textbox_8cc_source.html#l00387">387</a> of file <a class="el" href="textbox_8cc_source.html">textbox.cc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="textbox_8cc_source.html#l00389">389</a> of file <a class="el" href="textbox_8cc_source.html">textbox.cc</a>.</p>
 
 </div>
 </div>
@@ -706,7 +706,7 @@ template&lt;typename F &gt; </div>
 <p>Put a string of characters starting at the given coordinate. </p>
 <p>Note that behavior is undefined if the string contains characters in 00-1F range or if the string includes multibyte characters. </p>
 
-<p class="definition">Definition at line <a class="el" href="textbox_8cc_source.html#l00258">258</a> of file <a class="el" href="textbox_8cc_source.html">textbox.cc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="textbox_8cc_source.html#l00260">260</a> of file <a class="el" href="textbox_8cc_source.html">textbox.cc</a>.</p>
 
 </div>
 </div>
@@ -757,12 +757,12 @@ template&lt;typename F &gt; </div>
 <p>Draw a vertical line. </p>
 <p>If bef=true, the line starts from the top edge of the first character cell, otherwise it starts from its center. If aft=true, the line ends in the bottom edge of the last character cell, otherwise it ends in its center </p>
 
-<p class="definition">Definition at line <a class="el" href="textbox_8cc_source.html#l00420">420</a> of file <a class="el" href="textbox_8cc_source.html">textbox.cc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="textbox_8cc_source.html#l00422">422</a> of file <a class="el" href="textbox_8cc_source.html">textbox.cc</a>.</p>
 
 </div>
 </div>
-<a id="a5d328e7764a6d4d26bb6a5b3a83fd0b6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5d328e7764a6d4d26bb6a5b3a83fd0b6">&#9670;&nbsp;</a></span>to_string()</h2>
+<a id="ae42931586ae7de5078594152e26aa77a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae42931586ae7de5078594152e26aa77a">&#9670;&nbsp;</a></span>to_string()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -771,13 +771,13 @@ template&lt;typename F &gt; </div>
           <td class="memname">std::vector&lt; std::string &gt; euphoria::core::TextBox::to_string </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1TextBoxStyle.html">TextBoxStyle</a> &amp;&#160;</td>
-          <td class="paramname"><em>style</em> = <code><a class="el" href="namespaceeuphoria_1_1core.html#a05915493fe83484dcce9bb7156240b67">terminal_style</a>()</code></td><td>)</td>
+          <td class="paramname"><em>style</em> = <code><a class="el" href="namespaceeuphoria_1_1core.html#af6f1d305ea7552ab92fb47f047054835">get_terminal_style</a>()</code></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="textbox_8cc_source.html#l00486">486</a> of file <a class="el" href="textbox_8cc_source.html">textbox.cc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="textbox_8cc_source.html#l00488">488</a> of file <a class="el" href="textbox_8cc_source.html">textbox.cc</a>.</p>
 
 </div>
 </div>
@@ -798,7 +798,7 @@ template&lt;typename F &gt; </div>
 
 <p>Delete trailing blank from the bottom and right edges. </p>
 
-<p class="definition">Definition at line <a class="el" href="textbox_8cc_source.html#l00338">338</a> of file <a class="el" href="textbox_8cc_source.html">textbox.cc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="textbox_8cc_source.html#l00340">340</a> of file <a class="el" href="textbox_8cc_source.html">textbox.cc</a>.</p>
 
 </div>
 </div>

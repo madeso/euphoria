@@ -77,7 +77,7 @@ Namespaces</h2></td></tr>
 Enumerations</h2></td></tr>
 <tr class="memitem:a8ecaf2244851e43b6a3811768984f17b"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core_1_1palettes.html#a8ecaf2244851e43b6a3811768984f17b">Name</a> { <br />
 &#160;&#160;<a class="el" href="namespaceeuphoria_1_1core_1_1palettes.html#a8ecaf2244851e43b6a3811768984f17ba6a2ac9636a96cbc8aa745d9480e87f4b">Name::dawnbringer</a>, 
-<a class="el" href="namespaceeuphoria_1_1core_1_1palettes.html#a8ecaf2244851e43b6a3811768984f17bacc6e788f93c674dc5b25ee9db208c679">Name::named_colors</a>, 
+<a class="el" href="namespaceeuphoria_1_1core_1_1palettes.html#a8ecaf2244851e43b6a3811768984f17bace9933cbb81b77dcad39168613e0301b">Name::get_named_colors</a>, 
 <a class="el" href="namespaceeuphoria_1_1core_1_1palettes.html#a8ecaf2244851e43b6a3811768984f17baf3d64714d1f6e7f71558d4252e84ab58">Name::classic</a>, 
 <a class="el" href="namespaceeuphoria_1_1core_1_1palettes.html#a8ecaf2244851e43b6a3811768984f17bad457a89ae6698c26810660ff3cb932cc">Name::perceptual_rainbow</a>, 
 <br />
@@ -150,8 +150,8 @@ Enumerations</h2></td></tr>
 Functions</h2></td></tr>
 <tr class="memitem:a012545905aca27ed9f654ddb5503e598"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structeuphoria_1_1core_1_1Palette.html">Palette</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core_1_1palettes.html#a012545905aca27ed9f654ddb5503e598">dawnbringer</a> ()</td></tr>
 <tr class="separator:a012545905aca27ed9f654ddb5503e598"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc283e0850e26cdd3d1f5a868d674aff"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structeuphoria_1_1core_1_1Palette.html">Palette</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core_1_1palettes.html#abc283e0850e26cdd3d1f5a868d674aff">named_colors</a> ()</td></tr>
-<tr class="separator:abc283e0850e26cdd3d1f5a868d674aff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9adfda89d4b67fd3fcaf8c193705507e"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structeuphoria_1_1core_1_1Palette.html">Palette</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core_1_1palettes.html#a9adfda89d4b67fd3fcaf8c193705507e">get_named_colors</a> ()</td></tr>
+<tr class="separator:a9adfda89d4b67fd3fcaf8c193705507e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac1e7538a16224eccacb40d53e95f0398"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1Palette.html">Palette</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core_1_1palettes.html#ac1e7538a16224eccacb40d53e95f0398">get_palette</a> (<a class="el" href="namespaceeuphoria_1_1core_1_1palettes.html#a8ecaf2244851e43b6a3811768984f17b">Name</a> palette_name)</td></tr>
 <tr class="separator:ac1e7538a16224eccacb40d53e95f0398"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -182,7 +182,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a8ecaf2244851e43b6a3811768984f17ba6a2ac9636a96cbc8aa745d9480e87f4b"></a>dawnbringer&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a8ecaf2244851e43b6a3811768984f17bacc6e788f93c674dc5b25ee9db208c679"></a>named_colors&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a8ecaf2244851e43b6a3811768984f17bace9933cbb81b77dcad39168613e0301b"></a>get_named_colors&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a8ecaf2244851e43b6a3811768984f17baf3d64714d1f6e7f71558d4252e84ab58"></a>classic&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a8ecaf2244851e43b6a3811768984f17bad457a89ae6698c26810660ff3cb932cc"></a>perceptual_rainbow&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a8ecaf2244851e43b6a3811768984f17babb7aedfa61007447dd6efaf9f37641e3"></a>purple&#160;</td><td class="fielddoc"></td></tr>
@@ -260,6 +260,25 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="a9adfda89d4b67fd3fcaf8c193705507e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9adfda89d4b67fd3fcaf8c193705507e">&#9670;&nbsp;</a></span>get_named_colors()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="structeuphoria_1_1core_1_1Palette.html">Palette</a> &amp; euphoria::core::palettes::get_named_colors </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="palette_8cc_source.html#l00186">186</a> of file <a class="el" href="palette_8cc_source.html">palette.cc</a>.</p>
+
+</div>
+</div>
 <a id="ac1e7538a16224eccacb40d53e95f0398"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac1e7538a16224eccacb40d53e95f0398">&#9670;&nbsp;</a></span>get_palette()</h2>
 
@@ -277,25 +296,6 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="palette__all_8cc_source.html#l00014">14</a> of file <a class="el" href="palette__all_8cc_source.html">palette_all.cc</a>.</p>
-
-</div>
-</div>
-<a id="abc283e0850e26cdd3d1f5a868d674aff"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abc283e0850e26cdd3d1f5a868d674aff">&#9670;&nbsp;</a></span>named_colors()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="structeuphoria_1_1core_1_1Palette.html">Palette</a> &amp; euphoria::core::palettes::named_colors </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="palette_8cc_source.html#l00186">186</a> of file <a class="el" href="palette_8cc_source.html">palette.cc</a>.</p>
 
 </div>
 </div>

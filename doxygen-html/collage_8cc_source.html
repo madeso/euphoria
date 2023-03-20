@@ -256,8 +256,8 @@
 <div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160; </div>
 <div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160; </div>
 <div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    std::pair&lt;std::vector&lt;vec2i&gt;, size2i&gt;</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    <a class="code" href="namespaceeuphoria_1_1core.html#af6303e181bc3af2b6d84d1cba825ac60">grid_layout</a></div>
-<div class="line"><a name="l00206"></a><span class="lineno"><a class="line" href="namespaceeuphoria_1_1core.html#af6303e181bc3af2b6d84d1cba825ac60">  206</a></span>&#160;    (</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    <a class="code" href="namespaceeuphoria_1_1core.html#a0956c7531d832003a497302768888734">lay_out_in_a_grid</a></div>
+<div class="line"><a name="l00206"></a><span class="lineno"><a class="line" href="namespaceeuphoria_1_1core.html#a0956c7531d832003a497302768888734">  206</a></span>&#160;    (</div>
 <div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;        <span class="keyword">const</span> std::vector&lt;Image&gt;&amp; images,</div>
 <div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;        <span class="keywordtype">int</span> padding,</div>
 <div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;        <span class="keywordtype">bool</span> top_to_bottom</div>
@@ -285,7 +285,7 @@
 <div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;        <span class="keywordtype">int</span> column = 0;</div>
 <div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;        <span class="keywordtype">int</span> max_x = 0;</div>
 <div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160; </div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;        <span class="keyword">auto</span> new_row = [&amp;]</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;        <span class="keyword">auto</span> add_row = [&amp;]</div>
 <div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;        {</div>
 <div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;            max_x = <a class="code" href="namespaceeuphoria_1_1core.html#ab6fb5580825e85e2a19488ec6ec33c7f">max</a>(max_x, <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a9dd4e461268c8034f5c8564e155c67a6">x</a>);</div>
 <div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;            column = 0;</div>
@@ -310,13 +310,13 @@
 <div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160; </div>
 <div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;            <span class="keywordflow">if</span>(column &gt;= images_per_row)</div>
 <div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;            {</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;                new_row();</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;                add_row();</div>
 <div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;            }</div>
 <div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;        }</div>
 <div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160; </div>
 <div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;        <span class="keywordflow">if</span>(column != 0)</div>
 <div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;        {</div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;            new_row();</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;            add_row();</div>
 <div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;        }</div>
 <div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160; </div>
 <div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> image_width = max_x;</div>
@@ -344,8 +344,8 @@
 <div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160; </div>
 <div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160; </div>
 <div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;    Image</div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;    <a class="code" href="namespaceeuphoria_1_1core.html#af6303e181bc3af2b6d84d1cba825ac60">grid_layout</a></div>
-<div class="line"><a name="l00294"></a><span class="lineno"><a class="line" href="namespaceeuphoria_1_1core.html#a7dfcb7af0c14fa5fdc2264185b02f357">  294</a></span>&#160;    (</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;    <a class="code" href="namespaceeuphoria_1_1core.html#a0956c7531d832003a497302768888734">lay_out_in_a_grid</a></div>
+<div class="line"><a name="l00294"></a><span class="lineno"><a class="line" href="namespaceeuphoria_1_1core.html#a2db273aa1cadd60cda7bfb7b567f5b8a">  294</a></span>&#160;    (</div>
 <div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;        <span class="keyword">const</span> std::vector&lt;Image&gt;&amp; images,</div>
 <div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;        <span class="keywordtype">int</span> padding,</div>
 <div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;        <a class="code" href="structeuphoria_1_1core_1_1rgbi.html">rgbi</a> background_color,</div>
@@ -353,7 +353,7 @@
 <div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;    )</div>
 <div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;    {</div>
 <div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;        <span class="comment">// layout images in grid and calculate image size from grid</span></div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> [image_grid, size] = <a class="code" href="namespaceeuphoria_1_1core.html#af6303e181bc3af2b6d84d1cba825ac60">grid_layout</a>(images, padding, top_to_bottom);</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> [image_grid, size] = <a class="code" href="namespaceeuphoria_1_1core.html#a0956c7531d832003a497302768888734">lay_out_in_a_grid</a>(images, padding, top_to_bottom);</div>
 <div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160; </div>
 <div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;        <span class="comment">// draw new image</span></div>
 <div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;        <span class="keyword">auto</span> composed_image = <a class="code" href="namespaceeuphoria_1_1core.html#a726dd3e023e8621e3ba182f853ba9e0f">draw_image</a>(image_grid, images, size, background_color);</div>
@@ -365,7 +365,6 @@
 <div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160; </div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="anamespaceeuphoria_1_1core_html_aa9db03a38fd9999446a4ebf0584cd710a865c0c0b4ab0e063e5caa3387c1a8741"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a865c0c0b4ab0e063e5caa3387c1a8741">euphoria::core::Key::i</a></div><div class="ttdeci">@ i</div></div>
-<div class="ttc" id="anamespaceeuphoria_1_1core_html_af6303e181bc3af2b6d84d1cba825ac60"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#af6303e181bc3af2b6d84d1cba825ac60">euphoria::core::grid_layout</a></div><div class="ttdeci">std::pair&lt; std::vector&lt; vec2i &gt;, size2i &gt; grid_layout(const std::vector&lt; Image &gt; &amp;images, int padding, bool top_to_bottom)</div><div class="ttdef"><b>Definition:</b> <a href="collage_8cc_source.html#l00206">collage.cc:206</a></div></div>
 <div class="ttc" id="anamespaceeuphoria_1_1core_html_a8ec1fc16f3ecf899df7a5dd633ca446b"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#a8ec1fc16f3ecf899df7a5dd633ca446b">euphoria::core::pack_tight</a></div><div class="ttdeci">size2i pack_tight(const size2i &amp;default_size, std::vector&lt; vec2i &gt; *positions, const std::vector&lt; Image &gt; &amp;images, int padding)</div><div class="ttdef"><b>Definition:</b> <a href="collage_8cc_source.html#l00071">collage.cc:71</a></div></div>
 <div class="ttc" id="anamespaceeuphoria_1_1core_html_a4a9c9c153a137b6a8f3953e4a57a1ff0"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#a4a9c9c153a137b6a8f3953e4a57a1ff0">euphoria::core::c_float_to_int</a></div><div class="ttdeci">constexpr int c_float_to_int(float f)</div><div class="ttdef"><b>Definition:</b> <a href="cint_8h_source.html#l00046">cint.h:46</a></div></div>
 <div class="ttc" id="anamespaceeuphoria_1_1core_html_a46311ab73f84dd32e91af1c681e28fbf"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#a46311ab73f84dd32e91af1c681e28fbf">euphoria::core::c_sizet_to_float</a></div><div class="ttdeci">constexpr float c_sizet_to_float(std::size_t f)</div><div class="ttdef"><b>Definition:</b> <a href="cint_8h_source.html#l00053">cint.h:53</a></div></div>
@@ -381,6 +380,7 @@
 <div class="ttc" id="anamespaceeuphoria_1_1core_html_a6cca1860905cb2f50dfec8f077ad6af2a70f68bb2f748b85de6526bfe236ea1e9"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#a6cca1860905cb2f50dfec8f077ad6af2a70f68bb2f748b85de6526bfe236ea1e9">euphoria::core::PixelsOutside::discard</a></div><div class="ttdeci">@ discard</div></div>
 <div class="ttc" id="anamespaceeuphoria_1_1core_html_a726dd3e023e8621e3ba182f853ba9e0f"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#a726dd3e023e8621e3ba182f853ba9e0f">euphoria::core::draw_image</a></div><div class="ttdeci">Image draw_image(const std::vector&lt; vec2i &gt; &amp;positions, const std::vector&lt; Image &gt; &amp;images, const size2i &amp;size, const rgbi &amp;background_color)</div><div class="ttdef"><b>Definition:</b> <a href="collage_8cc_source.html#l00038">collage.cc:38</a></div></div>
 <div class="ttc" id="anamespaceeuphoria_1_1core_html_aa9db03a38fd9999446a4ebf0584cd710a9e3669d19b675bd57058fd4664205d2a"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a9e3669d19b675bd57058fd4664205d2a">euphoria::core::Key::v</a></div><div class="ttdeci">@ v</div></div>
+<div class="ttc" id="anamespaceeuphoria_1_1core_html_a0956c7531d832003a497302768888734"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#a0956c7531d832003a497302768888734">euphoria::core::lay_out_in_a_grid</a></div><div class="ttdeci">std::pair&lt; std::vector&lt; vec2i &gt;, size2i &gt; lay_out_in_a_grid(const std::vector&lt; Image &gt; &amp;images, int padding, bool top_to_bottom)</div><div class="ttdef"><b>Definition:</b> <a href="collage_8cc_source.html#l00206">collage.cc:206</a></div></div>
 <div class="ttc" id="astructeuphoria_1_1core_1_1Image_html"><div class="ttname"><a href="structeuphoria_1_1core_1_1Image.html">euphoria::core::Image</a></div><div class="ttdef"><b>Definition:</b> <a href="image_8h_source.html#l00028">image.h:28</a></div></div>
 <div class="ttc" id="anamespaceeuphoria_1_1core_html_a33ed90f837d36e2070371e0f2bb8df28"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#a33ed90f837d36e2070371e0f2bb8df28">euphoria::core::paste_image</a></div><div class="ttdeci">void paste_image(Image *dest_image, const vec2i &amp;position, const Image &amp;source_image, BlendMode blend_mode, PixelsOutside clip)</div><div class="ttdef"><b>Definition:</b> <a href="image__draw_8cc_source.html#l00553">image_draw.cc:553</a></div></div>
 <div class="ttc" id="astructeuphoria_1_1core_1_1size2i_html_a91c7ddaca925f9e0f8690dc73e8d2ee9"><div class="ttname"><a href="structeuphoria_1_1core_1_1size2i.html#a91c7ddaca925f9e0f8690dc73e8d2ee9">euphoria::core::size2i::create_from_width_height</a></div><div class="ttdeci">static size2i create_from_width_height(int w, int h)</div><div class="ttdef"><b>Definition:</b> <a href="size2_8cc_source.html#l00199">size2.cc:199</a></div></div>

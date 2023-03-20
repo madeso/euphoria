@@ -333,11 +333,11 @@
         </inbodydescription>
         <location file="libs/core/src/core/argparse.cc" line="1351" column="5" bodyfile="libs/core/src/core/argparse.cc" bodystart="1351" bodyend="1356" declfile="libs/core/src/core/argparse.h" declline="585" declcolumn="9"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1argparse_1a4426a067e286c7ebc4cbe8455fd4e104" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1argparse_1a6f01506a3a5aedd5d58868fc162fad7a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
-        <definition>std::string euphoria::core::argparse::quote_and_combine_english_or</definition>
+        <definition>std::string euphoria::core::argparse::add_quotes_and_combine_with_english_or</definition>
         <argsstring>(const std::vector&lt; std::string &gt; &amp;matches)</argsstring>
-        <name>quote_and_combine_english_or</name>
+        <name>add_quotes_and_combine_with_english_or</name>
         <param>
           <type>const std::vector&lt; std::string &gt; &amp;</type>
           <declname>matches</declname>
@@ -398,7 +398,7 @@
         </inbodydescription>
         <location file="libs/core/src/core/default_parse.h" line="107" column="5" bodyfile="libs/core/src/core/default_parse.h" bodystart="107" bodyend="110"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1argparse_1a813a6a90d80cf259c3f6ea2730a51b1d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1argparse_1ae8d8979063d781752d08a17804bf2170" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename T</type>
@@ -409,9 +409,9 @@
           </param>
         </templateparamlist>
         <type>std::string</type>
-        <definition>std::string euphoria::core::argparse::default_value_to_string</definition>
+        <definition>std::string euphoria::core::argparse::from_default_value_to_string</definition>
         <argsstring>(const T &amp;t)</argsstring>
-        <name>default_value_to_string</name>
+        <name>from_default_value_to_string</name>
         <param>
           <type>const T &amp;</type>
           <declname>t</declname>

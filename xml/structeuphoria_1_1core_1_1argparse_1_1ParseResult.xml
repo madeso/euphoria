@@ -109,11 +109,11 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1argparse_1_1ParseResult_1aa98ae53f29afe5b6a9a95eb469896b2d" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1argparse_1_1ParseResult_1a1739594829d118a5910c5c7c0b19b5ab" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>constexpr int</type>
-        <definition>static constexpr int euphoria::core::argparse::ParseResult::default_return_value</definition>
+        <definition>static constexpr int euphoria::core::argparse::ParseResult::get_default_return_value</definition>
         <argsstring>(Type pr)</argsstring>
-        <name>default_return_value</name>
+        <name>get_default_return_value</name>
         <param>
           <type><ref refid="structeuphoria_1_1core_1_1argparse_1_1ParseResult_1a039782896831d01bbf621a88b3d6351a" kindref="member">Type</ref></type>
           <declname>pr</declname>
@@ -133,7 +133,7 @@
     </detaileddescription>
     <location file="libs/core/src/core/argparse.h" line="42" column="1" bodyfile="libs/core/src/core/argparse.h" bodystart="41" bodyend="70"/>
     <listofallmembers>
-      <member refid="structeuphoria_1_1core_1_1argparse_1_1ParseResult_1aa98ae53f29afe5b6a9a95eb469896b2d" prot="public" virt="non-virtual"><scope>euphoria::core::argparse::ParseResult</scope><name>default_return_value</name></member>
+      <member refid="structeuphoria_1_1core_1_1argparse_1_1ParseResult_1a1739594829d118a5910c5c7c0b19b5ab" prot="public" virt="non-virtual"><scope>euphoria::core::argparse::ParseResult</scope><name>get_default_return_value</name></member>
       <member refid="structeuphoria_1_1core_1_1argparse_1_1ParseResult_1adcfe93c1b32ab434c0bdadb89e130554" prot="public" virt="non-virtual"><scope>euphoria::core::argparse::ParseResult</scope><name>internal_type</name></member>
       <member refid="structeuphoria_1_1core_1_1argparse_1_1ParseResult_1a94d943c5c852cd49b18e18e7ae1e33d3" prot="public" virt="non-virtual"><scope>euphoria::core::argparse::ParseResult</scope><name>ParseResult</name></member>
       <member refid="structeuphoria_1_1core_1_1argparse_1_1ParseResult_1a36773a4ff07cb927fa55c09f35de0aed" prot="public" virt="non-virtual"><scope>euphoria::core::argparse::ParseResult</scope><name>ParseResult</name></member>

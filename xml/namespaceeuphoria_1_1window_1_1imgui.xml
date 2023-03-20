@@ -114,11 +114,11 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="func">
-      <memberdef kind="function" id="namespaceeuphoria_1_1window_1_1imgui_1ac834ab6efca3af5142116422979baecc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1window_1_1imgui_1a12e47bf69aa8efd28e668e38fb020450" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>void euphoria::window::imgui::help_marker</definition>
+        <definition>void euphoria::window::imgui::add_help_marker_for_previous_widget</definition>
         <argsstring>(const char *desc)</argsstring>
-        <name>help_marker</name>
+        <name>add_help_marker_for_previous_widget</name>
         <param>
           <type>const char *</type>
           <declname>desc</declname>
@@ -131,11 +131,11 @@
         </inbodydescription>
         <location file="libs/window/src/window/imgui_extra.cc" line="43" column="5" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="43" bodyend="48" declfile="libs/window/src/window/imgui_extra.h" declline="80" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1window_1_1imgui_1a7c3e79b13da62535e6b5ab436ec817ed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1window_1_1imgui_1accda93de91a58ab5fbfac88130bd6276" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>void euphoria::window::imgui::help_text</definition>
+        <definition>void euphoria::window::imgui::add_help_text_for_previous_widget</definition>
         <argsstring>(const char *desc)</argsstring>
-        <name>help_text</name>
+        <name>add_help_text_for_previous_widget</name>
         <param>
           <type>const char *</type>
           <declname>desc</declname>
@@ -163,13 +163,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/imgui_extra.cc" line="66" column="5" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="66" bodyend="69" declfile="libs/window/src/window/imgui_extra.h" declline="86" declcolumn="5"/>
+        <location file="libs/window/src/window/imgui_extra.cc" line="67" column="5" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="67" bodyend="70" declfile="libs/window/src/window/imgui_extra.h" declline="86" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1window_1_1imgui_1aaafce173fe8690eab5e48b4490c273eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1window_1_1imgui_1ad87d6e46a0da342a13dea0394da09bb3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
-        <definition>bool euphoria::window::imgui::angle_slider</definition>
+        <definition>bool euphoria::window::imgui::imgui_angle_slider</definition>
         <argsstring>(const char *name, core::angle *angle, const core::angle &amp;mindeg, const core::angle &amp;maxdeg)</argsstring>
-        <name>angle_slider</name>
+        <name>imgui_angle_slider</name>
         <param>
           <type>const char *</type>
           <declname>name</declname>
@@ -192,13 +192,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/imgui_extra.cc" line="73" column="5" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="74" bodyend="98" declfile="libs/window/src/window/imgui_extra.h" declline="89" declcolumn="5"/>
+        <location file="libs/window/src/window/imgui_extra.cc" line="74" column="5" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="75" bodyend="99" declfile="libs/window/src/window/imgui_extra.h" declline="89" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1window_1_1imgui_1ab3edcb14b56acf64f1459b6897883796" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1window_1_1imgui_1a3a1f7179264c025f5f98b2e9b3a6259e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
-        <definition>bool euphoria::window::imgui::angle_slider</definition>
+        <definition>bool euphoria::window::imgui::imgui_angle_slider</definition>
         <argsstring>(const char *name, core::angle *angle)</argsstring>
-        <name>angle_slider</name>
+        <name>imgui_angle_slider</name>
         <param>
           <type>const char *</type>
           <declname>name</declname>
@@ -213,13 +213,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/imgui_extra.cc" line="102" column="5" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="103" bodyend="124" declfile="libs/window/src/window/imgui_extra.h" declline="98" declcolumn="5"/>
+        <location file="libs/window/src/window/imgui_extra.cc" line="103" column="5" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="104" bodyend="125" declfile="libs/window/src/window/imgui_extra.h" declline="98" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1window_1_1imgui_1a28dce8129588e66894a8bdc9d9b5b6d6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1window_1_1imgui_1a57b0968629b56f034372208c697669c6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
-        <definition>bool euphoria::window::imgui::toggle_button</definition>
+        <definition>bool euphoria::window::imgui::imgui_toggle_button</definition>
         <argsstring>(const char *label, bool down, const ImVec2 &amp;size)</argsstring>
-        <name>toggle_button</name>
+        <name>imgui_toggle_button</name>
         <param>
           <type>const char *</type>
           <declname>label</declname>
@@ -238,13 +238,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/imgui_extra.cc" line="128" column="5" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="128" bodyend="143" declfile="libs/window/src/window/imgui_extra.h" declline="105" declcolumn="5"/>
+        <location file="libs/window/src/window/imgui_extra.cc" line="129" column="5" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="129" bodyend="144" declfile="libs/window/src/window/imgui_extra.h" declline="105" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1window_1_1imgui_1a6cf4b0a8ec69280619526eedb32b6ede" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1window_1_1imgui_1a913fbc83d298c688271a80524bb0bdba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
-        <definition>bool euphoria::window::imgui::color_edit</definition>
+        <definition>bool euphoria::window::imgui::imgui_color_edit</definition>
         <argsstring>(const char *name, core::rgb *c)</argsstring>
-        <name>color_edit</name>
+        <name>imgui_color_edit</name>
         <param>
           <type>const char *</type>
           <declname>name</declname>
@@ -259,13 +259,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/imgui_extra.cc" line="146" column="5" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="146" bodyend="149" declfile="libs/window/src/window/imgui_extra.h" declline="116" declcolumn="5"/>
+        <location file="libs/window/src/window/imgui_extra.cc" line="147" column="5" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="147" bodyend="150" declfile="libs/window/src/window/imgui_extra.h" declline="116" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1window_1_1imgui_1a08d2e3014467804bfa28ce1c306cff15" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1window_1_1imgui_1a2c1db9b9991d8f079dd4ec6e56f0f6b0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
-        <definition>bool euphoria::window::imgui::color_edit</definition>
+        <definition>bool euphoria::window::imgui::imgui_color_edit</definition>
         <argsstring>(const char *name, core::rgba *c)</argsstring>
-        <name>color_edit</name>
+        <name>imgui_color_edit</name>
         <param>
           <type>const char *</type>
           <declname>name</declname>
@@ -280,13 +280,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/imgui_extra.cc" line="152" column="5" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="152" bodyend="155" declfile="libs/window/src/window/imgui_extra.h" declline="119" declcolumn="5"/>
+        <location file="libs/window/src/window/imgui_extra.cc" line="153" column="5" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="153" bodyend="156" declfile="libs/window/src/window/imgui_extra.h" declline="119" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1window_1_1imgui_1a14dde6efd06b99f5ab91f6f072fa12c9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1window_1_1imgui_1af4ab8d78ff5b7f305dcf7a97e51e17f4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
-        <definition>bool euphoria::window::imgui::color_edit</definition>
+        <definition>bool euphoria::window::imgui::imgui_color_edit</definition>
         <argsstring>(const char *name, core::rgbai *c)</argsstring>
-        <name>color_edit</name>
+        <name>imgui_color_edit</name>
         <param>
           <type>const char *</type>
           <declname>name</declname>
@@ -301,7 +301,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/imgui_extra.cc" line="158" column="5" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="158" bodyend="167" declfile="libs/window/src/window/imgui_extra.h" declline="122" declcolumn="5"/>
+        <location file="libs/window/src/window/imgui_extra.cc" line="159" column="5" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="159" bodyend="168" declfile="libs/window/src/window/imgui_extra.h" declline="122" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1window_1_1imgui_1a2e92c5022becd962e6deea57eeac5fb1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>ImTextureID</type>
@@ -318,7 +318,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/imgui_extra.cc" line="171" column="5" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="171" bodyend="182" declfile="libs/window/src/window/imgui_extra.h" declline="109" declcolumn="5"/>
+        <location file="libs/window/src/window/imgui_extra.cc" line="172" column="5" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="172" bodyend="183" declfile="libs/window/src/window/imgui_extra.h" declline="109" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1window_1_1imgui_1a21e4957ab2346183f5c6aa2ba465d128" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -335,7 +335,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/imgui_extra.cc" line="186" column="5" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="186" bodyend="238" declfile="libs/window/src/window/imgui_extra.h" declline="113" declcolumn="5"/>
+        <location file="libs/window/src/window/imgui_extra.cc" line="188" column="5" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="188" bodyend="240" declfile="libs/window/src/window/imgui_extra.h" declline="113" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1window_1_1imgui_1af3b0189c05b10575a030596fc82637ba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -364,13 +364,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/imgui_extra.cc" line="243" column="5" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="244" bodyend="283" declfile="libs/window/src/window/imgui_extra.h" declline="125" declcolumn="5"/>
+        <location file="libs/window/src/window/imgui_extra.cc" line="245" column="5" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="246" bodyend="285" declfile="libs/window/src/window/imgui_extra.h" declline="125" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1window_1_1imgui_1ae71214bbf2b61728f61b3cce0cffdf37" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1window_1_1imgui_1a0794453720db00a8baa77c0f8e04312a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
-        <definition>bool euphoria::window::imgui::selectable_or_disabled</definition>
+        <definition>bool euphoria::window::imgui::imgui_selectable_or_disabled</definition>
         <argsstring>(bool enabled, const char *label)</argsstring>
-        <name>selectable_or_disabled</name>
+        <name>imgui_selectable_or_disabled</name>
         <param>
           <type>bool</type>
           <declname>enabled</declname>
@@ -385,7 +385,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/imgui_extra.cc" line="304" column="5" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="304" bodyend="320" declfile="libs/window/src/window/imgui_extra.h" declline="145" declcolumn="5"/>
+        <location file="libs/window/src/window/imgui_extra.cc" line="306" column="5" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="306" bodyend="322" declfile="libs/window/src/window/imgui_extra.h" declline="145" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1window_1_1imgui_1ae9fcfd7ecd5bb3fe4b2d94d019146e15" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -422,7 +422,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/imgui_extra.cc" line="325" column="5" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="326" bodyend="352"/>
+        <location file="libs/window/src/window/imgui_extra.cc" line="327" column="5" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="328" bodyend="354"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1window_1_1imgui_1ae09453f909e0383b6a6c14f961260633" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -455,13 +455,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/imgui_extra.cc" line="355" column="5" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="356" bodyend="538" declfile="libs/window/src/window/imgui_extra.h" declline="148" declcolumn="5"/>
+        <location file="libs/window/src/window/imgui_extra.cc" line="357" column="5" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="358" bodyend="540" declfile="libs/window/src/window/imgui_extra.h" declline="148" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1window_1_1imgui_1a9422682b9ef6133684f37c81e8cb3594" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1window_1_1imgui_1aae4becbe2572c3124dd6562a11193c69" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
-        <definition>bool euphoria::window::imgui::canvas_begin</definition>
+        <definition>bool euphoria::window::imgui::begin_canvas_widget</definition>
         <argsstring>(const ImVec4 &amp;background_color, const char *title)</argsstring>
-        <name>canvas_begin</name>
+        <name>begin_canvas_widget</name>
         <param>
           <type>const ImVec4 &amp;</type>
           <declname>background_color</declname>
@@ -476,20 +476,20 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/imgui_extra.cc" line="541" column="5" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="541" bodyend="554" declfile="libs/window/src/window/imgui_extra.h" declline="158" declcolumn="5"/>
+        <location file="libs/window/src/window/imgui_extra.cc" line="543" column="5" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="543" bodyend="556" declfile="libs/window/src/window/imgui_extra.h" declline="158" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1window_1_1imgui_1a9a8b4467c61c7b693015ff92d9f673f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1window_1_1imgui_1a50481f94a63bccbdb0aee3945c4f8c56" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>void euphoria::window::imgui::canvas_end</definition>
+        <definition>void euphoria::window::imgui::end_canvas_widget</definition>
         <argsstring>()</argsstring>
-        <name>canvas_end</name>
+        <name>end_canvas_widget</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/imgui_extra.cc" line="557" column="5" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="557" bodyend="563" declfile="libs/window/src/window/imgui_extra.h" declline="161" declcolumn="5"/>
+        <location file="libs/window/src/window/imgui_extra.cc" line="559" column="5" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="559" bodyend="565" declfile="libs/window/src/window/imgui_extra.h" declline="161" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1window_1_1imgui_1af0297c4982600d0059ad7e4a6b372c78" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -510,13 +510,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/imgui_extra.cc" line="566" column="5" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="566" bodyend="569" declfile="libs/window/src/window/imgui_extra.h" declline="165" declcolumn="5"/>
+        <location file="libs/window/src/window/imgui_extra.cc" line="568" column="5" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="568" bodyend="571" declfile="libs/window/src/window/imgui_extra.h" declline="165" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1window_1_1imgui_1ab63b2b639aab9a0b8860c5eb79fc9948" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1window_1_1imgui_1ac478f15393459096d6251b2ee98f1357" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
-        <definition>bool euphoria::window::imgui::selectable</definition>
+        <definition>bool euphoria::window::imgui::imgui_selectable</definition>
         <argsstring>(const char *label, bool is_selected)</argsstring>
-        <name>selectable</name>
+        <name>imgui_selectable</name>
         <param>
           <type>const char *</type>
           <declname>label</declname>
@@ -531,7 +531,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/imgui_extra.cc" line="572" column="5" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="572" bodyend="575" declfile="libs/window/src/window/imgui_extra.h" declline="168" declcolumn="5"/>
+        <location file="libs/window/src/window/imgui_extra.cc" line="574" column="5" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="574" bodyend="577" declfile="libs/window/src/window/imgui_extra.h" declline="168" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1window_1_1imgui_1a2c1f67c04ae5e4561993c90234905412" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -544,7 +544,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/imgui_extra.cc" line="578" column="5" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="578" bodyend="581" declfile="libs/window/src/window/imgui_extra.h" declline="171" declcolumn="5"/>
+        <location file="libs/window/src/window/imgui_extra.cc" line="580" column="5" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="580" bodyend="583" declfile="libs/window/src/window/imgui_extra.h" declline="171" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1window_1_1imgui_1a42cd813f5bc810a2184c59277c611fce" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -576,7 +576,7 @@
         </inbodydescription>
         <location file="libs/window/src/window/imgui_extra.h" line="174" column="10" bodyfile="libs/window/src/window/imgui_extra.h" bodystart="175" bodyend="209"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1window_1_1imgui_1ac2d5234592ab0009c2ff7b841be58dcc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1window_1_1imgui_1afa50ddd44584bd69b3bb034adf3879db" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename T</type>
@@ -586,9 +586,9 @@
           </param>
         </templateparamlist>
         <type>void</type>
-        <definition>void euphoria::window::imgui::custom_dropdown</definition>
+        <definition>void euphoria::window::imgui::imgui_custom_dropdown</definition>
         <argsstring>(const char *name, T *current, T max, F to_string)</argsstring>
-        <name>custom_dropdown</name>
+        <name>imgui_custom_dropdown</name>
         <param>
           <type>const char *</type>
           <declname>name</declname>
@@ -626,11 +626,11 @@
         </inbodydescription>
         <location file="libs/window/src/window/imguilibrary.cc" line="23" column="5" bodyfile="libs/window/src/window/imguilibrary.cc" bodystart="23" bodyend="64"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1window_1_1imgui_1adc0b1696c01f8bda2d64dea90bbd3062" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1window_1_1imgui_1a2694d39fc31c6dfaa884634776aa8e3c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>void euphoria::window::imgui::process_imgui_events</definition>
+        <definition>void euphoria::window::imgui::send_events_to_imgui</definition>
         <argsstring>(const SDL_Event *event)</argsstring>
-        <name>process_imgui_events</name>
+        <name>send_events_to_imgui</name>
         <param>
           <type>const <ref refid="fakesdlevent_8h_1a33fcc6aa445cb781bfca881e39e5333e" kindref="member">SDL_Event</ref> *</type>
           <declname>event</declname>
@@ -643,11 +643,11 @@
         </inbodydescription>
         <location file="libs/window/src/window/imguilibrary.cc" line="99" column="5" bodyfile="libs/window/src/window/imguilibrary.cc" bodystart="99" bodyend="102" declfile="libs/window/src/window/imguilibrary.h" declline="28" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1window_1_1imgui_1a2d0cea1ff112996285b17e310daf6abb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1window_1_1imgui_1add52c0f7b7c519ea5385460b4f5cad22" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>void euphoria::window::imgui::start_new_frame</definition>
+        <definition>void euphoria::window::imgui::begin_new_frame</definition>
         <argsstring>()</argsstring>
-        <name>start_new_frame</name>
+        <name>begin_new_frame</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>

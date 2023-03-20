@@ -177,11 +177,11 @@
         </inbodydescription>
         <location file="libs/core/src/core/aabb.h" line="29" column="16" bodyfile="libs/core/src/core/aabb.cc" bodystart="91" bodyend="95"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Aabb_1ab33f0708e0eb29f9f430d762c753eebe" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Aabb_1ab64ef2544acfb446e3f5c37eca140198" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>std::vector&lt; <ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &gt;</type>
-        <definition>std::vector&lt; vec3f &gt; euphoria::core::Aabb::calculate_all_corners</definition>
+        <definition>std::vector&lt; vec3f &gt; euphoria::core::Aabb::calc_all_corners</definition>
         <argsstring>() const</argsstring>
-        <name>calculate_all_corners</name>
+        <name>calc_all_corners</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -227,7 +227,7 @@
     <location file="libs/core/src/core/aabb.h" line="13" column="1" bodyfile="libs/core/src/core/aabb.h" bodystart="12" bodyend="33"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1Aabb_1a4cc91056779896a9a0eca79ac71c0779" prot="public" virt="non-virtual"><scope>euphoria::core::Aabb</scope><name>Aabb</name></member>
-      <member refid="structeuphoria_1_1core_1_1Aabb_1ab33f0708e0eb29f9f430d762c753eebe" prot="public" virt="non-virtual"><scope>euphoria::core::Aabb</scope><name>calculate_all_corners</name></member>
+      <member refid="structeuphoria_1_1core_1_1Aabb_1ab64ef2544acfb446e3f5c37eca140198" prot="public" virt="non-virtual"><scope>euphoria::core::Aabb</scope><name>calc_all_corners</name></member>
       <member refid="structeuphoria_1_1core_1_1Aabb_1a968d009ee45fa5c4e1ee1171bc92f1d4" prot="public" virt="non-virtual"><scope>euphoria::core::Aabb</scope><name>create_empty</name></member>
       <member refid="structeuphoria_1_1core_1_1Aabb_1a84e652d66728b0cd1a1e61de7e04ca84" prot="public" virt="non-virtual"><scope>euphoria::core::Aabb</scope><name>extend</name></member>
       <member refid="structeuphoria_1_1core_1_1Aabb_1a9f592e6d732bf484bf2d416b44ffcea4" prot="public" virt="non-virtual"><scope>euphoria::core::Aabb</scope><name>extend</name></member>

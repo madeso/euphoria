@@ -107,8 +107,8 @@ Functions</h2></td></tr>
 <tr class="separator:a3592f65752e6e5ea9740ae0be7b5f532"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a91be13c4c39151467de424cdfd6ff0ab"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1gui.html#a91be13c4c39151467de424cdfd6ff0ab">setup_layout</a> (<a class="el" href="structeuphoria_1_1gui_1_1LayoutData.html">LayoutData</a> *data, const ::<a class="el" href="structeuphoria_1_1gui_1_1Widget.html">gui::Widget</a> &amp;src)</td></tr>
 <tr class="separator:a91be13c4c39151467de424cdfd6ff0ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:add17737c4e2cbb092d43faf860fb5219"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1Lrud.html">core::Lrud</a>&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1gui.html#add17737c4e2cbb092d43faf860fb5219">lrtb_from_gaf</a> (const ::gui::Lrtb &amp;lrtd)</td></tr>
-<tr class="separator:add17737c4e2cbb092d43faf860fb5219"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d8289fcba4c1b410652a759d9933d7b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1Lrud.html">core::Lrud</a>&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1gui.html#a9d8289fcba4c1b410652a759d9933d7b">from_gaf_to_lrud</a> (const ::gui::Lrtb &amp;lrtd)</td></tr>
+<tr class="separator:a9d8289fcba4c1b410652a759d9933d7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0e1039e16a45ca70bba3c65816e2b0fb"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="structeuphoria_1_1gui_1_1Widget.html">Widget</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1gui.html#a0e1039e16a45ca70bba3c65816e2b0fb">create_widget</a> (<a class="el" href="structeuphoria_1_1core_1_1vfs_1_1FileSystem.html">core::vfs::FileSystem</a> *fs, <a class="el" href="structeuphoria_1_1gui_1_1State.html">State</a> *<a class="el" href="ui__text_8cc.html#a259fb3f5fba9b7b18fe92f38be37bfa6">state</a>, const ::<a class="el" href="structeuphoria_1_1gui_1_1Widget.html">gui::Widget</a> &amp;w, <a class="el" href="structeuphoria_1_1render_1_1TextureCache.html">render::TextureCache</a> *cache, const std::map&lt; std::string, <a class="el" href="structeuphoria_1_1gui_1_1Skin.html">Skin</a> * &gt; &amp;skins)</td></tr>
 <tr class="separator:a0e1039e16a45ca70bba3c65816e2b0fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5d6b3f858a4201e0c92c9a2bf7986bab"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1rgb.html">core::rgb</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1gui.html#a5d6b3f858a4201e0c92c9a2bf7986bab">load</a> (const ::gui::Rgb &amp;src)</td></tr>
@@ -301,6 +301,26 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a9d8289fcba4c1b410652a759d9933d7b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d8289fcba4c1b410652a759d9933d7b">&#9670;&nbsp;</a></span>from_gaf_to_lrud()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structeuphoria_1_1core_1_1Lrud.html">core::Lrud</a>&lt;float&gt; euphoria::gui::from_gaf_to_lrud </td>
+          <td>(</td>
+          <td class="paramtype">const ::gui::Lrtb &amp;&#160;</td>
+          <td class="paramname"><em>lrtd</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="load_8cc_source.html#l00092">92</a> of file <a class="el" href="load_8cc_source.html">load.cc</a>.</p>
+
+</div>
+</div>
 <a id="a631afefc7be9090aa164b75abe5ee254"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a631afefc7be9090aa164b75abe5ee254">&#9670;&nbsp;</a></span>load() <span class="overload">[1/2]</span></h2>
 
@@ -442,26 +462,6 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="load_8cc_source.html#l00267">267</a> of file <a class="el" href="load_8cc_source.html">load.cc</a>.</p>
-
-</div>
-</div>
-<a id="add17737c4e2cbb092d43faf860fb5219"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#add17737c4e2cbb092d43faf860fb5219">&#9670;&nbsp;</a></span>lrtb_from_gaf()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structeuphoria_1_1core_1_1Lrud.html">core::Lrud</a>&lt;float&gt; euphoria::gui::lrtb_from_gaf </td>
-          <td>(</td>
-          <td class="paramtype">const ::gui::Lrtb &amp;&#160;</td>
-          <td class="paramname"><em>lrtd</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="load_8cc_source.html#l00092">92</a> of file <a class="el" href="load_8cc_source.html">load.cc</a>.</p>
 
 </div>
 </div>

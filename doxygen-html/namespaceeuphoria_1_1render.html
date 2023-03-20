@@ -250,8 +250,8 @@ Functions</h2></td></tr>
 <tr class="separator:a5566af705a0902b6b4398dc0537b0549"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1bcad2172be9b1e0644b15ac21863fbc"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="structeuphoria_1_1render_1_1CompiledMesh.html">CompiledMesh</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1render.html#a1bcad2172be9b1e0644b15ac21863fbc">compile_mesh</a> (const <a class="el" href="structeuphoria_1_1core_1_1Mesh.html">core::Mesh</a> &amp;mesh, <a class="el" href="structeuphoria_1_1render_1_1MaterialShaderCache.html">MaterialShaderCache</a> *shader_cache, <a class="el" href="structeuphoria_1_1render_1_1TextureCache.html">TextureCache</a> *texture_cache, const <a class="el" href="structeuphoria_1_1core_1_1vfs_1_1DirPath.html">core::vfs::DirPath</a> &amp;texture_folder, const std::string &amp;debug_name)</td></tr>
 <tr class="separator:a1bcad2172be9b1e0644b15ac21863fbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa1eb7e2a76ce8695b95803eeba41ff24"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1render.html#aa1eb7e2a76ce8695b95803eeba41ff24">opengl_error_to_string</a> (GLenum error_code)</td></tr>
-<tr class="separator:aa1eb7e2a76ce8695b95803eeba41ff24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af572aea2ca43e5c5bfce92814fec665c"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1render.html#af572aea2ca43e5c5bfce92814fec665c">from_opengl_error_to_string</a> (GLenum error_code)</td></tr>
+<tr class="separator:af572aea2ca43e5c5bfce92814fec665c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6a9240a286327d08088ba949eb6c0159"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1render.html#a6a9240a286327d08088ba949eb6c0159">print_all_opengl_errors</a> (const char *file, int <a class="el" href="nlp__sentence_8cc.html#a41ebd28ef1d7c6ade45642cb6acc1039">line</a>)</td></tr>
 <tr class="separator:a6a9240a286327d08088ba949eb6c0159"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a93f3b7ed9e37308d04b83d9a1df2c90c"><td class="memItemLeft" align="right" valign="top">void APIENTRY&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1render.html#a93f3b7ed9e37308d04b83d9a1df2c90c">on_opengl_error</a> (GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei, const GLchar *message, const GLvoid *)</td></tr>
@@ -266,8 +266,8 @@ Functions</h2></td></tr>
 <tr class="separator:ad7c773ce7bdfed44cc39d2ff50a3b977"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aad9e7ba73959c58dc50d9a1f992d88f5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1vec2f.html">core::vec2f</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1render.html#aad9e7ba73959c58dc50d9a1f992d88f5">get_offset</a> (<a class="el" href="namespaceeuphoria_1_1render.html#a6bbb739173cb83658bb8fe1a8a06518e">Align</a> alignment, const <a class="el" href="structeuphoria_1_1core_1_1Rectf.html">core::Rectf</a> &amp;extent)</td></tr>
 <tr class="separator:aad9e7ba73959c58dc50d9a1f992d88f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1c09c5a0e9b680744d32503b9caa1a86"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1mat4f.html">core::mat4f</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1render.html#a1c09c5a0e9b680744d32503b9caa1a86">calculate_model_matrix</a> (const <a class="el" href="structeuphoria_1_1core_1_1vec3f.html">core::vec3f</a> &amp;position, const <a class="el" href="structeuphoria_1_1core_1_1quatf.html">core::quatf</a> &amp;rotation)</td></tr>
-<tr class="separator:a1c09c5a0e9b680744d32503b9caa1a86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15401241ae3fad54f3600beff65efaf0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1mat4f.html">core::mat4f</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1render.html#a15401241ae3fad54f3600beff65efaf0">calc_model_matrix</a> (const <a class="el" href="structeuphoria_1_1core_1_1vec3f.html">core::vec3f</a> &amp;position, const <a class="el" href="structeuphoria_1_1core_1_1quatf.html">core::quatf</a> &amp;rotation)</td></tr>
+<tr class="separator:a15401241ae3fad54f3600beff65efaf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6cc5defea76a38bbf5272fa408971144"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1render.html#a6cc5defea76a38bbf5272fa408971144">post_build</a> (<a class="el" href="structeuphoria_1_1render_1_1MaterialShader.html">MaterialShader</a> *sh, const materialshader::MaterialShader &amp;file, const <a class="el" href="structeuphoria_1_1core_1_1vfs_1_1FilePath.html">core::vfs::FilePath</a> &amp;path)</td></tr>
 <tr class="separator:a6cc5defea76a38bbf5272fa408971144"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a32da24fdd09ef27f55fa60a5c56eaa31"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1render.html#a32da24fdd09ef27f55fa60a5c56eaa31">use</a> (const <a class="el" href="structeuphoria_1_1render_1_1ShaderProgram.html">ShaderProgram</a> *shader)</td></tr>
@@ -668,14 +668,14 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a1c09c5a0e9b680744d32503b9caa1a86"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1c09c5a0e9b680744d32503b9caa1a86">&#9670;&nbsp;</a></span>calculate_model_matrix()</h2>
+<a id="a15401241ae3fad54f3600beff65efaf0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15401241ae3fad54f3600beff65efaf0">&#9670;&nbsp;</a></span>calc_model_matrix()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structeuphoria_1_1core_1_1mat4f.html">core::mat4f</a> euphoria::render::calculate_model_matrix </td>
+          <td class="memname"><a class="el" href="structeuphoria_1_1core_1_1mat4f.html">core::mat4f</a> euphoria::render::calc_model_matrix </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1vec3f.html">core::vec3f</a> &amp;&#160;</td>
           <td class="paramname"><em>position</em>, </td>
@@ -986,6 +986,26 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="af572aea2ca43e5c5bfce92814fec665c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af572aea2ca43e5c5bfce92814fec665c">&#9670;&nbsp;</a></span>from_opengl_error_to_string()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string euphoria::render::from_opengl_error_to_string </td>
+          <td>(</td>
+          <td class="paramtype">GLenum&#160;</td>
+          <td class="paramname"><em>error_code</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="debuggl_8cc_source.html#l00058">58</a> of file <a class="el" href="debuggl_8cc_source.html">debuggl.cc</a>.</p>
+
+</div>
+</div>
 <a id="ac71a2db0bb245dd9d2f9da292459dda1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac71a2db0bb245dd9d2f9da292459dda1">&#9670;&nbsp;</a></span>get_characters_from_single_image()</h2>
 
@@ -1103,26 +1123,6 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="debuggl_8cc_source.html#l00092">92</a> of file <a class="el" href="debuggl_8cc_source.html">debuggl.cc</a>.</p>
-
-</div>
-</div>
-<a id="aa1eb7e2a76ce8695b95803eeba41ff24"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa1eb7e2a76ce8695b95803eeba41ff24">&#9670;&nbsp;</a></span>opengl_error_to_string()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string euphoria::render::opengl_error_to_string </td>
-          <td>(</td>
-          <td class="paramtype">GLenum&#160;</td>
-          <td class="paramname"><em>error_code</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="debuggl_8cc_source.html#l00058">58</a> of file <a class="el" href="debuggl_8cc_source.html">debuggl.cc</a>.</p>
 
 </div>
 </div>

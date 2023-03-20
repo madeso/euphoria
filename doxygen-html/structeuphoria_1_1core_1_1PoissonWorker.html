@@ -73,10 +73,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ae6ca118e932c7690831e7e551b51e3c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9f23a697db4ca4c0bedb0c7a501f3efc"><td class="memItemLeft" align="right" valign="top">std::tuple&lt; bool, <a class="el" href="structeuphoria_1_1core_1_1vec2f.html">vec2f</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1PoissonWorker.html#a9f23a697db4ca4c0bedb0c7a501f3efc">try_place</a> (int active_index)</td></tr>
 <tr class="separator:a9f23a697db4ca4c0bedb0c7a501f3efc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0b544f70cf42b8be2c351ab10acd90f4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1vec2i.html">vec2i</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1PoissonWorker.html#a0b544f70cf42b8be2c351ab10acd90f4">point_to_index</a> (const <a class="el" href="structeuphoria_1_1core_1_1vec2f.html">vec2f</a> &amp;p) const</td></tr>
-<tr class="separator:a0b544f70cf42b8be2c351ab10acd90f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab12994a2fe6904e40965c1e906331569"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1vec2f.html">vec2f</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1PoissonWorker.html#ab12994a2fe6904e40965c1e906331569">random_point</a> () const</td></tr>
-<tr class="separator:ab12994a2fe6904e40965c1e906331569"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e3a636969218211bbc9e94fc7718328"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1vec2i.html">vec2i</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1PoissonWorker.html#a8e3a636969218211bbc9e94fc7718328">c_point_to_index</a> (const <a class="el" href="structeuphoria_1_1core_1_1vec2f.html">vec2f</a> &amp;p) const</td></tr>
+<tr class="separator:a8e3a636969218211bbc9e94fc7718328"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9459a201e7c6818a34de9513092df2f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1vec2f.html">vec2f</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1PoissonWorker.html#ab9459a201e7c6818a34de9513092df2f">get_random_point_in_area</a> () const</td></tr>
+<tr class="separator:ab9459a201e7c6818a34de9513092df2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab8cb7d572b4b48042ec4d47e6ca21780"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1PoissonWorker.html#ab8cb7d572b4b48042ec4d47e6ca21780">is_done</a> () const</td></tr>
 <tr class="separator:ab8cb7d572b4b48042ec4d47e6ca21780"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -154,6 +154,26 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a8e3a636969218211bbc9e94fc7718328"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e3a636969218211bbc9e94fc7718328">&#9670;&nbsp;</a></span>c_point_to_index()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structeuphoria_1_1core_1_1vec2i.html">vec2i</a> euphoria::core::PoissonWorker::c_point_to_index </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1vec2f.html">vec2f</a> &amp;&#160;</td>
+          <td class="paramname"><em>p</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="poisson_8cc_source.html#l00060">60</a> of file <a class="el" href="poisson_8cc_source.html">poisson.cc</a>.</p>
+
+</div>
+</div>
 <a id="ae6ca118e932c7690831e7e551b51e3c6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae6ca118e932c7690831e7e551b51e3c6">&#9670;&nbsp;</a></span>can_place_at()</h2>
 
@@ -184,6 +204,25 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="ab9459a201e7c6818a34de9513092df2f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab9459a201e7c6818a34de9513092df2f">&#9670;&nbsp;</a></span>get_random_point_in_area()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structeuphoria_1_1core_1_1vec2f.html">vec2f</a> euphoria::core::PoissonWorker::get_random_point_in_area </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="poisson_8cc_source.html#l00055">55</a> of file <a class="el" href="poisson_8cc_source.html">poisson.cc</a>.</p>
+
+</div>
+</div>
 <a id="ab8cb7d572b4b48042ec4d47e6ca21780"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab8cb7d572b4b48042ec4d47e6ca21780">&#9670;&nbsp;</a></span>is_done()</h2>
 
@@ -200,45 +239,6 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="poisson_8cc_source.html#l00126">126</a> of file <a class="el" href="poisson_8cc_source.html">poisson.cc</a>.</p>
-
-</div>
-</div>
-<a id="a0b544f70cf42b8be2c351ab10acd90f4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0b544f70cf42b8be2c351ab10acd90f4">&#9670;&nbsp;</a></span>point_to_index()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structeuphoria_1_1core_1_1vec2i.html">vec2i</a> euphoria::core::PoissonWorker::point_to_index </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1vec2f.html">vec2f</a> &amp;&#160;</td>
-          <td class="paramname"><em>p</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="poisson_8cc_source.html#l00060">60</a> of file <a class="el" href="poisson_8cc_source.html">poisson.cc</a>.</p>
-
-</div>
-</div>
-<a id="ab12994a2fe6904e40965c1e906331569"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab12994a2fe6904e40965c1e906331569">&#9670;&nbsp;</a></span>random_point()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structeuphoria_1_1core_1_1vec2f.html">vec2f</a> euphoria::core::PoissonWorker::random_point </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="poisson_8cc_source.html#l00055">55</a> of file <a class="el" href="poisson_8cc_source.html">poisson.cc</a>.</p>
 
 </div>
 </div>

@@ -62,11 +62,11 @@
         </inbodydescription>
         <location file="libs/minsynth/src/minsynth/synth.h" line="173" column="14" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="208" bodyend="223"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1minsynth_1_1ToneToFrequencyConverterNode_1ab219c367aa25c36e10b834a15c49336b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1minsynth_1_1ToneToFrequencyConverterNode_1a6c3253ae67290823f9cc31fd45ea0356" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
-        <definition>float euphoria::minsynth::ToneToFrequencyConverterNode::calculate_frequency</definition>
+        <definition>float euphoria::minsynth::ToneToFrequencyConverterNode::calc_frequency</definition>
         <argsstring>(int semitone) const</argsstring>
-        <name>calculate_frequency</name>
+        <name>calc_frequency</name>
         <param>
           <type>int</type>
           <declname>semitone</declname>
@@ -129,7 +129,7 @@
     </collaborationgraph>
     <location file="libs/minsynth/src/minsynth/synth.h" line="169" column="1" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="166" bodyend="176"/>
     <listofallmembers>
-      <member refid="structeuphoria_1_1minsynth_1_1ToneToFrequencyConverterNode_1ab219c367aa25c36e10b834a15c49336b" prot="public" virt="non-virtual"><scope>euphoria::minsynth::ToneToFrequencyConverterNode</scope><name>calculate_frequency</name></member>
+      <member refid="structeuphoria_1_1minsynth_1_1ToneToFrequencyConverterNode_1a6c3253ae67290823f9cc31fd45ea0356" prot="public" virt="non-virtual"><scope>euphoria::minsynth::ToneToFrequencyConverterNode</scope><name>calc_frequency</name></member>
       <member refid="structeuphoria_1_1minsynth_1_1ToneToFrequencyConverterNode_1a00a1d0dff3725bcc5677f3e015464df4" prot="public" virt="non-virtual"><scope>euphoria::minsynth::ToneToFrequencyConverterNode</scope><name>next</name></member>
       <member refid="structeuphoria_1_1minsynth_1_1Node_1a343fb3f85c00808d9fa1a0e47db176b0" prot="public" virt="non-virtual"><scope>euphoria::minsynth::ToneToFrequencyConverterNode</scope><name>Node</name></member>
       <member refid="structeuphoria_1_1minsynth_1_1Node_1af32dcf34eb9bdc46433322309490f14f" prot="public" virt="non-virtual"><scope>euphoria::minsynth::ToneToFrequencyConverterNode</scope><name>Node</name></member>

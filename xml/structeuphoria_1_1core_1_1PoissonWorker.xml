@@ -207,11 +207,11 @@
         </inbodydescription>
         <location file="libs/core/src/core/poisson.h" line="32" column="20" bodyfile="libs/core/src/core/poisson.cc" bodystart="89" bodyend="122"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1PoissonWorker_1a0b544f70cf42b8be2c351ab10acd90f4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1PoissonWorker_1a8e3a636969218211bbc9e94fc7718328" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1vec2i" kindref="compound">vec2i</ref></type>
-        <definition>vec2i euphoria::core::PoissonWorker::point_to_index</definition>
+        <definition>vec2i euphoria::core::PoissonWorker::c_point_to_index</definition>
         <argsstring>(const vec2f &amp;p) const</argsstring>
-        <name>point_to_index</name>
+        <name>c_point_to_index</name>
         <param>
           <type>const <ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
           <declname>p</declname>
@@ -224,11 +224,11 @@
         </inbodydescription>
         <location file="libs/core/src/core/poisson.h" line="34" column="16" bodyfile="libs/core/src/core/poisson.cc" bodystart="60" bodyend="61"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1PoissonWorker_1ab12994a2fe6904e40965c1e906331569" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1PoissonWorker_1ab9459a201e7c6818a34de9513092df2f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref></type>
-        <definition>vec2f euphoria::core::PoissonWorker::random_point</definition>
+        <definition>vec2f euphoria::core::PoissonWorker::get_random_point_in_area</definition>
         <argsstring>() const</argsstring>
-        <name>random_point</name>
+        <name>get_random_point_in_area</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -287,15 +287,15 @@
       <member refid="structeuphoria_1_1core_1_1PoissonWorker_1a2a7382cf15920bbebf087c2afa1d1c9c" prot="public" virt="non-virtual"><scope>euphoria::core::PoissonWorker</scope><name>active</name></member>
       <member refid="structeuphoria_1_1core_1_1PoissonWorker_1acca7b2f02a12af990148b61a62d5f07c" prot="public" virt="non-virtual"><scope>euphoria::core::PoissonWorker</scope><name>area</name></member>
       <member refid="structeuphoria_1_1core_1_1PoissonWorker_1acf24818bc7b27ea9ae6abfdabf9e170e" prot="public" virt="non-virtual"><scope>euphoria::core::PoissonWorker</scope><name>bounds_check</name></member>
+      <member refid="structeuphoria_1_1core_1_1PoissonWorker_1a8e3a636969218211bbc9e94fc7718328" prot="public" virt="non-virtual"><scope>euphoria::core::PoissonWorker</scope><name>c_point_to_index</name></member>
       <member refid="structeuphoria_1_1core_1_1PoissonWorker_1ae6ca118e932c7690831e7e551b51e3c6" prot="public" virt="non-virtual"><scope>euphoria::core::PoissonWorker</scope><name>can_place_at</name></member>
+      <member refid="structeuphoria_1_1core_1_1PoissonWorker_1ab9459a201e7c6818a34de9513092df2f" prot="public" virt="non-virtual"><scope>euphoria::core::PoissonWorker</scope><name>get_random_point_in_area</name></member>
       <member refid="structeuphoria_1_1core_1_1PoissonWorker_1abafd517cad81042ae58c016e160810d4" prot="public" virt="non-virtual"><scope>euphoria::core::PoissonWorker</scope><name>grid</name></member>
       <member refid="structeuphoria_1_1core_1_1PoissonWorker_1ab8cb7d572b4b48042ec4d47e6ca21780" prot="public" virt="non-virtual"><scope>euphoria::core::PoissonWorker</scope><name>is_done</name></member>
       <member refid="structeuphoria_1_1core_1_1PoissonWorker_1ae91ccd62f6ce9b32b83ec09487e08919" prot="public" virt="non-virtual"><scope>euphoria::core::PoissonWorker</scope><name>k</name></member>
-      <member refid="structeuphoria_1_1core_1_1PoissonWorker_1a0b544f70cf42b8be2c351ab10acd90f4" prot="public" virt="non-virtual"><scope>euphoria::core::PoissonWorker</scope><name>point_to_index</name></member>
       <member refid="structeuphoria_1_1core_1_1PoissonWorker_1a2bc412490ecf75eddcfd7897a7a0b692" prot="public" virt="non-virtual"><scope>euphoria::core::PoissonWorker</scope><name>PoissonWorker</name></member>
       <member refid="structeuphoria_1_1core_1_1PoissonWorker_1a0a831efd2af2385c8fd2daea52c4c40c" prot="public" virt="non-virtual"><scope>euphoria::core::PoissonWorker</scope><name>r</name></member>
       <member refid="structeuphoria_1_1core_1_1PoissonWorker_1a75273635fdc9fd9eff112f6287e338d6" prot="public" virt="non-virtual"><scope>euphoria::core::PoissonWorker</scope><name>rand</name></member>
-      <member refid="structeuphoria_1_1core_1_1PoissonWorker_1ab12994a2fe6904e40965c1e906331569" prot="public" virt="non-virtual"><scope>euphoria::core::PoissonWorker</scope><name>random_point</name></member>
       <member refid="structeuphoria_1_1core_1_1PoissonWorker_1a822eb711790b9946991990c5cb68b842" prot="public" virt="non-virtual"><scope>euphoria::core::PoissonWorker</scope><name>samples</name></member>
       <member refid="structeuphoria_1_1core_1_1PoissonWorker_1a2999de8e6364c8108b8088264bb49b67" prot="public" virt="non-virtual"><scope>euphoria::core::PoissonWorker</scope><name>step</name></member>
       <member refid="structeuphoria_1_1core_1_1PoissonWorker_1a9f23a697db4ca4c0bedb0c7a501f3efc" prot="public" virt="non-virtual"><scope>euphoria::core::PoissonWorker</scope><name>try_place</name></member>

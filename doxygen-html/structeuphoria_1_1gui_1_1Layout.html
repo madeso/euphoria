@@ -86,10 +86,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a3d3e1f642735910b281b8f65ee4ca9ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9f5f62207f0957b3944b4248e48c96a0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1gui_1_1Layout.html#a9f5f62207f0957b3944b4248e48c96a0">operator=</a> (<a class="el" href="structeuphoria_1_1gui_1_1Layout.html">Layout</a> &amp;&amp;)=delete</td></tr>
 <tr class="separator:a9f5f62207f0957b3944b4248e48c96a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af6fd2eb8a826c08e0add5fd78a3464d0"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="structeuphoria_1_1core_1_1size2f.html">core::size2f</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1gui_1_1Layout.html#af6fd2eb8a826c08e0add5fd78a3464d0">calculate_minimum_area</a> (const std::vector&lt; std::shared_ptr&lt; <a class="el" href="structeuphoria_1_1gui_1_1Widget.html">Widget</a> &gt;&gt; &amp;widgets) const =0</td></tr>
-<tr class="separator:af6fd2eb8a826c08e0add5fd78a3464d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a59f1d59f5b936e31b12c8e25c4cd91a7"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1gui_1_1Layout.html#a59f1d59f5b936e31b12c8e25c4cd91a7">do_layout</a> (std::vector&lt; std::shared_ptr&lt; <a class="el" href="structeuphoria_1_1gui_1_1Widget.html">Widget</a> &gt;&gt; *widgets, const <a class="el" href="structeuphoria_1_1core_1_1Rectf.html">core::Rectf</a> &amp;area) const =0</td></tr>
-<tr class="separator:a59f1d59f5b936e31b12c8e25c4cd91a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1434745b12bb4c6103387035dbce6cc1"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="structeuphoria_1_1core_1_1size2f.html">core::size2f</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1gui_1_1Layout.html#a1434745b12bb4c6103387035dbce6cc1">calc_minimum_area</a> (const std::vector&lt; std::shared_ptr&lt; <a class="el" href="structeuphoria_1_1gui_1_1Widget.html">Widget</a> &gt;&gt; &amp;widgets) const =0</td></tr>
+<tr class="separator:a1434745b12bb4c6103387035dbce6cc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f6e4d58d760ad4f2f8856fc6f7d0eab"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1gui_1_1Layout.html#a6f6e4d58d760ad4f2f8856fc6f7d0eab">lay_out</a> (std::vector&lt; std::shared_ptr&lt; <a class="el" href="structeuphoria_1_1gui_1_1Widget.html">Widget</a> &gt;&gt; *widgets, const <a class="el" href="structeuphoria_1_1core_1_1Rectf.html">core::Rectf</a> &amp;area) const =0</td></tr>
+<tr class="separator:a6f6e4d58d760ad4f2f8856fc6f7d0eab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
@@ -198,8 +198,8 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="af6fd2eb8a826c08e0add5fd78a3464d0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af6fd2eb8a826c08e0add5fd78a3464d0">&#9670;&nbsp;</a></span>calculate_minimum_area()</h2>
+<a id="a1434745b12bb4c6103387035dbce6cc1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1434745b12bb4c6103387035dbce6cc1">&#9670;&nbsp;</a></span>calc_minimum_area()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -208,7 +208,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual <a class="el" href="structeuphoria_1_1core_1_1size2f.html">core::size2f</a> euphoria::gui::Layout::calculate_minimum_area </td>
+          <td class="memname">virtual <a class="el" href="structeuphoria_1_1core_1_1size2f.html">core::size2f</a> euphoria::gui::Layout::calc_minimum_area </td>
           <td>(</td>
           <td class="paramtype">const std::vector&lt; std::shared_ptr&lt; <a class="el" href="structeuphoria_1_1gui_1_1Widget.html">Widget</a> &gt;&gt; &amp;&#160;</td>
           <td class="paramname"><em>widgets</em></td><td>)</td>
@@ -222,12 +222,12 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="structeuphoria_1_1gui_1_1SingleRowLayout.html#ad909ffbe6667b3ec1ed10a80cd00bcb1">euphoria::gui::SingleRowLayout</a>, and <a class="el" href="structeuphoria_1_1gui_1_1TableLayout.html#a39f6030608ef993a14ccea2ff0025c62">euphoria::gui::TableLayout</a>.</p>
+<p>Implemented in <a class="el" href="structeuphoria_1_1gui_1_1SingleRowLayout.html#a5758573ccf803bdfaa10f16f9029a963">euphoria::gui::SingleRowLayout</a>, and <a class="el" href="structeuphoria_1_1gui_1_1TableLayout.html#a85d5c349d52858ac8fd29b1fca1630cd">euphoria::gui::TableLayout</a>.</p>
 
 </div>
 </div>
-<a id="a59f1d59f5b936e31b12c8e25c4cd91a7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a59f1d59f5b936e31b12c8e25c4cd91a7">&#9670;&nbsp;</a></span>do_layout()</h2>
+<a id="a6f6e4d58d760ad4f2f8856fc6f7d0eab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f6e4d58d760ad4f2f8856fc6f7d0eab">&#9670;&nbsp;</a></span>lay_out()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -236,7 +236,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void euphoria::gui::Layout::do_layout </td>
+          <td class="memname">virtual void euphoria::gui::Layout::lay_out </td>
           <td>(</td>
           <td class="paramtype">std::vector&lt; std::shared_ptr&lt; <a class="el" href="structeuphoria_1_1gui_1_1Widget.html">Widget</a> &gt;&gt; *&#160;</td>
           <td class="paramname"><em>widgets</em>, </td>
@@ -260,7 +260,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="structeuphoria_1_1gui_1_1SingleRowLayout.html#aabd0646610802ae4c06986f1629ba524">euphoria::gui::SingleRowLayout</a>, and <a class="el" href="structeuphoria_1_1gui_1_1TableLayout.html#ab80b0e601533d63421a1ef312cef3793">euphoria::gui::TableLayout</a>.</p>
+<p>Implemented in <a class="el" href="structeuphoria_1_1gui_1_1SingleRowLayout.html#ab731cf8ad67c0cd4eaf67517f419f665">euphoria::gui::SingleRowLayout</a>, and <a class="el" href="structeuphoria_1_1gui_1_1TableLayout.html#a7284ac842074080e7508161e75328428">euphoria::gui::TableLayout</a>.</p>
 
 </div>
 </div>
