@@ -106,19 +106,19 @@ namespace euphoria::core
             {
             case bit_left:
             case bit_right:
-            case bit_left | bit_right:                     return u8"─";
+            case bit_left | bit_right:                     return "─";
             case bit_up:
             case bit_down:
-            case bit_up | bit_down:                        return u8"│";
-            case bit_left| bit_up:                         return u8"┘";
-            case bit_left | bit_down:                      return u8"┐";
-            case bit_right | bit_up:                       return u8"└";
-            case bit_right | bit_down:                     return u8"┌";
-            case bit_left | bit_right | bit_up:            return u8"┴";
-            case bit_left | bit_right | bit_down:          return u8"┬";
-            case bit_left | bit_up | bit_down:             return u8"┤";
-            case bit_right | bit_up | bit_down:            return u8"├";
-            case bit_left | bit_right | bit_up | bit_down: return u8"┼";
+            case bit_up | bit_down:                        return "│";
+            case bit_left| bit_up:                         return "┘";
+            case bit_left | bit_down:                      return "┐";
+            case bit_right | bit_up:                       return "└";
+            case bit_right | bit_down:                     return "┌";
+            case bit_left | bit_right | bit_up:            return "┴";
+            case bit_left | bit_right | bit_down:          return "┬";
+            case bit_left | bit_up | bit_down:             return "┤";
+            case bit_right | bit_up | bit_down:            return "├";
+            case bit_left | bit_right | bit_up | bit_down: return "┼";
             default:
                 DIE("Invalid combination");
                 return "X";
@@ -135,19 +135,19 @@ namespace euphoria::core
             {
             case bit_left:
             case bit_right:
-            case bit_left | bit_right:                     return u8"─";
+            case bit_left | bit_right:                     return "─";
             case bit_up:
             case bit_down:
-            case bit_up | bit_down:                        return u8"│";
-            case bit_left| bit_up:                         return u8"╯";
-            case bit_left | bit_down:                      return u8"╮";
-            case bit_right | bit_up:                       return u8"╰";
-            case bit_right | bit_down:                     return u8"╭";
-            case bit_left | bit_right | bit_up:            return u8"┴";
-            case bit_left | bit_right | bit_down:          return u8"┬";
-            case bit_left | bit_up | bit_down:             return u8"┤";
-            case bit_right | bit_up | bit_down:            return u8"├";
-            case bit_left | bit_right | bit_up | bit_down: return u8"┼";
+            case bit_up | bit_down:                        return "│";
+            case bit_left| bit_up:                         return "╯";
+            case bit_left | bit_down:                      return "╮";
+            case bit_right | bit_up:                       return "╰";
+            case bit_right | bit_down:                     return "╭";
+            case bit_left | bit_right | bit_up:            return "┴";
+            case bit_left | bit_right | bit_down:          return "┬";
+            case bit_left | bit_up | bit_down:             return "┤";
+            case bit_right | bit_up | bit_down:            return "├";
+            case bit_left | bit_right | bit_up | bit_down: return "┼";
             default:
                 DIE("Invalid combination");
                 return "X";
@@ -164,19 +164,19 @@ namespace euphoria::core
             {
             case bit_left:
             case bit_right:
-            case bit_left | bit_right:                     return u8"═";
+            case bit_left | bit_right:                     return "═";
             case bit_up:
             case bit_down:
-            case bit_up | bit_down:                        return u8"║";
-            case bit_left| bit_up:                         return u8"╝";
-            case bit_left | bit_down:                      return u8"╗";
-            case bit_right | bit_up:                       return u8"╚";
-            case bit_right | bit_down:                     return u8"╔";
-            case bit_left | bit_right | bit_up:            return u8"╩";
-            case bit_left | bit_right | bit_down:          return u8"╦";
-            case bit_left | bit_up | bit_down:             return u8"╣";
-            case bit_right | bit_up | bit_down:            return u8"╠";
-            case bit_left | bit_right | bit_up | bit_down: return u8"╬";
+            case bit_up | bit_down:                        return "║";
+            case bit_left| bit_up:                         return "╝";
+            case bit_left | bit_down:                      return "╗";
+            case bit_right | bit_up:                       return "╚";
+            case bit_right | bit_down:                     return "╔";
+            case bit_left | bit_right | bit_up:            return "╩";
+            case bit_left | bit_right | bit_down:          return "╦";
+            case bit_left | bit_up | bit_down:             return "╣";
+            case bit_right | bit_up | bit_down:            return "╠";
+            case bit_left | bit_right | bit_up | bit_down: return "╬";
             default:
                 DIE("Invalid combination");
                 return "X";

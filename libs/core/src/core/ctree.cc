@@ -42,10 +42,10 @@ TreeStyle slash_style()
 TreeStyle utf8_tree_style()
 {
     auto r = TreeStyle{};
-    r.t_cross = u8"├╴";
-    r.l = u8"└╴";
-    r.down = u8"│ ";
-    r.space = u8"  ";
+    r.t_cross = "├╴";
+    r.l = "└╴";
+    r.down = "│ ";
+    r.space = "  ";
     r.include_space = true;
     r.root_special = true;
     return r;
