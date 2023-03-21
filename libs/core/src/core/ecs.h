@@ -87,6 +87,7 @@ namespace euphoria::core::ecs
             }
         }
 
+        // todo(Gustav): rename to has_value_for_index
         [[nodiscard]]
         bool
         index_has_value(std::size_t index) const

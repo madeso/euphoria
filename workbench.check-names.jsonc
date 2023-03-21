@@ -40,6 +40,7 @@
     "bad_function_verbs": {
         // for X prefer any of Y
         "start": ["begin"],
+        "starts": ["begins_with"],
         "calculate": ["calc"],
         "new": ["create", "make"],
 
@@ -73,10 +74,13 @@
         
         // bool functions
         "is", "has", "contains", "can", "should", "have", "could", "match",
-        "ends", // _with
+        "begins", "ends", // _with
         
         // actual event handler
         "on",
+
+        // I will correct that error tomorrow
+        "correct",
 
         // function to trigger and handle events
         "react", // "_to"
@@ -119,9 +123,9 @@
         "try",
 
         // vague verbs...
-        // todo(Gustav): replace?
+        // todo(Gustav): replace or reduce with suggestions?
         "apply", "use", "run", "build",
-        "determine", "change", "perform",
+        "determine", "change", "perform", "do",
 
         // todo(Gustav): rename function to from_look...
         "look",

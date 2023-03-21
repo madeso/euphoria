@@ -121,6 +121,7 @@ namespace euphoria::core
         return ret;
     }
 
+    // todo(Gustav): rename to do_inplace_radix_sort
     template <typename T, typename TIdExtractor, typename TBucket, typename TInt>
     void
     radix_sort(std::vector<T>* arr)

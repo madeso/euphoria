@@ -5,6 +5,7 @@
 
 namespace euphoria::core
 {
+    // todo(Gustav): rename to do_inplace_insertion_sort
     template <typename T, typename TSortFunc>
     void
     insertion_sort(std::vector<T>* pointer_to_array, TSortFunc sort_func)
@@ -25,6 +26,7 @@ namespace euphoria::core
         }
     }
 
+    // todo(Gustav): rename to get_insertion_sorted
     template <typename T, typename TSortFunc>
     std::vector<T>
     insertion_sort(const std::vector<T>& array, TSortFunc sort_func)
@@ -34,6 +36,7 @@ namespace euphoria::core
         return copy;
     }
 
+    // rename to default_compare
     template <typename T>
     int
     default_insertion_sort(const T& lhs, const T& rhs)
@@ -45,6 +48,7 @@ namespace euphoria::core
         return lhs < rhs ? -1 : 1;
     }
 
+    // todo(Gustav): rename to get_insertion_sorted
     template <typename T>
     std::vector<T>
     insertion_sort(const std::vector<T>& array)

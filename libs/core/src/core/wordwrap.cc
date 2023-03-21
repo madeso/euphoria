@@ -56,6 +56,7 @@ namespace
 
 }
 
+// todo(Gustav): rename to get_word_wrapped
 std::vector<std::string>
 word_wrap
 (

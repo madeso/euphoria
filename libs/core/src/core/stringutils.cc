@@ -82,6 +82,7 @@ trim(const std::string& string_to_trim, const std::string& trim_characters)
 }
 
 
+// todo(Gustav): rename to begins_with
 bool
 begins_width(const std::string& string_to_test, const std::string& start)
 {

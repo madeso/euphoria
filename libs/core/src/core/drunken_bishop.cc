@@ -75,6 +75,7 @@ namespace euphoria::core
     }
 
 
+    // todo(Gustav): rename to get_drunken_bishop_result
     Table<int>
     drunken_bishop
     (
@@ -96,7 +97,7 @@ namespace euphoria::core
         );
     }
 
-
+    // todo(Gustav): rename to get_drunken_bishop_result
     Table<int>
     drunken_bishop
     (
@@ -118,7 +119,7 @@ namespace euphoria::core
         );
     }
 
-
+    // todo(Gustav): rename to get_drunken_bishop_result
     Table<int>
     drunken_bishop
     (

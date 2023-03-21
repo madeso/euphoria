@@ -67,7 +67,7 @@ namespace euphoria::core
             unsigned char a
         );
 
-        // todo(Gustav): add a run_ prefix
+        // todo(Gustav): add a run_image_ prefix
         template <typename TFunc>
         void filter(TFunc f)
         {

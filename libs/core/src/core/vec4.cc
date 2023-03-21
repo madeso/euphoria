@@ -91,6 +91,7 @@ namespace euphoria::core
     }
 
 
+    // todo(Gustav): move to free function and to matrix class
     vec4f
     component_multiply(const vec4f& lhs, const vec4f& rhs)
     {

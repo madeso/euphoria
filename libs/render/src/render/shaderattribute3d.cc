@@ -7,7 +7,6 @@
 
 namespace euphoria::render::attributes3d
 {
-    // todo(Gustav): make constexpr
     const ShaderAttribute& vertex()
     {
         static const auto attribute = ShaderAttribute
@@ -33,7 +32,7 @@ namespace euphoria::render::attributes3d
         return attribute;
     }
 
-
+    // todo(Gustav): make constexpr
     const ShaderAttribute& tex_coord()
     {
         static const auto attribute = ShaderAttribute
