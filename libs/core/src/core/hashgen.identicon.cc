@@ -96,7 +96,7 @@ namespace
         );
         for (std::size_t i = 1; i < vertices.size(); i++)
         {
-            ctx.line_to
+            ctx.draw_line_to
             (
                 static_cast<float>(vertices[i] % 5) * scale - offset,
                 std::floor(static_cast<float>(vertices[i]) / 5.0f) * scale - offset

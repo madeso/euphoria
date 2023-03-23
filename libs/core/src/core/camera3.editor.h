@@ -41,7 +41,7 @@ namespace euphoria::core
 
             virtual void on_mouse_move(EditorCamera3* owner, int dx, int dy) = 0;
             virtual void on_key(EditorCamera3* owner, Key key, bool down) = 0;
-            virtual void step
+            virtual void update
             (
                 EditorCamera3* owner,
                 bool shift_state,
@@ -94,7 +94,7 @@ namespace euphoria::core
         EditorCamera3(const EditorCamera3&) = delete;
         EditorCamera3& operator=(const EditorCamera3&) = delete;
 
-        void step
+        void update
         (
             bool shift_state,
             const vec2i& mouse,

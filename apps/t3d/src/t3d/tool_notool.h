@@ -40,7 +40,7 @@ namespace euphoria::t3d
 
 
         void
-        step(Editor*) override;
+        update(Editor*) override;
 
 
         void

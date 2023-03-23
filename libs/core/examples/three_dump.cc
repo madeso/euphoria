@@ -59,7 +59,7 @@ main(int argc, char* argv[])
 
     add_spiral(&dump, 100, 4, 5, 2.5f, pal.get_random_item(&rand));
 
-    dump.add_plane(Plane::from_normal_and_point(unit3f::right(), vec3f(1, 2, 3)), pal.get_random_item(&rand));
+    dump.add_plane(Plane::from_normal_and_point(common::right, vec3f(1, 2, 3)), pal.get_random_item(&rand));
 
     dump.add_arrow(Ray3f::from_to(vec3f{3, 2, 1}, vec3f{0,0,0}), pal.get_random_item(&rand));
 

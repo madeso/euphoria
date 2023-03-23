@@ -44,7 +44,7 @@ namespace euphoria::gui
 
         void set_skin(Skin* new_skin);
 
-        void step(float dt) override;
+        void update(float dt) override;
         [[nodiscard]] core::size2f calc_minimum_size() const override;
         void render(render::SpriteRenderer* renderer) const override;
         void visit(Visitor* visitor) override;

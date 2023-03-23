@@ -4,16 +4,16 @@
 
 namespace euco = euphoria::core;
 
-TEST_CASE("quicksort-empty", "[quicksort]")
+TEST_CASE("quick_sort-empty", "[get_quick_sorted]")
 {
-    const auto sorted = euco::quicksort(std::vector<int> {});
+    const auto sorted = euco::get_quick_sorted(std::vector<int> {});
     const auto expected = std::vector<int> {};
     CHECK(sorted == expected);
 }
 
 /*
 // quick sort is not stable, this will fail...
-TEST_CASE("quicksort-four-custom0", "[quicksort]")
+TEST_CASE("quick_sort-four-custom0", "[get_quick_sorted]")
 {
   const auto values = std::vector<int>{5, 3, 6, 1};
   const auto sorted = QuickSort(values, [](int, int){return 0;});
@@ -22,37 +22,37 @@ TEST_CASE("quicksort-four-custom0", "[quicksort]")
 }
 */
 
-TEST_CASE("quicksort-four", "[quicksort]")
+TEST_CASE("quick_sort-four", "[get_quick_sorted]")
 {
-    const auto sorted = euco::quicksort(std::vector<int> {5, 3, 6, 1});
+    const auto sorted = euco::get_quick_sorted(std::vector<int> {5, 3, 6, 1});
     const auto expected = std::vector<int> {1, 3, 5, 6};
     CHECK(sorted == expected);
 }
 
-TEST_CASE("quicksort-two", "[quicksort]")
+TEST_CASE("quick_sort-two", "[get_quick_sorted]")
 {
-    const auto sorted = euco::quicksort(std::vector<int> {8, 7});
+    const auto sorted = euco::get_quick_sorted(std::vector<int> {8, 7});
     const auto expected = std::vector<int> {7, 8};
     CHECK(sorted == expected);
 }
 
-TEST_CASE("quicksort-five", "[quicksort]")
+TEST_CASE("quick_sort-five", "[get_quick_sorted]")
 {
-    const auto sorted = euco::quicksort(std::vector<int> {5, 0, 1, 8, 7});
+    const auto sorted = euco::get_quick_sorted(std::vector<int> {5, 0, 1, 8, 7});
     const auto expected = std::vector<int> {0, 1, 5, 7, 8};
     CHECK(sorted == expected);
 }
 
-TEST_CASE("quicksort-sorted", "[quicksort]")
+TEST_CASE("quick_sort-sorted", "[get_quick_sorted]")
 {
     const auto expected = std::vector<int> {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
-    const auto sorted = euco::quicksort(expected);
+    const auto sorted = euco::get_quick_sorted(expected);
     CHECK(sorted == expected);
 }
 
-TEST_CASE("quicksort-100", "[quicksort]")
+TEST_CASE("quick_sort-100", "[get_quick_sorted]")
 {
-    const auto sorted = euco::quicksort(std::vector<int> {
+    const auto sorted = euco::get_quick_sorted(std::vector<int> {
             95, 14, 6, 6, 90, 25, 42, 4, 12, 12, 97, 4, 1, 32, 55, 52, 48,
             19, 61, 85, 61, 42, 47, 34, 57, 47, 14, 70, 47, 14, 47, 97, 92, 6,
             20, 74, 4,  84, 30, 94, 16, 95, 73, 5,  90, 19, 2,  97, 73, 17, 27,
@@ -97,24 +97,24 @@ namespace
 }
 
 
-TEST_CASE("quicksort-default_sort", "[quicksort]")
+TEST_CASE("quick_sort-default_sort", "[get_quick_sorted]")
 {
     const auto dog = TestData {"dog", 3};
     const auto cat = TestData {"cat", 42};
     const auto human = TestData {"human", 1};
-    const auto sorted = euco::quicksort(std::vector<TestData> {dog, cat, human});
+    const auto sorted = euco::get_quick_sorted(std::vector<TestData> {dog, cat, human});
     const auto expected = std::vector<TestData> {cat, dog, human};
     CHECK(sorted == expected);
 }
 
-TEST_CASE("quicksort-custom_sort", "[quicksort]")
+TEST_CASE("quick_sort-custom_sort", "[get_quick_sorted]")
 {
     const auto dog = TestData {"dog", 3};
     const auto cat = TestData {"cat", 42};
     const auto human = TestData {"human", 1};
-    const auto sorted = euco::quicksort(
+    const auto sorted = euco::get_quick_sorted(
             std::vector<TestData> {dog, cat, human}, [](const TestData& lhs, const TestData& rhs) {
-                return euco::default_sort_function_for_quicksort(lhs.i, rhs.i);
+                return euco::default_compare_for_quicksort(lhs.i, rhs.i);
             });
     const auto expected = std::vector<TestData> {human, dog, cat};
     CHECK(sorted == expected);

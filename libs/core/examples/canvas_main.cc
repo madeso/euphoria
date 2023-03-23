@@ -38,8 +38,8 @@ main(int, char*[])
     ctx.fill_style = NamedColor::red;
     ctx.begin_path();
     ctx.move_to(50, 140);
-    ctx.line_to(150, 60);
-    ctx.line_to(250, 140);
+    ctx.draw_line_to(150, 60);
+    ctx.draw_line_to(250, 140);
     ctx.close_path();
     ctx.fill();
 

@@ -63,12 +63,6 @@ namespace euphoria::core
         return vec2f(x, -y);
     }
 
-    float
-    vec2f::get_component_sum() const
-    {
-        return x + y;
-    }
-
     void
     vec2f::operator+=(const vec2f& rhs)
     {
@@ -188,12 +182,6 @@ namespace euphoria::core
         return vec2i(x, -y);
     }
 
-    int
-    vec2i::get_component_sum() const
-    {
-        return x + y;
-    }
-
     void
     vec2i::operator+=(const vec2i& rhs)
     {
@@ -253,12 +241,6 @@ namespace euphoria::core
     unit2f::get_flipped_y() const
     {
         return unit2f(x, -y);
-    }
-
-    float
-    unit2f::get_component_sum() const
-    {
-        return x + y;
     }
 
     unit2f
@@ -333,12 +315,6 @@ namespace euphoria::core
     {
         return Scale2f(x, -y);
     }
-    
-    float
-    Scale2f::get_component_sum() const
-    {
-        return x + y;
-    }
 
     Scale2f
     Scale2f::operator-() const
@@ -397,13 +373,6 @@ namespace euphoria::core
         return r;
     }
 
-    // todo(Gustav): replace with a local function for matrix
-    vec2f
-    component_multiply(const vec2f& lhs, const vec2f& rhs)
-    {
-        return vec2f(lhs.x * rhs.x, lhs.y * rhs.y);
-    }
-
     
     vec2i
     operator+(const vec2i& lhs, const vec2i& rhs)
@@ -437,14 +406,6 @@ namespace euphoria::core
         r *= lhs;
         return r;
     }
-
-    // todo(Gustav): replace with a local function for matrix
-    vec2i
-    component_multiply(const vec2i& lhs, const vec2i& rhs)
-    {
-        return vec2i(lhs.x * rhs.x, lhs.y * rhs.y);
-    }
-
 
 
     bool
@@ -511,7 +472,7 @@ namespace euphoria::core
 
     unit2f create_random_unit(Random* random)
     {
-        const auto angle = angle::random(random);
+        const auto angle = get_random_angle(random);
         const auto x = cos(angle);
         const auto y = sin(angle);
         return unit2f{x, y};

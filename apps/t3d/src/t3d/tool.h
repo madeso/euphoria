@@ -24,7 +24,7 @@ namespace euphoria::t3d
 
 
         virtual void
-        step(t3d::Editor* editor) = 0;
+        update(t3d::Editor* editor) = 0;
 
 
         virtual void

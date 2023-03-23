@@ -88,7 +88,7 @@ namespace euphoria::t3d
 
 
         void
-        step();
+        update();
 
 
         void

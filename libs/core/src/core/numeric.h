@@ -7,16 +7,23 @@ namespace euphoria::core
 {
 
     // int overloads provided for template overload reasons
+    constexpr bool
+    is_zero(float r)
+    {
+        constexpr float epsilon = 0.0001f;
+        if (r < -epsilon) { return false; }
+        else if (r > epsilon) { return false; }
+        else { return true; }
+    }
 
-
-    bool
-    is_equal(float lhs, float rhs);
+    constexpr bool
+    is_equal(float lhs, float rhs)
+    {
+        return is_zero(lhs - rhs);
+    }
 
     bool
     is_equal(int lhs, int rhs);
-
-    bool
-    is_zero(float r);
 
     bool
     is_zero(int r);

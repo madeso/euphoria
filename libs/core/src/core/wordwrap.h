@@ -8,7 +8,7 @@
 namespace euphoria::core
 {
     std::vector<std::string>
-    word_wrap
+    get_word_wrapped
     (
         const std::string& str,
         std::function<bool (const std::string&)> measure

@@ -14,6 +14,6 @@ namespace euphoria::core
         float timer = 0.0f;
         bool display_hover = false;
 
-        void step(bool currently_hovering_over_widget, float dt);
+        void update(bool currently_hovering_over_widget, float dt);
     };
 }

@@ -14,7 +14,7 @@ namespace euphoria::core
 
 
     std::string
-    ceasar_cypher
+    get_ceasar_cypher
     (
         const std::string& input,
         int steps,
@@ -26,7 +26,7 @@ namespace euphoria::core
 
 
     std::string
-    rot13(const std::string& input);
+    get_rot13(const std::string& input);
 
 
 }

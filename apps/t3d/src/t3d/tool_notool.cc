@@ -29,7 +29,7 @@ namespace euphoria::t3d
 
 
     void
-    ToolNoTool::step(Editor*)
+    ToolNoTool::update(Editor*)
     {
     }
 

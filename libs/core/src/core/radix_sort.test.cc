@@ -92,28 +92,28 @@ TEST_CASE("radix-values")
     SECTION("radix-already_sorted10", "[radix]")
     {
         std::vector<Dummy> d = sorted1;
-        euco::radix_sort<Dummy, Dummy, euco::BucketBase10<int>, int>(&d);
+        euco::do_inplace_radix_sort<Dummy, Dummy, euco::BucketBase10<int>, int>(&d);
         REQUIRE(d == sorted1);
     }
 
     SECTION("radix-not_sorted10", "[radix]")
     {
         std::vector<Dummy> d = unsorted1;
-        euco::radix_sort<Dummy, Dummy, euco::BucketBase10<int>, int>(&d);
+        euco::do_inplace_radix_sort<Dummy, Dummy, euco::BucketBase10<int>, int>(&d);
         REQUIRE(d == sorted1);
     }
 
     SECTION("radix-already_sorted16", "[radix]")
     {
         std::vector<Dummy> d = sorted1;
-        euco::radix_sort<Dummy, Dummy, euco::BucketBase16<int>, int>(&d);
+        euco::do_inplace_radix_sort<Dummy, Dummy, euco::BucketBase16<int>, int>(&d);
         REQUIRE(d == sorted1);
     }
 
     SECTION("radix-not_sorted16", "[radix]")
     {
         std::vector<Dummy> d = unsorted1;
-        euco::radix_sort<Dummy, Dummy, euco::BucketBase16<int>, int>(&d);
+        euco::do_inplace_radix_sort<Dummy, Dummy, euco::BucketBase16<int>, int>(&d);
         REQUIRE(d == sorted1);
     }
 
@@ -122,28 +122,28 @@ TEST_CASE("radix-values")
     SECTION("radix-already_sorted10int", "[radix]")
     {
         std::vector<int> d = sorted2;
-        euco::radix_sort<int, IntType, euco::BucketBase10<int>, int>(&d);
+        euco::do_inplace_radix_sort<int, IntType, euco::BucketBase10<int>, int>(&d);
         REQUIRE(d == sorted2);
     }
 
     SECTION("radix-not_sorted10int", "[radix]")
     {
         std::vector<int> d = unsorted2;
-        euco::radix_sort<int, IntType, euco::BucketBase10<int>, int>(&d);
+        euco::do_inplace_radix_sort<int, IntType, euco::BucketBase10<int>, int>(&d);
         REQUIRE(d == sorted2);
     }
 
     SECTION("radix-already_sorted16int", "[radix]")
     {
         std::vector<int> d = sorted2;
-        euco::radix_sort<int, IntType, euco::BucketBase16<int>, int>(&d);
+        euco::do_inplace_radix_sort<int, IntType, euco::BucketBase16<int>, int>(&d);
         REQUIRE(d == sorted2);
     }
 
     SECTION("radix-not_sorted16int", "[radix]")
     {
         std::vector<int> d = unsorted2;
-        euco::radix_sort<int, IntType, euco::BucketBase16<int>, int>(&d);
+        euco::do_inplace_radix_sort<int, IntType, euco::BucketBase16<int>, int>(&d);
         REQUIRE(d == sorted2);
     }
 }

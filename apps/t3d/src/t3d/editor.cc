@@ -155,9 +155,9 @@ namespace euphoria::t3d
 
 
     void
-    Editor::step()
+    Editor::update()
     {
-        tools.get_current_tool()->step(this);
+        tools.get_current_tool()->update(this);
     }
 
 

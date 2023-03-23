@@ -9,7 +9,7 @@
 namespace euphoria::core
 {
 
-// word_wrap is currently based on https://stackoverflow.com/a/17635
+// get_word_wrapped is currently based on https://stackoverflow.com/a/17635
 
 namespace
 {
@@ -58,7 +58,7 @@ namespace
 
 // todo(Gustav): rename to get_word_wrapped
 std::vector<std::string>
-word_wrap
+get_word_wrapped
 (
     const std::string& str,
     std::function<bool (const std::string&)> fit

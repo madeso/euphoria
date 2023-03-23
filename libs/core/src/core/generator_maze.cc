@@ -60,7 +60,7 @@ namespace euphoria::core::generator
 
 
     void
-    visit(Maze* maze, const vec2i& np)
+    set_visited(Maze* maze, const vec2i& np)
     {
         (*maze)(np.x, np.y) |= cell::visited;
     }
@@ -135,14 +135,14 @@ namespace euphoria::core::generator
 
 
     bool
-    RecursiveBacktracker::has_more_work() const
+    RecursiveBacktracker::is_done() const
     {
-        return visited_cells < maze->get_width() * maze->get_height();
+        return false == (visited_cells < maze->get_width() * maze->get_height());
     }
 
 
     void
-    RecursiveBacktracker::work()
+    RecursiveBacktracker::update()
     {
         const auto c = stack.top();
 
@@ -181,7 +181,7 @@ namespace euphoria::core::generator
         const vec2i& p
     )
     {
-        visit(maze, p);
+        set_visited(maze, p);
         for(auto d: get_all_directions())
         {
             if(can_visit_without_making_loop(maze, p + from_dir_to_offset(d)))
@@ -201,14 +201,14 @@ namespace euphoria::core::generator
 
 
     bool
-    RandomTraversal::has_more_work() const
+    RandomTraversal::is_done() const
     {
-        return !frontier.empty();
+        return frontier.empty();
     }
 
 
     void
-    RandomTraversal::work()
+    RandomTraversal::update()
     {
         auto f = pop_random(&frontier, random);
         const auto np = f.position + from_dir_to_offset(f.direction);
@@ -241,7 +241,7 @@ namespace euphoria::core::generator
     {
         const auto cell_value = (*maze)(x, y);
 
-        if(tracker != nullptr && tracker->has_more_work() && !tracker->stack.empty())
+        if(tracker != nullptr && false == tracker->is_done() && false == tracker->stack.empty())
         {
             const auto t = tracker->stack.top();
             if(x == t.x && y == t.y)

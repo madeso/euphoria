@@ -24,7 +24,7 @@ namespace euphoria::core
     to_codes(const std::vector<U8>& bytes, bool msb_first);
 
     Table<int>
-    drunken_bishop
+    get_drunken_bishop_result
     (
         U32 hash,
         int width,
@@ -35,7 +35,7 @@ namespace euphoria::core
     );
 
     Table<int>
-    drunken_bishop
+    get_drunken_bishop_result
     (
         U64 hash,
         int width,
@@ -46,7 +46,7 @@ namespace euphoria::core
     );
 
     Table<int>
-    drunken_bishop
+    get_drunken_bishop_result
     (
         const std::vector<int>& codes,
         int width,
@@ -60,7 +60,7 @@ namespace euphoria::core
     get_ssh_characters();
 
     std::vector<std::string>
-    collapse
+    render_table
     (
         const Table<int>& table,
         const std::vector<std::string>& characters

@@ -144,9 +144,9 @@ handle_maze_command
 
     draw_frame();
 
-    while(gen->has_more_work())
+    while(false == gen->is_done())
     {
-        gen->work();
+        gen->update();
         draw_frame();
     }
 
@@ -550,9 +550,9 @@ main(int argc, char* argv[])
                     auto writer = CellWriter{debug, output, &world, world_scale};
                     writer.first_state();
 
-                    while(cell.has_more_work())
+                    while(false == cell.is_done())
                     {
-                        cell.work();
+                        cell.update();
                         writer.draw_step();
                     }
 

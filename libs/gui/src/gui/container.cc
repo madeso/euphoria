@@ -26,11 +26,11 @@ namespace euphoria::gui
 
 
     void
-    Container::step(float dt)
+    Container::update(float dt)
     {
         for(const auto& w: widgets)
         {
-            w->step(dt);
+            w->update(dt);
         }
     }
 

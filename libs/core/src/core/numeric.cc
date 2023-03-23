@@ -10,25 +10,11 @@
 namespace euphoria::core
 {
     bool
-    is_equal(float lhs, float rhs)
-    {
-        return is_zero(lhs - rhs);
-    }
-
-
-    bool
     is_equal(int lhs, int rhs)
     {
         return lhs == rhs;
     }
 
-
-    bool
-    is_zero(float r)
-    {
-        const float epsilon = 0.0001f;
-        return is_within(make_range(-epsilon, epsilon), r);
-    }
 
     bool
     is_zero(int r)

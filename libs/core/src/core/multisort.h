@@ -118,10 +118,12 @@ namespace euphoria::core
     {
         std::vector<size_t> r(data.size());
         std::iota(std::begin(r), std::end(r), 0);
+
         if(builder.sort_order.empty())
         {
             return r;
         }
+
         const auto sort_function = [&data, &builder](size_t lhs, size_t rhs) -> int
         {
             for(const auto& so: builder.sort_order)
@@ -134,15 +136,17 @@ namespace euphoria::core
             }
             return 0;
         };
+
         // is a stable sort is requested, use insertion sort, otherwise use the faster quick sort
         if(builder.stable_sort)
         {
-            insertion_sort(&r, sort_function);
+            do_inplace_insertion_sort(&r, sort_function);
         }
         else
         {
-            quicksort(&r, sort_function);
+            do_inplace_quick_sort(&r, sort_function);
         }
+
         return r;
     }
 

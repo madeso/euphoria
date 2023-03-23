@@ -92,7 +92,7 @@ namespace euphoria::core
             detail::Response* response;
             explicit ResponseBuilder(detail::Response* r) : response(r) {}
 
-            ResponseBuilder& input
+            ResponseBuilder& add_input
             (
                 const std::string& in,
                 Input::LocationType where = Input::at_start

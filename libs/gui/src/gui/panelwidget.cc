@@ -26,9 +26,9 @@ namespace euphoria::gui
 
 
     void
-    PanelWidget::step(float dt)
+    PanelWidget::update(float dt)
     {
-        container.step(dt);
+        container.update(dt);
     }
 
 

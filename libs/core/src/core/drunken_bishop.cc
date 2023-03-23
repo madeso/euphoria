@@ -75,9 +75,8 @@ namespace euphoria::core
     }
 
 
-    // todo(Gustav): rename to get_drunken_bishop_result
     Table<int>
-    drunken_bishop
+    get_drunken_bishop_result
     (
         U32 hash,
         int width,
@@ -87,7 +86,7 @@ namespace euphoria::core
         int starty
     )
     {
-        return drunken_bishop
+        return get_drunken_bishop_result
         (
             to_codes(to_bytes(hash), msb_first),
             width,
@@ -97,9 +96,8 @@ namespace euphoria::core
         );
     }
 
-    // todo(Gustav): rename to get_drunken_bishop_result
     Table<int>
-    drunken_bishop
+    get_drunken_bishop_result
     (
         U64 hash,
         int width,
@@ -109,7 +107,7 @@ namespace euphoria::core
         int starty
     )
     {
-        return drunken_bishop
+        return get_drunken_bishop_result
         (
             to_codes(to_bytes(hash), msb_first),
             width,
@@ -119,9 +117,8 @@ namespace euphoria::core
         );
     }
 
-    // todo(Gustav): rename to get_drunken_bishop_result
     Table<int>
-    drunken_bishop
+    get_drunken_bishop_result
     (
         const std::vector<int>& codes,
         int width,
@@ -165,7 +162,7 @@ namespace euphoria::core
 
 
     std::vector<std::string>
-    collapse
+    render_table
     (
         const Table<int>& table,
         const std::vector<std::string>& characters

@@ -77,7 +77,7 @@ namespace euphoria::core::ecs
         get_or_null(EntityHandle entity)
         {
             const auto index = c_ent(entity);
-            if(index_has_value(index))
+            if(has_value_for_index(index))
             {
                 return &(*components[index]);
             }
@@ -90,7 +90,7 @@ namespace euphoria::core::ecs
         // todo(Gustav): rename to has_value_for_index
         [[nodiscard]]
         bool
-        index_has_value(std::size_t index) const
+        has_value_for_index(std::size_t index) const
         {
             return false ==
             (
@@ -118,7 +118,7 @@ namespace euphoria::core::ecs
         has(EntityHandle entity) const override
         {
             const auto index = c_ent(entity);
-            return index_has_value(index);
+            return has_value_for_index(index);
         }
     };
 

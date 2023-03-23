@@ -24,7 +24,7 @@ namespace euphoria::core::generator
         }
 
         void
-        step(CellularAutomata* self) override
+        update(CellularAutomata* self) override
         {
             make_smoother
             (
@@ -55,7 +55,7 @@ namespace euphoria::core::generator
         }
 
         void
-        step(CellularAutomata* self) override
+        update(CellularAutomata* self) override
         {
             set_white_noise(self->world, border_control, [this]()
             {
@@ -77,7 +77,7 @@ namespace euphoria::core::generator
         }
 
         void
-        step(CellularAutomata* self) override
+        update(CellularAutomata* self) override
         {
             BoolTable& world = *self->world;
             const auto regions = find_empty_regions(world, allow_diagonals);
@@ -107,7 +107,7 @@ namespace euphoria::core::generator
         }
 
         void
-        step(CellularAutomata* self) override
+        update(CellularAutomata* self) override
         {
             BoolTable& world = *self->world;
             auto regions = find_empty_regions(world, allow_diagonals);
@@ -148,7 +148,7 @@ namespace euphoria::core::generator
         }
 
         void
-        step(CellularAutomata* self) override
+        update(CellularAutomata* self) override
         {
             const BoolTable current = *self->world;
 
@@ -194,16 +194,16 @@ namespace euphoria::core::generator
 
 
     bool
-    CellularAutomata::has_more_work() const
+    CellularAutomata::is_done() const
     {
-        return iteration < c_sizet_to_int(rules->rules.size());
+        return false == (iteration < c_sizet_to_int(rules->rules.size()));
     }
 
 
     void
-    CellularAutomata::work()
+    CellularAutomata::update()
     {
-        rules->rules[iteration]->step(this);
+        rules->rules[iteration]->update(this);
         iteration += 1;
     }
 

@@ -38,11 +38,8 @@ namespace euphoria::core
 
         [[nodiscard]] const float* get_data_ptr() const;
 
-        [[nodiscard]] float get_component_sum() const;
-
         bool operator==(const vec4f& rhs) = delete;
     };
 
     std::ostream& operator<<(std::ostream& stream, const vec4f& v);
-    vec4f component_multiply(const vec4f& lhs, const vec4f& rhs);
 }

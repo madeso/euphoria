@@ -101,7 +101,7 @@ main(int argc, char** argv)
 
     for(int i = 0; i < 20; i += 1)
     {
-        const rgb color = crgb(palettes::dawnbringer().get_random_color(&rand));
+        const rgb color = crgb(palettes::dawnbringer->get_random_color(&rand));
         const auto pos = get_random_point(&rand, wi);
         const auto outer = get_random_in_range(&rand, 55.0f, 100.0f);
         const auto inner = get_random_in_range(&rand, make_range(50.0f));

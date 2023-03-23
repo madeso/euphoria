@@ -478,7 +478,7 @@ main(int argc, char* argv[])
             );
         }
 
-        root.step(dt);
+        root.update(dt);
     };
 
     auto render_example = [&](bool show_imgui)

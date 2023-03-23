@@ -132,11 +132,11 @@ namespace euphoria::core
     {
         const auto rotation = quatf::from_axis_angle
         (
-            AxisAngle::from_right_hand_around(unit3f::y_axis(), rotation_angle)
+            AxisAngle::from_right_hand_around(common::y_axis, rotation_angle)
         );
         const auto look = quatf::from_axis_angle
         (
-            AxisAngle::from_right_hand_around(unit3f::x_axis(), look_angle)
+            AxisAngle::from_right_hand_around(common::x_axis, look_angle)
         );
         return rotation * look;
     }

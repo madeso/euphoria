@@ -11,9 +11,9 @@
 namespace euphoria::core
 {
 
-// todo(Gustav): rename to get_ceasar_cypher
+
 std::string
-ceasar_cypher
+get_ceasar_cypher
 (
     const std::string& input,
     int steps,
@@ -63,9 +63,9 @@ ceasar_cypher
 }
 
 
-std::string rot13(const std::string& input)
+std::string get_rot13(const std::string& input)
 {
-    return ceasar_cypher(input, 13, "abcdefghijklmnopqrstuvwxyz", false, ActionWhenMissingInAlphabet::pass_through, '?');
+    return get_ceasar_cypher(input, 13, "abcdefghijklmnopqrstuvwxyz", false, ActionWhenMissingInAlphabet::pass_through, '?');
 }
 
 

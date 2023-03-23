@@ -87,7 +87,7 @@ namespace euphoria::core
     }
 
     void
-    Canvas::line_to(float dx, float dy)
+    Canvas::draw_line_to(float dx, float dy)
     {
         ASSERT(building_path);
         if(path.empty())

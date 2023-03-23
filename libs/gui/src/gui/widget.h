@@ -45,7 +45,7 @@ namespace euphoria::gui
 
         virtual
         void
-        step(float dt) = 0;
+        update(float dt) = 0;
 
         virtual
         void

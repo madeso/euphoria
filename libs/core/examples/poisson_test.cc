@@ -107,7 +107,7 @@ png_dump(int extra_images)
 
     while(!worker.is_done())
     {
-        auto r = worker.step();
+        auto r = worker.update();
 
         if(!frames.single)
         {

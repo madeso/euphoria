@@ -67,9 +67,8 @@ namespace euphoria::core
             unsigned char a
         );
 
-        // todo(Gustav): add a run_image_ prefix
         template <typename TFunc>
-        void filter(TFunc f)
+        void run_image_filter(TFunc f)
         {
             for(int y = 0; y < height; y += 1)
             {
@@ -80,9 +79,8 @@ namespace euphoria::core
             }
         }
 
-        // todo(Gustav): add a run_ prefix
         template <typename TFunc>
-        void for_all_top_bottom(TFunc f)
+        void run_for_all_top_bottom(TFunc f)
         {
             for(int y = height; y > 0; y -= 1)
             {

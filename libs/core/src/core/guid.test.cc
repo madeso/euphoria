@@ -8,7 +8,7 @@ TEST_CASE("guid-test", "[guid]")
 {
     SECTION("nil")
     {
-        CHECK(Guid::nil().to_string() == "00000000-0000-0000-0000-000000000000");
+        CHECK(nil_guid.to_string() == "00000000-0000-0000-0000-000000000000");
     }
 
     SECTION("parse ok")

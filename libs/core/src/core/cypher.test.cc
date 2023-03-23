@@ -11,22 +11,22 @@ using namespace euphoria::core;
 using namespace euphoria::tests;
 
 
-TEST_CASE("cypher-rot13-wikipedia", "[cypher]")
+TEST_CASE("cypher-get_rot13-wikipedia", "[cypher]")
 {
     CHECK(is_string_equal(
             "Why did the chicken cross the road?",
-            rot13("Jul qvq gur puvpxra pebff gur ebnq?")
+            get_rot13("Jul qvq gur puvpxra pebff gur ebnq?")
     ));
     CHECK(is_string_equal(
             "Gb trg gb gur bgure fvqr!",
-            rot13("To get to the other side!")
+            get_rot13("To get to the other side!")
     ));
     CHECK(is_string_equal(
-            rot13("Why did the chicken cross the road?"),
+            get_rot13("Why did the chicken cross the road?"),
             "Jul qvq gur puvpxra pebff gur ebnq?"
     ));
     CHECK(is_string_equal(
-            rot13("Gb trg gb gur bgure fvqr!"),
+            get_rot13("Gb trg gb gur bgure fvqr!"),
             "To get to the other side!"
     ));
 }

@@ -48,10 +48,10 @@ namespace euphoria::gui
 
 
     void
-    Root::step(float dt)
+    Root::update(float dt)
     {
         state.begin();
-        container.step(dt);
+        container.update(dt);
         state.end();
     }
 

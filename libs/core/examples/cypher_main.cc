@@ -14,7 +14,7 @@ void run_rot13_from_stream(std::istream& stream)
     std::string line;
     while(std::getline(stream, line))
     {
-        const auto transformed = rot13(line);
+        const auto transformed = get_rot13(line);
         std::cout << transformed;
     }
 
@@ -55,8 +55,8 @@ main(int argc, char* argv[])
 
     sub->add
     (
-        "rot13",
-        "runs rot13 on input",
+        "get_rot13",
+        "runs get_rot13 on input",
         [&](core::argparse::SubParser* sent)
         {
             std::string input;

@@ -9,9 +9,9 @@
 namespace euphoria::core
 {
     angle
-    angle::random(::euphoria::core::Random* random)
+    get_random_angle(::euphoria::core::Random* random)
     {
-        return from_percent_of_360(random->get_next_float01());
+        return angle::from_percent_of_360(random->get_next_float01());
     }
 
 

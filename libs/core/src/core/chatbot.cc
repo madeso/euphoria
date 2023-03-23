@@ -143,7 +143,7 @@ namespace euphoria::core::detail
 
 
     ResponseBuilder&
-    ResponseBuilder::input(const std::string& in, Input::LocationType where)
+    ResponseBuilder::add_input(const std::string& in, Input::LocationType where)
     {
         this->response->inputs.emplace_back(in, where);
         return *this;
@@ -209,7 +209,7 @@ namespace euphoria::core::detail
     Database::add_response(const std::string& input, Input::LocationType where)
     {
         ResponseBuilder r {&create_response()};
-        r.input(input, where);
+        r.add_input(input, where);
         return r;
     }
 

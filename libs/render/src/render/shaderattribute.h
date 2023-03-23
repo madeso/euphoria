@@ -1,8 +1,7 @@
 #pragma once
 
-
-
 #include "render/gltypes.h"
+
 
 namespace euphoria::render
 {
@@ -30,14 +29,21 @@ namespace euphoria::render
     struct ShaderAttribute
     {
         // todo(Gustav): can this be made into a constexpr?
-        ShaderAttribute
+        constexpr ShaderAttribute
         (
             gl::Int a_id,
             ShaderAttributeType a_type,
-            std::string a_name,
+            std::string_view a_name,
             ShaderAttributeSource a_source,
             bool a_normalize = false
-        );
+        )
+            : id(a_id)
+            , type(a_type)
+            , name(a_name)
+            , source(a_source)
+            , normalize(a_normalize)
+        {
+        }
 
         [[nodiscard]] int
         get_element_count() const;
@@ -52,7 +58,7 @@ namespace euphoria::render
         ShaderAttributeType type;
 
         /// the name of the shader attribute
-        std::string name;
+        std::string_view name;
 
         /// the source of the shader attribute
         ShaderAttributeSource source;

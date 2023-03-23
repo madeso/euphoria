@@ -15,7 +15,7 @@ namespace euphoria::t3d
 {
     ToolPlaceMeshOnAPlane::ToolPlaceMeshOnAPlane(std::shared_ptr<PlacedMesh> mesh_to_place)
         : placed_mesh(mesh_to_place)
-        , plane(core::Plane::from_normal_and_point(core::unit3f::up(), core::vec3f::zero()))
+        , plane(core::Plane::from_normal_and_point(core::common::up, core::vec3f::zero()))
     {
     }
 
@@ -27,7 +27,7 @@ namespace euphoria::t3d
     }
 
     void
-    ToolPlaceMeshOnAPlane::step(Editor* editor)
+    ToolPlaceMeshOnAPlane::update(Editor* editor)
     {
         auto ray = editor->camera
             .from_clip_to_world_ray

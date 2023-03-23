@@ -64,7 +64,7 @@ namespace
             Lrud<OutsideRule>{OutsideRule::empty}
         );
 
-        while(cell.has_more_work()) { cell.work(); }
+        while(false == cell.is_done()) { cell.update(); }
     }
 
 

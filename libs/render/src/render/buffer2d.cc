@@ -19,7 +19,7 @@ namespace euphoria::render
         IndexBuffer::bind(&ebo);
         ebo.set_data(bb.tris);
 
-        vao.bind_data(attributes2d::vertex(), sizeof(float) * 4, 0);
+        vao.bind_data(attributes2d::vertex, sizeof(float) * 4, 0);
 
         PointLayout::bind(nullptr);
 

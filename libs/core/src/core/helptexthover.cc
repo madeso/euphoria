@@ -13,7 +13,7 @@ namespace
 
     // return if the help text should be displayed or not
     bool
-    step
+    update
     (
         int& state,
         float& timer,
@@ -72,9 +72,9 @@ namespace
 namespace euphoria::core
 {
 
-void HelpTextHover::step(bool currently_hovering_over_widget, float dt)
+void HelpTextHover::update(bool currently_hovering_over_widget, float dt)
 {
-    display_hover = ::step
+    display_hover = ::update
     (
         state,
         timer,

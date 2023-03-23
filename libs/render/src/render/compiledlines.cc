@@ -124,8 +124,8 @@ namespace euphoria::render
 
         const auto attributes = std::vector<ShaderAttribute>
         {
-            attributes3d::vertex(),
-            attributes3d::color()
+            attributes3d::vertex,
+            attributes3d::color
         };
 
         convert_points_to_vertex_buffer(lines.points, attributes, &ret->data);

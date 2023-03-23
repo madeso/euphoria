@@ -194,11 +194,18 @@ namespace euphoria::core
         return t;
     }
 
+    float
+    get_component_multiply_sum(const vec2f& lhs, const vec2f& rhs)
+    {
+        const auto x = lhs.x * rhs.x;
+        const auto y = lhs.y * rhs.y;
+        return x + y;
+    }
 
     mat2f operator*(const mat2f& lhs, const mat2f& rhs)
     {
 #define OP(r, c) \
-    component_multiply(lhs.get_row(r), rhs.get_column(c)).get_component_sum()
+    get_component_multiply_sum(lhs.get_row(r), rhs.get_column(c))
         return mat2f::from_row_major
         (
             OP(0, 0), OP(0, 1),
@@ -210,7 +217,7 @@ namespace euphoria::core
 
     vec2f operator*(const mat2f& lhs, const vec2f& rhs)
     {
-#define OP(r) component_multiply(lhs.get_row(r), rhs).get_component_sum()
+#define OP(r) get_component_multiply_sum(lhs.get_row(r), rhs)
         return vec2f(OP(0), OP(1));
 #undef OP
     }

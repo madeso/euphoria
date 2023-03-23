@@ -236,7 +236,7 @@ struct PixelApp : App
 
                 // draw image
                 ImDrawList* draw_list = ImGui::GetWindowDrawList();
-                image.for_all_top_bottom([&](int x, int y, const rgbai& c)
+                image.run_for_all_top_bottom([&](int x, int y, const rgbai& c)
                 {
                     const auto pixel_size = 5;
                     const auto p = ImVec2(core::c_int_to_float(x * pixel_size), core::c_int_to_float(y*pixel_size));

@@ -240,20 +240,20 @@ TEST_CASE("mat4-TestTransformation", "[mat]")
 
 TEST_CASE("mat4-TestRight", "[mat]")
 {
-    REQUIRE(euco::mat4f::identity().get_x_axis() == approx(euco::unit3f::x_axis()));
+    REQUIRE(euco::mat4f::identity().get_x_axis() == approx(euco::common::x_axis));
 }
 
 
 TEST_CASE("mat4-TestUp", "[mat]")
 {
-    REQUIRE(euco::mat4f::identity().get_y_axis() == approx(euco::unit3f::y_axis()));
+    REQUIRE(euco::mat4f::identity().get_y_axis() == approx(euco::common::y_axis));
 }
 
 
 
 TEST_CASE("mat4-TestIn", "[mat]")
 {
-    REQUIRE(euco::mat4f::identity().get_z_axis() == approx(euco::unit3f::z_axis()));
+    REQUIRE(euco::mat4f::identity().get_z_axis() == approx(euco::common::z_axis));
 }
 
 TEST_CASE("mat4-test", "[mat]")
@@ -261,7 +261,7 @@ TEST_CASE("mat4-test", "[mat]")
     const euco::mat4f start = euco::mat4f::identity();
     const euco::AxisAngle aa = euco::AxisAngle::from_right_hand_around
     (
-        euco::unit3f::up(),
+        euco::common::up,
         euco::angle::from_degrees(-90)
     );
     const euco::vec3f to_transform{0.0f, 0.0f, -5.0f};
@@ -282,7 +282,7 @@ TEST_CASE("mat4-TestCombined_RT", "[mat]")
         (
             euco::AxisAngle::from_right_hand_around
             (
-                euco::unit3f::up(),
+                euco::common::up,
                 euco::angle::from_degrees(-90)
             )
         )
@@ -300,7 +300,7 @@ TEST_CASE("mat4-TestCombined2_RT", "[mat]")
         (
             euco::AxisAngle::from_right_hand_around
             (
-                euco::unit3f::up(), euco::angle::from_degrees(90)
+                euco::common::up, euco::angle::from_degrees(90)
             )
         )
         .get_translated(euco::vec3f(0, 0, -5))
@@ -317,7 +317,7 @@ TEST_CASE("mat4-TestCombined_TR", "[mat]")
         (
             euco::AxisAngle::from_right_hand_around
             (
-                euco::unit3f::up(),
+                euco::common::up,
                 euco::angle::from_degrees(-90)
             )
         )

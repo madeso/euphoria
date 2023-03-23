@@ -311,9 +311,9 @@ namespace euphoria::render
         // todo(Gustav): move this to a data file, load the mesh dynamically
         const auto attributes = std::vector<ShaderAttribute>
         {
-            attributes3d::vertex(),
-            attributes3d::normal(),
-            attributes3d::tex_coord()
+            attributes3d::vertex,
+            attributes3d::normal,
+            attributes3d::tex_coord
         };
 
         for(const auto& part_src: mesh.parts)

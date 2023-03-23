@@ -50,7 +50,7 @@ generate_drunken_bishop_table(core::Random* random, const ::CommonArguments& com
             hash.emplace_back(c);
         }
     }
-    return drunken_bishop(hash, common.width, common.height);
+    return get_drunken_bishop_result(hash, common.width, common.height);
 }
 
 
@@ -151,7 +151,7 @@ main(int argc, char* argv[])
             return sub->on_complete([&]{
                 auto rand = core::Random{};
                 const auto table = generate_drunken_bishop_table(&rand, common);
-                const auto strs = collapse(table, get_ssh_characters());
+                const auto strs = render_table(table, get_ssh_characters());
                 for(const auto& str: strs)
                 {
                     std::cout << str << "\n";

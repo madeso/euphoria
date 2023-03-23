@@ -183,7 +183,8 @@ namespace euphoria::render
     void
     ShaderProgram::add_attribute(const ShaderAttribute& attribute)
     {
-        glBindAttribLocation(get_id(), attribute.id, attribute.name.c_str());
+        const std::string attribute_name = std::string(attribute.name);
+        glBindAttribLocation(get_id(), attribute.id, attribute_name.c_str());
         bound_attributes.push_back(attribute);
     }
 
@@ -230,7 +231,8 @@ namespace euphoria::render
 
         for(const auto& attribute: bound_attributes)
         {
-            const int actual_attribute_id = glGetAttribLocation(get_id(), attribute.name.c_str());
+            const std::string attribute_name = std::string(attribute.name);
+            const int actual_attribute_id = glGetAttribLocation(get_id(), attribute_name.c_str());
 
             if(actual_attribute_id == attribute.id)
             {

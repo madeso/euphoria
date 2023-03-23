@@ -107,8 +107,8 @@ TEST_CASE("drunken bishop strings", "[drunken-bishop]")
         const int height = 9;
 
         const auto codes = to_codes(bytes, false);
-        const auto table = drunken_bishop(codes, width, height);
-        const auto res = collapse(table, get_ssh_characters());
+        const auto table = get_drunken_bishop_result(codes, width, height);
+        const auto res = render_table(table, get_ssh_characters());
 
         return is_string_equal(res, correct_result);
     };

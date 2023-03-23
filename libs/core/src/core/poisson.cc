@@ -130,7 +130,7 @@ namespace euphoria::core
 
 
     std::optional<std::tuple<vec2f, vec2f>>
-    PoissonWorker::step()
+    PoissonWorker::update()
     {
         if(active.empty())
         {
@@ -160,7 +160,7 @@ namespace euphoria::core
         auto worker = PoissonWorker{area, random, r, bs, k};
         while(!worker.is_done())
         {
-            worker.step();
+            worker.update();
         }
         return worker.samples;
     }

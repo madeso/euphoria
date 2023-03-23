@@ -29,7 +29,7 @@ namespace euphoria::core::generator
         void operator=(const Rule&) = delete;
         void operator=(Rule&&) = delete;
 
-        virtual void step(CellularAutomata* self) = 0;
+        virtual void update(CellularAutomata* self) = 0;
     };
 
 
@@ -49,9 +49,9 @@ namespace euphoria::core::generator
 
         CellularAutomata(generator::Rules* r, generator::World* w, const Lrud<core::OutsideRule>& fw);
 
-        void work();
+        void update();
 
-        [[nodiscard]] bool has_more_work() const;
+        [[nodiscard]] bool is_done() const;
     };
 
     using ChangeFunction = std::function

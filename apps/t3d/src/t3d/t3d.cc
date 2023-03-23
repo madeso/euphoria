@@ -53,7 +53,7 @@ namespace euphoria::t3d
 
         const auto ground = core::Plane::from_normal_and_point
         (
-            core::unit3f::y_axis(), core::vec3f::zero()
+            core::common::y_axis, core::vec3f::zero()
         );
 
         const auto where = core::get_intersection(ray, ground);
@@ -935,12 +935,12 @@ namespace euphoria::t3d
         const float delta = timer->update();
 
         // todo(Gustav): improve when to display hover text...
-        help_hover.step(ImGui::GetHoveredID() != 0, delta);
+        help_hover.update(ImGui::GetHoveredID() != 0, delta);
         
 
         if(compiled_camera.has_value())
         {
-            editor_camera.step
+            editor_camera.update
             (
                 shift_down,
                 editor->mouse,
@@ -950,13 +950,13 @@ namespace euphoria::t3d
             );
         }
 
-        world->step();
+        world->update();
 
         editor->tools.perform_tools();
         
         handle_all_sdl_events();
 
-        editor->step();
+        editor->update();
 
         if(pending_files.has_more_files())
         {

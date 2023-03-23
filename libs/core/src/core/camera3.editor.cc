@@ -281,7 +281,7 @@ namespace euphoria::core
             {
             }
 
-            void step
+            void update
             (
                 EditorCamera3* owner,
                 bool shift_state,
@@ -404,7 +404,7 @@ namespace euphoria::core
 
 
             void
-            step
+            update
             (
                 EditorCamera3* owner,
                 bool shift,
@@ -488,7 +488,7 @@ namespace euphoria::core
                 owner->next_state = make_default_camera();
             }
             
-            void step
+            void update
             (
                 EditorCamera3* owner,
                 bool,
@@ -580,7 +580,7 @@ namespace euphoria::core
 
 
     void
-    EditorCamera3::step
+    EditorCamera3::update
     (
         bool shift_state,
         const vec2i& mouse,
@@ -590,7 +590,7 @@ namespace euphoria::core
     )
     {
         if(state == nullptr) { return; }
-        state->step(this, shift_state, mouse, camera, viewport, dt);
+        state->update(this, shift_state, mouse, camera, viewport, dt);
         detail::update_state(this);
     }
 

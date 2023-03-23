@@ -40,35 +40,35 @@ namespace euphoria::core
 
     template <typename T, typename TSortFunc>
     void
-    quicksort_implementation(TSortFunc sort_func, std::vector<T>& array, int lo, int hi)
+    do_inplace_quick_sort_impl(TSortFunc sort_func, std::vector<T>& array, int lo, int hi)
     {
         if(lo < hi)
         {
             const auto p = get_hoare_partition(sort_func, array, lo, hi);
-            quicksort_implementation(sort_func, array, lo, p);
-            quicksort_implementation(sort_func, array, p + 1, hi);
+            do_inplace_quick_sort_impl(sort_func, array, lo, p);
+            do_inplace_quick_sort_impl(sort_func, array, p + 1, hi);
         }
     }
 
     template <typename T, typename TSortFunc>
     void
-    quicksort(std::vector<T>* array, TSortFunc sort_func)
+    do_inplace_quick_sort(std::vector<T>* array, TSortFunc sort_func)
     {
-        quicksort_implementation<T, TSortFunc>(sort_func, *array, 0, c_sizet_to_int(array->size()) - 1);
+        do_inplace_quick_sort_impl<T, TSortFunc>(sort_func, *array, 0, c_sizet_to_int(array->size()) - 1);
     }
 
     template <typename T, typename TSortFunc>
     std::vector<T>
-    quicksort(const std::vector<T>& arr, TSortFunc sort_func)
+    get_quick_sorted(const std::vector<T>& arr, TSortFunc sort_func)
     {
         auto copy = arr;
-        quicksort(&copy, sort_func);
+        do_inplace_quick_sort(&copy, sort_func);
         return copy;
     }
 
     template <typename T>
     int
-    default_sort_function_for_quicksort(const T& lhs, const T& rhs)
+    default_compare_for_quicksort(const T& lhs, const T& rhs)
     {
         if(lhs == rhs)
         {
@@ -79,9 +79,9 @@ namespace euphoria::core
 
     template <typename T>
     std::vector<T>
-    quicksort(const std::vector<T>& arr)
+    get_quick_sorted(const std::vector<T>& arr)
     {
-        return quicksort(arr, default_sort_function_for_quicksort<T>);
+        return get_quick_sorted(arr, default_compare_for_quicksort<T>);
     }
 
 }

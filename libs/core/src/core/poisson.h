@@ -27,7 +27,7 @@ namespace euphoria::core
 
         PoissonWorker(const Rectf& area, Random* random, float r, float bs, int k);
 
-        std::optional<std::tuple<vec2f, vec2f>> step();
+        std::optional<std::tuple<vec2f, vec2f>> update();
         bool can_place_at(const vec2f& potential_sample, const vec2i& potential_sample_pos);
         std::tuple<bool, vec2f> try_place(int active_index);
 

@@ -17,13 +17,6 @@ namespace euphoria::core
     }
 
 
-    [[nodiscard]] float
-    Scale3f::get_component_sum() const
-    {
-        return x + y + z;
-    }
-
-
     Scale3f::Scale3f(float a)
         : x(a)
         , y(a)
@@ -73,13 +66,6 @@ namespace euphoria::core
     }
 
 
-    [[nodiscard]] float
-    vec3f::get_component_sum() const
-    {
-        return x + y + z;
-    }
-
-
     vec3f::vec3f(float a)
         : x(a)
         , y(a)
@@ -92,14 +78,6 @@ namespace euphoria::core
         : x(std::get<0>(a))
         , y(std::get<1>(a))
         , z(std::get<2>(a))
-    {
-    }
-
-
-    vec3f::vec3f(float ax, float ay, float az)
-        : x(ax)
-        , y(ay)
-        , z(az)
     {
     }
 
@@ -142,13 +120,6 @@ namespace euphoria::core
     vec3f::operator-() const
     {
         return vec3f(-this->x, -this->y, -this->z);
-    }
-
-
-    float
-    vec3f::get_length_squared() const
-    {
-        return x * x + y * y + z * z;
     }
 
 
@@ -195,9 +166,9 @@ namespace euphoria::core
     vec3f::normalize()
     {
         const float l2 = get_length_squared();
-        if(is_equal(l2, c_int_to_t<float>(0)))
+        if(is_equal(l2, 0.0f))
         {
-            *this = unit3f::up();
+            *this = common::up;
         }
         else
         {
@@ -225,83 +196,6 @@ namespace euphoria::core
 
 
     unit3f
-    unit3f::operator-() const
-    {
-        return unit3f(-this->x, -this->y, -this->z);
-    }
-
-
-    [[nodiscard]] bool
-    unit3f::is_valid() const
-    {
-        return is_equal(this->get_length_squared(), c_int_to_t<float>(1));
-    }
-
-
-    unit3f
-    unit3f::x_axis()
-    {
-        return unit3f {1, 0, 0};
-    }
-
-
-    unit3f
-    unit3f::y_axis()
-    {
-        return unit3f {0, 1, 0};
-    }
-
-
-    unit3f
-    unit3f::z_axis()
-    {
-        return unit3f(0, 0, 1);
-    }
-
-
-    unit3f
-    unit3f::up()
-    {
-        return y_axis();
-    }
-
-
-    unit3f
-    unit3f::down()
-    {
-        return -y_axis();
-    }
-
-
-    unit3f
-    unit3f::right()
-    {
-        return x_axis();
-    }
-
-
-    unit3f
-    unit3f::left()
-    {
-        return -x_axis();
-    }
-
-
-    unit3f
-    unit3f::in()
-    {
-        return -z_axis();
-    }
-
-
-    unit3f
-    unit3f::out()
-    {
-        return z_axis();
-    }
-
-
-    unit3f
     unit3f::to_unit(float x, float y, float z)
     {
         return unit3f{x, y, z};
@@ -312,13 +206,6 @@ namespace euphoria::core
     unit3f::to_unit(const vec3f& v)
     {
         return unit3f{v.x, v.y, v.z};
-    }
-
-
-    unit3f::unit3f(float a, float b, float c)
-        : vec3f(a, b, c)
-    {
-        ASSERT(is_valid());
     }
 
 
@@ -374,13 +261,6 @@ namespace euphoria::core
     {
         const vec3f r {lhs / rhs.x, lhs / rhs.y, lhs / rhs.z};
         return r;
-    }
-
-
-    vec3f
-    vec3f::component_multiply(const vec3f& rhs) const
-    {
-        return vec3f(x * rhs.x, y * rhs.y, z * rhs.z);
     }
 
 

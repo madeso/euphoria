@@ -36,8 +36,6 @@ namespace euphoria::core
             return angle::from_radians(percent * pi);
         }
 
-        [[nodiscard]] static angle random(::euphoria::core::Random* random);
-
 
         void wrap();
 
@@ -90,6 +88,8 @@ namespace euphoria::core
     constexpr angle half_turn = angle::from_radians(pi);
     constexpr angle quarter_turn = angle::from_radians(pi / 2.0f);
     constexpr angle no_rotation = angle::from_radians(0.0f);
+
+    [[nodiscard]] angle get_random_angle(::euphoria::core::Random* random);
 
 
     float

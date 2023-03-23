@@ -55,7 +55,7 @@ namespace euphoria::gui
         set_input_mouse(const core::vec2f& pos, bool down);
 
         void
-        step(float dt);
+        update(float dt);
 
         void
         resize(const core::size2f& new_size);

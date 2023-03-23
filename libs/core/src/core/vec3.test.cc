@@ -10,16 +10,16 @@ namespace euco = euphoria::core;
 
 TEST_CASE("vec3-to-unit-test", "[vec3]")
 {
-    REQUIRE(euco::unit3f::to_unit(euco::vec3f(1.0f, 0.0f, 0.0f)) == approx(euco::unit3f::x_axis()));
-    REQUIRE(euco::unit3f::to_unit(euco::vec3f(0.0f, 1.0f, 0.0f)) == approx(euco::unit3f::y_axis()));
-    REQUIRE(euco::unit3f::to_unit(euco::vec3f(0.0f, 0.0f, 1.0f)) == approx(euco::unit3f::z_axis()));
+    REQUIRE(euco::unit3f::to_unit(euco::vec3f(1.0f, 0.0f, 0.0f)) == approx(euco::common::x_axis));
+    REQUIRE(euco::unit3f::to_unit(euco::vec3f(0.0f, 1.0f, 0.0f)) == approx(euco::common::y_axis));
+    REQUIRE(euco::unit3f::to_unit(euco::vec3f(0.0f, 0.0f, 1.0f)) == approx(euco::common::z_axis));
 }
 
 TEST_CASE("vec3-axis_test", "[vec3]")
 {
-    REQUIRE(euco::unit3f::x_axis() == approx(euco::vec3f(1.0f, 0.0f, 0.0f)));
-    REQUIRE(euco::unit3f::y_axis() == approx(euco::vec3f(0.0f, 1.0f, 0.0f)));
-    REQUIRE(euco::unit3f::z_axis() == approx(euco::vec3f(0.0f, 0.0f, 1.0f)));
+    REQUIRE(euco::common::x_axis == approx(euco::vec3f(1.0f, 0.0f, 0.0f)));
+    REQUIRE(euco::common::y_axis == approx(euco::vec3f(0.0f, 1.0f, 0.0f)));
+    REQUIRE(euco::common::z_axis == approx(euco::vec3f(0.0f, 0.0f, 1.0f)));
 }
 
 TEST_CASE("vec3-constructor_same", "[vec3]")

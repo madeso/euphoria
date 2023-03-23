@@ -21,7 +21,7 @@ namespace euphoria::core::dump2d
 {
     namespace strokes
     {
-        std::vector<int> dash(int size);
+        std::vector<int> create_dash(int size);
     }
 
     struct Poly

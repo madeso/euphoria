@@ -12,11 +12,6 @@
 
 namespace euphoria::core
 {
-    Guid::Guid(std::array<uint8_t, 16> d)
-        : data(std::move(d))
-    {
-    }
-
 #ifndef _WIN32
     std::optional<Guid> Guid::create()
     {
@@ -57,19 +52,6 @@ namespace euphoria::core
         return Guid{data};
     }
 #endif
-
-    Guid Guid::nil()
-    {
-        std::array<uint8_t, 16> data
-        {
-            0, 0, 0, 0,
-            0, 0,
-            0, 0,
-            0, 0,
-            0, 0, 0, 0, 0, 0
-        };
-        return Guid{ data };
-    }
 
     std::optional<Guid> Guid::parse(const std::string& str)
     {

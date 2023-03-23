@@ -354,11 +354,20 @@ namespace euphoria::core
         return t;
     }
 
+    float
+    get_component_multiply_sum(const vec3f& lhs, const vec3f& rhs)
+    {
+        const auto x = lhs.x * rhs.x;
+        const auto y = lhs.y * rhs.y;
+        const auto z = lhs.z* rhs.z;
+        return x + y + z;
+    }
+
 
     mat3f operator*(const mat3f& lhs, const mat3f& rhs)
     {
 #define OP(r, c) \
-    vec3f{lhs.get_row(r)}.component_multiply(vec3f{rhs.get_column(c)}).get_component_sum()
+    get_component_multiply_sum(vec3f{lhs.get_row(r)}, vec3f{rhs.get_column(c)})
         return mat3f::from_row_major
         (
             OP(0, 0), OP(0, 1), OP(0, 2),
@@ -371,7 +380,7 @@ namespace euphoria::core
 
     vec3f operator*(const mat3f& lhs, const vec3f& rhs)
     {
-#define OP(r) vec3f{lhs.get_row(r)}.component_multiply(rhs).get_component_sum()
+#define OP(r) get_component_multiply_sum(vec3f{lhs.get_row(r)}, rhs)
         return vec3f(OP(0), OP(1), OP(2));
 #undef OP
     }

@@ -27,7 +27,7 @@ namespace euphoria::gui
 
 
     void
-    Button::step(float dt)
+    Button::update(float dt)
     {
         if(get_background_rect().contains_exclusive(get_state().mouse))
         {

@@ -29,7 +29,7 @@ namespace euphoria::gui
         void operator=(Container&&) = delete;
 
         void add(std::shared_ptr<Widget> widget);
-        void step(float dt);
+        void update(float dt);
 
         void render(render::SpriteRenderer* renderer) const;
 

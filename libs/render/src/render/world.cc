@@ -26,7 +26,7 @@ namespace euphoria::render
     }
 
     void
-    World::step()
+    World::update()
     {
         actors.erase
         (

@@ -19,7 +19,7 @@ namespace euphoria::core
             (
                 AxisAngle::from_right_hand_around
                 (
-                    unit3f::up(),
+                    common::up,
                     -horizontal_rotation
                 )
             );
@@ -28,7 +28,7 @@ namespace euphoria::core
             (
                 AxisAngle::from_right_hand_around
                 (
-                    unit3f::right(),
+                    common::right,
                     -vertical_rotation
                 )
             );

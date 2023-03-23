@@ -50,7 +50,6 @@ namespace euphoria::core
         [[nodiscard]] const float* get_data_ptr() const;
         [[nodiscard]] vec2i toi() const;
         [[nodiscard]] vec2f get_flipped_y() const;
-        [[nodiscard]] float get_component_sum() const;
         [[nodiscard]] float get_length_squared() const;
         [[nodiscard]] float get_length() const;
         [[nodiscard]] NormalizedAndLength<unit2f, float> get_normalized_and_length() const;
@@ -82,7 +81,6 @@ namespace euphoria::core
 
         [[nodiscard]] vec2f tof() const;
         [[nodiscard]] vec2i get_flipped_y() const;
-        [[nodiscard]] int get_component_sum() const;
 
         void operator+=(const vec2i& rhs);
         void operator-=(const vec2i& rhs);
@@ -108,7 +106,6 @@ namespace euphoria::core
         [[nodiscard]] const float* get_data_ptr() const;
         [[nodiscard]] vec2f to_vec() const;
         [[nodiscard]] unit2f get_flipped_y() const;
-        [[nodiscard]] float get_component_sum() const;
 
         // todo(Gustav): remove this...
         [[nodiscard]] float get_length_squared() const;
@@ -141,7 +138,6 @@ namespace euphoria::core
 
         [[nodiscard]] const float* get_data_ptr() const;
         [[nodiscard]] Scale2f get_flipped_y() const;
-        [[nodiscard]] float get_component_sum() const;
 
         Scale2f operator-() const;
     };
@@ -157,15 +153,11 @@ namespace euphoria::core
     vec2f operator*(const unit2f& lhs, float rhs);
     vec2f operator*(float lhs, const unit2f& rhs);
     vec2f operator/(const vec2f& lhs, float rhs);
-    
-    vec2f component_multiply(const vec2f& lhs, const vec2f& rhs);
 
     vec2i operator+(const vec2i& lhs, const vec2i& rhs);
     vec2i operator-(const vec2i& lhs, const vec2i& rhs);
     vec2i operator*(const vec2i& lhs, int rhs);
     vec2i operator*(int lhs, const vec2i& rhs);
-
-    vec2i component_multiply(const vec2i& lhs, const vec2i& rhs);
 
     ////////////////////////////////////////////////////////////////////////////////
     /// Equality operators

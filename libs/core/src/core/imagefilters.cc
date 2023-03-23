@@ -56,7 +56,7 @@ namespace euphoria::core
     void
     make_grayscale(Image* image, Grayscale grayscale)
     {
-        image->filter([grayscale](const rgbai& c)
+        image->run_image_filter([grayscale](const rgbai& c)
         {
             return make_grayscale(c, grayscale);
         });
@@ -65,7 +65,7 @@ namespace euphoria::core
     void
     match_palette(Image* image, const Palette& palette)
     {
-        image->filter([&palette](const rgbai& c) {
+        image->run_image_filter([&palette](const rgbai& c) {
             const auto cc = crgbi(c);
             const auto nc = palette.get_closest_color(cc);
 
@@ -191,7 +191,7 @@ namespace euphoria::core
     filter_color_detection(Image* image, rgb color, float r)
     {
         const auto basis = c_vec3(color);
-        image->filter([&](const rgbai pixel) {
+        image->run_image_filter([&](const rgbai pixel) {
             const auto check = (c_vec3(pixel) - basis).get_length() <= r;
             const auto c = check ? NamedColor::white : NamedColor::black;
             return rgbai(c, 255);
@@ -208,9 +208,18 @@ namespace euphoria::core
         {
             lut.emplace_back(c(i));
         }
-        image->filter([&](const rgbai pixel) {
-            return rgbai(
-                    rgbi(lut[pixel.r], lut[pixel.g], lut[pixel.b]), pixel.a);
+        image->run_image_filter([&](const rgbai pixel)
+        {
+            return rgbai
+            (
+                rgbi
+                (
+                    lut[pixel.r],
+                    lut[pixel.g],
+                    lut[pixel.b]
+                ),
+                pixel.a
+            );
         });
     }
 

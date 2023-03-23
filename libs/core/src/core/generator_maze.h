@@ -55,8 +55,8 @@ namespace euphoria::core::generator
         void operator=(Algorithm&&) = delete;
 
         virtual void setup() = 0;
-        virtual void work() = 0;
-        [[nodiscard]] virtual bool has_more_work() const = 0;
+        virtual void update() = 0;
+        [[nodiscard]] virtual bool is_done() const = 0;
     };
 
     struct RecursiveBacktracker : public Algorithm
@@ -68,8 +68,8 @@ namespace euphoria::core::generator
         int visited_cells = 0;
 
         void setup() override;
-        void work() override;
-        [[nodiscard]] bool has_more_work() const override;
+        void update() override;
+        [[nodiscard]] bool is_done() const override;
     };
 
     struct RandomTraversal : public Algorithm
@@ -85,8 +85,8 @@ namespace euphoria::core::generator
         std::vector<Entry> frontier;
 
         void setup() override;
-        void work() override;
-        [[nodiscard]] bool has_more_work() const override;
+        void update() override;
+        [[nodiscard]] bool is_done() const override;
     };
 
     struct Drawer

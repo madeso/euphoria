@@ -38,7 +38,7 @@ namespace euphoria::render
         render(const core::Viewport& viewport, const core::Camera3& camera);
 
         void
-        step();
+        update();
 
         void
         render

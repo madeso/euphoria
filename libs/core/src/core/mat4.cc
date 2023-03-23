@@ -571,12 +571,21 @@ namespace euphoria::core
         return t;
     }
 
+    float
+    get_component_multiply_sum(const vec4f& lhs, const vec4f& rhs)
+    {
+        const auto x = lhs.x * rhs.x;
+        const auto y = lhs.y * rhs.y;
+        const auto z = lhs.z * rhs.z;
+        const auto w  = lhs.w* rhs.w;
+        return x + y + z + w;
+    }
     
     mat4f operator*(const mat4f& lhs, const mat4f& rhs)
     {
         const auto op = [&lhs, &rhs](int r, int c) -> float
         {
-            return component_multiply(lhs.get_row(r), rhs.get_column(c)).get_component_sum();
+            return get_component_multiply_sum(lhs.get_row(r), rhs.get_column(c));
         };
         return mat4f::from_row_major
         (
@@ -592,7 +601,7 @@ namespace euphoria::core
     {
         const auto op = [&lhs, &rhs](int r) -> float
         {
-            return component_multiply(lhs.get_row(r), rhs).get_component_sum();
+            return get_component_multiply_sum(lhs.get_row(r), rhs);
         };
 
         return vec4f(op(0), op(1), op(2), op(3));

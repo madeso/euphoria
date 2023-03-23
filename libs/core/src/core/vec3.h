@@ -37,8 +37,6 @@ namespace euphoria::core
         float* get_data_ptr();
         [[nodiscard]] const float* get_data_ptr() const;
 
-        [[nodiscard]] float get_component_sum() const;
-
         bool operator==(const Scale3f& rhs) = delete;
     };
 
@@ -54,16 +52,18 @@ namespace euphoria::core
 
         explicit vec3f(float a);
         explicit vec3f(const std::tuple<float, float, float>& a);
-        vec3f(float ax, float ay, float az);
+        constexpr vec3f(float ax, float ay, float az)
+            : x(ax)
+            , y(ay)
+            , z(az)
+        {
+        }
+
         explicit vec3f(const float* a);
         vec3f(const vec2f& a, float az);
 
         static vec3f from_to(const vec3f& from, const vec3f& to);
         static vec3f zero();
-
-        // todo(Gustav): move to free function and to matrix class
-        [[nodiscard]] vec3f component_multiply(const vec3f& rhs) const;
-        [[nodiscard]] float get_component_sum() const;
 
         [[nodiscard]] float dot(const vec3f& rhs) const;
         [[nodiscard]] vec3f cross(const vec3f& u) const;
@@ -77,7 +77,11 @@ namespace euphoria::core
         float* get_data_ptr();
         [[nodiscard]] const float* get_data_ptr() const;
 
-        [[nodiscard]] float get_length_squared() const;
+        constexpr [[nodiscard]] float get_length_squared() const
+        {
+            return x * x + y * y + z * z;
+        }
+
         [[nodiscard]] float get_length() const;
 
         void normalize();
@@ -95,29 +99,41 @@ namespace euphoria::core
 
     struct unit3f : public vec3f
     {
-        unit3f operator-() const;
+        constexpr unit3f operator-() const
+        {
+            return unit3f(-this->x, -this->y, -this->z);
+        }
 
-        [[nodiscard]] bool
-        is_valid() const;
-
-        // todo(Gustav): make constexpr and move to a common namespace?
-        static unit3f x_axis();
-        static unit3f y_axis();
-        static unit3f z_axis();
-        
-        static unit3f up();     static unit3f down();
-        static unit3f right();  static unit3f left();
-        static unit3f in();     static unit3f out();
+        constexpr [[nodiscard]] bool
+        is_valid() const
+        {
+            return is_equal(get_length_squared(), 1.0f);
+        }
 
         static unit3f to_unit(float x, float y, float z);
         static unit3f to_unit(const vec3f& v);
 
         bool operator==(const unit3f& rhs) = delete;
 
-    private:
-        explicit unit3f(float a, float b, float c);
+        constexpr unit3f(float a, float b, float c)
+            : vec3f(a, b, c)
+        {
+            ASSERT(is_valid());
+        }
     };
 
+    namespace common
+    {
+        constexpr unit3f x_axis = unit3f {1.0f, 0.0f, 0.0f};
+        constexpr unit3f y_axis = unit3f {0.0f, 1.0f, 0.0f};
+        constexpr unit3f z_axis = unit3f {0.0f, 0.0f, 1.0f};
+        constexpr unit3f up = y_axis;
+        constexpr unit3f down = -y_axis;
+        constexpr unit3f right = x_axis;
+        constexpr unit3f left = -x_axis;
+        constexpr unit3f in = -z_axis;
+        constexpr unit3f out = z_axis;
+    }
 
     ////////////////////////////////////////////////////////////////////////////////
     /// Math operators

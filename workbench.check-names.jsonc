@@ -31,10 +31,26 @@
         
         // not a verb function
         "base_cast",
+
+        // math functions
+        "acos", "asin", "atan", "atan2", "cos", "max", "min",
+        "sin", "tan", "abs", "sqrt",
+        "dot", "cross",
+
+        // catch wrappers
+        "approx",
     ],
 
     "known_function_prefixes": [
         "palette", "stb", "default", "locale",
+    ],
+
+    // theese files follow existing conventiosna and are excluded from specific name rules
+    "ignored_files": [
+        "libs/core/src/core/easing.cc",
+        "libs/core/src/core/functional.h",
+        "libs/core/src/core/last_n.h",
+        "libs/core/src/core/subvec.h"
     ],
 
     "bad_function_verbs": {
@@ -48,6 +64,9 @@
         "layout": ["lay_out"],
 
         "blit": ["paste"],
+
+        "step": ["update"],
+        "work": ["update"],
     },
 
     "known_function_verbs": [
@@ -59,7 +78,7 @@
 
         // converter functions
         // todo(Gustav): reduce the number of convert functions
-        "c", "convert", "as",
+        "c", "convert", "as", "con", "conv",
         "from", "to",
         
         "get", "set",
@@ -67,6 +86,7 @@
         "create", "destroy",
         "begin", "end",
         "read", "write",
+        "encode", "decode",
 
         // common math names
         "floor", "ceil", "clamp", "lerp", "slerp", "blend", "filter", "join",
@@ -99,6 +119,15 @@
 
         // calculate
         "calc",
+
+        // quare this number
+        "square",
+
+        // hash this data pleasae
+        "hash",
+
+        // shuffle theese cards please
+        "shuffle",
 
         // todo(Gustav): prefer another name? read? or parse?
         "load", "save",
@@ -134,18 +163,22 @@
         // todo(Gustav): just use modify?
         "mod",
         
+        "transform", "transpose", "translate",
+        
+        "allocate", "interpolate",
 
-
-        "define", "expect", "advance", "skip", "send", "fit", "accept", "zip",
-        "copy", "extract", "keep", "quicksort", "swap", "strip", "flip", "pop",
-        "capitalize", "construct", "post", "close", "transform", "undo",
-        "paste", "transpose", "sort", "find", "parse", "draw", "print", "move",
+        "wrap", "raycast", "describe", "pan", "zoom", "include", "invert",
+        "define", "expect", "advance", "skip", "send", "accept",
+        "copy", "extract", "keep", "swap", "strip", "flip", "pop",
+        "capitalize", "construct", "post", "close", "undo",
+        "paste", "sort", "find", "parse", "draw", "print", "move",
         "update", "offset", "register", "put", "extend", "fill", "split",
         "toggle", "inset", "render", "count", "resolve", "show", "compile",
         "list",  "generate", "combine", "bind", "expand", "pack", "replace",
         "select", "report", "clear", "center", "shade", "compare", "scale",
-        "peek", "collect", "tint", "log", "trim", "bounce", "clip", "iterate",
-        "rotate",
+        "peek", "collect", "tint", "log", "trim", "iterate", "dump", "focus",
+        "rotate", "normalize", "darken", "lighten", "merge", "validate", "view",
+        "round",
     ]
 }
 

@@ -23,6 +23,6 @@ namespace euphoria::gui
         void visit(Visitor* visitor) override;
         void on_size_changed() override;
         [[nodiscard]] core::size2f calc_minimum_size() const override;
-        void step(float dt) override;
+        void update(float dt) override;
     };
 }

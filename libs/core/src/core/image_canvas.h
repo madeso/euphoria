@@ -27,7 +27,9 @@ namespace euphoria::core
         void begin_path();
         void close_path();
         void move_to(float x, float y);
-        void line_to(float dx, float dy);
+
+        /// should be named line_to but that name is horrible
+        void draw_line_to(float dx, float dy);
 
         [[nodiscard]] vec2f transform_position(const vec2f& v) const;
         void fill_rect(int x, int y, int w, int h) const;

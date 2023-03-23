@@ -74,7 +74,7 @@ namespace euphoria::core
     quatf::from_random(Random* random)
     {
         const auto axis = get_random_unit3(random);
-        const auto angle = angle::random(random);
+        const auto angle = get_random_angle(random);
 
         return quatf::from_axis_angle(AxisAngle::from_right_hand_around(axis, angle));
     }
@@ -201,42 +201,42 @@ namespace euphoria::core
     unit3f
     quatf::in() const
     {
-        return rotate_around_origo(-unit3f::z_axis());
+        return rotate_around_origo(-common::z_axis);
     }
 
 
     unit3f
     quatf::out() const
     {
-        return rotate_around_origo(unit3f::z_axis());
+        return rotate_around_origo(common::z_axis);
     }
 
 
     unit3f
     quatf::right() const
     {
-        return rotate_around_origo(unit3f::x_axis());
+        return rotate_around_origo(common::x_axis);
     }
 
 
     unit3f
     quatf::left() const
     {
-        return rotate_around_origo(-unit3f::x_axis());
+        return rotate_around_origo(-common::x_axis);
     }
 
 
     unit3f
     quatf::up() const
     {
-        return rotate_around_origo(unit3f::y_axis());
+        return rotate_around_origo(common::y_axis);
     }
 
 
     unit3f
     quatf::down() const
     {
-        return rotate_around_origo(-unit3f::y_axis());
+        return rotate_around_origo(-common::y_axis);
     }
 
 
@@ -380,7 +380,7 @@ namespace euphoria::core
 
     quatf quatf::look_in_direction(const unit3f& dir, const unit3f& up)
     {
-        const vec3f in = unit3f::in();
+        const vec3f in = common::in;
         float dot_value = in.dot(dir);
 
         if (abs(dot_value - (-1.0f)) < 0.000001f)

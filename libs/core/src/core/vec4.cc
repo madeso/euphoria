@@ -77,24 +77,9 @@ namespace euphoria::core
     }
 
 
-    float
-    vec4f::get_component_sum() const
-    {
-        return x + y + z + w;
-    }
-
-
     std::ostream&
     operator<<(std::ostream& stream, const vec4f& v)
     {
         return stream << "(" << v.x << ", " << v.y << ", " << v.z << ", " << v.w << ")";
-    }
-
-
-    // todo(Gustav): move to free function and to matrix class
-    vec4f
-    component_multiply(const vec4f& lhs, const vec4f& rhs)
-    {
-        return vec4f(lhs.x * rhs.x, lhs.y * rhs.y, lhs.z * rhs.z, lhs.w * rhs.w);
     }
 }
