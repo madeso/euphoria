@@ -33,5 +33,9 @@ The folder structure should follow the [pitchfork layout](https://github.com/vec
 
 ![project layout](./docs/euphoria.excalidraw.svg)
 
-All names should follow `snake_case`, both for variables, members, functions and files. The only exception are C++ macros that should follow `SHOUTING_SNAKE_CASE` and structs & template arguments that should follow `PascalCase`. Convertion functions should either be named `con` if the convertion is obvious, otherwise it should be named `c_foobar` where `foobar` describes the conversion, casts are discouraged to the point of being forbidden outside of the 'convertion functions'.
+All names should follow `snake_case`, both for variables, members, functions and files. The only exception are C++ macros that should follow `SHOUTING_SNAKE_CASE` and structs & template arguments that should follow `PascalCase`.
 
+## Naming guidelines
+* Prefer to name function after what is returns, not the algorithm (`get_sorted` or `sort_inplace` vs `quicksort`).
+* Prefer to name function after what is does, not how it does it (`add_item` vs `emplace_back_item`).
+* Avoid general names, be specific but don't be too specific.
