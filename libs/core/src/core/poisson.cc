@@ -118,7 +118,7 @@ namespace euphoria::core
             }
         }
 
-        return {false, vec2f::zero()};
+        return {false, zero2f};
     }
 
 

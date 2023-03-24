@@ -130,13 +130,6 @@ namespace euphoria::core
     }
 
 
-    vec3f
-    vec3f::zero()
-    {
-        return vec3f{0.0f, 0.0f, 0.0f};
-    }
-
-
     void
     vec3f::operator/=(float rhs)
     {

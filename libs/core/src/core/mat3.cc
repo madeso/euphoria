@@ -4,22 +4,6 @@
 
 namespace euphoria::core
 {
-    mat3f::mat3f
-    (
-        float t00, float t01, float t02,
-        float t10, float t11, float t12,
-        float t20, float t21, float t22
-    )
-        : data
-        {
-            t00, t01, t02,
-            t10, t11, t12,
-            t20, t21, t22
-        }
-    {
-    }
-
-    
     mat3f::mat3f(const mat2f& mat)
         : data
         {
@@ -38,24 +22,6 @@ namespace euphoria::core
         float t00, float t01, float t02,
         float t10, float t11, float t12,
         float t20, float t21, float t22
-    )
-    {
-        return mat3f
-        (
-            t00, t01, t02,
-            t10, t11, t12,
-            t20, t21, t22
-        );
-    }
-
-
-    [[nodiscard]]
-    mat3f
-    mat3f::from_row_major
-    (
-        float t00, float t10, float t20,
-        float t01, float t11, float t21,
-        float t02, float t12, float t22
     )
     {
         return mat3f
@@ -98,20 +64,6 @@ namespace euphoria::core
             1, 0, t.x,
             0, 1, t.y,
             0, 0, 1
-        );
-    }
-
-
-    [[nodiscard]]
-    mat3f
-    mat3f::from_scalar(float scalar)
-    {
-        const float z = 0;
-        return from_row_major
-        (
-            scalar, z, z,
-            z, scalar, z,
-            z, z, scalar
         );
     }
 
@@ -181,14 +133,6 @@ namespace euphoria::core
             -u * rsin + v * w * (1 - rcos),
             rcos + w * w * (1 - rcos)
         );
-    }
-
-
-    [[nodiscard]]
-    mat3f
-    mat3f::identity()
-    {
-        return from_scalar(1);
     }
 
 

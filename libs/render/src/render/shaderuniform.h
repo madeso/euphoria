@@ -19,7 +19,7 @@ namespace euphoria::render
         ShaderUniform& operator=(ShaderUniform&&) = default;
 
         [[nodiscard]] static const ShaderUniform&
-        null();
+        create_null();
 
         [[nodiscard]] bool
         is_null() const;

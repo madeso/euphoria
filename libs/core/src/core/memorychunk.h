@@ -8,7 +8,7 @@ namespace euphoria::core
     struct MemoryChunk
     {
         [[nodiscard]] static std::shared_ptr<MemoryChunk> allocate(int size);
-        [[nodiscard]] static std::shared_ptr<MemoryChunk> null();
+        [[nodiscard]] static std::shared_ptr<MemoryChunk> create_null();
 
         [[nodiscard]] char* get_data();
 

@@ -83,7 +83,7 @@ namespace euphoria::window::imgui
     add_help_text_for_previous_widget(const char* desc);
 
     void
-    label(const std::string& str);
+    imgui_label(const std::string& str);
 
     bool
     imgui_angle_slider
@@ -110,7 +110,7 @@ namespace euphoria::window::imgui
 
 
     void
-    image(render::Texture2* texture);
+    imgui_image(render::Texture2* texture);
 
     bool
     imgui_color_edit(const char* name, core::rgb* rgb);
@@ -145,7 +145,7 @@ namespace euphoria::window::imgui
     imgui_selectable_or_disabled(bool enabled, const char* label);
 
     bool
-    knob
+    imgui_knob
     (
         const char* label,
         float* p_value,
@@ -171,7 +171,7 @@ namespace euphoria::window::imgui
     end_combo();
 
     template<typename T>
-    bool combo
+    bool imgui_combo
     (
         const char* label,
         T* data,

@@ -5,7 +5,7 @@
 namespace euphoria::core
 {
     OrbitController::OrbitController()
-        : center(vec3f::zero())
+        : center(zero3f)
         , horizontal_rotation(angle::from_degrees(45.0f))
         , vertical_rotation(angle::from_degrees(45.0f))
     {}
@@ -77,6 +77,6 @@ namespace euphoria::core
     vec3f
     OrbitController::get_camera_position() const
     {
-        return center - get_rotation().in() * distance;
+        return center - get_rotation().get_in() * distance;
     }
 }

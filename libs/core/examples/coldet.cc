@@ -41,7 +41,7 @@ struct PlaneDemo
         auto d = Dumper{ cd + "/coldet-distance-to-plane.html" };
 
         d.add_plane(plane, NamedColor::white);
-        d.add_arrow(Ray3f(vec3f::zero(), plane.normal), NamedColor::green);
+        d.add_arrow(Ray3f(zero3f, plane.normal), NamedColor::green);
         for (const auto& p : points)
         {
             const auto dist = get_distance_between(plane, p);
@@ -55,7 +55,7 @@ struct PlaneDemo
         auto d = Dumper{ cd + "/coldet-point-to-plane.html" };
 
         d.add_plane(plane, NamedColor::white);
-        d.add_arrow(Ray3f(vec3f::zero(), plane.normal), NamedColor::green);
+        d.add_arrow(Ray3f(zero3f, plane.normal), NamedColor::green);
         for (const auto& p : points)
         {
             const auto dist = get_distance_between(plane, p);

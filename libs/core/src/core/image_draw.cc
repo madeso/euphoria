@@ -206,7 +206,7 @@ namespace euphoria::core
                 const float sq = vec2f::from_to
                 (
                     vec2f{static_cast<float>(x), static_cast<float>(y)},
-                    center.tof()
+                    center.to_f()
                 ).get_length();
                 bool blend = false;
                 float blend_factor = 1.0f;
@@ -237,7 +237,7 @@ namespace euphoria::core
                 const rgb paint_color = blend
                     ? lerp_rgb
                     (
-                        crgb(image->get_pixel(x, y)),
+                        to_crgb(image->get_pixel(x, y)),
                         blend_factor,
                         color
                     )
@@ -351,8 +351,8 @@ namespace euphoria::core
         (
              image,
              color,
-             from.tof(),
-             to.tof()
+             from.to_f(),
+             to.to_f()
         );
     }
 
@@ -383,7 +383,7 @@ namespace euphoria::core
             {
                 const rgb paint_color = lerp_rgb
                 (
-                    crgb(image->get_pixel(x, y)),
+                    to_crgb(image->get_pixel(x, y)),
                     c,
                     color
                 );
@@ -485,7 +485,7 @@ namespace euphoria::core
 
     rgbai tint_color(const rgbai& c, const rgbai& tint)
     {
-        return crgbai(tint_color(crgba(c), crgb(tint)));
+        return to_rgbai(tint_color(to_rgba(c), to_crgb(tint)));
     }
 
     void
@@ -609,8 +609,8 @@ namespace euphoria::core
             }
         );
 
-        const auto min = minf.toi();
-        const auto max = maxf.toi();
+        const auto min = minf.to_i();
+        const auto max = maxf.to_i();
 
         for(int y=min.y; y<=max.y; y+=1)
         {
@@ -699,7 +699,7 @@ namespace euphoria::core
         };
 
         // line
-        draw_line_antialiased(image, crgb(color), from, to);
+        draw_line_antialiased(image, to_crgb(color), from, to);
 
         // wings
         // DrawLineAntialiased(image, rgb(color), arrowPoint, arrowPointLeft);

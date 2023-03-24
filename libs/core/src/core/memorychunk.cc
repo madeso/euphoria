@@ -44,7 +44,7 @@ namespace euphoria::core
     }
 
     std::shared_ptr<MemoryChunk>
-    MemoryChunk::null()
+    MemoryChunk::create_null()
     {
         std::shared_ptr<MemoryChunk> ret;
         return ret;

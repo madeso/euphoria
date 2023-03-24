@@ -39,6 +39,9 @@
 
         // catch wrappers
         "approx",
+
+        //stb "port"
+        "stb_adler32", "stb_lit"
     ],
 
     "known_function_prefixes": [
@@ -164,10 +167,11 @@
         "mod",
         
         "transform", "transpose", "translate",
-        
-        "allocate", "interpolate",
 
-        "wrap", "raycast", "describe", "pan", "zoom", "include", "invert",
+        "raycast", "raytrace",
+        
+        "allocate", "interpolate", "tokenize",
+        "wrap", "describe", "pan", "zoom", "include", "invert",
         "define", "expect", "advance", "skip", "send", "accept",
         "copy", "extract", "keep", "swap", "strip", "flip", "pop",
         "capitalize", "construct", "post", "close", "undo",
@@ -175,10 +179,10 @@
         "update", "offset", "register", "put", "extend", "fill", "split",
         "toggle", "inset", "render", "count", "resolve", "show", "compile",
         "list",  "generate", "combine", "bind", "expand", "pack", "replace",
-        "select", "report", "clear", "center", "shade", "compare", "scale",
+        "select", "report", "clear", "center", "compare", "scale",
         "peek", "collect", "tint", "log", "trim", "iterate", "dump", "focus",
-        "rotate", "normalize", "darken", "lighten", "merge", "validate", "view",
-        "round",
+        "rotate", "normalize", "merge", "validate", "view",
+        "round", "flatten", "visit", "reserve", "flush", "activate",
     ]
 }
 

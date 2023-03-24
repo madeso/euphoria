@@ -49,7 +49,7 @@ namespace euphoria::core
     template <typename T>
     T get_random_in_range(Random* rand, const Range<T>& range)
     {
-        return from01(range, rand->get_next_float01());
+        return from_01(range, rand->get_next_float01());
     }
 
     template <typename T>

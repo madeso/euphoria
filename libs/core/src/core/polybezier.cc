@@ -26,7 +26,7 @@ namespace euphoria::core { namespace
     template<typename T, bool b> struct Const { using Type = T; };
     template<typename T> struct Const<T, true> { using Type = std::add_const_t<T>; };
 
-    template<typename Vec, typename Segment, typename Unit, bool is_const>
+    template<typename Vec, typename Segment, typename Unit, bool is_const, Vec zeroVec>
     struct PolyBezierWrapper
     {
         using TPoints = typename Const<std::vector<Vec>, is_const>::Type;
@@ -284,7 +284,7 @@ namespace euphoria::core { namespace
                 }
                 else
                 {
-                    return {0.0f, Vec::zero()};
+                    return {0.0f, zeroVec};
                 }
             };
             const auto set_control_point = [&](int control_index, float distance, const Unit& dir)
@@ -304,7 +304,7 @@ namespace euphoria::core { namespace
         }
     };
 
-    PolyBezierWrapper<vec2f, BezierSegment2, unit2f, false> make_wrapper(euphoria::core::PolyBezier2* self)
+    PolyBezierWrapper<vec2f, BezierSegment2, unit2f, false, zero2f> make_wrapper(euphoria::core::PolyBezier2* self)
     {
         return
         {
@@ -314,7 +314,7 @@ namespace euphoria::core { namespace
         };
     }
 
-    PolyBezierWrapper<vec2f, BezierSegment2, unit2f, true> make_wrapper(const euphoria::core::PolyBezier2* self)
+    PolyBezierWrapper<vec2f, BezierSegment2, unit2f, true, zero2f> make_wrapper(const euphoria::core::PolyBezier2* self)
     {
         return
         {

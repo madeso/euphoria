@@ -20,8 +20,8 @@ namespace euphoria::core
 
         Defines();
 
-        void undefine(const std::string& name);
-        void define(const std::string& name, const std::string& value);
+        void remove(const std::string& name);
+        void set(const std::string& name, const std::string& value);
 
         [[nodiscard]] bool is_defined(const std::string& name) const;
         [[nodiscard]] std::string get_value(const std::string& name) const;
@@ -64,7 +64,7 @@ namespace euphoria::core
         void operator=(CompiledTextTemplate&&) = delete;
 
         // todo(Gustav): why is this not const nodiscard?
-        std::string evaluate(const Defines& defines);
+        std::string build_string(const Defines& defines);
     };
 
 }

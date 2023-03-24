@@ -95,7 +95,7 @@ namespace euphoria::core::base64
         }
         else
         {
-            return MemoryChunk::null();
+            return MemoryChunk::create_null();
         }
     }
 }

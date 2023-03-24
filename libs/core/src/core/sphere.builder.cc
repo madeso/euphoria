@@ -13,7 +13,7 @@ namespace euphoria::core
     {
         ASSERT(positions.empty() == false);
 
-        auto center = vec3f::zero();
+        auto center = zero3f;
 
         for(const auto& p: positions)
         {

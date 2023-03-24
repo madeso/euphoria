@@ -58,7 +58,7 @@ namespace euphoria::gui
         update(float dt);
 
         void
-        resize(const core::size2f& new_size);
+        set_size(const core::size2f& new_size);
 
         void
         render(render::SpriteRenderer* sp) const;

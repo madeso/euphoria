@@ -25,7 +25,7 @@ namespace euphoria::render
         explicit Sprite
         (
             std::shared_ptr<Texture2> texture,
-            const core::vec2f& position = core::vec2f::zero()
+            const core::vec2f& position = core::zero2f
         );
 
         void render(SpriteRenderer* render) const;

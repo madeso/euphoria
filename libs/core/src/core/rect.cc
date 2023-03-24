@@ -24,7 +24,7 @@ namespace euphoria::core
     }
 
     Recti
-    Rectf::toi() const
+    Rectf::to_i() const
     {
         return Recti::from_left_right_top_bottom
         (
@@ -504,7 +504,7 @@ namespace euphoria::core
     }
 
     Rectf
-    Recti::tof() const
+    Recti::to_f() const
     {
         return Rectf::from_left_right_top_bottom
         (
@@ -961,10 +961,10 @@ namespace euphoria::core
     }
 
     [[nodiscard]] vec2f
-    from01(const Rectf& r, const vec2f& from)
+    from_01(const Rectf& r, const vec2f& from)
     {
-        const auto x = from01(make_range(r.left, r.right), from.x);
-        const auto y = from01(make_range(r.bottom, r.top), from.y);
+        const auto x = from_01(make_range(r.left, r.right), from.x);
+        const auto y = from_01(make_range(r.bottom, r.top), from.y);
         return vec2f {x, y};
     }
 
@@ -1005,10 +1005,10 @@ namespace euphoria::core
     }
 
     [[nodiscard]] vec2i
-    from01(const Recti& r, const vec2f& from)
+    from_01(const Recti& r, const vec2f& from)
     {
-        const auto x = from01(make_range(r.left, r.right), from.x);
-        const auto y = from01(make_range(r.bottom, r.top), from.y);
+        const auto x = from_01(make_range(r.left, r.right), from.x);
+        const auto y = from_01(make_range(r.bottom, r.top), from.y);
         return vec2i {x, y};
     }
 

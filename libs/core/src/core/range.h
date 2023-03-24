@@ -62,12 +62,12 @@ namespace euphoria::core
     constexpr Range<float> r01 = { 0.0f, 1.0f, nullptr};
     constexpr Range<float> r11 = { -1.0f, 1.0f, nullptr};
 
-    float from01f(float lower_bound, float upper_bound, float value);
+    float from_01f(float lower_bound, float upper_bound, float value);
 
     template <typename T>
-    T from01(const Range<T>& range, float value)
+    T from_01(const Range<T>& range, float value)
     {
-        const float r = from01f
+        const float r = from_01f
         (
             static_cast<float>(range.lower_bound),
             static_cast<float>(range.upper_bound),
@@ -83,7 +83,7 @@ namespace euphoria::core
     }
 
     template <>
-    float from01(const Range<float>& range, float value);
+    float from_01(const Range<float>& range, float value);
 
     template <typename T>
     float to01(const Range<T>& range, T value)
@@ -105,7 +105,7 @@ namespace euphoria::core
     template <typename T, typename F>
     T remap_to(const Range<F>& from, const Range<T>& to, F value)
     {
-        return from01(to, to01(from, value));
+        return from_01(to, to01(from, value));
     }
 
     // includsive, both min and max are included

@@ -40,7 +40,7 @@ public:
     std::shared_ptr<euco::MemoryChunk>
     read_file(const FilePath&) override
     {
-        return euco::MemoryChunk::null();
+        return euco::MemoryChunk::create_null();
     }
 
     void

@@ -28,7 +28,7 @@ namespace euphoria::core
     Canvas::Canvas(Image* i)
         : fill_style(NamedColor::black)
         , target_image(i)
-        , transform(mat3f::identity())
+        , transform(m3_identity)
         , building_path(false)
     {
     }
@@ -92,7 +92,7 @@ namespace euphoria::core
         ASSERT(building_path);
         if(path.empty())
         {
-            path.push_back(transform_position(vec2f::zero()));
+            path.push_back(transform_position(zero2f));
         }
         path.push_back(transform_position(vec2f(dx, dy)));
     }

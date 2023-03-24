@@ -41,7 +41,7 @@ namespace euphoria::core::io
             // this is actually not a error since other files might be later on in the vfs
             // test running test3d for a example where it tries to load real files over virtual ones
             // LOG_ERROR("Failed to read real file " << full_path);
-            return MemoryChunk::null();
+            return MemoryChunk::create_null();
         }
 
         is.seekg(0, std::ifstream::end);
@@ -50,7 +50,7 @@ namespace euphoria::core::io
 
         if(length <= 0)
         {
-            return MemoryChunk::null();
+            return MemoryChunk::create_null();
         }
 
         auto memory = MemoryChunk::allocate(c_postype_to_int(length));

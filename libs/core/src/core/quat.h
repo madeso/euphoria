@@ -18,13 +18,18 @@ namespace euphoria::core
         float y;
         float z;
 
-        quatf(float aw, const vec3f& v);
+        constexpr quatf(float aw, const vec3f& v)
+            : w(aw)
+            , x(v.x)
+            , y(v.y)
+            , z(v.z)
+        {
+        }
 
         [[nodiscard]] static quatf from_axis_angle(const AxisAngle& aa);
         [[nodiscard]] static quatf from_ypr(const angle& yaw, const angle& pitch, const angle& roll);
         [[nodiscard]] static quatf from_to(const quatf& from, const quatf& to);
         [[nodiscard]] static quatf from_random(Random* random);
-        [[nodiscard]] static quatf identity();
         [[nodiscard]] static quatf look_at(const vec3f& from, const vec3f& to, const unit3f& up);
         [[nodiscard]] static quatf look_in_direction(const unit3f& dir, const unit3f& up);
 
@@ -50,18 +55,20 @@ namespace euphoria::core
         [[nodiscard]] float get_length_squared() const;
         [[nodiscard]] quatf get_normalized() const;
 
-        [[nodiscard]] unit3f in() const;
-        [[nodiscard]] unit3f out() const;
-        [[nodiscard]] unit3f right() const;
-        [[nodiscard]] unit3f left() const;
-        [[nodiscard]] unit3f up() const;
-        [[nodiscard]] unit3f down() const;
+        [[nodiscard]] unit3f get_in() const;
+        [[nodiscard]] unit3f get_out() const;
+        [[nodiscard]] unit3f get_right() const;
+        [[nodiscard]] unit3f get_left() const;
+        [[nodiscard]] unit3f get_up() const;
+        [[nodiscard]] unit3f get_down() const;
 
         void operator+=(const quatf& rhs);
         void operator-=(const quatf& rhs);
         void operator*=(float rhs);
         void operator*=(const quatf& rhs);
     };
+
+    constexpr quatf q_identity = quatf(1, vec3f(0, 0, 0));
 
     quatf lerp_quatf(const quatf& f, float scale, const quatf& t);
     quatf slerp_fast(const quatf& qa, float t, const quatf& qb);

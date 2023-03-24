@@ -106,7 +106,7 @@ namespace euphoria::core
 
             OrbitData(std::optional<vec3f> collision, const CameraFrame& f)
                 : valid(collision.has_value())
-                , center(collision.has_value() ? *collision : vec3f::zero())
+                , center(collision.has_value() ? *collision : zero3f)
                 , distance( vec3f::from_to(center, f.position).get_length() )
                 , rotation_angle(f.rotation_angle)
                 , look_angle(f.look_angle)
@@ -344,8 +344,8 @@ namespace euphoria::core
             DefaultCamera()
                 : latest_camera
                 (
-                    mat4f::identity(),
-                    mat4f::identity()
+                    m4_identity,
+                    m4_identity
                 )
                 , latest_viewport
                 (
@@ -689,7 +689,7 @@ namespace euphoria::core
         // algorithm: https://stackoverflow.com/a/32836605
         fps.look_in_direction(vec3f::from_to(fps.position, s.center).get_normalized());
         const auto distance = (s.sphere.radius * 2.0f) / core::tan(cam.fov / 2.0f);
-        fps.position = s.center  + fps.get_rotation().out() * distance;
+        fps.position = s.center  + fps.get_rotation().get_out() * distance;
         
         
         const auto to = detail::get_frame_from_editor(this);

@@ -219,7 +219,7 @@ struct MidiInputNode : public euphoria::minsynth::MidiInNode
         auto* self = static_cast<MidiInNode*>(user_data);
         if(message != nullptr)
         {
-            self->callback(static_cast<float>(deltatime), *message);
+            self->on_midi_message(static_cast<float>(deltatime), *message);
             // self->debug_callback(deltatime, *message);
         }
     }
@@ -413,9 +413,9 @@ public:
                 oscilator.get_alive_tones(),
                 oscilator.get_dead_tones()
             );
-            imgui::label(fmt::format("Time: {.1f}", current_time));
-            imgui::label(fmt::format("Sample time: {.1f}", max_sample_time));
-            imgui::label(fmt::format("Max diff: {.1f}", max_diff));
+            imgui::imgui_label(fmt::format("Time: {.1f}", current_time));
+            imgui::imgui_label(fmt::format("Sample time: {.1f}", max_sample_time));
+            imgui::imgui_label(fmt::format("Max diff: {.1f}", max_diff));
             const auto f = current_time - audio_callback_time;
             time_history.push(f);
             if(f > max_diff)
@@ -429,7 +429,7 @@ public:
 
             ImGui::SliderFloat("master", &master.volume, 0.0f, 1.0f);
 
-            imgui::knob("Master", &master.volume, 0.0f, 1.0f);
+            imgui::imgui_knob("Master", &master.volume, 0.0f, 1.0f);
 
             imgui::imgui_custom_dropdown
             (
@@ -490,9 +490,9 @@ public:
                     return to_string(t);
                 }
             );
-            imgui::knob("Update time", &arp.update_time, 0, 1);
+            imgui::imgui_knob("Update time", &arp.update_time, 0, 1);
             ImGui::SameLine();
-            imgui::knob("Tone time", &arp.tone_time, 0, 1);
+            imgui::imgui_knob("Tone time", &arp.tone_time, 0, 1);
 
             {
                 ImGui::BeginChild("audio devices", ImVec2(0, 0), true);

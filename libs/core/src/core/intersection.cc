@@ -109,13 +109,13 @@ namespace euphoria::core
         Ray2Ray2Result
         ray2_ray2_result_parallel()
         {
-            return {false, true, vec2f::zero(), -1.0f, -1.0f};
+            return {false, true, zero2f, -1.0f, -1.0f};
         }
 
         Ray2Ray2Result
         ray2_ray2_result_no_collision()
         {
-            return {false, false, vec2f::zero(), -1.0f, -1.0f};
+            return {false, false, zero2f, -1.0f, -1.0f};
         }
 
         Ray2Ray2Result

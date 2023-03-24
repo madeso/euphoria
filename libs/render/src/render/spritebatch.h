@@ -25,7 +25,7 @@ namespace euphoria::render
         begin();
 
         void
-        quad
+        render_quad
         (
             const core::vec2f& pos,
             const core::size2f& quad,

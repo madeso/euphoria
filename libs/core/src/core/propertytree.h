@@ -35,7 +35,7 @@ namespace euphoria::core
 
         explicit IntValue(int i);
 
-        [[nodiscard]] static int& cast(core::Value* value);
+        [[nodiscard]] static int& get(core::Value* value);
     };
 
     struct FloatValue : public Value
@@ -44,7 +44,7 @@ namespace euphoria::core
 
         explicit FloatValue(float f);
 
-        [[nodiscard]] static float& cast(core::Value* value);
+        [[nodiscard]] static float& get(core::Value* value);
     };
 
     struct Vec3fValue : public Value
@@ -53,7 +53,7 @@ namespace euphoria::core
 
         explicit Vec3fValue(const vec3f& v);
 
-        [[nodiscard]] static vec3f& cast(core::Value* value);
+        [[nodiscard]] static vec3f& get(core::Value* value);
     };
 
     struct MapValue : public Value

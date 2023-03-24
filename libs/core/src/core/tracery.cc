@@ -513,8 +513,8 @@ namespace euphoria::core::tracery
             return cr;
         }
 
-
-        std::string a(const std::string& s)
+        // useful for sconverting cat -> "a cat"
+        std::string add_prefix_with_a_or_an(const std::string& s)
         {
             if(s.length() > 0)
             {
@@ -538,8 +538,8 @@ namespace euphoria::core::tracery
             return "a " + s;
         }
 
-
-        std::string s(const std::string& s)
+        // useful fornverting dog -> dogs
+        std::string add_postfix_plural(const std::string& s)
         {
             switch(s[s.length() - 1])
             {
@@ -560,8 +560,8 @@ namespace euphoria::core::tracery
             }
         }
 
-
-        std::string ed(const std::string& s)
+        /// useful for converting walk -> walked
+        std::string add_postfix_ed(const std::string& s)
         {
             switch(s[s.length() - 1])
             {
@@ -607,9 +607,9 @@ namespace euphoria::core::tracery
         {
             g->register_modifier("capitalizeAll", make_modifier(capitalize_all));
             g->register_modifier("capitalize", make_modifier(capitalize));
-            g->register_modifier("a", make_modifier(a));
-            g->register_modifier("s", make_modifier(s));
-            g->register_modifier("ed", make_modifier(ed));
+            g->register_modifier("a", make_modifier(add_prefix_with_a_or_an));
+            g->register_modifier("s", make_modifier(add_postfix_plural));
+            g->register_modifier("ed", make_modifier(add_postfix_ed));
         }
     }
 

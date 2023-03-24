@@ -63,8 +63,7 @@ namespace euphoria::core
         vec3f(const vec2f& a, float az);
 
         static vec3f from_to(const vec3f& from, const vec3f& to);
-        static vec3f zero();
-
+        
         [[nodiscard]] float dot(const vec3f& rhs) const;
         [[nodiscard]] vec3f cross(const vec3f& u) const;
 
@@ -92,6 +91,8 @@ namespace euphoria::core
 
         bool operator==(const vec3f& rhs) = delete;
     };
+
+    constexpr vec3f zero3f = vec3f{ 0.0f, 0.0f, 0.0f };
 
 
     ////////////////////////////////////////////////////////////////////////////////

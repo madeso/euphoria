@@ -14,7 +14,7 @@
 
 namespace euphoria::core::raytracer
 {
-    HitResult::HitResult
+    Collision::Collision
     (
         float aray_distance,
         const vec3f& aposition,
@@ -47,8 +47,8 @@ namespace euphoria::core::raytracer
         {
         }
 
-        [[nodiscard]] std::optional<HitResult>
-        hit(const UnitRay3f& ray, const Range<float>& range) const override
+        [[nodiscard]] std::optional<Collision>
+        get_collision(const UnitRay3f& ray, const Range<float>& range) const override
         {
             const auto hit_index = get_intersection
             (
@@ -60,7 +60,7 @@ namespace euphoria::core::raytracer
             {
                 const auto hit_position = ray.get_point(hit_index);
                 const auto hit_normal = vec3f::from_to(position, hit_position).get_normalized();
-                return HitResult
+                return Collision
                 {
                     hit_index,
                     hit_position,
@@ -93,14 +93,14 @@ namespace euphoria::core::raytracer
     }
 
 
-    std::optional<HitResult>
-    Scene::hit(const UnitRay3f& ray, const Range<float>& range) const
+    std::optional<Collision>
+    Scene::get_collision(const UnitRay3f& ray, const Range<float>& range) const
     {
-        std::optional<HitResult> r = std::nullopt;
+        std::optional<Collision> r = std::nullopt;
 
         for(const auto& o: objects)
         {
-            const auto h = o->hit(ray, range);
+            const auto h = o->get_collision(ray, range);
             if(r.has_value() == false)
             {
                 r = h;
@@ -122,7 +122,7 @@ namespace euphoria::core::raytracer
 
 
     rgb
-    crgb(const unit3f& normal)
+    to_crgb(const unit3f& normal)
     {
         return rgb
         {
@@ -149,10 +149,10 @@ namespace euphoria::core::raytracer
         }
 
         std::optional<ScatterResult>
-        scatter
+        get_scattered
         (
             const UnitRay3f& /*ray*/,
-            const HitResult& hit,
+            const Collision& hit,
             Random* random
         ) override
         {
@@ -168,7 +168,7 @@ namespace euphoria::core::raytracer
     };
 
 
-    vec3f reflect(const vec3f& v, const unit3f& normal) {
+    vec3f get_reflected(const vec3f& v, const unit3f& normal) {
         return v - 2 * v.dot(normal) * normal;
     }
 
@@ -189,14 +189,14 @@ namespace euphoria::core::raytracer
         }
 
         std::optional<ScatterResult>
-        scatter
+        get_scattered
         (
             const UnitRay3f& ray,
-            const HitResult& hit,
+            const Collision& hit,
             Random* random
         ) override
         {
-            const auto reflected = reflect
+            const auto reflected = get_reflected
             (
                 ray.dir,
                 hit.normal
@@ -224,7 +224,7 @@ namespace euphoria::core::raytracer
 
 
     std::optional<vec3f>
-    refract
+    get_refracted
     (
         const unit3f& uv,
         const unit3f& normal,
@@ -271,10 +271,10 @@ namespace euphoria::core::raytracer
         }
 
         std::optional<ScatterResult>
-        scatter
+        get_scattered
         (
             const UnitRay3f& ray,
-            const HitResult& hit,
+            const Collision& hit,
             Random* random
         ) override
         {
@@ -284,7 +284,7 @@ namespace euphoria::core::raytracer
             const auto outward_normal = dot_result ? -hit.normal : hit.normal;
             const auto ni = dot_result ? refractive_index : 1.0f/refractive_index;
 
-            const auto refracted = refract(ray.dir, outward_normal, ni);
+            const auto refracted = get_refracted(ray.dir, outward_normal, ni);
 
             if(refracted.has_value())
             {
@@ -306,7 +306,7 @@ namespace euphoria::core::raytracer
                     };
                 }
             }
-            const auto reflected = reflect
+            const auto reflected = get_reflected
             (
                 ray.dir,
                 hit.normal
@@ -376,7 +376,7 @@ namespace euphoria::core::raytracer
         int depth
     )
     {
-        const auto h = scene.hit
+        const auto h = scene.get_collision
         (
             ray,
             make_range(0.001f, std::numeric_limits<float>::max())
@@ -385,7 +385,7 @@ namespace euphoria::core::raytracer
         {
             if(depth < 50)
             {
-                auto scatter = h->material->scatter
+                auto scatter = h->material->get_scattered
                 (
                     ray,
                     h.value(),
@@ -487,7 +487,7 @@ namespace euphoria::core::raytracer
                 }
                 color = color/static_cast<float>(number_of_samples);
                 color = correct_color_using_gamma2(color);
-                img.set_pixel(x,y, crgbi(color));
+                img.set_pixel(x,y, to_rgbi(color));
             }
         }
 

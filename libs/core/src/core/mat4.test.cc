@@ -62,7 +62,7 @@ TEST_CASE("mat4-identity", "[mat]")
         0.0f,  0.0f,  1.0f,  0.0f,
         0.0f,  0.0f,  0.0f,  1.0f
     );
-    const auto i = euco::mat4f::identity();
+    const auto i = euco::m4_identity;
     REQUIRE(i.get_column(0) == approx(m.get_column(0)));
     REQUIRE(i.get_column(1) == approx(m.get_column(1)));
     REQUIRE(i.get_column(2) == approx(m.get_column(2)));
@@ -118,7 +118,7 @@ TEST_CASE("mat4-transposed", "[mat]")
 
 TEST_CASE("mat4-axis", "[mat]")
 {
-    const auto m = euco::mat4f::identity();
+    const auto m = euco::m4_identity;
     REQUIRE(euco::unit3f::to_unit({1.0f, 0.0f, 0.0f}) == approx(m.get_x_axis()));
     REQUIRE(euco::unit3f::to_unit({0.0f, 1.0f, 0.0f}) == approx(m.get_y_axis()));
     REQUIRE(euco::unit3f::to_unit({0.0f, 0.0f, 1.0f}) == approx(m.get_z_axis()));
@@ -240,25 +240,25 @@ TEST_CASE("mat4-TestTransformation", "[mat]")
 
 TEST_CASE("mat4-TestRight", "[mat]")
 {
-    REQUIRE(euco::mat4f::identity().get_x_axis() == approx(euco::common::x_axis));
+    REQUIRE(euco::m4_identity.get_x_axis() == approx(euco::common::x_axis));
 }
 
 
 TEST_CASE("mat4-TestUp", "[mat]")
 {
-    REQUIRE(euco::mat4f::identity().get_y_axis() == approx(euco::common::y_axis));
+    REQUIRE(euco::m4_identity.get_y_axis() == approx(euco::common::y_axis));
 }
 
 
 
 TEST_CASE("mat4-TestIn", "[mat]")
 {
-    REQUIRE(euco::mat4f::identity().get_z_axis() == approx(euco::common::z_axis));
+    REQUIRE(euco::m4_identity.get_z_axis() == approx(euco::common::z_axis));
 }
 
 TEST_CASE("mat4-test", "[mat]")
 {
-    const euco::mat4f start = euco::mat4f::identity();
+    const euco::mat4f start = euco::m4_identity;
     const euco::AxisAngle aa = euco::AxisAngle::from_right_hand_around
     (
         euco::common::up,
@@ -277,7 +277,7 @@ TEST_CASE("mat4-test", "[mat]")
 
 TEST_CASE("mat4-TestCombined_RT", "[mat]")
 {
-    const auto r = euco::mat4f::identity()
+    const auto r = euco::m4_identity
         .get_rotated
         (
             euco::AxisAngle::from_right_hand_around
@@ -295,7 +295,7 @@ TEST_CASE("mat4-TestCombined_RT", "[mat]")
 TEST_CASE("mat4-TestCombined2_RT", "[mat]")
 {
     const auto r =
-        euco::mat4f::identity()
+        euco::m4_identity
         .get_rotated
         (
             euco::AxisAngle::from_right_hand_around
@@ -311,7 +311,7 @@ TEST_CASE("mat4-TestCombined2_RT", "[mat]")
 
 TEST_CASE("mat4-TestCombined_TR", "[mat]")
 {
-    const auto r = euco::mat4f::identity()
+    const auto r = euco::m4_identity
         .get_translated(euco::vec3f(0, 0, 5))
         .get_rotated
         (
@@ -328,7 +328,7 @@ TEST_CASE("mat4-TestCombined_TR", "[mat]")
 
 TEST_CASE("mat4-TestTranslation", "[mat]")
 {
-    const auto r = euco::mat4f::identity()
+    const auto r = euco::m4_identity
         .get_translated(euco::vec3f(1, 2, 3))
         .get_transform_point(euco::vec3f(7, 8, 9))
         ;
@@ -338,7 +338,7 @@ TEST_CASE("mat4-TestTranslation", "[mat]")
 
 TEST_CASE("mat4-TestIentityTransform", "[mat]")
 {
-    const auto r = euco::mat4f::identity()
+    const auto r = euco::m4_identity
         .get_transform_point(euco::vec3f(1, 2, 3))
         ;
     REQUIRE(r == approx(euco::vec3f(1, 2, 3)));
@@ -346,7 +346,7 @@ TEST_CASE("mat4-TestIentityTransform", "[mat]")
 
 TEST_CASE("mat4-TestIentityMultiply", "[mat]")
 {
-    REQUIRE(euco::mat4f::identity() * euco::mat4f::identity() == approx(euco::mat4f::identity()));
+    REQUIRE(euco::m4_identity * euco::m4_identity == approx(euco::m4_identity));
 }
 
 TEST_CASE("mat4-TestVec4Multiply", "[mat]")

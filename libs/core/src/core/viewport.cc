@@ -21,8 +21,8 @@ namespace euphoria::core
     vec2f
     Viewport::to_clip_coord(const vec2i& p) const
     {
-        const auto p01 = to01(bounds.tof(), p.tof());
-        const auto clip = from01(Rectf::from_left_right_top_bottom(-1, 1, 1, -1), p01);
+        const auto p01 = to01(bounds.to_f(), p.to_f());
+        const auto clip = from_01(Rectf::from_left_right_top_bottom(-1, 1, 1, -1), p01);
         return clip;
     }
 

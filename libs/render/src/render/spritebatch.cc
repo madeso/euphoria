@@ -30,7 +30,7 @@ namespace euphoria::render
 
 
     void
-    SpriteBatch::quad
+    SpriteBatch::render_quad
     (
         const core::vec2f& pos,
         const core::size2f& quad,

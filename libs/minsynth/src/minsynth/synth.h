@@ -192,7 +192,7 @@ namespace euphoria::minsynth
         bool open_virtual_port = false;
         unsigned int port_number = 1;
 
-        void callback(float dt, const std::vector<unsigned char>& bytes);
+        void on_midi_message(float dt, const std::vector<unsigned char>& bytes);
 
         static bool is_status_message(unsigned char b);
         static void debug_callback(double dt, const std::vector<unsigned char>& bytes);

@@ -17,7 +17,7 @@ namespace euphoria::core
 
     namespace raytracer
     {
-        struct HitResult;
+        struct Collision;
 
 
         struct ScatterResult
@@ -38,23 +38,23 @@ namespace euphoria::core
             void operator=(Material&&) = delete;
 
             [[nodiscard]] virtual std::optional<ScatterResult>
-            scatter
+            get_scattered
             (
                 const UnitRay3f& ray,
-                const HitResult& hit,
+                const Collision& hit,
                 Random* random
             ) = 0;
         };
 
 
-        struct HitResult
+        struct Collision
         {
             float ray_distance;
             vec3f position;
             unit3f normal;
             std::shared_ptr<raytracer::Material> material;
 
-            HitResult
+            Collision
             (
                 float aray_distance,
                 const vec3f& aposition,
@@ -74,8 +74,8 @@ namespace euphoria::core
             void operator=(const Object&) = delete;
             void operator=(Object&&) = delete;
 
-            [[nodiscard]] virtual std::optional<HitResult>
-            hit(const UnitRay3f& ray, const Range<float>& range) const = 0;
+            [[nodiscard]] virtual std::optional<Collision>
+            get_collision(const UnitRay3f& ray, const Range<float>& range) const = 0;
         };
 
 
@@ -112,8 +112,8 @@ namespace euphoria::core
         {
             std::vector<std::shared_ptr<Object>> objects;
 
-            [[nodiscard]] std::optional<HitResult>
-            hit(const UnitRay3f& ray, const Range<float>& range) const;
+            [[nodiscard]] std::optional<Collision>
+            get_collision(const UnitRay3f& ray, const Range<float>& range) const;
         };
 
 

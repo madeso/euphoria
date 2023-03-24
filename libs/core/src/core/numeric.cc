@@ -91,22 +91,6 @@ namespace euphoria::core
 
 
     float
-    curve(float new_value, float old_value, float smoothing_value)
-    {
-        const int sign = get_sign(old_value - new_value);
-        const float slip = (old_value - new_value) / smoothing_value;
-        const float val = old_value - slip;
-
-        if(sign != get_sign(val - new_value))
-        {
-            return new_value;
-        }
-
-        return val;
-    }
-
-
-    float
     square(float r)
     {
         return r * r;

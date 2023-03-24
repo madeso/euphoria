@@ -16,17 +16,31 @@ namespace euphoria::core
             float t10, float t11
         );
 
-        [[nodiscard]] static mat2f from_row_major
+        [[nodiscard]] constexpr static mat2f from_row_major
         (
             float t00, float t10,
             float t01, float t11
-        );
+        )
+        {
+            return mat2f
+            (
+                t00, t01,
+                t10, t11
+            );
+        }
 
-        [[nodiscard]] static mat2f from_scalar(float scalar);
+        [[nodiscard]] constexpr static mat2f from_scalar(float scalar)
+        {
+            const float z = 0;
+            return from_row_major
+            (
+                scalar, z,
+                z, scalar
+            );
+        }
         [[nodiscard]] static mat2f from_stretch_x(float k);
         [[nodiscard]] static mat2f from_stretch_y(float k);
         [[nodiscard]] static mat2f from_rotation(const angle& a);
-        [[nodiscard]] static mat2f identity();
 
         float* get_data_ptr();
 
@@ -47,12 +61,21 @@ namespace euphoria::core
 
         mat2f() = default;
 
-        mat2f
+        constexpr mat2f
         (
             float t00, float t01,
             float t10, float t11
-        );
+        )
+            : data
+            {
+                t00, t01,
+                t10, t11
+            }
+        {
+        }
     };
+
+    constexpr mat2f m2_identity = mat2f::from_scalar(1);
 
 
     std::ostream&

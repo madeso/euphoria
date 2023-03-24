@@ -3,8 +3,8 @@
 namespace euphoria::render
 {
     Instance::Instance()
-        : position(core::vec3f::zero())
-        , rotation(core::quatf::identity())
+        : position(core::zero3f)
+        , rotation(core::q_identity)
     {
     }
 

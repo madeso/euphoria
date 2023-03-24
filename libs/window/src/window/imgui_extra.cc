@@ -64,7 +64,7 @@ namespace euphoria::window::imgui
 
     // todo(Gustav): rename to imgui_label
     void
-    label(const std::string& str)
+    imgui_label(const std::string& str)
     {
         ImGui::TextUnformatted(str.c_str());
     }
@@ -158,11 +158,11 @@ namespace euphoria::window::imgui
     bool
     imgui_color_edit(const char* name, core::rgbai* c)
     {
-        auto cc = crgba(*c);
+        auto cc = to_rgba(*c);
         const auto changed = ImGui::ColorEdit4(name, &cc.r);
         if(changed)
         {
-            *c = crgbai(cc);
+            *c = to_rgbai(cc);
         }
         return changed;
     }
@@ -185,14 +185,14 @@ namespace euphoria::window::imgui
 
     // todo(Gustav): rename to imgui_image
     void
-    image(render::Texture2* texture)
+    imgui_image(render::Texture2* texture)
     {
         auto tex_w = static_cast<float>(texture->width);
         auto tex_h = static_cast<float>(texture->height);
         ImTextureID tex_id = c_texture_to_imgui(texture); // NOLINT: auto is preferred but a texture is a hidden pointer
 
         ImVec2 tex_screen_pos = ImGui::GetCursorScreenPos();
-        label(fmt::format("{:.0}x{:.0}", tex_w, tex_h));
+        imgui_label(fmt::format("{:.0}x{:.0}", tex_w, tex_h));
         ImGui::Image(
                 tex_id,
                 ImVec2(tex_w, tex_h),
@@ -223,8 +223,8 @@ namespace euphoria::window::imgui
             {
                 focus_y = tex_h - focus_sz;
             }
-            label(fmt::format("Min: ({:.2f}, {:.2f})", focus_x, focus_y));
-            label(fmt::format("Max: ({:.2f}, {:.2f})", focus_x + focus_sz, focus_y + focus_sz));
+            imgui_label(fmt::format("Min: ({:.2f}, {:.2f})", focus_x, focus_y));
+			imgui_label(fmt::format("Max: ({:.2f}, {:.2f})", focus_x + focus_sz, focus_y + focus_sz));
             ImVec2 uv0 = ImVec2((focus_x) / tex_w, (focus_y) / tex_h);
             ImVec2 uv1 = ImVec2(
                     (focus_x + focus_sz) / tex_w, (focus_y + focus_sz) / tex_h);
@@ -354,7 +354,7 @@ namespace euphoria::window::imgui
     }
 
     bool
-    knob
+    imgui_knob
     (
         const char* label,
         float* p_value,

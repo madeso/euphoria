@@ -24,7 +24,7 @@ namespace
         {
             for(int x=0; x<image.width; x+=1)
             {
-                const auto color = crgbi(image.get_pixel(x, y));
+                const auto color = to_rgbi(image.get_pixel(x, y));
                 ret.emplace_back(color);
             }
         }
@@ -44,9 +44,9 @@ namespace
     {
         switch(range)
         {
-            case SortRange::r: return crgb(c).r;
-            case SortRange::g: return crgb(c).g;
-            case SortRange::b: return crgb(c).b;
+            case SortRange::r: return to_crgb(c).r;
+            case SortRange::g: return to_crgb(c).g;
+            case SortRange::b: return to_crgb(c).b;
             default: return 0;
         }
     }
@@ -150,11 +150,11 @@ namespace
             float total = 0;
             for(const auto& c: src)
             {
-                sum += crgb(c);
+                sum += to_crgb(c);
                 total += 1;
             }
 
-            const auto r = crgbi(sum / total);
+            const auto r = to_rgbi(sum / total);
 
             return {r};
         }

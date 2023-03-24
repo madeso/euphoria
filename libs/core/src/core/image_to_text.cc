@@ -76,7 +76,7 @@ namespace euphoria::core
             const std::string characters = shorter
                 ? "@%#*+=-:. "
                 : "$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\\|()1{}[]?-_+~<>i!lI;:,\"^`'. ";
-            const auto inverted_color = crgb
+            const auto inverted_color = to_crgb
             (
                 make_grayscale(img.get_pixel(x, y), grayscale)
             ).r;

@@ -304,7 +304,7 @@ namespace euphoria::core
         rgb
         blend(const rgb& top, const rgb& bottom, TBlendFunction blend_function)
         {
-            return crgb(blend(crgbi(top), crgbi(bottom), blend_function));
+            return to_crgb(blend(to_rgbi(top), to_rgbi(bottom), blend_function));
         }
 
 
@@ -352,7 +352,7 @@ namespace euphoria::core
         rgba
         blend(const rgba& top, const rgba& bottom, TBlendFunction blend_function)
         {
-            return crgba(blend(crgbai(top), crgbai(bottom), blend_function));
+            return to_rgba(blend(to_rgbai(top), to_rgbai(bottom), blend_function));
         }
 
 

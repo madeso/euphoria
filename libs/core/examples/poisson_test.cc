@@ -78,7 +78,7 @@ png_dump(int extra_images)
             ) != worker.active.end();
             const auto circle_color = is_active ? NamedColor::blue : NamedColor::white;
             const auto cp = worker.samples[i]*world_to_image;
-            const auto circle_position = cp.toi();
+            const auto circle_position = cp.to_i();
             const auto circle_radius = radius * world_to_image;
             draw_circle(&result, circle_color, circle_position, circle_radius);
         }

@@ -7,7 +7,7 @@ namespace euphoria::core
     FpsController::FpsController()
         : rotation_angle(0.0_rad)
         , look_angle(0.0_rad)
-        , position(vec3f::zero())
+        , position(zero3f)
         , look_sensitivity(0.10f)
     {}
 

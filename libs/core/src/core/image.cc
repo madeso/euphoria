@@ -265,7 +265,7 @@ namespace euphoria::core
         );
         if(size_result == 0)
         {
-            return MemoryChunk::null();
+            return MemoryChunk::create_null();
         }
 
         ASSERT(size > 0);
@@ -283,7 +283,7 @@ namespace euphoria::core
         );
         if(write_result == 0)
         {
-            return MemoryChunk::null();
+            return MemoryChunk::create_null();
         }
 
         return file.data;

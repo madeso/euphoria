@@ -4,7 +4,7 @@ namespace euphoria::render
 {
     Light::Light()
         : light_type(Type::directional)
-        , position(core::vec3f::zero())
+        , position(core::zero3f)
         , direction(core::vec3f {-0.2f, -1.0f, -0.3f}.get_normalized())
         , ambient(0.3f)
         , diffuse(core::NamedColor::white)

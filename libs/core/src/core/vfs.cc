@@ -90,7 +90,7 @@ namespace euphoria::core::vfs
             if(resolved_path.has_value() == false)
             {
                 LOG_ERROR("Unable to resolve path to a valid path {0}", a_path);
-                return MemoryChunk::null();
+                return MemoryChunk::create_null();
             }
             path = resolved_path.value();
         }
@@ -104,7 +104,7 @@ namespace euphoria::core::vfs
             }
         }
 
-        return MemoryChunk::null();
+        return MemoryChunk::create_null();
     }
 
 
@@ -226,7 +226,7 @@ namespace euphoria::core::vfs
 
         if(found == catalog.end())
         {
-            return MemoryChunk::null();
+            return MemoryChunk::create_null();
         }
 
         return found->second;

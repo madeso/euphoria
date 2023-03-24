@@ -27,7 +27,7 @@ namespace euphoria::core::vfs
         const auto [dir, command] = path.split_directories_and_file();
         if(dir != base)
         {
-            return MemoryChunk::null();
+            return MemoryChunk::create_null();
         }
 
         const auto color_name = to_lower(command);
@@ -43,7 +43,7 @@ namespace euphoria::core::vfs
                 path,
                 string_mergers::english_or.merge(from_enum_to_string(found_color.values))
             );
-            return MemoryChunk::null();
+            return MemoryChunk::create_null();
         }
 
         const auto color = found_color.values[0];

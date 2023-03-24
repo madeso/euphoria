@@ -60,7 +60,7 @@ TEST_CASE("vec2-times_assign-value", "[vec2]")
 
 TEST_CASE("vec2-div", "[vec2]")
 {
-    const auto v = (euco::vec2i(2, 4).tof() / 2.0f).toi();
+    const auto v = (euco::vec2i(2, 4).to_f() / 2.0f).to_i();
     REQUIRE(v.x == 1);
     REQUIRE(v.y == 2);
 }

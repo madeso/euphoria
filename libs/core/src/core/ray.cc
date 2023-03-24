@@ -23,7 +23,7 @@ namespace euphoria::core
     [[nodiscard]] UnitRay3f
     UnitRay3f::from_direction(const unit3f& adir)
     {
-        return UnitRay3f{vec3f::zero(), adir};
+        return UnitRay3f{zero3f, adir};
     }
 
 
@@ -86,7 +86,7 @@ namespace euphoria::core
     [[nodiscard]] Ray3f
     Ray3f::from_direction(const vec3f& dir)
     {
-        return Ray3f{vec3f::zero(), dir};
+        return Ray3f{zero3f, dir};
     }
 
 

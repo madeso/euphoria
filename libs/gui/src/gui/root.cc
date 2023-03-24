@@ -57,7 +57,7 @@ namespace euphoria::gui
 
 
     void
-    Root::resize(const core::size2f& new_size)
+    Root::set_size(const core::size2f& new_size)
     {
         size = new_size;
         container.lay_out(core::Rectf::from_width_height(size));

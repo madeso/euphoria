@@ -7,12 +7,6 @@
 
 namespace euphoria::core
 {
-    vec2f::vec2f(float ax, float ay)
-        : x(ax)
-        , y(ay)
-    {
-    }
-
     vec2f::vec2f(const std::tuple<float, float>& a)
         : x(std::get<0>(a))
         , y(std::get<1>(a))
@@ -26,16 +20,11 @@ namespace euphoria::core
     }
 
     [[nodiscard]] vec2i
-    vec2f::toi() const
+    vec2f::to_i() const
     {
         return vec2i{static_cast<int>(x), static_cast<int>(y)};
     }
 
-    [[nodiscard]] vec2f
-    vec2f::zero()
-    {
-        return {0, 0};
-    }
 
     float*
     vec2f::get_data_ptr()
@@ -138,14 +127,6 @@ namespace euphoria::core
         return get_normalized_and_length().normalized;
     }
 
-
-
-    vec2i::vec2i(int ax, int ay)
-        : x(ax)
-        , y(ay)
-    {
-    }
-
     vec2i::vec2i(const std::tuple<int, int>& a)
         : x(std::get<0>(a))
         , y(std::get<1>(a))
@@ -153,15 +134,9 @@ namespace euphoria::core
     }
 
     [[nodiscard]] vec2f
-    vec2i::tof() const
+    vec2i::to_f() const
     {
         return vec2f{static_cast<float>(x), static_cast<float>(y)};
-    }
-
-    [[nodiscard]] vec2i
-    vec2i::zero()
-    {
-        return {0, 0};
     }
 
     int*

@@ -43,14 +43,14 @@ Defines::get_value(const std::string& name) const
 
 
 void
-Defines::undefine(const std::string& name)
+Defines::remove(const std::string& name)
 {
     values.erase(name);
 }
 
 
 void
-Defines::define(const std::string& name, const std::string& value)
+Defines::set(const std::string& name, const std::string& value)
 {
     values[name] = value;
 }
@@ -116,7 +116,7 @@ struct TemplateNode
     void operator=(const TemplateNode&) = delete;
     void operator=(TemplateNode&&) = delete;
 
-    virtual void evaluate
+    virtual void build_string
     (
         Defines* defines,
         StringBuilder* out,
@@ -137,7 +137,7 @@ struct TemplateNodeString : TemplateNode
     {
     }
 
-    void evaluate(Defines* /*defines*/, StringBuilder* out, TemplateErrorList* /*error*/) override
+    void build_string(Defines* /*defines*/, StringBuilder* out, TemplateErrorList* /*error*/) override
     {
         ASSERT(out);
         out->add_string(text);
@@ -159,11 +159,11 @@ struct TemplateNodeList : TemplateNode
         nodes.push_back(node);
     }
 
-    void evaluate(Defines* defines, StringBuilder* out, TemplateErrorList* error) override
+    void build_string(Defines* defines, StringBuilder* out, TemplateErrorList* error) override
     {
         for(const auto& node: nodes)
         {
-            node->evaluate(defines, out, error);
+            node->build_string(defines, out, error);
         }
     }
 };
@@ -177,11 +177,11 @@ struct TemplateNodeScopedList : TemplateNodeList
     TemplateNodeScopedList() = default;
 
     void
-    evaluate(core::Defines* defines, StringBuilder* out, TemplateErrorList* error) override
+    build_string(core::Defines* defines, StringBuilder* out, TemplateErrorList* error) override
     {
         ASSERT(defines);
         core::Defines my_defines = *defines;
-        TemplateNodeList::evaluate(&my_defines, out, error);
+        TemplateNodeList::build_string(&my_defines, out, error);
     }
 };
 
@@ -201,12 +201,12 @@ struct TemplateNodeIfdef : TemplateNode
     }
 
     void
-    evaluate(Defines* defines, StringBuilder* out, TemplateErrorList* error) override
+    build_string(Defines* defines, StringBuilder* out, TemplateErrorList* error) override
     {
         ASSERT(defines);
         if(defines->is_defined(name))
         {
-            node->evaluate(defines, out, error);
+            node->build_string(defines, out, error);
         }
     }
 };
@@ -224,7 +224,7 @@ struct TemplateNodeEval : TemplateNode
     {
     }
 
-    void evaluate(Defines* defines, StringBuilder* out, TemplateErrorList* error) override
+    void build_string(Defines* defines, StringBuilder* out, TemplateErrorList* error) override
     {
         ASSERT(out);
         ASSERT(defines);
@@ -258,12 +258,12 @@ struct TemplateNodeSet : TemplateNode
     {
     }
 
-    void evaluate(Defines* defines, StringBuilder* out, TemplateErrorList* /*error*/) override
+    void build_string(Defines* defines, StringBuilder* out, TemplateErrorList* /*error*/) override
     {
         ASSERT(out);
         ASSERT(defines);
 
-        defines->define(name, value);
+        defines->set(name, value);
     }
 };
 
@@ -328,7 +328,7 @@ struct Token
 };
 
 
-std::vector<Token> lexer
+std::vector<Token> tokenize
 (
     const std::string& content,
     TemplateErrorList* error,
@@ -545,7 +545,7 @@ void load_from_filesystem_to_node_list
         error->add_error(path, 0, 0, "Failed to open {}"_format(path));
         return;
     }
-    TokenReader reader(lexer(*content, error, path));
+    auto reader = TokenReader{tokenize(*content, error, path)};
     parse_template_list(nodes, &reader, error, path, false, fs);
 }
 
@@ -822,7 +822,7 @@ CompiledTextTemplate::CompiledTextTemplate(const std::string& text)
     : nodes(new TemplateNodeList {})
 {
     const auto file = vfs::FilePath{"~/from_string"};
-    TokenReader reader(lexer(text, &errors, file));
+    auto reader = TokenReader{tokenize(text, &errors, file)};
     parse_template_list(&nodes, &reader, &errors, file, false, nullptr);
 }
 
@@ -838,7 +838,7 @@ CompiledTextTemplate::CompiledTextTemplate(vfs::FileSystem* fs, const vfs::FileP
 CompiledTextTemplate::~CompiledTextTemplate() = default;
 
 
-std::string CompiledTextTemplate::evaluate(const core::Defines& defines)
+std::string CompiledTextTemplate::build_string(const core::Defines& defines)
 {
     StringBuilder ss;
 
@@ -850,7 +850,7 @@ std::string CompiledTextTemplate::evaluate(const core::Defines& defines)
     if(nodes)
     {
         core::Defines my_defines = defines;
-        nodes->evaluate(&my_defines, &ss, &errors);
+        nodes->build_string(&my_defines, &ss, &errors);
     }
 
     return ss.to_string();

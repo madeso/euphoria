@@ -64,8 +64,8 @@ TEST_CASE("rgb-get_component_works", "[rgb]")
 TEST_CASE("rgb_colors", "[rgb]")
 {
     auto test = [](const euco::rgb& c_rgb, const euco::Hsl& c_hsl) {
-        CHECK(c_rgb == approx(euco::crgb(c_hsl)));
-        CHECK(c_hsl == approx(euco::chsl(c_rgb)));
+        CHECK(c_rgb == approx(euco::to_crgb(c_hsl)));
+        CHECK(c_hsl == approx(euco::to_hsl(c_rgb)));
     };
 
     // html test colors...
@@ -99,20 +99,19 @@ TEST_CASE("rgb_colors", "[rgb]")
 TEST_CASE("rgb_convert", "[rgb]")
 {
     const euco::rgbi blue = euco::NamedColor::blue;
-    REQUIRE(blue == euco::crgbi(euco::crgb(blue)));
+    REQUIRE(blue == euco::to_rgbi(euco::to_crgb(blue)));
 }
 
 TEST_CASE("rgb-hsl_convert", "[rgb]")
 {
     const euco::rgb blue = euco::NamedColor::blue;
-    REQUIRE(blue == approx(euco::crgb(euco::chsl(blue))));
+    REQUIRE(blue == approx(euco::to_crgb(euco::to_hsl(blue))));
 }
 
 TEST_CASE("rgb-ShadeColor", "[rgb]")
 {
 #define C(src_hex, hex, fac) \
-    CHECK(euco::rgb::from_hex(hex) \
-          == approx(euco::shade_color(euco::rgb::from_hex(src_hex), fac)))
+    CHECK(euco::rgb::from_hex(hex) == approx(euco::get_shaded_color(euco::rgb::from_hex(src_hex), fac)))
     const auto orange = 0xf48000;
     const auto green = 0x3f83a3;
     C(orange, orange, 0.0f);
@@ -229,24 +228,24 @@ TEST_CASE("rgb-to_string", "[rgb]")
 
 TEST_CASE("rgb-from_string", "[rgb]")
 {
-    REQUIRE(*euco::crgbi("#fff") == euco::rgbi{ 255,255,255 });
-    REQUIRE(*euco::crgbi("#ffffff") == euco::rgbi{ 255,255,255 });
+    REQUIRE(*euco::to_rgbi("#fff") == euco::rgbi{ 255,255,255 });
+    REQUIRE(*euco::to_rgbi("#ffffff") == euco::rgbi{ 255,255,255 });
 
-    REQUIRE(*euco::crgbi("#002b36") == euco::rgbi{  0,  43,  54}); // base03
-    REQUIRE(*euco::crgbi("#073642") == euco::rgbi{  7,  54,  66}); // base02
-    REQUIRE(*euco::crgbi("#586e75") == euco::rgbi{ 88, 110, 117}); // base01
-    REQUIRE(*euco::crgbi("#657b83") == euco::rgbi{101, 123, 131}); // base00
-    REQUIRE(*euco::crgbi("#839496") == euco::rgbi{131, 148, 150}); // base0
-    REQUIRE(*euco::crgbi("#93a1a1") == euco::rgbi{147, 161, 161}); // base1
-    REQUIRE(*euco::crgbi("#eee8d5") == euco::rgbi{238, 232, 213}); // base2
-    REQUIRE(*euco::crgbi("#fdf6e3") == euco::rgbi{253, 246, 227}); // base3
-    REQUIRE(*euco::crgbi("#b58900") == euco::rgbi{181, 137,   0}); // yellow
-    REQUIRE(*euco::crgbi("#cb4b16") == euco::rgbi{203,  75,  22}); // orange
-    REQUIRE(*euco::crgbi("#dc322f") == euco::rgbi{220,  50,  47}); // red
-    REQUIRE(*euco::crgbi("#d33682") == euco::rgbi{211,  54, 130}); // magenta
-    REQUIRE(*euco::crgbi("#6c71c4") == euco::rgbi{108, 113, 196}); // violet
-    REQUIRE(*euco::crgbi("#268bd2") == euco::rgbi{ 38, 139, 210}); // blue
-    REQUIRE(*euco::crgbi("#2aa198") == euco::rgbi{ 42, 161, 152}); // cyan
-    REQUIRE(*euco::crgbi("#859900") == euco::rgbi{133, 153,   0}); // green
+    REQUIRE(*euco::to_rgbi("#002b36") == euco::rgbi{  0,  43,  54}); // base03
+    REQUIRE(*euco::to_rgbi("#073642") == euco::rgbi{  7,  54,  66}); // base02
+    REQUIRE(*euco::to_rgbi("#586e75") == euco::rgbi{ 88, 110, 117}); // base01
+    REQUIRE(*euco::to_rgbi("#657b83") == euco::rgbi{101, 123, 131}); // base00
+    REQUIRE(*euco::to_rgbi("#839496") == euco::rgbi{131, 148, 150}); // base0
+    REQUIRE(*euco::to_rgbi("#93a1a1") == euco::rgbi{147, 161, 161}); // base1
+    REQUIRE(*euco::to_rgbi("#eee8d5") == euco::rgbi{238, 232, 213}); // base2
+    REQUIRE(*euco::to_rgbi("#fdf6e3") == euco::rgbi{253, 246, 227}); // base3
+    REQUIRE(*euco::to_rgbi("#b58900") == euco::rgbi{181, 137,   0}); // yellow
+    REQUIRE(*euco::to_rgbi("#cb4b16") == euco::rgbi{203,  75,  22}); // orange
+    REQUIRE(*euco::to_rgbi("#dc322f") == euco::rgbi{220,  50,  47}); // red
+    REQUIRE(*euco::to_rgbi("#d33682") == euco::rgbi{211,  54, 130}); // magenta
+    REQUIRE(*euco::to_rgbi("#6c71c4") == euco::rgbi{108, 113, 196}); // violet
+    REQUIRE(*euco::to_rgbi("#268bd2") == euco::rgbi{ 38, 139, 210}); // blue
+    REQUIRE(*euco::to_rgbi("#2aa198") == euco::rgbi{ 42, 161, 152}); // cyan
+    REQUIRE(*euco::to_rgbi("#859900") == euco::rgbi{133, 153,   0}); // green
 }
 

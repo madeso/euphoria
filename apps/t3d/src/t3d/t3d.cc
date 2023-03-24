@@ -53,7 +53,7 @@ namespace euphoria::t3d
 
         const auto ground = core::Plane::from_normal_and_point
         (
-            core::common::y_axis, core::vec3f::zero()
+            core::common::y_axis, core::zero3f
         );
 
         const auto where = core::get_intersection(ray, ground);
@@ -546,7 +546,7 @@ namespace euphoria::t3d
         {
             window::imgui::begin_fixed_overlay(window::Corner::bottom_left, "pending files");
             const auto frac = core::c_sizet_to_float(pending_files.index) / core::c_sizet_to_float(pending_files.files.size());
-            window::imgui::label("Loading tiles...");
+            window::imgui::imgui_label("Loading tiles...");
             ImGui::ProgressBar(frac, ImVec2{120, 0});
             ImGui::End();
         }
@@ -820,7 +820,7 @@ namespace euphoria::t3d
         ImGui::Checkbox("Animate camera", &editor_camera.animate_camera);
         ImGui::DragFloat("Camera lerp time", &editor_camera.camera_lerp_time, 0.001f, 0.0f, 1.0f);
 
-        window::imgui::combo("Lerp function", &editor_camera.lerp_function, core::easing::get_all_values());
+        window::imgui::imgui_combo("Lerp function", &editor_camera.lerp_function, core::easing::get_all_values());
 
         ImGui::Checkbox("Scroll in orbit", &editor_camera.scroll_in_orbit);
     }

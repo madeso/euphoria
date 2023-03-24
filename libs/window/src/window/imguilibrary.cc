@@ -7,7 +7,6 @@
 #include "imgui_impl_opengl3.h"
 
 #include "font_material_icons.h"
-
 #include "font_noto_sans_display.h"
 
 #include "log/log.h"

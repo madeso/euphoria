@@ -24,14 +24,14 @@ source_group("" FILES ${app_src})
 
 # embed fonts
 add_custom_command(
-  OUTPUT "${CMAKE_CURRENT_BINARY_DIR}/font_material_design_icons.h"
+  OUTPUT "${CMAKE_CURRENT_BINARY_DIR}/font_material_icons.h"
   COMMAND  binary_to_compressed_c
   ARGS ${CMAKE_CURRENT_SOURCE_DIR}/data/MaterialIcons-Regular.ttf MaterialIcons > font_material_icons.h
   WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
   COMMENT "Generating binary font"
   )
-set(src ${src} ${CMAKE_CURRENT_BINARY_DIR}/font_material_design_icons.h)
-source_group("fonts" FILES ${CMAKE_CURRENT_BINARY_DIR}/font_material_design_icons.h)
+set(src ${src} ${CMAKE_CURRENT_BINARY_DIR}/font_material_icons.h)
+source_group("fonts" FILES ${CMAKE_CURRENT_BINARY_DIR}/font_material_icons.h)
 
 add_custom_command(
   OUTPUT "${CMAKE_CURRENT_BINARY_DIR}/font_noto_sans_display.h"

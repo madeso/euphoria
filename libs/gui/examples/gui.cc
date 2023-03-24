@@ -161,7 +161,7 @@ imgui_widget(const char* title, euphoria::render::Texture2* tex)
     if(tex == nullptr) { return; }
 
     ImGui::Text("%s", title);
-    euphoria::window::imgui::image(tex);
+    euphoria::window::imgui::imgui_image(tex);
 }
 
 void
@@ -419,7 +419,7 @@ main(int argc, char* argv[])
             if(engine.on_resize(e, &window_width, &window_height))
             {
                 viewport_handler.set_size(window_width, window_height);
-                root.resize
+                root.set_size
                 (
                     size2f::create_from_width_height
                     (

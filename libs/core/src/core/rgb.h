@@ -125,15 +125,15 @@ namespace euphoria::core
     //////////////////////////////////////////////////////////////////////////
     // Util functions
 
-    Hsl saturate(const Hsl& ahsl, float amount, IsAbsolute method);
-    Hsl desaturate(const Hsl& ahsl, float amount, IsAbsolute method);
-    Hsl lighten(const Hsl& ahsl, float amount, IsAbsolute method);
-    Hsl darken(const Hsl& ahsl, float amount, IsAbsolute method);
+    Hsl get_saturated(const Hsl& ahsl, float amount, IsAbsolute method);
+    Hsl get_desaturated(const Hsl& ahsl, float amount, IsAbsolute method);
+    Hsl get_lightened(const Hsl& ahsl, float amount, IsAbsolute method);
+    Hsl get_darkened(const Hsl& ahsl, float amount, IsAbsolute method);
 
     /** Makes a color brighter or darker.
      * The +1 makes it white, 0% is no change, -1 makes it black.
      */
-    rgb shade_color(const rgb& color, float percentage);
+    rgb get_shaded_color(const rgb& color, float percentage);
 
 
     //////////////////////////////////////////////////////////////////////////
@@ -178,24 +178,24 @@ namespace euphoria::core
     //////////////////////////////////////////////////////////////////////////
     // Convert functions (rgb)
 
-    rgb crgb(const rgbi& c);
-    rgb crgb(const rgba& c);
-    rgb crgb(const rgbai& c);
-    rgb crgb(const Hsl& c);
+    rgb to_crgb(const rgbi& c);
+    rgb to_crgb(const rgba& c);
+    rgb to_crgb(const rgbai& c);
+    rgb to_crgb(const Hsl& c);
 
     // Convert functions (hsl)
 
-    Hsl chsl(const rgb& c);
+    Hsl to_hsl(const rgb& c);
 
     // Convert functions (rgbi)
 
-    rgbi crgbi(const rgb& c);
-    rgbi crgbi(const rgba& c);
-    rgbi crgbi(const rgbai& c);
+    rgbi to_rgbi(const rgb& c);
+    rgbi to_rgbi(const rgba& c);
+    rgbi to_rgbi(const rgbai& c);
 
     // convert functions rgba
-    rgba crgba(const rgbai& c);
-    rgbai crgbai(const rgba& c);
+    rgba to_rgba(const rgbai& c);
+    rgbai to_rgbai(const rgba& c);
 
 
     //////////////////////////////////////////////////////////////////////////
@@ -214,7 +214,7 @@ namespace euphoria::core
 
     //////////////////////////////////////////////////////////////////////////
     // Parsing
-    [[nodiscard]] Result<rgbi> crgbi(const std::string& value);
+    [[nodiscard]] Result<rgbi> to_rgbi(const std::string& value);
 
     template<>
     struct CustomArgparser<rgbi>
@@ -228,7 +228,7 @@ namespace euphoria::core
 
         static Result<rgbi> parse(const std::string& value)
         {
-            return crgbi(value);
+            return to_rgbi(value);
         }
     };
 

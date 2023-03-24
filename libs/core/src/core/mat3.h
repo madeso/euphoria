@@ -17,13 +17,21 @@ namespace euphoria::core
         [[nodiscard]] static mat3f from_major(const Scale3f& major);
         [[nodiscard]] static mat3f from_scale(const Scale3f& scale);
         [[nodiscard]] static mat3f from_translation2d(const vec2f& t);
-        [[nodiscard]] static mat3f from_scalar(float scalar);
         [[nodiscard]] static mat3f from_rot_x(const angle& a);
         [[nodiscard]] static mat3f from_rot_y(const angle& a);
         [[nodiscard]] static mat3f from_rot_z(const angle& a);
         [[nodiscard]] static mat3f from_axis_angle(const AxisAngle& aa);
-        [[nodiscard]] static mat3f identity();
-
+        [[nodiscard]] constexpr static mat3f from_scalar(float scalar)
+        {
+            const float z = 0;
+            return from_row_major
+            (
+                scalar, z, z,
+                z, scalar, z,
+                z, z, scalar
+            );
+        }
+        
         [[nodiscard]] static mat3f from_col_major
         (
             float t00, float t01, float t02,
@@ -31,12 +39,20 @@ namespace euphoria::core
             float t20, float t21, float t22
         );
 
-        [[nodiscard]] static mat3f from_row_major
+        [[nodiscard]] constexpr static mat3f from_row_major
         (
             float t00, float t10, float t20,
             float t01, float t11, float t21,
             float t02, float t12, float t22
-        );
+        )
+        {
+            return mat3f
+            (
+                t00, t01, t02,
+                t10, t11, t12,
+                t20, t21, t22
+            );
+        }
 
         float* get_data_ptr();
 
@@ -65,14 +81,23 @@ namespace euphoria::core
 
         mat3f() = default;
 
-        mat3f
+        constexpr mat3f
         (
             float t00, float t01, float t02,
             float t10, float t11, float t12,
             float t20, float t21, float t22
-        );
-
+        )
+            : data
+            {
+                t00, t01, t02,
+                t10, t11, t12,
+                t20, t21, t22
+            }
+        {
+        }
     };
+
+    constexpr mat3f m3_identity = mat3f::from_scalar(1);
 
     std::ostream& operator<<(std::ostream& stream, const mat3f& m);
     mat3f operator+(const mat3f& lhs, const mat3f& rhs);

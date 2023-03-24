@@ -5,6 +5,7 @@
 
 namespace euphoria::core
 {
+    // todo(Gustav): consider removing or simplifying this, it looks confusing and complex
     template<typename T>
     struct StepIterator
     {
@@ -15,7 +16,7 @@ namespace euphoria::core
         bool last;
 
         StepIterator(T c, T t, T s, bool e)
-            : current(c), to(t), step(s), ended(e), last(eval(c, t, s))
+            : current(c), to(t), step(s), ended(e), last(is_ended(c, t, s))
         {
         }
 
@@ -35,14 +36,14 @@ namespace euphoria::core
         void operator++()
         {
             current += step;
-            const auto curr = eval(current, to, step);
+            const auto curr = is_ended(current, to, step);
             if(curr != last)
             {
                 ended = true;
             }
         }
 
-        static bool eval(T c, T t, T s)
+        static bool is_ended(T c, T t, T s)
         {
             if(s > 0) { return c >= t;}
             else      { return c > t;}

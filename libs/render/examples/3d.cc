@@ -52,8 +52,8 @@ using namespace euphoria::window;
 struct CubeAnimation
 {
     CubeAnimation()
-        : from(quatf::identity())
-        , to(quatf::identity())
+        : from(q_identity)
+        , to(q_identity)
     {
     }
 
@@ -101,7 +101,7 @@ main(int argc, char** argv)
 
     for(int i = 0; i < 20; i += 1)
     {
-        const rgb color = crgb(palettes::dawnbringer->get_random_color(&rand));
+        const rgb color = to_crgb(palettes::dawnbringer->get_random_color(&rand));
         const auto pos = get_random_point(&rand, wi);
         const auto outer = get_random_in_range(&rand, 55.0f, 100.0f);
         const auto inner = get_random_in_range(&rand, make_range(50.0f));
@@ -203,7 +203,7 @@ main(int argc, char** argv)
 
 
         // generate a position not too close to the center
-        vec3f position = vec3f::zero();
+        vec3f position = zero3f;
         do
         {
             position = get_random_point(&rand, box_extents);
@@ -236,7 +236,7 @@ main(int argc, char** argv)
 #endif
 
     Camera3 camera;
-    camera.position = vec3f::zero();
+    camera.position = zero3f;
 
     FpsController fps;
     fps.position = vec3f(0, 0, 3);
@@ -260,7 +260,7 @@ main(int argc, char** argv)
             ImGuiCond_FirstUseEver
         );
         ImGui::Begin("Light");
-        imgui::combo
+        imgui::imgui_combo
         (
             "Type",
             &world.light.light_type,
@@ -295,7 +295,7 @@ main(int argc, char** argv)
             quarter_turn
         );
 
-        imgui::image(debug_texture.get());
+        imgui::imgui_image(debug_texture.get());
 
         ImGui::End();
 
@@ -323,7 +323,7 @@ main(int argc, char** argv)
             break;
         case 2:
             world.light.position = fps.position;
-            world.light.direction = fps.get_rotation().in().get_normalized();
+            world.light.direction = fps.get_rotation().get_in().get_normalized();
             break;
         }
 
@@ -346,7 +346,7 @@ main(int argc, char** argv)
                 ASSERT(count < 2);
                 quatf q = slerp_shortway(anim.from, anim.timer, anim.to);
                 anim.actor->rotation = q;
-                const auto movement = q.in() * anim.move_speed * delta;
+                const auto movement = q.get_in() * anim.move_speed * delta;
                 const auto new_pos = box_extents.wrap
                 (
                     anim.actor->position + movement

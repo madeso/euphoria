@@ -66,22 +66,6 @@ namespace euphoria::core
 
     DEFAULT_INTERPOLATE(float, lerp_float);
 
-    /** Performs a single interpolating step to transform a old value to a new value.
-    Larger smoothing values result in a smoother but less resposive path.
-
-    Example:
-    @code mousex = Curve( ( MousePos.X - OldMousePos.X ) * Sensitivity(), mousex, 6
-    ); @endcode
-
-    @param new_value is the target value
-    @param old_value is the current value
-    @param smoothing_value is the smoothing value > 0, the lower, the less smooth
-
-    @returns The smoothed result.
-    */
-    float
-    curve(float new_value, float old_value, float smoothing_value);
-
     float
     square(float r);
 

@@ -19,15 +19,6 @@ namespace euphoria::core
     }
 
 
-    quatf::quatf(float aw, const vec3f& v)
-        : w(aw)
-        , x(v.x)
-        , y(v.y)
-        , z(v.z)
-    {
-    }
-
-
     [[nodiscard]] quatf
     quatf::from_axis_angle(const AxisAngle& aa)
     {
@@ -102,12 +93,6 @@ namespace euphoria::core
 
     // static Q FromAngles(float x, float y, float z);
 
-    [[nodiscard]] quatf
-    quatf::identity()
-    {
-        return quatf(1, vec3f(0, 0, 0));
-    }
-
 
     [[nodiscard]] quatf
     quatf::look_at(const vec3f& from, const vec3f& to, const unit3f& up)
@@ -151,7 +136,7 @@ namespace euphoria::core
     quatf::get_identity() const
     {
         const float l2 = get_length_squared();
-        if(is_equal(l2, 0.0f)) { return identity(); }
+        if(is_equal(l2, 0.0f)) { return q_identity; }
         else if(is_equal(l2, 1.0f)) { return get_conjugate(); }
         else { return quatf(w / sqrt(l2), -get_vec_part()); }
     }
@@ -177,7 +162,7 @@ namespace euphoria::core
         const float l = get_length();
         if(is_zero(l))
         {
-            *this = identity();
+            *this = q_identity;
         }
         else
         {
@@ -198,53 +183,19 @@ namespace euphoria::core
     }
 
 
-    unit3f
-    quatf::in() const
-    {
-        return rotate_around_origo(-common::z_axis);
-    }
-
-
-    unit3f
-    quatf::out() const
-    {
-        return rotate_around_origo(common::z_axis);
-    }
-
-
-    unit3f
-    quatf::right() const
-    {
-        return rotate_around_origo(common::x_axis);
-    }
-
-
-    unit3f
-    quatf::left() const
-    {
-        return rotate_around_origo(-common::x_axis);
-    }
-
-
-    unit3f
-    quatf::up() const
-    {
-        return rotate_around_origo(common::y_axis);
-    }
-
-
-    unit3f
-    quatf::down() const
-    {
-        return rotate_around_origo(-common::y_axis);
-    }
+    unit3f quatf::get_in   () const { return rotate_around_origo(-common::z_axis); }
+    unit3f quatf::get_out  () const { return rotate_around_origo( common::z_axis); }
+    unit3f quatf::get_right() const { return rotate_around_origo( common::x_axis); }
+    unit3f quatf::get_left () const { return rotate_around_origo(-common::x_axis); }
+    unit3f quatf::get_up   () const { return rotate_around_origo( common::y_axis); }
+    unit3f quatf::get_down () const { return rotate_around_origo(-common::y_axis); }
 
 
     // In*Z + Right*X + Up*Y
     vec3f
     quatf::create_from_right_up_in(const vec3f& v) const
     {
-        return in() * v.z + right() * v.x + up() * v.y;
+        return get_in() * v.z + get_right() * v.x + get_up() * v.y;
     }
 
 
@@ -389,7 +340,7 @@ namespace euphoria::core
         }
         if (abs(dot_value - (1.0f)) < 0.000001f)
         {
-            return identity();
+            return q_identity;
         }
 
         const auto rot_angle = acos(dot_value);

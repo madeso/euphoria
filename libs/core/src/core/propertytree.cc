@@ -10,7 +10,7 @@ namespace euphoria::core
     IntValue::IntValue(int i) : core::Value(ValueType::int_type), value(i) {}
 
     int&
-    IntValue::cast(core::Value* value)
+    IntValue::get(core::Value* value)
     {
         ASSERT(value);
         ASSERT(value->type == ValueType::int_type);
@@ -22,7 +22,7 @@ namespace euphoria::core
     FloatValue::FloatValue(float f) : core::Value(ValueType::float_type), value(f) {}
 
     float&
-    FloatValue::cast(core::Value* value)
+    FloatValue::get(core::Value* value)
     {
         ASSERT(value);
         ASSERT(value->type == ValueType::float_type);
@@ -35,7 +35,7 @@ namespace euphoria::core
     {}
 
     vec3f&
-    Vec3fValue::cast(core::Value* value)
+    Vec3fValue::get(core::Value* value)
     {
         ASSERT(value);
         ASSERT(value->type == ValueType::vec3f_type);

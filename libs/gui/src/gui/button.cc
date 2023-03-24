@@ -18,7 +18,7 @@ namespace euphoria::gui
         , scale(1.0f)
         , image_color(core::rgb(1.0f))
         , text_color(core::rgb(1.0f))
-        , position_displacement(core::vec2f::zero())
+        , position_displacement(core::zero2f)
     {
     }
 

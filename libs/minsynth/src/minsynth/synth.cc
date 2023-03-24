@@ -297,7 +297,7 @@ namespace euphoria::minsynth
     }
 
     void
-    MidiInNode::callback(float dt, const std::vector<unsigned char>& bytes)
+    MidiInNode::on_midi_message(float dt, const std::vector<unsigned char>& bytes)
     {
         using Byte = unsigned char;
 

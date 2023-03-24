@@ -35,11 +35,14 @@ namespace euphoria::core
         float y;
 
         vec2f() = default;
-        vec2f(float ax, float ay);
+        constexpr vec2f(float ax, float ay)
+            : x(ax)
+            , y(ay)
+        {
+        }
         explicit vec2f(const std::tuple<float, float>& a);
         explicit vec2f(const unit2f& u);
 
-        [[nodiscard]] static vec2f zero();
         [[nodiscard]] static vec2f from_to(const vec2f& from, const vec2f& to);
 
         float* get_data_ptr();
@@ -48,7 +51,7 @@ namespace euphoria::core
         [[nodiscard]] vec2f get_rotated(const angle& a) const;
 
         [[nodiscard]] const float* get_data_ptr() const;
-        [[nodiscard]] vec2i toi() const;
+        [[nodiscard]] vec2i to_i() const;
         [[nodiscard]] vec2f get_flipped_y() const;
         [[nodiscard]] float get_length_squared() const;
         [[nodiscard]] float get_length() const;
@@ -62,6 +65,8 @@ namespace euphoria::core
         void operator*=(float rhs);
     };
 
+    constexpr vec2f zero2f = vec2f{ 0, 0 };
+
 
     struct vec2i
     {
@@ -69,17 +74,20 @@ namespace euphoria::core
         int y;
 
         vec2i() = default;
-        vec2i(int ax, int ay);
+        constexpr vec2i(int ax, int ay)
+            : x(ax)
+            , y(ay)
+        {
+        }
         explicit vec2i(const std::tuple<int, int>& a);
         explicit vec2i(const unit2i& u);
 
-        [[nodiscard]] static vec2i zero();
         [[nodiscard]] static vec2i from_to(const vec2i& from, const vec2i& to);
 
         int* get_data_ptr();
         [[nodiscard]] const int* get_data_ptr() const;
 
-        [[nodiscard]] vec2f tof() const;
+        [[nodiscard]] vec2f to_f() const;
         [[nodiscard]] vec2i get_flipped_y() const;
 
         void operator+=(const vec2i& rhs);
@@ -87,6 +95,8 @@ namespace euphoria::core
         vec2i operator-() const;
         void operator*=(int rhs);
     };
+
+    constexpr vec2i zero2i = vec2i{ 0, 0 };
 
 
     ////////////////////////////////////////////////////////////////////////////////

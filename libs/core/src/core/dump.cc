@@ -95,8 +95,8 @@ namespace euphoria::core::dump2d
         // todo(Gustav): merge with MinMax in core
         struct MinMaxer
         {
-            vec2f min = vec2f::zero();
-            vec2f max = vec2f::zero();
+            vec2f min = zero2f;
+            vec2f max = zero2f;
 
             MinMaxer& include(const vec2f& point, float extra=0)
             {

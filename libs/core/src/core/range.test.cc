@@ -5,7 +5,7 @@
 namespace euco = euphoria::core;
 
 #define TO_01(min, v, max) euco::to01(euco::make_range(min, max), v)
-#define FROM_01(min, v, max) euco::from01(euco::make_range(min, max), v)
+#define FROM_01(min, v, max) euco::from_01(euco::make_range(min, max), v)
 #define GET_360_ANGULAR(min, v, max) euco::get360_angular(euco::make_range(min, max), v)
 #define KEEP_WITHIN(min, v, max) euco::keep_within(euco::make_range(min, max), v)
 #define IS_WITHIN_INCLUSIVE(min, v, max) euco::is_within(euco::make_range(min, max), v)
@@ -18,14 +18,14 @@ TEST_CASE("num-to01", "[numeric]")
     REQUIRE(TO_01(-1.0f, 2.0f, 1.0f) == Approx(1.5f));
 }
 
-TEST_CASE("num-from01-float", "[numeric]")
+TEST_CASE("num-from_01-float", "[numeric]")
 {
     REQUIRE(FROM_01(0.0f, 0.5f, 2.0f) == Approx(1.0f));
     REQUIRE(FROM_01(-2.0f, 0.5f, 2.0f) == Approx(0.0f));
     REQUIRE(FROM_01(-2.0f, 1.5f, 2.0f) == Approx(4.0f));
 }
 
-TEST_CASE("num-from01-int", "[numeric]")
+TEST_CASE("num-from_01-int", "[numeric]")
 {
     REQUIRE(FROM_01(0, 0.5f, 2) == 1);
     REQUIRE(FROM_01(-2, 0.5f, 2) == 0);

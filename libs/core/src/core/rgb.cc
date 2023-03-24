@@ -230,7 +230,7 @@ namespace euphoria::core
     ////////////////////////////////////////////////////////////////////////////////
 
     rgb
-    crgb(const rgbi& c)
+    to_crgb(const rgbi& c)
     {
         return {colorutil::to_float(c.r),
                 colorutil::to_float(c.g),
@@ -238,13 +238,13 @@ namespace euphoria::core
     }
 
     rgb
-    crgb(const rgba& c)
+    to_crgb(const rgba& c)
     {
         return {c.r, c.g, c.b};
     }
 
     rgb
-    crgb(const rgbai& c)
+    to_crgb(const rgbai& c)
     {
         return {colorutil::to_float(c.r),
                 colorutil::to_float(c.g),
@@ -252,7 +252,7 @@ namespace euphoria::core
     }
 
     rgb
-    crgb(const Hsl& hsl)
+    to_crgb(const Hsl& hsl)
     {
         // based on https://gist.github.com/mjackson/5311256
         if(hsl.s == 0)
@@ -285,7 +285,7 @@ namespace euphoria::core
     // Convert functions (hsl)
 
     Hsl
-    chsl(const rgb& c)
+    to_hsl(const rgb& c)
     {
         // based on https://gist.github.com/mjackson/5311256
         const auto max = core::max(c.r, core::max(c.g, c.b));
@@ -345,7 +345,7 @@ namespace euphoria::core
     // Convert functions (rgbi)
 
     rgbi
-    crgbi(const rgb& c)
+    to_rgbi(const rgb& c)
     {
         return
         {
@@ -356,7 +356,7 @@ namespace euphoria::core
     }
 
     rgbi
-    crgbi(const rgba& c)
+    to_rgbi(const rgba& c)
     {
         return
         {
@@ -367,14 +367,14 @@ namespace euphoria::core
     }
 
     rgbi
-    crgbi(const rgbai& c)
+    to_rgbi(const rgbai& c)
     {
         return {c.r, c.g, c.b};
     }
 
     //
     rgba
-    crgba(const rgbai& c)
+    to_rgba(const rgbai& c)
     {
         return
         {
@@ -388,7 +388,7 @@ namespace euphoria::core
     }
 
     rgbai
-    crgbai(const rgba& c)
+    to_rgbai(const rgba& c)
     {
         return
         {
@@ -428,7 +428,7 @@ namespace euphoria::core
     ////////////////////////////////////////////////////////////////////////////////
 
     Hsl
-    saturate(const Hsl& ahsl, float amount, IsAbsolute method)
+    get_saturated(const Hsl& ahsl, float amount, IsAbsolute method)
     {
         auto hsl = ahsl;
 
@@ -445,7 +445,7 @@ namespace euphoria::core
     }
 
     Hsl
-    desaturate(const Hsl& ahsl, float amount, IsAbsolute method)
+    get_desaturated(const Hsl& ahsl, float amount, IsAbsolute method)
     {
         auto hsl = ahsl;
 
@@ -462,7 +462,7 @@ namespace euphoria::core
     }
 
     Hsl
-    lighten(const Hsl& ahsl, float amount, IsAbsolute method)
+    get_lightened(const Hsl& ahsl, float amount, IsAbsolute method)
     {
         auto hsl = ahsl;
 
@@ -479,7 +479,7 @@ namespace euphoria::core
     }
 
     Hsl
-    darken(const Hsl& ahsl, float amount, IsAbsolute method)
+    get_darkened(const Hsl& ahsl, float amount, IsAbsolute method)
     {
         auto hsl = ahsl;
 
@@ -496,7 +496,7 @@ namespace euphoria::core
     }
 
     rgb
-    shade_color(const rgb& color, float percentage)
+    get_shaded_color(const rgb& color, float percentage)
     {
         // https://stackoverflow.com/questions/5560248/programmatically-lighten-or-darken-a-hex-color-or-rgb-and-blend-colors
         const float t = percentage < 0 ? 0.0f : 1.0f;
@@ -630,7 +630,7 @@ namespace euphoria::core
 
     [[nodiscard]]
     Result<rgbi>
-    crgbi(const std::string& original_value)
+    to_rgbi(const std::string& original_value)
     {
         const auto value = trim(original_value);
 
@@ -643,7 +643,7 @@ namespace euphoria::core
         else
         {
             const auto match = from_string_to_enum<NamedColor>(value);
-            if(match.single_match) { return R::create_value(crgbi(match.values[0])); }
+            if(match.single_match) { return R::create_value(to_rgbi(match.values[0])); }
             return R::create_error
             (
                 "bad name. Hex values require a #, but it could also be either {}"_format

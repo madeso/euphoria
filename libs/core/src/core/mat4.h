@@ -20,25 +20,43 @@ namespace euphoria::core
             float t30, float t31, float t32, float t33
         );
 
-        [[nodiscard]] static mat4f from_row_major
+        [[nodiscard]] constexpr static mat4f from_row_major
         (
             float t00, float t10, float t20, float t30,
             float t01, float t11, float t21, float t31,
             float t02, float t12, float t22, float t32,
             float t03, float t13, float t23, float t33
-        );
+        )
+        {
+            return mat4f
+            (
+                t00, t01, t02, t03,
+                t10, t11, t12, t13,
+                t20, t21, t22, t23,
+                t30, t31, t32, t33
+            );
+        }
 
         [[nodiscard]] static mat4f from_major(const vec4f& major);
         [[nodiscard]] static mat4f from_scale(const Scale3f& scale);
         [[nodiscard]] static mat4f from_translation(const vec3f& v);
-        [[nodiscard]] static mat4f from_scalar(float scalar);
         [[nodiscard]] static mat4f from_rot_x(const angle& a);
         [[nodiscard]] static mat4f from_rot_y(const angle& a);
         [[nodiscard]] static mat4f from_rot_z(const angle& a);
         [[nodiscard]] static mat4f from_axis_angle(const AxisAngle& aa);
-        [[nodiscard]] static mat4f identity();
         [[nodiscard]] static mat4f create_ortho(float l, float r, float b, float t, float n, float f);
         [[nodiscard]] static mat4f create_perspective(const angle& fov, float a, float near, float far);
+        [[nodiscard]] constexpr static mat4f from_scalar(float scalar)
+        {
+            const float z = 0;
+            return from_row_major
+            (
+                scalar, z, z, z,
+                z, scalar, z, z,
+                z, z, scalar, z,
+                z, z, z, scalar
+            );
+        }
 
         float* get_data_ptr();
         float* get_column_major();
@@ -82,14 +100,26 @@ namespace euphoria::core
 
         mat4f() = default;
 
-        mat4f
+        constexpr mat4f
         (
             float t00, float t01, float t02, float t03,
             float t10, float t11, float t12, float t13,
             float t20, float t21, float t22, float t23,
             float t30, float t31, float t32, float t33
-        );
+        )
+            : data
+            {
+                t00, t01, t02, t03,
+                t10, t11, t12, t13,
+                t20, t21, t22, t23,
+                t30, t31, t32, t33
+            }
+        {
+        }
     };
+
+
+    constexpr mat4f m4_identity = mat4f::from_scalar(1);
 
     
     std::ostream& operator<<(std::ostream& stream, const mat4f& m);

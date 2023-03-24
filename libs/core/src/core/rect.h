@@ -86,7 +86,7 @@ namespace euphoria::core
         [[nodiscard]] Rectf set_bottom_left_to_copy(const vec2f& v) const;
 
 
-        [[nodiscard]] Recti toi() const;
+        [[nodiscard]] Recti to_i() const;
         [[nodiscard]] vec2f get_bottom_left() const;
         [[nodiscard]] float get_relative_center_x_from_bottom_left() const ;
         [[nodiscard]] float get_relative_center_y_from_bottom_left() const ;
@@ -184,7 +184,7 @@ namespace euphoria::core
         [[nodiscard]] Recti set_bottom_left_to_copy(int new_left, int new_bottom) const;
         [[nodiscard]] Recti set_bottom_left_to_copy(const vec2i& v) const;
 
-        [[nodiscard]] Rectf tof() const;
+        [[nodiscard]] Rectf to_f() const;
         [[nodiscard]] int get_relative_center_x_from_bottom_left() const;
         [[nodiscard]] int get_relative_center_y_from_bottom_left() const;
         [[nodiscard]] vec2i get_relative_center_pos_from_bottom_left() const;
@@ -218,8 +218,8 @@ namespace euphoria::core
 
     [[nodiscard]] vec2f to01(const Rectf& r, const vec2f& from);
     [[nodiscard]] vec2f to01(const Recti& r, const vec2i& from);
-    [[nodiscard]] vec2f from01(const Rectf& r, const vec2f& from);
-    [[nodiscard]] vec2i from01(const Recti& r, const vec2f& from);
+    [[nodiscard]] vec2f from_01(const Rectf& r, const vec2f& from);
+    [[nodiscard]] vec2i from_01(const Recti& r, const vec2f& from);
 
     // todo(Gustav): add union and intersection functions
 

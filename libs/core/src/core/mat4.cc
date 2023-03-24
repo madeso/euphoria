@@ -3,24 +3,6 @@
 
 namespace euphoria::core
 {
-    
-    mat4f::mat4f
-    (
-        float t00, float t01, float t02, float t03,
-        float t10, float t11, float t12, float t13,
-        float t20, float t21, float t22, float t23,
-        float t30, float t31, float t32, float t33
-    )
-        : data
-        {
-            t00, t01, t02, t03,
-            t10, t11, t12, t13,
-            t20, t21, t22, t23,
-            t30, t31, t32, t33
-        }
-    {
-    }
-
     float* mat4f::get_column_major() { return data; }
     const float* mat4f::get_column_major() const { return data; }
 
@@ -32,25 +14,6 @@ namespace euphoria::core
         float t10, float t11, float t12, float t13,
         float t20, float t21, float t22, float t23,
         float t30, float t31, float t32, float t33
-    )
-    {
-        return mat4f
-        (
-            t00, t01, t02, t03,
-            t10, t11, t12, t13,
-            t20, t21, t22, t23,
-            t30, t31, t32, t33
-        );
-    }
-
-    [[nodiscard]]
-    mat4f
-    mat4f::from_row_major
-    (
-        float t00, float t10, float t20, float t30,
-        float t01, float t11, float t21, float t31,
-        float t02, float t12, float t22, float t32,
-        float t03, float t13, float t23, float t33
     )
     {
         return mat4f
@@ -134,19 +97,6 @@ namespace euphoria::core
         return vec3f(get(0, 3), get(1, 3), get(2, 3));
     }
 
-    [[nodiscard]] mat4f
-    mat4f::from_scalar(float scalar)
-    {
-        const float z = 0;
-        return from_row_major
-        (
-            scalar, z, z, z,
-            z, scalar, z, z,
-            z, z, scalar, z,
-            z, z, z, scalar
-        );
-    }
-
     [[nodiscard]]
     mat4f
     mat4f::from_rot_x(const angle& a)
@@ -226,13 +176,7 @@ namespace euphoria::core
         );
     }
 
-    [[nodiscard]]
-    mat4f
-    mat4f::identity()
-    {
-        return from_scalar(1);
-    }
-
+    
     vec4f
     mat4f::get_major() const
     {

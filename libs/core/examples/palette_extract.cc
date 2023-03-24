@@ -80,7 +80,7 @@ find(std::vector<ExtractedColor>* psource, const rgbi& color, float length)
 
     for(int i=0; i < c_sizet_to_int(source.size()); i+=1)
     {
-        if((crgb(source[i].color) - crgb(color)).get_length()*255 < length)
+        if((to_crgb(source[i].color) - to_crgb(color)).get_length()*255 < length)
         {
             return i;
         }
@@ -101,7 +101,7 @@ extract_colors(const std::vector<ImageAndFile>& images, float range)
         {
             for(int x=0; x<img.image.width; x+=1)
             {
-                const auto index = find(&ret, crgbi(img.image.get_pixel(x,y)), range);
+                const auto index = find(&ret, to_rgbi(img.image.get_pixel(x,y)), range);
                 ret[index].count += 1;
             }
         }
@@ -121,7 +121,7 @@ extract_colors(const std::vector<ImageAndFile>& images)
         {
             for(int x=0; x<img.image.width; x+=1)
             {
-                const auto color = crgbi(img.image.get_pixel(x, y));
+                const auto color = to_rgbi(img.image.get_pixel(x, y));
                 const auto hex = color.to_hex();
                 auto val = std::get<0>(colors.try_emplace(hex, 0));
                 val->second += 1;
@@ -220,7 +220,7 @@ handle_print
         colors.end(),
         [](const rgbi& lhs, const rgbi& rhs) -> bool
         {
-            return crgb(lhs).calc_luminance() < crgb(rhs).calc_luminance();
+            return to_crgb(lhs).calc_luminance() < to_crgb(rhs).calc_luminance();
         }
     );
 

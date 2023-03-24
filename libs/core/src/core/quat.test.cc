@@ -10,7 +10,7 @@ using namespace euphoria::tests;
 
 TEST_CASE("quat-identity", "[quat]")
 {
-    const auto q = euco::quatf::identity();
+    const auto q = euco::q_identity;
     REQUIRE(q == approx(euco::quatf(1, euco::vec3f(0, 0, 0))));
 }
 
@@ -25,10 +25,10 @@ TEST_CASE("quat-testLocalAxis", "[quat]")
 {
     SECTION("identity")
     {
-        const auto q = euco::quatf::identity();
-        REQUIRE(q.right() == approx(euco::common::right));
-        REQUIRE(q.up() == approx(euco::common::up));
-        REQUIRE(q.in() == approx(euco::common::in));
+        const auto q = euco::q_identity;
+        REQUIRE(q.get_right() == approx(euco::common::right));
+        REQUIRE(q.get_up() == approx(euco::common::up));
+        REQUIRE(q.get_in() == approx(euco::common::in));
     }
 
     SECTION("look left")
@@ -41,9 +41,9 @@ TEST_CASE("quat-testLocalAxis", "[quat]")
                 euco::angle::from_degrees(90)
             )
         );
-        REQUIRE(q.right() == approx(euco::common::in));
-        REQUIRE(q.up() == approx(euco::common::up));
-        REQUIRE(q.in() == approx(euco::common::left));
+        REQUIRE(q.get_right() == approx(euco::common::in));
+        REQUIRE(q.get_up() == approx(euco::common::up));
+        REQUIRE(q.get_in() == approx(euco::common::left));
     }
 
     SECTION("look up")
@@ -56,9 +56,9 @@ TEST_CASE("quat-testLocalAxis", "[quat]")
                 euco::angle::from_degrees(90)
             )
         );
-        REQUIRE(q.right() == approx(euco::common::right));
-        REQUIRE(q.up() == approx(euco::common::out));
-        REQUIRE(q.in() == approx(euco::common::up));
+        REQUIRE(q.get_right() == approx(euco::common::right));
+        REQUIRE(q.get_up() == approx(euco::common::out));
+        REQUIRE(q.get_in() == approx(euco::common::up));
     }
 
     SECTION("roll right")
@@ -71,9 +71,9 @@ TEST_CASE("quat-testLocalAxis", "[quat]")
                 euco::angle::from_degrees(90)
             )
         );
-        REQUIRE(q.right() == approx(euco::common::down));
-        REQUIRE(q.up() == approx(euco::common::right));
-        REQUIRE(q.in() == approx(euco::common::in));
+        REQUIRE(q.get_right() == approx(euco::common::down));
+        REQUIRE(q.get_up() == approx(euco::common::right));
+        REQUIRE(q.get_in() == approx(euco::common::in));
     }
 }
 
@@ -145,7 +145,7 @@ TEST_CASE("quat-testCombine", "[quat]")
     EXPECT_PRED_FORMAT2(
             euco::quatf::from_axis_angle(euco::AxisAngle::from_right_hand_around(
                     euco::common::up, euco::angle::from_degrees(90))),
-            euco::quatf::identity().get_rotated(
+            euco::q_identity.get_rotated(
                     euco::quatf::from_axis_angle(euco::AxisAngle::from_right_hand_around(
                             euco::common::up,
                             euco::angle::from_degrees(90)))));
@@ -156,12 +156,12 @@ TEST_CASE("quat-testCombine", "[quat]")
             euco::quatf::from_axis_angle(
                     euco::AxisAngle::from_right_hand_around(
                             euco::common::up, euco::angle::from_degrees(90)))
-                    .get_rotated(euco::quatf::identity()));
+                    .get_rotated(euco::q_identity));
 
     EXPECT_PRED_FORMAT2(
             euco::quatf::from_axis_angle(euco::AxisAngle::from_right_hand_around(
                     euco::common::up, euco::angle::from_degrees(90))),
-            euco::quatf::identity().get_rotated(
+            euco::q_identity.get_rotated(
                     euco::quatf::from_axis_angle(euco::AxisAngle::from_right_hand_around(
                             euco::common::up,
                             euco::angle::from_degrees(90)))));

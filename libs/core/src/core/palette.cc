@@ -120,7 +120,7 @@ namespace euphoria::core
         for(int i = 0; i < count; i += 1)
         {
             float d = static_cast<float>(i) / static_cast<float>(count - 1);
-            const auto rgbf = crgb
+            const auto rgbf = to_crgb
             (
                 Hsl
                 {
@@ -129,7 +129,7 @@ namespace euphoria::core
                     lightness
                 }
             );
-            pal.colors.push_back(crgbi(rgbf));
+            pal.colors.push_back(to_rgbi(rgbf));
         }
 
         return pal;

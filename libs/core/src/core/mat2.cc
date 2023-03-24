@@ -3,22 +3,7 @@
 
 
 namespace euphoria::core
-{
-     
-    mat2f::mat2f
-    (
-        float t00, float t01,
-        float t10, float t11
-    )
-        : data
-        {
-            t00, t01,
-            t10, t11
-        }
-    {
-    }
-
-    
+{   
     [[nodiscard]] mat2f
     mat2f::from_col_major
     (
@@ -27,33 +12,6 @@ namespace euphoria::core
     )
     {
         return mat2f(t00, t01, t10, t11);
-    }
-
-
-    [[nodiscard]] mat2f
-    mat2f::from_row_major
-    (
-        float t00, float t10,
-        float t01, float t11
-    )
-    {
-        return mat2f
-        (
-            t00, t01,
-            t10, t11
-        );
-    }
-
-
-    [[nodiscard]] mat2f
-    mat2f::from_scalar(float scalar)
-    {
-        const float z = 0;
-        return from_row_major
-        (
-            scalar, z,
-            z, scalar
-        );
     }
 
 
@@ -88,12 +46,6 @@ namespace euphoria::core
             c, s,
             -s, c
         );
-    }
-
-    [[nodiscard]] mat2f
-    mat2f::identity()
-    {
-        return from_scalar(1);
     }
 
 

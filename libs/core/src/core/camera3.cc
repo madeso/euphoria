@@ -39,8 +39,8 @@ namespace euphoria::core
     }
 
     Camera3::Camera3()
-        : position(vec3f::zero())
-        , rotation(quatf::identity())
+        : position(zero3f)
+        , rotation(q_identity)
         , fov(angle::from_degrees(45.0f))
         , near(0.1f)
         , far(100.0f)

@@ -15,7 +15,7 @@ namespace euphoria::render
 
 
     const ShaderUniform&
-    ShaderUniform::null()
+    ShaderUniform::create_null()
     {
         static const auto null_uniform = ShaderUniform{};
         ASSERT(null_uniform.is_null());

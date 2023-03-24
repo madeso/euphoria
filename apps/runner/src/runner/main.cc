@@ -151,10 +151,10 @@ get_color(std::shared_ptr<game::Color> c)
 
     if (c->hex != nullptr)
     {
-        const auto parsed = crgbi(*c->hex);
+        const auto parsed = to_rgbi(*c->hex);
         if (parsed)
         {
-            return crgb(*parsed);
+            return to_crgb(*parsed);
         }
         else
         {
