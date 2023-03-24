@@ -161,7 +161,7 @@ TEST_CASE("image draw", "[img]")
     SECTION("circle")
     {
         CHECK_FALSE(img.get_pixel(5, 5) == colora);
-        euco::draw_circle(&img, to_crgb(color), euco::vec2i {5, 5}, 4);
+        euco::draw_circle(&img, to_rgb(color), euco::vec2i {5, 5}, 4);
         CHECK_FALSE(img.get_pixel(0, 0) == colora);
         REQUIRE(img.get_pixel(5, 5) == colora);
     }
@@ -170,7 +170,7 @@ TEST_CASE("image draw", "[img]")
     {
         CHECK_FALSE(img.get_pixel(0, 0) == colora);
         CHECK_FALSE(img.get_pixel(5, 5) == colora);
-        euco::draw_circle(&img, to_crgb(color), euco::vec2i {5, 5}, 20, 0, 3);
+        euco::draw_circle(&img, to_rgb(color), euco::vec2i {5, 5}, 20, 0, 3);
         CHECK_FALSE(img.get_pixel(5, 5) == colora);
         REQUIRE(img.get_pixel(0, 0) == colora);
     }

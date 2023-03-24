@@ -237,7 +237,7 @@ namespace euphoria::core
                 const rgb paint_color = blend
                     ? lerp_rgb
                     (
-                        to_crgb(image->get_pixel(x, y)),
+                        to_rgb(image->get_pixel(x, y)),
                         blend_factor,
                         color
                     )
@@ -383,7 +383,7 @@ namespace euphoria::core
             {
                 const rgb paint_color = lerp_rgb
                 (
-                    to_crgb(image->get_pixel(x, y)),
+                    to_rgb(image->get_pixel(x, y)),
                     c,
                     color
                 );
@@ -485,7 +485,7 @@ namespace euphoria::core
 
     rgbai tint_color(const rgbai& c, const rgbai& tint)
     {
-        return to_rgbai(tint_color(to_rgba(c), to_crgb(tint)));
+        return to_rgbai(tint_color(to_rgba(c), to_rgb(tint)));
     }
 
     void
@@ -699,7 +699,7 @@ namespace euphoria::core
         };
 
         // line
-        draw_line_antialiased(image, to_crgb(color), from, to);
+        draw_line_antialiased(image, to_rgb(color), from, to);
 
         // wings
         // DrawLineAntialiased(image, rgb(color), arrowPoint, arrowPointLeft);

@@ -80,7 +80,7 @@ find(std::vector<ExtractedColor>* psource, const rgbi& color, float length)
 
     for(int i=0; i < c_sizet_to_int(source.size()); i+=1)
     {
-        if((to_crgb(source[i].color) - to_crgb(color)).get_length()*255 < length)
+        if((to_rgb(source[i].color) - to_rgb(color)).get_length()*255 < length)
         {
             return i;
         }
@@ -220,7 +220,7 @@ handle_print
         colors.end(),
         [](const rgbi& lhs, const rgbi& rhs) -> bool
         {
-            return to_crgb(lhs).calc_luminance() < to_crgb(rhs).calc_luminance();
+            return to_rgb(lhs).calc_luminance() < to_rgb(rhs).calc_luminance();
         }
     );
 

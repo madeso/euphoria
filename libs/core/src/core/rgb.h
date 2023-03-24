@@ -178,10 +178,10 @@ namespace euphoria::core
     //////////////////////////////////////////////////////////////////////////
     // Convert functions (rgb)
 
-    rgb to_crgb(const rgbi& c);
-    rgb to_crgb(const rgba& c);
-    rgb to_crgb(const rgbai& c);
-    rgb to_crgb(const Hsl& c);
+    rgb to_rgb(const rgbi& c);
+    rgb to_rgb(const rgba& c);
+    rgb to_rgb(const rgbai& c);
+    rgb to_rgb(const Hsl& c);
 
     // Convert functions (hsl)
 

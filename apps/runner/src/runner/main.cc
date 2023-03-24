@@ -154,7 +154,7 @@ get_color(std::shared_ptr<game::Color> c)
         const auto parsed = to_rgbi(*c->hex);
         if (parsed)
         {
-            return to_crgb(*parsed);
+            return to_rgb(*parsed);
         }
         else
         {

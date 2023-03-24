@@ -122,7 +122,7 @@ namespace euphoria::core::raytracer
 
 
     rgb
-    to_crgb(const unit3f& normal)
+    to_rgb(const unit3f& normal)
     {
         return rgb
         {

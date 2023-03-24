@@ -64,7 +64,7 @@ TEST_CASE("rgb-get_component_works", "[rgb]")
 TEST_CASE("rgb_colors", "[rgb]")
 {
     auto test = [](const euco::rgb& c_rgb, const euco::Hsl& c_hsl) {
-        CHECK(c_rgb == approx(euco::to_crgb(c_hsl)));
+        CHECK(c_rgb == approx(euco::to_rgb(c_hsl)));
         CHECK(c_hsl == approx(euco::to_hsl(c_rgb)));
     };
 
@@ -99,13 +99,13 @@ TEST_CASE("rgb_colors", "[rgb]")
 TEST_CASE("rgb_convert", "[rgb]")
 {
     const euco::rgbi blue = euco::NamedColor::blue;
-    REQUIRE(blue == euco::to_rgbi(euco::to_crgb(blue)));
+    REQUIRE(blue == euco::to_rgbi(euco::to_rgb(blue)));
 }
 
 TEST_CASE("rgb-hsl_convert", "[rgb]")
 {
     const euco::rgb blue = euco::NamedColor::blue;
-    REQUIRE(blue == approx(euco::to_crgb(euco::to_hsl(blue))));
+    REQUIRE(blue == approx(euco::to_rgb(euco::to_hsl(blue))));
 }
 
 TEST_CASE("rgb-ShadeColor", "[rgb]")

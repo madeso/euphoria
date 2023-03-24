@@ -32,17 +32,17 @@ namespace euphoria::core
         case Grayscale::max: return make_gray(max(c.r, max(c.g, c.b)), c.a);
         case Grayscale::gamma:
             {
-                const auto d = dot(to_crgb(c), rgb(0.22f, 0.707f, 0.071f));
+                const auto d = dot(to_rgb(c), rgb(0.22f, 0.707f, 0.071f));
                 return rgbai(to_rgbi(rgb(d)), c.a);
             }
         case Grayscale::linear:
             {
-                const auto d = dot(to_crgb(c), rgb(0.0397f, 0.4580f, 0.0061f));
+                const auto d = dot(to_rgb(c), rgb(0.0397f, 0.4580f, 0.0061f));
                 return rgbai(to_rgbi(rgb(d)), c.a);
             }
         case Grayscale::average:
             {
-                const auto cc = to_crgb(c);
+                const auto cc = to_rgb(c);
                 const auto g = (cc.r + cc.g + cc.b) / 3;
                 return rgbai(to_rgbi(rgb(g)), c.a);
             }
@@ -105,7 +105,7 @@ namespace euphoria::core
         *image = create_new_image_from(*image, [&](int x, int y)
         {
             auto pixel = image->get_pixel(x, y);
-            auto new_color = to_crgb(pixel);
+            auto new_color = to_rgb(pixel);
             const auto pixel_error = errors(x, y);
             new_color.r += pixel_error.r;
             new_color.g += pixel_error.g;
@@ -113,7 +113,7 @@ namespace euphoria::core
             new_color = clamp(new_color);
             const auto palette_color = palette.get_closest_color(to_rgbi(new_color));
 
-            const auto pcf = to_crgb(palette_color);
+            const auto pcf = to_rgb(palette_color);
             const auto error = ColorError
             {
                 new_color.r - pcf.r,
@@ -155,13 +155,13 @@ namespace euphoria::core
     vec3f
     c_vec3(const rgbi c)
     {
-        return c_vec3(to_crgb(c));
+        return c_vec3(to_rgb(c));
     }
 
     vec3f
     c_vec3(const rgbai c)
     {
-        return c_vec3(to_crgb(c));
+        return c_vec3(to_rgb(c));
     }
 
     void

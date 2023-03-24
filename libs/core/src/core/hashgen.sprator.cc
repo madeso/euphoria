@@ -21,10 +21,10 @@ namespace
     rgbai
     calculate_border_color(rgbai base)
     {
-        auto h = to_hsl(to_crgb(base));
+        auto h = to_hsl(to_rgb(base));
         h.h -= angle::from_degrees(15);
         h.l *= 0.4f;
-        return {to_rgbi(to_crgb(h)), base.a};
+        return {to_rgbi(to_rgb(h)), base.a};
     }
 
 

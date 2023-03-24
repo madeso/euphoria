@@ -44,9 +44,9 @@ namespace
     {
         switch(range)
         {
-            case SortRange::r: return to_crgb(c).r;
-            case SortRange::g: return to_crgb(c).g;
-            case SortRange::b: return to_crgb(c).b;
+            case SortRange::r: return to_rgb(c).r;
+            case SortRange::g: return to_rgb(c).g;
+            case SortRange::b: return to_rgb(c).b;
             default: return 0;
         }
     }
@@ -150,7 +150,7 @@ namespace
             float total = 0;
             for(const auto& c: src)
             {
-                sum += to_crgb(c);
+                sum += to_rgb(c);
                 total += 1;
             }
 

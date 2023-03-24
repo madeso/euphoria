@@ -120,7 +120,7 @@ namespace euphoria::core
         for(int i = 0; i < count; i += 1)
         {
             float d = static_cast<float>(i) / static_cast<float>(count - 1);
-            const auto rgbf = to_crgb
+            const auto rgbf = to_rgb
             (
                 Hsl
                 {

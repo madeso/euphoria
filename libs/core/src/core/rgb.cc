@@ -230,7 +230,7 @@ namespace euphoria::core
     ////////////////////////////////////////////////////////////////////////////////
 
     rgb
-    to_crgb(const rgbi& c)
+    to_rgb(const rgbi& c)
     {
         return {colorutil::to_float(c.r),
                 colorutil::to_float(c.g),
@@ -238,13 +238,13 @@ namespace euphoria::core
     }
 
     rgb
-    to_crgb(const rgba& c)
+    to_rgb(const rgba& c)
     {
         return {c.r, c.g, c.b};
     }
 
     rgb
-    to_crgb(const rgbai& c)
+    to_rgb(const rgbai& c)
     {
         return {colorutil::to_float(c.r),
                 colorutil::to_float(c.g),
@@ -252,7 +252,7 @@ namespace euphoria::core
     }
 
     rgb
-    to_crgb(const Hsl& hsl)
+    to_rgb(const Hsl& hsl)
     {
         // based on https://gist.github.com/mjackson/5311256
         if(hsl.s == 0)
