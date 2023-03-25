@@ -93,10 +93,10 @@
         </inbodydescription>
         <location file="libs/core/src/core/ray.h" line="30" column="23" bodyfile="libs/core/src/core/ray.cc" bodystart="56" bodyend="59"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Ray2f_1aecc16a29e7a5a7753b232539652df530" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Ray2f_1abc1d16125c9b26cd4b6207f846a28847" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1Ray2f" kindref="compound">Ray2f</ref></type>
         <definition>Ray2f euphoria::core::Ray2f::from_direction</definition>
-        <argsstring>(const vec2f &amp;direction, const vec2f &amp;pos=vec2f::zero())</argsstring>
+        <argsstring>(const vec2f &amp;direction, const vec2f &amp;pos=zero2f)</argsstring>
         <name>from_direction</name>
         <param>
           <type>const <ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
@@ -105,7 +105,7 @@
         <param>
           <type>const <ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
           <declname>pos</declname>
-          <defval><ref refid="structeuphoria_1_1core_1_1vec2f_1a89a534774964e00c039cfba17ace7ecc" kindref="member">vec2f::zero</ref>()</defval>
+          <defval><ref refid="namespaceeuphoria_1_1core_1a1c5f3fdb8624a88937d9596674106931" kindref="member">zero2f</ref></defval>
         </param>
         <briefdescription>
         </briefdescription>
@@ -137,7 +137,7 @@
     <location file="libs/core/src/core/ray.h" line="24" column="1" bodyfile="libs/core/src/core/ray.h" bodystart="23" bodyend="34"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1Ray2f_1a61d41fdaab67f2c4e3533d207671ad14" prot="public" virt="non-virtual"><scope>euphoria::core::Ray2f</scope><name>direction</name></member>
-      <member refid="structeuphoria_1_1core_1_1Ray2f_1aecc16a29e7a5a7753b232539652df530" prot="public" virt="non-virtual"><scope>euphoria::core::Ray2f</scope><name>from_direction</name></member>
+      <member refid="structeuphoria_1_1core_1_1Ray2f_1abc1d16125c9b26cd4b6207f846a28847" prot="public" virt="non-virtual"><scope>euphoria::core::Ray2f</scope><name>from_direction</name></member>
       <member refid="structeuphoria_1_1core_1_1Ray2f_1acb7b4268032e079ede4ec857568351b1" prot="public" virt="non-virtual"><scope>euphoria::core::Ray2f</scope><name>from_to</name></member>
       <member refid="structeuphoria_1_1core_1_1Ray2f_1a730f6280c9bc21c26a704c4056b7a1c6" prot="public" virt="non-virtual"><scope>euphoria::core::Ray2f</scope><name>get_position</name></member>
       <member refid="structeuphoria_1_1core_1_1Ray2f_1abcf76d3a1c715a41e6d58824f778fb54" prot="public" virt="non-virtual"><scope>euphoria::core::Ray2f</scope><name>position</name></member>

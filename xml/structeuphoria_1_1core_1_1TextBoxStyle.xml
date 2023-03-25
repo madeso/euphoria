@@ -4,9 +4,9 @@
     <compoundname>euphoria::core::TextBoxStyle</compoundname>
     <includes refid="textbox_8h" local="no">textbox.h</includes>
       <sectiondef kind="private-attrib">
-      <memberdef kind="variable" id="structeuphoria_1_1core_1_1TextBoxStyle_1aa691463506a59ba642be5f234aa137b7" prot="private" static="no" mutable="no">
-        <type>std::vector&lt; std::string &gt;</type>
-        <definition>std::vector&lt;std::string&gt; euphoria::core::TextBoxStyle::connections</definition>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1TextBoxStyle_1aad5f87428ba344ffdfd22ca9201860e0" prot="private" static="no" mutable="no">
+        <type>std::array&lt; std::string_view, 15 &gt;</type>
+        <definition>std::array&lt;std::string_view, 15&gt; euphoria::core::TextBoxStyle::connections</definition>
         <argsstring></argsstring>
         <name>connections</name>
         <briefdescription>
@@ -15,17 +15,22 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/textbox.h" line="26" column="21" bodyfile="libs/core/src/core/textbox.h" bodystart="26" bodyend="-1"/>
+        <location file="libs/core/src/core/textbox.h" line="33" column="20" bodyfile="libs/core/src/core/textbox.h" bodystart="33" bodyend="-1"/>
       </memberdef>
       </sectiondef>
-      <sectiondef kind="public-static-func">
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1TextBoxStyle_1a4284c5d128c3ebd83ac00f3bf107c123" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeuphoria_1_1core_1_1TextBoxStyle" kindref="compound">TextBoxStyle</ref></type>
-        <definition>TextBoxStyle euphoria::core::TextBoxStyle::create</definition>
-        <argsstring>(std::function&lt; std::string(char)&gt; connections_func)</argsstring>
-        <name>create</name>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1TextBoxStyle_1a09d32794cf1f5ef4c8a5f14ffb24d71e" prot="public" static="no" constexpr="yes" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename F</type>
+          </param>
+        </templateparamlist>
+        <type>constexpr</type>
+        <definition>constexpr euphoria::core::TextBoxStyle::TextBoxStyle</definition>
+        <argsstring>(F &amp;&amp;connections_func)</argsstring>
+        <name>TextBoxStyle</name>
         <param>
-          <type>std::function&lt; std::string(char)&gt;</type>
+          <type>F &amp;&amp;</type>
           <declname>connections_func</declname>
         </param>
         <briefdescription>
@@ -34,13 +39,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/textbox.h" line="21" column="29" bodyfile="libs/core/src/core/textbox.cc" bodystart="61" bodyend="75"/>
+        <location file="libs/core/src/core/textbox.h" line="22" column="28" bodyfile="libs/core/src/core/textbox.h" bodystart="22" bodyend="28"/>
       </memberdef>
-      </sectiondef>
-      <sectiondef kind="public-func">
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1TextBoxStyle_1a8e02a389f1d46c49479c3cfce59faead" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type>std::string</type>
-        <definition>std::string euphoria::core::TextBoxStyle::get_string</definition>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1TextBoxStyle_1a218e9355761fa36ed92cb422dd2e84e2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string_view</type>
+        <definition>std::string_view euphoria::core::TextBoxStyle::get_string</definition>
         <argsstring>(char s) const</argsstring>
         <name>get_string</name>
         <param>
@@ -53,14 +56,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/textbox.h" line="23" column="22" bodyfile="libs/core/src/core/textbox.cc" bodystart="47" bodyend="57"/>
+        <location file="libs/core/src/core/textbox.h" line="30" column="27" bodyfile="libs/core/src/core/textbox.cc" bodystart="47" bodyend="57"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1TextBoxStyle_1a33033accf888bf34a91d9967d352b6fa" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>euphoria::core::TextBoxStyle::TextBoxStyle</definition>
-        <argsstring>()</argsstring>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1TextBoxStyle_1a83cd4dd0f0e0a994044cde3a197e5544" prot="private" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>constexpr</type>
+        <definition>constexpr euphoria::core::TextBoxStyle::TextBoxStyle</definition>
+        <argsstring>()=default</argsstring>
         <name>TextBoxStyle</name>
         <briefdescription>
         </briefdescription>
@@ -68,19 +71,19 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/textbox.h" line="28" column="9" bodyfile="libs/core/src/core/textbox.cc" bodystart="93" bodyend="96"/>
+        <location file="libs/core/src/core/textbox.h" line="35" column="19"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/textbox.h" line="20" column="1" bodyfile="libs/core/src/core/textbox.h" bodystart="19" bodyend="29"/>
+    <location file="libs/core/src/core/textbox.h" line="20" column="1" bodyfile="libs/core/src/core/textbox.h" bodystart="19" bodyend="36"/>
     <listofallmembers>
-      <member refid="structeuphoria_1_1core_1_1TextBoxStyle_1aa691463506a59ba642be5f234aa137b7" prot="private" virt="non-virtual"><scope>euphoria::core::TextBoxStyle</scope><name>connections</name></member>
-      <member refid="structeuphoria_1_1core_1_1TextBoxStyle_1a4284c5d128c3ebd83ac00f3bf107c123" prot="public" virt="non-virtual"><scope>euphoria::core::TextBoxStyle</scope><name>create</name></member>
-      <member refid="structeuphoria_1_1core_1_1TextBoxStyle_1a8e02a389f1d46c49479c3cfce59faead" prot="public" virt="non-virtual"><scope>euphoria::core::TextBoxStyle</scope><name>get_string</name></member>
-      <member refid="structeuphoria_1_1core_1_1TextBoxStyle_1a33033accf888bf34a91d9967d352b6fa" prot="private" virt="non-virtual"><scope>euphoria::core::TextBoxStyle</scope><name>TextBoxStyle</name></member>
+      <member refid="structeuphoria_1_1core_1_1TextBoxStyle_1aad5f87428ba344ffdfd22ca9201860e0" prot="private" virt="non-virtual"><scope>euphoria::core::TextBoxStyle</scope><name>connections</name></member>
+      <member refid="structeuphoria_1_1core_1_1TextBoxStyle_1a218e9355761fa36ed92cb422dd2e84e2" prot="public" virt="non-virtual"><scope>euphoria::core::TextBoxStyle</scope><name>get_string</name></member>
+      <member refid="structeuphoria_1_1core_1_1TextBoxStyle_1a09d32794cf1f5ef4c8a5f14ffb24d71e" prot="public" virt="non-virtual"><scope>euphoria::core::TextBoxStyle</scope><name>TextBoxStyle</name></member>
+      <member refid="structeuphoria_1_1core_1_1TextBoxStyle_1a83cd4dd0f0e0a994044cde3a197e5544" prot="private" virt="non-virtual"><scope>euphoria::core::TextBoxStyle</scope><name>TextBoxStyle</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

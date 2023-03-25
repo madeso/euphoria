@@ -87,10 +87,10 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
-      <memberdef kind="function" id="structeuphoria_1_1render_1_1Sprite_1a3e94232c56794b8b22511569c3088b15" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1Sprite_1a3dc47cad77389bd2e4b108a2a118e998" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
         <type></type>
         <definition>euphoria::render::Sprite::Sprite</definition>
-        <argsstring>(std::shared_ptr&lt; Texture2 &gt; texture, const core::vec2f &amp;position=core::vec2f::zero())</argsstring>
+        <argsstring>(std::shared_ptr&lt; Texture2 &gt; texture, const core::vec2f &amp;position=core::zero2f)</argsstring>
         <name>Sprite</name>
         <param>
           <type>std::shared_ptr&lt; <ref refid="structeuphoria_1_1render_1_1Texture2" kindref="compound">Texture2</ref> &gt;</type>
@@ -99,7 +99,7 @@
         <param>
           <type>const <ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">core::vec2f</ref> &amp;</type>
           <declname>position</declname>
-          <defval><ref refid="structeuphoria_1_1core_1_1vec2f_1a89a534774964e00c039cfba17ace7ecc" kindref="member">core::vec2f::zero</ref>()</defval>
+          <defval><ref refid="namespaceeuphoria_1_1core_1a1c5f3fdb8624a88937d9596674106931" kindref="member">core::zero2f</ref></defval>
         </param>
         <briefdescription>
         </briefdescription>
@@ -201,7 +201,7 @@
       <member refid="structeuphoria_1_1render_1_1Sprite_1a08e39520d28b9027358dfafbb6a9e153" prot="public" virt="non-virtual"><scope>euphoria::render::Sprite</scope><name>render</name></member>
       <member refid="structeuphoria_1_1render_1_1Sprite_1a36c06e375b90ea32cd30439a221c7336" prot="public" virt="non-virtual"><scope>euphoria::render::Sprite</scope><name>rotation</name></member>
       <member refid="structeuphoria_1_1render_1_1Sprite_1a75f49d2c60f693d0a0800b583f9aae24" prot="public" virt="non-virtual"><scope>euphoria::render::Sprite</scope><name>scale</name></member>
-      <member refid="structeuphoria_1_1render_1_1Sprite_1a3e94232c56794b8b22511569c3088b15" prot="public" virt="non-virtual"><scope>euphoria::render::Sprite</scope><name>Sprite</name></member>
+      <member refid="structeuphoria_1_1render_1_1Sprite_1a3dc47cad77389bd2e4b108a2a118e998" prot="public" virt="non-virtual"><scope>euphoria::render::Sprite</scope><name>Sprite</name></member>
       <member refid="structeuphoria_1_1render_1_1Sprite_1a3ad2416469dc1e762c98932b9e4372ce" prot="public" virt="non-virtual"><scope>euphoria::render::Sprite</scope><name>texture</name></member>
     </listofallmembers>
   </compounddef>

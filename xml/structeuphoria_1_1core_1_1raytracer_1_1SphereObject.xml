@@ -70,12 +70,12 @@
         </inbodydescription>
         <location file="libs/core/src/core/raytracer.cc" line="38" column="9" bodyfile="libs/core/src/core/raytracer.cc" bodystart="39" bodyend="48"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1raytracer_1_1SphereObject_1acab56495380f02ba5875a98d9e8a5022" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
-        <type>std::optional&lt; <ref refid="structeuphoria_1_1core_1_1raytracer_1_1HitResult" kindref="compound">HitResult</ref> &gt;</type>
-        <definition>std::optional&lt;HitResult&gt; euphoria::core::raytracer::SphereObject::hit</definition>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1raytracer_1_1SphereObject_1a0ec2543907c5d7dde31f03c5ff2c4a86" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>std::optional&lt; <ref refid="structeuphoria_1_1core_1_1raytracer_1_1Collision" kindref="compound">Collision</ref> &gt;</type>
+        <definition>std::optional&lt;Collision&gt; euphoria::core::raytracer::SphereObject::get_collision</definition>
         <argsstring>(const UnitRay3f &amp;ray, const Range&lt; float &gt; &amp;range) const override</argsstring>
-        <name>hit</name>
-        <reimplements refid="structeuphoria_1_1core_1_1raytracer_1_1Object_1a635e30c2bf8a8a78fd8df27dc8435dca">hit</reimplements>
+        <name>get_collision</name>
+        <reimplements refid="structeuphoria_1_1core_1_1raytracer_1_1Object_1a0ff6e67ab36e6dee4aaa383d842be4bc">get_collision</reimplements>
         <param>
           <type>const <ref refid="structeuphoria_1_1core_1_1UnitRay3f" kindref="compound">UnitRay3f</ref> &amp;</type>
           <declname>ray</declname>
@@ -137,7 +137,7 @@
     </collaborationgraph>
     <location file="libs/core/src/core/raytracer.cc" line="33" column="1" bodyfile="libs/core/src/core/raytracer.cc" bodystart="32" bodyend="76"/>
     <listofallmembers>
-      <member refid="structeuphoria_1_1core_1_1raytracer_1_1SphereObject_1acab56495380f02ba5875a98d9e8a5022" prot="public" virt="virtual"><scope>euphoria::core::raytracer::SphereObject</scope><name>hit</name></member>
+      <member refid="structeuphoria_1_1core_1_1raytracer_1_1SphereObject_1a0ec2543907c5d7dde31f03c5ff2c4a86" prot="public" virt="virtual"><scope>euphoria::core::raytracer::SphereObject</scope><name>get_collision</name></member>
       <member refid="structeuphoria_1_1core_1_1raytracer_1_1SphereObject_1a67226135bd3c6299ccfc8a8616680a89" prot="public" virt="non-virtual"><scope>euphoria::core::raytracer::SphereObject</scope><name>material</name></member>
       <member refid="structeuphoria_1_1core_1_1raytracer_1_1Object_1aa1ab463ec5bd8bca61e864468a06967e" prot="public" virt="non-virtual"><scope>euphoria::core::raytracer::SphereObject</scope><name>Object</name></member>
       <member refid="structeuphoria_1_1core_1_1raytracer_1_1Object_1a227e9eb1b44ff94a92b6630b7d3b3650" prot="public" virt="non-virtual"><scope>euphoria::core::raytracer::SphereObject</scope><name>Object</name></member>

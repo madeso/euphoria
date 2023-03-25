@@ -86,6 +86,8 @@
       <node id="11">
         <label>core/numeric.h</label>
         <link refid="numeric_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
       </node>
       <node id="7">
         <label>vector</label>
@@ -150,7 +152,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/mat3.cc" line="247" column="9"/>
+        <location file="libs/core/src/core/mat3.cc" line="191" column="9"/>
       </memberdef>
       <memberdef kind="define" id="mat3_8cc_1a52267107dd1016c80abd3e27e445e437" prot="public" static="no">
         <name>OP</name>
@@ -162,32 +164,32 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/mat3.cc" line="258" column="9"/>
+        <location file="libs/core/src/core/mat3.cc" line="202" column="9"/>
       </memberdef>
       <memberdef kind="define" id="mat3_8cc_1a6c80fab70a39bdaff699abc7fd6f7c29" prot="public" static="no">
         <name>OP</name>
         <param><defname>r</defname></param>
         <param><defname>c</defname></param>
-        <initializer>vec3f{lhs.get_row(r)}.component_multiply(vec3f{rhs.get_column(c)}).get_component_sum()</initializer>
+        <initializer>get_component_multiply_sum(vec3f{lhs.get_row(r)}, vec3f{rhs.get_column(c)})</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/mat3.cc" line="360" column="9"/>
+        <location file="libs/core/src/core/mat3.cc" line="313" column="9"/>
       </memberdef>
       <memberdef kind="define" id="mat3_8cc_1ad3fad4870192fbb33f78583fbb0cc502" prot="public" static="no">
         <name>OP</name>
         <param><defname>r</defname></param>
-        <initializer>vec3f{lhs.get_row(r)}.component_multiply(rhs).get_component_sum()</initializer>
+        <initializer>get_component_multiply_sum(vec3f{lhs.get_row(r)}, rhs)</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/mat3.cc" line="374" column="9"/>
+        <location file="libs/core/src/core/mat3.cc" line="327" column="9"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

@@ -78,12 +78,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aef18db090e3e3a10210566e11894c1ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a66eca93054fe4f4c26a314c2dd9dedc6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1Image.html#a66eca93054fe4f4c26a314c2dd9dedc6">set_pixel</a> (int x, int y, unsigned char r, unsigned char g, unsigned char b, unsigned char a)</td></tr>
 <tr class="separator:a66eca93054fe4f4c26a314c2dd9dedc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6341b48fcb008909e3d91fbd858bdd07"><td class="memTemplParams" colspan="2">template&lt;typename TFunc &gt; </td></tr>
-<tr class="memitem:a6341b48fcb008909e3d91fbd858bdd07"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1Image.html#a6341b48fcb008909e3d91fbd858bdd07">filter</a> (TFunc f)</td></tr>
-<tr class="separator:a6341b48fcb008909e3d91fbd858bdd07"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a283df325747723246b2d7603143a0b63"><td class="memTemplParams" colspan="2">template&lt;typename TFunc &gt; </td></tr>
-<tr class="memitem:a283df325747723246b2d7603143a0b63"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1Image.html#a283df325747723246b2d7603143a0b63">for_all_top_bottom</a> (TFunc f)</td></tr>
-<tr class="separator:a283df325747723246b2d7603143a0b63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a825c2d9af578809de0090d4142180b0c"><td class="memTemplParams" colspan="2">template&lt;typename TFunc &gt; </td></tr>
+<tr class="memitem:a825c2d9af578809de0090d4142180b0c"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1Image.html#a825c2d9af578809de0090d4142180b0c">run_image_filter</a> (TFunc f)</td></tr>
+<tr class="separator:a825c2d9af578809de0090d4142180b0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1adac9ea4c5a7be31ea33e6a880d3949"><td class="memTemplParams" colspan="2">template&lt;typename TFunc &gt; </td></tr>
+<tr class="memitem:a1adac9ea4c5a7be31ea33e6a880d3949"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1Image.html#a1adac9ea4c5a7be31ea33e6a880d3949">run_for_all_top_bottom</a> (TFunc f)</td></tr>
+<tr class="separator:a1adac9ea4c5a7be31ea33e6a880d3949"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9f4e22fe8f174cd5823dc57bff8475cd"><td class="memTemplParams" colspan="2">template&lt;typename TFunc &gt; </td></tr>
 <tr class="memitem:a9f4e22fe8f174cd5823dc57bff8475cd"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1Image.html#a9f4e22fe8f174cd5823dc57bff8475cd">set_all_top_bottom</a> (TFunc f)</td></tr>
 <tr class="separator:a9f4e22fe8f174cd5823dc57bff8475cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -120,66 +120,6 @@ Public Attributes</h2></td></tr>
 <div class="textblock">
 <p class="definition">Definition at line <a class="el" href="image_8h_source.html#l00028">28</a> of file <a class="el" href="image_8h_source.html">image.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a6341b48fcb008909e3d91fbd858bdd07"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6341b48fcb008909e3d91fbd858bdd07">&#9670;&nbsp;</a></span>filter()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename TFunc &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void euphoria::core::Image::filter </td>
-          <td>(</td>
-          <td class="paramtype">TFunc&#160;</td>
-          <td class="paramname"><em>f</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="image_8h_source.html#l00072">72</a> of file <a class="el" href="image_8h_source.html">image.h</a>.</p>
-
-</div>
-</div>
-<a id="a283df325747723246b2d7603143a0b63"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a283df325747723246b2d7603143a0b63">&#9670;&nbsp;</a></span>for_all_top_bottom()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename TFunc &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void euphoria::core::Image::for_all_top_bottom </td>
-          <td>(</td>
-          <td class="paramtype">TFunc&#160;</td>
-          <td class="paramname"><em>f</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="image_8h_source.html#l00085">85</a> of file <a class="el" href="image_8h_source.html">image.h</a>.</p>
-
-</div>
-</div>
 <a id="a030745247e19727a45e2699f98349e56"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a030745247e19727a45e2699f98349e56">&#9670;&nbsp;</a></span>get_indices()</h2>
 
@@ -335,6 +275,66 @@ template&lt;typename TFunc &gt; </div>
 
 </div>
 </div>
+<a id="a1adac9ea4c5a7be31ea33e6a880d3949"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1adac9ea4c5a7be31ea33e6a880d3949">&#9670;&nbsp;</a></span>run_for_all_top_bottom()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename TFunc &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void euphoria::core::Image::run_for_all_top_bottom </td>
+          <td>(</td>
+          <td class="paramtype">TFunc&#160;</td>
+          <td class="paramname"><em>f</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="image_8h_source.html#l00083">83</a> of file <a class="el" href="image_8h_source.html">image.h</a>.</p>
+
+</div>
+</div>
+<a id="a825c2d9af578809de0090d4142180b0c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a825c2d9af578809de0090d4142180b0c">&#9670;&nbsp;</a></span>run_image_filter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename TFunc &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void euphoria::core::Image::run_image_filter </td>
+          <td>(</td>
+          <td class="paramtype">TFunc&#160;</td>
+          <td class="paramname"><em>f</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="image_8h_source.html#l00071">71</a> of file <a class="el" href="image_8h_source.html">image.h</a>.</p>
+
+</div>
+</div>
 <a id="a247b2dea1d07c733e04ecea59b706ec8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a247b2dea1d07c733e04ecea59b706ec8">&#9670;&nbsp;</a></span>set_all_bottom_top()</h2>
 
@@ -361,7 +361,7 @@ template&lt;typename TFunc &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="image_8h_source.html#l00109">109</a> of file <a class="el" href="image_8h_source.html">image.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="image_8h_source.html#l00107">107</a> of file <a class="el" href="image_8h_source.html">image.h</a>.</p>
 
 </div>
 </div>
@@ -391,7 +391,7 @@ template&lt;typename TFunc &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="image_8h_source.html#l00097">97</a> of file <a class="el" href="image_8h_source.html">image.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="image_8h_source.html#l00095">95</a> of file <a class="el" href="image_8h_source.html">image.h</a>.</p>
 
 </div>
 </div>

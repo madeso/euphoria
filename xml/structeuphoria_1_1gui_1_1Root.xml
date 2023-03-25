@@ -230,11 +230,11 @@
         </inbodydescription>
         <location file="libs/gui/src/gui/root.h" line="55" column="9" bodyfile="libs/gui/src/gui/root.cc" bodystart="43" bodyend="47"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1gui_1_1Root_1a2d3550cd406863829858f55a78e5cee6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1gui_1_1Root_1ad1a7507e45f6b3230856a951628cac69" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>void euphoria::gui::Root::step</definition>
+        <definition>void euphoria::gui::Root::update</definition>
         <argsstring>(float dt)</argsstring>
-        <name>step</name>
+        <name>update</name>
         <param>
           <type>float</type>
           <declname>dt</declname>
@@ -247,11 +247,11 @@
         </inbodydescription>
         <location file="libs/gui/src/gui/root.h" line="58" column="9" bodyfile="libs/gui/src/gui/root.cc" bodystart="51" bodyend="56"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1gui_1_1Root_1a2bb5a5822f473f3f174e2875d2ca0bd2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1gui_1_1Root_1a82631916c58fc351ef468359dcdd9cbf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>void euphoria::gui::Root::resize</definition>
+        <definition>void euphoria::gui::Root::set_size</definition>
         <argsstring>(const core::size2f &amp;new_size)</argsstring>
-        <name>resize</name>
+        <name>set_size</name>
         <param>
           <type>const <ref refid="structeuphoria_1_1core_1_1size2f" kindref="compound">core::size2f</ref> &amp;</type>
           <declname>new_size</declname>
@@ -368,15 +368,15 @@
       <member refid="structeuphoria_1_1gui_1_1Root_1a32b025b750fb30fec91ae71ed142baf8" prot="public" virt="non-virtual"><scope>euphoria::gui::Root</scope><name>operator=</name></member>
       <member refid="structeuphoria_1_1gui_1_1Root_1a1aaf6fa9b90c347c1e004aa622428907" prot="public" virt="non-virtual"><scope>euphoria::gui::Root</scope><name>operator=</name></member>
       <member refid="structeuphoria_1_1gui_1_1Root_1af5d1ae69ba49fff09f60b819991db7b0" prot="public" virt="non-virtual"><scope>euphoria::gui::Root</scope><name>render</name></member>
-      <member refid="structeuphoria_1_1gui_1_1Root_1a2bb5a5822f473f3f174e2875d2ca0bd2" prot="public" virt="non-virtual"><scope>euphoria::gui::Root</scope><name>resize</name></member>
       <member refid="structeuphoria_1_1gui_1_1Root_1ab49e86925375fc7df1cf191c8e079d2f" prot="public" virt="non-virtual"><scope>euphoria::gui::Root</scope><name>Root</name></member>
       <member refid="structeuphoria_1_1gui_1_1Root_1aa86ff1a8fe1b4d2b15ad3b6321f251b7" prot="public" virt="non-virtual"><scope>euphoria::gui::Root</scope><name>Root</name></member>
       <member refid="structeuphoria_1_1gui_1_1Root_1a2da414255c36fa4bc2a7191145a8bbcf" prot="public" virt="non-virtual"><scope>euphoria::gui::Root</scope><name>Root</name></member>
       <member refid="structeuphoria_1_1gui_1_1Root_1a8af99b002a6732d606840c66eabb4689" prot="public" virt="non-virtual"><scope>euphoria::gui::Root</scope><name>set_input_mouse</name></member>
+      <member refid="structeuphoria_1_1gui_1_1Root_1a82631916c58fc351ef468359dcdd9cbf" prot="public" virt="non-virtual"><scope>euphoria::gui::Root</scope><name>set_size</name></member>
       <member refid="structeuphoria_1_1gui_1_1Root_1a984dad56ef68b2583327ffde72c03c28" prot="public" virt="non-virtual"><scope>euphoria::gui::Root</scope><name>size</name></member>
       <member refid="structeuphoria_1_1gui_1_1Root_1acfe131127baeb245391f41c581d0fe48" prot="public" virt="non-virtual"><scope>euphoria::gui::Root</scope><name>skins</name></member>
       <member refid="structeuphoria_1_1gui_1_1Root_1ae9396e63230429311e518cc2a67396d9" prot="public" virt="non-virtual"><scope>euphoria::gui::Root</scope><name>state</name></member>
-      <member refid="structeuphoria_1_1gui_1_1Root_1a2d3550cd406863829858f55a78e5cee6" prot="public" virt="non-virtual"><scope>euphoria::gui::Root</scope><name>step</name></member>
+      <member refid="structeuphoria_1_1gui_1_1Root_1ad1a7507e45f6b3230856a951628cac69" prot="public" virt="non-virtual"><scope>euphoria::gui::Root</scope><name>update</name></member>
       <member refid="structeuphoria_1_1gui_1_1Root_1affca74f1174a8fea962c03225da03fba" prot="public" virt="non-virtual"><scope>euphoria::gui::Root</scope><name>~Root</name></member>
     </listofallmembers>
   </compounddef>

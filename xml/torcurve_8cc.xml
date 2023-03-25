@@ -16,6 +16,8 @@
       <node id="4">
         <label>core/numeric.h</label>
         <link refid="numeric_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
       </node>
       <node id="1">
         <label>libs/core/src/core/torcurve.cc</label>
@@ -26,6 +28,10 @@
         </childnode>
         <childnode refid="4" relation="include">
         </childnode>
+      </node>
+      <node id="5">
+        <label>core/interpolate.default.h</label>
+        <link refid="interpolate_8default_8h"/>
       </node>
     </incdepgraph>
     <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>

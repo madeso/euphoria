@@ -39,11 +39,11 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1IntValue_1ac4ee91c4e9e734971a8308b59a84f8a7" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1IntValue_1a970deec20d7f4f1d49f8803e8d88f60f" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int &amp;</type>
-        <definition>int &amp; euphoria::core::IntValue::cast</definition>
+        <definition>int &amp; euphoria::core::IntValue::get</definition>
         <argsstring>(core::Value *value)</argsstring>
-        <name>cast</name>
+        <name>get</name>
         <param>
           <type><ref refid="structeuphoria_1_1core_1_1Value" kindref="compound">core::Value</ref> *</type>
           <declname>value</declname>
@@ -87,7 +87,7 @@
     </collaborationgraph>
     <location file="libs/core/src/core/propertytree.h" line="33" column="1" bodyfile="libs/core/src/core/propertytree.h" bodystart="32" bodyend="39"/>
     <listofallmembers>
-      <member refid="structeuphoria_1_1core_1_1IntValue_1ac4ee91c4e9e734971a8308b59a84f8a7" prot="public" virt="non-virtual"><scope>euphoria::core::IntValue</scope><name>cast</name></member>
+      <member refid="structeuphoria_1_1core_1_1IntValue_1a970deec20d7f4f1d49f8803e8d88f60f" prot="public" virt="non-virtual"><scope>euphoria::core::IntValue</scope><name>get</name></member>
       <member refid="structeuphoria_1_1core_1_1IntValue_1a9dfeca259cb6684280d838c0cd995bd3" prot="public" virt="non-virtual"><scope>euphoria::core::IntValue</scope><name>IntValue</name></member>
       <member refid="structeuphoria_1_1core_1_1Value_1acde4d2b7af40524c61d4ad897b9cccb1" prot="public" virt="non-virtual"><scope>euphoria::core::IntValue</scope><name>operator=</name></member>
       <member refid="structeuphoria_1_1core_1_1Value_1abc50f659aa8eaf72075b9313cba3a29f" prot="public" virt="non-virtual"><scope>euphoria::core::IntValue</scope><name>operator=</name></member>

@@ -2,12 +2,13 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
   <compounddef id="textbox_8h" kind="file" language="C++">
     <compoundname>textbox.h</compoundname>
+    <includes local="no">array</includes>
     <includes local="no">algorithm</includes>
     <includes local="no">functional</includes>
     <includes refid="assert_8h" local="yes">assert/assert.h</includes>
     <includedby refid="textbox_8cc" local="yes">libs/core/src/core/textbox.cc</includedby>
     <incdepgraph>
-      <node id="3">
+      <node id="4">
         <label>functional</label>
       </node>
       <node id="1">
@@ -19,22 +20,27 @@
         </childnode>
         <childnode refid="4" relation="include">
         </childnode>
-      </node>
-      <node id="5">
-        <label>string</label>
-      </node>
-      <node id="4">
-        <label>assert/assert.h</label>
-        <link refid="assert_8h"/>
         <childnode refid="5" relation="include">
-        </childnode>
-        <childnode refid="6" relation="include">
         </childnode>
       </node>
       <node id="6">
+        <label>string</label>
+      </node>
+      <node id="5">
+        <label>assert/assert.h</label>
+        <link refid="assert_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
         <label>vector</label>
       </node>
       <node id="2">
+        <label>array</label>
+      </node>
+      <node id="3">
         <label>algorithm</label>
       </node>
     </incdepgraph>

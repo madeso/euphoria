@@ -170,6 +170,8 @@
       <node id="11">
         <label>core/numeric.h</label>
         <link refid="numeric_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
       </node>
       <node id="36">
         <label>magic_enum/magic_enum.hpp</label>
@@ -319,7 +321,7 @@
     </invincdepgraph>
     <innerclass refid="structeuphoria_1_1core_1_1raytracer_1_1ScatterResult" prot="public">euphoria::core::raytracer::ScatterResult</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1raytracer_1_1Material" prot="public">euphoria::core::raytracer::Material</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1raytracer_1_1HitResult" prot="public">euphoria::core::raytracer::HitResult</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1raytracer_1_1Collision" prot="public">euphoria::core::raytracer::Collision</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1raytracer_1_1Object" prot="public">euphoria::core::raytracer::Object</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1raytracer_1_1Scene" prot="public">euphoria::core::raytracer::Scene</innerclass>
     <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>

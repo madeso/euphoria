@@ -199,7 +199,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/shaderattribute.h" line="10" column="1" bodyfile="libs/render/src/render/shaderattribute.h" bodystart="9" bodyend="17"/>
+        <location file="libs/render/src/render/shaderattribute.h" line="9" column="1" bodyfile="libs/render/src/render/shaderattribute.h" bodystart="8" bodyend="16"/>
       </memberdef>
       <memberdef kind="enum" id="namespaceeuphoria_1_1render_1a26afb9be4efcbba2270f58fb6c608f42" prot="public" static="no" strong="yes">
         <type></type>
@@ -245,7 +245,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/shaderattribute.h" line="20" column="1" bodyfile="libs/render/src/render/shaderattribute.h" bodystart="19" bodyend="26"/>
+        <location file="libs/render/src/render/shaderattribute.h" line="19" column="1" bodyfile="libs/render/src/render/shaderattribute.h" bodystart="18" bodyend="25"/>
       </memberdef>
       <memberdef kind="enum" id="namespaceeuphoria_1_1render_1aeae373119daee76a127f910b55bbad37" prot="public" static="no" strong="yes">
         <type></type>
@@ -940,7 +940,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/shader.cc" line="485" column="5" bodyfile="libs/render/src/render/shader.cc" bodystart="486" bodyend="498" declfile="libs/render/src/render/shader.h" declline="111" declcolumn="5"/>
+        <location file="libs/render/src/render/shader.cc" line="487" column="5" bodyfile="libs/render/src/render/shader.cc" bodystart="488" bodyend="500" declfile="libs/render/src/render/shader.h" declline="111" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1render_1ab39a678913470bf93462a4444d76e09d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -961,7 +961,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/shaderattribute.cc" line="63" column="5" bodyfile="libs/render/src/render/shaderattribute.cc" bodystart="63" bodyend="70" declfile="libs/render/src/render/shaderattribute.h" declline="65" declcolumn="5"/>
+        <location file="libs/render/src/render/shaderattribute.cc" line="46" column="5" bodyfile="libs/render/src/render/shaderattribute.cc" bodystart="46" bodyend="53" declfile="libs/render/src/render/shaderattribute.h" declline="71" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1render_1aa12a13bac0a6fbbbbcfb3740aa9cc9e8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>

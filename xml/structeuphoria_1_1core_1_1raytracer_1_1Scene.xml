@@ -19,11 +19,11 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1raytracer_1_1Scene_1a4fddd117ba0f9c27cb2ce22a2bd9b723" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type>std::optional&lt; <ref refid="structeuphoria_1_1core_1_1raytracer_1_1HitResult" kindref="compound">HitResult</ref> &gt;</type>
-        <definition>std::optional&lt; HitResult &gt; euphoria::core::raytracer::Scene::hit</definition>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1raytracer_1_1Scene_1ad2f24facecfe7c536a591a90984a87a0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::optional&lt; <ref refid="structeuphoria_1_1core_1_1raytracer_1_1Collision" kindref="compound">Collision</ref> &gt;</type>
+        <definition>std::optional&lt; Collision &gt; euphoria::core::raytracer::Scene::get_collision</definition>
         <argsstring>(const UnitRay3f &amp;ray, const Range&lt; float &gt; &amp;range) const</argsstring>
-        <name>hit</name>
+        <name>get_collision</name>
         <param>
           <type>const <ref refid="structeuphoria_1_1core_1_1UnitRay3f" kindref="compound">UnitRay3f</ref> &amp;</type>
           <declname>ray</declname>
@@ -47,7 +47,7 @@
     </detaileddescription>
     <location file="libs/core/src/core/raytracer.h" line="112" column="1" bodyfile="libs/core/src/core/raytracer.h" bodystart="111" bodyend="117"/>
     <listofallmembers>
-      <member refid="structeuphoria_1_1core_1_1raytracer_1_1Scene_1a4fddd117ba0f9c27cb2ce22a2bd9b723" prot="public" virt="non-virtual"><scope>euphoria::core::raytracer::Scene</scope><name>hit</name></member>
+      <member refid="structeuphoria_1_1core_1_1raytracer_1_1Scene_1ad2f24facecfe7c536a591a90984a87a0" prot="public" virt="non-virtual"><scope>euphoria::core::raytracer::Scene</scope><name>get_collision</name></member>
       <member refid="structeuphoria_1_1core_1_1raytracer_1_1Scene_1af5ad43710549fdccdcd1676f378679fb" prot="public" virt="non-virtual"><scope>euphoria::core::raytracer::Scene</scope><name>objects</name></member>
     </listofallmembers>
   </compounddef>

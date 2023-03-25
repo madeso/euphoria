@@ -53,18 +53,18 @@
         </inbodydescription>
         <location file="libs/core/src/core/raytracer.cc" line="263" column="18" bodyfile="libs/core/src/core/raytracer.cc" bodystart="264" bodyend="271"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1raytracer_1_1DielectricMaterial_1abc7bcb89f843a39cbe9e6acd4a619fa0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1raytracer_1_1DielectricMaterial_1a06d111ff20874cde0018d1bc1d111f9a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
         <type>std::optional&lt; <ref refid="structeuphoria_1_1core_1_1raytracer_1_1ScatterResult" kindref="compound">ScatterResult</ref> &gt;</type>
-        <definition>std::optional&lt;ScatterResult&gt; euphoria::core::raytracer::DielectricMaterial::scatter</definition>
-        <argsstring>(const UnitRay3f &amp;ray, const HitResult &amp;hit, Random *random) override</argsstring>
-        <name>scatter</name>
-        <reimplements refid="structeuphoria_1_1core_1_1raytracer_1_1Material_1a6ff9316d1365d21f77aca71034217731">scatter</reimplements>
+        <definition>std::optional&lt;ScatterResult&gt; euphoria::core::raytracer::DielectricMaterial::get_scattered</definition>
+        <argsstring>(const UnitRay3f &amp;ray, const Collision &amp;hit, Random *random) override</argsstring>
+        <name>get_scattered</name>
+        <reimplements refid="structeuphoria_1_1core_1_1raytracer_1_1Material_1aa6362959bf6840bf586361ed38b2d53a">get_scattered</reimplements>
         <param>
           <type>const <ref refid="structeuphoria_1_1core_1_1UnitRay3f" kindref="compound">UnitRay3f</ref> &amp;</type>
           <declname>ray</declname>
         </param>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1raytracer_1_1HitResult" kindref="compound">HitResult</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1raytracer_1_1Collision" kindref="compound">Collision</ref> &amp;</type>
           <declname>hit</declname>
         </param>
         <param>
@@ -119,13 +119,13 @@
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1raytracer_1_1DielectricMaterial_1af0d7bc20c181cdfb1d8d39dd30797010" prot="public" virt="non-virtual"><scope>euphoria::core::raytracer::DielectricMaterial</scope><name>albedo</name></member>
       <member refid="structeuphoria_1_1core_1_1raytracer_1_1DielectricMaterial_1a42484e59f9111388613306ae34c171b1" prot="public" virt="non-virtual"><scope>euphoria::core::raytracer::DielectricMaterial</scope><name>DielectricMaterial</name></member>
+      <member refid="structeuphoria_1_1core_1_1raytracer_1_1DielectricMaterial_1a06d111ff20874cde0018d1bc1d111f9a" prot="public" virt="virtual"><scope>euphoria::core::raytracer::DielectricMaterial</scope><name>get_scattered</name></member>
       <member refid="structeuphoria_1_1core_1_1raytracer_1_1Material_1aa02c166d60c11706fbae602046b5d9d5" prot="public" virt="non-virtual"><scope>euphoria::core::raytracer::DielectricMaterial</scope><name>Material</name></member>
       <member refid="structeuphoria_1_1core_1_1raytracer_1_1Material_1ae8ca734fb0e9d9dc81fbc1b2a1b9c528" prot="public" virt="non-virtual"><scope>euphoria::core::raytracer::DielectricMaterial</scope><name>Material</name></member>
       <member refid="structeuphoria_1_1core_1_1raytracer_1_1Material_1aec295529dd52b9cee0adbcba438ea1fd" prot="public" virt="non-virtual"><scope>euphoria::core::raytracer::DielectricMaterial</scope><name>Material</name></member>
       <member refid="structeuphoria_1_1core_1_1raytracer_1_1Material_1ab1ef89ecd7cc6e7b2e318bb0dbb1a98f" prot="public" virt="non-virtual"><scope>euphoria::core::raytracer::DielectricMaterial</scope><name>operator=</name></member>
       <member refid="structeuphoria_1_1core_1_1raytracer_1_1Material_1a5ee921957b078c9d32c2b9bf807527b1" prot="public" virt="non-virtual"><scope>euphoria::core::raytracer::DielectricMaterial</scope><name>operator=</name></member>
       <member refid="structeuphoria_1_1core_1_1raytracer_1_1DielectricMaterial_1aa77ff91ff8eb1303aeea0d25116b510f" prot="public" virt="non-virtual"><scope>euphoria::core::raytracer::DielectricMaterial</scope><name>refractive_index</name></member>
-      <member refid="structeuphoria_1_1core_1_1raytracer_1_1DielectricMaterial_1abc7bcb89f843a39cbe9e6acd4a619fa0" prot="public" virt="virtual"><scope>euphoria::core::raytracer::DielectricMaterial</scope><name>scatter</name></member>
       <member refid="structeuphoria_1_1core_1_1raytracer_1_1Material_1aa7001d7b1dd2933e1d2c64ccfbeecf00" prot="public" virt="virtual"><scope>euphoria::core::raytracer::DielectricMaterial</scope><name>~Material</name></member>
     </listofallmembers>
   </compounddef>

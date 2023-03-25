@@ -124,10 +124,13 @@
 : <a class="el" href="structeuphoria_1_1core_1_1Bitfield.html#a81ea32324e329c23a07616aecd15796a">euphoria::core::Bitfield&lt; T, I &gt;</a>
 , <a class="el" href="structeuphoria_1_1core_1_1Cache.html#a60fc15b9f387f876fb12f851e8ab53ed">euphoria::core::Cache&lt; TKey, TData, TLoader &gt;</a>
 , <a class="el" href="structeuphoria_1_1core_1_1ecs_1_1GenericComponentArray.html#a3777c68ea920cccaf997420d71e573f9">euphoria::core::ecs::GenericComponentArray&lt; T &gt;</a>
+, <a class="el" href="structeuphoria_1_1core_1_1FloatValue.html#ace7cb52635d41a7459ad3157d8829147">euphoria::core::FloatValue</a>
+, <a class="el" href="structeuphoria_1_1core_1_1IntValue.html#a970deec20d7f4f1d49f8803e8d88f60f">euphoria::core::IntValue</a>
 , <a class="el" href="structeuphoria_1_1core_1_1markov_1_1Probability.html#a003898c66ab969f9c9352dd65da512dd">euphoria::core::markov::Probability&lt; T &gt;</a>
 , <a class="el" href="structeuphoria_1_1core_1_1mat2f.html#a6f4fea61917bca0b7c3d7c8c29f115dc">euphoria::core::mat2f</a>
 , <a class="el" href="structeuphoria_1_1core_1_1mat3f.html#a6a366c22c0f09a9e060f2779facdc410">euphoria::core::mat3f</a>
 , <a class="el" href="structeuphoria_1_1core_1_1mat4f.html#a357a5db584c521b357b96b35d2023d77">euphoria::core::mat4f</a>
+, <a class="el" href="structeuphoria_1_1core_1_1Vec3fValue.html#ae82240c9cce39892531b23460f58f915">euphoria::core::Vec3fValue</a>
 </li>
 <li>get_absolute_center_pos()
 : <a class="el" href="structeuphoria_1_1core_1_1Rectf.html#a7f8c0af6c9c0e2f91a8e704de9e6a186">euphoria::core::Rectf</a>
@@ -187,6 +190,11 @@
 <li>get_closest_color()
 : <a class="el" href="structeuphoria_1_1core_1_1Palette.html#af84052fd275c4c15025be76e5547555f">euphoria::core::Palette</a>
 </li>
+<li>get_collision()
+: <a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1Object.html#a0ff6e67ab36e6dee4aaa383d842be4bc">euphoria::core::raytracer::Object</a>
+, <a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1Scene.html#ad2f24facecfe7c536a591a90984a87a0">euphoria::core::raytracer::Scene</a>
+, <a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1SphereObject.html#a0ec2543907c5d7dde31f03c5ff2c4a86">euphoria::core::raytracer::SphereObject</a>
+</li>
 <li>get_column()
 : <a class="el" href="structeuphoria_1_1core_1_1mat2f.html#aa0a48d7f9212678f9369593fa3313373">euphoria::core::mat2f</a>
 , <a class="el" href="structeuphoria_1_1core_1_1mat3f.html#aec26c7f4d7b6faa14bfcbb92d0e27547">euphoria::core::mat3f</a>
@@ -212,17 +220,8 @@
 <li>get_component_or_null()
 : <a class="el" href="structeuphoria_1_1core_1_1ecs_1_1Registry.html#a2f5accedd03e2efb7b6ab7323a00994f">euphoria::core::ecs::Registry</a>
 </li>
-<li>get_component_sum()
-: <a class="el" href="structeuphoria_1_1core_1_1Scale2f.html#ab457b5cb7c82fea3e46e3bcf3ec1ee27">euphoria::core::Scale2f</a>
-, <a class="el" href="structeuphoria_1_1core_1_1Scale3f.html#ad2073d9ab67d00343bd6f4c7fc628455">euphoria::core::Scale3f</a>
-, <a class="el" href="structeuphoria_1_1core_1_1unit2f.html#aa4936f8b510d93006c61adff4fbd2dd7">euphoria::core::unit2f</a>
-, <a class="el" href="structeuphoria_1_1core_1_1vec2f.html#a6e4f5371e2394e2df2988171a9af1952">euphoria::core::vec2f</a>
-, <a class="el" href="structeuphoria_1_1core_1_1vec2i.html#ae680d0b1768de36268cb8f31fd7635fb">euphoria::core::vec2i</a>
-, <a class="el" href="structeuphoria_1_1core_1_1vec3f.html#a23941d80835ffc50dd09acc7d0b5c7dc">euphoria::core::vec3f</a>
-, <a class="el" href="structeuphoria_1_1core_1_1vec4f.html#a48789b3fc6f0a87d574180457920832c">euphoria::core::vec4f</a>
-</li>
 <li>get_components_base()
-: <a class="el" href="structeuphoria_1_1core_1_1ecs_1_1AllComponents.html#ae3d94e777f0d734fdc47479d632c6381">euphoria::core::ecs::AllComponents</a>
+: <a class="el" href="structeuphoria_1_1core_1_1ecs_1_1AllComponents.html#abbf91f9819b15772220bca98824d76d6">euphoria::core::ecs::AllComponents</a>
 , <a class="el" href="structeuphoria_1_1core_1_1ecs_1_1RegistryPimpl.html#af12249fea8d27b5125edaabeee25468d">euphoria::core::ecs::RegistryPimpl</a>
 </li>
 <li>get_conjugate()
@@ -280,6 +279,9 @@
 </li>
 <li>get_distance()
 : <a class="el" href="structeuphoria_1_1core_1_1Range.html#acab8d730d4afee57b44ff0452f5a0ed6">euphoria::core::Range&lt; T &gt;</a>
+</li>
+<li>get_down()
+: <a class="el" href="structeuphoria_1_1core_1_1quatf.html#a206e367c85aad86af8309abf9ad49a7e">euphoria::core::quatf</a>
 </li>
 <li>get_dst()
 : <a class="el" href="structeuphoria_1_1core_1_1DateTime.html#a83b6ea1f82238bb7afa759e8e42e7cc8">euphoria::core::DateTime</a>
@@ -348,6 +350,9 @@
 <li>get_identity()
 : <a class="el" href="structeuphoria_1_1core_1_1quatf.html#a0bdabcf24b3685326304eaa654cb974b">euphoria::core::quatf</a>
 </li>
+<li>get_in()
+: <a class="el" href="structeuphoria_1_1core_1_1quatf.html#a8d56ee077122de589dcf0050d84b1c22">euphoria::core::quatf</a>
+</li>
 <li>get_index()
 : <a class="el" href="structeuphoria_1_1core_1_1BucketBase10.html#a71273221873fe715d5993dbcf86fccd3">euphoria::core::BucketBase10&lt; TInt &gt;</a>
 , <a class="el" href="structeuphoria_1_1core_1_1BucketBase16.html#af3816a5b6c0f26ac3b40dc1667d100a8">euphoria::core::BucketBase16&lt; TInt &gt;</a>
@@ -366,6 +371,9 @@
 <li>get_inverted()
 : <a class="el" href="structeuphoria_1_1core_1_1mat4f.html#ab4d454e34f92f662437f9c8976026f68">euphoria::core::mat4f</a>
 </li>
+<li>get_left()
+: <a class="el" href="structeuphoria_1_1core_1_1quatf.html#a777030f352ff33ad02e84dfcae9984ea">euphoria::core::quatf</a>
+</li>
 <li>get_length()
 : <a class="el" href="structeuphoria_1_1core_1_1quatf.html#a8bdd6f42ea10aa67bc5416d0591e51dc">euphoria::core::quatf</a>
 , <a class="el" href="structeuphoria_1_1core_1_1rgb.html#a651e3abce944599d67e1a3dd0a3d63b5">euphoria::core::rgb</a>
@@ -377,7 +385,7 @@
 , <a class="el" href="structeuphoria_1_1core_1_1rgb.html#a45c667b7122c6511b116a77e81bf5306">euphoria::core::rgb</a>
 , <a class="el" href="structeuphoria_1_1core_1_1unit2f.html#ad510363a8ac5b1a150ce7cfef5f14335">euphoria::core::unit2f</a>
 , <a class="el" href="structeuphoria_1_1core_1_1vec2f.html#a478fa938b6bed05ead24b08247fa2073">euphoria::core::vec2f</a>
-, <a class="el" href="structeuphoria_1_1core_1_1vec3f.html#ac9f1aed5d4de9d9cab26e1e42a1eb6fe">euphoria::core::vec3f</a>
+, <a class="el" href="structeuphoria_1_1core_1_1vec3f.html#a9800e37aafd8a710f5bd05166d1e870d">euphoria::core::vec3f</a>
 </li>
 <li>get_line()
 : <a class="el" href="structeuphoria_1_1core_1_1TextfileParser.html#a67fbc9eb2d991d829f7c00981760320a">euphoria::core::TextfileParser</a>
@@ -481,6 +489,9 @@
 <li>get_ortho_projection()
 : <a class="el" href="structeuphoria_1_1render_1_1Init.html#a27e0de7de1b9d5e848ef36dd80579603">euphoria::render::Init</a>
 </li>
+<li>get_out()
+: <a class="el" href="structeuphoria_1_1core_1_1quatf.html#aed2f723ec76aa872d1cb335e893a38ae">euphoria::core::quatf</a>
+</li>
 <li>get_output()
 : <a class="el" href="structeuphoria_1_1minsynth_1_1Effect.html#a74e2ba10b4d914884c3c37815494a323">euphoria::minsynth::Effect</a>
 , <a class="el" href="structeuphoria_1_1minsynth_1_1OscilatorNode.html#a876eed42e09731c740fc1cc974ef2a65">euphoria::minsynth::OscilatorNode</a>
@@ -555,6 +566,9 @@
 <li>get_response()
 : <a class="el" href="structeuphoria_1_1core_1_1Chatbot.html#ae455e0623a3b72b17b11834b4d43f87e">euphoria::core::Chatbot</a>
 </li>
+<li>get_right()
+: <a class="el" href="structeuphoria_1_1core_1_1quatf.html#a6df3507b8a6df2f0d19b0ead3b4d7ab1">euphoria::core::quatf</a>
+</li>
 <li>get_roots_as_string()
 : <a class="el" href="structeuphoria_1_1core_1_1vfs_1_1FileSystem.html#ab9ec2c44ee534fe5bd1b7727a36a541a">euphoria::core::vfs::FileSystem</a>
 </li>
@@ -585,6 +599,12 @@
 <li>get_scaled_around_center_copy()
 : <a class="el" href="structeuphoria_1_1core_1_1Rectf.html#aacfaaaacad85490ac2b474da7c41a870">euphoria::core::Rectf</a>
 , <a class="el" href="structeuphoria_1_1core_1_1Recti.html#a556b7c0ef5709cf207ead8a6f9113180">euphoria::core::Recti</a>
+</li>
+<li>get_scattered()
+: <a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1DielectricMaterial.html#a06d111ff20874cde0018d1bc1d111f9a">euphoria::core::raytracer::DielectricMaterial</a>
+, <a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1DiffuseMaterial.html#aaa4a43c9eca49364974d9606952f918c">euphoria::core::raytracer::DiffuseMaterial</a>
+, <a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1Material.html#aa6362959bf6840bf586361ed38b2d53a">euphoria::core::raytracer::Material</a>
+, <a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1MetalMaterial.html#a71cb35b05dc7e95f3d7a2d2e2e2b5679">euphoria::core::raytracer::MetalMaterial</a>
 </li>
 <li>get_second_line()
 : <a class="el" href="structeuphoria_1_1core_1_1argparse_1_1Argument.html#aa1bdc8fbfea76c96dfd331ac4b96014e">euphoria::core::argparse::Argument</a>
@@ -621,7 +641,7 @@
 : <a class="el" href="structeuphoria_1_1gui_1_1Widget.html#a1b4a18c1bba51825244684d59ac6a0a0">euphoria::gui::Widget</a>
 </li>
 <li>get_string()
-: <a class="el" href="structeuphoria_1_1core_1_1TextBoxStyle.html#a8e02a389f1d46c49479c3cfce59faead">euphoria::core::TextBoxStyle</a>
+: <a class="el" href="structeuphoria_1_1core_1_1TextBoxStyle.html#a218e9355761fa36ed92cb422dd2e84e2">euphoria::core::TextBoxStyle</a>
 </li>
 <li>get_string_from_symbol()
 : <a class="el" href="structeuphoria_1_1core_1_1tracery_1_1Grammar.html#a6f8452a40a1f881d6bd0a5fdda5e8bd6">euphoria::core::tracery::Grammar</a>
@@ -651,14 +671,14 @@
 : <a class="el" href="structeuphoria_1_1minsynth_1_1OscilatorNode.html#a35b040638fc88dab5d66b1c99004e483">euphoria::minsynth::OscilatorNode</a>
 </li>
 <li>get_transform()
-: <a class="el" href="structeuphoria_1_1core_1_1mat4f.html#aff91413ca4831ca10d18067779911caf">euphoria::core::mat4f</a>
+: <a class="el" href="structeuphoria_1_1core_1_1mat4f.html#a884382778bfec5f7abb19b861b88501a">euphoria::core::mat4f</a>
 , <a class="el" href="structeuphoria_1_1core_1_1UnitRay3f.html#a75867d34ea73e64a215debe5f40f4d32">euphoria::core::UnitRay3f</a>
 </li>
 <li>get_transform_point()
 : <a class="el" href="structeuphoria_1_1core_1_1mat4f.html#a48e09c81bde75e75f8cb1a26c4ecbf32">euphoria::core::mat4f</a>
 </li>
 <li>get_transform_vec()
-: <a class="el" href="structeuphoria_1_1core_1_1mat4f.html#acaf1f30484299aad269fb62e8f146f4d">euphoria::core::mat4f</a>
+: <a class="el" href="structeuphoria_1_1core_1_1mat4f.html#ac9c145c9c8af2ba718085daa31d78a55">euphoria::core::mat4f</a>
 </li>
 <li>get_translated()
 : <a class="el" href="structeuphoria_1_1core_1_1mat4f.html#a212c6649bcc580d8bcb14f3895469963">euphoria::core::mat4f</a>
@@ -672,6 +692,9 @@
 </li>
 <li>get_uniform()
 : <a class="el" href="structeuphoria_1_1render_1_1ShaderProgram.html#a8c5bee4a747fc090222fa347921ebe7f">euphoria::render::ShaderProgram</a>
+</li>
+<li>get_up()
+: <a class="el" href="structeuphoria_1_1core_1_1quatf.html#ab41d191b8e96091c1881827718a87111">euphoria::core::quatf</a>
 </li>
 <li>get_value()
 : <a class="el" href="structeuphoria_1_1core_1_1Defines.html#af489654f0e8510ed0f368367d65e6e5a">euphoria::core::Defines</a>
@@ -743,7 +766,7 @@
 : <a class="el" href="structeuphoria_1_1core_1_1dump2d_1_1Item.html#a01696b1dcaad858c5981a5628e194d59">euphoria::core::dump2d::Item</a>
 </li>
 <li>Guid()
-: <a class="el" href="structeuphoria_1_1core_1_1Guid.html#a53bee17851b7f6ac8eb347cd3928d497">euphoria::core::Guid</a>
+: <a class="el" href="structeuphoria_1_1core_1_1Guid.html#a664fb055b597db6ac08bc0f9307f0aaf">euphoria::core::Guid</a>
 </li>
 </ul>
 </div><!-- contents -->

@@ -51,7 +51,8 @@
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a>  </div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">euphoria::render::attributes2d Namespace Reference</div>  </div>
 </div><!--header-->
@@ -59,10 +60,13 @@
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a01fb2da2c64e439a22192bb6959f079f"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structeuphoria_1_1render_1_1ShaderAttribute.html">ShaderAttribute</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1render_1_1attributes2d.html#a01fb2da2c64e439a22192bb6959f079f">vertex</a> ()</td></tr>
-<tr class="separator:a01fb2da2c64e439a22192bb6959f079f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb07579a91c3186f75e68ad97a6b308d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1render_1_1attributes2d.html#afb07579a91c3186f75e68ad97a6b308d">add_attributes_to_shader</a> (<a class="el" href="structeuphoria_1_1render_1_1ShaderProgram.html">ShaderProgram</a> *shader)</td></tr>
 <tr class="separator:afb07579a91c3186f75e68ad97a6b308d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:afffce8f624497729702134f5bc4454cc"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="structeuphoria_1_1render_1_1ShaderAttribute.html">ShaderAttribute</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1render_1_1attributes2d.html#afffce8f624497729702134f5bc4454cc">vertex</a></td></tr>
+<tr class="separator:afffce8f624497729702134f5bc4454cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="afb07579a91c3186f75e68ad97a6b308d"></a>
@@ -81,26 +85,39 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="shaderattribute2d_8cc_source.html#l00023">23</a> of file <a class="el" href="shaderattribute2d_8cc_source.html">shaderattribute2d.cc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="shaderattribute2d_8cc_source.html#l00009">9</a> of file <a class="el" href="shaderattribute2d_8cc_source.html">shaderattribute2d.cc</a>.</p>
 
 </div>
 </div>
-<a id="a01fb2da2c64e439a22192bb6959f079f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a01fb2da2c64e439a22192bb6959f079f">&#9670;&nbsp;</a></span>vertex()</h2>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="afffce8f624497729702134f5bc4454cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afffce8f624497729702134f5bc4454cc">&#9670;&nbsp;</a></span>vertex</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="structeuphoria_1_1render_1_1ShaderAttribute.html">ShaderAttribute</a> &amp; euphoria::render::attributes2d::vertex </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">constexpr <a class="el" href="structeuphoria_1_1render_1_1ShaderAttribute.html">ShaderAttribute</a> euphoria::render::attributes2d::vertex</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="shaderattribute2d_8cc_source.html#l00010">10</a> of file <a class="el" href="shaderattribute2d_8cc_source.html">shaderattribute2d.cc</a>.</p>
+<b>Initial value:</b><div class="fragment"><div class="line">= ShaderAttribute</div>
+<div class="line">    {</div>
+<div class="line">        1,</div>
+<div class="line">        ShaderAttributeType::float4,</div>
+<div class="line">        <span class="stringliteral">&quot;vertex&quot;</span>,</div>
+<div class="line">        ShaderAttributeSource::unknown</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="shaderattribute2d_8h_source.html#l00012">12</a> of file <a class="el" href="shaderattribute2d_8h_source.html">shaderattribute2d.h</a>.</p>
 
 </div>
 </div>

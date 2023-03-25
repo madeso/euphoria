@@ -17,12 +17,12 @@
         </inbodydescription>
         <location file="libs/core/src/core/texttemplate.cc" line="177" column="5"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1TemplateNodeScopedList_1a4b3497459d1cddd394138d41614b5fcd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1TemplateNodeScopedList_1adefaa4239fefd7745c60014fda2d17bc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
         <type>void</type>
-        <definition>void euphoria::core::TemplateNodeScopedList::evaluate</definition>
+        <definition>void euphoria::core::TemplateNodeScopedList::build_string</definition>
         <argsstring>(core::Defines *defines, StringBuilder *out, TemplateErrorList *error) override</argsstring>
-        <name>evaluate</name>
-        <reimplements refid="structeuphoria_1_1core_1_1TemplateNodeList_1a8eb4b285f6174cddc82a36c6c7036dae">evaluate</reimplements>
+        <name>build_string</name>
+        <reimplements refid="structeuphoria_1_1core_1_1TemplateNodeList_1a935bd2de36b0db43352bd5ecfa444489">build_string</reimplements>
         <param>
           <type><ref refid="structeuphoria_1_1core_1_1Defines" kindref="compound">core::Defines</ref> *</type>
           <declname>defines</declname>
@@ -87,7 +87,7 @@
     <location file="libs/core/src/core/texttemplate.cc" line="176" column="1" bodyfile="libs/core/src/core/texttemplate.cc" bodystart="175" bodyend="186"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1TemplateNodeList_1ace9120065ff2ec6135149bca342daa2a" prot="public" virt="non-virtual"><scope>euphoria::core::TemplateNodeScopedList</scope><name>add</name></member>
-      <member refid="structeuphoria_1_1core_1_1TemplateNodeScopedList_1a4b3497459d1cddd394138d41614b5fcd" prot="public" virt="virtual"><scope>euphoria::core::TemplateNodeScopedList</scope><name>evaluate</name></member>
+      <member refid="structeuphoria_1_1core_1_1TemplateNodeScopedList_1adefaa4239fefd7745c60014fda2d17bc" prot="public" virt="virtual"><scope>euphoria::core::TemplateNodeScopedList</scope><name>build_string</name></member>
       <member refid="structeuphoria_1_1core_1_1TemplateNodeList_1a191b990888f305113c57ae65577900c7" prot="public" virt="non-virtual"><scope>euphoria::core::TemplateNodeScopedList</scope><name>nodes</name></member>
       <member refid="structeuphoria_1_1core_1_1TemplateNode_1a8cfc22c79241a5e955d381ddcc65be8b" prot="public" virt="non-virtual"><scope>euphoria::core::TemplateNodeScopedList</scope><name>operator=</name></member>
       <member refid="structeuphoria_1_1core_1_1TemplateNode_1a4fbc8a79b86da351811159aef158240c" prot="public" virt="non-virtual"><scope>euphoria::core::TemplateNodeScopedList</scope><name>operator=</name></member>

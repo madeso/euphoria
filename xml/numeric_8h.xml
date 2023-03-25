@@ -2,6 +2,7 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
   <compounddef id="numeric_8h" kind="file" language="C++">
     <compoundname>numeric.h</compoundname>
+    <includes refid="interpolate_8default_8h" local="yes">core/interpolate.default.h</includes>
     <includedby refid="aabb_8cc" local="yes">libs/core/src/core/aabb.cc</includedby>
     <includedby refid="angle_8h" local="yes">libs/core/src/core/angle.h</includedby>
     <includedby refid="camera3_8editor_8cc" local="yes">libs/core/src/core/camera3.editor.cc</includedby>
@@ -35,6 +36,18 @@
     <includedby refid="layout_8cc" local="yes">libs/gui/src/gui/layout.cc</includedby>
     <includedby refid="synth_8cc" local="yes">libs/minsynth/src/minsynth/synth.cc</includedby>
     <includedby refid="imgui__extra_8cc" local="yes">libs/window/src/window/imgui_extra.cc</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>libs/core/src/core/numeric.h</label>
+        <link refid="numeric_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>core/interpolate.default.h</label>
+        <link refid="interpolate_8default_8h"/>
+      </node>
+    </incdepgraph>
     <invincdepgraph>
       <node id="10">
         <label>libs/core/src/core/image_canvas.cc</label>

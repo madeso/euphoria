@@ -30,6 +30,8 @@
       <node id="3">
         <label>core/numeric.h</label>
         <link refid="numeric_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
       </node>
       <node id="2">
         <label>iostream</label>

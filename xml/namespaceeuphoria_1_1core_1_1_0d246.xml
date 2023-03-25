@@ -26,7 +26,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stringutils.cc" line="373" column="1" bodyfile="libs/core/src/core/stringutils.cc" bodystart="372" bodyend="375"/>
+        <location file="libs/core/src/core/stringutils.cc" line="374" column="1" bodyfile="libs/core/src/core/stringutils.cc" bodystart="373" bodyend="376"/>
       </memberdef>
       <memberdef kind="enum" id="namespaceeuphoria_1_1core_1_1_0d246_1a24ab94a57e67909b2578bec2dd4b3675" prot="public" static="no" strong="yes">
         <type></type>
@@ -51,13 +51,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stringutils.cc" line="378" column="1" bodyfile="libs/core/src/core/stringutils.cc" bodystart="377" bodyend="380"/>
+        <location file="libs/core/src/core/stringutils.cc" line="379" column="1" bodyfile="libs/core/src/core/stringutils.cc" bodystart="378" bodyend="381"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/stringutils.cc" line="371" column="1"/>
+    <location file="libs/core/src/core/stringutils.cc" line="372" column="1"/>
   </compounddef>
 </doxygen>

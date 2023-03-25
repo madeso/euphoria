@@ -59,7 +59,8 @@
 <div class="title">textbox.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;algorithm&gt;</code><br />
+<div class="textblock"><code>#include &lt;array&gt;</code><br />
+<code>#include &lt;algorithm&gt;</code><br />
 <code>#include &lt;functional&gt;</code><br />
 <code>#include &quot;<a class="el" href="assert_8h_source.html">assert/assert.h</a>&quot;</code><br />
 </div>
@@ -83,14 +84,6 @@ Namespaces</h2></td></tr>
 Functions</h2></td></tr>
 <tr class="memitem:af6f1d305ea7552ab92fb47f047054835"><td class="memItemLeft" align="right" valign="top">TextBoxStyle&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#af6f1d305ea7552ab92fb47f047054835">euphoria::core::get_terminal_style</a> ()</td></tr>
 <tr class="separator:af6f1d305ea7552ab92fb47f047054835"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa7b14bf60ad9963b7b83fcc532811514"><td class="memItemLeft" align="right" valign="top">TextBoxStyle&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#aa7b14bf60ad9963b7b83fcc532811514">euphoria::core::utf8_straight_style</a> ()</td></tr>
-<tr class="separator:aa7b14bf60ad9963b7b83fcc532811514"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a99f0f18fc86a9caf100de238cf25c121"><td class="memItemLeft" align="right" valign="top">TextBoxStyle&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a99f0f18fc86a9caf100de238cf25c121">euphoria::core::utf8_rounded_style</a> ()</td></tr>
-<tr class="separator:a99f0f18fc86a9caf100de238cf25c121"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aea08ef325c7dd920460e5c1a9bde0773"><td class="memItemLeft" align="right" valign="top">TextBoxStyle&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#aea08ef325c7dd920460e5c1a9bde0773">euphoria::core::utf_8double_line_style</a> ()</td></tr>
-<tr class="separator:aea08ef325c7dd920460e5c1a9bde0773"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:add8a0085eb2b52e30469a79fc164051b"><td class="memItemLeft" align="right" valign="top">TextBoxStyle&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#add8a0085eb2b52e30469a79fc164051b">euphoria::core::ascii_style</a> ()</td></tr>
-<tr class="separator:add8a0085eb2b52e30469a79fc164051b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -104,6 +97,14 @@ Variables</h2></td></tr>
 <tr class="separator:abd1d23b042d95930fc87f61edcada57f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3b02050bb8b242036e35292ba9978467"><td class="memItemLeft" align="right" valign="top">constexpr unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a3b02050bb8b242036e35292ba9978467">euphoria::core::bit_no_line</a> = static_cast&lt;unsigned char&gt;(~(bit_up | bit_down | bit_left | bit_right))</td></tr>
 <tr class="separator:a3b02050bb8b242036e35292ba9978467"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90b674da6a2f93b66528fa2f5b58478b"><td class="memItemLeft" align="right" valign="top">constexpr TextBoxStyle&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a90b674da6a2f93b66528fa2f5b58478b">euphoria::core::utf8_straight_style</a></td></tr>
+<tr class="separator:a90b674da6a2f93b66528fa2f5b58478b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33ac07a6e2c13d73a7950204189dff63"><td class="memItemLeft" align="right" valign="top">constexpr TextBoxStyle&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a33ac07a6e2c13d73a7950204189dff63">euphoria::core::utf8_rounded_style</a></td></tr>
+<tr class="separator:a33ac07a6e2c13d73a7950204189dff63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aedb82a945c531fe47de99ac238503342"><td class="memItemLeft" align="right" valign="top">constexpr TextBoxStyle&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#aedb82a945c531fe47de99ac238503342">euphoria::core::utf_8double_line_style</a></td></tr>
+<tr class="separator:aedb82a945c531fe47de99ac238503342"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa25c40e9ad7c01f9b541c67f763cdf9a"><td class="memItemLeft" align="right" valign="top">constexpr TextBoxStyle&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#aa25c40e9ad7c01f9b541c67f763cdf9a">euphoria::core::ascii_style</a></td></tr>
+<tr class="separator:aa25c40e9ad7c01f9b541c67f763cdf9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.17-->

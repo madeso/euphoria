@@ -223,12 +223,12 @@
         </inbodydescription>
         <location file="libs/gui/src/gui/button.h" line="45" column="14" bodyfile="libs/gui/src/gui/button.cc" bodystart="174" bodyend="181"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1gui_1_1Button_1ac93ceb27c3b59ecbed382cde13001461" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+      <memberdef kind="function" id="structeuphoria_1_1gui_1_1Button_1a248064b8bd13f42d23cfa5f04efb5273" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
-        <definition>void euphoria::gui::Button::step</definition>
+        <definition>void euphoria::gui::Button::update</definition>
         <argsstring>(float dt) override</argsstring>
-        <name>step</name>
-        <reimplements refid="structeuphoria_1_1gui_1_1Widget_1a3a1900a6e333b97253b9ef60c40364da">step</reimplements>
+        <name>update</name>
+        <reimplements refid="structeuphoria_1_1gui_1_1Widget_1a8fb13ace5dd9dfc66350a4c34a75922c">update</reimplements>
         <param>
           <type>float</type>
           <declname>dt</declname>
@@ -502,10 +502,10 @@
       <member refid="structeuphoria_1_1gui_1_1Button_1abb4b0ad56e62c32ed30779836e0b9ab0" prot="public" virt="non-virtual"><scope>euphoria::gui::Button</scope><name>set_skin</name></member>
       <member refid="structeuphoria_1_1gui_1_1Button_1a3fab8b278ba7217e0fe6c9272483e259" prot="public" virt="non-virtual"><scope>euphoria::gui::Button</scope><name>skin</name></member>
       <member refid="structeuphoria_1_1gui_1_1Button_1ae3cf17a83269f9e356db05dd3a192188" prot="public" virt="non-virtual"><scope>euphoria::gui::Button</scope><name>sprite</name></member>
-      <member refid="structeuphoria_1_1gui_1_1Button_1ac93ceb27c3b59ecbed382cde13001461" prot="public" virt="virtual"><scope>euphoria::gui::Button</scope><name>step</name></member>
       <member refid="structeuphoria_1_1gui_1_1Button_1adfe63e5ea827b400962101176f1d4639" prot="public" virt="non-virtual"><scope>euphoria::gui::Button</scope><name>text</name></member>
       <member refid="structeuphoria_1_1gui_1_1Button_1ac32ad499249d9792ec349bbc56a992b6" prot="public" virt="non-virtual"><scope>euphoria::gui::Button</scope><name>text_color</name></member>
       <member refid="structeuphoria_1_1gui_1_1Widget_1a327ea1ae474285039624b1452ab81631" prot="public" virt="non-virtual"><scope>euphoria::gui::Button</scope><name>ui_state</name></member>
+      <member refid="structeuphoria_1_1gui_1_1Button_1a248064b8bd13f42d23cfa5f04efb5273" prot="public" virt="virtual"><scope>euphoria::gui::Button</scope><name>update</name></member>
       <member refid="structeuphoria_1_1gui_1_1Button_1a065d52d909b787511580c6f549c03b2b" prot="public" virt="virtual"><scope>euphoria::gui::Button</scope><name>visit</name></member>
       <member refid="structeuphoria_1_1gui_1_1Widget_1a58c16afb025fc25598706c2fbb6cfaf7" prot="public" virt="non-virtual"><scope>euphoria::gui::Button</scope><name>Widget</name></member>
       <member refid="structeuphoria_1_1gui_1_1Widget_1ab7d5be28d0290db4419a8c192edc43af" prot="public" virt="non-virtual"><scope>euphoria::gui::Button</scope><name>Widget</name></member>

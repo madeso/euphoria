@@ -1,0 +1,139 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="namespaceeuphoria_1_1core_1_1common" kind="namespace" language="C++">
+    <compoundname>euphoria::core::common</compoundname>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="namespaceeuphoria_1_1core_1_1common_1a4c2eb221dcc69f9abf342afd39275f00" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr <ref refid="structeuphoria_1_1core_1_1unit3f" kindref="compound">unit3f</ref></type>
+        <definition>constexpr unit3f euphoria::core::common::x_axis</definition>
+        <argsstring></argsstring>
+        <name>x_axis</name>
+        <initializer>= <ref refid="structeuphoria_1_1core_1_1unit3f" kindref="compound">unit3f</ref> {1.0f, 0.0f, 0.0f}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vec3.h" line="128" column="26" bodyfile="libs/core/src/core/vec3.h" bodystart="128" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceeuphoria_1_1core_1_1common_1af3ff025b7390da5bd049fa4a3df7f737" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr <ref refid="structeuphoria_1_1core_1_1unit3f" kindref="compound">unit3f</ref></type>
+        <definition>constexpr unit3f euphoria::core::common::y_axis</definition>
+        <argsstring></argsstring>
+        <name>y_axis</name>
+        <initializer>= <ref refid="structeuphoria_1_1core_1_1unit3f" kindref="compound">unit3f</ref> {0.0f, 1.0f, 0.0f}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vec3.h" line="129" column="26" bodyfile="libs/core/src/core/vec3.h" bodystart="129" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceeuphoria_1_1core_1_1common_1ac53cfd7882101f021e125f3493fa2bd0" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr <ref refid="structeuphoria_1_1core_1_1unit3f" kindref="compound">unit3f</ref></type>
+        <definition>constexpr unit3f euphoria::core::common::z_axis</definition>
+        <argsstring></argsstring>
+        <name>z_axis</name>
+        <initializer>= <ref refid="structeuphoria_1_1core_1_1unit3f" kindref="compound">unit3f</ref> {0.0f, 0.0f, 1.0f}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vec3.h" line="130" column="26" bodyfile="libs/core/src/core/vec3.h" bodystart="130" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceeuphoria_1_1core_1_1common_1a391cb022f9cdafd39e0834b3bb422e22" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr <ref refid="structeuphoria_1_1core_1_1unit3f" kindref="compound">unit3f</ref></type>
+        <definition>constexpr unit3f euphoria::core::common::up</definition>
+        <argsstring></argsstring>
+        <name>up</name>
+        <initializer>= <ref refid="namespaceeuphoria_1_1core_1_1common_1af3ff025b7390da5bd049fa4a3df7f737" kindref="member">y_axis</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vec3.h" line="131" column="26" bodyfile="libs/core/src/core/vec3.h" bodystart="131" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceeuphoria_1_1core_1_1common_1a80b7909dc4f41eee323a472a4b25a05b" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr <ref refid="structeuphoria_1_1core_1_1unit3f" kindref="compound">unit3f</ref></type>
+        <definition>constexpr unit3f euphoria::core::common::down</definition>
+        <argsstring></argsstring>
+        <name>down</name>
+        <initializer>= -<ref refid="namespaceeuphoria_1_1core_1_1common_1af3ff025b7390da5bd049fa4a3df7f737" kindref="member">y_axis</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vec3.h" line="132" column="26" bodyfile="libs/core/src/core/vec3.h" bodystart="132" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceeuphoria_1_1core_1_1common_1a7acf429fb159b4192393caddec8a5d4e" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr <ref refid="structeuphoria_1_1core_1_1unit3f" kindref="compound">unit3f</ref></type>
+        <definition>constexpr unit3f euphoria::core::common::right</definition>
+        <argsstring></argsstring>
+        <name>right</name>
+        <initializer>= <ref refid="namespaceeuphoria_1_1core_1_1common_1a4c2eb221dcc69f9abf342afd39275f00" kindref="member">x_axis</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vec3.h" line="133" column="26" bodyfile="libs/core/src/core/vec3.h" bodystart="133" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceeuphoria_1_1core_1_1common_1a7c241b8662a09b4ce76e069a7312b638" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr <ref refid="structeuphoria_1_1core_1_1unit3f" kindref="compound">unit3f</ref></type>
+        <definition>constexpr unit3f euphoria::core::common::left</definition>
+        <argsstring></argsstring>
+        <name>left</name>
+        <initializer>= -<ref refid="namespaceeuphoria_1_1core_1_1common_1a4c2eb221dcc69f9abf342afd39275f00" kindref="member">x_axis</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vec3.h" line="134" column="26" bodyfile="libs/core/src/core/vec3.h" bodystart="134" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceeuphoria_1_1core_1_1common_1a8e5735d87a09eb8dc50355b612e951c6" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr <ref refid="structeuphoria_1_1core_1_1unit3f" kindref="compound">unit3f</ref></type>
+        <definition>constexpr unit3f euphoria::core::common::in</definition>
+        <argsstring></argsstring>
+        <name>in</name>
+        <initializer>= -<ref refid="namespaceeuphoria_1_1core_1_1common_1ac53cfd7882101f021e125f3493fa2bd0" kindref="member">z_axis</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vec3.h" line="135" column="26" bodyfile="libs/core/src/core/vec3.h" bodystart="135" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceeuphoria_1_1core_1_1common_1a2e6e8d1355e31e193a8e957078e44f09" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr <ref refid="structeuphoria_1_1core_1_1unit3f" kindref="compound">unit3f</ref></type>
+        <definition>constexpr unit3f euphoria::core::common::out</definition>
+        <argsstring></argsstring>
+        <name>out</name>
+        <initializer>= <ref refid="namespaceeuphoria_1_1core_1_1common_1ac53cfd7882101f021e125f3493fa2bd0" kindref="member">z_axis</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vec3.h" line="136" column="26" bodyfile="libs/core/src/core/vec3.h" bodystart="136" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/vec3.h" line="127" column="1"/>
+  </compounddef>
+</doxygen>

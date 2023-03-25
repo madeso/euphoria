@@ -153,14 +153,14 @@
         </inbodydescription>
         <location file="libs/core/src/core/camera3.editor.h" line="43" column="26"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1detail_1_1EditorCameraState3_1ae8b9c24742fe4fc13cbe1d55faac73e6" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1detail_1_1EditorCameraState3_1a112a8b9c6293765bef70a47704ecbbe2" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
         <type>void</type>
-        <definition>virtual void euphoria::core::detail::EditorCameraState3::step</definition>
+        <definition>virtual void euphoria::core::detail::EditorCameraState3::update</definition>
         <argsstring>(EditorCamera3 *owner, bool shift_state, const vec2i &amp;mouse, const CompiledCamera3 &amp;camera, const Viewport &amp;viewport, float dt)=0</argsstring>
-        <name>step</name>
-        <reimplementedby refid="structeuphoria_1_1core_1_1detail_1_1DefaultCamera_1ab289ec11df3ea38a326c85f26a47dbca">step</reimplementedby>
-        <reimplementedby refid="structeuphoria_1_1core_1_1detail_1_1OrbitCamera_1a91ebe42b8a30691b4536a5907397d100">step</reimplementedby>
-        <reimplementedby refid="structeuphoria_1_1core_1_1detail_1_1LerpCamera_1a0b88b1af1e2c0fb497c9cad26d1ee802">step</reimplementedby>
+        <name>update</name>
+        <reimplementedby refid="structeuphoria_1_1core_1_1detail_1_1DefaultCamera_1af8f450a92be92176761d9ec1443b9694">update</reimplementedby>
+        <reimplementedby refid="structeuphoria_1_1core_1_1detail_1_1OrbitCamera_1a56e1004e688611296b981ea1026fb4a0">update</reimplementedby>
+        <reimplementedby refid="structeuphoria_1_1core_1_1detail_1_1LerpCamera_1a698e7f18b8bf12c0dcfcbd47cff8d9b8">update</reimplementedby>
         <param>
           <type><ref refid="structeuphoria_1_1core_1_1EditorCamera3" kindref="compound">EditorCamera3</ref> *</type>
           <declname>owner</declname>
@@ -323,7 +323,7 @@
       <member refid="structeuphoria_1_1core_1_1detail_1_1EditorCameraState3_1af2433982016c7c0012f4b78735e46933" prot="public" virt="pure-virtual"><scope>euphoria::core::detail::EditorCameraState3</scope><name>on_scroll</name></member>
       <member refid="structeuphoria_1_1core_1_1detail_1_1EditorCameraState3_1a8cdc3d6602be28a6606f89cd31b4ba08" prot="public" virt="non-virtual"><scope>euphoria::core::detail::EditorCameraState3</scope><name>operator=</name></member>
       <member refid="structeuphoria_1_1core_1_1detail_1_1EditorCameraState3_1a17e0c9a23f959adebb7476d00b6ef153" prot="public" virt="non-virtual"><scope>euphoria::core::detail::EditorCameraState3</scope><name>operator=</name></member>
-      <member refid="structeuphoria_1_1core_1_1detail_1_1EditorCameraState3_1ae8b9c24742fe4fc13cbe1d55faac73e6" prot="public" virt="pure-virtual"><scope>euphoria::core::detail::EditorCameraState3</scope><name>step</name></member>
+      <member refid="structeuphoria_1_1core_1_1detail_1_1EditorCameraState3_1a112a8b9c6293765bef70a47704ecbbe2" prot="public" virt="pure-virtual"><scope>euphoria::core::detail::EditorCameraState3</scope><name>update</name></member>
       <member refid="structeuphoria_1_1core_1_1detail_1_1EditorCameraState3_1a142b1c140cc77391ab431b6c215fbc28" prot="public" virt="virtual"><scope>euphoria::core::detail::EditorCameraState3</scope><name>~EditorCameraState3</name></member>
     </listofallmembers>
   </compounddef>

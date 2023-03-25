@@ -12,6 +12,12 @@
       <node id="3">
         <label>core/numeric.h</label>
         <link refid="numeric_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>core/interpolate.default.h</label>
+        <link refid="interpolate_8default_8h"/>
       </node>
       <node id="1">
         <label>libs/core/src/core/sensitivity.cc</label>

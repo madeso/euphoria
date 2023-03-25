@@ -82,8 +82,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a3777c68ea920cccaf997420d71e573f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acb13ec16a1583d0af17ad7da918f7fe4"><td class="memItemLeft" align="right" valign="top">T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1ecs_1_1GenericComponentArray.html#acb13ec16a1583d0af17ad7da918f7fe4">get_or_null</a> (<a class="el" href="namespaceeuphoria_1_1core_1_1ecs.html#af486c8f697b0cff15048fe88a024d3eb">EntityHandle</a> entity)</td></tr>
 <tr class="separator:acb13ec16a1583d0af17ad7da918f7fe4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aea56a29007e44f9e296e0fb5c6dd65a2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1ecs_1_1GenericComponentArray.html#aea56a29007e44f9e296e0fb5c6dd65a2">index_has_value</a> (std::size_t index) const</td></tr>
-<tr class="separator:aea56a29007e44f9e296e0fb5c6dd65a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6af50e6ecf89134ef49b91e43753fe20"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1ecs_1_1GenericComponentArray.html#a6af50e6ecf89134ef49b91e43753fe20">has_value_for_index</a> (std::size_t index) const</td></tr>
+<tr class="separator:a6af50e6ecf89134ef49b91e43753fe20"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a08e917c66b9d42ebda843a5eb8b32215"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1ecs_1_1GenericComponentArray.html#a08e917c66b9d42ebda843a5eb8b32215">remove</a> (<a class="el" href="namespaceeuphoria_1_1core_1_1ecs.html#af486c8f697b0cff15048fe88a024d3eb">EntityHandle</a> entity) override</td></tr>
 <tr class="separator:a08e917c66b9d42ebda843a5eb8b32215"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aefcfde8986a267e1e3df625cc1c8411c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1ecs_1_1GenericComponentArray.html#aefcfde8986a267e1e3df625cc1c8411c">has</a> (<a class="el" href="namespaceeuphoria_1_1core_1_1ecs.html#af486c8f697b0cff15048fe88a024d3eb">EntityHandle</a> entity) const override</td></tr>
@@ -275,12 +275,12 @@ template&lt;typename T &gt; </div>
 
 <p>Implements <a class="el" href="structeuphoria_1_1core_1_1ecs_1_1ComponentArrayBase.html#ac17e4aff7bdb8397e0ce12d3f0344f44">euphoria::core::ecs::ComponentArrayBase</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="ecs_8h_source.html#l00117">117</a> of file <a class="el" href="ecs_8h_source.html">ecs.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ecs_8h_source.html#l00118">118</a> of file <a class="el" href="ecs_8h_source.html">ecs.h</a>.</p>
 
 </div>
 </div>
-<a id="aea56a29007e44f9e296e0fb5c6dd65a2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aea56a29007e44f9e296e0fb5c6dd65a2">&#9670;&nbsp;</a></span>index_has_value()</h2>
+<a id="a6af50e6ecf89134ef49b91e43753fe20"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6af50e6ecf89134ef49b91e43753fe20">&#9670;&nbsp;</a></span>has_value_for_index()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -291,7 +291,7 @@ template&lt;typename T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="structeuphoria_1_1core_1_1ecs_1_1GenericComponentArray.html">euphoria::core::ecs::GenericComponentArray</a>&lt; T &gt;::index_has_value </td>
+          <td class="memname">bool <a class="el" href="structeuphoria_1_1core_1_1ecs_1_1GenericComponentArray.html">euphoria::core::ecs::GenericComponentArray</a>&lt; T &gt;::has_value_for_index </td>
           <td>(</td>
           <td class="paramtype">std::size_t&#160;</td>
           <td class="paramname"><em>index</em></td><td>)</td>
@@ -305,7 +305,7 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ecs_8h_source.html#l00092">92</a> of file <a class="el" href="ecs_8h_source.html">ecs.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ecs_8h_source.html#l00093">93</a> of file <a class="el" href="ecs_8h_source.html">ecs.h</a>.</p>
 
 </div>
 </div>
@@ -337,7 +337,7 @@ template&lt;typename T &gt; </div>
 
 <p>Implements <a class="el" href="structeuphoria_1_1core_1_1ecs_1_1ComponentArrayBase.html#aa4acdaa4a738e855cb63f41eeeb8c58d">euphoria::core::ecs::ComponentArrayBase</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="ecs_8h_source.html#l00103">103</a> of file <a class="el" href="ecs_8h_source.html">ecs.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ecs_8h_source.html#l00104">104</a> of file <a class="el" href="ecs_8h_source.html">ecs.h</a>.</p>
 
 </div>
 </div>

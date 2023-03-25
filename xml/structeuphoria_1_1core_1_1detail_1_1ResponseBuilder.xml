@@ -36,11 +36,11 @@
         </inbodydescription>
         <location file="libs/core/src/core/chatbot.h" line="93" column="22" bodyfile="libs/core/src/core/chatbot.h" bodystart="93" bodyend="93"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1detail_1_1ResponseBuilder_1a3694ac0b93e5fc9ecf22ba25906fa1f7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1detail_1_1ResponseBuilder_1a796ef2b2565764cb333a52f2fc527ac0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1detail_1_1ResponseBuilder" kindref="compound">ResponseBuilder</ref> &amp;</type>
-        <definition>ResponseBuilder &amp; euphoria::core::detail::ResponseBuilder::input</definition>
+        <definition>ResponseBuilder &amp; euphoria::core::detail::ResponseBuilder::add_input</definition>
         <argsstring>(const std::string &amp;in, Input::LocationType where=Input::at_start)</argsstring>
-        <name>input</name>
+        <name>add_input</name>
         <param>
           <type>const std::string &amp;</type>
           <declname>in</declname>
@@ -146,9 +146,9 @@
     </collaborationgraph>
     <location file="libs/core/src/core/chatbot.h" line="91" column="1" bodyfile="libs/core/src/core/chatbot.h" bodystart="90" bodyend="106"/>
     <listofallmembers>
+      <member refid="structeuphoria_1_1core_1_1detail_1_1ResponseBuilder_1a796ef2b2565764cb333a52f2fc527ac0" prot="public" virt="non-virtual"><scope>euphoria::core::detail::ResponseBuilder</scope><name>add_input</name></member>
       <member refid="structeuphoria_1_1core_1_1detail_1_1ResponseBuilder_1a6571b3563218017843b25d10e2c10461" prot="public" virt="non-virtual"><scope>euphoria::core::detail::ResponseBuilder</scope><name>add_topic</name></member>
       <member refid="structeuphoria_1_1core_1_1detail_1_1ResponseBuilder_1ad7ae6f28b2b2a9866e774bd801e87852" prot="public" virt="non-virtual"><scope>euphoria::core::detail::ResponseBuilder</scope><name>end_conversation</name></member>
-      <member refid="structeuphoria_1_1core_1_1detail_1_1ResponseBuilder_1a3694ac0b93e5fc9ecf22ba25906fa1f7" prot="public" virt="non-virtual"><scope>euphoria::core::detail::ResponseBuilder</scope><name>input</name></member>
       <member refid="structeuphoria_1_1core_1_1detail_1_1ResponseBuilder_1a748cedb48120405f57cbd98b68f6366f" prot="public" virt="non-virtual"><scope>euphoria::core::detail::ResponseBuilder</scope><name>operator()</name></member>
       <member refid="structeuphoria_1_1core_1_1detail_1_1ResponseBuilder_1a0e31d00fd4b29bcec3193d3862583c33" prot="public" virt="non-virtual"><scope>euphoria::core::detail::ResponseBuilder</scope><name>operator()</name></member>
       <member refid="structeuphoria_1_1core_1_1detail_1_1ResponseBuilder_1a62308b6a8873cef8cffd2e8530b46e44" prot="public" virt="non-virtual"><scope>euphoria::core::detail::ResponseBuilder</scope><name>response</name></member>

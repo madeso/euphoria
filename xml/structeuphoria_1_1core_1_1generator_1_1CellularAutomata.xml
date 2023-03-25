@@ -83,11 +83,11 @@
         </inbodydescription>
         <location file="libs/core/src/core/generator_cell.h" line="50" column="9" bodyfile="libs/core/src/core/generator_cell.cc" bodystart="183" bodyend="193"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1generator_1_1CellularAutomata_1a096db9378c0b2c14def58ddc456961af" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1generator_1_1CellularAutomata_1a72893b03d00bb3eda12ee3ab72347fff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>void euphoria::core::generator::CellularAutomata::work</definition>
+        <definition>void euphoria::core::generator::CellularAutomata::update</definition>
         <argsstring>()</argsstring>
-        <name>work</name>
+        <name>update</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -96,11 +96,11 @@
         </inbodydescription>
         <location file="libs/core/src/core/generator_cell.h" line="52" column="14" bodyfile="libs/core/src/core/generator_cell.cc" bodystart="204" bodyend="208"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1generator_1_1CellularAutomata_1a51c305a2d611006c5256c21c7b38d215" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1generator_1_1CellularAutomata_1aadd17e0e91478b40333b04d3e39ae550" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
-        <definition>bool euphoria::core::generator::CellularAutomata::has_more_work</definition>
+        <definition>bool euphoria::core::generator::CellularAutomata::is_done</definition>
         <argsstring>() const</argsstring>
-        <name>has_more_work</name>
+        <name>is_done</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -144,11 +144,11 @@
     <location file="libs/core/src/core/generator_cell.h" line="44" column="1" bodyfile="libs/core/src/core/generator_cell.h" bodystart="43" bodyend="55"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1generator_1_1CellularAutomata_1afd8141dfb11ef6ad7b9c1b3b346ae52e" prot="public" virt="non-virtual"><scope>euphoria::core::generator::CellularAutomata</scope><name>CellularAutomata</name></member>
-      <member refid="structeuphoria_1_1core_1_1generator_1_1CellularAutomata_1a51c305a2d611006c5256c21c7b38d215" prot="public" virt="non-virtual"><scope>euphoria::core::generator::CellularAutomata</scope><name>has_more_work</name></member>
+      <member refid="structeuphoria_1_1core_1_1generator_1_1CellularAutomata_1aadd17e0e91478b40333b04d3e39ae550" prot="public" virt="non-virtual"><scope>euphoria::core::generator::CellularAutomata</scope><name>is_done</name></member>
       <member refid="structeuphoria_1_1core_1_1generator_1_1CellularAutomata_1a31e9c09b4c09c599408491392dcb35a7" prot="public" virt="non-virtual"><scope>euphoria::core::generator::CellularAutomata</scope><name>iteration</name></member>
       <member refid="structeuphoria_1_1core_1_1generator_1_1CellularAutomata_1a649ca23b8295b307fdeb1c1d2ec75849" prot="public" virt="non-virtual"><scope>euphoria::core::generator::CellularAutomata</scope><name>outside_rule</name></member>
       <member refid="structeuphoria_1_1core_1_1generator_1_1CellularAutomata_1a9f2e28ba6e7556490b41fa190191199f" prot="public" virt="non-virtual"><scope>euphoria::core::generator::CellularAutomata</scope><name>rules</name></member>
-      <member refid="structeuphoria_1_1core_1_1generator_1_1CellularAutomata_1a096db9378c0b2c14def58ddc456961af" prot="public" virt="non-virtual"><scope>euphoria::core::generator::CellularAutomata</scope><name>work</name></member>
+      <member refid="structeuphoria_1_1core_1_1generator_1_1CellularAutomata_1a72893b03d00bb3eda12ee3ab72347fff" prot="public" virt="non-virtual"><scope>euphoria::core::generator::CellularAutomata</scope><name>update</name></member>
       <member refid="structeuphoria_1_1core_1_1generator_1_1CellularAutomata_1ad8a2118204ba80d7b9c81fbf21db735a" prot="public" virt="non-virtual"><scope>euphoria::core::generator::CellularAutomata</scope><name>world</name></member>
     </listofallmembers>
   </compounddef>

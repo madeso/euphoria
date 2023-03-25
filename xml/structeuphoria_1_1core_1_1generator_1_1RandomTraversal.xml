@@ -63,12 +63,12 @@
         </inbodydescription>
         <location file="libs/core/src/core/generator_maze.h" line="87" column="14" bodyfile="libs/core/src/core/generator_maze.cc" bodystart="196" bodyend="200"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1generator_1_1RandomTraversal_1a9b0aec4c5c21c81d2620db65df801ec9" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1generator_1_1RandomTraversal_1a801eb354420308e216de0d466e37cd1a" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
-        <definition>void euphoria::core::generator::RandomTraversal::work</definition>
+        <definition>void euphoria::core::generator::RandomTraversal::update</definition>
         <argsstring>() override</argsstring>
-        <name>work</name>
-        <reimplements refid="structeuphoria_1_1core_1_1generator_1_1Algorithm_1ae937b77505c16a32eee57933307b716a">work</reimplements>
+        <name>update</name>
+        <reimplements refid="structeuphoria_1_1core_1_1generator_1_1Algorithm_1ad7f9482f67331c426a0f0241b5f542c5">update</reimplements>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -77,12 +77,12 @@
         </inbodydescription>
         <location file="libs/core/src/core/generator_maze.h" line="88" column="14" bodyfile="libs/core/src/core/generator_maze.cc" bodystart="211" bodyend="223"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1generator_1_1RandomTraversal_1a26980f500e9414f8e47b848a4e578b1d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1generator_1_1RandomTraversal_1a1d0dad774e220851b06c86ef4e445644" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
         <type>bool</type>
-        <definition>bool euphoria::core::generator::RandomTraversal::has_more_work</definition>
+        <definition>bool euphoria::core::generator::RandomTraversal::is_done</definition>
         <argsstring>() const override</argsstring>
-        <name>has_more_work</name>
-        <reimplements refid="structeuphoria_1_1core_1_1generator_1_1Algorithm_1aadb707c44e21e5c093bf4cfd7d509c34">has_more_work</reimplements>
+        <name>is_done</name>
+        <reimplements refid="structeuphoria_1_1core_1_1generator_1_1Algorithm_1a8c0a602e0aa3749115aaa8ef1756a76d">is_done</reimplements>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -140,13 +140,13 @@
       <member refid="structeuphoria_1_1core_1_1generator_1_1Algorithm_1a2ecf1f318083c1a04d83f4e5888ae69d" prot="public" virt="non-virtual"><scope>euphoria::core::generator::RandomTraversal</scope><name>Algorithm</name></member>
       <member refid="structeuphoria_1_1core_1_1generator_1_1Algorithm_1abbef1857d28d477c36c2dd3987e53c99" prot="public" virt="non-virtual"><scope>euphoria::core::generator::RandomTraversal</scope><name>Algorithm</name></member>
       <member refid="structeuphoria_1_1core_1_1generator_1_1RandomTraversal_1ad65c182fff143305f99283be8f6403eb" prot="public" virt="non-virtual"><scope>euphoria::core::generator::RandomTraversal</scope><name>frontier</name></member>
-      <member refid="structeuphoria_1_1core_1_1generator_1_1RandomTraversal_1a26980f500e9414f8e47b848a4e578b1d" prot="public" virt="virtual"><scope>euphoria::core::generator::RandomTraversal</scope><name>has_more_work</name></member>
+      <member refid="structeuphoria_1_1core_1_1generator_1_1RandomTraversal_1a1d0dad774e220851b06c86ef4e445644" prot="public" virt="virtual"><scope>euphoria::core::generator::RandomTraversal</scope><name>is_done</name></member>
       <member refid="structeuphoria_1_1core_1_1generator_1_1RandomTraversal_1abd165580ec3f2e1547f90299bfab8569" prot="public" virt="non-virtual"><scope>euphoria::core::generator::RandomTraversal</scope><name>maze</name></member>
       <member refid="structeuphoria_1_1core_1_1generator_1_1Algorithm_1a3ca0b14c03c314b82527fa40d38d8b82" prot="public" virt="non-virtual"><scope>euphoria::core::generator::RandomTraversal</scope><name>operator=</name></member>
       <member refid="structeuphoria_1_1core_1_1generator_1_1Algorithm_1a203df91d7e802b8f10ccf31231cd3cda" prot="public" virt="non-virtual"><scope>euphoria::core::generator::RandomTraversal</scope><name>operator=</name></member>
       <member refid="structeuphoria_1_1core_1_1generator_1_1RandomTraversal_1a808153e7b61d2adc9a77cdd2e5878080" prot="public" virt="non-virtual"><scope>euphoria::core::generator::RandomTraversal</scope><name>random</name></member>
       <member refid="structeuphoria_1_1core_1_1generator_1_1RandomTraversal_1ae78ba9ce6fc7acc3d511deeb9cca8e0a" prot="public" virt="virtual"><scope>euphoria::core::generator::RandomTraversal</scope><name>setup</name></member>
-      <member refid="structeuphoria_1_1core_1_1generator_1_1RandomTraversal_1a9b0aec4c5c21c81d2620db65df801ec9" prot="public" virt="virtual"><scope>euphoria::core::generator::RandomTraversal</scope><name>work</name></member>
+      <member refid="structeuphoria_1_1core_1_1generator_1_1RandomTraversal_1a801eb354420308e216de0d466e37cd1a" prot="public" virt="virtual"><scope>euphoria::core::generator::RandomTraversal</scope><name>update</name></member>
       <member refid="structeuphoria_1_1core_1_1generator_1_1Algorithm_1adc82461106f49a4f76d0afd28ad01efb" prot="public" virt="virtual"><scope>euphoria::core::generator::RandomTraversal</scope><name>~Algorithm</name></member>
     </listofallmembers>
   </compounddef>

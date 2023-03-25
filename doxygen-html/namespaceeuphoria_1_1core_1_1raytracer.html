@@ -62,11 +62,11 @@
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1Camera.html">Camera</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1Collision.html">Collision</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1DielectricMaterial.html">DielectricMaterial</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1DiffuseMaterial.html">DiffuseMaterial</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1HitResult.html">HitResult</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1Material.html">Material</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -85,14 +85,14 @@ Classes</h2></td></tr>
 Functions</h2></td></tr>
 <tr class="memitem:abfd5a9b761d81e0ebaf7341827ee23af"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1Object.html">Object</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core_1_1raytracer.html#abfd5a9b761d81e0ebaf7341827ee23af">create_sphere</a> (const <a class="el" href="structeuphoria_1_1core_1_1Sphere.html">Sphere</a> &amp;sphere, const <a class="el" href="structeuphoria_1_1core_1_1vec3f.html">vec3f</a> &amp;position, std::shared_ptr&lt; <a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1Material.html">raytracer::Material</a> &gt; material)</td></tr>
 <tr class="separator:abfd5a9b761d81e0ebaf7341827ee23af"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6fb96bb3039a1e75d4dcf381b012d96b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1rgb.html">rgb</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core_1_1raytracer.html#a6fb96bb3039a1e75d4dcf381b012d96b">crgb</a> (const <a class="el" href="structeuphoria_1_1core_1_1unit3f.html">unit3f</a> &amp;normal)</td></tr>
-<tr class="separator:a6fb96bb3039a1e75d4dcf381b012d96b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7db55bd0459487e48ca52676ad41e22"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1rgb.html">rgb</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core_1_1raytracer.html#ab7db55bd0459487e48ca52676ad41e22">to_rgb</a> (const <a class="el" href="structeuphoria_1_1core_1_1unit3f.html">unit3f</a> &amp;normal)</td></tr>
+<tr class="separator:ab7db55bd0459487e48ca52676ad41e22"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af41790f8067ed78ebfe5f6c3b7636779"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1vec3f.html">vec3f</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core_1_1raytracer.html#af41790f8067ed78ebfe5f6c3b7636779">get_random_vec3_in_unit_sphere</a> (<a class="el" href="structeuphoria_1_1core_1_1Random.html">Random</a> *random)</td></tr>
 <tr class="separator:af41790f8067ed78ebfe5f6c3b7636779"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae4ae9160da5d3933604b269404478ec3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1vec3f.html">vec3f</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core_1_1raytracer.html#ae4ae9160da5d3933604b269404478ec3">reflect</a> (const <a class="el" href="structeuphoria_1_1core_1_1vec3f.html">vec3f</a> &amp;v, const <a class="el" href="structeuphoria_1_1core_1_1unit3f.html">unit3f</a> &amp;normal)</td></tr>
-<tr class="separator:ae4ae9160da5d3933604b269404478ec3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a670080c0b34979da2d4db7920f69b825"><td class="memItemLeft" align="right" valign="top">std::optional&lt; <a class="el" href="structeuphoria_1_1core_1_1vec3f.html">vec3f</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core_1_1raytracer.html#a670080c0b34979da2d4db7920f69b825">refract</a> (const <a class="el" href="structeuphoria_1_1core_1_1unit3f.html">unit3f</a> &amp;uv, const <a class="el" href="structeuphoria_1_1core_1_1unit3f.html">unit3f</a> &amp;normal, float ni)</td></tr>
-<tr class="separator:a670080c0b34979da2d4db7920f69b825"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2182bcc3d71753ef14ccc1bbe71604b0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1vec3f.html">vec3f</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core_1_1raytracer.html#a2182bcc3d71753ef14ccc1bbe71604b0">get_reflected</a> (const <a class="el" href="structeuphoria_1_1core_1_1vec3f.html">vec3f</a> &amp;v, const <a class="el" href="structeuphoria_1_1core_1_1unit3f.html">unit3f</a> &amp;normal)</td></tr>
+<tr class="separator:a2182bcc3d71753ef14ccc1bbe71604b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4bf750032f4351c84688ab2388a24c9"><td class="memItemLeft" align="right" valign="top">std::optional&lt; <a class="el" href="structeuphoria_1_1core_1_1vec3f.html">vec3f</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core_1_1raytracer.html#ae4bf750032f4351c84688ab2388a24c9">get_refracted</a> (const <a class="el" href="structeuphoria_1_1core_1_1unit3f.html">unit3f</a> &amp;uv, const <a class="el" href="structeuphoria_1_1core_1_1unit3f.html">unit3f</a> &amp;normal, float ni)</td></tr>
+<tr class="separator:ae4bf750032f4351c84688ab2388a24c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a29dc6138ccbbf3ec335e905fbca9523f"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core_1_1raytracer.html#a29dc6138ccbbf3ec335e905fbca9523f">calc_fresnel_factor</a> (float cosine, float ref_idx)</td></tr>
 <tr class="separator:a29dc6138ccbbf3ec335e905fbca9523f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afaa38b089e3fc39a69ba2bb7dcc1c33f"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1Material.html">Material</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core_1_1raytracer.html#afaa38b089e3fc39a69ba2bb7dcc1c33f">create_diffuse_material</a> (const <a class="el" href="structeuphoria_1_1core_1_1rgb.html">rgb</a> &amp;albedo)</td></tr>
@@ -311,26 +311,6 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a6fb96bb3039a1e75d4dcf381b012d96b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6fb96bb3039a1e75d4dcf381b012d96b">&#9670;&nbsp;</a></span>crgb()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structeuphoria_1_1core_1_1rgb.html">rgb</a> euphoria::core::raytracer::crgb </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1unit3f.html">unit3f</a> &amp;&#160;</td>
-          <td class="paramname"><em>normal</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="raytracer_8cc_source.html#l00125">125</a> of file <a class="el" href="raytracer_8cc_source.html">raytracer.cc</a>.</p>
-
-</div>
-</div>
 <a id="a286dfbfda49ede1c12ab66c9f7a3edca"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a286dfbfda49ede1c12ab66c9f7a3edca">&#9670;&nbsp;</a></span>get_color()</h2>
 
@@ -393,6 +373,72 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a2182bcc3d71753ef14ccc1bbe71604b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2182bcc3d71753ef14ccc1bbe71604b0">&#9670;&nbsp;</a></span>get_reflected()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structeuphoria_1_1core_1_1vec3f.html">vec3f</a> euphoria::core::raytracer::get_reflected </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1vec3f.html">vec3f</a> &amp;&#160;</td>
+          <td class="paramname"><em>v</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1unit3f.html">unit3f</a> &amp;&#160;</td>
+          <td class="paramname"><em>normal</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="raytracer_8cc_source.html#l00171">171</a> of file <a class="el" href="raytracer_8cc_source.html">raytracer.cc</a>.</p>
+
+</div>
+</div>
+<a id="ae4bf750032f4351c84688ab2388a24c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4bf750032f4351c84688ab2388a24c9">&#9670;&nbsp;</a></span>get_refracted()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::optional&lt;<a class="el" href="structeuphoria_1_1core_1_1vec3f.html">vec3f</a>&gt; euphoria::core::raytracer::get_refracted </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1unit3f.html">unit3f</a> &amp;&#160;</td>
+          <td class="paramname"><em>uv</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1unit3f.html">unit3f</a> &amp;&#160;</td>
+          <td class="paramname"><em>normal</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>ni</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="raytracer_8cc_source.html#l00228">228</a> of file <a class="el" href="raytracer_8cc_source.html">raytracer.cc</a>.</p>
+
+</div>
+</div>
 <a id="a634651f16fd3b82293a2cf1ac367ca5f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a634651f16fd3b82293a2cf1ac367ca5f">&#9670;&nbsp;</a></span>raytrace()</h2>
 
@@ -429,69 +475,23 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ae4ae9160da5d3933604b269404478ec3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae4ae9160da5d3933604b269404478ec3">&#9670;&nbsp;</a></span>reflect()</h2>
+<a id="ab7db55bd0459487e48ca52676ad41e22"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7db55bd0459487e48ca52676ad41e22">&#9670;&nbsp;</a></span>to_rgb()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structeuphoria_1_1core_1_1vec3f.html">vec3f</a> euphoria::core::raytracer::reflect </td>
+          <td class="memname"><a class="el" href="structeuphoria_1_1core_1_1rgb.html">rgb</a> euphoria::core::raytracer::to_rgb </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1vec3f.html">vec3f</a> &amp;&#160;</td>
-          <td class="paramname"><em>v</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1unit3f.html">unit3f</a> &amp;&#160;</td>
-          <td class="paramname"><em>normal</em>&#160;</td>
-        </tr>
-        <tr>
+          <td class="paramname"><em>normal</em></td><td>)</td>
           <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="raytracer_8cc_source.html#l00171">171</a> of file <a class="el" href="raytracer_8cc_source.html">raytracer.cc</a>.</p>
-
-</div>
-</div>
-<a id="a670080c0b34979da2d4db7920f69b825"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a670080c0b34979da2d4db7920f69b825">&#9670;&nbsp;</a></span>refract()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::optional&lt;<a class="el" href="structeuphoria_1_1core_1_1vec3f.html">vec3f</a>&gt; euphoria::core::raytracer::refract </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1unit3f.html">unit3f</a> &amp;&#160;</td>
-          <td class="paramname"><em>uv</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1unit3f.html">unit3f</a> &amp;&#160;</td>
-          <td class="paramname"><em>normal</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>ni</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="raytracer_8cc_source.html#l00228">228</a> of file <a class="el" href="raytracer_8cc_source.html">raytracer.cc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raytracer_8cc_source.html#l00125">125</a> of file <a class="el" href="raytracer_8cc_source.html">raytracer.cc</a>.</p>
 
 </div>
 </div>

@@ -98,17 +98,17 @@
         </inbodydescription>
         <location file="libs/core/src/core/texttemplate.cc" line="117" column="10"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1TemplateNode_1ab1ef82b42ab1410b952470a4ed5a13eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1TemplateNode_1a42cca7fefe3e4e42f8896cb3951c23df" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
         <type>void</type>
-        <definition>virtual void euphoria::core::TemplateNode::evaluate</definition>
+        <definition>virtual void euphoria::core::TemplateNode::build_string</definition>
         <argsstring>(Defines *defines, StringBuilder *out, TemplateErrorList *error)=0</argsstring>
-        <name>evaluate</name>
-        <reimplementedby refid="structeuphoria_1_1core_1_1TemplateNodeScopedList_1a4b3497459d1cddd394138d41614b5fcd">evaluate</reimplementedby>
-        <reimplementedby refid="structeuphoria_1_1core_1_1TemplateNodeString_1aefd7d085c1088dcdbcd329a8cc907c00">evaluate</reimplementedby>
-        <reimplementedby refid="structeuphoria_1_1core_1_1TemplateNodeSet_1a5ea0b5c618308f08b7faf156833a2d11">evaluate</reimplementedby>
-        <reimplementedby refid="structeuphoria_1_1core_1_1TemplateNodeList_1a8eb4b285f6174cddc82a36c6c7036dae">evaluate</reimplementedby>
-        <reimplementedby refid="structeuphoria_1_1core_1_1TemplateNodeIfdef_1a456d42627456a26a48d42319082ae7c6">evaluate</reimplementedby>
-        <reimplementedby refid="structeuphoria_1_1core_1_1TemplateNodeEval_1ae320a8debfedc499784857b2015e696b">evaluate</reimplementedby>
+        <name>build_string</name>
+        <reimplementedby refid="structeuphoria_1_1core_1_1TemplateNodeScopedList_1adefaa4239fefd7745c60014fda2d17bc">build_string</reimplementedby>
+        <reimplementedby refid="structeuphoria_1_1core_1_1TemplateNodeString_1a1b79c24cbb9700878f0a75739f3aa06c">build_string</reimplementedby>
+        <reimplementedby refid="structeuphoria_1_1core_1_1TemplateNodeSet_1afa7501e8252962768055a06a6c404296">build_string</reimplementedby>
+        <reimplementedby refid="structeuphoria_1_1core_1_1TemplateNodeList_1a935bd2de36b0db43352bd5ecfa444489">build_string</reimplementedby>
+        <reimplementedby refid="structeuphoria_1_1core_1_1TemplateNodeIfdef_1a822a1a81434b05818cafc3ac7d3dd307">build_string</reimplementedby>
+        <reimplementedby refid="structeuphoria_1_1core_1_1TemplateNodeEval_1a255c9405f22c2cb741a3c83062389943">build_string</reimplementedby>
         <param>
           <type><ref refid="structeuphoria_1_1core_1_1Defines" kindref="compound">Defines</ref> *</type>
           <declname>defines</declname>
@@ -178,7 +178,7 @@
     </inheritancegraph>
     <location file="libs/core/src/core/texttemplate.cc" line="110" column="1" bodyfile="libs/core/src/core/texttemplate.cc" bodystart="109" bodyend="125"/>
     <listofallmembers>
-      <member refid="structeuphoria_1_1core_1_1TemplateNode_1ab1ef82b42ab1410b952470a4ed5a13eb" prot="public" virt="pure-virtual"><scope>euphoria::core::TemplateNode</scope><name>evaluate</name></member>
+      <member refid="structeuphoria_1_1core_1_1TemplateNode_1a42cca7fefe3e4e42f8896cb3951c23df" prot="public" virt="pure-virtual"><scope>euphoria::core::TemplateNode</scope><name>build_string</name></member>
       <member refid="structeuphoria_1_1core_1_1TemplateNode_1a8cfc22c79241a5e955d381ddcc65be8b" prot="public" virt="non-virtual"><scope>euphoria::core::TemplateNode</scope><name>operator=</name></member>
       <member refid="structeuphoria_1_1core_1_1TemplateNode_1a4fbc8a79b86da351811159aef158240c" prot="public" virt="non-virtual"><scope>euphoria::core::TemplateNode</scope><name>operator=</name></member>
       <member refid="structeuphoria_1_1core_1_1TemplateNode_1a469fba453acad36773761ba0bcbd0ad4" prot="public" virt="non-virtual"><scope>euphoria::core::TemplateNode</scope><name>TemplateNode</name></member>

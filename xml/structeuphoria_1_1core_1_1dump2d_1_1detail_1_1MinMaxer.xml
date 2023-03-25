@@ -8,7 +8,7 @@
         <definition>vec2f euphoria::core::dump2d::detail::MinMaxer::min</definition>
         <argsstring></argsstring>
         <name>min</name>
-        <initializer>= <ref refid="structeuphoria_1_1core_1_1vec2f_1a89a534774964e00c039cfba17ace7ecc" kindref="member">vec2f::zero</ref>()</initializer>
+        <initializer>= <ref refid="namespaceeuphoria_1_1core_1a1c5f3fdb8624a88937d9596674106931" kindref="member">zero2f</ref></initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -22,7 +22,7 @@
         <definition>vec2f euphoria::core::dump2d::detail::MinMaxer::max</definition>
         <argsstring></argsstring>
         <name>max</name>
-        <initializer>= <ref refid="structeuphoria_1_1core_1_1vec2f_1a89a534774964e00c039cfba17ace7ecc" kindref="member">vec2f::zero</ref>()</initializer>
+        <initializer>= <ref refid="namespaceeuphoria_1_1core_1a1c5f3fdb8624a88937d9596674106931" kindref="member">zero2f</ref></initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>

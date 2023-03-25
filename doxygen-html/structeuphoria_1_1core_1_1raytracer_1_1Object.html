@@ -85,8 +85,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ae0754018fd671790a7f5b136502759e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa67167d153704c91251742449b707305"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1Object.html#aa67167d153704c91251742449b707305">operator=</a> (<a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1Object.html">Object</a> &amp;&amp;)=delete</td></tr>
 <tr class="separator:aa67167d153704c91251742449b707305"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a635e30c2bf8a8a78fd8df27dc8435dca"><td class="memItemLeft" align="right" valign="top">virtual std::optional&lt; <a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1HitResult.html">HitResult</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1Object.html#a635e30c2bf8a8a78fd8df27dc8435dca">hit</a> (const <a class="el" href="structeuphoria_1_1core_1_1UnitRay3f.html">UnitRay3f</a> &amp;ray, const <a class="el" href="structeuphoria_1_1core_1_1Range.html">Range</a>&lt; float &gt; &amp;range) const =0</td></tr>
-<tr class="separator:a635e30c2bf8a8a78fd8df27dc8435dca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ff6e67ab36e6dee4aaa383d842be4bc"><td class="memItemLeft" align="right" valign="top">virtual std::optional&lt; <a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1Collision.html">Collision</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1Object.html#a0ff6e67ab36e6dee4aaa383d842be4bc">get_collision</a> (const <a class="el" href="structeuphoria_1_1core_1_1UnitRay3f.html">UnitRay3f</a> &amp;ray, const <a class="el" href="structeuphoria_1_1core_1_1Range.html">Range</a>&lt; float &gt; &amp;range) const =0</td></tr>
+<tr class="separator:a0ff6e67ab36e6dee4aaa383d842be4bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
@@ -195,8 +195,8 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a635e30c2bf8a8a78fd8df27dc8435dca"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a635e30c2bf8a8a78fd8df27dc8435dca">&#9670;&nbsp;</a></span>hit()</h2>
+<a id="a0ff6e67ab36e6dee4aaa383d842be4bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ff6e67ab36e6dee4aaa383d842be4bc">&#9670;&nbsp;</a></span>get_collision()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -205,7 +205,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual std::optional&lt;<a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1HitResult.html">HitResult</a>&gt; euphoria::core::raytracer::Object::hit </td>
+          <td class="memname">virtual std::optional&lt;<a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1Collision.html">Collision</a>&gt; euphoria::core::raytracer::Object::get_collision </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1UnitRay3f.html">UnitRay3f</a> &amp;&#160;</td>
           <td class="paramname"><em>ray</em>, </td>
@@ -229,7 +229,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1SphereObject.html#acab56495380f02ba5875a98d9e8a5022">euphoria::core::raytracer::SphereObject</a>.</p>
+<p>Implemented in <a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1SphereObject.html#a0ec2543907c5d7dde31f03c5ff2c4a86">euphoria::core::raytracer::SphereObject</a>.</p>
 
 </div>
 </div>

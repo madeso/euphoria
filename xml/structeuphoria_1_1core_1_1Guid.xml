@@ -32,9 +32,9 @@
         </inbodydescription>
         <location file="libs/core/src/core/guid.h" line="13" column="9"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Guid_1a53bee17851b7f6ac8eb347cd3928d497" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>euphoria::core::Guid::Guid</definition>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Guid_1a664fb055b597db6ac08bc0f9307f0aaf" prot="public" static="no" constexpr="yes" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type>constexpr</type>
+        <definition>constexpr euphoria::core::Guid::Guid</definition>
         <argsstring>(std::array&lt; uint8_t, 16 &gt; d)</argsstring>
         <name>Guid</name>
         <param>
@@ -47,7 +47,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/guid.h" line="14" column="18" bodyfile="libs/core/src/core/guid.cc" bodystart="15" bodyend="18"/>
+        <location file="libs/core/src/core/guid.h" line="14" column="28" bodyfile="libs/core/src/core/guid.h" bodystart="14" bodyend="17"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Guid_1a8f1ec15ef28d2b06fd6540b438b6c9b6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -60,7 +60,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/guid.h" line="20" column="22" bodyfile="libs/core/src/core/guid.cc" bodystart="127" bodyend="142"/>
+        <location file="libs/core/src/core/guid.h" line="22" column="22" bodyfile="libs/core/src/core/guid.cc" bodystart="109" bodyend="124"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
@@ -75,20 +75,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/guid.h" line="16" column="31" bodyfile="libs/core/src/core/guid.cc" bodystart="21" bodyend="26"/>
-      </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Guid_1aef34cbef5b72af2e47a3e1ee1036c261" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeuphoria_1_1core_1_1Guid" kindref="compound">Guid</ref></type>
-        <definition>Guid euphoria::core::Guid::nil</definition>
-        <argsstring>()</argsstring>
-        <name>nil</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/guid.h" line="17" column="22" bodyfile="libs/core/src/core/guid.cc" bodystart="61" bodyend="72"/>
+        <location file="libs/core/src/core/guid.h" line="19" column="31" bodyfile="libs/core/src/core/guid.cc" bodystart="16" bodyend="21"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Guid_1a4fb554a330a510e678ad43c64fa52ede" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::optional&lt; <ref refid="structeuphoria_1_1core_1_1Guid" kindref="compound">Guid</ref> &gt;</type>
@@ -105,20 +92,19 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/guid.h" line="18" column="31" bodyfile="libs/core/src/core/guid.cc" bodystart="74" bodyend="125"/>
+        <location file="libs/core/src/core/guid.h" line="20" column="31" bodyfile="libs/core/src/core/guid.cc" bodystart="56" bodyend="107"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/guid.h" line="10" column="1" bodyfile="libs/core/src/core/guid.h" bodystart="9" bodyend="21"/>
+    <location file="libs/core/src/core/guid.h" line="10" column="1" bodyfile="libs/core/src/core/guid.h" bodystart="9" bodyend="23"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1Guid_1a15686127aa31df9f1b81245cbc4d24ae" prot="public" virt="non-virtual"><scope>euphoria::core::Guid</scope><name>create</name></member>
       <member refid="structeuphoria_1_1core_1_1Guid_1aa6d3b6487208e84957ac5ccc993fcd29" prot="public" virt="non-virtual"><scope>euphoria::core::Guid</scope><name>data</name></member>
       <member refid="structeuphoria_1_1core_1_1Guid_1af34373258549fe1b02a9c998e63835bf" prot="public" virt="non-virtual"><scope>euphoria::core::Guid</scope><name>Guid</name></member>
-      <member refid="structeuphoria_1_1core_1_1Guid_1a53bee17851b7f6ac8eb347cd3928d497" prot="public" virt="non-virtual"><scope>euphoria::core::Guid</scope><name>Guid</name></member>
-      <member refid="structeuphoria_1_1core_1_1Guid_1aef34cbef5b72af2e47a3e1ee1036c261" prot="public" virt="non-virtual"><scope>euphoria::core::Guid</scope><name>nil</name></member>
+      <member refid="structeuphoria_1_1core_1_1Guid_1a664fb055b597db6ac08bc0f9307f0aaf" prot="public" virt="non-virtual"><scope>euphoria::core::Guid</scope><name>Guid</name></member>
       <member refid="structeuphoria_1_1core_1_1Guid_1a4fb554a330a510e678ad43c64fa52ede" prot="public" virt="non-virtual"><scope>euphoria::core::Guid</scope><name>parse</name></member>
       <member refid="structeuphoria_1_1core_1_1Guid_1a8f1ec15ef28d2b06fd6540b438b6c9b6" prot="public" virt="non-virtual"><scope>euphoria::core::Guid</scope><name>to_string</name></member>
     </listofallmembers>

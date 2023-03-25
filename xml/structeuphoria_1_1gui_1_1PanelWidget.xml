@@ -178,12 +178,12 @@
         </inbodydescription>
         <location file="libs/gui/src/gui/panelwidget.h" line="25" column="23" bodyfile="libs/gui/src/gui/panelwidget.cc" bodystart="22" bodyend="25"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1gui_1_1PanelWidget_1a04ed1a678c20bc2a8ac649cac57842a5" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+      <memberdef kind="function" id="structeuphoria_1_1gui_1_1PanelWidget_1a2a8c8f0bdbcad52dc436817a56cd47ba" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
-        <definition>void euphoria::gui::PanelWidget::step</definition>
+        <definition>void euphoria::gui::PanelWidget::update</definition>
         <argsstring>(float dt) override</argsstring>
-        <name>step</name>
-        <reimplements refid="structeuphoria_1_1gui_1_1Widget_1a3a1900a6e333b97253b9ef60c40364da">step</reimplements>
+        <name>update</name>
+        <reimplements refid="structeuphoria_1_1gui_1_1Widget_1a8fb13ace5dd9dfc66350a4c34a75922c">update</reimplements>
         <param>
           <type>float</type>
           <declname>dt</declname>
@@ -304,8 +304,8 @@
       <member refid="structeuphoria_1_1gui_1_1Widget_1adaeaa96945b0d21a6bb304a152a06e8e" prot="public" virt="non-virtual"><scope>euphoria::gui::PanelWidget</scope><name>rect</name></member>
       <member refid="structeuphoria_1_1gui_1_1PanelWidget_1a79a2f500e183d1c60c81ea5610e8ea75" prot="public" virt="virtual"><scope>euphoria::gui::PanelWidget</scope><name>render</name></member>
       <member refid="structeuphoria_1_1gui_1_1Widget_1af94951932b190171b68d94bc8d4d54e0" prot="public" virt="non-virtual"><scope>euphoria::gui::PanelWidget</scope><name>set_rect</name></member>
-      <member refid="structeuphoria_1_1gui_1_1PanelWidget_1a04ed1a678c20bc2a8ac649cac57842a5" prot="public" virt="virtual"><scope>euphoria::gui::PanelWidget</scope><name>step</name></member>
       <member refid="structeuphoria_1_1gui_1_1Widget_1a327ea1ae474285039624b1452ab81631" prot="public" virt="non-virtual"><scope>euphoria::gui::PanelWidget</scope><name>ui_state</name></member>
+      <member refid="structeuphoria_1_1gui_1_1PanelWidget_1a2a8c8f0bdbcad52dc436817a56cd47ba" prot="public" virt="virtual"><scope>euphoria::gui::PanelWidget</scope><name>update</name></member>
       <member refid="structeuphoria_1_1gui_1_1PanelWidget_1a9fb8136a1222227a1bff8d6c51ff76eb" prot="public" virt="virtual"><scope>euphoria::gui::PanelWidget</scope><name>visit</name></member>
       <member refid="structeuphoria_1_1gui_1_1Widget_1a58c16afb025fc25598706c2fbb6cfaf7" prot="public" virt="non-virtual"><scope>euphoria::gui::PanelWidget</scope><name>Widget</name></member>
       <member refid="structeuphoria_1_1gui_1_1Widget_1ab7d5be28d0290db4419a8c192edc43af" prot="public" virt="non-virtual"><scope>euphoria::gui::PanelWidget</scope><name>Widget</name></member>

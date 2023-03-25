@@ -8,6 +8,7 @@
     <includes refid="angle_8h" local="yes">core/angle.h</includes>
     <includes refid="mat4_8h" local="yes">core/mat4.h</includes>
     <includes refid="polarcoord_8h" local="yes">core/polarcoord.h</includes>
+    <includes refid="interpolate_8default_8h" local="yes">core/interpolate.default.h</includes>
     <includedby refid="camera3_8h" local="yes">libs/core/src/core/camera3.h</includedby>
     <includedby refid="fpscontroller_8h" local="yes">libs/core/src/core/fpscontroller.h</includedby>
     <includedby refid="orbitcontroller_8h" local="yes">libs/core/src/core/orbitcontroller.h</includedby>
@@ -117,6 +118,8 @@
       <node id="11">
         <label>core/numeric.h</label>
         <link refid="numeric_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
       </node>
       <node id="7">
         <label>vector</label>
@@ -141,6 +144,8 @@
         <childnode refid="18" relation="include">
         </childnode>
         <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
         </childnode>
       </node>
       <node id="18">

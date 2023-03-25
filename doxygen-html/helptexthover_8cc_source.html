@@ -69,7 +69,7 @@
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="comment">// return if the help text should be displayed or not</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordtype">bool</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    step</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    update</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    (</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="keywordtype">int</span>&amp; <a class="code" href="ui__text_8cc.html#a259fb3f5fba9b7b18fe92f38be37bfa6">state</a>,</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <span class="keywordtype">float</span>&amp; timer,</div>
@@ -128,9 +128,9 @@
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceeuphoria_1_1core.html">euphoria::core</a></div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;{</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
-<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="structeuphoria_1_1core_1_1HelpTextHover.html#a5fc7cb96fe512198488b9548bc3822fa">   75</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="structeuphoria_1_1core_1_1HelpTextHover.html#a5fc7cb96fe512198488b9548bc3822fa">HelpTextHover::step</a>(<span class="keywordtype">bool</span> currently_hovering_over_widget, <span class="keywordtype">float</span> dt)</div>
+<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="structeuphoria_1_1core_1_1HelpTextHover.html#a8c677638d0215fcb7e9f1617db7e0602">   75</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="structeuphoria_1_1core_1_1HelpTextHover.html#a8c677638d0215fcb7e9f1617db7e0602">HelpTextHover::update</a>(<span class="keywordtype">bool</span> currently_hovering_over_widget, <span class="keywordtype">float</span> dt)</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;{</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <a class="code" href="structeuphoria_1_1core_1_1HelpTextHover.html#aa310ca733f2c420e8f5677814a440084">display_hover</a> = <a class="code" href="structeuphoria_1_1core_1_1HelpTextHover.html#a5fc7cb96fe512198488b9548bc3822fa">::step</a></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <a class="code" href="structeuphoria_1_1core_1_1HelpTextHover.html#aa310ca733f2c420e8f5677814a440084">display_hover</a> = <a class="code" href="structeuphoria_1_1core_1_1HelpTextHover.html#a8c677638d0215fcb7e9f1617db7e0602">::update</a></div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    (</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <a class="code" href="structeuphoria_1_1core_1_1HelpTextHover.html#a8481b6bbbc665f2f2dc485c8a0200e04">state</a>,</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <a class="code" href="structeuphoria_1_1core_1_1HelpTextHover.html#a599579f7259ce2c4bd4562c5ce4efafe">timer</a>,</div>
@@ -142,7 +142,6 @@
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="astructeuphoria_1_1core_1_1HelpTextHover_html_a5fc7cb96fe512198488b9548bc3822fa"><div class="ttname"><a href="structeuphoria_1_1core_1_1HelpTextHover.html#a5fc7cb96fe512198488b9548bc3822fa">euphoria::core::HelpTextHover::step</a></div><div class="ttdeci">void step(bool currently_hovering_over_widget, float dt)</div><div class="ttdef"><b>Definition:</b> <a href="helptexthover_8cc_source.html#l00075">helptexthover.cc:75</a></div></div>
 <div class="ttc" id="astructeuphoria_1_1core_1_1HelpTextHover_html_a8c482b0a280f18f634f6009a66cf0b4b"><div class="ttname"><a href="structeuphoria_1_1core_1_1HelpTextHover.html#a8c482b0a280f18f634f6009a66cf0b4b">euphoria::core::HelpTextHover::time_to_hover</a></div><div class="ttdeci">float time_to_hover</div><div class="ttdef"><b>Definition:</b> <a href="helptexthover_8h_source.html#l00010">helptexthover.h:10</a></div></div>
 <div class="ttc" id="astructeuphoria_1_1core_1_1HelpTextHover_html_a599579f7259ce2c4bd4562c5ce4efafe"><div class="ttname"><a href="structeuphoria_1_1core_1_1HelpTextHover.html#a599579f7259ce2c4bd4562c5ce4efafe">euphoria::core::HelpTextHover::timer</a></div><div class="ttdeci">float timer</div><div class="ttdef"><b>Definition:</b> <a href="helptexthover_8h_source.html#l00014">helptexthover.h:14</a></div></div>
 <div class="ttc" id="aassert_8h_html"><div class="ttname"><a href="assert_8h.html">assert.h</a></div></div>
@@ -154,6 +153,7 @@
 <div class="ttc" id="anamespaceeuphoria_1_1core_1_1argparse_html_a0af6040d256538cb352a8314efcbd222"><div class="ttname"><a href="namespaceeuphoria_1_1core_1_1argparse.html#a0af6040d256538cb352a8314efcbd222">euphoria::core::argparse::State</a></div><div class="ttdeci">State</div><div class="ttdoc">enum to catch adding arguments during parsing in a callback</div><div class="ttdef"><b>Definition:</b> <a href="argparse_8h_source.html#l00022">argparse.h:22</a></div></div>
 <div class="ttc" id="anamespaceeuphoria_1_1core_html"><div class="ttname"><a href="namespaceeuphoria_1_1core.html">euphoria::core</a></div><div class="ttdef"><b>Definition:</b> <a href="aabb_8cc_source.html#l00008">aabb.cc:8</a></div></div>
 <div class="ttc" id="aui__text_8cc_html_a259fb3f5fba9b7b18fe92f38be37bfa6"><div class="ttname"><a href="ui__text_8cc.html#a259fb3f5fba9b7b18fe92f38be37bfa6">state</a></div><div class="ttdeci">ParserState state</div><div class="ttdef"><b>Definition:</b> <a href="ui__text_8cc_source.html#l00134">ui_text.cc:134</a></div></div>
+<div class="ttc" id="astructeuphoria_1_1core_1_1HelpTextHover_html_a8c677638d0215fcb7e9f1617db7e0602"><div class="ttname"><a href="structeuphoria_1_1core_1_1HelpTextHover.html#a8c677638d0215fcb7e9f1617db7e0602">euphoria::core::HelpTextHover::update</a></div><div class="ttdeci">void update(bool currently_hovering_over_widget, float dt)</div><div class="ttdef"><b>Definition:</b> <a href="helptexthover_8cc_source.html#l00075">helptexthover.cc:75</a></div></div>
 <!-- HTML footer for doxygen 1.8.17-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

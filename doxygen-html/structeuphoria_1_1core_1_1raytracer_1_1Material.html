@@ -87,8 +87,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aec295529dd52b9cee0adbcba438ea1fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5ee921957b078c9d32c2b9bf807527b1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1Material.html#a5ee921957b078c9d32c2b9bf807527b1">operator=</a> (<a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1Material.html">Material</a> &amp;&amp;)=delete</td></tr>
 <tr class="separator:a5ee921957b078c9d32c2b9bf807527b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6ff9316d1365d21f77aca71034217731"><td class="memItemLeft" align="right" valign="top">virtual std::optional&lt; <a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1ScatterResult.html">ScatterResult</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1Material.html#a6ff9316d1365d21f77aca71034217731">scatter</a> (const <a class="el" href="structeuphoria_1_1core_1_1UnitRay3f.html">UnitRay3f</a> &amp;ray, const <a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1HitResult.html">HitResult</a> &amp;hit, <a class="el" href="structeuphoria_1_1core_1_1Random.html">Random</a> *random)=0</td></tr>
-<tr class="separator:a6ff9316d1365d21f77aca71034217731"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa6362959bf6840bf586361ed38b2d53a"><td class="memItemLeft" align="right" valign="top">virtual std::optional&lt; <a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1ScatterResult.html">ScatterResult</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1Material.html#aa6362959bf6840bf586361ed38b2d53a">get_scattered</a> (const <a class="el" href="structeuphoria_1_1core_1_1UnitRay3f.html">UnitRay3f</a> &amp;ray, const <a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1Collision.html">Collision</a> &amp;hit, <a class="el" href="structeuphoria_1_1core_1_1Random.html">Random</a> *random)=0</td></tr>
+<tr class="separator:aa6362959bf6840bf586361ed38b2d53a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
@@ -197,6 +197,50 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="aa6362959bf6840bf586361ed38b2d53a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa6362959bf6840bf586361ed38b2d53a">&#9670;&nbsp;</a></span>get_scattered()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::optional&lt;<a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1ScatterResult.html">ScatterResult</a>&gt; euphoria::core::raytracer::Material::get_scattered </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1UnitRay3f.html">UnitRay3f</a> &amp;&#160;</td>
+          <td class="paramname"><em>ray</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1Collision.html">Collision</a> &amp;&#160;</td>
+          <td class="paramname"><em>hit</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structeuphoria_1_1core_1_1Random.html">Random</a> *&#160;</td>
+          <td class="paramname"><em>random</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1DielectricMaterial.html#a06d111ff20874cde0018d1bc1d111f9a">euphoria::core::raytracer::DielectricMaterial</a>, <a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1MetalMaterial.html#a71cb35b05dc7e95f3d7a2d2e2e2b5679">euphoria::core::raytracer::MetalMaterial</a>, and <a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1DiffuseMaterial.html#aaa4a43c9eca49364974d9606952f918c">euphoria::core::raytracer::DiffuseMaterial</a>.</p>
+
+</div>
+</div>
 <a id="ab1ef89ecd7cc6e7b2e318bb0dbb1a98f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab1ef89ecd7cc6e7b2e318bb0dbb1a98f">&#9670;&nbsp;</a></span>operator=() <span class="overload">[1/2]</span></h2>
 
@@ -246,50 +290,6 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-
-</div>
-</div>
-<a id="a6ff9316d1365d21f77aca71034217731"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6ff9316d1365d21f77aca71034217731">&#9670;&nbsp;</a></span>scatter()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual std::optional&lt;<a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1ScatterResult.html">ScatterResult</a>&gt; euphoria::core::raytracer::Material::scatter </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1UnitRay3f.html">UnitRay3f</a> &amp;&#160;</td>
-          <td class="paramname"><em>ray</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1HitResult.html">HitResult</a> &amp;&#160;</td>
-          <td class="paramname"><em>hit</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structeuphoria_1_1core_1_1Random.html">Random</a> *&#160;</td>
-          <td class="paramname"><em>random</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Implemented in <a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1DielectricMaterial.html#abc7bcb89f843a39cbe9e6acd4a619fa0">euphoria::core::raytracer::DielectricMaterial</a>, <a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1MetalMaterial.html#ab3efc74979a96bc2f634c930c1572563">euphoria::core::raytracer::MetalMaterial</a>, and <a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1DiffuseMaterial.html#afcc7913cfbc0d4b26e818d946aa310d0">euphoria::core::raytracer::DiffuseMaterial</a>.</p>
 
 </div>
 </div>

@@ -90,6 +90,8 @@
       <node id="17">
         <label>core/numeric.h</label>
         <link refid="numeric_8h"/>
+        <childnode refid="14" relation="include">
+        </childnode>
       </node>
       <node id="13">
         <label>vector</label>

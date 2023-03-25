@@ -75,9 +75,9 @@ Macros</h2></td></tr>
 <tr class="separator:a52267107dd1016c80abd3e27e445e437"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a52267107dd1016c80abd3e27e445e437"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mat2_8cc.html#a52267107dd1016c80abd3e27e445e437">OP</a>(i)&#160;&#160;&#160;data[i] -= rhs.data[i]</td></tr>
 <tr class="separator:a52267107dd1016c80abd3e27e445e437"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6c80fab70a39bdaff699abc7fd6f7c29"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mat2_8cc.html#a6c80fab70a39bdaff699abc7fd6f7c29">OP</a>(r,  c)&#160;&#160;&#160;component_multiply(lhs.get_row(r), rhs.get_column(c)).get_component_sum()</td></tr>
+<tr class="memitem:a6c80fab70a39bdaff699abc7fd6f7c29"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mat2_8cc.html#a6c80fab70a39bdaff699abc7fd6f7c29">OP</a>(r,  c)&#160;&#160;&#160;get_component_multiply_sum(lhs.get_row(r), rhs.get_column(c))</td></tr>
 <tr class="separator:a6c80fab70a39bdaff699abc7fd6f7c29"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad3fad4870192fbb33f78583fbb0cc502"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mat2_8cc.html#ad3fad4870192fbb33f78583fbb0cc502">OP</a>(r)&#160;&#160;&#160;component_multiply(lhs.get_row(r), rhs).get_component_sum()</td></tr>
+<tr class="memitem:ad3fad4870192fbb33f78583fbb0cc502"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mat2_8cc.html#ad3fad4870192fbb33f78583fbb0cc502">OP</a>(r)&#160;&#160;&#160;get_component_multiply_sum(lhs.get_row(r), rhs)</td></tr>
 <tr class="separator:ad3fad4870192fbb33f78583fbb0cc502"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
@@ -88,6 +88,8 @@ Functions</h2></td></tr>
 <tr class="separator:aa0bb815b5e82cb7a0cc25afeccc2ca07"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a046813ea26fd294d07ce7b3fbc117b91"><td class="memItemLeft" align="right" valign="top">mat2f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a046813ea26fd294d07ce7b3fbc117b91">euphoria::core::operator-</a> (const mat2f &amp;lhs, const mat2f &amp;rhs)</td></tr>
 <tr class="separator:a046813ea26fd294d07ce7b3fbc117b91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8b95413fd3f6b40155d50997e4cc32c"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#aa8b95413fd3f6b40155d50997e4cc32c">euphoria::core::get_component_multiply_sum</a> (const vec2f &amp;lhs, const vec2f &amp;rhs)</td></tr>
+<tr class="separator:aa8b95413fd3f6b40155d50997e4cc32c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a38c81675ac41652373c66534edaf3d64"><td class="memItemLeft" align="right" valign="top">mat2f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a38c81675ac41652373c66534edaf3d64">euphoria::core::operator*</a> (const mat2f &amp;lhs, const mat2f &amp;rhs)</td></tr>
 <tr class="separator:a38c81675ac41652373c66534edaf3d64"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa5d3421355bae56ac9b6248388afe016"><td class="memItemLeft" align="right" valign="top">vec2f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#aa5d3421355bae56ac9b6248388afe016">euphoria::core::operator*</a> (const mat2f &amp;lhs, const vec2f &amp;rhs)</td></tr>
@@ -141,7 +143,7 @@ Functions</h2></td></tr>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname">r</td><td>)</td>
-          <td>&#160;&#160;&#160;component_multiply(lhs.get_row(r), rhs).get_component_sum()</td>
+          <td>&#160;&#160;&#160;get_component_multiply_sum(lhs.get_row(r), rhs)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -169,7 +171,7 @@ Functions</h2></td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td>&#160;&#160;&#160;component_multiply(lhs.get_row(r), rhs.get_column(c)).get_component_sum()</td>
+          <td></td><td>&#160;&#160;&#160;get_component_multiply_sum(lhs.get_row(r), rhs.get_column(c))</td>
         </tr>
       </table>
 </div><div class="memdoc">

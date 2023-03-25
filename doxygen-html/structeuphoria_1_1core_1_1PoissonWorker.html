@@ -67,8 +67,8 @@
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a2bc412490ecf75eddcfd7897a7a0b692"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1PoissonWorker.html#a2bc412490ecf75eddcfd7897a7a0b692">PoissonWorker</a> (const <a class="el" href="structeuphoria_1_1core_1_1Rectf.html">Rectf</a> &amp;<a class="el" href="structeuphoria_1_1core_1_1PoissonWorker.html#acca7b2f02a12af990148b61a62d5f07c">area</a>, <a class="el" href="structeuphoria_1_1core_1_1Random.html">Random</a> *random, float <a class="el" href="structeuphoria_1_1core_1_1PoissonWorker.html#a0a831efd2af2385c8fd2daea52c4c40c">r</a>, float bs, int <a class="el" href="structeuphoria_1_1core_1_1PoissonWorker.html#ae91ccd62f6ce9b32b83ec09487e08919">k</a>)</td></tr>
 <tr class="separator:a2bc412490ecf75eddcfd7897a7a0b692"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2999de8e6364c8108b8088264bb49b67"><td class="memItemLeft" align="right" valign="top">std::optional&lt; std::tuple&lt; <a class="el" href="structeuphoria_1_1core_1_1vec2f.html">vec2f</a>, <a class="el" href="structeuphoria_1_1core_1_1vec2f.html">vec2f</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1PoissonWorker.html#a2999de8e6364c8108b8088264bb49b67">step</a> ()</td></tr>
-<tr class="separator:a2999de8e6364c8108b8088264bb49b67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a4fa165cfb29c1d0d5293a652fba692"><td class="memItemLeft" align="right" valign="top">std::optional&lt; std::tuple&lt; <a class="el" href="structeuphoria_1_1core_1_1vec2f.html">vec2f</a>, <a class="el" href="structeuphoria_1_1core_1_1vec2f.html">vec2f</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1PoissonWorker.html#a8a4fa165cfb29c1d0d5293a652fba692">update</a> ()</td></tr>
+<tr class="separator:a8a4fa165cfb29c1d0d5293a652fba692"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae6ca118e932c7690831e7e551b51e3c6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1PoissonWorker.html#ae6ca118e932c7690831e7e551b51e3c6">can_place_at</a> (const <a class="el" href="structeuphoria_1_1core_1_1vec2f.html">vec2f</a> &amp;potential_sample, const <a class="el" href="structeuphoria_1_1core_1_1vec2i.html">vec2i</a> &amp;potential_sample_pos)</td></tr>
 <tr class="separator:ae6ca118e932c7690831e7e551b51e3c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9f23a697db4ca4c0bedb0c7a501f3efc"><td class="memItemLeft" align="right" valign="top">std::tuple&lt; bool, <a class="el" href="structeuphoria_1_1core_1_1vec2f.html">vec2f</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1PoissonWorker.html#a9f23a697db4ca4c0bedb0c7a501f3efc">try_place</a> (int active_index)</td></tr>
@@ -242,25 +242,6 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a2999de8e6364c8108b8088264bb49b67"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2999de8e6364c8108b8088264bb49b67">&#9670;&nbsp;</a></span>step()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::optional&lt; std::tuple&lt; <a class="el" href="structeuphoria_1_1core_1_1vec2f.html">vec2f</a>, <a class="el" href="structeuphoria_1_1core_1_1vec2f.html">vec2f</a> &gt; &gt; euphoria::core::PoissonWorker::step </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="poisson_8cc_source.html#l00133">133</a> of file <a class="el" href="poisson_8cc_source.html">poisson.cc</a>.</p>
-
-</div>
-</div>
 <a id="a9f23a697db4ca4c0bedb0c7a501f3efc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9f23a697db4ca4c0bedb0c7a501f3efc">&#9670;&nbsp;</a></span>try_place()</h2>
 
@@ -278,6 +259,25 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="poisson_8cc_source.html#l00089">89</a> of file <a class="el" href="poisson_8cc_source.html">poisson.cc</a>.</p>
+
+</div>
+</div>
+<a id="a8a4fa165cfb29c1d0d5293a652fba692"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a4fa165cfb29c1d0d5293a652fba692">&#9670;&nbsp;</a></span>update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::optional&lt; std::tuple&lt; <a class="el" href="structeuphoria_1_1core_1_1vec2f.html">vec2f</a>, <a class="el" href="structeuphoria_1_1core_1_1vec2f.html">vec2f</a> &gt; &gt; euphoria::core::PoissonWorker::update </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="poisson_8cc_source.html#l00133">133</a> of file <a class="el" href="poisson_8cc_source.html">poisson.cc</a>.</p>
 
 </div>
 </div>

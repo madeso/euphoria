@@ -103,11 +103,11 @@
 <div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="namespaceeuphoria_1_1core.html#a98ab8c34e3778158d09a4f535f4359e4">   47</a></span>&#160;    <a class="code" href="namespaceeuphoria_1_1core.html#a98ab8c34e3778158d09a4f535f4359e4">to_codes</a>(<a class="code" href="namespaceeuphoria_1_1core.html#a8d5a7dabfee4ed81c44079dc769697c3">U8</a> <span class="keywordtype">byte</span>, <span class="keywordtype">bool</span> msb_first)</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    {</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keyword">auto</span> codes = std::vector&lt;int&gt;{};</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> s=0; s&lt;8; s+=2)</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a03c7c0ace395d80182db07ae2c30f034">s</a>=0; <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a03c7c0ace395d80182db07ae2c30f034">s</a>&lt;8; <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a03c7c0ace395d80182db07ae2c30f034">s</a>+=2)</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        {</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span> <a class="code" href="namespaceeuphoria_1_1core.html#a352b811085853f7ec220af1a5b92a124a92eb5ffee6ae2fec3ad71c777531578f">b</a> = msb_first</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                ? (<span class="keywordtype">byte</span> &gt;&gt; (6-s)) &amp; 3</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                : (<span class="keywordtype">byte</span> &gt;&gt; s) &amp; 3</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                ? (<span class="keywordtype">byte</span> &gt;&gt; (6-<a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a03c7c0ace395d80182db07ae2c30f034">s</a>)) &amp; 3</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                : (<span class="keywordtype">byte</span> &gt;&gt; <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a03c7c0ace395d80182db07ae2c30f034">s</a>) &amp; 3</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                ;</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            codes.emplace_back(<a class="code" href="namespaceeuphoria_1_1core.html#a352b811085853f7ec220af1a5b92a124a92eb5ffee6ae2fec3ad71c777531578f">b</a>);</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        }</div>
@@ -132,8 +132,8 @@
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    Table&lt;int&gt;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <a class="code" href="namespaceeuphoria_1_1core.html#ab52f0045c3a742c77a6d7bb0080cc6ba">drunken_bishop</a></div>
-<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="namespaceeuphoria_1_1core.html#ab52f0045c3a742c77a6d7bb0080cc6ba">   80</a></span>&#160;    (</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <a class="code" href="namespaceeuphoria_1_1core.html#a21b5c008fc7cb1039c497a2fb23a2a9e">get_drunken_bishop_result</a></div>
+<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="namespaceeuphoria_1_1core.html#a21b5c008fc7cb1039c497a2fb23a2a9e">   80</a></span>&#160;    (</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <a class="code" href="namespaceeuphoria_1_1core.html#ad68af8ee03e7b07d1a8a497b960c36a6">U32</a> hash,</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <span class="keywordtype">int</span> width,</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="keywordtype">int</span> height,</div>
@@ -142,7 +142,7 @@
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <span class="keywordtype">int</span> starty</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    )</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    {</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespaceeuphoria_1_1core.html#ab52f0045c3a742c77a6d7bb0080cc6ba">drunken_bishop</a></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespaceeuphoria_1_1core.html#a21b5c008fc7cb1039c497a2fb23a2a9e">get_drunken_bishop_result</a></div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        (</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            <a class="code" href="namespaceeuphoria_1_1core.html#a98ab8c34e3778158d09a4f535f4359e4">to_codes</a>(<a class="code" href="namespaceeuphoria_1_1core.html#ad6b25a056795f45b64f4c8e7ea10f8d4">to_bytes</a>(<a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a0800fc577294c34e0b28ad2839435945">hash</a>), msb_first),</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            width,</div>
@@ -152,107 +152,105 @@
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        );</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    }</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    Table&lt;int&gt;</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <a class="code" href="namespaceeuphoria_1_1core.html#ab52f0045c3a742c77a6d7bb0080cc6ba">drunken_bishop</a></div>
-<div class="line"><a name="l00102"></a><span class="lineno"><a class="line" href="namespaceeuphoria_1_1core.html#a52505a28c0489a8148553cdac1708c3e">  102</a></span>&#160;    (</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <a class="code" href="namespaceeuphoria_1_1core.html#a9a78daf2d2b390a0bac9e43d7119d916">U64</a> hash,</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        <span class="keywordtype">int</span> width,</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        <span class="keywordtype">int</span> height,</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <span class="keywordtype">bool</span> msb_first,</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <span class="keywordtype">int</span> startx,</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <span class="keywordtype">int</span> starty</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    )</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    {</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespaceeuphoria_1_1core.html#ab52f0045c3a742c77a6d7bb0080cc6ba">drunken_bishop</a></div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        (</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;            <a class="code" href="namespaceeuphoria_1_1core.html#a98ab8c34e3778158d09a4f535f4359e4">to_codes</a>(<a class="code" href="namespaceeuphoria_1_1core.html#ad6b25a056795f45b64f4c8e7ea10f8d4">to_bytes</a>(<a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a0800fc577294c34e0b28ad2839435945">hash</a>), msb_first),</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;            width,</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;            height,</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;            startx,</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;            starty</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        );</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    }</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    Table&lt;int&gt;</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <a class="code" href="namespaceeuphoria_1_1core.html#ab52f0045c3a742c77a6d7bb0080cc6ba">drunken_bishop</a></div>
-<div class="line"><a name="l00124"></a><span class="lineno"><a class="line" href="namespaceeuphoria_1_1core.html#a9532f2bddc73ceafe328ada84273e671">  124</a></span>&#160;    (</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        <span class="keyword">const</span> std::vector&lt;int&gt;&amp; codes,</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        <span class="keywordtype">int</span> width,</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        <span class="keywordtype">int</span> height,</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        <span class="keywordtype">int</span> startx,</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        <span class="keywordtype">int</span> starty</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    )</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    {</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        <span class="keyword">auto</span> table = <a class="code" href="structeuphoria_1_1core_1_1Table.html#a46cd939f6d02e7308d02fef52476b6c2">core::Table&lt;int&gt;::from_width_height</a>(width, height, 0);</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        <span class="keyword">auto</span> <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a9dd4e461268c8034f5c8564e155c67a6">x</a> = startx != -1? startx : width/2;</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        <span class="keyword">auto</span> <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a415290769594460e2e485922904f345d">y</a> = starty != -1? starty : height/2;</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160; </div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">auto</span> code: codes)</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;        {</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;            constexpr <span class="keywordtype">int</span> vertical_mask = 0b10;</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;            constexpr <span class="keywordtype">int</span> horizontal_mask = 0b01;</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160; </div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span> dy = (vertical_mask &amp; code) != 0 ? 1 : -1;</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span> dx = (horizontal_mask &amp; code) != 0 ? 1 : -1;</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160; </div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;            <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a9dd4e461268c8034f5c8564e155c67a6">x</a> = <a class="code" href="namespaceeuphoria_1_1core.html#a38b2e3a8790e089c7bf1fdb3cc4b8581">keep_within</a>(table.get_indices().get_range_x(), <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a9dd4e461268c8034f5c8564e155c67a6">x</a> + dx);</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;            <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a415290769594460e2e485922904f345d">y</a> = <a class="code" href="namespaceeuphoria_1_1core.html#a38b2e3a8790e089c7bf1fdb3cc4b8581">keep_within</a>(table.get_indices().get_range_y(), <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a415290769594460e2e485922904f345d">y</a> + dy);</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160; </div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;            table(<a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a9dd4e461268c8034f5c8564e155c67a6">x</a>, <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a415290769594460e2e485922904f345d">y</a>) += 1;</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        }</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160; </div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        <span class="keywordflow">return</span> table;</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    }</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160; </div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160; </div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    std::vector&lt;std::string&gt;</div>
-<div class="line"><a name="l00155"></a><span class="lineno"><a class="line" href="namespaceeuphoria_1_1core.html#a9a80a8adc17d9c56c898172424466f85">  155</a></span>&#160;    <a class="code" href="namespaceeuphoria_1_1core.html#a9a80a8adc17d9c56c898172424466f85">get_ssh_characters</a>()</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    {</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;        <span class="keywordflow">return</span></div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;        {</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;            <span class="stringliteral">&quot; &quot;</span>, <span class="stringliteral">&quot;.&quot;</span>, <span class="stringliteral">&quot;o&quot;</span>, <span class="stringliteral">&quot;+&quot;</span>, <span class="stringliteral">&quot;=&quot;</span>,</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;            <span class="stringliteral">&quot;*&quot;</span>, <span class="stringliteral">&quot;B&quot;</span>, <span class="stringliteral">&quot;O&quot;</span>, <span class="stringliteral">&quot;X&quot;</span>, <span class="stringliteral">&quot;@&quot;</span>,</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;            <span class="stringliteral">&quot;%&quot;</span>, <span class="stringliteral">&quot;&amp;&quot;</span>, <span class="stringliteral">&quot;#&quot;</span>, <span class="stringliteral">&quot;/&quot;</span>, <span class="stringliteral">&quot;?&quot;</span></div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;        };</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    }</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160; </div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160; </div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    std::vector&lt;std::string&gt;</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    <a class="code" href="namespaceeuphoria_1_1core.html#a34b4574016d284e604adb1d9d4d49d63">collapse</a></div>
-<div class="line"><a name="l00168"></a><span class="lineno"><a class="line" href="namespaceeuphoria_1_1core.html#a34b4574016d284e604adb1d9d4d49d63">  168</a></span>&#160;    (</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;        <span class="keyword">const</span> <a class="code" href="structeuphoria_1_1core_1_1Table.html">Table&lt;int&gt;</a>&amp; table,</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;        <span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; characters</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    )</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    {</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;        <span class="keyword">auto</span> rr = std::vector&lt;std::string&gt;{};</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160; </div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a415290769594460e2e485922904f345d">y</a>=0; <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a415290769594460e2e485922904f345d">y</a>&lt;table.<a class="code" href="structeuphoria_1_1core_1_1Table.html#ac6be94e7d0a32d6a7eb9928f14813195">get_height</a>(); <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a415290769594460e2e485922904f345d">y</a>+=1)</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;        {</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;            std::string <a class="code" href="namespaceeuphoria_1_1core.html#a352b811085853f7ec220af1a5b92a124a4b43b0aee35624cd95b910189b3dc231">r</a>;</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;            <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a9dd4e461268c8034f5c8564e155c67a6">x</a>=0; <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a9dd4e461268c8034f5c8564e155c67a6">x</a>&lt;table.<a class="code" href="structeuphoria_1_1core_1_1Table.html#a689c452066d5094b7d403fadd66c3f37">get_width</a>(); <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a9dd4e461268c8034f5c8564e155c67a6">x</a>+=1)</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;            {</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span> <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a9e3669d19b675bd57058fd4664205d2a">v</a> = <a class="code" href="namespaceeuphoria_1_1core.html#ab6fb5580825e85e2a19488ec6ec33c7f">std::max</a></div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;                (</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;                    0,</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;                    <a class="code" href="namespaceeuphoria_1_1core.html#a601920b359719cbc0731466fd734c3cd">std::min</a></div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;                    (</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;                        table(<a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a9dd4e461268c8034f5c8564e155c67a6">x</a>,<a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a415290769594460e2e485922904f345d">y</a>),</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;                        <a class="code" href="namespaceeuphoria_1_1core.html#a5fedf1ecd80db4f67871d932a0d88b27">c_sizet_to_int</a>(characters.size())</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;                    )</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;                );</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;                <a class="code" href="namespaceeuphoria_1_1core.html#a352b811085853f7ec220af1a5b92a124a4b43b0aee35624cd95b910189b3dc231">r</a> += characters[<a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a9e3669d19b675bd57058fd4664205d2a">v</a>];</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;            }</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;            rr.emplace_back(<a class="code" href="namespaceeuphoria_1_1core.html#a352b811085853f7ec220af1a5b92a124a4b43b0aee35624cd95b910189b3dc231">r</a>);</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;        }</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160; </div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;        <span class="keywordflow">return</span> rr;</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    }</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160; </div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    <span class="comment">// todo(Gustav): add image collapse with palette</span></div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;}</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160; </div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    Table&lt;int&gt;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <a class="code" href="namespaceeuphoria_1_1core.html#a21b5c008fc7cb1039c497a2fb23a2a9e">get_drunken_bishop_result</a></div>
+<div class="line"><a name="l00101"></a><span class="lineno"><a class="line" href="namespaceeuphoria_1_1core.html#a7d22454f292cc1bcbedc7ef8d7215c99">  101</a></span>&#160;    (</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <a class="code" href="namespaceeuphoria_1_1core.html#a9a78daf2d2b390a0bac9e43d7119d916">U64</a> hash,</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <span class="keywordtype">int</span> width,</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        <span class="keywordtype">int</span> height,</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        <span class="keywordtype">bool</span> msb_first,</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <span class="keywordtype">int</span> startx,</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <span class="keywordtype">int</span> starty</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    )</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    {</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespaceeuphoria_1_1core.html#a21b5c008fc7cb1039c497a2fb23a2a9e">get_drunken_bishop_result</a></div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        (</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;            <a class="code" href="namespaceeuphoria_1_1core.html#a98ab8c34e3778158d09a4f535f4359e4">to_codes</a>(<a class="code" href="namespaceeuphoria_1_1core.html#ad6b25a056795f45b64f4c8e7ea10f8d4">to_bytes</a>(<a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a0800fc577294c34e0b28ad2839435945">hash</a>), msb_first),</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;            width,</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;            height,</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;            startx,</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;            starty</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        );</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    }</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    Table&lt;int&gt;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <a class="code" href="namespaceeuphoria_1_1core.html#a21b5c008fc7cb1039c497a2fb23a2a9e">get_drunken_bishop_result</a></div>
+<div class="line"><a name="l00122"></a><span class="lineno"><a class="line" href="namespaceeuphoria_1_1core.html#aeaef2d140661f8388556889611c7ade6">  122</a></span>&#160;    (</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        <span class="keyword">const</span> std::vector&lt;int&gt;&amp; codes,</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        <span class="keywordtype">int</span> width,</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        <span class="keywordtype">int</span> height,</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        <span class="keywordtype">int</span> startx,</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        <span class="keywordtype">int</span> starty</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    )</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    {</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        <span class="keyword">auto</span> table = <a class="code" href="structeuphoria_1_1core_1_1Table.html#a46cd939f6d02e7308d02fef52476b6c2">core::Table&lt;int&gt;::from_width_height</a>(width, height, 0);</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        <span class="keyword">auto</span> <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a9dd4e461268c8034f5c8564e155c67a6">x</a> = startx != -1? startx : width/2;</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        <span class="keyword">auto</span> <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a415290769594460e2e485922904f345d">y</a> = starty != -1? starty : height/2;</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160; </div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">auto</span> code: codes)</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;        {</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;            constexpr <span class="keywordtype">int</span> vertical_mask = 0b10;</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;            constexpr <span class="keywordtype">int</span> horizontal_mask = 0b01;</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160; </div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span> dy = (vertical_mask &amp; code) != 0 ? 1 : -1;</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span> dx = (horizontal_mask &amp; code) != 0 ? 1 : -1;</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160; </div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;            <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a9dd4e461268c8034f5c8564e155c67a6">x</a> = <a class="code" href="namespaceeuphoria_1_1core.html#a38b2e3a8790e089c7bf1fdb3cc4b8581">keep_within</a>(table.get_indices().get_range_x(), <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a9dd4e461268c8034f5c8564e155c67a6">x</a> + dx);</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;            <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a415290769594460e2e485922904f345d">y</a> = <a class="code" href="namespaceeuphoria_1_1core.html#a38b2e3a8790e089c7bf1fdb3cc4b8581">keep_within</a>(table.get_indices().get_range_y(), <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a415290769594460e2e485922904f345d">y</a> + dy);</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160; </div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;            table(<a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a9dd4e461268c8034f5c8564e155c67a6">x</a>, <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a415290769594460e2e485922904f345d">y</a>) += 1;</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;        }</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160; </div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        <span class="keywordflow">return</span> table;</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    }</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160; </div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160; </div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    std::vector&lt;std::string&gt;</div>
+<div class="line"><a name="l00153"></a><span class="lineno"><a class="line" href="namespaceeuphoria_1_1core.html#a9a80a8adc17d9c56c898172424466f85">  153</a></span>&#160;    <a class="code" href="namespaceeuphoria_1_1core.html#a9a80a8adc17d9c56c898172424466f85">get_ssh_characters</a>()</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    {</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;        <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;        {</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;            <span class="stringliteral">&quot; &quot;</span>, <span class="stringliteral">&quot;.&quot;</span>, <span class="stringliteral">&quot;o&quot;</span>, <span class="stringliteral">&quot;+&quot;</span>, <span class="stringliteral">&quot;=&quot;</span>,</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;            <span class="stringliteral">&quot;*&quot;</span>, <span class="stringliteral">&quot;B&quot;</span>, <span class="stringliteral">&quot;O&quot;</span>, <span class="stringliteral">&quot;X&quot;</span>, <span class="stringliteral">&quot;@&quot;</span>,</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;            <span class="stringliteral">&quot;%&quot;</span>, <span class="stringliteral">&quot;&amp;&quot;</span>, <span class="stringliteral">&quot;#&quot;</span>, <span class="stringliteral">&quot;/&quot;</span>, <span class="stringliteral">&quot;?&quot;</span></div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;        };</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    }</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160; </div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160; </div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    std::vector&lt;std::string&gt;</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    <a class="code" href="namespaceeuphoria_1_1core.html#aa5c53b5d837ca3421ba30cc0e1404824">render_table</a></div>
+<div class="line"><a name="l00166"></a><span class="lineno"><a class="line" href="namespaceeuphoria_1_1core.html#aa5c53b5d837ca3421ba30cc0e1404824">  166</a></span>&#160;    (</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;        <span class="keyword">const</span> <a class="code" href="structeuphoria_1_1core_1_1Table.html">Table&lt;int&gt;</a>&amp; table,</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;        <span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; characters</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    )</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    {</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        <span class="keyword">auto</span> rr = std::vector&lt;std::string&gt;{};</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160; </div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a415290769594460e2e485922904f345d">y</a>=0; <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a415290769594460e2e485922904f345d">y</a>&lt;table.<a class="code" href="structeuphoria_1_1core_1_1Table.html#ac6be94e7d0a32d6a7eb9928f14813195">get_height</a>(); <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a415290769594460e2e485922904f345d">y</a>+=1)</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;        {</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;            std::string <a class="code" href="namespaceeuphoria_1_1core.html#a352b811085853f7ec220af1a5b92a124a4b43b0aee35624cd95b910189b3dc231">r</a>;</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;            <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a9dd4e461268c8034f5c8564e155c67a6">x</a>=0; <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a9dd4e461268c8034f5c8564e155c67a6">x</a>&lt;table.<a class="code" href="structeuphoria_1_1core_1_1Table.html#a689c452066d5094b7d403fadd66c3f37">get_width</a>(); <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a9dd4e461268c8034f5c8564e155c67a6">x</a>+=1)</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;            {</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span> <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a9e3669d19b675bd57058fd4664205d2a">v</a> = <a class="code" href="namespaceeuphoria_1_1core.html#ab6fb5580825e85e2a19488ec6ec33c7f">std::max</a></div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;                (</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;                    0,</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;                    <a class="code" href="namespaceeuphoria_1_1core.html#a601920b359719cbc0731466fd734c3cd">std::min</a></div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;                    (</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;                        table(<a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a9dd4e461268c8034f5c8564e155c67a6">x</a>,<a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a415290769594460e2e485922904f345d">y</a>),</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;                        <a class="code" href="namespaceeuphoria_1_1core.html#a5fedf1ecd80db4f67871d932a0d88b27">c_sizet_to_int</a>(characters.size())</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;                    )</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;                );</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;                <a class="code" href="namespaceeuphoria_1_1core.html#a352b811085853f7ec220af1a5b92a124a4b43b0aee35624cd95b910189b3dc231">r</a> += characters[<a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a9e3669d19b675bd57058fd4664205d2a">v</a>];</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;            }</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;            rr.emplace_back(<a class="code" href="namespaceeuphoria_1_1core.html#a352b811085853f7ec220af1a5b92a124a4b43b0aee35624cd95b910189b3dc231">r</a>);</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;        }</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160; </div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;        <span class="keywordflow">return</span> rr;</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    }</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160; </div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    <span class="comment">// todo(Gustav): add image collapse with palette</span></div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;}</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160; </div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="adrunken__bishop_8h_html"><div class="ttname"><a href="drunken__bishop_8h.html">drunken_bishop.h</a></div></div>
 <div class="ttc" id="anamespaceeuphoria_1_1core_html_a9a78daf2d2b390a0bac9e43d7119d916"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#a9a78daf2d2b390a0bac9e43d7119d916">euphoria::core::U64</a></div><div class="ttdeci">std::uint64_t U64</div><div class="ttdef"><b>Definition:</b> <a href="ints_8h_source.html#l00012">ints.h:12</a></div></div>
@@ -268,19 +266,20 @@
 <div class="ttc" id="anamespaceeuphoria_1_1core_html_ad6b25a056795f45b64f4c8e7ea10f8d4"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#ad6b25a056795f45b64f4c8e7ea10f8d4">euphoria::core::to_bytes</a></div><div class="ttdeci">std::vector&lt; U8 &gt; to_bytes(U32 hash)</div><div class="ttdef"><b>Definition:</b> <a href="drunken__bishop_8cc_source.html#l00033">drunken_bishop.cc:33</a></div></div>
 <div class="ttc" id="astructeuphoria_1_1core_1_1Table_html"><div class="ttname"><a href="structeuphoria_1_1core_1_1Table.html">euphoria::core::Table&lt; int &gt;</a></div></div>
 <div class="ttc" id="anamespaceeuphoria_1_1core_html_aa9db03a38fd9999446a4ebf0584cd710a4a8a08f09d37b73795649038408b5f33"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a4a8a08f09d37b73795649038408b5f33">euphoria::core::Key::c</a></div><div class="ttdeci">@ c</div></div>
-<div class="ttc" id="anamespaceeuphoria_1_1core_html_a9a80a8adc17d9c56c898172424466f85"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#a9a80a8adc17d9c56c898172424466f85">euphoria::core::get_ssh_characters</a></div><div class="ttdeci">std::vector&lt; std::string &gt; get_ssh_characters()</div><div class="ttdef"><b>Definition:</b> <a href="drunken__bishop_8cc_source.html#l00155">drunken_bishop.cc:155</a></div></div>
-<div class="ttc" id="anamespaceeuphoria_1_1core_html_ab52f0045c3a742c77a6d7bb0080cc6ba"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#ab52f0045c3a742c77a6d7bb0080cc6ba">euphoria::core::drunken_bishop</a></div><div class="ttdeci">Table&lt; int &gt; drunken_bishop(U32 hash, int width, int height, bool msb_first, int startx, int starty)</div><div class="ttdef"><b>Definition:</b> <a href="drunken__bishop_8cc_source.html#l00080">drunken_bishop.cc:80</a></div></div>
+<div class="ttc" id="anamespaceeuphoria_1_1core_html_a9a80a8adc17d9c56c898172424466f85"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#a9a80a8adc17d9c56c898172424466f85">euphoria::core::get_ssh_characters</a></div><div class="ttdeci">std::vector&lt; std::string &gt; get_ssh_characters()</div><div class="ttdef"><b>Definition:</b> <a href="drunken__bishop_8cc_source.html#l00153">drunken_bishop.cc:153</a></div></div>
+<div class="ttc" id="anamespaceeuphoria_1_1core_html_aa9db03a38fd9999446a4ebf0584cd710a03c7c0ace395d80182db07ae2c30f034"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a03c7c0ace395d80182db07ae2c30f034">euphoria::core::Key::s</a></div><div class="ttdeci">@ s</div></div>
 <div class="ttc" id="anamespaceeuphoria_1_1core_html_aa9db03a38fd9999446a4ebf0584cd710a9dd4e461268c8034f5c8564e155c67a6"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a9dd4e461268c8034f5c8564e155c67a6">euphoria::core::Key::x</a></div><div class="ttdeci">@ x</div></div>
 <div class="ttc" id="anamespaceeuphoria_1_1core_html_a38b2e3a8790e089c7bf1fdb3cc4b8581"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#a38b2e3a8790e089c7bf1fdb3cc4b8581">euphoria::core::keep_within</a></div><div class="ttdeci">T keep_within(const Range&lt; T &gt; &amp;range, T value)</div><div class="ttdef"><b>Definition:</b> <a href="range_8h_source.html#l00120">range.h:120</a></div></div>
 <div class="ttc" id="anamespaceeuphoria_1_1core_html_a352b811085853f7ec220af1a5b92a124a92eb5ffee6ae2fec3ad71c777531578f"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#a352b811085853f7ec220af1a5b92a124a92eb5ffee6ae2fec3ad71c777531578f">euphoria::core::Grayscale::b</a></div><div class="ttdeci">@ b</div></div>
 <div class="ttc" id="anamespaceeuphoria_1_1core_html"><div class="ttname"><a href="namespaceeuphoria_1_1core.html">euphoria::core</a></div><div class="ttdef"><b>Definition:</b> <a href="aabb_8cc_source.html#l00008">aabb.cc:8</a></div></div>
 <div class="ttc" id="anamespaceeuphoria_1_1core_html_a98ab8c34e3778158d09a4f535f4359e4"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#a98ab8c34e3778158d09a4f535f4359e4">euphoria::core::to_codes</a></div><div class="ttdeci">std::vector&lt; int &gt; to_codes(U8 byte, bool msb_first)</div><div class="ttdef"><b>Definition:</b> <a href="drunken__bishop_8cc_source.html#l00047">drunken_bishop.cc:47</a></div></div>
+<div class="ttc" id="anamespaceeuphoria_1_1core_html_aa5c53b5d837ca3421ba30cc0e1404824"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#aa5c53b5d837ca3421ba30cc0e1404824">euphoria::core::render_table</a></div><div class="ttdeci">std::vector&lt; std::string &gt; render_table(const Table&lt; int &gt; &amp;table, const std::vector&lt; std::string &gt; &amp;characters)</div><div class="ttdef"><b>Definition:</b> <a href="drunken__bishop_8cc_source.html#l00166">drunken_bishop.cc:166</a></div></div>
 <div class="ttc" id="anamespaceeuphoria_1_1core_html_a601920b359719cbc0731466fd734c3cd"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#a601920b359719cbc0731466fd734c3cd">euphoria::core::min</a></div><div class="ttdeci">vec3f min(const vec3f &amp;lhs, const vec3f &amp;rhs)</div><div class="ttdef"><b>Definition:</b> <a href="aabb_8cc_source.html#l00031">aabb.cc:31</a></div></div>
 <div class="ttc" id="anamespaceeuphoria_1_1core_html_aa9db03a38fd9999446a4ebf0584cd710a415290769594460e2e485922904f345d"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a415290769594460e2e485922904f345d">euphoria::core::Key::y</a></div><div class="ttdeci">@ y</div></div>
 <div class="ttc" id="astructeuphoria_1_1core_1_1Table_html_a46cd939f6d02e7308d02fef52476b6c2"><div class="ttname"><a href="structeuphoria_1_1core_1_1Table.html#a46cd939f6d02e7308d02fef52476b6c2">euphoria::core::Table::from_width_height</a></div><div class="ttdeci">static Table from_width_height(Idx width, Idx height, T d=T())</div><div class="ttdef"><b>Definition:</b> <a href="table_8h_source.html#l00023">table.h:23</a></div></div>
+<div class="ttc" id="anamespaceeuphoria_1_1core_html_a21b5c008fc7cb1039c497a2fb23a2a9e"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#a21b5c008fc7cb1039c497a2fb23a2a9e">euphoria::core::get_drunken_bishop_result</a></div><div class="ttdeci">Table&lt; int &gt; get_drunken_bishop_result(U32 hash, int width, int height, bool msb_first, int startx, int starty)</div><div class="ttdef"><b>Definition:</b> <a href="drunken__bishop_8cc_source.html#l00080">drunken_bishop.cc:80</a></div></div>
 <div class="ttc" id="anamespaceeuphoria_1_1core_html_a8d5a7dabfee4ed81c44079dc769697c3"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#a8d5a7dabfee4ed81c44079dc769697c3">euphoria::core::U8</a></div><div class="ttdeci">std::uint8_t U8</div><div class="ttdef"><b>Definition:</b> <a href="ints_8h_source.html#l00015">ints.h:15</a></div></div>
 <div class="ttc" id="anamespaceeuphoria_1_1core_html_ab6fb5580825e85e2a19488ec6ec33c7f"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#ab6fb5580825e85e2a19488ec6ec33c7f">euphoria::core::max</a></div><div class="ttdeci">vec3f max(const vec3f &amp;lhs, const vec3f &amp;rhs)</div><div class="ttdef"><b>Definition:</b> <a href="aabb_8cc_source.html#l00040">aabb.cc:40</a></div></div>
-<div class="ttc" id="anamespaceeuphoria_1_1core_html_a34b4574016d284e604adb1d9d4d49d63"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#a34b4574016d284e604adb1d9d4d49d63">euphoria::core::collapse</a></div><div class="ttdeci">std::vector&lt; std::string &gt; collapse(const Table&lt; int &gt; &amp;table, const std::vector&lt; std::string &gt; &amp;characters)</div><div class="ttdef"><b>Definition:</b> <a href="drunken__bishop_8cc_source.html#l00168">drunken_bishop.cc:168</a></div></div>
 <!-- HTML footer for doxygen 1.8.17-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

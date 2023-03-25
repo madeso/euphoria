@@ -80,8 +80,9 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a28f5005cd17304a67ed93013a318da6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac2fcbf7f3b5fcd4c7be82b3e291418c0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1Canvas.html#ac2fcbf7f3b5fcd4c7be82b3e291418c0">move_to</a> (float x, float y)</td></tr>
 <tr class="separator:ac2fcbf7f3b5fcd4c7be82b3e291418c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0224f5131236196fab6f491e9aeb33b4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1Canvas.html#a0224f5131236196fab6f491e9aeb33b4">line_to</a> (float dx, float dy)</td></tr>
-<tr class="separator:a0224f5131236196fab6f491e9aeb33b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44615b6f1e450488c7fcdb1232084442"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1Canvas.html#a44615b6f1e450488c7fcdb1232084442">draw_line_to</a> (float dx, float dy)</td></tr>
+<tr class="memdesc:a44615b6f1e450488c7fcdb1232084442"><td class="mdescLeft">&#160;</td><td class="mdescRight">should be named line_to but that name is horrible  <a href="structeuphoria_1_1core_1_1Canvas.html#a44615b6f1e450488c7fcdb1232084442">More...</a><br /></td></tr>
+<tr class="separator:a44615b6f1e450488c7fcdb1232084442"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3e4748a2aa1fe5e01048d399279b4746"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1vec2f.html">vec2f</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1Canvas.html#a3e4748a2aa1fe5e01048d399279b4746">transform_position</a> (const <a class="el" href="structeuphoria_1_1core_1_1vec2f.html">vec2f</a> &amp;v) const</td></tr>
 <tr class="separator:a3e4748a2aa1fe5e01048d399279b4746"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac29ace836b24a841bbb684a76f1641ab"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1Canvas.html#ac29ace836b24a841bbb684a76f1641ab">fill_rect</a> (int x, int y, int w, int h) const</td></tr>
@@ -166,6 +167,38 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a44615b6f1e450488c7fcdb1232084442"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44615b6f1e450488c7fcdb1232084442">&#9670;&nbsp;</a></span>draw_line_to()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void euphoria::core::Canvas::draw_line_to </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>dx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>dy</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>should be named line_to but that name is horrible </p>
+
+<p class="definition">Definition at line <a class="el" href="image__canvas_8cc_source.html#l00090">90</a> of file <a class="el" href="image__canvas_8cc_source.html">image_canvas.cc</a>.</p>
+
+</div>
+</div>
 <a id="acbe85f8b75c9c6bde274e93d4daee851"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acbe85f8b75c9c6bde274e93d4daee851">&#9670;&nbsp;</a></span>fill()</h2>
 
@@ -224,36 +257,6 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="image__canvas_8cc_source.html#l00037">37</a> of file <a class="el" href="image__canvas_8cc_source.html">image_canvas.cc</a>.</p>
-
-</div>
-</div>
-<a id="a0224f5131236196fab6f491e9aeb33b4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0224f5131236196fab6f491e9aeb33b4">&#9670;&nbsp;</a></span>line_to()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void euphoria::core::Canvas::line_to </td>
-          <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>dx</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>dy</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="image__canvas_8cc_source.html#l00090">90</a> of file <a class="el" href="image__canvas_8cc_source.html">image_canvas.cc</a>.</p>
 
 </div>
 </div>

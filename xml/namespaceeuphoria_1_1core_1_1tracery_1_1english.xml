@@ -72,11 +72,11 @@
         </inbodydescription>
         <location file="libs/core/src/core/tracery.cc" line="507" column="21" bodyfile="libs/core/src/core/tracery.cc" bodystart="507" bodyend="514"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1tracery_1_1english_1ae95b6a640a0139ae25ac9431a023af7a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1tracery_1_1english_1a443a89c3ba1116b6528609d2379d4fe2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
-        <definition>std::string euphoria::core::tracery::english::a</definition>
+        <definition>std::string euphoria::core::tracery::english::add_prefix_with_a_or_an</definition>
         <argsstring>(const std::string &amp;s)</argsstring>
-        <name>a</name>
+        <name>add_prefix_with_a_or_an</name>
         <param>
           <type>const std::string &amp;</type>
           <declname>s</declname>
@@ -89,11 +89,11 @@
         </inbodydescription>
         <location file="libs/core/src/core/tracery.cc" line="517" column="21" bodyfile="libs/core/src/core/tracery.cc" bodystart="517" bodyend="539"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1tracery_1_1english_1a0441a5b4e663c222e0ccf8979f27a5f6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1tracery_1_1english_1a084d8aec0b6b4c46b0153cd8abf6fe2c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
-        <definition>std::string euphoria::core::tracery::english::s</definition>
+        <definition>std::string euphoria::core::tracery::english::add_postfix_plural</definition>
         <argsstring>(const std::string &amp;s)</argsstring>
-        <name>s</name>
+        <name>add_postfix_plural</name>
         <param>
           <type>const std::string &amp;</type>
           <declname>s</declname>
@@ -106,16 +106,17 @@
         </inbodydescription>
         <location file="libs/core/src/core/tracery.cc" line="542" column="21" bodyfile="libs/core/src/core/tracery.cc" bodystart="542" bodyend="561"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1tracery_1_1english_1aa18b38d1bbda82c22ad30e227d617d31" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1tracery_1_1english_1a04b5372eefc62a9e1f7dd78ffad7c0a7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
-        <definition>std::string euphoria::core::tracery::english::ed</definition>
+        <definition>std::string euphoria::core::tracery::english::add_postfix_ed</definition>
         <argsstring>(const std::string &amp;s)</argsstring>
-        <name>ed</name>
+        <name>add_postfix_ed</name>
         <param>
           <type>const std::string &amp;</type>
           <declname>s</declname>
         </param>
         <briefdescription>
+<para>useful for converting walk -&gt; walked </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>

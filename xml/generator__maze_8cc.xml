@@ -18,7 +18,7 @@
         </childnode>
         <childnode refid="7" relation="include">
         </childnode>
-        <childnode refid="8" relation="include">
+        <childnode refid="9" relation="include">
         </childnode>
         <childnode refid="14" relation="include">
         </childnode>
@@ -33,7 +33,7 @@
       <node id="19">
         <label>core/size2.h</label>
         <link refid="size2_8h"/>
-        <childnode refid="9" relation="include">
+        <childnode refid="10" relation="include">
         </childnode>
         <childnode refid="7" relation="include">
         </childnode>
@@ -78,7 +78,7 @@
         </childnode>
         <childnode refid="12" relation="include">
         </childnode>
-        <childnode refid="11" relation="include">
+        <childnode refid="8" relation="include">
         </childnode>
         <childnode refid="22" relation="include">
         </childnode>
@@ -119,7 +119,7 @@
         </childnode>
         <childnode refid="15" relation="include">
         </childnode>
-        <childnode refid="9" relation="include">
+        <childnode refid="10" relation="include">
         </childnode>
         <childnode refid="33" relation="include">
         </childnode>
@@ -136,14 +136,14 @@
         <childnode refid="6" relation="include">
         </childnode>
       </node>
-      <node id="9">
+      <node id="10">
         <label>core/vec2.h</label>
         <link refid="vec2_8h"/>
-        <childnode refid="10" relation="include">
+        <childnode refid="11" relation="include">
         </childnode>
         <childnode refid="4" relation="include">
         </childnode>
-        <childnode refid="11" relation="include">
+        <childnode refid="8" relation="include">
         </childnode>
         <childnode refid="12" relation="include">
         </childnode>
@@ -160,7 +160,7 @@
         <childnode refid="31" relation="include">
         </childnode>
       </node>
-      <node id="10">
+      <node id="11">
         <label>tuple</label>
       </node>
       <node id="31">
@@ -169,13 +169,15 @@
       <node id="7">
         <label>core/numeric.h</label>
         <link refid="numeric_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
       </node>
       <node id="2">
         <label>core/generator_maze.h</label>
         <link refid="generator__maze_8h"/>
         <childnode refid="3" relation="include">
         </childnode>
-        <childnode refid="9" relation="include">
+        <childnode refid="10" relation="include">
         </childnode>
         <childnode refid="35" relation="include">
         </childnode>
@@ -206,9 +208,9 @@
         </childnode>
         <childnode refid="37" relation="include">
         </childnode>
-        <childnode refid="8" relation="include">
-        </childnode>
         <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
         </childnode>
         <childnode refid="44" relation="include">
         </childnode>
@@ -231,7 +233,7 @@
       <node id="17">
         <label>cstddef</label>
       </node>
-      <node id="11">
+      <node id="8">
         <label>core/interpolate.default.h</label>
         <link refid="interpolate_8default_8h"/>
       </node>
@@ -256,7 +258,7 @@
         </childnode>
         <childnode refid="39" relation="include">
         </childnode>
-        <childnode refid="8" relation="include">
+        <childnode refid="9" relation="include">
         </childnode>
       </node>
       <node id="23">
@@ -273,12 +275,12 @@
         <childnode refid="28" relation="include">
         </childnode>
       </node>
-      <node id="8">
+      <node id="9">
         <label>core/rect.h</label>
         <link refid="rect_8h"/>
         <childnode refid="4" relation="include">
         </childnode>
-        <childnode refid="9" relation="include">
+        <childnode refid="10" relation="include">
         </childnode>
         <childnode refid="19" relation="include">
         </childnode>
@@ -292,7 +294,7 @@
         </childnode>
         <childnode refid="7" relation="include">
         </childnode>
-        <childnode refid="11" relation="include">
+        <childnode refid="8" relation="include">
         </childnode>
       </node>
       <node id="22">

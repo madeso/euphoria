@@ -162,11 +162,11 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
-      <memberdef kind="function" id="structeuphoria_1_1render_1_1ShaderUniform_1aed98dc37ab75bd7de9d71c46c093c58b" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1ShaderUniform_1a71acead7850bb1e50a22811f372e2361" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>const <ref refid="structeuphoria_1_1render_1_1ShaderUniform" kindref="compound">ShaderUniform</ref> &amp;</type>
-        <definition>const ShaderUniform &amp; euphoria::render::ShaderUniform::null</definition>
+        <definition>const ShaderUniform &amp; euphoria::render::ShaderUniform::create_null</definition>
         <argsstring>()</argsstring>
-        <name>null</name>
+        <name>create_null</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -216,10 +216,10 @@
     </collaborationgraph>
     <location file="libs/render/src/render/shaderuniform.h" line="11" column="1" bodyfile="libs/render/src/render/shaderuniform.h" bodystart="10" bodyend="33"/>
     <listofallmembers>
+      <member refid="structeuphoria_1_1render_1_1ShaderUniform_1a71acead7850bb1e50a22811f372e2361" prot="public" virt="non-virtual"><scope>euphoria::render::ShaderUniform</scope><name>create_null</name></member>
       <member refid="structeuphoria_1_1render_1_1ShaderUniform_1a46aaa861a144dac1e98e6fa57fd4833f" prot="public" virt="non-virtual"><scope>euphoria::render::ShaderUniform</scope><name>id</name></member>
       <member refid="structeuphoria_1_1render_1_1ShaderUniform_1abc167240b7dbf9f4431177709dd30d06" prot="public" virt="non-virtual"><scope>euphoria::render::ShaderUniform</scope><name>is_null</name></member>
       <member refid="structeuphoria_1_1render_1_1ShaderUniform_1a74027c52f4d055bc5cf69fb2a474c45a" prot="public" virt="non-virtual"><scope>euphoria::render::ShaderUniform</scope><name>name</name></member>
-      <member refid="structeuphoria_1_1render_1_1ShaderUniform_1aed98dc37ab75bd7de9d71c46c093c58b" prot="public" virt="non-virtual"><scope>euphoria::render::ShaderUniform</scope><name>null</name></member>
       <member refid="structeuphoria_1_1render_1_1ShaderUniform_1a5b779888836932e58c0cb0a22f9670a6" prot="public" virt="non-virtual"><scope>euphoria::render::ShaderUniform</scope><name>operator=</name></member>
       <member refid="structeuphoria_1_1render_1_1ShaderUniform_1a8256b97402f42df0fc821827d38f8d46" prot="public" virt="non-virtual"><scope>euphoria::render::ShaderUniform</scope><name>operator=</name></member>
       <member refid="structeuphoria_1_1render_1_1ShaderUniform_1a2a743bd3e4fe253b420fbb53975452b2" prot="public" virt="non-virtual"><scope>euphoria::render::ShaderUniform</scope><name>shader</name></member>

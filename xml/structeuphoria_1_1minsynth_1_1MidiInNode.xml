@@ -63,11 +63,11 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
-      <memberdef kind="function" id="structeuphoria_1_1minsynth_1_1MidiInNode_1a919fcfb0d4f82eb4c8e52191adfde435" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1minsynth_1_1MidiInNode_1a945c2b2378ff94ea0fdade230ac699cb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>void euphoria::minsynth::MidiInNode::callback</definition>
+        <definition>void euphoria::minsynth::MidiInNode::on_midi_message</definition>
         <argsstring>(float dt, const std::vector&lt; unsigned char &gt; &amp;bytes)</argsstring>
-        <name>callback</name>
+        <name>on_midi_message</name>
         <param>
           <type>float</type>
           <declname>dt</declname>
@@ -162,13 +162,13 @@
     </collaborationgraph>
     <location file="libs/minsynth/src/minsynth/synth.h" line="189" column="1" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="188" bodyend="199"/>
     <listofallmembers>
-      <member refid="structeuphoria_1_1minsynth_1_1MidiInNode_1a919fcfb0d4f82eb4c8e52191adfde435" prot="public" virt="non-virtual"><scope>euphoria::minsynth::MidiInNode</scope><name>callback</name></member>
       <member refid="structeuphoria_1_1minsynth_1_1MidiInNode_1a1971b28fd0f3ded9e8a18fcbcc141d44" prot="public" virt="non-virtual"><scope>euphoria::minsynth::MidiInNode</scope><name>debug_callback</name></member>
       <member refid="structeuphoria_1_1minsynth_1_1MidiInNode_1adfb066b244277b16884c868b04b897cb" prot="public" virt="non-virtual"><scope>euphoria::minsynth::MidiInNode</scope><name>is_status_message</name></member>
       <member refid="structeuphoria_1_1minsynth_1_1MidiInNode_1a7268fa8156734e488f8656d0509d9a9d" prot="public" virt="non-virtual"><scope>euphoria::minsynth::MidiInNode</scope><name>last_time</name></member>
       <member refid="structeuphoria_1_1minsynth_1_1Node_1a343fb3f85c00808d9fa1a0e47db176b0" prot="public" virt="non-virtual"><scope>euphoria::minsynth::MidiInNode</scope><name>Node</name></member>
       <member refid="structeuphoria_1_1minsynth_1_1Node_1af32dcf34eb9bdc46433322309490f14f" prot="public" virt="non-virtual"><scope>euphoria::minsynth::MidiInNode</scope><name>Node</name></member>
       <member refid="structeuphoria_1_1minsynth_1_1Node_1a804b0e11c11c8dfe98f09ab080c25d59" prot="public" virt="non-virtual"><scope>euphoria::minsynth::MidiInNode</scope><name>Node</name></member>
+      <member refid="structeuphoria_1_1minsynth_1_1MidiInNode_1a945c2b2378ff94ea0fdade230ac699cb" prot="public" virt="non-virtual"><scope>euphoria::minsynth::MidiInNode</scope><name>on_midi_message</name></member>
       <member refid="structeuphoria_1_1minsynth_1_1MidiInNode_1a126cc33223401f926c94cb0ce65109af" prot="public" virt="non-virtual"><scope>euphoria::minsynth::MidiInNode</scope><name>open_virtual_port</name></member>
       <member refid="structeuphoria_1_1minsynth_1_1Node_1af0ab491ba7edc548dcde546c2a31c920" prot="public" virt="non-virtual"><scope>euphoria::minsynth::MidiInNode</scope><name>operator=</name></member>
       <member refid="structeuphoria_1_1minsynth_1_1Node_1a5ee36fa76279fd2a7755adfe72156d2f" prot="public" virt="non-virtual"><scope>euphoria::minsynth::MidiInNode</scope><name>operator=</name></member>

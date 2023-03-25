@@ -65,7 +65,14 @@ Demos</h2>
 About the code</h2>
 <p>The folder structure should follow the <a href="https://github.com/vector-of-bool/pitchfork">pitchfork layout</a>.</p>
 <p><object type="image/svg+xml" data="./docs/euphoria.excalidraw.svg" style="pointer-events: none;">project layout</object></p>
-<p>All names should follow <code>snake_case</code>, both for variables, members, functions and files. The only exception are C++ macros that should follow <code>SHOUTING_SNAKE_CASE</code> and structs &amp; template arguments that should follow <code>PascalCase</code>. Convertion functions should either be named <code>con</code> if the convertion is obvious, otherwise it should be named <code>c_foobar</code> where <code>foobar</code> describes the conversion, casts are discouraged to the point of being forbidden outside of the 'convertion functions'. </p>
+<p>All names should follow <code>snake_case</code>, both for variables, members, functions and files. The only exception are C++ macros that should follow <code>SHOUTING_SNAKE_CASE</code> and structs &amp; template arguments that should follow <code>PascalCase</code>.</p>
+<h2><a class="anchor" id="autotoc_md2"></a>
+Naming guidelines</h2>
+<ul>
+<li>Prefer to name function after what is returns, not the algorithm (<code>get_sorted</code> or <code>sort_inplace</code> vs <code>quicksort</code>).</li>
+<li>Prefer to name function after what is does, not how it does it (<code>add_item</code> vs <code>emplace_back_item</code>).</li>
+<li>Avoid general names, be specific but don't be too specific. </li>
+</ul>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.17-->

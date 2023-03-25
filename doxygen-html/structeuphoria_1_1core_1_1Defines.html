@@ -67,10 +67,10 @@
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a03c57631f871644a746653163938703e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1Defines.html#a03c57631f871644a746653163938703e">Defines</a> ()</td></tr>
 <tr class="separator:a03c57631f871644a746653163938703e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab275e59ce5f2c2d702fe61c154f3b995"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1Defines.html#ab275e59ce5f2c2d702fe61c154f3b995">undefine</a> (const std::string &amp;name)</td></tr>
-<tr class="separator:ab275e59ce5f2c2d702fe61c154f3b995"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0e3b4953fe2a004c2539967dc5757740"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1Defines.html#a0e3b4953fe2a004c2539967dc5757740">define</a> (const std::string &amp;name, const std::string &amp;value)</td></tr>
-<tr class="separator:a0e3b4953fe2a004c2539967dc5757740"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a697804d7ca747289db17247132a1fedc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1Defines.html#a697804d7ca747289db17247132a1fedc">remove</a> (const std::string &amp;name)</td></tr>
+<tr class="separator:a697804d7ca747289db17247132a1fedc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac93900649e76559316ca70697b620374"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1Defines.html#ac93900649e76559316ca70697b620374">set</a> (const std::string &amp;name, const std::string &amp;value)</td></tr>
+<tr class="separator:ac93900649e76559316ca70697b620374"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af06c89384c7dc09d5beae6fd3e8f2ee2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1Defines.html#af06c89384c7dc09d5beae6fd3e8f2ee2">is_defined</a> (const std::string &amp;name) const</td></tr>
 <tr class="separator:af06c89384c7dc09d5beae6fd3e8f2ee2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af489654f0e8510ed0f368367d65e6e5a"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1Defines.html#af489654f0e8510ed0f368367d65e6e5a">get_value</a> (const std::string &amp;name) const</td></tr>
@@ -111,36 +111,6 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a0e3b4953fe2a004c2539967dc5757740"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0e3b4953fe2a004c2539967dc5757740">&#9670;&nbsp;</a></span>define()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void euphoria::core::Defines::define </td>
-          <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>name</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>value</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="texttemplate_8cc_source.html#l00053">53</a> of file <a class="el" href="texttemplate_8cc_source.html">texttemplate.cc</a>.</p>
-
-</div>
-</div>
 <a id="af489654f0e8510ed0f368367d65e6e5a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af489654f0e8510ed0f368367d65e6e5a">&#9670;&nbsp;</a></span>get_value()</h2>
 
@@ -181,14 +151,14 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="ab275e59ce5f2c2d702fe61c154f3b995"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab275e59ce5f2c2d702fe61c154f3b995">&#9670;&nbsp;</a></span>undefine()</h2>
+<a id="a697804d7ca747289db17247132a1fedc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a697804d7ca747289db17247132a1fedc">&#9670;&nbsp;</a></span>remove()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void euphoria::core::Defines::undefine </td>
+          <td class="memname">void euphoria::core::Defines::remove </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>name</em></td><td>)</td>
@@ -198,6 +168,36 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="texttemplate_8cc_source.html#l00046">46</a> of file <a class="el" href="texttemplate_8cc_source.html">texttemplate.cc</a>.</p>
+
+</div>
+</div>
+<a id="ac93900649e76559316ca70697b620374"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac93900649e76559316ca70697b620374">&#9670;&nbsp;</a></span>set()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void euphoria::core::Defines::set </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="texttemplate_8cc_source.html#l00053">53</a> of file <a class="el" href="texttemplate_8cc_source.html">texttemplate.cc</a>.</p>
 
 </div>
 </div>

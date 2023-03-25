@@ -99,16 +99,16 @@
         </inbodydescription>
         <location file="libs/core/src/core/generator_cell.h" line="30" column="14"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1generator_1_1Rule_1a04bde9b4d49e0a19c91b5bfd334a2e34" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1generator_1_1Rule_1a5c099da88734b60b8564790cac5dea56" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
         <type>void</type>
-        <definition>virtual void euphoria::core::generator::Rule::step</definition>
+        <definition>virtual void euphoria::core::generator::Rule::update</definition>
         <argsstring>(CellularAutomata *self)=0</argsstring>
-        <name>step</name>
-        <reimplementedby refid="structeuphoria_1_1core_1_1generator_1_1SmoothRule_1a3d460f0c8d41b3b1a8acc34e65c000a7">step</reimplementedby>
-        <reimplementedby refid="structeuphoria_1_1core_1_1generator_1_1RandomFillRule_1a47f937e94137814c5b3ea45c24eae10d">step</reimplementedby>
-        <reimplementedby refid="structeuphoria_1_1core_1_1generator_1_1FillSmallHolesRule_1aa46c554ab7b16b9a1cd60b9893ada94d">step</reimplementedby>
-        <reimplementedby refid="structeuphoria_1_1core_1_1generator_1_1FillAllHoles_1a9e4837d16c9b85628302d2ef5df49d1f">step</reimplementedby>
-        <reimplementedby refid="structeuphoria_1_1core_1_1generator_1_1HorizontalBlankRule_1aeb52ca9a06cc4d01449bb177757a36c1">step</reimplementedby>
+        <name>update</name>
+        <reimplementedby refid="structeuphoria_1_1core_1_1generator_1_1SmoothRule_1a9354e8380e092c7b697511e4c4f83711">update</reimplementedby>
+        <reimplementedby refid="structeuphoria_1_1core_1_1generator_1_1RandomFillRule_1a4efa090517092d35d991bd40664d37d6">update</reimplementedby>
+        <reimplementedby refid="structeuphoria_1_1core_1_1generator_1_1FillSmallHolesRule_1a7dee62eb32ffd7b65de39722668d0fce">update</reimplementedby>
+        <reimplementedby refid="structeuphoria_1_1core_1_1generator_1_1FillAllHoles_1a056473215f452b60559df068c7fb7f4c">update</reimplementedby>
+        <reimplementedby refid="structeuphoria_1_1core_1_1generator_1_1HorizontalBlankRule_1ae2fef31cfe9f88cb85d200795f418d21">update</reimplementedby>
         <param>
           <type><ref refid="structeuphoria_1_1core_1_1generator_1_1CellularAutomata" kindref="compound">CellularAutomata</ref> *</type>
           <declname>self</declname>
@@ -169,7 +169,7 @@
       <member refid="structeuphoria_1_1core_1_1generator_1_1Rule_1acee66f1f21e44dd69b1f3e6fb54174c5" prot="public" virt="non-virtual"><scope>euphoria::core::generator::Rule</scope><name>Rule</name></member>
       <member refid="structeuphoria_1_1core_1_1generator_1_1Rule_1a0a8caf1dda89a98eeb44fd579d31da43" prot="public" virt="non-virtual"><scope>euphoria::core::generator::Rule</scope><name>Rule</name></member>
       <member refid="structeuphoria_1_1core_1_1generator_1_1Rule_1a62efec702190ecb2f2dea4337fe95cba" prot="public" virt="non-virtual"><scope>euphoria::core::generator::Rule</scope><name>Rule</name></member>
-      <member refid="structeuphoria_1_1core_1_1generator_1_1Rule_1a04bde9b4d49e0a19c91b5bfd334a2e34" prot="public" virt="pure-virtual"><scope>euphoria::core::generator::Rule</scope><name>step</name></member>
+      <member refid="structeuphoria_1_1core_1_1generator_1_1Rule_1a5c099da88734b60b8564790cac5dea56" prot="public" virt="pure-virtual"><scope>euphoria::core::generator::Rule</scope><name>update</name></member>
       <member refid="structeuphoria_1_1core_1_1generator_1_1Rule_1adcac939654ffb9fcd2bbe5879ccbe6b4" prot="public" virt="virtual"><scope>euphoria::core::generator::Rule</scope><name>~Rule</name></member>
     </listofallmembers>
   </compounddef>

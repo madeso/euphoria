@@ -51,12 +51,12 @@
         </inbodydescription>
         <location file="libs/core/src/core/generator_cell.cc" line="21" column="18" bodyfile="libs/core/src/core/generator_cell.cc" bodystart="21" bodyend="24"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1generator_1_1SmoothRule_1a3d460f0c8d41b3b1a8acc34e65c000a7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1generator_1_1SmoothRule_1a9354e8380e092c7b697511e4c4f83711" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
         <type>void</type>
-        <definition>void euphoria::core::generator::SmoothRule::step</definition>
+        <definition>void euphoria::core::generator::SmoothRule::update</definition>
         <argsstring>(CellularAutomata *self) override</argsstring>
-        <name>step</name>
-        <reimplements refid="structeuphoria_1_1core_1_1generator_1_1Rule_1a04bde9b4d49e0a19c91b5bfd334a2e34">step</reimplements>
+        <name>update</name>
+        <reimplements refid="structeuphoria_1_1core_1_1generator_1_1Rule_1a5c099da88734b60b8564790cac5dea56">update</reimplements>
         <param>
           <type><ref refid="structeuphoria_1_1core_1_1generator_1_1CellularAutomata" kindref="compound">CellularAutomata</ref> *</type>
           <declname>self</declname>
@@ -108,7 +108,7 @@
       <member refid="structeuphoria_1_1core_1_1generator_1_1SmoothRule_1a53087bb9c37888d2244483690befd55d" prot="public" virt="non-virtual"><scope>euphoria::core::generator::SmoothRule</scope><name>smooth_function</name></member>
       <member refid="structeuphoria_1_1core_1_1generator_1_1SmoothRule_1a1df75b7e50f63b714d00b7e215513e5f" prot="public" virt="non-virtual"><scope>euphoria::core::generator::SmoothRule</scope><name>SmoothFunction</name></member>
       <member refid="structeuphoria_1_1core_1_1generator_1_1SmoothRule_1a383d2f8c99141e9a8b2a2fad9e9a0689" prot="public" virt="non-virtual"><scope>euphoria::core::generator::SmoothRule</scope><name>SmoothRule</name></member>
-      <member refid="structeuphoria_1_1core_1_1generator_1_1SmoothRule_1a3d460f0c8d41b3b1a8acc34e65c000a7" prot="public" virt="virtual"><scope>euphoria::core::generator::SmoothRule</scope><name>step</name></member>
+      <member refid="structeuphoria_1_1core_1_1generator_1_1SmoothRule_1a9354e8380e092c7b697511e4c4f83711" prot="public" virt="virtual"><scope>euphoria::core::generator::SmoothRule</scope><name>update</name></member>
       <member refid="structeuphoria_1_1core_1_1generator_1_1Rule_1adcac939654ffb9fcd2bbe5879ccbe6b4" prot="public" virt="virtual"><scope>euphoria::core::generator::SmoothRule</scope><name>~Rule</name></member>
     </listofallmembers>
   </compounddef>

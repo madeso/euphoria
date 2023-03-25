@@ -88,10 +88,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a203df91d7e802b8f10ccf31231cd3cda"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2d1c271d09dc3baa09b37bfa759a1894"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1generator_1_1Algorithm.html#a2d1c271d09dc3baa09b37bfa759a1894">setup</a> ()=0</td></tr>
 <tr class="separator:a2d1c271d09dc3baa09b37bfa759a1894"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae937b77505c16a32eee57933307b716a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1generator_1_1Algorithm.html#ae937b77505c16a32eee57933307b716a">work</a> ()=0</td></tr>
-<tr class="separator:ae937b77505c16a32eee57933307b716a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aadb707c44e21e5c093bf4cfd7d509c34"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1generator_1_1Algorithm.html#aadb707c44e21e5c093bf4cfd7d509c34">has_more_work</a> () const =0</td></tr>
-<tr class="separator:aadb707c44e21e5c093bf4cfd7d509c34"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7f9482f67331c426a0f0241b5f542c5"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1generator_1_1Algorithm.html#ad7f9482f67331c426a0f0241b5f542c5">update</a> ()=0</td></tr>
+<tr class="separator:ad7f9482f67331c426a0f0241b5f542c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c0a602e0aa3749115aaa8ef1756a76d"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1generator_1_1Algorithm.html#a8c0a602e0aa3749115aaa8ef1756a76d">is_done</a> () const =0</td></tr>
+<tr class="separator:a8c0a602e0aa3749115aaa8ef1756a76d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
@@ -200,8 +200,8 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="aadb707c44e21e5c093bf4cfd7d509c34"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aadb707c44e21e5c093bf4cfd7d509c34">&#9670;&nbsp;</a></span>has_more_work()</h2>
+<a id="a8c0a602e0aa3749115aaa8ef1756a76d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c0a602e0aa3749115aaa8ef1756a76d">&#9670;&nbsp;</a></span>is_done()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -210,7 +210,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual bool euphoria::core::generator::Algorithm::has_more_work </td>
+          <td class="memname">virtual bool euphoria::core::generator::Algorithm::is_done </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -223,7 +223,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="structeuphoria_1_1core_1_1generator_1_1RandomTraversal.html#a26980f500e9414f8e47b848a4e578b1d">euphoria::core::generator::RandomTraversal</a>, and <a class="el" href="structeuphoria_1_1core_1_1generator_1_1RecursiveBacktracker.html#a4f8aeeae9ac1ba5aa9ac878c685c8952">euphoria::core::generator::RecursiveBacktracker</a>.</p>
+<p>Implemented in <a class="el" href="structeuphoria_1_1core_1_1generator_1_1RandomTraversal.html#a1d0dad774e220851b06c86ef4e445644">euphoria::core::generator::RandomTraversal</a>, and <a class="el" href="structeuphoria_1_1core_1_1generator_1_1RecursiveBacktracker.html#a1732823a0462a52525302bb52cc79800">euphoria::core::generator::RecursiveBacktracker</a>.</p>
 
 </div>
 </div>
@@ -306,8 +306,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ae937b77505c16a32eee57933307b716a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae937b77505c16a32eee57933307b716a">&#9670;&nbsp;</a></span>work()</h2>
+<a id="ad7f9482f67331c426a0f0241b5f542c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7f9482f67331c426a0f0241b5f542c5">&#9670;&nbsp;</a></span>update()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -316,7 +316,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void euphoria::core::generator::Algorithm::work </td>
+          <td class="memname">virtual void euphoria::core::generator::Algorithm::update </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -329,7 +329,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="structeuphoria_1_1core_1_1generator_1_1RandomTraversal.html#a9b0aec4c5c21c81d2620db65df801ec9">euphoria::core::generator::RandomTraversal</a>, and <a class="el" href="structeuphoria_1_1core_1_1generator_1_1RecursiveBacktracker.html#a4f30e1de84eecf564070721b692a9aec">euphoria::core::generator::RecursiveBacktracker</a>.</p>
+<p>Implemented in <a class="el" href="structeuphoria_1_1core_1_1generator_1_1RandomTraversal.html#a801eb354420308e216de0d466e37cd1a">euphoria::core::generator::RandomTraversal</a>, and <a class="el" href="structeuphoria_1_1core_1_1generator_1_1RecursiveBacktracker.html#a9f0d3ea884aa84c691b720a528a65925">euphoria::core::generator::RecursiveBacktracker</a>.</p>
 
 </div>
 </div>

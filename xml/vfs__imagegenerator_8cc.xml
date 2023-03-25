@@ -167,6 +167,8 @@
       <node id="20">
         <label>core/numeric.h</label>
         <link refid="numeric_8h"/>
+        <childnode refid="21" relation="include">
+        </childnode>
       </node>
       <node id="32">
         <label>magic_enum/magic_enum.hpp</label>

@@ -176,11 +176,11 @@
         </inbodydescription>
         <location file="libs/render/src/render/spritebatch.h" line="25" column="9" bodyfile="libs/render/src/render/spritebatch.cc" bodystart="25" bodyend="29"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1render_1_1SpriteBatch_1a94589758c36a07de1292cc1c3a13ce12" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1SpriteBatch_1ade2ca5b2854a1a76ecec52cc303f1c2f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>void euphoria::render::SpriteBatch::quad</definition>
+        <definition>void euphoria::render::SpriteBatch::render_quad</definition>
         <argsstring>(const core::vec2f &amp;pos, const core::size2f &amp;quad, const core::Rectf &amp;uv, const core::Scale2f &amp;center, const core::angle &amp;rotation, const core::rgba &amp;color)</argsstring>
-        <name>quad</name>
+        <name>render_quad</name>
         <param>
           <type>const <ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">core::vec2f</ref> &amp;</type>
           <declname>pos</declname>
@@ -254,8 +254,8 @@
       <member refid="structeuphoria_1_1render_1_1SpriteBatch_1a931610f454b8513f440dc867f53e92b5" prot="private" virt="non-virtual"><scope>euphoria::render::SpriteBatch</scope><name>number_of_render_calls</name></member>
       <member refid="structeuphoria_1_1render_1_1SpriteBatch_1a9f401162199220ba315a34cc9ff575e1" prot="public" virt="non-virtual"><scope>euphoria::render::SpriteBatch</scope><name>operator=</name></member>
       <member refid="structeuphoria_1_1render_1_1SpriteBatch_1a18359e046f6913f5c352c7c92ad7c0e7" prot="public" virt="non-virtual"><scope>euphoria::render::SpriteBatch</scope><name>operator=</name></member>
-      <member refid="structeuphoria_1_1render_1_1SpriteBatch_1a94589758c36a07de1292cc1c3a13ce12" prot="public" virt="non-virtual"><scope>euphoria::render::SpriteBatch</scope><name>quad</name></member>
       <member refid="structeuphoria_1_1render_1_1SpriteBatch_1af1abe9cd53b7973e3f8100e2281069eb" prot="private" virt="non-virtual"><scope>euphoria::render::SpriteBatch</scope><name>quad_indices</name></member>
+      <member refid="structeuphoria_1_1render_1_1SpriteBatch_1ade2ca5b2854a1a76ecec52cc303f1c2f" prot="public" virt="non-virtual"><scope>euphoria::render::SpriteBatch</scope><name>render_quad</name></member>
       <member refid="structeuphoria_1_1render_1_1SpriteBatch_1a62b021db0e9c6f47ffc54c5f73f6dbcf" prot="public" virt="non-virtual"><scope>euphoria::render::SpriteBatch</scope><name>SpriteBatch</name></member>
       <member refid="structeuphoria_1_1render_1_1SpriteBatch_1a1442b4acb7ead3a87a52da66625c415b" prot="public" virt="non-virtual"><scope>euphoria::render::SpriteBatch</scope><name>SpriteBatch</name></member>
       <member refid="structeuphoria_1_1render_1_1SpriteBatch_1a083d9cfc7299b6985a9b5ca9b366d33e" prot="public" virt="non-virtual"><scope>euphoria::render::SpriteBatch</scope><name>SpriteBatch</name></member>

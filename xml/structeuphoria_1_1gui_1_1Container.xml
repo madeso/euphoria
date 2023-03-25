@@ -127,11 +127,11 @@
         </inbodydescription>
         <location file="libs/gui/src/gui/container.h" line="31" column="14" bodyfile="libs/gui/src/gui/container.cc" bodystart="22" bodyend="25"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1gui_1_1Container_1afe9961ee8fb3d2ae2cad3c3263b29268" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1gui_1_1Container_1a5d4e86046fab0b04d36c34c464eb8e7a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>void euphoria::gui::Container::step</definition>
+        <definition>void euphoria::gui::Container::update</definition>
         <argsstring>(float dt)</argsstring>
-        <name>step</name>
+        <name>update</name>
         <param>
           <type>float</type>
           <declname>dt</declname>
@@ -201,7 +201,7 @@
       <member refid="structeuphoria_1_1gui_1_1Container_1ac574b588e13d4b522fa52fa3d782b83f" prot="public" virt="non-virtual"><scope>euphoria::gui::Container</scope><name>operator=</name></member>
       <member refid="structeuphoria_1_1gui_1_1Container_1ae11741c68980f3ab064211ba2c2ba863" prot="public" virt="non-virtual"><scope>euphoria::gui::Container</scope><name>operator=</name></member>
       <member refid="structeuphoria_1_1gui_1_1Container_1a89c820864c2a7e51f1a9a2615ab9f161" prot="public" virt="non-virtual"><scope>euphoria::gui::Container</scope><name>render</name></member>
-      <member refid="structeuphoria_1_1gui_1_1Container_1afe9961ee8fb3d2ae2cad3c3263b29268" prot="public" virt="non-virtual"><scope>euphoria::gui::Container</scope><name>step</name></member>
+      <member refid="structeuphoria_1_1gui_1_1Container_1a5d4e86046fab0b04d36c34c464eb8e7a" prot="public" virt="non-virtual"><scope>euphoria::gui::Container</scope><name>update</name></member>
       <member refid="structeuphoria_1_1gui_1_1Container_1a0251e3351fc6bb950ab9a73817ce595d" prot="public" virt="non-virtual"><scope>euphoria::gui::Container</scope><name>widgets</name></member>
       <member refid="structeuphoria_1_1gui_1_1Container_1a74dd7bc1dcdcb9b0db60c652101195af" prot="public" virt="non-virtual"><scope>euphoria::gui::Container</scope><name>~Container</name></member>
     </listofallmembers>

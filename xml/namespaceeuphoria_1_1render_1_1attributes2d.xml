@@ -2,20 +2,29 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
   <compounddef id="namespaceeuphoria_1_1render_1_1attributes2d" kind="namespace" language="C++">
     <compoundname>euphoria::render::attributes2d</compoundname>
-      <sectiondef kind="func">
-      <memberdef kind="function" id="namespaceeuphoria_1_1render_1_1attributes2d_1a01fb2da2c64e439a22192bb6959f079f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>const <ref refid="structeuphoria_1_1render_1_1ShaderAttribute" kindref="compound">ShaderAttribute</ref> &amp;</type>
-        <definition>const ShaderAttribute &amp; euphoria::render::attributes2d::vertex</definition>
-        <argsstring>()</argsstring>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="namespaceeuphoria_1_1render_1_1attributes2d_1afffce8f624497729702134f5bc4454cc" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr <ref refid="structeuphoria_1_1render_1_1ShaderAttribute" kindref="compound">ShaderAttribute</ref></type>
+        <definition>constexpr ShaderAttribute euphoria::render::attributes2d::vertex</definition>
+        <argsstring></argsstring>
         <name>vertex</name>
+        <initializer>= <ref refid="structeuphoria_1_1render_1_1ShaderAttribute" kindref="compound">ShaderAttribute</ref>
+    {
+        1,
+        <ref refid="namespaceeuphoria_1_1render_1ae45452793bc19eeb1c91e38f1a9952f1af7b078bb6679d738b69816f6978d6375" kindref="member">ShaderAttributeType::float4</ref>,
+        &quot;vertex&quot;,
+        ShaderAttributeSource::unknown
+    }</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/shaderattribute2d.cc" line="10" column="5" bodyfile="libs/render/src/render/shaderattribute2d.cc" bodystart="10" bodyend="20" declfile="libs/render/src/render/shaderattribute2d.h" declline="12" declcolumn="27"/>
+        <location file="libs/render/src/render/shaderattribute2d.h" line="12" column="31" bodyfile="libs/render/src/render/shaderattribute2d.h" bodystart="12" bodyend="-1"/>
       </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
       <memberdef kind="function" id="namespaceeuphoria_1_1render_1_1attributes2d_1afb07579a91c3186f75e68ad97a6b308d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void euphoria::render::attributes2d::add_attributes_to_shader</definition>
@@ -31,7 +40,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/shaderattribute2d.cc" line="23" column="10" bodyfile="libs/render/src/render/shaderattribute2d.cc" bodystart="23" bodyend="27" declfile="libs/render/src/render/shaderattribute2d.h" declline="14" declcolumn="10"/>
+        <location file="libs/render/src/render/shaderattribute2d.cc" line="9" column="10" bodyfile="libs/render/src/render/shaderattribute2d.cc" bodystart="9" bodyend="13" declfile="libs/render/src/render/shaderattribute2d.h" declline="20" declcolumn="10"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

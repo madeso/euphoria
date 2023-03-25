@@ -60,7 +60,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vec3.h" line="32" column="18" bodyfile="libs/core/src/core/vec3.cc" bodystart="27" bodyend="32"/>
+        <location file="libs/core/src/core/vec3.h" line="32" column="18" bodyfile="libs/core/src/core/vec3.cc" bodystart="20" bodyend="25"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Scale3f_1a690ae0309cbaf864462c35ca5b0791b2" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
         <type></type>
@@ -77,7 +77,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vec3.h" line="33" column="18" bodyfile="libs/core/src/core/vec3.cc" bodystart="35" bodyend="40"/>
+        <location file="libs/core/src/core/vec3.h" line="33" column="18" bodyfile="libs/core/src/core/vec3.cc" bodystart="28" bodyend="33"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Scale3f_1a9abd4192deba28ae0d97e6b15cd89cea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -102,7 +102,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vec3.h" line="34" column="9" bodyfile="libs/core/src/core/vec3.cc" bodystart="43" bodyend="48"/>
+        <location file="libs/core/src/core/vec3.h" line="34" column="9" bodyfile="libs/core/src/core/vec3.cc" bodystart="36" bodyend="41"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Scale3f_1a0d526fdd36990bba0a900471a262c9a7" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
         <type></type>
@@ -119,7 +119,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vec3.h" line="35" column="18" bodyfile="libs/core/src/core/vec3.cc" bodystart="51" bodyend="56"/>
+        <location file="libs/core/src/core/vec3.h" line="35" column="18" bodyfile="libs/core/src/core/vec3.cc" bodystart="44" bodyend="49"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Scale3f_1aa74d6a8248611607783613ce202e20e8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>float *</type>
@@ -147,19 +147,6 @@
         </inbodydescription>
         <location file="libs/core/src/core/vec3.h" line="38" column="22"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Scale3f_1ad2073d9ab67d00343bd6f4c7fc628455" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type>float</type>
-        <definition>float euphoria::core::Scale3f::get_component_sum</definition>
-        <argsstring>() const</argsstring>
-        <name>get_component_sum</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/vec3.h" line="40" column="16" bodyfile="libs/core/src/core/vec3.cc" bodystart="21" bodyend="24"/>
-      </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Scale3f_1a12ea3d47d71e25bc51b744f78fe03cfa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
         <definition>bool euphoria::core::Scale3f::operator==</definition>
@@ -175,16 +162,15 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vec3.h" line="42" column="14"/>
+        <location file="libs/core/src/core/vec3.h" line="40" column="14"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/vec3.h" line="27" column="1" bodyfile="libs/core/src/core/vec3.h" bodystart="26" bodyend="43"/>
+    <location file="libs/core/src/core/vec3.h" line="27" column="1" bodyfile="libs/core/src/core/vec3.h" bodystart="26" bodyend="41"/>
     <listofallmembers>
-      <member refid="structeuphoria_1_1core_1_1Scale3f_1ad2073d9ab67d00343bd6f4c7fc628455" prot="public" virt="non-virtual"><scope>euphoria::core::Scale3f</scope><name>get_component_sum</name></member>
       <member refid="structeuphoria_1_1core_1_1Scale3f_1aa74d6a8248611607783613ce202e20e8" prot="public" virt="non-virtual"><scope>euphoria::core::Scale3f</scope><name>get_data_ptr</name></member>
       <member refid="structeuphoria_1_1core_1_1Scale3f_1a5f7c8d44e344e8d76cb469204acd8f70" prot="public" virt="non-virtual"><scope>euphoria::core::Scale3f</scope><name>get_data_ptr</name></member>
       <member refid="structeuphoria_1_1core_1_1Scale3f_1a12ea3d47d71e25bc51b744f78fe03cfa" prot="public" virt="non-virtual"><scope>euphoria::core::Scale3f</scope><name>operator==</name></member>

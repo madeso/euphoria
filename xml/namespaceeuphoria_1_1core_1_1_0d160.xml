@@ -6,6 +6,6 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/numeric.cc" line="172" column="1"/>
+    <location file="libs/core/src/core/numeric.cc" line="142" column="1"/>
   </compounddef>
 </doxygen>

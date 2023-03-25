@@ -81,10 +81,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a6ca8debe8fc32ffa36404a92e162028e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8af99b002a6732d606840c66eabb4689"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1gui_1_1Root.html#a8af99b002a6732d606840c66eabb4689">set_input_mouse</a> (const <a class="el" href="structeuphoria_1_1core_1_1vec2f.html">core::vec2f</a> &amp;pos, bool down)</td></tr>
 <tr class="separator:a8af99b002a6732d606840c66eabb4689"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d3550cd406863829858f55a78e5cee6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1gui_1_1Root.html#a2d3550cd406863829858f55a78e5cee6">step</a> (float dt)</td></tr>
-<tr class="separator:a2d3550cd406863829858f55a78e5cee6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2bb5a5822f473f3f174e2875d2ca0bd2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1gui_1_1Root.html#a2bb5a5822f473f3f174e2875d2ca0bd2">resize</a> (const <a class="el" href="structeuphoria_1_1core_1_1size2f.html">core::size2f</a> &amp;new_size)</td></tr>
-<tr class="separator:a2bb5a5822f473f3f174e2875d2ca0bd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1a7507e45f6b3230856a951628cac69"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1gui_1_1Root.html#ad1a7507e45f6b3230856a951628cac69">update</a> (float dt)</td></tr>
+<tr class="separator:ad1a7507e45f6b3230856a951628cac69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a82631916c58fc351ef468359dcdd9cbf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1gui_1_1Root.html#a82631916c58fc351ef468359dcdd9cbf">set_size</a> (const <a class="el" href="structeuphoria_1_1core_1_1size2f.html">core::size2f</a> &amp;new_size)</td></tr>
+<tr class="separator:a82631916c58fc351ef468359dcdd9cbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af5d1ae69ba49fff09f60b819991db7b0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1gui_1_1Root.html#af5d1ae69ba49fff09f60b819991db7b0">render</a> (<a class="el" href="structeuphoria_1_1render_1_1SpriteRenderer.html">render::SpriteRenderer</a> *sp) const</td></tr>
 <tr class="separator:af5d1ae69ba49fff09f60b819991db7b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -327,26 +327,6 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a2bb5a5822f473f3f174e2875d2ca0bd2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2bb5a5822f473f3f174e2875d2ca0bd2">&#9670;&nbsp;</a></span>resize()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void euphoria::gui::Root::resize </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1size2f.html">core::size2f</a> &amp;&#160;</td>
-          <td class="paramname"><em>new_size</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="root_8cc_source.html#l00060">60</a> of file <a class="el" href="root_8cc_source.html">root.cc</a>.</p>
-
-</div>
-</div>
 <a id="a8af99b002a6732d606840c66eabb4689"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8af99b002a6732d606840c66eabb4689">&#9670;&nbsp;</a></span>set_input_mouse()</h2>
 
@@ -377,14 +357,34 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a2d3550cd406863829858f55a78e5cee6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2d3550cd406863829858f55a78e5cee6">&#9670;&nbsp;</a></span>step()</h2>
+<a id="a82631916c58fc351ef468359dcdd9cbf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82631916c58fc351ef468359dcdd9cbf">&#9670;&nbsp;</a></span>set_size()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void euphoria::gui::Root::step </td>
+          <td class="memname">void euphoria::gui::Root::set_size </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1size2f.html">core::size2f</a> &amp;&#160;</td>
+          <td class="paramname"><em>new_size</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="root_8cc_source.html#l00060">60</a> of file <a class="el" href="root_8cc_source.html">root.cc</a>.</p>
+
+</div>
+</div>
+<a id="ad1a7507e45f6b3230856a951628cac69"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1a7507e45f6b3230856a951628cac69">&#9670;&nbsp;</a></span>update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void euphoria::gui::Root::update </td>
           <td>(</td>
           <td class="paramtype">float&#160;</td>
           <td class="paramname"><em>dt</em></td><td>)</td>

@@ -108,9 +108,8 @@
 : <a class="el" href="structeuphoria_1_1core_1_1generator_1_1RandomFillRule.html#a53cdef76b16b5742f45c04cd693d7bb7">euphoria::core::generator::RandomFillRule</a>
 , <a class="el" href="structeuphoria_1_1core_1_1PoissonWorker.html#a75273635fdc9fd9eff112f6287e338d6">euphoria::core::PoissonWorker</a>
 </li>
-<li>random()
-: <a class="el" href="structeuphoria_1_1core_1_1angle.html#a0c59b3bcd700b574086c931b01e6c375">euphoria::core::angle</a>
-, <a class="el" href="structeuphoria_1_1core_1_1Chatbot.html#aab8c0f0f67e28402a693d0e517e7de41">euphoria::core::Chatbot</a>
+<li>random
+: <a class="el" href="structeuphoria_1_1core_1_1Chatbot.html#aab8c0f0f67e28402a693d0e517e7de41">euphoria::core::Chatbot</a>
 , <a class="el" href="structeuphoria_1_1core_1_1generator_1_1RandomTraversal.html#a808153e7b61d2adc9a77cdd2e5878080">euphoria::core::generator::RandomTraversal</a>
 , <a class="el" href="structeuphoria_1_1core_1_1generator_1_1RecursiveBacktracker.html#afd7652034b71cd7cfed133a076e788cd">euphoria::core::generator::RecursiveBacktracker</a>
 </li>
@@ -139,7 +138,7 @@
 : <a class="el" href="structeuphoria_1_1core_1_1Ray3f.html#a5d2ba55ad8d4069fcd59f87291381bb7">euphoria::core::Ray3f</a>
 </li>
 <li>ray_distance
-: <a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1HitResult.html#a238b8f6382eab45b127868fd8c3ea505">euphoria::core::raytracer::HitResult</a>
+: <a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1Collision.html#abd748a3747c7218cee95e6235f3e843e">euphoria::core::raytracer::Collision</a>
 </li>
 <li>raycast()
 : <a class="el" href="structeuphoria_1_1core_1_1EditorCamera3.html#ac9808b86a056e0f420bdbeee2286cf11">euphoria::core::EditorCamera3</a>
@@ -232,10 +231,11 @@
 : <a class="el" href="structeuphoria_1_1core_1_1tracery_1_1Grammar.html#aa94601dc7ea5e57c11ee38a12ca43b58">euphoria::core::tracery::Grammar</a>
 </li>
 <li>Registry()
-: <a class="el" href="structeuphoria_1_1core_1_1ecs_1_1Registry.html#a1c9f695cb438a4e972250dfe93900547">euphoria::core::ecs::Registry</a>
+: <a class="el" href="structeuphoria_1_1core_1_1ecs_1_1Registry.html#a62aa832de46dd8c505a7f4ea19996203">euphoria::core::ecs::Registry</a>
 </li>
 <li>remove()
-: <a class="el" href="structeuphoria_1_1core_1_1detail_1_1ConversationTopics.html#a34c82cbe179895952af07cd4c7a96cc3">euphoria::core::detail::ConversationTopics</a>
+: <a class="el" href="structeuphoria_1_1core_1_1Defines.html#a697804d7ca747289db17247132a1fedc">euphoria::core::Defines</a>
+, <a class="el" href="structeuphoria_1_1core_1_1detail_1_1ConversationTopics.html#a34c82cbe179895952af07cd4c7a96cc3">euphoria::core::detail::ConversationTopics</a>
 , <a class="el" href="structeuphoria_1_1core_1_1ecs_1_1ComponentArrayBase.html#aa4acdaa4a738e855cb63f41eeeb8c58d">euphoria::core::ecs::ComponentArrayBase</a>
 , <a class="el" href="structeuphoria_1_1core_1_1ecs_1_1GenericComponentArray.html#a08e917c66b9d42ebda843a5eb8b32215">euphoria::core::ecs::GenericComponentArray&lt; T &gt;</a>
 , <a class="el" href="structeuphoria_1_1render_1_1Layer.html#a4051d47b53e3fa29fa0c66230f463fba">euphoria::render::Layer</a>
@@ -262,14 +262,14 @@
 , <a class="el" href="structeuphoria_1_1render_1_1Sprite.html#a08e39520d28b9027358dfafbb6a9e153">euphoria::render::Sprite</a>
 , <a class="el" href="structeuphoria_1_1render_1_1World.html#a573f1a23f3df52ef7f59d683f04aed0c">euphoria::render::World</a>
 </li>
+<li>render_quad()
+: <a class="el" href="structeuphoria_1_1render_1_1SpriteBatch.html#ade2ca5b2854a1a76ecec52cc303f1c2f">euphoria::render::SpriteBatch</a>
+</li>
 <li>renderer
 : <a class="el" href="structeuphoria_1_1render_1_1Layer.html#ab3d866b55d5428394511df4d7778d11b">euphoria::render::Layer</a>
 </li>
 <li>reserve()
 : <a class="el" href="structeuphoria_1_1core_1_1Shufflebag.html#a6a8fe6ef11ea2b2d07f3375bedc0cc26">euphoria::core::Shufflebag&lt; T &gt;</a>
-</li>
-<li>resize()
-: <a class="el" href="structeuphoria_1_1gui_1_1Root.html#a2bb5a5822f473f3f174e2875d2ca0bd2">euphoria::gui::Root</a>
 </li>
 <li>response
 : <a class="el" href="structeuphoria_1_1core_1_1detail_1_1ConversationStatus.html#a1e6bf0074a60d4c7c458f8a81028b5c2">euphoria::core::detail::ConversationStatus</a>
@@ -303,13 +303,11 @@
 </li>
 <li>right
 : <a class="el" href="structeuphoria_1_1core_1_1Lrud.html#ac2a395244c37f13694d6945400735a9a">euphoria::core::Lrud&lt; T &gt;</a>
-, <a class="el" href="structeuphoria_1_1core_1_1quatf.html#a76432bbd269a758d06ff522faef45e4e">euphoria::core::quatf</a>
 , <a class="el" href="structeuphoria_1_1core_1_1Rectf.html#aa8f47d40fbe8b63aa235ce6b85d171e1">euphoria::core::Rectf</a>
 , <a class="el" href="structeuphoria_1_1core_1_1Recti.html#a61f79ff02cdf42bf82d67a53ed888a35">euphoria::core::Recti</a>
-, <a class="el" href="structeuphoria_1_1core_1_1unit3f.html#a83d89cd44876c0ce0f088c055ba5dd44">euphoria::core::unit3f</a>
 </li>
 <li>Root()
-: <a class="el" href="structeuphoria_1_1gui_1_1Root.html#ab49e86925375fc7df1cf191c8e079d2f">euphoria::gui::Root</a>
+: <a class="el" href="structeuphoria_1_1gui_1_1Root.html#aa86ff1a8fe1b4d2b15ad3b6321f251b7">euphoria::gui::Root</a>
 </li>
 <li>root_special
 : <a class="el" href="structeuphoria_1_1core_1_1TreeStyle.html#afc4e10207190320e72ca0dde9f889034">euphoria::core::TreeStyle</a>
@@ -344,7 +342,7 @@
 : <a class="el" href="structeuphoria_1_1render_1_1ScalableSprite.html#aaccbe902570019a893006609ddd65858">euphoria::render::ScalableSprite</a>
 </li>
 <li>Rule()
-: <a class="el" href="structeuphoria_1_1core_1_1generator_1_1Rule.html#a0a8caf1dda89a98eeb44fd579d31da43">euphoria::core::generator::Rule</a>
+: <a class="el" href="structeuphoria_1_1core_1_1generator_1_1Rule.html#a62efec702190ecb2f2dea4337fe95cba">euphoria::core::generator::Rule</a>
 , <a class="el" href="structeuphoria_1_1core_1_1tracery_1_1Rule.html#a35477193cbeab22e2175e36c12d6d0bd">euphoria::core::tracery::Rule</a>
 </li>
 <li>rule_eof
@@ -360,6 +358,12 @@
 </li>
 <li>run()
 : <a class="el" href="structeuphoria_1_1core_1_1VirtualConsole.html#acab004af3bf810fce53c5cb845291dd9">euphoria::core::VirtualConsole</a>
+</li>
+<li>run_for_all_top_bottom()
+: <a class="el" href="structeuphoria_1_1core_1_1Image.html#a1adac9ea4c5a7be31ea33e6a880d3949">euphoria::core::Image</a>
+</li>
+<li>run_image_filter()
+: <a class="el" href="structeuphoria_1_1core_1_1Image.html#a825c2d9af578809de0090d4142180b0c">euphoria::core::Image</a>
 </li>
 <li>runner
 : <a class="el" href="structeuphoria_1_1core_1_1argparse_1_1SubParser.html#aec4e822c0dd0aacf180e11ea946a679c">euphoria::core::argparse::SubParser</a>

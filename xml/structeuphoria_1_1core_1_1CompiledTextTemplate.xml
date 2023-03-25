@@ -147,11 +147,11 @@
         </inbodydescription>
         <location file="libs/core/src/core/texttemplate.h" line="64" column="14"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1CompiledTextTemplate_1a55ec6882c84fc3bc28d14a85b3ecc1dd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1CompiledTextTemplate_1ae4bd5a74d4b2809bb1e03747a848b83c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
-        <definition>std::string euphoria::core::CompiledTextTemplate::evaluate</definition>
+        <definition>std::string euphoria::core::CompiledTextTemplate::build_string</definition>
         <argsstring>(const Defines &amp;defines)</argsstring>
-        <name>evaluate</name>
+        <name>build_string</name>
         <param>
           <type>const <ref refid="structeuphoria_1_1core_1_1Defines" kindref="compound">Defines</ref> &amp;</type>
           <declname>defines</declname>
@@ -184,12 +184,12 @@
     </collaborationgraph>
     <location file="libs/core/src/core/texttemplate.h" line="51" column="1" bodyfile="libs/core/src/core/texttemplate.h" bodystart="50" bodyend="68"/>
     <listofallmembers>
+      <member refid="structeuphoria_1_1core_1_1CompiledTextTemplate_1ae4bd5a74d4b2809bb1e03747a848b83c" prot="public" virt="non-virtual"><scope>euphoria::core::CompiledTextTemplate</scope><name>build_string</name></member>
       <member refid="structeuphoria_1_1core_1_1CompiledTextTemplate_1a7501ab9e08dbba7d104d0044a73fd451" prot="public" virt="non-virtual"><scope>euphoria::core::CompiledTextTemplate</scope><name>CompiledTextTemplate</name></member>
       <member refid="structeuphoria_1_1core_1_1CompiledTextTemplate_1a8bb800949110487eac2df429ca66db2b" prot="public" virt="non-virtual"><scope>euphoria::core::CompiledTextTemplate</scope><name>CompiledTextTemplate</name></member>
       <member refid="structeuphoria_1_1core_1_1CompiledTextTemplate_1a2854c9d4f373fce9f01491f30d03c672" prot="public" virt="non-virtual"><scope>euphoria::core::CompiledTextTemplate</scope><name>CompiledTextTemplate</name></member>
       <member refid="structeuphoria_1_1core_1_1CompiledTextTemplate_1ade90e7898239a1b2a962bc9841edf475" prot="public" virt="non-virtual"><scope>euphoria::core::CompiledTextTemplate</scope><name>CompiledTextTemplate</name></member>
       <member refid="structeuphoria_1_1core_1_1CompiledTextTemplate_1a7bf12a9415da38b69eb9a1b0dab9c0ab" prot="public" virt="non-virtual"><scope>euphoria::core::CompiledTextTemplate</scope><name>errors</name></member>
-      <member refid="structeuphoria_1_1core_1_1CompiledTextTemplate_1a55ec6882c84fc3bc28d14a85b3ecc1dd" prot="public" virt="non-virtual"><scope>euphoria::core::CompiledTextTemplate</scope><name>evaluate</name></member>
       <member refid="structeuphoria_1_1core_1_1CompiledTextTemplate_1a85215a562eec03121d3a7f4ede579461" prot="public" virt="non-virtual"><scope>euphoria::core::CompiledTextTemplate</scope><name>nodes</name></member>
       <member refid="structeuphoria_1_1core_1_1CompiledTextTemplate_1acdfacfe713210b6e6056476b9fd059e0" prot="public" virt="non-virtual"><scope>euphoria::core::CompiledTextTemplate</scope><name>operator=</name></member>
       <member refid="structeuphoria_1_1core_1_1CompiledTextTemplate_1a7fd1bd8fb69a15397aedc35f771e722c" prot="public" virt="non-virtual"><scope>euphoria::core::CompiledTextTemplate</scope><name>operator=</name></member>

@@ -27,7 +27,7 @@
         </childnode>
         <childnode refid="5" relation="include">
         </childnode>
-        <childnode refid="6" relation="include">
+        <childnode refid="7" relation="include">
         </childnode>
         <childnode refid="12" relation="include">
         </childnode>
@@ -38,7 +38,7 @@
       <node id="17">
         <label>core/size2.h</label>
         <link refid="size2_8h"/>
-        <childnode refid="7" relation="include">
+        <childnode refid="8" relation="include">
         </childnode>
         <childnode refid="5" relation="include">
         </childnode>
@@ -98,14 +98,14 @@
         <childnode refid="4" relation="include">
         </childnode>
       </node>
-      <node id="7">
+      <node id="8">
         <label>core/vec2.h</label>
         <link refid="vec2_8h"/>
-        <childnode refid="8" relation="include">
+        <childnode refid="9" relation="include">
         </childnode>
         <childnode refid="2" relation="include">
         </childnode>
-        <childnode refid="9" relation="include">
+        <childnode refid="6" relation="include">
         </childnode>
         <childnode refid="10" relation="include">
         </childnode>
@@ -122,7 +122,7 @@
         <childnode refid="29" relation="include">
         </childnode>
       </node>
-      <node id="8">
+      <node id="9">
         <label>tuple</label>
       </node>
       <node id="29">
@@ -131,6 +131,8 @@
       <node id="5">
         <label>core/numeric.h</label>
         <link refid="numeric_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
       </node>
       <node id="26">
         <label>magic_enum/magic_enum.hpp</label>
@@ -156,7 +158,7 @@
       <node id="15">
         <label>cstddef</label>
       </node>
-      <node id="9">
+      <node id="6">
         <label>core/interpolate.default.h</label>
         <link refid="interpolate_8default_8h"/>
       </node>
@@ -186,12 +188,12 @@
         <childnode refid="26" relation="include">
         </childnode>
       </node>
-      <node id="6">
+      <node id="7">
         <label>core/rect.h</label>
         <link refid="rect_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
-        <childnode refid="7" relation="include">
+        <childnode refid="8" relation="include">
         </childnode>
         <childnode refid="17" relation="include">
         </childnode>
@@ -205,7 +207,7 @@
         </childnode>
         <childnode refid="5" relation="include">
         </childnode>
-        <childnode refid="9" relation="include">
+        <childnode refid="6" relation="include">
         </childnode>
       </node>
       <node id="20">

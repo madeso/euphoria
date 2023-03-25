@@ -208,13 +208,13 @@
         </inbodydescription>
         <location file="libs/gui/src/gui/widget.h" line="44" column="9" bodyfile="libs/gui/src/gui/widget.cc" bodystart="29" bodyend="32"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1gui_1_1Widget_1a3a1900a6e333b97253b9ef60c40364da" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1gui_1_1Widget_1a8fb13ace5dd9dfc66350a4c34a75922c" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
         <type>void</type>
-        <definition>virtual void euphoria::gui::Widget::step</definition>
+        <definition>virtual void euphoria::gui::Widget::update</definition>
         <argsstring>(float dt)=0</argsstring>
-        <name>step</name>
-        <reimplementedby refid="structeuphoria_1_1gui_1_1PanelWidget_1a04ed1a678c20bc2a8ac649cac57842a5">step</reimplementedby>
-        <reimplementedby refid="structeuphoria_1_1gui_1_1Button_1ac93ceb27c3b59ecbed382cde13001461">step</reimplementedby>
+        <name>update</name>
+        <reimplementedby refid="structeuphoria_1_1gui_1_1PanelWidget_1a2a8c8f0bdbcad52dc436817a56cd47ba">update</reimplementedby>
+        <reimplementedby refid="structeuphoria_1_1gui_1_1Button_1a248064b8bd13f42d23cfa5f04efb5273">update</reimplementedby>
         <param>
           <type>float</type>
           <declname>dt</declname>
@@ -472,8 +472,8 @@
       <member refid="structeuphoria_1_1gui_1_1Widget_1adaeaa96945b0d21a6bb304a152a06e8e" prot="public" virt="non-virtual"><scope>euphoria::gui::Widget</scope><name>rect</name></member>
       <member refid="structeuphoria_1_1gui_1_1Widget_1a8b924b8bd6db63eb4703f4acf0f3b3b4" prot="public" virt="pure-virtual"><scope>euphoria::gui::Widget</scope><name>render</name></member>
       <member refid="structeuphoria_1_1gui_1_1Widget_1af94951932b190171b68d94bc8d4d54e0" prot="public" virt="non-virtual"><scope>euphoria::gui::Widget</scope><name>set_rect</name></member>
-      <member refid="structeuphoria_1_1gui_1_1Widget_1a3a1900a6e333b97253b9ef60c40364da" prot="public" virt="pure-virtual"><scope>euphoria::gui::Widget</scope><name>step</name></member>
       <member refid="structeuphoria_1_1gui_1_1Widget_1a327ea1ae474285039624b1452ab81631" prot="public" virt="non-virtual"><scope>euphoria::gui::Widget</scope><name>ui_state</name></member>
+      <member refid="structeuphoria_1_1gui_1_1Widget_1a8fb13ace5dd9dfc66350a4c34a75922c" prot="public" virt="pure-virtual"><scope>euphoria::gui::Widget</scope><name>update</name></member>
       <member refid="structeuphoria_1_1gui_1_1Widget_1aeca18aed11eae1109ab4956c2dcab16b" prot="public" virt="pure-virtual"><scope>euphoria::gui::Widget</scope><name>visit</name></member>
       <member refid="structeuphoria_1_1gui_1_1Widget_1a58c16afb025fc25598706c2fbb6cfaf7" prot="public" virt="non-virtual"><scope>euphoria::gui::Widget</scope><name>Widget</name></member>
       <member refid="structeuphoria_1_1gui_1_1Widget_1ab7d5be28d0290db4419a8c192edc43af" prot="public" virt="non-virtual"><scope>euphoria::gui::Widget</scope><name>Widget</name></member>

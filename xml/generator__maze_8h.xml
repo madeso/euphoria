@@ -20,7 +20,7 @@
         </childnode>
         <childnode refid="6" relation="include">
         </childnode>
-        <childnode refid="7" relation="include">
+        <childnode refid="8" relation="include">
         </childnode>
         <childnode refid="13" relation="include">
         </childnode>
@@ -35,7 +35,7 @@
       <node id="18">
         <label>core/size2.h</label>
         <link refid="size2_8h"/>
-        <childnode refid="8" relation="include">
+        <childnode refid="9" relation="include">
         </childnode>
         <childnode refid="6" relation="include">
         </childnode>
@@ -80,7 +80,7 @@
         </childnode>
         <childnode refid="11" relation="include">
         </childnode>
-        <childnode refid="10" relation="include">
+        <childnode refid="7" relation="include">
         </childnode>
         <childnode refid="21" relation="include">
         </childnode>
@@ -109,14 +109,14 @@
         <childnode refid="5" relation="include">
         </childnode>
       </node>
-      <node id="8">
+      <node id="9">
         <label>core/vec2.h</label>
         <link refid="vec2_8h"/>
-        <childnode refid="9" relation="include">
+        <childnode refid="10" relation="include">
         </childnode>
         <childnode refid="3" relation="include">
         </childnode>
-        <childnode refid="10" relation="include">
+        <childnode refid="7" relation="include">
         </childnode>
         <childnode refid="11" relation="include">
         </childnode>
@@ -133,7 +133,7 @@
         <childnode refid="30" relation="include">
         </childnode>
       </node>
-      <node id="9">
+      <node id="10">
         <label>tuple</label>
       </node>
       <node id="30">
@@ -142,13 +142,15 @@
       <node id="6">
         <label>core/numeric.h</label>
         <link refid="numeric_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
       </node>
       <node id="1">
         <label>libs/core/src/core/generator_maze.h</label>
         <link refid="generator__maze_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
-        <childnode refid="8" relation="include">
+        <childnode refid="9" relation="include">
         </childnode>
         <childnode refid="34" relation="include">
         </childnode>
@@ -190,7 +192,7 @@
       <node id="16">
         <label>cstddef</label>
       </node>
-      <node id="10">
+      <node id="7">
         <label>core/interpolate.default.h</label>
         <link refid="interpolate_8default_8h"/>
       </node>
@@ -215,7 +217,7 @@
         </childnode>
         <childnode refid="38" relation="include">
         </childnode>
-        <childnode refid="7" relation="include">
+        <childnode refid="8" relation="include">
         </childnode>
       </node>
       <node id="22">
@@ -232,12 +234,12 @@
         <childnode refid="27" relation="include">
         </childnode>
       </node>
-      <node id="7">
+      <node id="8">
         <label>core/rect.h</label>
         <link refid="rect_8h"/>
         <childnode refid="3" relation="include">
         </childnode>
-        <childnode refid="8" relation="include">
+        <childnode refid="9" relation="include">
         </childnode>
         <childnode refid="18" relation="include">
         </childnode>
@@ -251,7 +253,7 @@
         </childnode>
         <childnode refid="6" relation="include">
         </childnode>
-        <childnode refid="10" relation="include">
+        <childnode refid="7" relation="include">
         </childnode>
       </node>
       <node id="21">

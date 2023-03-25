@@ -2,59 +2,89 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
   <compounddef id="namespaceeuphoria_1_1render_1_1attributes3d" kind="namespace" language="C++">
     <compoundname>euphoria::render::attributes3d</compoundname>
-      <sectiondef kind="func">
-      <memberdef kind="function" id="namespaceeuphoria_1_1render_1_1attributes3d_1ac778a32fd2d5448501d1919039ab9e63" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>const <ref refid="structeuphoria_1_1render_1_1ShaderAttribute" kindref="compound">ShaderAttribute</ref> &amp;</type>
-        <definition>const ShaderAttribute &amp; euphoria::render::attributes3d::vertex</definition>
-        <argsstring>()</argsstring>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="namespaceeuphoria_1_1render_1_1attributes3d_1af3fb044437ab6fad802c9216d7d4b87b" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr <ref refid="structeuphoria_1_1render_1_1ShaderAttribute" kindref="compound">ShaderAttribute</ref></type>
+        <definition>constexpr ShaderAttribute euphoria::render::attributes3d::vertex</definition>
+        <argsstring></argsstring>
         <name>vertex</name>
+        <initializer>= <ref refid="structeuphoria_1_1render_1_1ShaderAttribute" kindref="compound">ShaderAttribute</ref>
+    {
+        1,
+        <ref refid="namespaceeuphoria_1_1render_1ae45452793bc19eeb1c91e38f1a9952f1a88bbd3e4df848c1fdfcf709115d2fe05" kindref="member">ShaderAttributeType::float3</ref>,
+        &quot;aPosition&quot;,
+        ShaderAttributeSource::vertex
+    }</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/shaderattribute3d.cc" line="11" column="27" bodyfile="libs/render/src/render/shaderattribute3d.cc" bodystart="11" bodyend="21" declfile="libs/render/src/render/shaderattribute3d.h" declline="19" declcolumn="27"/>
+        <location file="libs/render/src/render/shaderattribute3d.h" line="19" column="31" bodyfile="libs/render/src/render/shaderattribute3d.h" bodystart="19" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1render_1_1attributes3d_1a4b4e240ce4f038e70e5971ea2e1e1722" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>const <ref refid="structeuphoria_1_1render_1_1ShaderAttribute" kindref="compound">ShaderAttribute</ref> &amp;</type>
-        <definition>const ShaderAttribute &amp; euphoria::render::attributes3d::normal</definition>
-        <argsstring>()</argsstring>
+      <memberdef kind="variable" id="namespaceeuphoria_1_1render_1_1attributes3d_1a061b6290faf3698fb45e3b40839c69c3" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr <ref refid="structeuphoria_1_1render_1_1ShaderAttribute" kindref="compound">ShaderAttribute</ref></type>
+        <definition>constexpr ShaderAttribute euphoria::render::attributes3d::normal</definition>
+        <argsstring></argsstring>
         <name>normal</name>
+        <initializer>= <ref refid="structeuphoria_1_1render_1_1ShaderAttribute" kindref="compound">ShaderAttribute</ref>
+    {
+        2,
+        <ref refid="namespaceeuphoria_1_1render_1ae45452793bc19eeb1c91e38f1a9952f1a88bbd3e4df848c1fdfcf709115d2fe05" kindref="member">ShaderAttributeType::float3</ref>,
+        &quot;aNormal&quot;,
+        ShaderAttributeSource::normal
+    }</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/shaderattribute3d.cc" line="24" column="27" bodyfile="libs/render/src/render/shaderattribute3d.cc" bodystart="24" bodyend="34" declfile="libs/render/src/render/shaderattribute3d.h" declline="20" declcolumn="27"/>
+        <location file="libs/render/src/render/shaderattribute3d.h" line="27" column="31" bodyfile="libs/render/src/render/shaderattribute3d.h" bodystart="27" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1render_1_1attributes3d_1ab2f49fffb9136274484a18f004ee785d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>const <ref refid="structeuphoria_1_1render_1_1ShaderAttribute" kindref="compound">ShaderAttribute</ref> &amp;</type>
-        <definition>const ShaderAttribute &amp; euphoria::render::attributes3d::tex_coord</definition>
-        <argsstring>()</argsstring>
+      <memberdef kind="variable" id="namespaceeuphoria_1_1render_1_1attributes3d_1a46d719a255f93a9ee4539c065006b0f4" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr <ref refid="structeuphoria_1_1render_1_1ShaderAttribute" kindref="compound">ShaderAttribute</ref></type>
+        <definition>constexpr ShaderAttribute euphoria::render::attributes3d::tex_coord</definition>
+        <argsstring></argsstring>
         <name>tex_coord</name>
+        <initializer>= <ref refid="structeuphoria_1_1render_1_1ShaderAttribute" kindref="compound">ShaderAttribute</ref>
+    {
+        3,
+        <ref refid="namespaceeuphoria_1_1render_1ae45452793bc19eeb1c91e38f1a9952f1adee550e4331867f8c3d135c617d73988" kindref="member">ShaderAttributeType::float2</ref>,
+        &quot;aTexCoord&quot;,
+        ShaderAttributeSource::uv
+    }</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/shaderattribute3d.cc" line="37" column="27" bodyfile="libs/render/src/render/shaderattribute3d.cc" bodystart="37" bodyend="47" declfile="libs/render/src/render/shaderattribute3d.h" declline="21" declcolumn="27"/>
+        <location file="libs/render/src/render/shaderattribute3d.h" line="35" column="31" bodyfile="libs/render/src/render/shaderattribute3d.h" bodystart="35" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1render_1_1attributes3d_1a87d4f8cba6a6f8428882a1a70f05c59e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>const <ref refid="structeuphoria_1_1render_1_1ShaderAttribute" kindref="compound">ShaderAttribute</ref> &amp;</type>
-        <definition>const ShaderAttribute &amp; euphoria::render::attributes3d::color</definition>
-        <argsstring>()</argsstring>
+      <memberdef kind="variable" id="namespaceeuphoria_1_1render_1_1attributes3d_1a33a3223ad736d8b9fedd22f6ba479929" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr <ref refid="structeuphoria_1_1render_1_1ShaderAttribute" kindref="compound">ShaderAttribute</ref></type>
+        <definition>constexpr ShaderAttribute euphoria::render::attributes3d::color</definition>
+        <argsstring></argsstring>
         <name>color</name>
+        <initializer>= <ref refid="structeuphoria_1_1render_1_1ShaderAttribute" kindref="compound">ShaderAttribute</ref>
+    {
+        4,
+        <ref refid="namespaceeuphoria_1_1render_1ae45452793bc19eeb1c91e38f1a9952f1a88bbd3e4df848c1fdfcf709115d2fe05" kindref="member">ShaderAttributeType::float3</ref>,
+        &quot;aColor&quot;,
+        ShaderAttributeSource::color
+    }</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/shaderattribute3d.cc" line="50" column="27" bodyfile="libs/render/src/render/shaderattribute3d.cc" bodystart="50" bodyend="60" declfile="libs/render/src/render/shaderattribute3d.h" declline="22" declcolumn="27"/>
+        <location file="libs/render/src/render/shaderattribute3d.h" line="43" column="31" bodyfile="libs/render/src/render/shaderattribute3d.h" bodystart="43" bodyend="-1"/>
       </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
       <memberdef kind="function" id="namespaceeuphoria_1_1render_1_1attributes3d_1a3e38efdf45fda49139cbc9271c7b20c3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void euphoria::render::attributes3d::add_attributes_to_shader</definition>
@@ -70,7 +100,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/shaderattribute3d.cc" line="63" column="10" bodyfile="libs/render/src/render/shaderattribute3d.cc" bodystart="63" bodyend="70" declfile="libs/render/src/render/shaderattribute3d.h" declline="25" declcolumn="10"/>
+        <location file="libs/render/src/render/shaderattribute3d.cc" line="10" column="10" bodyfile="libs/render/src/render/shaderattribute3d.cc" bodystart="10" bodyend="17" declfile="libs/render/src/render/shaderattribute3d.h" declline="52" declcolumn="10"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

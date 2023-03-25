@@ -187,7 +187,7 @@
       <member refid="structeuphoria_1_1gui_1_1Container_1ac574b588e13d4b522fa52fa3d782b83f" prot="public" virt="non-virtual" ambiguityscope="euphoria::gui::Container::"><scope>euphoria::gui::LayoutContainer</scope><name>operator=</name></member>
       <member refid="structeuphoria_1_1gui_1_1Container_1ae11741c68980f3ab064211ba2c2ba863" prot="public" virt="non-virtual" ambiguityscope="euphoria::gui::Container::"><scope>euphoria::gui::LayoutContainer</scope><name>operator=</name></member>
       <member refid="structeuphoria_1_1gui_1_1Container_1a89c820864c2a7e51f1a9a2615ab9f161" prot="public" virt="non-virtual"><scope>euphoria::gui::LayoutContainer</scope><name>render</name></member>
-      <member refid="structeuphoria_1_1gui_1_1Container_1afe9961ee8fb3d2ae2cad3c3263b29268" prot="public" virt="non-virtual"><scope>euphoria::gui::LayoutContainer</scope><name>step</name></member>
+      <member refid="structeuphoria_1_1gui_1_1Container_1a5d4e86046fab0b04d36c34c464eb8e7a" prot="public" virt="non-virtual"><scope>euphoria::gui::LayoutContainer</scope><name>update</name></member>
       <member refid="structeuphoria_1_1gui_1_1Container_1a0251e3351fc6bb950ab9a73817ce595d" prot="public" virt="non-virtual"><scope>euphoria::gui::LayoutContainer</scope><name>widgets</name></member>
       <member refid="structeuphoria_1_1gui_1_1Container_1a74dd7bc1dcdcb9b0db60c652101195af" prot="public" virt="non-virtual"><scope>euphoria::gui::LayoutContainer</scope><name>~Container</name></member>
       <member refid="structeuphoria_1_1gui_1_1LayoutContainer_1a77bb94b15456de91d8af07f117016d4e" prot="public" virt="virtual"><scope>euphoria::gui::LayoutContainer</scope><name>~LayoutContainer</name></member>

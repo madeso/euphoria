@@ -70,12 +70,12 @@
         </inbodydescription>
         <location file="libs/core/src/core/generator_cell.cc" line="45" column="9" bodyfile="libs/core/src/core/generator_cell.cc" bodystart="46" bodyend="55"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1generator_1_1RandomFillRule_1a47f937e94137814c5b3ea45c24eae10d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1generator_1_1RandomFillRule_1a4efa090517092d35d991bd40664d37d6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
         <type>void</type>
-        <definition>void euphoria::core::generator::RandomFillRule::step</definition>
+        <definition>void euphoria::core::generator::RandomFillRule::update</definition>
         <argsstring>(CellularAutomata *self) override</argsstring>
-        <name>step</name>
-        <reimplements refid="structeuphoria_1_1core_1_1generator_1_1Rule_1a04bde9b4d49e0a19c91b5bfd334a2e34">step</reimplements>
+        <name>update</name>
+        <reimplements refid="structeuphoria_1_1core_1_1generator_1_1Rule_1a5c099da88734b60b8564790cac5dea56">update</reimplements>
         <param>
           <type><ref refid="structeuphoria_1_1core_1_1generator_1_1CellularAutomata" kindref="compound">CellularAutomata</ref> *</type>
           <declname>self</declname>
@@ -142,7 +142,7 @@
       <member refid="structeuphoria_1_1core_1_1generator_1_1Rule_1acee66f1f21e44dd69b1f3e6fb54174c5" prot="public" virt="non-virtual"><scope>euphoria::core::generator::RandomFillRule</scope><name>Rule</name></member>
       <member refid="structeuphoria_1_1core_1_1generator_1_1Rule_1a0a8caf1dda89a98eeb44fd579d31da43" prot="public" virt="non-virtual"><scope>euphoria::core::generator::RandomFillRule</scope><name>Rule</name></member>
       <member refid="structeuphoria_1_1core_1_1generator_1_1Rule_1a62efec702190ecb2f2dea4337fe95cba" prot="public" virt="non-virtual"><scope>euphoria::core::generator::RandomFillRule</scope><name>Rule</name></member>
-      <member refid="structeuphoria_1_1core_1_1generator_1_1RandomFillRule_1a47f937e94137814c5b3ea45c24eae10d" prot="public" virt="virtual"><scope>euphoria::core::generator::RandomFillRule</scope><name>step</name></member>
+      <member refid="structeuphoria_1_1core_1_1generator_1_1RandomFillRule_1a4efa090517092d35d991bd40664d37d6" prot="public" virt="virtual"><scope>euphoria::core::generator::RandomFillRule</scope><name>update</name></member>
       <member refid="structeuphoria_1_1core_1_1generator_1_1Rule_1adcac939654ffb9fcd2bbe5879ccbe6b4" prot="public" virt="virtual"><scope>euphoria::core::generator::RandomFillRule</scope><name>~Rule</name></member>
     </listofallmembers>
   </compounddef>

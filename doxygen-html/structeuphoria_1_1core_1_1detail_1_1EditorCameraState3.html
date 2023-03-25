@@ -91,8 +91,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aa0d2868f2bc95ff9b9e502f487e242f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa210997ffbbdb2d1795fabf2886e8ccf"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1detail_1_1EditorCameraState3.html#aa210997ffbbdb2d1795fabf2886e8ccf">on_key</a> (<a class="el" href="structeuphoria_1_1core_1_1EditorCamera3.html">EditorCamera3</a> *owner, <a class="el" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710">Key</a> key, bool down)=0</td></tr>
 <tr class="separator:aa210997ffbbdb2d1795fabf2886e8ccf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae8b9c24742fe4fc13cbe1d55faac73e6"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1detail_1_1EditorCameraState3.html#ae8b9c24742fe4fc13cbe1d55faac73e6">step</a> (<a class="el" href="structeuphoria_1_1core_1_1EditorCamera3.html">EditorCamera3</a> *owner, bool shift_state, const <a class="el" href="structeuphoria_1_1core_1_1vec2i.html">vec2i</a> &amp;mouse, const <a class="el" href="structeuphoria_1_1core_1_1CompiledCamera3.html">CompiledCamera3</a> &amp;camera, const <a class="el" href="structeuphoria_1_1core_1_1Viewport.html">Viewport</a> &amp;viewport, float dt)=0</td></tr>
-<tr class="separator:ae8b9c24742fe4fc13cbe1d55faac73e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a112a8b9c6293765bef70a47704ecbbe2"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1detail_1_1EditorCameraState3.html#a112a8b9c6293765bef70a47704ecbbe2">update</a> (<a class="el" href="structeuphoria_1_1core_1_1EditorCamera3.html">EditorCamera3</a> *owner, bool shift_state, const <a class="el" href="structeuphoria_1_1core_1_1vec2i.html">vec2i</a> &amp;mouse, const <a class="el" href="structeuphoria_1_1core_1_1CompiledCamera3.html">CompiledCamera3</a> &amp;camera, const <a class="el" href="structeuphoria_1_1core_1_1Viewport.html">Viewport</a> &amp;viewport, float dt)=0</td></tr>
+<tr class="separator:a112a8b9c6293765bef70a47704ecbbe2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af2433982016c7c0012f4b78735e46933"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1detail_1_1EditorCameraState3.html#af2433982016c7c0012f4b78735e46933">on_scroll</a> (<a class="el" href="structeuphoria_1_1core_1_1EditorCamera3.html">EditorCamera3</a> *owner, int dx, int dy)=0</td></tr>
 <tr class="separator:af2433982016c7c0012f4b78735e46933"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1a121c2b472935eaa38bcffa67252a67"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1detail_1_1EditorCameraState3.html#a1a121c2b472935eaa38bcffa67252a67">on_camera_start</a> (<a class="el" href="structeuphoria_1_1core_1_1EditorCamera3.html">EditorCamera3</a> *owner)=0</td></tr>
@@ -477,8 +477,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ae8b9c24742fe4fc13cbe1d55faac73e6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae8b9c24742fe4fc13cbe1d55faac73e6">&#9670;&nbsp;</a></span>step()</h2>
+<a id="a112a8b9c6293765bef70a47704ecbbe2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a112a8b9c6293765bef70a47704ecbbe2">&#9670;&nbsp;</a></span>update()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -487,7 +487,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void euphoria::core::detail::EditorCameraState3::step </td>
+          <td class="memname">virtual void euphoria::core::detail::EditorCameraState3::update </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structeuphoria_1_1core_1_1EditorCamera3.html">EditorCamera3</a> *&#160;</td>
           <td class="paramname"><em>owner</em>, </td>
@@ -535,7 +535,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="structeuphoria_1_1core_1_1detail_1_1LerpCamera.html#a0b88b1af1e2c0fb497c9cad26d1ee802">euphoria::core::detail::LerpCamera</a>, <a class="el" href="structeuphoria_1_1core_1_1detail_1_1OrbitCamera.html#a91ebe42b8a30691b4536a5907397d100">euphoria::core::detail::OrbitCamera</a>, and <a class="el" href="structeuphoria_1_1core_1_1detail_1_1DefaultCamera.html#ab289ec11df3ea38a326c85f26a47dbca">euphoria::core::detail::DefaultCamera</a>.</p>
+<p>Implemented in <a class="el" href="structeuphoria_1_1core_1_1detail_1_1LerpCamera.html#a698e7f18b8bf12c0dcfcbd47cff8d9b8">euphoria::core::detail::LerpCamera</a>, <a class="el" href="structeuphoria_1_1core_1_1detail_1_1OrbitCamera.html#a56e1004e688611296b981ea1026fb4a0">euphoria::core::detail::OrbitCamera</a>, and <a class="el" href="structeuphoria_1_1core_1_1detail_1_1DefaultCamera.html#af8f450a92be92176761d9ec1443b9694">euphoria::core::detail::DefaultCamera</a>.</p>
 
 </div>
 </div>

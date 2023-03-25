@@ -156,11 +156,11 @@
         </inbodydescription>
         <location file="libs/core/src/core/poisson.h" line="28" column="9" bodyfile="libs/core/src/core/poisson.cc" bodystart="23" bodyend="51"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1PoissonWorker_1a2999de8e6364c8108b8088264bb49b67" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1PoissonWorker_1a8a4fa165cfb29c1d0d5293a652fba692" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::optional&lt; std::tuple&lt; <ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref>, <ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref> &gt; &gt;</type>
-        <definition>std::optional&lt; std::tuple&lt; vec2f, vec2f &gt; &gt; euphoria::core::PoissonWorker::step</definition>
+        <definition>std::optional&lt; std::tuple&lt; vec2f, vec2f &gt; &gt; euphoria::core::PoissonWorker::update</definition>
         <argsstring>()</argsstring>
-        <name>step</name>
+        <name>update</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -297,8 +297,8 @@
       <member refid="structeuphoria_1_1core_1_1PoissonWorker_1a0a831efd2af2385c8fd2daea52c4c40c" prot="public" virt="non-virtual"><scope>euphoria::core::PoissonWorker</scope><name>r</name></member>
       <member refid="structeuphoria_1_1core_1_1PoissonWorker_1a75273635fdc9fd9eff112f6287e338d6" prot="public" virt="non-virtual"><scope>euphoria::core::PoissonWorker</scope><name>rand</name></member>
       <member refid="structeuphoria_1_1core_1_1PoissonWorker_1a822eb711790b9946991990c5cb68b842" prot="public" virt="non-virtual"><scope>euphoria::core::PoissonWorker</scope><name>samples</name></member>
-      <member refid="structeuphoria_1_1core_1_1PoissonWorker_1a2999de8e6364c8108b8088264bb49b67" prot="public" virt="non-virtual"><scope>euphoria::core::PoissonWorker</scope><name>step</name></member>
       <member refid="structeuphoria_1_1core_1_1PoissonWorker_1a9f23a697db4ca4c0bedb0c7a501f3efc" prot="public" virt="non-virtual"><scope>euphoria::core::PoissonWorker</scope><name>try_place</name></member>
+      <member refid="structeuphoria_1_1core_1_1PoissonWorker_1a8a4fa165cfb29c1d0d5293a652fba692" prot="public" virt="non-virtual"><scope>euphoria::core::PoissonWorker</scope><name>update</name></member>
       <member refid="structeuphoria_1_1core_1_1PoissonWorker_1a9de2e2e08e786ee70e2a8fc08e8146ca" prot="public" virt="non-virtual"><scope>euphoria::core::PoissonWorker</scope><name>w</name></member>
     </listofallmembers>
   </compounddef>

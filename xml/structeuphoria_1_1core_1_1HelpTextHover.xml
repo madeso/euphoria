@@ -76,11 +76,11 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1HelpTextHover_1a5fc7cb96fe512198488b9548bc3822fa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1HelpTextHover_1a8c677638d0215fcb7e9f1617db7e0602" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>void euphoria::core::HelpTextHover::step</definition>
+        <definition>void euphoria::core::HelpTextHover::update</definition>
         <argsstring>(bool currently_hovering_over_widget, float dt)</argsstring>
-        <name>step</name>
+        <name>update</name>
         <param>
           <type>bool</type>
           <declname>currently_hovering_over_widget</declname>
@@ -107,10 +107,10 @@
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1HelpTextHover_1aa310ca733f2c420e8f5677814a440084" prot="public" virt="non-virtual"><scope>euphoria::core::HelpTextHover</scope><name>display_hover</name></member>
       <member refid="structeuphoria_1_1core_1_1HelpTextHover_1a8481b6bbbc665f2f2dc485c8a0200e04" prot="public" virt="non-virtual"><scope>euphoria::core::HelpTextHover</scope><name>state</name></member>
-      <member refid="structeuphoria_1_1core_1_1HelpTextHover_1a5fc7cb96fe512198488b9548bc3822fa" prot="public" virt="non-virtual"><scope>euphoria::core::HelpTextHover</scope><name>step</name></member>
       <member refid="structeuphoria_1_1core_1_1HelpTextHover_1a9848c5c6c0d8523dd4243f4c89f3806c" prot="public" virt="non-virtual"><scope>euphoria::core::HelpTextHover</scope><name>time_to_hide</name></member>
       <member refid="structeuphoria_1_1core_1_1HelpTextHover_1a8c482b0a280f18f634f6009a66cf0b4b" prot="public" virt="non-virtual"><scope>euphoria::core::HelpTextHover</scope><name>time_to_hover</name></member>
       <member refid="structeuphoria_1_1core_1_1HelpTextHover_1a599579f7259ce2c4bd4562c5ce4efafe" prot="public" virt="non-virtual"><scope>euphoria::core::HelpTextHover</scope><name>timer</name></member>
+      <member refid="structeuphoria_1_1core_1_1HelpTextHover_1a8c677638d0215fcb7e9f1617db7e0602" prot="public" virt="non-virtual"><scope>euphoria::core::HelpTextHover</scope><name>update</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

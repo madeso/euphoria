@@ -106,6 +106,8 @@
       <node id="10">
         <label>core/numeric.h</label>
         <link refid="numeric_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
       </node>
       <node id="6">
         <label>vector</label>
@@ -898,6 +900,7 @@
     <innerclass refid="structeuphoria_1_1core_1_1unit3f" prot="public">euphoria::core::unit3f</innerclass>
     <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
     <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
+    <innernamespace refid="namespaceeuphoria_1_1core_1_1common">euphoria::core::common</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

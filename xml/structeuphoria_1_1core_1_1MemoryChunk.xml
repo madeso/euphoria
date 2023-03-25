@@ -49,11 +49,11 @@
         </inbodydescription>
         <location file="libs/core/src/core/memorychunk.h" line="10" column="33" bodyfile="libs/core/src/core/memorychunk.cc" bodystart="40" bodyend="44"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1MemoryChunk_1a1c852ddfbfbf2c615918701ccfadb805" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1MemoryChunk_1afffb971e064eebdbf16e409eb10fd9bd" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::shared_ptr&lt; <ref refid="structeuphoria_1_1core_1_1MemoryChunk" kindref="compound">MemoryChunk</ref> &gt;</type>
-        <definition>std::shared_ptr&lt; MemoryChunk &gt; euphoria::core::MemoryChunk::null</definition>
+        <definition>std::shared_ptr&lt; MemoryChunk &gt; euphoria::core::MemoryChunk::create_null</definition>
         <argsstring>()</argsstring>
-        <name>null</name>
+        <name>create_null</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -164,12 +164,12 @@
     <location file="libs/core/src/core/memorychunk.h" line="9" column="1" bodyfile="libs/core/src/core/memorychunk.h" bodystart="8" bodyend="26"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1MemoryChunk_1a59d1b542ccc9518bc6f6c661cde5cb29" prot="public" virt="non-virtual"><scope>euphoria::core::MemoryChunk</scope><name>allocate</name></member>
+      <member refid="structeuphoria_1_1core_1_1MemoryChunk_1afffb971e064eebdbf16e409eb10fd9bd" prot="public" virt="non-virtual"><scope>euphoria::core::MemoryChunk</scope><name>create_null</name></member>
       <member refid="structeuphoria_1_1core_1_1MemoryChunk_1a7b6a0b66a21911be42e7a9baa913bc06" prot="private" virt="non-virtual"><scope>euphoria::core::MemoryChunk</scope><name>data</name></member>
       <member refid="structeuphoria_1_1core_1_1MemoryChunk_1a16dfdb12ba42840d63810f5153d73aa5" prot="public" virt="non-virtual"><scope>euphoria::core::MemoryChunk</scope><name>get_data</name></member>
       <member refid="structeuphoria_1_1core_1_1MemoryChunk_1ac82574cd8900be822677be70f2a8c06a" prot="public" virt="non-virtual"><scope>euphoria::core::MemoryChunk</scope><name>get_data</name></member>
       <member refid="structeuphoria_1_1core_1_1MemoryChunk_1a7ccadf682879b1791b9947269c7bfc0f" prot="public" virt="non-virtual"><scope>euphoria::core::MemoryChunk</scope><name>get_size</name></member>
       <member refid="structeuphoria_1_1core_1_1MemoryChunk_1afb4e93ef6e18b98f32bdc5c8033049f4" prot="private" virt="non-virtual"><scope>euphoria::core::MemoryChunk</scope><name>MemoryChunk</name></member>
-      <member refid="structeuphoria_1_1core_1_1MemoryChunk_1a1c852ddfbfbf2c615918701ccfadb805" prot="public" virt="non-virtual"><scope>euphoria::core::MemoryChunk</scope><name>null</name></member>
       <member refid="structeuphoria_1_1core_1_1MemoryChunk_1a41d36379fd2adbdf77308561ef38b670" prot="public" virt="non-virtual"><scope>euphoria::core::MemoryChunk</scope><name>operator[]</name></member>
       <member refid="structeuphoria_1_1core_1_1MemoryChunk_1a084f18bfe9633838fdd1bcea71220a1a" prot="public" virt="non-virtual"><scope>euphoria::core::MemoryChunk</scope><name>operator[]</name></member>
       <member refid="structeuphoria_1_1core_1_1MemoryChunk_1acda5ff3f329ed66f6b100bf065702d7a" prot="private" virt="non-virtual"><scope>euphoria::core::MemoryChunk</scope><name>size</name></member>

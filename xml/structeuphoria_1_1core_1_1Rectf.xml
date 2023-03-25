@@ -653,11 +653,11 @@
         </inbodydescription>
         <location file="libs/core/src/core/rect.h" line="86" column="16" bodyfile="libs/core/src/core/rect.cc" bodystart="422" bodyend="425"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Rectf_1a1e61895c6e822bebc0fc43cad3cbe366" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Rectf_1ade703e6fa376eb3b76aaf80da8875245" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1Recti" kindref="compound">Recti</ref></type>
-        <definition>Recti euphoria::core::Rectf::toi</definition>
+        <definition>Recti euphoria::core::Rectf::to_i</definition>
         <argsstring>() const</argsstring>
-        <name>toi</name>
+        <name>to_i</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -1179,7 +1179,7 @@
       <member refid="structeuphoria_1_1core_1_1Rectf_1a14cff5b5f0feaddcbadc9d6c0499c32d" prot="public" virt="non-virtual"><scope>euphoria::core::Rectf</scope><name>set_empty</name></member>
       <member refid="structeuphoria_1_1core_1_1Rectf_1ad29af627d744ce69647f2c5c588b4a8c" prot="public" virt="non-virtual"><scope>euphoria::core::Rectf</scope><name>set_top_left_to_copy</name></member>
       <member refid="structeuphoria_1_1core_1_1Rectf_1ad16ec49f435294e73e8b9f00df05b112" prot="public" virt="non-virtual"><scope>euphoria::core::Rectf</scope><name>set_top_left_to_copy</name></member>
-      <member refid="structeuphoria_1_1core_1_1Rectf_1a1e61895c6e822bebc0fc43cad3cbe366" prot="public" virt="non-virtual"><scope>euphoria::core::Rectf</scope><name>toi</name></member>
+      <member refid="structeuphoria_1_1core_1_1Rectf_1ade703e6fa376eb3b76aaf80da8875245" prot="public" virt="non-virtual"><scope>euphoria::core::Rectf</scope><name>to_i</name></member>
       <member refid="structeuphoria_1_1core_1_1Rectf_1af79515e31d2dda3371bdfbb0bb90910b" prot="public" virt="non-virtual"><scope>euphoria::core::Rectf</scope><name>top</name></member>
     </listofallmembers>
   </compounddef>

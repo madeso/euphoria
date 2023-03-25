@@ -54,7 +54,6 @@
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="structeuphoria_1_1core_1_1TextBoxStyle-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">euphoria::core::TextBoxStyle Struct Reference</div>  </div>
@@ -65,54 +64,55 @@
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a8e02a389f1d46c49479c3cfce59faead"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1TextBoxStyle.html#a8e02a389f1d46c49479c3cfce59faead">get_string</a> (char s) const</td></tr>
-<tr class="separator:a8e02a389f1d46c49479c3cfce59faead"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a4284c5d128c3ebd83ac00f3bf107c123"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structeuphoria_1_1core_1_1TextBoxStyle.html">TextBoxStyle</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1TextBoxStyle.html#a4284c5d128c3ebd83ac00f3bf107c123">create</a> (std::function&lt; std::string(char)&gt; connections_func)</td></tr>
-<tr class="separator:a4284c5d128c3ebd83ac00f3bf107c123"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09d32794cf1f5ef4c8a5f14ffb24d71e"><td class="memTemplParams" colspan="2">template&lt;typename F &gt; </td></tr>
+<tr class="memitem:a09d32794cf1f5ef4c8a5f14ffb24d71e"><td class="memTemplItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1TextBoxStyle.html#a09d32794cf1f5ef4c8a5f14ffb24d71e">TextBoxStyle</a> (F &amp;&amp;connections_func)</td></tr>
+<tr class="separator:a09d32794cf1f5ef4c8a5f14ffb24d71e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a218e9355761fa36ed92cb422dd2e84e2"><td class="memItemLeft" align="right" valign="top">std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1TextBoxStyle.html#a218e9355761fa36ed92cb422dd2e84e2">get_string</a> (char s) const</td></tr>
+<tr class="separator:a218e9355761fa36ed92cb422dd2e84e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
 <p class="definition">Definition at line <a class="el" href="textbox_8h_source.html#l00019">19</a> of file <a class="el" href="textbox_8h_source.html">textbox.h</a>.</p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a4284c5d128c3ebd83ac00f3bf107c123"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4284c5d128c3ebd83ac00f3bf107c123">&#9670;&nbsp;</a></span>create()</h2>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a09d32794cf1f5ef4c8a5f14ffb24d71e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a09d32794cf1f5ef4c8a5f14ffb24d71e">&#9670;&nbsp;</a></span>TextBoxStyle()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename F &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structeuphoria_1_1core_1_1TextBoxStyle.html">TextBoxStyle</a> euphoria::core::TextBoxStyle::create </td>
+          <td class="memname">constexpr euphoria::core::TextBoxStyle::TextBoxStyle </td>
           <td>(</td>
-          <td class="paramtype">std::function&lt; std::string(char)&gt;&#160;</td>
+          <td class="paramtype">F &amp;&amp;&#160;</td>
           <td class="paramname"><em>connections_func</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span><span class="mlabel">constexpr</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="textbox_8cc_source.html#l00061">61</a> of file <a class="el" href="textbox_8cc_source.html">textbox.cc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="textbox_8h_source.html#l00022">22</a> of file <a class="el" href="textbox_8h_source.html">textbox.h</a>.</p>
 
 </div>
 </div>
-<a id="a8e02a389f1d46c49479c3cfce59faead"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8e02a389f1d46c49479c3cfce59faead">&#9670;&nbsp;</a></span>get_string()</h2>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a218e9355761fa36ed92cb422dd2e84e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a218e9355761fa36ed92cb422dd2e84e2">&#9670;&nbsp;</a></span>get_string()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::string euphoria::core::TextBoxStyle::get_string </td>
+          <td class="memname">std::string_view euphoria::core::TextBoxStyle::get_string </td>
           <td>(</td>
           <td class="paramtype">char&#160;</td>
           <td class="paramname"><em>s</em></td><td>)</td>

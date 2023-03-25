@@ -221,6 +221,8 @@
       <node id="23">
         <label>core/numeric.h</label>
         <link refid="numeric_8h"/>
+        <childnode refid="24" relation="include">
+        </childnode>
       </node>
       <node id="32">
         <label>magic_enum/magic_enum.hpp</label>

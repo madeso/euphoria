@@ -57,7 +57,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/shader.h" line="53" column="9" bodyfile="libs/render/src/render/shader.cc" bodystart="389" bodyend="392"/>
+        <location file="libs/render/src/render/shader.h" line="53" column="9" bodyfile="libs/render/src/render/shader.cc" bodystart="391" bodyend="394"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1ShaderProgram_1a8bfd85f39f563ae06a0ca4871385c466" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -153,7 +153,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/shader.h" line="61" column="14" bodyfile="libs/render/src/render/shader.cc" bodystart="184" bodyend="188"/>
+        <location file="libs/render/src/render/shader.h" line="61" column="14" bodyfile="libs/render/src/render/shader.cc" bodystart="184" bodyend="189"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1ShaderProgram_1ae7c37e05e1fae08d404671575d9e0621" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -174,7 +174,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/shader.h" line="63" column="14" bodyfile="libs/render/src/render/shader.cc" bodystart="396" bodyend="446"/>
+        <location file="libs/render/src/render/shader.h" line="63" column="14" bodyfile="libs/render/src/render/shader.cc" bodystart="398" bodyend="448"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1ShaderProgram_1aabb4e5a6b5bce9cf21010a1b613f251d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -200,7 +200,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/shader.h" line="65" column="14" bodyfile="libs/render/src/render/shader.cc" bodystart="193" bodyend="256"/>
+        <location file="libs/render/src/render/shader.h" line="65" column="14" bodyfile="libs/render/src/render/shader.cc" bodystart="194" bodyend="258"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1ShaderProgram_1a8c5bee4a747fc090222fa347921ebe7f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1render_1_1ShaderUniform" kindref="compound">ShaderUniform</ref></type>
@@ -217,7 +217,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/shader.h" line="73" column="23" bodyfile="libs/render/src/render/shader.cc" bodystart="260" bodyend="277"/>
+        <location file="libs/render/src/render/shader.h" line="73" column="23" bodyfile="libs/render/src/render/shader.cc" bodystart="262" bodyend="279"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1ShaderProgram_1a272f5f30901f4b1f4bf271dc62f50043" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -238,7 +238,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/shader.h" line="75" column="14" bodyfile="libs/render/src/render/shader.cc" bodystart="290" bodyend="295"/>
+        <location file="libs/render/src/render/shader.h" line="75" column="14" bodyfile="libs/render/src/render/shader.cc" bodystart="292" bodyend="297"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1ShaderProgram_1a9fa00719c155d70b26d3c740836f723f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -259,7 +259,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/shader.h" line="76" column="14" bodyfile="libs/render/src/render/shader.cc" bodystart="281" bodyend="286"/>
+        <location file="libs/render/src/render/shader.h" line="76" column="14" bodyfile="libs/render/src/render/shader.cc" bodystart="283" bodyend="288"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1ShaderProgram_1a0ad9fd2613cd84b89b789cd8e848a3d7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -280,7 +280,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/shader.h" line="77" column="14" bodyfile="libs/render/src/render/shader.cc" bodystart="299" bodyend="308"/>
+        <location file="libs/render/src/render/shader.h" line="77" column="14" bodyfile="libs/render/src/render/shader.cc" bodystart="301" bodyend="310"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1ShaderProgram_1a1bd066950cadc841c94dfade3af2b8db" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -301,7 +301,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/shader.h" line="78" column="14" bodyfile="libs/render/src/render/shader.cc" bodystart="312" bodyend="321"/>
+        <location file="libs/render/src/render/shader.h" line="78" column="14" bodyfile="libs/render/src/render/shader.cc" bodystart="314" bodyend="323"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1ShaderProgram_1a19747c0fbe05a1c8e0c3faf934776c7f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -322,7 +322,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/shader.h" line="79" column="14" bodyfile="libs/render/src/render/shader.cc" bodystart="325" bodyend="334"/>
+        <location file="libs/render/src/render/shader.h" line="79" column="14" bodyfile="libs/render/src/render/shader.cc" bodystart="327" bodyend="336"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1ShaderProgram_1a46ca682bf9a82a5ceadeb22a5fd6e427" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -343,7 +343,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/shader.h" line="80" column="14" bodyfile="libs/render/src/render/shader.cc" bodystart="338" bodyend="347"/>
+        <location file="libs/render/src/render/shader.h" line="80" column="14" bodyfile="libs/render/src/render/shader.cc" bodystart="340" bodyend="349"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1ShaderProgram_1afef449ef69f485f406dcb2464e8590da" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -364,7 +364,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/shader.h" line="81" column="14" bodyfile="libs/render/src/render/shader.cc" bodystart="351" bodyend="360"/>
+        <location file="libs/render/src/render/shader.h" line="81" column="14" bodyfile="libs/render/src/render/shader.cc" bodystart="353" bodyend="362"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1ShaderProgram_1a54881cd41c4e22e2aca437a200d3eb4f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -385,7 +385,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/shader.h" line="82" column="14" bodyfile="libs/render/src/render/shader.cc" bodystart="364" bodyend="373"/>
+        <location file="libs/render/src/render/shader.h" line="82" column="14" bodyfile="libs/render/src/render/shader.cc" bodystart="366" bodyend="375"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1ShaderProgram_1afb058e78760716e512d58253dd8f27fd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -406,7 +406,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/shader.h" line="83" column="14" bodyfile="libs/render/src/render/shader.cc" bodystart="377" bodyend="386"/>
+        <location file="libs/render/src/render/shader.h" line="83" column="14" bodyfile="libs/render/src/render/shader.cc" bodystart="379" bodyend="388"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1ShaderProgram_1ac738fe31ef2d7f7fe2542ad24c016fbb" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>const std::vector&lt; <ref refid="structeuphoria_1_1render_1_1ShaderAttribute" kindref="compound">ShaderAttribute</ref> &gt; &amp;</type>
@@ -419,7 +419,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/shader.h" line="90" column="9" bodyfile="libs/render/src/render/shader.cc" bodystart="450" bodyend="453"/>
+        <location file="libs/render/src/render/shader.h" line="90" column="9" bodyfile="libs/render/src/render/shader.cc" bodystart="452" bodyend="455"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1ShaderProgram_1a8c169b0398fd3df2c7081a4ccc4d366b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>const <ref refid="structeuphoria_1_1core_1_1vfs_1_1FilePath" kindref="compound">core::vfs::FilePath</ref> &amp;</type>
@@ -432,7 +432,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/shader.h" line="93" column="9" bodyfile="libs/render/src/render/shader.cc" bodystart="457" bodyend="460"/>
+        <location file="libs/render/src/render/shader.h" line="93" column="9" bodyfile="libs/render/src/render/shader.cc" bodystart="459" bodyend="462"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
@@ -466,7 +466,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/shader.h" line="97" column="9" bodyfile="libs/render/src/render/shader.cc" bodystart="464" bodyend="473"/>
+        <location file="libs/render/src/render/shader.h" line="97" column="9" bodyfile="libs/render/src/render/shader.cc" bodystart="466" bodyend="475"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1ShaderProgram_1a20766ef85946078385aac74e9b3468a3" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -483,7 +483,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/shader.h" line="100" column="9" bodyfile="libs/render/src/render/shader.cc" bodystart="477" bodyend="481"/>
+        <location file="libs/render/src/render/shader.h" line="100" column="9" bodyfile="libs/render/src/render/shader.cc" bodystart="479" bodyend="483"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

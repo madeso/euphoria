@@ -5,6 +5,8 @@
     <includedby refid="angle_8h" local="yes">libs/core/src/core/angle.h</includedby>
     <includedby refid="interpolate_8default_8cc" local="yes">libs/core/src/core/interpolate.default.cc</includedby>
     <includedby refid="interpolate_8h" local="yes">libs/core/src/core/interpolate.h</includedby>
+    <includedby refid="numeric_8h" local="yes">libs/core/src/core/numeric.h</includedby>
+    <includedby refid="quat_8h" local="yes">libs/core/src/core/quat.h</includedby>
     <includedby refid="rgb_8cc" local="yes">libs/core/src/core/rgb.cc</includedby>
     <includedby refid="rgb_8h" local="yes">libs/core/src/core/rgb.h</includedby>
     <includedby refid="vec2_8h" local="yes">libs/core/src/core/vec2.h</includedby>
@@ -871,6 +873,10 @@
         <childnode refid="46" relation="include">
         </childnode>
       </node>
+      <node id="227">
+        <label>libs/core/src/core/tablelayout.cc</label>
+        <link refid="tablelayout_8cc"/>
+      </node>
       <node id="202">
         <label>libs/core/src/core/collisionmesh.h</label>
         <link refid="collisionmesh_8h"/>
@@ -976,6 +982,10 @@
       <node id="62">
         <label>libs/render/src/render/shaderattribute2d.cc</label>
         <link refid="shaderattribute2d_8cc"/>
+      </node>
+      <node id="228">
+        <label>libs/core/src/core/textfileparser.cc</label>
+        <link refid="textfileparser_8cc"/>
       </node>
       <node id="12">
         <label>libs/core/src/core/camera3.h</label>
@@ -1133,10 +1143,88 @@
         <childnode refid="49" relation="include">
         </childnode>
       </node>
+      <node id="224">
+        <label>libs/core/src/core/numeric.h</label>
+        <link refid="numeric_8h"/>
+        <childnode refid="77" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="79" relation="include">
+        </childnode>
+        <childnode refid="109" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="111" relation="include">
+        </childnode>
+        <childnode refid="112" relation="include">
+        </childnode>
+        <childnode refid="113" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="84" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="73" relation="include">
+        </childnode>
+        <childnode refid="99" relation="include">
+        </childnode>
+        <childnode refid="100" relation="include">
+        </childnode>
+        <childnode refid="75" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="89" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="159" relation="include">
+        </childnode>
+        <childnode refid="225" relation="include">
+        </childnode>
+        <childnode refid="198" relation="include">
+        </childnode>
+        <childnode refid="208" relation="include">
+        </childnode>
+        <childnode refid="134" relation="include">
+        </childnode>
+        <childnode refid="226" relation="include">
+        </childnode>
+        <childnode refid="228" relation="include">
+        </childnode>
+        <childnode refid="229" relation="include">
+        </childnode>
+        <childnode refid="191" relation="include">
+        </childnode>
+        <childnode refid="200" relation="include">
+        </childnode>
+        <childnode refid="212" relation="include">
+        </childnode>
+        <childnode refid="147" relation="include">
+        </childnode>
+        <childnode refid="220" relation="include">
+        </childnode>
+        <childnode refid="130" relation="include">
+        </childnode>
+      </node>
       <node id="110">
         <label>libs/core/src/core/generator_maze.h</label>
         <link refid="generator__maze_8h"/>
         <childnode refid="94" relation="include">
+        </childnode>
+      </node>
+      <node id="226">
+        <label>libs/core/src/core/tablelayout.h</label>
+        <link refid="tablelayout_8h"/>
+        <childnode refid="227" relation="include">
+        </childnode>
+        <childnode refid="68" relation="include">
         </childnode>
       </node>
       <node id="42">
@@ -1170,6 +1258,10 @@
         </childnode>
         <childnode refid="145" relation="include">
         </childnode>
+      </node>
+      <node id="229">
+        <label>libs/core/src/core/torcurve.cc</label>
+        <link refid="torcurve_8cc"/>
       </node>
       <node id="169">
         <label>libs/core/src/core/palette.h</label>
@@ -1429,6 +1521,10 @@
         <childnode refid="221" relation="include">
         </childnode>
         <childnode refid="222" relation="include">
+        </childnode>
+        <childnode refid="224" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
         </childnode>
         <childnode refid="159" relation="include">
         </childnode>
@@ -1735,6 +1831,10 @@
         <label>libs/core/src/core/cp437.cc</label>
         <link refid="cp437_8cc"/>
       </node>
+      <node id="225">
+        <label>libs/core/src/core/sensitivity.cc</label>
+        <link refid="sensitivity_8cc"/>
+      </node>
       <node id="68">
         <label>libs/render/src/render/scalablesprite.cc</label>
         <link refid="scalablesprite_8cc"/>
@@ -1877,7 +1977,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/interpolate.default.h" line="21" column="9" bodyfile="libs/core/src/core/interpolate.default.h" bodystart="21" bodyend="-1"/>
+        <location file="libs/core/src/core/interpolate.default.h" line="19" column="9" bodyfile="libs/core/src/core/interpolate.default.h" bodystart="19" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

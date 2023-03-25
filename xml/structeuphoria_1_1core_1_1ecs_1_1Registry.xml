@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ecs.h" line="187" column="25" bodyfile="libs/core/src/core/ecs.h" bodystart="187" bodyend="-1"/>
+        <location file="libs/core/src/core/ecs.h" line="188" column="25" bodyfile="libs/core/src/core/ecs.h" bodystart="188" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -30,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ecs.h" line="133" column="9" bodyfile="libs/core/src/core/ecs.cc" bodystart="225" bodyend="228"/>
+        <location file="libs/core/src/core/ecs.h" line="134" column="9" bodyfile="libs/core/src/core/ecs.cc" bodystart="225" bodyend="228"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1Registry_1a424e5a9bb6759c4b41f7cee8728eb4cd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -43,7 +43,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ecs.h" line="134" column="9" bodyfile="libs/core/src/core/ecs.cc" bodystart="230" bodyend="233"/>
+        <location file="libs/core/src/core/ecs.h" line="135" column="9" bodyfile="libs/core/src/core/ecs.cc" bodystart="230" bodyend="233"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1Registry_1a94715b2ff2be431ab7b09fa2e4040b6c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -59,7 +59,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ecs.h" line="136" column="9"/>
+        <location file="libs/core/src/core/ecs.h" line="137" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1Registry_1a1c9f695cb438a4e972250dfe93900547" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -75,7 +75,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ecs.h" line="137" column="9"/>
+        <location file="libs/core/src/core/ecs.h" line="138" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1Registry_1a669287319613768b9319e532b66449a4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1ecs_1_1Registry" kindref="compound">Registry</ref> &amp;</type>
@@ -91,7 +91,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ecs.h" line="138" column="18"/>
+        <location file="libs/core/src/core/ecs.h" line="139" column="18"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1Registry_1a9646925ed791802b5d362a4d8ec06fca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1ecs_1_1Registry" kindref="compound">Registry</ref> &amp;</type>
@@ -107,7 +107,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ecs.h" line="139" column="18"/>
+        <location file="libs/core/src/core/ecs.h" line="140" column="18"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1Registry_1ab59822331dd0189096cbd48a26615d8f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="namespaceeuphoria_1_1core_1_1ecs_1af486c8f697b0cff15048fe88a024d3eb" kindref="member">EntityHandle</ref></type>
@@ -120,7 +120,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ecs.h" line="141" column="22" bodyfile="libs/core/src/core/ecs.cc" bodystart="241" bodyend="244"/>
+        <location file="libs/core/src/core/ecs.h" line="142" column="22" bodyfile="libs/core/src/core/ecs.cc" bodystart="241" bodyend="244"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1Registry_1ad1d78e78034fe47240927cfcb1483d84" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -137,7 +137,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ecs.h" line="142" column="14" bodyfile="libs/core/src/core/ecs.cc" bodystart="252" bodyend="255"/>
+        <location file="libs/core/src/core/ecs.h" line="143" column="14" bodyfile="libs/core/src/core/ecs.cc" bodystart="252" bodyend="255"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1Registry_1abca3df2fad5b2dbafe30b2866952efc3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="namespaceeuphoria_1_1core_1_1ecs_1a432f6f7f37f32d73c71e56370bcd97af" kindref="member">ComponentIndex</ref></type>
@@ -158,7 +158,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ecs.h" line="143" column="24" bodyfile="libs/core/src/core/ecs.cc" bodystart="263" bodyend="266"/>
+        <location file="libs/core/src/core/ecs.h" line="144" column="24" bodyfile="libs/core/src/core/ecs.cc" bodystart="263" bodyend="266"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1Registry_1a5af3df1300a93e66d783389be4a232e8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -180,7 +180,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ecs.h" line="147" column="24" bodyfile="libs/core/src/core/ecs.h" bodystart="147" bodyend="150"/>
+        <location file="libs/core/src/core/ecs.h" line="148" column="24" bodyfile="libs/core/src/core/ecs.h" bodystart="148" bodyend="151"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1Registry_1a1c5b0d54e619036e5477a5da8543c69b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -210,7 +210,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ecs.h" line="154" column="14" bodyfile="libs/core/src/core/ecs.h" bodystart="154" bodyend="158"/>
+        <location file="libs/core/src/core/ecs.h" line="155" column="14" bodyfile="libs/core/src/core/ecs.h" bodystart="155" bodyend="159"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1Registry_1a2ec669c09081f6beaa5b1e1f1f3595a2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -236,7 +236,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ecs.h" line="162" column="14" bodyfile="libs/core/src/core/ecs.h" bodystart="162" bodyend="166"/>
+        <location file="libs/core/src/core/ecs.h" line="163" column="14" bodyfile="libs/core/src/core/ecs.h" bodystart="163" bodyend="167"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1Registry_1a2ef9e49514bfafbd9df74a06d8afeabf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -262,7 +262,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ecs.h" line="170" column="11" bodyfile="libs/core/src/core/ecs.h" bodystart="170" bodyend="173"/>
+        <location file="libs/core/src/core/ecs.h" line="171" column="11" bodyfile="libs/core/src/core/ecs.h" bodystart="171" bodyend="174"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1Registry_1a2f5accedd03e2efb7b6ab7323a00994f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -288,7 +288,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ecs.h" line="176" column="11" bodyfile="libs/core/src/core/ecs.h" bodystart="176" bodyend="179"/>
+        <location file="libs/core/src/core/ecs.h" line="177" column="11" bodyfile="libs/core/src/core/ecs.h" bodystart="177" bodyend="180"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1Registry_1ae806e02178f928250b46baff6a908df8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -305,7 +305,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ecs.h" line="181" column="22" bodyfile="libs/core/src/core/ecs.cc" bodystart="247" bodyend="250"/>
+        <location file="libs/core/src/core/ecs.h" line="182" column="22" bodyfile="libs/core/src/core/ecs.cc" bodystart="247" bodyend="250"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1Registry_1a1143a47c3af49882b0fbefb96668749b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -326,7 +326,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ecs.h" line="182" column="15" bodyfile="libs/core/src/core/ecs.cc" bodystart="258" bodyend="261"/>
+        <location file="libs/core/src/core/ecs.h" line="183" column="15" bodyfile="libs/core/src/core/ecs.cc" bodystart="258" bodyend="261"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1Registry_1a99c24a45ac285e33b4843546ce64d3fd" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>std::vector&lt; <ref refid="namespaceeuphoria_1_1core_1_1ecs_1af486c8f697b0cff15048fe88a024d3eb" kindref="member">EntityHandle</ref> &gt;</type>
@@ -343,7 +343,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ecs.h" line="183" column="22" bodyfile="libs/core/src/core/ecs.cc" bodystart="279" bodyend="282"/>
+        <location file="libs/core/src/core/ecs.h" line="184" column="22" bodyfile="libs/core/src/core/ecs.cc" bodystart="279" bodyend="282"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1Registry_1a83e8f5c3bf617236faf803d6cddc58ed" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -356,7 +356,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ecs.h" line="185" column="14" bodyfile="libs/core/src/core/ecs.cc" bodystart="236" bodyend="239"/>
+        <location file="libs/core/src/core/ecs.h" line="186" column="14" bodyfile="libs/core/src/core/ecs.cc" bodystart="236" bodyend="239"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -380,7 +380,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ecs.h" line="190" column="32" bodyfile="libs/core/src/core/ecs.h" bodystart="190" bodyend="195"/>
+        <location file="libs/core/src/core/ecs.h" line="191" column="32" bodyfile="libs/core/src/core/ecs.h" bodystart="191" bodyend="196"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1Registry_1ace7358f086ba0030039bac5283643903" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1ecs_1_1ComponentArrayBase" kindref="compound">ComponentArrayBase</ref> *</type>
@@ -397,7 +397,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ecs.h" line="197" column="28" bodyfile="libs/core/src/core/ecs.cc" bodystart="274" bodyend="277"/>
+        <location file="libs/core/src/core/ecs.h" line="198" column="28" bodyfile="libs/core/src/core/ecs.cc" bodystart="274" bodyend="277"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1Registry_1a3943d922c715f347ae859d7588fc7c9a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -418,7 +418,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ecs.h" line="198" column="14" bodyfile="libs/core/src/core/ecs.cc" bodystart="285" bodyend="288"/>
+        <location file="libs/core/src/core/ecs.h" line="199" column="14" bodyfile="libs/core/src/core/ecs.cc" bodystart="285" bodyend="288"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1Registry_1ad5f503379be6f31bcae8bd655dec7dea" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -439,7 +439,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ecs.h" line="199" column="14" bodyfile="libs/core/src/core/ecs.cc" bodystart="291" bodyend="294"/>
+        <location file="libs/core/src/core/ecs.h" line="200" column="14" bodyfile="libs/core/src/core/ecs.cc" bodystart="291" bodyend="294"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1Registry_1a99add8295d9aba9b4f076cdc8dfe857d" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -456,14 +456,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ecs.h" line="201" column="22" bodyfile="libs/core/src/core/ecs.cc" bodystart="269" bodyend="272"/>
+        <location file="libs/core/src/core/ecs.h" line="202" column="22" bodyfile="libs/core/src/core/ecs.cc" bodystart="269" bodyend="272"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/ecs.h" line="132" column="1" bodyfile="libs/core/src/core/ecs.h" bodystart="131" bodyend="202"/>
+    <location file="libs/core/src/core/ecs.h" line="133" column="1" bodyfile="libs/core/src/core/ecs.h" bodystart="132" bodyend="203"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1ecs_1_1Registry_1a1c5b0d54e619036e5477a5da8543c69b" prot="public" virt="non-virtual"><scope>euphoria::core::ecs::Registry</scope><name>add_component</name></member>
       <member refid="structeuphoria_1_1core_1_1ecs_1_1Registry_1ab59822331dd0189096cbd48a26615d8f" prot="public" virt="non-virtual"><scope>euphoria::core::ecs::Registry</scope><name>create</name></member>

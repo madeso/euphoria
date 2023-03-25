@@ -59,35 +59,30 @@
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceeuphoria_1_1core.html">euphoria::core</a></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;{</div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keywordtype">float</span> <a class="code" href="namespaceeuphoria_1_1core.html#a9d2fe0f709030308da7fc67b010a2ceb">float_transform</a>(<span class="keywordtype">float</span> from, <span class="keywordtype">float</span> v, <span class="keywordtype">float</span> to);</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">// todo(Gustav): change to a function instead of a struct</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">// todo(Gustav): change to a function instead of a struct</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="structeuphoria_1_1core_1_1InterpolateDefault.html">   11</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structeuphoria_1_1core_1_1InterpolateDefault.html">InterpolateDefault</a></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;{</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;};</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="namespaceeuphoria_1_1core.html#aa83991592a9833c66e7e1c733d3f73bc">   16</a></span>&#160;T <a class="code" href="namespaceeuphoria_1_1core.html#aa83991592a9833c66e7e1c733d3f73bc">default_interpolate</a>(<span class="keyword">const</span> T&amp; from, <span class="keywordtype">float</span> t, <span class="keyword">const</span> T&amp; to)</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="structeuphoria_1_1core_1_1InterpolateDefault.html">InterpolateDefault&lt;T&gt;::interpolate</a>(from, <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710ae358efa489f58062f10dd7316b65649e">t</a>, to);</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;}</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="interpolate_8default_8h.html#afc88b34a7d075bd3aee47cbe9d8bbffb">   21</a></span>&#160;<span class="preprocessor">#define DEFAULT_INTERPOLATE(TYPE, FUNCTION) template&lt;&gt; struct InterpolateDefault&lt;TYPE&gt; {\</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">    static TYPE interpolate(const TYPE&amp; from, float v, const TYPE&amp; to) { return FUNCTION(from, v, to); }\</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">}</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<a class="code" href="namespaceeuphoria_1_1core.html#a108454e9f2446e54fae3aa2b9fbc7598">DEFAULT_INTERPOLATE</a>(<span class="keywordtype">float</span>, <a class="code" href="namespaceeuphoria_1_1core.html#a9d2fe0f709030308da7fc67b010a2ceb">float_transform</a>);</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;}</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="structeuphoria_1_1core_1_1InterpolateDefault.html">    9</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structeuphoria_1_1core_1_1InterpolateDefault.html">InterpolateDefault</a></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;};</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="namespaceeuphoria_1_1core.html#aa83991592a9833c66e7e1c733d3f73bc">   14</a></span>&#160;T <a class="code" href="namespaceeuphoria_1_1core.html#aa83991592a9833c66e7e1c733d3f73bc">default_interpolate</a>(<span class="keyword">const</span> T&amp; from, <span class="keywordtype">float</span> t, <span class="keyword">const</span> T&amp; to)</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="structeuphoria_1_1core_1_1InterpolateDefault.html">InterpolateDefault&lt;T&gt;::interpolate</a>(from, <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710ae358efa489f58062f10dd7316b65649e">t</a>, to);</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;}</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="interpolate_8default_8h.html#afc88b34a7d075bd3aee47cbe9d8bbffb">   19</a></span>&#160;<span class="preprocessor">#define DEFAULT_INTERPOLATE(TYPE, FUNCTION) template&lt;&gt; struct InterpolateDefault&lt;TYPE&gt; {\</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">    static TYPE interpolate(const TYPE&amp; from, float v, const TYPE&amp; to) { return FUNCTION(from, v, to); }\</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">}</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="anamespaceeuphoria_1_1core_html_aa83991592a9833c66e7e1c733d3f73bc"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#aa83991592a9833c66e7e1c733d3f73bc">euphoria::core::default_interpolate</a></div><div class="ttdeci">T default_interpolate(const T &amp;from, float t, const T &amp;to)</div><div class="ttdef"><b>Definition:</b> <a href="interpolate_8default_8h_source.html#l00016">interpolate.default.h:16</a></div></div>
+<div class="ttc" id="anamespaceeuphoria_1_1core_html_aa83991592a9833c66e7e1c733d3f73bc"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#aa83991592a9833c66e7e1c733d3f73bc">euphoria::core::default_interpolate</a></div><div class="ttdeci">T default_interpolate(const T &amp;from, float t, const T &amp;to)</div><div class="ttdef"><b>Definition:</b> <a href="interpolate_8default_8h_source.html#l00014">interpolate.default.h:14</a></div></div>
 <div class="ttc" id="anamespaceeuphoria_1_1core_html_aa9db03a38fd9999446a4ebf0584cd710ae358efa489f58062f10dd7316b65649e"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710ae358efa489f58062f10dd7316b65649e">euphoria::core::Key::t</a></div><div class="ttdeci">@ t</div></div>
-<div class="ttc" id="astructeuphoria_1_1core_1_1InterpolateDefault_html"><div class="ttname"><a href="structeuphoria_1_1core_1_1InterpolateDefault.html">euphoria::core::InterpolateDefault</a></div><div class="ttdef"><b>Definition:</b> <a href="interpolate_8default_8h_source.html#l00011">interpolate.default.h:11</a></div></div>
-<div class="ttc" id="anamespaceeuphoria_1_1core_html_a108454e9f2446e54fae3aa2b9fbc7598"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#a108454e9f2446e54fae3aa2b9fbc7598">euphoria::core::DEFAULT_INTERPOLATE</a></div><div class="ttdeci">DEFAULT_INTERPOLATE(angle, lerp_angle)</div></div>
+<div class="ttc" id="astructeuphoria_1_1core_1_1InterpolateDefault_html"><div class="ttname"><a href="structeuphoria_1_1core_1_1InterpolateDefault.html">euphoria::core::InterpolateDefault</a></div><div class="ttdef"><b>Definition:</b> <a href="interpolate_8default_8h_source.html#l00009">interpolate.default.h:9</a></div></div>
 <div class="ttc" id="anamespaceeuphoria_1_1core_html"><div class="ttname"><a href="namespaceeuphoria_1_1core.html">euphoria::core</a></div><div class="ttdef"><b>Definition:</b> <a href="aabb_8cc_source.html#l00008">aabb.cc:8</a></div></div>
-<div class="ttc" id="anamespaceeuphoria_1_1core_html_a9d2fe0f709030308da7fc67b010a2ceb"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#a9d2fe0f709030308da7fc67b010a2ceb">euphoria::core::float_transform</a></div><div class="ttdeci">float float_transform(float from, float v, float to)</div><div class="ttdef"><b>Definition:</b> <a href="interpolate_8default_8cc_source.html#l00007">interpolate.default.cc:7</a></div></div>
 <!-- HTML footer for doxygen 1.8.17-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

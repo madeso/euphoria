@@ -3,9 +3,9 @@
   <compounddef id="namespaceeuphoria_1_1core_1_1raytracer" kind="namespace" language="C++">
     <compoundname>euphoria::core::raytracer</compoundname>
     <innerclass refid="structeuphoria_1_1core_1_1raytracer_1_1Camera" prot="public">euphoria::core::raytracer::Camera</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1raytracer_1_1Collision" prot="public">euphoria::core::raytracer::Collision</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1raytracer_1_1DielectricMaterial" prot="public">euphoria::core::raytracer::DielectricMaterial</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1raytracer_1_1DiffuseMaterial" prot="public">euphoria::core::raytracer::DiffuseMaterial</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1raytracer_1_1HitResult" prot="public">euphoria::core::raytracer::HitResult</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1raytracer_1_1Material" prot="public">euphoria::core::raytracer::Material</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1raytracer_1_1MetalMaterial" prot="public">euphoria::core::raytracer::MetalMaterial</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1raytracer_1_1Object" prot="public">euphoria::core::raytracer::Object</innerclass>
@@ -38,11 +38,11 @@
         </inbodydescription>
         <location file="libs/core/src/core/raytracer.cc" line="80" column="5" bodyfile="libs/core/src/core/raytracer.cc" bodystart="81" bodyend="93"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1raytracer_1a6fb96bb3039a1e75d4dcf381b012d96b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1raytracer_1ab7db55bd0459487e48ca52676ad41e22" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1rgb" kindref="compound">rgb</ref></type>
-        <definition>rgb euphoria::core::raytracer::crgb</definition>
+        <definition>rgb euphoria::core::raytracer::to_rgb</definition>
         <argsstring>(const unit3f &amp;normal)</argsstring>
-        <name>crgb</name>
+        <name>to_rgb</name>
         <param>
           <type>const <ref refid="structeuphoria_1_1core_1_1unit3f" kindref="compound">unit3f</ref> &amp;</type>
           <declname>normal</declname>
@@ -72,11 +72,11 @@
         </inbodydescription>
         <location file="libs/core/src/core/raytracer.cc" line="136" column="11" bodyfile="libs/core/src/core/raytracer.cc" bodystart="136" bodyend="139"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1raytracer_1ae4ae9160da5d3933604b269404478ec3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1raytracer_1a2182bcc3d71753ef14ccc1bbe71604b0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
-        <definition>vec3f euphoria::core::raytracer::reflect</definition>
+        <definition>vec3f euphoria::core::raytracer::get_reflected</definition>
         <argsstring>(const vec3f &amp;v, const unit3f &amp;normal)</argsstring>
-        <name>reflect</name>
+        <name>get_reflected</name>
         <param>
           <type>const <ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
           <declname>v</declname>
@@ -93,11 +93,11 @@
         </inbodydescription>
         <location file="libs/core/src/core/raytracer.cc" line="171" column="11" bodyfile="libs/core/src/core/raytracer.cc" bodystart="171" bodyend="173"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1raytracer_1a670080c0b34979da2d4db7920f69b825" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1raytracer_1ae4bf750032f4351c84688ab2388a24c9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::optional&lt; <ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &gt;</type>
-        <definition>std::optional&lt;vec3f&gt; euphoria::core::raytracer::refract</definition>
+        <definition>std::optional&lt;vec3f&gt; euphoria::core::raytracer::get_refracted</definition>
         <argsstring>(const unit3f &amp;uv, const unit3f &amp;normal, float ni)</argsstring>
-        <name>refract</name>
+        <name>get_refracted</name>
         <param>
           <type>const <ref refid="structeuphoria_1_1core_1_1unit3f" kindref="compound">unit3f</ref> &amp;</type>
           <declname>uv</declname>

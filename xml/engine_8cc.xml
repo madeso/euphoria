@@ -307,6 +307,8 @@
       <node id="47">
         <label>core/numeric.h</label>
         <link refid="numeric_8h"/>
+        <childnode refid="44" relation="include">
+        </childnode>
       </node>
       <node id="63">
         <label>window/filesystem.h</label>

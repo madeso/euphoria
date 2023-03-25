@@ -3,11 +3,11 @@
   <compounddef id="namespaceeuphoria_1_1core_1_1dump2d_1_1strokes" kind="namespace" language="C++">
     <compoundname>euphoria::core::dump2d::strokes</compoundname>
       <sectiondef kind="func">
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1dump2d_1_1strokes_1a830d7a9e667595ff3f40dd5335c225fb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1dump2d_1_1strokes_1a3e6555a505dca1f921ae14ca367563e2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::vector&lt; int &gt;</type>
-        <definition>std::vector&lt; int &gt; euphoria::core::dump2d::strokes::dash</definition>
+        <definition>std::vector&lt; int &gt; euphoria::core::dump2d::strokes::create_dash</definition>
         <argsstring>(int size)</argsstring>
-        <name>dash</name>
+        <name>create_dash</name>
         <param>
           <type>int</type>
           <declname>size</declname>

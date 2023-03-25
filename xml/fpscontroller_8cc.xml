@@ -128,6 +128,8 @@
       <node id="12">
         <label>core/numeric.h</label>
         <link refid="numeric_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
       </node>
       <node id="8">
         <label>vector</label>
@@ -152,6 +154,8 @@
         <childnode refid="20" relation="include">
         </childnode>
         <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
         </childnode>
       </node>
       <node id="20">

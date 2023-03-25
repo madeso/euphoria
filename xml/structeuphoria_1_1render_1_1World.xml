@@ -70,11 +70,11 @@
         </inbodydescription>
         <location file="libs/render/src/render/world.h" line="38" column="9" bodyfile="libs/render/src/render/world.cc" bodystart="21" bodyend="26"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1render_1_1World_1a9656c14824ae3de3ceceeeb5a4dbb21c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1World_1aa52c562213bb64de39a58e245df0fdca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>void euphoria::render::World::step</definition>
+        <definition>void euphoria::render::World::update</definition>
         <argsstring>()</argsstring>
-        <name>step</name>
+        <name>update</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -169,7 +169,7 @@
       <member refid="structeuphoria_1_1render_1_1World_1ad5b98a081c642482e937f2bd4bf7c684" prot="public" virt="non-virtual"><scope>euphoria::render::World</scope><name>light</name></member>
       <member refid="structeuphoria_1_1render_1_1World_1a573f1a23f3df52ef7f59d683f04aed0c" prot="public" virt="non-virtual"><scope>euphoria::render::World</scope><name>render</name></member>
       <member refid="structeuphoria_1_1render_1_1World_1a373401f3a18d5f6337b24d9996ed5a85" prot="public" virt="non-virtual"><scope>euphoria::render::World</scope><name>render</name></member>
-      <member refid="structeuphoria_1_1render_1_1World_1a9656c14824ae3de3ceceeeb5a4dbb21c" prot="public" virt="non-virtual"><scope>euphoria::render::World</scope><name>step</name></member>
+      <member refid="structeuphoria_1_1render_1_1World_1aa52c562213bb64de39a58e245df0fdca" prot="public" virt="non-virtual"><scope>euphoria::render::World</scope><name>update</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>
