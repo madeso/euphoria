@@ -105,7 +105,7 @@ namespace euphoria::core
             return unit3f(-this->x, -this->y, -this->z);
         }
 
-        constexpr [[nodiscard]] bool
+        [[nodiscard]] constexpr bool
         is_valid() const
         {
             return is_equal(get_length_squared(), 1.0f);
