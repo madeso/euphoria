@@ -76,7 +76,7 @@ namespace euphoria::core
         float* get_data_ptr();
         [[nodiscard]] const float* get_data_ptr() const;
 
-        constexpr [[nodiscard]] float get_length_squared() const
+        [[nodiscard]] constexpr float get_length_squared() const
         {
             return x * x + y * y + z * z;
         }
