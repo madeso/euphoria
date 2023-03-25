@@ -6,7 +6,7 @@ jobs:
     build:
         strategy:
             matrix:
-                os: [windows-2019]
+                os: [windows-2022]
                 platform: [x64]
                 build_type: [Debug, Release]
 
