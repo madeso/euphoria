@@ -392,52 +392,6 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="var">
-      <memberdef kind="variable" id="namespaceeuphoria_1_1core_1_1palettes_1a554ad768cd9fb2b1900ca0122c4ec18a" prot="public" static="no" constexpr="yes" mutable="no">
-        <type>constexpr auto</type>
-        <definition>constexpr auto euphoria::core::palettes::dawnbringer</definition>
-        <argsstring></argsstring>
-        <name>dawnbringer</name>
-        <initializer>= <ref refid="namespaceeuphoria_1_1core_1aa327c34dbdb2f717a71f157ee5c384d4" kindref="member">make_static_palette</ref>
-        (
-            &quot;Dawnbringer&quot;,
-            rgbi::from_hex(0x140C1C),
-            <ref refid="structeuphoria_1_1core_1_1rgbi_1aa00ee689bc155ca61bc1590e637b52e1" kindref="member">rgbi::from_hex</ref>(0x442434),
-            <ref refid="structeuphoria_1_1core_1_1rgbi_1aa00ee689bc155ca61bc1590e637b52e1" kindref="member">rgbi::from_hex</ref>(0x30346D),
-            <ref refid="structeuphoria_1_1core_1_1rgbi_1aa00ee689bc155ca61bc1590e637b52e1" kindref="member">rgbi::from_hex</ref>(0x4E4A4E),
-            <ref refid="structeuphoria_1_1core_1_1rgbi_1aa00ee689bc155ca61bc1590e637b52e1" kindref="member">rgbi::from_hex</ref>(0x854C30),
-            <ref refid="structeuphoria_1_1core_1_1rgbi_1aa00ee689bc155ca61bc1590e637b52e1" kindref="member">rgbi::from_hex</ref>(0x346524),
-            <ref refid="structeuphoria_1_1core_1_1rgbi_1aa00ee689bc155ca61bc1590e637b52e1" kindref="member">rgbi::from_hex</ref>(0xD04648),
-            <ref refid="structeuphoria_1_1core_1_1rgbi_1aa00ee689bc155ca61bc1590e637b52e1" kindref="member">rgbi::from_hex</ref>(0x757161),
-            <ref refid="structeuphoria_1_1core_1_1rgbi_1aa00ee689bc155ca61bc1590e637b52e1" kindref="member">rgbi::from_hex</ref>(0x597DCE),
-            <ref refid="structeuphoria_1_1core_1_1rgbi_1aa00ee689bc155ca61bc1590e637b52e1" kindref="member">rgbi::from_hex</ref>(0xD27D2C),
-            <ref refid="structeuphoria_1_1core_1_1rgbi_1aa00ee689bc155ca61bc1590e637b52e1" kindref="member">rgbi::from_hex</ref>(0x8595A1),
-            <ref refid="structeuphoria_1_1core_1_1rgbi_1aa00ee689bc155ca61bc1590e637b52e1" kindref="member">rgbi::from_hex</ref>(0x6DAA2C),
-            <ref refid="structeuphoria_1_1core_1_1rgbi_1aa00ee689bc155ca61bc1590e637b52e1" kindref="member">rgbi::from_hex</ref>(0xD2AA99),
-            <ref refid="structeuphoria_1_1core_1_1rgbi_1aa00ee689bc155ca61bc1590e637b52e1" kindref="member">rgbi::from_hex</ref>(0x6DC2CA),
-            <ref refid="structeuphoria_1_1core_1_1rgbi_1aa00ee689bc155ca61bc1590e637b52e1" kindref="member">rgbi::from_hex</ref>(0xDAD45E),
-            <ref refid="structeuphoria_1_1core_1_1rgbi_1aa00ee689bc155ca61bc1590e637b52e1" kindref="member">rgbi::from_hex</ref>(0xDEEED6)
-        )</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/palette.h" line="143" column="24" bodyfile="libs/core/src/core/palette.h" bodystart="143" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="variable" id="namespaceeuphoria_1_1core_1_1palettes_1a77ed9fa763b7a706088077e17543537e" prot="public" static="no" constexpr="yes" mutable="no">
-        <type>constexpr auto</type>
-        <definition>constexpr auto euphoria::core::palettes::named_colors</definition>
-        <argsstring></argsstring>
-        <name>named_colors</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/palette.h" line="164" column="24" bodyfile="libs/core/src/core/palette.h" bodystart="164" bodyend="-1"/>
-      </memberdef>
       <memberdef kind="variable" id="namespaceeuphoria_1_1core_1_1palettes_1ae4b5a454305995e80f45b0bc94eb7724" prot="public" static="no" constexpr="yes" mutable="no">
         <type><ref refid="compiler__warning_8h_1a24b263e8b4b7f2ebc6534700f8157a48" kindref="member">DISABLE_WARNING_PUSH</ref> constexpr <ref refid="compiler__warning_8h_1a7b351af850b45cf3b561b2b9ff37ae5c" kindref="member">DISABLE_WARNING_UNUSED_VARIABLE</ref> std::array</type>
         <definition>DISABLE_WARNING_PUSH constexpr DISABLE_WARNING_UNUSED_VARIABLE std::array euphoria::core::palettes::palette_names</definition>
@@ -475,6 +429,6 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/palette.h" line="141" column="1"/>
+    <location file="libs/core/src/core/palette_all.cc" line="12" column="1"/>
   </compounddef>
 </doxygen>

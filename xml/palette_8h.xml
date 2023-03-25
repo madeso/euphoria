@@ -314,7 +314,6 @@
     <innerclass refid="structeuphoria_1_1core_1_1DynamicPalette" prot="public">euphoria::core::DynamicPalette</innerclass>
     <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
     <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core_1_1palettes">euphoria::core::palettes</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

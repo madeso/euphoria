@@ -3608,6 +3608,52 @@
         </inbodydescription>
         <location file="libs/core/src/core/os.h" line="23" column="20" bodyfile="libs/core/src/core/os.h" bodystart="23" bodyend="-1"/>
       </memberdef>
+      <memberdef kind="variable" id="namespaceeuphoria_1_1core_1aea5d62a43e880d0c7bb82c04434e5e41" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr auto</type>
+        <definition>constexpr auto euphoria::core::dawnbringer_palette</definition>
+        <argsstring></argsstring>
+        <name>dawnbringer_palette</name>
+        <initializer>= <ref refid="namespaceeuphoria_1_1core_1aa327c34dbdb2f717a71f157ee5c384d4" kindref="member">make_static_palette</ref>
+    (
+        &quot;Dawnbringer&quot;,
+        rgbi::from_hex(0x140C1C),
+        <ref refid="structeuphoria_1_1core_1_1rgbi_1aa00ee689bc155ca61bc1590e637b52e1" kindref="member">rgbi::from_hex</ref>(0x442434),
+        <ref refid="structeuphoria_1_1core_1_1rgbi_1aa00ee689bc155ca61bc1590e637b52e1" kindref="member">rgbi::from_hex</ref>(0x30346D),
+        <ref refid="structeuphoria_1_1core_1_1rgbi_1aa00ee689bc155ca61bc1590e637b52e1" kindref="member">rgbi::from_hex</ref>(0x4E4A4E),
+        <ref refid="structeuphoria_1_1core_1_1rgbi_1aa00ee689bc155ca61bc1590e637b52e1" kindref="member">rgbi::from_hex</ref>(0x854C30),
+        <ref refid="structeuphoria_1_1core_1_1rgbi_1aa00ee689bc155ca61bc1590e637b52e1" kindref="member">rgbi::from_hex</ref>(0x346524),
+        <ref refid="structeuphoria_1_1core_1_1rgbi_1aa00ee689bc155ca61bc1590e637b52e1" kindref="member">rgbi::from_hex</ref>(0xD04648),
+        <ref refid="structeuphoria_1_1core_1_1rgbi_1aa00ee689bc155ca61bc1590e637b52e1" kindref="member">rgbi::from_hex</ref>(0x757161),
+        <ref refid="structeuphoria_1_1core_1_1rgbi_1aa00ee689bc155ca61bc1590e637b52e1" kindref="member">rgbi::from_hex</ref>(0x597DCE),
+        <ref refid="structeuphoria_1_1core_1_1rgbi_1aa00ee689bc155ca61bc1590e637b52e1" kindref="member">rgbi::from_hex</ref>(0xD27D2C),
+        <ref refid="structeuphoria_1_1core_1_1rgbi_1aa00ee689bc155ca61bc1590e637b52e1" kindref="member">rgbi::from_hex</ref>(0x8595A1),
+        <ref refid="structeuphoria_1_1core_1_1rgbi_1aa00ee689bc155ca61bc1590e637b52e1" kindref="member">rgbi::from_hex</ref>(0x6DAA2C),
+        <ref refid="structeuphoria_1_1core_1_1rgbi_1aa00ee689bc155ca61bc1590e637b52e1" kindref="member">rgbi::from_hex</ref>(0xD2AA99),
+        <ref refid="structeuphoria_1_1core_1_1rgbi_1aa00ee689bc155ca61bc1590e637b52e1" kindref="member">rgbi::from_hex</ref>(0x6DC2CA),
+        <ref refid="structeuphoria_1_1core_1_1rgbi_1aa00ee689bc155ca61bc1590e637b52e1" kindref="member">rgbi::from_hex</ref>(0xDAD45E),
+        <ref refid="structeuphoria_1_1core_1_1rgbi_1aa00ee689bc155ca61bc1590e637b52e1" kindref="member">rgbi::from_hex</ref>(0xDEEED6)
+    )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/palette.h" line="141" column="20" bodyfile="libs/core/src/core/palette.h" bodystart="141" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceeuphoria_1_1core_1abd36331d32d44be82549a732dbc73d91" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr auto</type>
+        <definition>constexpr auto euphoria::core::named_colors_palette</definition>
+        <argsstring></argsstring>
+        <name>named_colors_palette</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/palette.h" line="162" column="20" bodyfile="libs/core/src/core/palette.h" bodystart="162" bodyend="-1"/>
+      </memberdef>
       <memberdef kind="variable" id="namespaceeuphoria_1_1core_1af442854465337d7edcf57c646339a02b" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr unsigned</type>
         <definition>constexpr unsigned euphoria::core::rapid_json_flags</definition>
