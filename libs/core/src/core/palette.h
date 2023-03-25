@@ -137,64 +137,61 @@ namespace euphoria::core
     };
 
 
-    namespace palettes
-    {
-        // http://pixeljoint.com/forum/forum_posts.asp?TID=12795
-        constexpr auto dawnbringer = make_static_palette
-        (
-            "Dawnbringer",
-            rgbi::from_hex(0x140C1C),
-            rgbi::from_hex(0x442434),
-            rgbi::from_hex(0x30346D),
-            rgbi::from_hex(0x4E4A4E),
-            rgbi::from_hex(0x854C30),
-            rgbi::from_hex(0x346524),
-            rgbi::from_hex(0xD04648),
-            rgbi::from_hex(0x757161),
-            rgbi::from_hex(0x597DCE),
-            rgbi::from_hex(0xD27D2C),
-            rgbi::from_hex(0x8595A1),
-            rgbi::from_hex(0x6DAA2C),
-            rgbi::from_hex(0xD2AA99),
-            rgbi::from_hex(0x6DC2CA),
-            rgbi::from_hex(0xDAD45E),
-            rgbi::from_hex(0xDEEED6)
-        );
+    // http://pixeljoint.com/forum/forum_posts.asp?TID=12795
+    constexpr auto dawnbringer_palette = make_static_palette
+    (
+        "Dawnbringer",
+        rgbi::from_hex(0x140C1C),
+        rgbi::from_hex(0x442434),
+        rgbi::from_hex(0x30346D),
+        rgbi::from_hex(0x4E4A4E),
+        rgbi::from_hex(0x854C30),
+        rgbi::from_hex(0x346524),
+        rgbi::from_hex(0xD04648),
+        rgbi::from_hex(0x757161),
+        rgbi::from_hex(0x597DCE),
+        rgbi::from_hex(0xD27D2C),
+        rgbi::from_hex(0x8595A1),
+        rgbi::from_hex(0x6DAA2C),
+        rgbi::from_hex(0xD2AA99),
+        rgbi::from_hex(0x6DC2CA),
+        rgbi::from_hex(0xDAD45E),
+        rgbi::from_hex(0xDEEED6)
+    );
 
-        constexpr auto named_colors = make_static_palette
-        (
-            "Named colors",
-            rgbi{ NamedColor::white },
-            rgbi{ NamedColor::light_gray },
-            rgbi{ NamedColor::gray },
-            rgbi{ NamedColor::dark_gray },
-            rgbi{ NamedColor::black },
-            rgbi{ NamedColor::red },
-            rgbi{ NamedColor::pure_red },
-            rgbi{ NamedColor::blue },
-            rgbi{ NamedColor::pure_blue },
-            rgbi{ NamedColor::light_blue },
-            rgbi{ NamedColor::normal_blue },
-            rgbi{ NamedColor::cornflower_blue },
-            rgbi{ NamedColor::green },
-            rgbi{ NamedColor::pure_green },
-            rgbi{ NamedColor::light_green },
-            rgbi{ NamedColor::yellow },
-            rgbi{ NamedColor::pure_yellow },
-            rgbi{ NamedColor::orange },
-            rgbi{ NamedColor::pure_orange },
-            rgbi{ NamedColor::brown },
-            rgbi{ NamedColor::pure_brown },
-            rgbi{ NamedColor::purple },
-            rgbi{ NamedColor::pure_purple },
-            rgbi{ NamedColor::pink },
-            rgbi{ NamedColor::pure_pink },
-            rgbi{ NamedColor::pure_beige },
-            rgbi{ NamedColor::tan },
-            rgbi{ NamedColor::pure_tan },
-            rgbi{ NamedColor::cyan },
-            rgbi{ NamedColor::pure_cyan }
-        );
-    }
+    constexpr auto named_colors_palette = make_static_palette
+    (
+        "Named colors",
+        rgbi{ NamedColor::white },
+        rgbi{ NamedColor::light_gray },
+        rgbi{ NamedColor::gray },
+        rgbi{ NamedColor::dark_gray },
+        rgbi{ NamedColor::black },
+        rgbi{ NamedColor::red },
+        rgbi{ NamedColor::pure_red },
+        rgbi{ NamedColor::blue },
+        rgbi{ NamedColor::pure_blue },
+        rgbi{ NamedColor::light_blue },
+        rgbi{ NamedColor::normal_blue },
+        rgbi{ NamedColor::cornflower_blue },
+        rgbi{ NamedColor::green },
+        rgbi{ NamedColor::pure_green },
+        rgbi{ NamedColor::light_green },
+        rgbi{ NamedColor::yellow },
+        rgbi{ NamedColor::pure_yellow },
+        rgbi{ NamedColor::orange },
+        rgbi{ NamedColor::pure_orange },
+        rgbi{ NamedColor::brown },
+        rgbi{ NamedColor::pure_brown },
+        rgbi{ NamedColor::purple },
+        rgbi{ NamedColor::pure_purple },
+        rgbi{ NamedColor::pink },
+        rgbi{ NamedColor::pure_pink },
+        rgbi{ NamedColor::pure_beige },
+        rgbi{ NamedColor::tan },
+        rgbi{ NamedColor::pure_tan },
+        rgbi{ NamedColor::cyan },
+        rgbi{ NamedColor::pure_cyan }
+    );
 
 }

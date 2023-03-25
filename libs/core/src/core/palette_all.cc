@@ -16,8 +16,8 @@ namespace euphoria::core::palettes
         switch(palette_name)
         {
         // standard
-        case Name::dawnbringer: return *dawnbringer;
-        case Name::get_named_colors: return *named_colors;
+        case Name::dawnbringer: return *dawnbringer_palette;
+        case Name::get_named_colors: return *named_colors_palette;
 
         // cubehelix
         case Name::classic: return *cubehelix::classic;
