@@ -184,4 +184,6 @@ END_CHECKS
     {"key": "readability-identifier-naming.VariableCase",                 "value": "lower_case"},
     {"key": "readability-identifier-naming.VirtualMethodCase",            "value": "lower_case"},
 
+    // nasty hack: https://github.com/llvm/llvm-project/issues/46097#issuecomment-992626543
+    {"key": "readability-identifier-naming.TypeTemplateParameterIgnoredRegexp", "value": "expr-type"},
 ]
