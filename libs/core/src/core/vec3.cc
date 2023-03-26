@@ -300,25 +300,7 @@ namespace euphoria::core
     /// Printing
 
 
-    std::ostream&
-    operator<<(std::ostream& stream, const vec3f& v)
-    {
-        return stream << "(" << v.x << ", " << v.y << ", " << v.z << ")";
-    }
-
-
-    std::ostream&
-    operator<<(std::ostream& stream, const unit3f& v)
-    {
-        return stream << "(" << v.x << ", " << v.y << ", " << v.z << ")";
-    }
-
-
-    std::ostream&
-    operator<<(std::ostream& stream, const Scale3f& v)
-    {
-        return stream << "(" << v.x << ", " << v.y << ", " << v.z << ")";
-    }
-
-
+    std::string to_string(const vec3f& v) { return fmt::format("({}, {}, {})", v.x, v.y, v.z); }
+    std::string to_string(const unit3f& v) { return fmt::format("({}, {}, {})", v.x, v.y, v.z); }
+    std::string to_string(const Scale3f& v) { return fmt::format("({}, {}, {})", v.x, v.y, v.z); }
 }

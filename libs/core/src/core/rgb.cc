@@ -167,34 +167,28 @@ namespace euphoria::core
 
     std::string to_string(const rgbi& c)
     {
-        return "#{:0>2x}{:0>2x}{:0>2x}"_format(c.r, c.g, c.b);
+        return fmt::format("#{:0>2x}{:0>2x}{:0>2x}", c.r, c.g, c.b);
     }
 
     std::string to_string(const rgbai& c)
     {
-        return "({}, {}, {}, {})"_format(c.r, c.g, c.b, c.a);
+        return fmt::format("({}, {}, {}, {})", c.r, c.g, c.b, c.a);
     }
 
     std::string to_string(const rgb& v)
     {
-        return "({}, {}, {})"_format(v.r, v.g, v.b);
+        return fmt::format("({}, {}, {})", v.r, v.g, v.b);
     }
 
     std::string to_string(const rgba& v)
     {
-        return "({}, {}, {}, {})"_format(v.r, v.g, v.b, v.a);
+        return fmt::format("({}, {}, {}, {})", v.r, v.g, v.b, v.a);
     }
 
     std::string to_string(const Hsl& v)
     {
-        return "({:.0f}°, {:.0f}%, {:.0f}%)"_format(v.h.as_degrees(), v.s * 100, v.l * 100);
+        return fmt::format("({:.0f}°, {:.0f}%, {:.0f}%)", v.h.as_degrees(), v.s * 100, v.l * 100);
     }
-
-    std::ostream& operator<<(std::ostream& stream, const rgbi& v)  { stream << to_string(v); return stream; }
-    std::ostream& operator<<(std::ostream& stream, const rgbai& v) { stream << to_string(v); return stream; }
-    std::ostream& operator<<(std::ostream& stream, const rgb& v)   { stream << to_string(v); return stream; }
-    std::ostream& operator<<(std::ostream& stream, const rgba& v)  { stream << to_string(v); return stream; }
-    std::ostream& operator<<(std::ostream& stream, const Hsl& v)   { stream << to_string(v); return stream; }
 
 
     ////////////////////////////////////////////////////////////////////////////////
@@ -417,12 +411,12 @@ namespace euphoria::core
 
     std::string to_js_hex_color(const rgbi& c)
     {
-        return "0x{:0>2x}{:0>2x}{:0>2x}"_format(c.r, c.g, c.b);
+        return fmt::format("0x{:0>2x}{:0>2x}{:0>2x}", c.r, c.g, c.b);
     }
 
     std::string to_html_rgb(const rgbi& c)
     {
-        return "rgb({}, {}, {})"_format(c.r, c.g, c.b);
+        return fmt::format("rgb({}, {}, {})", c.r, c.g, c.b);
     }
 
     ////////////////////////////////////////////////////////////////////////////////
@@ -596,13 +590,13 @@ namespace euphoria::core
             else
             {
                 auto invalids = std::vector<std::string>{};
-                if (!r) { invalids.emplace_back("red({})"_format(r_value)); }
-                if (!g) { invalids.emplace_back("green({})"_format(g_value)); }
-                if (!b) { invalids.emplace_back("blue({})"_format(b_value)); }
+                if (!r) { invalids.emplace_back(fmt::format("red({})", r_value)); }
+                if (!g) { invalids.emplace_back(fmt::format("green({})", g_value)); }
+                if (!b) { invalids.emplace_back(fmt::format("blue({})", b_value)); }
                 return R::create_error
                 (
-                    "#color contains invalid hex for {}"_format
-                    (
+                    fmt::format(
+                        "#color contains invalid hex for {}",
                         string_mergers::english_and.merge(invalids)
                     )
                 );
@@ -621,8 +615,8 @@ namespace euphoria::core
             default:
                 return R::create_error
                 (
-                    "a hexadecimal color needs to be either #abc or #aabbcc. "
-                    "current count: {}"_format(size-1)
+                    fmt::format
+                        ("a hexadecimal color needs to be either #abc or #aabbcc. current count: {}", size-1)
                 );
             }
         }
@@ -646,8 +640,9 @@ namespace euphoria::core
             if(match.single_match) { return R::create_value(to_rgbi(match.values[0])); }
             return R::create_error
             (
-                "bad name. Hex values require a #, but it could also be either {}"_format
+                fmt::format
                 (
+                    "bad name. Hex values require a #, but it could also be either {}",
                     string_mergers::english_or.merge
                     (
                         match.names

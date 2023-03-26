@@ -60,7 +60,7 @@ namespace euphoria::core::vfs
         [[nodiscard]] std::string get_extension() const;
     };
 
-    std::ostream& operator<<(std::ostream& os, const FilePath& p);
+    std::string to_string(const FilePath& p);
 
 
     struct DirPath
@@ -84,7 +84,7 @@ namespace euphoria::core::vfs
         [[nodiscard]] std::vector<std::string> split_directories() const;
     };
 
-    std::ostream& operator<<(std::ostream& os, const DirPath& p);
+    std::string to_string(const DirPath& p);
 
 
     std::optional<DirPath>
@@ -135,3 +135,5 @@ namespace euphoria::core::vfs
     operator<(const FilePath& lhs, const FilePath& rhs);
 }
 
+ADD_DEFAULT_FORMATTER(euphoria::core::vfs::FilePath, std::string, euphoria::core::vfs::to_string);
+ADD_DEFAULT_FORMATTER(euphoria::core::vfs::DirPath, std::string, euphoria::core::vfs::to_string);

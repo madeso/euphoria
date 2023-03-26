@@ -543,7 +543,7 @@ namespace euphoria::core::dump3d
     std::string
     to_three_vector_source(const vec3f& v)
     {
-        return "new THREE.Vector3({}, {}, {})"_format(v.x, v.y, v.z);
+        return fmt::format("new THREE.Vector3({}, {}, {})", v.x, v.y, v.z);
     }
 
 

@@ -976,16 +976,9 @@ namespace euphoria::core
             is_within(r.get_range_y(), p.y) ;
     }
 
-    std::ostream&
-    operator<<(std::ostream& s, const Rectf& r)
+    std::string to_string(const Rectf& r)
     {
-        s
-            << "("
-            << r.left << ", " << r.bottom << " / "
-            << r.get_width() << " x " << r.get_height()
-            << ")"
-            ;
-        return s;
+        return fmt::format("({}, {} / {} x {})", r.left, r.bottom, r.get_width(), r.get_height());
     }
 
     [[nodiscard]] vec2f
@@ -1030,19 +1023,10 @@ namespace euphoria::core
             ;
     }
 
-    std::ostream&
-    operator<<(std::ostream& s, const Recti& r)
+    std::string to_string(const Recti& r)
     {
-        s
-            << "("
-            << r.left << ", " << r.bottom << " / "
-            << r.get_width() << " x " << r.get_height()
-            << ")"
-            ;
-        return s;
+        return fmt::format("({}, {} / {} x {})", r.left, r.bottom, r.get_width(), r.get_height());
     }
-
-
 
 
 

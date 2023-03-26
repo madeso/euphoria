@@ -25,7 +25,7 @@ compare_ints(const T& lhs, const T& rhs, F to_string)
     {
         return FalseString::create_false
         (
-            "{} != {}"_format(to_string(lhs), to_string(rhs))
+            fmt::format("{} != {}", to_string(lhs), to_string(rhs))
         );
     }
 }
@@ -41,7 +41,7 @@ int_equals_hex
 {
     auto to_string = [](const T& t)
     {
-        return "{:x}"_format(t);
+        return fmt::format("{:x}", t);
     };
     return is_vector_equal<T>
     (
@@ -64,7 +64,8 @@ int_equals_bin
 {
     const auto to_string = [](const T& t)
     {
-        return "{0>2:x}"_format(static_cast<U8>(t));
+        const auto u8 = static_cast<U8>(t);
+        return fmt::format("{:0>2x}", u8);
     };
     return is_vector_equal<T>
     (

@@ -52,7 +52,7 @@ namespace euphoria::t3d
         ImGui::BeginListBox("Tiles");
         for(auto& tile: tiles)
         {
-            std::string display = "{}: {}"_format(tile->name, tile->aabb.get_size());
+            std::string display = fmt::format("{}: {}", tile->name, tile->aabb.get_size());
             if(ImGui::Selectable(display.c_str(), (*selected_tile)->mesh == tile->mesh))
             {
                 *selected_tile = tile;

@@ -422,27 +422,14 @@ namespace euphoria::core
     }
 
     
-    std::ostream&
-    operator<<(std::ostream& s, const vec2f& v)
-    {
-        s << "(" << v.x << ", " << v.y << ")";
-        return s;
-    }
+    std::string to_string(const vec2f& v)
+        { return fmt::format("({}, {})", v.x, v.y); }
 
-    std::ostream&
-    operator<<(std::ostream& s, const unit2f& v)
-    {
-        s << "(" << v.x << ", " << v.y << ")";
-        return s;
-    }
-
+    std::string to_string(const unit2f& v)
+        { return fmt::format("({}, {})", v.x, v.y); }
     
-    std::ostream&
-    operator<<(std::ostream& s, const vec2i& v)
-    {
-        s << "(" << v.x << ", " << v.y << ")";
-        return s;
-    }
+    std::string to_string(const vec2i& v)
+        { return fmt::format("({}, {})", v.x, v.y); }
     
 
     unit2f create_random_unit(Random* random)

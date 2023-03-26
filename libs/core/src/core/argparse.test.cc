@@ -48,30 +48,8 @@ namespace
     }
 
 
-    template<typename T>
-    std::ostream&
-    operator<<(std::ostream& o, const std::vector<T>& m)
-    {
-        o << "[";
-        bool first = true;
-        for(const auto& t: m)
-        {
-            if(first) {first = false;}
-            else { o << ", "; }
-            o << t;
-        }
-        o << "]";
-        return o;
-    }
-
-
-    std::ostream&
-    operator<<(std::ostream& o, const Message& m)
-    {
-        o << (m.error?"ERR":"INF");
-        o << " " << m.text;
-        return o;
-    }
+    std::string to_string(const Message& m)
+        { return fmt::format("{} {}", (m.error?"ERR":"INF"), m.text); }
 
 
     struct TestPrinter : public Printer
@@ -127,7 +105,7 @@ namespace
             rhs,
             [](const Message &m) -> std::string
             {
-                return "{}"_format(m);
+                return fmt::to_string(m);
             },
             [](const Message &alhs, const Message &arhs) -> FalseString
             {
@@ -138,7 +116,7 @@ namespace
                 { return FalseString::create_true(); }
                 return FalseString::create_false
                 (
-                    "error diff: {} vs {}"_format(alhs.error, arhs.error)
+                    fmt::format("error diff: {} vs {}", alhs.error, arhs.error)
                 );
             }
         );
@@ -151,15 +129,11 @@ namespace
     {
         cat, dog, bird, none
     };
-
-
-    std::ostream&
-    operator<<(std::ostream& o, const Animal& m)
-    {
-        o << euphoria::core::from_enum_to_string(m);
-        return o;
-    }
 }
+
+
+ADD_DEFAULT_FORMATTER(Message, std::string, to_string);
+ADD_DEFAULT_FORMATTER(Animal, std::string, euphoria::core::from_enum_to_string);
 
 
 TEST_CASE("argparse", "[argparse]")
@@ -610,7 +584,7 @@ TEST_CASE("argparse", "[argparse]")
         SECTION("empty subparser = error")
         {
             const auto res = parser.parse(make_arguments({}));
-            INFO(output->messages);
+            // INFO(output->messages);
             CHECK(res == argparse::error);
             CHECK(a == "default");
             CHECK(b == "default");
@@ -630,7 +604,7 @@ TEST_CASE("argparse", "[argparse]")
                     "a"
                 })
             );
-            INFO(output->messages);
+            // INFO(output->messages);
             CHECK(res == argparse::ok);
             CHECK(a == "dog");
             CHECK(b == "default");
@@ -645,7 +619,7 @@ TEST_CASE("argparse", "[argparse]")
                     "a", "-s", "cat"
                 })
             );
-            INFO(output->messages);
+            // INFO(output->messages);
             CHECK(res == argparse::ok);
             CHECK(a == "cat");
             CHECK(b == "default");
@@ -660,7 +634,7 @@ TEST_CASE("argparse", "[argparse]")
                     "b"
                 })
             );
-            INFO(output->messages);
+            // INFO(output->messages);
             CHECK(res == argparse::ok);
             CHECK(a == "default");
             CHECK(b == "bird");
@@ -738,7 +712,7 @@ TEST_CASE("argparse", "[argparse]")
                     "add", "dog"
                 })
             );
-            INFO(output->messages);
+            // INFO(output->messages);
             CHECK(res == argparse::ok);
             CHECK(data == "dog");
         }
@@ -753,7 +727,7 @@ TEST_CASE("argparse", "[argparse]")
                     "double"
                 })
             );
-            INFO(output->messages);
+            // INFO(output->messages);
             CHECK(res == argparse::ok);
             CHECK(data == "catcat");
         }
@@ -846,8 +820,8 @@ TEST_CASE("argparse", "[argparse]")
             (
                 arguments
             );
-            INFO(output->messages);
-            INFO(arguments);
+            // INFO(output->messages);
+            // INFO(arguments);
             REQUIRE(data == "catcat");
             CHECK(res == argparse::ok);
         }
@@ -942,21 +916,21 @@ TEST_CASE("argparse_error", "[argparse]")
         SECTION("one value")
         {
             const auto res = parser.parse(make_arguments({"4"}));
-            INFO(output->messages);
+            // INFO(output->messages);
             CHECK(res == argparse::ok);
             CHECK(ff == FF{4});
         }
         SECTION("two values")
         {
             const auto res = parser.parse(make_arguments({"4/2"}));
-            INFO(output->messages);
+            // INFO(output->messages);
             CHECK(res == argparse::ok);
             CHECK(ff == FF::from_lrud(2, 4));
         }
         SECTION("all values")
         {
             const auto res = parser.parse(make_arguments({"1/2/3/4"}));
-            INFO(output->messages);
+            // INFO(output->messages);
             CHECK(res == argparse::ok);
             CHECK(ff == FF::from_lrud(4, 2, 1, 3));
         }
@@ -971,14 +945,14 @@ TEST_CASE("argparse_error", "[argparse]")
         SECTION("one value")
         {
             const auto res = parser.parse(make_arguments({"cat"}));
-            INFO(output->messages);
+            // INFO(output->messages);
             CHECK(res == argparse::ok);
             CHECK(ff == FF{Animal::cat});
         }
         SECTION("two values")
         {
             const auto res = parser.parse(make_arguments({"cat/none"}));
-            INFO(output->messages);
+            // INFO(output->messages);
             CHECK(res == argparse::ok);
             CHECK(ff == FF::from_lrud(Animal::none, Animal::cat));
         }

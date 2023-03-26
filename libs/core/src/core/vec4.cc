@@ -77,9 +77,8 @@ namespace euphoria::core
     }
 
 
-    std::ostream&
-    operator<<(std::ostream& stream, const vec4f& v)
+    std::string to_string(const vec4f& v)
     {
-        return stream << "(" << v.x << ", " << v.y << ", " << v.z << ", " << v.w << ")";
+        return fmt::format("({}, {}, {}, {})", v.x, v.y, v.z, v.w);
     }
 }

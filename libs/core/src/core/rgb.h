@@ -160,11 +160,6 @@ namespace euphoria::core
     std::string to_string(const rgba& v);
     std::string to_string(const Hsl& v);
 
-    std::ostream& operator<<(std::ostream& stream, const rgbi& v);
-    std::ostream& operator<<(std::ostream& stream, const rgbai& v);
-    std::ostream& operator<<(std::ostream& stream, const rgb& v);
-    std::ostream& operator<<(std::ostream& stream, const rgba& v);
-    std::ostream& operator<<(std::ostream& stream, const Hsl& v);
 
     //////////////////////////////////////////////////////////////////////////
     // Default compare
@@ -426,3 +421,9 @@ namespace euphoria::core
     }
 
 }
+
+ADD_DEFAULT_FORMATTER(euphoria::core::rgbi, std::string, euphoria::core::to_string);
+ADD_DEFAULT_FORMATTER(euphoria::core::rgbai, std::string, euphoria::core::to_string);
+ADD_DEFAULT_FORMATTER(euphoria::core::rgb, std::string, euphoria::core::to_string);
+ADD_DEFAULT_FORMATTER(euphoria::core::rgba, std::string, euphoria::core::to_string);
+ADD_DEFAULT_FORMATTER(euphoria::core::Hsl, std::string, euphoria::core::to_string);

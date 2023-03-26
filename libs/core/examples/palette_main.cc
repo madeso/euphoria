@@ -56,7 +56,7 @@ write_palettes_to_files(int image_size)
             );
         }
 
-        const std::string file = "palette_{}.png"_format(pal.name);
+        const std::string file = fmt::format("palette_{}.png", pal.name);
         
         io::write_chunk_to_file(image.write(ImageWriteFormat::png), file);
     }
@@ -67,7 +67,7 @@ write_palettes_to_files(int image_size)
 void
 write_palettes_to_html(const std::string& wd)
 {
-    const std::string file = "{}/palettes.html"_format(wd);
+    const std::string file = fmt::format("{}/palettes.html", wd);
     std::ofstream handle;
     handle.open(file.c_str());
     handle << R"(

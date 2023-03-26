@@ -40,7 +40,7 @@ namespace euphoria::core::dot
     std::string
     from_id_to_string(NodeId id)
     {
-        return "node_{}"_format(core::base_cast(id));
+        return fmt::format("node_{}", core::base_cast(id));
     }
     
     void

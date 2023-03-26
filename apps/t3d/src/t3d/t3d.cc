@@ -613,8 +613,8 @@ namespace euphoria::t3d
             {
                 for(int i=0; i<core::EditorCamera3::max_stored_index; i+=1)
                 {
-                    const auto label = "Save {}"_format(i);
-                    const auto shortcut = "Ctrl+{}"_format(i);
+                    const auto label = fmt::format("Save {}", i);
+                    const auto shortcut = fmt::format("Ctrl+{}", i);
                     if(ImGui::MenuItem(label.c_str(), shortcut.c_str()))
                     {
                         editor_camera.save_camera(i);
@@ -626,8 +626,8 @@ namespace euphoria::t3d
             {
                 for(int i=0; i<core::EditorCamera3::max_stored_index; i+=1)
                 {
-                    const auto label = "Load "_format(i);
-                    const auto shortcut =  "{}"_format(i);
+                    const auto label = fmt::format("Load ", i);
+                    const auto shortcut =  fmt::format("{}", i);
                     if(ImGui::MenuItem(label.c_str(), shortcut.c_str()))
                     {
                         editor_camera.load_camera(i);
@@ -655,7 +655,7 @@ namespace euphoria::t3d
             ASSERT(mesh->tile);
             ASSERT(mesh->tile);
             const auto p = mesh->actor->position;
-            std::string display = "{} {}"_format(mesh->tile->name, p);
+            std::string display = fmt::format("{} {}", mesh->tile->name, p);
             if (ImGui::Selectable(display.c_str(), mesh->is_selected))
             {
                 if (calculate_keyboard_state().ctrl == false)
@@ -703,7 +703,7 @@ namespace euphoria::t3d
         bool dirty = false;
 
 
-        const std::string str = "{}"_format(grid_data.small_step);
+        const std::string str = fmt::format("{}", grid_data.small_step);
         constexpr auto popup_grid = "popup_grid";
         if(ImGui::Button(str.c_str()))
         {

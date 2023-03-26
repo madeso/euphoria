@@ -140,8 +140,7 @@ namespace euphoria::core
     operator*(float rhs, const angle& lhs);
 
 
-    std::ostream&
-    operator<<(std::ostream& stream, const angle& a);
+    std::string to_string(const angle& a);
 
 
     bool
@@ -165,6 +164,7 @@ namespace euphoria::core
     DEFAULT_INTERPOLATE(angle, lerp_angle);
 }
 
+ADD_DEFAULT_FORMATTER(euphoria::core::angle, std::string, euphoria::core::to_string);
 
 namespace euphoria::convert
 {

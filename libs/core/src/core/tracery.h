@@ -40,7 +40,7 @@ namespace euphoria::core::tracery
     };
 
 
-    std::ostream& operator<<(std::ostream& o, const Result& r);
+    std::string to_string(const Result& r);
 
 
     struct GeneratorArgument;
@@ -120,3 +120,5 @@ namespace euphoria::core::tracery
     };
 
 }
+
+ADD_DEFAULT_FORMATTER(euphoria::core::tracery::Result, std::string, euphoria::core::tracery::to_string);

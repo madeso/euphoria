@@ -22,7 +22,8 @@ namespace euphoria::core
         AxisAngle(const unit3f& ax, const core::angle& ang);
     };
 
-    std::ostream&
-    operator<<(std::ostream& stream, const AxisAngle& aa);
+    std::string to_string(const AxisAngle& aa);
 
 }
+
+ADD_DEFAULT_FORMATTER(euphoria::core::AxisAngle, std::string, euphoria::core::to_string);

@@ -2,7 +2,7 @@
 
 
 #include <map>
-
+#include <type_traits>
 
 
 #include "assert/assert.h"
@@ -172,3 +172,20 @@ namespace euphoria::core
 
 using namespace magic_enum::ostream_operators; // NOLINT
 
+
+template<typename TEnum>
+struct fmt::formatter
+    <
+        TEnum,
+        char,
+        std::enable_if_t<std::is_enum_v<TEnum>, void>
+    >
+    : fmt::formatter<std::string>
+{
+    template <typename FormatContext>
+    auto format(const TEnum& e, FormatContext& ctx) const
+    {
+        const auto str = euphoria::core::from_enum_to_string<TEnum>(e);
+        return fmt::formatter<std::string>::format(str, ctx);
+    }
+};

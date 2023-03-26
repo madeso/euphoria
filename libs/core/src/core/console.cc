@@ -40,7 +40,7 @@ VirtualConsole::run(PrintFunction print, const std::string& cmd)
     if(found == callbacks.end())
     {
         // unable to find cmd
-        print("Unknown command {}"_format(name));
+        print(fmt::format("Unknown command {}", name));
         // todo(Gustav): list commands that are the closest match
         return;
     }
@@ -56,7 +56,7 @@ VirtualConsole::print_help(VirtualConsole::PrintFunction print, const Args&)
     print("Available commands:");
     for(const auto& c: callbacks)
     {
-        print("  {}"_format(c.first));
+        print(fmt::format("  {}", c.first));
     }
     print("");
 }

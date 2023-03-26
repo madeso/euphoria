@@ -77,7 +77,7 @@ namespace euphoria::core
     std::string
     CustomArgparser<size2f>::to_string(const size2f& s)
     {
-        return "{}x{}"_format(s.width, s.height);
+        return fmt::format("{}x{}", s.width, s.height);
     }
 
     Result<size2f>
@@ -92,14 +92,14 @@ namespace euphoria::core
             {
                 return R::create_error
                 (
-                    "{} contains less than one x"_format(value)
+                    fmt::format("{} contains less than one x", value)
                 );
             }
             else
             {
                 return R::create_error
                 (
-                    "{} contains more than one x: {}"_format(value, xes-1)
+                    fmt::format("{} contains more than one x: {}", value, xes-1)
                 );
             }
         }
@@ -178,12 +178,8 @@ namespace euphoria::core
         return t;
     }
 
-    std::ostream&
-    operator<<(std::ostream& s, const size2f& r)
-    {
-        s << "(" << r.width << " x " << r.height << ")";
-        return s;
-    }
+    std::string to_string(const size2f& r)
+        { return fmt::format("({} x {})", r.width, r.height); }
 
 
     ///////////////////////////////////////////////////////////////////////////
@@ -255,7 +251,7 @@ namespace euphoria::core
     std::string
     CustomArgparser<size2i>::to_string(const size2i& s)
     {
-        return "{}x{}"_format(s.width, s.height);
+        return fmt::format("{}x{}", s.width, s.height);
     }
 
     Result<size2i>
@@ -270,14 +266,14 @@ namespace euphoria::core
             {
                 return R::create_error
                 (
-                    "{} contains less than one x"_format(value)
+                    fmt::format("{} contains less than one x", value)
                 );
             }
             else
             {
                 return R::create_error
                 (
-                    "{} contains more than one x: {}"_format(value, xes-1)
+                    fmt::format("{} contains more than one x: {}", value, xes-1)
                 );
             }
         }
@@ -348,12 +344,8 @@ namespace euphoria::core
         return t;
     }
 
-    std::ostream&
-    operator<<(std::ostream& s, const size2i& r)
-    {
-        s << "(" << r.width << " x " << r.height << ")";
-        return s;
-    }
+    std::string to_string(const size2i& r)
+        { return fmt::format("({} x {})", r.width, r.height); }
 }
 
 

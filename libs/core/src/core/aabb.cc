@@ -124,11 +124,10 @@ namespace euphoria::core
         };
     }
 
-    std::ostream&
-    operator<<(std::ostream& s, const Aabb& a)
+    std::string
+    to_string(const Aabb& a)
     {
-        s << "{" << a.min << ", " << a.max << "}";
-        return s;
+        return fmt::format("{{ {}, {} }}", a.min, a.max);
     }
 
     vec3f

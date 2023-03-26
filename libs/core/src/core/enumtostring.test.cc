@@ -26,14 +26,13 @@ TEST_CASE("enum2string", "[enum2string]")
         CHECK(euco::from_enum_to_string(MyEnum::really_long_value) == "really_long_value");
     }
 
-    SECTION("operator<<")
+    SECTION("formatting")
     {
         const auto e = MyEnum::cat;
 
-        std::stringstream ss;
-        ss << e;
+        std::string ss = fmt::to_string(e);
 
-        CHECK(ss.str() == "cat");
+        CHECK(ss == "cat");
     }
 
     SECTION("no arg to_string")

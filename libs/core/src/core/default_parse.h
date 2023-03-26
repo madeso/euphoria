@@ -93,7 +93,7 @@ namespace euphoria::core::argparse
         }
         else
         {
-            return Result<T>::create_error("did you mean {}?"_format(add_quotes_and_combine_with_english_or(matches.names)));
+            return Result<T>::create_error(fmt::format("did you mean {}?", add_quotes_and_combine_with_english_or(matches.names)));
         }
     }
 
@@ -118,7 +118,7 @@ namespace euphoria::core::argparse
     std::optional<std::string>
     default_describe()
     {
-        const std::string r = "can be either {}"_format(
+        const std::string r = fmt::format("can be either {}",
             add_quotes_and_combine_with_english_or
             (
                 get_all_names_from_enum<T>()

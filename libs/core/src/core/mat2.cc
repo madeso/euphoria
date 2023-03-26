@@ -118,14 +118,9 @@ namespace euphoria::core
     }
 
 
-    std::ostream&
-    operator<<(std::ostream& stream, const mat2f& m)
+    std::string to_string(const mat2f& m)
     {
-        return stream
-            << "("
-            << m.get_row(0) << ", " << m.get_row(1)
-            << ")"
-            ;
+        return fmt::format("({}, {})", m.get_row(0), m.get_row(1));
     }
 
 

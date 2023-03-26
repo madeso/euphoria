@@ -232,10 +232,10 @@ handle_print
     // print colors
     for(auto c: colors)
     {
-        std::cout << c << "\n";
+        fmt::print("{}", c);
     }
 
-    std::cout << "Found #colors: " << colors.size() << "\n";
+    fmt::print("Found #colors: {}", colors.size());
     return true;
 }
 

@@ -29,6 +29,8 @@ namespace euphoria::core
             vec3f position;
         };
 
+        std::string to_string(const CameraFrame& cf);
+
         struct EditorCameraState3
         {
             EditorCameraState3() = default;
@@ -121,3 +123,5 @@ namespace euphoria::core
         virtual std::optional<vec3f> raycast (const UnitRay3f& ray) = 0;
     };
 }
+
+ADD_DEFAULT_FORMATTER(euphoria::core::detail::CameraFrame, std::string, euphoria::core::detail::to_string);

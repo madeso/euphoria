@@ -48,13 +48,13 @@ namespace euphoria::core
         void
         VisitorDebugString::on_text(const std::string& text)
         {
-            ss.add_string("{{text {}}}"_format(text));
+            ss.add_string(fmt::format("{{text {}}}", text));
         }
 
         void
         VisitorDebugString::on_image(const std::string& img)
         {
-            ss.add_string( "{{image {}}}"_format(img));
+            ss.add_string(fmt::format("{{image {}}}", img));
         }
 
         void

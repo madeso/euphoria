@@ -99,9 +99,11 @@ namespace euphoria::core
 
     constexpr mat3f m3_identity = mat3f::from_scalar(1);
 
-    std::ostream& operator<<(std::ostream& stream, const mat3f& m);
+    std::string to_string(const mat3f& m);
     mat3f operator+(const mat3f& lhs, const mat3f& rhs);
     mat3f operator-(const mat3f& lhs, const mat3f& rhs);
     mat3f operator*(const mat3f& lhs, const mat3f& rhs);
     vec3f operator*(const mat3f& lhs, const vec3f& rhs);
 }
+
+ADD_DEFAULT_FORMATTER(euphoria::core::mat3f, std::string, euphoria::core::to_string);

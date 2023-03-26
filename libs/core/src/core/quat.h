@@ -78,7 +78,7 @@ namespace euphoria::core
 
     float dot(const quatf& lhs, const quatf& rhs);
     
-    std::ostream& operator<<(std::ostream& stream, const quatf& v);
+    std::string to_string(const quatf& v);
 
     quatf operator*(const quatf& lhs, const quatf& rhs);
     quatf operator*(float scale, const quatf& q);
@@ -87,3 +87,4 @@ namespace euphoria::core
     quatf operator-(const quatf& lhs, const quatf& rhs);
 }
 
+ADD_DEFAULT_FORMATTER(euphoria::core::quatf, std::string, euphoria::core::to_string);

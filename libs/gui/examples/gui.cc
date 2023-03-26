@@ -254,7 +254,7 @@ imgui_widget(LayoutContainer* container)
 void
 imgui_widget(int id, euphoria::render::Glyph* gl)
 {
-    const std::string s = "glyph {}"_format(id);
+    const std::string s = fmt::format("glyph {}", id);
     if(ImGui::TreeNode(s.c_str()) == false) { return; }
 
     ImGui::PushID(id);

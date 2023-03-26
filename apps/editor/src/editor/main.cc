@@ -230,13 +230,13 @@ open_or_focus_text_file
     open_or_focus_window
     (
         windows,
-        "File: {}"_format(path),
+        fmt::format("File: {}", path),
         [&]()
         {
             auto str = fs->read_file_to_string(path);
             if(!str)
             {
-                str = "Failed to open {}"_format(path);
+                str = fmt::format("Failed to open {}", path);
             }
             return std::make_shared<TextEditorWindow>(*str);
         }
@@ -298,7 +298,7 @@ open_or_focus_scimed
     open_or_focus_window
     (
         windows,
-        "scimed: {}"_format(file),
+        fmt::format("scimed: {}", file),
         [&]() -> std::shared_ptr<GenericWindow>
         {
             auto scimed = std::make_shared<ScimedWindow>();
@@ -324,7 +324,7 @@ open_or_focus_scimed_editor
     open_or_focus_window
     (
         windows,
-        "scimed editor: {}"_format(file),
+        fmt::format("scimed editor: {}", file),
         [&]() -> std::shared_ptr<GenericWindow>
         {
             auto sprite = sc->get(file);
@@ -351,7 +351,7 @@ open_or_focus_on_generic_window
     open_or_focus_window
     (
         windows,
-        "{}: {}"_format(title, path),
+        fmt::format("{}: {}", title, path),
         [=]() -> std::shared_ptr<GenericWindow>
         {
             auto window = create_generic_window

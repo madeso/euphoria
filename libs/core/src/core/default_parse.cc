@@ -13,7 +13,7 @@ namespace euphoria::core::argparse
             map<std::string>(matches, [](const std::string& s)
             {
                 // todo(Gustav): improve quote function
-                return "'{}'"_format(s);
+                return fmt::format("'{}'", s);
             });
 
         return string_mergers::english_or.merge(quoted_names);

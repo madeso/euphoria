@@ -656,7 +656,7 @@ namespace euphoria::core
                     {
                         log.emplace_back
                         (
-                            "Doesnt have topic {}"_format(topic)
+                            fmt::format("Doesn't have topic {}", topic)
                         );
                         valid_response = false;
                         break;
@@ -683,8 +683,7 @@ namespace euphoria::core
                 // strings when the OpString is false
                 log.emplace_back
                 (
-                    "Checking keyword {} {{}}"_format
-                    (
+                    fmt::format("Checking keyword {} {{}}",
                         // todo(Gustav): use map and a escape string function here
                         StringMerger().set_separator(" ").set_start_and_end("\"").merge(keyword.words),
                         string_mergers::english_or.merge
@@ -719,7 +718,7 @@ namespace euphoria::core
                         match_location = keyword.location;
                         log.emplace_back
                         (
-                            "Matched at {} of length {} with {}"_format(matched_index, match_length, match_location)
+                            fmt::format("Matched at {} of length {} with {}", matched_index, match_length, match_location)
                         );
                         if(last_event == resp.event_id)
                         {
@@ -794,9 +793,9 @@ namespace euphoria::core
         const auto& last = *history.rbegin();
         auto ss = StringBuilder{};
 
-        ss.add_string("INPUT: {}\n"_format(last.input));
-        ss.add_string("SECTION: {}\n"_format(last.section));
-        ss.add_string("RESPONSE: {}\n"_format(last.response));
+        ss.add_string(fmt::format("INPUT: {}\n", last.input));
+        ss.add_string(fmt::format("SECTION: {}\n", last.section));
+        ss.add_string(fmt::format("RESPONSE: {}\n", last.response));
 
         if(!last.topics.empty())
         {
@@ -804,7 +803,7 @@ namespace euphoria::core
             ss.add_view("TOPICS:\n");
             for(const auto& t: last.topics)
             {
-                ss.add_string("{}({})\n"_format(t.topic, t.time));
+                ss.add_string(fmt::format("{}({})\n", t.topic, t.time));
             }
             ss.add_char('\n');
         }
@@ -829,7 +828,7 @@ namespace euphoria::core
                 {
                     for(const auto& li: l.lines)
                     {
-                        ss.add_string("  {}\n"_format(li));
+                        ss.add_string(fmt::format("  {}\n", li));
                     }
                     ss.add_char('\n');
                 }

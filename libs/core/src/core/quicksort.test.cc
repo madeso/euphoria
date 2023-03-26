@@ -88,14 +88,14 @@ namespace
             return name == p.name && i == p.i;
         }
     };
-    std::ostream&
-    operator<<(std::ostream& o, const TestData& p)
+    
+    std::string to_string(const TestData& p)
     {
-        o << p.i << ":" << p.name;
-        return o;
+        return fmt::format("{}: {}", p.i, p.name);
     }
 }
 
+ADD_DEFAULT_FORMATTER(TestData, std::string, to_string);
 
 TEST_CASE("quick_sort-default_sort", "[get_quick_sorted]")
 {

@@ -49,7 +49,7 @@ TEST_CASE("table-section_and_rows", "[table]")
     {
         for(T::Idx x = 0; x < t.get_width(); ++x)
         {
-            t(x, y) = "{},{}"_format(x, y);
+            t(x, y) = fmt::format("{},{}", x, y);
         }
     }
 

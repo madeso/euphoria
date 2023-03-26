@@ -12,7 +12,7 @@ namespace euphoria::core
     {
         if(strings.empty())
         {
-            return "{}{}{}"_format(start, empty, end);
+            return fmt::format("{}{}{}", start, empty, end);
         }
 
         auto ss = StringBuilder{};

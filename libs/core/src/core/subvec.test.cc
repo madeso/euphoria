@@ -22,7 +22,7 @@ namespace
             rhs,
             [](int m) -> std::string
             {
-                return "{}"_format(m);
+                return fmt::to_string(m);
             },
             [](int alhs, int arhs) -> FalseString
             {
@@ -30,7 +30,7 @@ namespace
                 { return FalseString::create_true(); }
                 else
                 {
-                    return FalseString::create_false("{} != {}"_format(alhs, arhs));
+                    return FalseString::create_false(fmt::format("{} != {}", alhs, arhs));
                 }
             }
         );

@@ -130,7 +130,7 @@ main(int argc, char* argv[])
                     );
                     const std::string file_name = count == 1
                         ? std::string("bishop.png")
-                        : "bishop_{}.png"_format(c+1)
+                        : fmt::format("bishop_{}.png", c+1)
                         ;
                     io::write_chunk_to_file(image.write(ImageWriteFormat::png), file_name);
                 }

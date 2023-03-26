@@ -41,5 +41,7 @@ namespace euphoria::core
         bool operator==(const vec4f& rhs) = delete;
     };
 
-    std::ostream& operator<<(std::ostream& stream, const vec4f& v);
+    std::string to_string(const vec4f& v);
 }
+
+ADD_DEFAULT_FORMATTER(euphoria::core::vec4f, std::string, euphoria::core::to_string);

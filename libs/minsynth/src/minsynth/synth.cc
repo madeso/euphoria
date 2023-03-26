@@ -238,7 +238,7 @@ namespace euphoria::minsynth
         std::string
         name_and_octave(const std::string& name, int octave)
         {
-            return "{}{}"_format(name, octave);
+            return fmt::format("{}{}", name, octave);
         }
     }
 

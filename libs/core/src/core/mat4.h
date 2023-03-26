@@ -122,10 +122,12 @@ namespace euphoria::core
     constexpr mat4f m4_identity = mat4f::from_scalar(1);
 
     
-    std::ostream& operator<<(std::ostream& stream, const mat4f& m);
+    std::string to_string(const mat4f& m);
 
     mat4f operator+(const mat4f& lhs, const mat4f& rhs);
     mat4f operator-(const mat4f& lhs, const mat4f& rhs);
     mat4f operator*(const mat4f& lhs, const mat4f& rhs);
     vec4f operator*(const mat4f& lhs, const vec4f& rhs);
 }
+
+ADD_DEFAULT_FORMATTER(euphoria::core::mat4f, std::string, euphoria::core::to_string);

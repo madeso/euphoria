@@ -33,8 +33,9 @@ namespace euphoria::tests
         {
             size_equal = FalseString::create_false
             (
-                "Size mismatch: {} vs {}{} {}"_format
+                fmt::format
                 (
+                    "Size mismatch: {} vs {}{} {}",
                     lhs.size(), rhs.size(),
                     from_vector_to_string(lhs, to_string_functor),
                     from_vector_to_string(rhs, to_string_functor)
@@ -49,7 +50,7 @@ namespace euphoria::tests
             if(!equals)
             {
                 const auto first_invalid = !size_equal
-                    ? "{}, and first invalid"_format(size_equal.str)
+                    ? fmt::format("{}, and first invalid", size_equal.str)
                     : ([&]()
                     {
                         const auto alhs = from_vector_to_string_ex(lhs, to_string_functor);
@@ -61,17 +62,17 @@ namespace euphoria::tests
                         
                         if(oneliner)
                         {
-                            return "{} vs {} First invalid"_format(lhsstr, rhsstr);
+                            return fmt::format("{} vs {} First invalid", lhsstr, rhsstr);
                         }
                         else
                         {
-                            return "  {}vs{}First invalid"_format(lhsstr, rhsstr);
+                            return fmt::format("  {}vs{}First invalid", lhsstr, rhsstr);
                         }
                     })()
                     ;
                 return FalseString::create_false
                 (
-                    "{} value at index {}, {}"_format(first_invalid, i, equals.str)
+                    fmt::format("{} value at index {}, {}", first_invalid, i, equals.str)
                 );
             }
         }

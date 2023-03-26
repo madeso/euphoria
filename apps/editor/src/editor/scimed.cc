@@ -76,12 +76,12 @@ namespace euphoria::editor
     {
         if(data_value > 0)
         {
-            return "{}px"_format(data_value);
+            return fmt::format("{}px", data_value);
         }
         else
         {
             const auto p = (core::c_int_to_float(-data_value) * 100.0f) / core::c_int_to_float(total_percentage);
-            return "{:.3f}%"_format(p);
+            return fmt::format("{:.3f}%", p);
         }
     }
 

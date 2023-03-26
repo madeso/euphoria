@@ -91,7 +91,7 @@ namespace euphoria::core::argparse
         }
 
         // todo(Gustav): provide option for file extension
-        return "{}{:0>5}.png"_format(file, index);
+        return fmt::format("{}{:0>5}.png", file, index);
     }
 
 
@@ -103,12 +103,8 @@ namespace euphoria::core::argparse
     }
 
 
-    std::ostream&
-    operator<<(std::ostream& o, const ParseResult& pr)
-    {
-        o << from_enum_to_string(pr.internal_type) << "(" << pr.return_value << ")";
-        return o;
-    }
+    std::string to_string(const ParseResult& pr)
+        { return fmt::format("{}({})", from_enum_to_string(pr.internal_type), pr.return_value); }
 
     bool
     operator==(const ParseResult& lhs, const ParseResult& rhs)
@@ -145,20 +141,9 @@ namespace euphoria::core::argparse
     }
 
 
-    std::ostream&
-    operator<<(std::ostream& o, const euphoria::core::argparse::NameAndArguments& args)
+    std::string to_string(const euphoria::core::argparse::NameAndArguments& args)
     {
-        o << args.name << " ";
-        bool first = true;
-        o << "[";
-        for(const auto& s: args.arguments)
-        {
-            if(first) {first = false;}
-            else { o << ", "; }
-            o << s;
-        }
-        o << "]";
-        return o;
+        return fmt::format("{} [{}]", args.name, fmt::join(args.arguments, ", "));
     }
 
 
@@ -472,7 +457,7 @@ namespace euphoria::core::argparse
             (
                 runner,
                 caller,
-                "missing value for '{}'"_format(name)
+                fmt::format("missing value for '{}'", name)
             );
             return argparse::error;
         }
@@ -574,11 +559,11 @@ namespace euphoria::core::argparse
                 
                 if(aa.argument->have_nargs())
                 {
-                    return "[{} {}]"_format(first_name, aa.argument->nargs);
+                    return fmt::format("[{} {}]", first_name, aa.argument->nargs);
                 }
                 else
                 {
-                    return "[{}]"_format(first_name);
+                    return fmt::format("[{}]", first_name);
                 }
             }
             else
@@ -729,11 +714,11 @@ namespace euphoria::core::argparse
             const auto names = string_mergers::comma.merge(a.name.names);
             const auto names_with_narg = a.argument->have_nargs() == false
                 ? names
-                : "{} {}"_format(names, a.argument->nargs)
+                : fmt::format("{} {}", names, a.argument->nargs)
                 ;
             
             const auto desc = a.argument->default_value.empty() == false
-                ? "{} (default: {})"_format(a.argument->help, a.argument->default_value)
+                ? fmt::format("{} (default: {})", a.argument->help, a.argument->default_value)
                 : a.argument->help
                 ;
 
@@ -1055,7 +1040,7 @@ namespace euphoria::core::argparse
                     {
                         print_error
                         (
-                            "'{}' was unexpected"_format(arg)
+                            fmt::format("'{}' was unexpected", arg)
                         );
                         return argparse::error;
                     }
@@ -1067,7 +1052,7 @@ namespace euphoria::core::argparse
                     // edit distance is?
                     print_error
                     (
-                        "Invalid command '{}', did you mean {}?"_format(arg, names)
+                        fmt::format("Invalid command '{}', did you mean {}?", arg, names)
                     );
                     return argparse::error;
                 }
@@ -1147,7 +1132,7 @@ namespace euphoria::core::argparse
                     {
                         print_error
                         (
-                            "unknown argument: '{}'"_format(arg)
+                            fmt::format("unknown argument: '{}'", arg)
                         );
                     }
                     else
@@ -1155,7 +1140,7 @@ namespace euphoria::core::argparse
                         const auto closest_match_name = closest_match->first;
                         print_error
                         (
-                            "unknown argument: '{}', did you mean '{}'?"_format(arg, closest_match_name)
+                            fmt::format("unknown argument: '{}', did you mean '{}'?", arg, closest_match_name)
                         );
                     }
 
@@ -1241,8 +1226,8 @@ namespace euphoria::core::argparse
             parser.print_error
             (
                 missing.size() == 1
-                ? "Positional {} was not specified."_format(text)
-                : "Positionals {} were not specified."_format(text)
+                ? fmt::format("Positional {} was not specified.", text)
+                : fmt::format("Positionals {} were not specified.", text)
             );
             return argparse::error;
         }

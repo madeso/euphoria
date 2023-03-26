@@ -67,8 +67,7 @@ namespace euphoria::core
     };
 
 
-    std::ostream&
-    operator<<(std::ostream& s, const EnumValue& v);
+    std::string to_string(const EnumValue& v);
 
 
     void
@@ -98,3 +97,4 @@ namespace euphoria::core
     load_enum_type(&TYPE##_EnumType(), FS, PATH)
 
 }
+ADD_DEFAULT_FORMATTER(euphoria::core::EnumValue, std::string, euphoria::core::to_string);

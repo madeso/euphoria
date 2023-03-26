@@ -159,11 +159,8 @@ namespace euphoria::core
     }
 
 
-    std::ostream&
-    operator<<(std::ostream& stream, const angle& a)
-    {
-        return stream << a.as_degrees() << " deg";
-    }
+    std::string to_string(const angle& a)
+        { return fmt::format("{} deg", a.as_degrees()); }
 
 
     bool

@@ -209,7 +209,7 @@ from_char_to_string(char c, CharToStringStyle style)
         case 31: return "<unit separator>";
         case 127: return "<DEL>";
         case ' ': return "<space>";
-        default: return "{}"_format(c);
+        default: return fmt::to_string(c);
         }
     }();
 
@@ -231,7 +231,7 @@ from_char_to_string(char c, CharToStringStyle style)
 
     if(style == CharToStringStyle::include_hex || smart_characters.find(c) == std::string_view::npos)
     {
-        return "{}({:#x})"_format(name, c);
+        return fmt::format("{}({:#x})", name, c);
     }
     else
     {

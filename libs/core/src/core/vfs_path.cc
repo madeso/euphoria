@@ -318,18 +318,11 @@ namespace euphoria::core::vfs
         return r;
     }
 
-    std::ostream& operator<<(std::ostream& os, const FilePath& p)
-    {
-        os << p.path;
-        return os;
-    }
+    std::string to_string(const FilePath& p)
+        { return p.path; }
 
-
-    std::ostream& operator<<(std::ostream& os, const DirPath& p)
-    {
-        os << p.path;
-        return os;
-    }
+    std::string to_string(const DirPath& p)
+        { return p.path; }
 
 
     DirPath

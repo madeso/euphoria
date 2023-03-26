@@ -17,9 +17,9 @@ namespace euphoria::core
         return AxisAngle(axis, angle::from_radians(angle.as_radians()));
     }
 
-    std::ostream&
-    operator<<(std::ostream& stream, const AxisAngle& aa)
+    std::string
+    to_string(const AxisAngle& aa)
     {
-        return stream << "(" << aa.axis << " " << aa.angle << ")";
+        return fmt::format("({} {})", aa.axis, aa.angle);
     }
 }

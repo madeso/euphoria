@@ -95,7 +95,7 @@ namespace euphoria::assertlib
         template <typename T>
         AssertArgumentValue(const T& t)
         {
-            value = "{}"_format(t);
+            value = fmt::to_string(t);
         }
     };
 

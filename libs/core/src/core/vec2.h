@@ -196,11 +196,14 @@ namespace euphoria::core
     ////////////////////////////////////////////////////////////////////////////////
     /// Printing
 
-    std::ostream& operator<<(std::ostream& s, const vec2f& v);
-    std::ostream& operator<<(std::ostream& s, const unit2f& v);
-    std::ostream& operator<<(std::ostream& s, const vec2i& v);
+    std::string to_string(const vec2f& v);
+    std::string to_string(const unit2f& v);
+    std::string to_string(const vec2i& v);
     
     // util functions
     unit2f create_random_unit(Random* random);
 }
 
+ADD_DEFAULT_FORMATTER(euphoria::core::vec2f, std::string, euphoria::core::to_string);
+ADD_DEFAULT_FORMATTER(euphoria::core::unit2f, std::string, euphoria::core::to_string);
+ADD_DEFAULT_FORMATTER(euphoria::core::vec2i, std::string, euphoria::core::to_string);

@@ -352,11 +352,9 @@ namespace euphoria::core
     }
 
 
-    std::ostream&
-    operator<<(std::ostream& stream, const quatf& v)
+    std::string to_string(const quatf& v)
     {
-        return stream << "(" << v.w << " (" << v.x << ", " << v.y << ", " << v.z
-                      << "))";
+        return fmt::format("({} ({}, {}, {}))", v.w, v.x, v.y, v.z);
     }
 
 

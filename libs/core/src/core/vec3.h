@@ -158,7 +158,11 @@ namespace euphoria::core
     ////////////////////////////////////////////////////////////////////////////////
     /// Printing
 
-    std::ostream& operator<<(std::ostream& stream, const vec3f& v);
-    std::ostream& operator<<(std::ostream& stream, const unit3f& v);
-    std::ostream& operator<<(std::ostream& stream, const Scale3f& v);
+    std::string to_string(const vec3f& v);
+    std::string to_string(const unit3f& v);
+    std::string to_string(const Scale3f& v);
 }
+
+ADD_DEFAULT_FORMATTER(euphoria::core::vec3f, std::string, euphoria::core::to_string);
+ADD_DEFAULT_FORMATTER(euphoria::core::unit3f, std::string, euphoria::core::to_string);
+ADD_DEFAULT_FORMATTER(euphoria::core::Scale3f, std::string, euphoria::core::to_string);

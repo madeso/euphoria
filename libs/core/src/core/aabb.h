@@ -32,7 +32,8 @@ namespace euphoria::core
         [[nodiscard]] std::vector<vec3f> calc_all_corners() const;
     };
 
-    std::ostream& operator<<(std::ostream& stream, const Aabb& a);
+    std::string to_string(const Aabb& a);
     vec3f get_random_point(Random* rand, const Aabb&);
-
 }
+
+ADD_DEFAULT_FORMATTER(euphoria::core::Aabb, std::string, euphoria::core::to_string);

@@ -29,7 +29,7 @@ namespace euphoria::tests
         {
             if(first) { first = false; }
             else { ss.add_view(", ").add_view(newline); }
-            if (one_line == false) { ss.add_string("  {}: "_format(index)); }
+            if (one_line == false) { ss.add_string(fmt::to_string(index)); }
             ss.add_char('\'').add_string(converter(s)).add_char('\'');
             index += 1;
         }

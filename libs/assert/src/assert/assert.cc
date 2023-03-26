@@ -92,7 +92,7 @@ namespace euphoria
                     const auto first_symbol = std::string(symbol, ++begin - symbol);
                     *end++ = '\0';
                     const auto second_symbol = demangle_symbol(begin);
-                    ret.emplace_back("{}{}+{}"_format(first_symbol, second_symbol, end));
+                    ret.emplace_back(fmt::format("{}{}+{}", first_symbol, second_symbol, end));
                 }
                 else
                 {
@@ -106,7 +106,16 @@ namespace euphoria
 #endif
 
 }
-    
+
+template <> struct fmt::formatter<euphoria::assertlib::AssertArgumentValue> : formatter<std::string>
+{
+    template <typename FormatContext>
+    auto format(const euphoria::assertlib::AssertArgumentValue& c, FormatContext& ctx) const
+    {
+        return formatter<string_view>::format(c.value, ctx);
+    }
+};
+   
 namespace euphoria::assertlib
 {
     bool&
@@ -128,11 +137,6 @@ namespace euphoria::assertlib
         return should_throw_variable();
     }
 
-    std::ostream& operator<<(std::ostream& ss, const AssertArgumentValue& val)
-    {
-        return ss << val.value;
-    }
-
     void
     on_assert
     (
@@ -144,20 +148,20 @@ namespace euphoria::assertlib
         const char* function
     )
     {
-        const auto start =
+        const auto start = fmt::format(
             "Assertion failed: {}\n"
             "Function: {}\n"
-            "File: {}:{}\n"_format(expression, function, file, line);
+            "File: {}:{}\n", expression, function, file, line);
 
         const auto with_arguments = arguments.empty()
             ? start
-            : "{}({}) = {}\n"_format(start, argstr, arguments)
+            : fmt::format("{}({}) = {}\n", start, argstr, fmt::join(arguments, ", "))
             ;
 
         const auto trace = run_backtrace(2);
         const auto message = trace.empty()
             ? with_arguments
-            : "{}Backtrace:\n{}\n"_format(with_arguments, fmt::join(trace, "\n"))
+            : fmt::format("{}Backtrace:\n{}\n", with_arguments, fmt::join(trace, "\n"))
             ;
 
         if(should_throw_variable())

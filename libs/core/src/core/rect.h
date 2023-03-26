@@ -231,8 +231,11 @@ namespace euphoria::core
     vec2f get_random_point(Random* random, const Rectf& r);
     vec2i get_random_point(Random* random, const Recti& r);
 
-    std::ostream& operator<<(std::ostream& s, const Rectf& r);
-    std::ostream& operator<<(std::ostream& s, const Recti& r);
+    std::string to_string(const Rectf& r);
+    std::string to_string(const Recti& r);
 
     bool operator==(const Recti& lhs, const Recti& rhs);
 }
+
+ADD_DEFAULT_FORMATTER(euphoria::core::Rectf, std::string, euphoria::core::to_string);
+ADD_DEFAULT_FORMATTER(euphoria::core::Recti, std::string, euphoria::core::to_string);

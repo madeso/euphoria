@@ -166,7 +166,7 @@ namespace euphoria::core
         std::vector<std::string> ret;
         for(const auto& m: map)
         {
-            const std::string str = "({}:{})"_format(m.first, m.second);
+            const std::string str = fmt::format("({}:{})", m.first, m.second);
             ret.emplace_back(str);
         }
         return ret;
@@ -180,7 +180,7 @@ namespace euphoria::core
         std::vector<std::string> ret;
         for(const auto& m: map)
         {
-            const std::string str = "{}"_format(m.first);
+            const std::string str = fmt::format("{}", m.first);
             ret.emplace_back(str);
         }
         return ret;
@@ -195,7 +195,7 @@ namespace euphoria::core
         ret.reserve(data.size());
         for(const auto& d: data)
         {
-            const std::string str = "{}"_format(d);
+            const std::string str = fmt::format("{}", d);
             ret.emplace_back(str);
         }
         return ret;

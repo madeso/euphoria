@@ -78,11 +78,13 @@ namespace euphoria::core
     constexpr mat2f m2_identity = mat2f::from_scalar(1);
 
 
-    std::ostream&
-    operator<<(std::ostream& stream, const mat2f& m);
+    std::string to_string(const mat2f& m);
 
     mat2f operator+(const mat2f& lhs, const mat2f& rhs);
     mat2f operator-(const mat2f& lhs, const mat2f& rhs);
     mat2f operator*(const mat2f& lhs, const mat2f& rhs);
     vec2f operator*(const mat2f& lhs, const vec2f& rhs);
 }
+
+// todo(Gustav): add a multi line format option?
+ADD_DEFAULT_FORMATTER(euphoria::core::mat2f, std::string, euphoria::core::to_string);

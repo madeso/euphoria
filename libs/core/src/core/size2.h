@@ -89,6 +89,9 @@ namespace euphoria::core
 
     size2f operator/(const size2f& lhs, float rhs);
 
-    std::ostream& operator<<(std::ostream& s, const size2f& r);
-    std::ostream& operator<<(std::ostream& s, const size2i& r);
+    std::string to_string(const size2f& r);
+    std::string to_string(const size2i& r);
 }
+
+ADD_DEFAULT_FORMATTER(euphoria::core::size2f, std::string, euphoria::core::to_string);
+ADD_DEFAULT_FORMATTER(euphoria::core::size2i, std::string, euphoria::core::to_string);

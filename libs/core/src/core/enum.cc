@@ -51,7 +51,7 @@ namespace euphoria::core
             to_string_vector(name_to_value)
         );
         
-        return "<invalid value {} of {}>"_format(v, values);
+        return fmt::format("<invalid value {} of {}>", v, values);
     }
 
 
@@ -164,11 +164,9 @@ namespace euphoria::core
     }
 
 
-    std::ostream&
-    operator<<(std::ostream& s, const EnumValue& v)
+    std::string to_string(const EnumValue& v)
     {
-        s << v.to_string();
-        return s;
+        return v.to_string();
     }
 
 

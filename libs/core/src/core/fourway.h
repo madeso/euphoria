@@ -91,21 +91,6 @@ namespace euphoria::core
     }
 
 
-    template<typename T>
-    std::ostream&
-    operator<<(std::ostream& s, const Lrud<T>& fw)
-    {
-        s << "("
-          << fw.up << " "
-          << fw.right << " "
-          << fw.down << " "
-          << fw.left
-          << ")"
-        ;
-        return s;
-    }
-
-
     /** Parses a Lrud according to the CSS spec.
       Either all, ver/hor or up/right/down/left
     */
@@ -159,8 +144,8 @@ namespace euphoria::core
                     const auto vert = parse(vvert);
                     const auto hor = parse(vhor);
 
-                    if(!hor) { return R::create_error("invalid hor({}): {}"_format(vhor, hor.get_error())); }
-                    if(!vert) { return R::create_error("invalid vert({}): {}"_format(vvert, vert.get_error())); }
+                    if(!hor) { return R::create_error(fmt::format("invalid hor({}): {}", vhor, hor.get_error())); }
+                    if(!vert) { return R::create_error(fmt::format("invalid vert({}): {}", vvert, vert.get_error())); }
 
                     return R::create_value(Lrud<T>::from_lrud(*hor, *vert));
                 }
@@ -176,10 +161,10 @@ namespace euphoria::core
                     const auto down = parse(vdown);
                     const auto left = parse(vleft);
 
-                    if(!left) { return R::create_error("invalid left({}): {}"_format(vleft, left.get_error())); }
-                    if(!right) { return R::create_error("invalid right({}): {}"_format(vright, right.get_error())); }
-                    if(!up) { return R::create_error("invalid up({}): {}"_format(vup, up.get_error())); }
-                    if(!down) { return R::create_error("invalid down({}): {}"_format(vdown, down.get_error())); }
+                    if(!left) { return R::create_error(fmt::format("invalid left({}): {}", vleft, left.get_error())); }
+                    if(!right) { return R::create_error(fmt::format("invalid right({}): {}", vright, right.get_error())); }
+                    if(!up) { return R::create_error(fmt::format("invalid up({}): {}", vup, up.get_error())); }
+                    if(!down) { return R::create_error(fmt::format("invalid down({}): {}", vdown, down.get_error())); }
 
                     return R::create_value(Lrud<T>::from_lrud
                     (
@@ -198,3 +183,18 @@ namespace euphoria::core
     };
 
 }
+
+
+template<typename T>
+struct fmt::formatter<euphoria::core::Lrud<T>> : formatter<std::string>
+{
+    template <typename FormatContext>
+    auto format(const euphoria::core::Lrud<T>& fw, FormatContext& ctx) const
+    {
+        return formatter<string_view>::format
+        (
+            fmt::format("({} {} {} {})", fw.up, fw.right, fw.down, fw.left),
+            ctx
+        );
+    }
+};

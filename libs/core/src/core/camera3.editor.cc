@@ -25,22 +25,14 @@ namespace euphoria::core
     */
     namespace detail
     {
-        std::ostream& operator<<(std::ostream& s, const CameraFrame& f)
+        std::string to_string(const CameraFrame& f)
+            { return fmt::format("[{} {} {}]", f.rotation_angle, f.look_angle, f.position); }
+        
+        
+        void update_state(EditorCamera3* self)
         {
-            s   << "["
-                << f.rotation_angle << " "
-                << f.look_angle << " "
-                << f.position
-                << "]";
-            return s;
-        }
-        void
-        update_state(EditorCamera3* self)
-        {
-            if(self->next_state != nullptr)
-            {
-                self->state = std::move(self->next_state);
-            }
+            if(self->next_state == nullptr) { return; }
+            self->state = std::move(self->next_state);
         }
 
 

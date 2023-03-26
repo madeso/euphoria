@@ -12,41 +12,6 @@ constexpr bool print_hex = false;
 using namespace euphoria::core;
 using namespace euphoria::tests;
 
-namespace std
-{
-    std::ostream& operator<<(std::ostream& s, const std::vector<std::string>& v)
-    {
-        s << "{";
-        bool first = true;
-        for(auto st: v)
-        {
-            if(first) { first = false; }
-            else { s << ", "; }
-            s << '"' << st << '"';
-
-            if constexpr (print_hex)
-            {
-                s << "(";
-                bool f = true;
-                for(auto c: st)
-                {
-                    if(f) { f=false; }
-                    else { s << " "; }
-                    s << static_cast<int>(c);
-                }
-                s << ")";
-            }
-        }
-        s << "}";
-        return s;
-    }
-
-    std::ostream& operator<<(std::ostream& s, const std::pair<int, int>& t)
-    {
-        s << "(" << t.first << ", " << t.second << ")";
-        return s;
-    }
-}
 
 namespace
 {

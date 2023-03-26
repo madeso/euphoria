@@ -223,33 +223,29 @@ namespace euphoria::core::tracery
     }
 
 
-    std::ostream&
-    operator<<(std::ostream& o, const Result& r)
+    std::string to_string(const Result& r)
     {
         switch(r.error_type)
         {
-        case Result::no_error: o << "No error detected"; break;
+        case Result::no_error:
+            return "No error detected";
         case Result::unable_to_open_file:
-            o << "Unable to open file: " << r.get_text();
-            break;
+            return fmt::format("Unable to open file: ", r.get_text());
         case Result::json_parse:
-            o << "JSON parse error: " << r.get_text();
-            break;
+            return fmt::format("JSON parse error: ", r.get_text());
         case Result::missing_rule:
-            o << "Rule not found in grammar: " << r.get_text();
-            break;
-        case Result::rule_eof: o << "EOF in rule: " << r.get_text(); break;
-        case Result::invalid_json: o << "Invalid json state."; break;
+            return fmt::format("Rule not found in grammar: ", r.get_text());
+        case Result::rule_eof:
+            return fmt::format("EOF in rule: ", r.get_text());
+        case Result::invalid_json:
+            return "Invalid json state.";
         case Result::invalid_modifier:
-            o << "Invalid modifier: " << r.get_text();
-            break;
+            return fmt::format("Invalid modifier: ", r.get_text());
         case Result::general_rule_parse_error:
-            o << "Rule parse error: " << r.get_text();
-            break;
-        default: o << "Unhandled error"; break;
+            return fmt::format("Rule parse error: ", r.get_text());
+        default:
+            return "Unhandled error";
         }
-
-        return o;
     }
 
 
@@ -372,7 +368,7 @@ namespace euphoria::core::tracery
                         const auto c = parser.read_char();
                         return Result(Result::general_rule_parse_error)
                                 << "Unknown character inside ##: "
-                                << "{}"_format(c);
+                                << fmt::to_string(c);
                         }
                     }
                 }

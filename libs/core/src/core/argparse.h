@@ -77,10 +77,14 @@ namespace euphoria::core::argparse
 
     /// all ok, but quit requested
     constexpr ParseResult quit = ParseResult{ ParseResult::Type::quit };
+    
+    std::string to_string(const ParseResult& pr);
+}
 
-    std::ostream&
-    operator<<(std::ostream& o, const ParseResult& pr);
+ADD_DEFAULT_FORMATTER(euphoria::core::argparse::ParseResult, std::string, euphoria::core::argparse::to_string);
 
+namespace euphoria::core::argparse
+{
     bool
     operator==(const ParseResult& lhs, const ParseResult& rhs);
 
@@ -101,11 +105,13 @@ namespace euphoria::core::argparse
         NameAndArguments
         extract(int argc, char* argv[]);
     };
+    std::string to_string(const NameAndArguments& arguments);
+}
 
-    std::ostream&
-    operator<<(std::ostream& stream, const NameAndArguments& arguments);
+ADD_DEFAULT_FORMATTER(euphoria::core::argparse::NameAndArguments, std::string, euphoria::core::argparse::to_string);
 
-
+namespace euphoria::core::argparse
+{
     /// "file" like api for reading arguments
     struct ArgumentReader
     {
@@ -467,11 +473,11 @@ namespace euphoria::core::argparse
                 }
                 else
                 {
-                    const std::string base = "'{}' is not accepted for '{}'"_format(value, argument_name);
+                    const std::string base = fmt::format("'{}' is not accepted for '{}'", value, argument_name);
                     const auto parsed_error = parsed.get_error();
                     const std::string message = parsed_error.empty()
                         ? base
-                        : "{}, {}"_format(base, parsed_error)
+                        : fmt::format("{}, {}", base, parsed_error)
                         ;
                     print_parse_error(runner, caller, message);
 
@@ -512,11 +518,11 @@ namespace euphoria::core::argparse
                 }
                 else
                 {
-                    const std::string base = "\'{}' is not accepted for '{}'"_format(value, argument_name);
+                    const std::string base = fmt::format("\'{}' is not accepted for '{}'", value, argument_name);
                     const auto parsed_error = parsed.get_error();
                     const std::string message = parsed_error.empty()
                         ? base
-                        : "{}, {}"_format(base, parsed_error)
+                        : fmt::format("{}, {}", base, parsed_error)
                         ;
                     print_parse_error(runner, caller, message);
 
