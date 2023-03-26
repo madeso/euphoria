@@ -5,10 +5,6 @@
 #include "catch.hpp"
 
 
-
-
-constexpr bool print_hex = false;
-
 using namespace euphoria::core;
 using namespace euphoria::tests;
 
