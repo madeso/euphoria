@@ -107,7 +107,7 @@
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            <a class="code" href="group__string.html#ga44918f755c4be597277debbfed41c394">to_string_vector</a>(<a class="code" href="structeuphoria_1_1core_1_1EnumType.html#a31c66deb71540ee74aff9f6d079f81ee">name_to_value</a>)</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        );</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordflow">return</span> <span class="stringliteral">&quot;&lt;invalid value {} of {}&gt;&quot;</span>_format(<a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a9e3669d19b675bd57058fd4664205d2a">v</a>, values);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordflow">return</span> fmt::format(<span class="stringliteral">&quot;&lt;invalid value {} of {}&gt;&quot;</span>, <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a9e3669d19b675bd57058fd4664205d2a">v</a>, values);</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    }</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
@@ -219,40 +219,38 @@
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    }</div>
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160; </div>
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160; </div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    std::ostream&amp;</div>
-<div class="line"><a name="l00168"></a><span class="lineno"><a class="line" href="namespaceeuphoria_1_1core.html#a92d27bfe09b164541da89e1a4d022365">  168</a></span>&#160;    <a class="code" href="namespaceeuphoria_1_1core.html#af7e0f6f4fa681400c3e6f122bb25fdb6">operator&lt;&lt;</a>(std::ostream&amp; s, <span class="keyword">const</span> <a class="code" href="structeuphoria_1_1core_1_1EnumValue.html">EnumValue</a>&amp; v)</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    {</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;        <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a03c7c0ace395d80182db07ae2c30f034">s</a> &lt;&lt; <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a9e3669d19b675bd57058fd4664205d2a">v</a>.to_string();</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a03c7c0ace395d80182db07ae2c30f034">s</a>;</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    }</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160; </div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160; </div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    <a class="code" href="namespaceeuphoria_1_1core.html#aae97fc77c5c94b0157d311e34c68874e">load_enum_type</a></div>
-<div class="line"><a name="l00177"></a><span class="lineno"><a class="line" href="namespaceeuphoria_1_1core.html#aae97fc77c5c94b0157d311e34c68874e">  177</a></span>&#160;    (</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;        <a class="code" href="structeuphoria_1_1core_1_1EnumType.html">EnumType</a>* type,</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;        <a class="code" href="structeuphoria_1_1core_1_1vfs_1_1FileSystem.html">vfs::FileSystem</a>* fs,</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;        <span class="keyword">const</span> <a class="code" href="structeuphoria_1_1core_1_1vfs_1_1FilePath.html">vfs::FilePath</a>&amp; path</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    )</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    {</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;        <a class="code" href="assert_8h.html#aca68c0d4ac8df0838e209fb5300f7be3">ASSERT</a>(type);</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160; </div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> root = <a class="code" href="namespaceeuphoria_1_1core.html#af85e834f296a688ef6e63150ab691762">get_default_but_log_errors</a></div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;        (</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;            read_json_file_to_gaf_struct&lt;enumlist::Enumroot&gt;(fs, path, enumlist::ReadJsonEnumroot)</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;        );</div>
+<div class="line"><a name="l00167"></a><span class="lineno"><a class="line" href="namespaceeuphoria_1_1core.html#a662d37bb9993a568e2019b8feabb98fe">  167</a></span>&#160;    std::string <a class="code" href="namespaceeuphoria_1_1core.html#a8596fa3efb42bc0ad86b46183bc305d3">to_string</a>(<span class="keyword">const</span> <a class="code" href="structeuphoria_1_1core_1_1EnumValue.html">EnumValue</a>&amp; v)</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    {</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a9e3669d19b675bd57058fd4664205d2a">v</a>.to_string();</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    }</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160; </div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160; </div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    <a class="code" href="namespaceeuphoria_1_1core.html#aae97fc77c5c94b0157d311e34c68874e">load_enum_type</a></div>
+<div class="line"><a name="l00175"></a><span class="lineno"><a class="line" href="namespaceeuphoria_1_1core.html#aae97fc77c5c94b0157d311e34c68874e">  175</a></span>&#160;    (</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;        <a class="code" href="structeuphoria_1_1core_1_1EnumType.html">EnumType</a>* type,</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;        <a class="code" href="structeuphoria_1_1core_1_1vfs_1_1FileSystem.html">vfs::FileSystem</a>* fs,</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;        <span class="keyword">const</span> <a class="code" href="structeuphoria_1_1core_1_1vfs_1_1FilePath.html">vfs::FilePath</a>&amp; path</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    )</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    {</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;        <a class="code" href="assert_8h.html#aca68c0d4ac8df0838e209fb5300f7be3">ASSERT</a>(type);</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160; </div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> root = <a class="code" href="namespaceeuphoria_1_1core.html#af85e834f296a688ef6e63150ab691762">get_default_but_log_errors</a></div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;        (</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;            read_json_file_to_gaf_struct&lt;enumlist::Enumroot&gt;(fs, path, enumlist::ReadJsonEnumroot)</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;        );</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160; </div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;        <span class="comment">// todo(Gustav): handle enum errors better...</span></div>
 <div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160; </div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;        <span class="comment">// todo(Gustav): handle enum errors better...</span></div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160; </div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;        std::vector&lt;std::string&gt; names;</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">const</span> <span class="keyword">auto</span>&amp; name: root.name)</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;        {</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;            names.push_back(name);</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;        }</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;        type-&gt;<a class="code" href="structeuphoria_1_1core_1_1EnumType.html#a25a4718cecd70d508a34355dd8e2f76d">add_enums</a>(names);</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    }</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160; </div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;}</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;        std::vector&lt;std::string&gt; names;</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">const</span> <span class="keyword">auto</span>&amp; name: root.name)</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;        {</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;            names.push_back(name);</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;        }</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;        type-&gt;<a class="code" href="structeuphoria_1_1core_1_1EnumType.html#a25a4718cecd70d508a34355dd8e2f76d">add_enums</a>(names);</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    }</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160; </div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="astructeuphoria_1_1core_1_1EnumValue_html_a53412addaf2405b526915882f1565657"><div class="ttname"><a href="structeuphoria_1_1core_1_1EnumValue.html#a53412addaf2405b526915882f1565657">euphoria::core::EnumValue::to_value</a></div><div class="ttdeci">size_t to_value() const</div><div class="ttdef"><b>Definition:</b> <a href="enum_8cc_source.html#l00138">enum.cc:138</a></div></div>
 <div class="ttc" id="avfs__path_8h_html"><div class="ttname"><a href="vfs__path_8h.html">vfs_path.h</a></div></div>
@@ -269,7 +267,7 @@
 <div class="ttc" id="astructeuphoria_1_1core_1_1EnumValue_html_aa8fd986c1257e35f3b67f87b9df936a5"><div class="ttname"><a href="structeuphoria_1_1core_1_1EnumValue.html#aa8fd986c1257e35f3b67f87b9df936a5">euphoria::core::EnumValue::type</a></div><div class="ttdeci">EnumType * type</div><div class="ttdef"><b>Definition:</b> <a href="enum_8h_source.html#l00055">enum.h:55</a></div></div>
 <div class="ttc" id="astructeuphoria_1_1core_1_1EnumValue_html_a0a0738c0559f8d261c20c1ad680f6f70"><div class="ttname"><a href="structeuphoria_1_1core_1_1EnumValue.html#a0a0738c0559f8d261c20c1ad680f6f70">euphoria::core::EnumValue::EnumValue</a></div><div class="ttdeci">EnumValue(EnumType *t, size_t v)</div><div class="ttdef"><b>Definition:</b> <a href="enum_8cc_source.html#l00127">enum.cc:127</a></div></div>
 <div class="ttc" id="astructeuphoria_1_1core_1_1StringMerger_html_a9ea18a79310e404c870e32dfac16f27a"><div class="ttname"><a href="structeuphoria_1_1core_1_1StringMerger.html#a9ea18a79310e404c870e32dfac16f27a">euphoria::core::StringMerger::merge</a></div><div class="ttdeci">std::string merge(const std::vector&lt; std::string &gt; &amp;strings) const</div><div class="ttdef"><b>Definition:</b> <a href="stringmerger_8cc_source.html#l00011">stringmerger.cc:11</a></div></div>
-<div class="ttc" id="anamespaceeuphoria_1_1core_html_af7e0f6f4fa681400c3e6f122bb25fdb6"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#af7e0f6f4fa681400c3e6f122bb25fdb6">euphoria::core::operator&lt;&lt;</a></div><div class="ttdeci">std::ostream &amp; operator&lt;&lt;(std::ostream &amp;s, const Aabb &amp;a)</div><div class="ttdef"><b>Definition:</b> <a href="aabb_8cc_source.html#l00128">aabb.cc:128</a></div></div>
+<div class="ttc" id="anamespaceeuphoria_1_1core_html_a8596fa3efb42bc0ad86b46183bc305d3"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#a8596fa3efb42bc0ad86b46183bc305d3">euphoria::core::to_string</a></div><div class="ttdeci">std::string to_string(const Aabb &amp;a)</div><div class="ttdef"><b>Definition:</b> <a href="aabb_8cc_source.html#l00128">aabb.cc:128</a></div></div>
 <div class="ttc" id="astructeuphoria_1_1core_1_1EnumType_html_a31c66deb71540ee74aff9f6d079f81ee"><div class="ttname"><a href="structeuphoria_1_1core_1_1EnumType.html#a31c66deb71540ee74aff9f6d079f81ee">euphoria::core::EnumType::name_to_value</a></div><div class="ttdeci">NameToValueMap name_to_value</div><div class="ttdef"><b>Definition:</b> <a href="enum_8h_source.html#l00033">enum.h:33</a></div></div>
 <div class="ttc" id="anamespaceeuphoria_1_1core_html_aa9db03a38fd9999446a4ebf0584cd710a9e3669d19b675bd57058fd4664205d2a"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a9e3669d19b675bd57058fd4664205d2a">euphoria::core::Key::v</a></div><div class="ttdeci">@ v</div></div>
 <div class="ttc" id="anamespaceeuphoria_1_1core_html_aa9db03a38fd9999446a4ebf0584cd710ae358efa489f58062f10dd7316b65649e"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710ae358efa489f58062f10dd7316b65649e">euphoria::core::Key::t</a></div><div class="ttdeci">@ t</div></div>
@@ -280,7 +278,6 @@
 <div class="ttc" id="astructeuphoria_1_1core_1_1EnumValue_html_a7d18e39db7a9bf40aa6c3374af32fe1f"><div class="ttname"><a href="structeuphoria_1_1core_1_1EnumValue.html#a7d18e39db7a9bf40aa6c3374af32fe1f">euphoria::core::EnumValue::operator!=</a></div><div class="ttdeci">bool operator!=(const EnumValue &amp;other) const</div><div class="ttdef"><b>Definition:</b> <a href="enum_8cc_source.html#l00153">enum.cc:153</a></div></div>
 <div class="ttc" id="alog_8h_html_ad4a9117ce894e3319e903142347a0f63"><div class="ttname"><a href="log_8h.html#ad4a9117ce894e3319e903142347a0f63">LOG_ERROR</a></div><div class="ttdeci">#define LOG_ERROR(...)</div><div class="ttdef"><b>Definition:</b> <a href="log_8h_source.html#l00015">log.h:15</a></div></div>
 <div class="ttc" id="astructeuphoria_1_1core_1_1EnumValue_html"><div class="ttname"><a href="structeuphoria_1_1core_1_1EnumValue.html">euphoria::core::EnumValue</a></div><div class="ttdef"><b>Definition:</b> <a href="enum_8h_source.html#l00052">enum.h:52</a></div></div>
-<div class="ttc" id="anamespaceeuphoria_1_1core_html_aa9db03a38fd9999446a4ebf0584cd710a03c7c0ace395d80182db07ae2c30f034"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a03c7c0ace395d80182db07ae2c30f034">euphoria::core::Key::s</a></div><div class="ttdeci">@ s</div></div>
 <div class="ttc" id="astructeuphoria_1_1core_1_1EnumType_html_abc48e93c550230e4cae9f9cee7970c0b"><div class="ttname"><a href="structeuphoria_1_1core_1_1EnumType.html#abc48e93c550230e4cae9f9cee7970c0b">euphoria::core::EnumType::next_index</a></div><div class="ttdeci">size_t next_index</div><div class="ttdef"><b>Definition:</b> <a href="enum_8h_source.html#l00035">enum.h:35</a></div></div>
 <div class="ttc" id="anamespaceeuphoria_1_1core_1_1string__mergers_html_a2d5d00244d536bbd8654476a5ff3e48f"><div class="ttname"><a href="namespaceeuphoria_1_1core_1_1string__mergers.html#a2d5d00244d536bbd8654476a5ff3e48f">euphoria::core::string_mergers::english_or</a></div><div class="ttdeci">constexpr StringMerger english_or</div><div class="ttdef"><b>Definition:</b> <a href="stringmerger_8h_source.html#l00092">stringmerger.h:92</a></div></div>
 <div class="ttc" id="astringutils_8h_html"><div class="ttname"><a href="stringutils_8h.html">stringutils.h</a></div></div>
@@ -296,7 +293,7 @@
 <div class="ttc" id="astructeuphoria_1_1core_1_1vfs_1_1FilePath_html"><div class="ttname"><a href="structeuphoria_1_1core_1_1vfs_1_1FilePath.html">euphoria::core::vfs::FilePath</a></div><div class="ttdef"><b>Definition:</b> <a href="vfs__path_8h_source.html#l00035">vfs_path.h:35</a></div></div>
 <div class="ttc" id="astructeuphoria_1_1core_1_1EnumType_html_a2881431ceebca36a2984ddfaca6e7a73"><div class="ttname"><a href="structeuphoria_1_1core_1_1EnumType.html#a2881431ceebca36a2984ddfaca6e7a73">euphoria::core::EnumType::value_to_name</a></div><div class="ttdeci">ValueToNameMap value_to_name</div><div class="ttdef"><b>Definition:</b> <a href="enum_8h_source.html#l00032">enum.h:32</a></div></div>
 <div class="ttc" id="astructeuphoria_1_1core_1_1EnumType_html_a3766cbca44aba43e069217bd2a8c7f88"><div class="ttname"><a href="structeuphoria_1_1core_1_1EnumType.html#a3766cbca44aba43e069217bd2a8c7f88">euphoria::core::EnumType::type_name</a></div><div class="ttdeci">std::string type_name</div><div class="ttdef"><b>Definition:</b> <a href="enum_8h_source.html#l00031">enum.h:31</a></div></div>
-<div class="ttc" id="anamespaceeuphoria_1_1core_html_aae97fc77c5c94b0157d311e34c68874e"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#aae97fc77c5c94b0157d311e34c68874e">euphoria::core::load_enum_type</a></div><div class="ttdeci">void load_enum_type(EnumType *type, vfs::FileSystem *fs, const vfs::FilePath &amp;path)</div><div class="ttdef"><b>Definition:</b> <a href="enum_8cc_source.html#l00177">enum.cc:177</a></div></div>
+<div class="ttc" id="anamespaceeuphoria_1_1core_html_aae97fc77c5c94b0157d311e34c68874e"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#aae97fc77c5c94b0157d311e34c68874e">euphoria::core::load_enum_type</a></div><div class="ttdeci">void load_enum_type(EnumType *type, vfs::FileSystem *fs, const vfs::FilePath &amp;path)</div><div class="ttdef"><b>Definition:</b> <a href="enum_8cc_source.html#l00175">enum.cc:175</a></div></div>
 <div class="ttc" id="aenum_8h_html"><div class="ttname"><a href="enum_8h.html">enum.h</a></div></div>
 <!-- HTML footer for doxygen 1.8.17-->
 <!-- start footer part -->

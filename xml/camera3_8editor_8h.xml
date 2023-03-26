@@ -256,6 +256,30 @@
     <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
     <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
     <innernamespace refid="namespaceeuphoria_1_1core_1_1detail">euphoria::core::detail</innernamespace>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="camera3_8editor_8h_1a97f1a28ef2d6eb1142b394105a4328e1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ADD_DEFAULT_FORMATTER</definition>
+        <argsstring>(euphoria::core::detail::CameraFrame, std::string, euphoria::core::detail::to_string)</argsstring>
+        <name>ADD_DEFAULT_FORMATTER</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1detail_1_1CameraFrame" kindref="compound">euphoria::core::detail::CameraFrame</ref></type>
+        </param>
+        <param>
+          <type>std::string</type>
+        </param>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1core_1_1detail_1a001efcaded673e70581521a85f2f72e8" kindref="member">euphoria::core::detail::to_string</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.editor.h" line="127" column="1" declfile="libs/core/src/core/camera3.editor.h" declline="127" declcolumn="1"/>
+      </memberdef>
+      </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

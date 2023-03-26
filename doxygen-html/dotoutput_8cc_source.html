@@ -96,7 +96,7 @@
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    std::string</div>
 <div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="namespaceeuphoria_1_1core_1_1dot.html#a149a00694e5320ee14c5fae5c1d4c04b">   41</a></span>&#160;    <a class="code" href="namespaceeuphoria_1_1core_1_1dot.html#a149a00694e5320ee14c5fae5c1d4c04b">from_id_to_string</a>(<a class="code" href="namespaceeuphoria_1_1core_1_1dot.html#a1720f1180592f245e27686f462058778">NodeId</a> <span class="keywordtype">id</span>)</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    {</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordflow">return</span> <span class="stringliteral">&quot;node_{}&quot;</span>_format(<a class="code" href="namespaceeuphoria_1_1core.html#a4cfd6289e860c61f4f20aa8a90443335">core::base_cast</a>(<span class="keywordtype">id</span>));</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordflow">return</span> fmt::format(<span class="stringliteral">&quot;node_{}&quot;</span>, <a class="code" href="namespaceeuphoria_1_1core.html#a4cfd6289e860c61f4f20aa8a90443335">core::base_cast</a>(<span class="keywordtype">id</span>));</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    }</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    </div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">void</span></div>

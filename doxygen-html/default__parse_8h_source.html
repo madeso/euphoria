@@ -149,7 +149,7 @@
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        }</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        {</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="structeuphoria_1_1core_1_1Result.html#a81a7386e0028a22a2e4cedee33ccd9d0">Result&lt;T&gt;::create_error</a>(<span class="stringliteral">&quot;did you mean {}?&quot;</span>_format(<a class="code" href="namespaceeuphoria_1_1core_1_1argparse.html#a6f01506a3a5aedd5d58868fc162fad7a">add_quotes_and_combine_with_english_or</a>(matches.names)));</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="structeuphoria_1_1core_1_1Result.html#a81a7386e0028a22a2e4cedee33ccd9d0">Result&lt;T&gt;::create_error</a>(fmt::format(<span class="stringliteral">&quot;did you mean {}?&quot;</span>, <a class="code" href="namespaceeuphoria_1_1core_1_1argparse.html#a6f01506a3a5aedd5d58868fc162fad7a">add_quotes_and_combine_with_english_or</a>(matches.names)));</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        }</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    }</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
@@ -174,7 +174,7 @@
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    std::optional&lt;std::string&gt;</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <a class="code" href="namespaceeuphoria_1_1core_1_1argparse.html#a7fd13ef03e5459e703f93401442e8a85">default_describe</a>()</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    {</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        <span class="keyword">const</span> std::string <a class="code" href="namespaceeuphoria_1_1core.html#a352b811085853f7ec220af1a5b92a124a4b43b0aee35624cd95b910189b3dc231">r</a> = <span class="stringliteral">&quot;can be either {}&quot;</span>_format(</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        <span class="keyword">const</span> std::string <a class="code" href="namespaceeuphoria_1_1core.html#a352b811085853f7ec220af1a5b92a124a4b43b0aee35624cd95b910189b3dc231">r</a> = fmt::format(<span class="stringliteral">&quot;can be either {}&quot;</span>,</div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;            <a class="code" href="namespaceeuphoria_1_1core_1_1argparse.html#a6f01506a3a5aedd5d58868fc162fad7a">add_quotes_and_combine_with_english_or</a></div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;            (</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;                get_all_names_from_enum&lt;T&gt;()</div>

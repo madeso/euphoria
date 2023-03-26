@@ -68,7 +68,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rgb.h" line="31" column="19" bodyfile="libs/core/src/core/rgb.h" bodystart="350" bodyend="353"/>
+        <location file="libs/core/src/core/rgb.h" line="31" column="19" bodyfile="libs/core/src/core/rgb.h" bodystart="345" bodyend="348"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1rgbi_1a728bde6b2fe8a6b813a1e6d56e699e9c" prot="public" static="no" constexpr="yes" const="no" explicit="yes" inline="no" virt="non-virtual">
         <type>constexpr</type>
@@ -85,7 +85,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rgb.h" line="32" column="28" bodyfile="libs/core/src/core/rgb.h" bodystart="357" bodyend="360"/>
+        <location file="libs/core/src/core/rgb.h" line="32" column="28" bodyfile="libs/core/src/core/rgb.h" bodystart="352" bodyend="355"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1rgbi_1a5f3ca751660f7acd56dbcaebdc477ae6" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>constexpr</type>
@@ -102,7 +102,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rgb.h" line="33" column="19" bodyfile="libs/core/src/core/rgb.h" bodystart="364" bodyend="367"/>
+        <location file="libs/core/src/core/rgb.h" line="33" column="19" bodyfile="libs/core/src/core/rgb.h" bodystart="359" bodyend="362"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1rgbi_1a4bb92fda9834c0d1cc002851ce1bb821" prot="public" static="no" constexpr="yes" const="no" explicit="yes" inline="no" virt="non-virtual">
         <type>constexpr</type>
@@ -119,7 +119,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rgb.h" line="34" column="28" bodyfile="libs/core/src/core/rgb.h" bodystart="371" bodyend="375"/>
+        <location file="libs/core/src/core/rgb.h" line="34" column="28" bodyfile="libs/core/src/core/rgb.h" bodystart="366" bodyend="370"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1rgbi_1ab46affeafc2f42251dcd6ba39af2a609" prot="public" static="no" constexpr="yes" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>constexpr int</type>
@@ -132,7 +132,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rgb.h" line="37" column="24" bodyfile="libs/core/src/core/rgb.h" bodystart="392" bodyend="396"/>
+        <location file="libs/core/src/core/rgb.h" line="37" column="24" bodyfile="libs/core/src/core/rgb.h" bodystart="387" bodyend="391"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
@@ -151,7 +151,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rgb.h" line="36" column="32" bodyfile="libs/core/src/core/rgb.h" bodystart="379" bodyend="387"/>
+        <location file="libs/core/src/core/rgb.h" line="36" column="32" bodyfile="libs/core/src/core/rgb.h" bodystart="374" bodyend="382"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

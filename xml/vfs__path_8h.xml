@@ -344,6 +344,52 @@
     <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
     <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
     <innernamespace refid="namespaceeuphoria_1_1core_1_1vfs">euphoria::core::vfs</innernamespace>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="vfs__path_8h_1a123ae8511f2767111bb35d54976783df" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ADD_DEFAULT_FORMATTER</definition>
+        <argsstring>(euphoria::core::vfs::FilePath, std::string, euphoria::core::vfs::to_string)</argsstring>
+        <name>ADD_DEFAULT_FORMATTER</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1vfs_1_1FilePath" kindref="compound">euphoria::core::vfs::FilePath</ref></type>
+        </param>
+        <param>
+          <type>std::string</type>
+        </param>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1core_1_1vfs_1a0f8a40685e26682eff29cb10bc30fe66" kindref="member">euphoria::core::vfs::to_string</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vfs_path.h" line="138" column="1" declfile="libs/core/src/core/vfs_path.h" declline="138" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="vfs__path_8h_1a8131bdfbc7b5edb86386dead7cd970b3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ADD_DEFAULT_FORMATTER</definition>
+        <argsstring>(euphoria::core::vfs::DirPath, std::string, euphoria::core::vfs::to_string)</argsstring>
+        <name>ADD_DEFAULT_FORMATTER</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1vfs_1_1DirPath" kindref="compound">euphoria::core::vfs::DirPath</ref></type>
+        </param>
+        <param>
+          <type>std::string</type>
+        </param>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1core_1_1vfs_1a0f8a40685e26682eff29cb10bc30fe66" kindref="member">euphoria::core::vfs::to_string</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vfs_path.h" line="139" column="1" declfile="libs/core/src/core/vfs_path.h" declline="139" declcolumn="1"/>
+      </memberdef>
+      </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

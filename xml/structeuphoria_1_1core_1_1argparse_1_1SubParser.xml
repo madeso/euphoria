@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.h" line="549" column="20" bodyfile="libs/core/src/core/argparse.h" bodystart="549" bodyend="-1"/>
+        <location file="libs/core/src/core/argparse.h" line="555" column="20" bodyfile="libs/core/src/core/argparse.h" bodystart="555" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1argparse_1_1SubParser_1aec4e822c0dd0aacf180e11ea946a679c" prot="public" static="no" mutable="no">
         <type><ref refid="structeuphoria_1_1core_1_1argparse_1_1Runner" kindref="compound">argparse::Runner</ref> *</type>
@@ -29,7 +29,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.h" line="550" column="26" bodyfile="libs/core/src/core/argparse.h" bodystart="550" bodyend="-1"/>
+        <location file="libs/core/src/core/argparse.h" line="556" column="26" bodyfile="libs/core/src/core/argparse.h" bodystart="556" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1argparse_1_1SubParser_1a113475d98519c69360a2149eceb5eaa9" prot="public" static="no" mutable="no">
         <type>std::string</type>
@@ -42,7 +42,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.h" line="551" column="21" bodyfile="libs/core/src/core/argparse.h" bodystart="551" bodyend="-1"/>
+        <location file="libs/core/src/core/argparse.h" line="557" column="21" bodyfile="libs/core/src/core/argparse.h" bodystart="557" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -73,7 +73,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.h" line="553" column="9" bodyfile="libs/core/src/core/argparse.cc" bodystart="1268" bodyend="1279"/>
+        <location file="libs/core/src/core/argparse.h" line="559" column="9" bodyfile="libs/core/src/core/argparse.cc" bodystart="1253" bodyend="1264"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1argparse_1_1SubParser_1a764b84cde30ee1075a51f1e67b5e7b3e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1argparse_1_1ParseResult" kindref="compound">ParseResult</ref></type>
@@ -90,7 +90,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.h" line="561" column="22" bodyfile="libs/core/src/core/argparse.cc" bodystart="1297" bodyend="1301"/>
+        <location file="libs/core/src/core/argparse.h" line="567" column="22" bodyfile="libs/core/src/core/argparse.cc" bodystart="1282" bodyend="1286"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1argparse_1_1SubParser_1adc23e3694f465e04aac243109af6ba9f" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type><ref refid="structeuphoria_1_1core_1_1argparse_1_1ParserBase" kindref="compound">ParserBase</ref> *</type>
@@ -104,7 +104,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.h" line="563" column="20" bodyfile="libs/core/src/core/argparse.cc" bodystart="1283" bodyend="1286"/>
+        <location file="libs/core/src/core/argparse.h" line="569" column="20" bodyfile="libs/core/src/core/argparse.cc" bodystart="1268" bodyend="1271"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1argparse_1_1SubParser_1ad18a97e54bd37385e9f87d8455a979e5" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>std::string</type>
@@ -122,7 +122,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.h" line="564" column="21" bodyfile="libs/core/src/core/argparse.cc" bodystart="1290" bodyend="1293"/>
+        <location file="libs/core/src/core/argparse.h" line="570" column="21" bodyfile="libs/core/src/core/argparse.cc" bodystart="1275" bodyend="1278"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -185,7 +185,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/argparse.h" line="548" column="1" bodyfile="libs/core/src/core/argparse.h" bodystart="547" bodyend="565"/>
+    <location file="libs/core/src/core/argparse.h" line="554" column="1" bodyfile="libs/core/src/core/argparse.h" bodystart="553" bodyend="571"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1argparse_1_1ParserBase_1a9d3857c57d1114d8207aafa684a062be" prot="public" virt="non-virtual"><scope>euphoria::core::argparse::SubParser</scope><name>add</name></member>
       <member refid="structeuphoria_1_1core_1_1argparse_1_1ParserBase_1acc01c091ff6a6c49e85c297db493f3eb" prot="public" virt="non-virtual"><scope>euphoria::core::argparse::SubParser</scope><name>add_argument</name></member>

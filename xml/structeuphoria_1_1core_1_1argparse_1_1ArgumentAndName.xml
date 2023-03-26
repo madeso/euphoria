@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.h" line="239" column="24" bodyfile="libs/core/src/core/argparse.h" bodystart="239" bodyend="-1"/>
+        <location file="libs/core/src/core/argparse.h" line="245" column="24" bodyfile="libs/core/src/core/argparse.h" bodystart="245" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1argparse_1_1ArgumentAndName_1a5d70dd86412ec5429d738f9a4f89a835" prot="public" static="no" mutable="no">
         <type>std::shared_ptr&lt; <ref refid="structeuphoria_1_1core_1_1argparse_1_1Argument" kindref="compound">argparse::Argument</ref> &gt;</type>
@@ -28,7 +28,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.h" line="240" column="25" bodyfile="libs/core/src/core/argparse.h" bodystart="240" bodyend="-1"/>
+        <location file="libs/core/src/core/argparse.h" line="246" column="25" bodyfile="libs/core/src/core/argparse.h" bodystart="246" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -51,7 +51,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.h" line="242" column="9" bodyfile="libs/core/src/core/argparse.cc" bodystart="341" bodyend="345"/>
+        <location file="libs/core/src/core/argparse.h" line="248" column="9" bodyfile="libs/core/src/core/argparse.cc" bodystart="326" bodyend="330"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -72,7 +72,7 @@
         <link refid="structeuphoria_1_1core_1_1argparse_1_1Name"/>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/argparse.h" line="238" column="1" bodyfile="libs/core/src/core/argparse.h" bodystart="237" bodyend="243"/>
+    <location file="libs/core/src/core/argparse.h" line="244" column="1" bodyfile="libs/core/src/core/argparse.h" bodystart="243" bodyend="249"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1argparse_1_1ArgumentAndName_1a5d70dd86412ec5429d738f9a4f89a835" prot="public" virt="non-virtual"><scope>euphoria::core::argparse::ArgumentAndName</scope><name>argument</name></member>
       <member refid="structeuphoria_1_1core_1_1argparse_1_1ArgumentAndName_1ac66a43aed54680762499d474184c891c" prot="public" virt="non-virtual"><scope>euphoria::core::argparse::ArgumentAndName</scope><name>ArgumentAndName</name></member>

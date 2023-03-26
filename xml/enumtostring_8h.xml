@@ -3,6 +3,7 @@
   <compounddef id="enumtostring_8h" kind="file" language="C++">
     <compoundname>enumtostring.h</compoundname>
     <includes local="no">map</includes>
+    <includes local="no">type_traits</includes>
     <includes refid="assert_8h" local="yes">assert/assert.h</includes>
     <includes refid="stringutils_8h" local="yes">core/stringutils.h</includes>
     <includes refid="editdistance_8search_8h" local="yes">core/editdistance.search.h</includes>
@@ -13,47 +14,47 @@
     <includedby refid="palette__all_8h" local="yes">libs/core/src/core/palette_all.h</includedby>
     <includedby refid="table__bool_8h" local="yes">libs/core/src/core/table_bool.h</includedby>
     <incdepgraph>
-      <node id="10">
+      <node id="11">
         <label>core/editdistance.h</label>
         <link refid="editdistance_8h"/>
       </node>
-      <node id="8">
+      <node id="9">
         <label>queue</label>
       </node>
-      <node id="7">
+      <node id="8">
         <label>core/editdistance.search.h</label>
         <link refid="editdistance_8search_8h"/>
-        <childnode refid="8" relation="include">
-        </childnode>
         <childnode refid="9" relation="include">
         </childnode>
         <childnode refid="10" relation="include">
         </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
       </node>
-      <node id="6">
+      <node id="7">
         <label>core/stringutils.h</label>
         <link refid="stringutils_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
       </node>
-      <node id="4">
+      <node id="5">
         <label>string</label>
       </node>
       <node id="2">
         <label>map</label>
       </node>
-      <node id="3">
+      <node id="4">
         <label>assert/assert.h</label>
         <link refid="assert_8h"/>
-        <childnode refid="4" relation="include">
-        </childnode>
         <childnode refid="5" relation="include">
         </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
       </node>
-      <node id="11">
+      <node id="12">
         <label>magic_enum/magic_enum.hpp</label>
       </node>
-      <node id="5">
+      <node id="6">
         <label>vector</label>
       </node>
       <node id="1">
@@ -63,14 +64,19 @@
         </childnode>
         <childnode refid="3" relation="include">
         </childnode>
-        <childnode refid="6" relation="include">
+        <childnode refid="4" relation="include">
         </childnode>
         <childnode refid="7" relation="include">
         </childnode>
-        <childnode refid="11" relation="include">
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
         </childnode>
       </node>
-      <node id="9">
+      <node id="3">
+        <label>type_traits</label>
+      </node>
+      <node id="10">
         <label>algorithm</label>
       </node>
     </incdepgraph>
@@ -1184,6 +1190,7 @@
     </invincdepgraph>
     <innerclass refid="structeuphoria_1_1core_1_1MatchedEnum" prot="public">euphoria::core::MatchedEnum</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1EnumToStringImplementation" prot="public">euphoria::core::EnumToStringImplementation</innerclass>
+    <innerclass refid="structfmt_1_1formatter_3_01TEnum_00_01char_00_01std_1_1enable__if__t_3_01std_1_1is__enum__v_3_01TEnum_01_4_00_01void_01_4_01_4" prot="public">fmt::formatter&lt; TEnum, char, std::enable_if_t&lt; std::is_enum_v&lt; TEnum &gt;, void &gt; &gt;</innerclass>
     <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
     <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
     <innernamespace refid="namespacemagic__enum_1_1ostream__operators">magic_enum::ostream_operators</innernamespace>

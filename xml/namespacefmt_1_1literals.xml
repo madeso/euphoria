@@ -6,6 +6,6 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/fmt/src/pch.public.h" line="10" column="1"/>
+    <location file="libs/minsynth/src/minsynth/synth.cc" line="17" column="1"/>
   </compounddef>
 </doxygen>

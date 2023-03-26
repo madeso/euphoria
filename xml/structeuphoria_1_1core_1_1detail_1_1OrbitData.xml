@@ -14,7 +14,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/camera3.editor.cc" line="101" column="18" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="101" bodyend="-1"/>
+        <location file="libs/core/src/core/camera3.editor.cc" line="93" column="18" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="93" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1detail_1_1OrbitData_1ad0a3ff44e9f955fd15fe06e0a4f13650" prot="public" static="no" mutable="no">
         <type><ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
@@ -27,7 +27,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/camera3.editor.cc" line="102" column="19" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="102" bodyend="-1"/>
+        <location file="libs/core/src/core/camera3.editor.cc" line="94" column="19" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="94" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1detail_1_1OrbitData_1a0a62ae7be0846c8ed9ff80abc662f409" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -40,7 +40,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/camera3.editor.cc" line="103" column="19" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="103" bodyend="-1"/>
+        <location file="libs/core/src/core/camera3.editor.cc" line="95" column="19" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="95" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1detail_1_1OrbitData_1a03f58db0113f44f6f25ff2cff6a3b5b1" prot="public" static="no" mutable="no">
         <type><ref refid="structeuphoria_1_1core_1_1angle" kindref="compound">angle</ref></type>
@@ -53,7 +53,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/camera3.editor.cc" line="104" column="19" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="104" bodyend="-1"/>
+        <location file="libs/core/src/core/camera3.editor.cc" line="96" column="19" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="96" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1detail_1_1OrbitData_1a85e891cc046158c06fbadd903cdd233d" prot="public" static="no" mutable="no">
         <type><ref refid="structeuphoria_1_1core_1_1angle" kindref="compound">angle</ref></type>
@@ -66,7 +66,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/camera3.editor.cc" line="105" column="19" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="105" bodyend="-1"/>
+        <location file="libs/core/src/core/camera3.editor.cc" line="97" column="19" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="97" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -89,7 +89,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/camera3.editor.cc" line="107" column="13" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="107" bodyend="114"/>
+        <location file="libs/core/src/core/camera3.editor.cc" line="99" column="13" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="99" bodyend="106"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -117,7 +117,7 @@
         <link refid="structeuphoria_1_1core_1_1vec3f"/>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/camera3.editor.cc" line="100" column="1" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="99" bodyend="115"/>
+    <location file="libs/core/src/core/camera3.editor.cc" line="92" column="1" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="91" bodyend="107"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1detail_1_1OrbitData_1ad0a3ff44e9f955fd15fe06e0a4f13650" prot="public" virt="non-virtual"><scope>euphoria::core::detail::OrbitData</scope><name>center</name></member>
       <member refid="structeuphoria_1_1core_1_1detail_1_1OrbitData_1a0a62ae7be0846c8ed9ff80abc662f409" prot="public" virt="non-virtual"><scope>euphoria::core::detail::OrbitData</scope><name>distance</name></member>

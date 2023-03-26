@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.h" line="127" column="9"/>
+        <location file="libs/core/src/core/argparse.h" line="133" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1argparse_1_1Printer_1a74165ef378d6785d97ef41228c6525b2" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type></type>
@@ -29,7 +29,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.h" line="128" column="17"/>
+        <location file="libs/core/src/core/argparse.h" line="134" column="17"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1argparse_1_1Printer_1a590a33e5e499812735dbf158d54962ff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -45,7 +45,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.h" line="130" column="9"/>
+        <location file="libs/core/src/core/argparse.h" line="136" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1argparse_1_1Printer_1a674c9ad611d57f8f8c627c41a1c62ce7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -61,7 +61,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.h" line="131" column="9"/>
+        <location file="libs/core/src/core/argparse.h" line="137" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1argparse_1_1Printer_1aaed56d50e6adfa4c44401acd4d08e781" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -77,7 +77,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.h" line="132" column="14"/>
+        <location file="libs/core/src/core/argparse.h" line="138" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1argparse_1_1Printer_1a8191a966614480994a05c00757ce4056" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -93,7 +93,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.h" line="133" column="14"/>
+        <location file="libs/core/src/core/argparse.h" line="139" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1argparse_1_1Printer_1a153e881120131ef65a8fa049c151c072" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
         <type>void</type>
@@ -111,7 +111,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.h" line="136" column="9"/>
+        <location file="libs/core/src/core/argparse.h" line="142" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1argparse_1_1Printer_1a8e6885c539240599b37f72376c9d8e04" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
         <type>void</type>
@@ -129,7 +129,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.h" line="139" column="9"/>
+        <location file="libs/core/src/core/argparse.h" line="145" column="9"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -149,7 +149,7 @@
         <link refid="structeuphoria_1_1core_1_1argparse_1_1Printer"/>
       </node>
     </inheritancegraph>
-    <location file="libs/core/src/core/argparse.h" line="126" column="1" bodyfile="libs/core/src/core/argparse.h" bodystart="125" bodyend="140"/>
+    <location file="libs/core/src/core/argparse.h" line="132" column="1" bodyfile="libs/core/src/core/argparse.h" bodystart="131" bodyend="146"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1argparse_1_1Printer_1aaed56d50e6adfa4c44401acd4d08e781" prot="public" virt="non-virtual"><scope>euphoria::core::argparse::Printer</scope><name>operator=</name></member>
       <member refid="structeuphoria_1_1core_1_1argparse_1_1Printer_1a8191a966614480994a05c00757ce4056" prot="public" virt="non-virtual"><scope>euphoria::core::argparse::Printer</scope><name>operator=</name></member>

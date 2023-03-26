@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.h" line="112" column="26" bodyfile="libs/core/src/core/argparse.h" bodystart="112" bodyend="-1"/>
+        <location file="libs/core/src/core/argparse.h" line="118" column="26" bodyfile="libs/core/src/core/argparse.h" bodystart="118" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1argparse_1_1ArgumentReader_1a47ee92a32f79420c9e550e50d9193475" prot="public" static="no" mutable="no">
         <type>int</type>
@@ -28,7 +28,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.h" line="113" column="13" bodyfile="libs/core/src/core/argparse.h" bodystart="113" bodyend="-1"/>
+        <location file="libs/core/src/core/argparse.h" line="119" column="13" bodyfile="libs/core/src/core/argparse.h" bodystart="119" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -47,7 +47,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.h" line="115" column="18" bodyfile="libs/core/src/core/argparse.cc" bodystart="165" bodyend="169"/>
+        <location file="libs/core/src/core/argparse.h" line="121" column="18" bodyfile="libs/core/src/core/argparse.cc" bodystart="150" bodyend="154"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1argparse_1_1ArgumentReader_1a74a1d6197d0186c7515c0508b53ba1c9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -60,7 +60,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.h" line="117" column="22" bodyfile="libs/core/src/core/argparse.cc" bodystart="195" bodyend="200"/>
+        <location file="libs/core/src/core/argparse.h" line="123" column="22" bodyfile="libs/core/src/core/argparse.cc" bodystart="180" bodyend="185"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1argparse_1_1ArgumentReader_1a8bc630b54fd98fb700a0eaffd81cc62f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -73,7 +73,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.h" line="118" column="14" bodyfile="libs/core/src/core/argparse.cc" bodystart="204" bodyend="208"/>
+        <location file="libs/core/src/core/argparse.h" line="124" column="14" bodyfile="libs/core/src/core/argparse.cc" bodystart="189" bodyend="193"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1argparse_1_1ArgumentReader_1a2499fd7802316908db2013db041735f3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -86,7 +86,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.h" line="120" column="15" bodyfile="libs/core/src/core/argparse.cc" bodystart="173" bodyend="176"/>
+        <location file="libs/core/src/core/argparse.h" line="126" column="15" bodyfile="libs/core/src/core/argparse.cc" bodystart="158" bodyend="161"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1argparse_1_1ArgumentReader_1a558e9782342437ad1edceb7ad1443b04" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -99,7 +99,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.h" line="121" column="22" bodyfile="libs/core/src/core/argparse.cc" bodystart="180" bodyend="191"/>
+        <location file="libs/core/src/core/argparse.h" line="127" column="22" bodyfile="libs/core/src/core/argparse.cc" bodystart="165" bodyend="176"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -120,7 +120,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/argparse.h" line="111" column="1" bodyfile="libs/core/src/core/argparse.h" bodystart="110" bodyend="122"/>
+    <location file="libs/core/src/core/argparse.h" line="117" column="1" bodyfile="libs/core/src/core/argparse.h" bodystart="116" bodyend="128"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1argparse_1_1ArgumentReader_1a451a612d6148af79e5f1ab370c2c36af" prot="public" virt="non-virtual"><scope>euphoria::core::argparse::ArgumentReader</scope><name>ArgumentReader</name></member>
       <member refid="structeuphoria_1_1core_1_1argparse_1_1ArgumentReader_1a7d79f4001f20396fe0e150258553d0c5" prot="public" virt="non-virtual"><scope>euphoria::core::argparse::ArgumentReader</scope><name>arguments</name></member>

@@ -424,7 +424,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/tests/src/tests/stringeq.cc" line="24" column="5" bodyfile="libs/tests/src/tests/stringeq.cc" bodystart="24" bodyend="46" declfile="libs/tests/src/tests/stringeq.h" declline="25" declcolumn="5"/>
+        <location file="libs/tests/src/tests/stringeq.cc" line="24" column="5" bodyfile="libs/tests/src/tests/stringeq.cc" bodystart="24" bodyend="47" declfile="libs/tests/src/tests/stringeq.h" declline="25" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1tests_1a3d068f89ab3d1a275fb776e32f12dce7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1tests_1_1FalseString" kindref="compound">FalseString</ref></type>
@@ -445,7 +445,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/tests/src/tests/stringeq.cc" line="50" column="5" bodyfile="libs/tests/src/tests/stringeq.cc" bodystart="50" bodyend="99" declfile="libs/tests/src/tests/stringeq.h" declline="22" declcolumn="5"/>
+        <location file="libs/tests/src/tests/stringeq.cc" line="51" column="5" bodyfile="libs/tests/src/tests/stringeq.cc" bodystart="51" bodyend="101" declfile="libs/tests/src/tests/stringeq.h" declline="22" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1tests_1a71fd51496a2b708ee54d6102e6b546f2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -485,7 +485,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/tests/src/tests/vectorequals.h" line="23" column="5" bodyfile="libs/tests/src/tests/vectorequals.h" bodystart="24" bodyend="85"/>
+        <location file="libs/tests/src/tests/vectorequals.h" line="23" column="5" bodyfile="libs/tests/src/tests/vectorequals.h" bodystart="24" bodyend="86"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1tests_1a899c0620faa19926018e7bd10493be51" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>

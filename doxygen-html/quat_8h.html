@@ -93,8 +93,8 @@ Functions</h2></td></tr>
 <tr class="separator:aaf0b0fd739dd778ce6b3877a4dfe9c8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa484888d5f11864179852bec09b4f341"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#aa484888d5f11864179852bec09b4f341">euphoria::core::dot</a> (const quatf &amp;lhs, const quatf &amp;rhs)</td></tr>
 <tr class="separator:aa484888d5f11864179852bec09b4f341"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a820cdfc8b7638a4837d9ef9c488569a6"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a820cdfc8b7638a4837d9ef9c488569a6">euphoria::core::operator&lt;&lt;</a> (std::ostream &amp;stream, const quatf &amp;v)</td></tr>
-<tr class="separator:a820cdfc8b7638a4837d9ef9c488569a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85f74323c12cef9dbe37c390652842f1"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a85f74323c12cef9dbe37c390652842f1">euphoria::core::to_string</a> (const quatf &amp;v)</td></tr>
+<tr class="separator:a85f74323c12cef9dbe37c390652842f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a428feaa7b5dd248ce5bbf95c51b0714f"><td class="memItemLeft" align="right" valign="top">quatf&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a428feaa7b5dd248ce5bbf95c51b0714f">euphoria::core::operator*</a> (const quatf &amp;lhs, const quatf &amp;rhs)</td></tr>
 <tr class="separator:a428feaa7b5dd248ce5bbf95c51b0714f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5319c58fdbba09cecf96c79d1eeb417c"><td class="memItemLeft" align="right" valign="top">quatf&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a5319c58fdbba09cecf96c79d1eeb417c">euphoria::core::operator*</a> (float scale, const quatf &amp;q)</td></tr>
@@ -105,12 +105,49 @@ Functions</h2></td></tr>
 <tr class="separator:a79144e4b06f914152fd65a105c3cc8da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac0c845ac879674d557acea29d0eef81b"><td class="memItemLeft" align="right" valign="top">quatf&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#ac0c845ac879674d557acea29d0eef81b">euphoria::core::operator-</a> (const quatf &amp;lhs, const quatf &amp;rhs)</td></tr>
 <tr class="separator:ac0c845ac879674d557acea29d0eef81b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6bf7fe6651a46d1baba77801e1d5f6f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quat_8h.html#ae6bf7fe6651a46d1baba77801e1d5f6f">ADD_DEFAULT_FORMATTER</a> (<a class="el" href="structeuphoria_1_1core_1_1quatf.html">euphoria::core::quatf</a>, std::string, <a class="el" href="namespaceeuphoria_1_1core.html#a8596fa3efb42bc0ad86b46183bc305d3">euphoria::core::to_string</a>)</td></tr>
+<tr class="separator:ae6bf7fe6651a46d1baba77801e1d5f6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:ad7c9480cf295775fe1d73ee75dd7108c"><td class="memItemLeft" align="right" valign="top">constexpr quatf&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#ad7c9480cf295775fe1d73ee75dd7108c">euphoria::core::q_identity</a> = quatf(1, vec3f(0, 0, 0))</td></tr>
 <tr class="separator:ad7c9480cf295775fe1d73ee75dd7108c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="ae6bf7fe6651a46d1baba77801e1d5f6f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6bf7fe6651a46d1baba77801e1d5f6f">&#9670;&nbsp;</a></span>ADD_DEFAULT_FORMATTER()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ADD_DEFAULT_FORMATTER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structeuphoria_1_1core_1_1quatf.html">euphoria::core::quatf</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespaceeuphoria_1_1core.html#a8596fa3efb42bc0ad86b46183bc305d3">euphoria::core::to_string</a>&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.17-->
 <!-- start footer part -->

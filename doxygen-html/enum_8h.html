@@ -93,10 +93,12 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a92d27bfe09b164541da89e1a4d022365"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a92d27bfe09b164541da89e1a4d022365">euphoria::core::operator&lt;&lt;</a> (std::ostream &amp;s, const EnumValue &amp;v)</td></tr>
-<tr class="separator:a92d27bfe09b164541da89e1a4d022365"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a662d37bb9993a568e2019b8feabb98fe"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a662d37bb9993a568e2019b8feabb98fe">euphoria::core::to_string</a> (const EnumValue &amp;v)</td></tr>
+<tr class="separator:a662d37bb9993a568e2019b8feabb98fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aae97fc77c5c94b0157d311e34c68874e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#aae97fc77c5c94b0157d311e34c68874e">euphoria::core::load_enum_type</a> (EnumType *type, vfs::FileSystem *fs, const vfs::FilePath &amp;path)</td></tr>
 <tr class="separator:aae97fc77c5c94b0157d311e34c68874e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a138ec14b892fa82bb3a49505321cd46b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="enum_8h.html#a138ec14b892fa82bb3a49505321cd46b">ADD_DEFAULT_FORMATTER</a> (<a class="el" href="structeuphoria_1_1core_1_1EnumValue.html">euphoria::core::EnumValue</a>, std::string, <a class="el" href="namespaceeuphoria_1_1core.html#a8596fa3efb42bc0ad86b46183bc305d3">euphoria::core::to_string</a>)</td></tr>
+<tr class="separator:a138ec14b892fa82bb3a49505321cd46b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="ad1827b2996cbb3dbf983f1de6aae16f8"></a>
@@ -115,7 +117,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="enum_8h_source.html#l00083">83</a> of file <a class="el" href="enum_8h_source.html">enum.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="enum_8h_source.html#l00082">82</a> of file <a class="el" href="enum_8h_source.html">enum.h</a>.</p>
 
 </div>
 </div>
@@ -151,7 +153,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="enum_8h_source.html#l00095">95</a> of file <a class="el" href="enum_8h_source.html">enum.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="enum_8h_source.html#l00094">94</a> of file <a class="el" href="enum_8h_source.html">enum.h</a>.</p>
 
 </div>
 </div>
@@ -176,7 +178,7 @@ Functions</h2></td></tr>
 <div class="line">        return type; \</div>
 <div class="line">    }</div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="enum_8h_source.html#l00084">84</a> of file <a class="el" href="enum_8h_source.html">enum.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="enum_8h_source.html#l00083">83</a> of file <a class="el" href="enum_8h_source.html">enum.h</a>.</p>
 
 </div>
 </div>
@@ -212,7 +214,42 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="enum_8h_source.html#l00097">97</a> of file <a class="el" href="enum_8h_source.html">enum.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="enum_8h_source.html#l00096">96</a> of file <a class="el" href="enum_8h_source.html">enum.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="a138ec14b892fa82bb3a49505321cd46b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a138ec14b892fa82bb3a49505321cd46b">&#9670;&nbsp;</a></span>ADD_DEFAULT_FORMATTER()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ADD_DEFAULT_FORMATTER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structeuphoria_1_1core_1_1EnumValue.html">euphoria::core::EnumValue</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespaceeuphoria_1_1core.html#a8596fa3efb42bc0ad86b46183bc305d3">euphoria::core::to_string</a>&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>

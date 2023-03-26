@@ -78,7 +78,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rgb.h" line="51" column="19" bodyfile="libs/core/src/core/rgb.h" bodystart="400" bodyend="403"/>
+        <location file="libs/core/src/core/rgb.h" line="51" column="19" bodyfile="libs/core/src/core/rgb.h" bodystart="395" bodyend="398"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1rgbai_1aabaa64262226bb6ece151776edc04c2e" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>constexpr</type>
@@ -108,7 +108,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rgb.h" line="52" column="19" bodyfile="libs/core/src/core/rgb.h" bodystart="407" bodyend="410"/>
+        <location file="libs/core/src/core/rgb.h" line="52" column="19" bodyfile="libs/core/src/core/rgb.h" bodystart="402" bodyend="405"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1rgbai_1a65839b6d7eca68626376a6e5c8d24f04" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>constexpr</type>
@@ -130,7 +130,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rgb.h" line="53" column="19" bodyfile="libs/core/src/core/rgb.h" bodystart="413" bodyend="416"/>
+        <location file="libs/core/src/core/rgb.h" line="53" column="19" bodyfile="libs/core/src/core/rgb.h" bodystart="408" bodyend="411"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1rgbai_1aed88b07c5c961192c098acf2b3cf8cb5" prot="public" static="no" constexpr="yes" const="no" explicit="yes" inline="no" virt="non-virtual">
         <type>constexpr</type>
@@ -147,7 +147,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rgb.h" line="54" column="28" bodyfile="libs/core/src/core/rgb.h" bodystart="420" bodyend="426"/>
+        <location file="libs/core/src/core/rgb.h" line="54" column="28" bodyfile="libs/core/src/core/rgb.h" bodystart="415" bodyend="421"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

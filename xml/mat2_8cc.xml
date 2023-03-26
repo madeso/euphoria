@@ -139,7 +139,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/mat2.cc" line="159" column="9"/>
+        <location file="libs/core/src/core/mat2.cc" line="154" column="9"/>
       </memberdef>
       <memberdef kind="define" id="mat2_8cc_1ad3fad4870192fbb33f78583fbb0cc502" prot="public" static="no">
         <name>OP</name>
@@ -151,7 +151,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/mat2.cc" line="172" column="9"/>
+        <location file="libs/core/src/core/mat2.cc" line="167" column="9"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

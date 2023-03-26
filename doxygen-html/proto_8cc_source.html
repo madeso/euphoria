@@ -75,7 +75,7 @@
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    std::string</div>
 <div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="namespaceeuphoria_1_1core.html#a98a95d4f1e2faf7f181888c76497e8e0">   20</a></span>&#160;    <a class="code" href="namespaceeuphoria_1_1core.html#a98a95d4f1e2faf7f181888c76497e8e0">get_string_from_path</a>(<span class="keyword">const</span> <a class="code" href="structeuphoria_1_1core_1_1vfs_1_1FilePath.html">vfs::FilePath</a>&amp; p)</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    {</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keywordflow">return</span> <span class="stringliteral">&quot;{}&quot;</span>_format(<a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a83878c91171338902e0fe0fb97a8c47a">p</a>);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespaceeuphoria_1_1core.html#a8596fa3efb42bc0ad86b46183bc305d3">fmt::to_string</a>(<a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a83878c91171338902e0fe0fb97a8c47a">p</a>);</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    }</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    std::string</div>
@@ -111,7 +111,7 @@
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> all_entries = <a class="code" href="namespaceeuphoria_1_1core_1_1string__mergers.html#a00b908fb8a16e9d021b1a2be3a1be597">string_mergers::array</a>.<a class="code" href="structeuphoria_1_1core_1_1StringMerger.html#a9ea18a79310e404c870e32dfac16f27a">merge</a>(map&lt;std::string&gt;(files, [](<span class="keyword">const</span> <span class="keyword">auto</span>&amp; <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a8fa14cdd754f91cc6554c9e71929cce7">f</a>) { <span class="keywordflow">return</span> <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a8fa14cdd754f91cc6554c9e71929cce7">f</a>.name; }));</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> closest = <a class="code" href="namespaceeuphoria_1_1core_1_1string__mergers.html#a2d5d00244d536bbd8654476a5ff3e48f">string_mergers::english_or</a>.<a class="code" href="structeuphoria_1_1core_1_1StringMerger.html#a9ea18a79310e404c870e32dfac16f27a">merge</a>(values);</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordflow">return</span> <span class="stringliteral">&quot;File {} is requrested with roots: {}. All entries: {}. Did you mean {}?&quot;</span>_format(<a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a83878c91171338902e0fe0fb97a8c47a">p</a>, fs-&gt;<a class="code" href="structeuphoria_1_1core_1_1vfs_1_1FileSystem.html#ab9ec2c44ee534fe5bd1b7727a36a541a">get_roots_as_string</a>(), all_entries, closest);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordflow">return</span> fmt::format(<span class="stringliteral">&quot;File {} is requrested with roots: {}. All entries: {}. Did you mean {}?&quot;</span>, <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a83878c91171338902e0fe0fb97a8c47a">p</a>, fs-&gt;<a class="code" href="structeuphoria_1_1core_1_1vfs_1_1FileSystem.html#ab9ec2c44ee534fe5bd1b7727a36a541a">get_roots_as_string</a>(), all_entries, closest);</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    }</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    std::optional&lt;std::string&gt;</div>
@@ -171,15 +171,15 @@
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span> error_offset = doc-&gt;GetErrorOffset();</div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span> location = <a class="code" href="namespaceeuphoria_1_1core.html#a6235abe9253b557289b62b30361c2f20">get_location_from_offset</a>(source, error_offset);</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;            <span class="comment">// todo(Gustav): make the source offset string better looking, like a compiler error with a &quot;here: ^~~~~~~&quot; text</span></div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;            <span class="keywordflow">return</span></div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;                <span class="stringliteral">&quot;JSON error: {}\n&quot;</span></div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;                <span class="stringliteral">&quot;Error offset: ({}:{}) (error at [...{}]&quot;</span>_format</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;                (</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;                    rapidjson::GetParseError_En(err),</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;                    location.line,</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;                    location.offset,</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;                    source.substr(error_offset, 10)</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;                );</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;            <span class="keywordflow">return</span> fmt::format</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;            (</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;                <span class="stringliteral">&quot;JSON error: {}\n&quot;</span></div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;                <span class="stringliteral">&quot;Error offset: ({}:{}) (error at [...{}]&quot;</span>,</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;                rapidjson::GetParseError_En(err),</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;                location.line,</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;                location.offset,</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;                source.substr(error_offset, 10)</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;            );</div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        }</div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        <span class="keywordflow">return</span> std::nullopt;</div>
@@ -258,6 +258,7 @@
 <div class="ttc" id="aassert_8h_html"><div class="ttname"><a href="assert_8h.html">assert.h</a></div></div>
 <div class="ttc" id="anamespaceeuphoria_1_1core_html_a352b811085853f7ec220af1a5b92a124a4b43b0aee35624cd95b910189b3dc231"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#a352b811085853f7ec220af1a5b92a124a4b43b0aee35624cd95b910189b3dc231">euphoria::core::Grayscale::r</a></div><div class="ttdeci">@ r</div></div>
 <div class="ttc" id="astructeuphoria_1_1core_1_1StringMerger_html_a9ea18a79310e404c870e32dfac16f27a"><div class="ttname"><a href="structeuphoria_1_1core_1_1StringMerger.html#a9ea18a79310e404c870e32dfac16f27a">euphoria::core::StringMerger::merge</a></div><div class="ttdeci">std::string merge(const std::vector&lt; std::string &gt; &amp;strings) const</div><div class="ttdef"><b>Definition:</b> <a href="stringmerger_8cc_source.html#l00011">stringmerger.cc:11</a></div></div>
+<div class="ttc" id="anamespaceeuphoria_1_1core_html_a8596fa3efb42bc0ad86b46183bc305d3"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#a8596fa3efb42bc0ad86b46183bc305d3">euphoria::core::to_string</a></div><div class="ttdeci">std::string to_string(const Aabb &amp;a)</div><div class="ttdef"><b>Definition:</b> <a href="aabb_8cc_source.html#l00128">aabb.cc:128</a></div></div>
 <div class="ttc" id="astructeuphoria_1_1core_1_1search_1_1Match_html"><div class="ttname"><a href="structeuphoria_1_1core_1_1search_1_1Match.html">euphoria::core::search::Match</a></div><div class="ttdef"><b>Definition:</b> <a href="editdistance_8search_8h_source.html#l00013">editdistance.search.h:13</a></div></div>
 <div class="ttc" id="aproto_8h_html"><div class="ttname"><a href="proto_8h.html">proto.h</a></div></div>
 <div class="ttc" id="astructeuphoria_1_1core_1_1ReadErrorFileMissing_html_a168b07f08cac19330a301a5426222aac"><div class="ttname"><a href="structeuphoria_1_1core_1_1ReadErrorFileMissing.html#a168b07f08cac19330a301a5426222aac">euphoria::core::ReadErrorFileMissing::path_to_file</a></div><div class="ttdeci">std::string path_to_file</div><div class="ttdef"><b>Definition:</b> <a href="proto_8h_source.html#l00027">proto.h:27</a></div></div>

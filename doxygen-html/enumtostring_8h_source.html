@@ -58,7 +58,7 @@
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;type_traits&gt;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="assert_8h.html">assert/assert.h</a>&quot;</span></div>
@@ -228,6 +228,23 @@
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160; </div>
 <div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;<span class="keyword">using namespace </span>magic_enum::ostream_operators; <span class="comment">// NOLINT</span></div>
 <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160; </div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160; </div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> TEnum&gt;</div>
+<div class="line"><a name="l00177"></a><span class="lineno"><a class="line" href="structfmt_1_1formatter_3_01TEnum_00_01char_00_01std_1_1enable__if__t_3_01std_1_1is__enum__v_3_01TEnum_01_4_00_01void_01_4_01_4.html">  177</a></span>&#160;<span class="keyword">struct </span>fmt::formatter</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    &lt;</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;        TEnum,</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;        char,</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;        std::enable_if_t&lt;std::is_enum_v&lt;TEnum&gt;, void&gt;</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    &gt;</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    : fmt::formatter&lt;std::string&gt;</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;{</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> FormatContext&gt;</div>
+<div class="line"><a name="l00186"></a><span class="lineno"><a class="line" href="structfmt_1_1formatter_3_01TEnum_00_01char_00_01std_1_1enable__if__t_3_01std_1_1is__enum__v_3_01TEnum_01_4_00_01void_01_4_01_4.html#afb1bc2a6bd9a2ce191b3acc705c3419c">  186</a></span>&#160;    <span class="keyword">auto</span> <a class="code" href="structfmt_1_1formatter_3_01TEnum_00_01char_00_01std_1_1enable__if__t_3_01std_1_1is__enum__v_3_01TEnum_01_4_00_01void_01_4_01_4.html#afb1bc2a6bd9a2ce191b3acc705c3419c">format</a>(<span class="keyword">const</span> TEnum&amp; e, FormatContext&amp; ctx)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> str = euphoria::core::from_enum_to_string&lt;TEnum&gt;(e);</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;        <span class="keywordflow">return</span> fmt::formatter&lt;std::string&gt;::format(str, ctx);</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    }</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="astructeuphoria_1_1core_1_1EnumToStringImplementation_html_abecd8227b4c67fa0279d19e3ecda76f3"><div class="ttname"><a href="structeuphoria_1_1core_1_1EnumToStringImplementation.html#abecd8227b4c67fa0279d19e3ecda76f3">euphoria::core::EnumToStringImplementation::get_list_of_values</a></div><div class="ttdeci">std::vector&lt; T &gt; get_list_of_values() const</div><div class="ttdef"><b>Definition:</b> <a href="enumtostring_8h_source.html#l00103">enumtostring.h:103</a></div></div>
 <div class="ttc" id="astructeuphoria_1_1core_1_1EnumToStringImplementation_html_aa0251c579e47d0c191eb2cbd38e834a7"><div class="ttname"><a href="structeuphoria_1_1core_1_1EnumToStringImplementation.html#aa0251c579e47d0c191eb2cbd38e834a7">euphoria::core::EnumToStringImplementation::string_to_enum</a></div><div class="ttdeci">std::map&lt; std::string, T &gt; string_to_enum</div><div class="ttdef"><b>Definition:</b> <a href="enumtostring_8h_source.html#l00029">enumtostring.h:29</a></div></div>
@@ -237,6 +254,7 @@
 <div class="ttc" id="anamespaceeuphoria_1_1core_html_aa9db03a38fd9999446a4ebf0584cd710a6f8f57715090da2632453988d9a1501b"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a6f8f57715090da2632453988d9a1501b">euphoria::core::Key::m</a></div><div class="ttdeci">@ m</div></div>
 <div class="ttc" id="aassert_8h_html"><div class="ttname"><a href="assert_8h.html">assert.h</a></div></div>
 <div class="ttc" id="anamespaceeuphoria_1_1core_html_a352b811085853f7ec220af1a5b92a124a4b43b0aee35624cd95b910189b3dc231"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#a352b811085853f7ec220af1a5b92a124a4b43b0aee35624cd95b910189b3dc231">euphoria::core::Grayscale::r</a></div><div class="ttdeci">@ r</div></div>
+<div class="ttc" id="astructfmt_1_1formatter_3_01TEnum_00_01char_00_01std_1_1enable__if__t_3_01std_1_1is__enum__v_3_01TEnum_01_4_00_01void_01_4_01_4_html_afb1bc2a6bd9a2ce191b3acc705c3419c"><div class="ttname"><a href="structfmt_1_1formatter_3_01TEnum_00_01char_00_01std_1_1enable__if__t_3_01std_1_1is__enum__v_3_01TEnum_01_4_00_01void_01_4_01_4.html#afb1bc2a6bd9a2ce191b3acc705c3419c">fmt::formatter&lt; TEnum, char, std::enable_if_t&lt; std::is_enum_v&lt; TEnum &gt;, void &gt; &gt;::format</a></div><div class="ttdeci">auto format(const TEnum &amp;e, FormatContext &amp;ctx) const</div><div class="ttdef"><b>Definition:</b> <a href="enumtostring_8h_source.html#l00186">enumtostring.h:186</a></div></div>
 <div class="ttc" id="anamespaceeuphoria_1_1core_html_afe75787cd8800feb5787d8a439dbc298"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#afe75787cd8800feb5787d8a439dbc298">euphoria::core::get_enum_to_string_implementation_from_enum</a></div><div class="ttdeci">EnumToStringImplementation&lt; T &gt; get_enum_to_string_implementation_from_enum()</div><div class="ttdef"><b>Definition:</b> <a href="enumtostring_8h_source.html#l00122">enumtostring.h:122</a></div></div>
 <div class="ttc" id="astructeuphoria_1_1core_1_1search_1_1Match_html"><div class="ttname"><a href="structeuphoria_1_1core_1_1search_1_1Match.html">euphoria::core::search::Match</a></div><div class="ttdef"><b>Definition:</b> <a href="editdistance_8search_8h_source.html#l00013">editdistance.search.h:13</a></div></div>
 <div class="ttc" id="anamespaceeuphoria_1_1core_html_aa9db03a38fd9999446a4ebf0584cd710a9e3669d19b675bd57058fd4664205d2a"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a9e3669d19b675bd57058fd4664205d2a">euphoria::core::Key::v</a></div><div class="ttdeci">@ v</div></div>

@@ -42,6 +42,30 @@
     <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
     <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
     <innernamespace refid="namespaceeuphoria_1_1core_1_1tracery">euphoria::core::tracery</innernamespace>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="tracery_8h_1a6814e4a23d7ca72cf4350e6bec619bc8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ADD_DEFAULT_FORMATTER</definition>
+        <argsstring>(euphoria::core::tracery::Result, std::string, euphoria::core::tracery::to_string)</argsstring>
+        <name>ADD_DEFAULT_FORMATTER</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1tracery_1_1Result" kindref="compound">euphoria::core::tracery::Result</ref></type>
+        </param>
+        <param>
+          <type>std::string</type>
+        </param>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1core_1_1tracery_1ae326cbf2e9ac1542cf168bb17c245efb" kindref="member">euphoria::core::tracery::to_string</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/tracery.h" line="124" column="1" declfile="libs/core/src/core/tracery.h" declline="124" declcolumn="1"/>
+      </memberdef>
+      </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

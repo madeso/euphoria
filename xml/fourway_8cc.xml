@@ -10,21 +10,21 @@
         <childnode refid="2" relation="include">
         </childnode>
       </node>
-      <node id="16">
+      <node id="17">
         <label>core/editdistance.h</label>
         <link refid="editdistance_8h"/>
       </node>
-      <node id="14">
+      <node id="15">
         <label>queue</label>
       </node>
-      <node id="13">
+      <node id="14">
         <label>core/editdistance.search.h</label>
         <link refid="editdistance_8search_8h"/>
-        <childnode refid="14" relation="include">
-        </childnode>
         <childnode refid="15" relation="include">
         </childnode>
         <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
         </childnode>
       </node>
       <node id="6">
@@ -39,21 +39,21 @@
         <childnode refid="3" relation="include">
         </childnode>
       </node>
-      <node id="11">
+      <node id="12">
         <label>string</label>
       </node>
       <node id="7">
         <label>map</label>
       </node>
-      <node id="10">
+      <node id="11">
         <label>assert/assert.h</label>
         <link refid="assert_8h"/>
-        <childnode refid="11" relation="include">
-        </childnode>
         <childnode refid="12" relation="include">
         </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
       </node>
-      <node id="18">
+      <node id="19">
         <label>core/numparse.h</label>
         <link refid="numparse_8h"/>
         <childnode refid="3" relation="include">
@@ -62,10 +62,10 @@
       <node id="3">
         <label>optional</label>
       </node>
-      <node id="17">
+      <node id="18">
         <label>magic_enum/magic_enum.hpp</label>
       </node>
-      <node id="12">
+      <node id="13">
         <label>vector</label>
       </node>
       <node id="4">
@@ -81,11 +81,13 @@
         </childnode>
         <childnode refid="10" relation="include">
         </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
         <childnode refid="6" relation="include">
         </childnode>
-        <childnode refid="13" relation="include">
+        <childnode refid="14" relation="include">
         </childnode>
-        <childnode refid="17" relation="include">
+        <childnode refid="18" relation="include">
         </childnode>
       </node>
       <node id="8">
@@ -95,10 +97,13 @@
         </childnode>
         <childnode refid="4" relation="include">
         </childnode>
-        <childnode refid="18" relation="include">
+        <childnode refid="19" relation="include">
         </childnode>
       </node>
-      <node id="15">
+      <node id="10">
+        <label>type_traits</label>
+      </node>
+      <node id="16">
         <label>algorithm</label>
       </node>
       <node id="2">

@@ -252,6 +252,8 @@
         <link refid="enumtostring_8h"/>
         <childnode refid="3" relation="include">
         </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
         <childnode refid="10" relation="include">
         </childnode>
         <childnode refid="13" relation="include">
@@ -319,7 +321,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.cc" line="903" column="24" bodyfile="libs/core/src/core/argparse.cc" bodystart="903" bodyend="-1"/>
+        <location file="libs/core/src/core/argparse.cc" line="888" column="24" bodyfile="libs/core/src/core/argparse.cc" bodystart="888" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="argparse_8cc_1a81d86d13015636fec05a0815bd9ef510" prot="public" static="no" mutable="no">
         <type>argparse::Runner *</type>
@@ -333,7 +335,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.cc" line="904" column="30" bodyfile="libs/core/src/core/argparse.cc" bodystart="904" bodyend="-1"/>
+        <location file="libs/core/src/core/argparse.cc" line="889" column="30" bodyfile="libs/core/src/core/argparse.cc" bodystart="889" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="argparse_8cc_1a4a16b87b7df7ae082735e6b98186c262" prot="public" static="no" mutable="no">
         <type>int</type>
@@ -347,7 +349,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.cc" line="905" column="17" bodyfile="libs/core/src/core/argparse.cc" bodystart="905" bodyend="-1"/>
+        <location file="libs/core/src/core/argparse.cc" line="890" column="17" bodyfile="libs/core/src/core/argparse.cc" bodystart="890" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="argparse_8cc_1a462a8746c5163d84d69dfa416d515146" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -361,7 +363,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.cc" line="906" column="18" bodyfile="libs/core/src/core/argparse.cc" bodystart="906" bodyend="-1"/>
+        <location file="libs/core/src/core/argparse.cc" line="891" column="18" bodyfile="libs/core/src/core/argparse.cc" bodystart="891" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

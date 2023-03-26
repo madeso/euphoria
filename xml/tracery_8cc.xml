@@ -241,7 +241,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/tracery.cc" line="289" column="9"/>
+        <location file="libs/core/src/core/tracery.cc" line="285" column="9"/>
       </memberdef>
       <memberdef kind="define" id="tracery_8cc_1a64e224b4932090acb7f20f23b4868747" prot="public" static="no">
         <name>EXPECT_CHAR</name>
@@ -260,7 +260,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/tracery.cc" line="298" column="9"/>
+        <location file="libs/core/src/core/tracery.cc" line="294" column="9"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

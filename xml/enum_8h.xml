@@ -153,7 +153,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/enum.h" line="83" column="9" bodyfile="libs/core/src/core/enum.h" bodystart="83" bodyend="-1"/>
+        <location file="libs/core/src/core/enum.h" line="82" column="9" bodyfile="libs/core/src/core/enum.h" bodystart="82" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="enum_8h_1a018c762f8c2893d9285fcfdab135d603" prot="public" static="no">
         <name>IMPLEMENT_ENUM_TYPE</name>
@@ -169,7 +169,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/enum.h" line="84" column="9" bodyfile="libs/core/src/core/enum.h" bodystart="84" bodyend="-1"/>
+        <location file="libs/core/src/core/enum.h" line="83" column="9" bodyfile="libs/core/src/core/enum.h" bodystart="83" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="enum_8h_1a20d1eeef2d01949d711860bbd4699cd1" prot="public" static="no">
         <name>DEFINE_ENUM_VALUE</name>
@@ -183,7 +183,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/enum.h" line="95" column="9" bodyfile="libs/core/src/core/enum.h" bodystart="95" bodyend="-1"/>
+        <location file="libs/core/src/core/enum.h" line="94" column="9" bodyfile="libs/core/src/core/enum.h" bodystart="94" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="enum_8h_1ae0190a7c558118ec5f74b26b4d1aa207" prot="public" static="no">
         <name>SET_ENUM_FROM_FILE</name>
@@ -197,7 +197,31 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/enum.h" line="97" column="9" bodyfile="libs/core/src/core/enum.h" bodystart="97" bodyend="-1"/>
+        <location file="libs/core/src/core/enum.h" line="96" column="9" bodyfile="libs/core/src/core/enum.h" bodystart="96" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="enum_8h_1a138ec14b892fa82bb3a49505321cd46b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ADD_DEFAULT_FORMATTER</definition>
+        <argsstring>(euphoria::core::EnumValue, std::string, euphoria::core::to_string)</argsstring>
+        <name>ADD_DEFAULT_FORMATTER</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1EnumValue" kindref="compound">euphoria::core::EnumValue</ref></type>
+        </param>
+        <param>
+          <type>std::string</type>
+        </param>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1core_1a8596fa3efb42bc0ad86b46183bc305d3" kindref="member">euphoria::core::to_string</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/enum.h" line="100" column="1" declfile="libs/core/src/core/enum.h" declline="100" declcolumn="1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

@@ -19,11 +19,11 @@
     <includes local="yes">gaf_mesh.h</includes>
     <includes local="yes">gaf_rapidjson_mesh.h</includes>
     <incdepgraph>
-      <node id="28">
+      <node id="29">
         <label>core/editdistance.h</label>
         <link refid="editdistance_8h"/>
       </node>
-      <node id="26">
+      <node id="27">
         <label>queue</label>
       </node>
       <node id="20">
@@ -35,7 +35,7 @@
         <link refid="stdutils_8h"/>
         <childnode refid="23" relation="include">
         </childnode>
-        <childnode refid="27" relation="include">
+        <childnode refid="28" relation="include">
         </childnode>
         <childnode refid="6" relation="include">
         </childnode>
@@ -54,14 +54,14 @@
         <childnode refid="48" relation="include">
         </childnode>
       </node>
-      <node id="25">
+      <node id="26">
         <label>core/editdistance.search.h</label>
         <link refid="editdistance_8search_8h"/>
-        <childnode refid="26" relation="include">
-        </childnode>
         <childnode refid="27" relation="include">
         </childnode>
         <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
         </childnode>
       </node>
       <node id="15">
@@ -78,11 +78,11 @@
         </childnode>
         <childnode refid="19" relation="include">
         </childnode>
-        <childnode refid="33" relation="include">
-        </childnode>
         <childnode refid="34" relation="include">
         </childnode>
         <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
         </childnode>
       </node>
       <node id="46">
@@ -96,7 +96,7 @@
         <childnode refid="16" relation="include">
         </childnode>
       </node>
-      <node id="24">
+      <node id="25">
         <label>core/stringutils.h</label>
         <link refid="stringutils_8h"/>
         <childnode refid="23" relation="include">
@@ -128,10 +128,10 @@
       <node id="43">
         <label>core/texturetypes.h</label>
         <link refid="texturetypes_8h"/>
-        <childnode refid="33" relation="include">
+        <childnode refid="34" relation="include">
         </childnode>
       </node>
-      <node id="31">
+      <node id="32">
         <label>core/result.h</label>
         <link refid="result_8h"/>
         <childnode refid="3" relation="include">
@@ -193,7 +193,7 @@
       <node id="23">
         <label>map</label>
       </node>
-      <node id="33">
+      <node id="34">
         <label>core/enum.h</label>
         <link refid="enum_8h"/>
         <childnode refid="23" relation="include">
@@ -247,7 +247,7 @@
         <childnode refid="17" relation="include">
         </childnode>
       </node>
-      <node id="32">
+      <node id="33">
         <label>core/numparse.h</label>
         <link refid="numparse_8h"/>
         <childnode refid="3" relation="include">
@@ -268,16 +268,16 @@
         <childnode refid="9" relation="include">
         </childnode>
       </node>
-      <node id="29">
+      <node id="30">
         <label>magic_enum/magic_enum.hpp</label>
       </node>
       <node id="8">
         <label>vector</label>
       </node>
-      <node id="30">
+      <node id="31">
         <label>core/custom_parser.h</label>
         <link refid="custom__parser_8h"/>
-        <childnode refid="31" relation="include">
+        <childnode refid="32" relation="include">
         </childnode>
       </node>
       <node id="37">
@@ -317,7 +317,7 @@
       <node id="16">
         <label>cstddef</label>
       </node>
-      <node id="34">
+      <node id="35">
         <label>core/aabb.h</label>
         <link refid="aabb_8h"/>
         <childnode refid="18" relation="include">
@@ -339,14 +339,14 @@
         <childnode refid="3" relation="include">
         </childnode>
       </node>
-      <node id="35">
+      <node id="36">
         <label>core/vfs_path.h</label>
         <link refid="vfs__path_8h"/>
         <childnode refid="3" relation="include">
         </childnode>
         <childnode refid="5" relation="include">
         </childnode>
-        <childnode refid="36" relation="include">
+        <childnode refid="24" relation="include">
         </childnode>
       </node>
       <node id="22">
@@ -354,13 +354,15 @@
         <link refid="enumtostring_8h"/>
         <childnode refid="23" relation="include">
         </childnode>
-        <childnode refid="6" relation="include">
-        </childnode>
         <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
         </childnode>
         <childnode refid="25" relation="include">
         </childnode>
-        <childnode refid="29" relation="include">
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
         </childnode>
       </node>
       <node id="10">
@@ -378,18 +380,18 @@
         <link refid="default__parse_8h"/>
         <childnode refid="22" relation="include">
         </childnode>
-        <childnode refid="30" relation="include">
+        <childnode refid="31" relation="include">
         </childnode>
-        <childnode refid="32" relation="include">
+        <childnode refid="33" relation="include">
         </childnode>
       </node>
-      <node id="36">
+      <node id="24">
         <label>type_traits</label>
       </node>
       <node id="38">
         <label>assimp/Importer.hpp</label>
       </node>
-      <node id="27">
+      <node id="28">
         <label>algorithm</label>
       </node>
       <node id="39">

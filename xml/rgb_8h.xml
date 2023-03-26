@@ -41,25 +41,25 @@
     <includedby refid="app_8h" local="yes">libs/window/src/window/app.h</includedby>
     <includedby refid="imgui__extra_8cc" local="yes">libs/window/src/window/imgui_extra.cc</includedby>
     <incdepgraph>
-      <node id="21">
+      <node id="22">
         <label>core/editdistance.h</label>
         <link refid="editdistance_8h"/>
       </node>
-      <node id="19">
+      <node id="20">
         <label>queue</label>
       </node>
       <node id="6">
         <label>core/colors.h</label>
         <link refid="colors_8h"/>
       </node>
-      <node id="18">
+      <node id="19">
         <label>core/editdistance.search.h</label>
         <link refid="editdistance_8search_8h"/>
-        <childnode refid="19" relation="include">
-        </childnode>
         <childnode refid="20" relation="include">
         </childnode>
         <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
         </childnode>
       </node>
       <node id="4">
@@ -73,7 +73,7 @@
         <childnode refid="5" relation="include">
         </childnode>
       </node>
-      <node id="17">
+      <node id="18">
         <label>core/stringutils.h</label>
         <link refid="stringutils_8h"/>
         <childnode refid="13" relation="include">
@@ -93,33 +93,33 @@
         <childnode refid="11" relation="include">
         </childnode>
       </node>
-      <node id="24">
+      <node id="25">
         <label>core/result.h</label>
         <link refid="result_8h"/>
-        <childnode refid="25" relation="include">
+        <childnode refid="26" relation="include">
         </childnode>
       </node>
-      <node id="15">
+      <node id="16">
         <label>string</label>
       </node>
       <node id="13">
         <label>map</label>
       </node>
-      <node id="14">
+      <node id="15">
         <label>assert/assert.h</label>
         <link refid="assert_8h"/>
-        <childnode refid="15" relation="include">
-        </childnode>
         <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>core/numparse.h</label>
+        <link refid="numparse_8h"/>
+        <childnode refid="26" relation="include">
         </childnode>
       </node>
       <node id="26">
-        <label>core/numparse.h</label>
-        <link refid="numparse_8h"/>
-        <childnode refid="25" relation="include">
-        </childnode>
-      </node>
-      <node id="25">
         <label>optional</label>
       </node>
       <node id="9">
@@ -128,16 +128,16 @@
         <childnode refid="10" relation="include">
         </childnode>
       </node>
-      <node id="22">
+      <node id="23">
         <label>magic_enum/magic_enum.hpp</label>
       </node>
-      <node id="16">
+      <node id="17">
         <label>vector</label>
       </node>
-      <node id="23">
+      <node id="24">
         <label>core/custom_parser.h</label>
         <link refid="custom__parser_8h"/>
-        <childnode refid="24" relation="include">
+        <childnode refid="25" relation="include">
         </childnode>
       </node>
       <node id="3">
@@ -163,11 +163,13 @@
         </childnode>
         <childnode refid="14" relation="include">
         </childnode>
-        <childnode refid="17" relation="include">
+        <childnode refid="15" relation="include">
         </childnode>
         <childnode refid="18" relation="include">
         </childnode>
-        <childnode refid="22" relation="include">
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
         </childnode>
       </node>
       <node id="7">
@@ -185,12 +187,15 @@
         <link refid="default__parse_8h"/>
         <childnode refid="12" relation="include">
         </childnode>
-        <childnode refid="23" relation="include">
+        <childnode refid="24" relation="include">
         </childnode>
-        <childnode refid="26" relation="include">
+        <childnode refid="27" relation="include">
         </childnode>
       </node>
-      <node id="20">
+      <node id="14">
+        <label>type_traits</label>
+      </node>
+      <node id="21">
         <label>algorithm</label>
       </node>
     </incdepgraph>
@@ -955,6 +960,118 @@
     <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
     <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
     <innernamespace refid="namespaceeuphoria_1_1core_1_1colorutil">euphoria::core::colorutil</innernamespace>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="rgb_8h_1ae232e37e69b4da43c69e9e128de045b0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ADD_DEFAULT_FORMATTER</definition>
+        <argsstring>(euphoria::core::rgbi, std::string, euphoria::core::to_string)</argsstring>
+        <name>ADD_DEFAULT_FORMATTER</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1rgbi" kindref="compound">euphoria::core::rgbi</ref></type>
+        </param>
+        <param>
+          <type>std::string</type>
+        </param>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1core_1a8596fa3efb42bc0ad86b46183bc305d3" kindref="member">euphoria::core::to_string</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/rgb.h" line="425" column="1" declfile="libs/core/src/core/rgb.h" declline="425" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="rgb_8h_1a988627519bcce672d55ed2d0754e7b4f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ADD_DEFAULT_FORMATTER</definition>
+        <argsstring>(euphoria::core::rgbai, std::string, euphoria::core::to_string)</argsstring>
+        <name>ADD_DEFAULT_FORMATTER</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1rgbai" kindref="compound">euphoria::core::rgbai</ref></type>
+        </param>
+        <param>
+          <type>std::string</type>
+        </param>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1core_1a8596fa3efb42bc0ad86b46183bc305d3" kindref="member">euphoria::core::to_string</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/rgb.h" line="426" column="1" declfile="libs/core/src/core/rgb.h" declline="426" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="rgb_8h_1a27d2c81fc91ef63dfb3cc187669118df" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ADD_DEFAULT_FORMATTER</definition>
+        <argsstring>(euphoria::core::rgb, std::string, euphoria::core::to_string)</argsstring>
+        <name>ADD_DEFAULT_FORMATTER</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1rgb" kindref="compound">euphoria::core::rgb</ref></type>
+        </param>
+        <param>
+          <type>std::string</type>
+        </param>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1core_1a8596fa3efb42bc0ad86b46183bc305d3" kindref="member">euphoria::core::to_string</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/rgb.h" line="427" column="1" declfile="libs/core/src/core/rgb.h" declline="427" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="rgb_8h_1ae37370f9fb59e910db328c27df420fa0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ADD_DEFAULT_FORMATTER</definition>
+        <argsstring>(euphoria::core::rgba, std::string, euphoria::core::to_string)</argsstring>
+        <name>ADD_DEFAULT_FORMATTER</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1rgba" kindref="compound">euphoria::core::rgba</ref></type>
+        </param>
+        <param>
+          <type>std::string</type>
+        </param>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1core_1a8596fa3efb42bc0ad86b46183bc305d3" kindref="member">euphoria::core::to_string</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/rgb.h" line="428" column="1" declfile="libs/core/src/core/rgb.h" declline="428" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="rgb_8h_1adc91cc23380c1a7d7362f3cab1dec9e0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ADD_DEFAULT_FORMATTER</definition>
+        <argsstring>(euphoria::core::Hsl, std::string, euphoria::core::to_string)</argsstring>
+        <name>ADD_DEFAULT_FORMATTER</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1Hsl" kindref="compound">euphoria::core::Hsl</ref></type>
+        </param>
+        <param>
+          <type>std::string</type>
+        </param>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1core_1a8596fa3efb42bc0ad86b46183bc305d3" kindref="member">euphoria::core::to_string</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/rgb.h" line="429" column="1" declfile="libs/core/src/core/rgb.h" declline="429" declcolumn="1"/>
+      </memberdef>
+      </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

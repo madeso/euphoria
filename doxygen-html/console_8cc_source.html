@@ -96,7 +96,7 @@
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordflow">if</span>(found == callbacks.end())</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    {</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="comment">// unable to find cmd</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        print(<span class="stringliteral">&quot;Unknown command {}&quot;</span>_format(name));</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        print(fmt::format(<span class="stringliteral">&quot;Unknown command {}&quot;</span>, name));</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="comment">// todo(Gustav): list commands that are the closest match</span></div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    }</div>
@@ -112,7 +112,7 @@
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    print(<span class="stringliteral">&quot;Available commands:&quot;</span>);</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordflow">for</span>(<span class="keyword">const</span> <span class="keyword">auto</span>&amp; <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a4a8a08f09d37b73795649038408b5f33">c</a>: callbacks)</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    {</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        print(<span class="stringliteral">&quot;  {}&quot;</span>_format(<a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a4a8a08f09d37b73795649038408b5f33">c</a>.first));</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        print(fmt::format(<span class="stringliteral">&quot;  {}&quot;</span>, <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a4a8a08f09d37b73795649038408b5f33">c</a>.first));</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    }</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    print(<span class="stringliteral">&quot;&quot;</span>);</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;}</div>

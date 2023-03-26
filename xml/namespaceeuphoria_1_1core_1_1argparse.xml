@@ -82,7 +82,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.h" line="393" column="1" bodyfile="libs/core/src/core/argparse.h" bodystart="392" bodyend="402"/>
+        <location file="libs/core/src/core/argparse.h" line="399" column="1" bodyfile="libs/core/src/core/argparse.h" bodystart="398" bodyend="408"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="typedef">
@@ -103,7 +103,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.h" line="332" column="5" bodyfile="libs/core/src/core/argparse.h" bodystart="332" bodyend="-1"/>
+        <location file="libs/core/src/core/argparse.h" line="338" column="5" bodyfile="libs/core/src/core/argparse.h" bodystart="338" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="namespaceeuphoria_1_1core_1_1argparse_1ae6c8200dad288bd6c9d82c91d3b161b5" prot="public" static="no">
         <type>std::function&lt; <ref refid="structeuphoria_1_1core_1_1argparse_1_1ParseResult" kindref="compound">ParseResult</ref>(<ref refid="structeuphoria_1_1core_1_1argparse_1_1SubParser" kindref="compound">SubParser</ref> *)&gt;</type>
@@ -116,7 +116,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.h" line="336" column="5" bodyfile="libs/core/src/core/argparse.h" bodystart="336" bodyend="-1"/>
+        <location file="libs/core/src/core/argparse.h" line="342" column="5" bodyfile="libs/core/src/core/argparse.h" bodystart="342" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="namespaceeuphoria_1_1core_1_1argparse_1ac1c0d680cc59febe52e0cf4e9a0438b2" prot="public" static="no">
         <type>std::function&lt; <ref refid="structeuphoria_1_1core_1_1argparse_1_1ParseResult" kindref="compound">ParseResult</ref>()&gt;</type>
@@ -129,7 +129,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.h" line="337" column="5" bodyfile="libs/core/src/core/argparse.h" bodystart="337" bodyend="-1"/>
+        <location file="libs/core/src/core/argparse.h" line="343" column="5" bodyfile="libs/core/src/core/argparse.h" bodystart="343" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="var">
@@ -180,15 +180,11 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="func">
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1argparse_1a990ed9d8e4c2796782a894d2992c0f42" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>std::ostream &amp;</type>
-        <definition>std::ostream &amp; euphoria::core::argparse::operator&lt;&lt;</definition>
-        <argsstring>(std::ostream &amp;o, const ParseResult &amp;pr)</argsstring>
-        <name>operator&lt;&lt;</name>
-        <param>
-          <type>std::ostream &amp;</type>
-          <declname>o</declname>
-        </param>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1argparse_1a2c6d66dcb5d8f4156c47178fc2b031d3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string euphoria::core::argparse::to_string</definition>
+        <argsstring>(const ParseResult &amp;pr)</argsstring>
+        <name>to_string</name>
         <param>
           <type>const <ref refid="structeuphoria_1_1core_1_1argparse_1_1ParseResult" kindref="compound">ParseResult</ref> &amp;</type>
           <declname>pr</declname>
@@ -199,7 +195,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.cc" line="106" column="5" bodyfile="libs/core/src/core/argparse.cc" bodystart="107" bodyend="111" declfile="libs/core/src/core/argparse.h" declline="81" declcolumn="5"/>
+        <location file="libs/core/src/core/argparse.cc" line="106" column="17" bodyfile="libs/core/src/core/argparse.cc" bodystart="106" bodyend="107" declfile="libs/core/src/core/argparse.h" declline="81" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1argparse_1ad89adeb752beb77fb0c21b42b50ac609" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -220,7 +216,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.cc" line="114" column="5" bodyfile="libs/core/src/core/argparse.cc" bodystart="114" bodyend="117" declfile="libs/core/src/core/argparse.h" declline="85" declcolumn="5"/>
+        <location file="libs/core/src/core/argparse.cc" line="110" column="5" bodyfile="libs/core/src/core/argparse.cc" bodystart="110" bodyend="113" declfile="libs/core/src/core/argparse.h" declline="89" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1argparse_1a5b1a5638c30ea99f64ef66c7b9e9062a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -241,17 +237,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.cc" line="121" column="5" bodyfile="libs/core/src/core/argparse.cc" bodystart="121" bodyend="124" declfile="libs/core/src/core/argparse.h" declline="89" declcolumn="5"/>
+        <location file="libs/core/src/core/argparse.cc" line="117" column="5" bodyfile="libs/core/src/core/argparse.cc" bodystart="117" bodyend="120" declfile="libs/core/src/core/argparse.h" declline="93" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1argparse_1a380297ff3f8ab6c957ac6d6294acee88" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>std::ostream &amp;</type>
-        <definition>std::ostream &amp; euphoria::core::argparse::operator&lt;&lt;</definition>
-        <argsstring>(std::ostream &amp;o, const euphoria::core::argparse::NameAndArguments &amp;args)</argsstring>
-        <name>operator&lt;&lt;</name>
-        <param>
-          <type>std::ostream &amp;</type>
-          <declname>o</declname>
-        </param>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1argparse_1a93e458e62e2db730cb8261f7a1be872b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string euphoria::core::argparse::to_string</definition>
+        <argsstring>(const euphoria::core::argparse::NameAndArguments &amp;args)</argsstring>
+        <name>to_string</name>
         <param>
           <type>const <ref refid="structeuphoria_1_1core_1_1argparse_1_1NameAndArguments" kindref="compound">euphoria::core::argparse::NameAndArguments</ref> &amp;</type>
           <declname>args</declname>
@@ -262,7 +254,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.cc" line="148" column="5" bodyfile="libs/core/src/core/argparse.cc" bodystart="149" bodyend="162" declfile="libs/core/src/core/argparse.h" declline="105" declcolumn="5"/>
+        <location file="libs/core/src/core/argparse.cc" line="144" column="17" bodyfile="libs/core/src/core/argparse.cc" bodystart="144" bodyend="147" declfile="libs/core/src/core/argparse.h" declline="108" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1argparse_1a257edea7fc489bdd82ec99771b975240" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -287,7 +279,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.cc" line="231" column="5" bodyfile="libs/core/src/core/argparse.cc" bodystart="232" bodyend="249" declfile="libs/core/src/core/argparse.h" declline="160" declcolumn="5"/>
+        <location file="libs/core/src/core/argparse.cc" line="216" column="5" bodyfile="libs/core/src/core/argparse.cc" bodystart="217" bodyend="234" declfile="libs/core/src/core/argparse.h" declline="166" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1argparse_1a071c4e9181198c5f632ae1074f483272" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -304,7 +296,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.cc" line="810" column="5" bodyfile="libs/core/src/core/argparse.cc" bodystart="810" bodyend="814"/>
+        <location file="libs/core/src/core/argparse.cc" line="795" column="5" bodyfile="libs/core/src/core/argparse.cc" bodystart="795" bodyend="799"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1argparse_1a1de5da41ad47b6191f28557db5333e65" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -331,7 +323,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.cc" line="1351" column="5" bodyfile="libs/core/src/core/argparse.cc" bodystart="1351" bodyend="1356" declfile="libs/core/src/core/argparse.h" declline="585" declcolumn="9"/>
+        <location file="libs/core/src/core/argparse.cc" line="1336" column="5" bodyfile="libs/core/src/core/argparse.cc" bodystart="1336" bodyend="1341" declfile="libs/core/src/core/argparse.h" declline="591" declcolumn="9"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1argparse_1a6f01506a3a5aedd5d58868fc162fad7a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>

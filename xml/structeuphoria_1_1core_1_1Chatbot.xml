@@ -194,7 +194,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/chatbot.h" line="203" column="37" bodyfile="libs/core/src/core/chatbot.cc" bodystart="585" bodyend="777"/>
+        <location file="libs/core/src/core/chatbot.h" line="203" column="37" bodyfile="libs/core/src/core/chatbot.cc" bodystart="585" bodyend="776"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Chatbot_1a55290aa7f87a90e2ab4ba419c9be1948" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -207,7 +207,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/chatbot.h" line="205" column="22" bodyfile="libs/core/src/core/chatbot.cc" bodystart="780" bodyend="783"/>
+        <location file="libs/core/src/core/chatbot.h" line="205" column="22" bodyfile="libs/core/src/core/chatbot.cc" bodystart="779" bodyend="782"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Chatbot_1ac23f62d8a5cf8554dad4579623feb9c8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -225,7 +225,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/chatbot.h" line="207" column="22" bodyfile="libs/core/src/core/chatbot.cc" bodystart="786" bodyend="840"/>
+        <location file="libs/core/src/core/chatbot.h" line="207" column="22" bodyfile="libs/core/src/core/chatbot.cc" bodystart="785" bodyend="839"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">

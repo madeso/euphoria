@@ -107,8 +107,8 @@ Functions</h2></td></tr>
 <tr class="separator:afa710ea5f92d20401ab83334317b8e0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae44eddb7c56b8603fbb41a5967600929"><td class="memItemLeft" align="right" valign="top">angle&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#ae44eddb7c56b8603fbb41a5967600929">euphoria::core::operator*</a> (float rhs, const angle &amp;lhs)</td></tr>
 <tr class="separator:ae44eddb7c56b8603fbb41a5967600929"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a65ff5dc3c5fa7d286f446567b06100ce"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a65ff5dc3c5fa7d286f446567b06100ce">euphoria::core::operator&lt;&lt;</a> (std::ostream &amp;stream, const angle &amp;a)</td></tr>
-<tr class="separator:a65ff5dc3c5fa7d286f446567b06100ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc7d76db5267748462e9ba1f3ab7fad9"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#adc7d76db5267748462e9ba1f3ab7fad9">euphoria::core::to_string</a> (const angle &amp;a)</td></tr>
+<tr class="separator:adc7d76db5267748462e9ba1f3ab7fad9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a184598b68f572e4ae76dd07ea2c54440"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a184598b68f572e4ae76dd07ea2c54440">euphoria::core::operator&lt;</a> (const angle &amp;lhs, const angle &amp;rhs)</td></tr>
 <tr class="separator:a184598b68f572e4ae76dd07ea2c54440"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a92e9841b9d4f736d168ba2ab1f7f475e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a92e9841b9d4f736d168ba2ab1f7f475e">euphoria::core::operator&lt;=</a> (const angle &amp;lhs, const angle &amp;rhs)</td></tr>
@@ -121,6 +121,8 @@ Functions</h2></td></tr>
 <tr class="separator:ace8645ee08401425a08f54020578d79c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a108454e9f2446e54fae3aa2b9fbc7598"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a108454e9f2446e54fae3aa2b9fbc7598">euphoria::core::DEFAULT_INTERPOLATE</a> (angle, lerp_angle)</td></tr>
 <tr class="separator:a108454e9f2446e54fae3aa2b9fbc7598"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a639f8df2491017afc0add51edb51abb9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="angle_8h.html#a639f8df2491017afc0add51edb51abb9">ADD_DEFAULT_FORMATTER</a> (<a class="el" href="structeuphoria_1_1core_1_1angle.html">euphoria::core::angle</a>, std::string, <a class="el" href="namespaceeuphoria_1_1core.html#a8596fa3efb42bc0ad86b46183bc305d3">euphoria::core::to_string</a>)</td></tr>
+<tr class="separator:a639f8df2491017afc0add51edb51abb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a04b90c570e95f97f2c6bd0e57ec4ca1f"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="structeuphoria_1_1core_1_1angle.html">core::angle</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1convert.html#a04b90c570e95f97f2c6bd0e57ec4ca1f">euphoria::convert::operator&quot;&quot;_deg</a> (long double d)</td></tr>
 <tr class="separator:a04b90c570e95f97f2c6bd0e57ec4ca1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aef08cba67e40452f788d35202d9fb9ac"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="structeuphoria_1_1core_1_1angle.html">core::angle</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1convert.html#aef08cba67e40452f788d35202d9fb9ac">euphoria::convert::operator&quot;&quot;_rad</a> (long double r)</td></tr>
@@ -137,6 +139,41 @@ Variables</h2></td></tr>
 <tr class="memitem:a008edfb253b79b442fcf6b2df75e71e6"><td class="memItemLeft" align="right" valign="top">constexpr angle&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a008edfb253b79b442fcf6b2df75e71e6">euphoria::core::no_rotation</a> = angle::from_radians(0.0f)</td></tr>
 <tr class="separator:a008edfb253b79b442fcf6b2df75e71e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="a639f8df2491017afc0add51edb51abb9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a639f8df2491017afc0add51edb51abb9">&#9670;&nbsp;</a></span>ADD_DEFAULT_FORMATTER()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ADD_DEFAULT_FORMATTER </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structeuphoria_1_1core_1_1angle.html">euphoria::core::angle</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespaceeuphoria_1_1core.html#a8596fa3efb42bc0ad86b46183bc305d3">euphoria::core::to_string</a>&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.17-->
 <!-- start footer part -->

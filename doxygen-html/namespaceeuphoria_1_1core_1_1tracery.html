@@ -97,8 +97,8 @@ Functions</h2></td></tr>
 <tr class="separator:abc4a53a6bb962ebbb029c19d96560b56"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab309cb9774b6c2b8be22671cb3b86ffe"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1tracery_1_1Result.html">Result</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core_1_1tracery.html#ab309cb9774b6c2b8be22671cb3b86ffe">from_json</a> (<a class="el" href="structeuphoria_1_1core_1_1tracery_1_1Symbol.html">Symbol</a> *rule, const rapidjson::Value &amp;value)</td></tr>
 <tr class="separator:ab309cb9774b6c2b8be22671cb3b86ffe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acdc828f6785ff0fbf4900bf7cdc68a7b"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core_1_1tracery.html#acdc828f6785ff0fbf4900bf7cdc68a7b">operator&lt;&lt;</a> (std::ostream &amp;o, const <a class="el" href="structeuphoria_1_1core_1_1tracery_1_1Result.html">Result</a> &amp;r)</td></tr>
-<tr class="separator:acdc828f6785ff0fbf4900bf7cdc68a7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae326cbf2e9ac1542cf168bb17c245efb"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core_1_1tracery.html#ae326cbf2e9ac1542cf168bb17c245efb">to_string</a> (const <a class="el" href="structeuphoria_1_1core_1_1tracery_1_1Result.html">Result</a> &amp;r)</td></tr>
+<tr class="separator:ae326cbf2e9ac1542cf168bb17c245efb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abbcbfd903e49286189a2b8d1c79afa59"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1tracery_1_1Result.html">Result</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core_1_1tracery.html#abbcbfd903e49286189a2b8d1c79afa59">parse_error</a> (<a class="el" href="structeuphoria_1_1core_1_1TextfileParser.html">TextfileParser</a> *parser)</td></tr>
 <tr class="separator:abbcbfd903e49286189a2b8d1c79afa59"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a33d808a7a77009d69143bbbebad7b155"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core_1_1tracery.html#a33d808a7a77009d69143bbbebad7b155">read_tracery_ident</a> (<a class="el" href="structeuphoria_1_1core_1_1TextfileParser.html">TextfileParser</a> *parser)</td></tr>
@@ -165,36 +165,6 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="acdc828f6785ff0fbf4900bf7cdc68a7b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acdc828f6785ff0fbf4900bf7cdc68a7b">&#9670;&nbsp;</a></span>operator&lt;&lt;()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::ostream &amp; euphoria::core::tracery::operator&lt;&lt; </td>
-          <td>(</td>
-          <td class="paramtype">std::ostream &amp;&#160;</td>
-          <td class="paramname"><em>o</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1tracery_1_1Result.html">Result</a> &amp;&#160;</td>
-          <td class="paramname"><em>r</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="tracery_8cc_source.html#l00227">227</a> of file <a class="el" href="tracery_8cc_source.html">tracery.cc</a>.</p>
-
-</div>
-</div>
 <a id="abbcbfd903e49286189a2b8d1c79afa59"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abbcbfd903e49286189a2b8d1c79afa59">&#9670;&nbsp;</a></span>parse_error()</h2>
 
@@ -211,7 +181,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="tracery_8cc_source.html#l00262">262</a> of file <a class="el" href="tracery_8cc_source.html">tracery.cc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="tracery_8cc_source.html#l00258">258</a> of file <a class="el" href="tracery_8cc_source.html">tracery.cc</a>.</p>
 
 </div>
 </div>
@@ -291,7 +261,27 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="tracery_8cc_source.html#l00269">269</a> of file <a class="el" href="tracery_8cc_source.html">tracery.cc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="tracery_8cc_source.html#l00265">265</a> of file <a class="el" href="tracery_8cc_source.html">tracery.cc</a>.</p>
+
+</div>
+</div>
+<a id="ae326cbf2e9ac1542cf168bb17c245efb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae326cbf2e9ac1542cf168bb17c245efb">&#9670;&nbsp;</a></span>to_string()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string euphoria::core::tracery::to_string </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1tracery_1_1Result.html">Result</a> &amp;&#160;</td>
+          <td class="paramname"><em>r</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="tracery_8cc_source.html#l00226">226</a> of file <a class="el" href="tracery_8cc_source.html">tracery.cc</a>.</p>
 
 </div>
 </div>

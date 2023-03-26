@@ -712,7 +712,7 @@
 <div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;                    {</div>
 <div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160;                        <a class="code" href="namespaceeuphoria_1_1core.html#a8f6ae6403fb2a65953bc6a618d88114b">log</a>.emplace_back</div>
 <div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;                        (</div>
-<div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;                            <span class="stringliteral">&quot;Doesnt have topic {}&quot;</span>_format(topic)</div>
+<div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;                            fmt::format(<span class="stringliteral">&quot;Doesn&#39;t have topic {}&quot;</span>, topic)</div>
 <div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160;                        );</div>
 <div class="line"><a name="l00661"></a><span class="lineno">  661</span>&#160;                        valid_response = <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00662"></a><span class="lineno">  662</span>&#160;                        <span class="keywordflow">break</span>;</div>
@@ -739,162 +739,161 @@
 <div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160;                <span class="comment">// strings when the OpString is false</span></div>
 <div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160;                <a class="code" href="namespaceeuphoria_1_1core.html#a8f6ae6403fb2a65953bc6a618d88114b">log</a>.emplace_back</div>
 <div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160;                (</div>
-<div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160;                    <span class="stringliteral">&quot;Checking keyword {} {{}}&quot;</span>_format</div>
-<div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160;                    (</div>
-<div class="line"><a name="l00688"></a><span class="lineno">  688</span>&#160;                        <span class="comment">// todo(Gustav): use map and a escape string function here</span></div>
-<div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160;                        <a class="code" href="structeuphoria_1_1core_1_1StringMerger.html">StringMerger</a>().set_separator(<span class="stringliteral">&quot; &quot;</span>).set_start_and_end(<span class="stringliteral">&quot;\&quot;&quot;</span>).merge(keyword.words),</div>
-<div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160;                        <a class="code" href="namespaceeuphoria_1_1core_1_1string__mergers.html#a2d5d00244d536bbd8654476a5ff3e48f">string_mergers::english_or</a>.<a class="code" href="structeuphoria_1_1core_1_1StringMerger.html#a9ea18a79310e404c870e32dfac16f27a">merge</a></div>
-<div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;                        (</div>
-<div class="line"><a name="l00692"></a><span class="lineno">  692</span>&#160;                            std::vector&lt;std::string&gt;</div>
-<div class="line"><a name="l00693"></a><span class="lineno">  693</span>&#160;                            {</div>
-<div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160;                                get_string_or_empty(longer_keyword, <span class="stringliteral">&quot;longer&quot;</span>),</div>
-<div class="line"><a name="l00695"></a><span class="lineno">  695</span>&#160;                                get_string_or_empty(same_size_but_better, <span class="stringliteral">&quot;same size but better&quot;</span>)</div>
-<div class="line"><a name="l00696"></a><span class="lineno">  696</span>&#160;                            }</div>
-<div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160;                        )</div>
-<div class="line"><a name="l00698"></a><span class="lineno">  698</span>&#160;                    )</div>
-<div class="line"><a name="l00699"></a><span class="lineno">  699</span>&#160;                );</div>
-<div class="line"><a name="l00700"></a><span class="lineno">  700</span>&#160;                <span class="keyword">const</span> <span class="keywordtype">bool</span> should_check_keyword = longer_keyword || same_size_but_better;</div>
-<div class="line"><a name="l00701"></a><span class="lineno">  701</span>&#160;                <span class="keywordflow">if</span>(!should_check_keyword)</div>
-<div class="line"><a name="l00702"></a><span class="lineno">  702</span>&#160;                {</div>
-<div class="line"><a name="l00703"></a><span class="lineno">  703</span>&#160;                    <a class="code" href="namespaceeuphoria_1_1core.html#a8f6ae6403fb2a65953bc6a618d88114b">log</a>.emplace_back(<span class="stringliteral">&quot;Wont check keyword&quot;</span>);</div>
-<div class="line"><a name="l00704"></a><span class="lineno">  704</span>&#160;                }</div>
-<div class="line"><a name="l00705"></a><span class="lineno">  705</span>&#160;                <span class="keywordflow">if</span>(should_check_keyword)</div>
-<div class="line"><a name="l00706"></a><span class="lineno">  706</span>&#160;                {</div>
-<div class="line"><a name="l00707"></a><span class="lineno">  707</span>&#160;                    <span class="keyword">const</span> <span class="keyword">auto</span> matched_index = <a class="code" href="namespaceeuphoria_1_1core_1_1detail.html#a546b6e2255462630d801a5c583d0b493">detail::find_get_palette_sequential_pu_bu_gn</a></div>
-<div class="line"><a name="l00708"></a><span class="lineno">  708</span>&#160;                    (</div>
-<div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160;                        input,</div>
-<div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160;                        keyword</div>
-<div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160;                    );</div>
-<div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160;                    <span class="keywordflow">if</span>(matched_index == -1)</div>
-<div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;                    {</div>
-<div class="line"><a name="l00714"></a><span class="lineno">  714</span>&#160;                        <a class="code" href="namespaceeuphoria_1_1core.html#a8f6ae6403fb2a65953bc6a618d88114b">log</a>.emplace_back(<span class="stringliteral">&quot;No match&quot;</span>);</div>
-<div class="line"><a name="l00715"></a><span class="lineno">  715</span>&#160;                    }</div>
-<div class="line"><a name="l00716"></a><span class="lineno">  716</span>&#160;                    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00717"></a><span class="lineno">  717</span>&#160;                    {</div>
-<div class="line"><a name="l00718"></a><span class="lineno">  718</span>&#160;                        match_length = <a class="code" href="namespaceeuphoria_1_1core.html#a5fedf1ecd80db4f67871d932a0d88b27">c_sizet_to_int</a>(keyword.words.size());</div>
-<div class="line"><a name="l00719"></a><span class="lineno">  719</span>&#160;                        match_location = keyword.location;</div>
-<div class="line"><a name="l00720"></a><span class="lineno">  720</span>&#160;                        <a class="code" href="namespaceeuphoria_1_1core.html#a8f6ae6403fb2a65953bc6a618d88114b">log</a>.emplace_back</div>
-<div class="line"><a name="l00721"></a><span class="lineno">  721</span>&#160;                        (</div>
-<div class="line"><a name="l00722"></a><span class="lineno">  722</span>&#160;                            <span class="stringliteral">&quot;Matched at {} of length {} with {}&quot;</span>_format(matched_index, match_length, match_location)</div>
-<div class="line"><a name="l00723"></a><span class="lineno">  723</span>&#160;                        );</div>
-<div class="line"><a name="l00724"></a><span class="lineno">  724</span>&#160;                        <span class="keywordflow">if</span>(<a class="code" href="structeuphoria_1_1core_1_1Chatbot.html#a9c8104f4c96e2b485adccb605a8b2309">last_event</a> == resp.event_id)</div>
-<div class="line"><a name="l00725"></a><span class="lineno">  725</span>&#160;                        {</div>
-<div class="line"><a name="l00726"></a><span class="lineno">  726</span>&#160;                            <a class="code" href="namespaceeuphoria_1_1core.html#a8f6ae6403fb2a65953bc6a618d88114b">log</a>.emplace_back(<span class="stringliteral">&quot;Same event as last time&quot;</span>);</div>
-<div class="line"><a name="l00727"></a><span class="lineno">  727</span>&#160;                            response = <a class="code" href="namespaceeuphoria_1_1core_1_1detail.html#a59d0873a1028dc6b4c7215be1c107b60">detail::select_basic_response</a></div>
-<div class="line"><a name="l00728"></a><span class="lineno">  728</span>&#160;                            (</div>
-<div class="line"><a name="l00729"></a><span class="lineno">  729</span>&#160;                                <span class="keyword">this</span>,</div>
-<div class="line"><a name="l00730"></a><span class="lineno">  730</span>&#160;                                <a class="code" href="structeuphoria_1_1core_1_1Chatbot.html#a82ad632007c23eb0afbe3235348e8643">database</a>.<a class="code" href="structeuphoria_1_1core_1_1detail_1_1Database.html#ae808b7cbb79e842957a58c23917dc83a">similar_input</a>,</div>
-<div class="line"><a name="l00731"></a><span class="lineno">  731</span>&#160;                                <span class="stringliteral">&quot;similar input&quot;</span></div>
-<div class="line"><a name="l00732"></a><span class="lineno">  732</span>&#160;                            );</div>
-<div class="line"><a name="l00733"></a><span class="lineno">  733</span>&#160;                        }</div>
-<div class="line"><a name="l00734"></a><span class="lineno">  734</span>&#160;                        <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00735"></a><span class="lineno">  735</span>&#160;                        {</div>
-<div class="line"><a name="l00736"></a><span class="lineno">  736</span>&#160;                            <a class="code" href="namespaceeuphoria_1_1core.html#a8f6ae6403fb2a65953bc6a618d88114b">log</a>.emplace_back(<span class="stringliteral">&quot;Selecting new response&quot;</span>);</div>
-<div class="line"><a name="l00737"></a><span class="lineno">  737</span>&#160;                            response = <a class="code" href="namespaceeuphoria_1_1core_1_1detail.html#ab00c7e80ffe77ad4ec7851536d4d2f6f">select_response</a></div>
-<div class="line"><a name="l00738"></a><span class="lineno">  738</span>&#160;                            (</div>
-<div class="line"><a name="l00739"></a><span class="lineno">  739</span>&#160;                                <span class="keyword">this</span>,</div>
-<div class="line"><a name="l00740"></a><span class="lineno">  740</span>&#160;                                resp.responses,</div>
-<div class="line"><a name="l00741"></a><span class="lineno">  741</span>&#160;                                keyword,</div>
-<div class="line"><a name="l00742"></a><span class="lineno">  742</span>&#160;                                dirty_input</div>
-<div class="line"><a name="l00743"></a><span class="lineno">  743</span>&#160;                            );</div>
-<div class="line"><a name="l00744"></a><span class="lineno">  744</span>&#160;                        }</div>
-<div class="line"><a name="l00745"></a><span class="lineno">  745</span>&#160; </div>
-<div class="line"><a name="l00746"></a><span class="lineno">  746</span>&#160;                        <span class="keywordflow">if</span>(resp.ends_conversation)</div>
-<div class="line"><a name="l00747"></a><span class="lineno">  747</span>&#160;                        {</div>
-<div class="line"><a name="l00748"></a><span class="lineno">  748</span>&#160;                            <span class="comment">// todo(Gustav): move to end when we have accepted this response as final</span></div>
-<div class="line"><a name="l00749"></a><span class="lineno">  749</span>&#160;                            <a class="code" href="namespaceeuphoria_1_1core.html#a8f6ae6403fb2a65953bc6a618d88114b">log</a>.emplace_back(<span class="stringliteral">&quot;ending conversation&quot;</span>);</div>
-<div class="line"><a name="l00750"></a><span class="lineno">  750</span>&#160;                            <a class="code" href="structeuphoria_1_1core_1_1Chatbot.html#adaf7b48f3c947febed3c309eee764955">is_in_conversation</a> = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00751"></a><span class="lineno">  751</span>&#160;                        }</div>
-<div class="line"><a name="l00752"></a><span class="lineno">  752</span>&#160; </div>
-<div class="line"><a name="l00753"></a><span class="lineno">  753</span>&#160;                        <a class="code" href="structeuphoria_1_1core_1_1Chatbot.html#a9c8104f4c96e2b485adccb605a8b2309">last_event</a> = resp.event_id;</div>
-<div class="line"><a name="l00754"></a><span class="lineno">  754</span>&#160;                    }</div>
-<div class="line"><a name="l00755"></a><span class="lineno">  755</span>&#160;                }</div>
-<div class="line"><a name="l00756"></a><span class="lineno">  756</span>&#160;            }</div>
-<div class="line"><a name="l00757"></a><span class="lineno">  757</span>&#160;        }</div>
-<div class="line"><a name="l00758"></a><span class="lineno">  758</span>&#160; </div>
-<div class="line"><a name="l00759"></a><span class="lineno">  759</span>&#160;        <span class="keywordflow">if</span>(response.empty())</div>
-<div class="line"><a name="l00760"></a><span class="lineno">  760</span>&#160;        {</div>
-<div class="line"><a name="l00761"></a><span class="lineno">  761</span>&#160;            ret.<a class="code" href="structeuphoria_1_1core_1_1detail_1_1ConversationStatus.html#a534afef0389064b60d4a410ede77b319">section</a> = <span class="stringliteral">&quot;empty response&quot;</span>;</div>
-<div class="line"><a name="l00762"></a><span class="lineno">  762</span>&#160;            <a class="code" href="structeuphoria_1_1core_1_1Chatbot.html#a36a423a08ea041c857b79fc9964ae39b">missing_input</a>.emplace_back(dirty_input);</div>
-<div class="line"><a name="l00763"></a><span class="lineno">  763</span>&#160;            ret.<a class="code" href="structeuphoria_1_1core_1_1detail_1_1ConversationStatus.html#a1e6bf0074a60d4c7c458f8a81028b5c2">response</a> = <a class="code" href="namespaceeuphoria_1_1core_1_1detail.html#a59d0873a1028dc6b4c7215be1c107b60">detail::select_basic_response</a></div>
-<div class="line"><a name="l00764"></a><span class="lineno">  764</span>&#160;            (</div>
-<div class="line"><a name="l00765"></a><span class="lineno">  765</span>&#160;                <span class="keyword">this</span>,</div>
-<div class="line"><a name="l00766"></a><span class="lineno">  766</span>&#160;                <a class="code" href="structeuphoria_1_1core_1_1Chatbot.html#a82ad632007c23eb0afbe3235348e8643">database</a>.<a class="code" href="structeuphoria_1_1core_1_1detail_1_1Database.html#af69e6a900721f4508d599515673bca70">no_response</a>,</div>
-<div class="line"><a name="l00767"></a><span class="lineno">  767</span>&#160;                <span class="stringliteral">&quot;no response&quot;</span></div>
-<div class="line"><a name="l00768"></a><span class="lineno">  768</span>&#160;            );</div>
-<div class="line"><a name="l00769"></a><span class="lineno">  769</span>&#160;            <span class="keywordflow">return</span> ret;</div>
-<div class="line"><a name="l00770"></a><span class="lineno">  770</span>&#160;        }</div>
-<div class="line"><a name="l00771"></a><span class="lineno">  771</span>&#160;        <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00772"></a><span class="lineno">  772</span>&#160;        {</div>
-<div class="line"><a name="l00773"></a><span class="lineno">  773</span>&#160;            ret.<a class="code" href="structeuphoria_1_1core_1_1detail_1_1ConversationStatus.html#a534afef0389064b60d4a410ede77b319">section</a> = <span class="stringliteral">&quot;found response&quot;</span>;</div>
-<div class="line"><a name="l00774"></a><span class="lineno">  774</span>&#160;            ret.<a class="code" href="structeuphoria_1_1core_1_1detail_1_1ConversationStatus.html#a1e6bf0074a60d4c7c458f8a81028b5c2">response</a> = response;</div>
-<div class="line"><a name="l00775"></a><span class="lineno">  775</span>&#160;            <span class="keywordflow">return</span> ret;</div>
-<div class="line"><a name="l00776"></a><span class="lineno">  776</span>&#160;        }</div>
-<div class="line"><a name="l00777"></a><span class="lineno">  777</span>&#160;    }</div>
-<div class="line"><a name="l00778"></a><span class="lineno">  778</span>&#160; </div>
-<div class="line"><a name="l00779"></a><span class="lineno">  779</span>&#160;    std::string</div>
-<div class="line"><a name="l00780"></a><span class="lineno"><a class="line" href="structeuphoria_1_1core_1_1Chatbot.html#a55290aa7f87a90e2ab4ba419c9be1948">  780</a></span>&#160;    <a class="code" href="structeuphoria_1_1core_1_1Chatbot.html#a55290aa7f87a90e2ab4ba419c9be1948">Chatbot::get_sign_on_message</a>()</div>
-<div class="line"><a name="l00781"></a><span class="lineno">  781</span>&#160;    {</div>
-<div class="line"><a name="l00782"></a><span class="lineno">  782</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespaceeuphoria_1_1core_1_1detail.html#a59d0873a1028dc6b4c7215be1c107b60">detail::select_basic_response</a>(<span class="keyword">this</span>, <a class="code" href="structeuphoria_1_1core_1_1Chatbot.html#a82ad632007c23eb0afbe3235348e8643">database</a>.<a class="code" href="structeuphoria_1_1core_1_1detail_1_1Database.html#ad4b58f6c3f7da1ac90dc0d2a47da4466">signon</a>, <span class="stringliteral">&quot;signon&quot;</span>);</div>
-<div class="line"><a name="l00783"></a><span class="lineno">  783</span>&#160;    }</div>
-<div class="line"><a name="l00784"></a><span class="lineno">  784</span>&#160; </div>
-<div class="line"><a name="l00785"></a><span class="lineno">  785</span>&#160;    std::string</div>
-<div class="line"><a name="l00786"></a><span class="lineno"><a class="line" href="structeuphoria_1_1core_1_1Chatbot.html#ac23f62d8a5cf8554dad4579623feb9c8">  786</a></span>&#160;    <a class="code" href="structeuphoria_1_1core_1_1Chatbot.html#ac23f62d8a5cf8554dad4579623feb9c8">Chatbot::debug_last_response</a>(<span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; search)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00787"></a><span class="lineno">  787</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00788"></a><span class="lineno">  788</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> searches = <a class="code" href="group__string.html#ga0969511cbbc86a70a94662d9e6365200">to_lower</a>(search);</div>
-<div class="line"><a name="l00789"></a><span class="lineno">  789</span>&#160;        <span class="keywordflow">if</span>(<a class="code" href="structeuphoria_1_1core_1_1Chatbot.html#af5396aa56630c7438b2b071f5a701a27">history</a>.empty())</div>
-<div class="line"><a name="l00790"></a><span class="lineno">  790</span>&#160;        {</div>
-<div class="line"><a name="l00791"></a><span class="lineno">  791</span>&#160;            <span class="keywordflow">return</span> <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line"><a name="l00792"></a><span class="lineno">  792</span>&#160;        }</div>
-<div class="line"><a name="l00793"></a><span class="lineno">  793</span>&#160; </div>
-<div class="line"><a name="l00794"></a><span class="lineno">  794</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span>&amp; last = *<a class="code" href="structeuphoria_1_1core_1_1Chatbot.html#af5396aa56630c7438b2b071f5a701a27">history</a>.rbegin();</div>
-<div class="line"><a name="l00795"></a><span class="lineno">  795</span>&#160;        <span class="keyword">auto</span> ss = <a class="code" href="structeuphoria_1_1core_1_1StringBuilder.html">StringBuilder</a>{};</div>
-<div class="line"><a name="l00796"></a><span class="lineno">  796</span>&#160; </div>
-<div class="line"><a name="l00797"></a><span class="lineno">  797</span>&#160;        ss.<a class="code" href="structeuphoria_1_1core_1_1StringBuilder.html#afe4f2b18d05d8460d534d94fc85acfee">add_string</a>(<span class="stringliteral">&quot;INPUT: {}\n&quot;</span>_format(last.input));</div>
-<div class="line"><a name="l00798"></a><span class="lineno">  798</span>&#160;        ss.<a class="code" href="structeuphoria_1_1core_1_1StringBuilder.html#afe4f2b18d05d8460d534d94fc85acfee">add_string</a>(<span class="stringliteral">&quot;SECTION: {}\n&quot;</span>_format(last.section));</div>
-<div class="line"><a name="l00799"></a><span class="lineno">  799</span>&#160;        ss.<a class="code" href="structeuphoria_1_1core_1_1StringBuilder.html#afe4f2b18d05d8460d534d94fc85acfee">add_string</a>(<span class="stringliteral">&quot;RESPONSE: {}\n&quot;</span>_format(last.response));</div>
-<div class="line"><a name="l00800"></a><span class="lineno">  800</span>&#160; </div>
-<div class="line"><a name="l00801"></a><span class="lineno">  801</span>&#160;        <span class="keywordflow">if</span>(!last.topics.empty())</div>
-<div class="line"><a name="l00802"></a><span class="lineno">  802</span>&#160;        {</div>
-<div class="line"><a name="l00803"></a><span class="lineno">  803</span>&#160;            ss.<a class="code" href="structeuphoria_1_1core_1_1StringBuilder.html#a98383375a107a494c1eb906b7eebb1e8">add_char</a>(<span class="charliteral">&#39;\n&#39;</span>);</div>
-<div class="line"><a name="l00804"></a><span class="lineno">  804</span>&#160;            ss.<a class="code" href="structeuphoria_1_1core_1_1StringBuilder.html#ad70a7416f44cb70d796b8e9a3d2a24cd">add_view</a>(<span class="stringliteral">&quot;TOPICS:\n&quot;</span>);</div>
-<div class="line"><a name="l00805"></a><span class="lineno">  805</span>&#160;            <span class="keywordflow">for</span>(<span class="keyword">const</span> <span class="keyword">auto</span>&amp; <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710ae358efa489f58062f10dd7316b65649e">t</a>: last.topics)</div>
-<div class="line"><a name="l00806"></a><span class="lineno">  806</span>&#160;            {</div>
-<div class="line"><a name="l00807"></a><span class="lineno">  807</span>&#160;                ss.<a class="code" href="structeuphoria_1_1core_1_1StringBuilder.html#afe4f2b18d05d8460d534d94fc85acfee">add_string</a>(<span class="stringliteral">&quot;{}({})\n&quot;</span>_format(<a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710ae358efa489f58062f10dd7316b65649e">t</a>.topic, <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710ae358efa489f58062f10dd7316b65649e">t</a>.time));</div>
-<div class="line"><a name="l00808"></a><span class="lineno">  808</span>&#160;            }</div>
-<div class="line"><a name="l00809"></a><span class="lineno">  809</span>&#160;            ss.<a class="code" href="structeuphoria_1_1core_1_1StringBuilder.html#a98383375a107a494c1eb906b7eebb1e8">add_char</a>(<span class="charliteral">&#39;\n&#39;</span>);</div>
-<div class="line"><a name="l00810"></a><span class="lineno">  810</span>&#160;        }</div>
-<div class="line"><a name="l00811"></a><span class="lineno">  811</span>&#160; </div>
-<div class="line"><a name="l00812"></a><span class="lineno">  812</span>&#160;        <span class="keywordflow">if</span>(!last.logs.empty())</div>
-<div class="line"><a name="l00813"></a><span class="lineno">  813</span>&#160;        {</div>
-<div class="line"><a name="l00814"></a><span class="lineno">  814</span>&#160;            ss.<a class="code" href="structeuphoria_1_1core_1_1StringBuilder.html#a98383375a107a494c1eb906b7eebb1e8">add_char</a>(<span class="charliteral">&#39;\n&#39;</span>);</div>
-<div class="line"><a name="l00815"></a><span class="lineno">  815</span>&#160;            ss.<a class="code" href="structeuphoria_1_1core_1_1StringBuilder.html#ad70a7416f44cb70d796b8e9a3d2a24cd">add_view</a>(<span class="stringliteral">&quot;---------------\n&quot;</span>);</div>
-<div class="line"><a name="l00816"></a><span class="lineno">  816</span>&#160;            ss.<a class="code" href="structeuphoria_1_1core_1_1StringBuilder.html#ad70a7416f44cb70d796b8e9a3d2a24cd">add_view</a>(<span class="stringliteral">&quot;LOGS\n&quot;</span>);</div>
-<div class="line"><a name="l00817"></a><span class="lineno">  817</span>&#160;            ss.<a class="code" href="structeuphoria_1_1core_1_1StringBuilder.html#ad70a7416f44cb70d796b8e9a3d2a24cd">add_view</a>(<span class="stringliteral">&quot;---------------\n&quot;</span>);</div>
-<div class="line"><a name="l00818"></a><span class="lineno">  818</span>&#160;            ss.<a class="code" href="structeuphoria_1_1core_1_1StringBuilder.html#a98383375a107a494c1eb906b7eebb1e8">add_char</a>(<span class="charliteral">&#39;\n&#39;</span>);</div>
-<div class="line"><a name="l00819"></a><span class="lineno">  819</span>&#160; </div>
-<div class="line"><a name="l00820"></a><span class="lineno">  820</span>&#160;            <span class="keywordflow">for</span>(<span class="keyword">const</span> <span class="keyword">auto</span>&amp; <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a2db95e8e1a9267b7a1188556b2013b33">l</a>: last.logs)</div>
-<div class="line"><a name="l00821"></a><span class="lineno">  821</span>&#160;            {</div>
-<div class="line"><a name="l00822"></a><span class="lineno">  822</span>&#160;                <span class="keywordtype">bool</span> display = searches.empty();</div>
-<div class="line"><a name="l00823"></a><span class="lineno">  823</span>&#160;                <span class="keywordflow">if</span>(!searches.empty())</div>
-<div class="line"><a name="l00824"></a><span class="lineno">  824</span>&#160;                {</div>
-<div class="line"><a name="l00825"></a><span class="lineno">  825</span>&#160;                    <span class="keyword">const</span> <span class="keyword">auto</span> titles = <a class="code" href="group__string.html#ga0969511cbbc86a70a94662d9e6365200">to_lower</a>(<a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a2db95e8e1a9267b7a1188556b2013b33">l</a>.titles);</div>
-<div class="line"><a name="l00826"></a><span class="lineno">  826</span>&#160;                    display = <a class="code" href="namespaceeuphoria_1_1core.html#a6aee73bde8335c83077c9f0aeec17f40">find</a>(titles, searches);</div>
-<div class="line"><a name="l00827"></a><span class="lineno">  827</span>&#160;                }</div>
-<div class="line"><a name="l00828"></a><span class="lineno">  828</span>&#160;                <span class="keywordflow">if</span>(display)</div>
-<div class="line"><a name="l00829"></a><span class="lineno">  829</span>&#160;                {</div>
-<div class="line"><a name="l00830"></a><span class="lineno">  830</span>&#160;                    <span class="keywordflow">for</span>(<span class="keyword">const</span> <span class="keyword">auto</span>&amp; li: <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a2db95e8e1a9267b7a1188556b2013b33">l</a>.lines)</div>
-<div class="line"><a name="l00831"></a><span class="lineno">  831</span>&#160;                    {</div>
-<div class="line"><a name="l00832"></a><span class="lineno">  832</span>&#160;                        ss.add_string(<span class="stringliteral">&quot;  {}\n&quot;</span>_format(li));</div>
-<div class="line"><a name="l00833"></a><span class="lineno">  833</span>&#160;                    }</div>
-<div class="line"><a name="l00834"></a><span class="lineno">  834</span>&#160;                    ss.add_char(<span class="charliteral">&#39;\n&#39;</span>);</div>
-<div class="line"><a name="l00835"></a><span class="lineno">  835</span>&#160;                }</div>
-<div class="line"><a name="l00836"></a><span class="lineno">  836</span>&#160;            }</div>
-<div class="line"><a name="l00837"></a><span class="lineno">  837</span>&#160;        }</div>
-<div class="line"><a name="l00838"></a><span class="lineno">  838</span>&#160; </div>
-<div class="line"><a name="l00839"></a><span class="lineno">  839</span>&#160;        <span class="keywordflow">return</span> ss.to_string();</div>
-<div class="line"><a name="l00840"></a><span class="lineno">  840</span>&#160;    }</div>
-<div class="line"><a name="l00841"></a><span class="lineno">  841</span>&#160;}</div>
+<div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160;                    fmt::format(<span class="stringliteral">&quot;Checking keyword {} {{}}&quot;</span>,</div>
+<div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160;                        <span class="comment">// todo(Gustav): use map and a escape string function here</span></div>
+<div class="line"><a name="l00688"></a><span class="lineno">  688</span>&#160;                        <a class="code" href="structeuphoria_1_1core_1_1StringMerger.html">StringMerger</a>().set_separator(<span class="stringliteral">&quot; &quot;</span>).set_start_and_end(<span class="stringliteral">&quot;\&quot;&quot;</span>).merge(keyword.words),</div>
+<div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160;                        <a class="code" href="namespaceeuphoria_1_1core_1_1string__mergers.html#a2d5d00244d536bbd8654476a5ff3e48f">string_mergers::english_or</a>.<a class="code" href="structeuphoria_1_1core_1_1StringMerger.html#a9ea18a79310e404c870e32dfac16f27a">merge</a></div>
+<div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160;                        (</div>
+<div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;                            std::vector&lt;std::string&gt;</div>
+<div class="line"><a name="l00692"></a><span class="lineno">  692</span>&#160;                            {</div>
+<div class="line"><a name="l00693"></a><span class="lineno">  693</span>&#160;                                get_string_or_empty(longer_keyword, <span class="stringliteral">&quot;longer&quot;</span>),</div>
+<div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160;                                get_string_or_empty(same_size_but_better, <span class="stringliteral">&quot;same size but better&quot;</span>)</div>
+<div class="line"><a name="l00695"></a><span class="lineno">  695</span>&#160;                            }</div>
+<div class="line"><a name="l00696"></a><span class="lineno">  696</span>&#160;                        )</div>
+<div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160;                    )</div>
+<div class="line"><a name="l00698"></a><span class="lineno">  698</span>&#160;                );</div>
+<div class="line"><a name="l00699"></a><span class="lineno">  699</span>&#160;                <span class="keyword">const</span> <span class="keywordtype">bool</span> should_check_keyword = longer_keyword || same_size_but_better;</div>
+<div class="line"><a name="l00700"></a><span class="lineno">  700</span>&#160;                <span class="keywordflow">if</span>(!should_check_keyword)</div>
+<div class="line"><a name="l00701"></a><span class="lineno">  701</span>&#160;                {</div>
+<div class="line"><a name="l00702"></a><span class="lineno">  702</span>&#160;                    <a class="code" href="namespaceeuphoria_1_1core.html#a8f6ae6403fb2a65953bc6a618d88114b">log</a>.emplace_back(<span class="stringliteral">&quot;Wont check keyword&quot;</span>);</div>
+<div class="line"><a name="l00703"></a><span class="lineno">  703</span>&#160;                }</div>
+<div class="line"><a name="l00704"></a><span class="lineno">  704</span>&#160;                <span class="keywordflow">if</span>(should_check_keyword)</div>
+<div class="line"><a name="l00705"></a><span class="lineno">  705</span>&#160;                {</div>
+<div class="line"><a name="l00706"></a><span class="lineno">  706</span>&#160;                    <span class="keyword">const</span> <span class="keyword">auto</span> matched_index = <a class="code" href="namespaceeuphoria_1_1core_1_1detail.html#a546b6e2255462630d801a5c583d0b493">detail::find_get_palette_sequential_pu_bu_gn</a></div>
+<div class="line"><a name="l00707"></a><span class="lineno">  707</span>&#160;                    (</div>
+<div class="line"><a name="l00708"></a><span class="lineno">  708</span>&#160;                        input,</div>
+<div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160;                        keyword</div>
+<div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160;                    );</div>
+<div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160;                    <span class="keywordflow">if</span>(matched_index == -1)</div>
+<div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160;                    {</div>
+<div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;                        <a class="code" href="namespaceeuphoria_1_1core.html#a8f6ae6403fb2a65953bc6a618d88114b">log</a>.emplace_back(<span class="stringliteral">&quot;No match&quot;</span>);</div>
+<div class="line"><a name="l00714"></a><span class="lineno">  714</span>&#160;                    }</div>
+<div class="line"><a name="l00715"></a><span class="lineno">  715</span>&#160;                    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00716"></a><span class="lineno">  716</span>&#160;                    {</div>
+<div class="line"><a name="l00717"></a><span class="lineno">  717</span>&#160;                        match_length = <a class="code" href="namespaceeuphoria_1_1core.html#a5fedf1ecd80db4f67871d932a0d88b27">c_sizet_to_int</a>(keyword.words.size());</div>
+<div class="line"><a name="l00718"></a><span class="lineno">  718</span>&#160;                        match_location = keyword.location;</div>
+<div class="line"><a name="l00719"></a><span class="lineno">  719</span>&#160;                        <a class="code" href="namespaceeuphoria_1_1core.html#a8f6ae6403fb2a65953bc6a618d88114b">log</a>.emplace_back</div>
+<div class="line"><a name="l00720"></a><span class="lineno">  720</span>&#160;                        (</div>
+<div class="line"><a name="l00721"></a><span class="lineno">  721</span>&#160;                            fmt::format(<span class="stringliteral">&quot;Matched at {} of length {} with {}&quot;</span>, matched_index, match_length, match_location)</div>
+<div class="line"><a name="l00722"></a><span class="lineno">  722</span>&#160;                        );</div>
+<div class="line"><a name="l00723"></a><span class="lineno">  723</span>&#160;                        <span class="keywordflow">if</span>(<a class="code" href="structeuphoria_1_1core_1_1Chatbot.html#a9c8104f4c96e2b485adccb605a8b2309">last_event</a> == resp.event_id)</div>
+<div class="line"><a name="l00724"></a><span class="lineno">  724</span>&#160;                        {</div>
+<div class="line"><a name="l00725"></a><span class="lineno">  725</span>&#160;                            <a class="code" href="namespaceeuphoria_1_1core.html#a8f6ae6403fb2a65953bc6a618d88114b">log</a>.emplace_back(<span class="stringliteral">&quot;Same event as last time&quot;</span>);</div>
+<div class="line"><a name="l00726"></a><span class="lineno">  726</span>&#160;                            response = <a class="code" href="namespaceeuphoria_1_1core_1_1detail.html#a59d0873a1028dc6b4c7215be1c107b60">detail::select_basic_response</a></div>
+<div class="line"><a name="l00727"></a><span class="lineno">  727</span>&#160;                            (</div>
+<div class="line"><a name="l00728"></a><span class="lineno">  728</span>&#160;                                <span class="keyword">this</span>,</div>
+<div class="line"><a name="l00729"></a><span class="lineno">  729</span>&#160;                                <a class="code" href="structeuphoria_1_1core_1_1Chatbot.html#a82ad632007c23eb0afbe3235348e8643">database</a>.<a class="code" href="structeuphoria_1_1core_1_1detail_1_1Database.html#ae808b7cbb79e842957a58c23917dc83a">similar_input</a>,</div>
+<div class="line"><a name="l00730"></a><span class="lineno">  730</span>&#160;                                <span class="stringliteral">&quot;similar input&quot;</span></div>
+<div class="line"><a name="l00731"></a><span class="lineno">  731</span>&#160;                            );</div>
+<div class="line"><a name="l00732"></a><span class="lineno">  732</span>&#160;                        }</div>
+<div class="line"><a name="l00733"></a><span class="lineno">  733</span>&#160;                        <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00734"></a><span class="lineno">  734</span>&#160;                        {</div>
+<div class="line"><a name="l00735"></a><span class="lineno">  735</span>&#160;                            <a class="code" href="namespaceeuphoria_1_1core.html#a8f6ae6403fb2a65953bc6a618d88114b">log</a>.emplace_back(<span class="stringliteral">&quot;Selecting new response&quot;</span>);</div>
+<div class="line"><a name="l00736"></a><span class="lineno">  736</span>&#160;                            response = <a class="code" href="namespaceeuphoria_1_1core_1_1detail.html#ab00c7e80ffe77ad4ec7851536d4d2f6f">select_response</a></div>
+<div class="line"><a name="l00737"></a><span class="lineno">  737</span>&#160;                            (</div>
+<div class="line"><a name="l00738"></a><span class="lineno">  738</span>&#160;                                <span class="keyword">this</span>,</div>
+<div class="line"><a name="l00739"></a><span class="lineno">  739</span>&#160;                                resp.responses,</div>
+<div class="line"><a name="l00740"></a><span class="lineno">  740</span>&#160;                                keyword,</div>
+<div class="line"><a name="l00741"></a><span class="lineno">  741</span>&#160;                                dirty_input</div>
+<div class="line"><a name="l00742"></a><span class="lineno">  742</span>&#160;                            );</div>
+<div class="line"><a name="l00743"></a><span class="lineno">  743</span>&#160;                        }</div>
+<div class="line"><a name="l00744"></a><span class="lineno">  744</span>&#160; </div>
+<div class="line"><a name="l00745"></a><span class="lineno">  745</span>&#160;                        <span class="keywordflow">if</span>(resp.ends_conversation)</div>
+<div class="line"><a name="l00746"></a><span class="lineno">  746</span>&#160;                        {</div>
+<div class="line"><a name="l00747"></a><span class="lineno">  747</span>&#160;                            <span class="comment">// todo(Gustav): move to end when we have accepted this response as final</span></div>
+<div class="line"><a name="l00748"></a><span class="lineno">  748</span>&#160;                            <a class="code" href="namespaceeuphoria_1_1core.html#a8f6ae6403fb2a65953bc6a618d88114b">log</a>.emplace_back(<span class="stringliteral">&quot;ending conversation&quot;</span>);</div>
+<div class="line"><a name="l00749"></a><span class="lineno">  749</span>&#160;                            <a class="code" href="structeuphoria_1_1core_1_1Chatbot.html#adaf7b48f3c947febed3c309eee764955">is_in_conversation</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00750"></a><span class="lineno">  750</span>&#160;                        }</div>
+<div class="line"><a name="l00751"></a><span class="lineno">  751</span>&#160; </div>
+<div class="line"><a name="l00752"></a><span class="lineno">  752</span>&#160;                        <a class="code" href="structeuphoria_1_1core_1_1Chatbot.html#a9c8104f4c96e2b485adccb605a8b2309">last_event</a> = resp.event_id;</div>
+<div class="line"><a name="l00753"></a><span class="lineno">  753</span>&#160;                    }</div>
+<div class="line"><a name="l00754"></a><span class="lineno">  754</span>&#160;                }</div>
+<div class="line"><a name="l00755"></a><span class="lineno">  755</span>&#160;            }</div>
+<div class="line"><a name="l00756"></a><span class="lineno">  756</span>&#160;        }</div>
+<div class="line"><a name="l00757"></a><span class="lineno">  757</span>&#160; </div>
+<div class="line"><a name="l00758"></a><span class="lineno">  758</span>&#160;        <span class="keywordflow">if</span>(response.empty())</div>
+<div class="line"><a name="l00759"></a><span class="lineno">  759</span>&#160;        {</div>
+<div class="line"><a name="l00760"></a><span class="lineno">  760</span>&#160;            ret.<a class="code" href="structeuphoria_1_1core_1_1detail_1_1ConversationStatus.html#a534afef0389064b60d4a410ede77b319">section</a> = <span class="stringliteral">&quot;empty response&quot;</span>;</div>
+<div class="line"><a name="l00761"></a><span class="lineno">  761</span>&#160;            <a class="code" href="structeuphoria_1_1core_1_1Chatbot.html#a36a423a08ea041c857b79fc9964ae39b">missing_input</a>.emplace_back(dirty_input);</div>
+<div class="line"><a name="l00762"></a><span class="lineno">  762</span>&#160;            ret.<a class="code" href="structeuphoria_1_1core_1_1detail_1_1ConversationStatus.html#a1e6bf0074a60d4c7c458f8a81028b5c2">response</a> = <a class="code" href="namespaceeuphoria_1_1core_1_1detail.html#a59d0873a1028dc6b4c7215be1c107b60">detail::select_basic_response</a></div>
+<div class="line"><a name="l00763"></a><span class="lineno">  763</span>&#160;            (</div>
+<div class="line"><a name="l00764"></a><span class="lineno">  764</span>&#160;                <span class="keyword">this</span>,</div>
+<div class="line"><a name="l00765"></a><span class="lineno">  765</span>&#160;                <a class="code" href="structeuphoria_1_1core_1_1Chatbot.html#a82ad632007c23eb0afbe3235348e8643">database</a>.<a class="code" href="structeuphoria_1_1core_1_1detail_1_1Database.html#af69e6a900721f4508d599515673bca70">no_response</a>,</div>
+<div class="line"><a name="l00766"></a><span class="lineno">  766</span>&#160;                <span class="stringliteral">&quot;no response&quot;</span></div>
+<div class="line"><a name="l00767"></a><span class="lineno">  767</span>&#160;            );</div>
+<div class="line"><a name="l00768"></a><span class="lineno">  768</span>&#160;            <span class="keywordflow">return</span> ret;</div>
+<div class="line"><a name="l00769"></a><span class="lineno">  769</span>&#160;        }</div>
+<div class="line"><a name="l00770"></a><span class="lineno">  770</span>&#160;        <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00771"></a><span class="lineno">  771</span>&#160;        {</div>
+<div class="line"><a name="l00772"></a><span class="lineno">  772</span>&#160;            ret.<a class="code" href="structeuphoria_1_1core_1_1detail_1_1ConversationStatus.html#a534afef0389064b60d4a410ede77b319">section</a> = <span class="stringliteral">&quot;found response&quot;</span>;</div>
+<div class="line"><a name="l00773"></a><span class="lineno">  773</span>&#160;            ret.<a class="code" href="structeuphoria_1_1core_1_1detail_1_1ConversationStatus.html#a1e6bf0074a60d4c7c458f8a81028b5c2">response</a> = response;</div>
+<div class="line"><a name="l00774"></a><span class="lineno">  774</span>&#160;            <span class="keywordflow">return</span> ret;</div>
+<div class="line"><a name="l00775"></a><span class="lineno">  775</span>&#160;        }</div>
+<div class="line"><a name="l00776"></a><span class="lineno">  776</span>&#160;    }</div>
+<div class="line"><a name="l00777"></a><span class="lineno">  777</span>&#160; </div>
+<div class="line"><a name="l00778"></a><span class="lineno">  778</span>&#160;    std::string</div>
+<div class="line"><a name="l00779"></a><span class="lineno"><a class="line" href="structeuphoria_1_1core_1_1Chatbot.html#a55290aa7f87a90e2ab4ba419c9be1948">  779</a></span>&#160;    <a class="code" href="structeuphoria_1_1core_1_1Chatbot.html#a55290aa7f87a90e2ab4ba419c9be1948">Chatbot::get_sign_on_message</a>()</div>
+<div class="line"><a name="l00780"></a><span class="lineno">  780</span>&#160;    {</div>
+<div class="line"><a name="l00781"></a><span class="lineno">  781</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespaceeuphoria_1_1core_1_1detail.html#a59d0873a1028dc6b4c7215be1c107b60">detail::select_basic_response</a>(<span class="keyword">this</span>, <a class="code" href="structeuphoria_1_1core_1_1Chatbot.html#a82ad632007c23eb0afbe3235348e8643">database</a>.<a class="code" href="structeuphoria_1_1core_1_1detail_1_1Database.html#ad4b58f6c3f7da1ac90dc0d2a47da4466">signon</a>, <span class="stringliteral">&quot;signon&quot;</span>);</div>
+<div class="line"><a name="l00782"></a><span class="lineno">  782</span>&#160;    }</div>
+<div class="line"><a name="l00783"></a><span class="lineno">  783</span>&#160; </div>
+<div class="line"><a name="l00784"></a><span class="lineno">  784</span>&#160;    std::string</div>
+<div class="line"><a name="l00785"></a><span class="lineno"><a class="line" href="structeuphoria_1_1core_1_1Chatbot.html#ac23f62d8a5cf8554dad4579623feb9c8">  785</a></span>&#160;    <a class="code" href="structeuphoria_1_1core_1_1Chatbot.html#ac23f62d8a5cf8554dad4579623feb9c8">Chatbot::debug_last_response</a>(<span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; search)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00786"></a><span class="lineno">  786</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00787"></a><span class="lineno">  787</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> searches = <a class="code" href="group__string.html#ga0969511cbbc86a70a94662d9e6365200">to_lower</a>(search);</div>
+<div class="line"><a name="l00788"></a><span class="lineno">  788</span>&#160;        <span class="keywordflow">if</span>(<a class="code" href="structeuphoria_1_1core_1_1Chatbot.html#af5396aa56630c7438b2b071f5a701a27">history</a>.empty())</div>
+<div class="line"><a name="l00789"></a><span class="lineno">  789</span>&#160;        {</div>
+<div class="line"><a name="l00790"></a><span class="lineno">  790</span>&#160;            <span class="keywordflow">return</span> <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00791"></a><span class="lineno">  791</span>&#160;        }</div>
+<div class="line"><a name="l00792"></a><span class="lineno">  792</span>&#160; </div>
+<div class="line"><a name="l00793"></a><span class="lineno">  793</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span>&amp; last = *<a class="code" href="structeuphoria_1_1core_1_1Chatbot.html#af5396aa56630c7438b2b071f5a701a27">history</a>.rbegin();</div>
+<div class="line"><a name="l00794"></a><span class="lineno">  794</span>&#160;        <span class="keyword">auto</span> ss = <a class="code" href="structeuphoria_1_1core_1_1StringBuilder.html">StringBuilder</a>{};</div>
+<div class="line"><a name="l00795"></a><span class="lineno">  795</span>&#160; </div>
+<div class="line"><a name="l00796"></a><span class="lineno">  796</span>&#160;        ss.<a class="code" href="structeuphoria_1_1core_1_1StringBuilder.html#afe4f2b18d05d8460d534d94fc85acfee">add_string</a>(fmt::format(<span class="stringliteral">&quot;INPUT: {}\n&quot;</span>, last.input));</div>
+<div class="line"><a name="l00797"></a><span class="lineno">  797</span>&#160;        ss.<a class="code" href="structeuphoria_1_1core_1_1StringBuilder.html#afe4f2b18d05d8460d534d94fc85acfee">add_string</a>(fmt::format(<span class="stringliteral">&quot;SECTION: {}\n&quot;</span>, last.section));</div>
+<div class="line"><a name="l00798"></a><span class="lineno">  798</span>&#160;        ss.<a class="code" href="structeuphoria_1_1core_1_1StringBuilder.html#afe4f2b18d05d8460d534d94fc85acfee">add_string</a>(fmt::format(<span class="stringliteral">&quot;RESPONSE: {}\n&quot;</span>, last.response));</div>
+<div class="line"><a name="l00799"></a><span class="lineno">  799</span>&#160; </div>
+<div class="line"><a name="l00800"></a><span class="lineno">  800</span>&#160;        <span class="keywordflow">if</span>(!last.topics.empty())</div>
+<div class="line"><a name="l00801"></a><span class="lineno">  801</span>&#160;        {</div>
+<div class="line"><a name="l00802"></a><span class="lineno">  802</span>&#160;            ss.<a class="code" href="structeuphoria_1_1core_1_1StringBuilder.html#a98383375a107a494c1eb906b7eebb1e8">add_char</a>(<span class="charliteral">&#39;\n&#39;</span>);</div>
+<div class="line"><a name="l00803"></a><span class="lineno">  803</span>&#160;            ss.<a class="code" href="structeuphoria_1_1core_1_1StringBuilder.html#ad70a7416f44cb70d796b8e9a3d2a24cd">add_view</a>(<span class="stringliteral">&quot;TOPICS:\n&quot;</span>);</div>
+<div class="line"><a name="l00804"></a><span class="lineno">  804</span>&#160;            <span class="keywordflow">for</span>(<span class="keyword">const</span> <span class="keyword">auto</span>&amp; <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710ae358efa489f58062f10dd7316b65649e">t</a>: last.topics)</div>
+<div class="line"><a name="l00805"></a><span class="lineno">  805</span>&#160;            {</div>
+<div class="line"><a name="l00806"></a><span class="lineno">  806</span>&#160;                ss.<a class="code" href="structeuphoria_1_1core_1_1StringBuilder.html#afe4f2b18d05d8460d534d94fc85acfee">add_string</a>(fmt::format(<span class="stringliteral">&quot;{}({})\n&quot;</span>, <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710ae358efa489f58062f10dd7316b65649e">t</a>.topic, <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710ae358efa489f58062f10dd7316b65649e">t</a>.time));</div>
+<div class="line"><a name="l00807"></a><span class="lineno">  807</span>&#160;            }</div>
+<div class="line"><a name="l00808"></a><span class="lineno">  808</span>&#160;            ss.<a class="code" href="structeuphoria_1_1core_1_1StringBuilder.html#a98383375a107a494c1eb906b7eebb1e8">add_char</a>(<span class="charliteral">&#39;\n&#39;</span>);</div>
+<div class="line"><a name="l00809"></a><span class="lineno">  809</span>&#160;        }</div>
+<div class="line"><a name="l00810"></a><span class="lineno">  810</span>&#160; </div>
+<div class="line"><a name="l00811"></a><span class="lineno">  811</span>&#160;        <span class="keywordflow">if</span>(!last.logs.empty())</div>
+<div class="line"><a name="l00812"></a><span class="lineno">  812</span>&#160;        {</div>
+<div class="line"><a name="l00813"></a><span class="lineno">  813</span>&#160;            ss.<a class="code" href="structeuphoria_1_1core_1_1StringBuilder.html#a98383375a107a494c1eb906b7eebb1e8">add_char</a>(<span class="charliteral">&#39;\n&#39;</span>);</div>
+<div class="line"><a name="l00814"></a><span class="lineno">  814</span>&#160;            ss.<a class="code" href="structeuphoria_1_1core_1_1StringBuilder.html#ad70a7416f44cb70d796b8e9a3d2a24cd">add_view</a>(<span class="stringliteral">&quot;---------------\n&quot;</span>);</div>
+<div class="line"><a name="l00815"></a><span class="lineno">  815</span>&#160;            ss.<a class="code" href="structeuphoria_1_1core_1_1StringBuilder.html#ad70a7416f44cb70d796b8e9a3d2a24cd">add_view</a>(<span class="stringliteral">&quot;LOGS\n&quot;</span>);</div>
+<div class="line"><a name="l00816"></a><span class="lineno">  816</span>&#160;            ss.<a class="code" href="structeuphoria_1_1core_1_1StringBuilder.html#ad70a7416f44cb70d796b8e9a3d2a24cd">add_view</a>(<span class="stringliteral">&quot;---------------\n&quot;</span>);</div>
+<div class="line"><a name="l00817"></a><span class="lineno">  817</span>&#160;            ss.<a class="code" href="structeuphoria_1_1core_1_1StringBuilder.html#a98383375a107a494c1eb906b7eebb1e8">add_char</a>(<span class="charliteral">&#39;\n&#39;</span>);</div>
+<div class="line"><a name="l00818"></a><span class="lineno">  818</span>&#160; </div>
+<div class="line"><a name="l00819"></a><span class="lineno">  819</span>&#160;            <span class="keywordflow">for</span>(<span class="keyword">const</span> <span class="keyword">auto</span>&amp; <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a2db95e8e1a9267b7a1188556b2013b33">l</a>: last.logs)</div>
+<div class="line"><a name="l00820"></a><span class="lineno">  820</span>&#160;            {</div>
+<div class="line"><a name="l00821"></a><span class="lineno">  821</span>&#160;                <span class="keywordtype">bool</span> display = searches.empty();</div>
+<div class="line"><a name="l00822"></a><span class="lineno">  822</span>&#160;                <span class="keywordflow">if</span>(!searches.empty())</div>
+<div class="line"><a name="l00823"></a><span class="lineno">  823</span>&#160;                {</div>
+<div class="line"><a name="l00824"></a><span class="lineno">  824</span>&#160;                    <span class="keyword">const</span> <span class="keyword">auto</span> titles = <a class="code" href="group__string.html#ga0969511cbbc86a70a94662d9e6365200">to_lower</a>(<a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a2db95e8e1a9267b7a1188556b2013b33">l</a>.titles);</div>
+<div class="line"><a name="l00825"></a><span class="lineno">  825</span>&#160;                    display = <a class="code" href="namespaceeuphoria_1_1core.html#a6aee73bde8335c83077c9f0aeec17f40">find</a>(titles, searches);</div>
+<div class="line"><a name="l00826"></a><span class="lineno">  826</span>&#160;                }</div>
+<div class="line"><a name="l00827"></a><span class="lineno">  827</span>&#160;                <span class="keywordflow">if</span>(display)</div>
+<div class="line"><a name="l00828"></a><span class="lineno">  828</span>&#160;                {</div>
+<div class="line"><a name="l00829"></a><span class="lineno">  829</span>&#160;                    <span class="keywordflow">for</span>(<span class="keyword">const</span> <span class="keyword">auto</span>&amp; li: <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a2db95e8e1a9267b7a1188556b2013b33">l</a>.lines)</div>
+<div class="line"><a name="l00830"></a><span class="lineno">  830</span>&#160;                    {</div>
+<div class="line"><a name="l00831"></a><span class="lineno">  831</span>&#160;                        ss.add_string(fmt::format(<span class="stringliteral">&quot;  {}\n&quot;</span>, li));</div>
+<div class="line"><a name="l00832"></a><span class="lineno">  832</span>&#160;                    }</div>
+<div class="line"><a name="l00833"></a><span class="lineno">  833</span>&#160;                    ss.add_char(<span class="charliteral">&#39;\n&#39;</span>);</div>
+<div class="line"><a name="l00834"></a><span class="lineno">  834</span>&#160;                }</div>
+<div class="line"><a name="l00835"></a><span class="lineno">  835</span>&#160;            }</div>
+<div class="line"><a name="l00836"></a><span class="lineno">  836</span>&#160;        }</div>
+<div class="line"><a name="l00837"></a><span class="lineno">  837</span>&#160; </div>
+<div class="line"><a name="l00838"></a><span class="lineno">  838</span>&#160;        <span class="keywordflow">return</span> ss.to_string();</div>
+<div class="line"><a name="l00839"></a><span class="lineno">  839</span>&#160;    }</div>
+<div class="line"><a name="l00840"></a><span class="lineno">  840</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="agroup__string_html_ga1393c92069ffb1be8bc58af3e7212c58"><div class="ttname"><a href="group__string.html#ga1393c92069ffb1be8bc58af3e7212c58">euphoria::core::replace_all</a></div><div class="ttdeci">void replace_all(std::string *string, const std::string &amp;to_find, const std::string &amp;to_replace)</div><div class="ttdoc">Replace all occurrences in a string.</div><div class="ttdef"><b>Definition:</b> <a href="stringutils_8cc_source.html#l00269">stringutils.cc:269</a></div></div>
 <div class="ttc" id="astructeuphoria_1_1core_1_1Chatbot_html_ae455e0623a3b72b17b11834b4d43f87e"><div class="ttname"><a href="structeuphoria_1_1core_1_1Chatbot.html#ae455e0623a3b72b17b11834b4d43f87e">euphoria::core::Chatbot::get_response</a></div><div class="ttdeci">std::string get_response(const std::string &amp;input)</div><div class="ttdef"><b>Definition:</b> <a href="chatbot_8cc_source.html#l00413">chatbot.cc:413</a></div></div>
@@ -916,7 +915,7 @@
 <div class="ttc" id="astructeuphoria_1_1core_1_1detail_1_1Database_html_a00f06f380bdaafb252e66b404bc212be"><div class="ttname"><a href="structeuphoria_1_1core_1_1detail_1_1Database.html#a00f06f380bdaafb252e66b404bc212be">euphoria::core::detail::Database::same_input</a></div><div class="ttdeci">std::vector&lt; std::string &gt; same_input</div><div class="ttdef"><b>Definition:</b> <a href="chatbot_8h_source.html#l00114">chatbot.h:114</a></div></div>
 <div class="ttc" id="anamespaceeuphoria_1_1core_1_1detail_html_a546b6e2255462630d801a5c583d0b493"><div class="ttname"><a href="namespaceeuphoria_1_1core_1_1detail.html#a546b6e2255462630d801a5c583d0b493">euphoria::core::detail::find_get_palette_sequential_pu_bu_gn</a></div><div class="ttdeci">int find_get_palette_sequential_pu_bu_gn(const std::vector&lt; std::string &gt; &amp;input, const detail::Input &amp;keywords)</div><div class="ttdef"><b>Definition:</b> <a href="chatbot_8cc_source.html#l00042">chatbot.cc:42</a></div></div>
 <div class="ttc" id="achatbot_8h_html"><div class="ttname"><a href="chatbot_8h.html">chatbot.h</a></div></div>
-<div class="ttc" id="astructeuphoria_1_1core_1_1Chatbot_html_ac23f62d8a5cf8554dad4579623feb9c8"><div class="ttname"><a href="structeuphoria_1_1core_1_1Chatbot.html#ac23f62d8a5cf8554dad4579623feb9c8">euphoria::core::Chatbot::debug_last_response</a></div><div class="ttdeci">std::string debug_last_response(const std::vector&lt; std::string &gt; &amp;search=std::vector&lt; std::string &gt;{}) const</div><div class="ttdef"><b>Definition:</b> <a href="chatbot_8cc_source.html#l00786">chatbot.cc:786</a></div></div>
+<div class="ttc" id="astructeuphoria_1_1core_1_1Chatbot_html_ac23f62d8a5cf8554dad4579623feb9c8"><div class="ttname"><a href="structeuphoria_1_1core_1_1Chatbot.html#ac23f62d8a5cf8554dad4579623feb9c8">euphoria::core::Chatbot::debug_last_response</a></div><div class="ttdeci">std::string debug_last_response(const std::vector&lt; std::string &gt; &amp;search=std::vector&lt; std::string &gt;{}) const</div><div class="ttdef"><b>Definition:</b> <a href="chatbot_8cc_source.html#l00785">chatbot.cc:785</a></div></div>
 <div class="ttc" id="astructeuphoria_1_1core_1_1detail_1_1ConversationStatus_html_add606277ea221865ce61e425b1ef1fad"><div class="ttname"><a href="structeuphoria_1_1core_1_1detail_1_1ConversationStatus.html#add606277ea221865ce61e425b1ef1fad">euphoria::core::detail::ConversationStatus::input</a></div><div class="ttdeci">std::string input</div><div class="ttdef"><b>Definition:</b> <a href="chatbot_8h_source.html#l00171">chatbot.h:171</a></div></div>
 <div class="ttc" id="astructeuphoria_1_1core_1_1detail_1_1Transposer_html_a907d7054e04937db0011bc0481ca82f0"><div class="ttname"><a href="structeuphoria_1_1core_1_1detail_1_1Transposer.html#a907d7054e04937db0011bc0481ca82f0">euphoria::core::detail::Transposer::transpose</a></div><div class="ttdeci">std::string transpose(const std::string &amp;input) const</div><div class="ttdef"><b>Definition:</b> <a href="chatbot_8cc_source.html#l00226">chatbot.cc:226</a></div></div>
 <div class="ttc" id="agroup__string_html_ga6b3b47e71d47e09860a94f43e2e4e443"><div class="ttname"><a href="group__string.html#ga6b3b47e71d47e09860a94f43e2e4e443">euphoria::core::space_characters</a></div><div class="ttdeci">const std::string space_characters</div><div class="ttdoc">Space characters.</div><div class="ttdef"><b>Definition:</b> <a href="stringutils_8h_source.html#l00024">stringutils.h:24</a></div></div>
@@ -1016,7 +1015,7 @@
 <div class="ttc" id="anamespaceeuphoria_1_1core_html_af099f7ec563e6193d781f5d13f5c075b"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#af099f7ec563e6193d781f5d13f5c075b">euphoria::core::c_int_to_sizet</a></div><div class="ttdeci">size_t c_int_to_sizet(int i)</div><div class="ttdef"><b>Definition:</b> <a href="cint_8cc_source.html#l00035">cint.cc:35</a></div></div>
 <div class="ttc" id="agroup__string_html_ga8cb4fed283213699726e617f65f0a1ad"><div class="ttname"><a href="group__string.html#ga8cb4fed283213699726e617f65f0a1ad">euphoria::core::trim</a></div><div class="ttdeci">std::string trim(const std::string &amp;string_to_trim, const std::string &amp;trim_characters)</div><div class="ttdoc">Remove characters from both the start and the end.</div><div class="ttdef"><b>Definition:</b> <a href="stringutils_8cc_source.html#l00079">stringutils.cc:79</a></div></div>
 <div class="ttc" id="agroup__string_html_ga67304dafab5cf1cbe5086c10cc105b51"><div class="ttname"><a href="group__string.html#ga67304dafab5cf1cbe5086c10cc105b51">euphoria::core::to_upper</a></div><div class="ttdeci">std::string to_upper(const std::string &amp;str)</div><div class="ttdef"><b>Definition:</b> <a href="stringutils_8cc_source.html#l00159">stringutils.cc:159</a></div></div>
-<div class="ttc" id="astructeuphoria_1_1core_1_1Chatbot_html_a55290aa7f87a90e2ab4ba419c9be1948"><div class="ttname"><a href="structeuphoria_1_1core_1_1Chatbot.html#a55290aa7f87a90e2ab4ba419c9be1948">euphoria::core::Chatbot::get_sign_on_message</a></div><div class="ttdeci">std::string get_sign_on_message()</div><div class="ttdef"><b>Definition:</b> <a href="chatbot_8cc_source.html#l00780">chatbot.cc:780</a></div></div>
+<div class="ttc" id="astructeuphoria_1_1core_1_1Chatbot_html_a55290aa7f87a90e2ab4ba419c9be1948"><div class="ttname"><a href="structeuphoria_1_1core_1_1Chatbot.html#a55290aa7f87a90e2ab4ba419c9be1948">euphoria::core::Chatbot::get_sign_on_message</a></div><div class="ttdeci">std::string get_sign_on_message()</div><div class="ttdef"><b>Definition:</b> <a href="chatbot_8cc_source.html#l00779">chatbot.cc:779</a></div></div>
 <div class="ttc" id="astructeuphoria_1_1core_1_1detail_1_1ResponseBuilder_html_a796ef2b2565764cb333a52f2fc527ac0"><div class="ttname"><a href="structeuphoria_1_1core_1_1detail_1_1ResponseBuilder.html#a796ef2b2565764cb333a52f2fc527ac0">euphoria::core::detail::ResponseBuilder::add_input</a></div><div class="ttdeci">ResponseBuilder &amp; add_input(const std::string &amp;in, Input::LocationType where=Input::at_start)</div><div class="ttdef"><b>Definition:</b> <a href="chatbot_8cc_source.html#l00146">chatbot.cc:146</a></div></div>
 <div class="ttc" id="anamespaceeuphoria_1_1core_1_1detail_html_a59d0873a1028dc6b4c7215be1c107b60"><div class="ttname"><a href="namespaceeuphoria_1_1core_1_1detail.html#a59d0873a1028dc6b4c7215be1c107b60">euphoria::core::detail::select_basic_response</a></div><div class="ttdeci">std::string select_basic_response(Chatbot *chatbot, const std::vector&lt; std::string &gt; &amp;responses, const char *const name)</div><div class="ttdef"><b>Definition:</b> <a href="chatbot_8cc_source.html#l00525">chatbot.cc:525</a></div></div>
 <div class="ttc" id="astructeuphoria_1_1core_1_1detail_1_1ConversationTopics_html_a387865f1af6e07ca5e16553afdcbd3ba"><div class="ttname"><a href="structeuphoria_1_1core_1_1detail_1_1ConversationTopics.html#a387865f1af6e07ca5e16553afdcbd3ba">euphoria::core::detail::ConversationTopics::add</a></div><div class="ttdeci">void add(const std::string &amp;topic)</div><div class="ttdef"><b>Definition:</b> <a href="chatbot_8cc_source.html#l00276">chatbot.cc:276</a></div></div>
