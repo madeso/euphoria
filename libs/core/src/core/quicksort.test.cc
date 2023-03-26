@@ -89,13 +89,13 @@ namespace
         }
     };
     
-    std::string to_string(const TestData& p)
+    std::string from_testdata_to_string(const TestData& p)
     {
         return fmt::format("{}: {}", p.i, p.name);
     }
 }
 
-ADD_DEFAULT_FORMATTER(TestData, std::string, to_string);
+ADD_DEFAULT_FORMATTER(TestData, std::string, from_testdata_to_string);
 
 TEST_CASE("quick_sort-default_sort", "[get_quick_sorted]")
 {

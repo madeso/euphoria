@@ -87,16 +87,18 @@ namespace
         }
     };
     
-    std::string to_string(const TestData& p)
-        { return fmt::format("{}: {}", p.i, p.name); }
+    std::string from_testdata_to_string(const TestData& p)
+       { return fmt::format("({}: {})", p.i, p.name); }
 }
 
-ADD_DEFAULT_FORMATTER(::TestData, std::string, to_string);
+ADD_DEFAULT_FORMATTER(::TestData, std::string, from_testdata_to_string);
 
 
 TEST_CASE("insertionsort-default_sort", "[insertionsort]")
 {
     const auto dog = TestData {"dog", 3};
+    CHECK(fmt::to_string(dog) == "(3: dog)");
+
     const auto cat = TestData {"cat", 42};
     const auto human = TestData {"human", 1};
     const auto sorted = euco::get_insertion_sorted(std::vector<TestData> {dog, cat, human});

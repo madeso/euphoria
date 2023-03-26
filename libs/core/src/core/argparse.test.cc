@@ -48,7 +48,7 @@ namespace
     }
 
 
-    std::string to_string(const Message& m)
+    std::string from_message_to_string(const Message& m)
         { return fmt::format("{} {}", (m.error?"ERR":"INF"), m.text); }
 
 
@@ -132,8 +132,7 @@ namespace
 }
 
 
-ADD_DEFAULT_FORMATTER(Message, std::string, to_string);
-ADD_DEFAULT_FORMATTER(Animal, std::string, euphoria::core::from_enum_to_string);
+ADD_DEFAULT_FORMATTER(Message, std::string, from_message_to_string);
 
 
 TEST_CASE("argparse", "[argparse]")
@@ -142,6 +141,7 @@ TEST_CASE("argparse", "[argparse]")
     auto output = std::make_shared<TestPrinter>();
     parser.printer = output;
 
+    CHECK(fmt::to_string(Animal::cat) == "cat");
 
     SECTION("default")
     {
