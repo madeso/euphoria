@@ -19,7 +19,7 @@ namespace euphoria::core
     struct TextBoxStyle
     {
         template<typename F>
-        constexpr explicit TextBoxStyle(F&& connections_func)
+        constexpr explicit TextBoxStyle(F connections_func)
         {
             for (char c = 0; c < 15; c += 1)
             {
