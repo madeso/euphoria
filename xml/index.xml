@@ -3166,7 +3166,7 @@
   </compound>
   <compound refid="structeuphoria_1_1core_1_1TextBoxStyle" kind="struct"><name>euphoria::core::TextBoxStyle</name>
     <member refid="structeuphoria_1_1core_1_1TextBoxStyle_1aad5f87428ba344ffdfd22ca9201860e0" kind="variable"><name>connections</name></member>
-    <member refid="structeuphoria_1_1core_1_1TextBoxStyle_1a09d32794cf1f5ef4c8a5f14ffb24d71e" kind="function"><name>TextBoxStyle</name></member>
+    <member refid="structeuphoria_1_1core_1_1TextBoxStyle_1a8ec654c675450ece2e6e84049b85aece" kind="function"><name>TextBoxStyle</name></member>
     <member refid="structeuphoria_1_1core_1_1TextBoxStyle_1a218e9355761fa36ed92cb422dd2e84e2" kind="function"><name>get_string</name></member>
     <member refid="structeuphoria_1_1core_1_1TextBoxStyle_1a83cd4dd0f0e0a994044cde3a197e5544" kind="function"><name>TextBoxStyle</name></member>
   </compound>
