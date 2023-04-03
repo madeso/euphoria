@@ -8,7 +8,7 @@ jobs:
             matrix:
                 build_type: [Debug, Release]
 
-        runs-on: ubuntu-20.04
+        runs-on: ubuntu-22.04
 
         steps:
         - uses: actions/checkout@v2
@@ -34,18 +34,17 @@ jobs:
           shell: bash
           working-directory: ${{github.workspace}}/build
           env:
-                CXX: clang++-12
+                CXX: clang++-14
           run: cmake -DCMAKE_BUILD_TYPE=${{matrix.build_type}} $GITHUB_WORKSPACE
 
         - name: clang-tidy version
           shell: bash
           working-directory: ${{github.workspace}}/build
           run: |
-                sudo apt-get install -y clang-tidy-12
                 ls /usr/bin/clang-*
-                alias clang-tidy='/usr/bin/clang-tidy-12'
+                alias clang-tidy='/usr/bin/clang-tidy-14'
                 which clang-tidy
-                clang-tidy-12 --version
+                clang-tidy-14 --version
                 clang-tidy --version
 
         - name: Build
@@ -56,7 +55,7 @@ jobs:
         - name: Run code check (clang-tidy)
           shell: bash
           working-directory: ${{github.workspace}}
-          run: time ./tools/clang.py tidy libs apps --list --tidy clang-tidy-12
+          run: time ./tools/clang.py tidy libs apps --list --tidy clang-tidy-14
 
         - name: Run code check (filename check)
           shell: bash

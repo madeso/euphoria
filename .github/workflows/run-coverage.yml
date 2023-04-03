@@ -6,10 +6,10 @@ jobs:
     build:
         strategy:
             matrix:
-                cxx: [g++-10]
+                cxx: [g++-12]
                 build_type: [Debug]
 
-        runs-on: ubuntu-20.04
+        runs-on: ubuntu-22.04
 
 
         steps:
@@ -37,8 +37,8 @@ jobs:
 
         - name: Switch to latest GCC
           run: |
-                sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-10 10
-                sudo update-alternatives --install /usr/bin/gcov gcov /usr/bin/gcov-10 10
+                sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-12 12
+                sudo update-alternatives --install /usr/bin/gcov gcov /usr/bin/gcov-12 12
 
 
         - name: Check version
@@ -62,7 +62,7 @@ jobs:
           shell: bash
           working-directory: ${{github.workspace}}/build
           env:
-                CC: gcc-10
+                CC: gcc-12
                 CXX: ${{matrix.cxx}}
           run: cmake -DGENERATE_COVERAGE=ON -DCMAKE_BUILD_TYPE=${{matrix.build_type}} $GITHUB_WORKSPACE
 
