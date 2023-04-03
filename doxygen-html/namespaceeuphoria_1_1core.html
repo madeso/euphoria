@@ -1458,8 +1458,6 @@ Functions</h2></td></tr>
 <tr class="separator:a6b10a264309b93b8bc4aa26bbf8c641f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8f6ae6403fb2a65953bc6a618d88114b"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a8f6ae6403fb2a65953bc6a618d88114b">log</a> (float r)</td></tr>
 <tr class="separator:a8f6ae6403fb2a65953bc6a618d88114b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a146bcc37f072fee6de23ed22916da0b6"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a146bcc37f072fee6de23ed22916da0b6">abs</a> (float r)</td></tr>
-<tr class="separator:a146bcc37f072fee6de23ed22916da0b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a942f6f2858467cd2de32fa5fc347c213"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a942f6f2858467cd2de32fa5fc347c213">mod</a> (float numer, float denumer)</td></tr>
 <tr class="separator:a942f6f2858467cd2de32fa5fc347c213"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a60f883bdcc98f0f0237fd403c3f3ae25"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a60f883bdcc98f0f0237fd403c3f3ae25">is_within_inclusive_as_int</a> (int <a class="el" href="namespaceeuphoria_1_1core.html#a601920b359719cbc0731466fd734c3cd">min</a>, int c, int <a class="el" href="namespaceeuphoria_1_1core.html#ab6fb5580825e85e2a19488ec6ec33c7f">max</a>)</td></tr>
@@ -1467,6 +1465,8 @@ Functions</h2></td></tr>
 <tr class="memitem:a09c4dfcfe6872d0474ba7d127d5f9b75"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a09c4dfcfe6872d0474ba7d127d5f9b75">round</a> (float num, float gran)</td></tr>
 <tr class="memdesc:a09c4dfcfe6872d0474ba7d127d5f9b75"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rounds a value to the nearest nice value.  <a href="namespaceeuphoria_1_1core.html#a09c4dfcfe6872d0474ba7d127d5f9b75">More...</a><br /></td></tr>
 <tr class="separator:a09c4dfcfe6872d0474ba7d127d5f9b75"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7cb81d22943d902e7764ef43298e1e7a"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a7cb81d22943d902e7764ef43298e1e7a">abs</a> (float r)</td></tr>
+<tr class="separator:a7cb81d22943d902e7764ef43298e1e7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a126b2c6f374f31cffb6d761ec4f78c84"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a126b2c6f374f31cffb6d761ec4f78c84">is_zero</a> (float r)</td></tr>
 <tr class="separator:a126b2c6f374f31cffb6d761ec4f78c84"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad51ed83c07b8888abbbfe8ca2ec9570b"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#ad51ed83c07b8888abbbfe8ca2ec9570b">is_equal</a> (float lhs, float rhs)</td></tr>
@@ -3487,23 +3487,31 @@ template&lt;typename T &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a146bcc37f072fee6de23ed22916da0b6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a146bcc37f072fee6de23ed22916da0b6">&#9670;&nbsp;</a></span>abs()</h2>
+<a id="a7cb81d22943d902e7764ef43298e1e7a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7cb81d22943d902e7764ef43298e1e7a">&#9670;&nbsp;</a></span>abs()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">float euphoria::core::abs </td>
+          <td class="memname">constexpr float euphoria::core::abs </td>
           <td>(</td>
           <td class="paramtype">float&#160;</td>
           <td class="paramname"><em>r</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="numeric_8cc_source.html#l00116">116</a> of file <a class="el" href="numeric_8cc_source.html">numeric.cc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="numeric_8h_source.html#l00008">8</a> of file <a class="el" href="numeric_8h_source.html">numeric.h</a>.</p>
 
 </div>
 </div>
@@ -8332,7 +8340,7 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="numeric_8h_source.html#l00126">126</a> of file <a class="el" href="numeric_8h_source.html">numeric.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="numeric_8h_source.html#l00125">125</a> of file <a class="el" href="numeric_8h_source.html">numeric.h</a>.</p>
 
 </div>
 </div>
@@ -10248,7 +10256,7 @@ template&lt;typename I &gt; </div>
 <p>returns true for a index each Nth loop. </p>
 <p>pass zero to always return false useful for example adding a newline each 10th or 15th line </p>
 
-<p class="definition">Definition at line <a class="el" href="numeric_8h_source.html#l00136">136</a> of file <a class="el" href="numeric_8h_source.html">numeric.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="numeric_8h_source.html#l00135">135</a> of file <a class="el" href="numeric_8h_source.html">numeric.h</a>.</p>
 
 </div>
 </div>
@@ -10286,7 +10294,7 @@ template&lt;typename I &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="numeric_8h_source.html#l00020">20</a> of file <a class="el" href="numeric_8h_source.html">numeric.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="numeric_8h_source.html#l00024">24</a> of file <a class="el" href="numeric_8h_source.html">numeric.h</a>.</p>
 
 </div>
 </div>
@@ -10506,7 +10514,7 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="numeric_8cc_source.html#l00135">135</a> of file <a class="el" href="numeric_8cc_source.html">numeric.cc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="numeric_8cc_source.html#l00123">123</a> of file <a class="el" href="numeric_8cc_source.html">numeric.cc</a>.</p>
 
 </div>
 </div>
@@ -10534,7 +10542,7 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="numeric_8h_source.html#l00011">11</a> of file <a class="el" href="numeric_8h_source.html">numeric.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="numeric_8h_source.html#l00017">17</a> of file <a class="el" href="numeric_8h_source.html">numeric.h</a>.</p>
 
 </div>
 </div>
@@ -11901,7 +11909,7 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="numeric_8h_source.html#l00096">96</a> of file <a class="el" href="numeric_8h_source.html">numeric.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="numeric_8h_source.html#l00095">95</a> of file <a class="el" href="numeric_8h_source.html">numeric.h</a>.</p>
 
 </div>
 </div>
@@ -12117,7 +12125,7 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="numeric_8cc_source.html#l00128">128</a> of file <a class="el" href="numeric_8cc_source.html">numeric.cc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="numeric_8cc_source.html#l00116">116</a> of file <a class="el" href="numeric_8cc_source.html">numeric.cc</a>.</p>
 
 </div>
 </div>
@@ -15351,7 +15359,7 @@ template&lt;typename T , typename TFunc &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="numeric_8cc_source.html#l00159">159</a> of file <a class="el" href="numeric_8cc_source.html">numeric.cc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="numeric_8cc_source.html#l00147">147</a> of file <a class="el" href="numeric_8cc_source.html">numeric.cc</a>.</p>
 
 </div>
 </div>
@@ -17622,7 +17630,7 @@ template&lt;typename &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="numeric_8h_source.html#l00121">121</a> of file <a class="el" href="numeric_8h_source.html">numeric.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="numeric_8h_source.html#l00120">120</a> of file <a class="el" href="numeric_8h_source.html">numeric.h</a>.</p>
 
 </div>
 </div>

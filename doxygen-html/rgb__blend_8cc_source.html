@@ -86,7 +86,7 @@
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        Uint8</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <a class="code" href="namespaceeuphoria_1_1core.html#a146bcc37f072fee6de23ed22916da0b6">abs</a>(Uint8 lhs)</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <a class="code" href="namespaceeuphoria_1_1core.html#a7cb81d22943d902e7764ef43298e1e7a">abs</a>(Uint8 lhs)</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        {</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            <span class="keywordflow">return</span> lhs;</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        }</div>
@@ -158,7 +158,7 @@
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        Uint8 channel_blend_negation(Uint8 top, Uint8 bottom)</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        {</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;            <span class="keywordflow">return</span> 255 - <a class="code" href="namespaceeuphoria_1_1core.html#a146bcc37f072fee6de23ed22916da0b6">abs</a>(255 - top - bottom);</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;            <span class="keywordflow">return</span> 255 - <a class="code" href="namespaceeuphoria_1_1core.html#a7cb81d22943d902e7764ef43298e1e7a">abs</a>(255 - top - bottom);</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        }</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
@@ -488,7 +488,6 @@
 <div class="ttc" id="anamespaceeuphoria_1_1core_html_a0e04e623955ef5b92d46fd5a63d4bc03a00fcd9ef06a0d8df92a9f5e074632458"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#a0e04e623955ef5b92d46fd5a63d4bc03a00fcd9ef06a0d8df92a9f5e074632458">euphoria::core::BlendMode::color_dodge</a></div><div class="ttdeci">@ color_dodge</div></div>
 <div class="ttc" id="anamespaceeuphoria_1_1core_html_a0e04e623955ef5b92d46fd5a63d4bc03aea7156050a6d1023b33d8d29f46dd8ef"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#a0e04e623955ef5b92d46fd5a63d4bc03aea7156050a6d1023b33d8d29f46dd8ef">euphoria::core::BlendMode::lighten</a></div><div class="ttdeci">@ lighten</div></div>
 <div class="ttc" id="anamespaceeuphoria_1_1core_html_a0e04e623955ef5b92d46fd5a63d4bc03a380e537acdaedd487ca1adb49d020f7e"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#a0e04e623955ef5b92d46fd5a63d4bc03a380e537acdaedd487ca1adb49d020f7e">euphoria::core::BlendMode::overlay</a></div><div class="ttdeci">@ overlay</div></div>
-<div class="ttc" id="anamespaceeuphoria_1_1core_html_a146bcc37f072fee6de23ed22916da0b6"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#a146bcc37f072fee6de23ed22916da0b6">euphoria::core::abs</a></div><div class="ttdeci">float abs(float r)</div><div class="ttdef"><b>Definition:</b> <a href="numeric_8cc_source.html#l00116">numeric.cc:116</a></div></div>
 <div class="ttc" id="astructeuphoria_1_1core_1_1rgb_html"><div class="ttname"><a href="structeuphoria_1_1core_1_1rgb.html">euphoria::core::rgb</a></div><div class="ttdef"><b>Definition:</b> <a href="rgb_8h_source.html#l00061">rgb.h:61</a></div></div>
 <div class="ttc" id="anamespaceeuphoria_1_1core_html_a352b811085853f7ec220af1a5b92a124a0cc175b9c0f1b6a831c399e269772661"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#a352b811085853f7ec220af1a5b92a124a0cc175b9c0f1b6a831c399e269772661">euphoria::core::Grayscale::a</a></div><div class="ttdeci">@ a</div></div>
 <div class="ttc" id="anamespaceeuphoria_1_1core_html_a0e04e623955ef5b92d46fd5a63d4bc03a95456e7506a8c9c04e3bdffd78da1cae"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#a0e04e623955ef5b92d46fd5a63d4bc03a95456e7506a8c9c04e3bdffd78da1cae">euphoria::core::BlendMode::difference</a></div><div class="ttdeci">@ difference</div></div>
@@ -506,6 +505,7 @@
 <div class="ttc" id="anamespaceeuphoria_1_1core_html_a0e04e623955ef5b92d46fd5a63d4bc03a5a12847d9b6e756c1ed20d8e70b880d6"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#a0e04e623955ef5b92d46fd5a63d4bc03a5a12847d9b6e756c1ed20d8e70b880d6">euphoria::core::BlendMode::negation</a></div><div class="ttdeci">@ negation</div></div>
 <div class="ttc" id="anamespaceeuphoria_1_1core_html_a5524ac7076985690bf9f7f43259c4f20"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#a5524ac7076985690bf9f7f43259c4f20">euphoria::core::to_rgba</a></div><div class="ttdeci">rgba to_rgba(const rgbai &amp;c)</div><div class="ttdef"><b>Definition:</b> <a href="rgb_8cc_source.html#l00371">rgb.cc:371</a></div></div>
 <div class="ttc" id="anamespaceeuphoria_1_1core_html_a601920b359719cbc0731466fd734c3cd"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#a601920b359719cbc0731466fd734c3cd">euphoria::core::min</a></div><div class="ttdeci">vec3f min(const vec3f &amp;lhs, const vec3f &amp;rhs)</div><div class="ttdef"><b>Definition:</b> <a href="aabb_8cc_source.html#l00031">aabb.cc:31</a></div></div>
+<div class="ttc" id="anamespaceeuphoria_1_1core_html_a7cb81d22943d902e7764ef43298e1e7a"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#a7cb81d22943d902e7764ef43298e1e7a">euphoria::core::abs</a></div><div class="ttdeci">constexpr float abs(float r)</div><div class="ttdef"><b>Definition:</b> <a href="numeric_8h_source.html#l00008">numeric.h:8</a></div></div>
 <div class="ttc" id="anamespaceeuphoria_1_1core_html_ab6fb5580825e85e2a19488ec6ec33c7f"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#ab6fb5580825e85e2a19488ec6ec33c7f">euphoria::core::max</a></div><div class="ttdeci">vec3f max(const vec3f &amp;lhs, const vec3f &amp;rhs)</div><div class="ttdef"><b>Definition:</b> <a href="aabb_8cc_source.html#l00040">aabb.cc:40</a></div></div>
 <!-- HTML footer for doxygen 1.8.17-->
 <!-- start footer part -->

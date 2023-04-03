@@ -4399,10 +4399,10 @@
     <member refid="namespaceeuphoria_1_1core_1a4821977ac1f1f9d3e5b994559acbb21f" kind="function"><name>square</name></member>
     <member refid="namespaceeuphoria_1_1core_1a6b10a264309b93b8bc4aa26bbf8c641f" kind="function"><name>sqrt</name></member>
     <member refid="namespaceeuphoria_1_1core_1a8f6ae6403fb2a65953bc6a618d88114b" kind="function"><name>log</name></member>
-    <member refid="namespaceeuphoria_1_1core_1a146bcc37f072fee6de23ed22916da0b6" kind="function"><name>abs</name></member>
     <member refid="namespaceeuphoria_1_1core_1a942f6f2858467cd2de32fa5fc347c213" kind="function"><name>mod</name></member>
     <member refid="namespaceeuphoria_1_1core_1a60f883bdcc98f0f0237fd403c3f3ae25" kind="function"><name>is_within_inclusive_as_int</name></member>
     <member refid="namespaceeuphoria_1_1core_1a09c4dfcfe6872d0474ba7d127d5f9b75" kind="function"><name>round</name></member>
+    <member refid="namespaceeuphoria_1_1core_1a7cb81d22943d902e7764ef43298e1e7a" kind="function"><name>abs</name></member>
     <member refid="namespaceeuphoria_1_1core_1a126b2c6f374f31cffb6d761ec4f78c84" kind="function"><name>is_zero</name></member>
     <member refid="namespaceeuphoria_1_1core_1ad51ed83c07b8888abbbfe8ca2ec9570b" kind="function"><name>is_equal</name></member>
     <member refid="namespaceeuphoria_1_1core_1aa6eb84689863f783cd29bad67fbd3900" kind="function"><name>DEFAULT_INTERPOLATE</name></member>
