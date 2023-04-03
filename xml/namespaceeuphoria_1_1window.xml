@@ -1,15 +1,15 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="namespaceeuphoria_1_1window" kind="namespace" language="C++">
     <compoundname>euphoria::window</compoundname>
     <innerclass refid="structeuphoria_1_1window_1_1App" prot="public">euphoria::window::App</innerclass>
-    <innerclass refid="structeuphoria_1_1window_1_1Canvas" prot="public">euphoria::window::Canvas</innerclass>
     <innerclass refid="structeuphoria_1_1window_1_1CanvasConfig" prot="public">euphoria::window::CanvasConfig</innerclass>
+    <innerclass refid="structeuphoria_1_1window_1_1Canvas" prot="public">euphoria::window::Canvas</innerclass>
     <innerclass refid="structeuphoria_1_1window_1_1Engine" prot="public">euphoria::window::Engine</innerclass>
     <innerclass refid="structeuphoria_1_1window_1_1SdlAndOpenglContext" prot="public">euphoria::window::SdlAndOpenglContext</innerclass>
     <innerclass refid="structeuphoria_1_1window_1_1SdlLibrary" prot="public">euphoria::window::SdlLibrary</innerclass>
-    <innerclass refid="structeuphoria_1_1window_1_1SdlTimer" prot="public">euphoria::window::SdlTimer</innerclass>
     <innerclass refid="structeuphoria_1_1window_1_1SdlWindow" prot="public">euphoria::window::SdlWindow</innerclass>
+    <innerclass refid="structeuphoria_1_1window_1_1SdlTimer" prot="public">euphoria::window::SdlTimer</innerclass>
     <innernamespace refid="namespaceeuphoria_1_1window_1_1imgui">euphoria::window::imgui</innernamespace>
       <sectiondef kind="enum">
       <memberdef kind="enum" id="namespaceeuphoria_1_1window_1af0e2b3cfd44cffa0089449896c9f19f5" prot="public" static="no" strong="yes">
@@ -61,7 +61,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/imgui_extra.h" line="33" column="1" bodyfile="libs/window/src/window/imgui_extra.h" bodystart="32" bodyend="39"/>
+        <location file="libs/window/src/window/imgui_extra.h" line="32" column="5" bodyfile="libs/window/src/window/imgui_extra.h" bodystart="33" bodyend="39"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="typedef">
@@ -535,6 +535,6 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/window/src/window/app.cc" line="19" column="1"/>
+    <location file="libs/window/src/window/app.cc" line="18" column="1"/>
   </compounddef>
 </doxygen>

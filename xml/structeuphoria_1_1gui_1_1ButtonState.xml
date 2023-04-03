@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1gui_1_1ButtonState" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::gui::ButtonState</compoundname>
     <includes refid="skin_8h" local="no">skin.h</includes>
@@ -141,7 +141,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="libs/gui/src/gui/skin.h" line="25" column="1" bodyfile="libs/gui/src/gui/skin.h" bodystart="24" bodyend="36"/>
+    <location file="libs/gui/src/gui/skin.h" line="24" column="5" bodyfile="libs/gui/src/gui/skin.h" bodystart="25" bodyend="36"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1gui_1_1ButtonState_1afc7ab8c1f5c5019fa6d715f958154759" prot="public" virt="non-virtual"><scope>euphoria::gui::ButtonState</scope><name>dx</name></member>
       <member refid="structeuphoria_1_1gui_1_1ButtonState_1aaec25d803f580c711e81ccb7ea2773f6" prot="public" virt="non-virtual"><scope>euphoria::gui::ButtonState</scope><name>dy</name></member>

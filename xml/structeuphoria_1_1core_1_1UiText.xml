@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1UiText" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::UiText</compoundname>
     <includes refid="ui__text_8h" local="no">ui_text.h</includes>
@@ -187,7 +187,7 @@
 <para>Format:<programlisting><codeline><highlight class="normal">@image<sp/>with<sp/>text<sp/>and<sp/>{-begin<sp/>and<sp/>}-end<sp/>markers<sp/>\<sp/>escapes<sp/></highlight></codeline>
 </programlisting> </para>
     </detaileddescription>
-    <location file="libs/core/src/core/ui_text.h" line="107" column="1" bodyfile="libs/core/src/core/ui_text.h" bodystart="106" bodyend="124"/>
+    <location file="libs/core/src/core/ui_text.h" line="106" column="5" bodyfile="libs/core/src/core/ui_text.h" bodystart="107" bodyend="124"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1UiText_1a77aa2fbcd02f2a750c358236c49690be" prot="public" virt="non-virtual"><scope>euphoria::core::UiText</scope><name>accept</name></member>
       <member refid="structeuphoria_1_1core_1_1UiText_1a7e54568529d024a4c1e554346574113a" prot="public" virt="non-virtual"><scope>euphoria::core::UiText</scope><name>accept</name></member>

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1detail_1_1OrbitData" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::detail::OrbitData</compoundname>
       <sectiondef kind="public-attrib">
@@ -117,7 +117,7 @@
         <link refid="structeuphoria_1_1core_1_1vec3f"/>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/camera3.editor.cc" line="92" column="1" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="91" bodyend="107"/>
+    <location file="libs/core/src/core/camera3.editor.cc" line="91" column="9" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="92" bodyend="107"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1detail_1_1OrbitData_1ad0a3ff44e9f955fd15fe06e0a4f13650" prot="public" virt="non-virtual"><scope>euphoria::core::detail::OrbitData</scope><name>center</name></member>
       <member refid="structeuphoria_1_1core_1_1detail_1_1OrbitData_1a0a62ae7be0846c8ed9ff80abc662f409" prot="public" virt="non-virtual"><scope>euphoria::core::detail::OrbitData</scope><name>distance</name></member>

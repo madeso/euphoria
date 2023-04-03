@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1RandomLcg" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::RandomLcg</compoundname>
     <includes refid="rng_8h" local="no">rng.h</includes>
@@ -74,7 +74,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/rng.h" line="14" column="1" bodyfile="libs/core/src/core/rng.h" bodystart="13" bodyend="28"/>
+    <location file="libs/core/src/core/rng.h" line="13" column="5" bodyfile="libs/core/src/core/rng.h" bodystart="14" bodyend="28"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1RandomLcg_1a37a7694c723bcd263ea0df3008e63b08" prot="public" virt="non-virtual"><scope>euphoria::core::RandomLcg</scope><name>get_next_float01</name></member>
       <member refid="structeuphoria_1_1core_1_1RandomLcg_1a1b5a46b839940c24abe6df5f9b7e54a3" prot="public" virt="non-virtual"><scope>euphoria::core::RandomLcg</scope><name>RandomLcg</name></member>

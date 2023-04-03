@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1dump2d_1_1Circle" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::dump2d::Circle</compoundname>
     <includes refid="dump_8h" local="no">dump.h</includes>
@@ -119,7 +119,7 @@
         <link refid="structeuphoria_1_1core_1_1vec2f"/>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/dump.h" line="53" column="1" bodyfile="libs/core/src/core/dump.h" bodystart="52" bodyend="62"/>
+    <location file="libs/core/src/core/dump.h" line="52" column="5" bodyfile="libs/core/src/core/dump.h" bodystart="53" bodyend="62"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1dump2d_1_1Circle_1a2be871ad36480e56cd9d1ea5dc2eea98" prot="public" virt="non-virtual"><scope>euphoria::core::dump2d::Circle</scope><name>Circle</name></member>
       <member refid="structeuphoria_1_1core_1_1dump2d_1_1Circle_1a9a61e5237822f4313ec820909ab1df2e" prot="public" virt="non-virtual"><scope>euphoria::core::dump2d::Circle</scope><name>fill_color</name></member>

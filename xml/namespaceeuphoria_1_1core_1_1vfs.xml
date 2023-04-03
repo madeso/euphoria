@@ -1,18 +1,18 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="namespaceeuphoria_1_1core_1_1vfs" kind="namespace" language="C++">
     <compoundname>euphoria::core::vfs</compoundname>
-    <innerclass refid="structeuphoria_1_1core_1_1vfs_1_1DirPath" prot="public">euphoria::core::vfs::DirPath</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1vfs_1_1FileList" prot="public">euphoria::core::vfs::FileList</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1vfs_1_1FilePath" prot="public">euphoria::core::vfs::FilePath</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1vfs_1_1FileSystem" prot="public">euphoria::core::vfs::FileSystem</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1vfs_1_1ListedFile" prot="public">euphoria::core::vfs::ListedFile</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1vfs_1_1FileList" prot="public">euphoria::core::vfs::FileList</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1vfs_1_1ReadRoot" prot="public">euphoria::core::vfs::ReadRoot</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1vfs_1_1ReadRootCatalog" prot="public">euphoria::core::vfs::ReadRootCatalog</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1vfs_1_1ReadRootImageGenerator" prot="public">euphoria::core::vfs::ReadRootImageGenerator</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1vfs_1_1ReadRootPhysicalFolder" prot="public">euphoria::core::vfs::ReadRootPhysicalFolder</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1vfs_1_1WriteRoot" prot="public">euphoria::core::vfs::WriteRoot</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1vfs_1_1FileSystem" prot="public">euphoria::core::vfs::FileSystem</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1vfs_1_1ReadRootCatalog" prot="public">euphoria::core::vfs::ReadRootCatalog</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1vfs_1_1ReadRootPhysicalFolder" prot="public">euphoria::core::vfs::ReadRootPhysicalFolder</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1vfs_1_1WriteRootPhysicalFolder" prot="public">euphoria::core::vfs::WriteRootPhysicalFolder</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1vfs_1_1ReadRootImageGenerator" prot="public">euphoria::core::vfs::ReadRootImageGenerator</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1vfs_1_1FilePath" prot="public">euphoria::core::vfs::FilePath</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1vfs_1_1DirPath" prot="public">euphoria::core::vfs::DirPath</innerclass>
       <sectiondef kind="func">
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1vfs_1af98d69a5ea447cd706f6d11943285771" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -377,6 +377,6 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/chatbot.h" line="15" column="1"/>
+    <location file="libs/core/src/core/chatbot.h" line="14" column="5"/>
   </compounddef>
 </doxygen>

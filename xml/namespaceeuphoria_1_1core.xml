@@ -1,152 +1,152 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="namespaceeuphoria_1_1core" kind="namespace" language="C++">
     <compoundname>euphoria::core</compoundname>
     <innerclass refid="structeuphoria_1_1core_1_1Aabb" prot="public">euphoria::core::Aabb</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1angle" prot="public">euphoria::core::angle</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1AxisAngle" prot="public">euphoria::core::AxisAngle</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1BezierSegment2" prot="public">euphoria::core::BezierSegment2</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1Bitfield" prot="public">euphoria::core::Bitfield</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1BorderSettings" prot="public">euphoria::core::BorderSettings</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1BucketBase10" prot="public">euphoria::core::BucketBase10</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1BucketBase16" prot="public">euphoria::core::BucketBase16</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1BufferBuilder2" prot="public">euphoria::core::BufferBuilder2</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1BufferPoint2" prot="public">euphoria::core::BufferPoint2</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1BufferBuilder2" prot="public">euphoria::core::BufferBuilder2</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1Cache" prot="public">euphoria::core::Cache</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1EditorCamera3" prot="public">euphoria::core::EditorCamera3</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1CompiledCamera3" prot="public">euphoria::core::CompiledCamera3</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1Camera3" prot="public">euphoria::core::Camera3</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1Canvas" prot="public">euphoria::core::Canvas</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1CanvasLogic" prot="public">euphoria::core::CanvasLogic</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1Chatbot" prot="public">euphoria::core::Chatbot</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1CliProgressDots" prot="public">euphoria::core::CliProgressDots</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1ClosestPointCollector" prot="public">euphoria::core::ClosestPointCollector</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1CollisionFace" prot="public">euphoria::core::CollisionFace</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1CollisionMesh" prot="public">euphoria::core::CollisionMesh</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1CompiledCamera3" prot="public">euphoria::core::CompiledCamera3</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1CompiledTextTemplate" prot="public">euphoria::core::CompiledTextTemplate</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1CsvParserOptions" prot="public">euphoria::core::CsvParserOptions</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1VirtualConsole" prot="public">euphoria::core::VirtualConsole</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1TreeStyle" prot="public">euphoria::core::TreeStyle</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1CustomArgparser" prot="public">euphoria::core::CustomArgparser</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1CustomArgparser_3_01Lrud_3_01T_01_4_01_4" prot="public">euphoria::core::CustomArgparser&lt; Lrud&lt; T &gt; &gt;</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1CustomArgparser_3_01rgbi_01_4" prot="public">euphoria::core::CustomArgparser&lt; rgbi &gt;</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1CustomArgparser_3_01size2f_01_4" prot="public">euphoria::core::CustomArgparser&lt; size2f &gt;</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1CustomArgparser_3_01size2i_01_4" prot="public">euphoria::core::CustomArgparser&lt; size2i &gt;</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1TimetWrapper" prot="public">euphoria::core::TimetWrapper</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1StructTmWrapper" prot="public">euphoria::core::StructTmWrapper</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1DateTime" prot="public">euphoria::core::DateTime</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1Decompressor" prot="public">euphoria::core::Decompressor</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1Defines" prot="public">euphoria::core::Defines</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1DirectoryListing" prot="public">euphoria::core::DirectoryListing</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1DynamicPalette" prot="public">euphoria::core::DynamicPalette</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1EditorCamera3" prot="public">euphoria::core::EditorCamera3</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1EnumToStringImplementation" prot="public">euphoria::core::EnumToStringImplementation</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1EnumType" prot="public">euphoria::core::EnumType</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1EnumValue" prot="public">euphoria::core::EnumValue</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1FloatValue" prot="public">euphoria::core::FloatValue</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1FontData" prot="public">euphoria::core::FontData</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1MatchedEnum" prot="public">euphoria::core::MatchedEnum</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1EnumToStringImplementation" prot="public">euphoria::core::EnumToStringImplementation</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1Lrud" prot="public">euphoria::core::Lrud</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1CustomArgparser_3_01Lrud_3_01T_01_4_01_4" prot="public">euphoria::core::CustomArgparser&lt; Lrud&lt; T &gt; &gt;</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1FpsController" prot="public">euphoria::core::FpsController</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1Guid" prot="public">euphoria::core::Guid</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1HashedStringView" prot="public">euphoria::core::HashedStringView</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1HelpTextHover" prot="public">euphoria::core::HelpTextHover</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1Hsl" prot="public">euphoria::core::Hsl</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1Image" prot="public">euphoria::core::Image</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1ImageLoadResult" prot="public">euphoria::core::ImageLoadResult</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1Canvas" prot="public">euphoria::core::Canvas</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1ImageMapAction" prot="public">euphoria::core::ImageMapAction</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1Interpolate" prot="public">euphoria::core::Interpolate</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1InterpolateDefault" prot="public">euphoria::core::InterpolateDefault</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1IntValue" prot="public">euphoria::core::IntValue</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1Interpolate" prot="public">euphoria::core::Interpolate</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1Ray2Ray2Result" prot="public">euphoria::core::Ray2Ray2Result</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1Ray3AabbResult" prot="public">euphoria::core::Ray3AabbResult</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1StepIterator" prot="public">euphoria::core::StepIterator</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1StepIteratorCreator" prot="public">euphoria::core::StepIteratorCreator</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1LastN" prot="public">euphoria::core::LastN</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1LinePoint" prot="public">euphoria::core::LinePoint</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1Lines" prot="public">euphoria::core::Lines</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1LoadedFont" prot="public">euphoria::core::LoadedFont</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1FontData" prot="public">euphoria::core::FontData</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1LoadedGlyph" prot="public">euphoria::core::LoadedGlyph</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1LoadedMeshOrError" prot="public">euphoria::core::LoadedMeshOrError</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1Location" prot="public">euphoria::core::Location</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1Lrud" prot="public">euphoria::core::Lrud</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1MapValue" prot="public">euphoria::core::MapValue</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1LoadedFont" prot="public">euphoria::core::LoadedFont</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1mat2f" prot="public">euphoria::core::mat2f</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1mat3f" prot="public">euphoria::core::mat3f</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1mat4f" prot="public">euphoria::core::mat4f</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1MatchedEnum" prot="public">euphoria::core::MatchedEnum</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1Material" prot="public">euphoria::core::Material</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1MaterialTexture" prot="public">euphoria::core::MaterialTexture</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1MemoryChunk" prot="public">euphoria::core::MemoryChunk</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1MemoryChunkFile" prot="public">euphoria::core::MemoryChunkFile</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1Mesh" prot="public">euphoria::core::Mesh</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1MeshPoint" prot="public">euphoria::core::MeshPoint</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1MeshFace" prot="public">euphoria::core::MeshFace</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1MeshPart" prot="public">euphoria::core::MeshPart</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1MeshPoint" prot="public">euphoria::core::MeshPoint</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1NormalizedAndLength" prot="public">euphoria::core::NormalizedAndLength</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1MaterialTexture" prot="public">euphoria::core::MaterialTexture</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1Material" prot="public">euphoria::core::Material</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1Mesh" prot="public">euphoria::core::Mesh</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1LoadedMeshOrError" prot="public">euphoria::core::LoadedMeshOrError</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1Sortable" prot="public">euphoria::core::Sortable</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1SortAction" prot="public">euphoria::core::SortAction</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1SortBuilder" prot="public">euphoria::core::SortBuilder</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1OrbitController" prot="public">euphoria::core::OrbitController</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1DirectoryListing" prot="public">euphoria::core::DirectoryListing</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1Palette" prot="public">euphoria::core::Palette</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1StaticPalette" prot="public">euphoria::core::StaticPalette</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1DynamicPalette" prot="public">euphoria::core::DynamicPalette</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1Plane" prot="public">euphoria::core::Plane</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1PoissonWorker" prot="public">euphoria::core::PoissonWorker</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1PolarCoordinate" prot="public">euphoria::core::PolarCoordinate</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1BezierSegment2" prot="public">euphoria::core::BezierSegment2</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1PolyBezier2" prot="public">euphoria::core::PolyBezier2</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1Polyline2" prot="public">euphoria::core::Polyline2</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1quatf" prot="public">euphoria::core::quatf</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1Random" prot="public">euphoria::core::Random</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1RandomLcg" prot="public">euphoria::core::RandomLcg</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1RandomXorShift" prot="public">euphoria::core::RandomXorShift</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1Range" prot="public">euphoria::core::Range</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1Ray2f" prot="public">euphoria::core::Ray2f</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1Ray2Ray2Result" prot="public">euphoria::core::Ray2Ray2Result</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1Ray3AabbResult" prot="public">euphoria::core::Ray3AabbResult</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1Ray3f" prot="public">euphoria::core::Ray3f</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1ReadErrorFileError" prot="public">euphoria::core::ReadErrorFileError</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1Value" prot="public">euphoria::core::Value</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1IntValue" prot="public">euphoria::core::IntValue</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1FloatValue" prot="public">euphoria::core::FloatValue</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1Vec3fValue" prot="public">euphoria::core::Vec3fValue</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1MapValue" prot="public">euphoria::core::MapValue</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1Location" prot="public">euphoria::core::Location</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1ReadErrorFileMissing" prot="public">euphoria::core::ReadErrorFileMissing</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1ReadErrorFileError" prot="public">euphoria::core::ReadErrorFileError</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1quatf" prot="public">euphoria::core::quatf</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1BucketBase10" prot="public">euphoria::core::BucketBase10</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1BucketBase16" prot="public">euphoria::core::BucketBase16</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1Random" prot="public">euphoria::core::Random</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1Range" prot="public">euphoria::core::Range</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1UnitRay3f" prot="public">euphoria::core::UnitRay3f</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1Ray2f" prot="public">euphoria::core::Ray2f</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1Ray3f" prot="public">euphoria::core::Ray3f</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1Rectf" prot="public">euphoria::core::Rectf</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1Recti" prot="public">euphoria::core::Recti</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1Result" prot="public">euphoria::core::Result</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1rgb" prot="public">euphoria::core::rgb</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1rgba" prot="public">euphoria::core::rgba</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1rgbai" prot="public">euphoria::core::rgbai</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1rgbi" prot="public">euphoria::core::rgbi</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1Scale2f" prot="public">euphoria::core::Scale2f</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1Scale3f" prot="public">euphoria::core::Scale3f</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1rgbai" prot="public">euphoria::core::rgbai</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1rgb" prot="public">euphoria::core::rgb</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1Hsl" prot="public">euphoria::core::Hsl</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1rgba" prot="public">euphoria::core::rgba</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1CustomArgparser_3_01rgbi_01_4" prot="public">euphoria::core::CustomArgparser&lt; rgbi &gt;</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1RandomLcg" prot="public">euphoria::core::RandomLcg</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1RandomXorShift" prot="public">euphoria::core::RandomXorShift</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1Sensitivity" prot="public">euphoria::core::Sensitivity</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1Shufflebag" prot="public">euphoria::core::Shufflebag</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1size2f" prot="public">euphoria::core::size2f</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1size2i" prot="public">euphoria::core::size2i</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1Sortable" prot="public">euphoria::core::Sortable</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1SortAction" prot="public">euphoria::core::SortAction</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1SortBuilder" prot="public">euphoria::core::SortBuilder</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1CustomArgparser_3_01size2f_01_4" prot="public">euphoria::core::CustomArgparser&lt; size2f &gt;</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1CustomArgparser_3_01size2i_01_4" prot="public">euphoria::core::CustomArgparser&lt; size2i &gt;</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1Sphere" prot="public">euphoria::core::Sphere</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1SphereAndPosition" prot="public">euphoria::core::SphereAndPosition</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1StaticPalette" prot="public">euphoria::core::StaticPalette</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1StepIterator" prot="public">euphoria::core::StepIterator</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1StepIteratorCreator" prot="public">euphoria::core::StepIteratorCreator</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1StringBuilder" prot="public">euphoria::core::StringBuilder</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1StringMerger" prot="public">euphoria::core::StringMerger</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1StructTmWrapper" prot="public">euphoria::core::StructTmWrapper</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1SubVec" prot="public">euphoria::core::SubVec</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1Table" prot="public">euphoria::core::Table</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1WallCounter" prot="public">euphoria::core::WallCounter</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1BorderSettings" prot="public">euphoria::core::BorderSettings</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1TableGenerator" prot="public">euphoria::core::TableGenerator</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1TemplateErrorList" prot="public">euphoria::core::TemplateErrorList</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1CsvParserOptions" prot="public">euphoria::core::CsvParserOptions</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1TextBoxStyle" prot="public">euphoria::core::TextBoxStyle</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1TextBox" prot="public">euphoria::core::TextBox</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1TextfileParser" prot="public">euphoria::core::TextfileParser</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1TemplateNode" prot="public">euphoria::core::TemplateNode</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1TemplateNodeEval" prot="public">euphoria::core::TemplateNodeEval</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1TemplateNodeIfdef" prot="public">euphoria::core::TemplateNodeIfdef</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1TemplateNodeString" prot="public">euphoria::core::TemplateNodeString</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1TemplateNodeList" prot="public">euphoria::core::TemplateNodeList</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1TemplateNodeScopedList" prot="public">euphoria::core::TemplateNodeScopedList</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1TemplateNodeIfdef" prot="public">euphoria::core::TemplateNodeIfdef</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1TemplateNodeEval" prot="public">euphoria::core::TemplateNodeEval</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1TemplateNodeSet" prot="public">euphoria::core::TemplateNodeSet</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1TemplateNodeString" prot="public">euphoria::core::TemplateNodeString</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1TextBox" prot="public">euphoria::core::TextBox</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1TextBoxStyle" prot="public">euphoria::core::TextBoxStyle</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1TextfileParser" prot="public">euphoria::core::TextfileParser</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1TimetWrapper" prot="public">euphoria::core::TimetWrapper</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1Token" prot="public">euphoria::core::Token</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1TokenReader" prot="public">euphoria::core::TokenReader</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1TreeStyle" prot="public">euphoria::core::TreeStyle</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1Defines" prot="public">euphoria::core::Defines</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1TemplateErrorList" prot="public">euphoria::core::TemplateErrorList</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1CompiledTextTemplate" prot="public">euphoria::core::CompiledTextTemplate</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1UiText" prot="public">euphoria::core::UiText</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1unit2f" prot="public">euphoria::core::unit2f</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1unit3f" prot="public">euphoria::core::unit3f</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1UnitRay3f" prot="public">euphoria::core::UnitRay3f</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1Value" prot="public">euphoria::core::Value</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1NormalizedAndLength" prot="public">euphoria::core::NormalizedAndLength</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1vec2f" prot="public">euphoria::core::vec2f</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1vec2i" prot="public">euphoria::core::vec2i</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1unit2f" prot="public">euphoria::core::unit2f</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1Scale2f" prot="public">euphoria::core::Scale2f</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1Scale3f" prot="public">euphoria::core::Scale3f</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1vec3f" prot="public">euphoria::core::vec3f</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1Vec3fValue" prot="public">euphoria::core::Vec3fValue</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1unit3f" prot="public">euphoria::core::unit3f</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1vec4f" prot="public">euphoria::core::vec4f</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1Viewport" prot="public">euphoria::core::Viewport</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1ViewportDefinition" prot="public">euphoria::core::ViewportDefinition</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1VirtualConsole" prot="public">euphoria::core::VirtualConsole</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1WallCounter" prot="public">euphoria::core::WallCounter</innerclass>
     <innernamespace refid="namespaceeuphoria_1_1core_1_1argparse">euphoria::core::argparse</innernamespace>
     <innernamespace refid="namespaceeuphoria_1_1core_1_1base64">euphoria::core::base64</innernamespace>
     <innernamespace refid="namespaceeuphoria_1_1core_1_1colorbrewer">euphoria::core::colorbrewer</innernamespace>
@@ -193,7 +193,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/camera3.editor.h" line="67" column="1" bodyfile="libs/core/src/core/camera3.editor.h" bodystart="66" bodyend="69"/>
+        <location file="libs/core/src/core/camera3.editor.h" line="66" column="5" bodyfile="libs/core/src/core/camera3.editor.h" bodystart="67" bodyend="69"/>
       </memberdef>
       <memberdef kind="enum" id="namespaceeuphoria_1_1core_1a4e52b01e84041d220929c7bcabfaf74e" prot="public" static="no" strong="yes">
         <type></type>
@@ -414,7 +414,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/colors.h" line="12" column="1" bodyfile="libs/core/src/core/colors.h" bodystart="11" bodyend="156"/>
+        <location file="libs/core/src/core/colors.h" line="11" column="5" bodyfile="libs/core/src/core/colors.h" bodystart="12" bodyend="156"/>
       </memberdef>
       <memberdef kind="enum" id="namespaceeuphoria_1_1core_1a5aacc8412ac75c0c9bb8f5032852adad" prot="public" static="no" strong="yes">
         <type></type>
@@ -481,7 +481,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/colors.h" line="163" column="1" bodyfile="libs/core/src/core/colors.h" bodystart="162" bodyend="187"/>
+        <location file="libs/core/src/core/colors.h" line="162" column="5" bodyfile="libs/core/src/core/colors.h" bodystart="163" bodyend="187"/>
       </memberdef>
       <memberdef kind="enum" id="namespaceeuphoria_1_1core_1a115463d1e927ca892cec2491d19a056b" prot="public" static="no" strong="yes">
         <type></type>
@@ -513,7 +513,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/cypher.h" line="11" column="1" bodyfile="libs/core/src/core/cypher.h" bodystart="10" bodyend="13"/>
+        <location file="libs/core/src/core/cypher.h" line="10" column="5" bodyfile="libs/core/src/core/cypher.h" bodystart="11" bodyend="13"/>
       </memberdef>
       <memberdef kind="enum" id="namespaceeuphoria_1_1core_1a6e9d54d933dc9e9c9314cd763a39d52a" prot="public" static="no" strong="yes">
         <type></type>
@@ -608,7 +608,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/datetime.h" line="16" column="1" bodyfile="libs/core/src/core/datetime.h" bodystart="15" bodyend="21"/>
+        <location file="libs/core/src/core/datetime.h" line="15" column="5" bodyfile="libs/core/src/core/datetime.h" bodystart="16" bodyend="21"/>
       </memberdef>
       <memberdef kind="enum" id="namespaceeuphoria_1_1core_1a694ea38f253fd5079cc1d7eb1acd757c" prot="public" static="no" strong="yes">
         <type></type>
@@ -640,7 +640,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/datetime.h" line="24" column="1" bodyfile="libs/core/src/core/datetime.h" bodystart="23" bodyend="26"/>
+        <location file="libs/core/src/core/datetime.h" line="23" column="5" bodyfile="libs/core/src/core/datetime.h" bodystart="24" bodyend="26"/>
       </memberdef>
       <memberdef kind="enum" id="namespaceeuphoria_1_1core_1ab6be8a33011c429e839dd2853f7e4632" prot="public" static="no" strong="yes">
         <type></type>
@@ -665,7 +665,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/datetime.h" line="29" column="1" bodyfile="libs/core/src/core/datetime.h" bodystart="28" bodyend="31"/>
+        <location file="libs/core/src/core/datetime.h" line="28" column="5" bodyfile="libs/core/src/core/datetime.h" bodystart="29" bodyend="31"/>
       </memberdef>
       <memberdef kind="enum" id="namespaceeuphoria_1_1core_1a68fff98aaeca3d2cba3daf865a80eaa1" prot="public" static="no" strong="yes">
         <type></type>
@@ -704,7 +704,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/image.h" line="20" column="1" bodyfile="libs/core/src/core/image.h" bodystart="19" bodyend="25"/>
+        <location file="libs/core/src/core/image.h" line="19" column="5" bodyfile="libs/core/src/core/image.h" bodystart="20" bodyend="25"/>
       </memberdef>
       <memberdef kind="enum" id="namespaceeuphoria_1_1core_1ac4d25e41b15b75088eed48e49138eea8" prot="public" static="no" strong="yes">
         <type></type>
@@ -729,7 +729,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/image.h" line="139" column="1" bodyfile="libs/core/src/core/image.h" bodystart="138" bodyend="142"/>
+        <location file="libs/core/src/core/image.h" line="138" column="5" bodyfile="libs/core/src/core/image.h" bodystart="139" bodyend="142"/>
       </memberdef>
       <memberdef kind="enum" id="namespaceeuphoria_1_1core_1a6cca1860905cb2f50dfec8f077ad6af2" prot="public" static="no" strong="yes">
         <type></type>
@@ -754,7 +754,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/image_draw.h" line="82" column="1" bodyfile="libs/core/src/core/image_draw.h" bodystart="81" bodyend="85"/>
+        <location file="libs/core/src/core/image_draw.h" line="81" column="5" bodyfile="libs/core/src/core/image_draw.h" bodystart="82" bodyend="85"/>
       </memberdef>
       <memberdef kind="enum" id="namespaceeuphoria_1_1core_1a352b811085853f7ec220af1a5b92a124" prot="public" static="no" strong="yes">
         <type></type>
@@ -821,7 +821,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/imagefilters.h" line="14" column="1" bodyfile="libs/core/src/core/imagefilters.h" bodystart="13" bodyend="23"/>
+        <location file="libs/core/src/core/imagefilters.h" line="13" column="5" bodyfile="libs/core/src/core/imagefilters.h" bodystart="14" bodyend="23"/>
       </memberdef>
       <memberdef kind="enum" id="namespaceeuphoria_1_1core_1aca4be613f8530e618686f73fdb00eeac" prot="public" static="no" strong="yes">
         <type></type>
@@ -881,7 +881,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/key.h" line="8" column="1" bodyfile="libs/core/src/core/key.h" bodystart="7" bodyend="16"/>
+        <location file="libs/core/src/core/key.h" line="7" column="5" bodyfile="libs/core/src/core/key.h" bodystart="8" bodyend="16"/>
       </memberdef>
       <memberdef kind="enum" id="namespaceeuphoria_1_1core_1aa9db03a38fd9999446a4ebf0584cd710" prot="public" static="no" strong="yes">
         <type></type>
@@ -2551,7 +2551,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/key.h" line="26" column="1" bodyfile="libs/core/src/core/key.h" bodystart="25" bodyend="264"/>
+        <location file="libs/core/src/core/key.h" line="25" column="5" bodyfile="libs/core/src/core/key.h" bodystart="26" bodyend="264"/>
       </memberdef>
       <memberdef kind="enum" id="namespaceeuphoria_1_1core_1aac094dc57a2fe85861d0a09afea97978" prot="public" static="no" strong="yes">
         <type></type>
@@ -2583,7 +2583,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/mesh.h" line="25" column="1" bodyfile="libs/core/src/core/mesh.h" bodystart="24" bodyend="29"/>
+        <location file="libs/core/src/core/mesh.h" line="24" column="5" bodyfile="libs/core/src/core/mesh.h" bodystart="25" bodyend="29"/>
       </memberdef>
       <memberdef kind="enum" id="namespaceeuphoria_1_1core_1ae4c24a6a2024585c62a9b910a86d571d" prot="public" static="no" strong="yes">
         <type></type>
@@ -2615,7 +2615,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/mousebehaviour.h" line="7" column="1" bodyfile="libs/core/src/core/mousebehaviour.h" bodystart="6" bodyend="9"/>
+        <location file="libs/core/src/core/mousebehaviour.h" line="6" column="5" bodyfile="libs/core/src/core/mousebehaviour.h" bodystart="7" bodyend="9"/>
       </memberdef>
       <memberdef kind="enum" id="namespaceeuphoria_1_1core_1abfc67891bba4cfcbc72a6eaaeb6371dc" prot="public" static="no" strong="yes">
         <type></type>
@@ -2640,7 +2640,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/multisort.h" line="16" column="1" bodyfile="libs/core/src/core/multisort.h" bodystart="15" bodyend="19"/>
+        <location file="libs/core/src/core/multisort.h" line="15" column="5" bodyfile="libs/core/src/core/multisort.h" bodystart="16" bodyend="19"/>
       </memberdef>
       <memberdef kind="enum" id="namespaceeuphoria_1_1core_1a2e8b7cc361c3a1f0fd3e547e2c1eaee7" prot="public" static="no" strong="yes">
         <type></type>
@@ -2679,7 +2679,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/propertytree.h" line="12" column="1" bodyfile="libs/core/src/core/propertytree.h" bodystart="11" bodyend="17"/>
+        <location file="libs/core/src/core/propertytree.h" line="11" column="5" bodyfile="libs/core/src/core/propertytree.h" bodystart="12" bodyend="17"/>
       </memberdef>
       <memberdef kind="enum" id="namespaceeuphoria_1_1core_1ab230baada4409e0fcca3d5b1e4e94e31" prot="public" static="no" strong="yes">
         <type></type>
@@ -2704,7 +2704,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rgb.h" line="120" column="1" bodyfile="libs/core/src/core/rgb.h" bodystart="119" bodyend="123"/>
+        <location file="libs/core/src/core/rgb.h" line="119" column="5" bodyfile="libs/core/src/core/rgb.h" bodystart="120" bodyend="123"/>
       </memberdef>
       <memberdef kind="enum" id="namespaceeuphoria_1_1core_1a0e04e623955ef5b92d46fd5a63d4bc03" prot="public" static="no" strong="yes">
         <type></type>
@@ -2890,7 +2890,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rgb_blend.h" line="8" column="1" bodyfile="libs/core/src/core/rgb_blend.h" bodystart="7" bodyend="34"/>
+        <location file="libs/core/src/core/rgb_blend.h" line="7" column="5" bodyfile="libs/core/src/core/rgb_blend.h" bodystart="8" bodyend="34"/>
       </memberdef>
       <memberdef kind="enum" id="group__string_1ga76be2d19e62a480036566314fba1fb03" prot="public" static="no" strong="yes">
         <type></type>
@@ -2915,7 +2915,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stringutils.h" line="113" column="1" bodyfile="libs/core/src/core/stringutils.h" bodystart="112" bodyend="115"/>
+        <location file="libs/core/src/core/stringutils.h" line="112" column="5" bodyfile="libs/core/src/core/stringutils.h" bodystart="113" bodyend="115"/>
       </memberdef>
       <memberdef kind="enum" id="namespaceeuphoria_1_1core_1acb9120f582881616e08787e08654e252" prot="public" static="no" strong="yes">
         <type></type>
@@ -2947,7 +2947,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/table_bool.h" line="21" column="1" bodyfile="libs/core/src/core/table_bool.h" bodystart="20" bodyend="25"/>
+        <location file="libs/core/src/core/table_bool.h" line="20" column="5" bodyfile="libs/core/src/core/table_bool.h" bodystart="21" bodyend="25"/>
       </memberdef>
       <memberdef kind="enum" id="namespaceeuphoria_1_1core_1a61c5ab965bff972d561587baef8ef430" prot="public" static="no" strong="yes">
         <type></type>
@@ -2986,7 +2986,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/table_bool.h" line="39" column="1" bodyfile="libs/core/src/core/table_bool.h" bodystart="38" bodyend="41"/>
+        <location file="libs/core/src/core/table_bool.h" line="38" column="5" bodyfile="libs/core/src/core/table_bool.h" bodystart="39" bodyend="41"/>
       </memberdef>
       <memberdef kind="enum" id="namespaceeuphoria_1_1core_1a30b337cc45a3f978a3cf405f37ca4d9f" prot="public" static="no" strong="yes">
         <type></type>
@@ -3018,7 +3018,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/table_bool.h" line="85" column="1" bodyfile="libs/core/src/core/table_bool.h" bodystart="84" bodyend="94"/>
+        <location file="libs/core/src/core/table_bool.h" line="84" column="5" bodyfile="libs/core/src/core/table_bool.h" bodystart="85" bodyend="94"/>
       </memberdef>
       <memberdef kind="enum" id="namespaceeuphoria_1_1core_1a3b8da0f08a5f5180d7b458fac903396b" prot="public" static="no" strong="yes">
         <type></type>
@@ -3043,7 +3043,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/table_string.h" line="66" column="1" bodyfile="libs/core/src/core/table_string.h" bodystart="65" bodyend="69"/>
+        <location file="libs/core/src/core/table_string.h" line="65" column="5" bodyfile="libs/core/src/core/table_string.h" bodystart="66" bodyend="69"/>
       </memberdef>
       <memberdef kind="enum" id="namespaceeuphoria_1_1core_1a15935470349ccc0f69c3476a77ac797d" prot="public" static="no" strong="yes">
         <type></type>
@@ -3117,7 +3117,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/texttemplate.cc" line="275" column="1" bodyfile="libs/core/src/core/texttemplate.cc" bodystart="274" bodyend="285"/>
+        <location file="libs/core/src/core/texttemplate.cc" line="274" column="1" bodyfile="libs/core/src/core/texttemplate.cc" bodystart="275" bodyend="285"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="typedef">
@@ -13723,9 +13723,9 @@
         </inbodydescription>
         <location file="libs/core/src/core/table_bool.cc" line="326" column="5" bodyfile="libs/core/src/core/table_bool.cc" bodystart="327" bodyend="342" declfile="libs/core/src/core/table_bool.h" declline="118" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1afdbc488727ec7693c57b0252be0dd80b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1ae34aaf180669b89672fd7b1fdb9ceb4a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::vector&lt; <ref refid="structeuphoria_1_1core_1_1vec2i" kindref="compound">vec2i</ref> &gt;</type>
-        <definition>std::vector&lt;vec2i&gt; euphoria::core::find_empty_blocks</definition>
+        <definition>std::vector&lt; vec2i &gt; euphoria::core::find_empty_blocks</definition>
         <argsstring>(const BoolTable &amp;world)</argsstring>
         <name>find_empty_blocks</name>
         <param>
@@ -13740,9 +13740,9 @@
         </inbodydescription>
         <location file="libs/core/src/core/table_bool.cc" line="346" column="5" bodyfile="libs/core/src/core/table_bool.cc" bodystart="346" bodyend="362" declfile="libs/core/src/core/table_bool.h" declline="131" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1a9a92bb8a33b3e188b36d5970b74fc705" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1ad0f8a2b1226f36e00cd3006d46fb86d4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::vector&lt; <ref refid="structeuphoria_1_1core_1_1vec2i" kindref="compound">vec2i</ref> &gt;</type>
-        <definition>std::vector&lt;vec2i&gt; euphoria::core::find_flood_fill_items</definition>
+        <definition>std::vector&lt; vec2i &gt; euphoria::core::find_flood_fill_items</definition>
         <argsstring>(const BoolTable &amp;world, const vec2i &amp;start, bool allow_diagonals)</argsstring>
         <name>find_flood_fill_items</name>
         <param>
@@ -13765,9 +13765,9 @@
         </inbodydescription>
         <location file="libs/core/src/core/table_bool.cc" line="365" column="5" bodyfile="libs/core/src/core/table_bool.cc" bodystart="366" bodyend="419" declfile="libs/core/src/core/table_bool.h" declline="134" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1a5f6c2068b37d5a00f196b8c0c8fac693" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1ac618e2b56ce8d2e1559914cc94f3a1d0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::vector&lt; std::vector&lt; <ref refid="structeuphoria_1_1core_1_1vec2i" kindref="compound">vec2i</ref> &gt; &gt;</type>
-        <definition>std::vector&lt;std::vector&lt;vec2i&gt; &gt; euphoria::core::find_empty_regions</definition>
+        <definition>std::vector&lt; std::vector&lt; vec2i &gt; &gt; euphoria::core::find_empty_regions</definition>
         <argsstring>(const BoolTable &amp;world, bool allow_diagonals)</argsstring>
         <name>find_empty_regions</name>
         <param>
@@ -15228,6 +15228,6 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/aabb.cc" line="9" column="1"/>
+    <location file="libs/core/src/core/aabb.cc" line="8" column="1"/>
   </compounddef>
 </doxygen>

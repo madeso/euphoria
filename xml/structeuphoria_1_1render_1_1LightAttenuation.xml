@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1render_1_1LightAttenuation" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::render::LightAttenuation</compoundname>
     <includes refid="light_8h" local="no">light.h</includes>
@@ -51,7 +51,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/render/src/render/light.h" line="10" column="1" bodyfile="libs/render/src/render/light.h" bodystart="9" bodyend="14"/>
+    <location file="libs/render/src/render/light.h" line="9" column="5" bodyfile="libs/render/src/render/light.h" bodystart="10" bodyend="14"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1render_1_1LightAttenuation_1ac6320c1d7d5df70a1a441480643a6c03" prot="public" virt="non-virtual"><scope>euphoria::render::LightAttenuation</scope><name>constant</name></member>
       <member refid="structeuphoria_1_1render_1_1LightAttenuation_1a9f908e88c15293f21de5db234c0ce8d1" prot="public" virt="non-virtual"><scope>euphoria::render::LightAttenuation</scope><name>linear</name></member>

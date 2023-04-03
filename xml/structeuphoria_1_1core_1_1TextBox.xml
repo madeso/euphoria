@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1TextBox" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::TextBox</compoundname>
     <includes refid="textbox_8h" local="no">textbox.h</includes>
@@ -206,12 +206,10 @@ Topology types: <verbatim>   Vertical:
 <codeline><highlight class="normal">├─child1</highlight></codeline>
 <codeline><highlight class="normal">├─child2</highlight></codeline>
 <codeline><highlight class="normal">└─child3</highlight></codeline>
-</programlisting> <verbatim>    Horizontal:
-</verbatim> <programlisting><codeline><highlight class="normal">element</highlight></codeline>
+</programlisting> Horizontal: <programlisting><codeline><highlight class="normal">element</highlight></codeline>
 <codeline><highlight class="normal">└─┬─────────┬─────────┐</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/>child1<sp/><sp/><sp/><sp/>child2<sp/><sp/><sp/><sp/>child3</highlight></codeline>
-</programlisting> <verbatim>    Simplified horizontal:
-</verbatim> <programlisting><codeline><highlight class="normal">element──┬───────┬───────┐</highlight></codeline>
+</programlisting> Simplified horizontal: <programlisting><codeline><highlight class="normal">element──┬───────┬───────┐</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>child1<sp/><sp/>child2<sp/><sp/>child3</highlight></codeline>
 </programlisting></para>
 <para>The vertical and horizontal topologies are automatically chosen depending on the situation compared to the maxwidth parameter.</para>
@@ -717,7 +715,7 @@ Topology types: <verbatim>   Vertical:
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/textbox.h" line="143" column="1" bodyfile="libs/core/src/core/textbox.h" bodystart="142" bodyend="365"/>
+    <location file="libs/core/src/core/textbox.h" line="142" column="5" bodyfile="libs/core/src/core/textbox.h" bodystart="143" bodyend="365"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1TextBox_1aa96e36854dfd22d9465bc5da230cc134" prot="public" virt="non-virtual"><scope>euphoria::core::TextBox</scope><name>create_empty</name></member>
       <member refid="structeuphoria_1_1core_1_1TextBox_1a637444d4a2d7004f029ee790fc90fa4a" prot="public" virt="non-virtual"><scope>euphoria::core::TextBox</scope><name>create_from_strings</name></member>

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structfmt_1_1formatter_3_01euphoria_1_1core_1_1Lrud_3_01T_01_4_01_4" kind="struct" language="C++" prot="public">
     <compoundname>fmt::formatter&lt; euphoria::core::Lrud&lt; T &gt; &gt;</compoundname>
     <basecompoundref prot="public" virt="non-virtual">fmt::formatter&lt; std::string &gt;</basecompoundref>
@@ -63,7 +63,7 @@
         <label>fmt::formatter&lt; std::string &gt;</label>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/fourway.h" line="190" column="1" bodyfile="libs/core/src/core/fourway.h" bodystart="189" bodyend="200"/>
+    <location file="libs/core/src/core/fourway.h" line="189" column="1" bodyfile="libs/core/src/core/fourway.h" bodystart="190" bodyend="200"/>
     <listofallmembers>
       <member refid="structfmt_1_1formatter_3_01euphoria_1_1core_1_1Lrud_3_01T_01_4_01_4_1a52d02912c9553c7ea83afb1b1f45ed80" prot="public" virt="non-virtual"><scope>fmt::formatter&lt; euphoria::core::Lrud&lt; T &gt; &gt;</scope><name>format</name></member>
     </listofallmembers>

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1StringBuilder" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::StringBuilder</compoundname>
     <includes refid="stringbuilder_8h" local="no">stringbuilder.h</includes>
@@ -116,7 +116,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/stringbuilder.h" line="9" column="1" bodyfile="libs/core/src/core/stringbuilder.h" bodystart="8" bodyend="26"/>
+    <location file="libs/core/src/core/stringbuilder.h" line="8" column="1" bodyfile="libs/core/src/core/stringbuilder.h" bodystart="9" bodyend="26"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1StringBuilder_1a98383375a107a494c1eb906b7eebb1e8" prot="public" virt="non-virtual"><scope>euphoria::core::StringBuilder</scope><name>add_char</name></member>
       <member refid="structeuphoria_1_1core_1_1StringBuilder_1afe4f2b18d05d8460d534d94fc85acfee" prot="public" virt="non-virtual"><scope>euphoria::core::StringBuilder</scope><name>add_string</name></member>

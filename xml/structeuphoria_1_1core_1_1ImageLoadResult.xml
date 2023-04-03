@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1ImageLoadResult" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::ImageLoadResult</compoundname>
     <includes refid="image_8h" local="no">image.h</includes>
@@ -48,7 +48,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/image.h" line="132" column="1" bodyfile="libs/core/src/core/image.h" bodystart="131" bodyend="135"/>
+    <location file="libs/core/src/core/image.h" line="131" column="5" bodyfile="libs/core/src/core/image.h" bodystart="132" bodyend="135"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1ImageLoadResult_1aa668d26ac19bb2fe991755ed24700c9c" prot="public" virt="non-virtual"><scope>euphoria::core::ImageLoadResult</scope><name>error</name></member>
       <member refid="structeuphoria_1_1core_1_1ImageLoadResult_1adae42cd61da1ee1f244b4b1fc6214abc" prot="public" virt="non-virtual"><scope>euphoria::core::ImageLoadResult</scope><name>image</name></member>

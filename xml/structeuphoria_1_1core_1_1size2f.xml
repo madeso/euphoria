@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1size2f" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::size2f</compoundname>
     <includes refid="size2_8h" local="no">size2.h</includes>
@@ -219,7 +219,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/size2.h" line="12" column="1" bodyfile="libs/core/src/core/size2.h" bodystart="11" bodyend="31"/>
+    <location file="libs/core/src/core/size2.h" line="11" column="5" bodyfile="libs/core/src/core/size2.h" bodystart="12" bodyend="31"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1size2f_1abbcabb946b162a957c25aa03e67b6104" prot="public" virt="non-virtual"><scope>euphoria::core::size2f</scope><name>calc_center_offset_for</name></member>
       <member refid="structeuphoria_1_1core_1_1size2f_1a754eba01376cdf4250648ed790d4132d" prot="public" virt="non-virtual"><scope>euphoria::core::size2f</scope><name>create_from_height_width</name></member>

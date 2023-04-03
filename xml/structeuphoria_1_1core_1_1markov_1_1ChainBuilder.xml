@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1markov_1_1ChainBuilder" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::markov::ChainBuilder</compoundname>
     <includes refid="markov_8h" local="no">markov.h</includes>
@@ -89,7 +89,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/markov.h" line="118" column="1" bodyfile="libs/core/src/core/markov.h" bodystart="117" bodyend="151"/>
+    <location file="libs/core/src/core/markov.h" line="117" column="5" bodyfile="libs/core/src/core/markov.h" bodystart="118" bodyend="151"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1markov_1_1ChainBuilder_1aae1d0d45603419de6db542d8a59215a5" prot="public" virt="non-virtual"><scope>euphoria::core::markov::ChainBuilder</scope><name>add</name></member>
       <member refid="structeuphoria_1_1core_1_1markov_1_1ChainBuilder_1a229fc36ca3ca5a411d9a1fe0f56855e3" prot="public" virt="non-virtual"><scope>euphoria::core::markov::ChainBuilder</scope><name>build</name></member>

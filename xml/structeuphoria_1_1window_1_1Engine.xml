@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1window_1_1Engine" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::window::Engine</compoundname>
     <includes refid="engine_8h" local="no">engine.h</includes>
@@ -277,7 +277,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/window/src/window/engine.h" line="33" column="1" bodyfile="libs/window/src/window/engine.h" bodystart="32" bodyend="62"/>
+    <location file="libs/window/src/window/engine.h" line="32" column="5" bodyfile="libs/window/src/window/engine.h" bodystart="33" bodyend="62"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1window_1_1Engine_1a617767973242f4b5699be89bdddb0073" prot="public" virt="non-virtual"><scope>euphoria::window::Engine</scope><name>catalog</name></member>
       <member refid="structeuphoria_1_1window_1_1Engine_1a668e478f1725aaf8ed80a1bd79017be4" prot="public" virt="non-virtual"><scope>euphoria::window::Engine</scope><name>context</name></member>

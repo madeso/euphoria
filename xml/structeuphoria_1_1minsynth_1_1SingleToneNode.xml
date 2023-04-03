@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1minsynth_1_1SingleToneNode" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::minsynth::SingleToneNode</compoundname>
     <basecompoundref refid="structeuphoria_1_1minsynth_1_1ToneTaker" prot="public" virt="non-virtual">euphoria::minsynth::ToneTaker</basecompoundref>
@@ -117,7 +117,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="libs/minsynth/src/minsynth/synth.h" line="236" column="1" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="232" bodyend="242"/>
+    <location file="libs/minsynth/src/minsynth/synth.h" line="232" column="5" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="236" bodyend="242"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1minsynth_1_1SingleToneNode_1acc3bef31ed5c9f56977450ca6626d386" prot="public" virt="non-virtual"><scope>euphoria::minsynth::SingleToneNode</scope><name>down_tones</name></member>
       <member refid="structeuphoria_1_1minsynth_1_1SingleToneNode_1a4d1bd65214ec214b0c8163016f380b44" prot="public" virt="non-virtual"><scope>euphoria::minsynth::SingleToneNode</scope><name>get_current_tone</name></member>

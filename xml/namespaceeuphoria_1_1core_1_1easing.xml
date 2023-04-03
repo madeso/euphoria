@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="namespaceeuphoria_1_1core_1_1easing" kind="namespace" language="C++">
     <compoundname>euphoria::core::easing</compoundname>
       <sectiondef kind="enum">
@@ -82,7 +82,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/easing.h" line="10" column="1" bodyfile="libs/core/src/core/easing.h" bodystart="9" bodyend="24"/>
+        <location file="libs/core/src/core/easing.h" line="9" column="1" bodyfile="libs/core/src/core/easing.h" bodystart="10" bodyend="24"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="func">
@@ -403,6 +403,6 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/easing.cc" line="16" column="1"/>
+    <location file="libs/core/src/core/easing.cc" line="15" column="1"/>
   </compounddef>
 </doxygen>

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1minsynth_1_1Envelope" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::minsynth::Envelope</compoundname>
     <includes refid="synth_8h" local="no">synth.h</includes>
@@ -89,7 +89,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/minsynth/src/minsynth/synth.h" line="286" column="1" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="285" bodyend="292"/>
+    <location file="libs/minsynth/src/minsynth/synth.h" line="285" column="5" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="286" bodyend="292"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1minsynth_1_1Envelope_1a7ea428c92fb793e07cd953932fcf9a62" prot="public" virt="non-virtual"><scope>euphoria::minsynth::Envelope</scope><name>get_dead</name></member>
       <member refid="structeuphoria_1_1minsynth_1_1Envelope_1af2af05f63e53052fd9e0dbeb6b3a4d64" prot="public" virt="non-virtual"><scope>euphoria::minsynth::Envelope</scope><name>get_live</name></member>

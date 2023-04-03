@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1PoissonWorker" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::PoissonWorker</compoundname>
     <includes refid="poisson_8h" local="no">poisson.h</includes>
@@ -282,7 +282,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/poisson.h" line="16" column="1" bodyfile="libs/core/src/core/poisson.h" bodystart="15" bodyend="38"/>
+    <location file="libs/core/src/core/poisson.h" line="15" column="5" bodyfile="libs/core/src/core/poisson.h" bodystart="16" bodyend="38"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1PoissonWorker_1a2a7382cf15920bbebf087c2afa1d1c9c" prot="public" virt="non-virtual"><scope>euphoria::core::PoissonWorker</scope><name>active</name></member>
       <member refid="structeuphoria_1_1core_1_1PoissonWorker_1acca7b2f02a12af990148b61a62d5f07c" prot="public" virt="non-virtual"><scope>euphoria::core::PoissonWorker</scope><name>area</name></member>

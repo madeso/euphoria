@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1tracery_1_1english_1_1FunctionModifier" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::tracery::english::FunctionModifier</compoundname>
     <basecompoundref refid="structeuphoria_1_1core_1_1tracery_1_1Modifier" prot="public" virt="non-virtual">euphoria::core::tracery::Modifier</basecompoundref>
@@ -88,7 +88,7 @@
         <link refid="structeuphoria_1_1core_1_1tracery_1_1Modifier"/>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/tracery.cc" line="583" column="1" bodyfile="libs/core/src/core/tracery.cc" bodystart="582" bodyend="592"/>
+    <location file="libs/core/src/core/tracery.cc" line="582" column="9" bodyfile="libs/core/src/core/tracery.cc" bodystart="583" bodyend="592"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1tracery_1_1english_1_1FunctionModifier_1ac1bb6ee68705471a455178234eb3e8b1" prot="public" virt="virtual"><scope>euphoria::core::tracery::english::FunctionModifier</scope><name>apply_modifier</name></member>
       <member refid="structeuphoria_1_1core_1_1tracery_1_1english_1_1FunctionModifier_1a9e0b87c19ff30833756cde2fe7bcaffd" prot="public" virt="non-virtual"><scope>euphoria::core::tracery::english::FunctionModifier</scope><name>func</name></member>

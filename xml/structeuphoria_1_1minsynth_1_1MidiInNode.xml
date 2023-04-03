@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1minsynth_1_1MidiInNode" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::minsynth::MidiInNode</compoundname>
     <basecompoundref refid="structeuphoria_1_1minsynth_1_1Node" prot="public" virt="virtual">euphoria::minsynth::Node</basecompoundref>
@@ -160,7 +160,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="libs/minsynth/src/minsynth/synth.h" line="189" column="1" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="188" bodyend="199"/>
+    <location file="libs/minsynth/src/minsynth/synth.h" line="188" column="5" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="189" bodyend="199"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1minsynth_1_1MidiInNode_1a1971b28fd0f3ded9e8a18fcbcc141d44" prot="public" virt="non-virtual"><scope>euphoria::minsynth::MidiInNode</scope><name>debug_callback</name></member>
       <member refid="structeuphoria_1_1minsynth_1_1MidiInNode_1adfb066b244277b16884c868b04b897cb" prot="public" virt="non-virtual"><scope>euphoria::minsynth::MidiInNode</scope><name>is_status_message</name></member>

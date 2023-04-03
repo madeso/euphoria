@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1SortBuilder" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::SortBuilder</compoundname>
     <includes refid="multisort_8h" local="no">multisort.h</includes>
@@ -130,7 +130,7 @@
 </parameterlist>
 </para>
     </detaileddescription>
-    <location file="libs/core/src/core/multisort.h" line="75" column="1" bodyfile="libs/core/src/core/multisort.h" bodystart="74" bodyend="109"/>
+    <location file="libs/core/src/core/multisort.h" line="74" column="5" bodyfile="libs/core/src/core/multisort.h" bodystart="75" bodyend="109"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1SortBuilder_1ac6f0b60cae620630ddecf38ed92aef3d" prot="public" virt="non-virtual"><scope>euphoria::core::SortBuilder</scope><name>sort</name></member>
       <member refid="structeuphoria_1_1core_1_1SortBuilder_1ab5196e258e79c3d1a7c3920264d04229" prot="public" virt="non-virtual"><scope>euphoria::core::SortBuilder</scope><name>sort</name></member>

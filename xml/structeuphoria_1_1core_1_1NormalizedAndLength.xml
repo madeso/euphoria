@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1NormalizedAndLength" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::NormalizedAndLength</compoundname>
     <includes refid="vec_8base_8h" local="no">vec.base.h</includes>
@@ -43,7 +43,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/vec.base.h" line="7" column="1" bodyfile="libs/core/src/core/vec.base.h" bodystart="6" bodyend="10"/>
+    <location file="libs/core/src/core/vec.base.h" line="6" column="5" bodyfile="libs/core/src/core/vec.base.h" bodystart="7" bodyend="10"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1NormalizedAndLength_1af8ae9ab373a3a56de6e1d00aa13510af" prot="public" virt="non-virtual"><scope>euphoria::core::NormalizedAndLength</scope><name>length</name></member>
       <member refid="structeuphoria_1_1core_1_1NormalizedAndLength_1abfe98f36c4fa28c89bb02e4427b5b049" prot="public" virt="non-virtual"><scope>euphoria::core::NormalizedAndLength</scope><name>normalized</name></member>

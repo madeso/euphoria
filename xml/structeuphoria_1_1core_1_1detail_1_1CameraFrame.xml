@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1detail_1_1CameraFrame" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::detail::CameraFrame</compoundname>
     <includes refid="camera3_8editor_8h" local="no">camera3.editor.h</includes>
@@ -69,7 +69,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/camera3.editor.h" line="26" column="1" bodyfile="libs/core/src/core/camera3.editor.h" bodystart="25" bodyend="30"/>
+    <location file="libs/core/src/core/camera3.editor.h" line="25" column="9" bodyfile="libs/core/src/core/camera3.editor.h" bodystart="26" bodyend="30"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1detail_1_1CameraFrame_1ab30edb5cb2fc89520d77f15ac0dc1a4b" prot="public" virt="non-virtual"><scope>euphoria::core::detail::CameraFrame</scope><name>look_angle</name></member>
       <member refid="structeuphoria_1_1core_1_1detail_1_1CameraFrame_1a01275f4bc552c2bee720d4a098f8dfe5" prot="public" virt="non-virtual"><scope>euphoria::core::detail::CameraFrame</scope><name>position</name></member>

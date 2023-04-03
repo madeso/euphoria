@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1TreeStyle" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::TreeStyle</compoundname>
     <includes refid="ctree_8h" local="no">ctree.h</includes>
@@ -89,7 +89,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/ctree.h" line="8" column="1" bodyfile="libs/core/src/core/ctree.h" bodystart="7" bodyend="16"/>
+    <location file="libs/core/src/core/ctree.h" line="7" column="5" bodyfile="libs/core/src/core/ctree.h" bodystart="8" bodyend="16"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1TreeStyle_1aafe5367e8ac8fcd82a90e5e845557fe8" prot="public" virt="non-virtual"><scope>euphoria::core::TreeStyle</scope><name>down</name></member>
       <member refid="structeuphoria_1_1core_1_1TreeStyle_1aebcd6d0c79094e87dbf958a3fbbe1994" prot="public" virt="non-virtual"><scope>euphoria::core::TreeStyle</scope><name>include_space</name></member>

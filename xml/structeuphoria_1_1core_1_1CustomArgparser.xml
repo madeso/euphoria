@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1CustomArgparser" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::CustomArgparser</compoundname>
     <includes refid="custom__parser_8h" local="no">custom_parser.h</includes>
@@ -26,14 +26,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/custom_parser.h" line="13" column="14" bodyfile="libs/core/src/core/custom_parser.h" bodystart="13" bodyend="13"/>
+        <location file="libs/core/src/core/custom_parser.h" line="13" column="9" bodyfile="libs/core/src/core/custom_parser.h" bodystart="13" bodyend="13"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/custom_parser.h" line="12" column="1" bodyfile="libs/core/src/core/custom_parser.h" bodystart="11" bodyend="19"/>
+    <location file="libs/core/src/core/custom_parser.h" line="11" column="5" bodyfile="libs/core/src/core/custom_parser.h" bodystart="12" bodyend="19"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1CustomArgparser_1a32a559735824900ac90cc68e2abd9c42abef708ecaf92eb137983abc02b8c2ac7" prot="public" virt="non-virtual"><scope>euphoria::core::CustomArgparser</scope><name>value</name></member>
     </listofallmembers>

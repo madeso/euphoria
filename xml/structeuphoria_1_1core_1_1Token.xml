@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1Token" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::Token</compoundname>
       <sectiondef kind="public-attrib">
@@ -105,7 +105,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/texttemplate.cc" line="309" column="1" bodyfile="libs/core/src/core/texttemplate.cc" bodystart="308" bodyend="328"/>
+    <location file="libs/core/src/core/texttemplate.cc" line="308" column="1" bodyfile="libs/core/src/core/texttemplate.cc" bodystart="309" bodyend="328"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1Token_1a002a9fdb2f01a292920445429af58218" prot="public" virt="non-virtual"><scope>euphoria::core::Token</scope><name>column</name></member>
       <member refid="structeuphoria_1_1core_1_1Token_1a1bac15ab1f86a2d200ca23dd07e8e4aa" prot="public" virt="non-virtual"><scope>euphoria::core::Token</scope><name>line</name></member>

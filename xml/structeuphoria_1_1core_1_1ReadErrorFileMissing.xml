@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1ReadErrorFileMissing" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::ReadErrorFileMissing</compoundname>
     <includes refid="proto_8h" local="no">proto.h</includes>
@@ -58,7 +58,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/proto.h" line="26" column="1" bodyfile="libs/core/src/core/proto.h" bodystart="25" bodyend="31"/>
+    <location file="libs/core/src/core/proto.h" line="25" column="5" bodyfile="libs/core/src/core/proto.h" bodystart="26" bodyend="31"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1ReadErrorFileMissing_1a0395a0939fd3cc9a8aee3753d82681f2" prot="public" virt="non-virtual"><scope>euphoria::core::ReadErrorFileMissing</scope><name>error_for_debugging</name></member>
       <member refid="structeuphoria_1_1core_1_1ReadErrorFileMissing_1a168b07f08cac19330a301a5426222aac" prot="public" virt="non-virtual"><scope>euphoria::core::ReadErrorFileMissing</scope><name>path_to_file</name></member>

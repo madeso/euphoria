@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1EnumType" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::EnumType</compoundname>
     <includes refid="enum_8h" local="no">enum.h</includes>
@@ -268,7 +268,7 @@
     <detaileddescription>
 <para>Declare globally grab specific enums before or after load, and load adds new, verifies created and asserts misspelled values. Advantages over hashes: type safety, catches bad spelling, no collisions and perhaps faster to generate? </para>
     </detaileddescription>
-    <location file="libs/core/src/core/enum.h" line="27" column="1" bodyfile="libs/core/src/core/enum.h" bodystart="26" bodyend="50"/>
+    <location file="libs/core/src/core/enum.h" line="26" column="5" bodyfile="libs/core/src/core/enum.h" bodystart="27" bodyend="50"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1EnumType_1a048e4f24cac2ef3a5672f1873ed32f67" prot="public" virt="non-virtual"><scope>euphoria::core::EnumType</scope><name>add_enum</name></member>
       <member refid="structeuphoria_1_1core_1_1EnumType_1a25a4718cecd70d508a34355dd8e2f76d" prot="public" virt="non-virtual"><scope>euphoria::core::EnumType</scope><name>add_enums</name></member>

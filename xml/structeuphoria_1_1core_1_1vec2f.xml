@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1vec2f" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::vec2f</compoundname>
     <includes refid="vec2_8h" local="no">vec2.h</includes>
@@ -100,9 +100,9 @@
         </inbodydescription>
         <location file="libs/core/src/core/vec2.h" line="44" column="18" bodyfile="libs/core/src/core/vec2.cc" bodystart="16" bodyend="20"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1vec2f_1a0d8e9f70e254728cfd2bfba1b32efa9f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1vec2f_1a150b88c8fc7db169903365e2c0feafd6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>float *</type>
-        <definition>const float * euphoria::core::vec2f::get_data_ptr</definition>
+        <definition>float * euphoria::core::vec2f::get_data_ptr</definition>
         <argsstring>()</argsstring>
         <name>get_data_ptr</name>
         <briefdescription>
@@ -143,9 +143,9 @@
         </inbodydescription>
         <location file="libs/core/src/core/vec2.h" line="51" column="16" bodyfile="libs/core/src/core/vec2.cc" bodystart="42" bodyend="47"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1vec2f_1ab88413d960aa084c2f224466d6c0a826" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1vec2f_1ace4ed53850004d3defbe2212d5d47818" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>const float *</type>
-        <definition>const float* euphoria::core::vec2f::get_data_ptr</definition>
+        <definition>const float * euphoria::core::vec2f::get_data_ptr</definition>
         <argsstring>() const</argsstring>
         <name>get_data_ptr</name>
         <briefdescription>
@@ -154,7 +154,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vec2.h" line="53" column="22"/>
+        <location file="libs/core/src/core/vec2.h" line="53" column="22" bodyfile="libs/core/src/core/vec2.cc" bodystart="36" bodyend="39"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1vec2f_1a43ffd7f6ec07b71c9da1d11b7b0691cd" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1vec2i" kindref="compound">vec2i</ref></type>
@@ -343,11 +343,11 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/vec2.h" line="33" column="1" bodyfile="libs/core/src/core/vec2.h" bodystart="32" bodyend="66"/>
+    <location file="libs/core/src/core/vec2.h" line="32" column="5" bodyfile="libs/core/src/core/vec2.h" bodystart="33" bodyend="66"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1vec2f_1a361e9066c380b96c555c01d369b0344f" prot="public" virt="non-virtual"><scope>euphoria::core::vec2f</scope><name>from_to</name></member>
-      <member refid="structeuphoria_1_1core_1_1vec2f_1a0d8e9f70e254728cfd2bfba1b32efa9f" prot="public" virt="non-virtual"><scope>euphoria::core::vec2f</scope><name>get_data_ptr</name></member>
-      <member refid="structeuphoria_1_1core_1_1vec2f_1ab88413d960aa084c2f224466d6c0a826" prot="public" virt="non-virtual"><scope>euphoria::core::vec2f</scope><name>get_data_ptr</name></member>
+      <member refid="structeuphoria_1_1core_1_1vec2f_1a150b88c8fc7db169903365e2c0feafd6" prot="public" virt="non-virtual"><scope>euphoria::core::vec2f</scope><name>get_data_ptr</name></member>
+      <member refid="structeuphoria_1_1core_1_1vec2f_1ace4ed53850004d3defbe2212d5d47818" prot="public" virt="non-virtual"><scope>euphoria::core::vec2f</scope><name>get_data_ptr</name></member>
       <member refid="structeuphoria_1_1core_1_1vec2f_1a3a918558803d2e3e5a3b800700f60da3" prot="public" virt="non-virtual"><scope>euphoria::core::vec2f</scope><name>get_flipped_y</name></member>
       <member refid="structeuphoria_1_1core_1_1vec2f_1a3fb3ddc8a6d2e42d719c73f398430c1d" prot="public" virt="non-virtual"><scope>euphoria::core::vec2f</scope><name>get_length</name></member>
       <member refid="structeuphoria_1_1core_1_1vec2f_1a478fa938b6bed05ead24b08247fa2073" prot="public" virt="non-virtual"><scope>euphoria::core::vec2f</scope><name>get_length_squared</name></member>

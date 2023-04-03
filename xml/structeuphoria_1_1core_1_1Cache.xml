@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1Cache" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::Cache</compoundname>
     <includes refid="cache_8h" local="no">cache.h</includes>
@@ -52,7 +52,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/cache.h" line="15" column="1" bodyfile="libs/core/src/core/cache.h" bodystart="14" bodyend="38"/>
+    <location file="libs/core/src/core/cache.h" line="14" column="5" bodyfile="libs/core/src/core/cache.h" bodystart="15" bodyend="38"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1Cache_1a60fc15b9f387f876fb12f851e8ab53ed" prot="public" virt="non-virtual"><scope>euphoria::core::Cache</scope><name>get</name></member>
       <member refid="structeuphoria_1_1core_1_1Cache_1a530e663b62a05d210f80ac1f96302381" prot="public" virt="non-virtual"><scope>euphoria::core::Cache</scope><name>store</name></member>

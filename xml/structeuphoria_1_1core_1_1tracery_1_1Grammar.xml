@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1tracery_1_1Grammar" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::tracery::Grammar</compoundname>
     <includes refid="tracery_8h" local="no">tracery.h</includes>
@@ -189,7 +189,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/tracery.h" line="103" column="1" bodyfile="libs/core/src/core/tracery.h" bodystart="102" bodyend="120"/>
+    <location file="libs/core/src/core/tracery.h" line="102" column="5" bodyfile="libs/core/src/core/tracery.h" bodystart="103" bodyend="120"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1tracery_1_1Grammar_1adae469688db969cfd0bd198fa1e3d395" prot="public" virt="non-virtual"><scope>euphoria::core::tracery::Grammar</scope><name>apply_modifier</name></member>
       <member refid="structeuphoria_1_1core_1_1tracery_1_1Grammar_1a636774d5d71a33338f8386fb5380862e" prot="public" virt="non-virtual"><scope>euphoria::core::tracery::Grammar</scope><name>flatten</name></member>

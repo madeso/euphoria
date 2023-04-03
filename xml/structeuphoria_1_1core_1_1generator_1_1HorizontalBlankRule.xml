@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1generator_1_1HorizontalBlankRule" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::generator::HorizontalBlankRule</compoundname>
     <basecompoundref refid="structeuphoria_1_1core_1_1generator_1_1Rule" prot="public" virt="non-virtual">euphoria::core::generator::Rule</basecompoundref>
@@ -100,7 +100,7 @@
         <link refid="structeuphoria_1_1core_1_1generator_1_1Rule"/>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/generator_cell.cc" line="140" column="1" bodyfile="libs/core/src/core/generator_cell.cc" bodystart="139" bodyend="169"/>
+    <location file="libs/core/src/core/generator_cell.cc" line="139" column="5" bodyfile="libs/core/src/core/generator_cell.cc" bodystart="140" bodyend="169"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1generator_1_1HorizontalBlankRule_1a430bb7d63696a49d3e50d3a0c98fb264" prot="public" virt="non-virtual"><scope>euphoria::core::generator::HorizontalBlankRule</scope><name>center</name></member>
       <member refid="structeuphoria_1_1core_1_1generator_1_1HorizontalBlankRule_1a219cd6a6926c4dbbee5d36387ca6daab" prot="public" virt="non-virtual"><scope>euphoria::core::generator::HorizontalBlankRule</scope><name>height</name></member>

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1tracery_1_1Result" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::tracery::Result</compoundname>
     <includes refid="tracery_8h" local="no">tracery.h</includes>
@@ -69,7 +69,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/tracery.h" line="20" column="1" bodyfile="libs/core/src/core/tracery.h" bodystart="19" bodyend="29"/>
+        <location file="libs/core/src/core/tracery.h" line="19" column="9" bodyfile="libs/core/src/core/tracery.h" bodystart="20" bodyend="29"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-attrib">
@@ -166,7 +166,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/tracery.h" line="18" column="1" bodyfile="libs/core/src/core/tracery.h" bodystart="17" bodyend="40"/>
+    <location file="libs/core/src/core/tracery.h" line="17" column="5" bodyfile="libs/core/src/core/tracery.h" bodystart="18" bodyend="40"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1tracery_1_1Result_1a67171a1dfa9297e43007a2a7f8ce247a" prot="public" virt="non-virtual"><scope>euphoria::core::tracery::Result</scope><name>Error</name></member>
       <member refid="structeuphoria_1_1core_1_1tracery_1_1Result_1a117e7719e9e48c0973f65954709b6c21" prot="public" virt="non-virtual"><scope>euphoria::core::tracery::Result</scope><name>error_type</name></member>

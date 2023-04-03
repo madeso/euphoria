@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1DirectoryListing" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::DirectoryListing</compoundname>
     <includes refid="os_8h" local="no">os.h</includes>
@@ -49,7 +49,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/os.h" line="14" column="1" bodyfile="libs/core/src/core/os.h" bodystart="13" bodyend="18"/>
+    <location file="libs/core/src/core/os.h" line="13" column="5" bodyfile="libs/core/src/core/os.h" bodystart="14" bodyend="18"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1DirectoryListing_1aec1bfec28505d062a1c5335f35e06d82" prot="public" virt="non-virtual"><scope>euphoria::core::DirectoryListing</scope><name>directories</name></member>
       <member refid="structeuphoria_1_1core_1_1DirectoryListing_1a61e829562144206bdd2d4dcb6fd4a851" prot="public" virt="non-virtual"><scope>euphoria::core::DirectoryListing</scope><name>files</name></member>

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1gui_1_1Widget" kind="struct" language="C++" prot="public" abstract="yes">
     <compoundname>euphoria::gui::Widget</compoundname>
     <derivedcompoundref refid="structeuphoria_1_1gui_1_1Button" prot="public" virt="non-virtual">euphoria::gui::Button</derivedcompoundref>
@@ -213,8 +213,8 @@
         <definition>virtual void euphoria::gui::Widget::update</definition>
         <argsstring>(float dt)=0</argsstring>
         <name>update</name>
-        <reimplementedby refid="structeuphoria_1_1gui_1_1PanelWidget_1a2a8c8f0bdbcad52dc436817a56cd47ba">update</reimplementedby>
         <reimplementedby refid="structeuphoria_1_1gui_1_1Button_1a248064b8bd13f42d23cfa5f04efb5273">update</reimplementedby>
+        <reimplementedby refid="structeuphoria_1_1gui_1_1PanelWidget_1a2a8c8f0bdbcad52dc436817a56cd47ba">update</reimplementedby>
         <param>
           <type>float</type>
           <declname>dt</declname>
@@ -232,8 +232,8 @@
         <definition>void euphoria::gui::Widget::on_size_changed</definition>
         <argsstring>()</argsstring>
         <name>on_size_changed</name>
-        <reimplementedby refid="structeuphoria_1_1gui_1_1PanelWidget_1ad9295e32fb11ce172e4e31d6a238b8b2">on_size_changed</reimplementedby>
         <reimplementedby refid="structeuphoria_1_1gui_1_1Button_1a4d824de3a4244a2961f6c5aca17a0145">on_size_changed</reimplementedby>
+        <reimplementedby refid="structeuphoria_1_1gui_1_1PanelWidget_1ad9295e32fb11ce172e4e31d6a238b8b2">on_size_changed</reimplementedby>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -303,8 +303,8 @@
         <definition>virtual core::size2f euphoria::gui::Widget::calc_minimum_size</definition>
         <argsstring>() const =0</argsstring>
         <name>calc_minimum_size</name>
-        <reimplementedby refid="structeuphoria_1_1gui_1_1PanelWidget_1a37757828cfaf0a5a33c70539384f5bbc">calc_minimum_size</reimplementedby>
         <reimplementedby refid="structeuphoria_1_1gui_1_1Button_1a594d328c404f458829324afe6784096d">calc_minimum_size</reimplementedby>
+        <reimplementedby refid="structeuphoria_1_1gui_1_1PanelWidget_1a37757828cfaf0a5a33c70539384f5bbc">calc_minimum_size</reimplementedby>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -318,8 +318,8 @@
         <definition>virtual void euphoria::gui::Widget::render</definition>
         <argsstring>(render::SpriteRenderer *renderer) const =0</argsstring>
         <name>render</name>
-        <reimplementedby refid="structeuphoria_1_1gui_1_1PanelWidget_1a79a2f500e183d1c60c81ea5610e8ea75">render</reimplementedby>
         <reimplementedby refid="structeuphoria_1_1gui_1_1Button_1a179d55ba487f0aba70ef2b1e6404230e">render</reimplementedby>
+        <reimplementedby refid="structeuphoria_1_1gui_1_1PanelWidget_1a79a2f500e183d1c60c81ea5610e8ea75">render</reimplementedby>
         <param>
           <type><ref refid="structeuphoria_1_1render_1_1SpriteRenderer" kindref="compound">render::SpriteRenderer</ref> *</type>
           <declname>renderer</declname>
@@ -337,8 +337,8 @@
         <definition>virtual void euphoria::gui::Widget::visit</definition>
         <argsstring>(Visitor *visitor)=0</argsstring>
         <name>visit</name>
-        <reimplementedby refid="structeuphoria_1_1gui_1_1PanelWidget_1a9fb8136a1222227a1bff8d6c51ff76eb">visit</reimplementedby>
         <reimplementedby refid="structeuphoria_1_1gui_1_1Button_1a065d52d909b787511580c6f549c03b2b">visit</reimplementedby>
+        <reimplementedby refid="structeuphoria_1_1gui_1_1PanelWidget_1a9fb8136a1222227a1bff8d6c51ff76eb">visit</reimplementedby>
         <param>
           <type><ref refid="structeuphoria_1_1gui_1_1Visitor" kindref="compound">Visitor</ref> *</type>
           <declname>visitor</declname>
@@ -418,8 +418,8 @@
           <edgelabel>ui_state</edgelabel>
         </childnode>
         <childnode refid="4" relation="usage">
-          <edgelabel>padding</edgelabel>
           <edgelabel>margin</edgelabel>
+          <edgelabel>padding</edgelabel>
         </childnode>
         <childnode refid="5" relation="usage">
           <edgelabel>rect</edgelabel>
@@ -443,8 +443,8 @@
           <edgelabel>mouse</edgelabel>
         </childnode>
         <childnode refid="1" relation="usage">
-          <edgelabel>hot</edgelabel>
           <edgelabel>active</edgelabel>
+          <edgelabel>hot</edgelabel>
         </childnode>
       </node>
       <node id="3">
@@ -452,7 +452,7 @@
         <link refid="structeuphoria_1_1core_1_1vec2f"/>
       </node>
     </collaborationgraph>
-    <location file="libs/gui/src/gui/widget.h" line="24" column="1" bodyfile="libs/gui/src/gui/widget.h" bodystart="23" bodyend="88"/>
+    <location file="libs/gui/src/gui/widget.h" line="23" column="5" bodyfile="libs/gui/src/gui/widget.h" bodystart="24" bodyend="88"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1gui_1_1Widget_1ade558e59ce11364fe0e1066a523c357e" prot="public" virt="pure-virtual"><scope>euphoria::gui::Widget</scope><name>calc_minimum_size</name></member>
       <member refid="structeuphoria_1_1gui_1_1Widget_1a612b9df04f3ad944e2fbb724af8b9e3c" prot="public" virt="non-virtual"><scope>euphoria::gui::Widget</scope><name>get_background_rect</name></member>

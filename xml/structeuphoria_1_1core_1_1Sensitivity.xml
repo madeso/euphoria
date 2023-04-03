@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1Sensitivity" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::Sensitivity</compoundname>
     <includes refid="sensitivity_8h" local="no">sensitivity.h</includes>
@@ -86,7 +86,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/sensitivity.h" line="6" column="1" bodyfile="libs/core/src/core/sensitivity.h" bodystart="5" bodyend="14"/>
+    <location file="libs/core/src/core/sensitivity.h" line="5" column="5" bodyfile="libs/core/src/core/sensitivity.h" bodystart="6" bodyend="14"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1Sensitivity_1aaad35cffd24d59f4ac17e3de15989360" prot="public" virt="non-virtual"><scope>euphoria::core::Sensitivity</scope><name>get_multiplier_with_sign</name></member>
       <member refid="structeuphoria_1_1core_1_1Sensitivity_1ad760a375a3ee72674e19c2490d7b6cf4" prot="public" virt="non-virtual"><scope>euphoria::core::Sensitivity</scope><name>inverted</name></member>

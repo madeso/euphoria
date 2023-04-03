@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1BorderSettings" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::BorderSettings</compoundname>
     <includes refid="table__bool_8h" local="no">table_bool.h</includes>
@@ -54,7 +54,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/table_bool.h" line="148" column="1" bodyfile="libs/core/src/core/table_bool.h" bodystart="147" bodyend="152"/>
+    <location file="libs/core/src/core/table_bool.h" line="147" column="5" bodyfile="libs/core/src/core/table_bool.h" bodystart="148" bodyend="152"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1BorderSettings_1a56c46b55223d4ae5785d62c4823f6fd8" prot="public" virt="non-virtual"><scope>euphoria::core::BorderSettings</scope><name>BorderSettings</name></member>
       <member refid="structeuphoria_1_1core_1_1BorderSettings_1a02665e7aaa9ee05a666fbfff29427346" prot="public" virt="non-virtual"><scope>euphoria::core::BorderSettings</scope><name>color</name></member>

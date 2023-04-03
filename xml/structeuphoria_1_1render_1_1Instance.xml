@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1render_1_1Instance" kind="struct" language="C++" prot="public" abstract="yes">
     <compoundname>euphoria::render::Instance</compoundname>
     <derivedcompoundref refid="structeuphoria_1_1render_1_1Actor" prot="public" virt="non-virtual">euphoria::render::Actor</derivedcompoundref>
@@ -225,7 +225,7 @@
         <link refid="structeuphoria_1_1core_1_1vec3f"/>
       </node>
     </collaborationgraph>
-    <location file="libs/render/src/render/instance.h" line="13" column="1" bodyfile="libs/render/src/render/instance.h" bodystart="12" bodyend="35"/>
+    <location file="libs/render/src/render/instance.h" line="12" column="5" bodyfile="libs/render/src/render/instance.h" bodystart="13" bodyend="35"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1render_1_1Instance_1aee0d2cbbc6ccdace53bc6c9f4a65f616" prot="public" virt="non-virtual"><scope>euphoria::render::Instance</scope><name>calc_model_matrix</name></member>
       <member refid="structeuphoria_1_1render_1_1Instance_1a605b012975c03862c2f772718ee29f6b" prot="public" virt="non-virtual"><scope>euphoria::render::Instance</scope><name>Instance</name></member>

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1tracery_1_1Node" kind="struct" language="C++" prot="public" abstract="yes">
     <compoundname>euphoria::core::tracery::Node</compoundname>
     <derivedcompoundref refid="structeuphoria_1_1core_1_1tracery_1_1CallSymbolNode" prot="public" virt="non-virtual">euphoria::core::tracery::CallSymbolNode</derivedcompoundref>
@@ -138,7 +138,7 @@
         <link refid="structeuphoria_1_1core_1_1tracery_1_1Node"/>
       </node>
     </inheritancegraph>
-    <location file="libs/core/src/core/tracery.h" line="50" column="1" bodyfile="libs/core/src/core/tracery.h" bodystart="49" bodyend="60"/>
+    <location file="libs/core/src/core/tracery.h" line="49" column="5" bodyfile="libs/core/src/core/tracery.h" bodystart="50" bodyend="60"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1tracery_1_1Node_1a1d68f8224c8bddd4c67fd6e2e02f9225" prot="public" virt="pure-virtual"><scope>euphoria::core::tracery::Node</scope><name>flatten</name></member>
       <member refid="structeuphoria_1_1core_1_1tracery_1_1Node_1a942f7dbf74ab980899139eff519d780c" prot="public" virt="non-virtual"><scope>euphoria::core::tracery::Node</scope><name>Node</name></member>

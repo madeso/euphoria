@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1render_1_1World" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::render::World</compoundname>
     <includes refid="world_8h" local="no">world.h</includes>
@@ -162,7 +162,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="libs/render/src/render/world.h" line="30" column="1" bodyfile="libs/render/src/render/world.h" bodystart="29" bodyend="51"/>
+    <location file="libs/render/src/render/world.h" line="29" column="5" bodyfile="libs/render/src/render/world.h" bodystart="30" bodyend="51"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1render_1_1World_1a594001af3c6ecbe2154dc885f80b7a04" prot="public" virt="non-virtual"><scope>euphoria::render::World</scope><name>actors</name></member>
       <member refid="structeuphoria_1_1render_1_1World_1adb9ba685269a82249f7303f1d7cf1d90" prot="public" virt="non-virtual"><scope>euphoria::render::World</scope><name>add_actor</name></member>

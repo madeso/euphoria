@@ -1,48 +1,48 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="namespaceeuphoria_1_1render" kind="namespace" language="C++">
     <compoundname>euphoria::render</compoundname>
+    <innerclass refid="structeuphoria_1_1render_1_1MaterialOverride" prot="public">euphoria::render::MaterialOverride</innerclass>
     <innerclass refid="structeuphoria_1_1render_1_1Actor" prot="public">euphoria::render::Actor</innerclass>
+    <innerclass refid="structeuphoria_1_1render_1_1VertexBuffer" prot="public">euphoria::render::VertexBuffer</innerclass>
+    <innerclass refid="structeuphoria_1_1render_1_1PointLayout" prot="public">euphoria::render::PointLayout</innerclass>
+    <innerclass refid="structeuphoria_1_1render_1_1IndexBuffer" prot="public">euphoria::render::IndexBuffer</innerclass>
     <innerclass refid="structeuphoria_1_1render_1_1Buffer2d" prot="public">euphoria::render::Buffer2d</innerclass>
     <innerclass refid="structeuphoria_1_1render_1_1CompiledLines" prot="public">euphoria::render::CompiledLines</innerclass>
-    <innerclass refid="structeuphoria_1_1render_1_1CompiledMesh" prot="public">euphoria::render::CompiledMesh</innerclass>
-    <innerclass refid="structeuphoria_1_1render_1_1CompiledMeshMaterial" prot="public">euphoria::render::CompiledMeshMaterial</innerclass>
     <innerclass refid="structeuphoria_1_1render_1_1CompiledMeshPart" prot="public">euphoria::render::CompiledMeshPart</innerclass>
-    <innerclass refid="structeuphoria_1_1render_1_1DrawableFont" prot="public">euphoria::render::DrawableFont</innerclass>
-    <innerclass refid="structeuphoria_1_1render_1_1DrawableText" prot="public">euphoria::render::DrawableText</innerclass>
-    <innerclass refid="structeuphoria_1_1render_1_1DrawData" prot="public">euphoria::render::DrawData</innerclass>
-    <innerclass refid="structeuphoria_1_1render_1_1FontCache" prot="public">euphoria::render::FontCache</innerclass>
+    <innerclass refid="structeuphoria_1_1render_1_1CompiledMeshMaterial" prot="public">euphoria::render::CompiledMeshMaterial</innerclass>
+    <innerclass refid="structeuphoria_1_1render_1_1CompiledMesh" prot="public">euphoria::render::CompiledMesh</innerclass>
+    <innerclass refid="structeuphoria_1_1render_1_1UiTextCompileVisitor" prot="public">euphoria::render::UiTextCompileVisitor</innerclass>
     <innerclass refid="structeuphoria_1_1render_1_1Glyph" prot="public">euphoria::render::Glyph</innerclass>
+    <innerclass refid="structeuphoria_1_1render_1_1TextDrawCommand" prot="public">euphoria::render::TextDrawCommand</innerclass>
+    <innerclass refid="structeuphoria_1_1render_1_1ListOfTextDrawCommands" prot="public">euphoria::render::ListOfTextDrawCommands</innerclass>
+    <innerclass refid="structeuphoria_1_1render_1_1DrawableText" prot="public">euphoria::render::DrawableText</innerclass>
+    <innerclass refid="structeuphoria_1_1render_1_1DrawableFont" prot="public">euphoria::render::DrawableFont</innerclass>
+    <innerclass refid="structeuphoria_1_1render_1_1FontCache" prot="public">euphoria::render::FontCache</innerclass>
     <innerclass refid="structeuphoria_1_1render_1_1Id" prot="public">euphoria::render::Id</innerclass>
-    <innerclass refid="structeuphoria_1_1render_1_1IndexBuffer" prot="public">euphoria::render::IndexBuffer</innerclass>
     <innerclass refid="structeuphoria_1_1render_1_1Init" prot="public">euphoria::render::Init</innerclass>
     <innerclass refid="structeuphoria_1_1render_1_1Instance" prot="public">euphoria::render::Instance</innerclass>
-    <innerclass refid="structeuphoria_1_1render_1_1Layer" prot="public">euphoria::render::Layer</innerclass>
-    <innerclass refid="structeuphoria_1_1render_1_1Light" prot="public">euphoria::render::Light</innerclass>
     <innerclass refid="structeuphoria_1_1render_1_1LightAttenuation" prot="public">euphoria::render::LightAttenuation</innerclass>
-    <innerclass refid="structeuphoria_1_1render_1_1ListOfTextDrawCommands" prot="public">euphoria::render::ListOfTextDrawCommands</innerclass>
-    <innerclass refid="structeuphoria_1_1render_1_1MaterialOverride" prot="public">euphoria::render::MaterialOverride</innerclass>
-    <innerclass refid="structeuphoria_1_1render_1_1MaterialShader" prot="public">euphoria::render::MaterialShader</innerclass>
-    <innerclass refid="structeuphoria_1_1render_1_1MaterialShaderBinding" prot="public">euphoria::render::MaterialShaderBinding</innerclass>
-    <innerclass refid="structeuphoria_1_1render_1_1MaterialShaderCache" prot="public">euphoria::render::MaterialShaderCache</innerclass>
+    <innerclass refid="structeuphoria_1_1render_1_1Light" prot="public">euphoria::render::Light</innerclass>
     <innerclass refid="structeuphoria_1_1render_1_1MaterialShaderDefaultTexture" prot="public">euphoria::render::MaterialShaderDefaultTexture</innerclass>
-    <innerclass refid="structeuphoria_1_1render_1_1PointLayout" prot="public">euphoria::render::PointLayout</innerclass>
+    <innerclass refid="structeuphoria_1_1render_1_1MaterialShaderBinding" prot="public">euphoria::render::MaterialShaderBinding</innerclass>
+    <innerclass refid="structeuphoria_1_1render_1_1MaterialShader" prot="public">euphoria::render::MaterialShader</innerclass>
+    <innerclass refid="structeuphoria_1_1render_1_1MaterialShaderCache" prot="public">euphoria::render::MaterialShaderCache</innerclass>
     <innerclass refid="structeuphoria_1_1render_1_1PositionedLines" prot="public">euphoria::render::PositionedLines</innerclass>
     <innerclass refid="structeuphoria_1_1render_1_1ScalableSprite" prot="public">euphoria::render::ScalableSprite</innerclass>
-    <innerclass refid="structeuphoria_1_1render_1_1ShaderAttribute" prot="public">euphoria::render::ShaderAttribute</innerclass>
     <innerclass refid="structeuphoria_1_1render_1_1ShaderId" prot="public">euphoria::render::ShaderId</innerclass>
     <innerclass refid="structeuphoria_1_1render_1_1ShaderProgram" prot="public">euphoria::render::ShaderProgram</innerclass>
+    <innerclass refid="structeuphoria_1_1render_1_1ShaderAttribute" prot="public">euphoria::render::ShaderAttribute</innerclass>
     <innerclass refid="structeuphoria_1_1render_1_1ShaderUniform" prot="public">euphoria::render::ShaderUniform</innerclass>
     <innerclass refid="structeuphoria_1_1render_1_1Sprite" prot="public">euphoria::render::Sprite</innerclass>
+    <innerclass refid="structeuphoria_1_1render_1_1Layer" prot="public">euphoria::render::Layer</innerclass>
     <innerclass refid="structeuphoria_1_1render_1_1SpriteBatch" prot="public">euphoria::render::SpriteBatch</innerclass>
+    <innerclass refid="structeuphoria_1_1render_1_1DrawData" prot="public">euphoria::render::DrawData</innerclass>
     <innerclass refid="structeuphoria_1_1render_1_1SpriteRenderer" prot="public">euphoria::render::SpriteRenderer</innerclass>
-    <innerclass refid="structeuphoria_1_1render_1_1TextDrawCommand" prot="public">euphoria::render::TextDrawCommand</innerclass>
-    <innerclass refid="structeuphoria_1_1render_1_1Texture2" prot="public">euphoria::render::Texture2</innerclass>
     <innerclass refid="structeuphoria_1_1render_1_1Texture2dLoadData" prot="public">euphoria::render::Texture2dLoadData</innerclass>
-    <innerclass refid="structeuphoria_1_1render_1_1TextureCache" prot="public">euphoria::render::TextureCache</innerclass>
     <innerclass refid="structeuphoria_1_1render_1_1TextureId" prot="public">euphoria::render::TextureId</innerclass>
-    <innerclass refid="structeuphoria_1_1render_1_1UiTextCompileVisitor" prot="public">euphoria::render::UiTextCompileVisitor</innerclass>
-    <innerclass refid="structeuphoria_1_1render_1_1VertexBuffer" prot="public">euphoria::render::VertexBuffer</innerclass>
+    <innerclass refid="structeuphoria_1_1render_1_1Texture2" prot="public">euphoria::render::Texture2</innerclass>
+    <innerclass refid="structeuphoria_1_1render_1_1TextureCache" prot="public">euphoria::render::TextureCache</innerclass>
     <innerclass refid="structeuphoria_1_1render_1_1ViewportHandler" prot="public">euphoria::render::ViewportHandler</innerclass>
     <innerclass refid="structeuphoria_1_1render_1_1World" prot="public">euphoria::render::World</innerclass>
     <innernamespace refid="namespaceeuphoria_1_1render_1_1attributes2d">euphoria::render::attributes2d</innernamespace>
@@ -72,7 +72,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/buffer.h" line="54" column="1" bodyfile="libs/render/src/render/buffer.h" bodystart="53" bodyend="57"/>
+        <location file="libs/render/src/render/buffer.h" line="53" column="5" bodyfile="libs/render/src/render/buffer.h" bodystart="54" bodyend="57"/>
       </memberdef>
       <memberdef kind="enum" id="namespaceeuphoria_1_1render_1a6bbb739173cb83658bb8fe1a8a06518e" prot="public" static="no" strong="yes">
         <type></type>
@@ -146,7 +146,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.h" line="53" column="1" bodyfile="libs/render/src/render/font.h" bodystart="52" bodyend="63"/>
+        <location file="libs/render/src/render/font.h" line="52" column="5" bodyfile="libs/render/src/render/font.h" bodystart="53" bodyend="63"/>
       </memberdef>
       <memberdef kind="enum" id="namespaceeuphoria_1_1render_1ae45452793bc19eeb1c91e38f1a9952f1" prot="public" static="no" strong="yes">
         <type></type>
@@ -199,7 +199,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/shaderattribute.h" line="9" column="1" bodyfile="libs/render/src/render/shaderattribute.h" bodystart="8" bodyend="16"/>
+        <location file="libs/render/src/render/shaderattribute.h" line="8" column="5" bodyfile="libs/render/src/render/shaderattribute.h" bodystart="9" bodyend="16"/>
       </memberdef>
       <memberdef kind="enum" id="namespaceeuphoria_1_1render_1a26afb9be4efcbba2270f58fb6c608f42" prot="public" static="no" strong="yes">
         <type></type>
@@ -245,7 +245,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/shaderattribute.h" line="19" column="1" bodyfile="libs/render/src/render/shaderattribute.h" bodystart="18" bodyend="25"/>
+        <location file="libs/render/src/render/shaderattribute.h" line="18" column="5" bodyfile="libs/render/src/render/shaderattribute.h" bodystart="19" bodyend="25"/>
       </memberdef>
       <memberdef kind="enum" id="namespaceeuphoria_1_1render_1aeae373119daee76a127f910b55bbad37" prot="public" static="no" strong="yes">
         <type></type>
@@ -277,7 +277,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/texture.h" line="16" column="1" bodyfile="libs/render/src/render/texture.h" bodystart="15" bodyend="20"/>
+        <location file="libs/render/src/render/texture.h" line="15" column="5" bodyfile="libs/render/src/render/texture.h" bodystart="16" bodyend="20"/>
       </memberdef>
       <memberdef kind="enum" id="namespaceeuphoria_1_1render_1abf3b09d9bbcf00c16a54ac7c97ffb77d" prot="public" static="no" strong="yes">
         <type></type>
@@ -302,7 +302,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/texture.h" line="23" column="1" bodyfile="libs/render/src/render/texture.h" bodystart="22" bodyend="26"/>
+        <location file="libs/render/src/render/texture.h" line="22" column="5" bodyfile="libs/render/src/render/texture.h" bodystart="23" bodyend="26"/>
       </memberdef>
       <memberdef kind="enum" id="namespaceeuphoria_1_1render_1ab28cae4d12a53cbb4244452fe07229eb" prot="public" static="no" strong="yes">
         <type></type>
@@ -327,7 +327,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/texture.h" line="29" column="1" bodyfile="libs/render/src/render/texture.h" bodystart="28" bodyend="33"/>
+        <location file="libs/render/src/render/texture.h" line="28" column="5" bodyfile="libs/render/src/render/texture.h" bodystart="29" bodyend="33"/>
       </memberdef>
       <memberdef kind="enum" id="namespaceeuphoria_1_1render_1a0b3aaff6a12626a3e0106b8aee1c5004" prot="public" static="no" strong="yes">
         <type></type>
@@ -359,7 +359,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/viewporthandler.h" line="15" column="1" bodyfile="libs/render/src/render/viewporthandler.h" bodystart="14" bodyend="17"/>
+        <location file="libs/render/src/render/viewporthandler.h" line="14" column="5" bodyfile="libs/render/src/render/viewporthandler.h" bodystart="15" bodyend="17"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="typedef">
@@ -1024,6 +1024,6 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/gui/src/gui/button.h" line="15" column="1"/>
+    <location file="libs/gui/src/gui/button.h" line="14" column="1"/>
   </compounddef>
 </doxygen>

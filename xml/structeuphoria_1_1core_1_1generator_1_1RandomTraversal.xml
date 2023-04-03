@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1generator_1_1RandomTraversal" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::generator::RandomTraversal</compoundname>
     <basecompoundref refid="structeuphoria_1_1core_1_1generator_1_1Algorithm" prot="public" virt="non-virtual">euphoria::core::generator::Algorithm</basecompoundref>
@@ -109,10 +109,6 @@
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="3">
-        <label>euphoria::core::Table&lt; T &gt;</label>
-        <link refid="structeuphoria_1_1core_1_1Table"/>
-      </node>
       <node id="1">
         <label>euphoria::core::generator::RandomTraversal</label>
         <link refid="structeuphoria_1_1core_1_1generator_1_1RandomTraversal"/>
@@ -133,8 +129,12 @@
         <label>euphoria::core::Random</label>
         <link refid="structeuphoria_1_1core_1_1Random"/>
       </node>
+      <node id="3">
+        <label>euphoria::core::Table&lt; int &gt;</label>
+        <link refid="structeuphoria_1_1core_1_1Table"/>
+      </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/generator_maze.h" line="76" column="1" bodyfile="libs/core/src/core/generator_maze.h" bodystart="75" bodyend="90"/>
+    <location file="libs/core/src/core/generator_maze.h" line="75" column="5" bodyfile="libs/core/src/core/generator_maze.h" bodystart="76" bodyend="90"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1generator_1_1Algorithm_1a899b7369c8141c6158b50c600e057127" prot="public" virt="non-virtual"><scope>euphoria::core::generator::RandomTraversal</scope><name>Algorithm</name></member>
       <member refid="structeuphoria_1_1core_1_1generator_1_1Algorithm_1a2ecf1f318083c1a04d83f4e5888ae69d" prot="public" virt="non-virtual"><scope>euphoria::core::generator::RandomTraversal</scope><name>Algorithm</name></member>

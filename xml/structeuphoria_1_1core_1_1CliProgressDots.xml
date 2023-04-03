@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1CliProgressDots" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::CliProgressDots</compoundname>
     <includes refid="cli__progress__dots_8h" local="no">cli_progress_dots.h</includes>
@@ -80,7 +80,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/cli_progress_dots.h" line="10" column="1" bodyfile="libs/core/src/core/cli_progress_dots.h" bodystart="9" bodyend="18"/>
+    <location file="libs/core/src/core/cli_progress_dots.h" line="9" column="5" bodyfile="libs/core/src/core/cli_progress_dots.h" bodystart="10" bodyend="18"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1CliProgressDots_1a18d49ddf1a02643baace643878272745" prot="public" virt="non-virtual"><scope>euphoria::core::CliProgressDots</scope><name>dots_on_line</name></member>
       <member refid="structeuphoria_1_1core_1_1CliProgressDots_1adc33b5a97935b6e516702994af3c7892" prot="public" virt="non-virtual"><scope>euphoria::core::CliProgressDots</scope><name>dots_per_line</name></member>

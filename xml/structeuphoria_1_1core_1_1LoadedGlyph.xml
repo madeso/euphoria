@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1LoadedGlyph" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::LoadedGlyph</compoundname>
     <includes refid="loadedfont_8h" local="no">loadedfont.h</includes>
@@ -119,7 +119,7 @@
         <link refid="structeuphoria_1_1core_1_1Image"/>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/loadedfont.h" line="21" column="1" bodyfile="libs/core/src/core/loadedfont.h" bodystart="20" bodyend="44"/>
+    <location file="libs/core/src/core/loadedfont.h" line="20" column="5" bodyfile="libs/core/src/core/loadedfont.h" bodystart="21" bodyend="44"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1LoadedGlyph_1ab853a1ce4dc672f756a76ae0a3875cba" prot="public" virt="non-virtual"><scope>euphoria::core::LoadedGlyph</scope><name>advance</name></member>
       <member refid="structeuphoria_1_1core_1_1LoadedGlyph_1ae579292a5f08e1122442d6165c5c419e" prot="public" virt="non-virtual"><scope>euphoria::core::LoadedGlyph</scope><name>bearing_x</name></member>

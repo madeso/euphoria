@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1vfs_1_1WriteRootPhysicalFolder" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::vfs::WriteRootPhysicalFolder</compoundname>
     <basecompoundref refid="structeuphoria_1_1core_1_1vfs_1_1WriteRoot" prot="public" virt="non-virtual">euphoria::core::vfs::WriteRoot</basecompoundref>
@@ -88,7 +88,7 @@
         <link refid="structeuphoria_1_1core_1_1vfs_1_1WriteRoot"/>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/vfs.h" line="160" column="1" bodyfile="libs/core/src/core/vfs.h" bodystart="159" bodyend="171"/>
+    <location file="libs/core/src/core/vfs.h" line="159" column="5" bodyfile="libs/core/src/core/vfs.h" bodystart="160" bodyend="171"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1vfs_1_1WriteRootPhysicalFolder_1ae0c728fa5801de241bdafe7bb59f6d98" prot="public" virt="non-virtual"><scope>euphoria::core::vfs::WriteRootPhysicalFolder</scope><name>folder</name></member>
       <member refid="structeuphoria_1_1core_1_1vfs_1_1WriteRoot_1ad558d63e8ecb0f35e1658dbc9fd97612" prot="public" virt="non-virtual"><scope>euphoria::core::vfs::WriteRootPhysicalFolder</scope><name>operator=</name></member>

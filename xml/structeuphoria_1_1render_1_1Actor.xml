@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1render_1_1Actor" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::render::Actor</compoundname>
     <basecompoundref refid="structeuphoria_1_1render_1_1Instance" prot="public" virt="non-virtual">euphoria::render::Instance</basecompoundref>
@@ -136,7 +136,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="libs/render/src/render/actor.h" line="21" column="1" bodyfile="libs/render/src/render/actor.h" bodystart="20" bodyend="38"/>
+    <location file="libs/render/src/render/actor.h" line="20" column="5" bodyfile="libs/render/src/render/actor.h" bodystart="21" bodyend="38"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1render_1_1Actor_1a71ab4f2233b72805a369cd89472ccbe7" prot="public" virt="non-virtual"><scope>euphoria::render::Actor</scope><name>Actor</name></member>
       <member refid="structeuphoria_1_1render_1_1Instance_1aee0d2cbbc6ccdace53bc6c9f4a65f616" prot="public" virt="non-virtual"><scope>euphoria::render::Actor</scope><name>calc_model_matrix</name></member>

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1Recti" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::Recti</compoundname>
     <includes refid="rect_8h" local="no">rect.h</includes>
@@ -1100,7 +1100,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/rect.h" line="120" column="1" bodyfile="libs/core/src/core/rect.h" bodystart="119" bodyend="216"/>
+    <location file="libs/core/src/core/rect.h" line="119" column="5" bodyfile="libs/core/src/core/rect.h" bodystart="120" bodyend="216"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1Recti_1a4ed571a43bed58ab09e489ec35fcd864" prot="public" virt="non-virtual"><scope>euphoria::core::Recti</scope><name>bottom</name></member>
       <member refid="structeuphoria_1_1core_1_1Recti_1aabe0ff87bbbb4f773f607c03df3ca58f" prot="public" virt="non-virtual"><scope>euphoria::core::Recti</scope><name>center_inside_other</name></member>

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1argparse_1_1FileOutput" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::argparse::FileOutput</compoundname>
     <includes refid="argparse_8h" local="no">argparse.h</includes>
@@ -100,7 +100,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/argparse.h" line="29" column="1" bodyfile="libs/core/src/core/argparse.h" bodystart="28" bodyend="38"/>
+    <location file="libs/core/src/core/argparse.h" line="28" column="5" bodyfile="libs/core/src/core/argparse.h" bodystart="29" bodyend="38"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1argparse_1_1FileOutput_1ad14310bfe9639d78821af988bd3530f3" prot="public" virt="non-virtual"><scope>euphoria::core::argparse::FileOutput</scope><name>create_dir_if_missing</name></member>
       <member refid="structeuphoria_1_1core_1_1argparse_1_1FileOutput_1a05c0ef09598499c158e61ac75acb8b3e" prot="public" virt="non-virtual"><scope>euphoria::core::argparse::FileOutput</scope><name>file</name></member>

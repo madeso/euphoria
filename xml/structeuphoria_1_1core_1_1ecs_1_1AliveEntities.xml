@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1ecs_1_1AliveEntities" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::ecs::AliveEntities</compoundname>
       <sectiondef kind="public-attrib">
@@ -142,7 +142,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/ecs.cc" line="49" column="1" bodyfile="libs/core/src/core/ecs.cc" bodystart="48" bodyend="119"/>
+    <location file="libs/core/src/core/ecs.cc" line="48" column="5" bodyfile="libs/core/src/core/ecs.cc" bodystart="49" bodyend="119"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1ecs_1_1AliveEntities_1aa5176f6c78c7f37575f119d8d9969e3e" prot="public" virt="non-virtual"><scope>euphoria::core::ecs::AliveEntities</scope><name>create</name></member>
       <member refid="structeuphoria_1_1core_1_1ecs_1_1AliveEntities_1a6c5cff95d35b8f450beb762a468a9c9b" prot="public" virt="non-virtual"><scope>euphoria::core::ecs::AliveEntities</scope><name>destroy</name></member>

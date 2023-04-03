@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1render_1_1Texture2" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::render::Texture2</compoundname>
     <basecompoundref refid="structeuphoria_1_1render_1_1TextureId" prot="public" virt="non-virtual">euphoria::render::TextureId</basecompoundref>
@@ -245,7 +245,7 @@
         <link refid="structeuphoria_1_1render_1_1TextureId"/>
       </node>
     </collaborationgraph>
-    <location file="libs/render/src/render/texture.h" line="78" column="1" bodyfile="libs/render/src/render/texture.h" bodystart="77" bodyend="118"/>
+    <location file="libs/render/src/render/texture.h" line="77" column="5" bodyfile="libs/render/src/render/texture.h" bodystart="78" bodyend="118"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1render_1_1TextureId_1a485ab3485bec33c34e2b7a9ddb366479" prot="public" virt="non-virtual"><scope>euphoria::render::Texture2</scope><name>get_id</name></member>
       <member refid="structeuphoria_1_1render_1_1Texture2_1af5093abff0d9ee4ec297b8847d7135c3" prot="public" virt="non-virtual"><scope>euphoria::render::Texture2</scope><name>height</name></member>

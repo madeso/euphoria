@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1textparser_1_1Visitor" kind="struct" language="C++" prot="public" abstract="yes">
     <compoundname>euphoria::core::textparser::Visitor</compoundname>
     <derivedcompoundref refid="structeuphoria_1_1core_1_1textparser_1_1VisitorDebugString" prot="public" virt="non-virtual">euphoria::core::textparser::VisitorDebugString</derivedcompoundref>
@@ -189,7 +189,7 @@
         <link refid="structeuphoria_1_1core_1_1textparser_1_1Visitor"/>
       </node>
     </inheritancegraph>
-    <location file="libs/core/src/core/ui_text.h" line="63" column="1" bodyfile="libs/core/src/core/ui_text.h" bodystart="62" bodyend="83"/>
+    <location file="libs/core/src/core/ui_text.h" line="62" column="9" bodyfile="libs/core/src/core/ui_text.h" bodystart="63" bodyend="83"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1textparser_1_1Visitor_1a332931d55e39bf813e97404ab087af80" prot="public" virt="pure-virtual"><scope>euphoria::core::textparser::Visitor</scope><name>on_begin</name></member>
       <member refid="structeuphoria_1_1core_1_1textparser_1_1Visitor_1a9524752d4e30341956e5c6aaf76462fe" prot="public" virt="pure-virtual"><scope>euphoria::core::textparser::Visitor</scope><name>on_end</name></member>

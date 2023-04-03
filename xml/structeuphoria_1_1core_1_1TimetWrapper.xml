@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1TimetWrapper" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::TimetWrapper</compoundname>
     <includes refid="datetime_8h" local="no">datetime.h</includes>
@@ -137,7 +137,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/datetime.h" line="34" column="1" bodyfile="libs/core/src/core/datetime.h" bodystart="33" bodyend="47"/>
+    <location file="libs/core/src/core/datetime.h" line="33" column="5" bodyfile="libs/core/src/core/datetime.h" bodystart="34" bodyend="47"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1TimetWrapper_1abb90c8f0c1be3cbd21b1950e95a0a294" prot="public" virt="non-virtual"><scope>euphoria::core::TimetWrapper</scope><name>from_current_time</name></member>
       <member refid="structeuphoria_1_1core_1_1TimetWrapper_1a1f16354ae1a533109ff2a14df7c91447" prot="public" virt="non-virtual"><scope>euphoria::core::TimetWrapper</scope><name>from_gmt</name></member>

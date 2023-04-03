@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1gui_1_1SingleRowLayout" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::gui::SingleRowLayout</compoundname>
     <basecompoundref refid="structeuphoria_1_1gui_1_1Layout" prot="public" virt="non-virtual">euphoria::gui::Layout</basecompoundref>
@@ -185,7 +185,7 @@
         <link refid="structeuphoria_1_1gui_1_1Layout"/>
       </node>
     </collaborationgraph>
-    <location file="libs/gui/src/gui/layout.h" line="80" column="1" bodyfile="libs/gui/src/gui/layout.h" bodystart="79" bodyend="104"/>
+    <location file="libs/gui/src/gui/layout.h" line="79" column="5" bodyfile="libs/gui/src/gui/layout.h" bodystart="80" bodyend="104"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1gui_1_1SingleRowLayout_1a5758573ccf803bdfaa10f16f9029a963" prot="public" virt="virtual"><scope>euphoria::gui::SingleRowLayout</scope><name>calc_minimum_area</name></member>
       <member refid="structeuphoria_1_1gui_1_1SingleRowLayout_1ab731cf8ad67c0cd4eaf67517f419f665" prot="public" virt="virtual"><scope>euphoria::gui::SingleRowLayout</scope><name>lay_out</name></member>

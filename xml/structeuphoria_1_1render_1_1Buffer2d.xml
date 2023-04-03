@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1render_1_1Buffer2d" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::render::Buffer2d</compoundname>
     <includes refid="buffer2d_8h" local="no">buffer2d.h</includes>
@@ -93,7 +93,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/render/src/render/buffer2d.h" line="13" column="1" bodyfile="libs/render/src/render/buffer2d.h" bodystart="12" bodyend="25"/>
+    <location file="libs/render/src/render/buffer2d.h" line="12" column="5" bodyfile="libs/render/src/render/buffer2d.h" bodystart="13" bodyend="25"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1render_1_1Buffer2d_1af92b1fd612a29abb5928c52adfb17005" prot="public" virt="non-virtual"><scope>euphoria::render::Buffer2d</scope><name>Buffer2d</name></member>
       <member refid="structeuphoria_1_1render_1_1Buffer2d_1a30ba7afffe2f94f150999cfffa40b7e7" prot="public" virt="non-virtual"><scope>euphoria::render::Buffer2d</scope><name>draw</name></member>

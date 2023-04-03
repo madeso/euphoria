@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1render_1_1Glyph" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::render::Glyph</compoundname>
     <includes refid="font_8h" local="no">font.h</includes>
@@ -106,7 +106,7 @@
         <link refid="structeuphoria_1_1core_1_1Rectf"/>
       </node>
     </collaborationgraph>
-    <location file="libs/render/src/render/font.h" line="33" column="1" bodyfile="libs/render/src/render/font.h" bodystart="32" bodyend="46"/>
+    <location file="libs/render/src/render/font.h" line="32" column="5" bodyfile="libs/render/src/render/font.h" bodystart="33" bodyend="46"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1render_1_1Glyph_1ac8e18720542b32cfa722fb8d6a852b65" prot="public" virt="non-virtual"><scope>euphoria::render::Glyph</scope><name>advance</name></member>
       <member refid="structeuphoria_1_1render_1_1Glyph_1adc4eb40d0f52f3198baf514180d53c68" prot="public" virt="non-virtual"><scope>euphoria::render::Glyph</scope><name>code_point</name></member>

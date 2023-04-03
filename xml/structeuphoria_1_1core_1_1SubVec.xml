@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1SubVec" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::SubVec</compoundname>
     <includes refid="subvec_8h" local="no">subvec.h</includes>
@@ -219,7 +219,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/subvec.h" line="10" column="1" bodyfile="libs/core/src/core/subvec.h" bodystart="9" bodyend="72"/>
+    <location file="libs/core/src/core/subvec.h" line="9" column="5" bodyfile="libs/core/src/core/subvec.h" bodystart="10" bodyend="72"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1SubVec_1a86a23e916bcc2afd42a55959a15a13e8" prot="public" virt="non-virtual"><scope>euphoria::core::SubVec</scope><name>begin</name></member>
       <member refid="structeuphoria_1_1core_1_1SubVec_1a26666dbcb00bcc3cae34d86e9cc0bdd2" prot="public" virt="non-virtual"><scope>euphoria::core::SubVec</scope><name>empty</name></member>

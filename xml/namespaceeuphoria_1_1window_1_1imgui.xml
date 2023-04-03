@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="namespaceeuphoria_1_1window_1_1imgui" kind="namespace" language="C++">
     <compoundname>euphoria::window::imgui</compoundname>
-    <innerclass refid="structeuphoria_1_1window_1_1imgui_1_1Library" prot="public">euphoria::window::imgui::Library</innerclass>
     <innerclass refid="structeuphoria_1_1window_1_1imgui_1_1VisuallyDisabledWidgets" prot="public">euphoria::window::imgui::VisuallyDisabledWidgets</innerclass>
+    <innerclass refid="structeuphoria_1_1window_1_1imgui_1_1Library" prot="public">euphoria::window::imgui::Library</innerclass>
     <innernamespace refid="namespaceeuphoria_1_1window_1_1imgui_1_1guizmo">euphoria::window::imgui::guizmo</innernamespace>
       <sectiondef kind="enum">
       <memberdef kind="enum" id="namespaceeuphoria_1_1window_1_1imgui_1a0d179c982dca18f1c23aa66c99f360af" prot="public" static="no" strong="no">
@@ -110,7 +110,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/imgui_extra.h" line="53" column="1" bodyfile="libs/window/src/window/imgui_extra.h" bodystart="52" bodyend="77"/>
+        <location file="libs/window/src/window/imgui_extra.h" line="52" column="5" bodyfile="libs/window/src/window/imgui_extra.h" bodystart="53" bodyend="77"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="func">
@@ -674,6 +674,6 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/window/src/window/engine.h" line="22" column="1"/>
+    <location file="libs/window/src/window/engine.h" line="21" column="1"/>
   </compounddef>
 </doxygen>

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1window_1_1CanvasConfig" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::window::CanvasConfig</compoundname>
     <includes refid="canvas_8h" local="no">canvas.h</includes>
@@ -65,7 +65,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/window/src/window/canvas.h" line="10" column="1" bodyfile="libs/window/src/window/canvas.h" bodystart="9" bodyend="15"/>
+    <location file="libs/window/src/window/canvas.h" line="9" column="5" bodyfile="libs/window/src/window/canvas.h" bodystart="10" bodyend="15"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1window_1_1CanvasConfig_1a325eebffa1e22495775351729ddcb760" prot="public" virt="non-virtual"><scope>euphoria::window::CanvasConfig</scope><name>background_color</name></member>
       <member refid="structeuphoria_1_1window_1_1CanvasConfig_1a0a0489a24e3f3ea4be59f9cda34a865a" prot="public" virt="non-virtual"><scope>euphoria::window::CanvasConfig</scope><name>grid_color</name></member>

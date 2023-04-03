@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1vfs_1_1ReadRootPhysicalFolder" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::vfs::ReadRootPhysicalFolder</compoundname>
     <basecompoundref refid="structeuphoria_1_1core_1_1vfs_1_1ReadRoot" prot="public" virt="non-virtual">euphoria::core::vfs::ReadRoot</basecompoundref>
@@ -160,7 +160,7 @@
         <link refid="structeuphoria_1_1core_1_1vfs_1_1ReadRoot"/>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/vfs.h" line="138" column="1" bodyfile="libs/core/src/core/vfs.h" bodystart="137" bodyend="157"/>
+    <location file="libs/core/src/core/vfs.h" line="137" column="5" bodyfile="libs/core/src/core/vfs.h" bodystart="138" bodyend="157"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1vfs_1_1ReadRootPhysicalFolder_1a010092c6a89ce7cf4345b1d44356882a" prot="public" virt="non-virtual"><scope>euphoria::core::vfs::ReadRootPhysicalFolder</scope><name>add</name></member>
       <member refid="structeuphoria_1_1core_1_1vfs_1_1ReadRootPhysicalFolder_1ac3b5532d1485496d866a798e4c5e402e" prot="public" virt="non-virtual"><scope>euphoria::core::vfs::ReadRootPhysicalFolder</scope><name>add_current_directory</name></member>

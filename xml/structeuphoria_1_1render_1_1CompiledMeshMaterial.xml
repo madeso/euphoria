@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1render_1_1CompiledMeshMaterial" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::render::CompiledMeshMaterial</compoundname>
     <includes refid="compiledmesh_8h" local="no">compiledmesh.h</includes>
@@ -203,7 +203,7 @@
         <link refid="structeuphoria_1_1core_1_1rgb"/>
       </node>
     </collaborationgraph>
-    <location file="libs/render/src/render/compiledmesh.h" line="42" column="1" bodyfile="libs/render/src/render/compiledmesh.h" bodystart="41" bodyend="76"/>
+    <location file="libs/render/src/render/compiledmesh.h" line="41" column="5" bodyfile="libs/render/src/render/compiledmesh.h" bodystart="42" bodyend="76"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1render_1_1CompiledMeshMaterial_1a1da5b86457c30c788b0dc8f252db3fcc" prot="public" virt="non-virtual"><scope>euphoria::render::CompiledMeshMaterial</scope><name>ambient</name></member>
       <member refid="structeuphoria_1_1render_1_1CompiledMeshMaterial_1a0c1e662c05652ff2f23a1338dfb67988" prot="public" virt="non-virtual"><scope>euphoria::render::CompiledMeshMaterial</scope><name>apply</name></member>

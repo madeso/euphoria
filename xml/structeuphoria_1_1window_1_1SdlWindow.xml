@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1window_1_1SdlWindow" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::window::SdlWindow</compoundname>
     <includes refid="sdlwindow_8h" local="no">sdlwindow.h</includes>
@@ -163,7 +163,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/window/src/window/sdlwindow.h" line="16" column="1" bodyfile="libs/window/src/window/sdlwindow.h" bodystart="15" bodyend="40"/>
+    <location file="libs/window/src/window/sdlwindow.h" line="15" column="5" bodyfile="libs/window/src/window/sdlwindow.h" bodystart="16" bodyend="40"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1window_1_1SdlWindow_1a015fc0f764ceaedf1037faae15f9bbbf" prot="public" virt="non-virtual"><scope>euphoria::window::SdlWindow</scope><name>get_mouse_position</name></member>
       <member refid="structeuphoria_1_1window_1_1SdlWindow_1aca790463893f2c9c1c2ed237dbff7e36" prot="public" virt="non-virtual"><scope>euphoria::window::SdlWindow</scope><name>operator=</name></member>

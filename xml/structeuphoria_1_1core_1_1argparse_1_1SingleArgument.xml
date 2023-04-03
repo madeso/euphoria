@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1argparse_1_1SingleArgument" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::argparse::SingleArgument</compoundname>
     <basecompoundref refid="structeuphoria_1_1core_1_1argparse_1_1Argument" prot="public" virt="non-virtual">euphoria::core::argparse::Argument</basecompoundref>
@@ -166,7 +166,7 @@
         <link refid="structeuphoria_1_1core_1_1argparse_1_1Argument"/>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/argparse.h" line="275" column="1" bodyfile="libs/core/src/core/argparse.h" bodystart="274" bodyend="302"/>
+    <location file="libs/core/src/core/argparse.h" line="274" column="5" bodyfile="libs/core/src/core/argparse.h" bodystart="275" bodyend="302"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1argparse_1_1Argument_1a1b4f9f68c511cbb1cd6a822793496ae9" prot="public" virt="non-virtual"><scope>euphoria::core::argparse::SingleArgument</scope><name>allow_before_positionals</name></member>
       <member refid="structeuphoria_1_1core_1_1argparse_1_1Argument_1a55815e7bcee16a6887408b3bcdd43a3b" prot="public" virt="non-virtual"><scope>euphoria::core::argparse::SingleArgument</scope><name>Argument</name></member>

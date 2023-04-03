@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1detail_1_1LocationInFile" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::detail::LocationInFile</compoundname>
     <includes refid="textfileparser_8h" local="no">textfileparser.h</includes>
@@ -37,7 +37,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/textfileparser.h" line="31" column="1" bodyfile="libs/core/src/core/textfileparser.h" bodystart="30" bodyend="34"/>
+    <location file="libs/core/src/core/textfileparser.h" line="30" column="9" bodyfile="libs/core/src/core/textfileparser.h" bodystart="31" bodyend="34"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1detail_1_1LocationInFile_1ad9109df56c2b43c13d5fad823fbce8a8" prot="public" virt="non-virtual"><scope>euphoria::core::detail::LocationInFile</scope><name>column</name></member>
       <member refid="structeuphoria_1_1core_1_1detail_1_1LocationInFile_1a9ca2570d5da6e200385b11fb7bf42c46" prot="public" virt="non-virtual"><scope>euphoria::core::detail::LocationInFile</scope><name>line</name></member>

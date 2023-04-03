@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1Decompressor" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::Decompressor</compoundname>
     <includes refid="decompress_8h" local="no">decompress.h</includes>
@@ -194,7 +194,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/decompress.h" line="20" column="1" bodyfile="libs/core/src/core/decompress.h" bodystart="19" bodyend="32"/>
+    <location file="libs/core/src/core/decompress.h" line="19" column="5" bodyfile="libs/core/src/core/decompress.h" bodystart="20" bodyend="32"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1Decompressor_1a7b896e06a842ccefa164890fd74397e3" prot="public" virt="non-virtual"><scope>euphoria::core::Decompressor</scope><name>stb_adler32</name></member>
       <member refid="structeuphoria_1_1core_1_1Decompressor_1a21c6dac1942609da33d844d4280605b5" prot="public" virt="non-virtual"><scope>euphoria::core::Decompressor</scope><name>stb_barrier_in_b</name></member>

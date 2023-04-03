@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1LoadedMeshOrError" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::LoadedMeshOrError</compoundname>
     <includes refid="mesh_8h" local="no">mesh.h</includes>
@@ -48,7 +48,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/mesh.h" line="111" column="1" bodyfile="libs/core/src/core/mesh.h" bodystart="110" bodyend="114"/>
+    <location file="libs/core/src/core/mesh.h" line="110" column="5" bodyfile="libs/core/src/core/mesh.h" bodystart="111" bodyend="114"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1LoadedMeshOrError_1acd59ba5fd5cea46b05fd1d52183cd93b" prot="public" virt="non-virtual"><scope>euphoria::core::LoadedMeshOrError</scope><name>error</name></member>
       <member refid="structeuphoria_1_1core_1_1LoadedMeshOrError_1a845390661394e7e21a9f55b515be6a1d" prot="public" virt="non-virtual"><scope>euphoria::core::LoadedMeshOrError</scope><name>loaded_mesh</name></member>

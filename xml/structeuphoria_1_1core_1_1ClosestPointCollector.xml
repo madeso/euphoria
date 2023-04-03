@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1ClosestPointCollector" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::ClosestPointCollector</compoundname>
     <includes refid="closestpoint_8h" local="no">closestpoint.h</includes>
@@ -106,7 +106,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/closestpoint.h" line="20" column="1" bodyfile="libs/core/src/core/closestpoint.h" bodystart="19" bodyend="54"/>
+    <location file="libs/core/src/core/closestpoint.h" line="19" column="5" bodyfile="libs/core/src/core/closestpoint.h" bodystart="20" bodyend="54"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1ClosestPointCollector_1a484b8ab1429f4bed5f00ade5105be5a2" prot="public" virt="non-virtual"><scope>euphoria::core::ClosestPointCollector</scope><name>add</name></member>
       <member refid="structeuphoria_1_1core_1_1ClosestPointCollector_1a17b4ce77a83b3015fd508f939bf3a600" prot="public" virt="non-virtual"><scope>euphoria::core::ClosestPointCollector</scope><name>ClosestPointCollector</name></member>

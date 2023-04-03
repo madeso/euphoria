@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1render_1_1CompiledMeshPart" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::render::CompiledMeshPart</compoundname>
     <includes refid="compiledmesh_8h" local="no">compiledmesh.h</includes>
@@ -111,7 +111,7 @@
         <link refid="structeuphoria_1_1render_1_1Id"/>
       </node>
     </collaborationgraph>
-    <location file="libs/render/src/render/compiledmesh.h" line="29" column="1" bodyfile="libs/render/src/render/compiledmesh.h" bodystart="28" bodyend="38"/>
+    <location file="libs/render/src/render/compiledmesh.h" line="28" column="5" bodyfile="libs/render/src/render/compiledmesh.h" bodystart="29" bodyend="38"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1render_1_1CompiledMeshPart_1ac6b26735b93c3640b6f6424e24603f43" prot="public" virt="non-virtual"><scope>euphoria::render::CompiledMeshPart</scope><name>config</name></member>
       <member refid="structeuphoria_1_1render_1_1CompiledMeshPart_1a9ccd85983e05fbc62befa6679d885942" prot="public" virt="non-virtual"><scope>euphoria::render::CompiledMeshPart</scope><name>data</name></member>

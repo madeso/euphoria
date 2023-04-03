@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1HelpTextHover" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::HelpTextHover</compoundname>
     <includes refid="helptexthover_8h" local="no">helptexthover.h</includes>
@@ -103,7 +103,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/helptexthover.h" line="9" column="1" bodyfile="libs/core/src/core/helptexthover.h" bodystart="8" bodyend="18"/>
+    <location file="libs/core/src/core/helptexthover.h" line="8" column="5" bodyfile="libs/core/src/core/helptexthover.h" bodystart="9" bodyend="18"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1HelpTextHover_1aa310ca733f2c420e8f5677814a440084" prot="public" virt="non-virtual"><scope>euphoria::core::HelpTextHover</scope><name>display_hover</name></member>
       <member refid="structeuphoria_1_1core_1_1HelpTextHover_1a8481b6bbbc665f2f2dc485c8a0200e04" prot="public" virt="non-virtual"><scope>euphoria::core::HelpTextHover</scope><name>state</name></member>

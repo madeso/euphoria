@@ -1,26 +1,26 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="namespaceeuphoria_1_1core_1_1detail" kind="namespace" language="C++">
     <compoundname>euphoria::core::detail</compoundname>
-    <innerclass refid="structeuphoria_1_1core_1_1detail_1_1BasicResponse" prot="public">euphoria::core::detail::BasicResponse</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1detail_1_1CameraFrame" prot="public">euphoria::core::detail::CameraFrame</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1detail_1_1ConversationStatus" prot="public">euphoria::core::detail::ConversationStatus</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1detail_1_1ConversationTopics" prot="public">euphoria::core::detail::ConversationTopics</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1detail_1_1Database" prot="public">euphoria::core::detail::Database</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1detail_1_1DefaultCamera" prot="public">euphoria::core::detail::DefaultCamera</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1detail_1_1EditorCameraState3" prot="public">euphoria::core::detail::EditorCameraState3</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1detail_1_1Input" prot="public">euphoria::core::detail::Input</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1detail_1_1LerpCamera" prot="public">euphoria::core::detail::LerpCamera</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1detail_1_1LocationInFile" prot="public">euphoria::core::detail::LocationInFile</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1detail_1_1OrbitCamera" prot="public">euphoria::core::detail::OrbitCamera</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1detail_1_1OrbitData" prot="public">euphoria::core::detail::OrbitData</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1detail_1_1PanData" prot="public">euphoria::core::detail::PanData</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1detail_1_1OrbitData" prot="public">euphoria::core::detail::OrbitData</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1detail_1_1OrbitCamera" prot="public">euphoria::core::detail::OrbitCamera</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1detail_1_1DefaultCamera" prot="public">euphoria::core::detail::DefaultCamera</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1detail_1_1LerpCamera" prot="public">euphoria::core::detail::LerpCamera</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1detail_1_1CameraFrame" prot="public">euphoria::core::detail::CameraFrame</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1detail_1_1EditorCameraState3" prot="public">euphoria::core::detail::EditorCameraState3</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1detail_1_1BasicResponse" prot="public">euphoria::core::detail::BasicResponse</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1detail_1_1Input" prot="public">euphoria::core::detail::Input</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1detail_1_1SingleResponse" prot="public">euphoria::core::detail::SingleResponse</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1detail_1_1Response" prot="public">euphoria::core::detail::Response</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1detail_1_1ResponseBuilder" prot="public">euphoria::core::detail::ResponseBuilder</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1detail_1_1SingleResponse" prot="public">euphoria::core::detail::SingleResponse</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1detail_1_1Textfile" prot="public">euphoria::core::detail::Textfile</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1detail_1_1TextFileString" prot="public">euphoria::core::detail::TextFileString</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1detail_1_1Database" prot="public">euphoria::core::detail::Database</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1detail_1_1Transposer" prot="public">euphoria::core::detail::Transposer</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1detail_1_1ConversationTopics" prot="public">euphoria::core::detail::ConversationTopics</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1detail_1_1ConversationStatus" prot="public">euphoria::core::detail::ConversationStatus</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1detail_1_1TextFileString" prot="public">euphoria::core::detail::TextFileString</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1detail_1_1Textfile" prot="public">euphoria::core::detail::Textfile</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1detail_1_1LocationInFile" prot="public">euphoria::core::detail::LocationInFile</innerclass>
       <sectiondef kind="func">
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1detail_1a001efcaded673e70581521a85f2f72e8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -477,6 +477,6 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/camera3.editor.cc" line="27" column="1"/>
+    <location file="libs/core/src/core/camera3.editor.cc" line="26" column="5"/>
   </compounddef>
 </doxygen>

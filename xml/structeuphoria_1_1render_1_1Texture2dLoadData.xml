@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1render_1_1Texture2dLoadData" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::render::Texture2dLoadData</compoundname>
     <includes refid="texture_8h" local="no">texture.h</includes>
@@ -114,7 +114,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/render/src/render/texture.h" line="36" column="1" bodyfile="libs/render/src/render/texture.h" bodystart="35" bodyend="51"/>
+    <location file="libs/render/src/render/texture.h" line="35" column="5" bodyfile="libs/render/src/render/texture.h" bodystart="36" bodyend="51"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1render_1_1Texture2dLoadData_1a7cea753105dd22803ab74d42e795287a" prot="public" virt="non-virtual"><scope>euphoria::render::Texture2dLoadData</scope><name>magnification</name></member>
       <member refid="structeuphoria_1_1render_1_1Texture2dLoadData_1a38253a896c23e9ddf092d220cd986a0d" prot="public" virt="non-virtual"><scope>euphoria::render::Texture2dLoadData</scope><name>minification</name></member>

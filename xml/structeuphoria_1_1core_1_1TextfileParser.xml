@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1TextfileParser" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::TextfileParser</compoundname>
     <includes refid="textfileparser_8h" local="no">textfileparser.h</includes>
@@ -265,7 +265,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/textfileparser.h" line="42" column="1" bodyfile="libs/core/src/core/textfileparser.h" bodystart="41" bodyend="73"/>
+    <location file="libs/core/src/core/textfileparser.h" line="41" column="5" bodyfile="libs/core/src/core/textfileparser.h" bodystart="42" bodyend="73"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1TextfileParser_1a08844ac2787ad792b5f85c78ce8e9241" prot="public" virt="non-virtual"><scope>euphoria::core::TextfileParser</scope><name>advance_char</name></member>
       <member refid="structeuphoria_1_1core_1_1TextfileParser_1af59377a12d31d725dc5b4a8b8b563b37" prot="public" virt="non-virtual"><scope>euphoria::core::TextfileParser</scope><name>expect_char</name></member>

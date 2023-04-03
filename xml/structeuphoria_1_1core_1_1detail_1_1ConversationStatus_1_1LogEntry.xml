@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1detail_1_1ConversationStatus_1_1LogEntry" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::detail::ConversationStatus::LogEntry</compoundname>
     <includes refid="chatbot_8h" local="no">chatbot.h</includes>
@@ -35,7 +35,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/chatbot.h" line="166" column="1" bodyfile="libs/core/src/core/chatbot.h" bodystart="165" bodyend="169"/>
+    <location file="libs/core/src/core/chatbot.h" line="165" column="13" bodyfile="libs/core/src/core/chatbot.h" bodystart="166" bodyend="169"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1detail_1_1ConversationStatus_1_1LogEntry_1a27b6d30b67e6dd0735ec4449ca31e2d3" prot="public" virt="non-virtual"><scope>euphoria::core::detail::ConversationStatus::LogEntry</scope><name>lines</name></member>
       <member refid="structeuphoria_1_1core_1_1detail_1_1ConversationStatus_1_1LogEntry_1a9f183116fd6a919f461391de5d7019e9" prot="public" virt="non-virtual"><scope>euphoria::core::detail::ConversationStatus::LogEntry</scope><name>titles</name></member>

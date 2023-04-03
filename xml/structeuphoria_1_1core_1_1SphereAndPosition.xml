@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1SphereAndPosition" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::SphereAndPosition</compoundname>
     <includes refid="sphere_8position_8h" local="no">sphere.position.h</includes>
@@ -55,7 +55,7 @@
         <link refid="structeuphoria_1_1core_1_1vec3f"/>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/sphere.position.h" line="10" column="1" bodyfile="libs/core/src/core/sphere.position.h" bodystart="9" bodyend="13"/>
+    <location file="libs/core/src/core/sphere.position.h" line="9" column="5" bodyfile="libs/core/src/core/sphere.position.h" bodystart="10" bodyend="13"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1SphereAndPosition_1a1988c9c56517262aba5f2f3e81b029fb" prot="public" virt="non-virtual"><scope>euphoria::core::SphereAndPosition</scope><name>center</name></member>
       <member refid="structeuphoria_1_1core_1_1SphereAndPosition_1acea8519e9066ebb5cd7f2fc6f7789b83" prot="public" virt="non-virtual"><scope>euphoria::core::SphereAndPosition</scope><name>sphere</name></member>

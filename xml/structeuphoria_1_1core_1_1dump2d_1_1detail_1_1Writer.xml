@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1dump2d_1_1detail_1_1Writer" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::dump2d::detail::Writer</compoundname>
       <sectiondef kind="public-attrib">
@@ -80,7 +80,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/dump.cc" line="83" column="1" bodyfile="libs/core/src/core/dump.cc" bodystart="82" bodyend="93"/>
+    <location file="libs/core/src/core/dump.cc" line="82" column="9" bodyfile="libs/core/src/core/dump.cc" bodystart="83" bodyend="93"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1dump2d_1_1detail_1_1Writer_1a5eb3367937ab830061fca5cf7cbf14a3" prot="public" virt="non-virtual"><scope>euphoria::core::dump2d::detail::Writer</scope><name>file</name></member>
       <member refid="structeuphoria_1_1core_1_1dump2d_1_1detail_1_1Writer_1a18c80973924662b9914b375af5062845" prot="public" virt="non-virtual"><scope>euphoria::core::dump2d::detail::Writer</scope><name>px</name></member>

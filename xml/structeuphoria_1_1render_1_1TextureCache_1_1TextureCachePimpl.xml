@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1render_1_1TextureCache_1_1TextureCachePimpl" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::render::TextureCache::TextureCachePimpl</compoundname>
     <basecompoundref refid="structeuphoria_1_1core_1_1Cache" prot="public" virt="non-virtual">euphoria::core::Cache&lt; core::vfs::FilePath, Texture2, TextureCache::TextureCachePimpl &gt;</basecompoundref>
@@ -89,7 +89,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="libs/render/src/render/texturecache.cc" line="13" column="1" bodyfile="libs/render/src/render/texturecache.cc" bodystart="11" bodyend="34"/>
+    <location file="libs/render/src/render/texturecache.cc" line="11" column="5" bodyfile="libs/render/src/render/texturecache.cc" bodystart="13" bodyend="34"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1render_1_1TextureCache_1_1TextureCachePimpl_1a88eee651e235691863a693740c6f8076" prot="public" virt="non-virtual"><scope>euphoria::render::TextureCache::TextureCachePimpl</scope><name>create</name></member>
       <member refid="structeuphoria_1_1core_1_1Cache_1a60fc15b9f387f876fb12f851e8ab53ed" prot="public" virt="non-virtual"><scope>euphoria::render::TextureCache::TextureCachePimpl</scope><name>get</name></member>

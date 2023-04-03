@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1ecs_1_1GenericComponentArray" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::ecs::GenericComponentArray</compoundname>
     <basecompoundref refid="structeuphoria_1_1core_1_1ecs_1_1ComponentArrayBase" prot="public" virt="non-virtual">euphoria::core::ecs::ComponentArrayBase</basecompoundref>
@@ -175,7 +175,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/ecs.h" line="46" column="1" bodyfile="libs/core/src/core/ecs.h" bodystart="45" bodyend="123"/>
+    <location file="libs/core/src/core/ecs.h" line="45" column="5" bodyfile="libs/core/src/core/ecs.h" bodystart="46" bodyend="123"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1ecs_1_1GenericComponentArray_1a2a99d9ce5f1101d3b5599d2f4730df79" prot="public" virt="non-virtual"><scope>euphoria::core::ecs::GenericComponentArray</scope><name>add</name></member>
       <member refid="structeuphoria_1_1core_1_1ecs_1_1ComponentArrayBase_1a23543bee1646886387b64d338fb94612" prot="public" virt="non-virtual"><scope>euphoria::core::ecs::GenericComponentArray</scope><name>ComponentArrayBase</name></member>

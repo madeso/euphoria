@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1render_1_1TextureCache" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::render::TextureCache</compoundname>
     <includes refid="texturecache_8h" local="no">texturecache.h</includes>
@@ -155,7 +155,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/render/src/render/texturecache.h" line="18" column="1" bodyfile="libs/render/src/render/texturecache.h" bodystart="17" bodyend="35"/>
+    <location file="libs/render/src/render/texturecache.h" line="17" column="5" bodyfile="libs/render/src/render/texturecache.h" bodystart="18" bodyend="35"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1render_1_1TextureCache_1a4af59c8a8f655712f4c872db08363c66" prot="public" virt="non-virtual"><scope>euphoria::render::TextureCache</scope><name>get_texture</name></member>
       <member refid="structeuphoria_1_1render_1_1TextureCache_1ae2778c8d9d23bc3b1b569833fc7e3aa3" prot="public" virt="non-virtual"><scope>euphoria::render::TextureCache</scope><name>get_texture</name></member>

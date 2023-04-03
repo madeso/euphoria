@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1CustomArgparser_3_01Lrud_3_01T_01_4_01_4" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::CustomArgparser&lt; Lrud&lt; T &gt; &gt;</compoundname>
     <includes refid="fourway_8h" local="no">fourway.h</includes>
@@ -26,7 +26,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/fourway.h" line="100" column="14" bodyfile="libs/core/src/core/fourway.h" bodystart="100" bodyend="100"/>
+        <location file="libs/core/src/core/fourway.h" line="100" column="9" bodyfile="libs/core/src/core/fourway.h" bodystart="100" bodyend="100"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-attrib">
@@ -87,7 +87,7 @@
     <detaileddescription>
 <para>Either all, ver/hor or up/right/down/left </para>
     </detaileddescription>
-    <location file="libs/core/src/core/fourway.h" line="99" column="1" bodyfile="libs/core/src/core/fourway.h" bodystart="98" bodyend="183"/>
+    <location file="libs/core/src/core/fourway.h" line="98" column="5" bodyfile="libs/core/src/core/fourway.h" bodystart="99" bodyend="183"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1CustomArgparser_3_01Lrud_3_01T_01_4_01_4_1ac7b59e52f66f826961af42f7b85e6f74" prot="public" virt="non-virtual"><scope>euphoria::core::CustomArgparser&lt; Lrud&lt; T &gt; &gt;</scope><name>parse</name></member>
       <member refid="structeuphoria_1_1core_1_1CustomArgparser_3_01Lrud_3_01T_01_4_01_4_1a5413b27fb6a59fd6a8ac6a3201d68a91" prot="public" virt="non-virtual"><scope>euphoria::core::CustomArgparser&lt; Lrud&lt; T &gt; &gt;</scope><name>separator</name></member>

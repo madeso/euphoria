@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="namespaceeuphoria_1_1core_1_1_0d272" kind="namespace" language="C++">
     <compoundname>euphoria::core::@272</compoundname>
       <sectiondef kind="enum">
@@ -26,13 +26,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ui_text.cc" line="123" column="1" bodyfile="libs/core/src/core/ui_text.cc" bodystart="122" bodyend="126"/>
+        <location file="libs/core/src/core/ui_text.cc" line="122" column="9" bodyfile="libs/core/src/core/ui_text.cc" bodystart="123" bodyend="126"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/ui_text.cc" line="121" column="5"/>
+    <location file="libs/core/src/core/ui_text.cc" line="120" column="5"/>
   </compounddef>
 </doxygen>

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1Camera3" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::Camera3</compoundname>
     <includes refid="camera3_8h" local="no">camera3.h</includes>
@@ -133,7 +133,7 @@
         <link refid="structeuphoria_1_1core_1_1vec3f"/>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/camera3.h" line="29" column="1" bodyfile="libs/core/src/core/camera3.h" bodystart="28" bodyend="39"/>
+    <location file="libs/core/src/core/camera3.h" line="28" column="5" bodyfile="libs/core/src/core/camera3.h" bodystart="29" bodyend="39"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1Camera3_1a80764cd51826d56fe77b374b301a7803" prot="public" virt="non-virtual"><scope>euphoria::core::Camera3</scope><name>Camera3</name></member>
       <member refid="structeuphoria_1_1core_1_1Camera3_1ac0e5ca0be028e273bc221b7e9f017c05" prot="public" virt="non-virtual"><scope>euphoria::core::Camera3</scope><name>compile</name></member>

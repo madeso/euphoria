@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1generator_1_1Rule" kind="struct" language="C++" prot="public" abstract="yes">
     <compoundname>euphoria::core::generator::Rule</compoundname>
     <derivedcompoundref refid="structeuphoria_1_1core_1_1generator_1_1FillAllHoles" prot="public" virt="non-virtual">euphoria::core::generator::FillAllHoles</derivedcompoundref>
@@ -162,7 +162,7 @@
         <link refid="structeuphoria_1_1core_1_1generator_1_1Rule"/>
       </node>
     </inheritancegraph>
-    <location file="libs/core/src/core/generator_cell.h" line="23" column="1" bodyfile="libs/core/src/core/generator_cell.h" bodystart="22" bodyend="33"/>
+    <location file="libs/core/src/core/generator_cell.h" line="22" column="5" bodyfile="libs/core/src/core/generator_cell.h" bodystart="23" bodyend="33"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1generator_1_1Rule_1a1041138a9a1e771c027c997e4ebfe11d" prot="public" virt="non-virtual"><scope>euphoria::core::generator::Rule</scope><name>operator=</name></member>
       <member refid="structeuphoria_1_1core_1_1generator_1_1Rule_1a7c949b42ed60b5af4a1c5e6410410502" prot="public" virt="non-virtual"><scope>euphoria::core::generator::Rule</scope><name>operator=</name></member>

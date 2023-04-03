@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1search_1_1Searcher" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::search::Searcher</compoundname>
     <includes refid="editdistance_8search_8h" local="no">editdistance.search.h</includes>
@@ -50,7 +50,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/editdistance.search.h" line="33" column="1" bodyfile="libs/core/src/core/editdistance.search.h" bodystart="32" bodyend="44"/>
+    <location file="libs/core/src/core/editdistance.search.h" line="32" column="5" bodyfile="libs/core/src/core/editdistance.search.h" bodystart="33" bodyend="44"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1search_1_1Searcher_1ac177733947010195588591238e15a7e7" prot="public" virt="non-virtual"><scope>euphoria::core::search::Searcher</scope><name>add</name></member>
       <member refid="structeuphoria_1_1core_1_1search_1_1Searcher_1a0d4db0c300dc0e57e852b78583abfd07" prot="public" virt="non-virtual"><scope>euphoria::core::search::Searcher</scope><name>matches</name></member>

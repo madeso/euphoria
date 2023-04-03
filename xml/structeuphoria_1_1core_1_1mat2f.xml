@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1mat2f" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::mat2f</compoundname>
     <includes refid="mat2_8h" local="no">mat2.h</includes>
@@ -47,7 +47,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/mat2.h" line="45" column="15" bodyfile="libs/core/src/core/mat2.cc" bodystart="73" bodyend="76"/>
+        <location file="libs/core/src/core/mat2.h" line="45" column="15" bodyfile="libs/core/src/core/mat2.cc" bodystart="80" bodyend="83"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1mat2f_1a6f4fea61917bca0b7c3d7c8c29f115dc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
@@ -104,9 +104,9 @@
         </inbodydescription>
         <location file="libs/core/src/core/mat2.h" line="49" column="16" bodyfile="libs/core/src/core/mat2.cc" bodystart="115" bodyend="118"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1mat2f_1a5bcf754eb640089dd01308108054f0c5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1mat2f_1ab7390e7644040706b20ac7e2234ea2f7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>const float *</type>
-        <definition>const float* euphoria::core::mat2f::get_data_ptr</definition>
+        <definition>const float * euphoria::core::mat2f::get_data_ptr</definition>
         <argsstring>() const</argsstring>
         <name>get_data_ptr</name>
         <briefdescription>
@@ -115,7 +115,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/mat2.h" line="51" column="22"/>
+        <location file="libs/core/src/core/mat2.h" line="51" column="22" bodyfile="libs/core/src/core/mat2.cc" bodystart="73" bodyend="76"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1mat2f_1a427ad77a9c6d52889cd0f917c0aca254" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -370,7 +370,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/mat2.h" line="10" column="1" bodyfile="libs/core/src/core/mat2.h" bodystart="9" bodyend="76"/>
+    <location file="libs/core/src/core/mat2.h" line="9" column="5" bodyfile="libs/core/src/core/mat2.h" bodystart="10" bodyend="76"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1mat2f_1aed27b73ea52c55acc135be124fcc7ffd" prot="private" virt="non-virtual"><scope>euphoria::core::mat2f</scope><name>data</name></member>
       <member refid="structeuphoria_1_1core_1_1mat2f_1a8fb3a1e8aadb5bffe318fa3412cd60e1" prot="public" virt="non-virtual"><scope>euphoria::core::mat2f</scope><name>from_col_major</name></member>
@@ -382,7 +382,7 @@
       <member refid="structeuphoria_1_1core_1_1mat2f_1a6f4fea61917bca0b7c3d7c8c29f115dc" prot="public" virt="non-virtual"><scope>euphoria::core::mat2f</scope><name>get</name></member>
       <member refid="structeuphoria_1_1core_1_1mat2f_1aa0a48d7f9212678f9369593fa3313373" prot="public" virt="non-virtual"><scope>euphoria::core::mat2f</scope><name>get_column</name></member>
       <member refid="structeuphoria_1_1core_1_1mat2f_1aab6f93cb199d8f77d8f1775daf5eab0d" prot="public" virt="non-virtual"><scope>euphoria::core::mat2f</scope><name>get_data_ptr</name></member>
-      <member refid="structeuphoria_1_1core_1_1mat2f_1a5bcf754eb640089dd01308108054f0c5" prot="public" virt="non-virtual"><scope>euphoria::core::mat2f</scope><name>get_data_ptr</name></member>
+      <member refid="structeuphoria_1_1core_1_1mat2f_1ab7390e7644040706b20ac7e2234ea2f7" prot="public" virt="non-virtual"><scope>euphoria::core::mat2f</scope><name>get_data_ptr</name></member>
       <member refid="structeuphoria_1_1core_1_1mat2f_1ae3b6c0ef342b026d243b3eafdaf8a6bf" prot="public" virt="non-virtual"><scope>euphoria::core::mat2f</scope><name>get_row</name></member>
       <member refid="structeuphoria_1_1core_1_1mat2f_1aec7e5a740d5f3712d7e5ca04766f2db4" prot="private" virt="non-virtual"><scope>euphoria::core::mat2f</scope><name>mat2f</name></member>
       <member refid="structeuphoria_1_1core_1_1mat2f_1a04928c28d8259bef58b64cd139961ae7" prot="private" virt="non-virtual"><scope>euphoria::core::mat2f</scope><name>mat2f</name></member>

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1rgbai" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::rgbai</compoundname>
     <includes refid="rgb_8h" local="no">rgb.h</includes>
@@ -154,7 +154,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/rgb.h" line="45" column="1" bodyfile="libs/core/src/core/rgb.h" bodystart="44" bodyend="55"/>
+    <location file="libs/core/src/core/rgb.h" line="44" column="5" bodyfile="libs/core/src/core/rgb.h" bodystart="45" bodyend="55"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1rgbai_1af476964580db828cc1000b056e1eee57" prot="public" virt="non-virtual"><scope>euphoria::core::rgbai</scope><name>a</name></member>
       <member refid="structeuphoria_1_1core_1_1rgbai_1a2aa2efffd2945402c8db7f920c2b6116" prot="public" virt="non-virtual"><scope>euphoria::core::rgbai</scope><name>b</name></member>

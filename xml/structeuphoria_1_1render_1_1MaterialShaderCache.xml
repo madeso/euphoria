@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1render_1_1MaterialShaderCache" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::render::MaterialShaderCache</compoundname>
     <basecompoundref refid="structeuphoria_1_1core_1_1Cache" prot="public" virt="non-virtual">euphoria::core::Cache&lt; core::vfs::FilePath, MaterialShader, MaterialShaderCache &gt;</basecompoundref>
@@ -90,7 +90,7 @@
         <link refid="structeuphoria_1_1core_1_1Cache"/>
       </node>
     </collaborationgraph>
-    <location file="libs/render/src/render/materialshadercache.h" line="12" column="1" bodyfile="libs/render/src/render/materialshadercache.h" bodystart="10" bodyend="27"/>
+    <location file="libs/render/src/render/materialshadercache.h" line="10" column="5" bodyfile="libs/render/src/render/materialshadercache.h" bodystart="12" bodyend="27"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1render_1_1MaterialShaderCache_1a27cd10a2eba76ccc1ac2bc4e9c1ef685" prot="public" virt="non-virtual"><scope>euphoria::render::MaterialShaderCache</scope><name>create</name></member>
       <member refid="structeuphoria_1_1render_1_1MaterialShaderCache_1a7fb3c9695e5ddee3bb9f82d482483d45" prot="public" virt="non-virtual"><scope>euphoria::render::MaterialShaderCache</scope><name>file_system</name></member>

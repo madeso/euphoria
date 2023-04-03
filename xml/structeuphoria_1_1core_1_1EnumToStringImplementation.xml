@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1EnumToStringImplementation" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::EnumToStringImplementation</compoundname>
     <includes refid="enumtostring_8h" local="no">enumtostring.h</includes>
@@ -141,7 +141,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/enumtostring.h" line="27" column="1" bodyfile="libs/core/src/core/enumtostring.h" bodystart="26" bodyend="112"/>
+    <location file="libs/core/src/core/enumtostring.h" line="26" column="5" bodyfile="libs/core/src/core/enumtostring.h" bodystart="27" bodyend="112"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1EnumToStringImplementation_1a20726b87a205a765690dfffc0d86d742" prot="public" virt="non-virtual"><scope>euphoria::core::EnumToStringImplementation</scope><name>add</name></member>
       <member refid="structeuphoria_1_1core_1_1EnumToStringImplementation_1a1aa986755b7a4485a4b4cf64f43c62bd" prot="public" virt="non-virtual"><scope>euphoria::core::EnumToStringImplementation</scope><name>enum_to_string</name></member>

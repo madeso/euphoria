@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1CustomArgparser_3_01rgbi_01_4" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::CustomArgparser&lt; rgbi &gt;</compoundname>
     <includes refid="rgb_8h" local="no">rgb.h</includes>
@@ -23,7 +23,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rgb.h" line="217" column="14" bodyfile="libs/core/src/core/rgb.h" bodystart="217" bodyend="217"/>
+        <location file="libs/core/src/core/rgb.h" line="217" column="9" bodyfile="libs/core/src/core/rgb.h" bodystart="217" bodyend="217"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
@@ -66,7 +66,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/rgb.h" line="216" column="1" bodyfile="libs/core/src/core/rgb.h" bodystart="215" bodyend="228"/>
+    <location file="libs/core/src/core/rgb.h" line="215" column="5" bodyfile="libs/core/src/core/rgb.h" bodystart="216" bodyend="228"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1CustomArgparser_3_01rgbi_01_4_1ac12dd1809ab40c47054aeffe9ba46268" prot="public" virt="non-virtual"><scope>euphoria::core::CustomArgparser&lt; rgbi &gt;</scope><name>parse</name></member>
       <member refid="structeuphoria_1_1core_1_1CustomArgparser_3_01rgbi_01_4_1adff7a23b544379b07c5d9b00d556ca37" prot="public" virt="non-virtual"><scope>euphoria::core::CustomArgparser&lt; rgbi &gt;</scope><name>to_string</name></member>

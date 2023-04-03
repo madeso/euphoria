@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1Image" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::Image</compoundname>
     <includes refid="image_8h" local="no">image.h</includes>
@@ -427,7 +427,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/image.h" line="29" column="1" bodyfile="libs/core/src/core/image.h" bodystart="28" bodyend="128"/>
+    <location file="libs/core/src/core/image.h" line="28" column="5" bodyfile="libs/core/src/core/image.h" bodystart="29" bodyend="128"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1Image_1afaac3459d5f5118e4321fdb87c278fe2" prot="public" virt="non-virtual"><scope>euphoria::core::Image</scope><name>components</name></member>
       <member refid="structeuphoria_1_1core_1_1Image_1a030745247e19727a45e2699f98349e56" prot="public" virt="non-virtual"><scope>euphoria::core::Image</scope><name>get_indices</name></member>

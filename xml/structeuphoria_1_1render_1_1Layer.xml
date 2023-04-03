@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1render_1_1Layer" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::render::Layer</compoundname>
     <includes refid="sprite_8h" local="no">sprite.h</includes>
@@ -142,7 +142,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="libs/render/src/render/sprite.h" line="39" column="1" bodyfile="libs/render/src/render/sprite.h" bodystart="38" bodyend="51"/>
+    <location file="libs/render/src/render/sprite.h" line="38" column="5" bodyfile="libs/render/src/render/sprite.h" bodystart="39" bodyend="51"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1render_1_1Layer_1ace19fa2563b0959efed9764a1508a0eb" prot="public" virt="non-virtual"><scope>euphoria::render::Layer</scope><name>add</name></member>
       <member refid="structeuphoria_1_1render_1_1Layer_1a61f00dfeb9d55219e7b5f1f66559128e" prot="public" virt="non-virtual"><scope>euphoria::render::Layer</scope><name>Layer</name></member>

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1Sortable" kind="struct" language="C++" prot="public" abstract="yes">
     <compoundname>euphoria::core::Sortable</compoundname>
     <derivedcompoundref refid="structeuphoria_1_1core_1_1SortAction" prot="public" virt="non-virtual">euphoria::core::SortAction&lt; T, TValue, TSortFunc &gt;</derivedcompoundref>
@@ -128,18 +128,18 @@
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-      <node id="1">
-        <label>euphoria::core::Sortable&lt; T &gt;</label>
-        <link refid="structeuphoria_1_1core_1_1Sortable"/>
-      </node>
       <node id="2">
-        <label>euphoria::core::SortAction&lt; T &gt;</label>
+        <label>euphoria::core::SortAction&lt; T, TValue, TSortFunc &gt;</label>
         <link refid="structeuphoria_1_1core_1_1SortAction"/>
         <childnode refid="1" relation="public-inheritance">
         </childnode>
       </node>
+      <node id="1">
+        <label>euphoria::core::Sortable&lt; T &gt;</label>
+        <link refid="structeuphoria_1_1core_1_1Sortable"/>
+      </node>
     </inheritancegraph>
-    <location file="libs/core/src/core/multisort.h" line="23" column="1" bodyfile="libs/core/src/core/multisort.h" bodystart="22" bodyend="33"/>
+    <location file="libs/core/src/core/multisort.h" line="22" column="5" bodyfile="libs/core/src/core/multisort.h" bodystart="23" bodyend="33"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1Sortable_1a29a860140e56ad19dd839792d1b37d27" prot="public" virt="non-virtual"><scope>euphoria::core::Sortable</scope><name>operator=</name></member>
       <member refid="structeuphoria_1_1core_1_1Sortable_1a65bc1771d0f471de71316910464629bb" prot="public" virt="non-virtual"><scope>euphoria::core::Sortable</scope><name>operator=</name></member>

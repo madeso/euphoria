@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1window_1_1imgui_1_1Library" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::window::imgui::Library</compoundname>
     <includes refid="imguilibrary_8h" local="no">imguilibrary.h</includes>
@@ -128,7 +128,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/window/src/window/imguilibrary.h" line="14" column="1" bodyfile="libs/window/src/window/imguilibrary.h" bodystart="13" bodyend="25"/>
+    <location file="libs/window/src/window/imguilibrary.h" line="13" column="5" bodyfile="libs/window/src/window/imguilibrary.h" bodystart="14" bodyend="25"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1window_1_1imgui_1_1Library_1a88b0726e7b62db6dd5699814ac6d78da" prot="public" virt="non-virtual"><scope>euphoria::window::imgui::Library</scope><name>Library</name></member>
       <member refid="structeuphoria_1_1window_1_1imgui_1_1Library_1a9adc05201452e45782128fbcd44d2df6" prot="public" virt="non-virtual"><scope>euphoria::window::imgui::Library</scope><name>Library</name></member>

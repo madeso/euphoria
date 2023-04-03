@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1Hsl" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::Hsl</compoundname>
     <includes refid="rgb_8h" local="no">rgb.h</includes>
@@ -143,17 +143,17 @@
         <label>euphoria::core::Hsl</label>
         <link refid="structeuphoria_1_1core_1_1Hsl"/>
         <childnode refid="2" relation="usage">
-          <edgelabel>cyan</edgelabel>
-          <edgelabel>h</edgelabel>
-          <edgelabel>yellow</edgelabel>
-          <edgelabel>magenta</edgelabel>
           <edgelabel>blue</edgelabel>
-          <edgelabel>red</edgelabel>
+          <edgelabel>cyan</edgelabel>
           <edgelabel>green</edgelabel>
+          <edgelabel>h</edgelabel>
+          <edgelabel>magenta</edgelabel>
+          <edgelabel>red</edgelabel>
+          <edgelabel>yellow</edgelabel>
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/rgb.h" line="104" column="1" bodyfile="libs/core/src/core/rgb.h" bodystart="103" bodyend="117"/>
+    <location file="libs/core/src/core/rgb.h" line="103" column="5" bodyfile="libs/core/src/core/rgb.h" bodystart="104" bodyend="117"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1Hsl_1a96d24e08672aa918e29a9675b8dae7b0" prot="public" virt="non-virtual"><scope>euphoria::core::Hsl</scope><name>blue</name></member>
       <member refid="structeuphoria_1_1core_1_1Hsl_1a34a6c6ba88e89ac7d24d93ece86a144c" prot="public" virt="non-virtual"><scope>euphoria::core::Hsl</scope><name>cyan</name></member>

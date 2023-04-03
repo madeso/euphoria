@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1render_1_1SpriteRenderer" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::render::SpriteRenderer</compoundname>
     <includes refid="spriterender_8h" local="no">spriterender.h</includes>
@@ -275,7 +275,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/render/src/render/spriterender.h" line="35" column="1" bodyfile="libs/render/src/render/spriterender.h" bodystart="34" bodyend="82"/>
+    <location file="libs/render/src/render/spriterender.h" line="34" column="5" bodyfile="libs/render/src/render/spriterender.h" bodystart="35" bodyend="82"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1render_1_1SpriteRenderer_1a75dfa02de9927979b4f00d51f0135058" prot="private" virt="non-virtual"><scope>euphoria::render::SpriteRenderer</scope><name>color_uniform</name></member>
       <member refid="structeuphoria_1_1render_1_1SpriteRenderer_1a11d0b4cea50dc78a71cedbdf1d531065" prot="public" virt="non-virtual"><scope>euphoria::render::SpriteRenderer</scope><name>draw_ninepatch</name></member>

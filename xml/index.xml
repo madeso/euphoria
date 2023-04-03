@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.17">
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.9.1" xml:lang="en-US">
   <compound refid="structeuphoria_1_1core_1_1Aabb" kind="struct"><name>euphoria::core::Aabb</name>
     <member refid="structeuphoria_1_1core_1_1Aabb_1a17a8aaca10a782b97236a943627dfb7f" kind="variable"><name>min</name></member>
     <member refid="structeuphoria_1_1core_1_1Aabb_1a09b9b525e919634bad8fb7bc7b09506d" kind="variable"><name>max</name></member>
@@ -303,21 +303,6 @@
     <member refid="structeuphoria_1_1core_1_1detail_1_1CameraFrame_1ab30edb5cb2fc89520d77f15ac0dc1a4b" kind="variable"><name>look_angle</name></member>
     <member refid="structeuphoria_1_1core_1_1detail_1_1CameraFrame_1a01275f4bc552c2bee720d4a098f8dfe5" kind="variable"><name>position</name></member>
   </compound>
-  <compound refid="structeuphoria_1_1window_1_1Canvas" kind="struct"><name>euphoria::window::Canvas</name>
-    <member refid="structeuphoria_1_1window_1_1Canvas_1a47bb0dd3db3fe78000352f7490863aec" kind="variable"><name>view</name></member>
-    <member refid="structeuphoria_1_1window_1_1Canvas_1a49249c04df8b52b125b06e2f009ad728" kind="variable"><name>position</name></member>
-    <member refid="structeuphoria_1_1window_1_1Canvas_1aacdec761dec32da1d59d21650ca51fd8" kind="function"><name>begin</name></member>
-    <member refid="structeuphoria_1_1window_1_1Canvas_1a47504e691af8ff60f6fc2edc70b390c2" kind="function"><name>end</name></member>
-    <member refid="structeuphoria_1_1window_1_1Canvas_1ac8cea0fc109deb38d13494537baf1fd5" kind="function"><name>show_grid</name></member>
-    <member refid="structeuphoria_1_1window_1_1Canvas_1aaa864d4d33a82ccd90001d4f7f32d89c" kind="function"><name>draw_vertical_line</name></member>
-    <member refid="structeuphoria_1_1window_1_1Canvas_1a6c6f674ecd2a4baba0454e7c9394d2c6" kind="function"><name>draw_horizontal_line</name></member>
-    <member refid="structeuphoria_1_1window_1_1Canvas_1a999897a977094dd6bbe3b1b74c628f31" kind="function"><name>show_ruler</name></member>
-    <member refid="structeuphoria_1_1window_1_1Canvas_1a44b390dd6c9424a27d7c8f67fb9d4402" kind="function"><name>show_ruler</name></member>
-    <member refid="structeuphoria_1_1window_1_1Canvas_1aec1815eb0e324b8f7991b349ebc901c2" kind="function"><name>from_world_to_screen</name></member>
-    <member refid="structeuphoria_1_1window_1_1Canvas_1a7fab25c6ef029a81afe1197743e9ede1" kind="function"><name>from_world_to_screen_size</name></member>
-    <member refid="structeuphoria_1_1window_1_1Canvas_1a2218ea369cb8472a5166f723fb6987dd" kind="function"><name>from_screen_to_world</name></member>
-    <member refid="structeuphoria_1_1window_1_1Canvas_1a6f3de293a54c2a9abcf8cd338f8854c2" kind="function"><name>get_mouse</name></member>
-  </compound>
   <compound refid="structeuphoria_1_1core_1_1Canvas" kind="struct"><name>euphoria::core::Canvas</name>
     <member refid="structeuphoria_1_1core_1_1Canvas_1ad70d3f7cc92412f2e4cd231ecb0d72ad" kind="variable"><name>fill_style</name></member>
     <member refid="structeuphoria_1_1core_1_1Canvas_1a21a5bfa33f9eb25e3e77df3bfc0bb4b0" kind="variable"><name>target_image</name></member>
@@ -334,6 +319,21 @@
     <member refid="structeuphoria_1_1core_1_1Canvas_1a3e4748a2aa1fe5e01048d399279b4746" kind="function"><name>transform_position</name></member>
     <member refid="structeuphoria_1_1core_1_1Canvas_1ac29ace836b24a841bbb684a76f1641ab" kind="function"><name>fill_rect</name></member>
     <member refid="structeuphoria_1_1core_1_1Canvas_1acbe85f8b75c9c6bde274e93d4daee851" kind="function"><name>fill</name></member>
+  </compound>
+  <compound refid="structeuphoria_1_1window_1_1Canvas" kind="struct"><name>euphoria::window::Canvas</name>
+    <member refid="structeuphoria_1_1window_1_1Canvas_1a47bb0dd3db3fe78000352f7490863aec" kind="variable"><name>view</name></member>
+    <member refid="structeuphoria_1_1window_1_1Canvas_1a49249c04df8b52b125b06e2f009ad728" kind="variable"><name>position</name></member>
+    <member refid="structeuphoria_1_1window_1_1Canvas_1aacdec761dec32da1d59d21650ca51fd8" kind="function"><name>begin</name></member>
+    <member refid="structeuphoria_1_1window_1_1Canvas_1a47504e691af8ff60f6fc2edc70b390c2" kind="function"><name>end</name></member>
+    <member refid="structeuphoria_1_1window_1_1Canvas_1ac8cea0fc109deb38d13494537baf1fd5" kind="function"><name>show_grid</name></member>
+    <member refid="structeuphoria_1_1window_1_1Canvas_1aaa864d4d33a82ccd90001d4f7f32d89c" kind="function"><name>draw_vertical_line</name></member>
+    <member refid="structeuphoria_1_1window_1_1Canvas_1a6c6f674ecd2a4baba0454e7c9394d2c6" kind="function"><name>draw_horizontal_line</name></member>
+    <member refid="structeuphoria_1_1window_1_1Canvas_1a999897a977094dd6bbe3b1b74c628f31" kind="function"><name>show_ruler</name></member>
+    <member refid="structeuphoria_1_1window_1_1Canvas_1a44b390dd6c9424a27d7c8f67fb9d4402" kind="function"><name>show_ruler</name></member>
+    <member refid="structeuphoria_1_1window_1_1Canvas_1aec1815eb0e324b8f7991b349ebc901c2" kind="function"><name>from_world_to_screen</name></member>
+    <member refid="structeuphoria_1_1window_1_1Canvas_1a7fab25c6ef029a81afe1197743e9ede1" kind="function"><name>from_world_to_screen_size</name></member>
+    <member refid="structeuphoria_1_1window_1_1Canvas_1a2218ea369cb8472a5166f723fb6987dd" kind="function"><name>from_screen_to_world</name></member>
+    <member refid="structeuphoria_1_1window_1_1Canvas_1a6f3de293a54c2a9abcf8cd338f8854c2" kind="function"><name>get_mouse</name></member>
   </compound>
   <compound refid="structeuphoria_1_1window_1_1CanvasConfig" kind="struct"><name>euphoria::window::CanvasConfig</name>
     <member refid="structeuphoria_1_1window_1_1CanvasConfig_1a60cb11efead64569fc93561bf4bae14f" kind="variable"><name>zoom_speed</name></member>
@@ -1492,7 +1492,7 @@
     <member refid="structeuphoria_1_1core_1_1mat2f_1a6f4fea61917bca0b7c3d7c8c29f115dc" kind="function"><name>get</name></member>
     <member refid="structeuphoria_1_1core_1_1mat2f_1aa0a48d7f9212678f9369593fa3313373" kind="function"><name>get_column</name></member>
     <member refid="structeuphoria_1_1core_1_1mat2f_1ae3b6c0ef342b026d243b3eafdaf8a6bf" kind="function"><name>get_row</name></member>
-    <member refid="structeuphoria_1_1core_1_1mat2f_1a5bcf754eb640089dd01308108054f0c5" kind="function"><name>get_data_ptr</name></member>
+    <member refid="structeuphoria_1_1core_1_1mat2f_1ab7390e7644040706b20ac7e2234ea2f7" kind="function"><name>get_data_ptr</name></member>
     <member refid="structeuphoria_1_1core_1_1mat2f_1a427ad77a9c6d52889cd0f917c0aca254" kind="function"><name>operator+=</name></member>
     <member refid="structeuphoria_1_1core_1_1mat2f_1a6e1ceec3f9be083f5540ad0d2363242b" kind="function"><name>operator-=</name></member>
     <member refid="structeuphoria_1_1core_1_1mat2f_1a4bdc697bac2efbbf69c055ecab96c391" kind="function"><name>operator()</name></member>
@@ -1522,7 +1522,7 @@
     <member refid="structeuphoria_1_1core_1_1mat3f_1a856f223f5696f9a9ba8a5ea9ec9e0afb" kind="function"><name>get_y_axis</name></member>
     <member refid="structeuphoria_1_1core_1_1mat3f_1a21ca4889ec46c16f2fb35aa117609e89" kind="function"><name>get_z_axis</name></member>
     <member refid="structeuphoria_1_1core_1_1mat3f_1a98cb3626000ebbb0219a5b3307b041b7" kind="function"><name>get_transposed</name></member>
-    <member refid="structeuphoria_1_1core_1_1mat3f_1aad4f7eeb9729833b77b1df8a59b1b56a" kind="function"><name>get_data_ptr</name></member>
+    <member refid="structeuphoria_1_1core_1_1mat3f_1acb76f092afcc47cd4e24df68ec579620" kind="function"><name>get_data_ptr</name></member>
     <member refid="structeuphoria_1_1core_1_1mat3f_1a116bc652f510a4d9b5ce402cf841b867" kind="function"><name>operator+=</name></member>
     <member refid="structeuphoria_1_1core_1_1mat3f_1a135ec40916d0587e3af5d52689b09127" kind="function"><name>operator-=</name></member>
     <member refid="structeuphoria_1_1core_1_1mat3f_1aa1cdbe8afa514854679cfd753b9ba22c" kind="function"><name>operator()</name></member>
@@ -1555,7 +1555,7 @@
     <member refid="structeuphoria_1_1core_1_1mat4f_1a4b848fda28dab124784ce3975c28c8c7" kind="function"><name>create_perspective</name></member>
     <member refid="structeuphoria_1_1core_1_1mat4f_1ad553de87d80156a717b97f734d706819" kind="function"><name>from_scalar</name></member>
     <member refid="structeuphoria_1_1core_1_1mat4f_1a04cfa0737ecc1d2b4169f7fa6d47965d" kind="function"><name>get_data_ptr</name></member>
-    <member refid="structeuphoria_1_1core_1_1mat4f_1a97e12019c4dc019e9ba4870d886cf146" kind="function"><name>get_column_major</name></member>
+    <member refid="structeuphoria_1_1core_1_1mat4f_1ac69283f5b55f3478808c637d900f91d1" kind="function"><name>get_column_major</name></member>
     <member refid="structeuphoria_1_1core_1_1mat4f_1ae5e91fbfbecc7a8702ecfb418dd6a81a" kind="function"><name>invert</name></member>
     <member refid="structeuphoria_1_1core_1_1mat4f_1a357a5db584c521b357b96b35d2023d77" kind="function"><name>get</name></member>
     <member refid="structeuphoria_1_1core_1_1mat4f_1aff91413ca4831ca10d18067779911caf" kind="function"><name>get_transform</name></member>
@@ -1569,8 +1569,8 @@
     <member refid="structeuphoria_1_1core_1_1mat4f_1ae40613f0c738fa392bcae866b8116473" kind="function"><name>get_scaled</name></member>
     <member refid="structeuphoria_1_1core_1_1mat4f_1acb352ef6f4415a2f1bc3195dc10699b3" kind="function"><name>get_column</name></member>
     <member refid="structeuphoria_1_1core_1_1mat4f_1a7478aa6db7090c757c1d4ee8f170366c" kind="function"><name>get_row</name></member>
-    <member refid="structeuphoria_1_1core_1_1mat4f_1a1e06a663fd78cb885c3abddf29b60af3" kind="function"><name>get_column_major</name></member>
-    <member refid="structeuphoria_1_1core_1_1mat4f_1a3876fd41549641a88d28092bbe4db43e" kind="function"><name>get_data_ptr</name></member>
+    <member refid="structeuphoria_1_1core_1_1mat4f_1ab265691a1846fefcfcff03b8c6d3c051" kind="function"><name>get_column_major</name></member>
+    <member refid="structeuphoria_1_1core_1_1mat4f_1a35c8c4cb2d282f7f5526e9f6597ca451" kind="function"><name>get_data_ptr</name></member>
     <member refid="structeuphoria_1_1core_1_1mat4f_1a5bfcb927745f75fe8553d14e9e38be98" kind="function"><name>get_translation</name></member>
     <member refid="structeuphoria_1_1core_1_1mat4f_1a828d4a730ca73c0c650ebd2076f672a2" kind="function"><name>get_major</name></member>
     <member refid="structeuphoria_1_1core_1_1mat4f_1a0bd915ac0e239b5dfee09ce695b66a03" kind="function"><name>get_x_axis</name></member>
@@ -1597,15 +1597,6 @@
     <member refid="structeuphoria_1_1core_1_1MatchedEnum_1acf7070de72a27214e2c88f046a121623" kind="variable"><name>names</name></member>
     <member refid="structeuphoria_1_1core_1_1MatchedEnum_1a7090f0b4df40fb95a4fc54feadb25acb" kind="variable"><name>values</name></member>
   </compound>
-  <compound refid="structeuphoria_1_1core_1_1raytracer_1_1Material" kind="struct"><name>euphoria::core::raytracer::Material</name>
-    <member refid="structeuphoria_1_1core_1_1raytracer_1_1Material_1aa02c166d60c11706fbae602046b5d9d5" kind="function"><name>Material</name></member>
-    <member refid="structeuphoria_1_1core_1_1raytracer_1_1Material_1aa7001d7b1dd2933e1d2c64ccfbeecf00" kind="function"><name>~Material</name></member>
-    <member refid="structeuphoria_1_1core_1_1raytracer_1_1Material_1ae8ca734fb0e9d9dc81fbc1b2a1b9c528" kind="function"><name>Material</name></member>
-    <member refid="structeuphoria_1_1core_1_1raytracer_1_1Material_1ab1ef89ecd7cc6e7b2e318bb0dbb1a98f" kind="function"><name>operator=</name></member>
-    <member refid="structeuphoria_1_1core_1_1raytracer_1_1Material_1aec295529dd52b9cee0adbcba438ea1fd" kind="function"><name>Material</name></member>
-    <member refid="structeuphoria_1_1core_1_1raytracer_1_1Material_1a5ee921957b078c9d32c2b9bf807527b1" kind="function"><name>operator=</name></member>
-    <member refid="structeuphoria_1_1core_1_1raytracer_1_1Material_1aa6362959bf6840bf586361ed38b2d53a" kind="function"><name>get_scattered</name></member>
-  </compound>
   <compound refid="structeuphoria_1_1core_1_1Material" kind="struct"><name>euphoria::core::Material</name>
     <member refid="structeuphoria_1_1core_1_1Material_1ad776a2ee076fd6351d0a79b679eae78c" kind="variable"><name>name</name></member>
     <member refid="structeuphoria_1_1core_1_1Material_1ae7d3e66a1bcaaca1edba5fa4cf06825c" kind="variable"><name>shader</name></member>
@@ -1619,6 +1610,15 @@
     <member refid="structeuphoria_1_1core_1_1Material_1a47323bc2f96c0b5c838c5203bed774e7" kind="variable"><name>wrap_t</name></member>
     <member refid="structeuphoria_1_1core_1_1Material_1a5d4840a8b0bb8fef2c923978ac74f98a" kind="function"><name>Material</name></member>
     <member refid="structeuphoria_1_1core_1_1Material_1a432f79312c4bd1bf2bbf643b13f9f59e" kind="function"><name>set_texture</name></member>
+  </compound>
+  <compound refid="structeuphoria_1_1core_1_1raytracer_1_1Material" kind="struct"><name>euphoria::core::raytracer::Material</name>
+    <member refid="structeuphoria_1_1core_1_1raytracer_1_1Material_1aa02c166d60c11706fbae602046b5d9d5" kind="function"><name>Material</name></member>
+    <member refid="structeuphoria_1_1core_1_1raytracer_1_1Material_1aa7001d7b1dd2933e1d2c64ccfbeecf00" kind="function"><name>~Material</name></member>
+    <member refid="structeuphoria_1_1core_1_1raytracer_1_1Material_1ae8ca734fb0e9d9dc81fbc1b2a1b9c528" kind="function"><name>Material</name></member>
+    <member refid="structeuphoria_1_1core_1_1raytracer_1_1Material_1ab1ef89ecd7cc6e7b2e318bb0dbb1a98f" kind="function"><name>operator=</name></member>
+    <member refid="structeuphoria_1_1core_1_1raytracer_1_1Material_1aec295529dd52b9cee0adbcba438ea1fd" kind="function"><name>Material</name></member>
+    <member refid="structeuphoria_1_1core_1_1raytracer_1_1Material_1a5ee921957b078c9d32c2b9bf807527b1" kind="function"><name>operator=</name></member>
+    <member refid="structeuphoria_1_1core_1_1raytracer_1_1Material_1aa6362959bf6840bf586361ed38b2d53a" kind="function"><name>get_scattered</name></member>
   </compound>
   <compound refid="structeuphoria_1_1render_1_1MaterialOverride" kind="struct"><name>euphoria::render::MaterialOverride</name>
     <member refid="structeuphoria_1_1render_1_1MaterialOverride_1abc2837ed093495888f80794ea523f06e" kind="variable"><name>materials</name></member>
@@ -1682,8 +1682,8 @@
     <member refid="structeuphoria_1_1core_1_1MemoryChunk_1acda5ff3f329ed66f6b100bf065702d7a" kind="variable"><name>size</name></member>
     <member refid="structeuphoria_1_1core_1_1MemoryChunk_1a59d1b542ccc9518bc6f6c661cde5cb29" kind="function"><name>allocate</name></member>
     <member refid="structeuphoria_1_1core_1_1MemoryChunk_1afffb971e064eebdbf16e409eb10fd9bd" kind="function"><name>create_null</name></member>
-    <member refid="structeuphoria_1_1core_1_1MemoryChunk_1a16dfdb12ba42840d63810f5153d73aa5" kind="function"><name>get_data</name></member>
-    <member refid="structeuphoria_1_1core_1_1MemoryChunk_1ac82574cd8900be822677be70f2a8c06a" kind="function"><name>get_data</name></member>
+    <member refid="structeuphoria_1_1core_1_1MemoryChunk_1a8f5d351a11623f1fede0e2ed31d2a66b" kind="function"><name>get_data</name></member>
+    <member refid="structeuphoria_1_1core_1_1MemoryChunk_1ab7c16215e5ce4a642ac666c0e6b9d371" kind="function"><name>get_data</name></member>
     <member refid="structeuphoria_1_1core_1_1MemoryChunk_1a7ccadf682879b1791b9947269c7bfc0f" kind="function"><name>get_size</name></member>
     <member refid="structeuphoria_1_1core_1_1MemoryChunk_1a41d36379fd2adbdf77308561ef38b670" kind="function"><name>operator[]</name></member>
     <member refid="structeuphoria_1_1core_1_1MemoryChunk_1a084f18bfe9633838fdd1bcea71220a1a" kind="function"><name>operator[]</name></member>
@@ -1775,14 +1775,14 @@
     <member refid="structeuphoria_1_1core_1_1dot_1_1Node_1ac2ace04145266c7f4c78be4635dc8b7a" kind="variable"><name>id</name></member>
     <member refid="structeuphoria_1_1core_1_1dot_1_1Node_1a50987c47a9f1967c20570d9d2d9215b3" kind="variable"><name>label</name></member>
   </compound>
-  <compound refid="structeuphoria_1_1minsynth_1_1Node" kind="struct"><name>euphoria::minsynth::Node</name>
-    <member refid="structeuphoria_1_1minsynth_1_1Node_1a343fb3f85c00808d9fa1a0e47db176b0" kind="function"><name>Node</name></member>
-    <member refid="structeuphoria_1_1minsynth_1_1Node_1a4460379974e28cc6314cf2086ab9c0e0" kind="function"><name>~Node</name></member>
-    <member refid="structeuphoria_1_1minsynth_1_1Node_1af32dcf34eb9bdc46433322309490f14f" kind="function"><name>Node</name></member>
-    <member refid="structeuphoria_1_1minsynth_1_1Node_1a804b0e11c11c8dfe98f09ab080c25d59" kind="function"><name>Node</name></member>
-    <member refid="structeuphoria_1_1minsynth_1_1Node_1af0ab491ba7edc548dcde546c2a31c920" kind="function"><name>operator=</name></member>
-    <member refid="structeuphoria_1_1minsynth_1_1Node_1a5ee36fa76279fd2a7755adfe72156d2f" kind="function"><name>operator=</name></member>
-    <member refid="structeuphoria_1_1minsynth_1_1Node_1a7277f2c5eb010ee681eb37efa0a97283" kind="function"><name>update</name></member>
+  <compound refid="structeuphoria_1_1core_1_1textparser_1_1Node" kind="struct"><name>euphoria::core::textparser::Node</name>
+    <member refid="structeuphoria_1_1core_1_1textparser_1_1Node_1aad5fbbcf326567a811cd9d9cd2b06da9" kind="function"><name>Node</name></member>
+    <member refid="structeuphoria_1_1core_1_1textparser_1_1Node_1a5310d8999c53d524ecc20362d0dc3a68" kind="function"><name>~Node</name></member>
+    <member refid="structeuphoria_1_1core_1_1textparser_1_1Node_1a1ca253d4fb1c2936d62f0085563b65ad" kind="function"><name>Node</name></member>
+    <member refid="structeuphoria_1_1core_1_1textparser_1_1Node_1a209b790249956192b92ea7e8809478ca" kind="function"><name>operator=</name></member>
+    <member refid="structeuphoria_1_1core_1_1textparser_1_1Node_1a221f1ef2e7c47956d0b92edcf840e41b" kind="function"><name>Node</name></member>
+    <member refid="structeuphoria_1_1core_1_1textparser_1_1Node_1a0ebec11ce3c75e0dacd238265e76e96a" kind="function"><name>operator=</name></member>
+    <member refid="structeuphoria_1_1core_1_1textparser_1_1Node_1a5eda5fd749d924d1a2c7f81627776706" kind="function"><name>accept</name></member>
   </compound>
   <compound refid="structeuphoria_1_1core_1_1tracery_1_1Node" kind="struct"><name>euphoria::core::tracery::Node</name>
     <member refid="structeuphoria_1_1core_1_1tracery_1_1Node_1a942f7dbf74ab980899139eff519d780c" kind="function"><name>Node</name></member>
@@ -1793,14 +1793,14 @@
     <member refid="structeuphoria_1_1core_1_1tracery_1_1Node_1a17f517719690b935ebe8f9c01fa2498e" kind="function"><name>operator=</name></member>
     <member refid="structeuphoria_1_1core_1_1tracery_1_1Node_1a1d68f8224c8bddd4c67fd6e2e02f9225" kind="function"><name>flatten</name></member>
   </compound>
-  <compound refid="structeuphoria_1_1core_1_1textparser_1_1Node" kind="struct"><name>euphoria::core::textparser::Node</name>
-    <member refid="structeuphoria_1_1core_1_1textparser_1_1Node_1aad5fbbcf326567a811cd9d9cd2b06da9" kind="function"><name>Node</name></member>
-    <member refid="structeuphoria_1_1core_1_1textparser_1_1Node_1a5310d8999c53d524ecc20362d0dc3a68" kind="function"><name>~Node</name></member>
-    <member refid="structeuphoria_1_1core_1_1textparser_1_1Node_1a1ca253d4fb1c2936d62f0085563b65ad" kind="function"><name>Node</name></member>
-    <member refid="structeuphoria_1_1core_1_1textparser_1_1Node_1a209b790249956192b92ea7e8809478ca" kind="function"><name>operator=</name></member>
-    <member refid="structeuphoria_1_1core_1_1textparser_1_1Node_1a221f1ef2e7c47956d0b92edcf840e41b" kind="function"><name>Node</name></member>
-    <member refid="structeuphoria_1_1core_1_1textparser_1_1Node_1a0ebec11ce3c75e0dacd238265e76e96a" kind="function"><name>operator=</name></member>
-    <member refid="structeuphoria_1_1core_1_1textparser_1_1Node_1a5eda5fd749d924d1a2c7f81627776706" kind="function"><name>accept</name></member>
+  <compound refid="structeuphoria_1_1minsynth_1_1Node" kind="struct"><name>euphoria::minsynth::Node</name>
+    <member refid="structeuphoria_1_1minsynth_1_1Node_1a343fb3f85c00808d9fa1a0e47db176b0" kind="function"><name>Node</name></member>
+    <member refid="structeuphoria_1_1minsynth_1_1Node_1a4460379974e28cc6314cf2086ab9c0e0" kind="function"><name>~Node</name></member>
+    <member refid="structeuphoria_1_1minsynth_1_1Node_1af32dcf34eb9bdc46433322309490f14f" kind="function"><name>Node</name></member>
+    <member refid="structeuphoria_1_1minsynth_1_1Node_1a804b0e11c11c8dfe98f09ab080c25d59" kind="function"><name>Node</name></member>
+    <member refid="structeuphoria_1_1minsynth_1_1Node_1af0ab491ba7edc548dcde546c2a31c920" kind="function"><name>operator=</name></member>
+    <member refid="structeuphoria_1_1minsynth_1_1Node_1a5ee36fa76279fd2a7755adfe72156d2f" kind="function"><name>operator=</name></member>
+    <member refid="structeuphoria_1_1minsynth_1_1Node_1a7277f2c5eb010ee681eb37efa0a97283" kind="function"><name>update</name></member>
   </compound>
   <compound refid="structeuphoria_1_1core_1_1textparser_1_1NodeBeginOrEnd" kind="struct"><name>euphoria::core::textparser::NodeBeginOrEnd</name>
     <member refid="structeuphoria_1_1core_1_1textparser_1_1NodeBeginOrEnd_1a620c45dd7f3e16c6f4fa9c77d201e281" kind="variable"><name>begin</name></member>
@@ -2091,7 +2091,7 @@
     <member refid="structeuphoria_1_1core_1_1quatf_1a0b55551df5d024a11de79d7baafd672e" kind="variable"><name>y</name></member>
     <member refid="structeuphoria_1_1core_1_1quatf_1ac5108808e38952b925d0bcc797a37769" kind="variable"><name>z</name></member>
     <member refid="structeuphoria_1_1core_1_1quatf_1aa8d67f9a93cc1ec6792d1d5ea3cdd12b" kind="function"><name>quatf</name></member>
-    <member refid="structeuphoria_1_1core_1_1quatf_1a7dc6ac0d8cfdd7ad802e5dd9f6d900ee" kind="function"><name>get_data_ptr</name></member>
+    <member refid="structeuphoria_1_1core_1_1quatf_1a899ff644c696d829515968c067367d79" kind="function"><name>get_data_ptr</name></member>
     <member refid="structeuphoria_1_1core_1_1quatf_1a0ee475cf3ba652ffd872e13bff4a5168" kind="function"><name>normalize</name></member>
     <member refid="structeuphoria_1_1core_1_1quatf_1adb597f9c7830625b4e64932ddf8f0668" kind="function"><name>create_from_right_up_in</name></member>
     <member refid="structeuphoria_1_1core_1_1quatf_1a7b4735a3dd178154befbca5e70b5c9cd" kind="function"><name>get_rotated</name></member>
@@ -2099,7 +2099,7 @@
     <member refid="structeuphoria_1_1core_1_1quatf_1a95a0701cb4444253a810cb9854bb2e9f" kind="function"><name>get_negated</name></member>
     <member refid="structeuphoria_1_1core_1_1quatf_1a07cf897800aa5af7fd114301878db333" kind="function"><name>to_mat4</name></member>
     <member refid="structeuphoria_1_1core_1_1quatf_1a96f20e464e1c32040f9a03cf3db26002" kind="function"><name>to_axis_angle</name></member>
-    <member refid="structeuphoria_1_1core_1_1quatf_1a9dff9fd37ccf8b2d87808a8a90be1cd6" kind="function"><name>get_data_ptr</name></member>
+    <member refid="structeuphoria_1_1core_1_1quatf_1a0c0f20cb1475b4a86fe6dcd01c275cb0" kind="function"><name>get_data_ptr</name></member>
     <member refid="structeuphoria_1_1core_1_1quatf_1ac41f69152ffaac18d27a31e69aff6897" kind="function"><name>get_vec_part</name></member>
     <member refid="structeuphoria_1_1core_1_1quatf_1aec55d04303a5bf33984130ee956eb11c" kind="function"><name>get_conjugate</name></member>
     <member refid="structeuphoria_1_1core_1_1quatf_1a0c863912e4fcc170993242d937441eac" kind="function"><name>get_inverse</name></member>
@@ -2572,9 +2572,9 @@
     <member refid="structeuphoria_1_1core_1_1Scale2f_1a0cfd95f659da07d742422a339b830574" kind="function"><name>Scale2f</name></member>
     <member refid="structeuphoria_1_1core_1_1Scale2f_1a0cf8d1cf1adeba10b860d26bd0211ba6" kind="function"><name>Scale2f</name></member>
     <member refid="structeuphoria_1_1core_1_1Scale2f_1a63fced704ab59488054b713d4a6acca0" kind="function"><name>operator==</name></member>
-    <member refid="structeuphoria_1_1core_1_1Scale2f_1a37ddffd23e2013344dd606dd27e8f5be" kind="function"><name>get_data_ptr</name></member>
+    <member refid="structeuphoria_1_1core_1_1Scale2f_1a9fcb373cc124fddab797ec8c57e8133a" kind="function"><name>get_data_ptr</name></member>
     <member refid="structeuphoria_1_1core_1_1Scale2f_1a8133dff14b41ee91add5290a4ab91572" kind="function"><name>get_rotated</name></member>
-    <member refid="structeuphoria_1_1core_1_1Scale2f_1ab5ed2366c4a472dee64bdf5a97ea87d6" kind="function"><name>get_data_ptr</name></member>
+    <member refid="structeuphoria_1_1core_1_1Scale2f_1a4628e16161b17eae79b904688814e25b" kind="function"><name>get_data_ptr</name></member>
     <member refid="structeuphoria_1_1core_1_1Scale2f_1ade0590208a913821378cfe267586132a" kind="function"><name>get_flipped_y</name></member>
     <member refid="structeuphoria_1_1core_1_1Scale2f_1aa70707cf3db4f81d13c3fb21be721b7a" kind="function"><name>operator-</name></member>
   </compound>
@@ -2586,8 +2586,8 @@
     <member refid="structeuphoria_1_1core_1_1Scale3f_1a690ae0309cbaf864462c35ca5b0791b2" kind="function"><name>Scale3f</name></member>
     <member refid="structeuphoria_1_1core_1_1Scale3f_1a9abd4192deba28ae0d97e6b15cd89cea" kind="function"><name>Scale3f</name></member>
     <member refid="structeuphoria_1_1core_1_1Scale3f_1a0d526fdd36990bba0a900471a262c9a7" kind="function"><name>Scale3f</name></member>
-    <member refid="structeuphoria_1_1core_1_1Scale3f_1aa74d6a8248611607783613ce202e20e8" kind="function"><name>get_data_ptr</name></member>
-    <member refid="structeuphoria_1_1core_1_1Scale3f_1a5f7c8d44e344e8d76cb469204acd8f70" kind="function"><name>get_data_ptr</name></member>
+    <member refid="structeuphoria_1_1core_1_1Scale3f_1a5436063b28316f659623da9c1631438b" kind="function"><name>get_data_ptr</name></member>
+    <member refid="structeuphoria_1_1core_1_1Scale3f_1a990dc7e2f8f9c45f567cd9271095fac2" kind="function"><name>get_data_ptr</name></member>
     <member refid="structeuphoria_1_1core_1_1Scale3f_1a12ea3d47d71e25bc51b744f78fe03cfa" kind="function"><name>operator==</name></member>
   </compound>
   <compound refid="structeuphoria_1_1minsynth_1_1ScalerEffect" kind="struct"><name>euphoria::minsynth::ScalerEffect</name>
@@ -3185,8 +3185,8 @@
     <member refid="structeuphoria_1_1gui_1_1TextData_1ac1813e746fdeb09a716488ab0f5e3b24" kind="function"><name>get_font</name></member>
     <member refid="structeuphoria_1_1gui_1_1TextData_1a83d4e05589dc31acb86c0485ff509544" kind="function"><name>update_string</name></member>
     <member refid="structeuphoria_1_1gui_1_1TextData_1a50894bd62c5bef72b2cb64265c65618a" kind="function"><name>has_text</name></member>
-    <member refid="structeuphoria_1_1gui_1_1TextData_1af4c43dca4632114199c3e7c4197a0797" kind="function"><name>get_text</name></member>
-    <member refid="structeuphoria_1_1gui_1_1TextData_1a3f447c4f087088ac09962b95b2b05b84" kind="function"><name>get_text</name></member>
+    <member refid="structeuphoria_1_1gui_1_1TextData_1aa1be4dc8465eb451257d3cc27d0e89e1" kind="function"><name>get_text</name></member>
+    <member refid="structeuphoria_1_1gui_1_1TextData_1a047d46b2345f78c9928df987ae335510" kind="function"><name>get_text</name></member>
     <member refid="structeuphoria_1_1gui_1_1TextData_1a4d3c6324bddf209db55f3e3d2a92dc9b" kind="function"><name>set_size</name></member>
     <member refid="structeuphoria_1_1gui_1_1TextData_1aadaf5f0a203078ca631fe06a9ce3400e" kind="function"><name>update_text</name></member>
   </compound>
@@ -3386,9 +3386,9 @@
     <member refid="structeuphoria_1_1core_1_1unit2f_1a2dc7b0129af9018209791f3b5e8802d8" kind="variable"><name>y</name></member>
     <member refid="structeuphoria_1_1core_1_1unit2f_1a792e4c9f03b61cf32259f81a8e495c74" kind="friend"><name>vec2f</name></member>
     <member refid="structeuphoria_1_1core_1_1unit2f_1a6f3d4268a2c44ee88b14c9bf27633957" kind="function"><name>unit2f</name></member>
-    <member refid="structeuphoria_1_1core_1_1unit2f_1af7a0dd8173461ca3b59bbea57918c80f" kind="function"><name>get_data_ptr</name></member>
+    <member refid="structeuphoria_1_1core_1_1unit2f_1ae4b4e5e6005f45fb60e29c4554e12b42" kind="function"><name>get_data_ptr</name></member>
     <member refid="structeuphoria_1_1core_1_1unit2f_1a754a4123462699795e1a92fdf9f758b5" kind="function"><name>get_rotated</name></member>
-    <member refid="structeuphoria_1_1core_1_1unit2f_1a592f305678a76512fadf95bb11010b05" kind="function"><name>get_data_ptr</name></member>
+    <member refid="structeuphoria_1_1core_1_1unit2f_1a74b1663ff0726d34c923c6ff65676aa0" kind="function"><name>get_data_ptr</name></member>
     <member refid="structeuphoria_1_1core_1_1unit2f_1aafc2aacde9eb6a49a678b0f822e46f7a" kind="function"><name>to_vec</name></member>
     <member refid="structeuphoria_1_1core_1_1unit2f_1a32b67d985dc2dc7aec9621914aabde2e" kind="function"><name>get_flipped_y</name></member>
     <member refid="structeuphoria_1_1core_1_1unit2f_1ad510363a8ac5b1a150ce7cfef5f14335" kind="function"><name>get_length_squared</name></member>
@@ -3429,10 +3429,10 @@
     <member refid="structeuphoria_1_1core_1_1vec2f_1ac457d92e5cac9a151b47f5ee7f9d9583" kind="function"><name>vec2f</name></member>
     <member refid="structeuphoria_1_1core_1_1vec2f_1adf3fdf2fa3725184e0dc4066c0672a23" kind="function"><name>vec2f</name></member>
     <member refid="structeuphoria_1_1core_1_1vec2f_1a94623f1d9a66d0bcb732c0ab0a88cd55" kind="function"><name>vec2f</name></member>
-    <member refid="structeuphoria_1_1core_1_1vec2f_1a0d8e9f70e254728cfd2bfba1b32efa9f" kind="function"><name>get_data_ptr</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec2f_1a150b88c8fc7db169903365e2c0feafd6" kind="function"><name>get_data_ptr</name></member>
     <member refid="structeuphoria_1_1core_1_1vec2f_1a84113eff5193f31dbc8121dcce39fd2c" kind="function"><name>normalize</name></member>
     <member refid="structeuphoria_1_1core_1_1vec2f_1a4a832f2ff705d6d79d5c922840253fe2" kind="function"><name>get_rotated</name></member>
-    <member refid="structeuphoria_1_1core_1_1vec2f_1ab88413d960aa084c2f224466d6c0a826" kind="function"><name>get_data_ptr</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec2f_1ace4ed53850004d3defbe2212d5d47818" kind="function"><name>get_data_ptr</name></member>
     <member refid="structeuphoria_1_1core_1_1vec2f_1a43ffd7f6ec07b71c9da1d11b7b0691cd" kind="function"><name>to_i</name></member>
     <member refid="structeuphoria_1_1core_1_1vec2f_1a3a918558803d2e3e5a3b800700f60da3" kind="function"><name>get_flipped_y</name></member>
     <member refid="structeuphoria_1_1core_1_1vec2f_1a478fa938b6bed05ead24b08247fa2073" kind="function"><name>get_length_squared</name></member>
@@ -3453,8 +3453,8 @@
     <member refid="structeuphoria_1_1core_1_1vec2i_1a0df98fc7fdc661b35e06cfa117f7726a" kind="function"><name>vec2i</name></member>
     <member refid="structeuphoria_1_1core_1_1vec2i_1a94cc096736d5c104ae174c6de05c8aa5" kind="function"><name>vec2i</name></member>
     <member refid="structeuphoria_1_1core_1_1vec2i_1adc8abbe74ed5e48315e4353045f9df27" kind="function"><name>vec2i</name></member>
-    <member refid="structeuphoria_1_1core_1_1vec2i_1ae38f0fc56e7fdc88eede4ca74eaa57c0" kind="function"><name>get_data_ptr</name></member>
-    <member refid="structeuphoria_1_1core_1_1vec2i_1a90aafb91451976d790ce85fa1c1cfef9" kind="function"><name>get_data_ptr</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec2i_1a1d9393313eb1be6054715135e93e6343" kind="function"><name>get_data_ptr</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec2i_1a29752fd23ecd288dc3bd1a425a6e55cf" kind="function"><name>get_data_ptr</name></member>
     <member refid="structeuphoria_1_1core_1_1vec2i_1a65a02c587f75c87e7e67d3617a9f8409" kind="function"><name>to_f</name></member>
     <member refid="structeuphoria_1_1core_1_1vec2i_1aa9eb0ba006fe5ed49841753f205cf85f" kind="function"><name>get_flipped_y</name></member>
     <member refid="structeuphoria_1_1core_1_1vec2i_1ac4488ff970ba69ba38f14f41bbe6b7dd" kind="function"><name>operator+=</name></member>
@@ -3479,8 +3479,8 @@
     <member refid="structeuphoria_1_1core_1_1vec3f_1af13dc287c66c44c8ad8b9c7ccf167c0c" kind="function"><name>operator/=</name></member>
     <member refid="structeuphoria_1_1core_1_1vec3f_1a1b6f9c977c8fe91e7800089b0d2c28bc" kind="function"><name>operator*=</name></member>
     <member refid="structeuphoria_1_1core_1_1vec3f_1a3d70f8ca899bbd74b77f72a9772da8da" kind="function"><name>operator-</name></member>
-    <member refid="structeuphoria_1_1core_1_1vec3f_1a773b8d812f9b814bb803d927a78090d5" kind="function"><name>get_data_ptr</name></member>
-    <member refid="structeuphoria_1_1core_1_1vec3f_1aa28c7cbc01178e792633ca252797edbb" kind="function"><name>get_data_ptr</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec3f_1a62be39bf1c2d776a3ff388b2b8f5037b" kind="function"><name>get_data_ptr</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec3f_1a21438142b3e2a4770aae05f734abeec0" kind="function"><name>get_data_ptr</name></member>
     <member refid="structeuphoria_1_1core_1_1vec3f_1a9800e37aafd8a710f5bd05166d1e870d" kind="function"><name>get_length_squared</name></member>
     <member refid="structeuphoria_1_1core_1_1vec3f_1aef0537cd1db5279ffc6b2c694b3a38ed" kind="function"><name>get_length</name></member>
     <member refid="structeuphoria_1_1core_1_1vec3f_1ad842f991e2c08b9068483708872f9ea2" kind="function"><name>normalize</name></member>
@@ -3504,10 +3504,10 @@
     <member refid="structeuphoria_1_1core_1_1vec4f_1a6c58ef3c2238277869dfe7c742365c84" kind="function"><name>vec4f</name></member>
     <member refid="structeuphoria_1_1core_1_1vec4f_1a65a8f31c892b9a231b276c57072f529a" kind="function"><name>vec4f</name></member>
     <member refid="structeuphoria_1_1core_1_1vec4f_1ad0e12c15ce2ef19a6cbf2b616ed3cd97" kind="function"><name>vec4f</name></member>
-    <member refid="structeuphoria_1_1core_1_1vec4f_1a3147575ed050ae80c0f4d20298fd37c3" kind="function"><name>get_data_ptr</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec4f_1ab913654090f48dd4048428f1db9596f6" kind="function"><name>get_data_ptr</name></member>
     <member refid="structeuphoria_1_1core_1_1vec4f_1a54ed66778ec1f6833f1198889412f212" kind="function"><name>to_vec3</name></member>
     <member refid="structeuphoria_1_1core_1_1vec4f_1ae203269f55890816898416e48b46c3a3" kind="function"><name>to_vec3</name></member>
-    <member refid="structeuphoria_1_1core_1_1vec4f_1a93f577ef0a52d8bcde0bb6ab6cb9b3d6" kind="function"><name>get_data_ptr</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec4f_1aca6b0312bba6401214b9302c4827567a" kind="function"><name>get_data_ptr</name></member>
     <member refid="structeuphoria_1_1core_1_1vec4f_1a6d5c292989ae40d352a590f5ed112a8b" kind="function"><name>operator==</name></member>
   </compound>
   <compound refid="structeuphoria_1_1render_1_1VertexBuffer" kind="struct"><name>euphoria::render::VertexBuffer</name>
@@ -3561,16 +3561,6 @@
     <member refid="structeuphoria_1_1core_1_1VirtualConsole_1acab004af3bf810fce53c5cb845291dd9" kind="function"><name>run</name></member>
     <member refid="structeuphoria_1_1core_1_1VirtualConsole_1a9746eda031ff8d5c7e9dae4f5b3f26ed" kind="function"><name>print_help</name></member>
   </compound>
-  <compound refid="structeuphoria_1_1gui_1_1Visitor" kind="struct"><name>euphoria::gui::Visitor</name>
-    <member refid="structeuphoria_1_1gui_1_1Visitor_1a343b59baffddb8ed4728d6a7a61f3640" kind="function"><name>Visitor</name></member>
-    <member refid="structeuphoria_1_1gui_1_1Visitor_1aae17dfafaa8b16a6266779da215b6663" kind="function"><name>~Visitor</name></member>
-    <member refid="structeuphoria_1_1gui_1_1Visitor_1a88761ccc3f4a54272200601d6c5f877f" kind="function"><name>Visitor</name></member>
-    <member refid="structeuphoria_1_1gui_1_1Visitor_1ae840755be6a8552dd154d49780606821" kind="function"><name>operator=</name></member>
-    <member refid="structeuphoria_1_1gui_1_1Visitor_1ae5579a5ee45652f8ad0d7808583e974b" kind="function"><name>Visitor</name></member>
-    <member refid="structeuphoria_1_1gui_1_1Visitor_1adc08ebfcbe29d58bbfd12875b63b2b28" kind="function"><name>operator=</name></member>
-    <member refid="structeuphoria_1_1gui_1_1Visitor_1ad2a9d0d55210eb860d69e8e4962be8fc" kind="function"><name>visit</name></member>
-    <member refid="structeuphoria_1_1gui_1_1Visitor_1a0f0cbf3ce477d5f7c89710f370177ead" kind="function"><name>visit</name></member>
-  </compound>
   <compound refid="structeuphoria_1_1core_1_1textparser_1_1Visitor" kind="struct"><name>euphoria::core::textparser::Visitor</name>
     <member refid="structeuphoria_1_1core_1_1textparser_1_1Visitor_1abb60b911945f69c8d56cb528edc8e4f3" kind="function"><name>Visitor</name></member>
     <member refid="structeuphoria_1_1core_1_1textparser_1_1Visitor_1a07e0830a17089d8617bea079e7989157" kind="function"><name>~Visitor</name></member>
@@ -3582,6 +3572,16 @@
     <member refid="structeuphoria_1_1core_1_1textparser_1_1Visitor_1a144ca7508eb801a16e40c9664f6e6001" kind="function"><name>on_image</name></member>
     <member refid="structeuphoria_1_1core_1_1textparser_1_1Visitor_1a332931d55e39bf813e97404ab087af80" kind="function"><name>on_begin</name></member>
     <member refid="structeuphoria_1_1core_1_1textparser_1_1Visitor_1a9524752d4e30341956e5c6aaf76462fe" kind="function"><name>on_end</name></member>
+  </compound>
+  <compound refid="structeuphoria_1_1gui_1_1Visitor" kind="struct"><name>euphoria::gui::Visitor</name>
+    <member refid="structeuphoria_1_1gui_1_1Visitor_1a343b59baffddb8ed4728d6a7a61f3640" kind="function"><name>Visitor</name></member>
+    <member refid="structeuphoria_1_1gui_1_1Visitor_1aae17dfafaa8b16a6266779da215b6663" kind="function"><name>~Visitor</name></member>
+    <member refid="structeuphoria_1_1gui_1_1Visitor_1a88761ccc3f4a54272200601d6c5f877f" kind="function"><name>Visitor</name></member>
+    <member refid="structeuphoria_1_1gui_1_1Visitor_1ae840755be6a8552dd154d49780606821" kind="function"><name>operator=</name></member>
+    <member refid="structeuphoria_1_1gui_1_1Visitor_1ae5579a5ee45652f8ad0d7808583e974b" kind="function"><name>Visitor</name></member>
+    <member refid="structeuphoria_1_1gui_1_1Visitor_1adc08ebfcbe29d58bbfd12875b63b2b28" kind="function"><name>operator=</name></member>
+    <member refid="structeuphoria_1_1gui_1_1Visitor_1ad2a9d0d55210eb860d69e8e4962be8fc" kind="function"><name>visit</name></member>
+    <member refid="structeuphoria_1_1gui_1_1Visitor_1a0f0cbf3ce477d5f7c89710f370177ead" kind="function"><name>visit</name></member>
   </compound>
   <compound refid="structeuphoria_1_1core_1_1textparser_1_1VisitorDebugString" kind="struct"><name>euphoria::core::textparser::VisitorDebugString</name>
     <member refid="structeuphoria_1_1core_1_1textparser_1_1VisitorDebugString_1a9154ec100930c83ea966e4d5e69d3358" kind="variable"><name>ss</name></member>
@@ -3712,6 +3712,8 @@
   <compound refid="namespace_0d48" kind="namespace"><name>@48</name>
   </compound>
   <compound refid="namespace_0d99" kind="namespace"><name>@99</name>
+  </compound>
+  <compound refid="namespaceAssimp" kind="namespace"><name>Assimp</name>
   </compound>
   <compound refid="namespaceeuphoria" kind="namespace"><name>euphoria</name>
   </compound>
@@ -4606,9 +4608,9 @@
     <member refid="namespaceeuphoria_1_1core_1a9f2e5041a77648bccc2739a54fd7aab2" kind="function"><name>count_walls_plus</name></member>
     <member refid="namespaceeuphoria_1_1core_1a3efb1a250a4840caad86546f453302bd" kind="function"><name>count_walls_box</name></member>
     <member refid="namespaceeuphoria_1_1core_1ab69c676356a2af63b49391348f4d16d0" kind="function"><name>make_smoother</name></member>
-    <member refid="namespaceeuphoria_1_1core_1afdbc488727ec7693c57b0252be0dd80b" kind="function"><name>find_empty_blocks</name></member>
-    <member refid="namespaceeuphoria_1_1core_1a9a92bb8a33b3e188b36d5970b74fc705" kind="function"><name>find_flood_fill_items</name></member>
-    <member refid="namespaceeuphoria_1_1core_1a5f6c2068b37d5a00f196b8c0c8fac693" kind="function"><name>find_empty_regions</name></member>
+    <member refid="namespaceeuphoria_1_1core_1ae34aaf180669b89672fd7b1fdb9ceb4a" kind="function"><name>find_empty_blocks</name></member>
+    <member refid="namespaceeuphoria_1_1core_1ad0f8a2b1226f36e00cd3006d46fb86d4" kind="function"><name>find_flood_fill_items</name></member>
+    <member refid="namespaceeuphoria_1_1core_1ac618e2b56ce8d2e1559914cc94f3a1d0" kind="function"><name>find_empty_regions</name></member>
     <member refid="namespaceeuphoria_1_1core_1a71f746cd9c96dd52f4a6be940b9ac241" kind="function"><name>draw</name></member>
     <member refid="namespaceeuphoria_1_1core_1a7ea14c459e2f752461987775827e156b" kind="function"><name>parse_csv</name></member>
     <member refid="namespaceeuphoria_1_1core_1aa1d4421b76cf7558e202b144520f66f2" kind="function"><name>calc_width_of_string</name></member>
@@ -6516,7 +6518,7 @@
     <member refid="group__string_1ga2eac9cfac42699a569325cfaa38e28e8" kind="function"><name>get_string_or_empty</name></member>
     <member refid="group__string_1ga4edbb794689fb4f8fcc5d2858cfe486f" kind="function"><name>compare_string</name></member>
   </compound>
-  <compound refid="md_docs_markdown_coordinate-system" kind="page"><name>md_docs_markdown_coordinate-system</name>
+  <compound refid="md_docs_markdown_coordinate_system" kind="page"><name>md_docs_markdown_coordinate_system</name>
   </compound>
   <compound refid="md_docs_markdown_mesh" kind="page"><name>md_docs_markdown_mesh</name>
   </compound>
@@ -6524,59 +6526,59 @@
   </compound>
   <compound refid="dir_a5bb2882ec51963282cdbb111e0c9354" kind="dir"><name>libs/assert/src/assert</name>
   </compound>
-  <compound refid="dir_415d9b35eca6c445d7f5977763a796bd" kind="dir"><name>libs/core/src/core</name>
-  </compound>
   <compound refid="dir_6f77a39b07c019ccd7492ea87272f732" kind="dir"><name>libs/core</name>
+  </compound>
+  <compound refid="dir_415d9b35eca6c445d7f5977763a796bd" kind="dir"><name>libs/core/src/core</name>
   </compound>
   <compound refid="dir_49e56c817e5e54854c35e136979f97ca" kind="dir"><name>docs</name>
   </compound>
   <compound refid="dir_c48d6870f00bd6cec871dec0a01d8f04" kind="dir"><name>libs/fmt</name>
   </compound>
-  <compound refid="dir_d16cd4c060e1b5bebe1c023937f3c146" kind="dir"><name>libs/gui</name>
-  </compound>
   <compound refid="dir_71565dd5ca082ea0b2ee87845f008484" kind="dir"><name>libs/gui/src/gui</name>
+  </compound>
+  <compound refid="dir_d16cd4c060e1b5bebe1c023937f3c146" kind="dir"><name>libs/gui</name>
   </compound>
   <compound refid="dir_6719ab1f1f7655efc2fa43f7eb574fd1" kind="dir"><name>libs</name>
   </compound>
-  <compound refid="dir_29a5e1422e0fbab2769746d85f117cd7" kind="dir"><name>libs/log</name>
-  </compound>
   <compound refid="dir_c23b9d49e4f119791637c83a47107b0d" kind="dir"><name>libs/log/src/log</name>
+  </compound>
+  <compound refid="dir_29a5e1422e0fbab2769746d85f117cd7" kind="dir"><name>libs/log</name>
   </compound>
   <compound refid="dir_953ac13dcbfb3e70ef6edb1a0956b929" kind="dir"><name>docs/markdown</name>
   </compound>
+  <compound refid="dir_d2bedf640491a87313754753b7ff28ef" kind="dir"><name>libs/minsynth/src/minsynth</name>
+  </compound>
   <compound refid="dir_a1e79f3806ef92ed87013fe5b66ee637" kind="dir"><name>libs/minsynth</name>
   </compound>
-  <compound refid="dir_d2bedf640491a87313754753b7ff28ef" kind="dir"><name>libs/minsynth/src/minsynth</name>
+  <compound refid="dir_5ff146e0f6e8e07917ded14199fb1c6f" kind="dir"><name>libs/render</name>
   </compound>
   <compound refid="dir_146da238a240638cdf54363209817292" kind="dir"><name>libs/render/src/render</name>
   </compound>
-  <compound refid="dir_5ff146e0f6e8e07917ded14199fb1c6f" kind="dir"><name>libs/render</name>
+  <compound refid="dir_95dc3cc0a7a420dd18aa45b0124daefa" kind="dir"><name>libs/render/src</name>
   </compound>
   <compound refid="dir_ccce5c7bfdb575666c322ea4a56d00ce" kind="dir"><name>libs/fmt/src</name>
   </compound>
   <compound refid="dir_b3bbf4d7e1da97d9fc90c1440ff0d019" kind="dir"><name>libs/gui/src</name>
   </compound>
-  <compound refid="dir_95dc3cc0a7a420dd18aa45b0124daefa" kind="dir"><name>libs/render/src</name>
-  </compound>
   <compound refid="dir_ff8d66b38a64997d3d536f0a283a72d2" kind="dir"><name>libs/window/src</name>
-  </compound>
-  <compound refid="dir_ed7bb2dedfc9e161afbec5dafb6f7738" kind="dir"><name>libs/tests/src</name>
-  </compound>
-  <compound refid="dir_0546a52d63b71702b9134fb880d109fe" kind="dir"><name>libs/assert/src</name>
-  </compound>
-  <compound refid="dir_ece11d4103acec48e46840fa170a730e" kind="dir"><name>libs/minsynth/src</name>
-  </compound>
-  <compound refid="dir_232ab8dc75117fda122ab855789b1b2c" kind="dir"><name>libs/core/src</name>
   </compound>
   <compound refid="dir_5771a0408c28f1ea6597b6610e4f91cc" kind="dir"><name>libs/log/src</name>
   </compound>
-  <compound refid="dir_4250b825e2d70c719ce4732ee07efd2e" kind="dir"><name>libs/tests/src/tests</name>
+  <compound refid="dir_232ab8dc75117fda122ab855789b1b2c" kind="dir"><name>libs/core/src</name>
+  </compound>
+  <compound refid="dir_ece11d4103acec48e46840fa170a730e" kind="dir"><name>libs/minsynth/src</name>
+  </compound>
+  <compound refid="dir_0546a52d63b71702b9134fb880d109fe" kind="dir"><name>libs/assert/src</name>
+  </compound>
+  <compound refid="dir_ed7bb2dedfc9e161afbec5dafb6f7738" kind="dir"><name>libs/tests/src</name>
   </compound>
   <compound refid="dir_88d4f5e9589230f13756167b1d1fbb72" kind="dir"><name>libs/tests</name>
   </compound>
-  <compound refid="dir_bbee8afadf8cc28d659a13bb6f0669f2" kind="dir"><name>libs/window</name>
+  <compound refid="dir_4250b825e2d70c719ce4732ee07efd2e" kind="dir"><name>libs/tests/src/tests</name>
   </compound>
   <compound refid="dir_12193faf9598ea6080d029797e2c4fa0" kind="dir"><name>libs/window/src/window</name>
+  </compound>
+  <compound refid="dir_bbee8afadf8cc28d659a13bb6f0669f2" kind="dir"><name>libs/window</name>
   </compound>
   <compound refid="indexpage" kind="page"><name>index</name>
   </compound>

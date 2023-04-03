@@ -1,19 +1,19 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="namespaceeuphoria_1_1core_1_1generator" kind="namespace" language="C++">
     <compoundname>euphoria::core::generator</compoundname>
-    <innerclass refid="structeuphoria_1_1core_1_1generator_1_1Algorithm" prot="public">euphoria::core::generator::Algorithm</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1generator_1_1CellularAutomata" prot="public">euphoria::core::generator::CellularAutomata</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1generator_1_1Drawer" prot="public">euphoria::core::generator::Drawer</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1generator_1_1FillAllHoles" prot="public">euphoria::core::generator::FillAllHoles</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1generator_1_1FillSmallHolesRule" prot="public">euphoria::core::generator::FillSmallHolesRule</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1generator_1_1HorizontalBlankRule" prot="public">euphoria::core::generator::HorizontalBlankRule</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1generator_1_1SmoothRule" prot="public">euphoria::core::generator::SmoothRule</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1generator_1_1RandomFillRule" prot="public">euphoria::core::generator::RandomFillRule</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1generator_1_1RandomTraversal" prot="public">euphoria::core::generator::RandomTraversal</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1generator_1_1RecursiveBacktracker" prot="public">euphoria::core::generator::RecursiveBacktracker</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1generator_1_1FillSmallHolesRule" prot="public">euphoria::core::generator::FillSmallHolesRule</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1generator_1_1FillAllHoles" prot="public">euphoria::core::generator::FillAllHoles</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1generator_1_1HorizontalBlankRule" prot="public">euphoria::core::generator::HorizontalBlankRule</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1generator_1_1Rule" prot="public">euphoria::core::generator::Rule</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1generator_1_1Rules" prot="public">euphoria::core::generator::Rules</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1generator_1_1SmoothRule" prot="public">euphoria::core::generator::SmoothRule</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1generator_1_1CellularAutomata" prot="public">euphoria::core::generator::CellularAutomata</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1generator_1_1Algorithm" prot="public">euphoria::core::generator::Algorithm</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1generator_1_1RecursiveBacktracker" prot="public">euphoria::core::generator::RecursiveBacktracker</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1generator_1_1RandomTraversal" prot="public">euphoria::core::generator::RandomTraversal</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1generator_1_1Drawer" prot="public">euphoria::core::generator::Drawer</innerclass>
     <innernamespace refid="namespaceeuphoria_1_1core_1_1generator_1_1cell">euphoria::core::generator::cell</innernamespace>
       <sectiondef kind="enum">
       <memberdef kind="enum" id="namespaceeuphoria_1_1core_1_1generator_1a5efb2bcb9c277cb08372e7a1d600e1bb" prot="public" static="no" strong="yes">
@@ -53,7 +53,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/generator_maze.h" line="31" column="1" bodyfile="libs/core/src/core/generator_maze.h" bodystart="30" bodyend="36"/>
+        <location file="libs/core/src/core/generator_maze.h" line="30" column="5" bodyfile="libs/core/src/core/generator_maze.h" bodystart="31" bodyend="36"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="typedef">
@@ -604,6 +604,6 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/generator_cell.cc" line="14" column="1"/>
+    <location file="libs/core/src/core/generator_cell.cc" line="13" column="1"/>
   </compounddef>
 </doxygen>

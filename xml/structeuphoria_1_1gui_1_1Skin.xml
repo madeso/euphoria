@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1gui_1_1Skin" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::gui::Skin</compoundname>
     <includes refid="skin_8h" local="no">skin.h</includes>
@@ -201,8 +201,8 @@
         <link refid="structeuphoria_1_1gui_1_1Skin"/>
         <childnode refid="2" relation="usage">
           <edgelabel>button_active_hot</edgelabel>
-          <edgelabel>button_idle</edgelabel>
           <edgelabel>button_hot</edgelabel>
+          <edgelabel>button_idle</edgelabel>
         </childnode>
       </node>
       <node id="4">
@@ -227,7 +227,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="libs/gui/src/gui/skin.h" line="40" column="1" bodyfile="libs/gui/src/gui/skin.h" bodystart="39" bodyend="60"/>
+    <location file="libs/gui/src/gui/skin.h" line="39" column="5" bodyfile="libs/gui/src/gui/skin.h" bodystart="40" bodyend="60"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1gui_1_1Skin_1accd28bdb05a81b9b314b025f94a6ed1b" prot="public" virt="non-virtual"><scope>euphoria::gui::Skin</scope><name>button_active_hot</name></member>
       <member refid="structeuphoria_1_1gui_1_1Skin_1a1499edb355aca503d3f44c798f80eae1" prot="public" virt="non-virtual"><scope>euphoria::gui::Skin</scope><name>button_hot</name></member>

@@ -1,15 +1,15 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="namespaceeuphoria_1_1core_1_1ecs" kind="namespace" language="C++">
     <compoundname>euphoria::core::ecs</compoundname>
+    <innerclass refid="structeuphoria_1_1core_1_1ecs_1_1Signature" prot="public">euphoria::core::ecs::Signature</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1ecs_1_1AliveEntities" prot="public">euphoria::core::ecs::AliveEntities</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1ecs_1_1KnownComponentTypes" prot="public">euphoria::core::ecs::KnownComponentTypes</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1ecs_1_1AllComponents" prot="public">euphoria::core::ecs::AllComponents</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1ecs_1_1RegistryPimpl" prot="public">euphoria::core::ecs::RegistryPimpl</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1ecs_1_1ComponentArrayBase" prot="public">euphoria::core::ecs::ComponentArrayBase</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1ecs_1_1GenericComponentArray" prot="public">euphoria::core::ecs::GenericComponentArray</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1ecs_1_1KnownComponentTypes" prot="public">euphoria::core::ecs::KnownComponentTypes</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1ecs_1_1Registry" prot="public">euphoria::core::ecs::Registry</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1ecs_1_1RegistryPimpl" prot="public">euphoria::core::ecs::RegistryPimpl</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1ecs_1_1Signature" prot="public">euphoria::core::ecs::Signature</innerclass>
       <sectiondef kind="enum">
       <memberdef kind="enum" id="namespaceeuphoria_1_1core_1_1ecs_1af486c8f697b0cff15048fe88a024d3eb" prot="public" static="no" strong="no">
         <type><ref refid="namespaceeuphoria_1_1core_1a9a78daf2d2b390a0bac9e43d7119d916" kindref="member">U64</ref></type>
@@ -20,7 +20,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ecs.id.h" line="12" column="22" bodyfile="libs/core/src/core/ecs.id.h" bodystart="12" bodyend="12"/>
+        <location file="libs/core/src/core/ecs.id.h" line="12" column="5" bodyfile="libs/core/src/core/ecs.id.h" bodystart="12" bodyend="12"/>
       </memberdef>
       <memberdef kind="enum" id="namespaceeuphoria_1_1core_1_1ecs_1a432f6f7f37f32d73c71e56370bcd97af" prot="public" static="no" strong="no">
         <type><ref refid="namespaceeuphoria_1_1core_1a8d5a7dabfee4ed81c44079dc769697c3" kindref="member">U8</ref></type>
@@ -31,7 +31,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ecs.id.h" line="13" column="24" bodyfile="libs/core/src/core/ecs.id.h" bodystart="13" bodyend="13"/>
+        <location file="libs/core/src/core/ecs.id.h" line="13" column="5" bodyfile="libs/core/src/core/ecs.id.h" bodystart="13" bodyend="13"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="func">
@@ -126,6 +126,6 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/ecs.cc" line="11" column="1"/>
+    <location file="libs/core/src/core/ecs.cc" line="10" column="1"/>
   </compounddef>
 </doxygen>

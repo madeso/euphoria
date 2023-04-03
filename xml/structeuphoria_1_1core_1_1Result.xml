@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1Result" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::Result</compoundname>
     <includes refid="result_8h" local="no">result.h</includes>
@@ -154,7 +154,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/result.h" line="11" column="1" bodyfile="libs/core/src/core/result.h" bodystart="10" bodyend="63"/>
+    <location file="libs/core/src/core/result.h" line="10" column="5" bodyfile="libs/core/src/core/result.h" bodystart="11" bodyend="63"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1Result_1a81a7386e0028a22a2e4cedee33ccd9d0" prot="public" virt="non-virtual"><scope>euphoria::core::Result</scope><name>create_error</name></member>
       <member refid="structeuphoria_1_1core_1_1Result_1a8048b252c45687f1c35e33a6c4d5f254" prot="public" virt="non-virtual"><scope>euphoria::core::Result</scope><name>create_value</name></member>

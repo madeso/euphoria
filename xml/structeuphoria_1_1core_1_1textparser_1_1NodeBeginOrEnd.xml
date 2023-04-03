@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1textparser_1_1NodeBeginOrEnd" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::textparser::NodeBeginOrEnd</compoundname>
     <basecompoundref refid="structeuphoria_1_1core_1_1textparser_1_1Node" prot="public" virt="non-virtual">euphoria::core::textparser::Node</basecompoundref>
@@ -84,7 +84,7 @@
         <link refid="structeuphoria_1_1core_1_1textparser_1_1Node"/>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/ui_text.h" line="53" column="1" bodyfile="libs/core/src/core/ui_text.h" bodystart="52" bodyend="60"/>
+    <location file="libs/core/src/core/ui_text.h" line="52" column="9" bodyfile="libs/core/src/core/ui_text.h" bodystart="53" bodyend="60"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1textparser_1_1NodeBeginOrEnd_1abe6ed38d6a0c0e62d45ab5acbb2a3449" prot="public" virt="virtual"><scope>euphoria::core::textparser::NodeBeginOrEnd</scope><name>accept</name></member>
       <member refid="structeuphoria_1_1core_1_1textparser_1_1NodeBeginOrEnd_1a620c45dd7f3e16c6f4fa9c77d201e281" prot="public" virt="non-virtual"><scope>euphoria::core::textparser::NodeBeginOrEnd</scope><name>begin</name></member>

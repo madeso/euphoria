@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1ViewportDefinition" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::ViewportDefinition</compoundname>
     <includes refid="viewportdef_8h" local="no">viewportdef.h</includes>
@@ -174,7 +174,7 @@
         <link refid="structeuphoria_1_1core_1_1Recti"/>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/viewportdef.h" line="9" column="1" bodyfile="libs/core/src/core/viewportdef.h" bodystart="8" bodyend="48"/>
+    <location file="libs/core/src/core/viewportdef.h" line="8" column="5" bodyfile="libs/core/src/core/viewportdef.h" bodystart="9" bodyend="48"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1ViewportDefinition_1a549b7cc1b85953f0a46526c51f31d57e" prot="public" virt="non-virtual"><scope>euphoria::core::ViewportDefinition</scope><name>from_extend</name></member>
       <member refid="structeuphoria_1_1core_1_1ViewportDefinition_1a751f154912b28960e4d01f57a46b8c32" prot="public" virt="non-virtual"><scope>euphoria::core::ViewportDefinition</scope><name>from_fit_with_black_bars</name></member>

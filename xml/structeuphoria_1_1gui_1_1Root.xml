@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1gui_1_1Root" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::gui::Root</compoundname>
     <includes refid="root_8h" local="no">root.h</includes>
@@ -302,8 +302,8 @@
           <edgelabel>ui_state</edgelabel>
         </childnode>
         <childnode refid="5" relation="usage">
-          <edgelabel>padding</edgelabel>
           <edgelabel>margin</edgelabel>
+          <edgelabel>padding</edgelabel>
         </childnode>
         <childnode refid="6" relation="usage">
           <edgelabel>rect</edgelabel>
@@ -350,8 +350,8 @@
           <edgelabel>mouse</edgelabel>
         </childnode>
         <childnode refid="4" relation="usage">
-          <edgelabel>hot</edgelabel>
           <edgelabel>active</edgelabel>
+          <edgelabel>hot</edgelabel>
         </childnode>
       </node>
       <node id="3">
@@ -359,7 +359,7 @@
         <link refid="structeuphoria_1_1core_1_1vec2f"/>
       </node>
     </collaborationgraph>
-    <location file="libs/gui/src/gui/root.h" line="36" column="1" bodyfile="libs/gui/src/gui/root.h" bodystart="35" bodyend="72"/>
+    <location file="libs/gui/src/gui/root.h" line="35" column="5" bodyfile="libs/gui/src/gui/root.h" bodystart="36" bodyend="72"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1gui_1_1Root_1afb403dbaf28ada7c7a53550c3f8449bd" prot="public" virt="non-virtual"><scope>euphoria::gui::Root</scope><name>container</name></member>
       <member refid="structeuphoria_1_1gui_1_1Root_1a7c27911161c92eeacd6d487b18458327" prot="public" virt="non-virtual"><scope>euphoria::gui::Root</scope><name>cursor_image</name></member>

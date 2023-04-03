@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="namespaceeuphoria_1_1tests" kind="namespace" language="C++">
     <compoundname>euphoria::tests</compoundname>
     <innerclass refid="structeuphoria_1_1tests_1_1ApproxData" prot="public">euphoria::tests::ApproxData</innerclass>
@@ -583,6 +583,6 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/tests/src/tests/approx.cc" line="16" column="1"/>
+    <location file="libs/tests/src/tests/approx.cc" line="15" column="1"/>
   </compounddef>
 </doxygen>

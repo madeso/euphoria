@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1tests_1_1custom_1_1Approx" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::tests::custom::Approx</compoundname>
     <includes refid="approx_8h" local="no">approx.h</includes>
@@ -147,7 +147,7 @@
       </sectiondef>
       <sectiondef kind="friend">
       <memberdef kind="friend" id="structeuphoria_1_1tests_1_1custom_1_1Approx_1ad4e89e4fc9539b3d1cd1087ecfa07985" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type>friend bool</type>
+        <type>bool</type>
         <definition>bool operator==</definition>
         <argsstring>(T lhs, Approx&lt; T &gt; const &amp;rhs)</argsstring>
         <name>operator==</name>
@@ -168,7 +168,7 @@
         <location file="libs/tests/src/tests/approx.h" line="82" column="13" bodyfile="libs/tests/src/tests/approx.h" bodystart="82" bodyend="89"/>
       </memberdef>
       <memberdef kind="friend" id="structeuphoria_1_1tests_1_1custom_1_1Approx_1a66bc64b9f6ca0ed5c6256a10b59260df" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type>friend bool</type>
+        <type>bool</type>
         <definition>bool operator==</definition>
         <argsstring>(Approx&lt; T &gt; const &amp;lhs, T rhs)</argsstring>
         <name>operator==</name>
@@ -189,7 +189,7 @@
         <location file="libs/tests/src/tests/approx.h" line="92" column="13" bodyfile="libs/tests/src/tests/approx.h" bodystart="92" bodyend="95"/>
       </memberdef>
       <memberdef kind="friend" id="structeuphoria_1_1tests_1_1custom_1_1Approx_1a98eb1ff7b0e1a2a9f75c35339f7185ea" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type>friend bool</type>
+        <type>bool</type>
         <definition>bool operator!=</definition>
         <argsstring>(T lhs, Approx&lt; T &gt; const &amp;rhs)</argsstring>
         <name>operator!=</name>
@@ -210,7 +210,7 @@
         <location file="libs/tests/src/tests/approx.h" line="98" column="13" bodyfile="libs/tests/src/tests/approx.h" bodystart="98" bodyend="101"/>
       </memberdef>
       <memberdef kind="friend" id="structeuphoria_1_1tests_1_1custom_1_1Approx_1a28a5d2ba6f6162d86c8d6afd3b4618dc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type>friend bool</type>
+        <type>bool</type>
         <definition>bool operator!=</definition>
         <argsstring>(Approx&lt; T &gt; const &amp;lhs, T rhs)</argsstring>
         <name>operator!=</name>
@@ -235,7 +235,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/tests/src/tests/approx.h" line="41" column="1" bodyfile="libs/tests/src/tests/approx.h" bodystart="40" bodyend="114"/>
+    <location file="libs/tests/src/tests/approx.h" line="40" column="9" bodyfile="libs/tests/src/tests/approx.h" bodystart="41" bodyend="114"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1tests_1_1custom_1_1Approx_1a645b2e37b1d990e09e7ffae629b856cc" prot="public" virt="non-virtual"><scope>euphoria::tests::custom::Approx</scope><name>Approx</name></member>
       <member refid="structeuphoria_1_1tests_1_1custom_1_1Approx_1a9343be3aa683c4bdea7ed10f9cafa096" prot="private" virt="non-virtual"><scope>euphoria::tests::custom::Approx</scope><name>epsilon</name></member>

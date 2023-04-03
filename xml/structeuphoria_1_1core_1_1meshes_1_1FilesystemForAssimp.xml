@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1meshes_1_1FilesystemForAssimp" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::meshes::FilesystemForAssimp</compoundname>
-    <basecompoundref prot="public" virt="non-virtual">IOSystem</basecompoundref>
+    <basecompoundref prot="public" virt="non-virtual">Assimp::IOSystem</basecompoundref>
       <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1meshes_1_1FilesystemForAssimp_1a67fac9a16b1908fc497df9390bf92d6e" prot="public" static="no" mutable="no">
         <type><ref refid="structeuphoria_1_1core_1_1vfs_1_1FileSystem" kindref="compound">vfs::FileSystem</ref> *</type>
@@ -154,7 +154,7 @@
         <label>Assimp::IOSystem</label>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/mesh.cc" line="594" column="1" bodyfile="libs/core/src/core/mesh.cc" bodystart="593" bodyend="637"/>
+    <location file="libs/core/src/core/mesh.cc" line="593" column="9" bodyfile="libs/core/src/core/mesh.cc" bodystart="594" bodyend="637"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1meshes_1_1FilesystemForAssimp_1a377bcb2973f071b312ebe39c52000645" prot="public" virt="non-virtual"><scope>euphoria::core::meshes::FilesystemForAssimp</scope><name>Close</name></member>
       <member refid="structeuphoria_1_1core_1_1meshes_1_1FilesystemForAssimp_1ad1a2a17cdcb352ba671d647bd58b3071" prot="public" virt="non-virtual"><scope>euphoria::core::meshes::FilesystemForAssimp</scope><name>DeleteFile</name></member>

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1dump2d_1_1Dumper" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::dump2d::Dumper</compoundname>
     <basecompoundref refid="structeuphoria_1_1core_1_1dump2d_1_1AddWrapper" prot="public" virt="non-virtual">euphoria::core::dump2d::AddWrapper&lt; Dumper &gt;</basecompoundref>
@@ -251,7 +251,7 @@
         <link refid="structeuphoria_1_1core_1_1rgbi"/>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/dump.h" line="103" column="1" bodyfile="libs/core/src/core/dump.h" bodystart="102" bodyend="121"/>
+    <location file="libs/core/src/core/dump.h" line="102" column="5" bodyfile="libs/core/src/core/dump.h" bodystart="103" bodyend="121"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1dump2d_1_1Dumper_1a12bf2c2ba9a4e438e3718fb4f88ed411" prot="public" virt="non-virtual"><scope>euphoria::core::dump2d::Dumper</scope><name>add</name></member>
       <member refid="structeuphoria_1_1core_1_1dump2d_1_1Dumper_1a427c0ae9bfc53e51edaaa3f741606738" prot="public" virt="non-virtual"><scope>euphoria::core::dump2d::Dumper</scope><name>add_axis</name></member>

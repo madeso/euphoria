@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1window_1_1SdlTimer" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::window::SdlTimer</compoundname>
     <includes refid="timer_8h" local="no">timer.h</includes>
@@ -63,7 +63,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/window/src/window/timer.h" line="9" column="1" bodyfile="libs/window/src/window/timer.h" bodystart="8" bodyend="17"/>
+    <location file="libs/window/src/window/timer.h" line="8" column="5" bodyfile="libs/window/src/window/timer.h" bodystart="9" bodyend="17"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1window_1_1SdlTimer_1a9588abba806394be383e701b44570ca9" prot="public" virt="non-virtual"><scope>euphoria::window::SdlTimer</scope><name>current_time</name></member>
       <member refid="structeuphoria_1_1window_1_1SdlTimer_1a45bdc1a3c573a0bd041258d499884ee6" prot="public" virt="non-virtual"><scope>euphoria::window::SdlTimer</scope><name>last_time</name></member>

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1Polyline2" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::Polyline2</compoundname>
     <includes refid="polybezier_8h" local="no">polybezier.h</includes>
@@ -45,7 +45,7 @@
 </listitem></itemizedlist>
 </para>
     </detaileddescription>
-    <location file="libs/core/src/core/polybezier.h" line="80" column="1" bodyfile="libs/core/src/core/polybezier.h" bodystart="79" bodyend="83"/>
+    <location file="libs/core/src/core/polybezier.h" line="79" column="5" bodyfile="libs/core/src/core/polybezier.h" bodystart="80" bodyend="83"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1Polyline2_1ab0aa0fdbb1a4dc2f3d041a0aa6e338f5" prot="public" virt="non-virtual"><scope>euphoria::core::Polyline2</scope><name>is_closed</name></member>
       <member refid="structeuphoria_1_1core_1_1Polyline2_1a73a2ab8c91ce8756d7a8e4e94abca014" prot="public" virt="non-virtual"><scope>euphoria::core::Polyline2</scope><name>points</name></member>

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1dump2d_1_1Text" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::dump2d::Text</compoundname>
     <includes refid="dump_8h" local="no">dump.h</includes>
@@ -96,7 +96,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/dump.h" line="44" column="1" bodyfile="libs/core/src/core/dump.h" bodystart="43" bodyend="50"/>
+    <location file="libs/core/src/core/dump.h" line="43" column="5" bodyfile="libs/core/src/core/dump.h" bodystart="44" bodyend="50"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1dump2d_1_1Text_1abf67fd1a16b5c8d9d069382fcffa4902" prot="public" virt="non-virtual"><scope>euphoria::core::dump2d::Text</scope><name>color</name></member>
       <member refid="structeuphoria_1_1core_1_1dump2d_1_1Text_1a8fbe39bfb3af47b48c3f6401c3457f1d" prot="public" virt="non-virtual"><scope>euphoria::core::dump2d::Text</scope><name>label</name></member>

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1gui_1_1LayoutContainer" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::gui::LayoutContainer</compoundname>
     <basecompoundref refid="structeuphoria_1_1gui_1_1Container" prot="public" virt="non-virtual">euphoria::gui::Container</basecompoundref>
@@ -169,7 +169,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="libs/gui/src/gui/layoutcontainer.h" line="27" column="1" bodyfile="libs/gui/src/gui/layoutcontainer.h" bodystart="26" bodyend="41"/>
+    <location file="libs/gui/src/gui/layoutcontainer.h" line="26" column="5" bodyfile="libs/gui/src/gui/layoutcontainer.h" bodystart="27" bodyend="41"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1gui_1_1Container_1ae6d95e5081d0144c5afa49d62071017a" prot="public" virt="non-virtual"><scope>euphoria::gui::LayoutContainer</scope><name>add</name></member>
       <member refid="structeuphoria_1_1gui_1_1LayoutContainer_1aabacf698ee46a3c2f1c282026e56efe5" prot="public" virt="non-virtual"><scope>euphoria::gui::LayoutContainer</scope><name>calc_minimum_area</name></member>

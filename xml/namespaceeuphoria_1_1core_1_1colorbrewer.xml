@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="namespaceeuphoria_1_1core_1_1colorbrewer" kind="namespace" language="C++">
     <compoundname>euphoria::core::colorbrewer</compoundname>
+    <innerclass refid="structeuphoria_1_1core_1_1colorbrewer_1_1Properties" prot="public">euphoria::core::colorbrewer::Properties</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1colorbrewer_1_1BrewerPalette" prot="public">euphoria::core::colorbrewer::BrewerPalette</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1colorbrewer_1_1Colorbrewer" prot="public">euphoria::core::colorbrewer::Colorbrewer</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1colorbrewer_1_1Properties" prot="public">euphoria::core::colorbrewer::Properties</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1colorbrewer_1_1SinglePalette" prot="public">euphoria::core::colorbrewer::SinglePalette</innerclass>
       <sectiondef kind="enum">
       <memberdef kind="enum" id="namespaceeuphoria_1_1core_1_1colorbrewer_1a314fa2abf82c306eb9ca60d6a04db289" prot="public" static="no" strong="yes">
@@ -37,7 +37,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/colorbrewer.h" line="13" column="1" bodyfile="libs/core/src/core/colorbrewer.h" bodystart="12" bodyend="17"/>
+        <location file="libs/core/src/core/colorbrewer.h" line="12" column="9" bodyfile="libs/core/src/core/colorbrewer.h" bodystart="13" bodyend="17"/>
       </memberdef>
       <memberdef kind="enum" id="namespaceeuphoria_1_1core_1_1colorbrewer_1afd3d2e28ca710dfee97dc9b35030d3a9" prot="public" static="no" strong="yes">
         <type></type>
@@ -72,7 +72,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/colorbrewer.h" line="20" column="1" bodyfile="libs/core/src/core/colorbrewer.h" bodystart="19" bodyend="24"/>
+        <location file="libs/core/src/core/colorbrewer.h" line="19" column="9" bodyfile="libs/core/src/core/colorbrewer.h" bodystart="20" bodyend="24"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="typedef">
@@ -637,6 +637,6 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/colorbrewer.cc" line="26" column="1"/>
+    <location file="libs/core/src/core/colorbrewer.cc" line="25" column="5"/>
   </compounddef>
 </doxygen>

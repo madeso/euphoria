@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1minsynth_1_1ToneSender" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::minsynth::ToneSender</compoundname>
     <derivedcompoundref refid="structeuphoria_1_1minsynth_1_1ArpegiatorNode" prot="public" virt="non-virtual">euphoria::minsynth::ArpegiatorNode</derivedcompoundref>
@@ -83,7 +83,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="libs/minsynth/src/minsynth/synth.h" line="132" column="1" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="131" bodyend="136"/>
+    <location file="libs/minsynth/src/minsynth/synth.h" line="131" column="5" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="132" bodyend="136"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1minsynth_1_1ToneSender_1aae1d353b99e9518d6b0e7526f3dfe101" prot="public" virt="non-virtual"><scope>euphoria::minsynth::ToneSender</scope><name>next_node</name></member>
       <member refid="structeuphoria_1_1minsynth_1_1ToneSender_1a99f52107cc9473c18855b51717d52011" prot="public" virt="non-virtual"><scope>euphoria::minsynth::ToneSender</scope><name>send_tone</name></member>

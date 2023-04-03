@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1detail_1_1DefaultCamera" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::detail::DefaultCamera</compoundname>
     <basecompoundref refid="structeuphoria_1_1core_1_1detail_1_1EditorCameraState3" prot="public" virt="non-virtual">euphoria::core::detail::EditorCameraState3</basecompoundref>
@@ -307,10 +307,10 @@
         <label>euphoria::core::CompiledCamera3</label>
         <link refid="structeuphoria_1_1core_1_1CompiledCamera3"/>
         <childnode refid="4" relation="usage">
-          <edgelabel>combined_inverted</edgelabel>
           <edgelabel>combined</edgelabel>
-          <edgelabel>view</edgelabel>
+          <edgelabel>combined_inverted</edgelabel>
           <edgelabel>projection</edgelabel>
+          <edgelabel>view</edgelabel>
         </childnode>
       </node>
       <node id="5">
@@ -322,7 +322,7 @@
         <link refid="structeuphoria_1_1core_1_1mat4f"/>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/camera3.editor.cc" line="329" column="1" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="328" bodyend="456"/>
+    <location file="libs/core/src/core/camera3.editor.cc" line="328" column="9" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="329" bodyend="456"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1detail_1_1DefaultCamera_1a1023b02e7a4f3f61345e844406b4c815" prot="public" virt="non-virtual"><scope>euphoria::core::detail::DefaultCamera</scope><name>DefaultCamera</name></member>
       <member refid="structeuphoria_1_1core_1_1detail_1_1EditorCameraState3_1a9d3c41fc785daaaf191f8db91733817a" prot="public" virt="non-virtual"><scope>euphoria::core::detail::DefaultCamera</scope><name>EditorCameraState3</name></member>

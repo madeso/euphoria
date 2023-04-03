@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="enum_8h" kind="file" language="C++">
     <compoundname>enum.h</compoundname>
     <includes local="no">map</includes>
@@ -176,7 +176,7 @@
         <param><defname>TYPE</defname></param>
         <param><defname>NAME</defname></param>
         <param><defname>STRING</defname></param>
-        <initializer>const ::<ref refid="structeuphoria_1_1core_1_1EnumValue" kindref="compound">euphoria::core::EnumValue</ref> NAME = TYPE##_EnumType().to_enum(STRING)</initializer>
+        <initializer>    const ::<ref refid="structeuphoria_1_1core_1_1EnumValue" kindref="compound">euphoria::core::EnumValue</ref> NAME = TYPE##_EnumType().to_enum(STRING)</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -190,7 +190,7 @@
         <param><defname>FS</defname></param>
         <param><defname>PATH</defname></param>
         <param><defname>TYPE</defname></param>
-        <initializer>load_enum_type(&amp;TYPE##_EnumType(), FS, PATH)</initializer>
+        <initializer>    load_enum_type(&amp;TYPE##_EnumType(), FS, PATH)</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>

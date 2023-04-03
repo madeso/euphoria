@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1ecs_1_1KnownComponentTypes" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::ecs::KnownComponentTypes</compoundname>
       <sectiondef kind="public-attrib">
@@ -87,7 +87,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/ecs.cc" line="123" column="1" bodyfile="libs/core/src/core/ecs.cc" bodystart="122" bodyend="148"/>
+    <location file="libs/core/src/core/ecs.cc" line="122" column="5" bodyfile="libs/core/src/core/ecs.cc" bodystart="123" bodyend="148"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1ecs_1_1KnownComponentTypes_1ab7b4476d3289590d0ce1a831c0f72e42" prot="public" virt="non-virtual"><scope>euphoria::core::ecs::KnownComponentTypes</scope><name>add</name></member>
       <member refid="structeuphoria_1_1core_1_1ecs_1_1KnownComponentTypes_1a9c60165f4de8367ce99fc51f7d8cb908" prot="public" virt="non-virtual"><scope>euphoria::core::ecs::KnownComponentTypes</scope><name>get_index</name></member>

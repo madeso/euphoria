@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1TableGenerator" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::TableGenerator</compoundname>
     <basecompoundref refid="structeuphoria_1_1core_1_1SortBuilder" prot="public" virt="non-virtual">euphoria::core::SortBuilder&lt; T, TableGenerator&lt; T &gt; &gt;</basecompoundref>
@@ -146,7 +146,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/table_string.h" line="20" column="1" bodyfile="libs/core/src/core/table_string.h" bodystart="19" bodyend="63"/>
+    <location file="libs/core/src/core/table_string.h" line="19" column="5" bodyfile="libs/core/src/core/table_string.h" bodystart="20" bodyend="63"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1TableGenerator_1af5612f638bc6b2ca805550fc50e3e482" prot="public" virt="non-virtual"><scope>euphoria::core::TableGenerator</scope><name>add_column</name></member>
       <member refid="structeuphoria_1_1core_1_1TableGenerator_1aea2b568430c83e9eeee365a4de20a0fc" prot="public" virt="non-virtual"><scope>euphoria::core::TableGenerator</scope><name>column_titles</name></member>

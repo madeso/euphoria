@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1argparse_1_1ParserBase" kind="struct" language="C++" prot="public" abstract="yes">
     <compoundname>euphoria::core::argparse::ParserBase</compoundname>
     <derivedcompoundref refid="structeuphoria_1_1core_1_1argparse_1_1Parser" prot="public" virt="non-virtual">euphoria::core::argparse::Parser</derivedcompoundref>
@@ -576,7 +576,7 @@
         <link refid="structeuphoria_1_1core_1_1EnumToStringImplementation"/>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/argparse.h" line="412" column="1" bodyfile="libs/core/src/core/argparse.h" bodystart="411" bodyend="549"/>
+    <location file="libs/core/src/core/argparse.h" line="411" column="5" bodyfile="libs/core/src/core/argparse.h" bodystart="412" bodyend="549"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1argparse_1_1ParserBase_1a9d3857c57d1114d8207aafa684a062be" prot="public" virt="non-virtual"><scope>euphoria::core::argparse::ParserBase</scope><name>add</name></member>
       <member refid="structeuphoria_1_1core_1_1argparse_1_1ParserBase_1acc01c091ff6a6c49e85c297db493f3eb" prot="public" virt="non-virtual"><scope>euphoria::core::argparse::ParserBase</scope><name>add_argument</name></member>

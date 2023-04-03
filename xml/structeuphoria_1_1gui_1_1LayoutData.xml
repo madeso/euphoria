@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1gui_1_1LayoutData" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::gui::LayoutData</compoundname>
     <includes refid="layoutdata_8h" local="no">layoutdata.h</includes>
@@ -80,7 +80,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/gui/src/gui/layoutdata.h" line="6" column="1" bodyfile="libs/gui/src/gui/layoutdata.h" bodystart="5" bodyend="13"/>
+    <location file="libs/gui/src/gui/layoutdata.h" line="5" column="5" bodyfile="libs/gui/src/gui/layoutdata.h" bodystart="6" bodyend="13"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1gui_1_1LayoutData_1ab9272cd0ab1dae364137734e336079a8" prot="public" virt="non-virtual"><scope>euphoria::gui::LayoutData</scope><name>column</name></member>
       <member refid="structeuphoria_1_1gui_1_1LayoutData_1a738adaf24cb8cc20dc7120a0a46906d5" prot="public" virt="non-virtual"><scope>euphoria::gui::LayoutData</scope><name>LayoutData</name></member>

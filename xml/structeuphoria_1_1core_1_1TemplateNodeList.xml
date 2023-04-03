@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1TemplateNodeList" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::TemplateNodeList</compoundname>
     <basecompoundref refid="structeuphoria_1_1core_1_1TemplateNode" prot="public" virt="non-virtual">euphoria::core::TemplateNode</basecompoundref>
@@ -112,7 +112,7 @@
         <link refid="structeuphoria_1_1core_1_1TemplateNode"/>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/texttemplate.cc" line="152" column="1" bodyfile="libs/core/src/core/texttemplate.cc" bodystart="151" bodyend="169"/>
+    <location file="libs/core/src/core/texttemplate.cc" line="151" column="1" bodyfile="libs/core/src/core/texttemplate.cc" bodystart="152" bodyend="169"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1TemplateNodeList_1ace9120065ff2ec6135149bca342daa2a" prot="public" virt="non-virtual"><scope>euphoria::core::TemplateNodeList</scope><name>add</name></member>
       <member refid="structeuphoria_1_1core_1_1TemplateNodeList_1a935bd2de36b0db43352bd5ecfa444489" prot="public" virt="virtual"><scope>euphoria::core::TemplateNodeList</scope><name>build_string</name></member>

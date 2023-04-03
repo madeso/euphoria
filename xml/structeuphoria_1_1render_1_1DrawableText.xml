@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1render_1_1DrawableText" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::render::DrawableText</compoundname>
     <includes refid="font_8h" local="no">font.h</includes>
@@ -364,7 +364,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/render/src/render/font.h" line="111" column="1" bodyfile="libs/render/src/render/font.h" bodystart="110" bodyend="168"/>
+    <location file="libs/render/src/render/font.h" line="110" column="5" bodyfile="libs/render/src/render/font.h" bodystart="111" bodyend="168"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1render_1_1DrawableText_1a9f8f019a88004b105d90134be0e03a14" prot="private" virt="non-virtual"><scope>euphoria::render::DrawableText</scope><name>alignment</name></member>
       <member refid="structeuphoria_1_1render_1_1DrawableText_1a4d1dbf3c4a6e5990207bc197fd4e8ffc" prot="private" virt="non-virtual"><scope>euphoria::render::DrawableText</scope><name>background_alpha</name></member>

@@ -1,26 +1,26 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="namespaceeuphoria_1_1core_1_1argparse" kind="namespace" language="C++">
     <compoundname>euphoria::core::argparse</compoundname>
+    <innerclass refid="structeuphoria_1_1core_1_1argparse_1_1FileOutput" prot="public">euphoria::core::argparse::FileOutput</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1argparse_1_1ParseResult" prot="public">euphoria::core::argparse::ParseResult</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1argparse_1_1NameAndArguments" prot="public">euphoria::core::argparse::NameAndArguments</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1argparse_1_1ArgumentReader" prot="public">euphoria::core::argparse::ArgumentReader</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1argparse_1_1Printer" prot="public">euphoria::core::argparse::Printer</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1argparse_1_1ConsolePrinter" prot="public">euphoria::core::argparse::ConsolePrinter</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1argparse_1_1Runner" prot="public">euphoria::core::argparse::Runner</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1argparse_1_1Name" prot="public">euphoria::core::argparse::Name</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1argparse_1_1Argument" prot="public">euphoria::core::argparse::Argument</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1argparse_1_1ArgumentAndName" prot="public">euphoria::core::argparse::ArgumentAndName</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1argparse_1_1ArgumentNoValue" prot="public">euphoria::core::argparse::ArgumentNoValue</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1argparse_1_1ArgumentReader" prot="public">euphoria::core::argparse::ArgumentReader</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1argparse_1_1ConsolePrinter" prot="public">euphoria::core::argparse::ConsolePrinter</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1argparse_1_1FileOutput" prot="public">euphoria::core::argparse::FileOutput</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1argparse_1_1MultiArgument" prot="public">euphoria::core::argparse::MultiArgument</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1argparse_1_1Name" prot="public">euphoria::core::argparse::Name</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1argparse_1_1NameAndArguments" prot="public">euphoria::core::argparse::NameAndArguments</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1argparse_1_1Parser" prot="public">euphoria::core::argparse::Parser</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1argparse_1_1ParserBase" prot="public">euphoria::core::argparse::ParserBase</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1argparse_1_1ParseResult" prot="public">euphoria::core::argparse::ParseResult</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1argparse_1_1Printer" prot="public">euphoria::core::argparse::Printer</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1argparse_1_1Runner" prot="public">euphoria::core::argparse::Runner</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1argparse_1_1SingleArgument" prot="public">euphoria::core::argparse::SingleArgument</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1argparse_1_1SubParser" prot="public">euphoria::core::argparse::SubParser</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1argparse_1_1MultiArgument" prot="public">euphoria::core::argparse::MultiArgument</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1argparse_1_1SubParserNames" prot="public">euphoria::core::argparse::SubParserNames</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1argparse_1_1SubParserContainer" prot="public">euphoria::core::argparse::SubParserContainer</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1argparse_1_1SubParserGroup" prot="public">euphoria::core::argparse::SubParserGroup</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1argparse_1_1SubParserNames" prot="public">euphoria::core::argparse::SubParserNames</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1argparse_1_1ParserBase" prot="public">euphoria::core::argparse::ParserBase</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1argparse_1_1SubParser" prot="public">euphoria::core::argparse::SubParser</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1argparse_1_1Parser" prot="public">euphoria::core::argparse::Parser</innerclass>
       <sectiondef kind="enum">
       <memberdef kind="enum" id="namespaceeuphoria_1_1core_1_1argparse_1a0af6040d256538cb352a8314efcbd222" prot="public" static="no" strong="yes">
         <type></type>
@@ -46,7 +46,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.h" line="23" column="1" bodyfile="libs/core/src/core/argparse.h" bodystart="22" bodyend="25"/>
+        <location file="libs/core/src/core/argparse.h" line="22" column="5" bodyfile="libs/core/src/core/argparse.h" bodystart="23" bodyend="25"/>
       </memberdef>
       <memberdef kind="enum" id="namespaceeuphoria_1_1core_1_1argparse_1a02a654a8f750fe91f2d71b4f95d83d99" prot="public" static="no" strong="yes">
         <type></type>
@@ -82,7 +82,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.h" line="399" column="1" bodyfile="libs/core/src/core/argparse.h" bodystart="398" bodyend="408"/>
+        <location file="libs/core/src/core/argparse.h" line="398" column="5" bodyfile="libs/core/src/core/argparse.h" bodystart="399" bodyend="408"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="typedef">
@@ -421,6 +421,6 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/argparse.cc" line="46" column="1"/>
+    <location file="libs/core/src/core/argparse.cc" line="45" column="1"/>
   </compounddef>
 </doxygen>

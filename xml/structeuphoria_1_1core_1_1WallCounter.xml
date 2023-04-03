@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1WallCounter" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::WallCounter</compoundname>
     <includes refid="table__bool_8h" local="no">table_bool.h</includes>
@@ -137,7 +137,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/table_bool.h" line="98" column="1" bodyfile="libs/core/src/core/table_bool.h" bodystart="97" bodyend="114"/>
+    <location file="libs/core/src/core/table_bool.h" line="97" column="5" bodyfile="libs/core/src/core/table_bool.h" bodystart="98" bodyend="114"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1WallCounter_1af79c26fdf73fa111cdc4e6e708e14575" prot="public" virt="non-virtual"><scope>euphoria::core::WallCounter</scope><name>count</name></member>
       <member refid="structeuphoria_1_1core_1_1WallCounter_1a315709fd4e5846ea0968333ac1b0157c" prot="public" virt="non-virtual"><scope>euphoria::core::WallCounter</scope><name>cx</name></member>

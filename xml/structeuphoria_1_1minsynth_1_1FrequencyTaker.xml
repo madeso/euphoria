@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1minsynth_1_1FrequencyTaker" kind="struct" language="C++" prot="public" abstract="yes">
     <compoundname>euphoria::minsynth::FrequencyTaker</compoundname>
     <derivedcompoundref refid="structeuphoria_1_1minsynth_1_1OscilatorNode" prot="public" virt="virtual">euphoria::minsynth::OscilatorNode</derivedcompoundref>
@@ -164,7 +164,7 @@
         </childnode>
       </node>
     </inheritancegraph>
-    <location file="libs/minsynth/src/minsynth/synth.h" line="139" column="1" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="138" bodyend="150"/>
+    <location file="libs/minsynth/src/minsynth/synth.h" line="138" column="5" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="139" bodyend="150"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1minsynth_1_1FrequencyTaker_1abdd93fab4c4febb2ae7c93583aafc2bf" prot="public" virt="non-virtual"><scope>euphoria::minsynth::FrequencyTaker</scope><name>FrequencyTaker</name></member>
       <member refid="structeuphoria_1_1minsynth_1_1FrequencyTaker_1a156f6787ce0afe41dbf4c46cc72ef7c4" prot="public" virt="non-virtual"><scope>euphoria::minsynth::FrequencyTaker</scope><name>FrequencyTaker</name></member>

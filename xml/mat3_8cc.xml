@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="mat3_8cc" kind="file" language="C++">
     <compoundname>mat3.cc</compoundname>
     <includes refid="mat3_8h" local="yes">core/mat3.h</includes>
@@ -170,7 +170,7 @@
         <name>OP</name>
         <param><defname>r</defname></param>
         <param><defname>c</defname></param>
-        <initializer>get_component_multiply_sum(vec3f{lhs.get_row(r)}, vec3f{rhs.get_column(c)})</initializer>
+        <initializer>    get_component_multiply_sum(vec3f{lhs.get_row(r)}, vec3f{rhs.get_column(c)})</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1dump2d_1_1Poly" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::dump2d::Poly</compoundname>
     <includes refid="dump_8h" local="no">dump.h</includes>
@@ -152,7 +152,7 @@
         <link refid="structeuphoria_1_1core_1_1rgbi"/>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/dump.h" line="28" column="1" bodyfile="libs/core/src/core/dump.h" bodystart="27" bodyend="41"/>
+    <location file="libs/core/src/core/dump.h" line="27" column="5" bodyfile="libs/core/src/core/dump.h" bodystart="28" bodyend="41"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1dump2d_1_1Poly_1afcd4709f63d7085c17d120f892be8da8" prot="public" virt="non-virtual"><scope>euphoria::core::dump2d::Poly</scope><name>close</name></member>
       <member refid="structeuphoria_1_1core_1_1dump2d_1_1Poly_1a994a49a26bda496fc24d6cbd328ca540" prot="public" virt="non-virtual"><scope>euphoria::core::dump2d::Poly</scope><name>fill</name></member>

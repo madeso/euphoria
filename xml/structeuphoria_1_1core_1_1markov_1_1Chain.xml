@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1markov_1_1Chain" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::markov::Chain</compoundname>
     <includes refid="markov_8h" local="no">markov.h</includes>
@@ -59,7 +59,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/markov.h" line="91" column="1" bodyfile="libs/core/src/core/markov.h" bodystart="90" bodyend="114"/>
+    <location file="libs/core/src/core/markov.h" line="90" column="5" bodyfile="libs/core/src/core/markov.h" bodystart="91" bodyend="114"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1markov_1_1Chain_1a59550db1787e6ba2653190e57f11b83c" prot="public" virt="non-virtual"><scope>euphoria::core::markov::Chain</scope><name>generate</name></member>
       <member refid="structeuphoria_1_1core_1_1markov_1_1Chain_1a69810957f54dfd0a78315b990adc483c" prot="public" virt="non-virtual"><scope>euphoria::core::markov::Chain</scope><name>next</name></member>

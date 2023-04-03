@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1BufferPoint2" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::BufferPoint2</compoundname>
     <includes refid="bufferbuilder2d_8h" local="no">bufferbuilder2d.h</includes>
@@ -92,8 +92,8 @@
         <label>euphoria::core::BufferPoint2</label>
         <link refid="structeuphoria_1_1core_1_1BufferPoint2"/>
         <childnode refid="2" relation="usage">
-          <edgelabel>uv</edgelabel>
           <edgelabel>pos</edgelabel>
+          <edgelabel>uv</edgelabel>
         </childnode>
       </node>
       <node id="2">
@@ -101,7 +101,7 @@
         <link refid="structeuphoria_1_1core_1_1vec2f"/>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/bufferbuilder2d.h" line="12" column="1" bodyfile="libs/core/src/core/bufferbuilder2d.h" bodystart="11" bodyend="18"/>
+    <location file="libs/core/src/core/bufferbuilder2d.h" line="11" column="5" bodyfile="libs/core/src/core/bufferbuilder2d.h" bodystart="12" bodyend="18"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1BufferPoint2_1a14f59a52764fa35d7281f3a51aaa05bd" prot="public" virt="non-virtual"><scope>euphoria::core::BufferPoint2</scope><name>BufferPoint2</name></member>
       <member refid="structeuphoria_1_1core_1_1BufferPoint2_1a91ba66ad51b41bb43461842fd8971762" prot="public" virt="non-virtual"><scope>euphoria::core::BufferPoint2</scope><name>BufferPoint2</name></member>

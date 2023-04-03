@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1window_1_1imgui_1_1VisuallyDisabledWidgets" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::window::imgui::VisuallyDisabledWidgets</compoundname>
     <includes refid="imgui__extra_8h" local="no">imgui_extra.h</includes>
@@ -101,7 +101,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/window/src/window/imgui_extra.h" line="134" column="1" bodyfile="libs/window/src/window/imgui_extra.h" bodystart="133" bodyend="142"/>
+    <location file="libs/window/src/window/imgui_extra.h" line="133" column="5" bodyfile="libs/window/src/window/imgui_extra.h" bodystart="134" bodyend="142"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1window_1_1imgui_1_1VisuallyDisabledWidgets_1a0667401e06bd67bfa9710ef65ee82232" prot="public" virt="non-virtual"><scope>euphoria::window::imgui::VisuallyDisabledWidgets</scope><name>operator=</name></member>
       <member refid="structeuphoria_1_1window_1_1imgui_1_1VisuallyDisabledWidgets_1ab986f1525668677a402c6d016c8963fa" prot="public" virt="non-virtual"><scope>euphoria::window::imgui::VisuallyDisabledWidgets</scope><name>operator=</name></member>

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="namespaceeuphoria_1_1window_1_1imgui_1_1guizmo" kind="namespace" language="C++">
     <compoundname>euphoria::window::imgui::guizmo</compoundname>
       <sectiondef kind="func">
@@ -132,6 +132,6 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/window/src/window/imguizmo.cc" line="8" column="1"/>
+    <location file="libs/window/src/window/imguizmo.cc" line="7" column="1"/>
   </compounddef>
 </doxygen>

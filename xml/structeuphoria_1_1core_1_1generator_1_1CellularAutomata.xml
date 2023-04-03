@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1generator_1_1CellularAutomata" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::generator::CellularAutomata</compoundname>
     <includes refid="generator__cell_8h" local="no">generator_cell.h</includes>
@@ -141,7 +141,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/generator_cell.h" line="44" column="1" bodyfile="libs/core/src/core/generator_cell.h" bodystart="43" bodyend="55"/>
+    <location file="libs/core/src/core/generator_cell.h" line="43" column="5" bodyfile="libs/core/src/core/generator_cell.h" bodystart="44" bodyend="55"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1generator_1_1CellularAutomata_1afd8141dfb11ef6ad7b9c1b3b346ae52e" prot="public" virt="non-virtual"><scope>euphoria::core::generator::CellularAutomata</scope><name>CellularAutomata</name></member>
       <member refid="structeuphoria_1_1core_1_1generator_1_1CellularAutomata_1aadd17e0e91478b40333b04d3e39ae550" prot="public" virt="non-virtual"><scope>euphoria::core::generator::CellularAutomata</scope><name>is_done</name></member>

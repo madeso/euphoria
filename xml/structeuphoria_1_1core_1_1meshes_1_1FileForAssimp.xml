@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1meshes_1_1FileForAssimp" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::meshes::FileForAssimp</compoundname>
-    <basecompoundref prot="public" virt="non-virtual">IOStream</basecompoundref>
+    <basecompoundref prot="public" virt="non-virtual">Assimp::IOStream</basecompoundref>
       <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1meshes_1_1FileForAssimp_1a35c62683efd9e96148be5bdeffedff10" prot="public" static="no" mutable="no">
         <type>size_t</type>
@@ -167,7 +167,7 @@
         <label>Assimp::IOStream</label>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/mesh.cc" line="539" column="1" bodyfile="libs/core/src/core/mesh.cc" bodystart="538" bodyend="590"/>
+    <location file="libs/core/src/core/mesh.cc" line="538" column="9" bodyfile="libs/core/src/core/mesh.cc" bodystart="539" bodyend="590"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1meshes_1_1FileForAssimp_1a6343e236511ab365152f4737b956c44c" prot="public" virt="non-virtual"><scope>euphoria::core::meshes::FileForAssimp</scope><name>content</name></member>
       <member refid="structeuphoria_1_1core_1_1meshes_1_1FileForAssimp_1a96d49b50268786b173f81cec4ba95276" prot="public" virt="non-virtual"><scope>euphoria::core::meshes::FileForAssimp</scope><name>FileSize</name></member>

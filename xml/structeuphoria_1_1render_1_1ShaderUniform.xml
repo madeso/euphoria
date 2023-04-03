@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1render_1_1ShaderUniform" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::render::ShaderUniform</compoundname>
     <includes refid="shaderuniform_8h" local="no">shaderuniform.h</includes>
@@ -214,7 +214,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="libs/render/src/render/shaderuniform.h" line="11" column="1" bodyfile="libs/render/src/render/shaderuniform.h" bodystart="10" bodyend="33"/>
+    <location file="libs/render/src/render/shaderuniform.h" line="10" column="5" bodyfile="libs/render/src/render/shaderuniform.h" bodystart="11" bodyend="33"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1render_1_1ShaderUniform_1a71acead7850bb1e50a22811f372e2361" prot="public" virt="non-virtual"><scope>euphoria::render::ShaderUniform</scope><name>create_null</name></member>
       <member refid="structeuphoria_1_1render_1_1ShaderUniform_1a46aaa861a144dac1e98e6fa57fd4833f" prot="public" virt="non-virtual"><scope>euphoria::render::ShaderUniform</scope><name>id</name></member>

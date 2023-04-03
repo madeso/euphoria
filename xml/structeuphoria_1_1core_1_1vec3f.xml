@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1vec3f" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::vec3f</compoundname>
     <derivedcompoundref refid="structeuphoria_1_1core_1_1unit3f" prot="public" virt="non-virtual">euphoria::core::unit3f</derivedcompoundref>
@@ -258,9 +258,9 @@
         </inbodydescription>
         <location file="libs/core/src/core/vec3.h" line="74" column="15" bodyfile="libs/core/src/core/vec3.cc" bodystart="120" bodyend="123"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1vec3f_1a773b8d812f9b814bb803d927a78090d5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1vec3f_1a62be39bf1c2d776a3ff388b2b8f5037b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>float *</type>
-        <definition>const float * euphoria::core::vec3f::get_data_ptr</definition>
+        <definition>float * euphoria::core::vec3f::get_data_ptr</definition>
         <argsstring>()</argsstring>
         <name>get_data_ptr</name>
         <briefdescription>
@@ -271,9 +271,9 @@
         </inbodydescription>
         <location file="libs/core/src/core/vec3.h" line="76" column="15" bodyfile="libs/core/src/core/vec3.cc" bodystart="56" bodyend="59"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1vec3f_1aa28c7cbc01178e792633ca252797edbb" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1vec3f_1a21438142b3e2a4770aae05f734abeec0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>const float *</type>
-        <definition>const float* euphoria::core::vec3f::get_data_ptr</definition>
+        <definition>const float * euphoria::core::vec3f::get_data_ptr</definition>
         <argsstring>() const</argsstring>
         <name>get_data_ptr</name>
         <briefdescription>
@@ -282,7 +282,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vec3.h" line="77" column="22"/>
+        <location file="libs/core/src/core/vec3.h" line="77" column="22" bodyfile="libs/core/src/core/vec3.cc" bodystart="63" bodyend="66"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1vec3f_1a9800e37aafd8a710f5bd05166d1e870d" prot="public" static="no" constexpr="yes" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>constexpr float</type>
@@ -406,14 +406,14 @@
         <link refid="structeuphoria_1_1core_1_1vec3f"/>
       </node>
     </inheritancegraph>
-    <location file="libs/core/src/core/vec3.h" line="48" column="1" bodyfile="libs/core/src/core/vec3.h" bodystart="47" bodyend="93"/>
+    <location file="libs/core/src/core/vec3.h" line="47" column="5" bodyfile="libs/core/src/core/vec3.h" bodystart="48" bodyend="93"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1vec3f_1acf826c8b096c8838f6d9dbb699b11f08" prot="public" virt="non-virtual"><scope>euphoria::core::vec3f</scope><name>as_normalized</name></member>
       <member refid="structeuphoria_1_1core_1_1vec3f_1a925cb02f8546b43410da583a2baa34a4" prot="public" virt="non-virtual"><scope>euphoria::core::vec3f</scope><name>cross</name></member>
       <member refid="structeuphoria_1_1core_1_1vec3f_1a32de86861728453d73fa4fd57528b231" prot="public" virt="non-virtual"><scope>euphoria::core::vec3f</scope><name>dot</name></member>
       <member refid="structeuphoria_1_1core_1_1vec3f_1a8db1764082aea2b56d22c2f6ae860972" prot="public" virt="non-virtual"><scope>euphoria::core::vec3f</scope><name>from_to</name></member>
-      <member refid="structeuphoria_1_1core_1_1vec3f_1a773b8d812f9b814bb803d927a78090d5" prot="public" virt="non-virtual"><scope>euphoria::core::vec3f</scope><name>get_data_ptr</name></member>
-      <member refid="structeuphoria_1_1core_1_1vec3f_1aa28c7cbc01178e792633ca252797edbb" prot="public" virt="non-virtual"><scope>euphoria::core::vec3f</scope><name>get_data_ptr</name></member>
+      <member refid="structeuphoria_1_1core_1_1vec3f_1a62be39bf1c2d776a3ff388b2b8f5037b" prot="public" virt="non-virtual"><scope>euphoria::core::vec3f</scope><name>get_data_ptr</name></member>
+      <member refid="structeuphoria_1_1core_1_1vec3f_1a21438142b3e2a4770aae05f734abeec0" prot="public" virt="non-virtual"><scope>euphoria::core::vec3f</scope><name>get_data_ptr</name></member>
       <member refid="structeuphoria_1_1core_1_1vec3f_1aef0537cd1db5279ffc6b2c694b3a38ed" prot="public" virt="non-virtual"><scope>euphoria::core::vec3f</scope><name>get_length</name></member>
       <member refid="structeuphoria_1_1core_1_1vec3f_1a9800e37aafd8a710f5bd05166d1e870d" prot="public" virt="non-virtual"><scope>euphoria::core::vec3f</scope><name>get_length_squared</name></member>
       <member refid="structeuphoria_1_1core_1_1vec3f_1a5e01795cc55c188bd4c8fac936868b31" prot="public" virt="non-virtual"><scope>euphoria::core::vec3f</scope><name>get_normalized</name></member>

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="aabb_8cc" kind="file" language="C++">
     <compoundname>aabb.cc</compoundname>
     <includes refid="aabb_8h" local="yes">core/aabb.h</includes>
@@ -163,7 +163,7 @@
       <memberdef kind="define" id="aabb_8cc_1aeb4907ff583eb3efac864f43f3ed76f3" prot="public" static="no">
         <name>COMP</name>
         <param><defname>C</defname></param>
-        <initializer>const auto C = ::<ref refid="namespaceeuphoria_1_1core_1a8608fd1d423c6d7c90786fe3994f1b6d" kindref="member">euphoria::core::wrap</ref>(make_range(min.C, max.C), vec.C)</initializer>
+        <initializer>    const auto C = ::<ref refid="namespaceeuphoria_1_1core_1a8608fd1d423c6d7c90786fe3994f1b6d" kindref="member">euphoria::core::wrap</ref>(make_range(min.C, max.C), vec.C)</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>

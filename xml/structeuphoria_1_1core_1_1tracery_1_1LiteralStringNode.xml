@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1tracery_1_1LiteralStringNode" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::tracery::LiteralStringNode</compoundname>
     <basecompoundref refid="structeuphoria_1_1core_1_1tracery_1_1Node" prot="public" virt="non-virtual">euphoria::core::tracery::Node</basecompoundref>
@@ -82,7 +82,7 @@
         <link refid="structeuphoria_1_1core_1_1tracery_1_1Node"/>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/tracery.cc" line="117" column="1" bodyfile="libs/core/src/core/tracery.cc" bodystart="116" bodyend="129"/>
+    <location file="libs/core/src/core/tracery.cc" line="116" column="5" bodyfile="libs/core/src/core/tracery.cc" bodystart="117" bodyend="129"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1tracery_1_1LiteralStringNode_1adf5f3d8c4c986c909ebb7fe1da9af571" prot="public" virt="virtual"><scope>euphoria::core::tracery::LiteralStringNode</scope><name>flatten</name></member>
       <member refid="structeuphoria_1_1core_1_1tracery_1_1LiteralStringNode_1aa6b326d216939c1f0f861f4084ce21af" prot="public" virt="non-virtual"><scope>euphoria::core::tracery::LiteralStringNode</scope><name>LiteralStringNode</name></member>

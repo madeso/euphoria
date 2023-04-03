@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1render_1_1UiTextCompileVisitor" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::render::UiTextCompileVisitor</compoundname>
     <basecompoundref refid="structeuphoria_1_1core_1_1textparser_1_1Visitor" prot="public" virt="non-virtual">euphoria::core::textparser::Visitor</basecompoundref>
@@ -241,7 +241,7 @@
         <link refid="structeuphoria_1_1core_1_1textparser_1_1Visitor"/>
       </node>
     </collaborationgraph>
-    <location file="libs/render/src/render/font.cc" line="359" column="1" bodyfile="libs/render/src/render/font.cc" bodystart="358" bodyend="473"/>
+    <location file="libs/render/src/render/font.cc" line="358" column="5" bodyfile="libs/render/src/render/font.cc" bodystart="359" bodyend="473"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1render_1_1UiTextCompileVisitor_1a85f22eaa81d8856138636a90ca592210" prot="public" virt="non-virtual"><scope>euphoria::render::UiTextCompileVisitor</scope><name>add_char_index</name></member>
       <member refid="structeuphoria_1_1render_1_1UiTextCompileVisitor_1aac2415ee36303a130bde6433b5a1b94e" prot="public" virt="non-virtual"><scope>euphoria::render::UiTextCompileVisitor</scope><name>apply_highlight</name></member>

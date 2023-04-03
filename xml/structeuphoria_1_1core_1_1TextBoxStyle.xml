@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1TextBoxStyle" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::TextBoxStyle</compoundname>
     <includes refid="textbox_8h" local="no">textbox.h</includes>
@@ -78,7 +78,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/textbox.h" line="20" column="1" bodyfile="libs/core/src/core/textbox.h" bodystart="19" bodyend="36"/>
+    <location file="libs/core/src/core/textbox.h" line="19" column="5" bodyfile="libs/core/src/core/textbox.h" bodystart="20" bodyend="36"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1TextBoxStyle_1aad5f87428ba344ffdfd22ca9201860e0" prot="private" virt="non-virtual"><scope>euphoria::core::TextBoxStyle</scope><name>connections</name></member>
       <member refid="structeuphoria_1_1core_1_1TextBoxStyle_1a218e9355761fa36ed92cb422dd2e84e2" prot="public" virt="non-virtual"><scope>euphoria::core::TextBoxStyle</scope><name>get_string</name></member>

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="dir_a1e79f3806ef92ed87013fe5b66ee637" kind="dir">
     <compoundname>libs/minsynth</compoundname>
     <innerdir refid="dir_ece11d4103acec48e46840fa170a730e">libs/minsynth/src</innerdir>

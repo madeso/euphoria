@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1MapValue" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::MapValue</compoundname>
     <basecompoundref refid="structeuphoria_1_1core_1_1Value" prot="public" virt="non-virtual">euphoria::core::Value</basecompoundref>
@@ -100,7 +100,7 @@
         <link refid="structeuphoria_1_1core_1_1Value"/>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/propertytree.h" line="60" column="1" bodyfile="libs/core/src/core/propertytree.h" bodystart="59" bodyend="67"/>
+    <location file="libs/core/src/core/propertytree.h" line="59" column="5" bodyfile="libs/core/src/core/propertytree.h" bodystart="60" bodyend="67"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1MapValue_1a5fe1e97788d64a3e4617f91a683ca289" prot="public" virt="non-virtual"><scope>euphoria::core::MapValue</scope><name>get_or_null</name></member>
       <member refid="structeuphoria_1_1core_1_1MapValue_1ab9af53e724ede9e33ec43a664dd47505" prot="public" virt="non-virtual"><scope>euphoria::core::MapValue</scope><name>MapValue</name></member>

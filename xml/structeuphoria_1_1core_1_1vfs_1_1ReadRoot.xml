@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1vfs_1_1ReadRoot" kind="struct" language="C++" prot="public" abstract="yes">
     <compoundname>euphoria::core::vfs::ReadRoot</compoundname>
     <derivedcompoundref refid="structeuphoria_1_1core_1_1vfs_1_1ReadRootCatalog" prot="public" virt="non-virtual">euphoria::core::vfs::ReadRootCatalog</derivedcompoundref>
@@ -102,9 +102,9 @@
         <definition>virtual void euphoria::core::vfs::ReadRoot::add_description</definition>
         <argsstring>(std::vector&lt; std::string &gt; *strings)=0</argsstring>
         <name>add_description</name>
-        <reimplementedby refid="structeuphoria_1_1core_1_1vfs_1_1ReadRootImageGenerator_1a0b6422b1ad2b75be351d63c6ea5c6c74">add_description</reimplementedby>
         <reimplementedby refid="structeuphoria_1_1core_1_1vfs_1_1ReadRootCatalog_1ad72110494867e952a4dcbf46ba9fe26d">add_description</reimplementedby>
         <reimplementedby refid="structeuphoria_1_1core_1_1vfs_1_1ReadRootPhysicalFolder_1a6910b40575c17cb4495e994a73111a94">add_description</reimplementedby>
+        <reimplementedby refid="structeuphoria_1_1core_1_1vfs_1_1ReadRootImageGenerator_1a0b6422b1ad2b75be351d63c6ea5c6c74">add_description</reimplementedby>
         <param>
           <type>std::vector&lt; std::string &gt; *</type>
           <declname>strings</declname>
@@ -122,9 +122,9 @@
         <definition>virtual std::shared_ptr&lt;MemoryChunk&gt; euphoria::core::vfs::ReadRoot::read_file</definition>
         <argsstring>(const FilePath &amp;path)=0</argsstring>
         <name>read_file</name>
-        <reimplementedby refid="structeuphoria_1_1core_1_1vfs_1_1ReadRootImageGenerator_1a6924e116951289572034369fb28c7ce3">read_file</reimplementedby>
         <reimplementedby refid="structeuphoria_1_1core_1_1vfs_1_1ReadRootCatalog_1ac7ed939063bc25db7a11ba106e07ba3b">read_file</reimplementedby>
         <reimplementedby refid="structeuphoria_1_1core_1_1vfs_1_1ReadRootPhysicalFolder_1a8acb9762b9cc824a2ccc31af6d8c32d9">read_file</reimplementedby>
+        <reimplementedby refid="structeuphoria_1_1core_1_1vfs_1_1ReadRootImageGenerator_1a6924e116951289572034369fb28c7ce3">read_file</reimplementedby>
         <param>
           <type>const <ref refid="structeuphoria_1_1core_1_1vfs_1_1FilePath" kindref="compound">FilePath</ref> &amp;</type>
           <declname>path</declname>
@@ -142,9 +142,9 @@
         <definition>virtual FileList euphoria::core::vfs::ReadRoot::list_files</definition>
         <argsstring>(const DirPath &amp;path)=0</argsstring>
         <name>list_files</name>
-        <reimplementedby refid="structeuphoria_1_1core_1_1vfs_1_1ReadRootImageGenerator_1a44912a05d9aa890034049f83e9b3cc31">list_files</reimplementedby>
         <reimplementedby refid="structeuphoria_1_1core_1_1vfs_1_1ReadRootCatalog_1aedfff2c730dc6fb713aa155f0b2aa5ed">list_files</reimplementedby>
         <reimplementedby refid="structeuphoria_1_1core_1_1vfs_1_1ReadRootPhysicalFolder_1ab20f3e3ab56cea6e22b30c9b5dd18052">list_files</reimplementedby>
+        <reimplementedby refid="structeuphoria_1_1core_1_1vfs_1_1ReadRootImageGenerator_1a44912a05d9aa890034049f83e9b3cc31">list_files</reimplementedby>
         <param>
           <type>const <ref refid="structeuphoria_1_1core_1_1vfs_1_1DirPath" kindref="compound">DirPath</ref> &amp;</type>
           <declname>path</declname>
@@ -186,7 +186,7 @@
         <link refid="structeuphoria_1_1core_1_1vfs_1_1ReadRoot"/>
       </node>
     </inheritancegraph>
-    <location file="libs/core/src/core/vfs.h" line="40" column="1" bodyfile="libs/core/src/core/vfs.h" bodystart="39" bodyend="57"/>
+    <location file="libs/core/src/core/vfs.h" line="39" column="5" bodyfile="libs/core/src/core/vfs.h" bodystart="40" bodyend="57"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1vfs_1_1ReadRoot_1a309bef8c8be419bb1c79b8ff26b7f2f2" prot="public" virt="pure-virtual"><scope>euphoria::core::vfs::ReadRoot</scope><name>add_description</name></member>
       <member refid="structeuphoria_1_1core_1_1vfs_1_1ReadRoot_1a535d13d850c46dab7e69cb14c4556f83" prot="public" virt="pure-virtual"><scope>euphoria::core::vfs::ReadRoot</scope><name>list_files</name></member>

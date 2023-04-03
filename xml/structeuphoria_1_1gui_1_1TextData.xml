@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1gui_1_1TextData" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::gui::TextData</compoundname>
     <includes refid="textdata_8h" local="no">textdata.h</includes>
@@ -210,9 +210,9 @@
         </inbodydescription>
         <location file="libs/gui/src/gui/textdata.h" line="35" column="9" bodyfile="libs/gui/src/gui/textdata.cc" bodystart="47" bodyend="50"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1gui_1_1TextData_1af4c43dca4632114199c3e7c4197a0797" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1gui_1_1TextData_1aa1be4dc8465eb451257d3cc27d0e89e1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>const <ref refid="structeuphoria_1_1render_1_1DrawableText" kindref="compound">render::DrawableText</ref> &amp;</type>
-        <definition>render::DrawableText &amp; euphoria::gui::TextData::get_text</definition>
+        <definition>const render::DrawableText &amp; euphoria::gui::TextData::get_text</definition>
         <argsstring>() const</argsstring>
         <name>get_text</name>
         <briefdescription>
@@ -223,9 +223,9 @@
         </inbodydescription>
         <location file="libs/gui/src/gui/textdata.h" line="38" column="9" bodyfile="libs/gui/src/gui/textdata.cc" bodystart="54" bodyend="58"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1gui_1_1TextData_1a3f447c4f087088ac09962b95b2b05b84" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1gui_1_1TextData_1a047d46b2345f78c9928df987ae335510" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1render_1_1DrawableText" kindref="compound">render::DrawableText</ref> &amp;</type>
-        <definition>render::DrawableText&amp; euphoria::gui::TextData::get_text</definition>
+        <definition>render::DrawableText &amp; euphoria::gui::TextData::get_text</definition>
         <argsstring>()</argsstring>
         <name>get_text</name>
         <briefdescription>
@@ -234,7 +234,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/gui/src/gui/textdata.h" line="41" column="9"/>
+        <location file="libs/gui/src/gui/textdata.h" line="41" column="9" bodyfile="libs/gui/src/gui/textdata.cc" bodystart="62" bodyend="66"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1gui_1_1TextData_1a4d3c6324bddf209db55f3e3d2a92dc9b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -271,12 +271,12 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/gui/src/gui/textdata.h" line="16" column="1" bodyfile="libs/gui/src/gui/textdata.h" bodystart="15" bodyend="54"/>
+    <location file="libs/gui/src/gui/textdata.h" line="15" column="5" bodyfile="libs/gui/src/gui/textdata.h" bodystart="16" bodyend="54"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1gui_1_1TextData_1a5c9dce2aa9ea73b75e15be383b4155d4" prot="public" virt="non-virtual"><scope>euphoria::gui::TextData</scope><name>font</name></member>
       <member refid="structeuphoria_1_1gui_1_1TextData_1ac1813e746fdeb09a716488ab0f5e3b24" prot="public" virt="non-virtual"><scope>euphoria::gui::TextData</scope><name>get_font</name></member>
-      <member refid="structeuphoria_1_1gui_1_1TextData_1af4c43dca4632114199c3e7c4197a0797" prot="public" virt="non-virtual"><scope>euphoria::gui::TextData</scope><name>get_text</name></member>
-      <member refid="structeuphoria_1_1gui_1_1TextData_1a3f447c4f087088ac09962b95b2b05b84" prot="public" virt="non-virtual"><scope>euphoria::gui::TextData</scope><name>get_text</name></member>
+      <member refid="structeuphoria_1_1gui_1_1TextData_1aa1be4dc8465eb451257d3cc27d0e89e1" prot="public" virt="non-virtual"><scope>euphoria::gui::TextData</scope><name>get_text</name></member>
+      <member refid="structeuphoria_1_1gui_1_1TextData_1a047d46b2345f78c9928df987ae335510" prot="public" virt="non-virtual"><scope>euphoria::gui::TextData</scope><name>get_text</name></member>
       <member refid="structeuphoria_1_1gui_1_1TextData_1a50894bd62c5bef72b2cb64265c65618a" prot="public" virt="non-virtual"><scope>euphoria::gui::TextData</scope><name>has_text</name></member>
       <member refid="structeuphoria_1_1gui_1_1TextData_1ad17cefc00628d049244ef23bc640b6ff" prot="public" virt="non-virtual"><scope>euphoria::gui::TextData</scope><name>operator=</name></member>
       <member refid="structeuphoria_1_1gui_1_1TextData_1a321c31cff9d824aebed3aa43e9baca44" prot="public" virt="non-virtual"><scope>euphoria::gui::TextData</scope><name>operator=</name></member>

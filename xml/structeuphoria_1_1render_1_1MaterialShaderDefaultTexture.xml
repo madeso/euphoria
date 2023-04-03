@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1render_1_1MaterialShaderDefaultTexture" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::render::MaterialShaderDefaultTexture</compoundname>
     <includes refid="materialshader_8h" local="no">materialshader.h</includes>
@@ -85,7 +85,7 @@
         <link refid="structeuphoria_1_1core_1_1EnumType"/>
       </node>
     </collaborationgraph>
-    <location file="libs/render/src/render/materialshader.h" line="15" column="1" bodyfile="libs/render/src/render/materialshader.h" bodystart="14" bodyend="24"/>
+    <location file="libs/render/src/render/materialshader.h" line="14" column="5" bodyfile="libs/render/src/render/materialshader.h" bodystart="15" bodyend="24"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1render_1_1MaterialShaderDefaultTexture_1a0862e760e50fe972587d86ed5b6edeac" prot="public" virt="non-virtual"><scope>euphoria::render::MaterialShaderDefaultTexture</scope><name>MaterialShaderDefaultTexture</name></member>
       <member refid="structeuphoria_1_1render_1_1MaterialShaderDefaultTexture_1ad3621fbde2af16f9808804f4c438505c" prot="public" virt="non-virtual"><scope>euphoria::render::MaterialShaderDefaultTexture</scope><name>name</name></member>

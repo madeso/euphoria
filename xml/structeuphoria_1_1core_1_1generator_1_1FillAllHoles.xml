@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1generator_1_1FillAllHoles" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::generator::FillAllHoles</compoundname>
     <basecompoundref refid="structeuphoria_1_1core_1_1generator_1_1Rule" prot="public" virt="non-virtual">euphoria::core::generator::Rule</basecompoundref>
@@ -100,7 +100,7 @@
         <link refid="structeuphoria_1_1core_1_1generator_1_1Rule"/>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/generator_cell.cc" line="99" column="1" bodyfile="libs/core/src/core/generator_cell.cc" bodystart="98" bodyend="136"/>
+    <location file="libs/core/src/core/generator_cell.cc" line="98" column="5" bodyfile="libs/core/src/core/generator_cell.cc" bodystart="99" bodyend="136"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1generator_1_1FillAllHoles_1a8b3bde8f09c88b632b01245ebbc15ddf" prot="public" virt="non-virtual"><scope>euphoria::core::generator::FillAllHoles</scope><name>allow_diagonals</name></member>
       <member refid="structeuphoria_1_1core_1_1generator_1_1FillAllHoles_1a0070d9d10f38044bdb1be316aedadec5" prot="public" virt="non-virtual"><scope>euphoria::core::generator::FillAllHoles</scope><name>FillAllHoles</name></member>

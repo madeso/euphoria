@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1dump2d_1_1Group" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::dump2d::Group</compoundname>
     <basecompoundref refid="structeuphoria_1_1core_1_1dump2d_1_1AddWrapper" prot="public" virt="non-virtual">euphoria::core::dump2d::AddWrapper&lt; Group &gt;</basecompoundref>
@@ -66,7 +66,7 @@
         <link refid="structeuphoria_1_1core_1_1dump2d_1_1AddWrapper"/>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/dump.h" line="96" column="1" bodyfile="libs/core/src/core/dump.h" bodystart="95" bodyend="100"/>
+    <location file="libs/core/src/core/dump.h" line="95" column="5" bodyfile="libs/core/src/core/dump.h" bodystart="96" bodyend="100"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1dump2d_1_1Group_1af591ddffde3c750e708d1b44d16f6d94" prot="public" virt="non-virtual"><scope>euphoria::core::dump2d::Group</scope><name>add</name></member>
       <member refid="structeuphoria_1_1core_1_1dump2d_1_1Group_1a32aa9c866ae5e64818d6d794ad29ce7c" prot="public" virt="non-virtual"><scope>euphoria::core::dump2d::Group</scope><name>items</name></member>

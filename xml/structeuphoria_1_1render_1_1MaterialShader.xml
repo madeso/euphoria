@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1render_1_1MaterialShader" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::render::MaterialShader</compoundname>
     <includes refid="materialshader_8h" local="no">materialshader.h</includes>
@@ -491,16 +491,16 @@
           <edgelabel>shader</edgelabel>
         </childnode>
         <childnode refid="4" relation="usage">
+          <edgelabel>ambient</edgelabel>
+          <edgelabel>diffuse</edgelabel>
+          <edgelabel>light_ambient</edgelabel>
+          <edgelabel>light_attenuation_constant</edgelabel>
+          <edgelabel>light_attenuation_linear</edgelabel>
+          <edgelabel>light_attenuation_quadratic</edgelabel>
           <edgelabel>light_cutoff_angle_inner</edgelabel>
-          <edgelabel>model</edgelabel>
-          <edgelabel>light_direction</edgelabel>
-          <edgelabel>light_type</edgelabel>
-          <edgelabel>view</edgelabel>
-          <edgelabel>light_diffuse</edgelabel>
-          <edgelabel>projection</edgelabel>
-          <edgelabel>view_position</edgelabel>
-          <edgelabel>normal_matrix</edgelabel>
           <edgelabel>light_cutoff_angle_outer</edgelabel>
+          <edgelabel>light_diffuse</edgelabel>
+          <edgelabel>light_direction</edgelabel>
           <edgelabel>...</edgelabel>
         </childnode>
       </node>
@@ -511,7 +511,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="libs/render/src/render/materialshader.h" line="41" column="1" bodyfile="libs/render/src/render/materialshader.h" bodystart="40" bodyend="94"/>
+    <location file="libs/render/src/render/materialshader.h" line="40" column="5" bodyfile="libs/render/src/render/materialshader.h" bodystart="41" bodyend="94"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1render_1_1MaterialShader_1a23a1658f7dacb5ad48cc525def940d42" prot="public" virt="non-virtual"><scope>euphoria::render::MaterialShader</scope><name>ambient</name></member>
       <member refid="structeuphoria_1_1render_1_1MaterialShader_1af0fa253882ea570ce5aa322d770bf16b" prot="public" virt="non-virtual"><scope>euphoria::render::MaterialShader</scope><name>bindings</name></member>

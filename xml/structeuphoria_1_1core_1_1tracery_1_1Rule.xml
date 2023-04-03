@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1tracery_1_1Rule" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::tracery::Rule</compoundname>
     <includes refid="tracery_8h" local="no">tracery.h</includes>
@@ -88,7 +88,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/tracery.h" line="78" column="1" bodyfile="libs/core/src/core/tracery.h" bodystart="77" bodyend="87"/>
+    <location file="libs/core/src/core/tracery.h" line="77" column="5" bodyfile="libs/core/src/core/tracery.h" bodystart="78" bodyend="87"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1tracery_1_1Rule_1a00712a2b18e1a050b22a9701c0a22f2d" prot="public" virt="non-virtual"><scope>euphoria::core::tracery::Rule</scope><name>add</name></member>
       <member refid="structeuphoria_1_1core_1_1tracery_1_1Rule_1acba58725cc4d7020791092adf0cc3af6" prot="public" virt="non-virtual"><scope>euphoria::core::tracery::Rule</scope><name>compile</name></member>

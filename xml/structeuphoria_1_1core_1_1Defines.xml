@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1Defines" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::Defines</compoundname>
     <includes refid="texttemplate_8h" local="no">texttemplate.h</includes>
@@ -109,7 +109,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/texttemplate.h" line="18" column="1" bodyfile="libs/core/src/core/texttemplate.h" bodystart="17" bodyend="28"/>
+    <location file="libs/core/src/core/texttemplate.h" line="17" column="5" bodyfile="libs/core/src/core/texttemplate.h" bodystart="18" bodyend="28"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1Defines_1a03c57631f871644a746653163938703e" prot="public" virt="non-virtual"><scope>euphoria::core::Defines</scope><name>Defines</name></member>
       <member refid="structeuphoria_1_1core_1_1Defines_1af489654f0e8510ed0f368367d65e6e5a" prot="public" virt="non-virtual"><scope>euphoria::core::Defines</scope><name>get_value</name></member>

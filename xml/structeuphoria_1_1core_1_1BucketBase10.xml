@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1BucketBase10" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::BucketBase10</compoundname>
     <includes refid="radix__sort_8h" local="no">radix_sort.h</includes>
@@ -105,7 +105,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/radix_sort.h" line="11" column="1" bodyfile="libs/core/src/core/radix_sort.h" bodystart="10" bodyend="37"/>
+    <location file="libs/core/src/core/radix_sort.h" line="10" column="5" bodyfile="libs/core/src/core/radix_sort.h" bodystart="11" bodyend="37"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1BucketBase10_1a069cbbc120cb368e658c4ee9e25b71f0" prot="public" virt="non-virtual"><scope>euphoria::core::BucketBase10</scope><name>count</name></member>
       <member refid="structeuphoria_1_1core_1_1BucketBase10_1a71273221873fe715d5993dbcf86fccd3" prot="public" virt="non-virtual"><scope>euphoria::core::BucketBase10</scope><name>get_index</name></member>

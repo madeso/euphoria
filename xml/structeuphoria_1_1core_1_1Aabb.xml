@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1Aabb" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::Aabb</compoundname>
     <includes refid="aabb_8h" local="no">aabb.h</includes>
@@ -215,8 +215,8 @@
         <label>euphoria::core::Aabb</label>
         <link refid="structeuphoria_1_1core_1_1Aabb"/>
         <childnode refid="2" relation="usage">
-          <edgelabel>min</edgelabel>
           <edgelabel>max</edgelabel>
+          <edgelabel>min</edgelabel>
         </childnode>
       </node>
       <node id="2">
@@ -224,7 +224,7 @@
         <link refid="structeuphoria_1_1core_1_1vec3f"/>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/aabb.h" line="13" column="1" bodyfile="libs/core/src/core/aabb.h" bodystart="12" bodyend="33"/>
+    <location file="libs/core/src/core/aabb.h" line="12" column="5" bodyfile="libs/core/src/core/aabb.h" bodystart="13" bodyend="33"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1Aabb_1a4cc91056779896a9a0eca79ac71c0779" prot="public" virt="non-virtual"><scope>euphoria::core::Aabb</scope><name>Aabb</name></member>
       <member refid="structeuphoria_1_1core_1_1Aabb_1ab64ef2544acfb446e3f5c37eca140198" prot="public" virt="non-virtual"><scope>euphoria::core::Aabb</scope><name>calc_all_corners</name></member>

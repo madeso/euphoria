@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1detail_1_1ConversationStatus" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::detail::ConversationStatus</compoundname>
     <includes refid="chatbot_8h" local="no">chatbot.h</includes>
@@ -76,7 +76,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/chatbot.h" line="158" column="1" bodyfile="libs/core/src/core/chatbot.h" bodystart="157" bodyend="176"/>
+    <location file="libs/core/src/core/chatbot.h" line="157" column="9" bodyfile="libs/core/src/core/chatbot.h" bodystart="158" bodyend="176"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1detail_1_1ConversationStatus_1add606277ea221865ce61e425b1ef1fad" prot="public" virt="non-virtual"><scope>euphoria::core::detail::ConversationStatus</scope><name>input</name></member>
       <member refid="structeuphoria_1_1core_1_1detail_1_1ConversationStatus_1a422fa56a9c43e025845227c3a0b788b7" prot="public" virt="non-virtual"><scope>euphoria::core::detail::ConversationStatus</scope><name>logs</name></member>

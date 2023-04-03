@@ -1,22 +1,22 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="namespaceeuphoria_1_1gui" kind="namespace" language="C++">
     <compoundname>euphoria::gui</compoundname>
     <innerclass refid="structeuphoria_1_1gui_1_1Button" prot="public">euphoria::gui::Button</innerclass>
-    <innerclass refid="structeuphoria_1_1gui_1_1ButtonState" prot="public">euphoria::gui::ButtonState</innerclass>
-    <innerclass refid="structeuphoria_1_1gui_1_1CommandButton" prot="public">euphoria::gui::CommandButton</innerclass>
     <innerclass refid="structeuphoria_1_1gui_1_1Container" prot="public">euphoria::gui::Container</innerclass>
-    <innerclass refid="structeuphoria_1_1gui_1_1Interpolation" prot="public">euphoria::gui::Interpolation</innerclass>
     <innerclass refid="structeuphoria_1_1gui_1_1Layout" prot="public">euphoria::gui::Layout</innerclass>
+    <innerclass refid="structeuphoria_1_1gui_1_1TableLayout" prot="public">euphoria::gui::TableLayout</innerclass>
+    <innerclass refid="structeuphoria_1_1gui_1_1SingleRowLayout" prot="public">euphoria::gui::SingleRowLayout</innerclass>
     <innerclass refid="structeuphoria_1_1gui_1_1LayoutContainer" prot="public">euphoria::gui::LayoutContainer</innerclass>
     <innerclass refid="structeuphoria_1_1gui_1_1LayoutData" prot="public">euphoria::gui::LayoutData</innerclass>
+    <innerclass refid="structeuphoria_1_1gui_1_1CommandButton" prot="public">euphoria::gui::CommandButton</innerclass>
     <innerclass refid="structeuphoria_1_1gui_1_1PanelWidget" prot="public">euphoria::gui::PanelWidget</innerclass>
     <innerclass refid="structeuphoria_1_1gui_1_1Root" prot="public">euphoria::gui::Root</innerclass>
-    <innerclass refid="structeuphoria_1_1gui_1_1SingleRowLayout" prot="public">euphoria::gui::SingleRowLayout</innerclass>
+    <innerclass refid="structeuphoria_1_1gui_1_1Interpolation" prot="public">euphoria::gui::Interpolation</innerclass>
+    <innerclass refid="structeuphoria_1_1gui_1_1ButtonState" prot="public">euphoria::gui::ButtonState</innerclass>
     <innerclass refid="structeuphoria_1_1gui_1_1Skin" prot="public">euphoria::gui::Skin</innerclass>
-    <innerclass refid="structeuphoria_1_1gui_1_1State" prot="public">euphoria::gui::State</innerclass>
-    <innerclass refid="structeuphoria_1_1gui_1_1TableLayout" prot="public">euphoria::gui::TableLayout</innerclass>
     <innerclass refid="structeuphoria_1_1gui_1_1TextData" prot="public">euphoria::gui::TextData</innerclass>
+    <innerclass refid="structeuphoria_1_1gui_1_1State" prot="public">euphoria::gui::State</innerclass>
     <innerclass refid="structeuphoria_1_1gui_1_1Visitor" prot="public">euphoria::gui::Visitor</innerclass>
     <innerclass refid="structeuphoria_1_1gui_1_1Widget" prot="public">euphoria::gui::Widget</innerclass>
       <sectiondef kind="func">
@@ -301,6 +301,6 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/gui/src/gui/button.cc" line="13" column="1"/>
+    <location file="libs/gui/src/gui/button.cc" line="12" column="1"/>
   </compounddef>
 </doxygen>

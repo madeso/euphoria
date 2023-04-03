@@ -1,14 +1,14 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="namespaceeuphoria_1_1core_1_1dump2d" kind="namespace" language="C++">
     <compoundname>euphoria::core::dump2d</compoundname>
-    <innerclass refid="structeuphoria_1_1core_1_1dump2d_1_1AddWrapper" prot="public">euphoria::core::dump2d::AddWrapper</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1dump2d_1_1Circle" prot="public">euphoria::core::dump2d::Circle</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1dump2d_1_1Dumper" prot="public">euphoria::core::dump2d::Dumper</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1dump2d_1_1Group" prot="public">euphoria::core::dump2d::Group</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1dump2d_1_1Item" prot="public">euphoria::core::dump2d::Item</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1dump2d_1_1Poly" prot="public">euphoria::core::dump2d::Poly</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1dump2d_1_1Text" prot="public">euphoria::core::dump2d::Text</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1dump2d_1_1Circle" prot="public">euphoria::core::dump2d::Circle</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1dump2d_1_1Item" prot="public">euphoria::core::dump2d::Item</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1dump2d_1_1AddWrapper" prot="public">euphoria::core::dump2d::AddWrapper</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1dump2d_1_1Group" prot="public">euphoria::core::dump2d::Group</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1dump2d_1_1Dumper" prot="public">euphoria::core::dump2d::Dumper</innerclass>
     <innernamespace refid="namespaceeuphoria_1_1core_1_1dump2d_1_1detail">euphoria::core::dump2d::detail</innernamespace>
     <innernamespace refid="namespaceeuphoria_1_1core_1_1dump2d_1_1strokes">euphoria::core::dump2d::strokes</innernamespace>
       <sectiondef kind="func">
@@ -102,6 +102,6 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/dump.cc" line="13" column="1"/>
+    <location file="libs/core/src/core/dump.cc" line="12" column="1"/>
   </compounddef>
 </doxygen>

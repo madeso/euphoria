@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1generator_1_1Drawer" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::generator::Drawer</compoundname>
     <includes refid="generator__maze_8h" local="no">generator_maze.h</includes>
@@ -207,10 +207,6 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-      <node id="3">
-        <label>euphoria::core::Table&lt; T &gt;</label>
-        <link refid="structeuphoria_1_1core_1_1Table"/>
-      </node>
       <node id="8">
         <label>euphoria::core::generator::RandomTraversal</label>
         <link refid="structeuphoria_1_1core_1_1generator_1_1RandomTraversal"/>
@@ -227,11 +223,11 @@
         <label>euphoria::core::generator::Drawer</label>
         <link refid="structeuphoria_1_1core_1_1generator_1_1Drawer"/>
         <childnode refid="2" relation="usage">
+          <edgelabel>cell_color</edgelabel>
           <edgelabel>cell_visited_color</edgelabel>
           <edgelabel>corridor_color</edgelabel>
-          <edgelabel>wall_color</edgelabel>
-          <edgelabel>cell_color</edgelabel>
           <edgelabel>unit_color</edgelabel>
+          <edgelabel>wall_color</edgelabel>
         </childnode>
         <childnode refid="3" relation="usage">
           <edgelabel>maze</edgelabel>
@@ -270,12 +266,16 @@
           <edgelabel>random</edgelabel>
         </childnode>
       </node>
+      <node id="3">
+        <label>euphoria::core::Table&lt; int &gt;</label>
+        <link refid="structeuphoria_1_1core_1_1Table"/>
+      </node>
       <node id="2">
         <label>euphoria::core::rgbi</label>
         <link refid="structeuphoria_1_1core_1_1rgbi"/>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/generator_maze.h" line="93" column="1" bodyfile="libs/core/src/core/generator_maze.h" bodystart="92" bodyend="115"/>
+    <location file="libs/core/src/core/generator_maze.h" line="92" column="5" bodyfile="libs/core/src/core/generator_maze.h" bodystart="93" bodyend="115"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1generator_1_1Drawer_1a911ab979c8520f28c5cfca14e5a86abd" prot="public" virt="non-virtual"><scope>euphoria::core::generator::Drawer</scope><name>calc_cell_color</name></member>
       <member refid="structeuphoria_1_1core_1_1generator_1_1Drawer_1a7deb4f5377f5c1093cc65e0cc5a3c0f4" prot="public" virt="non-virtual"><scope>euphoria::core::generator::Drawer</scope><name>cell_color</name></member>

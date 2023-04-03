@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1TemplateErrorList" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::TemplateErrorList</compoundname>
     <includes refid="texttemplate_8h" local="no">texttemplate.h</includes>
@@ -92,7 +92,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/texttemplate.h" line="31" column="1" bodyfile="libs/core/src/core/texttemplate.h" bodystart="30" bodyend="46"/>
+    <location file="libs/core/src/core/texttemplate.h" line="30" column="5" bodyfile="libs/core/src/core/texttemplate.h" bodystart="31" bodyend="46"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1TemplateErrorList_1aeb0c923b538b33fae4874fcf6b909526" prot="public" virt="non-virtual"><scope>euphoria::core::TemplateErrorList</scope><name>add_error</name></member>
       <member refid="structeuphoria_1_1core_1_1TemplateErrorList_1a0cf1766f71afeb7e0f336a9e999cb53a" prot="public" virt="non-virtual"><scope>euphoria::core::TemplateErrorList</scope><name>errors</name></member>

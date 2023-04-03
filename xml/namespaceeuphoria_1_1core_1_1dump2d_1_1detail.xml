@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="namespaceeuphoria_1_1core_1_1dump2d_1_1detail" kind="namespace" language="C++">
     <compoundname>euphoria::core::dump2d::detail</compoundname>
-    <innerclass refid="structeuphoria_1_1core_1_1dump2d_1_1detail_1_1MinMaxer" prot="public">euphoria::core::dump2d::detail::MinMaxer</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1dump2d_1_1detail_1_1Writer" prot="public">euphoria::core::dump2d::detail::Writer</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1dump2d_1_1detail_1_1MinMaxer" prot="public">euphoria::core::dump2d::detail::MinMaxer</innerclass>
       <sectiondef kind="func">
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1dump2d_1_1detail_1a96299c6d94019ada9115adae6e6e913c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -115,6 +115,6 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/dump.cc" line="81" column="1"/>
+    <location file="libs/core/src/core/dump.cc" line="80" column="5"/>
   </compounddef>
 </doxygen>

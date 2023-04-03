@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1detail_1_1OrbitCamera" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::detail::OrbitCamera</compoundname>
     <basecompoundref refid="structeuphoria_1_1core_1_1detail_1_1EditorCameraState3" prot="public" virt="non-virtual">euphoria::core::detail::EditorCameraState3</basecompoundref>
@@ -449,12 +449,12 @@
         <childnode refid="2" relation="public-inheritance">
         </childnode>
         <childnode refid="3" relation="usage">
-          <edgelabel>latest_camera</edgelabel>
           <edgelabel>camera</edgelabel>
+          <edgelabel>latest_camera</edgelabel>
         </childnode>
         <childnode refid="5" relation="usage">
-          <edgelabel>start_mouse</edgelabel>
           <edgelabel>mouse</edgelabel>
+          <edgelabel>start_mouse</edgelabel>
         </childnode>
         <childnode refid="6" relation="usage">
           <edgelabel>start_frame</edgelabel>
@@ -482,10 +482,10 @@
         <label>euphoria::core::CompiledCamera3</label>
         <link refid="structeuphoria_1_1core_1_1CompiledCamera3"/>
         <childnode refid="4" relation="usage">
-          <edgelabel>combined_inverted</edgelabel>
           <edgelabel>combined</edgelabel>
-          <edgelabel>view</edgelabel>
+          <edgelabel>combined_inverted</edgelabel>
           <edgelabel>projection</edgelabel>
+          <edgelabel>view</edgelabel>
         </childnode>
       </node>
       <node id="5">
@@ -512,7 +512,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/camera3.editor.cc" line="123" column="1" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="122" bodyend="322"/>
+    <location file="libs/core/src/core/camera3.editor.cc" line="122" column="9" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="123" bodyend="322"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1detail_1_1OrbitCamera_1ac5776d045d36d679c0c8c0f8e4aa2f3b" prot="public" virt="non-virtual"><scope>euphoria::core::detail::OrbitCamera</scope><name>camera</name></member>
       <member refid="structeuphoria_1_1core_1_1detail_1_1EditorCameraState3_1a9d3c41fc785daaaf191f8db91733817a" prot="public" virt="non-virtual"><scope>euphoria::core::detail::OrbitCamera</scope><name>EditorCameraState3</name></member>

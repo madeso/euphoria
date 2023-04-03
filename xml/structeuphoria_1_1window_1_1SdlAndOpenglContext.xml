@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1window_1_1SdlAndOpenglContext" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::window::SdlAndOpenglContext</compoundname>
     <includes refid="sdlglcontext_8h" local="no">sdlglcontext.h</includes>
@@ -120,7 +120,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/window/src/window/sdlglcontext.h" line="9" column="1" bodyfile="libs/window/src/window/sdlglcontext.h" bodystart="8" bodyend="20"/>
+    <location file="libs/window/src/window/sdlglcontext.h" line="8" column="5" bodyfile="libs/window/src/window/sdlglcontext.h" bodystart="9" bodyend="20"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1window_1_1SdlAndOpenglContext_1a034ac43aa342cbe31afe5fad987136cc" prot="public" virt="non-virtual"><scope>euphoria::window::SdlAndOpenglContext</scope><name>context</name></member>
       <member refid="structeuphoria_1_1window_1_1SdlAndOpenglContext_1aa4f1a5f8cdc672f6f3c281cc2080dc7d" prot="public" virt="non-virtual"><scope>euphoria::window::SdlAndOpenglContext</scope><name>operator=</name></member>

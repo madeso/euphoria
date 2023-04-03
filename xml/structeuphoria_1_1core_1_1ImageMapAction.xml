@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1ImageMapAction" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::ImageMapAction</compoundname>
     <includes refid="image__to__text_8h" local="no">image_to_text.h</includes>
@@ -48,7 +48,7 @@
         <link refid="structeuphoria_1_1core_1_1rgbi"/>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/image_to_text.h" line="18" column="1" bodyfile="libs/core/src/core/image_to_text.h" bodystart="17" bodyend="21"/>
+    <location file="libs/core/src/core/image_to_text.h" line="17" column="5" bodyfile="libs/core/src/core/image_to_text.h" bodystart="18" bodyend="21"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1ImageMapAction_1a7a2c32977bc2e389a5bf442bca13214b" prot="public" virt="non-virtual"><scope>euphoria::core::ImageMapAction</scope><name>from_color</name></member>
       <member refid="structeuphoria_1_1core_1_1ImageMapAction_1acf63a0e739e2e2c7f9cbbe69a4a17eca" prot="public" virt="non-virtual"><scope>euphoria::core::ImageMapAction</scope><name>to</name></member>

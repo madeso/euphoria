@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1argparse_1_1ArgumentReader" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::argparse::ArgumentReader</compoundname>
     <includes refid="argparse_8h" local="no">argparse.h</includes>
@@ -120,7 +120,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/argparse.h" line="117" column="1" bodyfile="libs/core/src/core/argparse.h" bodystart="116" bodyend="128"/>
+    <location file="libs/core/src/core/argparse.h" line="116" column="5" bodyfile="libs/core/src/core/argparse.h" bodystart="117" bodyend="128"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1argparse_1_1ArgumentReader_1a451a612d6148af79e5f1ab370c2c36af" prot="public" virt="non-virtual"><scope>euphoria::core::argparse::ArgumentReader</scope><name>ArgumentReader</name></member>
       <member refid="structeuphoria_1_1core_1_1argparse_1_1ArgumentReader_1a7d79f4001f20396fe0e150258553d0c5" prot="public" virt="non-virtual"><scope>euphoria::core::argparse::ArgumentReader</scope><name>arguments</name></member>

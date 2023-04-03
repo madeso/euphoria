@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1ecs_1_1Signature" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::ecs::Signature</compoundname>
       <sectiondef kind="public-attrib">
@@ -74,7 +74,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/ecs.cc" line="26" column="1" bodyfile="libs/core/src/core/ecs.cc" bodystart="25" bodyend="45"/>
+    <location file="libs/core/src/core/ecs.cc" line="25" column="5" bodyfile="libs/core/src/core/ecs.cc" bodystart="26" bodyend="45"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1ecs_1_1Signature_1a009c1a7d821e1993d1b961fcae5390e7" prot="public" virt="non-virtual"><scope>euphoria::core::ecs::Signature</scope><name>components</name></member>
       <member refid="structeuphoria_1_1core_1_1ecs_1_1Signature_1a9bffbf7397f9cb8ec00a7f9728c2e268" prot="public" virt="non-virtual"><scope>euphoria::core::ecs::Signature</scope><name>destroy</name></member>

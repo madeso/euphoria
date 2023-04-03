@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1StepIterator" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::StepIterator</compoundname>
     <includes refid="iterate_8h" local="no">iterate.h</includes>
@@ -180,7 +180,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/iterate.h" line="11" column="1" bodyfile="libs/core/src/core/iterate.h" bodystart="10" bodyend="51"/>
+    <location file="libs/core/src/core/iterate.h" line="10" column="5" bodyfile="libs/core/src/core/iterate.h" bodystart="11" bodyend="51"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1StepIterator_1a809054b2fb64a58d10ba7d606c7a5c27" prot="public" virt="non-virtual"><scope>euphoria::core::StepIterator</scope><name>current</name></member>
       <member refid="structeuphoria_1_1core_1_1StepIterator_1aaeaf7640cb2eba8e9dd2f8044352a389" prot="public" virt="non-virtual"><scope>euphoria::core::StepIterator</scope><name>ended</name></member>

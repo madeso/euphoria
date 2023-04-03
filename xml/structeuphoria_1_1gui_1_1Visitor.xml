@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1gui_1_1Visitor" kind="struct" language="C++" prot="public" abstract="yes">
     <compoundname>euphoria::gui::Visitor</compoundname>
     <includes refid="visitor_8h" local="no">visitor.h</includes>
@@ -135,7 +135,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/gui/src/gui/visitor.h" line="14" column="1" bodyfile="libs/gui/src/gui/visitor.h" bodystart="13" bodyend="29"/>
+    <location file="libs/gui/src/gui/visitor.h" line="13" column="5" bodyfile="libs/gui/src/gui/visitor.h" bodystart="14" bodyend="29"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1gui_1_1Visitor_1ae840755be6a8552dd154d49780606821" prot="public" virt="non-virtual"><scope>euphoria::gui::Visitor</scope><name>operator=</name></member>
       <member refid="structeuphoria_1_1gui_1_1Visitor_1adc08ebfcbe29d58bbfd12875b63b2b28" prot="public" virt="non-virtual"><scope>euphoria::gui::Visitor</scope><name>operator=</name></member>

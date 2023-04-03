@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1vfs_1_1FileList" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::vfs::FileList</compoundname>
     <includes refid="vfs_8h" local="no">vfs.h</includes>
@@ -79,7 +79,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/vfs.h" line="26" column="1" bodyfile="libs/core/src/core/vfs.h" bodystart="25" bodyend="35"/>
+    <location file="libs/core/src/core/vfs.h" line="25" column="5" bodyfile="libs/core/src/core/vfs.h" bodystart="26" bodyend="35"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1vfs_1_1FileList_1a44409f31fa5ce72abfa842bed9e6834e" prot="public" virt="non-virtual"><scope>euphoria::core::vfs::FileList</scope><name>add</name></member>
       <member refid="structeuphoria_1_1core_1_1vfs_1_1FileList_1ad369e0db39dbc46413fe53477ec09f64" prot="public" virt="non-virtual"><scope>euphoria::core::vfs::FileList</scope><name>add</name></member>

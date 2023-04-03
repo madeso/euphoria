@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1CanvasLogic" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::CanvasLogic</compoundname>
     <includes refid="canvaslogic_8h" local="no">canvaslogic.h</includes>
@@ -145,7 +145,7 @@
         <link refid="structeuphoria_1_1core_1_1vec2f"/>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/canvaslogic.h" line="9" column="1" bodyfile="libs/core/src/core/canvaslogic.h" bodystart="8" bodyend="28"/>
+    <location file="libs/core/src/core/canvaslogic.h" line="8" column="5" bodyfile="libs/core/src/core/canvaslogic.h" bodystart="9" bodyend="28"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1CanvasLogic_1a766a23254bffaeeb60740f8a3f7639f3" prot="public" virt="non-virtual"><scope>euphoria::core::CanvasLogic</scope><name>from_screen_to_world</name></member>
       <member refid="structeuphoria_1_1core_1_1CanvasLogic_1a5e0cb6cd9a8b9c39111b3628c9e76235" prot="public" virt="non-virtual"><scope>euphoria::core::CanvasLogic</scope><name>from_world_to_screen</name></member>

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1detail_1_1SingleResponse" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::detail::SingleResponse</compoundname>
     <includes refid="chatbot_8h" local="no">chatbot.h</includes>
@@ -54,7 +54,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/chatbot.h" line="72" column="1" bodyfile="libs/core/src/core/chatbot.h" bodystart="71" bodyend="77"/>
+    <location file="libs/core/src/core/chatbot.h" line="71" column="9" bodyfile="libs/core/src/core/chatbot.h" bodystart="72" bodyend="77"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1detail_1_1SingleResponse_1a26186e104871e2266e0b2a34b62718aa" prot="public" virt="non-virtual"><scope>euphoria::core::detail::SingleResponse</scope><name>SingleResponse</name></member>
       <member refid="structeuphoria_1_1core_1_1detail_1_1SingleResponse_1ad77e0a4d1032597b5df6f70cd931f59b" prot="public" virt="non-virtual"><scope>euphoria::core::detail::SingleResponse</scope><name>to_say</name></member>

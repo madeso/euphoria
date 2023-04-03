@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1Ray2f" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::Ray2f</compoundname>
     <includes refid="ray_8h" local="no">ray.h</includes>
@@ -129,12 +129,12 @@
         <label>euphoria::core::Ray2f</label>
         <link refid="structeuphoria_1_1core_1_1Ray2f"/>
         <childnode refid="2" relation="usage">
-          <edgelabel>position</edgelabel>
           <edgelabel>direction</edgelabel>
+          <edgelabel>position</edgelabel>
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/ray.h" line="24" column="1" bodyfile="libs/core/src/core/ray.h" bodystart="23" bodyend="34"/>
+    <location file="libs/core/src/core/ray.h" line="23" column="5" bodyfile="libs/core/src/core/ray.h" bodystart="24" bodyend="34"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1Ray2f_1a61d41fdaab67f2c4e3533d207671ad14" prot="public" virt="non-virtual"><scope>euphoria::core::Ray2f</scope><name>direction</name></member>
       <member refid="structeuphoria_1_1core_1_1Ray2f_1abc1d16125c9b26cd4b6207f846a28847" prot="public" virt="non-virtual"><scope>euphoria::core::Ray2f</scope><name>from_direction</name></member>

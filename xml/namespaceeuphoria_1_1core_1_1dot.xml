@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="namespaceeuphoria_1_1core_1_1dot" kind="namespace" language="C++">
     <compoundname>euphoria::core::dot</compoundname>
+    <innerclass refid="structeuphoria_1_1core_1_1dot_1_1Node" prot="public">euphoria::core::dot::Node</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1dot_1_1Edge" prot="public">euphoria::core::dot::Edge</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1dot_1_1Graph" prot="public">euphoria::core::dot::Graph</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1dot_1_1Node" prot="public">euphoria::core::dot::Node</innerclass>
       <sectiondef kind="enum">
       <memberdef kind="enum" id="namespaceeuphoria_1_1core_1_1dot_1a1720f1180592f245e27686f462058778" prot="public" static="no" strong="yes">
         <type>int</type>
@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/dotoutput.h" line="11" column="18" bodyfile="libs/core/src/core/dotoutput.h" bodystart="11" bodyend="11"/>
+        <location file="libs/core/src/core/dotoutput.h" line="11" column="1" bodyfile="libs/core/src/core/dotoutput.h" bodystart="11" bodyend="11"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="func">
@@ -117,6 +117,6 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/dotoutput.cc" line="10" column="1"/>
+    <location file="libs/core/src/core/dotoutput.cc" line="9" column="1"/>
   </compounddef>
 </doxygen>

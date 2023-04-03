@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1Vec3fValue" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::Vec3fValue</compoundname>
     <basecompoundref refid="structeuphoria_1_1core_1_1Value" prot="public" virt="non-virtual">euphoria::core::Value</basecompoundref>
@@ -92,16 +92,16 @@
         <link refid="structeuphoria_1_1core_1_1Value"/>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/propertytree.h" line="51" column="1" bodyfile="libs/core/src/core/propertytree.h" bodystart="50" bodyend="57"/>
+    <location file="libs/core/src/core/propertytree.h" line="50" column="5" bodyfile="libs/core/src/core/propertytree.h" bodystart="51" bodyend="57"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1Vec3fValue_1ae82240c9cce39892531b23460f58f915" prot="public" virt="non-virtual"><scope>euphoria::core::Vec3fValue</scope><name>get</name></member>
       <member refid="structeuphoria_1_1core_1_1Value_1acde4d2b7af40524c61d4ad897b9cccb1" prot="public" virt="non-virtual"><scope>euphoria::core::Vec3fValue</scope><name>operator=</name></member>
       <member refid="structeuphoria_1_1core_1_1Value_1abc50f659aa8eaf72075b9313cba3a29f" prot="public" virt="non-virtual"><scope>euphoria::core::Vec3fValue</scope><name>operator=</name></member>
       <member refid="structeuphoria_1_1core_1_1Value_1a786ad162546b3f1fc69f4baadc6846f6" prot="public" virt="non-virtual"><scope>euphoria::core::Vec3fValue</scope><name>type</name></member>
+      <member refid="structeuphoria_1_1core_1_1Vec3fValue_1a3c8c83df1ec04744bbe13e85be96d66b" prot="public" virt="non-virtual"><scope>euphoria::core::Vec3fValue</scope><name>value</name></member>
       <member refid="structeuphoria_1_1core_1_1Value_1ac301dfe56bb49c4082b62113f17ce917" prot="public" virt="non-virtual"><scope>euphoria::core::Vec3fValue</scope><name>Value</name></member>
       <member refid="structeuphoria_1_1core_1_1Value_1ab17a2707af31fe9ad6705bd81b64b637" prot="public" virt="non-virtual"><scope>euphoria::core::Vec3fValue</scope><name>Value</name></member>
       <member refid="structeuphoria_1_1core_1_1Value_1acad7e8fe83ad48591ef33cfefb8283be" prot="public" virt="non-virtual"><scope>euphoria::core::Vec3fValue</scope><name>Value</name></member>
-      <member refid="structeuphoria_1_1core_1_1Vec3fValue_1a3c8c83df1ec04744bbe13e85be96d66b" prot="public" virt="non-virtual"><scope>euphoria::core::Vec3fValue</scope><name>value</name></member>
       <member refid="structeuphoria_1_1core_1_1Vec3fValue_1a3423c8af73e37b67cc343b1ac345fab5" prot="public" virt="non-virtual"><scope>euphoria::core::Vec3fValue</scope><name>Vec3fValue</name></member>
       <member refid="structeuphoria_1_1core_1_1Value_1ac5d2a64df6dab9d9c0fc8e008a166da1" prot="public" virt="virtual"><scope>euphoria::core::Vec3fValue</scope><name>~Value</name></member>
     </listofallmembers>

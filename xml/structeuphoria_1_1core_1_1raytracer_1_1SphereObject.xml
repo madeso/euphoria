@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1raytracer_1_1SphereObject" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::raytracer::SphereObject</compoundname>
     <basecompoundref refid="structeuphoria_1_1core_1_1raytracer_1_1Object" prot="public" virt="non-virtual">euphoria::core::raytracer::Object</basecompoundref>
@@ -135,7 +135,7 @@
         <link refid="structeuphoria_1_1core_1_1raytracer_1_1Object"/>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/raytracer.cc" line="33" column="1" bodyfile="libs/core/src/core/raytracer.cc" bodystart="32" bodyend="76"/>
+    <location file="libs/core/src/core/raytracer.cc" line="32" column="5" bodyfile="libs/core/src/core/raytracer.cc" bodystart="33" bodyend="76"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1raytracer_1_1SphereObject_1a0ec2543907c5d7dde31f03c5ff2c4a86" prot="public" virt="virtual"><scope>euphoria::core::raytracer::SphereObject</scope><name>get_collision</name></member>
       <member refid="structeuphoria_1_1core_1_1raytracer_1_1SphereObject_1a67226135bd3c6299ccfc8a8616680a89" prot="public" virt="non-virtual"><scope>euphoria::core::raytracer::SphereObject</scope><name>material</name></member>

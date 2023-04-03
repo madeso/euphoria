@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="load_8cc" kind="file" language="C++">
     <compoundname>load.cc</compoundname>
     <includes refid="load_8h" local="yes">gui/load.h</includes>
@@ -510,7 +510,7 @@
       <memberdef kind="define" id="load_8cc_1ad7b26bc5946d377af0206876da86744f" prot="public" static="no">
         <name>FUN</name>
         <param><defname>NAME</defname></param>
-        <initializer>case ::gui::InterpolationType::NAME: return core::easing::Function::NAME;</initializer>
+        <initializer>    case ::gui::InterpolationType::NAME: return core::easing::Function::NAME;</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>

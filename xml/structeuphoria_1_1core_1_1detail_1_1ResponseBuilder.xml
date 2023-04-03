@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1detail_1_1ResponseBuilder" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::detail::ResponseBuilder</compoundname>
     <includes refid="chatbot_8h" local="no">chatbot.h</includes>
@@ -144,7 +144,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/chatbot.h" line="91" column="1" bodyfile="libs/core/src/core/chatbot.h" bodystart="90" bodyend="106"/>
+    <location file="libs/core/src/core/chatbot.h" line="90" column="9" bodyfile="libs/core/src/core/chatbot.h" bodystart="91" bodyend="106"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1detail_1_1ResponseBuilder_1a796ef2b2565764cb333a52f2fc527ac0" prot="public" virt="non-virtual"><scope>euphoria::core::detail::ResponseBuilder</scope><name>add_input</name></member>
       <member refid="structeuphoria_1_1core_1_1detail_1_1ResponseBuilder_1a6571b3563218017843b25d10e2c10461" prot="public" virt="non-virtual"><scope>euphoria::core::detail::ResponseBuilder</scope><name>add_topic</name></member>

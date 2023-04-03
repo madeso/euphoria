@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1core_1_1Sphere" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::Sphere</compoundname>
     <includes refid="sphere_8h" local="no">sphere.h</includes>
@@ -22,7 +22,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/sphere.h" line="6" column="1" bodyfile="libs/core/src/core/sphere.h" bodystart="5" bodyend="8"/>
+    <location file="libs/core/src/core/sphere.h" line="5" column="5" bodyfile="libs/core/src/core/sphere.h" bodystart="6" bodyend="8"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1Sphere_1a34442f205252a0ada1a88459e32ed2c9" prot="public" virt="non-virtual"><scope>euphoria::core::Sphere</scope><name>radius</name></member>
     </listofallmembers>

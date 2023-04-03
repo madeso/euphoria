@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeuphoria_1_1minsynth_1_1WaveOut" kind="struct" language="C++" prot="public" abstract="yes">
     <compoundname>euphoria::minsynth::WaveOut</compoundname>
     <derivedcompoundref refid="structeuphoria_1_1minsynth_1_1Effect" prot="public" virt="non-virtual">euphoria::minsynth::Effect</derivedcompoundref>
@@ -150,7 +150,7 @@
         </childnode>
       </node>
     </inheritancegraph>
-    <location file="libs/minsynth/src/minsynth/synth.h" line="153" column="1" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="152" bodyend="163"/>
+    <location file="libs/minsynth/src/minsynth/synth.h" line="152" column="5" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="153" bodyend="163"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1minsynth_1_1WaveOut_1aa21b9ddec334bedf2c91e637ea7f6a13" prot="public" virt="pure-virtual"><scope>euphoria::minsynth::WaveOut</scope><name>get_output</name></member>
       <member refid="structeuphoria_1_1minsynth_1_1WaveOut_1a6213abe23d728331bfc6e91e15f034e8" prot="public" virt="non-virtual"><scope>euphoria::minsynth::WaveOut</scope><name>operator=</name></member>

@@ -1,24 +1,24 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="indexpage" kind="page">
     <compoundname>index</compoundname>
     <title>Euphoria</title>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-<para><image type="html" name="euphoria-logo-1280.png" inline="yes"></image>
+<para><anchor id="index_1md_readme"/> <image type="html" name="data/branding/euphoria-logo-1280.png" alt="euphoria logo" inline="yes"></image>
 </para>
-<para><ulink url="https://github.com/madeso/euphoria/actions?query=workflow%3Awindows"><image type="html" name="badge.svg?branch=master" inline="yes"></image>
-</ulink> <ulink url="https://github.com/madeso/euphoria/actions?query=workflow%3Alinux"><image type="html" name="badge.svg?branch=master" inline="yes"></image>
-</ulink> <ulink url="https://github.com/madeso/euphoria/actions/workflows/deploy-online-content.yml"><image type="html" name="badge.svg" inline="yes"></image>
+<para><ulink url="https://github.com/madeso/euphoria/actions?query=workflow%3Awindows"><image type="html" name="https://github.com/madeso/euphoria/workflows/windows/badge.svg?branch=master" alt="windows" inline="yes"></image>
+</ulink> <ulink url="https://github.com/madeso/euphoria/actions?query=workflow%3Alinux"><image type="html" name="https://github.com/madeso/euphoria/workflows/linux/badge.svg?branch=master" alt="linux" inline="yes"></image>
+</ulink> <ulink url="https://github.com/madeso/euphoria/actions/workflows/deploy-online-content.yml"><image type="html" name="https://github.com/madeso/euphoria/actions/workflows/deploy-online-content.yml/badge.svg" alt="deploy-online-content" inline="yes"></image>
 </ulink></para>
-<para><ulink url="https://github.com/madeso/euphoria/actions/workflows/run-style-checks.yml"><image type="html" name="badge.svg" inline="yes"></image>
-</ulink> <ulink url="https://github.com/madeso/euphoria/actions/workflows/run-cppcheck.yml"><image type="html" name="badge.svg" inline="yes"></image>
-</ulink> <ulink url="https://github.com/madeso/euphoria/actions/workflows/run-cpplint.yml"><image type="html" name="badge.svg" inline="yes"></image>
+<para><ulink url="https://github.com/madeso/euphoria/actions/workflows/run-style-checks.yml"><image type="html" name="https://github.com/madeso/euphoria/actions/workflows/run-style-checks.yml/badge.svg" alt="run-style-checks" inline="yes"></image>
+</ulink> <ulink url="https://github.com/madeso/euphoria/actions/workflows/run-cppcheck.yml"><image type="html" name="https://github.com/madeso/euphoria/actions/workflows/run-cppcheck.yml/badge.svg" alt="run-cppcheck" inline="yes"></image>
+</ulink> <ulink url="https://github.com/madeso/euphoria/actions/workflows/run-cpplint.yml"><image type="html" name="https://github.com/madeso/euphoria/actions/workflows/run-cpplint.yml/badge.svg" alt="run-cpplint" inline="yes"></image>
 </ulink></para>
-<para><ulink url="https://github.com/madeso/euphoria/actions/workflows/run-coverage.yml"><image type="html" name="badge.svg" inline="yes"></image>
-</ulink> <ulink url="https://codecov.io/gh/madeso/euphoria"><image type="html" name="badge.svg?token=V9K2H0U03G" inline="yes"></image>
-</ulink> <ulink url="https://coveralls.io/github/madeso/euphoria?branch=master"><image type="html" name="badge.svg?branch=master" inline="yes"></image>
+<para><ulink url="https://github.com/madeso/euphoria/actions/workflows/run-coverage.yml"><image type="html" name="https://github.com/madeso/euphoria/actions/workflows/run-coverage.yml/badge.svg" alt="run-coverage" inline="yes"></image>
+</ulink> <ulink url="https://codecov.io/gh/madeso/euphoria"><image type="html" name="https://codecov.io/gh/madeso/euphoria/branch/master/graph/badge.svg?token=V9K2H0U03G" alt="codecov" inline="yes"></image>
+</ulink> <ulink url="https://coveralls.io/github/madeso/euphoria?branch=master"><image type="html" name="https://coveralls.io/repos/github/madeso/euphoria/badge.svg?branch=master" alt="Coverage Status" inline="yes"></image>
 </ulink></para>
 <para>Euphoria is a data-driven &quot;game engine&quot;. It&apos;s in quotes because</para>
 <para><orderedlist>
@@ -39,7 +39,7 @@
 <sect2 id="index_1autotoc_md1">
 <title>About the code</title>
 <para>The folder structure should follow the <ulink url="https://github.com/vector-of-bool/pitchfork">pitchfork layout</ulink>.</para>
-<para><image type="html" name="euphoria.excalidraw.svg" inline="yes"></image>
+<para><image type="html" name="./docs/euphoria.excalidraw.svg" alt="project layout" inline="yes"></image>
 </para>
 <para>All names should follow <computeroutput>snake_case</computeroutput>, both for variables, members, functions and files. The only exception are C++ macros that should follow <computeroutput>SHOUTING_SNAKE_CASE</computeroutput> and structs &amp; template arguments that should follow <computeroutput>PascalCase</computeroutput>.</para>
 </sect2>
@@ -53,5 +53,6 @@
 </para>
 </sect2>
     </detaileddescription>
+    <location file="readme.md"/>
   </compounddef>
 </doxygen>
