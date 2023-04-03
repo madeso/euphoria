@@ -495,7 +495,7 @@ namespace euphoria::minsynth
         bool has_tone = false;
         int tone = 0;
         float time = 0;
-        for(const auto k: down_tones)
+        for(const auto& k: down_tones)
         {
             if(has_tone)
             {
