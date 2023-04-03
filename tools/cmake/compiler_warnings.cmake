@@ -28,7 +28,7 @@ function(set_project_warnings project_name)
         /w14928 # illegal copy-initialization; more than one user-defined conversion has been implicitly applied
     )
 
-    set(CLANG_WARNINGS
+    set(BASE_WARNINGS
         -Wall
         -Wextra # reasonable and standard
         -Wshadow # warn the user if a variable declaration shadows one from a parent context
@@ -43,18 +43,24 @@ function(set_project_warnings project_name)
         # -Wlifetime # ???
         # -Wpedantic # ???
         -Wno-error=deprecated # ???
-        -Wnull-dereference # warn if a null dereference is detected
         -Wdouble-promotion # warn if float is implicit promoted to double
         -Wformat=2 # warn on security issues around functions that format output (ie printf)
     )
 
     if (WARNINGS_AS_ERRORS)
-        set(CLANG_WARNINGS ${CLANG_WARNINGS} -Werror)
+        set(BASE_WARNINGS ${BASE_WARNINGS} -Werror)
         set(MSVC_WARNINGS ${MSVC_WARNINGS} /WX)
     endif()
 
+    set(CLANG_WARNINGS
+        ${BASE_WARNINGS}
+        # should be enabled for all but gcc complains
+        # https://www.mail-archive.com/debian-bugs-dist@lists.debian.org/msg1865640.html
+        -Wnull-dereference # warn if a null dereference is detected
+    )
+
     set(GCC_WARNINGS
-        ${CLANG_WARNINGS}
+        ${BASE_WARNINGS}
         -Wmisleading-indentation # warn if identation implies blocks where blocks do not exist
         -Wduplicated-cond # warn if if / else chain has duplicated conditions
         -Wduplicated-branches # warn if if / else branches have duplicated code
