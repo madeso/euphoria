@@ -130,7 +130,7 @@ extract_colors(const std::vector<ImageAndFile>& images)
     }
 
     auto ret = std::vector<ExtractedColor>{};
-    for(const auto c: colors)
+    for(const auto& c: colors)
     {
         ret.emplace_back(rgbi::from_hex(c.first), c.second);
     }
