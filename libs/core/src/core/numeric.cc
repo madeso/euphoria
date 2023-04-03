@@ -113,18 +113,6 @@ namespace euphoria::core
 
 
     float
-    abs(float r)
-    {
-        if(r < 0.0f)
-        {
-            return -r;
-        }
-
-        return r;
-    }
-
-
-    float
     mod(float numer, float denumer)
     {
         return ::fmodf(numer, denumer);

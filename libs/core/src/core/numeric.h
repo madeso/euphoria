@@ -5,15 +5,19 @@
 
 namespace euphoria::core
 {
+    constexpr float abs(float r)
+    {
+        return r >= 0.0f
+            ? r
+            : -r
+            ;
+    }
 
     // int overloads provided for template overload reasons
-    constexpr bool
-    is_zero(float r)
+    constexpr bool is_zero(float r)
     {
         constexpr float epsilon = 0.0001f;
-        if (r < -epsilon) { return false; }
-        else if (r > epsilon) { return false; }
-        else { return true; }
+        return abs(r) < epsilon;
     }
 
     constexpr bool
@@ -75,12 +79,8 @@ namespace euphoria::core
     float
     log(float r);
 
-    float
-    abs(float r);
-
     template<typename T>
-    constexpr T
-    min(T lhs, T rhs)
+    constexpr T min(T lhs, T rhs)
     {
         if (lhs < rhs)
         {
@@ -92,8 +92,7 @@ namespace euphoria::core
 
 
     template<typename T>
-    constexpr T
-    max(T lhs, T rhs)
+    constexpr T max(T lhs, T rhs)
     {
         if (lhs > rhs)
         {
