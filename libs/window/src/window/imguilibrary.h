@@ -5,7 +5,7 @@
 
 namespace euphoria::window
 {
-    struct SdlAndOpenglContext;
+    struct SdlOpenglContext;
 }
 
 namespace euphoria::window::imgui
@@ -13,7 +13,7 @@ namespace euphoria::window::imgui
     struct Library
     {
     public:
-        Library(SDL_Window* the_window, SdlAndOpenglContext* context, const std::string& the_path);
+        Library(SDL_Window* the_window, SdlOpenglContext* context, const std::string& the_path);
         ~Library();
 
         Library(const Library& other) = delete;

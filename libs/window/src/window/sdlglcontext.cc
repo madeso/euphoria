@@ -9,7 +9,7 @@
 
 namespace euphoria::window
 {
-    SdlAndOpenglContext::SdlAndOpenglContext(SdlWindow* window)
+    SdlOpenglContext::SdlOpenglContext(SdlWindow* window)
         : context(SDL_GL_CreateContext(window->window))
     {
         if(context == nullptr)
@@ -19,7 +19,7 @@ namespace euphoria::window
         }
     }
 
-    SdlAndOpenglContext::~SdlAndOpenglContext()
+    SdlOpenglContext::~SdlOpenglContext()
     {
         SDL_GL_DeleteContext(context);
     }

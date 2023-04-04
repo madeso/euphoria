@@ -109,7 +109,7 @@ namespace euphoria::window
 
         window_id = SDL_GetWindowID(window->window);
 
-        context = std::make_unique<SdlAndOpenglContext>(window.get());
+        context = std::make_unique<SdlOpenglContext>(window.get());
 
         if(context->context == nullptr)
         {

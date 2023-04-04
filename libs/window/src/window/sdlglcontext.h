@@ -5,16 +5,16 @@ namespace euphoria::window
 {
     struct SdlWindow;
 
-    struct SdlAndOpenglContext
+    struct SdlOpenglContext
     {
     public:
-        SdlAndOpenglContext(SdlWindow* window);
-        ~SdlAndOpenglContext();
+        SdlOpenglContext(SdlWindow* window);
+        ~SdlOpenglContext();
 
-        SdlAndOpenglContext(const SdlAndOpenglContext& other) = delete;
-        void operator=(const SdlAndOpenglContext&) = delete;
-        SdlAndOpenglContext(SdlAndOpenglContext&& other) = delete;
-        void operator=(SdlAndOpenglContext&&) = delete;
+        SdlOpenglContext(const SdlOpenglContext& other) = delete;
+        void operator=(const SdlOpenglContext&) = delete;
+        SdlOpenglContext(SdlOpenglContext&& other) = delete;
+        void operator=(SdlOpenglContext&&) = delete;
 
         void* context;
     };

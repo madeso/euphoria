@@ -27,7 +27,7 @@ namespace euphoria::window
 {
     struct SdlLibrary;
     struct SdlWindow;
-    struct SdlAndOpenglContext;
+    struct SdlOpenglContext;
 
     struct Engine
     {
@@ -36,7 +36,7 @@ namespace euphoria::window
         std::shared_ptr<core::vfs::ReadRootCatalog> catalog;
         std::unique_ptr<SdlWindow> window;
         unsigned int window_id;
-        std::unique_ptr<SdlAndOpenglContext> context;
+        std::unique_ptr<SdlOpenglContext> context;
         std::unique_ptr<render::Init> init;
         std::unique_ptr<imgui::Library> imgui;
 

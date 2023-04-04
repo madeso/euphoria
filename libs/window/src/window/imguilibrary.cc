@@ -63,7 +63,7 @@ namespace euphoria::window::imgui
     }
 
 
-    Library::Library(SDL_Window *the_window, SdlAndOpenglContext *context, const std::string &the_path)
+    Library::Library(SDL_Window *the_window, SdlOpenglContext *context, const std::string &the_path)
             : path_to_imgui_ini(the_path + "imgui.ini")
     {
         // hrm... euphoria is using #version 330 core
