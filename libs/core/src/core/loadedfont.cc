@@ -32,10 +32,10 @@ namespace euphoria::core
         std::map<int, int> index_to_unicode;
 
         FontData(unsigned char* ttf_buffer, float s)
-            : font()
-            , size(s)
-            , was_loaded(stbtt_InitFont(&font, ttf_buffer, stbtt_GetFontOffsetForIndex(ttf_buffer,0)) == 1)
-            , line_height(0)
+            : font{}
+            , size{s}
+            , was_loaded{stbtt_InitFont(&font, ttf_buffer, stbtt_GetFontOffsetForIndex(ttf_buffer,0)) == 1}
+            , line_height{0}
         {
             if(was_loaded)
             {

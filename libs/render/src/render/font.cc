@@ -372,11 +372,11 @@ namespace euphoria::render
             float s,
             ListOfTextDrawCommands* li
         )
-            : font(f)
-            , size(s)
-            , apply_highlight(false)
-            , position(0, 0)
-            , list(li)
+            : font{f}
+            , size{s}
+            , apply_highlight{false}
+            , position{0, 0}
+            , list{li}
         {
         }
 

@@ -460,9 +460,9 @@ struct TokenReader
     std::size_t size;
 
     explicit TokenReader(const std::vector<Token>& input)
-        : tokens(input)
-        , next_token_index(0)
-        , size(input.size())
+        : tokens{input}
+        , next_token_index{0}
+        , size{input.size()}
     {
     }
 

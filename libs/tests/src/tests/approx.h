@@ -41,10 +41,10 @@ namespace euphoria::tests
         {
         public:
             explicit Approx(T v)
-                : epsilon(std::numeric_limits<float>::epsilon() * 100)
-                , margin(0.0)
-                , scale(1.0)
-                , value(v)
+                : epsilon{std::numeric_limits<float>::epsilon() * 100}
+                , margin{0.0}
+                , scale{1.0}
+                , value{v}
             {
             }
 

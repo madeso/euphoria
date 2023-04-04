@@ -463,10 +463,10 @@ namespace euphoria::core
             float timer;
 
             LerpCamera(EditorCamera3* owner, const CameraFrame& ato, float atime)
-                : from(get_frame_from_editor(owner))
-                , to(ato)
-                , total_time(atime)
-                , timer(0.0f)
+                : from{get_frame_from_editor(owner)}
+                , to{ato}
+                , total_time{atime}
+                , timer{0.0f}
             {
             }
 
