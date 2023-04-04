@@ -2,6 +2,7 @@ Checks: "-*,bugprone-*,modernize-*,-modernize-use-trailing-return-type,performan
 
 "CheckOptions": [
     {"key": "readability-identifier-length.MinimumParameterNameLength",          "value": "0"},
+    {"key": "readability-identifier-length.MinimumVariableNameLength",           "value": "0"},
 
 
 

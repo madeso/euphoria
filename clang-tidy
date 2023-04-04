@@ -116,6 +116,7 @@ END_CHECKS
     // disable parameter length checks for now
     // todo(Gustav): enable this again
     {"key": "readability-identifier-length.MinimumParameterNameLength",          "value": "0"},
+    {"key": "readability-identifier-length.MinimumVariableNameLength",           "value": "0"},
 
 
     // readability identifier settings
