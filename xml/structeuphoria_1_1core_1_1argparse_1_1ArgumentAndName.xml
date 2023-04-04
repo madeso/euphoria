@@ -51,7 +51,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.h" line="248" column="9" bodyfile="libs/core/src/core/argparse.cc" bodystart="326" bodyend="330"/>
+        <location file="libs/core/src/core/argparse.h" line="248" column="9" bodyfile="libs/core/src/core/argparse.cc" bodystart="325" bodyend="329"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

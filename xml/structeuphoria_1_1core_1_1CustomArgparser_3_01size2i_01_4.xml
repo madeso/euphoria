@@ -42,7 +42,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/size2.h" line="71" column="28" bodyfile="libs/core/src/core/size2.cc" bodystart="252" bodyend="255"/>
+        <location file="libs/core/src/core/size2.h" line="71" column="28" bodyfile="libs/core/src/core/size2.cc" bodystart="254" bodyend="257"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1CustomArgparser_3_01size2i_01_4_1acb1611b3d1f010684caa5090d26fd6c0" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1Result" kindref="compound">Result</ref>&lt; <ref refid="structeuphoria_1_1core_1_1size2i" kindref="compound">size2i</ref> &gt;</type>
@@ -59,7 +59,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/size2.h" line="72" column="23" bodyfile="libs/core/src/core/size2.cc" bodystart="258" bodyend="295"/>
+        <location file="libs/core/src/core/size2.h" line="72" column="23" bodyfile="libs/core/src/core/size2.cc" bodystart="260" bodyend="297"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

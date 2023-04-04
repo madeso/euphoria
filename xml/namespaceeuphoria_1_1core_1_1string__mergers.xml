@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stringmerger.h" line="91" column="32" bodyfile="libs/core/src/core/stringmerger.h" bodystart="91" bodyend="-1"/>
+        <location file="libs/core/src/core/stringmerger.h" line="89" column="32" bodyfile="libs/core/src/core/stringmerger.h" bodystart="89" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespaceeuphoria_1_1core_1_1string__mergers_1a2d5d00244d536bbd8654476a5ff3e48f" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr <ref refid="structeuphoria_1_1core_1_1StringMerger" kindref="compound">StringMerger</ref></type>
@@ -29,7 +29,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stringmerger.h" line="92" column="32" bodyfile="libs/core/src/core/stringmerger.h" bodystart="92" bodyend="-1"/>
+        <location file="libs/core/src/core/stringmerger.h" line="90" column="32" bodyfile="libs/core/src/core/stringmerger.h" bodystart="90" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespaceeuphoria_1_1core_1_1string__mergers_1a00b908fb8a16e9d021b1a2be3a1be597" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr <ref refid="structeuphoria_1_1core_1_1StringMerger" kindref="compound">StringMerger</ref></type>
@@ -43,7 +43,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stringmerger.h" line="93" column="32" bodyfile="libs/core/src/core/stringmerger.h" bodystart="93" bodyend="-1"/>
+        <location file="libs/core/src/core/stringmerger.h" line="91" column="32" bodyfile="libs/core/src/core/stringmerger.h" bodystart="91" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespaceeuphoria_1_1core_1_1string__mergers_1a1b386c62ecd35c2d54cd33136577def7" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr <ref refid="structeuphoria_1_1core_1_1StringMerger" kindref="compound">StringMerger</ref></type>
@@ -57,7 +57,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stringmerger.h" line="94" column="32" bodyfile="libs/core/src/core/stringmerger.h" bodystart="94" bodyend="-1"/>
+        <location file="libs/core/src/core/stringmerger.h" line="92" column="32" bodyfile="libs/core/src/core/stringmerger.h" bodystart="92" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespaceeuphoria_1_1core_1_1string__mergers_1a4ab99e379925b2f8fb7210870837e85c" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr <ref refid="structeuphoria_1_1core_1_1StringMerger" kindref="compound">StringMerger</ref></type>
@@ -71,7 +71,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stringmerger.h" line="95" column="32" bodyfile="libs/core/src/core/stringmerger.h" bodystart="95" bodyend="-1"/>
+        <location file="libs/core/src/core/stringmerger.h" line="93" column="32" bodyfile="libs/core/src/core/stringmerger.h" bodystart="93" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespaceeuphoria_1_1core_1_1string__mergers_1af2257039a79412d796b6d341e8d03f4a" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr <ref refid="structeuphoria_1_1core_1_1StringMerger" kindref="compound">StringMerger</ref></type>
@@ -85,13 +85,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stringmerger.h" line="96" column="32" bodyfile="libs/core/src/core/stringmerger.h" bodystart="96" bodyend="-1"/>
+        <location file="libs/core/src/core/stringmerger.h" line="94" column="32" bodyfile="libs/core/src/core/stringmerger.h" bodystart="94" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/stringmerger.h" line="89" column="5"/>
+    <location file="libs/core/src/core/stringmerger.h" line="87" column="5"/>
   </compounddef>
 </doxygen>

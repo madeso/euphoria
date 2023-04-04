@@ -150,30 +150,29 @@
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
 <div class="line"><a name="l00096"></a><span class="lineno"><a class="line" href="structeuphoria_1_1assertlib_1_1AssertArgumentValue.html#a517d6e277fea30926798dab8df998678">   96</a></span>&#160;        <a class="code" href="structeuphoria_1_1assertlib_1_1AssertArgumentValue.html#a517d6e277fea30926798dab8df998678">AssertArgumentValue</a>(<span class="keyword">const</span> T&amp; t)</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        {</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;            <a class="code" href="structeuphoria_1_1assertlib_1_1AssertArgumentValue.html#a7d57192781b33e87cdaca24fff8c1fb6">value</a> = <a class="code" href="namespaceeuphoria_1_1core.html#a8596fa3efb42bc0ad86b46183bc305d3">fmt::to_string</a>(t);</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        }</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    };</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00103"></a><span class="lineno"><a class="line" href="namespaceeuphoria_1_1assertlib.html#a7085dadc44d2f0d41014a748a4629498">  103</a></span>&#160;    <a class="code" href="namespaceeuphoria_1_1assertlib.html#a7085dadc44d2f0d41014a748a4629498">begin_throwing</a>();</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keywordtype">bool</span></div>
-<div class="line"><a name="l00106"></a><span class="lineno"><a class="line" href="namespaceeuphoria_1_1assertlib.html#aadc50e6c320a759f0f79559b26dd4c7f">  106</a></span>&#160;    <a class="code" href="namespaceeuphoria_1_1assertlib.html#aadc50e6c320a759f0f79559b26dd4c7f">is_throwing</a>();</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00109"></a><span class="lineno"><a class="line" href="namespaceeuphoria_1_1assertlib.html#aca4984e08a6871d591be4b6c9a3d8c91">  109</a></span>&#160;    <a class="code" href="namespaceeuphoria_1_1assertlib.html#aca4984e08a6871d591be4b6c9a3d8c91">on_assert</a></div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    (</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">char</span>* expression,</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        <span class="keywordtype">int</span> <a class="code" href="nlp__sentence_8cc.html#a41ebd28ef1d7c6ade45642cb6acc1039">line</a>,</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">char</span>* file,</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">char</span>* argstr,</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        <span class="keyword">const</span> std::vector&lt;AssertArgumentValue&gt;&amp; arguments,</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">char</span>* <span class="keyword">function</span></div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    );</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;}</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// IMPLEMENT_ASSERT_LIB</span></div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;            : <a class="code" href="structeuphoria_1_1assertlib_1_1AssertArgumentValue.html#a7d57192781b33e87cdaca24fff8c1fb6">value</a>(fmt::<a class="code" href="namespaceeuphoria_1_1core.html#a8596fa3efb42bc0ad86b46183bc305d3">to_string</a>(t))</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;            {}</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    };</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno"><a class="line" href="namespaceeuphoria_1_1assertlib.html#a7085dadc44d2f0d41014a748a4629498">  102</a></span>&#160;    <a class="code" href="namespaceeuphoria_1_1assertlib.html#a7085dadc44d2f0d41014a748a4629498">begin_throwing</a>();</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keywordtype">bool</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno"><a class="line" href="namespaceeuphoria_1_1assertlib.html#aadc50e6c320a759f0f79559b26dd4c7f">  105</a></span>&#160;    <a class="code" href="namespaceeuphoria_1_1assertlib.html#aadc50e6c320a759f0f79559b26dd4c7f">is_throwing</a>();</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00108"></a><span class="lineno"><a class="line" href="namespaceeuphoria_1_1assertlib.html#aca4984e08a6871d591be4b6c9a3d8c91">  108</a></span>&#160;    <a class="code" href="namespaceeuphoria_1_1assertlib.html#aca4984e08a6871d591be4b6c9a3d8c91">on_assert</a></div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    (</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">char</span>* expression,</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        <span class="keywordtype">int</span> <a class="code" href="nlp__sentence_8cc.html#a41ebd28ef1d7c6ade45642cb6acc1039">line</a>,</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">char</span>* file,</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">char</span>* argstr,</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        <span class="keyword">const</span> std::vector&lt;AssertArgumentValue&gt;&amp; arguments,</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">char</span>* <span class="keyword">function</span></div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    );</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;}</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// IMPLEMENT_ASSERT_LIB</span></div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
 <div class="ttc" id="anamespaceeuphoria_1_1assertlib_html"><div class="ttname"><a href="namespaceeuphoria_1_1assertlib.html">euphoria::assertlib</a></div><div class="ttdef"><b>Definition:</b> <a href="assert_8h_source.html#l00089">assert.h:90</a></div></div>
 <div class="ttc" id="anamespaceeuphoria_1_1assertlib_html_a7085dadc44d2f0d41014a748a4629498"><div class="ttname"><a href="namespaceeuphoria_1_1assertlib.html#a7085dadc44d2f0d41014a748a4629498">euphoria::assertlib::begin_throwing</a></div><div class="ttdeci">void begin_throwing()</div></div>
 <div class="ttc" id="anamespaceeuphoria_1_1assertlib_html_aadc50e6c320a759f0f79559b26dd4c7f"><div class="ttname"><a href="namespaceeuphoria_1_1assertlib.html#aadc50e6c320a759f0f79559b26dd4c7f">euphoria::assertlib::is_throwing</a></div><div class="ttdeci">bool is_throwing()</div></div>

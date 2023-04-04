@@ -69,9 +69,9 @@
         </inbodydescription>
         <location file="libs/window/src/window/engine.h" line="38" column="22" bodyfile="libs/window/src/window/engine.h" bodystart="38" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeuphoria_1_1window_1_1Engine_1a668e478f1725aaf8ed80a1bd79017be4" prot="public" static="no" mutable="no">
-        <type>std::unique_ptr&lt; <ref refid="structeuphoria_1_1window_1_1SdlAndOpenglContext" kindref="compound">SdlAndOpenglContext</ref> &gt;</type>
-        <definition>std::unique_ptr&lt;SdlAndOpenglContext&gt; euphoria::window::Engine::context</definition>
+      <memberdef kind="variable" id="structeuphoria_1_1window_1_1Engine_1a661a412252c408a170d831cecb6a6895" prot="public" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="structeuphoria_1_1window_1_1SdlOpenglContext" kindref="compound">SdlOpenglContext</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;SdlOpenglContext&gt; euphoria::window::Engine::context</definition>
         <argsstring></argsstring>
         <name>context</name>
         <briefdescription>
@@ -280,7 +280,7 @@
     <location file="libs/window/src/window/engine.h" line="32" column="5" bodyfile="libs/window/src/window/engine.h" bodystart="33" bodyend="62"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1window_1_1Engine_1a617767973242f4b5699be89bdddb0073" prot="public" virt="non-virtual"><scope>euphoria::window::Engine</scope><name>catalog</name></member>
-      <member refid="structeuphoria_1_1window_1_1Engine_1a668e478f1725aaf8ed80a1bd79017be4" prot="public" virt="non-virtual"><scope>euphoria::window::Engine</scope><name>context</name></member>
+      <member refid="structeuphoria_1_1window_1_1Engine_1a661a412252c408a170d831cecb6a6895" prot="public" virt="non-virtual"><scope>euphoria::window::Engine</scope><name>context</name></member>
       <member refid="structeuphoria_1_1window_1_1Engine_1a82f447fb34de95b62f889fa3725b3d76" prot="public" virt="non-virtual"><scope>euphoria::window::Engine</scope><name>create_window</name></member>
       <member refid="structeuphoria_1_1window_1_1Engine_1a8d93d1283e0fb45d3a968721cb66358b" prot="public" virt="non-virtual"><scope>euphoria::window::Engine</scope><name>Engine</name></member>
       <member refid="structeuphoria_1_1window_1_1Engine_1afa9f73385a03f5972c40e155e3ab1a17" prot="public" virt="non-virtual"><scope>euphoria::window::Engine</scope><name>Engine</name></member>

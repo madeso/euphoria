@@ -146,7 +146,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/tracery.h" line="38" column="9" bodyfile="libs/core/src/core/tracery.cc" bodystart="201" bodyend="205"/>
+        <location file="libs/core/src/core/tracery.h" line="39" column="9" bodyfile="libs/core/src/core/tracery.cc" bodystart="201" bodyend="205"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1tracery_1_1Result_1af5993d59a988dd8e86c72beb3a259504" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -159,14 +159,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/tracery.h" line="39" column="9" bodyfile="libs/core/src/core/tracery.cc" bodystart="208" bodyend="211"/>
+        <location file="libs/core/src/core/tracery.h" line="40" column="9" bodyfile="libs/core/src/core/tracery.cc" bodystart="208" bodyend="211"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/tracery.h" line="17" column="5" bodyfile="libs/core/src/core/tracery.h" bodystart="18" bodyend="40"/>
+    <location file="libs/core/src/core/tracery.h" line="17" column="5" bodyfile="libs/core/src/core/tracery.h" bodystart="18" bodyend="41"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1tracery_1_1Result_1a67171a1dfa9297e43007a2a7f8ce247a" prot="public" virt="non-virtual"><scope>euphoria::core::tracery::Result</scope><name>Error</name></member>
       <member refid="structeuphoria_1_1core_1_1tracery_1_1Result_1a117e7719e9e48c0973f65954709b6c21" prot="public" virt="non-virtual"><scope>euphoria::core::tracery::Result</scope><name>error_type</name></member>

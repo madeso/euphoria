@@ -851,7 +851,7 @@
     <member refid="structeuphoria_1_1window_1_1Engine_1a617767973242f4b5699be89bdddb0073" kind="variable"><name>catalog</name></member>
     <member refid="structeuphoria_1_1window_1_1Engine_1ae043753a3f56db483f170777204e639d" kind="variable"><name>window</name></member>
     <member refid="structeuphoria_1_1window_1_1Engine_1a4e5ce248d241984a4e762e8ffffa0c28" kind="variable"><name>window_id</name></member>
-    <member refid="structeuphoria_1_1window_1_1Engine_1a668e478f1725aaf8ed80a1bd79017be4" kind="variable"><name>context</name></member>
+    <member refid="structeuphoria_1_1window_1_1Engine_1a661a412252c408a170d831cecb6a6895" kind="variable"><name>context</name></member>
     <member refid="structeuphoria_1_1window_1_1Engine_1ab5a955d5558aad2726745c81da82f9d8" kind="variable"><name>init</name></member>
     <member refid="structeuphoria_1_1window_1_1Engine_1a6ca176fabc85debadcb6529e49358cc3" kind="variable"><name>imgui</name></member>
     <member refid="structeuphoria_1_1window_1_1Engine_1a8d93d1283e0fb45d3a968721cb66358b" kind="function"><name>Engine</name></member>
@@ -1368,7 +1368,7 @@
   </compound>
   <compound refid="structeuphoria_1_1window_1_1imgui_1_1Library" kind="struct"><name>euphoria::window::imgui::Library</name>
     <member refid="structeuphoria_1_1window_1_1imgui_1_1Library_1a90bb9ac1a59ac6bb512a229258b58b84" kind="variable"><name>path_to_imgui_ini</name></member>
-    <member refid="structeuphoria_1_1window_1_1imgui_1_1Library_1a88b0726e7b62db6dd5699814ac6d78da" kind="function"><name>Library</name></member>
+    <member refid="structeuphoria_1_1window_1_1imgui_1_1Library_1ae61ade966b1f1c6f424945456ce1d9f0" kind="function"><name>Library</name></member>
     <member refid="structeuphoria_1_1window_1_1imgui_1_1Library_1a7dd515d32d168ad29c843522bc9f194d" kind="function"><name>~Library</name></member>
     <member refid="structeuphoria_1_1window_1_1imgui_1_1Library_1a9adc05201452e45782128fbcd44d2df6" kind="function"><name>Library</name></member>
     <member refid="structeuphoria_1_1window_1_1imgui_1_1Library_1aa5d2d9bd9bb6b87ad9a362c937a4b1ea" kind="function"><name>operator=</name></member>
@@ -2602,15 +2602,6 @@
     <member refid="structeuphoria_1_1core_1_1raytracer_1_1Scene_1af5ad43710549fdccdcd1676f378679fb" kind="variable"><name>objects</name></member>
     <member refid="structeuphoria_1_1core_1_1raytracer_1_1Scene_1ad2f24facecfe7c536a591a90984a87a0" kind="function"><name>get_collision</name></member>
   </compound>
-  <compound refid="structeuphoria_1_1window_1_1SdlAndOpenglContext" kind="struct"><name>euphoria::window::SdlAndOpenglContext</name>
-    <member refid="structeuphoria_1_1window_1_1SdlAndOpenglContext_1a034ac43aa342cbe31afe5fad987136cc" kind="variable"><name>context</name></member>
-    <member refid="structeuphoria_1_1window_1_1SdlAndOpenglContext_1a5070d5da60d488b8626926edcac6cf42" kind="function"><name>SdlAndOpenglContext</name></member>
-    <member refid="structeuphoria_1_1window_1_1SdlAndOpenglContext_1a48d583ef0f80bcf1fe4500152737fcd3" kind="function"><name>~SdlAndOpenglContext</name></member>
-    <member refid="structeuphoria_1_1window_1_1SdlAndOpenglContext_1a1356cbb95a258b96ca8c4240430e64b9" kind="function"><name>SdlAndOpenglContext</name></member>
-    <member refid="structeuphoria_1_1window_1_1SdlAndOpenglContext_1aa4f1a5f8cdc672f6f3c281cc2080dc7d" kind="function"><name>operator=</name></member>
-    <member refid="structeuphoria_1_1window_1_1SdlAndOpenglContext_1a5ad143c74f57ed1f5cc345b3095c98c0" kind="function"><name>SdlAndOpenglContext</name></member>
-    <member refid="structeuphoria_1_1window_1_1SdlAndOpenglContext_1a6c5fe09b362f77770ce24c2cbfdfddc9" kind="function"><name>operator=</name></member>
-  </compound>
   <compound refid="structeuphoria_1_1window_1_1SdlLibrary" kind="struct"><name>euphoria::window::SdlLibrary</name>
     <member refid="structeuphoria_1_1window_1_1SdlLibrary_1a6bfa2c25ea7b4775ea6e704fb7446846" kind="variable"><name>ok</name></member>
     <member refid="structeuphoria_1_1window_1_1SdlLibrary_1a99f8603310d9c0b312171ffba9cb1c54" kind="function"><name>SdlLibrary</name></member>
@@ -2619,6 +2610,15 @@
     <member refid="structeuphoria_1_1window_1_1SdlLibrary_1a3ff078b80bd0ff1bc51d050c4974449a" kind="function"><name>operator=</name></member>
     <member refid="structeuphoria_1_1window_1_1SdlLibrary_1a4129a00a1923da79d4216beeab87ba48" kind="function"><name>SdlLibrary</name></member>
     <member refid="structeuphoria_1_1window_1_1SdlLibrary_1a5099eaabe2828b6d644db8802fdeeab6" kind="function"><name>operator=</name></member>
+  </compound>
+  <compound refid="structeuphoria_1_1window_1_1SdlOpenglContext" kind="struct"><name>euphoria::window::SdlOpenglContext</name>
+    <member refid="structeuphoria_1_1window_1_1SdlOpenglContext_1ab1036edc803d22491ecf67b7a22fcbbc" kind="variable"><name>context</name></member>
+    <member refid="structeuphoria_1_1window_1_1SdlOpenglContext_1a140167bacf7040841bf3cf9e39b63f51" kind="function"><name>SdlOpenglContext</name></member>
+    <member refid="structeuphoria_1_1window_1_1SdlOpenglContext_1a0972b8d1691c9ec0b02e2693d0c2584e" kind="function"><name>~SdlOpenglContext</name></member>
+    <member refid="structeuphoria_1_1window_1_1SdlOpenglContext_1a8ebfe2c3efe39881fd86cc5563b37aca" kind="function"><name>SdlOpenglContext</name></member>
+    <member refid="structeuphoria_1_1window_1_1SdlOpenglContext_1a88ee741054b7635b00eeb4619229fb4a" kind="function"><name>operator=</name></member>
+    <member refid="structeuphoria_1_1window_1_1SdlOpenglContext_1ad1445c6b7d5a81b375790ffe9875639c" kind="function"><name>SdlOpenglContext</name></member>
+    <member refid="structeuphoria_1_1window_1_1SdlOpenglContext_1abf53c2f9c8753981a68336e34177c103" kind="function"><name>operator=</name></member>
   </compound>
   <compound refid="structeuphoria_1_1window_1_1SdlTimer" kind="struct"><name>euphoria::window::SdlTimer</name>
     <member refid="structeuphoria_1_1window_1_1SdlTimer_1a9588abba806394be383e701b44570ca9" kind="variable"><name>current_time</name></member>

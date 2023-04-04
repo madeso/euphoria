@@ -51,7 +51,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ray.h" line="41" column="9" bodyfile="libs/core/src/core/ray.cc" bodystart="72" bodyend="76"/>
+        <location file="libs/core/src/core/ray.h" line="41" column="9" bodyfile="libs/core/src/core/ray.cc" bodystart="76" bodyend="80"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Ray3f_1ac2f0f3dbce2465fa9bf11356013136d1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
@@ -68,7 +68,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ray.h" line="46" column="16" bodyfile="libs/core/src/core/ray.cc" bodystart="94" bodyend="97"/>
+        <location file="libs/core/src/core/ray.h" line="46" column="16" bodyfile="libs/core/src/core/ray.cc" bodystart="98" bodyend="101"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Ray3f_1a148e4b0a4a269a9f0605f96c65f8461d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1UnitRay3f" kindref="compound">UnitRay3f</ref></type>
@@ -81,7 +81,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ray.h" line="47" column="20" bodyfile="libs/core/src/core/ray.cc" bodystart="100" bodyend="103"/>
+        <location file="libs/core/src/core/ray.h" line="47" column="20" bodyfile="libs/core/src/core/ray.cc" bodystart="104" bodyend="107"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
@@ -104,7 +104,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ray.h" line="43" column="23" bodyfile="libs/core/src/core/ray.cc" bodystart="80" bodyend="83"/>
+        <location file="libs/core/src/core/ray.h" line="43" column="23" bodyfile="libs/core/src/core/ray.cc" bodystart="84" bodyend="87"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Ray3f_1ae72ca1378ef6e5da767b08cd44212b06" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1Ray3f" kindref="compound">Ray3f</ref></type>
@@ -121,7 +121,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ray.h" line="44" column="23" bodyfile="libs/core/src/core/ray.cc" bodystart="87" bodyend="90"/>
+        <location file="libs/core/src/core/ray.h" line="44" column="23" bodyfile="libs/core/src/core/ray.cc" bodystart="91" bodyend="94"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

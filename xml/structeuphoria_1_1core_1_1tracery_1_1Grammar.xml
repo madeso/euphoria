@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/tracery.h" line="104" column="18" bodyfile="libs/core/src/core/tracery.h" bodystart="104" bodyend="-1"/>
+        <location file="libs/core/src/core/tracery.h" line="105" column="18" bodyfile="libs/core/src/core/tracery.h" bodystart="105" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1tracery_1_1Grammar_1a4913e75447cae654adc3b8c602a1462b" prot="public" static="no" mutable="no">
         <type>std::map&lt; std::string, std::shared_ptr&lt; <ref refid="structeuphoria_1_1core_1_1tracery_1_1Modifier" kindref="compound">Modifier</ref> &gt; &gt;</type>
@@ -28,7 +28,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/tracery.h" line="105" column="18" bodyfile="libs/core/src/core/tracery.h" bodystart="105" bodyend="-1"/>
+        <location file="libs/core/src/core/tracery.h" line="106" column="18" bodyfile="libs/core/src/core/tracery.h" bodystart="106" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -43,7 +43,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/tracery.h" line="108" column="9"/>
+        <location file="libs/core/src/core/tracery.h" line="109" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1tracery_1_1Grammar_1ad0d1578d0332d433a43ad5c31a0873d8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -56,7 +56,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/tracery.h" line="110" column="14" bodyfile="libs/core/src/core/tracery.cc" bodystart="619" bodyend="622"/>
+        <location file="libs/core/src/core/tracery.h" line="111" column="14" bodyfile="libs/core/src/core/tracery.cc" bodystart="619" bodyend="622"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1tracery_1_1Grammar_1a0320216fb56fdf163bf96431ef282367" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1tracery_1_1Result" kindref="compound">Result</ref></type>
@@ -77,7 +77,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/tracery.h" line="112" column="17" bodyfile="libs/core/src/core/tracery.cc" bodystart="655" bodyend="679"/>
+        <location file="libs/core/src/core/tracery.h" line="113" column="17" bodyfile="libs/core/src/core/tracery.cc" bodystart="655" bodyend="679"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1tracery_1_1Grammar_1a068e8aeae5d9f36f19dd7840319a488b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1tracery_1_1Result" kindref="compound">Result</ref></type>
@@ -98,7 +98,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/tracery.h" line="113" column="17" bodyfile="libs/core/src/core/tracery.cc" bodystart="626" bodyend="651"/>
+        <location file="libs/core/src/core/tracery.h" line="114" column="17" bodyfile="libs/core/src/core/tracery.cc" bodystart="626" bodyend="651"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1tracery_1_1Grammar_1aa94601dc7ea5e57c11ee38a12ca43b58" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1tracery_1_1Grammar" kindref="compound">Grammar</ref> &amp;</type>
@@ -119,7 +119,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/tracery.h" line="115" column="17" bodyfile="libs/core/src/core/tracery.cc" bodystart="702" bodyend="706"/>
+        <location file="libs/core/src/core/tracery.h" line="116" column="17" bodyfile="libs/core/src/core/tracery.cc" bodystart="702" bodyend="706"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1tracery_1_1Grammar_1a6f8452a40a1f881d6bd0a5fdda5e8bd6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1tracery_1_1Result" kindref="compound">Result</ref></type>
@@ -140,7 +140,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/tracery.h" line="117" column="17" bodyfile="libs/core/src/core/tracery.cc" bodystart="683" bodyend="698"/>
+        <location file="libs/core/src/core/tracery.h" line="118" column="17" bodyfile="libs/core/src/core/tracery.cc" bodystart="683" bodyend="698"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1tracery_1_1Grammar_1adae469688db969cfd0bd198fa1e3d395" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1tracery_1_1Result" kindref="compound">Result</ref></type>
@@ -161,7 +161,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/tracery.h" line="118" column="17" bodyfile="libs/core/src/core/tracery.cc" bodystart="710" bodyend="718"/>
+        <location file="libs/core/src/core/tracery.h" line="119" column="17" bodyfile="libs/core/src/core/tracery.cc" bodystart="710" bodyend="718"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1tracery_1_1Grammar_1a636774d5d71a33338f8386fb5380862e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1tracery_1_1Result" kindref="compound">Result</ref></type>
@@ -182,14 +182,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/tracery.h" line="119" column="17" bodyfile="libs/core/src/core/tracery.cc" bodystart="722" bodyend="730"/>
+        <location file="libs/core/src/core/tracery.h" line="120" column="17" bodyfile="libs/core/src/core/tracery.cc" bodystart="722" bodyend="730"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/tracery.h" line="102" column="5" bodyfile="libs/core/src/core/tracery.h" bodystart="103" bodyend="120"/>
+    <location file="libs/core/src/core/tracery.h" line="103" column="5" bodyfile="libs/core/src/core/tracery.h" bodystart="104" bodyend="121"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1tracery_1_1Grammar_1adae469688db969cfd0bd198fa1e3d395" prot="public" virt="non-virtual"><scope>euphoria::core::tracery::Grammar</scope><name>apply_modifier</name></member>
       <member refid="structeuphoria_1_1core_1_1tracery_1_1Grammar_1a636774d5d71a33338f8386fb5380862e" prot="public" virt="non-virtual"><scope>euphoria::core::tracery::Grammar</scope><name>flatten</name></member>

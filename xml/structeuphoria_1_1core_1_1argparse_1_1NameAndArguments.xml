@@ -51,7 +51,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.h" line="102" column="9" bodyfile="libs/core/src/core/argparse.cc" bodystart="123" bodyend="127"/>
+        <location file="libs/core/src/core/argparse.h" line="102" column="9" bodyfile="libs/core/src/core/argparse.cc" bodystart="122" bodyend="126"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
@@ -75,7 +75,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.h" line="106" column="9" bodyfile="libs/core/src/core/argparse.cc" bodystart="131" bodyend="141"/>
+        <location file="libs/core/src/core/argparse.h" line="106" column="9" bodyfile="libs/core/src/core/argparse.cc" bodystart="130" bodyend="140"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

@@ -80,7 +80,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.h" line="322" column="9" bodyfile="libs/core/src/core/argparse.cc" bodystart="366" bodyend="370"/>
+        <location file="libs/core/src/core/argparse.h" line="322" column="9" bodyfile="libs/core/src/core/argparse.cc" bodystart="365" bodyend="369"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1argparse_1_1MultiArgument_1a0027146b0e353053a8391a6ce4c83c6a" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>bool</type>
@@ -94,7 +94,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.h" line="324" column="14" bodyfile="libs/core/src/core/argparse.cc" bodystart="374" bodyend="377"/>
+        <location file="libs/core/src/core/argparse.h" line="324" column="14" bodyfile="libs/core/src/core/argparse.cc" bodystart="373" bodyend="376"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1argparse_1_1MultiArgument_1af91fa1aa97ae961eea8f35cdb7b51eeb" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>std::optional&lt; std::string &gt;</type>
@@ -108,7 +108,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.h" line="326" column="23" bodyfile="libs/core/src/core/argparse.cc" bodystart="381" bodyend="384"/>
+        <location file="libs/core/src/core/argparse.h" line="326" column="23" bodyfile="libs/core/src/core/argparse.cc" bodystart="380" bodyend="383"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1argparse_1_1MultiArgument_1ad918866ca207f3f118e1894ac3cfa555" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type><ref refid="structeuphoria_1_1core_1_1argparse_1_1ParseResult" kindref="compound">ParseResult</ref></type>
@@ -134,7 +134,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.h" line="328" column="21" bodyfile="libs/core/src/core/argparse.cc" bodystart="389" bodyend="411"/>
+        <location file="libs/core/src/core/argparse.h" line="328" column="21" bodyfile="libs/core/src/core/argparse.cc" bodystart="388" bodyend="410"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

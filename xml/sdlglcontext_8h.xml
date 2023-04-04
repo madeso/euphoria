@@ -29,7 +29,7 @@
         <link refid="imguilibrary_8cc"/>
       </node>
     </invincdepgraph>
-    <innerclass refid="structeuphoria_1_1window_1_1SdlAndOpenglContext" prot="public">euphoria::window::SdlAndOpenglContext</innerclass>
+    <innerclass refid="structeuphoria_1_1window_1_1SdlOpenglContext" prot="public">euphoria::window::SdlOpenglContext</innerclass>
     <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
     <innernamespace refid="namespaceeuphoria_1_1window">euphoria::window</innernamespace>
     <briefdescription>

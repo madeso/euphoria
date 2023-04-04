@@ -21,7 +21,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.h" line="152" column="9" bodyfile="libs/core/src/core/argparse.cc" bodystart="202" bodyend="205"/>
+        <location file="libs/core/src/core/argparse.h" line="152" column="9" bodyfile="libs/core/src/core/argparse.cc" bodystart="201" bodyend="204"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1argparse_1_1ConsolePrinter_1a1f5a7ed083f43e7289c35113a08d3176" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -39,7 +39,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.h" line="155" column="9" bodyfile="libs/core/src/core/argparse.cc" bodystart="209" bodyend="212"/>
+        <location file="libs/core/src/core/argparse.h" line="155" column="9" bodyfile="libs/core/src/core/argparse.cc" bodystart="208" bodyend="211"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

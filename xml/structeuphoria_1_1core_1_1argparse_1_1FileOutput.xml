@@ -61,7 +61,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.h" line="34" column="18" bodyfile="libs/core/src/core/argparse.cc" bodystart="75" bodyend="76"/>
+        <location file="libs/core/src/core/argparse.h" line="34" column="18" bodyfile="libs/core/src/core/argparse.cc" bodystart="74" bodyend="75"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1argparse_1_1FileOutput_1a0255a22ab7474945b0a539c99d456a0c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -79,7 +79,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.h" line="36" column="21" bodyfile="libs/core/src/core/argparse.cc" bodystart="80" bodyend="95"/>
+        <location file="libs/core/src/core/argparse.h" line="36" column="21" bodyfile="libs/core/src/core/argparse.cc" bodystart="79" bodyend="94"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1argparse_1_1FileOutput_1ad14310bfe9639d78821af988bd3530f3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -92,7 +92,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.h" line="37" column="14" bodyfile="libs/core/src/core/argparse.cc" bodystart="99" bodyend="103"/>
+        <location file="libs/core/src/core/argparse.h" line="37" column="14" bodyfile="libs/core/src/core/argparse.cc" bodystart="98" bodyend="102"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

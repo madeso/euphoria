@@ -304,7 +304,7 @@
 <div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;            ret.resize(string_length);</div>
 <div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160; </div>
 <div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;            constexpr <span class="keyword">const</span> <span class="keywordtype">char</span>* <span class="keyword">const</span> format = <span class="stringliteral">&quot;%Y-%m-%d %H:%M:%S&quot;</span>;</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span> characters_written = strftime(&amp;ret[0], string_length, format, &amp;<a class="code" href="structeuphoria_1_1core_1_1StructTmWrapper.html#ae7828227c2bc7164fe03628f79b6aab3">time</a>);</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span> characters_written = strftime(ret.data(), string_length, format, &amp;<a class="code" href="structeuphoria_1_1core_1_1StructTmWrapper.html#ae7828227c2bc7164fe03628f79b6aab3">time</a>);</div>
 <div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160; </div>
 <div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;            <span class="keywordflow">if</span> (characters_written != 0)</div>
 <div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;            {</div>

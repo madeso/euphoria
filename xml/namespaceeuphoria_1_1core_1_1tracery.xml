@@ -113,7 +113,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/tracery.cc" line="226" column="17" bodyfile="libs/core/src/core/tracery.cc" bodystart="226" bodyend="249" declfile="libs/core/src/core/tracery.h" declline="43" declcolumn="17"/>
+        <location file="libs/core/src/core/tracery.cc" line="226" column="17" bodyfile="libs/core/src/core/tracery.cc" bodystart="226" bodyend="249" declfile="libs/core/src/core/tracery.h" declline="44" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1tracery_1abbcbfd903e49286189a2b8d1c79afa59" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1tracery_1_1Result" kindref="compound">Result</ref></type>

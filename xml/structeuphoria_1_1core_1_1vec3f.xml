@@ -175,7 +175,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vec3.h" line="68" column="16" bodyfile="libs/core/src/core/vec3.cc" bodystart="283" bodyend="289"/>
+        <location file="libs/core/src/core/vec3.h" line="68" column="16" bodyfile="libs/core/src/core/vec3.cc" bodystart="283" bodyend="291"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1vec3f_1a27fc03f33a011baeeece423970a9a202" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
