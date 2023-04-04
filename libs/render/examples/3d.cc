@@ -3,7 +3,6 @@
 #include "core/random.h"
 #include "core/shufflebag.h"
 #include "core/vfs.h"
-#include "core/mat4.h"
 #include "core/axisangle.h"
 #include "core/aabb.h"
 #include "core/texturetypes.h"

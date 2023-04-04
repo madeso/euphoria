@@ -7,7 +7,6 @@
 #include "core/argparse.h"
 #include "core/palette_all.h"
 #include "core/palette.h"
-#include "core/cint.h"
 #include "core/dump.h"
 #include "core/os.h"
 

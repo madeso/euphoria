@@ -6,7 +6,6 @@
 #include "core/viewport.h"
 #include "core/intersection.h"
 #include "core/plane.h"
-#include "core/viewport.h"
 #include "core/numeric.h"
 #include "core/sphere.position.h"
 

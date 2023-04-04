@@ -8,12 +8,12 @@
 #include "core/rgb_blend.h"
 #include "core/minmax.h"
 #include "core/intersection.h"
-#include "core/minmax.h"
 
 #include "log/log.h"
 
 #include <utility>
 #include <cmath>
+
 
 namespace euphoria::core
 {

@@ -2,8 +2,6 @@
 
 #include <string_view>
 
-#include <string_view>
-
 
 namespace euphoria::core
 {

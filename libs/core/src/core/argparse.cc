@@ -8,7 +8,6 @@
 #include "core/stringutils.h"
 #include "core/stringmerger.h"
 #include "core/table.h"
-#include "core/cint.h"
 #include "core/wordwrap.h"
 #include "core/functional.h"
 

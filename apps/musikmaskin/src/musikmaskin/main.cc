@@ -2,7 +2,6 @@
 
 #include "core/mat4.h"
 #include "core/random.h"
-#include "core/mat4.h"
 #include "core/axisangle.h"
 #include "core/aabb.h"
 #include "core/texturetypes.h"
@@ -14,7 +13,6 @@
 #include "core/camera3.h"
 #include "core/stringutils.h"
 #include "core/stdutils.h"
-#include "log/log.h"
 #include "core/cint.h"
 
 #include "render/init.h"
@@ -41,7 +39,7 @@
 #include "window/canvas.h"
 #include "window/key.h"
 
-#include "imgui/imgui.h"
+
 #include "SDL.h"
 #include <iostream>
 #include <memory>
