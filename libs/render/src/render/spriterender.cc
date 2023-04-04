@@ -56,7 +56,6 @@ namespace euphoria::render
         , model_uniform(shader->get_uniform("model"))
         , region_uniform(shader->get_uniform("region"))
     {
-        sprite_shader = shader;
         init_render_data();
     }
 

@@ -13,9 +13,7 @@ namespace euphoria::window
         int height,
         bool resize
     )
-        : window(nullptr)
-    {
-        window = SDL_CreateWindow
+        : window(SDL_CreateWindow
         (
             title.c_str(),
             SDL_WINDOWPOS_UNDEFINED,
@@ -23,7 +21,8 @@ namespace euphoria::window
             width,
             height,
             SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN | (resize ? SDL_WINDOW_RESIZABLE : 0)
-        );
+        ))
+    {
 
         if(window == nullptr)
         {
