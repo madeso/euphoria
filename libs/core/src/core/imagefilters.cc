@@ -33,18 +33,18 @@ namespace euphoria::core
         case Grayscale::gamma:
             {
                 const auto d = dot(to_rgb(c), rgb(0.22f, 0.707f, 0.071f));
-                return rgbai(to_rgbi(rgb(d)), c.a);
+                return {to_rgbi(rgb(d)), c.a};
             }
         case Grayscale::linear:
             {
                 const auto d = dot(to_rgb(c), rgb(0.0397f, 0.4580f, 0.0061f));
-                return rgbai(to_rgbi(rgb(d)), c.a);
+                return {to_rgbi(rgb(d)), c.a};
             }
         case Grayscale::average:
             {
                 const auto cc = to_rgb(c);
                 const auto g = (cc.r + cc.g + cc.b) / 3;
-                return rgbai(to_rgbi(rgb(g)), c.a);
+                return {to_rgbi(rgb(g)), c.a};
             }
 
         default:

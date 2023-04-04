@@ -250,7 +250,7 @@ namespace euphoria::core
             ret.resize(string_length);
 
             constexpr const char* const format = "%Y-%m-%d %H:%M:%S";
-            const auto characters_written = strftime(&ret[0], string_length, format, &time);
+            const auto characters_written = strftime(ret.data(), string_length, format, &time);
 
             if (characters_written != 0)
             {

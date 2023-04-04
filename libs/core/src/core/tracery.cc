@@ -80,15 +80,15 @@ namespace euphoria::core::tracery
                 }
                 else
                 {
-                    return Result(Result::invalid_json);
+                    return {Result::invalid_json};
                 }
             }
 
-            return Result(Result::no_error);
+            return {Result::no_error};
         }
         else
         {
-            return Result(Result::invalid_json);
+            return {Result::invalid_json};
         }
     }
 
@@ -124,7 +124,7 @@ namespace euphoria::core::tracery
 
         Result flatten(GeneratorArgument*) const override
         {
-            return Result(Result::no_error) << text;
+            return Result{Result::no_error} << text;
         }
     };
 
@@ -257,7 +257,7 @@ namespace euphoria::core::tracery
 
     Result parse_error(TextfileParser* parser)
     {
-        return Result(Result::general_rule_parse_error)
+        return Result{Result::general_rule_parse_error}
                << parser->peek_string() << " detected but ";
     }
 
@@ -366,7 +366,7 @@ namespace euphoria::core::tracery
                     default:
                         {
                         const auto c = parser.read_char();
-                        return Result(Result::general_rule_parse_error)
+                        return Result{Result::general_rule_parse_error}
                                 << "Unknown character inside ##: "
                                 << fmt::to_string(c);
                         }
@@ -375,7 +375,7 @@ namespace euphoria::core::tracery
                 add(n);
                 if(run)
                 {
-                    return Result(Result::rule_eof);
+                    return {Result::rule_eof};
                 }
             }
             break;
@@ -392,7 +392,7 @@ namespace euphoria::core::tracery
             add(std::make_shared<LiteralStringNode>(text));
         }
 
-        return Result(Result::no_error);
+        return {Result::no_error};
 #undef EXPECT_CHAR
 #undef EMPTY_STRING
     }
@@ -408,7 +408,7 @@ namespace euphoria::core::tracery
             if(r == false) { return r; }
             ret += r.get_text();
         }
-        return Result(Result::no_error) << ret;
+        return Result{Result::no_error} << ret;
     }
 
 
@@ -587,7 +587,7 @@ namespace euphoria::core::tracery
             Result apply_modifier(const std::string& input) override
             {
                 std::string r = func(input);
-                return Result(Result::no_error) << r;
+                return Result{Result::no_error} << r;
             }
         };
 
@@ -632,7 +632,7 @@ namespace euphoria::core::tracery
         if(loaded.has_value() == false)
         {
             // todo(Gustav): handle logging error better...
-            return Result(Result::json_parse) << "unable to load file";
+            return Result{Result::json_parse} << "unable to load file";
         }
         const auto& message = *loaded;
 
@@ -647,7 +647,7 @@ namespace euphoria::core::tracery
             rules.insert(std::make_pair(json_rule.name, rule));
         }
 
-        return Result(Result::no_error);
+        return {Result::no_error};
     }
 
 
@@ -658,7 +658,7 @@ namespace euphoria::core::tracery
         const auto parse_error = read_source_or_get_error_message(data, &doc);
         if(parse_error.has_value())
         {
-            return Result(Result::json_parse) << "Error in " << filename << ": "<< *parse_error;
+            return Result{Result::json_parse} << "Error in " << filename << ": "<< *parse_error;
         }
 
         for(rapidjson::Value::ConstMemberIterator itr = doc.MemberBegin();
@@ -675,7 +675,7 @@ namespace euphoria::core::tracery
             rules.insert(std::make_pair(name_of_rule, rule));
         }
 
-        return Result(Result::no_error);
+        return {Result::no_error};
     }
 
 
@@ -685,14 +685,14 @@ namespace euphoria::core::tracery
         const auto has_overridden = generator->overridden_rules.find(rule);
         if(has_overridden != generator->overridden_rules.end())
         {
-            return Result(Result::no_error) << has_overridden->second;
+            return Result{Result::no_error} << has_overridden->second;
         }
 
         const auto& found = rules.find(rule);
         if(found == rules.end())
         {
             // todo(Gustav): handle errors better
-            return Result(Result::missing_rule) << rule;
+            return Result{Result::missing_rule} << rule;
         }
         return found->second.flatten(generator);
     }
@@ -712,7 +712,7 @@ namespace euphoria::core::tracery
         auto r = modifiers.find(name);
         if(r == modifiers.end())
         {
-            return Result(Result::invalid_modifier) << name;
+            return Result{Result::invalid_modifier} << name;
         }
         return r->second->apply_modifier(data);
     }

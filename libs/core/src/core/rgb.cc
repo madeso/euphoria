@@ -25,7 +25,7 @@ namespace euphoria::core
         const auto b = colorutil::to_float(colorutil::get_blue(hex));
         const auto g = colorutil::to_float(colorutil::get_green(hex));
         const auto r = colorutil::to_float(colorutil::get_red(hex));
-        return rgb {r, g, b};
+        return {r, g, b};
     }
 
 
@@ -143,10 +143,12 @@ namespace euphoria::core
     rgb
     clamp(const rgb& c)
     {
-        return rgb(
-                keep_within(r01, c.r),
-                keep_within(r01, c.g),
-                keep_within(r01, c.b));
+        return
+        {
+            keep_within(r01, c.r),
+            keep_within(r01, c.g),
+            keep_within(r01, c.b)
+        };
     }
 
 
@@ -226,9 +228,12 @@ namespace euphoria::core
     rgb
     to_rgb(const rgbi& c)
     {
-        return {colorutil::to_float(c.r),
-                colorutil::to_float(c.g),
-                colorutil::to_float(c.b)};
+        return
+        {
+            colorutil::to_float(c.r),
+            colorutil::to_float(c.g),
+            colorutil::to_float(c.b)
+        };
     }
 
     rgb
@@ -240,9 +245,12 @@ namespace euphoria::core
     rgb
     to_rgb(const rgbai& c)
     {
-        return {colorutil::to_float(c.r),
-                colorutil::to_float(c.g),
-                colorutil::to_float(c.b)};
+        return
+        {
+            colorutil::to_float(c.r),
+            colorutil::to_float(c.g),
+            colorutil::to_float(c.b)
+        };
     }
 
     rgb
@@ -255,7 +263,8 @@ namespace euphoria::core
         }
         else
         {
-            auto hue2rgb = [](float p, float q, float t) {
+            auto hue2rgb = [](float p, float q, float t)
+            {
                 if(t < 0.0f) { t += 1.0f; }
                 if(t > 1.0f) { t -= 1.0f; }
 
@@ -498,7 +507,7 @@ namespace euphoria::core
         const float r = (t - color.r) * p + color.r;
         const float g = (t - color.g) * p + color.g;
         const float b = (t - color.b) * p + color.b;
-        return rgb{r, g, b};
+        return {r, g, b};
     }
 
     ////////////////////////////////////////////////////////////////////////////////

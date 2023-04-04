@@ -61,17 +61,17 @@ namespace euphoria::core
         auto r = name_to_value.find(name);
         if(r != name_to_value.end())
         {
-            return EnumValue(this, r->second);
+            return {this, r->second};
         }
 
         if(!is_adding)
         {
             LOG_ERROR("Enum value doesnt exist, {0}", name);
-            return EnumValue(this, 0);
+            return {this, 0};
         }
         const size_t id = next_index;
         add_enum(name);
-        return EnumValue(this, id);
+        return {this, id};
     }
 
 
@@ -121,10 +121,16 @@ namespace euphoria::core
         name_to_value.insert(NameToValueMap::value_type(name, id));
     }
 
+    
+
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Enum Value
 
-    EnumValue::EnumValue(EnumType* t, size_t v) : type(t), value(v) {}
+    EnumValue::EnumValue(EnumType* t, size_t v)
+        : type(t)
+        , value(v)
+    {
+    }
 
 
     std::string

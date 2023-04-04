@@ -15,7 +15,7 @@ namespace euphoria::core
 
     vec3f quatf::get_vec_part() const
     {
-        return vec3f(x, y, z);
+        return {x, y, z};
     }
 
 
@@ -111,7 +111,7 @@ namespace euphoria::core
     quatf
     quatf::get_conjugate() const
     {
-        return quatf(w, -get_vec_part());
+        return {w, -get_vec_part()};
     }
 
 
@@ -138,7 +138,7 @@ namespace euphoria::core
         const float l2 = get_length_squared();
         if(is_equal(l2, 0.0f)) { return q_identity; }
         else if(is_equal(l2, 1.0f)) { return get_conjugate(); }
-        else { return quatf(w / sqrt(l2), -get_vec_part()); }
+        else { return {w / sqrt(l2), -get_vec_part()}; }
     }
 
 
@@ -203,7 +203,7 @@ namespace euphoria::core
     quatf::rotate_around_origo(const unit3f& v) const
     {
         // http://gamedev.stackexchange.com/questions/28395/rotating-vector3-by-a-quaternion
-        const quatf pure(0, v);
+        const quatf pure = {0, v};
         const quatf a = *this * pure;
         const quatf ret = a * get_conjugate();
         return ret.get_vec_part().get_normalized();

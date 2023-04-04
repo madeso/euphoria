@@ -16,13 +16,13 @@ namespace euphoria::core
         float t30, float t31, float t32, float t33
     )
     {
-        return mat4f
-        (
+        return
+        {
             t00, t01, t02, t03,
             t10, t11, t12, t13,
             t20, t21, t22, t23,
             t30, t31, t32, t33
-        );
+        };
     }
 
     [[nodiscard]]
@@ -64,13 +64,13 @@ namespace euphoria::core
     vec4f
     mat4f::get_transform(const vec4f& p) const
     {
-        return *this * vec4f(p);
+        return *this * p;
     }
 
     vec3f
     mat4f::get_transform(const vec3f& p, float w) const
     {
-        return get_transform(vec4f(p, w)).to_vec3(w);
+        return get_transform(vec4f{p, w}).to_vec3(w);
     }
 
     vec3f
@@ -181,7 +181,7 @@ namespace euphoria::core
     mat4f::get_major() const
     {
         const mat4f& self = *this;
-        return vec4f(self(0, 0), self(1, 1), self(2, 2), self(3, 3));
+        return {self(0, 0), self(1, 1), self(2, 2), self(3, 3)};
     }
 
     unit3f
@@ -474,14 +474,14 @@ namespace euphoria::core
     vec4f
     mat4f::get_column(int c) const
     {
-        return vec4f(&data[c * 4]);
+        return vec4f{&data[c * 4]};
     }
 
     vec4f
     mat4f::get_row(int r) const
     {
         const mat4f& self = *this;
-        return vec4f(self(r, 0), self(r, 1), self(r, 2), self(r, 3));
+        return {self(r, 0), self(r, 1), self(r, 2), self(r, 3)};
     }
 
     
@@ -541,6 +541,6 @@ namespace euphoria::core
             return get_component_multiply_sum(lhs.get_row(r), rhs);
         };
 
-        return vec4f(op(0), op(1), op(2), op(3));
+        return {op(0), op(1), op(2), op(3)};
     }
 }

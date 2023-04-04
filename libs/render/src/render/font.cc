@@ -58,7 +58,7 @@ namespace euphoria::render
         if(image_file.has_value() == false)
         {
             LOG_WARN("Invalid path {0}", img.file);
-            return core::LoadedFont{};
+            return {};
         }
 
         return core::get_characters_from_single_image
@@ -556,16 +556,16 @@ namespace euphoria::render
 
         switch(alignment)
         {
-        case Align::top_left: return core::vec2f(0.0f, top);
-        case Align::top_center: return core::vec2f(middle, top);
-        case Align::top_right: return core::vec2f(right, top);
-        case Align::baseline_left: return core::vec2f(0.0f, 0.0f);
-        case Align::baseline_center: return core::vec2f(middle, 0.0f);
-        case Align::baseline_right: return core::vec2f(right, 0.0f);
-        case Align::bottom_left: return core::vec2f(0.0f, bottom);
-        case Align::bottom_center: return core::vec2f(middle, bottom);
-        case Align::bottom_right: return core::vec2f(right, bottom);
-        default: DIE("Unhandled case"); return core::vec2f(0.0f, 0.0f);
+        case Align::top_left: return {0.0f, top};
+        case Align::top_center: return {middle, top};
+        case Align::top_right: return {right, top};
+        case Align::baseline_left: return {0.0f, 0.0f};
+        case Align::baseline_center: return {middle, 0.0f};
+        case Align::baseline_right: return {right, 0.0f};
+        case Align::bottom_left: return {0.0f, bottom};
+        case Align::bottom_center: return {middle, bottom};
+        case Align::bottom_right: return {right, bottom};
+        default: DIE("Unhandled case"); return {0.0f, 0.0f};
         }
     }
 

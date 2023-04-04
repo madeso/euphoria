@@ -46,12 +46,12 @@ namespace euphoria::core
             float t02, float t12, float t22
         )
         {
-            return mat3f
-            (
+            return
+            {
                 t00, t01, t02,
                 t10, t11, t12,
                 t20, t21, t22
-            );
+            };
         }
 
         float* get_data_ptr();

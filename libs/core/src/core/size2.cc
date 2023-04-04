@@ -13,19 +13,19 @@ namespace euphoria::core
     [[nodiscard]] size2f
     size2f::create_from_width_height(float w, float h)
     {
-        return size2f(w, h);
+        return {w, h};
     }
 
     [[nodiscard]] size2f
     size2f::create_from_height_width(float h, float w)
     {
-        return size2f(w, h);
+        return {w, h};
     }
 
     [[nodiscard]] size2f
     size2f::create_from_square(float s)
     {
-        return size2f(s, s);
+        return {s, s};
     }
 
     void
@@ -61,7 +61,7 @@ namespace euphoria::core
     {
         const float x = (width - o.width) / 2;
         const float y = (height - o.height) / 2;
-        return vec2f(x, y);
+        return {x, y};
     }
 
     size2f::size2f(float w, float h)
@@ -179,7 +179,9 @@ namespace euphoria::core
     }
 
     std::string to_string(const size2f& r)
-        { return fmt::format("({} x {})", r.width, r.height); }
+    {
+        return fmt::format("({} x {})", r.width, r.height);
+    }
 
 
     ///////////////////////////////////////////////////////////////////////////
@@ -194,19 +196,19 @@ namespace euphoria::core
     [[nodiscard]] size2i
     size2i::create_from_width_height(int w, int h)
     {
-        return size2i(w, h);
+        return {w, h};
     }
 
     [[nodiscard]] size2i
     size2i::create_from_height_width(int h, int w)
     {
-        return size2i(w, h);
+        return {w, h};
     }
 
     [[nodiscard]] size2i
     size2i::create_from_square(int s)
     {
-        return size2i(s, s);
+        return {s, s};
     }
 
     void
@@ -235,7 +237,7 @@ namespace euphoria::core
     {
         const int x = (width - o.width) / 2;
         const int y = (height - o.height) / 2;
-        return vec2i(x, y);
+        return {x, y};
     }
 
 
@@ -345,7 +347,9 @@ namespace euphoria::core
     }
 
     std::string to_string(const size2i& r)
-        { return fmt::format("({} x {})", r.width, r.height); }
+    {
+        return fmt::format("({} x {})", r.width, r.height);
+    }
 }
 
 

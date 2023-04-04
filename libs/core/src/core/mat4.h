@@ -28,13 +28,13 @@ namespace euphoria::core
             float t03, float t13, float t23, float t33
         )
         {
-            return mat4f
-            (
+            return
+            {
                 t00, t01, t02, t03,
                 t10, t11, t12, t13,
                 t20, t21, t22, t23,
                 t30, t31, t32, t33
-            );
+            };
         }
 
         [[nodiscard]] static mat4f from_major(const vec4f& major);

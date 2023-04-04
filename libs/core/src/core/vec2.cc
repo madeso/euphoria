@@ -22,7 +22,7 @@ namespace euphoria::core
     [[nodiscard]] vec2i
     vec2f::to_i() const
     {
-        return vec2i{static_cast<int>(x), static_cast<int>(y)};
+        return {static_cast<int>(x), static_cast<int>(y)};
     }
 
 
@@ -43,13 +43,13 @@ namespace euphoria::core
     {
         const float nx = x * cos(a) - y * sin(a);
         const float ny = x * sin(a) + y * cos(a);
-        return vec2f(nx, ny);
+        return {nx, ny};
     }
 
     vec2f
     vec2f::get_flipped_y() const
     {
-        return vec2f(x, -y);
+        return {x, -y};
     }
 
     void
@@ -69,7 +69,7 @@ namespace euphoria::core
     vec2f
     vec2f::operator-() const
     {
-        return vec2f(-x, -y);
+        return {-x, -y};
     }
 
     float
@@ -82,7 +82,7 @@ namespace euphoria::core
     [[nodiscard]] vec2f
     vec2f::from_to(const vec2f& from, const vec2f& to)
     {
-        return vec2f {to.x - from.x, to.y - from.y};
+        return {to.x - from.x, to.y - from.y};
     }
 
     void
@@ -136,7 +136,7 @@ namespace euphoria::core
     [[nodiscard]] vec2f
     vec2i::to_f() const
     {
-        return vec2f{static_cast<float>(x), static_cast<float>(y)};
+        return {static_cast<float>(x), static_cast<float>(y)};
     }
 
     int*
@@ -154,7 +154,7 @@ namespace euphoria::core
     vec2i
     vec2i::get_flipped_y() const
     {
-        return vec2i(x, -y);
+        return {x, -y};
     }
 
     void
@@ -174,14 +174,14 @@ namespace euphoria::core
     vec2i
     vec2i::operator-() const
     {
-        return vec2i(-x, -y);
+        return {-x, -y};
     }
 
 
     [[nodiscard]] vec2i
     vec2i::from_to(const vec2i& from, const vec2i& to)
     {
-        return vec2i {to.x - from.x, to.y - from.y};
+        return {to.x - from.x, to.y - from.y};
     }
 
     void
@@ -209,19 +209,19 @@ namespace euphoria::core
     {
         const float nx = x * cos(a) - y * sin(a);
         const float ny = x * sin(a) + y * cos(a);
-        return unit2f(nx, ny);
+        return unit2f{nx, ny};
     }
 
     unit2f
     unit2f::get_flipped_y() const
     {
-        return unit2f(x, -y);
+        return unit2f{x, -y};
     }
 
     unit2f
     unit2f::operator-() const
     {
-        return unit2f(-x, -y);
+        return unit2f{-x, -y};
     }
 
     float
@@ -233,7 +233,7 @@ namespace euphoria::core
     vec2f
     unit2f::to_vec() const
     {
-        return vec2f(x, y);
+        return {x, y};
     }
 
     [[nodiscard]] bool
@@ -282,19 +282,19 @@ namespace euphoria::core
     {
         const float nx = x * cos(a) - y * sin(a);
         const float ny = x * sin(a) + y * cos(a);
-        return Scale2f(nx, ny);
+        return {nx, ny};
     }
 
     Scale2f
     Scale2f::get_flipped_y() const
     {
-        return Scale2f(x, -y);
+        return {x, -y};
     }
 
     Scale2f
     Scale2f::operator-() const
     {
-        return Scale2f(-x, -y);
+        return {-x, -y};
     }
         
 
@@ -405,20 +405,20 @@ namespace euphoria::core
 
     vec2f lerp_vec2f(const vec2f& from, float v, const vec2f& to)
     {
-        return vec2f
-        (
+        return
+        {
             lerp_float(from.x, v, to.x),
             lerp_float(from.y, v, to.y)
-        );
+        };
     }
 
     vec2i lerp_vec2i(const vec2i& from, float v, const vec2i& to)
     {
-        return vec2i
-        (
+        return
+        {
             static_cast<int>(lerp_float(static_cast<float>(from.x), v, static_cast<float>(to.x))),
             static_cast<int>(lerp_float(static_cast<float>(from.y), v, static_cast<float>(to.y)))
-        );
+        };
     }
 
     

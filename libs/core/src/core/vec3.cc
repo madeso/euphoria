@@ -119,14 +119,14 @@ namespace euphoria::core
     vec3f
     vec3f::operator-() const
     {
-        return vec3f(-this->x, -this->y, -this->z);
+        return {-this->x, -this->y, -this->z};
     }
 
 
     vec3f
     vec3f::from_to(const vec3f& from, const vec3f& to)
     {
-        return vec3f{to.x - from.x, to.y - from.y, to.z - from.z};
+        return {to.x - from.x, to.y - from.y, to.z - from.z};
     }
 
 
@@ -191,14 +191,14 @@ namespace euphoria::core
     unit3f
     unit3f::to_unit(float x, float y, float z)
     {
-        return unit3f{x, y, z};
+        return {x, y, z};
     }
 
 
     unit3f
     unit3f::to_unit(const vec3f& v)
     {
-        return unit3f{v.x, v.y, v.z};
+        return {v.x, v.y, v.z};
     }
 
 
@@ -282,10 +282,12 @@ namespace euphoria::core
     vec3f
     vec3f::cross(const vec3f& u) const
     {
-        return vec3f(
-                (y * u.z) - (z * u.y),
-                (z * u.x) - (x * u.z),
-                (x * u.y) - (y * u.x));
+        return
+        {
+            (y * u.z) - (z * u.y),
+            (z * u.x) - (x * u.z),
+            (x * u.y) - (y * u.x)
+        };
     }
 
 

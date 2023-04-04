@@ -102,7 +102,7 @@ namespace euphoria::core
     {
         constexpr unit3f operator-() const
         {
-            return unit3f(-this->x, -this->y, -this->z);
+            return {-this->x, -this->y, -this->z};
         }
 
         [[nodiscard]] constexpr bool

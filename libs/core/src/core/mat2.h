@@ -22,11 +22,11 @@ namespace euphoria::core
             float t01, float t11
         )
         {
-            return mat2f
-            (
+            return
+            {
                 t00, t01,
                 t10, t11
-            );
+            };
         }
 
         [[nodiscard]] constexpr static mat2f from_scalar(float scalar)

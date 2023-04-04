@@ -40,7 +40,7 @@ namespace euphoria::core
     {
         ASSERTX(left_side <= right_side, left_side, right_side);
         ASSERTX(top_side >= bottom_side, top_side, bottom_side);
-        return Rectf(left_side, right_side, top_side, bottom_side);
+        return {left_side, right_side, top_side, bottom_side};
     }
 
     [[nodiscard]] Rectf
@@ -48,7 +48,7 @@ namespace euphoria::core
     {
         ASSERTX(left_side <= right_side, left_side, right_side);
         ASSERTX(top_side >= bottom_side, top_side, bottom_side);
-        return Rectf(left_side, right_side, top_side, bottom_side);
+        return {left_side, right_side, top_side, bottom_side};
     }
 
     [[nodiscard]] Rectf
@@ -153,11 +153,11 @@ namespace euphoria::core
     vec2f
     Rectf::get_relative_center_pos_from_bottom_left() const
     {
-        return vec2f
-        (
+        return
+        {
             get_relative_center_x_from_bottom_left(),
             get_relative_center_y_from_bottom_left()
-        );
+        };
     }
 
     float
@@ -448,13 +448,13 @@ namespace euphoria::core
     Range<float>
     Rectf::get_range_y() const
     {
-        return Range<float>{bottom, top};
+        return {bottom, top};
     }
 
     Range<float>
     Rectf::get_range_x() const
     {
-        return Range<float>{left, right};
+        return {left, right};
     }
 
     size2f
@@ -466,19 +466,19 @@ namespace euphoria::core
     [[nodiscard]] vec2f
     Rectf::get_top_left() const
     {
-        return vec2f(left, top);
+        return {left, top};
     }
 
     [[nodiscard]] vec2f
     Rectf::get_top_right() const
     {
-        return vec2f(right, top);
+        return {right, top};
     }
 
     [[nodiscard]] vec2f
     Rectf::get_bottom_right() const
     {
-        return vec2f(right, bottom);
+        return {right, bottom};
     }
 
 
@@ -520,7 +520,7 @@ namespace euphoria::core
     {
         ASSERTX(left_side <= right_side, left_side, right_side);
         ASSERTX(top_side >= bottom_side, top_side, bottom_side);
-        return Recti(left_side, right_side, top_side, bottom_side);
+        return {left_side, right_side, top_side, bottom_side};
     }
 
     [[nodiscard]] Recti
@@ -528,7 +528,7 @@ namespace euphoria::core
     {
         ASSERTX(left_side <= right_side, left_side, right_side);
         ASSERTX(top_side >= bottom_side, top_side, bottom_side);
-        return Recti(left_side, right_side, top_side, bottom_side);
+        return {left_side, right_side, top_side, bottom_side};
     }
 
     [[nodiscard]] Recti
@@ -598,7 +598,7 @@ namespace euphoria::core
     vec2i
     Recti::get_bottom_left() const
     {
-        return vec2i(left, bottom);
+        return {left, bottom};
     }
 
     
@@ -635,11 +635,11 @@ namespace euphoria::core
     vec2i
     Recti::get_relative_center_pos_from_bottom_left() const
     {
-        return vec2i
-        (
+        return
+        {
             get_relative_center_x_from_bottom_left(),
             get_relative_center_y_from_bottom_left()
-        );
+        };
     }
 
     int
@@ -933,19 +933,19 @@ namespace euphoria::core
     [[nodiscard]] vec2i
     Recti::get_top_left() const
     {
-        return vec2i(left, top);
+        return {left, top};
     }
 
     [[nodiscard]] vec2i
     Recti::get_top_right() const
     {
-        return vec2i(right, top);
+        return {right, top};
     }
 
     [[nodiscard]] vec2i
     Recti::get_bottom_right() const
     {
-        return vec2i(right, bottom);
+        return {right, bottom};
     }
         
 
@@ -957,7 +957,7 @@ namespace euphoria::core
     {
         const auto x = to01(make_range(r.left, r.right), from.x);
         const auto y = to01(make_range(r.bottom, r.top), from.y);
-        return vec2f {x, y};
+        return {x, y};
     }
 
     [[nodiscard]] vec2f
@@ -965,7 +965,7 @@ namespace euphoria::core
     {
         const auto x = from_01(make_range(r.left, r.right), from.x);
         const auto y = from_01(make_range(r.bottom, r.top), from.y);
-        return vec2f {x, y};
+        return {x, y};
     }
 
     bool
@@ -994,7 +994,7 @@ namespace euphoria::core
             make_range<float>(static_cast<float>(r.bottom), static_cast<float>(r.top)),
             static_cast<float>(from.y)
         );
-        return vec2f{x, y};
+        return {x, y};
     }
 
     [[nodiscard]] vec2i
@@ -1002,7 +1002,7 @@ namespace euphoria::core
     {
         const auto x = from_01(make_range(r.left, r.right), from.x);
         const auto y = from_01(make_range(r.bottom, r.top), from.y);
-        return vec2i {x, y};
+        return {x, y};
     }
 
     bool

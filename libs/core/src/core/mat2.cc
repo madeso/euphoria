@@ -11,7 +11,7 @@ namespace euphoria::core
         float t10, float t11
     )
     {
-        return mat2f(t00, t01, t10, t11);
+        return {t00, t01, t10, t11};
     }
 
 
@@ -107,14 +107,14 @@ namespace euphoria::core
     vec2f
     mat2f::get_column(int c) const
     {
-        return vec2f(get(0, c), get(1, c));
+        return {get(0, c), get(1, c)};
     }
 
 
     vec2f
     mat2f::get_row(int r) const
     {
-        return vec2f(get(r, 0), get(r, 1));
+        return {get(r, 0), get(r, 1)};
     }
 
 
@@ -165,7 +165,7 @@ namespace euphoria::core
     vec2f operator*(const mat2f& lhs, const vec2f& rhs)
     {
 #define OP(r) get_component_multiply_sum(lhs.get_row(r), rhs)
-        return vec2f(OP(0), OP(1));
+        return {OP(0), OP(1)};
 #undef OP
     }
 

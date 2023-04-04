@@ -52,14 +52,14 @@ namespace euphoria::core
     vec4f::to_vec3(float ww) const
     {
         ASSERTX(is_equal(w, ww), w, ww);
-        return vec3f(x, y, z);
+        return {x, y, z};
     }
 
 
     vec3f
     vec4f::to_vec3() const
     {
-        return vec3f(x, y, z);
+        return {x, y, z};
     }
 
 

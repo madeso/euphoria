@@ -11,11 +11,11 @@ namespace euphoria::core::generator
     {
         switch(d)
         {
-        case Direction::south: return vec2i { 0, -1};
-        case Direction::north: return vec2i { 0, 1};
-        case Direction::west: return vec2i {-1, 0};
-        case Direction::east: return vec2i { 1, 0};
-        default: return vec2i(0, 0);
+        case Direction::south: return { 0, -1};
+        case Direction::north: return { 0, 1};
+        case Direction::west:  return {-1, 0};
+        case Direction::east:  return { 1, 0};
+        default: return {0, 0};
         }
     }
 

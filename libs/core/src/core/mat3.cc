@@ -24,12 +24,12 @@ namespace euphoria::core
         float t20, float t21, float t22
     )
     {
-        return mat3f
-        (
+        return
+        {
             t00, t01, t02,
             t10, t11, t12,
             t20, t21, t22
-        );
+        };
     }
 
 
@@ -140,7 +140,7 @@ namespace euphoria::core
     mat3f::get_major() const
     {
         const mat3f& self = *this;
-        return vec3f(self(0, 0), self(1, 1), self(2, 2));
+        return {self(0, 0), self(1, 1), self(2, 2)};
     }
 
 
@@ -259,14 +259,14 @@ namespace euphoria::core
     vec3f
     mat3f::get_column(int c) const
     {
-        return vec3f(get(0, c), get(1, c), get(2, c));
+        return {get(0, c), get(1, c), get(2, c)};
     }
 
 
     vec3f
     mat3f::get_row(int r) const
     {
-        return vec3f(get(r, 0), get(r, 1), get(r, 2));
+        return {get(r, 0), get(r, 1), get(r, 2)};
     }
 
 
@@ -320,7 +320,7 @@ namespace euphoria::core
     vec3f operator*(const mat3f& lhs, const vec3f& rhs)
     {
 #define OP(r) get_component_multiply_sum(vec3f{lhs.get_row(r)}, rhs)
-        return vec3f(OP(0), OP(1), OP(2));
+        return {OP(0), OP(1), OP(2)};
 #undef OP
     }
 

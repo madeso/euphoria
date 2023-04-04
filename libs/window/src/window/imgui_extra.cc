@@ -26,14 +26,14 @@ namespace euphoria::window
     ImVec2
     con(const core::vec2f& v)
     {
-        return ImVec2 {v.x, v.y};
+        return {v.x, v.y};
     }
 
 
     core::vec2f
     con(const ImVec2& v)
     {
-        return core::vec2f {v.x, v.y};
+        return {v.x, v.y};
     }
 }
 
@@ -460,7 +460,7 @@ namespace euphoria::window::imgui
         // util function
         const auto calculate_position = [=](float ang, float rad) -> ImVec2
         {
-            return ImVec2(center.x + cosf(ang) * rad, center.y + sinf(ang) * rad);
+            return {center.x + cosf(ang) * rad, center.y + sinf(ang) * rad};
         };
 
         // ----------------- visualization

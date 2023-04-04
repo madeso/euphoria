@@ -35,6 +35,7 @@ namespace euphoria::core::tracery
 
         [[nodiscard]] std::string get_text() const;
 
+        // todo(Gustav): replace with chaining member function
         Result& operator<<(const std::string& t);
         operator bool() const;
     };

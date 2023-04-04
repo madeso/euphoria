@@ -16,14 +16,14 @@ namespace euphoria::core
     [[nodiscard]] UnitRay3f
     UnitRay3f::from_to(const vec3f& afrom, const vec3f& ato)
     {
-        return UnitRay3f{afrom, vec3f::from_to(afrom, ato).get_normalized()};
+        return {afrom, vec3f::from_to(afrom, ato).get_normalized()};
     }
 
 
     [[nodiscard]] UnitRay3f
     UnitRay3f::from_direction(const unit3f& adir)
     {
-        return UnitRay3f{zero3f, adir};
+        return {zero3f, adir};
     }
 
 
@@ -66,7 +66,11 @@ namespace euphoria::core
     }
     
 
-    Ray2f::Ray2f(const vec2f& p, const vec2f& d) : position(p), direction(d) {}
+    Ray2f::Ray2f(const vec2f& p, const vec2f& d)
+        : position(p)
+        , direction(d)
+    {
+    }
 
     
     Ray3f::Ray3f(const vec3f& f, const vec3f& d)
@@ -99,7 +103,7 @@ namespace euphoria::core
     UnitRay3f
     Ray3f::get_normalized() const
     {
-        return UnitRay3f{from, dir.get_normalized()};
+        return {from, dir.get_normalized()};
     }
 
 
