@@ -74,6 +74,9 @@ google-*
 # makes sense but sometimes it doesn't
 -bugprone-macro-parentheses
 
+# todo(Gustav): enable this again
+-bugprone-easily-swappable-parameters
+
 # warning: do not use static_cast to downcast from a base to a derived class; use dynamic_cast instead
 # makes sense but dynamic cast is ugly
 -cppcoreguidelines-pro-type-static-cast-downcast
@@ -110,6 +113,11 @@ readability-identifier-naming
 END_CHECKS
 
 "CheckOptions": [
+    // disable parameter length checks for now
+    // todo(Gustav): enable this again
+    {"key": "readability-identifier-length.MinimumParameterNameLength",          "value": "0"},
+
+
     // readability identifier settings
     // https://clang.llvm.org/extra/clang-tidy/checks/readability-identifier-naming.html
 
