@@ -218,8 +218,8 @@ namespace euphoria::render
         stbrp_context context {};
         const int num_nodes = texture_width;
         std::vector<stbrp_node> nodes(num_nodes);
-        stbrp_init_target(&context, texture_width, texture_height, &nodes[0], num_nodes);
-        stbrp_pack_rects(&context, &packed_rects[0], num_rects);
+        stbrp_init_target(&context, texture_width, texture_height, nodes.data(), num_nodes);
+        stbrp_pack_rects(&context, packed_rects.data(), num_rects);
 
         CharToGlyphMap map;
         core::Image image;

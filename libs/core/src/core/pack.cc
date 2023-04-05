@@ -46,10 +46,10 @@ namespace euphoria::core
             &context,
             container.width,
             container.height,
-            &nodes[0],
+            nodes.data(),
             num_nodes
         );
-        stbrp_pack_rects(&context, &packed_rects[0], num_rects);
+        stbrp_pack_rects(&context, packed_rects.data(), num_rects);
 
         // get and return data
         auto ret = std::vector<std::optional<Recti>>(to_pack.size());

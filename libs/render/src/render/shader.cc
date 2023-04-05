@@ -56,8 +56,8 @@ namespace
         }
         const int max_length = length + 1;
         std::vector<char> str(max_length, 0);
-        glGetShaderInfoLog(shader, max_length, &length, &str[0]);
-        return &str[0];
+        glGetShaderInfoLog(shader, max_length, &length, str.data());
+        return str.data();
     }
 
 
@@ -72,8 +72,8 @@ namespace
         }
         const int max_length = length + 1;
         std::vector<char> str(max_length, 0);
-        glGetProgramInfoLog(shader, max_length, &length, &str[0]);
-        return &str[0];
+        glGetProgramInfoLog(shader, max_length, &length, str.data());
+        return str.data();
     }
 
 

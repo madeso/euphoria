@@ -177,7 +177,7 @@ namespace euphoria::core
     const unsigned char*
     Image::get_pixel_data() const
     {
-        return &components[0];
+        return components.data();
     }
 
     namespace
@@ -259,7 +259,7 @@ namespace euphoria::core
                 width,
                 height,
                 number_of_components,
-                &pixels[0],
+                pixels.data(),
                 format,
                 jpeg_quality
         );
@@ -277,7 +277,7 @@ namespace euphoria::core
                 width,
                 height,
                 number_of_components,
-                &pixels[0],
+                pixels.data(),
                 format,
                 jpeg_quality
         );

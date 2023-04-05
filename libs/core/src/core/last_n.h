@@ -30,7 +30,7 @@ namespace euphoria::core
         data() const
         {
             ASSERT(!d.empty());
-            return &d[0];
+            return d.data();
         }
 
         [[nodiscard]] int

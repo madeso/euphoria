@@ -69,7 +69,7 @@ namespace euphoria::core
         (
                 c_sizet_to_int(content.length() + 1)
         );
-        copy_to_memory(file.get(), &content[0]);
+        copy_to_memory(file.get(), content.data());
         return file;
     }
 
