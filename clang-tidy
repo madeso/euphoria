@@ -118,6 +118,10 @@ END_CHECKS
     {"key": "readability-identifier-length.MinimumParameterNameLength",          "value": "0"},
     {"key": "readability-identifier-length.MinimumVariableNameLength",           "value": "0"},
 
+    // xyz is used as coordinates, _ can used as ignores?
+    // prefer _index postfix to a descriptor instead of ijk
+    {"key": "readability-identifier-length.IgnoredLoopCounterNames",             "value": "^[xyz_]$"},
+
 
     // readability identifier settings
     // https://clang.llvm.org/extra/clang-tidy/checks/readability-identifier-naming.html
