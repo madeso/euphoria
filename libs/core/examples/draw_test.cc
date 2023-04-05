@@ -1,5 +1,3 @@
-#include <array>
-
 #include "core/image.h"
 #include "core/image_draw.h"
 #include "core/io.h"
@@ -10,7 +8,7 @@ using namespace euphoria::core;
 int
 main(int, char*[])
 {
-    std::array<Image, 4> images;
+    Image images[4];
 
     constexpr int width = 200;
     constexpr int height = 200;
