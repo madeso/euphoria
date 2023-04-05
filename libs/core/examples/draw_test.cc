@@ -54,10 +54,10 @@ main(int, char*[])
 
     Image composite;
     composite.setup_no_alpha_support(width * 2, height * 2);
-    for(int i=0; i<4; i+=1)
+    for(int image_index=0; image_index<4; image_index+=1)
     {
-        const auto p = vec2i{i%2 * width, i/2 * height};
-        paste_image(&composite, p, images[i]);
+        const auto p = vec2i{image_index%2 * width, image_index/2 * height};
+        paste_image(&composite, p, images[image_index]);
     }
 
     io::write_chunk_to_file(composite.write(ImageWriteFormat::png), "draw.png");

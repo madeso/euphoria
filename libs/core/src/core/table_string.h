@@ -43,17 +43,17 @@ namespace euphoria::core
             StringTable ret;
             ret.add_row(column_titles);
 
-            const auto s = column_titles.size();
+            const auto column_count = column_titles.size();
 
             const auto indices = get_sorted_indices(data, *this);
             for(const auto index: indices)
             {
                 const auto& d = data[index];
                 std::vector<std::string> row_strings;
-                row_strings.reserve(s);
-                for(size_t i = 0; i < s; ++i)
+                row_strings.reserve(column_count);
+                for(size_t column_index = 0; column_index < column_count; ++column_index)
                 {
-                    row_strings.emplace_back(column_to_string[i](d));
+                    row_strings.emplace_back(column_to_string[column_index](d));
                 }
                 ret.add_row(row_strings);
             }

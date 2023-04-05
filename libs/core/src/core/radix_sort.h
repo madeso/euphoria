@@ -93,14 +93,14 @@ namespace euphoria::core
 
         int sum[TBucket::count] = {0,};
 
-        for(auto i = 0; i < size; i+=1)
+        for(auto arr_index = 0; arr_index < size; arr_index +=1)
         {
-            sum[TBucket::get_index(TIdExtractor::get_id(arr[i]), exp)]+=1;
+            sum[TBucket::get_index(TIdExtractor::get_id(arr[arr_index]), exp)]+=1;
         }
 
-        for(auto i = 1; i < TBucket::count; i+=1)
+        for(auto sum_index = 1; sum_index < TBucket::count; sum_index +=1)
         {
-            sum[i] += sum[i - 1];
+            sum[sum_index] += sum[sum_index - 1];
         }
 
         // cant use reserve since that will not set the size, and we cant use resize
@@ -110,12 +110,12 @@ namespace euphoria::core
         // todo(Gustav): look into swapping the input array instead?
         std::vector<T> ret = arr;
 
-        for(auto i = size - 1; i >= 0; i-=1)
+        for(auto arr_index = size - 1; arr_index >= 0; arr_index -=1)
         {
-            auto index = TBucket::get_index(TIdExtractor::get_id(arr[i]), exp);
-            auto target = sum[index] - 1;
-            ret[target] = arr[i];
-            sum[index] -= 1;
+            auto sum_index = TBucket::get_index(TIdExtractor::get_id(arr[arr_index]), exp);
+            auto target = sum[sum_index] - 1;
+            ret[target] = arr[arr_index];
+            sum[sum_index] -= 1;
         }
 
         return ret;

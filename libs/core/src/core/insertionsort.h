@@ -12,16 +12,16 @@ namespace euphoria::core
         auto& array = *pointer_to_array;
         const auto length = array.size();
 
-        size_t i = 1;
-        while(i < length)
+        size_t index = 1;
+        while(index < length)
         {
-            size_t j = i;
+            size_t j = index;
             while(j > 0 && sort_func(array[j - 1], array[j]) > 0)
             {
                 std::swap(array[j], array[j - 1]);
                 j = j - 1;
             }
-            i = i + 1;
+            index = index + 1;
         }
     }
 

@@ -53,14 +53,14 @@ namespace euphoria::core
 
         // get and return data
         auto ret = std::vector<std::optional<Recti>>(to_pack.size());
-        for(int i = 0; i < num_rects; ++i)
+        for(int rect_index = 0; rect_index < num_rects; ++rect_index)
         {
-            const stbrp_rect& rect = packed_rects[i];
+            const stbrp_rect& rect = packed_rects[rect_index];
             if(rect.was_packed == 0)
             {
                 continue;
             }
-            ret[i] = Recti::from_top_left_width_height
+            ret[rect_index] = Recti::from_top_left_width_height
             (
                 core::vec2i{rect.x, container.height - rect.y - 1},
                 rect.w,

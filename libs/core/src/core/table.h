@@ -39,9 +39,9 @@ namespace euphoria::core
 
         void clear(T d = T())
         {
-            for(size_t i = 0; i < data.size(); i += 1)
+            for(size_t index = 0; index < data.size(); index += 1)
             {
-                data[i] = d;
+                data[index] = d;
             }
         }
 
@@ -89,7 +89,7 @@ namespace euphoria::core
             {
                 // new row has less columns than the table, solve by expanding the new row with empties
                 data.insert(data.end(), row.begin(), row.end());
-                for(auto i = conv(row.size()); i < width; i += 1)
+                for(auto col = conv(row.size()); col < width; col += 1)
                 {
                     data.push_back(d);
                 }

@@ -224,9 +224,9 @@ namespace euphoria::render
         CharToGlyphMap map;
         core::Image image;
         image.setup_with_alpha_support(texture_width, texture_height);
-        for(int i = 0; i < num_rects; ++i)
+        for(int rect_index = 0; rect_index < num_rects; rect_index += 1)
         {
-            const stbrp_rect& src_rect = packed_rects[i];
+            const stbrp_rect& src_rect = packed_rects[rect_index];
             if(src_rect.was_packed == 0)
             {
                 LOG_ERROR("Failed to pack");

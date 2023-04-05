@@ -17,12 +17,12 @@ namespace euphoria::core
     void
     shuffle(std::vector<T>* v, Random* r)
     {
-        for(int i = c_sizet_to_int(v->size()) - 1; i > 0; --i)
+        for(int index = c_sizet_to_int(v->size()) - 1; index > 0; index -= 1)
         {
-            const auto j = get_random_in_range(r, i + 1); // 0 ≤ j ≤ i
-            if(j != i)
+            const auto j = get_random_in_range(r, index + 1); // 0 ≤ j ≤ index
+            if(j != index)
             {
-                std::swap((*v)[j], (*v)[i]);
+                std::swap((*v)[j], (*v)[index]);
             }
         }
     }
