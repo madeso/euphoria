@@ -456,12 +456,11 @@ std::vector<Token> tokenize
 struct TokenReader
 {
     std::vector<Token> tokens;
-    std::size_t next_token_index;
+    std::size_t next_token_index = 0;
     std::size_t size;
 
     explicit TokenReader(const std::vector<Token>& input)
         : tokens{input}
-        , next_token_index{0}
         , size{input.size()}
     {
     }

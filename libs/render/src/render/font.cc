@@ -359,8 +359,8 @@ namespace euphoria::render
     {
         const DrawableFont& font;
         float size;
-        bool apply_highlight;
-        core::vec2f position; // todo(Gustav): rename to offset
+        bool apply_highlight = false;
+        core::vec2f position = core::vec2f{0, 0}; // todo(Gustav): rename to offset
         int last_char_index = 0;
 
         // return value
@@ -374,8 +374,6 @@ namespace euphoria::render
         )
             : font{f}
             , size{s}
-            , apply_highlight{false}
-            , position{0, 0}
             , list{li}
         {
         }

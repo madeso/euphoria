@@ -27,7 +27,7 @@ namespace euphoria::core
         stbtt_fontinfo font;
         float size;
         bool was_loaded;
-        int line_height;
+        int line_height = 0;
         std::vector<stbtt_kerningentry> kernings;
         std::map<int, int> index_to_unicode;
 
@@ -35,24 +35,18 @@ namespace euphoria::core
             : font{}
             , size{s}
             , was_loaded{stbtt_InitFont(&font, ttf_buffer, stbtt_GetFontOffsetForIndex(ttf_buffer,0)) == 1}
-            , line_height{0}
         {
-            if(was_loaded)
-            {
-                {
-                    const int count = stbtt_GetKerningTableLength(&font);
-                    kernings.reserve(count);
-                    stbtt_GetKerningTable(&font, kernings.data(), count);
-                }
+            if(was_loaded == false) {return;}
 
-                line_height = [&]{
-                    int ascent = 0;
-                    int descent = 0;
-                    int line_gap = 0;
-                    stbtt_GetFontVMetrics(&font, &ascent, &descent, &line_gap);
-                    return ascent - descent + line_gap;
-                }();
-            }
+            const int count = stbtt_GetKerningTableLength(&font);
+            kernings.reserve(count);
+            stbtt_GetKerningTable(&font, kernings.data(), count);
+            
+            int ascent = 0;
+            int descent = 0;
+            int line_gap = 0;
+            stbtt_GetFontVMetrics(&font, &ascent, &descent, &line_gap);
+            line_height = ascent - descent + line_gap;
         }
 
         void define_codepoint(int cp)
