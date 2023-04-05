@@ -14,7 +14,7 @@ namespace euphoria::core
     AxisAngle::from_right_hand_around(const unit3f& axis, const core::angle& angle)
     {
         ASSERT(axis.is_valid());
-        return AxisAngle(axis, angle::from_radians(angle.as_radians()));
+        return {axis, angle::from_radians(angle.as_radians())};
     }
 
     std::string

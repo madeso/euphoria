@@ -48,14 +48,14 @@ namespace euphoria::core
     [[nodiscard]] Ray2f
     Ray2f::from_direction(const vec2f& direction, const vec2f& pos)
     {
-        return Ray2f(pos, direction);
+        return {pos, direction};
     }
 
 
     [[nodiscard]] Ray2f
     Ray2f::from_to(const vec2f& from, const vec2f& to)
     {
-        return Ray2f(from, vec2f::from_to(from, to));
+        return {from, vec2f::from_to(from, to)};
     }
 
 

@@ -254,7 +254,7 @@ namespace euphoria::core
 
             if (characters_written != 0)
             {
-                return &ret[0];
+                return ret.data();
             }
         }
 
@@ -317,21 +317,21 @@ namespace euphoria::core
     DateTime
     DateTime::create_from_date(int year, core::Month month, int day, TimeZone timezone)
     {
-        return DateTime(timezone, StructTmWrapper(year, month, day));
+        return {timezone, StructTmWrapper(year, month, day)};
     }
 
 
     DateTime
     DateTime::create_from_date_and_time(int year, core::Month month, int day, int hour, int minute, int second, TimeZone timezone)
     {
-        return DateTime(timezone, StructTmWrapper(year, month, day, hour, minute, second));
+        return {timezone, StructTmWrapper(year, month, day, hour, minute, second)};
     }
 
 
     DateTime
     DateTime::create_from_current_time(TimeZone timezone)
     {
-        return DateTime(timezone, TimetWrapper::from_current_time());
+        return {timezone, TimetWrapper::from_current_time()};
     }
 
 

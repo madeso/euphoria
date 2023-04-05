@@ -94,7 +94,7 @@ namespace euphoria::core
     vec3f
     mat4f::get_translation() const
     {
-        return vec3f(get(0, 3), get(1, 3), get(2, 3));
+        return {get(0, 3), get(1, 3), get(2, 3)};
     }
 
     [[nodiscard]]

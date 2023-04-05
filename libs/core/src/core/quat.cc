@@ -128,7 +128,7 @@ namespace euphoria::core
     quatf
     quatf::get_negated() const
     {
-        return quatf(-w, -get_vec_part());
+        return {-w, -get_vec_part()};
     }
 
 
@@ -336,7 +336,8 @@ namespace euphoria::core
 
         if (abs(dot_value - (-1.0f)) < 0.000001f)
         {
-            return quatf(3.1415926535897932f, up);
+            // todo(Gustav): replace with a constant in general but this line specifically
+            return {3.1415926535897932f, up};
         }
         if (abs(dot_value - (1.0f)) < 0.000001f)
         {

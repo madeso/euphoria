@@ -117,7 +117,7 @@ namespace euphoria::core
     vec2f
     Rectf::get_bottom_left() const
     {
-        return vec2f(left, bottom);
+        return {left, bottom};
     }
 
     Rectf
@@ -175,7 +175,7 @@ namespace euphoria::core
     vec2f
     Rectf::get_absolute_center_pos() const
     {
-        return vec2f(get_absolute_center_x(), get_absolute_center_y());
+        return {get_absolute_center_x(), get_absolute_center_y()};
     }
 
     bool
@@ -657,7 +657,7 @@ namespace euphoria::core
     vec2i
     Recti::get_absolute_center_pos() const
     {
-        return vec2i(get_absolute_center_x(), get_absolute_center_y());
+        return {get_absolute_center_x(), get_absolute_center_y()};
     }
 
     bool
