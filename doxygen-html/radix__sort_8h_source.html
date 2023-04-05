@@ -149,14 +149,14 @@
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <span class="keywordtype">int</span> sum[TBucket::count] = {0,};</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">auto</span> <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a865c0c0b4ab0e063e5caa3387c1a8741">i</a> = 0; <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a865c0c0b4ab0e063e5caa3387c1a8741">i</a> &lt; size; <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a865c0c0b4ab0e063e5caa3387c1a8741">i</a>+=1)</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">auto</span> arr_index = 0; arr_index &lt; size; arr_index +=1)</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        {</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;            sum[TBucket::get_index(TIdExtractor::get_id(arr[<a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a865c0c0b4ab0e063e5caa3387c1a8741">i</a>]), exp)]+=1;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;            sum[TBucket::get_index(TIdExtractor::get_id(arr[arr_index]), exp)]+=1;</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        }</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">auto</span> <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a865c0c0b4ab0e063e5caa3387c1a8741">i</a> = 1; <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a865c0c0b4ab0e063e5caa3387c1a8741">i</a> &lt; TBucket::count; <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a865c0c0b4ab0e063e5caa3387c1a8741">i</a>+=1)</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">auto</span> sum_index = 1; sum_index &lt; TBucket::count; sum_index +=1)</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        {</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;            sum[<a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a865c0c0b4ab0e063e5caa3387c1a8741">i</a>] += sum[<a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a865c0c0b4ab0e063e5caa3387c1a8741">i</a> - 1];</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;            sum[sum_index] += sum[sum_index - 1];</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        }</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <span class="comment">// cant use reserve since that will not set the size, and we cant use resize</span></div>
@@ -166,12 +166,12 @@
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        <span class="comment">// todo(Gustav): look into swapping the input array instead?</span></div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        std::vector&lt;T&gt; ret = arr;</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">auto</span> <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a865c0c0b4ab0e063e5caa3387c1a8741">i</a> = size - 1; <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a865c0c0b4ab0e063e5caa3387c1a8741">i</a> &gt;= 0; <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a865c0c0b4ab0e063e5caa3387c1a8741">i</a>-=1)</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">auto</span> arr_index = size - 1; arr_index &gt;= 0; arr_index -=1)</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        {</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;            <span class="keyword">auto</span> index = TBucket::get_index(TIdExtractor::get_id(arr[<a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a865c0c0b4ab0e063e5caa3387c1a8741">i</a>]), exp);</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;            <span class="keyword">auto</span> target = sum[index] - 1;</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;            ret[target] = arr[<a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a865c0c0b4ab0e063e5caa3387c1a8741">i</a>];</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;            sum[index] -= 1;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;            <span class="keyword">auto</span> sum_index = TBucket::get_index(TIdExtractor::get_id(arr[arr_index]), exp);</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;            <span class="keyword">auto</span> target = sum[sum_index] - 1;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;            ret[target] = arr[arr_index];</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;            sum[sum_index] -= 1;</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        }</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        <span class="keywordflow">return</span> ret;</div>

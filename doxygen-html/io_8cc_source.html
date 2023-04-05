@@ -130,7 +130,7 @@
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> file_size = <a class="code" href="namespaceeuphoria_1_1core_1_1common.html#a8e5735d87a09eb8dc50355b612e951c6">in</a>.tellg();</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        contents.resize(file_size);</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <a class="code" href="namespaceeuphoria_1_1core_1_1common.html#a8e5735d87a09eb8dc50355b612e951c6">in</a>.seekg(0, std::ios::beg);</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <a class="code" href="namespaceeuphoria_1_1core_1_1common.html#a8e5735d87a09eb8dc50355b612e951c6">in</a>.read(&amp;contents[0], file_size);</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <a class="code" href="namespaceeuphoria_1_1core_1_1common.html#a8e5735d87a09eb8dc50355b612e951c6">in</a>.read(contents.data(), file_size);</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <a class="code" href="namespaceeuphoria_1_1core_1_1common.html#a8e5735d87a09eb8dc50355b612e951c6">in</a>.close();</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keywordflow">return</span>(contents);</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    }</div>
