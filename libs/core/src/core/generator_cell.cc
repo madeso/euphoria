@@ -121,7 +121,7 @@ namespace euphoria::core::generator
                     return lhs.size() < rhs.size();
                 }
             );
-            for(int h=0; h<holes_to_keep && regions.empty() == false; h+=1)
+            for(int hole_index=0; hole_index<holes_to_keep && regions.empty() == false; hole_index+=1)
             {
                 regions.pop_back();
             }
