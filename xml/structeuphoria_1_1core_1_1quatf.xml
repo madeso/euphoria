@@ -572,7 +572,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/quat.h" line="34" column="23" bodyfile="libs/core/src/core/quat.cc" bodystart="332" bodyend="352"/>
+        <location file="libs/core/src/core/quat.h" line="34" column="23" bodyfile="libs/core/src/core/quat.cc" bodystart="332" bodyend="353"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

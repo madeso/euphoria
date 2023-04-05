@@ -35,6 +35,7 @@
         <definition>bool euphoria::render::UiTextCompileVisitor::apply_highlight</definition>
         <argsstring></argsstring>
         <name>apply_highlight</name>
+        <initializer>= false</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -48,6 +49,7 @@
         <definition>core::vec2f euphoria::render::UiTextCompileVisitor::position</definition>
         <argsstring></argsstring>
         <name>position</name>
+        <initializer>= <ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">core::vec2f</ref>{0, 0}</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -108,7 +110,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.cc" line="369" column="9" bodyfile="libs/render/src/render/font.cc" bodystart="370" bodyend="381"/>
+        <location file="libs/render/src/render/font.cc" line="369" column="9" bodyfile="libs/render/src/render/font.cc" bodystart="370" bodyend="379"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1UiTextCompileVisitor_1adf2c21fe3aec30691af90f3fc9af208d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
         <type>void</type>
@@ -126,7 +128,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.cc" line="385" column="9" bodyfile="libs/render/src/render/font.cc" bodystart="385" bodyend="395"/>
+        <location file="libs/render/src/render/font.cc" line="383" column="9" bodyfile="libs/render/src/render/font.cc" bodystart="383" bodyend="393"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1UiTextCompileVisitor_1a785f7a2c473cec0cf6359021a4a3a602" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
         <type>void</type>
@@ -144,7 +146,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.cc" line="399" column="9" bodyfile="libs/render/src/render/font.cc" bodystart="399" bodyend="414"/>
+        <location file="libs/render/src/render/font.cc" line="397" column="9" bodyfile="libs/render/src/render/font.cc" bodystart="397" bodyend="412"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1UiTextCompileVisitor_1a0e515cbcbe0d29d47bdd4aaa9101206b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
         <type>void</type>
@@ -158,7 +160,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.cc" line="418" column="9" bodyfile="libs/render/src/render/font.cc" bodystart="418" bodyend="421"/>
+        <location file="libs/render/src/render/font.cc" line="416" column="9" bodyfile="libs/render/src/render/font.cc" bodystart="416" bodyend="419"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1UiTextCompileVisitor_1af7d6d14c2acc244bf7987ebba982299d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
         <type>void</type>
@@ -172,7 +174,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.cc" line="425" column="9" bodyfile="libs/render/src/render/font.cc" bodystart="425" bodyend="428"/>
+        <location file="libs/render/src/render/font.cc" line="423" column="9" bodyfile="libs/render/src/render/font.cc" bodystart="423" bodyend="426"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1UiTextCompileVisitor_1a85f22eaa81d8856138636a90ca592210" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -189,7 +191,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.cc" line="432" column="9" bodyfile="libs/render/src/render/font.cc" bodystart="432" bodyend="472"/>
+        <location file="libs/render/src/render/font.cc" line="430" column="9" bodyfile="libs/render/src/render/font.cc" bodystart="430" bodyend="470"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -241,7 +243,7 @@
         <link refid="structeuphoria_1_1core_1_1textparser_1_1Visitor"/>
       </node>
     </collaborationgraph>
-    <location file="libs/render/src/render/font.cc" line="358" column="5" bodyfile="libs/render/src/render/font.cc" bodystart="359" bodyend="473"/>
+    <location file="libs/render/src/render/font.cc" line="358" column="5" bodyfile="libs/render/src/render/font.cc" bodystart="359" bodyend="471"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1render_1_1UiTextCompileVisitor_1a85f22eaa81d8856138636a90ca592210" prot="public" virt="non-virtual"><scope>euphoria::render::UiTextCompileVisitor</scope><name>add_char_index</name></member>
       <member refid="structeuphoria_1_1render_1_1UiTextCompileVisitor_1aac2415ee36303a130bde6433b5a1b94e" prot="public" virt="non-virtual"><scope>euphoria::render::UiTextCompileVisitor</scope><name>apply_highlight</name></member>

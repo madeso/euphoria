@@ -47,7 +47,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/texttemplate.h" line="57" column="18" bodyfile="libs/core/src/core/texttemplate.cc" bodystart="821" bodyend="827"/>
+        <location file="libs/core/src/core/texttemplate.h" line="57" column="18" bodyfile="libs/core/src/core/texttemplate.cc" bodystart="820" bodyend="826"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1CompiledTextTemplate_1a8bb800949110487eac2df429ca66db2b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -68,7 +68,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/texttemplate.h" line="58" column="9" bodyfile="libs/core/src/core/texttemplate.cc" bodystart="830" bodyend="835"/>
+        <location file="libs/core/src/core/texttemplate.h" line="58" column="9" bodyfile="libs/core/src/core/texttemplate.cc" bodystart="829" bodyend="834"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1CompiledTextTemplate_1ab1ac2d6642209cd8420c144dd24572a0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -162,7 +162,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/texttemplate.h" line="67" column="21" bodyfile="libs/core/src/core/texttemplate.cc" bodystart="841" bodyend="857"/>
+        <location file="libs/core/src/core/texttemplate.h" line="67" column="21" bodyfile="libs/core/src/core/texttemplate.cc" bodystart="840" bodyend="856"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

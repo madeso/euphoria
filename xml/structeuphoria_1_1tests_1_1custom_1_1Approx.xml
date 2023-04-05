@@ -20,33 +20,35 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/tests/src/tests/approx.h" line="110" column="19" bodyfile="libs/tests/src/tests/approx.h" bodystart="110" bodyend="-1"/>
+        <location file="libs/tests/src/tests/approx.h" line="108" column="19" bodyfile="libs/tests/src/tests/approx.h" bodystart="108" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1tests_1_1custom_1_1Approx_1ad15d7c18baf312a3a667a8d7f9757bc0" prot="private" static="no" mutable="no">
         <type>float</type>
         <definition>float euphoria::tests::custom::Approx&lt; T &gt;::margin</definition>
         <argsstring></argsstring>
         <name>margin</name>
+        <initializer>= 0.0f</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/tests/src/tests/approx.h" line="111" column="19" bodyfile="libs/tests/src/tests/approx.h" bodystart="111" bodyend="-1"/>
+        <location file="libs/tests/src/tests/approx.h" line="109" column="19" bodyfile="libs/tests/src/tests/approx.h" bodystart="109" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1tests_1_1custom_1_1Approx_1a047832ac047e01e46e07fbfcb45b7ff0" prot="private" static="no" mutable="no">
         <type>float</type>
         <definition>float euphoria::tests::custom::Approx&lt; T &gt;::scale</definition>
         <argsstring></argsstring>
         <name>scale</name>
+        <initializer>= 1.0f</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/tests/src/tests/approx.h" line="112" column="19" bodyfile="libs/tests/src/tests/approx.h" bodystart="112" bodyend="-1"/>
+        <location file="libs/tests/src/tests/approx.h" line="110" column="19" bodyfile="libs/tests/src/tests/approx.h" bodystart="110" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1tests_1_1custom_1_1Approx_1a7ac844283df242164605f5661348c87e" prot="private" static="no" mutable="no">
         <type>T</type>
@@ -59,7 +61,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/tests/src/tests/approx.h" line="113" column="15" bodyfile="libs/tests/src/tests/approx.h" bodystart="113" bodyend="-1"/>
+        <location file="libs/tests/src/tests/approx.h" line="112" column="15" bodyfile="libs/tests/src/tests/approx.h" bodystart="112" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -78,7 +80,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/tests/src/tests/approx.h" line="43" column="22" bodyfile="libs/tests/src/tests/approx.h" bodystart="43" bodyend="49"/>
+        <location file="libs/tests/src/tests/approx.h" line="43" column="22" bodyfile="libs/tests/src/tests/approx.h" bodystart="43" bodyend="47"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1tests_1_1custom_1_1Approx_1aa6e1c640a463664ee80732ca645712ac" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1tests_1_1custom_1_1Approx" kindref="compound">Approx</ref> &amp;</type>
@@ -95,7 +97,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/tests/src/tests/approx.h" line="52" column="13" bodyfile="libs/tests/src/tests/approx.h" bodystart="52" bodyend="56"/>
+        <location file="libs/tests/src/tests/approx.h" line="50" column="13" bodyfile="libs/tests/src/tests/approx.h" bodystart="50" bodyend="54"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1tests_1_1custom_1_1Approx_1a060e7c913567ee269513c8143ec354a8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1tests_1_1custom_1_1Approx" kindref="compound">Approx</ref> &amp;</type>
@@ -112,7 +114,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/tests/src/tests/approx.h" line="59" column="13" bodyfile="libs/tests/src/tests/approx.h" bodystart="59" bodyend="63"/>
+        <location file="libs/tests/src/tests/approx.h" line="57" column="13" bodyfile="libs/tests/src/tests/approx.h" bodystart="57" bodyend="61"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1tests_1_1custom_1_1Approx_1a7e2b882b51dec1672776352203ce72e3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1tests_1_1custom_1_1Approx" kindref="compound">Approx</ref> &amp;</type>
@@ -129,7 +131,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/tests/src/tests/approx.h" line="66" column="13" bodyfile="libs/tests/src/tests/approx.h" bodystart="66" bodyend="70"/>
+        <location file="libs/tests/src/tests/approx.h" line="64" column="13" bodyfile="libs/tests/src/tests/approx.h" bodystart="64" bodyend="68"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1tests_1_1custom_1_1Approx_1a230eae61e74bc9e137afd1c4b1d51ef7" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>std::string</type>
@@ -142,7 +144,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/tests/src/tests/approx.h" line="73" column="13" bodyfile="libs/tests/src/tests/approx.h" bodystart="73" bodyend="79"/>
+        <location file="libs/tests/src/tests/approx.h" line="71" column="13" bodyfile="libs/tests/src/tests/approx.h" bodystart="71" bodyend="77"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="friend">
@@ -165,7 +167,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/tests/src/tests/approx.h" line="82" column="13" bodyfile="libs/tests/src/tests/approx.h" bodystart="82" bodyend="89"/>
+        <location file="libs/tests/src/tests/approx.h" line="80" column="13" bodyfile="libs/tests/src/tests/approx.h" bodystart="80" bodyend="87"/>
       </memberdef>
       <memberdef kind="friend" id="structeuphoria_1_1tests_1_1custom_1_1Approx_1a66bc64b9f6ca0ed5c6256a10b59260df" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -186,7 +188,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/tests/src/tests/approx.h" line="92" column="13" bodyfile="libs/tests/src/tests/approx.h" bodystart="92" bodyend="95"/>
+        <location file="libs/tests/src/tests/approx.h" line="90" column="13" bodyfile="libs/tests/src/tests/approx.h" bodystart="90" bodyend="93"/>
       </memberdef>
       <memberdef kind="friend" id="structeuphoria_1_1tests_1_1custom_1_1Approx_1a98eb1ff7b0e1a2a9f75c35339f7185ea" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -207,7 +209,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/tests/src/tests/approx.h" line="98" column="13" bodyfile="libs/tests/src/tests/approx.h" bodystart="98" bodyend="101"/>
+        <location file="libs/tests/src/tests/approx.h" line="96" column="13" bodyfile="libs/tests/src/tests/approx.h" bodystart="96" bodyend="99"/>
       </memberdef>
       <memberdef kind="friend" id="structeuphoria_1_1tests_1_1custom_1_1Approx_1a28a5d2ba6f6162d86c8d6afd3b4618dc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -228,14 +230,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/tests/src/tests/approx.h" line="104" column="13" bodyfile="libs/tests/src/tests/approx.h" bodystart="104" bodyend="107"/>
+        <location file="libs/tests/src/tests/approx.h" line="102" column="13" bodyfile="libs/tests/src/tests/approx.h" bodystart="102" bodyend="105"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/tests/src/tests/approx.h" line="40" column="9" bodyfile="libs/tests/src/tests/approx.h" bodystart="41" bodyend="114"/>
+    <location file="libs/tests/src/tests/approx.h" line="40" column="9" bodyfile="libs/tests/src/tests/approx.h" bodystart="41" bodyend="113"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1tests_1_1custom_1_1Approx_1a645b2e37b1d990e09e7ffae629b856cc" prot="public" virt="non-virtual"><scope>euphoria::tests::custom::Approx</scope><name>Approx</name></member>
       <member refid="structeuphoria_1_1tests_1_1custom_1_1Approx_1a9343be3aa683c4bdea7ed10f9cafa096" prot="private" virt="non-virtual"><scope>euphoria::tests::custom::Approx</scope><name>epsilon</name></member>

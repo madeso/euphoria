@@ -47,6 +47,7 @@
         <definition>int euphoria::core::FontData::line_height</definition>
         <argsstring></argsstring>
         <name>line_height</name>
+        <initializer>= 0</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -102,7 +103,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/loadedfont.cc" line="34" column="9" bodyfile="libs/core/src/core/loadedfont.cc" bodystart="34" bodyend="56"/>
+        <location file="libs/core/src/core/loadedfont.cc" line="34" column="9" bodyfile="libs/core/src/core/loadedfont.cc" bodystart="34" bodyend="50"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1FontData_1ac20676ded4e99f2256f627b17de18105" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -119,7 +120,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/loadedfont.cc" line="58" column="14" bodyfile="libs/core/src/core/loadedfont.cc" bodystart="58" bodyend="62"/>
+        <location file="libs/core/src/core/loadedfont.cc" line="52" column="14" bodyfile="libs/core/src/core/loadedfont.cc" bodystart="52" bodyend="56"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1FontData_1a39852b4d35b6e3f4dc4a7db6eccec86c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>std::optional&lt; int &gt;</type>
@@ -136,7 +137,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/loadedfont.cc" line="64" column="24" bodyfile="libs/core/src/core/loadedfont.cc" bodystart="64" bodyend="75"/>
+        <location file="libs/core/src/core/loadedfont.cc" line="58" column="24" bodyfile="libs/core/src/core/loadedfont.cc" bodystart="58" bodyend="69"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1FontData_1adade44a64f459fa58fd6e22c171cc4b0" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1LoadedGlyph" kindref="compound">LoadedGlyph</ref></type>
@@ -153,14 +154,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/loadedfont.cc" line="78" column="9" bodyfile="libs/core/src/core/loadedfont.cc" bodystart="78" bodyend="134"/>
+        <location file="libs/core/src/core/loadedfont.cc" line="72" column="9" bodyfile="libs/core/src/core/loadedfont.cc" bodystart="72" bodyend="128"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/loadedfont.cc" line="25" column="5" bodyfile="libs/core/src/core/loadedfont.cc" bodystart="26" bodyend="135"/>
+    <location file="libs/core/src/core/loadedfont.cc" line="25" column="5" bodyfile="libs/core/src/core/loadedfont.cc" bodystart="26" bodyend="129"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1FontData_1ac20676ded4e99f2256f627b17de18105" prot="public" virt="non-virtual"><scope>euphoria::core::FontData</scope><name>define_codepoint</name></member>
       <member refid="structeuphoria_1_1core_1_1FontData_1afaed0cb32b0ec40a284024420fc2fe45" prot="public" virt="non-virtual"><scope>euphoria::core::FontData</scope><name>font</name></member>

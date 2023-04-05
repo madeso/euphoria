@@ -308,7 +308,7 @@
 <div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160; </div>
 <div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;            <span class="keywordflow">if</span> (characters_written != 0)</div>
 <div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;            {</div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;                <span class="keywordflow">return</span> &amp;ret[0];</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;                <span class="keywordflow">return</span> ret.data();</div>
 <div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;            }</div>
 <div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;        }</div>
 <div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160; </div>
@@ -370,21 +370,21 @@
 <div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;    DateTime</div>
 <div class="line"><a name="l00318"></a><span class="lineno"><a class="line" href="structeuphoria_1_1core_1_1DateTime.html#a80f942f9bb9dbc4cf6e05ecd4c72cd7a">  318</a></span>&#160;    <a class="code" href="structeuphoria_1_1core_1_1DateTime.html#a80f942f9bb9dbc4cf6e05ecd4c72cd7a">DateTime::create_from_date</a>(<span class="keywordtype">int</span> year, <a class="code" href="namespaceeuphoria_1_1core.html#a6e9d54d933dc9e9c9314cd763a39d52a">core::Month</a> month, <span class="keywordtype">int</span> day, <a class="code" href="namespaceeuphoria_1_1core.html#ab6be8a33011c429e839dd2853f7e4632">TimeZone</a> timezone)</div>
 <div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;    {</div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="structeuphoria_1_1core_1_1DateTime.html#af5b4c27d1886048aedd5a03e47ef2b39">DateTime</a>(timezone, <a class="code" href="structeuphoria_1_1core_1_1StructTmWrapper.html">StructTmWrapper</a>(year, month, day));</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;        <span class="keywordflow">return</span> {timezone, <a class="code" href="structeuphoria_1_1core_1_1StructTmWrapper.html">StructTmWrapper</a>(year, month, day)};</div>
 <div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;    }</div>
 <div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160; </div>
 <div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160; </div>
 <div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;    <a class="code" href="structeuphoria_1_1core_1_1DateTime.html">DateTime</a></div>
 <div class="line"><a name="l00325"></a><span class="lineno"><a class="line" href="structeuphoria_1_1core_1_1DateTime.html#a32eae59d24bde6acfad707e34abc1796">  325</a></span>&#160;    <a class="code" href="structeuphoria_1_1core_1_1DateTime.html#a32eae59d24bde6acfad707e34abc1796">DateTime::create_from_date_and_time</a>(<span class="keywordtype">int</span> year, <a class="code" href="namespaceeuphoria_1_1core.html#a6e9d54d933dc9e9c9314cd763a39d52a">core::Month</a> month, <span class="keywordtype">int</span> day, <span class="keywordtype">int</span> hour, <span class="keywordtype">int</span> minute, <span class="keywordtype">int</span> second, <a class="code" href="namespaceeuphoria_1_1core.html#ab6be8a33011c429e839dd2853f7e4632">TimeZone</a> timezone)</div>
 <div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;    {</div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="structeuphoria_1_1core_1_1DateTime.html#af5b4c27d1886048aedd5a03e47ef2b39">DateTime</a>(timezone, <a class="code" href="structeuphoria_1_1core_1_1StructTmWrapper.html">StructTmWrapper</a>(year, month, day, hour, minute, second));</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;        <span class="keywordflow">return</span> {timezone, <a class="code" href="structeuphoria_1_1core_1_1StructTmWrapper.html">StructTmWrapper</a>(year, month, day, hour, minute, second)};</div>
 <div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;    }</div>
 <div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160; </div>
 <div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160; </div>
 <div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;    <a class="code" href="structeuphoria_1_1core_1_1DateTime.html">DateTime</a></div>
 <div class="line"><a name="l00332"></a><span class="lineno"><a class="line" href="structeuphoria_1_1core_1_1DateTime.html#a9517a4809b88ba6ba8d0f88d364ade2f">  332</a></span>&#160;    <a class="code" href="structeuphoria_1_1core_1_1DateTime.html#a9517a4809b88ba6ba8d0f88d364ade2f">DateTime::create_from_current_time</a>(<a class="code" href="namespaceeuphoria_1_1core.html#ab6be8a33011c429e839dd2853f7e4632">TimeZone</a> timezone)</div>
 <div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;    {</div>
-<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="structeuphoria_1_1core_1_1DateTime.html#af5b4c27d1886048aedd5a03e47ef2b39">DateTime</a>(timezone, <a class="code" href="structeuphoria_1_1core_1_1TimetWrapper.html#abb90c8f0c1be3cbd21b1950e95a0a294">TimetWrapper::from_current_time</a>());</div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;        <span class="keywordflow">return</span> {timezone, <a class="code" href="structeuphoria_1_1core_1_1TimetWrapper.html#abb90c8f0c1be3cbd21b1950e95a0a294">TimetWrapper::from_current_time</a>()};</div>
 <div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;    }</div>
 <div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160; </div>
 <div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160; </div>

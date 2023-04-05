@@ -104,14 +104,14 @@
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    [[nodiscard]] <a class="code" href="structeuphoria_1_1core_1_1Ray2f.html">Ray2f</a></div>
 <div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="structeuphoria_1_1core_1_1Ray2f.html#abc1d16125c9b26cd4b6207f846a28847">   49</a></span>&#160;    <a class="code" href="structeuphoria_1_1core_1_1Ray2f.html#abc1d16125c9b26cd4b6207f846a28847">Ray2f::from_direction</a>(<span class="keyword">const</span> <a class="code" href="structeuphoria_1_1core_1_1vec2f.html">vec2f</a>&amp; direction, <span class="keyword">const</span> <a class="code" href="structeuphoria_1_1core_1_1vec2f.html">vec2f</a>&amp; pos)</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    {</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="structeuphoria_1_1core_1_1Ray2f.html#a17a846eeda4b196adfc3474322a91d13">Ray2f</a>(pos, <a class="code" href="structeuphoria_1_1core_1_1Ray2f.html#a61d41fdaab67f2c4e3533d207671ad14">direction</a>);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keywordflow">return</span> {pos, <a class="code" href="structeuphoria_1_1core_1_1Ray2f.html#a61d41fdaab67f2c4e3533d207671ad14">direction</a>};</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    }</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    [[nodiscard]] <a class="code" href="structeuphoria_1_1core_1_1Ray2f.html">Ray2f</a></div>
 <div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="structeuphoria_1_1core_1_1Ray2f.html#acb7b4268032e079ede4ec857568351b1">   56</a></span>&#160;    <a class="code" href="structeuphoria_1_1core_1_1Ray2f.html#acb7b4268032e079ede4ec857568351b1">Ray2f::from_to</a>(<span class="keyword">const</span> <a class="code" href="structeuphoria_1_1core_1_1vec2f.html">vec2f</a>&amp; from, <span class="keyword">const</span> <a class="code" href="structeuphoria_1_1core_1_1vec2f.html">vec2f</a>&amp; to)</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    {</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="structeuphoria_1_1core_1_1Ray2f.html#a17a846eeda4b196adfc3474322a91d13">Ray2f</a>(from, <a class="code" href="structeuphoria_1_1core_1_1vec2f.html#a361e9066c380b96c555c01d369b0344f">vec2f::from_to</a>(from, to));</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordflow">return</span> {from, <a class="code" href="structeuphoria_1_1core_1_1vec2f.html#a361e9066c380b96c555c01d369b0344f">vec2f::from_to</a>(from, to)};</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    }</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>

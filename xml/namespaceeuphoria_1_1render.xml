@@ -764,7 +764,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.cc" line="549" column="5" bodyfile="libs/render/src/render/font.cc" bodystart="549" bodyend="570"/>
+        <location file="libs/render/src/render/font.cc" line="547" column="5" bodyfile="libs/render/src/render/font.cc" bodystart="547" bodyend="568"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1render_1a15401241ae3fad54f3600beff65efaf0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1mat4f" kindref="compound">core::mat4f</ref></type>

@@ -7847,7 +7847,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/loadedfont.cc" line="198" column="5" bodyfile="libs/core/src/core/loadedfont.cc" bodystart="199" bodyend="246"/>
+        <location file="libs/core/src/core/loadedfont.cc" line="192" column="5" bodyfile="libs/core/src/core/loadedfont.cc" bodystart="193" bodyend="240"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a860dc8b5aeb88f3e1bb594045601b406" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1LoadedFont" kindref="compound">LoadedFont</ref></type>
@@ -7860,7 +7860,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/loadedfont.cc" line="250" column="5" bodyfile="libs/core/src/core/loadedfont.cc" bodystart="250" bodyend="287" declfile="libs/core/src/core/loadedfont.h" declline="73" declcolumn="5"/>
+        <location file="libs/core/src/core/loadedfont.cc" line="244" column="5" bodyfile="libs/core/src/core/loadedfont.cc" bodystart="244" bodyend="281" declfile="libs/core/src/core/loadedfont.h" declline="73" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a043050e78422181bbad906e284227577" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1LoadedFont" kindref="compound">LoadedFont</ref></type>
@@ -7873,7 +7873,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/loadedfont.cc" line="291" column="5" bodyfile="libs/core/src/core/loadedfont.cc" bodystart="291" bodyend="300" declfile="libs/core/src/core/loadedfont.h" declline="69" declcolumn="5"/>
+        <location file="libs/core/src/core/loadedfont.cc" line="285" column="5" bodyfile="libs/core/src/core/loadedfont.cc" bodystart="285" bodyend="294" declfile="libs/core/src/core/loadedfont.h" declline="69" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a6330fde1a94121abe5d2f6482bf7bfe4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1LoadedFont" kindref="compound">LoadedFont</ref></type>
@@ -7902,7 +7902,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/loadedfont.cc" line="304" column="5" bodyfile="libs/core/src/core/loadedfont.cc" bodystart="305" bodyend="326" declfile="libs/core/src/core/loadedfont.h" declline="77" declcolumn="5"/>
+        <location file="libs/core/src/core/loadedfont.cc" line="298" column="5" bodyfile="libs/core/src/core/loadedfont.cc" bodystart="299" bodyend="320" declfile="libs/core/src/core/loadedfont.h" declline="77" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a87d203b00f5d23a7b322936aa0b54d47" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1LoadedFont" kindref="compound">LoadedFont</ref></type>
@@ -7927,7 +7927,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/loadedfont.cc" line="330" column="5" bodyfile="libs/core/src/core/loadedfont.cc" bodystart="331" bodyend="399" declfile="libs/core/src/core/loadedfont.h" declline="87" declcolumn="5"/>
+        <location file="libs/core/src/core/loadedfont.cc" line="324" column="5" bodyfile="libs/core/src/core/loadedfont.cc" bodystart="325" bodyend="393" declfile="libs/core/src/core/loadedfont.h" declline="87" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a519d1ce1780e3e930f9b97a97488f748" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1LoadedFont" kindref="compound">LoadedFont</ref></type>
@@ -7968,7 +7968,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/loadedfont.cc" line="403" column="5" bodyfile="libs/core/src/core/loadedfont.cc" bodystart="404" bodyend="436" declfile="libs/core/src/core/loadedfont.h" declline="95" declcolumn="5"/>
+        <location file="libs/core/src/core/loadedfont.cc" line="397" column="5" bodyfile="libs/core/src/core/loadedfont.cc" bodystart="398" bodyend="430" declfile="libs/core/src/core/loadedfont.h" declline="95" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a5531443ba854f0eccaf25c5d391cdbbe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1LoadedFont" kindref="compound">LoadedFont</ref></type>
@@ -8005,7 +8005,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/loadedfont.cc" line="440" column="5" bodyfile="libs/core/src/core/loadedfont.cc" bodystart="441" bodyend="464" declfile="libs/core/src/core/loadedfont.h" declline="107" declcolumn="5"/>
+        <location file="libs/core/src/core/loadedfont.cc" line="434" column="5" bodyfile="libs/core/src/core/loadedfont.cc" bodystart="435" bodyend="458" declfile="libs/core/src/core/loadedfont.h" declline="107" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a02940fc9948ad3ef3b00e4299f37952e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -9944,7 +9944,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/quat.cc" line="355" column="17" bodyfile="libs/core/src/core/quat.cc" bodystart="355" bodyend="358" declfile="libs/core/src/core/quat.h" declline="81" declcolumn="17"/>
+        <location file="libs/core/src/core/quat.cc" line="356" column="17" bodyfile="libs/core/src/core/quat.cc" bodystart="356" bodyend="359" declfile="libs/core/src/core/quat.h" declline="81" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1aa484888d5f11864179852bec09b4f341" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
@@ -9965,7 +9965,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/quat.cc" line="362" column="5" bodyfile="libs/core/src/core/quat.cc" bodystart="362" bodyend="365" declfile="libs/core/src/core/quat.h" declline="79" declcolumn="11"/>
+        <location file="libs/core/src/core/quat.cc" line="363" column="5" bodyfile="libs/core/src/core/quat.cc" bodystart="363" bodyend="366" declfile="libs/core/src/core/quat.h" declline="79" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a428feaa7b5dd248ce5bbf95c51b0714f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1quatf" kindref="compound">quatf</ref></type>
@@ -9986,7 +9986,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/quat.cc" line="368" column="11" bodyfile="libs/core/src/core/quat.cc" bodystart="368" bodyend="373" declfile="libs/core/src/core/quat.h" declline="83" declcolumn="11"/>
+        <location file="libs/core/src/core/quat.cc" line="369" column="11" bodyfile="libs/core/src/core/quat.cc" bodystart="369" bodyend="374" declfile="libs/core/src/core/quat.h" declline="83" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a5319c58fdbba09cecf96c79d1eeb417c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1quatf" kindref="compound">quatf</ref></type>
@@ -10007,7 +10007,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/quat.cc" line="376" column="11" bodyfile="libs/core/src/core/quat.cc" bodystart="376" bodyend="381" declfile="libs/core/src/core/quat.h" declline="84" declcolumn="11"/>
+        <location file="libs/core/src/core/quat.cc" line="377" column="11" bodyfile="libs/core/src/core/quat.cc" bodystart="377" bodyend="382" declfile="libs/core/src/core/quat.h" declline="84" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a0629a0ebabd898ac468bc89ba4ef9565" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1quatf" kindref="compound">quatf</ref></type>
@@ -10028,7 +10028,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/quat.cc" line="384" column="11" bodyfile="libs/core/src/core/quat.cc" bodystart="384" bodyend="389" declfile="libs/core/src/core/quat.h" declline="85" declcolumn="11"/>
+        <location file="libs/core/src/core/quat.cc" line="385" column="11" bodyfile="libs/core/src/core/quat.cc" bodystart="385" bodyend="390" declfile="libs/core/src/core/quat.h" declline="85" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a79144e4b06f914152fd65a105c3cc8da" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1quatf" kindref="compound">quatf</ref></type>
@@ -10049,7 +10049,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/quat.cc" line="393" column="5" bodyfile="libs/core/src/core/quat.cc" bodystart="393" bodyend="398" declfile="libs/core/src/core/quat.h" declline="86" declcolumn="11"/>
+        <location file="libs/core/src/core/quat.cc" line="394" column="5" bodyfile="libs/core/src/core/quat.cc" bodystart="394" bodyend="399" declfile="libs/core/src/core/quat.h" declline="86" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1ac0c845ac879674d557acea29d0eef81b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1quatf" kindref="compound">quatf</ref></type>
@@ -10070,7 +10070,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/quat.cc" line="402" column="5" bodyfile="libs/core/src/core/quat.cc" bodystart="402" bodyend="407" declfile="libs/core/src/core/quat.h" declline="87" declcolumn="11"/>
+        <location file="libs/core/src/core/quat.cc" line="403" column="5" bodyfile="libs/core/src/core/quat.cc" bodystart="403" bodyend="408" declfile="libs/core/src/core/quat.h" declline="87" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1aaf0b0fd739dd778ce6b3877a4dfe9c8a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -14143,7 +14143,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/texttemplate.cc" line="747" column="6" bodyfile="libs/core/src/core/texttemplate.cc" bodystart="748" bodyend="815" declfile="libs/core/src/core/texttemplate.cc" declline="511" declcolumn="6"/>
+        <location file="libs/core/src/core/texttemplate.cc" line="746" column="6" bodyfile="libs/core/src/core/texttemplate.cc" bodystart="747" bodyend="814" declfile="libs/core/src/core/texttemplate.cc" declline="510" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1aeb0f9f752e4949eaa0050651d4f54850" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -14172,7 +14172,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/texttemplate.cc" line="522" column="6" bodyfile="libs/core/src/core/texttemplate.cc" bodystart="523" bodyend="550"/>
+        <location file="libs/core/src/core/texttemplate.cc" line="521" column="6" bodyfile="libs/core/src/core/texttemplate.cc" bodystart="522" bodyend="549"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a671547d27910be5aa222f1de6527b8eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::shared_ptr&lt; <ref refid="structeuphoria_1_1core_1_1TemplateNodeString" kindref="compound">TemplateNodeString</ref> &gt;</type>
@@ -14198,7 +14198,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/texttemplate.cc" line="556" column="17" bodyfile="libs/core/src/core/texttemplate.cc" bodystart="557" bodyend="571"/>
+        <location file="libs/core/src/core/texttemplate.cc" line="555" column="17" bodyfile="libs/core/src/core/texttemplate.cc" bodystart="556" bodyend="570"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a5f93600a94e56c361b88a0b587e9aa01" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::shared_ptr&lt; <ref refid="structeuphoria_1_1core_1_1TemplateNodeEval" kindref="compound">TemplateNodeEval</ref> &gt;</type>
@@ -14226,7 +14226,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/texttemplate.cc" line="574" column="17" bodyfile="libs/core/src/core/texttemplate.cc" bodystart="575" bodyend="600"/>
+        <location file="libs/core/src/core/texttemplate.cc" line="573" column="17" bodyfile="libs/core/src/core/texttemplate.cc" bodystart="574" bodyend="599"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a1a5eb4a23b0345e02bc291c76b782c33" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::shared_ptr&lt; <ref refid="structeuphoria_1_1core_1_1TemplateNodeSet" kindref="compound">TemplateNodeSet</ref> &gt;</type>
@@ -14254,7 +14254,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/texttemplate.cc" line="603" column="17" bodyfile="libs/core/src/core/texttemplate.cc" bodystart="604" bodyend="644"/>
+        <location file="libs/core/src/core/texttemplate.cc" line="602" column="17" bodyfile="libs/core/src/core/texttemplate.cc" bodystart="603" bodyend="643"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a3887185099283cf83678ebc9219b456d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::shared_ptr&lt; <ref refid="structeuphoria_1_1core_1_1TemplateNodeIfdef" kindref="compound">TemplateNodeIfdef</ref> &gt;</type>
@@ -14283,7 +14283,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/texttemplate.cc" line="647" column="17" bodyfile="libs/core/src/core/texttemplate.cc" bodystart="648" bodyend="675"/>
+        <location file="libs/core/src/core/texttemplate.cc" line="646" column="17" bodyfile="libs/core/src/core/texttemplate.cc" bodystart="647" bodyend="674"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1aba1eb38115ccbbc842fce753b53ed6e8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::shared_ptr&lt; <ref refid="structeuphoria_1_1core_1_1TemplateNodeList" kindref="compound">TemplateNodeList</ref> &gt;</type>
@@ -14312,7 +14312,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/texttemplate.cc" line="678" column="17" bodyfile="libs/core/src/core/texttemplate.cc" bodystart="679" bodyend="744"/>
+        <location file="libs/core/src/core/texttemplate.cc" line="677" column="17" bodyfile="libs/core/src/core/texttemplate.cc" bodystart="678" bodyend="743"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a4135350277390c1a359477413c983ca0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="namespaceeuphoria_1_1core_1a41020bc8b8bbff3320d0f2f637cb0288" kindref="member">TimePoint</ref></type>

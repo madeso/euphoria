@@ -142,7 +142,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/camera3.editor.cc" line="530" column="25" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="531" bodyend="540" declfile="libs/core/src/core/camera3.editor.cc" declline="72" declcolumn="25"/>
+        <location file="libs/core/src/core/camera3.editor.cc" line="529" column="25" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="530" bodyend="539" declfile="libs/core/src/core/camera3.editor.cc" declline="72" declcolumn="25"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1detail_1ab6f9bb765305d68d55be8c1eb8e4115a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::unique_ptr&lt; <ref refid="structeuphoria_1_1core_1_1detail_1_1EditorCameraState3" kindref="compound">detail::EditorCameraState3</ref> &gt;</type>
@@ -155,7 +155,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/camera3.editor.cc" line="543" column="25" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="543" bodyend="546" declfile="libs/core/src/core/camera3.editor.cc" declline="80" declcolumn="25"/>
+        <location file="libs/core/src/core/camera3.editor.cc" line="542" column="25" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="542" bodyend="545" declfile="libs/core/src/core/camera3.editor.cc" declline="80" declcolumn="25"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1detail_1a98c610b8d527337413a1c20193a750c0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::optional&lt; float &gt;</type>
@@ -201,7 +201,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/camera3.editor.cc" line="520" column="9" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="520" bodyend="523"/>
+        <location file="libs/core/src/core/camera3.editor.cc" line="519" column="9" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="519" bodyend="522"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1detail_1a6964b61b0e2fabf174d4b20b64f6cdc9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::unique_ptr&lt; <ref refid="structeuphoria_1_1core_1_1detail_1_1EditorCameraState3" kindref="compound">detail::EditorCameraState3</ref> &gt;</type>
@@ -226,7 +226,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/camera3.editor.cc" line="548" column="25" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="548" bodyend="551"/>
+        <location file="libs/core/src/core/camera3.editor.cc" line="547" column="25" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="547" bodyend="550"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1detail_1aec4fa63808986e10d5299e702cea9049" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::vector&lt; std::string &gt;</type>

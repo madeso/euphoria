@@ -48,6 +48,7 @@
         <definition>float euphoria::core::detail::LerpCamera::timer</definition>
         <argsstring></argsstring>
         <name>timer</name>
+        <initializer>= 0.0f</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -81,7 +82,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/camera3.editor.cc" line="465" column="13" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="465" bodyend="471"/>
+        <location file="libs/core/src/core/camera3.editor.cc" line="465" column="13" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="465" bodyend="470"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1detail_1_1LerpCamera_1ad0ad439d37594a34a8e6dc0f050f6254" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
         <type>void</type>
@@ -104,7 +105,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/camera3.editor.cc" line="473" column="18" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="473" bodyend="475"/>
+        <location file="libs/core/src/core/camera3.editor.cc" line="472" column="18" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="472" bodyend="474"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1detail_1_1LerpCamera_1ae944e2dd7b43fd171f491ad5e2d260e2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
         <type>void</type>
@@ -128,7 +129,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/camera3.editor.cc" line="477" column="18" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="477" bodyend="480"/>
+        <location file="libs/core/src/core/camera3.editor.cc" line="476" column="18" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="476" bodyend="479"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1detail_1_1LerpCamera_1a698e7f18b8bf12c0dcfcbd47cff8d9b8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
         <type>void</type>
@@ -162,7 +163,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/camera3.editor.cc" line="482" column="18" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="483" bodyend="509"/>
+        <location file="libs/core/src/core/camera3.editor.cc" line="481" column="18" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="482" bodyend="508"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1detail_1_1LerpCamera_1ab5a60645adefa63aef7f67d0e67e0d28" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
         <type>void</type>
@@ -185,7 +186,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/camera3.editor.cc" line="511" column="18" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="511" bodyend="511"/>
+        <location file="libs/core/src/core/camera3.editor.cc" line="510" column="18" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="510" bodyend="510"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1detail_1_1LerpCamera_1a4e27e497deafe83312898cce0c0c337f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
         <type>void</type>
@@ -202,7 +203,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/camera3.editor.cc" line="512" column="18" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="512" bodyend="512"/>
+        <location file="libs/core/src/core/camera3.editor.cc" line="511" column="18" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="511" bodyend="511"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1detail_1_1LerpCamera_1a0b1de2482f71cf331ee7df0509b94f04" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
         <type>void</type>
@@ -219,7 +220,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/camera3.editor.cc" line="513" column="18" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="513" bodyend="513"/>
+        <location file="libs/core/src/core/camera3.editor.cc" line="512" column="18" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="512" bodyend="512"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1detail_1_1LerpCamera_1aa9d4f8e9b22a25c22676298068935436" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
         <type><ref refid="namespaceeuphoria_1_1core_1ae4c24a6a2024585c62a9b910a86d571d" kindref="member">MouseBehaviour</ref></type>
@@ -236,7 +237,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/camera3.editor.cc" line="515" column="28" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="515" bodyend="515"/>
+        <location file="libs/core/src/core/camera3.editor.cc" line="514" column="28" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="514" bodyend="514"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -290,7 +291,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/camera3.editor.cc" line="458" column="9" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="459" bodyend="516"/>
+    <location file="libs/core/src/core/camera3.editor.cc" line="458" column="9" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="459" bodyend="515"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1detail_1_1EditorCameraState3_1a9d3c41fc785daaaf191f8db91733817a" prot="public" virt="non-virtual"><scope>euphoria::core::detail::LerpCamera</scope><name>EditorCameraState3</name></member>
       <member refid="structeuphoria_1_1core_1_1detail_1_1EditorCameraState3_1a7edcf10f606ff0eac4a4719305cdfd69" prot="public" virt="non-virtual"><scope>euphoria::core::detail::LerpCamera</scope><name>EditorCameraState3</name></member>

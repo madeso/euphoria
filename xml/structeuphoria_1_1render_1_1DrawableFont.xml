@@ -154,7 +154,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.h" line="199" column="33" bodyfile="libs/render/src/render/font.cc" bodystart="477" bodyend="485"/>
+        <location file="libs/render/src/render/font.h" line="199" column="33" bodyfile="libs/render/src/render/font.cc" bodystart="475" bodyend="483"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

@@ -21,6 +21,7 @@
         <definition>std::size_t euphoria::core::TokenReader::next_token_index</definition>
         <argsstring></argsstring>
         <name>next_token_index</name>
+        <initializer>= 0</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -59,7 +60,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/texttemplate.cc" line="462" column="14" bodyfile="libs/core/src/core/texttemplate.cc" bodystart="462" bodyend="467"/>
+        <location file="libs/core/src/core/texttemplate.cc" line="462" column="14" bodyfile="libs/core/src/core/texttemplate.cc" bodystart="462" bodyend="466"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1TokenReader_1aa8b996c8c5952883f9ea9461f30f9d2d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -72,7 +73,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/texttemplate.cc" line="469" column="10" bodyfile="libs/core/src/core/texttemplate.cc" bodystart="469" bodyend="472"/>
+        <location file="libs/core/src/core/texttemplate.cc" line="468" column="10" bodyfile="libs/core/src/core/texttemplate.cc" bodystart="468" bodyend="471"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1TokenReader_1a0883b296feda2a87f0ea6141aa67fb00" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>const <ref refid="structeuphoria_1_1core_1_1Token" kindref="compound">Token</ref> &amp;</type>
@@ -85,7 +86,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/texttemplate.cc" line="474" column="17" bodyfile="libs/core/src/core/texttemplate.cc" bodystart="474" bodyend="479"/>
+        <location file="libs/core/src/core/texttemplate.cc" line="473" column="17" bodyfile="libs/core/src/core/texttemplate.cc" bodystart="473" bodyend="478"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1TokenReader_1a9022e7d0406e7460fc8df3dec5f886f3" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -98,7 +99,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/texttemplate.cc" line="481" column="11" bodyfile="libs/core/src/core/texttemplate.cc" bodystart="481" bodyend="484"/>
+        <location file="libs/core/src/core/texttemplate.cc" line="480" column="11" bodyfile="libs/core/src/core/texttemplate.cc" bodystart="480" bodyend="483"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1TokenReader_1a11c17361969185fe2fd72576fa01f6d5" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>const <ref refid="structeuphoria_1_1core_1_1Token" kindref="compound">Token</ref> &amp;</type>
@@ -111,7 +112,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/texttemplate.cc" line="486" column="18" bodyfile="libs/core/src/core/texttemplate.cc" bodystart="486" bodyend="494"/>
+        <location file="libs/core/src/core/texttemplate.cc" line="485" column="18" bodyfile="libs/core/src/core/texttemplate.cc" bodystart="485" bodyend="493"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1TokenReader_1aecf83ea9af9f419f93d7960c9cea49a5" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>int</type>
@@ -124,7 +125,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/texttemplate.cc" line="496" column="10" bodyfile="libs/core/src/core/texttemplate.cc" bodystart="496" bodyend="499"/>
+        <location file="libs/core/src/core/texttemplate.cc" line="495" column="10" bodyfile="libs/core/src/core/texttemplate.cc" bodystart="495" bodyend="498"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1TokenReader_1acdb7dda4f182b1ff2ba848fde18b42dd" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>int</type>
@@ -137,14 +138,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/texttemplate.cc" line="501" column="10" bodyfile="libs/core/src/core/texttemplate.cc" bodystart="501" bodyend="504"/>
+        <location file="libs/core/src/core/texttemplate.cc" line="500" column="10" bodyfile="libs/core/src/core/texttemplate.cc" bodystart="500" bodyend="503"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/texttemplate.cc" line="456" column="1" bodyfile="libs/core/src/core/texttemplate.cc" bodystart="457" bodyend="505"/>
+    <location file="libs/core/src/core/texttemplate.cc" line="456" column="1" bodyfile="libs/core/src/core/texttemplate.cc" bodystart="457" bodyend="504"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1TokenReader_1aa8b996c8c5952883f9ea9461f30f9d2d" prot="public" virt="non-virtual"><scope>euphoria::core::TokenReader</scope><name>advance</name></member>
       <member refid="structeuphoria_1_1core_1_1TokenReader_1acdb7dda4f182b1ff2ba848fde18b42dd" prot="public" virt="non-virtual"><scope>euphoria::core::TokenReader</scope><name>get_column</name></member>

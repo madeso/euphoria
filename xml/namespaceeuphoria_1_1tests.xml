@@ -87,7 +87,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/tests/src/tests/approx.h" line="118" column="5" bodyfile="libs/tests/src/tests/approx.h" bodystart="119" bodyend="122"/>
+        <location file="libs/tests/src/tests/approx.h" line="117" column="5" bodyfile="libs/tests/src/tests/approx.h" bodystart="118" bodyend="121"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1tests_1ae02370b2c32736a5062e894d62fd0a94" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -109,7 +109,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/tests/src/tests/approx.h" line="129" column="5" bodyfile="libs/tests/src/tests/approx.h" bodystart="129" bodyend="132"/>
+        <location file="libs/tests/src/tests/approx.h" line="128" column="5" bodyfile="libs/tests/src/tests/approx.h" bodystart="128" bodyend="131"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1tests_1ae36c50ba933155292cf4001fbbab7315" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
