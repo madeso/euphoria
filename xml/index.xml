@@ -2254,8 +2254,7 @@
     <member refid="structeuphoria_1_1core_1_1Rectf_1a47d00360bdaf7e0a897a76a6ef6cb4e0" kind="variable"><name>bottom</name></member>
     <member refid="structeuphoria_1_1core_1_1Rectf_1ad0e4b09b8d08b534e3d3ab461aa42abd" kind="function"><name>Rectf</name></member>
     <member refid="structeuphoria_1_1core_1_1Rectf_1a93314931355e49c707bdca7e824e1b41" kind="function"><name>operator==</name></member>
-    <member refid="structeuphoria_1_1core_1_1Rectf_1a9823ead28bba85b7ff9b331942d2ac83" kind="function"><name>offset</name></member>
-    <member refid="structeuphoria_1_1core_1_1Rectf_1ae6e3420f4f151338cb667c13004aa070" kind="function"><name>offset_to</name></member>
+    <member refid="structeuphoria_1_1core_1_1Rectf_1ac55770577228b27bd38cfc46eee6e09e" kind="function"><name>translate</name></member>
     <member refid="structeuphoria_1_1core_1_1Rectf_1ac7fabf5d49433de6c0b12bd615614ba8" kind="function"><name>inset</name></member>
     <member refid="structeuphoria_1_1core_1_1Rectf_1a43047ed6ce3b3920627453756b35962d" kind="function"><name>inset</name></member>
     <member refid="structeuphoria_1_1core_1_1Rectf_1a9c33ac97b114a7edc46c51ff03f77bcc" kind="function"><name>extend</name></member>
@@ -2277,8 +2276,8 @@
     <member refid="structeuphoria_1_1core_1_1Rectf_1a10ffd909e9bacdd34253c94b848e9f76" kind="function"><name>extend_copy</name></member>
     <member refid="structeuphoria_1_1core_1_1Rectf_1aacdc35d272b132bd8fc657449fdcbf6a" kind="function"><name>extend_copy</name></member>
     <member refid="structeuphoria_1_1core_1_1Rectf_1a94279f73392e58c76f7920aebe9494e5" kind="function"><name>expand_copy</name></member>
-    <member refid="structeuphoria_1_1core_1_1Rectf_1a8e0ff7591ae1a69c5549d981272cebe1" kind="function"><name>offset_copy</name></member>
-    <member refid="structeuphoria_1_1core_1_1Rectf_1a719e638ec8869cbe0e3d9247834042dc" kind="function"><name>offset_copy</name></member>
+    <member refid="structeuphoria_1_1core_1_1Rectf_1aa88857214855fbc3a68f0f701c2af9f6" kind="function"><name>translate_copy</name></member>
+    <member refid="structeuphoria_1_1core_1_1Rectf_1a517cc41ae187a792539cbb073c3e01ff" kind="function"><name>translate_copy</name></member>
     <member refid="structeuphoria_1_1core_1_1Rectf_1ad29af627d744ce69647f2c5c588b4a8c" kind="function"><name>set_top_left_to_copy</name></member>
     <member refid="structeuphoria_1_1core_1_1Rectf_1ad16ec49f435294e73e8b9f00df05b112" kind="function"><name>set_top_left_to_copy</name></member>
     <member refid="structeuphoria_1_1core_1_1Rectf_1a9995c14ad5f1ce356d10eeccc0942714" kind="function"><name>set_bottom_left_to_copy</name></member>
@@ -2317,13 +2316,12 @@
     <member refid="structeuphoria_1_1core_1_1Recti_1ad87648f0a919848285d6c6442abd554e" kind="variable"><name>top</name></member>
     <member refid="structeuphoria_1_1core_1_1Recti_1a4ed571a43bed58ab09e489ec35fcd864" kind="variable"><name>bottom</name></member>
     <member refid="structeuphoria_1_1core_1_1Recti_1a9686a4efa72b14b57d5ae16daaf425a6" kind="function"><name>Recti</name></member>
-    <member refid="structeuphoria_1_1core_1_1Recti_1a7853dcbdf2ab48b46db1f234e99b820b" kind="function"><name>offset</name></member>
+    <member refid="structeuphoria_1_1core_1_1Recti_1a48ff20766d4e16c6a5b4cfd1187f8df0" kind="function"><name>translate</name></member>
     <member refid="structeuphoria_1_1core_1_1Recti_1a538afbbe3e3770650aeaeac42778591b" kind="function"><name>scale</name></member>
     <member refid="structeuphoria_1_1core_1_1Recti_1a9d0ddd1e4d1c58449dbc7479c0359d82" kind="function"><name>inset</name></member>
     <member refid="structeuphoria_1_1core_1_1Recti_1a3acec3e313382672045567c31ce35090" kind="function"><name>inset</name></member>
     <member refid="structeuphoria_1_1core_1_1Recti_1ac7986ff1886e099c0ca33f065c76fa2b" kind="function"><name>expand</name></member>
     <member refid="structeuphoria_1_1core_1_1Recti_1a12dbc69e318a5da1e35c1cb9d462cb16" kind="function"><name>include</name></member>
-    <member refid="structeuphoria_1_1core_1_1Recti_1a185019048b856f0464b9362e91949ce9" kind="function"><name>offset_to</name></member>
     <member refid="structeuphoria_1_1core_1_1Recti_1acf4974e3b6b55ecec50ff06176060e0b" kind="function"><name>extend</name></member>
     <member refid="structeuphoria_1_1core_1_1Recti_1a9bc7428b1972db4c5f79397a92933596" kind="function"><name>set_empty</name></member>
     <member refid="structeuphoria_1_1core_1_1Recti_1aabe0ff87bbbb4f773f607c03df3ca58f" kind="function"><name>center_inside_other</name></member>
@@ -2335,8 +2333,8 @@
     <member refid="structeuphoria_1_1core_1_1Recti_1a53b15ce4396cfd6d1afc301da00a1e94" kind="function"><name>contains_inclusive</name></member>
     <member refid="structeuphoria_1_1core_1_1Recti_1a556b7c0ef5709cf207ead8a6f9113180" kind="function"><name>get_scaled_around_center_copy</name></member>
     <member refid="structeuphoria_1_1core_1_1Recti_1a6168b73f4ec215f63a46744b59022b97" kind="function"><name>expand_copy</name></member>
-    <member refid="structeuphoria_1_1core_1_1Recti_1ad6c003cd6d8c7cf87ff9de9af182360c" kind="function"><name>offset_copy</name></member>
-    <member refid="structeuphoria_1_1core_1_1Recti_1a199cb65c8a3bd6c63a7876d79954490e" kind="function"><name>offset_copy</name></member>
+    <member refid="structeuphoria_1_1core_1_1Recti_1afc008108ed63ad5718630b727e60fa92" kind="function"><name>translate_copy</name></member>
+    <member refid="structeuphoria_1_1core_1_1Recti_1aab7ea0661981094a529c075ab99ad6e9" kind="function"><name>translate_copy</name></member>
     <member refid="structeuphoria_1_1core_1_1Recti_1ac1b7ed3bf50a1ad5b51c8be51dc39af3" kind="function"><name>extend_copy</name></member>
     <member refid="structeuphoria_1_1core_1_1Recti_1a23396290571b59582c1c3f8032720e20" kind="function"><name>extend_copy</name></member>
     <member refid="structeuphoria_1_1core_1_1Recti_1a896f8eb3f657fa7fa5d17580b485c709" kind="function"><name>scale_copy</name></member>

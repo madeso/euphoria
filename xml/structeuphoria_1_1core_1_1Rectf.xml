@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rect.h" line="22" column="15" bodyfile="libs/core/src/core/rect.h" bodystart="22" bodyend="-1"/>
+        <location file="libs/core/src/core/rect.h" line="23" column="15" bodyfile="libs/core/src/core/rect.h" bodystart="23" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1Rectf_1aa8f47d40fbe8b63aa235ce6b85d171e1" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -28,7 +28,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rect.h" line="23" column="15" bodyfile="libs/core/src/core/rect.h" bodystart="23" bodyend="-1"/>
+        <location file="libs/core/src/core/rect.h" line="24" column="15" bodyfile="libs/core/src/core/rect.h" bodystart="24" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1Rectf_1af79515e31d2dda3371bdfbb0bb90910b" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -41,7 +41,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rect.h" line="24" column="15" bodyfile="libs/core/src/core/rect.h" bodystart="24" bodyend="-1"/>
+        <location file="libs/core/src/core/rect.h" line="25" column="15" bodyfile="libs/core/src/core/rect.h" bodystart="25" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1Rectf_1a47d00360bdaf7e0a897a76a6ef6cb4e0" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -54,7 +54,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rect.h" line="25" column="15" bodyfile="libs/core/src/core/rect.h" bodystart="25" bodyend="-1"/>
+        <location file="libs/core/src/core/rect.h" line="26" column="15" bodyfile="libs/core/src/core/rect.h" bodystart="26" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -69,7 +69,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rect.h" line="27" column="9" bodyfile="libs/core/src/core/rect.cc" bodystart="9" bodyend="15"/>
+        <location file="libs/core/src/core/rect.h" line="28" column="9" bodyfile="libs/core/src/core/rect.cc" bodystart="9" bodyend="15"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Rectf_1a93314931355e49c707bdca7e824e1b41" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -86,13 +86,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rect.h" line="29" column="14"/>
+        <location file="libs/core/src/core/rect.h" line="30" column="14"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Rectf_1a9823ead28bba85b7ff9b331942d2ac83" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Rectf_1ac55770577228b27bd38cfc46eee6e09e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>void euphoria::core::Rectf::offset</definition>
+        <definition>void euphoria::core::Rectf::translate</definition>
         <argsstring>(float dx, float dy)</argsstring>
-        <name>offset</name>
+        <name>translate</name>
         <param>
           <type>float</type>
           <declname>dx</declname>
@@ -108,27 +108,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="libs/core/src/core/rect.h" line="49" column="14" bodyfile="libs/core/src/core/rect.cc" bodystart="344" bodyend="350"/>
-      </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Rectf_1ae6e3420f4f151338cb667c13004aa070" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>void</type>
-        <definition>void euphoria::core::Rectf::offset_to</definition>
-        <argsstring>(float new_left, float new_top)</argsstring>
-        <name>offset_to</name>
-        <param>
-          <type>float</type>
-          <declname>new_left</declname>
-        </param>
-        <param>
-          <type>float</type>
-          <declname>new_top</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/rect.h" line="50" column="14" bodyfile="libs/core/src/core/rect.cc" bodystart="386" bodyend="389"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Rectf_1ac7fabf5d49433de6c0b12bd615614ba8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -149,7 +128,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rect.h" line="51" column="14" bodyfile="libs/core/src/core/rect.cc" bodystart="263" bodyend="269"/>
+        <location file="libs/core/src/core/rect.h" line="50" column="14" bodyfile="libs/core/src/core/rect.cc" bodystart="263" bodyend="269"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Rectf_1a43047ed6ce3b3920627453756b35962d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -178,7 +157,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rect.h" line="52" column="14" bodyfile="libs/core/src/core/rect.cc" bodystart="273" bodyend="279"/>
+        <location file="libs/core/src/core/rect.h" line="51" column="14" bodyfile="libs/core/src/core/rect.cc" bodystart="273" bodyend="279"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Rectf_1a9c33ac97b114a7edc46c51ff03f77bcc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -199,7 +178,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rect.h" line="53" column="14" bodyfile="libs/core/src/core/rect.cc" bodystart="298" bodyend="301"/>
+        <location file="libs/core/src/core/rect.h" line="52" column="14" bodyfile="libs/core/src/core/rect.cc" bodystart="298" bodyend="301"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Rectf_1a287c75a466d1f1eba484585589c8efe0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -216,7 +195,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rect.h" line="54" column="14" bodyfile="libs/core/src/core/rect.cc" bodystart="320" bodyend="326"/>
+        <location file="libs/core/src/core/rect.h" line="53" column="14" bodyfile="libs/core/src/core/rect.cc" bodystart="320" bodyend="326"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Rectf_1a331b8abf975091872f0e87d4cdf98ccd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -233,7 +212,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rect.h" line="55" column="14" bodyfile="libs/core/src/core/rect.cc" bodystart="354" bodyend="360"/>
+        <location file="libs/core/src/core/rect.h" line="54" column="14" bodyfile="libs/core/src/core/rect.cc" bodystart="354" bodyend="360"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Rectf_1aceb40dfb3ab49b1031c690d9ee9214ab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -254,7 +233,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rect.h" line="56" column="14" bodyfile="libs/core/src/core/rect.cc" bodystart="244" bodyend="250"/>
+        <location file="libs/core/src/core/rect.h" line="55" column="14" bodyfile="libs/core/src/core/rect.cc" bodystart="244" bodyend="250"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Rectf_1a14cff5b5f0feaddcbadc9d6c0499c32d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -267,7 +246,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rect.h" line="57" column="14" bodyfile="libs/core/src/core/rect.cc" bodystart="429" bodyend="432"/>
+        <location file="libs/core/src/core/rect.h" line="56" column="14" bodyfile="libs/core/src/core/rect.cc" bodystart="423" bodyend="426"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Rectf_1ab5a474497ffe67ad8853bf9790a10529" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1Rectf" kindref="compound">Rectf</ref></type>
@@ -284,7 +263,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rect.h" line="62" column="16" bodyfile="libs/core/src/core/rect.cc" bodystart="124" bodyend="133"/>
+        <location file="libs/core/src/core/rect.h" line="61" column="16" bodyfile="libs/core/src/core/rect.cc" bodystart="124" bodyend="133"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Rectf_1a315f2473761e902b7faf8582021b01e7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref></type>
@@ -301,7 +280,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rect.h" line="63" column="16" bodyfile="libs/core/src/core/rect.cc" bodystart="136" bodyend="139"/>
+        <location file="libs/core/src/core/rect.h" line="62" column="16" bodyfile="libs/core/src/core/rect.cc" bodystart="136" bodyend="139"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Rectf_1a30d143123a816356a11150c20efc4f32" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -318,7 +297,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rect.h" line="65" column="15" bodyfile="libs/core/src/core/rect.cc" bodystart="182" bodyend="192"/>
+        <location file="libs/core/src/core/rect.h" line="64" column="15" bodyfile="libs/core/src/core/rect.cc" bodystart="182" bodyend="192"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Rectf_1a97b0475c917313f0f7ff4b04b5ea0a6b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -335,7 +314,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rect.h" line="68" column="15" bodyfile="libs/core/src/core/rect.cc" bodystart="195" bodyend="199"/>
+        <location file="libs/core/src/core/rect.h" line="67" column="15" bodyfile="libs/core/src/core/rect.cc" bodystart="195" bodyend="199"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Rectf_1a95f3153f2fd7c7f5aafbf23b84abc626" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -356,7 +335,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rect.h" line="69" column="15" bodyfile="libs/core/src/core/rect.cc" bodystart="202" bodyend="210"/>
+        <location file="libs/core/src/core/rect.h" line="68" column="15" bodyfile="libs/core/src/core/rect.cc" bodystart="202" bodyend="210"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Rectf_1ab65451bc6ce7cc15bb43c4266e3f2867" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -373,7 +352,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rect.h" line="72" column="15" bodyfile="libs/core/src/core/rect.cc" bodystart="214" bodyend="217"/>
+        <location file="libs/core/src/core/rect.h" line="71" column="15" bodyfile="libs/core/src/core/rect.cc" bodystart="214" bodyend="217"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Rectf_1a905e13cb48a136d7864fb479972c71c2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -394,7 +373,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rect.h" line="73" column="15" bodyfile="libs/core/src/core/rect.cc" bodystart="221" bodyend="229"/>
+        <location file="libs/core/src/core/rect.h" line="72" column="15" bodyfile="libs/core/src/core/rect.cc" bodystart="221" bodyend="229"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Rectf_1aacfaaaacad85490ac2b474da7c41a870" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1Rectf" kindref="compound">Rectf</ref></type>
@@ -411,7 +390,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rect.h" line="74" column="16" bodyfile="libs/core/src/core/rect.cc" bodystart="232" bodyend="241"/>
+        <location file="libs/core/src/core/rect.h" line="73" column="16" bodyfile="libs/core/src/core/rect.cc" bodystart="232" bodyend="241"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Rectf_1a04e478e24d5139c973afceebe3816935" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1Rectf" kindref="compound">Rectf</ref></type>
@@ -432,7 +411,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rect.h" line="75" column="16" bodyfile="libs/core/src/core/rect.cc" bodystart="254" bodyend="259"/>
+        <location file="libs/core/src/core/rect.h" line="74" column="16" bodyfile="libs/core/src/core/rect.cc" bodystart="254" bodyend="259"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Rectf_1a2a02452a3a1453d13365f930ab737001" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1Rectf" kindref="compound">Rectf</ref></type>
@@ -453,7 +432,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rect.h" line="76" column="16" bodyfile="libs/core/src/core/rect.cc" bodystart="282" bodyend="287"/>
+        <location file="libs/core/src/core/rect.h" line="75" column="16" bodyfile="libs/core/src/core/rect.cc" bodystart="282" bodyend="287"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Rectf_1a06b5ab63809d09b1455bbd9bffbcf94d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1Rectf" kindref="compound">Rectf</ref></type>
@@ -482,7 +461,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rect.h" line="77" column="16" bodyfile="libs/core/src/core/rect.cc" bodystart="290" bodyend="295"/>
+        <location file="libs/core/src/core/rect.h" line="76" column="16" bodyfile="libs/core/src/core/rect.cc" bodystart="290" bodyend="295"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Rectf_1a10ffd909e9bacdd34253c94b848e9f76" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1Rectf" kindref="compound">Rectf</ref></type>
@@ -503,7 +482,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rect.h" line="78" column="16" bodyfile="libs/core/src/core/rect.cc" bodystart="305" bodyend="310"/>
+        <location file="libs/core/src/core/rect.h" line="77" column="16" bodyfile="libs/core/src/core/rect.cc" bodystart="305" bodyend="310"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Rectf_1aacdc35d272b132bd8fc657449fdcbf6a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1Rectf" kindref="compound">Rectf</ref></type>
@@ -520,7 +499,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rect.h" line="79" column="16" bodyfile="libs/core/src/core/rect.cc" bodystart="314" bodyend="317"/>
+        <location file="libs/core/src/core/rect.h" line="78" column="16" bodyfile="libs/core/src/core/rect.cc" bodystart="314" bodyend="317"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Rectf_1a94279f73392e58c76f7920aebe9494e5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1Rectf" kindref="compound">Rectf</ref></type>
@@ -537,13 +516,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rect.h" line="80" column="16" bodyfile="libs/core/src/core/rect.cc" bodystart="364" bodyend="369"/>
+        <location file="libs/core/src/core/rect.h" line="79" column="16" bodyfile="libs/core/src/core/rect.cc" bodystart="364" bodyend="369"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Rectf_1a8e0ff7591ae1a69c5549d981272cebe1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Rectf_1aa88857214855fbc3a68f0f701c2af9f6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1Rectf" kindref="compound">Rectf</ref></type>
-        <definition>Rectf euphoria::core::Rectf::offset_copy</definition>
+        <definition>Rectf euphoria::core::Rectf::translate_copy</definition>
         <argsstring>(float dx, float dy) const</argsstring>
-        <name>offset_copy</name>
+        <name>translate_copy</name>
         <param>
           <type>float</type>
           <declname>dx</declname>
@@ -558,13 +537,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rect.h" line="81" column="16" bodyfile="libs/core/src/core/rect.cc" bodystart="372" bodyend="377"/>
+        <location file="libs/core/src/core/rect.h" line="80" column="16" bodyfile="libs/core/src/core/rect.cc" bodystart="372" bodyend="377"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Rectf_1a719e638ec8869cbe0e3d9247834042dc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Rectf_1a517cc41ae187a792539cbb073c3e01ff" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1Rectf" kindref="compound">Rectf</ref></type>
-        <definition>Rectf euphoria::core::Rectf::offset_copy</definition>
+        <definition>Rectf euphoria::core::Rectf::translate_copy</definition>
         <argsstring>(const vec2f &amp;d) const</argsstring>
-        <name>offset_copy</name>
+        <name>translate_copy</name>
         <param>
           <type>const <ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
           <declname>d</declname>
@@ -575,7 +554,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rect.h" line="82" column="16" bodyfile="libs/core/src/core/rect.cc" bodystart="380" bodyend="383"/>
+        <location file="libs/core/src/core/rect.h" line="81" column="16" bodyfile="libs/core/src/core/rect.cc" bodystart="380" bodyend="383"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Rectf_1ad29af627d744ce69647f2c5c588b4a8c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1Rectf" kindref="compound">Rectf</ref></type>
@@ -596,7 +575,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rect.h" line="83" column="16" bodyfile="libs/core/src/core/rect.cc" bodystart="393" bodyend="401"/>
+        <location file="libs/core/src/core/rect.h" line="82" column="16" bodyfile="libs/core/src/core/rect.cc" bodystart="387" bodyend="395"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Rectf_1ad16ec49f435294e73e8b9f00df05b112" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1Rectf" kindref="compound">Rectf</ref></type>
@@ -613,7 +592,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rect.h" line="84" column="16" bodyfile="libs/core/src/core/rect.cc" bodystart="404" bodyend="407"/>
+        <location file="libs/core/src/core/rect.h" line="83" column="16" bodyfile="libs/core/src/core/rect.cc" bodystart="398" bodyend="401"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Rectf_1a9995c14ad5f1ce356d10eeccc0942714" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1Rectf" kindref="compound">Rectf</ref></type>
@@ -634,7 +613,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rect.h" line="85" column="16" bodyfile="libs/core/src/core/rect.cc" bodystart="410" bodyend="418"/>
+        <location file="libs/core/src/core/rect.h" line="84" column="16" bodyfile="libs/core/src/core/rect.cc" bodystart="404" bodyend="412"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Rectf_1a9d88eaef0f1cb9477d56f01b4f71818c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1Rectf" kindref="compound">Rectf</ref></type>
@@ -651,7 +630,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rect.h" line="86" column="16" bodyfile="libs/core/src/core/rect.cc" bodystart="422" bodyend="425"/>
+        <location file="libs/core/src/core/rect.h" line="85" column="16" bodyfile="libs/core/src/core/rect.cc" bodystart="416" bodyend="419"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Rectf_1ade703e6fa376eb3b76aaf80da8875245" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1Recti" kindref="compound">Recti</ref></type>
@@ -664,7 +643,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rect.h" line="89" column="16" bodyfile="libs/core/src/core/rect.cc" bodystart="27" bodyend="36"/>
+        <location file="libs/core/src/core/rect.h" line="88" column="16" bodyfile="libs/core/src/core/rect.cc" bodystart="27" bodyend="36"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Rectf_1abb46d3f6a221d872c3151282076c94be" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref></type>
@@ -677,7 +656,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rect.h" line="90" column="16" bodyfile="libs/core/src/core/rect.cc" bodystart="118" bodyend="121"/>
+        <location file="libs/core/src/core/rect.h" line="89" column="16" bodyfile="libs/core/src/core/rect.cc" bodystart="118" bodyend="121"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Rectf_1af92f82aca3e4973c6aa5e8a0d9212855" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
@@ -690,7 +669,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rect.h" line="91" column="16" bodyfile="libs/core/src/core/rect.cc" bodystart="142" bodyend="145"/>
+        <location file="libs/core/src/core/rect.h" line="90" column="16" bodyfile="libs/core/src/core/rect.cc" bodystart="142" bodyend="145"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Rectf_1a958d90914cb24a5e5934f02a54b4aecf" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
@@ -703,7 +682,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rect.h" line="92" column="16" bodyfile="libs/core/src/core/rect.cc" bodystart="148" bodyend="151"/>
+        <location file="libs/core/src/core/rect.h" line="91" column="16" bodyfile="libs/core/src/core/rect.cc" bodystart="148" bodyend="151"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Rectf_1a8268b949b3157cbb62b68c676798670b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref></type>
@@ -716,7 +695,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rect.h" line="93" column="16" bodyfile="libs/core/src/core/rect.cc" bodystart="154" bodyend="161"/>
+        <location file="libs/core/src/core/rect.h" line="92" column="16" bodyfile="libs/core/src/core/rect.cc" bodystart="154" bodyend="161"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Rectf_1af527943c8a287f1b3d822614c1889294" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
@@ -729,7 +708,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rect.h" line="94" column="16" bodyfile="libs/core/src/core/rect.cc" bodystart="164" bodyend="167"/>
+        <location file="libs/core/src/core/rect.h" line="93" column="16" bodyfile="libs/core/src/core/rect.cc" bodystart="164" bodyend="167"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Rectf_1a7469990694789a7d2c32e1264ce54f4c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
@@ -742,7 +721,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rect.h" line="95" column="16" bodyfile="libs/core/src/core/rect.cc" bodystart="170" bodyend="173"/>
+        <location file="libs/core/src/core/rect.h" line="94" column="16" bodyfile="libs/core/src/core/rect.cc" bodystart="170" bodyend="173"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Rectf_1a7f8c0af6c9c0e2f91a8e704de9e6a186" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref></type>
@@ -755,7 +734,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rect.h" line="96" column="16" bodyfile="libs/core/src/core/rect.cc" bodystart="176" bodyend="179"/>
+        <location file="libs/core/src/core/rect.h" line="95" column="16" bodyfile="libs/core/src/core/rect.cc" bodystart="176" bodyend="179"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Rectf_1a5d7096de6de4f10962a088e261e78c93" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -768,7 +747,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rect.h" line="98" column="15" bodyfile="libs/core/src/core/rect.cc" bodystart="330" bodyend="333"/>
+        <location file="libs/core/src/core/rect.h" line="97" column="15" bodyfile="libs/core/src/core/rect.cc" bodystart="330" bodyend="333"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Rectf_1a0621455a9a1fde23b9efd45349460434" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -781,7 +760,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rect.h" line="101" column="15" bodyfile="libs/core/src/core/rect.cc" bodystart="337" bodyend="340"/>
+        <location file="libs/core/src/core/rect.h" line="100" column="15" bodyfile="libs/core/src/core/rect.cc" bodystart="337" bodyend="340"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Rectf_1a37c7cff71accc39dfceb50ec8f7e8c6d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
@@ -794,7 +773,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rect.h" line="103" column="16" bodyfile="libs/core/src/core/rect.cc" bodystart="436" bodyend="439"/>
+        <location file="libs/core/src/core/rect.h" line="102" column="16" bodyfile="libs/core/src/core/rect.cc" bodystart="430" bodyend="433"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Rectf_1afe4631628dcac94724e843976965689e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
@@ -807,7 +786,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rect.h" line="104" column="16" bodyfile="libs/core/src/core/rect.cc" bodystart="442" bodyend="445"/>
+        <location file="libs/core/src/core/rect.h" line="103" column="16" bodyfile="libs/core/src/core/rect.cc" bodystart="436" bodyend="439"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Rectf_1ae25063eddeb8aec21534ba59357f256a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1Range" kindref="compound">Range</ref>&lt; float &gt;</type>
@@ -820,7 +799,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rect.h" line="106" column="16" bodyfile="libs/core/src/core/rect.cc" bodystart="449" bodyend="452"/>
+        <location file="libs/core/src/core/rect.h" line="105" column="16" bodyfile="libs/core/src/core/rect.cc" bodystart="443" bodyend="446"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Rectf_1a4efad5ea4e636bf78bb16834bd17dbc4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1Range" kindref="compound">Range</ref>&lt; float &gt;</type>
@@ -833,7 +812,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rect.h" line="107" column="16" bodyfile="libs/core/src/core/rect.cc" bodystart="455" bodyend="458"/>
+        <location file="libs/core/src/core/rect.h" line="106" column="16" bodyfile="libs/core/src/core/rect.cc" bodystart="449" bodyend="452"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Rectf_1ab83afbd711fcd0d81f6845ab538d7557" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1size2f" kindref="compound">size2f</ref></type>
@@ -846,7 +825,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rect.h" line="108" column="17" bodyfile="libs/core/src/core/rect.cc" bodystart="461" bodyend="464"/>
+        <location file="libs/core/src/core/rect.h" line="107" column="17" bodyfile="libs/core/src/core/rect.cc" bodystart="455" bodyend="458"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Rectf_1a31af0f8512af81b260bcf51f7881f368" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref></type>
@@ -859,7 +838,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rect.h" line="109" column="16" bodyfile="libs/core/src/core/rect.cc" bodystart="467" bodyend="470"/>
+        <location file="libs/core/src/core/rect.h" line="108" column="16" bodyfile="libs/core/src/core/rect.cc" bodystart="461" bodyend="464"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Rectf_1a98c7ac261c5b57c87c37cf452540bff9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref></type>
@@ -872,7 +851,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rect.h" line="110" column="16" bodyfile="libs/core/src/core/rect.cc" bodystart="473" bodyend="476"/>
+        <location file="libs/core/src/core/rect.h" line="109" column="16" bodyfile="libs/core/src/core/rect.cc" bodystart="467" bodyend="470"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Rectf_1a206ea821be44f2ae91dbfdb688c53a77" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref></type>
@@ -885,7 +864,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rect.h" line="111" column="16" bodyfile="libs/core/src/core/rect.cc" bodystart="479" bodyend="482"/>
+        <location file="libs/core/src/core/rect.h" line="110" column="16" bodyfile="libs/core/src/core/rect.cc" bodystart="473" bodyend="476"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
@@ -916,7 +895,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rect.h" line="32" column="23" bodyfile="libs/core/src/core/rect.cc" bodystart="39" bodyend="44"/>
+        <location file="libs/core/src/core/rect.h" line="33" column="23" bodyfile="libs/core/src/core/rect.cc" bodystart="39" bodyend="44"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Rectf_1acdd951c105b45a453b3107df117206d0" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1Rectf" kindref="compound">Rectf</ref></type>
@@ -945,7 +924,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rect.h" line="33" column="23" bodyfile="libs/core/src/core/rect.cc" bodystart="47" bodyend="52"/>
+        <location file="libs/core/src/core/rect.h" line="34" column="23" bodyfile="libs/core/src/core/rect.cc" bodystart="47" bodyend="52"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Rectf_1a9f838cf3340571fddc0312ccca9c1502" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1Rectf" kindref="compound">Rectf</ref></type>
@@ -974,7 +953,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rect.h" line="34" column="23" bodyfile="libs/core/src/core/rect.cc" bodystart="56" bodyend="71"/>
+        <location file="libs/core/src/core/rect.h" line="35" column="23" bodyfile="libs/core/src/core/rect.cc" bodystart="56" bodyend="71"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Rectf_1a6d4ce66fe0b8d72fb7371de8f22d7363" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1Rectf" kindref="compound">Rectf</ref></type>
@@ -999,7 +978,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rect.h" line="41" column="23" bodyfile="libs/core/src/core/rect.cc" bodystart="74" bodyend="83"/>
+        <location file="libs/core/src/core/rect.h" line="42" column="23" bodyfile="libs/core/src/core/rect.cc" bodystart="74" bodyend="83"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Rectf_1a92c6af30a872de8d3e247d16c2b01c5e" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1Rectf" kindref="compound">Rectf</ref></type>
@@ -1024,7 +1003,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rect.h" line="42" column="23" bodyfile="libs/core/src/core/rect.cc" bodystart="86" bodyend="95"/>
+        <location file="libs/core/src/core/rect.h" line="43" column="23" bodyfile="libs/core/src/core/rect.cc" bodystart="86" bodyend="95"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Rectf_1a85564aacf2af1baff9eff995497b3a4b" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1Rectf" kindref="compound">Rectf</ref></type>
@@ -1045,7 +1024,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rect.h" line="43" column="23" bodyfile="libs/core/src/core/rect.cc" bodystart="98" bodyend="103"/>
+        <location file="libs/core/src/core/rect.h" line="44" column="23" bodyfile="libs/core/src/core/rect.cc" bodystart="98" bodyend="103"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Rectf_1ab159d39ecb8748f5b7469573242e5fd6" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1Rectf" kindref="compound">Rectf</ref></type>
@@ -1062,7 +1041,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rect.h" line="44" column="23" bodyfile="libs/core/src/core/rect.cc" bodystart="106" bodyend="109"/>
+        <location file="libs/core/src/core/rect.h" line="45" column="23" bodyfile="libs/core/src/core/rect.cc" bodystart="106" bodyend="109"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Rectf_1a9631c81c9101bd7b16f23c82df1f64e2" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1Rectf" kindref="compound">Rectf</ref></type>
@@ -1079,7 +1058,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rect.h" line="45" column="23" bodyfile="libs/core/src/core/rect.cc" bodystart="112" bodyend="115"/>
+        <location file="libs/core/src/core/rect.h" line="46" column="23" bodyfile="libs/core/src/core/rect.cc" bodystart="112" bodyend="115"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -1110,14 +1089,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rect.h" line="114" column="9" bodyfile="libs/core/src/core/rect.cc" bodystart="18" bodyend="24"/>
+        <location file="libs/core/src/core/rect.h" line="113" column="9" bodyfile="libs/core/src/core/rect.cc" bodystart="18" bodyend="24"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/rect.h" line="20" column="5" bodyfile="libs/core/src/core/rect.h" bodystart="21" bodyend="115"/>
+    <location file="libs/core/src/core/rect.h" line="21" column="5" bodyfile="libs/core/src/core/rect.h" bodystart="22" bodyend="114"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1Rectf_1a47d00360bdaf7e0a897a76a6ef6cb4e0" prot="public" virt="non-virtual"><scope>euphoria::core::Rectf</scope><name>bottom</name></member>
       <member refid="structeuphoria_1_1core_1_1Rectf_1ab5a474497ffe67ad8853bf9790a10529" prot="public" virt="non-virtual"><scope>euphoria::core::Rectf</scope><name>center_inside_other</name></member>
@@ -1164,10 +1143,6 @@
       <member refid="structeuphoria_1_1core_1_1Rectf_1a5d7096de6de4f10962a088e261e78c93" prot="public" virt="non-virtual"><scope>euphoria::core::Rectf</scope><name>is_empty</name></member>
       <member refid="structeuphoria_1_1core_1_1Rectf_1a0621455a9a1fde23b9efd45349460434" prot="public" virt="non-virtual"><scope>euphoria::core::Rectf</scope><name>is_valid</name></member>
       <member refid="structeuphoria_1_1core_1_1Rectf_1a709eb341758577d27b598c38226e117c" prot="public" virt="non-virtual"><scope>euphoria::core::Rectf</scope><name>left</name></member>
-      <member refid="structeuphoria_1_1core_1_1Rectf_1a9823ead28bba85b7ff9b331942d2ac83" prot="public" virt="non-virtual"><scope>euphoria::core::Rectf</scope><name>offset</name></member>
-      <member refid="structeuphoria_1_1core_1_1Rectf_1a8e0ff7591ae1a69c5549d981272cebe1" prot="public" virt="non-virtual"><scope>euphoria::core::Rectf</scope><name>offset_copy</name></member>
-      <member refid="structeuphoria_1_1core_1_1Rectf_1a719e638ec8869cbe0e3d9247834042dc" prot="public" virt="non-virtual"><scope>euphoria::core::Rectf</scope><name>offset_copy</name></member>
-      <member refid="structeuphoria_1_1core_1_1Rectf_1ae6e3420f4f151338cb667c13004aa070" prot="public" virt="non-virtual"><scope>euphoria::core::Rectf</scope><name>offset_to</name></member>
       <member refid="structeuphoria_1_1core_1_1Rectf_1a93314931355e49c707bdca7e824e1b41" prot="public" virt="non-virtual"><scope>euphoria::core::Rectf</scope><name>operator==</name></member>
       <member refid="structeuphoria_1_1core_1_1Rectf_1ad0e4b09b8d08b534e3d3ab461aa42abd" prot="public" virt="non-virtual"><scope>euphoria::core::Rectf</scope><name>Rectf</name></member>
       <member refid="structeuphoria_1_1core_1_1Rectf_1afaa3bd15d83bbe0abd81f27b02748e3c" prot="private" virt="non-virtual"><scope>euphoria::core::Rectf</scope><name>Rectf</name></member>
@@ -1181,6 +1156,9 @@
       <member refid="structeuphoria_1_1core_1_1Rectf_1ad16ec49f435294e73e8b9f00df05b112" prot="public" virt="non-virtual"><scope>euphoria::core::Rectf</scope><name>set_top_left_to_copy</name></member>
       <member refid="structeuphoria_1_1core_1_1Rectf_1ade703e6fa376eb3b76aaf80da8875245" prot="public" virt="non-virtual"><scope>euphoria::core::Rectf</scope><name>to_i</name></member>
       <member refid="structeuphoria_1_1core_1_1Rectf_1af79515e31d2dda3371bdfbb0bb90910b" prot="public" virt="non-virtual"><scope>euphoria::core::Rectf</scope><name>top</name></member>
+      <member refid="structeuphoria_1_1core_1_1Rectf_1ac55770577228b27bd38cfc46eee6e09e" prot="public" virt="non-virtual"><scope>euphoria::core::Rectf</scope><name>translate</name></member>
+      <member refid="structeuphoria_1_1core_1_1Rectf_1aa88857214855fbc3a68f0f701c2af9f6" prot="public" virt="non-virtual"><scope>euphoria::core::Rectf</scope><name>translate_copy</name></member>
+      <member refid="structeuphoria_1_1core_1_1Rectf_1a517cc41ae187a792539cbb073c3e01ff" prot="public" virt="non-virtual"><scope>euphoria::core::Rectf</scope><name>translate_copy</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

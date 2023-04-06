@@ -609,7 +609,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/mat4.h" line="76" column="16" bodyfile="libs/core/src/core/mat4.cc" bodystart="475" bodyend="478"/>
+        <location file="libs/core/src/core/mat4.h" line="76" column="16" bodyfile="libs/core/src/core/mat4.cc" bodystart="475" bodyend="485"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1mat4f_1a7478aa6db7090c757c1d4ee8f170366c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1vec4f" kindref="compound">vec4f</ref></type>
@@ -626,7 +626,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/mat4.h" line="77" column="16" bodyfile="libs/core/src/core/mat4.cc" bodystart="481" bodyend="485"/>
+        <location file="libs/core/src/core/mat4.h" line="77" column="16" bodyfile="libs/core/src/core/mat4.cc" bodystart="488" bodyend="492"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1mat4f_1ab265691a1846fefcfcff03b8c6d3c051" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>const float *</type>

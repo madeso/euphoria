@@ -349,7 +349,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/canvas.cc" line="126" column="5" bodyfile="libs/window/src/window/canvas.cc" bodystart="126" bodyend="132"/>
+        <location file="libs/window/src/window/canvas.cc" line="125" column="5" bodyfile="libs/window/src/window/canvas.cc" bodystart="125" bodyend="131"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1window_1a6a82e5fea0150ec0b2781dc6e58387c3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -370,7 +370,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/canvas.cc" line="135" column="5" bodyfile="libs/window/src/window/canvas.cc" bodystart="135" bodyend="143"/>
+        <location file="libs/window/src/window/canvas.cc" line="134" column="5" bodyfile="libs/window/src/window/canvas.cc" bodystart="134" bodyend="142"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1window_1a5ef4f6fd4a0456523df3745a0d96d7c1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>

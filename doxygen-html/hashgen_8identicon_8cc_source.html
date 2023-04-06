@@ -118,13 +118,13 @@
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordtype">int</span> x,</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keywordtype">int</span> y,</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordtype">int</span> size,</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keywordtype">int</span> patch,</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keywordtype">int</span> overflowing_patch_type,</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keywordtype">int</span> turn,</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keywordtype">bool</span> invert,</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keyword">const</span> <a class="code" href="structeuphoria_1_1core_1_1rgbi.html">rgbi</a>&amp; foreground_color,</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keyword">const</span> <a class="code" href="structeuphoria_1_1core_1_1rgbi.html">rgbi</a>&amp; background_color</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    ) {</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        patch %= <a class="code" href="namespaceeuphoria_1_1core.html#a5fedf1ecd80db4f67871d932a0d88b27">c_sizet_to_int</a>(patch_types.size());</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> patch = overflowing_patch_type % <a class="code" href="namespaceeuphoria_1_1core.html#a5fedf1ecd80db4f67871d932a0d88b27">c_sizet_to_int</a>(patch_types.size());</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        turn %= 4;</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="keywordflow">if</span> (patch == 15)</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        {</div>

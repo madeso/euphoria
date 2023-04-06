@@ -347,7 +347,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/image.h" line="119" column="26" bodyfile="libs/core/src/core/image.cc" bodystart="233" bodyend="290"/>
+        <location file="libs/core/src/core/image.h" line="119" column="26" bodyfile="libs/core/src/core/image.cc" bodystart="233" bodyend="291"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Image_1a7a8896ad77014b6ca50e71aa2a1436c8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>

@@ -48,7 +48,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/canvas.h" line="22" column="14" bodyfile="libs/window/src/window/canvas.cc" bodystart="108" bodyend="123"/>
+        <location file="libs/window/src/window/canvas.h" line="22" column="14" bodyfile="libs/window/src/window/canvas.cc" bodystart="107" bodyend="122"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1window_1_1Canvas_1a47504e691af8ff60f6fc2edc70b390c2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -65,7 +65,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/canvas.h" line="23" column="14" bodyfile="libs/window/src/window/canvas.cc" bodystart="146" bodyend="155"/>
+        <location file="libs/window/src/window/canvas.h" line="23" column="14" bodyfile="libs/window/src/window/canvas.cc" bodystart="145" bodyend="154"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1window_1_1Canvas_1ac8cea0fc109deb38d13494537baf1fd5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -82,7 +82,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/canvas.h" line="25" column="14" bodyfile="libs/window/src/window/canvas.cc" bodystart="14" bodyend="40"/>
+        <location file="libs/window/src/window/canvas.h" line="25" column="14" bodyfile="libs/window/src/window/canvas.cc" bodystart="13" bodyend="39"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1window_1_1Canvas_1aaa864d4d33a82ccd90001d4f7f32d89c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -103,7 +103,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/canvas.h" line="26" column="14" bodyfile="libs/window/src/window/canvas.cc" bodystart="43" bodyend="54"/>
+        <location file="libs/window/src/window/canvas.h" line="26" column="14" bodyfile="libs/window/src/window/canvas.cc" bodystart="42" bodyend="53"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1window_1_1Canvas_1a6c6f674ecd2a4baba0454e7c9394d2c6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -124,7 +124,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/canvas.h" line="27" column="14" bodyfile="libs/window/src/window/canvas.cc" bodystart="57" bodyend="68"/>
+        <location file="libs/window/src/window/canvas.h" line="27" column="14" bodyfile="libs/window/src/window/canvas.cc" bodystart="56" bodyend="67"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1window_1_1Canvas_1a999897a977094dd6bbe3b1b74c628f31" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -149,7 +149,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/canvas.h" line="28" column="14" bodyfile="libs/window/src/window/canvas.cc" bodystart="71" bodyend="99"/>
+        <location file="libs/window/src/window/canvas.h" line="28" column="14" bodyfile="libs/window/src/window/canvas.cc" bodystart="70" bodyend="98"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1window_1_1Canvas_1a44b390dd6c9424a27d7c8f67fb9d4402" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -166,7 +166,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/canvas.h" line="29" column="14" bodyfile="libs/window/src/window/canvas.cc" bodystart="102" bodyend="105"/>
+        <location file="libs/window/src/window/canvas.h" line="29" column="14" bodyfile="libs/window/src/window/canvas.cc" bodystart="101" bodyend="104"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1window_1_1Canvas_1aec1815eb0e324b8f7991b349ebc901c2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>ImVec2</type>
@@ -183,7 +183,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/canvas.h" line="31" column="17" bodyfile="libs/window/src/window/canvas.cc" bodystart="158" bodyend="161"/>
+        <location file="libs/window/src/window/canvas.h" line="31" column="17" bodyfile="libs/window/src/window/canvas.cc" bodystart="157" bodyend="160"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1window_1_1Canvas_1a7fab25c6ef029a81afe1197743e9ede1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>ImVec2</type>
@@ -200,7 +200,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/canvas.h" line="32" column="17" bodyfile="libs/window/src/window/canvas.cc" bodystart="164" bodyend="167"/>
+        <location file="libs/window/src/window/canvas.h" line="32" column="17" bodyfile="libs/window/src/window/canvas.cc" bodystart="163" bodyend="166"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1window_1_1Canvas_1a2218ea369cb8472a5166f723fb6987dd" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>ImVec2</type>
@@ -217,7 +217,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/canvas.h" line="33" column="17" bodyfile="libs/window/src/window/canvas.cc" bodystart="170" bodyend="173"/>
+        <location file="libs/window/src/window/canvas.h" line="33" column="17" bodyfile="libs/window/src/window/canvas.cc" bodystart="169" bodyend="172"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1window_1_1Canvas_1a6f3de293a54c2a9abcf8cd338f8854c2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>ImVec2</type>
@@ -230,7 +230,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/canvas.h" line="35" column="17" bodyfile="libs/window/src/window/canvas.cc" bodystart="176" bodyend="179"/>
+        <location file="libs/window/src/window/canvas.h" line="35" column="17" bodyfile="libs/window/src/window/canvas.cc" bodystart="175" bodyend="178"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
