@@ -261,7 +261,9 @@ namespace euphoria::core
 
         Uint8 channel_blend_glow(Uint8 top, Uint8 bottom)
         {
-            return channel_blend_reflect(bottom, top);
+            const auto swapped_top = bottom;
+            const auto swapped_bottom = top;
+            return channel_blend_reflect(swapped_top, swapped_bottom);
         }
 
 
