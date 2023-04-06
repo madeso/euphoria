@@ -24,7 +24,7 @@ namespace euphoria::core
         {
             ASSERT(amount > 0);
 
-            for(int i = 0; i < amount; i++)
+            for(int step = 0; step < amount; step++)
             {
                 data.push_back(item);
             }

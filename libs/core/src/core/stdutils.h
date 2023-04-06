@@ -73,11 +73,11 @@ namespace euphoria::core
     typename std::vector<T>::iterator
     find_first(std::vector<T>& v, TFunc condition)
     {
-        for(auto i = v.begin(); i != v.end(); i++)
+        for(auto iter = v.begin(); iter != v.end(); iter++)
         {
-            if(condition(*i))
+            if(condition(*iter))
             {
-                return i;
+                return iter;
             }
         }
 
