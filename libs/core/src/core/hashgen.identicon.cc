@@ -62,13 +62,13 @@ namespace
         int x,
         int y,
         int size,
-        int patch,
+        int overflowing_patch_type,
         int turn,
         bool invert,
         const rgbi& foreground_color,
         const rgbi& background_color
     ) {
-        patch %= c_sizet_to_int(patch_types.size());
+        const auto patch = overflowing_patch_type % c_sizet_to_int(patch_types.size());
         turn %= 4;
         if (patch == 15)
         {
