@@ -17,6 +17,7 @@ namespace euphoria::core
     struct Rectf;
     struct Recti;
 
+    // todo(Gustav): remove overloads and prefer vec2f or other relevant types
     struct Rectf
     {
         float left;
@@ -114,6 +115,7 @@ namespace euphoria::core
 
 
 
+    // todo(Gustav): remove overloads and prefer vec2i or other relevant types
     struct Recti
     {
         int left;
