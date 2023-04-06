@@ -6,7 +6,6 @@
 #include "window/imgui_extra.h"
 
 using namespace euphoria::core;
-using euphoria::window::con;
 
 namespace euphoria::window
 {
