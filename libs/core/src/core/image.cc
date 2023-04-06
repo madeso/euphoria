@@ -234,7 +234,8 @@ namespace euphoria::core
     {
         const int number_of_components = has_alpha ? 4 : 3;
 
-        std::vector<unsigned char> pixels(width * height * number_of_components, 0);
+        const auto pixels_count = c_int_to_sizet(width) * c_int_to_sizet(height);
+        std::vector<unsigned char> pixels(pixels_count * c_int_to_sizet(number_of_components), 0);
         for(int y = 0; y < height; y += 1)
         {
             const int iy = height - (y + 1);

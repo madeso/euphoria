@@ -18,7 +18,7 @@ namespace
     extract_all_colors(const Image& image)
     {
         auto ret = std::vector<rgbi>{};
-        ret.reserve(ret.size() + image.height * image.width);
+        ret.reserve(ret.size() + c_int_to_sizet(image.height) * c_int_to_sizet(image.width));
 
         for(int y=0; y<image.height; y+=1)
         {

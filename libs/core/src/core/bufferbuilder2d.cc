@@ -40,9 +40,9 @@ namespace euphoria::core
         is_ccw
         (
             const std::vector<float>& data,
-            unsigned int a,
-            unsigned int b,
-            unsigned int c
+            std::size_t a,
+            std::size_t b,
+            std::size_t c
         )
         {
             const auto va = vec3f{data[a*4], data[a*4+1], 0};

@@ -472,9 +472,16 @@ namespace euphoria::core
     }
 
     vec4f
-    mat4f::get_column(int c) const
+    mat4f::get_column(int col) const
     {
-        return vec4f{&data[c * 4]};
+        const auto base = col * 4;
+        return
+        {
+            data[base + 0],
+            data[base + 1],
+            data[base + 2],
+            data[base + 3]
+        };
     }
 
     vec4f
