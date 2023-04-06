@@ -24,11 +24,11 @@ namespace euphoria::render
             }
         );
 
-        int stride = 0;
+        int offset = 0;
         for(const auto& attribute: attributes)
         {
-            layout->bind_data(attribute, total_size, stride);
-            stride += attribute.get_byte_size();
+            layout->bind_data(attribute, total_size, offset);
+            offset += attribute.get_byte_size();
         }
     }
 }

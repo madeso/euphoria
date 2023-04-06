@@ -382,12 +382,6 @@ namespace euphoria::core
         return offset_copy(d.x, d.y);
     }
 
-    void
-    Rectf::offset_to(float new_left, float new_top)
-    {
-        *this = set_top_left_to_copy(new_top, new_left);
-    }
-
 
     Rectf
     Rectf::set_top_left_to_copy(float new_left, float new_top) const
@@ -850,12 +844,6 @@ namespace euphoria::core
     Recti::offset_copy(const vec2i& d) const
     {
         return offset_copy(d.x, d.y);
-    }
-
-    void
-    Recti::offset_to(int new_left, int new_top)
-    {
-        *this = set_top_left_to_copy(new_top, new_left);
     }
 
     Recti

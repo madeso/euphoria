@@ -47,7 +47,6 @@ namespace euphoria::core
 
         // offset = translate
         void offset(float dx, float dy);
-        void offset_to(float new_left, float new_top);
         void inset(float dx, float dy);
         void inset(float l, float r, float t, float b);
         void extend(float dx, float dy);
@@ -149,7 +148,6 @@ namespace euphoria::core
         void inset(int l, int r, int t, int b);
         void expand(int expand);
         void include(const Recti& o);
-        void offset_to(int new_left, int new_top);
         void extend(int dx, int dy);
         void set_empty();
 
