@@ -138,7 +138,7 @@ namespace euphoria::gui
                 renderer->draw_ninepatch
                 (
                     *sprite,
-                    scaled.offset_copy(position_displacement.value),
+                    scaled.translate_copy(position_displacement.value),
                     image_color.value
                 );
             }

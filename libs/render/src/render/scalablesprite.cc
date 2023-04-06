@@ -155,7 +155,7 @@ namespace euphoria::render
                 renderer->draw_rect
                 (
                     *texture,
-                    position_rect.offset_copy(pos),
+                    position_rect.translate_copy(pos),
                     uv_rect,
                     0.0_rad,
                     core::Scale2f{0, 0},

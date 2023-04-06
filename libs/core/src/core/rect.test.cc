@@ -180,7 +180,7 @@ TEST_CASE("rect-inset-different", "[rect]")
 
 TEST_CASE("rect-offset", "[rect]")
 {
-    const auto r = euco::Recti::from_width_height(5, 10).offset_copy(1, 2);
+    const auto r = euco::Recti::from_width_height(5, 10).translate_copy(1, 2);
 
     REQUIRE(r.left == 1);
     REQUIRE(r.right == 6);

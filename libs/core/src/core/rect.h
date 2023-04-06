@@ -45,8 +45,7 @@ namespace euphoria::core
         [[nodiscard]] static Rectf from_point(const vec2f& point);
 
 
-        // offset = translate
-        void offset(float dx, float dy);
+        void translate(float dx, float dy);
         void inset(float dx, float dy);
         void inset(float l, float r, float t, float b);
         void extend(float dx, float dy);
@@ -77,8 +76,8 @@ namespace euphoria::core
         [[nodiscard]] Rectf extend_copy(float dx, float dy) const;
         [[nodiscard]] Rectf extend_copy(float d) const;
         [[nodiscard]] Rectf expand_copy(float expand) const;
-        [[nodiscard]] Rectf offset_copy(float dx, float dy) const;
-        [[nodiscard]] Rectf offset_copy(const vec2f& d) const;
+        [[nodiscard]] Rectf translate_copy(float dx, float dy) const;
+        [[nodiscard]] Rectf translate_copy(const vec2f& d) const;
         [[nodiscard]] Rectf set_top_left_to_copy(float new_left, float new_top) const;
         [[nodiscard]] Rectf set_top_left_to_copy(const vec2f& v) const;
         [[nodiscard]] Rectf set_bottom_left_to_copy(float new_left, float new_bottom) const;
@@ -141,8 +140,7 @@ namespace euphoria::core
         [[nodiscard]] static Recti from_width_height(const size2i& s);
         [[nodiscard]] static Recti from_point(const vec2i& point);
 
-        // offset = translate
-        void offset(int dx, int dy);
+        void translate(int dx, int dy);
         void scale(int dx, int dy);
         void inset(int dx, int dy);
         void inset(int l, int r, int t, int b);
@@ -169,8 +167,8 @@ namespace euphoria::core
         [[nodiscard]] Recti get_scaled_around_center_copy(int scale) const;
 
         [[nodiscard]] Recti expand_copy(int expand) const;
-        [[nodiscard]] Recti offset_copy(int dx, int dy) const;
-        [[nodiscard]] Recti offset_copy(const vec2i& d) const;
+        [[nodiscard]] Recti translate_copy(int dx, int dy) const;
+        [[nodiscard]] Recti translate_copy(const vec2i& d) const;
         [[nodiscard]] Recti extend_copy(int dx, int dy) const;
         [[nodiscard]] Recti extend_copy(int d) const;
         [[nodiscard]] Recti scale_copy(int dx, int dy) const;

@@ -345,7 +345,7 @@ namespace euphoria::render
             renderer->draw_rect
             (
                 *cmd.texture,
-                cmd.sprite_rect.offset_copy(start_position),
+                cmd.sprite_rect.translate_copy(start_position),
                 cmd.texture_rect,
                 0.0_rad,
                 core::Scale2f{0.5f, 0.5f},
@@ -447,7 +447,7 @@ namespace euphoria::render
                 list->add
                 (
                     font.texture.get(),
-                    ch->sprite_rect.scale_copy(size, size).offset_copy(position),
+                    ch->sprite_rect.scale_copy(size, size).translate_copy(position),
                     ch->texture_rect,
                     apply_highlight
                 );
@@ -604,7 +604,7 @@ namespace euphoria::render
             (
                 renderer,
                 background_alpha,
-                e.extend_copy(5.0f).offset_copy(p + off)
+                e.extend_copy(5.0f).translate_copy(p + off)
             );
         }
 

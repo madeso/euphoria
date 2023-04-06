@@ -341,7 +341,7 @@ namespace euphoria::core
 
     
     void
-    Rectf::offset(float dx, float dy)
+    Rectf::translate(float dx, float dy)
     {
         left += dx;
         right += dx;
@@ -369,17 +369,17 @@ namespace euphoria::core
     }
 
     Rectf
-    Rectf::offset_copy(float dx, float dy) const
+    Rectf::translate_copy(float dx, float dy) const
     {
         Rectf ret = *this;
-        ret.offset(dx, dy);
+        ret.translate(dx, dy);
         return ret;
     }
 
     Rectf
-    Rectf::offset_copy(const vec2f& d) const
+    Rectf::translate_copy(const vec2f& d) const
     {
-        return offset_copy(d.x, d.y);
+        return translate_copy(d.x, d.y);
     }
 
 
@@ -807,7 +807,7 @@ namespace euphoria::core
     }
 
     void
-    Recti::offset(int dx, int dy)
+    Recti::translate(int dx, int dy)
     {
         left += dx;
         right += dx;
@@ -833,17 +833,17 @@ namespace euphoria::core
     }
 
     Recti
-    Recti::offset_copy(int dx, int dy) const
+    Recti::translate_copy(int dx, int dy) const
     {
         Recti ret = *this;
-        ret.offset(dx, dy);
+        ret.translate(dx, dy);
         return ret;
     }
 
     Recti
-    Recti::offset_copy(const vec2i& d) const
+    Recti::translate_copy(const vec2i& d) const
     {
-        return offset_copy(d.x, d.y);
+        return translate_copy(d.x, d.y);
     }
 
     Recti
