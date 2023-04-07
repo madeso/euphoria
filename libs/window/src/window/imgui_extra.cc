@@ -400,7 +400,7 @@ namespace euphoria::window::imgui
         const bool is_hovered = ImGui::IsItemHovered();
 
         const float t = (*p_value - v_min) / (v_max - v_min);
-        const float angle = angle_min + (angle_max - angle_min) * t;
+        const float current_angle = angle_min + (angle_max - angle_min) * t;
 
         // changing value
         bool value_changed = false;
@@ -473,7 +473,7 @@ namespace euphoria::window::imgui
         // peg indicators
         if((style & knob_style_vis_markers_visible) != 0)
         {
-            const auto marker_stop = ((style & knob_style_vis_off_marker_hidden) != 0) ? angle : angle_max;
+            const auto marker_stop = ((style & knob_style_vis_off_marker_hidden) != 0) ? current_angle : angle_max;
             for(float angle = angle_min; angle <= marker_stop; angle += angle_step)
             {
                 const auto c = (style & knob_style_vis_off_marker_hidden) != 0
@@ -491,8 +491,8 @@ namespace euphoria::window::imgui
         }
 
         // the knob
-        add_circle_filled(draw_list, center, knob_size, knob_color, 6, angle);
-        draw_list->AddLine(calculate_position(angle, knob_mark_start), calculate_position(angle, knob_mark_end), indicator_color, 2.0f);
+        add_circle_filled(draw_list, center, knob_size, knob_color, 6, current_angle);
+        draw_list->AddLine(calculate_position(current_angle, knob_mark_start), calculate_position(current_angle, knob_mark_end), indicator_color, 2.0f);
 
         const bool display_value = (style & knob_style_vis_display_value_on_hover) != 0
             ? is_active || is_hovered
