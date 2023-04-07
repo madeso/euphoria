@@ -60,7 +60,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/datetime.h" line="93" column="14" bodyfile="libs/core/src/core/datetime.cc" bodystart="346" bodyend="351"/>
+        <location file="libs/core/src/core/datetime.h" line="93" column="14" bodyfile="libs/core/src/core/datetime.cc" bodystart="347" bodyend="352"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1DateTime_1a776adf82007e42a4d4cb04fabf541447" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -77,7 +77,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/datetime.h" line="94" column="14" bodyfile="libs/core/src/core/datetime.cc" bodystart="355" bodyend="360"/>
+        <location file="libs/core/src/core/datetime.h" line="94" column="14" bodyfile="libs/core/src/core/datetime.cc" bodystart="356" bodyend="361"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1DateTime_1a3812fb8783b28afa989dd2da21911fe3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -94,7 +94,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/datetime.h" line="95" column="14" bodyfile="libs/core/src/core/datetime.cc" bodystart="364" bodyend="369"/>
+        <location file="libs/core/src/core/datetime.h" line="95" column="14" bodyfile="libs/core/src/core/datetime.cc" bodystart="365" bodyend="370"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1DateTime_1ad9132da059a217c86480091415654743" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -111,7 +111,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/datetime.h" line="96" column="14" bodyfile="libs/core/src/core/datetime.cc" bodystart="373" bodyend="378"/>
+        <location file="libs/core/src/core/datetime.h" line="96" column="14" bodyfile="libs/core/src/core/datetime.cc" bodystart="374" bodyend="379"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1DateTime_1a84672a03f3179c580f0e9a298f59acd4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -128,7 +128,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/datetime.h" line="97" column="14" bodyfile="libs/core/src/core/datetime.cc" bodystart="382" bodyend="387"/>
+        <location file="libs/core/src/core/datetime.h" line="97" column="14" bodyfile="libs/core/src/core/datetime.cc" bodystart="383" bodyend="388"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1DateTime_1a8c64bd5db21e119102a47179142411b9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -145,7 +145,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/datetime.h" line="98" column="14" bodyfile="libs/core/src/core/datetime.cc" bodystart="391" bodyend="396"/>
+        <location file="libs/core/src/core/datetime.h" line="98" column="14" bodyfile="libs/core/src/core/datetime.cc" bodystart="392" bodyend="397"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1DateTime_1aed7b992412f5f83cb7ed083f15bbcf74" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -162,7 +162,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/datetime.h" line="99" column="14" bodyfile="libs/core/src/core/datetime.cc" bodystart="400" bodyend="405"/>
+        <location file="libs/core/src/core/datetime.h" line="99" column="14" bodyfile="libs/core/src/core/datetime.cc" bodystart="401" bodyend="406"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1DateTime_1a4b4877c081891a8f82e41393ee7d8319" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -175,7 +175,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/datetime.h" line="101" column="22" bodyfile="libs/core/src/core/datetime.cc" bodystart="339" bodyend="342"/>
+        <location file="libs/core/src/core/datetime.h" line="101" column="22" bodyfile="libs/core/src/core/datetime.cc" bodystart="340" bodyend="343"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1DateTime_1a8b968ac1557ed2b5692cf72ea08dec5e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -188,7 +188,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/datetime.h" line="102" column="14" bodyfile="libs/core/src/core/datetime.cc" bodystart="409" bodyend="412"/>
+        <location file="libs/core/src/core/datetime.h" line="102" column="14" bodyfile="libs/core/src/core/datetime.cc" bodystart="410" bodyend="413"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1DateTime_1acd0631b8e088e7c3f0efba0cc015be8a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -201,7 +201,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/datetime.h" line="103" column="14" bodyfile="libs/core/src/core/datetime.cc" bodystart="416" bodyend="419"/>
+        <location file="libs/core/src/core/datetime.h" line="103" column="14" bodyfile="libs/core/src/core/datetime.cc" bodystart="417" bodyend="420"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1DateTime_1aa6fac73244538a81e623f0007a8310f3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -214,7 +214,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/datetime.h" line="104" column="14" bodyfile="libs/core/src/core/datetime.cc" bodystart="423" bodyend="426"/>
+        <location file="libs/core/src/core/datetime.h" line="104" column="14" bodyfile="libs/core/src/core/datetime.cc" bodystart="424" bodyend="427"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1DateTime_1ad1d1d38157c27c7e96e271c5e76545b7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -227,7 +227,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/datetime.h" line="105" column="14" bodyfile="libs/core/src/core/datetime.cc" bodystart="430" bodyend="433"/>
+        <location file="libs/core/src/core/datetime.h" line="105" column="14" bodyfile="libs/core/src/core/datetime.cc" bodystart="431" bodyend="434"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1DateTime_1a33f841f0cbf342905e73ba7e84f61f8b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="namespaceeuphoria_1_1core_1a6e9d54d933dc9e9c9314cd763a39d52a" kindref="member">Month</ref></type>
@@ -240,7 +240,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/datetime.h" line="106" column="16" bodyfile="libs/core/src/core/datetime.cc" bodystart="437" bodyend="440"/>
+        <location file="libs/core/src/core/datetime.h" line="106" column="16" bodyfile="libs/core/src/core/datetime.cc" bodystart="438" bodyend="441"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1DateTime_1a695edf2b33e94e268b3dd8055d3b0f95" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -253,7 +253,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/datetime.h" line="107" column="14" bodyfile="libs/core/src/core/datetime.cc" bodystart="444" bodyend="447"/>
+        <location file="libs/core/src/core/datetime.h" line="107" column="14" bodyfile="libs/core/src/core/datetime.cc" bodystart="445" bodyend="448"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1DateTime_1a83b6ea1f82238bb7afa759e8e42e7cc8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="namespaceeuphoria_1_1core_1a694ea38f253fd5079cc1d7eb1acd757c" kindref="member">DstInfo</ref></type>
@@ -266,7 +266,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/datetime.h" line="108" column="18" bodyfile="libs/core/src/core/datetime.cc" bodystart="451" bodyend="454"/>
+        <location file="libs/core/src/core/datetime.h" line="108" column="18" bodyfile="libs/core/src/core/datetime.cc" bodystart="452" bodyend="455"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1DateTime_1a19c21907f0c02954d4a3f4e18c9c8d9a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="namespaceeuphoria_1_1core_1ab6be8a33011c429e839dd2853f7e4632" kindref="member">TimeZone</ref></type>
@@ -279,7 +279,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/datetime.h" line="110" column="19" bodyfile="libs/core/src/core/datetime.cc" bodystart="458" bodyend="461"/>
+        <location file="libs/core/src/core/datetime.h" line="110" column="19" bodyfile="libs/core/src/core/datetime.cc" bodystart="459" bodyend="462"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1DateTime_1a049fc947ba3dc3b120e2da31e79a2a72" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1TimetWrapper" kindref="compound">TimetWrapper</ref></type>
@@ -292,7 +292,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/datetime.h" line="111" column="23" bodyfile="libs/core/src/core/datetime.cc" bodystart="465" bodyend="468"/>
+        <location file="libs/core/src/core/datetime.h" line="111" column="23" bodyfile="libs/core/src/core/datetime.cc" bodystart="466" bodyend="469"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
@@ -324,7 +324,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/datetime.h" line="89" column="25" bodyfile="libs/core/src/core/datetime.cc" bodystart="318" bodyend="321"/>
+        <location file="libs/core/src/core/datetime.h" line="89" column="25" bodyfile="libs/core/src/core/datetime.cc" bodystart="319" bodyend="322"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1DateTime_1a32eae59d24bde6acfad707e34abc1796" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1DateTime" kindref="compound">DateTime</ref></type>
@@ -366,7 +366,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/datetime.h" line="90" column="25" bodyfile="libs/core/src/core/datetime.cc" bodystart="325" bodyend="328"/>
+        <location file="libs/core/src/core/datetime.h" line="90" column="25" bodyfile="libs/core/src/core/datetime.cc" bodystart="326" bodyend="329"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1DateTime_1a9517a4809b88ba6ba8d0f88d364ade2f" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1DateTime" kindref="compound">DateTime</ref></type>
@@ -384,7 +384,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/datetime.h" line="91" column="25" bodyfile="libs/core/src/core/datetime.cc" bodystart="332" bodyend="335"/>
+        <location file="libs/core/src/core/datetime.h" line="91" column="25" bodyfile="libs/core/src/core/datetime.cc" bodystart="333" bodyend="336"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -407,7 +407,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/datetime.h" line="117" column="9" bodyfile="libs/core/src/core/datetime.cc" bodystart="487" bodyend="491"/>
+        <location file="libs/core/src/core/datetime.h" line="117" column="9" bodyfile="libs/core/src/core/datetime.cc" bodystart="488" bodyend="492"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1DateTime_1a42c4289917ced4ee9edff64fe7866b47" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -428,7 +428,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/datetime.h" line="118" column="9" bodyfile="libs/core/src/core/datetime.cc" bodystart="494" bodyend="498"/>
+        <location file="libs/core/src/core/datetime.h" line="118" column="9" bodyfile="libs/core/src/core/datetime.cc" bodystart="495" bodyend="499"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1DateTime_1a6cdd89013b69a13be7e66fb0f14cb316" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -445,7 +445,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/datetime.h" line="120" column="14" bodyfile="libs/core/src/core/datetime.cc" bodystart="517" bodyend="520"/>
+        <location file="libs/core/src/core/datetime.h" line="120" column="14" bodyfile="libs/core/src/core/datetime.cc" bodystart="518" bodyend="521"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1DateTime_1af224fab0f4ff31335a53293e92dcd6c6" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1StructTmWrapper" kindref="compound">StructTmWrapper</ref></type>
@@ -458,7 +458,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/datetime.h" line="122" column="26" bodyfile="libs/core/src/core/datetime.cc" bodystart="502" bodyend="514"/>
+        <location file="libs/core/src/core/datetime.h" line="122" column="26" bodyfile="libs/core/src/core/datetime.cc" bodystart="503" bodyend="515"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

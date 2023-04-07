@@ -186,11 +186,11 @@
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        <span class="keywordflow">if</span>(expandable_rows_count != 0)</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        {</div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;            <span class="keyword">const</span> <span class="keywordtype">float</span> extra = leftover_height / <a class="code" href="namespaceeuphoria_1_1core.html#abac18fdcdb2d7a94b7762d18e9a2f34c">core::c_int_to_float</a>(expandable_rows_count);</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;            <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; <a class="code" href="structeuphoria_1_1gui_1_1TableLayout.html#a4eb2428bf0e6bfddae618d32e0430756">expandable_rows</a>.size(); ++i)</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;            <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> row_index = 0; row_index &lt; <a class="code" href="structeuphoria_1_1gui_1_1TableLayout.html#a4eb2428bf0e6bfddae618d32e0430756">expandable_rows</a>.size(); ++row_index)</div>
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;            {</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;                <span class="keywordflow">if</span>(<a class="code" href="structeuphoria_1_1gui_1_1TableLayout.html#a4eb2428bf0e6bfddae618d32e0430756">expandable_rows</a>[i])</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;                <span class="keywordflow">if</span>(<a class="code" href="structeuphoria_1_1gui_1_1TableLayout.html#a4eb2428bf0e6bfddae618d32e0430756">expandable_rows</a>[row_index])</div>
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;                {</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;                    height[i] += extra;</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;                    height[row_index] += extra;</div>
 <div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;                }</div>
 <div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;            }</div>
 <div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;        }</div>
@@ -198,11 +198,11 @@
 <div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;        <span class="keywordflow">if</span>(expandable_cols_count != 0)</div>
 <div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;        {</div>
 <div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;            <span class="keyword">const</span> <span class="keywordtype">float</span> extra = leftover_width / <a class="code" href="namespaceeuphoria_1_1core.html#abac18fdcdb2d7a94b7762d18e9a2f34c">core::c_int_to_float</a>(expandable_cols_count);</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;            <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; <a class="code" href="structeuphoria_1_1gui_1_1TableLayout.html#ae75ea2e6cbabc1d0c6409de583b6ba0e">expandable_cols</a>.size(); ++i)</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;            <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> column_index = 0; column_index &lt; <a class="code" href="structeuphoria_1_1gui_1_1TableLayout.html#ae75ea2e6cbabc1d0c6409de583b6ba0e">expandable_cols</a>.size(); ++column_index)</div>
 <div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;            {</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;                <span class="keywordflow">if</span>(<a class="code" href="structeuphoria_1_1gui_1_1TableLayout.html#ae75ea2e6cbabc1d0c6409de583b6ba0e">expandable_cols</a>[i])</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;                <span class="keywordflow">if</span>(<a class="code" href="structeuphoria_1_1gui_1_1TableLayout.html#ae75ea2e6cbabc1d0c6409de583b6ba0e">expandable_cols</a>[column_index])</div>
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;                {</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;                    width[i] += extra;</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;                    width[column_index] += extra;</div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;                }</div>
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;            }</div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;        }</div>
@@ -222,13 +222,13 @@
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;                y</div>
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;            );</div>
 <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160; </div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;            <span class="keywordflow">for</span>(<span class="keywordtype">int</span> c = 0; c &lt; d.column; ++c)</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;            <span class="keywordflow">for</span>(<span class="keywordtype">int</span> column_index = 0; column_index &lt; d.column; ++column_index)</div>
 <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;            {</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;                x += width[c];</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;                x += width[column_index];</div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;            }</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;            <span class="keywordflow">for</span>(<span class="keywordtype">int</span> r = 0; r &lt; d.row; ++r)</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;            <span class="keywordflow">for</span>(<span class="keywordtype">int</span> row_index = 0; row_index &lt; d.row; ++row_index)</div>
 <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;            {</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;                y -= height[r];</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;                y -= height[row_index];</div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;            }</div>
 <div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160; </div>
 <div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;            w-&gt;set_rect</div>

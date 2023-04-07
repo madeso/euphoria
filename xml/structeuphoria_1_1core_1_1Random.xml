@@ -48,7 +48,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/random.h" line="25" column="18" bodyfile="libs/core/src/core/random.cc" bodystart="45" bodyend="52"/>
+        <location file="libs/core/src/core/random.h" line="25" column="18" bodyfile="libs/core/src/core/random.cc" bodystart="44" bodyend="51"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Random_1a68317df90f9f56f249833b4fb5d060f4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="namespaceeuphoria_1_1core_1ad68af8ee03e7b07d1a8a497b960c36a6" kindref="member">U32</ref></type>
@@ -61,7 +61,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/random.h" line="27" column="13" bodyfile="libs/core/src/core/random.cc" bodystart="55" bodyend="68"/>
+        <location file="libs/core/src/core/random.h" line="27" column="13" bodyfile="libs/core/src/core/random.cc" bodystart="54" bodyend="67"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Random_1a29e0db515c4e631784ff0238ff660aa3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="namespaceeuphoria_1_1core_1a9a78daf2d2b390a0bac9e43d7119d916" kindref="member">U64</ref></type>
@@ -74,7 +74,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/random.h" line="28" column="13" bodyfile="libs/core/src/core/random.cc" bodystart="71" bodyend="76"/>
+        <location file="libs/core/src/core/random.h" line="28" column="13" bodyfile="libs/core/src/core/random.cc" bodystart="70" bodyend="75"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Random_1a59027fb443648e9b360e0ebf0478ed33" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
@@ -87,7 +87,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/random.h" line="29" column="15" bodyfile="libs/core/src/core/random.cc" bodystart="79" bodyend="82"/>
+        <location file="libs/core/src/core/random.h" line="29" column="15" bodyfile="libs/core/src/core/random.cc" bodystart="78" bodyend="81"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Random_1aa2ff98cbb26f74a1f80d767027e7fd23" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -100,7 +100,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/random.h" line="30" column="14" bodyfile="libs/core/src/core/random.cc" bodystart="122" bodyend="125"/>
+        <location file="libs/core/src/core/random.h" line="30" column="14" bodyfile="libs/core/src/core/random.cc" bodystart="121" bodyend="124"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Random_1a3fac560735efe5054116bfb6b6201baf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -113,7 +113,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/random.h" line="31" column="13" bodyfile="libs/core/src/core/random.cc" bodystart="128" bodyend="131"/>
+        <location file="libs/core/src/core/random.h" line="31" column="13" bodyfile="libs/core/src/core/random.cc" bodystart="127" bodyend="130"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
@@ -128,7 +128,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/random.h" line="33" column="21" bodyfile="libs/core/src/core/random.cc" bodystart="28" bodyend="43"/>
+        <location file="libs/core/src/core/random.h" line="33" column="21" bodyfile="libs/core/src/core/random.cc" bodystart="28" bodyend="42"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

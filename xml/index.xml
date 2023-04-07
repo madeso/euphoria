@@ -920,7 +920,7 @@
     <member refid="structeuphoria_1_1tests_1_1FalseString_1a2536e551c1b3679423071d73a2ebcaeb" kind="function"><name>operator bool</name></member>
   </compound>
   <compound refid="structeuphoria_1_1core_1_1meshes_1_1FileForAssimp" kind="struct"><name>euphoria::core::meshes::FileForAssimp</name>
-    <member refid="structeuphoria_1_1core_1_1meshes_1_1FileForAssimp_1a35c62683efd9e96148be5bdeffedff10" kind="variable"><name>index</name></member>
+    <member refid="structeuphoria_1_1core_1_1meshes_1_1FileForAssimp_1a81ca3c68e7e12a731492ea63eecc107b" kind="variable"><name>read_index</name></member>
     <member refid="structeuphoria_1_1core_1_1meshes_1_1FileForAssimp_1a6343e236511ab365152f4737b956c44c" kind="variable"><name>content</name></member>
     <member refid="structeuphoria_1_1core_1_1meshes_1_1FileForAssimp_1ab2a52d43350dad8be33a6015cafaaddf" kind="function"><name>Read</name></member>
     <member refid="structeuphoria_1_1core_1_1meshes_1_1FileForAssimp_1a18dcfe67da19b96363556ebffd962b65" kind="function"><name>Write</name></member>

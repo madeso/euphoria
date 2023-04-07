@@ -456,7 +456,7 @@
 <div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">bool</span> is_hovered = ImGui::IsItemHovered();</div>
 <div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160; </div>
 <div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">float</span> t = (*p_value - v_min) / (v_max - v_min);</div>
-<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">float</span> angle = angle_min + (angle_max - angle_min) * t;</div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">float</span> current_angle = angle_min + (angle_max - angle_min) * t;</div>
 <div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160; </div>
 <div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;        <span class="comment">// changing value</span></div>
 <div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;        <span class="keywordtype">bool</span> value_changed = <span class="keyword">false</span>;</div>
@@ -529,14 +529,14 @@
 <div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;        <span class="comment">// peg indicators</span></div>
 <div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;        <span class="keywordflow">if</span>((style &amp; <a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#a0d179c982dca18f1c23aa66c99f360afa94e6d926d4bb15b7ec361793ea804bef">knob_style_vis_markers_visible</a>) != 0)</div>
 <div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;        {</div>
-<div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span> marker_stop = ((style &amp; <a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#a0d179c982dca18f1c23aa66c99f360afa6df133a6c13cb3fc514beeed79cd16b8">knob_style_vis_off_marker_hidden</a>) != 0) ? angle : angle_max;</div>
-<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;            <span class="keywordflow">for</span>(<span class="keywordtype">float</span> a = angle_min; a &lt;= marker_stop; a += angle_step)</div>
+<div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span> marker_stop = ((style &amp; <a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#a0d179c982dca18f1c23aa66c99f360afa6df133a6c13cb3fc514beeed79cd16b8">knob_style_vis_off_marker_hidden</a>) != 0) ? current_angle : angle_max;</div>
+<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;            <span class="keywordflow">for</span>(<span class="keywordtype">float</span> angle = angle_min; angle &lt;= marker_stop; angle += angle_step)</div>
 <div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;            {</div>
 <div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span> c = (style &amp; <a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#a0d179c982dca18f1c23aa66c99f360afa6df133a6c13cb3fc514beeed79cd16b8">knob_style_vis_off_marker_hidden</a>) != 0</div>
 <div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;                      ? peg_color_off</div>
-<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;                      : a &lt;= angle ? peg_color_on : peg_color_off</div>
+<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;                      : angle &lt;= angle ? peg_color_on : peg_color_off</div>
 <div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;                      ;</div>
-<div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;                draw_list-&gt;AddLine(calculate_position(a, peg_start), calculate_position(a, peg_end), c, 1.0f);</div>
+<div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;                draw_list-&gt;AddLine(calculate_position(angle, peg_start), calculate_position(angle, peg_end), c, 1.0f);</div>
 <div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;            }</div>
 <div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160;        }</div>
 <div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160; </div>
@@ -547,8 +547,8 @@
 <div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160;        }</div>
 <div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160; </div>
 <div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160;        <span class="comment">// the knob</span></div>
-<div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;        <a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#ae9fcfd7ecd5bb3fe4b2d94d019146e15">add_circle_filled</a>(draw_list, <a class="code" href="namespaceeuphoria_1_1window.html#af0e2b3cfd44cffa0089449896c9f19f5aadb115059e28d960fa8badfac5516667">center</a>, knob_size, knob_color, 6, angle);</div>
-<div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;        draw_list-&gt;AddLine(calculate_position(angle, knob_mark_start), calculate_position(angle, knob_mark_end), indicator_color, 2.0f);</div>
+<div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;        <a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#ae9fcfd7ecd5bb3fe4b2d94d019146e15">add_circle_filled</a>(draw_list, <a class="code" href="namespaceeuphoria_1_1window.html#af0e2b3cfd44cffa0089449896c9f19f5aadb115059e28d960fa8badfac5516667">center</a>, knob_size, knob_color, 6, current_angle);</div>
+<div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;        draw_list-&gt;AddLine(calculate_position(current_angle, knob_mark_start), calculate_position(current_angle, knob_mark_end), indicator_color, 2.0f);</div>
 <div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160; </div>
 <div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">bool</span> display_value = (style &amp; <a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#a0d179c982dca18f1c23aa66c99f360afac87d0d8065095be5cdfd09651dd7e1d5">knob_style_vis_display_value_on_hover</a>) != 0</div>
 <div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;            ? is_active || is_hovered</div>

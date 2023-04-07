@@ -260,9 +260,9 @@
 <div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    {</div>
 <div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;        std::vector&lt;U8&gt; lut;</div>
 <div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;        lut.reserve(256);</div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a865c0c0b4ab0e063e5caa3387c1a8741">i</a> = 0; <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a865c0c0b4ab0e063e5caa3387c1a8741">i</a> &lt; 256; <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a865c0c0b4ab0e063e5caa3387c1a8741">i</a>++)</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> lut_index = 0; lut_index &lt; 256; lut_index++)</div>
 <div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;        {</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;            lut.emplace_back(<a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a4a8a08f09d37b73795649038408b5f33">c</a>(<a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a865c0c0b4ab0e063e5caa3387c1a8741">i</a>));</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;            lut.emplace_back(<a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a4a8a08f09d37b73795649038408b5f33">c</a>(lut_index));</div>
 <div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;        }</div>
 <div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;        image-&gt;run_image_filter([&amp;](<span class="keyword">const</span> <a class="code" href="structeuphoria_1_1core_1_1rgbai.html">rgbai</a> pixel)</div>
 <div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;        {</div>

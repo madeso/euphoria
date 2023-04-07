@@ -100,9 +100,9 @@
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        }</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> size = <a class="code" href="namespaceeuphoria_1_1core.html#a601920b359719cbc0731466fd734c3cd">std::min</a>(lhs.size(), rhs.size());</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i =0; i &lt; size; i+=1)</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> index =0; index &lt; size; index+=1)</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        {</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            <span class="keyword">const</span> <a class="code" href="structeuphoria_1_1tests_1_1FalseString.html">FalseString</a> equals = compare_functor(lhs[i], rhs[i]);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            <span class="keyword">const</span> <a class="code" href="structeuphoria_1_1tests_1_1FalseString.html">FalseString</a> equals = compare_functor(lhs[index], rhs[index]);</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            <span class="keywordflow">if</span>(!equals)</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            {</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span> first_invalid = !size_equal</div>
@@ -128,7 +128,7 @@
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                    ;</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="structeuphoria_1_1tests_1_1FalseString.html#ab9288e5e9295146e69b799583f7846fe">FalseString::create_false</a></div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                (</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                    fmt::format(<span class="stringliteral">&quot;{} value at index {}, {}&quot;</span>, first_invalid, i, equals.str)</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                    fmt::format(<span class="stringliteral">&quot;{} value at index {}, {}&quot;</span>, first_invalid, index, equals.str)</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                );</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            }</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        }</div>

@@ -5228,7 +5228,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/datetime.cc" line="281" column="9" bodyfile="libs/core/src/core/datetime.cc" bodystart="281" bodyend="289" declfile="libs/core/src/core/datetime.h" declline="79" declcolumn="14"/>
+        <location file="libs/core/src/core/datetime.cc" line="282" column="9" bodyfile="libs/core/src/core/datetime.cc" bodystart="282" bodyend="290" declfile="libs/core/src/core/datetime.h" declline="79" declcolumn="14"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a525fed76a9567071ef27762a680bb1a5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1TimetWrapper" kindref="compound">TimetWrapper</ref></type>
@@ -5245,7 +5245,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/datetime.cc" line="292" column="18" bodyfile="libs/core/src/core/datetime.cc" bodystart="292" bodyend="311"/>
+        <location file="libs/core/src/core/datetime.cc" line="293" column="18" bodyfile="libs/core/src/core/datetime.cc" bodystart="293" bodyend="312"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a7df801c304623e47b5583b7097d0e0f5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1TimetWrapper" kindref="compound">TimetWrapper</ref></type>
@@ -5266,7 +5266,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/datetime.cc" line="472" column="5" bodyfile="libs/core/src/core/datetime.cc" bodystart="472" bodyend="484"/>
+        <location file="libs/core/src/core/datetime.cc" line="473" column="5" bodyfile="libs/core/src/core/datetime.cc" bodystart="473" bodyend="485"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1ad2a2e2c6bab236d7bc4290dab70674ee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1TimetWrapper" kindref="compound">TimetWrapper</ref></type>
@@ -10380,7 +10380,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/random.cc" line="85" column="5" bodyfile="libs/core/src/core/random.cc" bodystart="85" bodyend="102" declfile="libs/core/src/core/random.h" declline="91" declcolumn="11"/>
+        <location file="libs/core/src/core/random.cc" line="84" column="5" bodyfile="libs/core/src/core/random.cc" bodystart="84" bodyend="101" declfile="libs/core/src/core/random.h" declline="91" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1ac9fff07a4e3c8802f408ae61c4ff3064" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
@@ -10405,7 +10405,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/random.cc" line="105" column="5" bodyfile="libs/core/src/core/random.cc" bodystart="105" bodyend="108" declfile="libs/core/src/core/random.h" declline="92" declcolumn="11"/>
+        <location file="libs/core/src/core/random.cc" line="104" column="5" bodyfile="libs/core/src/core/random.cc" bodystart="104" bodyend="107" declfile="libs/core/src/core/random.h" declline="92" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1ab5b2d180bb597eeeee7dcbd74ac07598" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
@@ -10434,7 +10434,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/random.cc" line="111" column="5" bodyfile="libs/core/src/core/random.cc" bodystart="111" bodyend="119" declfile="libs/core/src/core/random.h" declline="93" declcolumn="11"/>
+        <location file="libs/core/src/core/random.cc" line="110" column="5" bodyfile="libs/core/src/core/random.cc" bodystart="110" bodyend="118" declfile="libs/core/src/core/random.h" declline="93" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a2ee6714673933165ef9a025fa933c574" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref></type>
@@ -10451,7 +10451,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/random.cc" line="134" column="5" bodyfile="libs/core/src/core/random.cc" bodystart="134" bodyend="140" declfile="libs/core/src/core/random.h" declline="45" declcolumn="11"/>
+        <location file="libs/core/src/core/random.cc" line="133" column="5" bodyfile="libs/core/src/core/random.cc" bodystart="133" bodyend="139" declfile="libs/core/src/core/random.h" declline="45" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a45c006ac906794d908869903944c74b3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref></type>
@@ -10468,7 +10468,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/random.cc" line="143" column="5" bodyfile="libs/core/src/core/random.cc" bodystart="143" bodyend="150" declfile="libs/core/src/core/random.h" declline="47" declcolumn="11"/>
+        <location file="libs/core/src/core/random.cc" line="142" column="5" bodyfile="libs/core/src/core/random.cc" bodystart="142" bodyend="149" declfile="libs/core/src/core/random.h" declline="47" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a044f1c800b84484c8119c1445370eb36" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -11878,7 +11878,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rgb_blend.cc" line="400" column="11" bodyfile="libs/core/src/core/rgb_blend.cc" bodystart="400" bodyend="400" declfile="libs/core/src/core/rgb_blend.h" declline="37" declcolumn="11"/>
+        <location file="libs/core/src/core/rgb_blend.cc" line="402" column="11" bodyfile="libs/core/src/core/rgb_blend.cc" bodystart="402" bodyend="402" declfile="libs/core/src/core/rgb_blend.h" declline="37" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a61460bbfbc48c689b10326dc22e1ef58" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1rgba" kindref="compound">rgba</ref></type>
@@ -11903,7 +11903,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rgb_blend.cc" line="401" column="11" bodyfile="libs/core/src/core/rgb_blend.cc" bodystart="401" bodyend="401" declfile="libs/core/src/core/rgb_blend.h" declline="38" declcolumn="11"/>
+        <location file="libs/core/src/core/rgb_blend.cc" line="403" column="11" bodyfile="libs/core/src/core/rgb_blend.cc" bodystart="403" bodyend="403" declfile="libs/core/src/core/rgb_blend.h" declline="38" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a4ba70d250249cbf45fe8ece4453a1365" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1rgbi" kindref="compound">rgbi</ref></type>
@@ -11928,7 +11928,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rgb_blend.cc" line="402" column="11" bodyfile="libs/core/src/core/rgb_blend.cc" bodystart="402" bodyend="402" declfile="libs/core/src/core/rgb_blend.h" declline="39" declcolumn="11"/>
+        <location file="libs/core/src/core/rgb_blend.cc" line="404" column="11" bodyfile="libs/core/src/core/rgb_blend.cc" bodystart="404" bodyend="404" declfile="libs/core/src/core/rgb_blend.h" declline="39" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1ad18027b176d96cff3320b8e99bd1c5b7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1rgbai" kindref="compound">rgbai</ref></type>
@@ -11953,7 +11953,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rgb_blend.cc" line="403" column="11" bodyfile="libs/core/src/core/rgb_blend.cc" bodystart="403" bodyend="403" declfile="libs/core/src/core/rgb_blend.h" declline="40" declcolumn="11"/>
+        <location file="libs/core/src/core/rgb_blend.cc" line="405" column="11" bodyfile="libs/core/src/core/rgb_blend.cc" bodystart="405" bodyend="405" declfile="libs/core/src/core/rgb_blend.h" declline="40" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a1818049e8846510ee29c8f45436d7139" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
