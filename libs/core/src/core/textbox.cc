@@ -142,9 +142,9 @@ namespace euphoria::core
         const TextBox& box
     )
     {
-        for(int data_index = 0; data_index < c_sizet_to_int(b.data.size()); data_index+=1)
+        for(int data_index = 0; data_index < c_sizet_to_int(box.data.size()); data_index+=1)
         {
-            const auto line = b.data[data_index];
+            const auto line = box.data[data_index];
             const auto y = y_start + data_index;
 
             const int size_minus_1 = line.empty() ? 0 : c_sizet_to_int(line.size())-1;
