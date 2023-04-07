@@ -67,9 +67,9 @@ namespace euphoria::tests
         }
 
         const auto size = std::min(lhs.size(), rhs.size());
-        for(size_t i =0; i < size; i+=1)
+        for(size_t index =0; index < size; index+=1)
         {
-            const FalseString equals = is_string_equal(lhs[i], rhs[i]);
+            const FalseString equals = is_string_equal(lhs[index], rhs[index]);
             if(!equals)
             {
                 const auto first_invalid = !size_equal
@@ -85,7 +85,7 @@ namespace euphoria::tests
                     (
                         "{} value at index {}, {}", 
                         first_invalid,
-                        i,
+                        index,
                         equals.str
                     )
                 );

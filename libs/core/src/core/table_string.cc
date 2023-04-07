@@ -186,9 +186,9 @@ calc_all_column_widths(const StringTable& table, int extra)
 {
     const auto number_of_cols = table.get_width();
     std::vector<int> sizes(number_of_cols);
-    for(StringTable::Idx i = 0; i < number_of_cols; ++i)
+    for(StringTable::Idx column_index = 0; column_index < number_of_cols; column_index += 1)
     {
-        sizes[i] = calc_single_column_width(table, i) + extra;
+        sizes[column_index] = calc_single_column_width(table, column_index) + extra;
     }
     return sizes;
 }
@@ -199,12 +199,12 @@ split_table_cells_on_newline(const StringTable& table, StringTable::Idx row)
 {
     auto ret = StringTable::from_width_height(
             table.get_width(), calc_single_row_height(table, row));
-    for(int c = 0; c < table.get_width(); c += 1)
+    for(int column_index = 0; column_index < table.get_width(); column_index += 1)
     {
-        const auto rows = split(table(c, row), '\n');
-        for(StringTable::Idx i = 0; i < StringTable::conv(rows.size()); i += 1)
+        const auto rows = split(table(column_index, row), '\n');
+        for(StringTable::Idx row_index = 0; row_index < StringTable::conv(rows.size()); row_index += 1)
         {
-            ret(c, i) = rows[i];
+            ret(column_index, row_index) = rows[row_index];
         }
     }
     return ret;
@@ -239,9 +239,9 @@ print_table_simple(std::ostream& out, const StringTable& maintable)
 
                 if(col != number_of_cols - 1)
                 {
-                    for(StringTable::Idx i = line_length;
-                        i < sizes[col] + total_padding;
-                        ++i)
+                    for(StringTable::Idx padding_counter = line_length;
+                        padding_counter < sizes[col] + total_padding;
+                        ++padding_counter)
                     {
                         out << ' ';
                     }
@@ -277,7 +277,7 @@ print_table_grid(std::ostream& out, const StringTable& maintable)
     };
 
     auto some_space = [&out](int spaces, char c = ' ') {
-        for(int i = 0; i < spaces; i += 1)
+        for(int space_counter = 0; space_counter < spaces; space_counter += 1)
         {
             out << c;
         }

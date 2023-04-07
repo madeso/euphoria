@@ -73,9 +73,9 @@ namespace euphoria::t3d
 
         editor_camera.fps.position.y = 5.0f;
         editor_camera.fps.position.z = 10.0f;
-        for(int i=0; i<core::EditorCamera3::max_stored_index; i+=1)
+        for(int camera_index=0; camera_index<core::EditorCamera3::max_stored_index; camera_index += 1)
         {
-            editor_camera.save_camera(i);
+            editor_camera.save_camera(camera_index);
         }
 
         pending_files.extensions = std::vector<std::string>
@@ -611,26 +611,26 @@ namespace euphoria::t3d
         {
             if(ImGui::BeginMenu("Save"))
             {
-                for(int i=0; i<core::EditorCamera3::max_stored_index; i+=1)
+                for(int stored_index=0; stored_index<core::EditorCamera3::max_stored_index; stored_index += 1)
                 {
-                    const auto label = fmt::format("Save {}", i);
-                    const auto shortcut = fmt::format("Ctrl+{}", i);
+                    const auto label = fmt::format("Save {}", stored_index);
+                    const auto shortcut = fmt::format("Ctrl+{}", stored_index);
                     if(ImGui::MenuItem(label.c_str(), shortcut.c_str()))
                     {
-                        editor_camera.save_camera(i);
+                        editor_camera.save_camera(stored_index);
                     }
                 }
                 ImGui::EndMenu();
             }
             if(ImGui::BeginMenu("Load"))
             {
-                for(int i=0; i<core::EditorCamera3::max_stored_index; i+=1)
+                for(int stored_index=0; stored_index<core::EditorCamera3::max_stored_index; stored_index += 1)
                 {
-                    const auto label = fmt::format("Load ", i);
-                    const auto shortcut =  fmt::format("{}", i);
+                    const auto label = fmt::format("Load ", stored_index);
+                    const auto shortcut =  fmt::to_string(stored_index);
                     if(ImGui::MenuItem(label.c_str(), shortcut.c_str()))
                     {
-                        editor_camera.load_camera(i);
+                        editor_camera.load_camera(stored_index);
                     }
                 }
                 ImGui::EndMenu();

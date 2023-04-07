@@ -204,9 +204,9 @@ namespace euphoria::core
     {
         std::vector<U8> lut;
         lut.reserve(256);
-        for(int i = 0; i < 256; i++)
+        for(int lut_index = 0; lut_index < 256; lut_index++)
         {
-            lut.emplace_back(c(i));
+            lut.emplace_back(c(lut_index));
         }
         image->run_image_filter([&](const rgbai pixel)
         {

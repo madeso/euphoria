@@ -250,9 +250,9 @@ namespace euphoria::core { namespace
         void
         auto_set_all_control_points()
         {
-            for(int i = 0; i < num_points(); i += indices_between_anchor_pointsi)
+            for(int point_index = 0; point_index < num_points(); point_index += indices_between_anchor_pointsi)
             {
-                auto_set_anchor_control_points(i);
+                auto_set_anchor_control_points(point_index);
             }
             auto_set_start_and_end_control_points();
         }

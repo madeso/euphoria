@@ -244,9 +244,10 @@ namespace euphoria::core
     {
         std::vector<char> ret;
         const size_t base_size = 100;
-        for (int i = 1; i < 100; ++i)
+        // todo(Gustav): replace this weirdness with something without a loop
+        for (int try_index = 1; try_index < 100; ++try_index)
         {
-            const size_t string_length = base_size * i;
+            const size_t string_length = base_size * try_index;
             ret.resize(string_length);
 
             constexpr const char* const format = "%Y-%m-%d %H:%M:%S";

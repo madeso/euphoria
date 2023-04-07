@@ -47,13 +47,13 @@ namespace euphoria::core
     to_codes(U8 byte, bool msb_first)
     {
         auto codes = std::vector<int>{};
-        for(int s=0; s<8; s+=2)
+        for(int step=0; step<8; step += 2)
         {
-            const auto b = msb_first
-                ? (byte >> (6-s)) & 3
-                : (byte >> s) & 3
+            const auto code_entry = msb_first
+                ? (byte >> (6-step)) & 3
+                : (byte >> step) & 3
                 ;
-            codes.emplace_back(b);
+            codes.emplace_back(code_entry);
         }
         return codes;
     }

@@ -48,15 +48,15 @@ namespace
     float
     get_constant_size(const std::vector<float>& data)
     {
-        float r = 0;
+        float ret = 0;
         for(float f: data)
         {
             if(f > 0)
             {
-                r += f;
+                ret += f;
             }
         }
-        return r;
+        return ret;
     }
 }
 
@@ -112,18 +112,18 @@ namespace euphoria::render
 
         float position_current_col = 0;
         float uv_current_col = 0;
-        for(unsigned int c = 0; c < cols_size; ++c)
+        for(unsigned int column_index = 0; column_index < cols_size; ++column_index)
         {
             float position_current_row = size.height;
             float uv_current_row = 1;
 
-            const auto position_next_col = position_current_col + position_cols[c];
-            const auto uv_next_col = uv_current_col + core::abs(columns[c]) / calculated_texture_size_columns;
+            const auto position_next_col = position_current_col + position_cols[column_index];
+            const auto uv_next_col = uv_current_col + core::abs(columns[column_index]) / calculated_texture_size_columns;
 
-            for(unsigned int r = 0; r < rows_size; ++r)
+            for(unsigned int row_index = 0; row_index < rows_size; ++row_index)
             {
-                const auto position_next_row = position_current_row - position_rows[r];
-                const auto uv_next_row = uv_current_row - core::abs(rows[r]) / calculated_texture_size_rows;
+                const auto position_next_row = position_current_row - position_rows[row_index];
+                const auto uv_next_row = uv_current_row - core::abs(rows[row_index]) / calculated_texture_size_rows;
 
                 ASSERTX
                 (

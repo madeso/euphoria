@@ -13,59 +13,59 @@ namespace euphoria::core
     int
     calc_edit_distance(const std::string& source, const std::string& target)
     {
-        const int n = c_sizet_to_int(source.length());
-        const int m = c_sizet_to_int(target.length());
-        if(n == 0)
+        const int source_length = c_sizet_to_int(source.length());
+        const int target_length = c_sizet_to_int(target.length());
+        if(source_length == 0)
         {
-            return m;
+            return target_length;
         }
-        if(m == 0)
+        if(target_length == 0)
         {
-            return n;
+            return source_length;
         }
 
         using Tmatrix = std::vector<std::vector<int>>;
 
-        Tmatrix matrix(n + 1);
+        Tmatrix matrix(source_length + 1);
 
-        for(int i = 0; i <= n; i++)
+        for(int source_index = 0; source_index <= source_length; source_index++)
         {
-            matrix[i].resize(m + 1);
+            matrix[source_index].resize(target_length + 1);
         }
 
-        for(int i = 0; i <= n; i++)
+        for(int source_index = 0; source_index <= source_length; source_index++)
         {
-            matrix[i][0] = i;
+            matrix[source_index][0] = source_index;
         }
 
-        for(int j = 0; j <= m; j++)
+        for(int target_index = 0; target_index <= target_length; target_index++)
         {
-            matrix[0][j] = j;
+            matrix[0][target_index] = target_index;
         }
 
-        for(int i = 1; i <= n; i++)
+        for(int source_index = 1; source_index <= source_length; source_index++)
         {
-            const char s_i = source[i - 1];
+            const char source_char = source[source_index - 1];
 
-            for(int j = 1; j <= m; j++)
+            for(int target_index = 1; target_index <= target_length; target_index++)
             {
-                const char t_j = target[j - 1];
+                const char target_char = target[target_index - 1];
 
-                const int cost = (s_i == t_j) ? 0 : 1;
+                const int cost = (source_char == target_char) ? 0 : 1;
 
-                const int above = matrix[i - 1][j];
-                const int left = matrix[i][j - 1];
-                const int diag = matrix[i - 1][j - 1];
+                const int above = matrix[source_index - 1][target_index];
+                const int left = matrix[source_index][target_index - 1];
+                const int diag = matrix[source_index - 1][target_index - 1];
                 int cell = std::min(above + 1, std::min(left + 1, diag + cost));
 
-                if(i > 2 && j > 2)
+                if(source_index > 2 && target_index > 2)
                 {
-                    int trans = matrix[i - 2][j - 2] + 1;
-                    if(source[i - 2] != t_j)
+                    int trans = matrix[source_index - 2][target_index - 2] + 1;
+                    if(source[source_index - 2] != target_char)
                     {
                         trans++;
                     }
-                    if(s_i != target[j - 2])
+                    if(source_char != target[target_index - 2])
                     {
                         trans++;
                     }
@@ -75,11 +75,11 @@ namespace euphoria::core
                     }
                 }
 
-                matrix[i][j] = cell;
+                matrix[source_index][target_index] = cell;
             }
         }
 
-        return matrix[n][m];
+        return matrix[source_length][target_length];
     }
 
     int

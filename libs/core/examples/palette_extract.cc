@@ -78,11 +78,11 @@ find(std::vector<ExtractedColor>* psource, const rgbi& color, float length)
 {
     auto& source = *psource;
 
-    for(int i=0; i < c_sizet_to_int(source.size()); i+=1)
+    for(int index=0; index < c_sizet_to_int(source.size()); index += 1)
     {
-        if((to_rgb(source[i].color) - to_rgb(color)).get_length()*255 < length)
+        if((to_rgb(source[index].color) - to_rgb(color)).get_length()*255 < length)
         {
-            return i;
+            return index;
         }
     }
 
@@ -175,17 +175,17 @@ handle_image
     image.setup_no_alpha_support(image_size * c_sizet_to_int(colors.size()), image_size);
     for
     (
-        int i = 0;
-        i < c_sizet_to_int(colors.size());
-        i += 1
+        int color_index = 0;
+        color_index < c_sizet_to_int(colors.size());
+        color_index += 1
     )
     {
         draw_square
         (
             &image,
-            colors[i],
-            image_size * i,
-            image_size - 1,
+            colors[color_index],
+            image_size * color_index,
+            image_size - color_index,
             image_size
         );
     }

@@ -28,12 +28,12 @@ print_random_numbers
     auto rng = TGenerator{random->get_next_u32()};
     auto container = std::vector<float>{};
     float sum = 0.0f;
-    for(int i=0; i<count; i+=1)
+    for(int index=0; index<count; index+=1)
     {
         const auto r = rng.get_next_float01();
         container.emplace_back(r);
         sum += r;
-        if( i < small_count )
+        if( index < small_count )
         {
             std::cout << r << " ";
         }
@@ -71,7 +71,7 @@ struct Runner
     print_ints(const std::string& name, int total_ints, TFunc f)
     {
         std::cout << name << ":\n";
-        for(int i=0; i<total_ints; i+=1)
+        for(int index=0; index<total_ints; index+=1)
         {
             const auto t = f(&rand);
             const auto bs = std::bitset<bits>(t);

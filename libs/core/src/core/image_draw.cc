@@ -125,17 +125,17 @@ namespace euphoria::core
                 return false;
             }
 
-            auto a = poly[0];
-            auto in = does_ray_intersect_segment(p, *poly.rbegin(), a);
+            auto previous_point = poly[0];
+            auto in = does_ray_intersect_segment(p, *poly.rbegin(), previous_point);
 
-            for(auto i = poly.begin() + 1; i != poly.end(); ++i)
+            for(auto poly_iterator = poly.begin() + 1; poly_iterator != poly.end(); ++poly_iterator)
             {
-                const auto b = *i;
-                if(does_ray_intersect_segment(p, a, b))
+                const auto current_point = *poly_iterator;
+                if(does_ray_intersect_segment(p, previous_point, current_point))
                 {
                     in = !in;
                 }
-                a = b;
+                previous_point = current_point;
             }
 
             return in;

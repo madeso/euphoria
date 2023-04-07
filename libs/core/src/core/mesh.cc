@@ -537,21 +537,21 @@ namespace euphoria::core
     {
         struct FileForAssimp : public Assimp::IOStream
         {
-            size_t index = 0;
+            size_t read_index = 0;
             std::shared_ptr<MemoryChunk> content;
 
             size_t Read(void* target_buffer, size_t size, size_t count) override
             {
                 char* target = static_cast<char*>(target_buffer);
                 size_t objects_read = 0;
-                for(size_t i =0; i<count; i+=1)
+                for(size_t object_index=0; object_index<count; object_index+=1)
                 {
-                    if(c_sizet_to_int(index + size) > content->get_size())
+                    if(c_sizet_to_int(read_index + size) > content->get_size())
                     {
                         return objects_read;
                     }
-                    memcpy(target, content->get_data() + index, size);
-                    index += size;
+                    memcpy(target, content->get_data() + read_index, size);
+                    read_index += size;
                     target += size;
                     objects_read += 1;
                 }
@@ -567,8 +567,8 @@ namespace euphoria::core
             {
                 switch(origin)
                 {
-                    case aiOrigin_SET: index = offset; return aiReturn_SUCCESS;
-                    case aiOrigin_CUR: index += offset; return aiReturn_SUCCESS;
+                    case aiOrigin_SET: read_index = offset; return aiReturn_SUCCESS;
+                    case aiOrigin_CUR: read_index += offset; return aiReturn_SUCCESS;
                     case aiOrigin_END: DIE("end seek with unsigned int?"); return aiReturn_FAILURE;
                     default: DIE("unknown seek"); return aiReturn_FAILURE;
                 }
@@ -576,7 +576,7 @@ namespace euphoria::core
 
             [[nodiscard]] size_t Tell() const override
             {
-                return index;
+                return read_index;
             }
 
             [[nodiscard]] size_t FileSize() const override

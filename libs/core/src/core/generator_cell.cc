@@ -172,7 +172,7 @@ namespace euphoria::core::generator
     void
     Rules::add_rule(int count, std::shared_ptr<Rule> rule)
     {
-        for (int i = 0; i < count; i += 1)
+        for (int index = 0; index < count; index += 1)
         {
             rules.emplace_back(rule);
         }

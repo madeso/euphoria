@@ -83,11 +83,11 @@ namespace euphoria::core::ecs
             ASSERT(matching_components.empty() == false);
 
             std::vector<EntityHandle> r;
-            for(int i=0; i<c_sizet_to_int(signatures.size()); i += 1)
+            for(int signature_index=0; signature_index<c_sizet_to_int(signatures.size()); signature_index += 1)
             {
-                if(has_components(c_ent(i), matching_components))
+                if(has_components(c_ent(signature_index), matching_components))
                 {
-                    r.emplace_back(c_ent(i));
+                    r.emplace_back(c_ent(signature_index));
                 }
             }
             return r;

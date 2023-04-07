@@ -131,9 +131,9 @@ namespace euphoria::core::argparse
     {
         auto ret = NameAndArguments{argv[0] , {}};
 
-        for (int i = 1; i < argc; i += 1)
+        for (int index = 1; index < argc; index += 1)
         {
-            ret.arguments.emplace_back(argv[i]);
+            ret.arguments.emplace_back(argv[index]);
         }
 
         return ret;

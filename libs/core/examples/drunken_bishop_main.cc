@@ -42,7 +42,7 @@ generate_drunken_bishop_table(core::Random* random, const ::CommonArguments& com
 {
     auto hash = std::vector<int>{};
     const int times = common.big ? 8 : 4;
-    for(int i=0; i<times; i+=1)
+    for(int turn=0; turn<times; turn += 1)
     {
         const auto codes = to_codes(to_bytes(random->get_next_u32()), true);
         for(auto c : codes)
@@ -119,7 +119,7 @@ main(int argc, char* argv[])
             sub->add("--scale", &scale).set_help("The scale of the image");
             return sub->on_complete([&]{
                 auto rand = core::Random{};
-                for(int c=0; c<count; c+=1)
+                for(int turn_index=0; turn_index<count; turn_index+=1)
                 {
                     const auto table = generate_drunken_bishop_table(&rand, common);
                     const auto image = generate_image
@@ -130,7 +130,7 @@ main(int argc, char* argv[])
                     );
                     const std::string file_name = count == 1
                         ? std::string("bishop.png")
-                        : fmt::format("bishop_{}.png", c+1)
+                        : fmt::format("bishop_{}.png", turn_index+1)
                         ;
                     io::write_chunk_to_file(image.write(ImageWriteFormat::png), file_name);
                 }

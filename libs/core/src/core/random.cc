@@ -30,13 +30,12 @@ better numbers than Mersenne. How can you go wrong? :)
         // idea from http://www.eternallyconfuzzled.com/arts/jsw_art_rand.aspx
         time_t now = time(nullptr);
 
-        auto* p = reinterpret_cast<unsigned char*>(&now); // NOLINT
+        auto* bytes = reinterpret_cast<unsigned char*>(&now);
         U32 seed = 0;
 
-        for(size_t i = 0; i < sizeof(time_t); i++)
+        for(size_t byte_index = 0; byte_index < sizeof(time_t); byte_index++)
         {
-            seed = seed * (std::numeric_limits<unsigned char>::max() + 2U)
-                   + p[i];
+            seed = seed * (std::numeric_limits<unsigned char>::max() + 2U) + bytes[byte_index];
         }
 
         return seed;
@@ -45,9 +44,9 @@ better numbers than Mersenne. How can you go wrong? :)
     Random::Random(U32 seed)
         : index(0), state {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
     {
-        for(U32 i = 0; i < 16; ++i)
+        for(U32 state_index = 0; state_index < 16; ++state_index)
         {
-            state[i] = seed * i;
+            state[state_index] = seed * state_index;
         }
     }
 

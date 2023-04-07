@@ -250,7 +250,7 @@ namespace
 
                 // animate...
                 auto hit = BoolTable::from_width_height(half_side.get_width(), half_side.get_height(), false);
-                for(int i=0; i<2; i+=1)
+                for(int animation_frame=0; animation_frame<2; animation_frame+=1)
                 {
                     int x = 0;
                     int y = 0;

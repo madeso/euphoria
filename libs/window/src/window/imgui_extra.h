@@ -214,9 +214,9 @@ namespace euphoria::window::imgui
     {
         if(begin_combo(name, to_string(*current).c_str()))
         {
-            for(int i = 0; i < static_cast<int>(max); i += 1)
+            for(int index = 0; index < static_cast<int>(max); index += 1)
             {
-                const auto o = static_cast<T>(i);
+                const auto o = static_cast<T>(index);
                 if(imgui_selectable(to_string(o).c_str(), *current == o))
                 {
                     *current = o;

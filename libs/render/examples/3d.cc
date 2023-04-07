@@ -98,7 +98,7 @@ main(int argc, char** argv)
     clear(&image, {NamedColor::red});
     auto rand = core::Random{42};
 
-    for(int i = 0; i < 20; i += 1)
+    for(int circle_counter = 0; circle_counter < 20; circle_counter += 1)
     {
         const rgb color = to_rgb(dawnbringer_palette->get_random_color(&rand));
         const auto pos = get_random_point(&rand, wi);
@@ -187,7 +187,7 @@ main(int argc, char** argv)
     // 0=do nothing, 1=use light actor, 2=follow camera
     int light_update = 1;
 
-    for(int i = 0; i < 20; ++i)
+    for(int cube_counter = 0; cube_counter < 20; ++cube_counter)
     {
         auto actor = std::make_shared<render::Actor>(rand.get_next_bool() ? box1 : box2);
         world.add_actor(actor);

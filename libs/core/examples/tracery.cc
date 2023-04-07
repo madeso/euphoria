@@ -54,7 +54,7 @@ main(int argc, char* argv[])
             return argparse::error;
         }
 
-        for(int i = 0; i < count; ++i)
+        for(int index = 0; index < count; index += 1)
         {
             const auto flatten_result = grammar.flatten(&random, rule);
             if(flatten_result == false)

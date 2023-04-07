@@ -339,9 +339,9 @@ namespace euphoria::core
 
         const auto det = 1.0f / inv_det;
 
-        for(int i = 0; i < 16; i++)
+        for(int index = 0; index < 16; index += 1)
         {
-            data[i] = inv[i] * det;
+            data[index] = inv[index] * det;
         }
 
         return true;

@@ -235,12 +235,12 @@ imgui_widget(Widget* w)
 bool
 imgui_widget(LayoutContainer* container)
 {
-    for(int i=0; i < c_sizet_to_int(container->widgets.size()); i+= 1)
+    for(int widget_index=0; widget_index < c_sizet_to_int(container->widgets.size()); widget_index+= 1)
     {
-        auto widget = container->widgets[i];
+        auto widget = container->widgets[widget_index];
         if(ImGui::TreeNode(widget->name.c_str()))
         {
-            ImGui::PushID(i);
+            ImGui::PushID(widget_index);
             imgui_widget(widget.get());
             ImGui::PopID();
 

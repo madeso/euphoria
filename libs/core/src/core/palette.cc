@@ -29,9 +29,9 @@ namespace euphoria::core
 
 
     const rgbi&
-    Palette::get_safe_index(unsigned int i) const
+    Palette::get_safe_index(unsigned int index) const
     {
-        return colors[i % colors.size()];
+        return colors[index % colors.size()];
     }
 
 
@@ -117,9 +117,9 @@ namespace euphoria::core
 
         auto pal = DynamicPalette::create_empty("Rainbow");
 
-        for(int i = 0; i < count; i += 1)
+        for(int color_index = 0; color_index < count; color_index += 1)
         {
-            float d = static_cast<float>(i) / static_cast<float>(count - 1);
+            float d = static_cast<float>(color_index) / static_cast<float>(count - 1);
             const auto rgbf = to_rgb
             (
                 Hsl

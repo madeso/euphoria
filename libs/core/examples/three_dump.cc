@@ -52,7 +52,7 @@ main(int argc, char* argv[])
     auto area = Aabb{vec3f{-size, -size, -size}, vec3f{size, size, size}};
     auto dump = Dumper{current_directory + "/three.html"};
 
-    for(int i=0; i<30; i+=1)
+    for(int sphere_index=0; sphere_index<30; sphere_index+=1)
     {
         dump.add_sphere(get_random_point(&rand, area), 1.0f, pal.get_random_item(&rand));
     }

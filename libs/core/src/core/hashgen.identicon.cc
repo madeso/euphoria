@@ -94,12 +94,12 @@ namespace
             static_cast<float>(vertices[0] % 5) * scale - offset,
             std::floor(static_cast<float>(vertices[0]) / 5.0f) * scale - offset
         );
-        for (std::size_t i = 1; i < vertices.size(); i++)
+        for (std::size_t vertex_index = 1; vertex_index < vertices.size(); vertex_index++)
         {
             ctx.draw_line_to
             (
-                static_cast<float>(vertices[i] % 5) * scale - offset,
-                std::floor(static_cast<float>(vertices[i]) / 5.0f) * scale - offset
+                static_cast<float>(vertices[vertex_index] % 5) * scale - offset,
+                std::floor(static_cast<float>(vertices[vertex_index]) / 5.0f) * scale - offset
             );
         }
         ctx.close_path();

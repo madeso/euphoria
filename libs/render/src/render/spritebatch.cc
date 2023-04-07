@@ -83,7 +83,7 @@ namespace euphoria::render
         vertex_data.push_back(uv.bottom);
 
         // add color
-        for(int i = 0; i < 4; ++i)
+        for(int color_counter = 0; color_counter < 4; color_counter += 1)
         {
             vertex_data.push_back(color.r);
             vertex_data.push_back(color.g);

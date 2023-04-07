@@ -138,9 +138,9 @@ namespace euphoria::minsynth
         {
             const float base
                     = std::pow(2.0f, 1.0f / static_cast<float>(steps_per_octave));
-            for(int i = 0; i < steps_per_octave; i += 1)
+            for(int octave_index = 0; octave_index < steps_per_octave; octave_index += 1)
             {
-                step_data[i] = std::pow(base, static_cast<float>(i));
+                step_data[octave_index] = std::pow(base, static_cast<float>(octave_index));
             }
         }
 
@@ -585,9 +585,9 @@ namespace euphoria::minsynth
             std::set<int> tt;
             for(const auto& t: down_tones)
             {
-                for(int i = 0; i < octaves; i += 1)
+                for(int octave_index = 0; octave_index < octaves; octave_index += 1)
                 {
-                    tt.insert(t.first + i * 12);
+                    tt.insert(t.first + octave_index * 12);
                 }
             }
             switch(mode)
@@ -814,7 +814,7 @@ namespace euphoria::minsynth
     {
         float w = core::abs(wave);
         const auto negative = wave < 0;
-        for(int i = 0; i < times; i += 1)
+        for(int time_counter = 0; time_counter < times; time_counter += 1)
         {
             w = w * w;
         }

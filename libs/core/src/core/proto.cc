@@ -79,9 +79,9 @@ namespace euphoria::core
     {
         Location r;
 
-        for(std::size_t i=0; i<offset; i+=1)
+        for(std::size_t source_index=0; source_index<offset; source_index+=1)
         {
-            if(source[i] == '\n')
+            if(source[source_index] == '\n')
             {
                 r.line += 1;
                 r.offset = 0;

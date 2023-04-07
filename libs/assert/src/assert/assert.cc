@@ -65,11 +65,11 @@ namespace euphoria
             );
 
             std::vector<std::string> ret;
-            for(int i = skip; i < n; ++i)
+            for(int backtrace_index = skip; backtrace_index < n; backtrace_index += 1)
             {
                 // we parse the symbols retrieved from backtrace_symbols() to
                 // extract the "real" symbols that represent the mangled names.
-                char* const symbol = symbols.get()[i];
+                char* const symbol = symbols.get()[backtrace_index];
                 char* end = symbol;
                 while(*end != 0)
                 {

@@ -139,13 +139,13 @@ namespace euphoria::core
     (
         int x_start,
         int y_start,
-        const TextBox& b
+        const TextBox& box
     )
     {
-        for(int p = 0; p < c_sizet_to_int(b.data.size()); p+=1)
+        for(int line_index = 0; line_index < c_sizet_to_int(box.data.size()); line_index+=1)
         {
-            const auto line = b.data[p];
-            const auto y = y_start + p;
+            const auto line = box.data[line_index];
+            const auto y = y_start + line_index;
 
             const int size_minus_1 = line.empty() ? 0 : c_sizet_to_int(line.size())-1;
             extend_to(x_start+size_minus_1, y);
@@ -183,11 +183,11 @@ namespace euphoria::core
     (
         int x,
         int y,
-        const TextBox& b
+        const TextBox& box
     ) const
     {
         TextBox self = *this;
-        self.put_box(x, y, b);
+        self.put_box(x, y, box);
         return self;
     }
 
@@ -307,14 +307,14 @@ namespace euphoria::core
 
 
     int
-    TextBox::get_horizontal_append_position(int y, const TextBox& b) const
+    TextBox::get_horizontal_append_position(int y, const TextBox& box) const
     {
         const int my_width = get_width();
 
         int reduce = my_width;
-        for(int p=0; p<b.get_height(); p+=1)
+        for(int line_index=0; line_index<box.get_height(); line_index+=1)
         {
-            reduce = std::min(reduce, find_right_padding(y+p) + b.find_left_padding(p));
+            reduce = std::min(reduce, find_right_padding(y+line_index) + box.find_left_padding(line_index));
         }
 
         return my_width - reduce;
@@ -325,15 +325,15 @@ namespace euphoria::core
     TextBox::get_vertical_append_position
     (
         int x,
-        const TextBox& b
+        const TextBox& box
     ) const
     {
         const int my_height = get_height();
 
         int reduce = my_height;
-        for(int p=0; p<b.get_width(); p+=1)
+        for(int box_x=0; box_x<box.get_width(); box_x+=1)
         {
-            reduce = std::min(reduce, find_bottom_padding(x+p) + b.find_top_padding(p));
+            reduce = std::min(reduce, find_bottom_padding(x+box_x) + box.find_top_padding(box_x));
         }
 
         return my_height - reduce;

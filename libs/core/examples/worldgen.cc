@@ -168,7 +168,7 @@ handle_maze_command
         }
         else
         {
-            for(int i = 0; i < 5; i += 1)
+            for(int index = 0; index < 5; index += 1)
             {
                 io::write_chunk_to_file
                 (
@@ -291,7 +291,7 @@ struct CellWriter
             write_index += 1;
         }
 
-        for (int i = 0; i < 5; i += 1)
+        for (int index = 0; index < 5; index += 1)
         {
             const auto img = generate_world_image(world_copy);
             io::write_chunk_to_file

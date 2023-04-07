@@ -93,12 +93,12 @@ namespace euphoria::core
     {
         std::vector<std::string> ret;
 
-        for(int r = 0; r < table.get_height(); r += 1)
+        for(int y = 0; y < table.get_height(); y += 1)
         {
             StringBuilder ss;
-            for(int c = 0; c < table.get_width(); c += 1)
+            for(int x = 0; x < table.get_width(); x += 1)
             {
-                ss.add_char(table(c, r));
+                ss.add_char(table(x, y));
             }
             ret.insert(ret.begin(), ss.to_string());
         }

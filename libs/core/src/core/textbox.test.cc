@@ -154,9 +154,9 @@ TEST_CASE("tb_arrows")
 
     SECTION("all combos")
     {
-        for(int i=1; i<16; i+=1)
+        for(int combo_index=1; combo_index<16; combo_index+=1)
         {
-            box.put_char((i % 4), (i/4), static_cast<char>(i));
+            box.put_char((combo_index % 4), (combo_index/4), static_cast<char>(combo_index));
         }
 
         CHECK

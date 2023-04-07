@@ -130,11 +130,11 @@ namespace euphoria::gui
         if(expandable_rows_count != 0)
         {
             const float extra = leftover_height / core::c_int_to_float(expandable_rows_count);
-            for(unsigned int i = 0; i < expandable_rows.size(); ++i)
+            for(unsigned int row_index = 0; row_index < expandable_rows.size(); ++row_index)
             {
-                if(expandable_rows[i])
+                if(expandable_rows[row_index])
                 {
-                    height[i] += extra;
+                    height[row_index] += extra;
                 }
             }
         }
@@ -142,11 +142,11 @@ namespace euphoria::gui
         if(expandable_cols_count != 0)
         {
             const float extra = leftover_width / core::c_int_to_float(expandable_cols_count);
-            for(unsigned int i = 0; i < expandable_cols.size(); ++i)
+            for(unsigned int column_index = 0; column_index < expandable_cols.size(); ++column_index)
             {
-                if(expandable_cols[i])
+                if(expandable_cols[column_index])
                 {
-                    width[i] += extra;
+                    width[column_index] += extra;
                 }
             }
         }
@@ -166,13 +166,13 @@ namespace euphoria::gui
                 y
             );
 
-            for(int c = 0; c < d.column; ++c)
+            for(int column_index = 0; column_index < d.column; ++column_index)
             {
-                x += width[c];
+                x += width[column_index];
             }
-            for(int r = 0; r < d.row; ++r)
+            for(int row_index = 0; row_index < d.row; ++row_index)
             {
-                y -= height[r];
+                y -= height[row_index];
             }
 
             w->set_rect

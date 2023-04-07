@@ -26,7 +26,7 @@ i2f(int i)
 std::vector<vec2f> generate_random_points(int count, const Rectf& size, euco::Random* random)
 {
     std::vector<vec2f> r;
-    for(int i=0; i<count; i+=1)
+    for(int point_index=0; point_index<count; point_index+=1)
     {
         r.emplace_back( get_random_point(random, size) );
     }

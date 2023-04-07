@@ -105,21 +105,21 @@ namespace euphoria::core
     {
         std::ofstream f(filename.c_str());
 
-        for(size_t i=0; i<data.size(); i+=4)
+        for(size_t vertex_index=0; vertex_index<data.size(); vertex_index+=4)
         {
-            f << "v " << data[i+0] << " " << data[i+1] << "\n";
+            f << "v " << data[vertex_index+0] << " " << data[vertex_index+1] << "\n";
         }
 
-        for(size_t i=0; i<data.size(); i+=4)
+        for(size_t tex_index=0; tex_index<data.size(); tex_index+=4)
         {
-            f << "vt " << data[i+2] << " " << data[i+3] << "\n";
+            f << "vt " << data[tex_index+2] << " " << data[tex_index+3] << "\n";
         }
 
-        for(size_t i=0; i<tris.size(); i+=3)
+        for(size_t tri_index=0; tri_index<tris.size(); tri_index+=3)
         {
-            const auto a = tris[i+0];
-            const auto b = tris[i+1];
-            const auto c = tris[i+2];
+            const auto a = tris[tri_index+0];
+            const auto b = tris[tri_index+1];
+            const auto c = tris[tri_index+2];
             f << "f "
                 << a << "/" << a << " "
                 << b << "/" << b << " "

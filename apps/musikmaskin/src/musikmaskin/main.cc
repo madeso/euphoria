@@ -107,14 +107,14 @@ struct ApplicationBase
 
         audio_opened = true;
 
-        const int count = SDL_GetNumAudioDevices(0);
-        for(int i = 0; i < count; ++i)
+        const int device_count = SDL_GetNumAudioDevices(0);
+        for(int device_index = 0; device_index < device_count; device_index += 1)
         {
             LOG_INFO
             (
                 "Audio device {0}: {1}",
-                i,
-                SDL_GetAudioDeviceName(i, 0)
+                device_index,
+                SDL_GetAudioDeviceName(device_index, 0)
             );
         }
     }
@@ -156,9 +156,9 @@ struct ApplicationBase
 
         const Sint16 max_amplitude = 32767;
 
-        for(int i = 0; i < len; i += 1)
+        for(int sample_index = 0; sample_index < len; sample_index += 1)
         {
-            const float sample_offset = static_cast<float>(i + samples_consumed)/static_cast<float>(sample_frequency);
+            const float sample_offset = static_cast<float>(sample_index + samples_consumed)/static_cast<float>(sample_frequency);
             const float sample_time = audio_callback_time + sample_offset;
             auto sample = synth_sample(sample_time);
             if(sample > 1)
@@ -169,7 +169,7 @@ struct ApplicationBase
             {
                 sample = -1;
             }
-            output[i] = static_cast<Sint16>(max_amplitude * sample);
+            output[sample_index] = static_cast<Sint16>(max_amplitude * sample);
             max_sample_time = sample_time;
         }
 
@@ -235,10 +235,10 @@ struct MidiInputNode : public euphoria::minsynth::MidiInNode
                 midi->openVirtualPort();
             }
 
-            for(unsigned int i = 0; i < midi->getPortCount(); i += 1)
+            for(unsigned int port_index = 0; port_index < midi->getPortCount(); port_index += 1)
             {
-                const std::string name = midi->getPortName(i);
-                LOG_INFO("Midi port {0}: {1}", i, name);
+                const std::string name = midi->getPortName(port_index);
+                LOG_INFO("Midi port {0}: {1}", port_index, name);
             }
 
             midi->openPort(port_number);
@@ -494,11 +494,11 @@ public:
 
             {
                 ImGui::BeginChild("audio devices", ImVec2(0, 0), true);
-                int count = SDL_GetNumAudioDevices(0);
 
-                for(int i = 0; i < count; ++i)
+                const int count = SDL_GetNumAudioDevices(0);
+                for(int device_index = 0; device_index < count; device_index += 1)
                 {
-                    ImGui::Text("%s", SDL_GetAudioDeviceName(i, 0));
+                    ImGui::Text("%s", SDL_GetAudioDeviceName(device_index, 0));
                 }
                 ImGui::EndChild();
             }

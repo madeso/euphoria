@@ -58,7 +58,7 @@ void run_main
     Image image;
     image.setup_with_alpha_support(image_size, image_size);
 
-    for(int i = 0; i < number_of_images; i += 1)
+    for(int image_index = 0; image_index < number_of_images; image_index += 1)
     {
         U32 code = 42;
         if(use_random)
@@ -75,7 +75,7 @@ void run_main
             render_retro(&image, code);
             break;
         case HashType::sprator:
-            render_sprator(&image, code, palette.get_safe_index(i));
+            render_sprator(&image, code, palette.get_safe_index(image_index));
             break;
         default:
             DIE("Unhandled type");
@@ -93,7 +93,7 @@ void run_main
         {
             if(number_of_images > 1)
             {
-                file_name = fmt::format("identicon_{}.png", i + 1);
+                file_name = fmt::format("identicon_{}.png", image_index + 1);
                 std::cout << "Writing " << file_name << "\n";
             }
 

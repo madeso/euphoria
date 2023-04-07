@@ -25,11 +25,11 @@ make_star(const vec2f& origo, float radius, const angle& rotation, int number_of
 
     auto poly = ::Poly{};
 
-    for(auto i=0; i<(number_of_points*2); i+=1)
+    for(auto index=0; index<(number_of_points*2); index += 1)
     {
-        const auto is_even = i % 2 == 0;
+        const auto is_even = index % 2 == 0;
         auto r = is_even ? radius*inner_scale : radius;
-        auto point_rotation = rotation + angle_step * static_cast<float>(i);
+        auto point_rotation = rotation + angle_step * static_cast<float>(index);
         const auto x = (r * sin(point_rotation)) + origo.x;
         const auto y = (r * cos(point_rotation)) + origo.y;
         poly.points.emplace_back(x, y);
@@ -61,7 +61,7 @@ main(int argc, char* argv[])
 
     auto svg = Dumper{};
 
-    for(int i=0; i<30; i+=1)
+    for(int star_index=0; star_index<30; star_index += 1)
     {
         const auto center = get_random_point_on_unit_circle_center_focused(&rand)*200.0f;
         const auto radius = get_random_in_range(&rand, Range{3.0f, 30.0f});

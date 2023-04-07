@@ -32,7 +32,7 @@ namespace euphoria::core
         auto p = get_random_point_in_area();
         if(bounds_check > 0)
         {
-            for(int i=0; i<k; i+=1)
+            for(int try_index=0; try_index<k; try_index+=1)
             {
                 if(is_all_inside(area, p, bounds_check))
                 {

@@ -21,9 +21,9 @@ namespace euphoria::core
         template<typename F>
         constexpr explicit TextBoxStyle(F connections_func)
         {
-            for (char c = 0; c < 15; c += 1)
+            for (char connection_index = 0; connection_index < 15; connection_index += 1)
             {
-                connections[c] = connections_func(static_cast<char>(c + 1));
+                connections[connection_index] = connections_func(static_cast<char>(connection_index + 1));
             }
         }
 
@@ -231,13 +231,13 @@ namespace euphoria::core
             {
                 std::vector<TextBox> boxes;
                 boxes.reserve(std::distance(begin, end));
-                for(auto i = begin; i != end; ++i)
+                for(auto child_iterator = begin; child_iterator != end; ++child_iterator)
                 {
                     boxes.emplace_back
                     (
                         create_tree_graph
                         (
-                            *i,
+                            *child_iterator,
                             std::max<int>(maxwidth - 2, 16),
                             to_string,
                             count_children_func,

@@ -65,19 +65,19 @@ png_dump(int extra_images)
         clear(&result, {NamedColor::black});
         for
         (
-            int i=0;
-            i < c_sizet_to_int(worker.samples.size());
-            i += 1
+            int sample_index=0;
+            sample_index < c_sizet_to_int(worker.samples.size());
+            sample_index += 1
         )
         {
             const auto is_active = std::find
             (
                 worker.active.begin(),
                 worker.active.end(),
-                i
+                sample_index
             ) != worker.active.end();
             const auto circle_color = is_active ? NamedColor::blue : NamedColor::white;
-            const auto cp = worker.samples[i]*world_to_image;
+            const auto cp = worker.samples[sample_index]*world_to_image;
             const auto circle_position = cp.to_i();
             const auto circle_radius = radius * world_to_image;
             draw_circle(&result, circle_color, circle_position, circle_radius);
@@ -99,7 +99,7 @@ png_dump(int extra_images)
 
     if(!frames.single)
     {
-        for(int i=0; i<extra_images; i +=1)
+        for(int frame_index=0; frame_index<extra_images; frame_index +=1)
         {
             write_image(std::nullopt);
         }
@@ -117,7 +117,7 @@ png_dump(int extra_images)
 
     if(!frames.single)
     {
-        for(int i=0; i<extra_images; i +=1)
+        for(int frame_index=0; frame_index<extra_images; frame_index +=1)
         {
             write_image(std::nullopt);
         }

@@ -125,11 +125,11 @@ namespace euphoria::tests
     bool
     is_approximately_equal(core::mat4f const& lhs, core::mat4f const& rhs, const ApproxData& data)
     {
-        for (int r = 0; r < 4; r += 1)
+        for (int row_index = 0; row_index < 4; row_index += 1)
         {
-            for (int c = 0; c < 4; c += 1)
+            for (int column_index = 0; column_index < 4; column_index += 1)
             {
-                if (is_approximately_equal(lhs.get(r,c), rhs.get(r, c), data) == false)
+                if (is_approximately_equal(lhs.get(row_index,column_index), rhs.get(row_index, column_index), data) == false)
                 {
                     return false;
                 }

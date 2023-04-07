@@ -25,9 +25,10 @@ namespace euphoria::runner
     {
         std::vector<T> r;
         r.reserve(table.size());
-        for(size_t i=0; i<table.size(); i+=1)
+        for(size_t index=0; index<table.size(); index += 1)
         {
-            r.emplace_back(table[i+1]);
+            // +1 since lua is 1 based
+            r.emplace_back(table[index+1]);
         }
         return r;
     }

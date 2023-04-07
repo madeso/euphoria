@@ -40,16 +40,16 @@ write_palettes_to_files(int image_size)
 
         for
         (
-            int i = 0;
-            i < c_sizet_to_int(pal.colors.size());
-            i += 1
+            int color_index = 0;
+            color_index < c_sizet_to_int(pal.colors.size());
+            color_index += 1
         )
         {
             draw_square
             (
                 &image,
-                pal.colors[i],
-                image_size * i,
+                pal.colors[color_index],
+                image_size * color_index,
                 image_size - 1,
                 image_size
             );
@@ -109,12 +109,12 @@ write_palettes_to_html(const std::string& wd)
 
         for
         (
-            int i = 0;
-            i < c_sizet_to_int(pal.colors.size());
-            i += 1
+            int color_index = 0;
+            color_index < c_sizet_to_int(pal.colors.size());
+            color_index += 1
         )
         {
-            const auto c = pal.colors[i];
+            const auto c = pal.colors[color_index];
             handle
                 << "<span "
                 << "class=\"color\""
@@ -177,14 +177,14 @@ write_palettes_to_single_svg(const std::string& path, float height, bool border)
 
         for
         (
-            int i = 0;
-            i < c_sizet_to_int(pal.colors.size());
-            i += 1
+            int color_index = 0;
+            color_index < c_sizet_to_int(pal.colors.size());
+            color_index += 1
         )
         {
             const auto s = border ? ss : size-spacing*2;
-            const auto box_position = vec2f{x + s * euphoria::core::c_int_to_float(i), y};
-            d << create_box(box_position, size, height, pal.colors[i], border);
+            const auto box_position = vec2f{x + s * euphoria::core::c_int_to_float(color_index), y};
+            d << create_box(box_position, size, height, pal.colors[color_index], border);
         }
 
         y += height + spacing;

@@ -62,7 +62,7 @@ markov_sentence(const std::string& file, int memory, int count)
     core::Random rnd;
     auto b = m.build();
 
-    for(int i = 0; i < count; i += 1)
+    for(int turn = 0; turn < count; turn += 1)
     {
         auto s = b.generate(&rnd);
         std::cout << core::from_sentence_to_string(s) << "\n\n";
@@ -94,7 +94,7 @@ markov_word(const std::string& file, int memory, int count)
     std::cout << "\n";
     auto b = m.build();
 
-    for(int i = 0; i < count; i += 1)
+    for(int index = 0; index < count; index += 1)
     {
         std::cout << c(b.generate(&rnd)) << "\n";
     }
@@ -217,7 +217,7 @@ markov_line(const std::string& file, int memory, int count, bool also_existing, 
 
     int skipped = 0;
 
-    for(int i = 0; i < count+skipped; i += 1)
+    for(int index = 0; index < count+skipped; index += 1)
     {
         const auto generated = core::from_sentence_to_string(b.generate(&rnd));
         if(!also_existing && existing_lines->is_same(core::to_lower(generated)))

@@ -562,7 +562,7 @@ namespace euphoria::core
         detail::set_default_state(this);
 
         const auto default_frame = detail::get_frame_from_editor(this);
-        for(int i=0; i<EditorCamera3::max_stored_index; i+=1)
+        for(int index=0; index<EditorCamera3::max_stored_index; index+=1)
         {
             stored_cameras.emplace_back(default_frame);
         }

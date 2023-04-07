@@ -44,9 +44,9 @@ namespace euphoria::tests
         }
 
         const auto size = std::min(lhs.size(), rhs.size());
-        for(size_t i =0; i < size; i+=1)
+        for(size_t index =0; index < size; index+=1)
         {
-            const FalseString equals = compare_functor(lhs[i], rhs[i]);
+            const FalseString equals = compare_functor(lhs[index], rhs[index]);
             if(!equals)
             {
                 const auto first_invalid = !size_equal
@@ -72,7 +72,7 @@ namespace euphoria::tests
                     ;
                 return FalseString::create_false
                 (
-                    fmt::format("{} value at index {}, {}", first_invalid, i, equals.str)
+                    fmt::format("{} value at index {}, {}", first_invalid, index, equals.str)
                 );
             }
         }

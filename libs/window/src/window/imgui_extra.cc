@@ -474,13 +474,13 @@ namespace euphoria::window::imgui
         if((style & knob_style_vis_markers_visible) != 0)
         {
             const auto marker_stop = ((style & knob_style_vis_off_marker_hidden) != 0) ? angle : angle_max;
-            for(float a = angle_min; a <= marker_stop; a += angle_step)
+            for(float angle = angle_min; angle <= marker_stop; angle += angle_step)
             {
                 const auto c = (style & knob_style_vis_off_marker_hidden) != 0
                       ? peg_color_off
-                      : a <= angle ? peg_color_on : peg_color_off
+                      : angle <= angle ? peg_color_on : peg_color_off
                       ;
-                draw_list->AddLine(calculate_position(a, peg_start), calculate_position(a, peg_end), c, 1.0f);
+                draw_list->AddLine(calculate_position(angle, peg_start), calculate_position(angle, peg_end), c, 1.0f);
             }
         }
 

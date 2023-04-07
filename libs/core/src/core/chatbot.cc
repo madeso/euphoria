@@ -102,26 +102,26 @@ namespace euphoria::core::detail
     std::vector<std::string>
     remove_from(const std::vector<std::string>& source, const Input& input)
     {
-        const auto index = find_get_palette_sequential_pu_bu_gn(source, input);
+        const auto found_index = find_get_palette_sequential_pu_bu_gn(source, input);
 
-        if(index == -1)
+        if(found_index == -1)
         {
             return source;
         }
 
         std::vector<std::string> ret;
-        for(long i = 0; i < index; i += 1)
+        for(long source_index = 0; source_index < found_index; source_index += 1)
         {
-            ret.emplace_back(source[i]);
+            ret.emplace_back(source[source_index]);
         }
         for
         (
-            unsigned long i = index + c_sizet_to_int(input.words.size());
-            i < source.size();
-            i += 1
+            unsigned long source_index = found_index + c_sizet_to_int(input.words.size());
+            source_index < source.size();
+            source_index += 1
         )
         {
-            ret.emplace_back(source[i]);
+            ret.emplace_back(source[source_index]);
         }
         return ret;
     }
@@ -390,9 +390,9 @@ namespace euphoria::core
                     topics.emplace_back(topic);
                 }
             }
-            for(const auto& i: r.inputs)
+            for(const auto& new_input: r.inputs)
             {
-                response.inputs.emplace_back(i.input, con(i.location));
+                response.inputs.emplace_back(new_input.input, con(new_input.location));
             }
         }
 
@@ -487,8 +487,8 @@ namespace euphoria::core
 
             while(!indices.empty())
             {
-                const auto index = get_random_in_range(&chatbot->random, indices.size());
-                suggested = indices[index];
+                const auto random_index = get_random_in_range(&chatbot->random, indices.size());
+                suggested = indices[random_index];
                 const auto& resp = chatbot->last_responses;
                 if
                 (
@@ -500,7 +500,7 @@ namespace euphoria::core
                     ) != resp.end()
                 )
                 {
-                    indices.erase(std::next(indices.begin(), c_sizet_to_int(index)));
+                    indices.erase(std::next(indices.begin(), c_sizet_to_int(random_index)));
                 }
                 else
                 {
@@ -555,7 +555,7 @@ namespace euphoria::core
         )
         {
             // todo(Gustav): we dont need a string vector for this, right?
-            const auto index = select_basic_response_index<detail::SingleResponse>
+            const auto response_index = select_basic_response_index<detail::SingleResponse>
             (
                 chatbot,
                 responses,
@@ -564,7 +564,7 @@ namespace euphoria::core
                     return r.to_say;
                 }
             );
-            const auto suggested = responses[index];
+            const auto suggested = responses[response_index];
 
             // todo(Gustav): add this to memory when this response is returned, not suggested
             for(const auto& topic: suggested.topics_mentioned)

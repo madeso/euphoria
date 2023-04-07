@@ -19,24 +19,24 @@ namespace euphoria::core::base64
     std::string
     encode(std::shared_ptr<MemoryChunk> memory)
     {
-        MemoryChunk& in = *memory;
+        MemoryChunk& input = *memory;
         auto out = StringBuilder{};
 
-        for(int i = 0; i < in.get_size(); i += 3)
+        for(int input_index = 0; input_index < input.get_size(); input_index += 3)
         {
-            int b = (in[i] & 0xFC) >> 2;
+            int b = (input[input_index] & 0xFC) >> 2;
             out.add_char(codes[b]);
-            b = (in[i] & 0x03) << 4;
-            if(i + 1 < in.get_size())
+            b = (input[input_index] & 0x03) << 4;
+            if(input_index + 1 < input.get_size())
             {
-                b |= (in[i + 1] & 0xF0) >> 4;
+                b |= (input[input_index + 1] & 0xF0) >> 4;
                 out.add_char(codes[b]);
-                b = (in[i + 1] & 0x0F) << 2;
-                if(i + 2 < in.get_size())
+                b = (input[input_index + 1] & 0x0F) << 2;
+                if(input_index + 2 < input.get_size())
                 {
-                    b |= (in[i + 2] & 0xC0) >> 6;
+                    b |= (input[input_index + 2] & 0xC0) >> 6;
                     out.add_char(codes[b]);
-                    b = in[i + 2] & 0x3F;
+                    b = input[input_index + 2] & 0x3F;
                     out.add_char(codes[b]);
                 }
                 else
@@ -70,24 +70,24 @@ namespace euphoria::core::base64
 
             auto ret = MemoryChunk::allocate(size);
             MemoryChunk& decoded = *ret;
-            int j = 0;
-            for(int i = 0; i < c_sizet_to_int(input.size()); i += 4)
+            int decoded_index = 0;
+            for(int input_index = 0; input_index < c_sizet_to_int(input.size()); input_index += 4)
             {
                 // This could be made faster (but more complicated) by precomputing these index locations.
                 const auto b = std::array<size_t, 4>
                 {
-                        codes.find(input[c_int_to_sizet(i)]),
-                        codes.find(input[c_int_to_sizet(i + 1)]),
-                        codes.find(input[c_int_to_sizet(i + 2)]),
-                        codes.find(input[c_int_to_sizet(i + 3)])
+                        codes.find(input[c_int_to_sizet(input_index)]),
+                        codes.find(input[c_int_to_sizet(input_index + 1)]),
+                        codes.find(input[c_int_to_sizet(input_index + 2)]),
+                        codes.find(input[c_int_to_sizet(input_index + 3)])
                 };
-                decoded[j++] = static_cast<char>((b[0] << 2) | (b[1] >> 4));
+                decoded[decoded_index++] = static_cast<char>((b[0] << 2) | (b[1] >> 4));
                 if(b[2] < 64)
                 {
-                    decoded[j++] = static_cast<char>((b[1] << 4) | (b[2] >> 2));
+                    decoded[decoded_index++] = static_cast<char>((b[1] << 4) | (b[2] >> 2));
                     if(b[3] < 64)
                     {
-                        decoded[j++] = static_cast<char>((b[2] << 6) | b[3]);
+                        decoded[decoded_index++] = static_cast<char>((b[2] << 6) | b[3]);
                     }
                 }
             }
