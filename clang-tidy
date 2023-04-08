@@ -113,14 +113,17 @@ readability-identifier-naming
 END_CHECKS
 
 "CheckOptions": [
-    // disable parameter length checks for now
     // todo(Gustav): enable this again
-    {"key": "readability-identifier-length.MinimumParameterNameLength",          "value": "0"},
-    {"key": "readability-identifier-length.MinimumVariableNameLength",           "value": "0"},
+    {"key": "readability-identifier-length.MinimumVariableNameLength",         "value": "0"},
 
     // xyz is used as coordinates, _ can used as ignores?
     // prefer _index postfix to a descriptor instead of ijk
-    {"key": "readability-identifier-length.IgnoredLoopCounterNames",             "value": "^[xyz_]$"},
+    // or a _counter postfix when the loop counter isn't used
+    {"key": "readability-identifier-length.MinimumLoopCounterNameLength",      "value": "2"},
+    {"key": "readability-identifier-length.IgnoredLoopCounterNames",           "value": "^[xyz_]$"},
+
+    {"key": "readability-identifier-length.MinimumParameterNameLength",        "value": "3"},
+    {"key": "readability-identifier-length.IgnoredParameterNames",             "value": "^[xyzw_]$"},
 
 
     // readability identifier settings
