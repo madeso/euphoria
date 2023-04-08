@@ -17,15 +17,11 @@ namespace euphoria::editor
         std::string filter;
         core::vfs::FileSystem* file_system = nullptr;
 
-        explicit FileBrowser(core::vfs::FileSystem* fs);
+        explicit FileBrowser(core::vfs::FileSystem* a_file_system);
 
-        std::optional<core::vfs::FilePath>
-        get_selected_file();
-
-        void
-        refresh();
-
-        bool
-        run();
+        std::optional<core::vfs::FilePath> get_selected_file();
+        
+        void refresh();
+        bool run();
     };
 }

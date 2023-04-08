@@ -21,10 +21,10 @@ namespace euphoria::editor
 {
     template <typename T, typename G>
     int
-    index_of(const std::vector<T>& ss, const G& finder)
+    index_of(const std::vector<T>& container, const G& finder)
     {
         int index = 0;
-        for(const auto& s: ss)
+        for(const auto& s: container)
         {
             if(finder(s))
             {
@@ -36,9 +36,9 @@ namespace euphoria::editor
         return -1;
     }
 
-    FileBrowser::FileBrowser(vfs::FileSystem* fs)
+    FileBrowser::FileBrowser(vfs::FileSystem* a_file_system)
         : current_folder(core::vfs::DirPath::from_root())
-        , file_system(fs)
+        , file_system(a_file_system)
     {
     }
 
@@ -64,16 +64,15 @@ namespace euphoria::editor
         {
             files.insert(files.begin(), vfs::ListedFile {"../", true, false});
         }
-        // files.insert(files.begin(), f.begin(), f.end());
         selected_file = -1;
     }
 
     std::string
-    determine_icon_string(const core::vfs::ListedFile& f)
+    determine_icon_string(const core::vfs::ListedFile& file)
     {
-        if(f.is_file)
+        if(file.is_file)
         {
-            const auto x = vfs::FilePath{"./" + f.name}.get_extension();
+            const auto x = vfs::FilePath{"./" + file.name}.get_extension();
             if(x == "png")
             {
                 return ICON_MD_IMAGE;

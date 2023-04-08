@@ -131,9 +131,9 @@ struct GenericEditorWindow : public GenericWindow
     TData data;
     TEditorFunction edit_function;
 
-    GenericEditorWindow(TData d, TEditorFunction edit)
-        : data(d)
-        , edit_function(edit)
+    GenericEditorWindow(TData a_data, TEditorFunction a_edit_function)
+        : data(a_data)
+        , edit_function(a_edit_function)
     {
     }
 
@@ -165,22 +165,22 @@ color_edit4(const char* label, ImU32* color)
 struct StyleEditorWindow : GenericWindow
 {
     void
-    run(StyleData* s) override
+    run(StyleData* style) override
     {
-        color_edit4("Background color", &s->cc.background_color);
-        color_edit4("Grid color", &s->cc.grid_color);
-        color_edit4("Split color", &s->scc.split_color);
-        color_edit4("Sizer color", &s->scc.sizer_color);
+        color_edit4("Background color", &style->cc.background_color);
+        color_edit4("Grid color", &style->cc.grid_color);
+        color_edit4("Split color", &style->scc.split_color);
+        color_edit4("Sizer color", &style->scc.sizer_color);
 
-        ImGui::InputFloat("Grid Size", &s->cc.grid_size, 1.0f, 5.0f);
-        ImGui::InputFloat("Zoom speed", &s->cc.zoom_speed);
-        ImGui::InputInt("Anchor size", &s->scc.anchor_size);
-        ImGui::InputInt("Sizer distance", &s->scc.sizer_distance);
-        ImGui::InputInt("Sizer text distance", &s->scc.sizer_text_distance);
+        ImGui::InputFloat("Grid Size", &style->cc.grid_size, 1.0f, 5.0f);
+        ImGui::InputFloat("Zoom speed", &style->cc.zoom_speed);
+        ImGui::InputInt("Anchor size", &style->scc.anchor_size);
+        ImGui::InputInt("Sizer distance", &style->scc.sizer_distance);
+        ImGui::InputInt("Sizer text distance", &style->scc.sizer_text_distance);
 
         if(ImGui::Button("Set Default"))
         {
-            *s = StyleData {};
+            *style = StyleData {};
         }
     }
 };
@@ -291,8 +291,8 @@ open_or_focus_scimed
 (
     Windows* windows,
     const vfs::FilePath& file,
-    TextureCache* tc,
-    ScalingSpriteCache* sc
+    TextureCache* texture_cache,
+    ScalingSpriteCache* sprite_cache
 )
 {
     open_or_focus_window
@@ -302,7 +302,7 @@ open_or_focus_scimed
         [&]() -> std::shared_ptr<GenericWindow>
         {
             auto scimed = std::make_shared<ScimedWindow>();
-            load_file(&scimed->scimed, tc, sc, file);
+            load_file(&scimed->scimed, texture_cache, sprite_cache, file);
             return scimed;
         }
     );
@@ -313,7 +313,7 @@ open_or_focus_scimed_editor
 (
     Windows* windows,
     const vfs::FilePath& path,
-    ScalingSpriteCache* sc
+    ScalingSpriteCache* sprite_cache
 )
 {
     auto file = path;
@@ -327,7 +327,7 @@ open_or_focus_scimed_editor
         fmt::format("scimed editor: {}", file),
         [&]() -> std::shared_ptr<GenericWindow>
         {
-            auto sprite = sc->get(file);
+            auto sprite = sprite_cache->get(file);
             return create_generic_window(sprite, [](auto sp)
             {
                 scalingsprite::RunImgui(sp.get());
