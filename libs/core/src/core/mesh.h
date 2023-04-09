@@ -79,9 +79,9 @@ namespace euphoria::core
     {
         std::string name;
         std::optional<core::vfs::FilePath> shader;
-        rgb ambient;
-        rgb diffuse;
-        rgb specular;
+        Rgb ambient;
+        Rgb diffuse;
+        Rgb specular;
         float shininess;
         float alpha;
         std::vector<MaterialTexture> textures;

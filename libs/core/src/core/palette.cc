@@ -11,7 +11,7 @@ namespace euphoria::core
     namespace
     {
         float
-        get_distance_squared(const rgbi& lhs, const rgbi& rhs)
+        get_distance_squared(const Rgbi& lhs, const Rgbi& rhs)
         {
             return
                 square(static_cast<float>(lhs.r - rhs.r)) +
@@ -21,29 +21,29 @@ namespace euphoria::core
         }
     }
 
-    const rgbi&
+    const Rgbi&
     Palette::get_random_color(Random* r) const
     {
         return get_random_item_in_vector(r, colors);
     }
 
 
-    const rgbi&
+    const Rgbi&
     Palette::get_safe_index(unsigned int index) const
     {
         return colors[index % colors.size()];
     }
 
 
-    const rgbi&
-    Palette::get_closest_color(const rgbi& c) const
+    const Rgbi&
+    Palette::get_closest_color(const Rgbi& c) const
     {
         return colors[get_index_closest(c)];
     }
 
 
     int
-    Palette::get_index_closest(const rgbi& c) const
+    Palette::get_index_closest(const Rgbi& c) const
     {
         ASSERT(!colors.empty());
         auto diff_best = get_distance_squared(c, colors[0]);
@@ -72,7 +72,7 @@ namespace euphoria::core
     }
 
 
-    DynamicPalette::DynamicPalette(const std::string& n, const std::vector<rgbi>& c)
+    DynamicPalette::DynamicPalette(const std::string& n, const std::vector<Rgbi>& c)
         : name(n)
         , colors(c)
     {

@@ -65,8 +65,8 @@ namespace
         int overflowing_patch_type,
         int turn,
         bool invert,
-        const rgbi& foreground_color,
-        const rgbi& background_color
+        const Rgbi& foreground_color,
+        const Rgbi& background_color
     ) {
         const auto patch = overflowing_patch_type % c_sizet_to_int(patch_types.size());
         turn %= 4;
@@ -134,8 +134,8 @@ namespace euphoria::core
         int side_turn = c_unsigned_int_to_int((code >> 15) & 3);
 
         const auto con = [](int i) -> U8 { return c_int_to_u8(keep_within(Range<int>{0, 255}, i)); };
-        const auto foreground_color = rgbi{con(red << 3), con(green << 3), con(blue << 3)};
-        const auto background_color = rgbi{255, 255, 255};
+        const auto foreground_color = Rgbi{con(red << 3), con(green << 3), con(blue << 3)};
+        const auto background_color = Rgbi{255, 255, 255};
 
         // middle patch
         render_identicon_patch(image, patch_size, patch_size, patch_size, middle_type, 0, middle_invert, foreground_color, background_color);

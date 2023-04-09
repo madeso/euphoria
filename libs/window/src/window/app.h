@@ -15,7 +15,7 @@ namespace euphoria::window
     struct App
     {
         bool running = true;
-        core::rgb clear_color;
+        core::Rgb clear_color;
 
         App();
         virtual ~App() = default;

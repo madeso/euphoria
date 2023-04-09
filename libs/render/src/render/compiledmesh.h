@@ -40,9 +40,9 @@ namespace euphoria::render
 
     struct CompiledMeshMaterial
     {
-        core::rgb ambient;
-        core::rgb diffuse;
-        core::rgb specular;
+        core::Rgb ambient;
+        core::Rgb diffuse;
+        core::Rgb specular;
         float shininess;
         std::shared_ptr<MaterialShader> shader;
         std::map<core::EnumValue, std::shared_ptr<Texture2>> textures;

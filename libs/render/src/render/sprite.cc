@@ -52,7 +52,7 @@ namespace euphoria::render
             DrawData{}
                 .set_rotation(rotation)
                 .set_scale(scale)
-                .set_tint(core::rgba(color, alpha))
+                .set_tint(core::Rgba(color, alpha))
         );
     }
 

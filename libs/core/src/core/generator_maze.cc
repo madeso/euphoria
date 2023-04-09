@@ -236,7 +236,7 @@ namespace euphoria::core::generator
     }
 
 
-    rgbi
+    Rgbi
     Drawer::calc_cell_color(int x, int y) const
     {
         const auto cell_value = (*maze)(x, y);

@@ -32,7 +32,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 namespace euphoria::core::palettes::cubehelix
 {
-    constexpr rgbi
+    constexpr Rgbi
     con(unsigned char r, unsigned char g, unsigned char b)
     {
         return {r, g, b};

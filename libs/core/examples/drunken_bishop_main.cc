@@ -60,7 +60,7 @@ generate_image(const Table<int>& table, int scale, const Palette& pal)
     Image image;
     image.setup_no_alpha_support(scale * table.get_width(), scale * table.get_height());
 
-    auto rect = [&](const rgbi& color, const vec2i& top_left)
+    auto rect = [&](const Rgbi& color, const vec2i& top_left)
     {
         draw_rect
         (

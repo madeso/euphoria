@@ -15,10 +15,10 @@ namespace euphoria::core
 {
     namespace
     {
-        rgbi
+        Rgbi
         to_rgb(unsigned char r, unsigned char g, unsigned char b)
         {
-            return rgbi {r, g, b};
+            return Rgbi {r, g, b};
         }
     }
 

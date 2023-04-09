@@ -29,7 +29,7 @@ namespace euphoria::core
             [&pal, &map, &img](int x, int y)
             {
                 const auto p = img.get_pixel(x, y);
-                const auto index = pal.to_palette().get_index_closest(rgbi {p.r, p.g, p.b});
+                const auto index = pal.to_palette().get_index_closest(Rgbi{p.r, p.g, p.b});
                 return map[index].to;
             }
         );
@@ -38,11 +38,13 @@ namespace euphoria::core
     }
 
     Table<char>
-    from_image_to_string_table_exact(
-            const Image& img,
-            const std::vector<ImageMapAction>& map, char missing)
+    from_image_to_string_table_exact
+    (
+        const Image& img,
+        const std::vector<ImageMapAction>& map, char missing
+    )
     {
-        auto find_match = [&](const rgbi& c) -> char
+        auto find_match = [&](const Rgbi& c) -> char
         {
             for(const auto& m: map)
             {
@@ -54,11 +56,10 @@ namespace euphoria::core
 
             return missing;
         };
-        auto ret = Table<char>::from_width_height(
-                img.width, img.height, ' ');
+        auto ret = Table<char>::from_width_height(img.width, img.height, ' ');
         ret.set_all([&](int x, int y) {
             const auto p = img.get_pixel(x, y);
-            const auto c = rgbi {p.r, p.g, p.b};
+            const auto c = Rgbi {p.r, p.g, p.b};
             const auto r = find_match(c);
             return r;
         });
@@ -69,13 +70,13 @@ namespace euphoria::core
     Table<char>
     from_image_to_string_table(const Image& img, bool shorter, Grayscale grayscale)
     {
-        auto ret = Table<char>::from_width_height(
-                img.width, img.height, ' ');
+        auto ret = Table<char>::from_width_height(img.width, img.height, ' ');
         ret.set_all([shorter, &img, grayscale](int x, int y) {
             // http://paulbourke.net/dataformats/asciiart/
             const std::string characters = shorter
                 ? "@%#*+=-:. "
-                : "$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\\|()1{}[]?-_+~<>i!lI;:,\"^`'. ";
+                : "$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\\|()1{}[]?-_+~<>i!lI;:,\"^`'. "
+                ;
             const auto inverted_color = to_rgb
             (
                 make_grayscale(img.get_pixel(x, y), grayscale)

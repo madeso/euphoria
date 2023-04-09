@@ -24,7 +24,7 @@ work. If not, see <http://creativecommons.org/publicdomain/zero/1.0/>.
 
 namespace euphoria::core::palettes::matplot
 {
-    constexpr rgbi
+    constexpr Rgbi
     con(unsigned char r, unsigned char g, unsigned char b)
     {
         return {r, g, b};

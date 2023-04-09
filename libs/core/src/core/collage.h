@@ -10,7 +10,7 @@
 namespace euphoria::core
 {
     struct Image;
-    struct rgbi;
+    struct Rgbi;
 
     std::vector<size2i> collect_sizes
     (
@@ -24,7 +24,7 @@ namespace euphoria::core
         const std::vector<vec2i>& positions,
         const std::vector<Image>& images,
         const size2i& size,
-        const rgbi& background_color
+        const Rgbi& background_color
     );
 
     size2i
@@ -56,7 +56,7 @@ namespace euphoria::core
         const std::vector<std::string>& files,
         const size2i& requested_size,
         int padding,
-        rgbi background_color,
+        Rgbi background_color,
         bool pack_image
     );
 
@@ -79,7 +79,7 @@ namespace euphoria::core
     (
         const std::vector<Image>& images,
         int padding,
-        rgbi background_color,
+        Rgbi background_color,
         bool top_to_bottom
     );
 

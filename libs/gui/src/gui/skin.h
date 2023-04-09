@@ -25,8 +25,8 @@ namespace euphoria::gui
     {
         // std::string image;
         float scale = 0;
-        core::rgb image_color {0.0f};
-        core::rgb text_color {1.0f};
+        core::Rgb image_color {0.0f};
+        core::Rgb text_color {1.0f};
         float dx = 0;
         float dy = 0;
 

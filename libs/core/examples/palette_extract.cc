@@ -62,19 +62,19 @@ load_images(const std::vector<std::string>& files)
 
 struct ExtractedColor
 {
-    ExtractedColor(const rgbi& r, int c)
+    ExtractedColor(const Rgbi& r, int c)
         : color(r)
         , count(c)
     {
     }
 
-    rgbi color;
+    Rgbi color;
     int count;
 };
 
 
 int
-find(std::vector<ExtractedColor>* psource, const rgbi& color, float length)
+find(std::vector<ExtractedColor>* psource, const Rgbi& color, float length)
 {
     auto& source = *psource;
 
@@ -132,7 +132,7 @@ extract_colors(const std::vector<ImageAndFile>& images)
     auto ret = std::vector<ExtractedColor>{};
     for(const auto& c: colors)
     {
-        ret.emplace_back(rgbi::from_hex(c.first), c.second);
+        ret.emplace_back(Rgbi::from_hex(c.first), c.second);
     }
     return ret;
 }
@@ -218,7 +218,7 @@ handle_print
     (
         colors.begin(),
         colors.end(),
-        [](const rgbi& lhs, const rgbi& rhs) -> bool
+        [](const Rgbi& lhs, const Rgbi& rhs) -> bool
         {
             return to_rgb(lhs).calc_luminance() < to_rgb(rhs).calc_luminance();
         }

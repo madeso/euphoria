@@ -38,7 +38,7 @@ main(int argc, char* argv[])
             vec3f(0.0f, 0.0f, -1.0f),
             raytracer::create_diffuse_material
             (
-                rgb(0.1f, 0.2f, 0.5f)
+                Rgb(0.1f, 0.2f, 0.5f)
             )
         )
     );
@@ -50,7 +50,7 @@ main(int argc, char* argv[])
             vec3f(0.0f, -100.5f, -1.0f),
             raytracer::create_diffuse_material
             (
-                rgb(0.8f, 0.8f, 0.0f)
+                Rgb(0.8f, 0.8f, 0.0f)
             )
         )
     );
@@ -62,7 +62,7 @@ main(int argc, char* argv[])
             vec3f(1.0f, 0.0f, -1.0f),
             raytracer::create_metal_material
             (
-                rgb(0.8f, 0.6f, 0.2f),
+                Rgb(0.8f, 0.6f, 0.2f),
                 0.3f
             )
         )
@@ -75,7 +75,7 @@ main(int argc, char* argv[])
             vec3f(-1.0f, 0.0f, -1.0f),
             raytracer::create_dielectric_material
             (
-                rgb(1.0f, 1.0f, 1.0f),
+                Rgb(1.0f, 1.0f, 1.0f),
                 1.5f
             )
         )

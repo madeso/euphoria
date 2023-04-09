@@ -38,8 +38,8 @@ namespace euphoria::tests
     template <>
     bool
     is_approximately_equal(
-            core::rgb const& lhs,
-            core::rgb const& rhs,
+            core::Rgb const& lhs,
+            core::Rgb const& rhs,
             const ApproxData& data)
     {
         return is_approximately_equal(lhs.r, rhs.r, data)
@@ -72,8 +72,8 @@ namespace euphoria::tests
     template <>
     bool
     is_approximately_equal(
-            core::rgba const& lhs,
-            core::rgba const& rhs,
+            core::Rgba const& lhs,
+            core::Rgba const& rhs,
             const ApproxData& data)
     {
         return is_approximately_equal(lhs.r, rhs.r, data)

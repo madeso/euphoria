@@ -29,14 +29,14 @@ namespace euphoria::core
     }
 
     void
-    clear(Image* image, const rgbai& color)
+    clear(Image* image, const Rgbai& color)
     {
         ASSERT(image);
         return draw_rect(image, color, on_whole_image(*image));
     }
 
     void
-    draw_rect(Image* image, const rgbai& color, const Recti& rect)
+    draw_rect(Image* image, const Rgbai& color, const Recti& rect)
     {
         ASSERT(image);
         const int left = rect.get_top_left().x;
@@ -64,7 +64,7 @@ namespace euphoria::core
 
 
     void
-    draw_square(Image* image, const rgbai& color, int x, int y, int size)
+    draw_square(Image* image, const Rgbai& color, int x, int y, int size)
     {
         ASSERT(image);
         draw_rect
@@ -143,7 +143,7 @@ namespace euphoria::core
     }
 
     void
-    fill_poly(Image* image, const rgbai& color, const std::vector<vec2f>& poly)
+    fill_poly(Image* image, const Rgbai& color, const std::vector<vec2f>& poly)
     {
         ASSERT(image);
 
@@ -174,7 +174,7 @@ namespace euphoria::core
     draw_circle
     (
         Image* image,
-        const rgb& color,
+        const Rgb& color,
         const vec2i& center,
         float radius,
         float softness,
@@ -234,7 +234,7 @@ namespace euphoria::core
                     continue;
                 }
 
-                const rgb paint_color = blend
+                const Rgb paint_color = blend
                     ? lerp_rgb
                     (
                         to_rgb(image->get_pixel(x, y)),
@@ -244,7 +244,7 @@ namespace euphoria::core
                     : color
                     ;
 
-                image->set_pixel(x, y, rgbai{paint_color});
+                image->set_pixel(x, y, Rgbai{paint_color});
             }
         }
     }
@@ -253,7 +253,7 @@ namespace euphoria::core
     draw_line_fast
     (
         Image* image,
-        const rgbai& color,
+        const Rgbai& color,
         const vec2i& from,
         const vec2i& to
     )
@@ -341,7 +341,7 @@ namespace euphoria::core
     draw_line_antialiased
     (
         Image* image,
-        const rgb& color,
+        const Rgb& color,
         const vec2i& from,
         const vec2i& to
     )
@@ -361,7 +361,7 @@ namespace euphoria::core
     draw_line_antialiased
     (
         Image* image,
-        const rgb& color,
+        const Rgb& color,
         const vec2f& from,
         const vec2f& to
     )
@@ -381,13 +381,13 @@ namespace euphoria::core
             const bool valid_y = is_within_inclusive_as_int(0, y, image->height - 1);
             if(valid_x && valid_y)
             {
-                const rgb paint_color = lerp_rgb
+                const Rgb paint_color = lerp_rgb
                 (
                     to_rgb(image->get_pixel(x, y)),
                     c,
                     color
                 );
-                image->set_pixel(x, y, rgbai{paint_color});
+                image->set_pixel(x, y, Rgbai{paint_color});
             }
         };
 
@@ -478,12 +478,12 @@ namespace euphoria::core
         }
     }
 
-    rgba tint_color(const rgba& c, const rgb& tint)
+    Rgba tint_color(const Rgba& c, const Rgb& tint)
     {
         return {{c.r * tint.r, c.g * tint.g, c.b * tint.b}, c.a};
     }
 
-    rgbai tint_color(const rgbai& c, const rgbai& tint)
+    Rgbai tint_color(const Rgbai& c, const Rgbai& tint)
     {
         return to_rgbai(tint_color(to_rgba(c), to_rgb(tint)));
     }
@@ -494,7 +494,7 @@ namespace euphoria::core
         Image* dst,
         const vec2i& p,
         const Image& src,
-        const rgbai& tint
+        const Rgbai& tint
     )
     {
         for(int y=0; y<src.height; y+=1)
@@ -520,7 +520,7 @@ namespace euphoria::core
         Image* image,
         const vec2i& start_pos,
         const std::string& text,
-        const rgbai& color,
+        const Rgbai& color,
         const LoadedFont& font
     )
     {
@@ -593,7 +593,7 @@ namespace euphoria::core
         const vec2f& a,
         const vec2f& b,
         const vec2f& c,
-        const rgbai& color
+        const Rgbai& color
     )
     {
         const auto [minf, maxf] = find_min_max<vec2f, std::vector<vec2f> >
@@ -649,7 +649,7 @@ namespace euphoria::core
         Image* image,
         const vec2f& from,
         const vec2f& to,
-        const rgbai& color,
+        const Rgbai& color,
         float size
     )
     {

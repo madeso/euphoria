@@ -37,7 +37,7 @@ namespace euphoria::render
         const core::Rectf& uv,
         const core::Scale2f& center,
         const core::Angle& rotation,
-        const core::rgba& color
+        const core::Rgba& color
     )
     {
         ASSERT(is_inside && "batch need to be open");

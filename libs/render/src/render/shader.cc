@@ -298,7 +298,7 @@ namespace euphoria::render
 
 
     void
-    ShaderProgram::set_uniform(const ShaderUniform& attribute, const core::rgb& val)
+    ShaderProgram::set_uniform(const ShaderUniform& attribute, const core::Rgb& val)
     {
         ASSERT(is_currently_bound());
         ASSERT(has_bound_uniform(attribute));
@@ -311,7 +311,7 @@ namespace euphoria::render
 
 
     void
-    ShaderProgram::set_uniform(const ShaderUniform& attribute, const core::rgba& val)
+    ShaderProgram::set_uniform(const ShaderUniform& attribute, const core::Rgba& val)
     {
         ASSERT(is_currently_bound());
         ASSERT(has_bound_uniform(attribute));

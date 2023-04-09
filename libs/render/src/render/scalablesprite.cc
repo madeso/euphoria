@@ -97,7 +97,7 @@ namespace euphoria::render
 
 
     void
-    ScalableSprite::render(SpriteRenderer* renderer, const core::Rectf& rect, const core::rgba& tint) const
+    ScalableSprite::render(SpriteRenderer* renderer, const core::Rectf& rect, const core::Rgba& tint) const
     {
         const auto size = rect.get_size();
         const auto pos = rect.get_bottom_left();

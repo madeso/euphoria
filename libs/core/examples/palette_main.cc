@@ -139,7 +139,7 @@ write_palettes_to_html(const std::string& wd)
 
 
 
-dump2d::Poly create_box(const vec2f& p, float width, float height, const rgbi& c, bool border)
+dump2d::Poly create_box(const vec2f& p, float width, float height, const Rgbi& c, bool border)
 {
     dump2d::Poly r;
     r.points =

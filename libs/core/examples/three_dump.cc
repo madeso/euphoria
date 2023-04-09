@@ -15,7 +15,7 @@
 using namespace euphoria::core;
 using namespace euphoria::core::dump3d;
 
-void add_spiral(Dumper* dump, int number_of_steps, float number_of_spins, float height, float size, const rgbi& color)
+void add_spiral(Dumper* dump, int number_of_steps, float number_of_spins, float height, float size, const Rgbi& color)
 {
     std::vector<vec3f> points;
     for(int step_index=0; step_index<number_of_steps; step_index+=1)

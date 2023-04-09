@@ -99,11 +99,11 @@ namespace euphoria::core::generator
         RecursiveBacktracker* tracker = nullptr;
         RandomTraversal* traversal = nullptr;
 
-        rgbi wall_color;
-        rgbi cell_color;
-        rgbi cell_visited_color;
-        rgbi unit_color;
-        rgbi corridor_color;
+        Rgbi wall_color;
+        Rgbi cell_color;
+        Rgbi cell_visited_color;
+        Rgbi unit_color;
+        Rgbi corridor_color;
 
         core::Image image;
 
@@ -111,6 +111,6 @@ namespace euphoria::core::generator
 
         void draw();
 
-        [[nodiscard]] rgbi calc_cell_color(int x, int y) const;
+        [[nodiscard]] Rgbi calc_cell_color(int x, int y) const;
     };
 }

@@ -121,10 +121,10 @@ namespace euphoria::core::raytracer
     }
 
 
-    rgb
+    Rgb
     to_rgb(const unit3f& normal)
     {
-        return rgb
+        return Rgb
         {
             (normal.x + 1)/2,
             (normal.y + 1)/2,
@@ -141,9 +141,9 @@ namespace euphoria::core::raytracer
 
     struct DiffuseMaterial : public Material
     {
-        rgb albedo;
+        Rgb albedo;
 
-        explicit DiffuseMaterial(const rgb& aalbedo)
+        explicit DiffuseMaterial(const Rgb& aalbedo)
             : albedo(aalbedo)
         {
         }
@@ -175,12 +175,12 @@ namespace euphoria::core::raytracer
 
     struct MetalMaterial : Material
     {
-        rgb albedo;
+        Rgb albedo;
         float fuzz;
 
         explicit MetalMaterial
         (
-            const rgb& aalbedo,
+            const Rgb& aalbedo,
             float afuzz
         )
             : albedo(aalbedo)
@@ -257,12 +257,12 @@ namespace euphoria::core::raytracer
 
     struct DielectricMaterial : Material
     {
-        rgb albedo;
+        Rgb albedo;
         float refractive_index;
 
         explicit DielectricMaterial
         (
-            const rgb& aalbedo,
+            const Rgb& aalbedo,
             float arefractive_index
         )
             : albedo(aalbedo)
@@ -327,7 +327,7 @@ namespace euphoria::core::raytracer
     std::shared_ptr<Material>
     create_diffuse_material
     (
-        const rgb& albedo
+        const Rgb& albedo
     )
     {
         return std::make_shared<DiffuseMaterial>
@@ -340,7 +340,7 @@ namespace euphoria::core::raytracer
     std::shared_ptr<Material>
     create_metal_material
     (
-        const rgb& albedo,
+        const Rgb& albedo,
         float fuzz
     )
     {
@@ -355,7 +355,7 @@ namespace euphoria::core::raytracer
     std::shared_ptr<Material>
     create_dielectric_material
     (
-        const rgb& albedo,
+        const Rgb& albedo,
         float refractive_index
     )
     {
@@ -367,7 +367,7 @@ namespace euphoria::core::raytracer
     }
 
 
-    rgb
+    Rgb
     get_color
     (
         const Scene& scene,
@@ -415,9 +415,9 @@ namespace euphoria::core::raytracer
         const auto t = (ray.dir.y+1)/2.0f;
         return lerp_rgb
         (
-            rgb(1.0f, 1.0f, 1.0f),
+            Rgb(1.0f, 1.0f, 1.0f),
             t,
-            rgb(0.5f, 0.7f, 1.0f)
+            Rgb(0.5f, 0.7f, 1.0f)
         );
     }
 
@@ -456,8 +456,8 @@ namespace euphoria::core::raytracer
     };
 
 
-    rgb
-    correct_color_using_gamma2(rgb color)
+    Rgb
+    correct_color_using_gamma2(const Rgb& color)
     {
         return {sqrt(color.r), sqrt(color.g), sqrt(color.b)};
     }
@@ -476,7 +476,7 @@ namespace euphoria::core::raytracer
         {
             for(int x=0; x<img.width; x+=1)
             {
-                rgb color = NamedColor::black;
+                Rgb color = NamedColor::black;
                 for(int sample = 0; sample < number_of_samples; sample += 1)
                 {
                     const auto u = (static_cast<float>(x) + rand.get_next_float01()) / static_cast<float>(img.width);

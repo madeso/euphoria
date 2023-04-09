@@ -18,9 +18,9 @@ namespace euphoria::core
         /** the name of the palette */
         std::string_view name;
 
-        ranges::span<const rgbi> colors;
+        ranges::span<const Rgbi> colors;
 
-        constexpr Palette(const std::string_view& n, const ranges::span<const rgbi>& c)
+        constexpr Palette(const std::string_view& n, const ranges::span<const Rgbi>& c)
             : name(n)
             , colors(c)
         {
@@ -30,7 +30,7 @@ namespace euphoria::core
          * @param r the random generator to use
          * @returns a random color
          */
-        const rgbi&
+        const Rgbi&
         get_random_color(Random* r) const;
 
         /** Get a color based on the index.
@@ -38,14 +38,14 @@ namespace euphoria::core
          * @param i the index
          * @returns the color
         */
-        [[nodiscard]] const rgbi&
+        [[nodiscard]] const Rgbi&
         get_safe_index(unsigned int i) const;
 
-        [[nodiscard]] const rgbi&
-        get_closest_color(const rgbi& c) const;
+        [[nodiscard]] const Rgbi&
+        get_closest_color(const Rgbi& c) const;
 
         [[nodiscard]] int
-        get_index_closest(const rgbi& c) const;
+        get_index_closest(const Rgbi& c) const;
 
         // todo(Gustav): provide a function that takes a (void) lambda
         // returing a index, and we return a (safe) color from that index
@@ -58,13 +58,13 @@ namespace euphoria::core
     struct StaticPalette
     {
         std::string_view name;
-        std::array<const rgbi, size> colors;
+        std::array<const Rgbi, size> colors;
         Palette pal;
 
         constexpr StaticPalette
         (
             std::string_view n,
-            const std::array<const rgbi, size>& c
+            const std::array<const Rgbi, size>& c
         )
             : name(n), colors(c), pal{n, colors}
         {
@@ -98,16 +98,16 @@ namespace euphoria::core
         std::string name;
 
         /** list of the colors */
-        std::vector<rgbi> colors;
+        std::vector<Rgbi> colors;
 
         template <typename... R>
-        DynamicPalette(const std::string& n, const rgbi& c0, const R&... c)
+        DynamicPalette(const std::string& n, const Rgbi& c0, const R&... c)
             : name(n)
             , colors {c0, c...}
         {
         }
 
-        DynamicPalette(const std::string& n, const std::vector<rgbi>& c);
+        DynamicPalette(const std::string& n, const std::vector<Rgbi>& c);
 
         /** Create a empty palette with a name.
          * @param name the name of the palette
@@ -141,57 +141,57 @@ namespace euphoria::core
     constexpr auto dawnbringer_palette = make_static_palette
     (
         "Dawnbringer",
-        rgbi::from_hex(0x140C1C),
-        rgbi::from_hex(0x442434),
-        rgbi::from_hex(0x30346D),
-        rgbi::from_hex(0x4E4A4E),
-        rgbi::from_hex(0x854C30),
-        rgbi::from_hex(0x346524),
-        rgbi::from_hex(0xD04648),
-        rgbi::from_hex(0x757161),
-        rgbi::from_hex(0x597DCE),
-        rgbi::from_hex(0xD27D2C),
-        rgbi::from_hex(0x8595A1),
-        rgbi::from_hex(0x6DAA2C),
-        rgbi::from_hex(0xD2AA99),
-        rgbi::from_hex(0x6DC2CA),
-        rgbi::from_hex(0xDAD45E),
-        rgbi::from_hex(0xDEEED6)
+        Rgbi::from_hex(0x140C1C),
+        Rgbi::from_hex(0x442434),
+        Rgbi::from_hex(0x30346D),
+        Rgbi::from_hex(0x4E4A4E),
+        Rgbi::from_hex(0x854C30),
+        Rgbi::from_hex(0x346524),
+        Rgbi::from_hex(0xD04648),
+        Rgbi::from_hex(0x757161),
+        Rgbi::from_hex(0x597DCE),
+        Rgbi::from_hex(0xD27D2C),
+        Rgbi::from_hex(0x8595A1),
+        Rgbi::from_hex(0x6DAA2C),
+        Rgbi::from_hex(0xD2AA99),
+        Rgbi::from_hex(0x6DC2CA),
+        Rgbi::from_hex(0xDAD45E),
+        Rgbi::from_hex(0xDEEED6)
     );
 
     constexpr auto named_colors_palette = make_static_palette
     (
         "Named colors",
-        rgbi{ NamedColor::white },
-        rgbi{ NamedColor::light_gray },
-        rgbi{ NamedColor::gray },
-        rgbi{ NamedColor::dark_gray },
-        rgbi{ NamedColor::black },
-        rgbi{ NamedColor::red },
-        rgbi{ NamedColor::pure_red },
-        rgbi{ NamedColor::blue },
-        rgbi{ NamedColor::pure_blue },
-        rgbi{ NamedColor::light_blue },
-        rgbi{ NamedColor::normal_blue },
-        rgbi{ NamedColor::cornflower_blue },
-        rgbi{ NamedColor::green },
-        rgbi{ NamedColor::pure_green },
-        rgbi{ NamedColor::light_green },
-        rgbi{ NamedColor::yellow },
-        rgbi{ NamedColor::pure_yellow },
-        rgbi{ NamedColor::orange },
-        rgbi{ NamedColor::pure_orange },
-        rgbi{ NamedColor::brown },
-        rgbi{ NamedColor::pure_brown },
-        rgbi{ NamedColor::purple },
-        rgbi{ NamedColor::pure_purple },
-        rgbi{ NamedColor::pink },
-        rgbi{ NamedColor::pure_pink },
-        rgbi{ NamedColor::pure_beige },
-        rgbi{ NamedColor::tan },
-        rgbi{ NamedColor::pure_tan },
-        rgbi{ NamedColor::cyan },
-        rgbi{ NamedColor::pure_cyan }
+        Rgbi{ NamedColor::white },
+        Rgbi{ NamedColor::light_gray },
+        Rgbi{ NamedColor::gray },
+        Rgbi{ NamedColor::dark_gray },
+        Rgbi{ NamedColor::black },
+        Rgbi{ NamedColor::red },
+        Rgbi{ NamedColor::pure_red },
+        Rgbi{ NamedColor::blue },
+        Rgbi{ NamedColor::pure_blue },
+        Rgbi{ NamedColor::light_blue },
+        Rgbi{ NamedColor::normal_blue },
+        Rgbi{ NamedColor::cornflower_blue },
+        Rgbi{ NamedColor::green },
+        Rgbi{ NamedColor::pure_green },
+        Rgbi{ NamedColor::light_green },
+        Rgbi{ NamedColor::yellow },
+        Rgbi{ NamedColor::pure_yellow },
+        Rgbi{ NamedColor::orange },
+        Rgbi{ NamedColor::pure_orange },
+        Rgbi{ NamedColor::brown },
+        Rgbi{ NamedColor::pure_brown },
+        Rgbi{ NamedColor::purple },
+        Rgbi{ NamedColor::pure_purple },
+        Rgbi{ NamedColor::pink },
+        Rgbi{ NamedColor::pure_pink },
+        Rgbi{ NamedColor::pure_beige },
+        Rgbi{ NamedColor::tan },
+        Rgbi{ NamedColor::pure_tan },
+        Rgbi{ NamedColor::cyan },
+        Rgbi{ NamedColor::pure_cyan }
     );
 
 }

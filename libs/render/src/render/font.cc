@@ -297,7 +297,7 @@ namespace euphoria::render
             core::Rectf::from_width_height(1, 1),
             0.0_rad,
             core::Scale2f{0, 0},
-            core::rgba{core::NamedColor::black, alpha}
+            core::Rgba{core::NamedColor::black, alpha}
         );
     }
 
@@ -335,8 +335,8 @@ namespace euphoria::render
     (
         SpriteRenderer* renderer,
         const core::vec2f& start_position,
-        const core::rgb& base_color,
-        const core::rgb& hi_color
+        const core::Rgb& base_color,
+        const core::Rgb& hi_color
     )
     {
         for(const auto& cmd: commands)
@@ -349,7 +349,7 @@ namespace euphoria::render
                 cmd.texture_rect,
                 0.0_rad,
                 core::Scale2f{0.5f, 0.5f},
-                core::rgba{tint}
+                core::Rgba{tint}
             );
         }
     }
@@ -573,7 +573,7 @@ namespace euphoria::render
     (
         SpriteRenderer* renderer,
         const core::vec2f& p,
-        const core::rgb& base_hi_color
+        const core::Rgb& base_hi_color
     ) const
     {
         draw(renderer, p, base_hi_color, base_hi_color);
@@ -585,8 +585,8 @@ namespace euphoria::render
     (
         SpriteRenderer* renderer,
         const core::vec2f& p,
-        const core::rgb& base_color,
-        const core::rgb& hi_color
+        const core::Rgb& base_color,
+        const core::Rgb& hi_color
     ) const
     {
         compile();

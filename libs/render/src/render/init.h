@@ -31,7 +31,7 @@ namespace euphoria::render
             (float width, float height) const;
 
         // todo(Gustav): move to some place better
-        void clear_screen(const core::rgb& color) const;
+        void clear_screen(const core::Rgb& color) const;
 
         // todo(Gustav): move to some better place
         void use_2d() const;

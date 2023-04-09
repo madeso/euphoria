@@ -22,7 +22,7 @@ namespace euphoria::core
 
         struct ScatterResult
         {
-            rgb attenuation;
+            Rgb attenuation;
             UnitRay3f scattered;
         };
 
@@ -89,13 +89,13 @@ namespace euphoria::core
 
         std::shared_ptr<Material> create_diffuse_material
         (
-            const rgb& albedo
+            const Rgb& albedo
         );
 
 
         std::shared_ptr<Material> create_metal_material
         (
-            const rgb& albedo,
+            const Rgb& albedo,
             // 0-1, 0=clear
             float fuzz
         );
@@ -103,7 +103,7 @@ namespace euphoria::core
 
         std::shared_ptr<Material> create_dielectric_material
         (
-            const rgb& albedo,
+            const Rgb& albedo,
             float refractive_index
         );
 

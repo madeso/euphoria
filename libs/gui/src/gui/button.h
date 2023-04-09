@@ -30,8 +30,8 @@ namespace euphoria::gui
         Skin* skin;
 
         core::Interpolate<float> scale;
-        core::Interpolate<core::rgb> image_color;
-        core::Interpolate<core::rgb> text_color;
+        core::Interpolate<core::Rgb> image_color;
+        core::Interpolate<core::Rgb> text_color;
         core::Interpolate<core::vec2f> position_displacement;
 
         Button(gui::State* state);

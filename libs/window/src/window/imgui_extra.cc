@@ -144,19 +144,19 @@ namespace euphoria::window::imgui
     }
 
     bool
-    imgui_color_edit(const char* name, core::rgb* c)
+    imgui_color_edit(const char* name, core::Rgb* c)
     {
         return ImGui::ColorEdit3(name, &c->r);
     }
 
     bool
-    imgui_color_edit(const char* name, core::rgba* c)
+    imgui_color_edit(const char* name, core::Rgba* c)
     {
         return ImGui::ColorEdit4(name, &c->r);
     }
 
     bool
-    imgui_color_edit(const char* name, core::rgbai* c)
+    imgui_color_edit(const char* name, core::Rgbai* c)
     {
         auto cc = to_rgba(*c);
         const auto changed = ImGui::ColorEdit4(name, &cc.r);

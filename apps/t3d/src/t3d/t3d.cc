@@ -155,7 +155,7 @@ namespace euphoria::t3d
         core::Lines* def,
         float size,
         float x,
-        const core::rgb& color
+        const core::Rgb& color
     )
     {
         def->add_line(core::vec3f {x, 0, -size}, core::vec3f {x, 0, size}, color);

@@ -5,10 +5,10 @@
 
 namespace euphoria::core::palettes::lospec
 {
-    constexpr rgbi
+    constexpr Rgbi
     con(unsigned int hex)
     {
-        return rgbi::from_hex(hex);
+        return Rgbi::from_hex(hex);
     }
 
     // collected by https://github.com/peterhellberg/gfx/blob/master/palettes.go

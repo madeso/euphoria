@@ -205,7 +205,7 @@ namespace euphoria::gui
         }
     }
 
-    core::rgb
+    core::Rgb
     load(const ::gui::Rgb& src)
     {
         return {src.r, src.g, src.b};

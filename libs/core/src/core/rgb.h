@@ -12,28 +12,28 @@
 namespace euphoria::core
 {
     // U8 colors: 0 - 255
-    struct rgbi;
-    struct rgbai;
+    struct Rgbi;
+    struct Rgbai;
 
     // float based colors: 0.0 - 1.0
-    struct rgb;
-    struct rgba;
+    struct Rgb;
+    struct Rgba;
 
 
     //////////////////////////////////////////////////////////////////////////
     // rgb no alpha support - int based
-    struct rgbi
+    struct Rgbi
     {
         U8 r;
         U8 g;
         U8 b;
 
-        constexpr rgbi(U8 red, U8 green, U8 blue);
-        constexpr explicit rgbi(U8 gray);
-        constexpr rgbi(NamedColor color);
-        constexpr explicit rgbi(const rgb& c);
+        constexpr Rgbi(U8 red, U8 green, U8 blue);
+        constexpr explicit Rgbi(U8 gray);
+        constexpr Rgbi(NamedColor color);
+        constexpr explicit Rgbi(const Rgb& c);
 
-        [[nodiscard]] constexpr static rgbi from_hex(unsigned int hex);
+        [[nodiscard]] constexpr static Rgbi from_hex(unsigned int hex);
         [[nodiscard]] constexpr int to_hex() const;
     };
 
@@ -41,60 +41,60 @@ namespace euphoria::core
     //////////////////////////////////////////////////////////////////////////
     // rgb with alpha - int based
 
-    struct rgbai
+    struct Rgbai
     {
         U8 r;
         U8 g;
         U8 b;
         U8 a;
 
-        constexpr rgbai(const rgbi& c, U8 alpha = 255);
-        constexpr rgbai(U8 red, U8 green, U8 blue, U8 alpha = 255);
-        constexpr rgbai(U8 gray, U8 alpha = 255);
-        constexpr explicit rgbai(const rgba& c);
+        constexpr Rgbai(const Rgbi& c, U8 alpha = 255);
+        constexpr Rgbai(U8 red, U8 green, U8 blue, U8 alpha = 255);
+        constexpr Rgbai(U8 gray, U8 alpha = 255);
+        constexpr explicit Rgbai(const Rgba& c);
     };
 
 
     //////////////////////////////////////////////////////////////////////////
     // rgb no alpha support - float based
 
-    struct rgb
+    struct Rgb
     {
         float r;
         float g;
         float b;
 
-        rgb(float red, float green, float blue);
-        explicit rgb(float gray);
+        Rgb(float red, float green, float blue);
+        explicit Rgb(float gray);
 
-        rgb(NamedColor color);
+        Rgb(NamedColor color);
 
-        [[nodiscard]] static rgb from_hex(unsigned int hex);
+        [[nodiscard]] static Rgb from_hex(unsigned int hex);
         [[nodiscard]] float get_length() const;
         [[nodiscard]] float get_length_squared() const;
         [[nodiscard]] float calc_luminance() const;
 
-        void operator+=(const rgb& rhs);
-        void operator-=(const rgb& rhs);
+        void operator+=(const Rgb& rhs);
+        void operator-=(const Rgb& rhs);
         void operator/=(float rhs);
 
         // memberwise multiplication
-        void operator*=(const rgb& rhs);
+        void operator*=(const Rgb& rhs);
 
         
     };
 
 
-    rgb operator+(const rgb& lhs, const rgb& rhs);
-    rgb operator-(const rgb& lhs, const rgb& rhs);
+    Rgb operator+(const Rgb& lhs, const Rgb& rhs);
+    Rgb operator-(const Rgb& lhs, const Rgb& rhs);
 
     // memberwise multiplication
-    rgb operator*(const rgb& lhs, const rgb& rhs);
-    rgb operator/(const rgb& lhs, float rhs);
-    rgb operator*(const rgb& lhs, float rhs);
-    rgb operator*(float lhs, const rgb& rhs);
-    float dot(const rgb& lhs, const rgb& rhs);
-    rgb clamp(const rgb& r);
+    Rgb operator*(const Rgb& lhs, const Rgb& rhs);
+    Rgb operator/(const Rgb& lhs, float rhs);
+    Rgb operator*(const Rgb& lhs, float rhs);
+    Rgb operator*(float lhs, const Rgb& rhs);
+    float dot(const Rgb& lhs, const Rgb& rhs);
+    Rgb clamp(const Rgb& r);
 
 
     //////////////////////////////////////////////////////////////////////////
@@ -133,95 +133,95 @@ namespace euphoria::core
     /** Makes a color brighter or darker.
      * The +1 makes it white, 0% is no change, -1 makes it black.
      */
-    rgb get_shaded_color(const rgb& color, float percentage);
+    Rgb get_shaded_color(const Rgb& color, float percentage);
 
 
     //////////////////////////////////////////////////////////////////////////
     // rgb with alpha - float based
 
-    struct rgba
+    struct Rgba
     {
         float r;
         float g;
         float b;
         float a;
 
-        rgba(float red, float green, float blue, float alpha = 1.0f);
-        rgba(const rgb& c, float alpha = 1.0f);
+        Rgba(float red, float green, float blue, float alpha = 1.0f);
+        Rgba(const Rgb& c, float alpha = 1.0f);
     };
 
 
     //////////////////////////////////////////////////////////////////////////
     // For printing
 
-    std::string to_string(const rgbi& v);
-    std::string to_string(const rgbai& v);
-    std::string to_string(const rgb& v);
-    std::string to_string(const rgba& v);
+    std::string to_string(const Rgbi& v);
+    std::string to_string(const Rgbai& v);
+    std::string to_string(const Rgb& v);
+    std::string to_string(const Rgba& v);
     std::string to_string(const Hsl& v);
 
 
     //////////////////////////////////////////////////////////////////////////
     // Default compare
 
-    bool operator==(const rgbi& lhs, const rgbi& rhs);
-    bool operator!=(const rgbi& lhs, const rgbi& rhs);
+    bool operator==(const Rgbi& lhs, const Rgbi& rhs);
+    bool operator!=(const Rgbi& lhs, const Rgbi& rhs);
 
-    bool operator==(const rgbai& lhs, const rgbai& rhs);
-    bool operator!=(const rgbai& lhs, const rgbai& rhs);
+    bool operator==(const Rgbai& lhs, const Rgbai& rhs);
+    bool operator!=(const Rgbai& lhs, const Rgbai& rhs);
 
     //////////////////////////////////////////////////////////////////////////
     // Convert functions (rgb)
 
-    rgb to_rgb(const rgbi& c);
-    rgb to_rgb(const rgba& c);
-    rgb to_rgb(const rgbai& c);
-    rgb to_rgb(const Hsl& c);
+    Rgb to_rgb(const Rgbi& c);
+    Rgb to_rgb(const Rgba& c);
+    Rgb to_rgb(const Rgbai& c);
+    Rgb to_rgb(const Hsl& c);
 
     // Convert functions (hsl)
 
-    Hsl to_hsl(const rgb& c);
+    Hsl to_hsl(const Rgb& c);
 
     // Convert functions (rgbi)
 
-    rgbi to_rgbi(const rgb& c);
-    rgbi to_rgbi(const rgba& c);
-    rgbi to_rgbi(const rgbai& c);
+    Rgbi to_rgbi(const Rgb& c);
+    Rgbi to_rgbi(const Rgba& c);
+    Rgbi to_rgbi(const Rgbai& c);
 
     // convert functions rgba
-    rgba to_rgba(const rgbai& c);
-    rgbai to_rgbai(const rgba& c);
+    Rgba to_rgba(const Rgbai& c);
+    Rgbai to_rgbai(const Rgba& c);
 
 
     //////////////////////////////////////////////////////////////////////////
     // Transforms
 
-    rgb lerp_rgb(const rgb& from, float v, const rgb& to);
+    Rgb lerp_rgb(const Rgb& from, float v, const Rgb& to);
 
-    DEFAULT_INTERPOLATE(rgb, lerp_rgb);
+    DEFAULT_INTERPOLATE(Rgb, lerp_rgb);
 
 
     //////////////////////////////////////////////////////////////////////////
     // Printing/Exporting
-    std::string to_js_hex_color(const rgbi& c);
-    std::string to_html_rgb(const rgbi& c);
+    std::string to_js_hex_color(const Rgbi& c);
+    std::string to_html_rgb(const Rgbi& c);
 
 
     //////////////////////////////////////////////////////////////////////////
     // Parsing
-    [[nodiscard]] Result<rgbi> to_rgbi(const std::string& value);
+    [[nodiscard]] Result<Rgbi> to_rgbi(const std::string& value);
 
     template<>
-    struct CustomArgparser<rgbi>
+    struct CustomArgparser<Rgbi>
     {
         enum { value = 1 };
 
-        static std::string to_string(const rgbi& c)
+        static std::string to_string(const Rgbi& c)
         {
             return euphoria::core::to_string(c);
         }
 
-        static Result<rgbi> parse(const std::string& value)
+        static Result<Rgbi> parse(const std::string& value)
         {
             return to_rgbi(value);
         }
@@ -342,36 +342,36 @@ namespace euphoria::core
     // implementation
 
     constexpr
-    rgbi::rgbi(U8 red, U8 green, U8 blue)
+    Rgbi::Rgbi(U8 red, U8 green, U8 blue)
         : r(red), g(green), b(blue)
     {
     }
 
 
     constexpr
-    rgbi::rgbi(U8 gray)
+    Rgbi::Rgbi(U8 gray)
         : r(gray), g(gray), b(gray)
     {
     }
 
 
     constexpr
-    rgbi::rgbi(NamedColor color)
-        : rgbi(rgbi::from_hex(colorutil::to_color_hex(color)))
+    Rgbi::Rgbi(NamedColor color)
+        : Rgbi(Rgbi::from_hex(colorutil::to_color_hex(color)))
     {
     }
 
 
     constexpr
-    rgbi::rgbi(const rgb& c)
+    Rgbi::Rgbi(const Rgb& c)
         : r(colorutil::to_unsigned_char(c.r))
         , g(colorutil::to_unsigned_char(c.g))
         , b(colorutil::to_unsigned_char(c.b))
     {}
 
 
-    [[nodiscard]] constexpr rgbi
-    rgbi::from_hex(unsigned int hex)
+    [[nodiscard]] constexpr Rgbi
+    Rgbi::from_hex(unsigned int hex)
     {
         return
         {
@@ -384,7 +384,7 @@ namespace euphoria::core
 
     constexpr
     int
-    rgbi::to_hex() const
+    Rgbi::to_hex() const
     {
         const auto value = [](int i, int steps) -> int { return i << (8 * steps); };
         return value(r, 2) | value(g, 1) | value(b, 0);
@@ -392,27 +392,27 @@ namespace euphoria::core
 
 
     constexpr
-    rgbai::rgbai(const rgbi& c, U8 alpha)
+    Rgbai::Rgbai(const Rgbi& c, U8 alpha)
         : r(c.r), g(c.g), b(c.b), a(alpha)
     {
     }
 
 
     constexpr
-    rgbai::rgbai(U8 red, U8 green, U8 blue, U8 alpha)
+    Rgbai::Rgbai(U8 red, U8 green, U8 blue, U8 alpha)
         : r(red), g(green), b(blue), a(alpha)
     {
     }
 
     constexpr
-    rgbai::rgbai(U8 gray, U8 alpha)
+    Rgbai::Rgbai(U8 gray, U8 alpha)
         : r(gray), g(gray), b(gray), a(alpha)
     {
     }
 
 
     constexpr
-    rgbai::rgbai(const rgba& c)
+    Rgbai::Rgbai(const Rgba& c)
         : r(colorutil::to_unsigned_char(c.r))
         , g(colorutil::to_unsigned_char(c.g))
         , b(colorutil::to_unsigned_char(c.b))
@@ -422,8 +422,8 @@ namespace euphoria::core
 
 }
 
-ADD_DEFAULT_FORMATTER(euphoria::core::rgbi, std::string, euphoria::core::to_string);
-ADD_DEFAULT_FORMATTER(euphoria::core::rgbai, std::string, euphoria::core::to_string);
-ADD_DEFAULT_FORMATTER(euphoria::core::rgb, std::string, euphoria::core::to_string);
-ADD_DEFAULT_FORMATTER(euphoria::core::rgba, std::string, euphoria::core::to_string);
+ADD_DEFAULT_FORMATTER(euphoria::core::Rgbi, std::string, euphoria::core::to_string);
+ADD_DEFAULT_FORMATTER(euphoria::core::Rgbai, std::string, euphoria::core::to_string);
+ADD_DEFAULT_FORMATTER(euphoria::core::Rgb, std::string, euphoria::core::to_string);
+ADD_DEFAULT_FORMATTER(euphoria::core::Rgba, std::string, euphoria::core::to_string);
 ADD_DEFAULT_FORMATTER(euphoria::core::Hsl, std::string, euphoria::core::to_string);

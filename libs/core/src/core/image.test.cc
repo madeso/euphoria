@@ -55,7 +55,7 @@ TEST_CASE("image-load", "[img]")
     SECTION("load-white")
     {
         const auto pixel = loaded.image.get_pixel(0, 1);
-        const auto white = euco::rgbai {euco::rgbi {255, 255, 255}, 255};
+        const auto white = euco::Rgbai{euco::Rgbi{255, 255, 255}, 255};
         REQUIRE(pixel == white);
     }
 
@@ -63,7 +63,7 @@ TEST_CASE("image-load", "[img]")
     SECTION("load-red")
     {
         const auto pixel = loaded.image.get_pixel(1, 1);
-        const auto red = euco::rgbai {euco::rgbi {255, 0, 0}, 255};
+        const auto red = euco::Rgbai{euco::Rgbi{255, 0, 0}, 255};
         REQUIRE(pixel == red);
     }
 
@@ -71,7 +71,7 @@ TEST_CASE("image-load", "[img]")
     SECTION("load-green")
     {
         const auto pixel = loaded.image.get_pixel(0, 0);
-        const auto green = euco::rgbai {euco::rgbi {0, 255, 0}, 255};
+        const auto green = euco::Rgbai{euco::Rgbi{0, 255, 0}, 255};
         REQUIRE(pixel == green);
     }
 
@@ -79,7 +79,7 @@ TEST_CASE("image-load", "[img]")
     SECTION("load-blue")
     {
         const auto pixel = loaded.image.get_pixel(1, 0);
-        const auto blue = euco::rgbai {euco::rgbi {0, 0, 255}, 255};
+        const auto blue = euco::Rgbai{euco::Rgbi{0, 0, 255}, 255};
         REQUIRE(pixel == blue);
     }
 }
@@ -91,14 +91,14 @@ TEST_CASE("image solid", "[img]")
 
     SECTION("default-is-black")
     {
-        REQUIRE(img.get_pixel(0, 0) == euco::rgbai(euco::rgbi{0, 0, 0}, 255));
-        REQUIRE(img.get_pixel(1, 0) == euco::rgbai(euco::rgbi{0, 0, 0}, 255));
+        REQUIRE(img.get_pixel(0, 0) == euco::Rgbai(euco::Rgbi{0, 0, 0}, 255));
+        REQUIRE(img.get_pixel(1, 0) == euco::Rgbai(euco::Rgbi{0, 0, 0}, 255));
     }
 
     SECTION("can set and get color")
     {
-        REQUIRE(img.get_pixel(0, 0) == euco::rgbai(euco::rgbi{0, 0, 0}, 255));
-        euco::rgbai color {euco::rgbi {255, 255, 255}, 255};
+        REQUIRE(img.get_pixel(0, 0) == euco::Rgbai(euco::Rgbi{0, 0, 0}, 255));
+        euco::Rgbai color {euco::Rgbi {255, 255, 255}, 255};
         img.set_pixel(0, 0, color);
         REQUIRE(img.get_pixel(0, 0) == color);
     }
@@ -112,14 +112,14 @@ TEST_CASE("image transparent", "[img]")
 
     SECTION("default-is-black")
     {
-        REQUIRE(img.get_pixel(0, 0) == euco::rgbai(euco::rgbi{0, 0, 0}, 0));
-        REQUIRE(img.get_pixel(1, 1) == euco::rgbai(euco::rgbi{0, 0, 0}, 0));
+        REQUIRE(img.get_pixel(0, 0) == euco::Rgbai(euco::Rgbi{0, 0, 0}, 0));
+        REQUIRE(img.get_pixel(1, 1) == euco::Rgbai(euco::Rgbi{0, 0, 0}, 0));
     }
 
     SECTION("can set and get color")
     {
-        REQUIRE(img.get_pixel(0, 0) == euco::rgbai(euco::rgbi{0, 0, 0}, 0));
-        euco::rgbai color {euco::rgbi {255, 255, 255}, 255};
+        REQUIRE(img.get_pixel(0, 0) == euco::Rgbai(euco::Rgbi{0, 0, 0}, 0));
+        euco::Rgbai color {euco::Rgbi {255, 255, 255}, 255};
         img.set_pixel(0, 0, color);
         REQUIRE(img.get_pixel(0, 0) == color);
     }
@@ -143,8 +143,8 @@ TEST_CASE("image draw", "[img]")
         CHECK(size.get_height() == height);
     }
 
-    euco::rgbi color {255, 255, 0};
-    euco::rgbai colora {color, 255};
+    euco::Rgbi color {255, 255, 0};
+    euco::Rgbai colora {color, 255};
 
     SECTION("fill")
     {

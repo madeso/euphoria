@@ -13,9 +13,9 @@
 namespace euphoria::core
 {
     struct Angle;
-    struct rgb;
-    struct rgba;
-    struct rgbai;
+    struct Rgb;
+    struct Rgba;
+    struct Rgbai;
 }
 
 namespace euphoria::render
@@ -113,13 +113,13 @@ namespace euphoria::window::imgui
     imgui_image(render::Texture2* texture);
 
     bool
-    imgui_color_edit(const char* name, core::rgb* rgb);
+    imgui_color_edit(const char* name, core::Rgb* rgb);
 
     bool
-    imgui_color_edit(const char* name, core::rgba* rgb);
+    imgui_color_edit(const char* name, core::Rgba* rgb);
 
     bool
-    imgui_color_edit(const char* name, core::rgbai* rgb);
+    imgui_color_edit(const char* name, core::Rgbai* rgb);
 
     bool
     begin_fixed_overlay

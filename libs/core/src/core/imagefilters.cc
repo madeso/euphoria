@@ -10,18 +10,17 @@ namespace euphoria::core
 {
     namespace
     {
-        rgbai
-        make_gray(U8 g, U8 a)
+        Rgbai make_gray(U8 g, U8 a)
         {
-            return {rgbi {g, g, g}, a};
+            return {Rgbi{g, g, g}, a};
         }
     }
 
 
     //
     // https://twitter.com/FreyaHolmer/status/1116502994684530688
-    rgbai
-    make_grayscale(rgbai c, Grayscale grayscale)
+    Rgbai
+    make_grayscale(Rgbai c, Grayscale grayscale)
     {
         switch(grayscale)
         {
@@ -32,19 +31,19 @@ namespace euphoria::core
         case Grayscale::max: return make_gray(max(c.r, max(c.g, c.b)), c.a);
         case Grayscale::gamma:
             {
-                const auto d = dot(to_rgb(c), rgb(0.22f, 0.707f, 0.071f));
-                return {to_rgbi(rgb(d)), c.a};
+                const auto d = dot(to_rgb(c), Rgb(0.22f, 0.707f, 0.071f));
+                return {to_rgbi(Rgb(d)), c.a};
             }
         case Grayscale::linear:
             {
-                const auto d = dot(to_rgb(c), rgb(0.0397f, 0.4580f, 0.0061f));
-                return {to_rgbi(rgb(d)), c.a};
+                const auto d = dot(to_rgb(c), Rgb(0.0397f, 0.4580f, 0.0061f));
+                return {to_rgbi(Rgb(d)), c.a};
             }
         case Grayscale::average:
             {
                 const auto cc = to_rgb(c);
                 const auto g = (cc.r + cc.g + cc.b) / 3;
-                return {to_rgbi(rgb(g)), c.a};
+                return {to_rgbi(Rgb(g)), c.a};
             }
 
         default:
@@ -56,7 +55,7 @@ namespace euphoria::core
     void
     make_grayscale(Image* image, Grayscale grayscale)
     {
-        image->run_image_filter([grayscale](const rgbai& c)
+        image->run_image_filter([grayscale](const Rgbai& c)
         {
             return make_grayscale(c, grayscale);
         });
@@ -65,11 +64,11 @@ namespace euphoria::core
     void
     match_palette(Image* image, const Palette& palette)
     {
-        image->run_image_filter([&palette](const rgbai& c) {
+        image->run_image_filter([&palette](const Rgbai& c) {
             const auto cc = to_rgbi(c);
             const auto nc = palette.get_closest_color(cc);
 
-            return rgbai(nc, c.a);
+            return Rgbai(nc, c.a);
         });
     }
 
@@ -142,24 +141,24 @@ namespace euphoria::core
                 }
             }
 
-            return rgbai(palette_color, pixel.a);
+            return Rgbai(palette_color, pixel.a);
         });
     }
 
     vec3f
-    c_vec3(const rgb f)
+    c_vec3(const Rgb f)
     {
         return {f.r, f.g, f.b};
     }
 
     vec3f
-    c_vec3(const rgbi c)
+    c_vec3(const Rgbi c)
     {
         return c_vec3(to_rgb(c));
     }
 
     vec3f
-    c_vec3(const rgbai c)
+    c_vec3(const Rgbai c)
     {
         return c_vec3(to_rgb(c));
     }
@@ -182,19 +181,19 @@ namespace euphoria::core
                                        >= r;
             const bool edge = top || left;
             const auto c = edge ? NamedColor::white : NamedColor::black;
-            return rgbai(c, 255);
+            return Rgbai(c, 255);
         });
     }
 
 
     void
-    filter_color_detection(Image* image, rgb color, float r)
+    filter_color_detection(Image* image, Rgb color, float r)
     {
         const auto basis = c_vec3(color);
-        image->run_image_filter([&](const rgbai pixel) {
+        image->run_image_filter([&](const Rgbai pixel) {
             const auto check = (c_vec3(pixel) - basis).get_length() <= r;
             const auto c = check ? NamedColor::white : NamedColor::black;
-            return rgbai(c, 255);
+            return Rgbai(c, 255);
         });
     }
 
@@ -208,11 +207,11 @@ namespace euphoria::core
         {
             lut.emplace_back(c(lut_index));
         }
-        image->run_image_filter([&](const rgbai pixel)
+        image->run_image_filter([&](const Rgbai pixel)
         {
-            return rgbai
+            return Rgbai
             (
-                rgbi
+                Rgbi
                 (
                     lut[pixel.r],
                     lut[pixel.g],

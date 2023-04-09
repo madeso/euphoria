@@ -26,8 +26,8 @@ namespace euphoria::core::dump2d
 
     struct Poly
     {
-        rgbi stroke_color = NamedColor::black;
-        std::optional<rgbi> fill_color;
+        Rgbi stroke_color = NamedColor::black;
+        std::optional<Rgbi> fill_color;
         bool is_closed = false;
         float stroke_width = 1.0f;
 
@@ -37,28 +37,28 @@ namespace euphoria::core::dump2d
         Poly& set_stroke(const std::vector<int>& new_stroke);
 
         Poly& close();
-        Poly& fill(const rgbi& fill_color);
+        Poly& fill(const Rgbi& fill_color);
     };
 
     struct Text
     {
         vec2f point;
         std::string label;
-        rgbi color;
+        Rgbi color;
 
-        Text(const vec2f& p, const std::string& t, const rgbi& c = NamedColor::black);
+        Text(const vec2f& p, const std::string& t, const Rgbi& c = NamedColor::black);
     };
 
     struct Circle
     {
         vec2f point;
         float radius;
-        std::optional<rgbi> line_color;
-        std::optional<rgbi> fill_color;
+        std::optional<Rgbi> line_color;
+        std::optional<Rgbi> fill_color;
 
-        Circle(const vec2f& p, float r, std::optional<rgbi> fill = std::nullopt);
+        Circle(const vec2f& p, float r, std::optional<Rgbi> fill = std::nullopt);
 
-        Circle& set_line_color(const rgbi& lc);
+        Circle& set_line_color(const Rgbi& lc);
     };
 
     struct Group;
@@ -101,7 +101,7 @@ namespace euphoria::core::dump2d
 
     struct Dumper : AddWrapper<Dumper>
     {
-        rgbi canvas_color = NamedColor::white;
+        Rgbi canvas_color = NamedColor::white;
         std::vector<Item> items;
         bool add_axis_when_writing = false;
         int point_size = -1;
@@ -135,10 +135,10 @@ namespace euphoria::core::dump3d
         void operator=(const Dumper&) = delete;
         void operator=(Dumper&&) = delete;
 
-        void add_sphere(const vec3f& p, float radius, const rgbi& color);
-        auto add_lines(const std::vector<vec3f>& lines, const rgbi& color) -> void;
-        void add_plane(const Plane& plane, const rgbi& color);
-        void add_arrow(const Ray3f& ray, const rgbi& color);
+        void add_sphere(const vec3f& p, float radius, const Rgbi& color);
+        auto add_lines(const std::vector<vec3f>& lines, const Rgbi& color) -> void;
+        void add_plane(const Plane& plane, const Rgbi& color);
+        void add_arrow(const Ray3f& ray, const Rgbi& color);
 
         void add_axis();
         void add_grid();

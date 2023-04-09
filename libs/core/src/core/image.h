@@ -55,7 +55,7 @@ namespace euphoria::core
             int default_value = 0
         );
 
-        void set_pixel(int x, int y, const rgbai& color);
+        void set_pixel(int x, int y, const Rgbai& color);
 
         void set_pixel
         (
@@ -115,7 +115,7 @@ namespace euphoria::core
             }
         }
 
-        [[nodiscard]] rgbai get_pixel(int x, int y) const;
+        [[nodiscard]] Rgbai get_pixel(int x, int y) const;
         [[nodiscard]] std::shared_ptr<MemoryChunk> write(ImageWriteFormat format, int jpeg_quality = 100) const;
         [[nodiscard]] int get_pixel_index(int x, int y) const;
 

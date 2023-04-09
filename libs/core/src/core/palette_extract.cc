@@ -14,10 +14,10 @@ namespace
     using namespace euphoria::core;
 
 
-    std::vector<rgbi>
+    std::vector<Rgbi>
     extract_all_colors(const Image& image)
     {
-        auto ret = std::vector<rgbi>{};
+        auto ret = std::vector<Rgbi>{};
         ret.reserve(ret.size() + c_int_to_sizet(image.height) * c_int_to_sizet(image.width));
 
         for(int y=0; y<image.height; y+=1)
@@ -40,7 +40,7 @@ namespace
 
 
     float
-    get_value(SortRange range, const rgbi& c)
+    get_value(SortRange range, const Rgbi& c)
     {
         switch(range)
         {
@@ -53,14 +53,14 @@ namespace
 
 
     std::tuple<SortRange, Range<float>>
-    find_greatest_sort_range(SubVec<rgbi> colors)
+    find_greatest_sort_range(SubVec<Rgbi> colors)
     {
         using Tu = std::tuple<SortRange, Range<float>>;
 
         const auto [min_values, max_values] = find_min_max_ranges<3, float>
         (
             colors,
-            [](const rgbi& c) -> std::array<float, 3>
+            [](const Rgbi& c) -> std::array<float, 3>
             {
                 return
                 {
@@ -94,13 +94,13 @@ namespace
 
 
     void
-    sort(SortRange sort_range, SubVec<rgbi> colors)
+    sort(SortRange sort_range, SubVec<Rgbi> colors)
     {
-        auto sort = [&](std::function<float (const rgbi& c)> conv)
+        auto sort = [&](std::function<float (const Rgbi& c)> conv)
         {
             std::sort(colors.begin(), colors.end(), [&]
             (
-                const rgbi& lhs, const rgbi& rhs)
+                const Rgbi& lhs, const Rgbi& rhs)
                 {
                     return conv(lhs) < conv(rhs);
                 }
@@ -109,16 +109,16 @@ namespace
 
         switch(sort_range)
         {
-        case SortRange::r: sort([](const rgbi& c) -> float { return c.r; }); break;
-        case SortRange::g: sort([](const rgbi& c) -> float { return c.g; }); break;
-        case SortRange::b: sort([](const rgbi& c) -> float { return c.b; }); break;
+        case SortRange::r: sort([](const Rgbi& c) -> float { return c.r; }); break;
+        case SortRange::g: sort([](const Rgbi& c) -> float { return c.g; }); break;
+        case SortRange::b: sort([](const Rgbi& c) -> float { return c.b; }); break;
         }
     }
 
 
 
     size_t
-    find_median_index(SortRange sort, SubVec<rgbi> colors, Range<float> range)
+    find_median_index(SortRange sort, SubVec<Rgbi> colors, Range<float> range)
     {
         const auto median = range.get_distance()/2 + range.lower_bound;
         // todo(Gustav): make non-linear
@@ -136,8 +136,8 @@ namespace
 
 
 
-    std::vector<rgbi>
-    extract_palette_median_cut(SubVec<rgbi> src, int depth, bool split_middle)
+    std::vector<Rgbi>
+    extract_palette_median_cut(SubVec<Rgbi> src, int depth, bool split_middle)
     {
         if(src.empty())
         {
@@ -146,7 +146,7 @@ namespace
 
         if(depth <= 0 || src.size() < 2)
         {
-            auto sum = rgb{0,0,0};
+            auto sum = Rgb{0,0,0};
             float total = 0;
             for(const auto& c: src)
             {
@@ -180,7 +180,7 @@ namespace
 
 namespace euphoria::core
 {
-    std::vector<rgbi>
+    std::vector<Rgbi>
     extract_palette_median_cut(const Image& image, int depth, bool middle_split)
     {
         auto all_colors = extract_all_colors(image);
