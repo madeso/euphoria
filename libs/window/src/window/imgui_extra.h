@@ -12,7 +12,7 @@
 
 namespace euphoria::core
 {
-    struct angle;
+    struct Angle;
     struct rgb;
     struct rgba;
     struct rgbai;
@@ -89,16 +89,16 @@ namespace euphoria::window::imgui
     imgui_angle_slider
     (
         const char* name,
-        core::angle* angle,
-        const core::angle& min_deg,
-        const core::angle& max_deg
+        core::Angle* angle,
+        const core::Angle& min_deg,
+        const core::Angle& max_deg
     );
 
     bool
     imgui_angle_slider
     (
         const char* name,
-        core::angle* angle
+        core::Angle* angle
     );
 
     bool

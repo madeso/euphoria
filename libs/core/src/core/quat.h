@@ -27,7 +27,7 @@ namespace euphoria::core
         }
 
         [[nodiscard]] static quatf from_axis_angle(const AxisAngle& aa);
-        [[nodiscard]] static quatf from_ypr(const angle& yaw, const angle& pitch, const angle& roll);
+        [[nodiscard]] static quatf from_ypr(const Angle& yaw, const Angle& pitch, const Angle& roll);
         [[nodiscard]] static quatf from_to(const quatf& from, const quatf& to);
         [[nodiscard]] static quatf from_random(Random* random);
         [[nodiscard]] static quatf look_at(const vec3f& from, const vec3f& to, const unit3f& up);

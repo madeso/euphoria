@@ -124,8 +124,8 @@ namespace euphoria::core
         [[nodiscard]] static DynamicPalette create_rainbow
         (
             int count,
-            const angle& from,
-            const angle& to,
+            const Angle& from,
+            const Angle& to,
             float saturation,
             float lightness
         );

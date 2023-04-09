@@ -8,8 +8,8 @@
 namespace euphoria::core
 {
     PolarCoordinate::PolarCoordinate(float azimuthal01, float polar01)
-        : azimuthal(angle::from_percent_of_360(azimuthal01))
-        , polar(angle::from_percent_of_180(polar01))
+        : azimuthal(Angle::from_percent_of_360(azimuthal01))
+        , polar(Angle::from_percent_of_180(polar01))
     {
         ASSERT(is_within(r01, azimuthal01));
         ASSERT(is_within(Range<float> {0, 2}, polar01));

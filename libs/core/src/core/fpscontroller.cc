@@ -14,8 +14,8 @@ namespace euphoria::core
     void
     FpsController::look(float x, float y)
     {
-        rotation_angle += angle::from_degrees(-x * look_sensitivity.get_multiplier_with_sign());
-        look_angle += angle::from_degrees(-y * look_sensitivity.get_multiplier_with_sign());
+        rotation_angle += Angle::from_degrees(-x * look_sensitivity.get_multiplier_with_sign());
+        look_angle += Angle::from_degrees(-y * look_sensitivity.get_multiplier_with_sign());
 
         rotation_angle.wrap();
     }
@@ -128,7 +128,7 @@ namespace euphoria::core
     }
 
     quatf
-    FpsController::calc_rotation(const angle& rotation_angle, const angle& look_angle)
+    FpsController::calc_rotation(const Angle& rotation_angle, const Angle& look_angle)
     {
         const auto rotation = quatf::from_axis_angle
         (
@@ -152,7 +152,7 @@ namespace euphoria::core
     FpsController::look_in_direction(const unit3f& direction)
     {
         look_angle = core::asin(direction.y);
-        rotation_angle = core::atan2(direction.x, direction.z) + angle::from_degrees(180.0f);
+        rotation_angle = core::atan2(direction.x, direction.z) + Angle::from_degrees(180.0f);
     }
 
 }

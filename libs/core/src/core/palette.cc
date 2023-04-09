@@ -92,8 +92,8 @@ namespace euphoria::core
         return create_rainbow
         (
             count,
-            angle::from_radians(0),
-            angle::from_percent_of_360
+            Angle::from_radians(0),
+            Angle::from_percent_of_360
             (
                 max(1.0f, static_cast<float>(count - 1) / static_cast<float>(count))
             ),
@@ -107,8 +107,8 @@ namespace euphoria::core
     DynamicPalette::create_rainbow
     (
         int count,
-        const angle& from,
-        const angle& to,
+        const Angle& from,
+        const Angle& to,
         float saturation,
         float lightness
     )

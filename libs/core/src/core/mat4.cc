@@ -99,7 +99,7 @@ namespace euphoria::core
 
     [[nodiscard]]
     mat4f
-    mat4f::from_rot_x(const angle& a)
+    mat4f::from_rot_x(const Angle& a)
     {
         const auto c = cos(a);
         const auto s = sin(a);
@@ -113,7 +113,7 @@ namespace euphoria::core
     }
 
     mat4f
-    mat4f::from_rot_y(const angle& a)
+    mat4f::from_rot_y(const Angle& a)
     {
         const auto c = cos(a);
         const auto s = sin(a);
@@ -128,7 +128,7 @@ namespace euphoria::core
 
     [[nodiscard]]
     mat4f
-    mat4f::from_rot_z(const angle& a)
+    mat4f::from_rot_z(const Angle& a)
     {
         const auto c = cos(a);
         const auto s = sin(a);
@@ -406,7 +406,7 @@ namespace euphoria::core
 
     [[nodiscard]]
     mat4f
-    mat4f::create_perspective(const angle& fov, float a, float near, float far)
+    mat4f::create_perspective(const Angle& fov, float a, float near, float far)
     {
         const float t = 1 / tan(fov / 2);
         const float zm = far - near;

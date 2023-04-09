@@ -29,7 +29,7 @@ namespace euphoria::window::imgui::guizmo
     rotate
     (
         bool is_local,
-        const std::optional<core::angle>& snap,
+        const std::optional<core::Angle>& snap,
         const core::mat4f& camera_view,
         const core::mat4f& camera_projection,
         const core::mat4f& model,

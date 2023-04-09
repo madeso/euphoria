@@ -112,7 +112,7 @@ namespace euphoria::window::imgui::guizmo
     rotate
     (
         bool is_local,
-        const std::optional<core::angle>& snap,
+        const std::optional<core::Angle>& snap,
         const core::mat4f& camera_view,
         const core::mat4f& camera_projection,
         const core::mat4f& model,
@@ -168,9 +168,9 @@ namespace euphoria::window::imgui::guizmo
 
             *new_rotation = core::quatf::from_ypr
             (
-                core::angle::from_degrees(matrix_rotation[2]),
-                core::angle::from_degrees(matrix_rotation[1]),
-                core::angle::from_degrees(matrix_rotation[0])
+                core::Angle::from_degrees(matrix_rotation[2]),
+                core::Angle::from_degrees(matrix_rotation[1]),
+                core::Angle::from_degrees(matrix_rotation[0])
             );
         }
 

@@ -48,7 +48,7 @@ namespace euphoria::core
         float* get_data_ptr();
         float normalize();
 
-        [[nodiscard]] vec2f get_rotated(const angle& a) const;
+        [[nodiscard]] vec2f get_rotated(const Angle& a) const;
 
         [[nodiscard]] const float* get_data_ptr() const;
         [[nodiscard]] vec2i to_i() const;
@@ -111,7 +111,7 @@ namespace euphoria::core
 
         float* get_data_ptr();
 
-        [[nodiscard]] unit2f get_rotated(const angle& a) const;
+        [[nodiscard]] unit2f get_rotated(const Angle& a) const;
 
         [[nodiscard]] const float* get_data_ptr() const;
         [[nodiscard]] vec2f to_vec() const;
@@ -144,7 +144,7 @@ namespace euphoria::core
 
         float* get_data_ptr();
         
-        [[nodiscard]] Scale2f get_rotated(const angle& a) const;
+        [[nodiscard]] Scale2f get_rotated(const Angle& a) const;
 
         [[nodiscard]] const float* get_data_ptr() const;
         [[nodiscard]] Scale2f get_flipped_y() const;

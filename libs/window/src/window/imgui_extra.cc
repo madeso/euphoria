@@ -74,9 +74,9 @@ namespace euphoria::window::imgui
     imgui_angle_slider
     (
         const char* name,
-        core::angle* angle,
-        const core::angle& mindeg,
-        const core::angle& maxdeg
+        core::Angle* angle,
+        const core::Angle& mindeg,
+        const core::Angle& maxdeg
     )
     {
         ASSERT(angle);
@@ -92,7 +92,7 @@ namespace euphoria::window::imgui
 
         if(value_was_changed)
         {
-            *angle = core::angle::from_degrees(degrees);
+            *angle = core::Angle::from_degrees(degrees);
         }
 
         return value_was_changed;
@@ -103,7 +103,7 @@ namespace euphoria::window::imgui
     imgui_angle_slider
     (
         const char* name,
-        core::angle* angle
+        core::Angle* angle
     )
     {
         ASSERT(angle);
@@ -117,7 +117,7 @@ namespace euphoria::window::imgui
 
         if(value_was_changed)
         {
-            *angle = core::angle::from_degrees(degrees);
+            *angle = core::Angle::from_degrees(degrees);
             angle->wrap();
         }
 

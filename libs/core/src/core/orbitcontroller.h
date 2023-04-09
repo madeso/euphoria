@@ -10,8 +10,8 @@ namespace euphoria::core
     struct OrbitController
     {
         vec3f center;
-        angle horizontal_rotation;
-        angle vertical_rotation;
+        Angle horizontal_rotation;
+        Angle vertical_rotation;
         float distance = 10.0f;
         Sensitivity pan_dx;
         Sensitivity pan_dy;

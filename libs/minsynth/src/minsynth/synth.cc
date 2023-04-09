@@ -625,7 +625,7 @@ namespace euphoria::minsynth
     float
     run_oscilator(float frequency, float time, OscilatorType osc)
     {
-        const float sine = core::sin( core::angle::from_percent_of_360(frequency) * time);
+        const float sine = core::sin( core::Angle::from_percent_of_360(frequency) * time);
         switch(osc)
         {
         case OscilatorType::sine: return sine;

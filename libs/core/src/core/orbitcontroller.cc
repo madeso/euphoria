@@ -6,8 +6,8 @@ namespace euphoria::core
 {
     OrbitController::OrbitController()
         : center(zero3f)
-        , horizontal_rotation(angle::from_degrees(45.0f))
-        , vertical_rotation(angle::from_degrees(45.0f))
+        , horizontal_rotation(Angle::from_degrees(45.0f))
+        , vertical_rotation(Angle::from_degrees(45.0f))
     {}
 
 
@@ -52,13 +52,13 @@ namespace euphoria::core
     void
     OrbitController::on_rotate_input(float dx, float dy)
     {
-        horizontal_rotation += angle::from_degrees
+        horizontal_rotation += Angle::from_degrees
         (
             -dx * rotate_dx.get_multiplier_with_sign()
         );
         horizontal_rotation.wrap();
 
-        vertical_rotation += angle::from_degrees
+        vertical_rotation += Angle::from_degrees
         (
             -dy * rotate_dy.get_multiplier_with_sign()
         );

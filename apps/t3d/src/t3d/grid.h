@@ -12,7 +12,7 @@ namespace euphoria::t3d
         float normal = 1.0f;
         int size = 10;
 
-        core::angle angle_snap = core::angle::from_percent_of_360(5.0f / 60.0f);
+        core::Angle angle_snap = core::Angle::from_percent_of_360(5.0f / 60.0f);
 
         bool snap_enabled = true;
     };

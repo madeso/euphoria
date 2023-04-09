@@ -17,7 +17,7 @@ namespace euphoria::render
     {
         std::shared_ptr<Texture2> texture;
         core::vec2f position;
-        core::angle rotation;
+        core::Angle rotation;
         core::Scale2f scale = core::Scale2f(1, 1);
         core::rgb color = core::rgb(1.0f);
         float alpha = 1.0f;

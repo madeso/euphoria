@@ -240,7 +240,7 @@ namespace euphoria::core
     }
 
     void
-    change_contrast(Image* image, const angle& contrast)
+    change_contrast(Image* image, const Angle& contrast)
     {
         const auto tc = tan(contrast);
         run_lut_transform(image, [&](int i) -> U8 {

@@ -10,8 +10,8 @@ namespace euphoria::core
     // source: http://mathworld.wolfram.com/SphericalCoordinates.html
     struct PolarCoordinate
     {
-        angle azimuthal; // longitude, 0-2pi
-        angle polar; // zenith, colatitude, 0-pi
+        Angle azimuthal; // longitude, 0-2pi
+        Angle polar; // zenith, colatitude, 0-pi
 
         PolarCoordinate(float azimuthal01, float polar01);
 

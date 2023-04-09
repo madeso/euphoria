@@ -40,7 +40,7 @@ namespace euphoria::core
         }
         [[nodiscard]] static mat2f from_stretch_x(float k);
         [[nodiscard]] static mat2f from_stretch_y(float k);
-        [[nodiscard]] static mat2f from_rotation(const angle& a);
+        [[nodiscard]] static mat2f from_rotation(const Angle& a);
 
         float* get_data_ptr();
 

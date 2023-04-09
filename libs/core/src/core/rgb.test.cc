@@ -73,27 +73,27 @@ TEST_CASE("rgb_colors", "[rgb]")
 
     // aqua
     test(euco::rgb {0, 1, 1},
-         euco::Hsl {euco::angle::from_degrees(180), 1, 0.5f});
+         euco::Hsl {euco::Angle::from_degrees(180), 1, 0.5f});
 
     // gray
     test(euco::rgb {0.5f, 0.5f, 0.5f},
-         euco::Hsl {euco::angle::from_degrees(0), 0, 0.5f});
+         euco::Hsl {euco::Angle::from_degrees(0), 0, 0.5f});
 
     // lime
     test(euco::rgb {0, 1, 0},
-         euco::Hsl {euco::angle::from_degrees(120), 1, 0.5f});
+         euco::Hsl {euco::Angle::from_degrees(120), 1, 0.5f});
 
     // fuchsia
     test(euco::rgb {1, 0, 1},
-         euco::Hsl {euco::angle::from_degrees(300), 1, 0.5f});
+         euco::Hsl {euco::Angle::from_degrees(300), 1, 0.5f});
 
     // yellow
     test(euco::rgb {1, 1, 0},
-         euco::Hsl {euco::angle::from_degrees(60), 1, 0.5f});
+         euco::Hsl {euco::Angle::from_degrees(60), 1, 0.5f});
 
     // purple
     test(euco::rgb {0.5f, 0, 0.5f},
-         euco::Hsl {euco::angle::from_degrees(300), 1, 0.25f});
+         euco::Hsl {euco::Angle::from_degrees(300), 1, 0.25f});
 }
 
 TEST_CASE("rgb_convert", "[rgb]")

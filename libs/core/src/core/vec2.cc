@@ -39,7 +39,7 @@ namespace euphoria::core
     }
 
     vec2f
-    vec2f::get_rotated(const angle& a) const
+    vec2f::get_rotated(const Angle& a) const
     {
         const float nx = x * cos(a) - y * sin(a);
         const float ny = x * sin(a) + y * cos(a);
@@ -205,7 +205,7 @@ namespace euphoria::core
     }
 
     unit2f
-    unit2f::get_rotated(const angle& a) const
+    unit2f::get_rotated(const Angle& a) const
     {
         const float nx = x * cos(a) - y * sin(a);
         const float ny = x * sin(a) + y * cos(a);
@@ -278,7 +278,7 @@ namespace euphoria::core
     }
 
     Scale2f
-    Scale2f::get_rotated(const angle& a) const
+    Scale2f::get_rotated(const Angle& a) const
     {
         const float nx = x * cos(a) - y * sin(a);
         const float ny = x * sin(a) + y * cos(a);

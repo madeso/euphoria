@@ -225,7 +225,7 @@ namespace euphoria::t3d
         }
 
 
-        std::optional<core::angle>
+        std::optional<core::Angle>
         get_angle_snap(const Grid& grid)
         {
             if (grid.snap_enabled)

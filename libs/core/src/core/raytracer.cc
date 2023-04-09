@@ -429,7 +429,7 @@ namespace euphoria::core::raytracer
         vec3f vertical;
         vec3f origin;
 
-        static Camera create(const angle& vfov, float aspect)
+        static Camera create(const Angle& vfov, float aspect)
         {
             const auto half_height = tan(vfov/2.0f);
             const auto half_width = aspect * half_height;
@@ -469,7 +469,7 @@ namespace euphoria::core::raytracer
 
         auto rand = core::Random{};
         const auto aspect_ratio = static_cast<float>(img.width) / static_cast<float>(img.height);
-        const auto camera = Camera::create(angle::from_degrees(90), aspect_ratio);
+        const auto camera = Camera::create(Angle::from_degrees(90), aspect_ratio);
 
         std::cout << "Rendering ";
         for(int y=0; y<img.height; y+=1)

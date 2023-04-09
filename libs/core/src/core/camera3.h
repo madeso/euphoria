@@ -29,7 +29,7 @@ namespace euphoria::core
     {
         vec3f position;
         quatf rotation;
-        angle fov;
+        Angle fov;
         float near;
         float far;
 

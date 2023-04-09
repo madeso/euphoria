@@ -24,8 +24,8 @@ namespace euphoria::core
         // represents a stored position and rotation of the editor camera
         struct CameraFrame
         {
-            angle rotation_angle;
-            angle look_angle;
+            Angle rotation_angle;
+            Angle look_angle;
             vec3f position;
         };
 

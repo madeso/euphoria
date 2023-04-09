@@ -31,7 +31,7 @@ namespace euphoria::core
 
 
     [[nodiscard]] quatf
-    quatf::from_ypr(const angle& yaw, const angle& pitch, const angle& roll)
+    quatf::from_ypr(const Angle& yaw, const Angle& pitch, const Angle& roll)
     {
         // Abbreviations for the various angular functions
         const auto cy = cos(yaw * 0.5);

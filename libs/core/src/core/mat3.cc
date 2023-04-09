@@ -70,7 +70,7 @@ namespace euphoria::core
 
     [[nodiscard]]
     mat3f
-    mat3f::from_rot_x(const angle& a)
+    mat3f::from_rot_x(const Angle& a)
     {
         const auto c = cos(a);
         const auto s = sin(a);
@@ -85,7 +85,7 @@ namespace euphoria::core
 
     [[nodiscard]]
     mat3f
-    mat3f::from_rot_y(const angle& a)
+    mat3f::from_rot_y(const Angle& a)
     {
         const auto c = cos(a);
         const auto s = sin(a);
@@ -100,7 +100,7 @@ namespace euphoria::core
 
     [[nodiscard]]
     mat3f
-    mat3f::from_rot_z(const angle& a)
+    mat3f::from_rot_z(const Angle& a)
     {
         const auto c = cos(a);
         const auto s = sin(a);

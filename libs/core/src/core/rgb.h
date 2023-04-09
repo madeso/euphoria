@@ -103,17 +103,17 @@ namespace euphoria::core
     struct Hsl
     {
         // hue, saturation, lightness
-        angle h; // the most noticeable color that stands out to your eye
+        Angle h; // the most noticeable color that stands out to your eye
         float s; // the "brilliance" (0-1)
         float l; // the light or darkness (0-1)
 
         // todo(Gustav): why are these angles and not a Hsl?
-        static constexpr angle red = angle::from_percent_of_360(0.0f);
-        static constexpr angle yellow = angle::from_percent_of_360(1 / 6.0f);
-        static constexpr angle green = angle::from_percent_of_360(2 / 6.0f);
-        static constexpr angle cyan = angle::from_percent_of_360(3 / 6.0f);
-        static constexpr angle blue = angle::from_percent_of_360(4 / 6.0f);
-        static constexpr angle magenta = angle::from_percent_of_360(5 / 6.0f);
+        static constexpr Angle red = Angle::from_percent_of_360(0.0f);
+        static constexpr Angle yellow = Angle::from_percent_of_360(1 / 6.0f);
+        static constexpr Angle green = Angle::from_percent_of_360(2 / 6.0f);
+        static constexpr Angle cyan = Angle::from_percent_of_360(3 / 6.0f);
+        static constexpr Angle blue = Angle::from_percent_of_360(4 / 6.0f);
+        static constexpr Angle magenta = Angle::from_percent_of_360(5 / 6.0f);
     };
 
     enum class IsAbsolute

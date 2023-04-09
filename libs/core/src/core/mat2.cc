@@ -37,7 +37,7 @@ namespace euphoria::core
     }
 
     [[nodiscard]] mat2f
-    mat2f::from_rotation(const angle& a)
+    mat2f::from_rotation(const Angle& a)
     {
         const auto s = sin(a);
         const auto c = cos(a);

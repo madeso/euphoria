@@ -262,7 +262,7 @@ TEST_CASE("mat4-test", "[mat]")
     const euco::AxisAngle aa = euco::AxisAngle::from_right_hand_around
     (
         euco::common::up,
-        euco::angle::from_degrees(-90)
+        euco::Angle::from_degrees(-90)
     );
     const euco::vec3f to_transform{0.0f, 0.0f, -5.0f};
     const euco::vec3f result{5.0f, 0.0f, 0.0f};
@@ -283,7 +283,7 @@ TEST_CASE("mat4-TestCombined_RT", "[mat]")
             euco::AxisAngle::from_right_hand_around
             (
                 euco::common::up,
-                euco::angle::from_degrees(-90)
+                euco::Angle::from_degrees(-90)
             )
         )
         .get_translated(euco::vec3f{0.0f, 0.0f, -5.0f})
@@ -300,7 +300,7 @@ TEST_CASE("mat4-TestCombined2_RT", "[mat]")
         (
             euco::AxisAngle::from_right_hand_around
             (
-                euco::common::up, euco::angle::from_degrees(90)
+                euco::common::up, euco::Angle::from_degrees(90)
             )
         )
         .get_translated(euco::vec3f(0, 0, -5))
@@ -318,7 +318,7 @@ TEST_CASE("mat4-TestCombined_TR", "[mat]")
             euco::AxisAngle::from_right_hand_around
             (
                 euco::common::up,
-                euco::angle::from_degrees(-90)
+                euco::Angle::from_degrees(-90)
             )
         )
         .get_transform_point(euco::vec3f(0, 0, 0))

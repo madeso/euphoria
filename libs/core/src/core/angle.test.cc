@@ -13,13 +13,13 @@ namespace euco = euphoria::core;
 
 TEST_CASE("angle-constructor_degrees", "[angle]")
 {
-    const auto a = euco::angle::from_degrees(180);
+    const auto a = euco::Angle::from_degrees(180);
     REQUIRE(a.as_degrees() == APPROX(180.0f));
 }
 
 TEST_CASE("angle-constructor_degrees_pi", "[angle]")
 {
-    const auto a = euco::angle::from_degrees(180);
+    const auto a = euco::Angle::from_degrees(180);
     REQUIRE(a.as_radians() == APPROX(euco::pi));
 }
 
@@ -31,25 +31,25 @@ TEST_CASE("angle-zero", "[angle]")
 
 TEST_CASE("angle-constructor_radians", "[angle]")
 {
-    const auto a = euco::angle::from_radians(euco::pi);
+    const auto a = euco::Angle::from_radians(euco::pi);
     REQUIRE(a.as_degrees() == APPROX(180.0f));
 }
 
 TEST_CASE("angle-constructor_percent", "[angle]")
 {
-    const auto a = euco::angle::from_percent_of_360(0.5f);
+    const auto a = euco::Angle::from_percent_of_360(0.5f);
     REQUIRE(a.as_degrees() == APPROX(180.0f));
 }
 
 TEST_CASE("angle-wrapped", "[angle]")
 {
-    const auto a = euco::angle::from_degrees(360 + 90).get_wrapped();
+    const auto a = euco::Angle::from_degrees(360 + 90).get_wrapped();
     REQUIRE(a.as_degrees() == APPROX(90.0f));
 }
 
 TEST_CASE("angle-wrap", "[angle]")
 {
-    auto a = euco::angle::from_degrees(360 + 90);
+    auto a = euco::Angle::from_degrees(360 + 90);
     REQUIRE(a.as_degrees() == APPROX(360.0f + 90.0f));
     a.wrap();
     REQUIRE(a.as_degrees() == APPROX(90.0f));
@@ -57,43 +57,43 @@ TEST_CASE("angle-wrap", "[angle]")
 
 TEST_CASE("angle-add", "[angle]")
 {
-    auto a = euco::angle::from_degrees(90);
-    a += euco::angle::from_radians(euco::pi / 2.0f);
+    auto a = euco::Angle::from_degrees(90);
+    a += euco::Angle::from_radians(euco::pi / 2.0f);
     REQUIRE(a.as_degrees() == APPROX(180.0f));
-    REQUIRE((euco::angle::from_degrees(90)
-             + euco::angle::from_radians(euco::pi / 2.0f))
+    REQUIRE((euco::Angle::from_degrees(90)
+             + euco::Angle::from_radians(euco::pi / 2.0f))
                     .as_degrees()
             == APPROX(180.0f));
 }
 
 TEST_CASE("angle-sub", "[angle]")
 {
-    auto a = euco::angle::from_degrees(180);
-    a -= euco::angle::from_radians(euco::pi / 2.0f);
+    auto a = euco::Angle::from_degrees(180);
+    a -= euco::Angle::from_radians(euco::pi / 2.0f);
     REQUIRE(a.as_degrees() == APPROX(90.0f));
-    REQUIRE((euco::angle::from_degrees(180)
-             - euco::angle::from_radians(euco::pi / 2.0f))
+    REQUIRE((euco::Angle::from_degrees(180)
+             - euco::Angle::from_radians(euco::pi / 2.0f))
                     .as_degrees()
             == APPROX(90.0f));
 }
 
 TEST_CASE("angle-multi", "[angle]")
 {
-    auto a = euco::angle::from_degrees(90);
+    auto a = euco::Angle::from_degrees(90);
     a *= 2.0f;
     REQUIRE(a.as_degrees() == APPROX(180.0f));
-    REQUIRE((euco::angle::from_degrees(90) * 2.0f).as_degrees()
+    REQUIRE((euco::Angle::from_degrees(90) * 2.0f).as_degrees()
             == APPROX(180.0f));
-    REQUIRE((2.0f * euco::angle::from_degrees(90)).as_degrees()
+    REQUIRE((2.0f * euco::Angle::from_degrees(90)).as_degrees()
             == APPROX(180.0f));
 }
 
 TEST_CASE("angle-div", "[angle]")
 {
-    auto a = euco::angle::from_degrees(180);
+    auto a = euco::Angle::from_degrees(180);
     a /= 2;
     REQUIRE(a.as_degrees() == APPROX(90.0f));
-    REQUIRE((euco::angle::from_degrees(180) / 2.0f).as_degrees()
+    REQUIRE((euco::Angle::from_degrees(180) / 2.0f).as_degrees()
             == APPROX(90.0f));
 }
 
@@ -106,11 +106,11 @@ TEST_CASE("angle-atan", "[angle]")
 
 TEST_CASE("angle-tan", "[angle]")
 {
-    REQUIRE(euco::tan(euco::angle::from_degrees(0.0f)) == APPROX(0.0f));
-    REQUIRE(euco::tan(euco::angle::from_degrees(45.0f)) == APPROX(1.0f));
-    REQUIRE(euco::tan(euco::angle::from_degrees(180.0f)) == APPROX(0.0f));
-    REQUIRE(euco::tan(euco::angle::from_degrees(225.0f)) == APPROX(1.0f));
-    REQUIRE(euco::tan(euco::angle::from_degrees(60.0f))
+    REQUIRE(euco::tan(euco::Angle::from_degrees(0.0f)) == APPROX(0.0f));
+    REQUIRE(euco::tan(euco::Angle::from_degrees(45.0f)) == APPROX(1.0f));
+    REQUIRE(euco::tan(euco::Angle::from_degrees(180.0f)) == APPROX(0.0f));
+    REQUIRE(euco::tan(euco::Angle::from_degrees(225.0f)) == APPROX(1.0f));
+    REQUIRE(euco::tan(euco::Angle::from_degrees(60.0f))
             == APPROX(euco::sqrt(3.0f)));
 }
 
@@ -123,22 +123,22 @@ TEST_CASE("angle-Wikipedia constants", "[angle]")
 
     SECTION("sin")
     {
-        REQUIRE(euco::sin(euco::angle::from_degrees(0.0f)) == APPROX(0.0f));
-        REQUIRE(euco::sin(euco::angle::from_degrees(90.0f)) == APPROX(1.0f));
-        REQUIRE(euco::sin(euco::angle::from_degrees(180.0f)) == APPROX(0.0f));
-        REQUIRE(euco::sin(euco::angle::from_degrees(30.0f)) == APPROX(0.5f));
-        REQUIRE(euco::sin(euco::angle::from_degrees(15.0f)) == APPROX(a));
-        REQUIRE(euco::sin(euco::angle::from_degrees(75.0f)) == APPROX(b));
+        REQUIRE(euco::sin(euco::Angle::from_degrees(0.0f)) == APPROX(0.0f));
+        REQUIRE(euco::sin(euco::Angle::from_degrees(90.0f)) == APPROX(1.0f));
+        REQUIRE(euco::sin(euco::Angle::from_degrees(180.0f)) == APPROX(0.0f));
+        REQUIRE(euco::sin(euco::Angle::from_degrees(30.0f)) == APPROX(0.5f));
+        REQUIRE(euco::sin(euco::Angle::from_degrees(15.0f)) == APPROX(a));
+        REQUIRE(euco::sin(euco::Angle::from_degrees(75.0f)) == APPROX(b));
     }
 
     SECTION("cos")
     {
-        REQUIRE(euco::cos(euco::angle::from_degrees(0.0f)) == APPROX(1.0f));
-        REQUIRE(euco::cos(euco::angle::from_degrees(90.0f)) == APPROX(0.0f));
-        REQUIRE(euco::cos(euco::angle::from_degrees(180.0f)) == APPROX(-1.0f));
-        REQUIRE(euco::cos(euco::angle::from_degrees(60.0f)) == APPROX(0.5f));
-        REQUIRE(euco::cos(euco::angle::from_degrees(15.0f)) == APPROX(b));
-        REQUIRE(euco::cos(euco::angle::from_degrees(75.0f)) == APPROX(a));
+        REQUIRE(euco::cos(euco::Angle::from_degrees(0.0f)) == APPROX(1.0f));
+        REQUIRE(euco::cos(euco::Angle::from_degrees(90.0f)) == APPROX(0.0f));
+        REQUIRE(euco::cos(euco::Angle::from_degrees(180.0f)) == APPROX(-1.0f));
+        REQUIRE(euco::cos(euco::Angle::from_degrees(60.0f)) == APPROX(0.5f));
+        REQUIRE(euco::cos(euco::Angle::from_degrees(15.0f)) == APPROX(b));
+        REQUIRE(euco::cos(euco::Angle::from_degrees(75.0f)) == APPROX(a));
     }
 
     SECTION("asin")

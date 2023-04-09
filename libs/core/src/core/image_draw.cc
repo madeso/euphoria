@@ -666,7 +666,7 @@ namespace euphoria::core
         const auto angle_b = atan2((3 * size), (arrow_length - (3 * size)));
         const auto secondary_length = (3 * size) / sin(angle_b);
 
-        auto angle_c = angle::from_degrees(90) - arrow_angle - angle_b;
+        auto angle_c = Angle::from_degrees(90) - arrow_angle - angle_b;
         const auto arrow_point_left_x = from.x > to.x
             ? from.x - (sin(angle_c) * secondary_length)
             : (sin(angle_c) * secondary_length) + from.x

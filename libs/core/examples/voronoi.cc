@@ -141,7 +141,7 @@ main(int argc, char* argv[])
                 const auto dist = get_distance(distance_function, lhs, rhs);
                 if(cos_distance)
                 {
-                    return cos(angle::from_degrees(dist/crazy_distance));
+                    return cos(Angle::from_degrees(dist/crazy_distance));
                 }
                 else
                 {

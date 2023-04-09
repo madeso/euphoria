@@ -17,9 +17,9 @@ namespace euphoria::core
         [[nodiscard]] static mat3f from_major(const Scale3f& major);
         [[nodiscard]] static mat3f from_scale(const Scale3f& scale);
         [[nodiscard]] static mat3f from_translation2d(const vec2f& t);
-        [[nodiscard]] static mat3f from_rot_x(const angle& a);
-        [[nodiscard]] static mat3f from_rot_y(const angle& a);
-        [[nodiscard]] static mat3f from_rot_z(const angle& a);
+        [[nodiscard]] static mat3f from_rot_x(const Angle& a);
+        [[nodiscard]] static mat3f from_rot_y(const Angle& a);
+        [[nodiscard]] static mat3f from_rot_z(const Angle& a);
         [[nodiscard]] static mat3f from_axis_angle(const AxisAngle& aa);
         [[nodiscard]] constexpr static mat3f from_scalar(float scalar)
         {

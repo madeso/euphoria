@@ -99,7 +99,7 @@ namespace euphoria::core
         const float half_difference
                 = (range.upper_bound - range.lower_bound) / 2.0f;
         return range.lower_bound + half_difference
-               - half_difference * cos(angle::from_percent_of_360(value));
+               - half_difference * cos(Angle::from_percent_of_360(value));
     }
 
     template <typename T, typename F>

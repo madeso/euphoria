@@ -40,12 +40,12 @@ namespace euphoria::core
         [[nodiscard]] static mat4f from_major(const vec4f& major);
         [[nodiscard]] static mat4f from_scale(const Scale3f& scale);
         [[nodiscard]] static mat4f from_translation(const vec3f& v);
-        [[nodiscard]] static mat4f from_rot_x(const angle& a);
-        [[nodiscard]] static mat4f from_rot_y(const angle& a);
-        [[nodiscard]] static mat4f from_rot_z(const angle& a);
+        [[nodiscard]] static mat4f from_rot_x(const Angle& a);
+        [[nodiscard]] static mat4f from_rot_y(const Angle& a);
+        [[nodiscard]] static mat4f from_rot_z(const Angle& a);
         [[nodiscard]] static mat4f from_axis_angle(const AxisAngle& aa);
         [[nodiscard]] static mat4f create_ortho(float l, float r, float b, float t, float n, float f);
-        [[nodiscard]] static mat4f create_perspective(const angle& fov, float a, float near, float far);
+        [[nodiscard]] static mat4f create_perspective(const Angle& fov, float a, float near, float far);
         [[nodiscard]] constexpr static mat4f from_scalar(float scalar)
         {
             const float z = 0;

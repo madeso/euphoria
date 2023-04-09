@@ -21,7 +21,7 @@ void add_spiral(Dumper* dump, int number_of_steps, float number_of_spins, float 
     for(int step_index=0; step_index<number_of_steps; step_index+=1)
     {
         const auto step = static_cast<float>(step_index) / static_cast<float>(number_of_steps);
-        const auto angle = angle::from_percent_of_360(step * number_of_spins);
+        const auto angle = Angle::from_percent_of_360(step * number_of_spins);
         points.emplace_back(sin(angle)*size, step*height, cos(angle)*size);
     }
     dump->add_lines(points, color);

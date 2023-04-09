@@ -92,8 +92,8 @@ namespace euphoria::core
             bool valid;
             vec3f center;
             float distance;
-            angle rotation_angle;
-            angle look_angle;
+            Angle rotation_angle;
+            Angle look_angle;
 
             OrbitData(std::optional<vec3f> collision, const CameraFrame& f)
                 : valid(collision.has_value())
@@ -248,8 +248,8 @@ namespace euphoria::core
                 {
                     const auto x = core::c_int_to_float(dx);
                     const auto y = core::c_int_to_float(dy);
-                    orbit->rotation_angle += angle::from_degrees(-x * owner->fps.look_sensitivity.get_multiplier_with_sign());
-                    orbit->look_angle += angle::from_degrees(-y * owner->fps.look_sensitivity.get_multiplier_with_sign());
+                    orbit->rotation_angle += Angle::from_degrees(-x * owner->fps.look_sensitivity.get_multiplier_with_sign());
+                    orbit->look_angle += Angle::from_degrees(-y * owner->fps.look_sensitivity.get_multiplier_with_sign());
 
                     orbit->rotation_angle.wrap();
                 }
@@ -558,7 +558,7 @@ namespace euphoria::core
     {
         // todo(Gustav): default to inverted? or don't subtract delta values
         fps.look_sensitivity.inverted = true;
-        fps.look_angle = angle::from_degrees(-30.0f);
+        fps.look_angle = Angle::from_degrees(-30.0f);
         detail::set_default_state(this);
 
         const auto default_frame = detail::get_frame_from_editor(this);

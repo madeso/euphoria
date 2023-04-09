@@ -59,7 +59,7 @@ TEST_CASE("camera-world2clip", "[camera]")
             Camera camera;
             camera.position = vec3f{cx, cy, cz};
             camera.rotation = quatf::FromAxisAngle(AxisAngle::RightHandAround(
-                vec3f::YAxis(), angle::FromDegrees(angle)));
+                vec3f::YAxis(), Angle::FromDegrees(angle)));
             const auto cc = camera.Compile(aspect);
 
             CAPTURE(camera.position);

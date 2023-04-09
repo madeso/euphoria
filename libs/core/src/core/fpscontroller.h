@@ -10,8 +10,8 @@ namespace euphoria::core
 {
     struct FpsController
     {
-        angle rotation_angle;
-        angle look_angle;
+        Angle rotation_angle;
+        Angle look_angle;
         bool is_left_down = false;
         bool is_right_down = false;
         bool is_forward_down = false;
@@ -38,7 +38,7 @@ namespace euphoria::core
         [[nodiscard]] quatf get_rotation() const;
 
         static quatf calc_rotation
-            (const angle& rotation_angle, const angle& look_angle);
+            (const Angle& rotation_angle, const Angle& look_angle);
     };
 
 }

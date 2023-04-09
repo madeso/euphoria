@@ -324,7 +324,7 @@ namespace euphoria::core
 
         if(cl == BiggestValue::same)
         {
-            return {angle::from_radians(0), 0, l}; // achromatic
+            return {Angle::from_radians(0), 0, l}; // achromatic
         }
         else
         {
@@ -341,7 +341,7 @@ namespace euphoria::core
                 default: DIE("Unreachable"); return 0.0f;
                 }
             }() / 6;
-            return {angle::from_percent_of_360(h), s, l};
+            return {Angle::from_percent_of_360(h), s, l};
         }
     }
 

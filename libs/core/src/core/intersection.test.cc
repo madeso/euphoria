@@ -15,8 +15,8 @@ vec3f random_on_sphere(Random* r)
 {
   const auto r1 = r->get_next_float01();
   const auto r2 = r->get_next_float01();
-  const auto lat = acos(2*r1 - 1) - angle::from_percent_of_360(0.25f);
-  const auto lon = angle::from_percent_of_360(r2);
+  const auto lat = acos(2*r1 - 1) - Angle::from_percent_of_360(0.25f);
+  const auto lon = Angle::from_percent_of_360(r2);
 
   return
   {
