@@ -90,7 +90,6 @@ set(app_src
     src/core/camera3.cc src/core/camera3.h
     src/core/camera3.editor.cc src/core/camera3.editor.h
     src/core/canvaslogic.cc src/core/canvaslogic.h
-    src/core/chatbot.cc src/core/chatbot.h
     src/core/cint.cc src/core/cint.h
     src/core/closestpoint.cc src/core/closestpoint.h
     src/core/collisionmesh.cc src/core/collisionmesh.h
@@ -249,7 +248,6 @@ set(test_src
     src/core/bitfield.test.cc
     src/core/bufferbuilder2d.test.cc
     src/core/camera.test.cc
-    src/core/chatbot.test.cc
     src/core/commandlineparser.test.cc
     src/core/cypher.test.cc
     src/core/date.test.cc
@@ -369,10 +367,6 @@ target_link_libraries(examples-font PRIVATE euph::project_options euph::project_
 add_executable(examples-palette examples/palette_main.cc)
 set_target_properties(examples-palette PROPERTIES FOLDER "Examples/Core")
 target_link_libraries(examples-palette PRIVATE euph::project_options euph::project_warnings euph::core)
-
-add_executable(examples-chatbot examples/chatbot.cc)
-set_target_properties(examples-chatbot PROPERTIES FOLDER "Examples/Core")
-target_link_libraries(examples-chatbot PRIVATE euph::project_options euph::project_warnings euph::core)
 
 add_executable(examples-coldet examples/coldet.cc)
 set_target_properties(examples-coldet PROPERTIES FOLDER "Examples/Core")

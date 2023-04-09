@@ -4,7 +4,6 @@
 set(all_gafs
     src/file_types/enum.gaf
     src/file_types/mesh.gaf
-    src/file_types/chatbot.gaf
     src/file_types/scalingsprite.gaf
     src/file_types/materialshader.gaf
     src/file_types/font.gaf
