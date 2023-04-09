@@ -1,0 +1,23 @@
+digraph G
+{
+    char [label="animate 3d char"];
+    render [label="integrate klotter"];
+    ecs [label="complete ECS"];
+    anim [label="complete 3d animation"];
+    t3d [label="complete t3d"];
+    gaf [label="complete gaf"];
+    json [label="complete json"];
+    assets [label="complete asset system"];
+
+    render -> anim;
+    render -> t3d;
+    render -> char;
+    anim -> char;
+    assets -> gaf;
+    assets -> ecs;
+    assets -> t3d;
+    ecs -> char;
+    json -> gaf;
+    gaf -> t3d;
+    gaf -> anim;
+}
