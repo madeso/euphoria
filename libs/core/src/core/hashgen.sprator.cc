@@ -90,10 +90,10 @@ namespace
         {
             for(int x=0; x<half_width; x+=1)
             {
-                const auto src = half_side(x, y);
+                const auto src = half_side[{x, y}];
                 const auto x_mirror = width - (x + 1);
-                result_table(x + offset, y + offset) = src;
-                result_table(x_mirror + offset, y + offset) = src;
+                result_table[{x + offset, y + offset}] = src;
+                result_table[{x_mirror + offset, y + offset}] = src;
             }
         }
 
@@ -258,9 +258,9 @@ namespace
                     {
                         x = floor_to_int(generator.get_next_float01() * half_side.get_width());
                         y = floor_to_int(generator.get_next_float01() * half_side.get_height());
-                    } while(hit(x, y));
-                    hit(x, y) = true;
-                    half_side(x, y) = !half_side(x, y);
+                    } while(hit[{x, y}]);
+                    hit[{x, y}] = true;
+                    half_side[{x, y}] = !half_side[{x, y}];
                 }
             }
 

@@ -84,8 +84,8 @@ generate_image(const Table<int>& table, int scale, const Palette& pal)
                 0,
                 std::min
                 (
-                        table(x,y),
-                        c_sizet_to_int(pal.colors.size())
+                    table[{x, y}],
+                    c_sizet_to_int(pal.colors.size())
                 )
             );
             rect(pal.colors[v], vec2i{x*scale, (y+1)*scale});

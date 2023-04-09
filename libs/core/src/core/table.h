@@ -1,11 +1,11 @@
 #pragma once
 
 
-
 #include "assert/assert.h"
 #include "core/numeric.h"
 #include "core/rect.h"
 #include "core/cint.h"
+#include "core/vec2.h"
 
 namespace euphoria::core
 {
@@ -52,7 +52,7 @@ namespace euphoria::core
             {
                 for(Idx x = 0; x < width; x += 1)
                 {
-                    (*this)(x, y) = f(x, y);
+                    (*this)[{x, y}] = f(x, y);
                 }
             }
         }
@@ -121,7 +121,7 @@ namespace euphoria::core
             {
                 for(Idx y = 0; y < height; y += 1)
                 {
-                    t(x, y) = (*this)(x, y);
+                    t[{x, y}] = (*this)[{x, y}];
                 }
             }
             *this = t;
@@ -133,15 +133,15 @@ namespace euphoria::core
             return get_indices().contains_inclusive(x, y);
         }
 
-        [[nodiscard]] size_t get_data_index(Idx x, Idx y) const
+        [[nodiscard]] size_t get_data_index(const vec2i& pos) const
         {
             ASSERTX
             (
-                is_within_inclusive_as_int(0, x, width - 1) && is_within_inclusive_as_int(0, y, height - 1),
-                x, width,
-                y, height
+                is_within_inclusive_as_int(0, pos.x, width - 1) && is_within_inclusive_as_int(0, pos.y, height - 1),
+                pos.x, width,
+                pos.y, height
             );
-            return y * width + x;
+            return pos.y * width + pos.x;
         }
 
 
@@ -162,16 +162,16 @@ namespace euphoria::core
 
         
 
-        T operator()(Idx x, Idx y) const
+        T operator[](const vec2i& pos) const
         {
-            const auto index = get_data_index(x, y);
+            const auto index = get_data_index(pos);
             ASSERTX(index < data.size(), index, data.size());
             return data[index];
         }
 
-        typename std::vector<T>::reference operator()(Idx x, Idx y)
+        typename std::vector<T>::reference operator[](const vec2i& pos)
         {
-            const auto index = get_data_index(x, y);
+            const auto index = get_data_index(pos);
             ASSERTX(index < data.size(), index, data.size());
             return data[index];
         }
@@ -204,7 +204,7 @@ namespace euphoria::core
         r.reserve(t.get_height());
         for(typename Table<T>::Idx y = 0; y < t.get_height(); ++y)
         {
-            r.emplace_back(t(x, y));
+            r.emplace_back(t[{x, y}]);
         }
         return r;
     }
@@ -218,7 +218,7 @@ namespace euphoria::core
         r.reserve(t.get_width());
         for(typename Table<T>::Idx x = 0; x < t.get_width(); ++x)
         {
-            r.emplace_back(t(x, y));
+            r.emplace_back(t[{x, y}]);
         }
         return r;
     }

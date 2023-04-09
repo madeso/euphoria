@@ -31,14 +31,14 @@ TEST_CASE("table-size", "[table]")
 
     SECTION("verify data layout")
     {
-        CHECK(t.get_data_index(0, 0) == 0);
-        CHECK(t.get_data_index(2, 0) == 2);
-        CHECK(t.get_data_index(0, 1) == 3);
-    }
+        CHECK(t.get_data_index({0, 0}) == 0);
+        CHECK(t.get_data_index({2, 0}) == 2);
+        CHECK(t.get_data_index({0, 1}) == 3);
 
-    CHECK(t(0, 0) == 0);
-    CHECK(t(0, 0) == 0);
-    CHECK(t(0, 0) == 0);
+        CHECK(same.get_data_index({ 0, 0 }) == 0);
+        CHECK(same.get_data_index({ 2, 0 }) == 2);
+        CHECK(same.get_data_index({ 0, 1 }) == 3);
+    }
 }
 
 TEST_CASE("table-section_and_rows", "[table]")
@@ -49,19 +49,18 @@ TEST_CASE("table-section_and_rows", "[table]")
     {
         for(T::Idx x = 0; x < t.get_width(); ++x)
         {
-            t(x, y) = fmt::format("{},{}", x, y);
+            t[{x, y}] = fmt::format("{},{}", x, y);
         }
     }
 
     SECTION("test getter")
     {
-        CHECK(t(0, 0) == "0,0");
-        CHECK(t(1, 0) == "1,0");
-        CHECK(t(2, 0) == "2,0");
-
-        CHECK(t(0, 1) == "0,1");
-        CHECK(t(1, 1) == "1,1");
-        CHECK(t(2, 1) == "2,1");
+        CHECK(t[{0, 0}] == "0,0");
+        CHECK(t[{1, 0}] == "1,0");
+        CHECK(t[{2, 0}] == "2,0");
+        CHECK(t[{0, 1}] == "0,1");
+        CHECK(t[{1, 1}] == "1,1");
+        CHECK(t[{2, 1}] == "2,1");
     }
 
     SECTION("test column getter")
@@ -101,9 +100,9 @@ TEST_CASE("table-test_add", "[table]")
         REQUIRE(1 == t.get_height());
 
         t.add_row();
-        t(0, 1) = 4;
-        t(1, 1) = 5;
-        t(2, 1) = 6;
+        t[{0, 1}] = 4;
+        t[{1, 1}] = 5;
+        t[{2, 1}] = 6;
 
         REQUIRE(3 == t.get_width());
         REQUIRE(2 == t.get_height());

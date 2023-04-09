@@ -67,7 +67,7 @@ namespace euphoria::core
             if (contains(x, y))
             {
                 // it is inside
-                if (world(x, y))
+                if (world[{x, y}])
                 {
                     return 1;
                 }
@@ -129,7 +129,7 @@ namespace euphoria::core
                 }
             }
 
-            if (world(nx, ny))
+            if (world[{nx, ny}])
             {
                 return 1;
             }
@@ -334,7 +334,7 @@ namespace euphoria::core
 
         world->set_all([&current, outside_rule, smooth_function](int x, int y)
         {
-            const auto value = current(x, y);
+            const auto value = current[{x, y}];
             const auto walls = WallCounter{current, outside_rule, x, y};
             const auto smoothed_wall = smooth_function(value, walls);
             return smoothed_wall.value_or(value);
@@ -351,7 +351,7 @@ namespace euphoria::core
         {
             for (int x = 0; x < world.get_width(); x += 1)
             {
-                if(world(x,y) == false)
+                if(world[{x,y}] == false)
                 {
                     ret.emplace_back(x, y);
                 }
@@ -384,8 +384,8 @@ namespace euphoria::core
             if(p.x >= world.get_width()) { return; }
             if(p.y < 0) { return; }
             if(p.y >= world.get_height()) { return; }
-            if(visited(p.x, p.y) == true) { return; }
-            visited(p.x, p.y) = true;
+            if(visited[p] == true) { return; }
+            visited[p] = true;
             // todo(Gustav): if ret contains p, return
 
             stack.emplace_back(p);
@@ -396,7 +396,7 @@ namespace euphoria::core
         {
             const auto p = *stack.rbegin();
             stack.pop_back();
-            if(world(p.x, p.y) == true) { continue; }
+            if(world[p] == true) { continue; }
 
             // todo(Gustav): don't add if already in list
             ret.emplace_back(p);
@@ -433,13 +433,13 @@ namespace euphoria::core
         const auto blocks = find_empty_blocks(world);
         for(const auto block: blocks)
         {
-            if(visited(block.x, block.y) == true) { continue; }
+            if(visited[block] == true) { continue; }
 
             const auto island = find_flood_fill_items(world, block, allow_diagonals);
             ret.emplace_back(island);
             for(const auto& island_block: island)
             {
-                visited(island_block.x, island_block.y) = true;
+                visited[island_block] = true;
             }
         }
 
@@ -505,7 +505,7 @@ namespace euphoria::core
             {
                 const auto px = x * scale;
                 const auto py = y * scale;
-                const auto color = world(x, y)
+                const auto color = world[{x, y}]
                     ? wall_color
                     : get_space_color(x, y)
                     ;

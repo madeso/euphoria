@@ -87,7 +87,7 @@ namespace euphoria::core::generator
                 {
                     for(const auto& p: re)
                     {
-                        world(p.x, p.y) = true;
+                        world[{p.x, p.y}] = true;
                     }
                 }
             }
@@ -129,7 +129,7 @@ namespace euphoria::core::generator
             {
                 for(const auto& p: re)
                 {
-                    world(p.x, p.y) = true;
+                    world[{p.x, p.y}] = true;
                 }
             }
         }
@@ -162,7 +162,7 @@ namespace euphoria::core::generator
                         // but should it...?
                         return false;
                     }
-                    return current(x, y);
+                    return current[{x, y}];
                 }
             );
         }

@@ -99,7 +99,7 @@ namespace euphoria::core
             StringBuilder ss;
             for(int x = 0; x < table.get_width(); x += 1)
             {
-                ss.add_char(table(x, y));
+                ss.add_char(table[{x, y}]);
             }
             ret.insert(ret.begin(), ss.to_string());
         }

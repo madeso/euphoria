@@ -105,7 +105,7 @@ namespace euphoria::core
         {
             auto pixel = image->get_pixel(x, y);
             auto new_color = to_rgb(pixel);
-            const auto pixel_error = errors(x, y);
+            const auto pixel_error = errors[{x, y}];
             new_color.r += pixel_error.r;
             new_color.g += pixel_error.g;
             new_color.b += pixel_error.b;
@@ -134,7 +134,7 @@ namespace euphoria::core
                 auto factor = fs.second;
                 if(errors_range.contains_inclusive(nx, ny))
                 {
-                    auto& e = errors(nx, ny);
+                    auto& e = errors[{nx, ny}];
                     e.r += factor * error.r;
                     e.g += factor * error.g;
                     e.b += factor * error.b;

@@ -650,7 +650,7 @@ namespace euphoria::core::argparse
             {
                 const auto names = get_word_wrapped
                 (
-                    table(0, y),
+                    table[{0, y}],
                     [max_name_length](const std::string& s)
                     {
                         return c_sizet_to_int(s.size()) <= max_name_length;
@@ -658,7 +658,7 @@ namespace euphoria::core::argparse
                 );
                 const auto helps = get_word_wrapped
                 (
-                    table(1, y),
+                    table[{1, y}],
                     [](const std::string& s)
                     {
                         return s.size() <= global_max_help_length;
@@ -675,8 +675,8 @@ namespace euphoria::core::argparse
                 constexpr auto indent = "  ";
                 constexpr auto space = "  ";
 
-                const auto name = t(0, y);
-                const auto help = t(1, y);
+                const auto name = t[{0, y}];
+                const auto help = t[{1, y}];
 
                 const auto name_length = c_sizet_to_int(name.length());
                 if(name_length > max_name_length)

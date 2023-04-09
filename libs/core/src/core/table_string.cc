@@ -165,7 +165,7 @@ calc_single_column_width(const StringTable& t, int c)
     int width = 0;
     for(StringTable::Idx y = 0; y < t.get_height(); y += 1)
     {
-        width = std::max<int>(width, calc_width_of_string(t(c, y)));
+        width = std::max<int>(width, calc_width_of_string(t[{c, y}]));
     }
     return width;
 }
@@ -176,7 +176,7 @@ calc_single_row_height(const StringTable& t, int r)
     int height = 0;
     for(StringTable::Idx x = 0; x < t.get_width(); x += 1)
     {
-        height = std::max<int>(height, calc_height_of_string(t(x, r)));
+        height = std::max<int>(height, calc_height_of_string(t[{x, r}]));
     }
     return height;
 }
@@ -201,10 +201,10 @@ split_table_cells_on_newline(const StringTable& table, StringTable::Idx row)
             table.get_width(), calc_single_row_height(table, row));
     for(int column_index = 0; column_index < table.get_width(); column_index += 1)
     {
-        const auto rows = split(table(column_index, row), '\n');
+        const auto rows = split(table[{column_index, row}], '\n');
         for(StringTable::Idx row_index = 0; row_index < StringTable::conv(rows.size()); row_index += 1)
         {
-            ret(column_index, row_index) = rows[row_index];
+            ret[{column_index, row_index}] = rows[row_index];
         }
     }
     return ret;
@@ -233,7 +233,7 @@ print_table_simple(std::ostream& out, const StringTable& maintable)
         {
             for(StringTable::Idx col = 0; col < number_of_cols; ++col)
             {
-                const auto cell = begin_str + subtable(col, subrow);
+                const auto cell = begin_str + subtable[{col, subrow}];
                 auto line_length = c_sizet_to_int(cell.length());
                 out << cell;
 
@@ -303,7 +303,7 @@ print_table_grid(std::ostream& out, const StringTable& maintable)
             out << "|";
             for(StringTable::Idx x = 0; x < subtable.get_width(); ++x)
             {
-                const auto cell = subtable(x, suby);
+                const auto cell = subtable[{x, suby}];
                 some_space(internal_space);
                 out << cell;
                 some_space(sizes[x] - c_sizet_to_int(cell.length()));

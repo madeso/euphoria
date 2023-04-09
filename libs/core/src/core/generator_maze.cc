@@ -62,7 +62,7 @@ namespace euphoria::core::generator
     void
     set_visited(Maze* maze, const vec2i& np)
     {
-        (*maze)(np.x, np.y) |= cell::visited;
+        (*maze)[np] |= cell::visited;
     }
 
 
@@ -71,8 +71,8 @@ namespace euphoria::core::generator
     {
         const auto o = from_dir_to_offset(dir);
         const auto np = c + o;
-        (*maze)(np.x, np.y) |= cell::visited | from_dir_to_cell_path(flip_direction(dir));
-        (*maze)(c.x, c.y) |= from_dir_to_cell_path(dir);
+        (*maze)[np] |= cell::visited | from_dir_to_cell_path(flip_direction(dir));
+        (*maze)[c] |= from_dir_to_cell_path(dir);
         return np;
     }
 
@@ -80,7 +80,7 @@ namespace euphoria::core::generator
     bool
     has_visited(Maze* maze, const vec2i& np)
     {
-        return ((*maze)(np.x, np.y) & cell::visited) != 0;
+        return ((*maze)[np] &cell::visited) != 0;
     }
 
 
@@ -129,7 +129,7 @@ namespace euphoria::core::generator
         const auto random_position = calc_random_position_on_maze(random, maze);
 
         stack.push(random_position);
-        (*maze)(random_position.x, random_position.y) = cell::visited;
+        (*maze)[random_position] = cell::visited;
         visited_cells = 1;
     }
 
@@ -239,7 +239,7 @@ namespace euphoria::core::generator
     Rgbi
     Drawer::calc_cell_color(int x, int y) const
     {
-        const auto cell_value = (*maze)(x, y);
+        const auto cell_value = (*maze)[{x, y}];
 
         if(tracker != nullptr && false == tracker->is_done() && false == tracker->stack.empty())
         {
@@ -307,7 +307,7 @@ namespace euphoria::core::generator
                     return Recti::from_top_left_width_height(vec2i{ax, ay + 1}, aw, ah);
                 };
 
-                const auto cell_value = (*maze)(x, y);
+                const auto cell_value = (*maze)[{x, y}];
 
                 if((cell_value & cell::path_south) != 0)
                 {

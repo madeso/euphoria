@@ -47,7 +47,7 @@ namespace euphoria::core
         const auto i = c_point_to_index(p);
         active.emplace_back(0);
         samples.emplace_back(p);
-        grid(i.x, i.y) = 0;
+        grid[{i.x, i.y}] = 0;
     }
 
 
@@ -71,7 +71,7 @@ namespace euphoria::core
             {
                 const auto neighbour_pos = potential_sample_pos + vec2i{dx, dy};
                 if(!grid.is_inside(neighbour_pos.x, neighbour_pos.y)) { continue; }
-                const auto neighbour_sample_index = grid(neighbour_pos.x, neighbour_pos.y);
+                const auto neighbour_sample_index = grid[{neighbour_pos.x, neighbour_pos.y}];
                 if(neighbour_sample_index == -1) { continue; }
                 const auto d2 = vec2f::from_to(samples[neighbour_sample_index], potential_sample).get_length_squared();
                 if(d2 <= square(r))
@@ -108,10 +108,10 @@ namespace euphoria::core
             {
                 const auto point_index = c_sizet_to_int(samples.size());
 
-                ASSERT( grid(sample_pos.x, sample_pos.y) == -1);
+                ASSERT((grid[{sample_pos.x, sample_pos.y}]) == -1);
 
                 samples.emplace_back(sample);
-                grid(sample_pos.x, sample_pos.y) = point_index;
+                grid[{sample_pos.x, sample_pos.y}] = point_index;
                 active.emplace_back(point_index);
 
                 return {true, sample};

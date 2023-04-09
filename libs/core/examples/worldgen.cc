@@ -37,8 +37,8 @@ find_differences(const Table<bool>& src, const Table<bool>& dst)
     {
         for(int x = 0; x < src.get_width(); x += 1)
         {
-            const auto lhs = src(x, y);
-            const auto rhs = dst(x, y);
+            const auto lhs = src[{x, y}];
+            const auto rhs = dst[{x, y}];
             if(lhs != rhs)
             {
                 ret.push_back({x, y, lhs});
@@ -278,7 +278,7 @@ struct CellWriter
         int write_index = 0;
         for (const auto d : diffs)
         {
-            world_copy(d.x, d.y) = d.new_value;
+            world_copy[{d.x, d.y}] = d.new_value;
             if ((write_index % diffs_per_write) == 0)
             {
                 const auto img = generate_world_image(world_copy);

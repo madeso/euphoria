@@ -53,7 +53,7 @@ bool print_char
     {
         for(auto x=0; x<img.get_width(); x+=1)
         {
-            const auto c = img(x,y);
+            const auto c = img[{x, y}];
             if(c == ' ') { continue; }
             dst->put_char(px+x, img.get_height()+py-y, c);
         }

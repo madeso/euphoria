@@ -142,7 +142,7 @@ namespace euphoria::core
             x = keep_within(table.get_indices().get_range_x(), x + dx);
             y = keep_within(table.get_indices().get_range_y(), y + dy);
 
-            table(x, y) += 1;
+            table[{x, y}] += 1;
         }
 
         return table;
@@ -180,7 +180,7 @@ namespace euphoria::core
                     0,
                     std::min
                     (
-                        table(x,y),
+                        table[{x,y}],
                         c_sizet_to_int(characters.size())
                     )
                 );
