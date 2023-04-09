@@ -78,8 +78,8 @@ TEST_CASE("mat4-index", "[mat]")
          8.0f,   9.0f,  10.0f,  11.0f,
         12.0f,  13.0f,  14.0f,  15.0f
     );
-    REQUIRE( 3.0f == approx(m(0, 3)));
-    REQUIRE(15.0f == approx(m(3, 3)));
+    REQUIRE( 3.0f == approx(m.get(0, 3)));
+    REQUIRE(15.0f == approx(m.get(3, 3)));
 }
 
 TEST_CASE("mat4-major", "[mat]")

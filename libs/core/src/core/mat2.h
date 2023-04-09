@@ -52,9 +52,6 @@ namespace euphoria::core
 
         void operator+=(const mat2f& rhs);
         void operator-=(const mat2f& rhs);
-        // index operator use () as [] only expects one argument
-        float& operator()(int row, int col);
-        float operator()(int row, int col) const;
 
     private:
         float data[4];

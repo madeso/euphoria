@@ -180,8 +180,7 @@ namespace euphoria::core
     vec4f
     mat4f::get_major() const
     {
-        const mat4f& self = *this;
-        return {self(0, 0), self(1, 1), self(2, 2), self(3, 3)};
+        return {get(0, 0), get(1, 1), get(2, 2), get(3, 3)};
     }
 
     unit3f
@@ -212,13 +211,12 @@ namespace euphoria::core
     mat4f::get_transposed() const
     {
         // https://www.j3d.org/matrix_faq/matrfaq_latest.html
-        const mat4f& self = *this;
         return from_col_major
         (
-            self(0, 0), self(0, 1), self(0, 2), self(0, 3),
-            self(1, 0), self(1, 1), self(1, 2), self(1, 3),
-            self(2, 0), self(2, 1), self(2, 2), self(2, 3),
-            self(3, 0), self(3, 1), self(3, 2), self(3, 3)
+            get(0, 0), get(0, 1), get(0, 2), get(0, 3),
+            get(1, 0), get(1, 1), get(1, 2), get(1, 3),
+            get(2, 0), get(2, 1), get(2, 2), get(2, 3),
+            get(3, 0), get(3, 1), get(3, 2), get(3, 3)
         );
     }
 
@@ -359,12 +357,11 @@ namespace euphoria::core
     mat3f
     mat4f::get_mat3() const
     {
-        const mat4f& m = *this;
         return mat3f::from_row_major
         (
-            m(0, 0), m(0, 1), m(0, 2),
-            m(1, 0), m(1, 1), m(1, 2),
-            m(2, 0), m(2, 1), m(2, 2)
+            get(0, 0), get(0, 1), get(0, 2),
+            get(1, 0), get(1, 1), get(1, 2),
+            get(2, 0), get(2, 1), get(2, 2)
         );
     }
 
@@ -451,20 +448,6 @@ namespace euphoria::core
     }
 
 
-    float&
-    mat4f::operator()(int row, int col)
-    {
-        return data[col * 4 + row];
-    }
-
-
-    float
-    mat4f::operator()(int row, int col) const
-    {
-        return data[col * 4 + row];
-    }
-
-
     float
     mat4f::get(int row, int col) const
     {
@@ -487,8 +470,7 @@ namespace euphoria::core
     vec4f
     mat4f::get_row(int r) const
     {
-        const mat4f& self = *this;
-        return {self(r, 0), self(r, 1), self(r, 2), self(r, 3)};
+        return {get(r, 0), get(r, 1), get(r, 2), get(r, 3)};
     }
 
     

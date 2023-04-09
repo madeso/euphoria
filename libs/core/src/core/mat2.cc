@@ -83,20 +83,6 @@ namespace euphoria::core
     }
 
 
-    float&
-    mat2f::operator()(int row, int col)
-    {
-        return data[col * 2 + row];
-    }
-
-
-    float
-    mat2f::operator()(int row, int col) const
-    {
-        return get(row, col);
-    }
-
-
     float
     mat2f::get(int row, int col) const
     {

@@ -7,8 +7,8 @@ namespace euphoria::core
     mat3f::mat3f(const mat2f& mat)
         : data
         {
-            mat(0,0), mat(0,1), 0,
-            mat(1,0), mat(1,1), 0,
+            mat.get(0,0), mat.get(0,1), 0,
+            mat.get(1,0), mat.get(1,1), 0,
             0,        0,        1
         }
     {
@@ -139,8 +139,7 @@ namespace euphoria::core
     vec3f
     mat3f::get_major() const
     {
-        const mat3f& self = *this;
-        return {self(0, 0), self(1, 1), self(2, 2)};
+        return {get(0, 0), get(1, 1), get(2, 2)};
     }
 
 
@@ -175,12 +174,11 @@ namespace euphoria::core
     mat3f
     mat3f::get_transposed() const
     {
-        const mat3f& self = *this;
         return from_col_major
         (
-            self(0, 0), self(0, 1), self(0, 2),
-            self(1, 0), self(1, 1), self(1, 2),
-            self(2, 0), self(2, 1), self(2, 2)
+            get(0, 0), get(0, 1), get(0, 2),
+            get(1, 0), get(1, 1), get(1, 2),
+            get(2, 0), get(2, 1), get(2, 2)
         );
     }
 
@@ -232,20 +230,6 @@ namespace euphoria::core
     mat3f::get_data_ptr()
     {
         return data;
-    }
-
-
-    float&
-    mat3f::operator()(int row, int col)
-    {
-        return data[col * 3 + row];
-    }
-
-
-    float
-    mat3f::operator()(int row, int col) const
-    {
-        return get(row, col);
     }
 
 
