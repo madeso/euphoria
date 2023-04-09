@@ -57,9 +57,9 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="func">
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1palettes_1_1matplot_1a925de8596139f5abdc03f3a855d7e67f" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>constexpr <ref refid="structeuphoria_1_1core_1_1rgbi" kindref="compound">rgbi</ref></type>
-        <definition>constexpr rgbi euphoria::core::palettes::matplot::con</definition>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1palettes_1_1matplot_1a42214d788c1d1ac64e9336367e67a18b" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>constexpr <ref refid="structeuphoria_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref></type>
+        <definition>constexpr Rgbi euphoria::core::palettes::matplot::con</definition>
         <argsstring>(unsigned char r, unsigned char g, unsigned char b)</argsstring>
         <name>con</name>
         <param>

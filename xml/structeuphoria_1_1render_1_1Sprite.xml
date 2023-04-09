@@ -30,9 +30,9 @@
         </inbodydescription>
         <location file="libs/render/src/render/sprite.h" line="19" column="21" bodyfile="libs/render/src/render/sprite.h" bodystart="19" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeuphoria_1_1render_1_1Sprite_1a36c06e375b90ea32cd30439a221c7336" prot="public" static="no" mutable="no">
-        <type><ref refid="structeuphoria_1_1core_1_1angle" kindref="compound">core::angle</ref></type>
-        <definition>core::angle euphoria::render::Sprite::rotation</definition>
+      <memberdef kind="variable" id="structeuphoria_1_1render_1_1Sprite_1a41a1e731ac5ab7dd4bdb4c2f834fbdd1" prot="public" static="no" mutable="no">
+        <type><ref refid="structeuphoria_1_1core_1_1Angle" kindref="compound">core::Angle</ref></type>
+        <definition>core::Angle euphoria::render::Sprite::rotation</definition>
         <argsstring></argsstring>
         <name>rotation</name>
         <briefdescription>
@@ -57,12 +57,12 @@
         </inbodydescription>
         <location file="libs/render/src/render/sprite.h" line="21" column="23" bodyfile="libs/render/src/render/sprite.h" bodystart="21" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeuphoria_1_1render_1_1Sprite_1a1d2a5441d0cb933de90df9c1218f7f82" prot="public" static="no" mutable="no">
-        <type><ref refid="structeuphoria_1_1core_1_1rgb" kindref="compound">core::rgb</ref></type>
-        <definition>core::rgb euphoria::render::Sprite::color</definition>
+      <memberdef kind="variable" id="structeuphoria_1_1render_1_1Sprite_1af91a510f0a8c0978116b80b14dea48e7" prot="public" static="no" mutable="no">
+        <type><ref refid="structeuphoria_1_1core_1_1Rgb" kindref="compound">core::Rgb</ref></type>
+        <definition>core::Rgb euphoria::render::Sprite::color</definition>
         <argsstring></argsstring>
         <name>color</name>
-        <initializer>= <ref refid="structeuphoria_1_1core_1_1rgb" kindref="compound">core::rgb</ref>(1.0f)</initializer>
+        <initializer>= <ref refid="structeuphoria_1_1core_1_1Rgb" kindref="compound">core::Rgb</ref>(1.0f)</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -162,27 +162,27 @@
         <label>euphoria::render::Sprite</label>
         <link refid="structeuphoria_1_1render_1_1Sprite"/>
         <childnode refid="2" relation="usage">
-          <edgelabel>position</edgelabel>
+          <edgelabel>color</edgelabel>
         </childnode>
         <childnode refid="3" relation="usage">
-          <edgelabel>rotation</edgelabel>
+          <edgelabel>position</edgelabel>
         </childnode>
         <childnode refid="4" relation="usage">
           <edgelabel>scale</edgelabel>
         </childnode>
         <childnode refid="5" relation="usage">
-          <edgelabel>color</edgelabel>
+          <edgelabel>rotation</edgelabel>
         </childnode>
       </node>
+      <node id="2">
+        <label>euphoria::core::Rgb</label>
+        <link refid="structeuphoria_1_1core_1_1Rgb"/>
+      </node>
       <node id="5">
-        <label>euphoria::core::rgb</label>
-        <link refid="structeuphoria_1_1core_1_1rgb"/>
+        <label>euphoria::core::Angle</label>
+        <link refid="structeuphoria_1_1core_1_1Angle"/>
       </node>
       <node id="3">
-        <label>euphoria::core::angle</label>
-        <link refid="structeuphoria_1_1core_1_1angle"/>
-      </node>
-      <node id="2">
         <label>euphoria::core::vec2f</label>
         <link refid="structeuphoria_1_1core_1_1vec2f"/>
       </node>
@@ -194,12 +194,12 @@
     <location file="libs/render/src/render/sprite.h" line="16" column="5" bodyfile="libs/render/src/render/sprite.h" bodystart="17" bodyend="35"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1render_1_1Sprite_1af1955f9600e2b0e7aa36824f8cd2b147" prot="public" virt="non-virtual"><scope>euphoria::render::Sprite</scope><name>alpha</name></member>
-      <member refid="structeuphoria_1_1render_1_1Sprite_1a1d2a5441d0cb933de90df9c1218f7f82" prot="public" virt="non-virtual"><scope>euphoria::render::Sprite</scope><name>color</name></member>
+      <member refid="structeuphoria_1_1render_1_1Sprite_1af91a510f0a8c0978116b80b14dea48e7" prot="public" virt="non-virtual"><scope>euphoria::render::Sprite</scope><name>color</name></member>
       <member refid="structeuphoria_1_1render_1_1Sprite_1a851ad69baebf770d2bb3cafdb6a193c0" prot="public" virt="non-virtual"><scope>euphoria::render::Sprite</scope><name>get_height</name></member>
       <member refid="structeuphoria_1_1render_1_1Sprite_1afe0614b1642f727489839778886dbd87" prot="public" virt="non-virtual"><scope>euphoria::render::Sprite</scope><name>get_width</name></member>
       <member refid="structeuphoria_1_1render_1_1Sprite_1a997f4f231369cdadf8d47bf7e2c863ca" prot="public" virt="non-virtual"><scope>euphoria::render::Sprite</scope><name>position</name></member>
       <member refid="structeuphoria_1_1render_1_1Sprite_1a08e39520d28b9027358dfafbb6a9e153" prot="public" virt="non-virtual"><scope>euphoria::render::Sprite</scope><name>render</name></member>
-      <member refid="structeuphoria_1_1render_1_1Sprite_1a36c06e375b90ea32cd30439a221c7336" prot="public" virt="non-virtual"><scope>euphoria::render::Sprite</scope><name>rotation</name></member>
+      <member refid="structeuphoria_1_1render_1_1Sprite_1a41a1e731ac5ab7dd4bdb4c2f834fbdd1" prot="public" virt="non-virtual"><scope>euphoria::render::Sprite</scope><name>rotation</name></member>
       <member refid="structeuphoria_1_1render_1_1Sprite_1a75f49d2c60f693d0a0800b583f9aae24" prot="public" virt="non-virtual"><scope>euphoria::render::Sprite</scope><name>scale</name></member>
       <member refid="structeuphoria_1_1render_1_1Sprite_1a3dc47cad77389bd2e4b108a2a118e998" prot="public" virt="non-virtual"><scope>euphoria::render::Sprite</scope><name>Sprite</name></member>
       <member refid="structeuphoria_1_1render_1_1Sprite_1a3ad2416469dc1e762c98932b9e4372ce" prot="public" virt="non-virtual"><scope>euphoria::render::Sprite</scope><name>texture</name></member>

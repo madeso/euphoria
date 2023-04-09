@@ -196,6 +196,10 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
+      <node id="3">
+        <label>euphoria::core::Rgb</label>
+        <link refid="structeuphoria_1_1core_1_1Rgb"/>
+      </node>
       <node id="1">
         <label>euphoria::gui::Skin</label>
         <link refid="structeuphoria_1_1gui_1_1Skin"/>
@@ -206,10 +210,6 @@
         </childnode>
       </node>
       <node id="4">
-        <label>euphoria::core::rgb</label>
-        <link refid="structeuphoria_1_1core_1_1rgb"/>
-      </node>
-      <node id="3">
         <label>euphoria::gui::Interpolation</label>
         <link refid="structeuphoria_1_1gui_1_1Interpolation"/>
       </node>
@@ -217,13 +217,13 @@
         <label>euphoria::gui::ButtonState</label>
         <link refid="structeuphoria_1_1gui_1_1ButtonState"/>
         <childnode refid="3" relation="usage">
+          <edgelabel>image_color</edgelabel>
+          <edgelabel>text_color</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
           <edgelabel>interpolation_color</edgelabel>
           <edgelabel>interpolation_position</edgelabel>
           <edgelabel>interpolation_size</edgelabel>
-        </childnode>
-        <childnode refid="4" relation="usage">
-          <edgelabel>image_color</edgelabel>
-          <edgelabel>text_color</edgelabel>
         </childnode>
       </node>
     </collaborationgraph>

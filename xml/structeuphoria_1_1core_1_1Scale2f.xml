@@ -100,13 +100,13 @@
         </inbodydescription>
         <location file="libs/core/src/core/vec2.h" line="145" column="15" bodyfile="libs/core/src/core/vec2.cc" bodystart="269" bodyend="272"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Scale2f_1a8133dff14b41ee91add5290a4ab91572" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Scale2f_1ac4b0d1cb3ef920f59b81fc84e46b41d0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1Scale2f" kindref="compound">Scale2f</ref></type>
         <definition>Scale2f euphoria::core::Scale2f::get_rotated</definition>
-        <argsstring>(const angle &amp;a) const</argsstring>
+        <argsstring>(const Angle &amp;a) const</argsstring>
         <name>get_rotated</name>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1angle" kindref="compound">angle</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Angle" kindref="compound">Angle</ref> &amp;</type>
           <declname>a</declname>
         </param>
         <briefdescription>
@@ -166,7 +166,7 @@
       <member refid="structeuphoria_1_1core_1_1Scale2f_1a9fcb373cc124fddab797ec8c57e8133a" prot="public" virt="non-virtual"><scope>euphoria::core::Scale2f</scope><name>get_data_ptr</name></member>
       <member refid="structeuphoria_1_1core_1_1Scale2f_1a4628e16161b17eae79b904688814e25b" prot="public" virt="non-virtual"><scope>euphoria::core::Scale2f</scope><name>get_data_ptr</name></member>
       <member refid="structeuphoria_1_1core_1_1Scale2f_1ade0590208a913821378cfe267586132a" prot="public" virt="non-virtual"><scope>euphoria::core::Scale2f</scope><name>get_flipped_y</name></member>
-      <member refid="structeuphoria_1_1core_1_1Scale2f_1a8133dff14b41ee91add5290a4ab91572" prot="public" virt="non-virtual"><scope>euphoria::core::Scale2f</scope><name>get_rotated</name></member>
+      <member refid="structeuphoria_1_1core_1_1Scale2f_1ac4b0d1cb3ef920f59b81fc84e46b41d0" prot="public" virt="non-virtual"><scope>euphoria::core::Scale2f</scope><name>get_rotated</name></member>
       <member refid="structeuphoria_1_1core_1_1Scale2f_1aa70707cf3db4f81d13c3fb21be721b7a" prot="public" virt="non-virtual"><scope>euphoria::core::Scale2f</scope><name>operator-</name></member>
       <member refid="structeuphoria_1_1core_1_1Scale2f_1a63fced704ab59488054b713d4a6acca0" prot="public" virt="non-virtual"><scope>euphoria::core::Scale2f</scope><name>operator==</name></member>
       <member refid="structeuphoria_1_1core_1_1Scale2f_1a0cfd95f659da07d742422a339b830574" prot="public" virt="non-virtual"><scope>euphoria::core::Scale2f</scope><name>Scale2f</name></member>

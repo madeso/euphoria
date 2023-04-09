@@ -262,8 +262,8 @@
         <link refid="structeuphoria_1_1core_1_1detail_1_1EditorCameraState3"/>
       </node>
       <node id="5">
-        <label>euphoria::core::angle</label>
-        <link refid="structeuphoria_1_1core_1_1angle"/>
+        <label>euphoria::core::Angle</label>
+        <link refid="structeuphoria_1_1core_1_1Angle"/>
       </node>
       <node id="1">
         <label>euphoria::core::detail::LerpCamera</label>

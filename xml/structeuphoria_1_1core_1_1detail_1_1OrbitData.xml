@@ -42,9 +42,9 @@
         </inbodydescription>
         <location file="libs/core/src/core/camera3.editor.cc" line="94" column="19" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="94" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeuphoria_1_1core_1_1detail_1_1OrbitData_1a03f58db0113f44f6f25ff2cff6a3b5b1" prot="public" static="no" mutable="no">
-        <type><ref refid="structeuphoria_1_1core_1_1angle" kindref="compound">angle</ref></type>
-        <definition>angle euphoria::core::detail::OrbitData::rotation_angle</definition>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1detail_1_1OrbitData_1a05ad892438e91011fb57f7927d9e08e7" prot="public" static="no" mutable="no">
+        <type><ref refid="structeuphoria_1_1core_1_1Angle" kindref="compound">Angle</ref></type>
+        <definition>Angle euphoria::core::detail::OrbitData::rotation_angle</definition>
         <argsstring></argsstring>
         <name>rotation_angle</name>
         <briefdescription>
@@ -55,9 +55,9 @@
         </inbodydescription>
         <location file="libs/core/src/core/camera3.editor.cc" line="95" column="19" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="95" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeuphoria_1_1core_1_1detail_1_1OrbitData_1a85e891cc046158c06fbadd903cdd233d" prot="public" static="no" mutable="no">
-        <type><ref refid="structeuphoria_1_1core_1_1angle" kindref="compound">angle</ref></type>
-        <definition>angle euphoria::core::detail::OrbitData::look_angle</definition>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1detail_1_1OrbitData_1ac59268d7732d03ddc228b0be6fc7d741" prot="public" static="no" mutable="no">
+        <type><ref refid="structeuphoria_1_1core_1_1Angle" kindref="compound">Angle</ref></type>
+        <definition>Angle euphoria::core::detail::OrbitData::look_angle</definition>
         <argsstring></argsstring>
         <name>look_angle</name>
         <briefdescription>
@@ -97,6 +97,10 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
+      <node id="3">
+        <label>euphoria::core::Angle</label>
+        <link refid="structeuphoria_1_1core_1_1Angle"/>
+      </node>
       <node id="1">
         <label>euphoria::core::detail::OrbitData</label>
         <link refid="structeuphoria_1_1core_1_1detail_1_1OrbitData"/>
@@ -108,10 +112,6 @@
           <edgelabel>rotation_angle</edgelabel>
         </childnode>
       </node>
-      <node id="3">
-        <label>euphoria::core::angle</label>
-        <link refid="structeuphoria_1_1core_1_1angle"/>
-      </node>
       <node id="2">
         <label>euphoria::core::vec3f</label>
         <link refid="structeuphoria_1_1core_1_1vec3f"/>
@@ -121,9 +121,9 @@
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1detail_1_1OrbitData_1ad0a3ff44e9f955fd15fe06e0a4f13650" prot="public" virt="non-virtual"><scope>euphoria::core::detail::OrbitData</scope><name>center</name></member>
       <member refid="structeuphoria_1_1core_1_1detail_1_1OrbitData_1a0a62ae7be0846c8ed9ff80abc662f409" prot="public" virt="non-virtual"><scope>euphoria::core::detail::OrbitData</scope><name>distance</name></member>
-      <member refid="structeuphoria_1_1core_1_1detail_1_1OrbitData_1a85e891cc046158c06fbadd903cdd233d" prot="public" virt="non-virtual"><scope>euphoria::core::detail::OrbitData</scope><name>look_angle</name></member>
+      <member refid="structeuphoria_1_1core_1_1detail_1_1OrbitData_1ac59268d7732d03ddc228b0be6fc7d741" prot="public" virt="non-virtual"><scope>euphoria::core::detail::OrbitData</scope><name>look_angle</name></member>
       <member refid="structeuphoria_1_1core_1_1detail_1_1OrbitData_1a7d71ddff1936560abbe4cf4665ef70bc" prot="public" virt="non-virtual"><scope>euphoria::core::detail::OrbitData</scope><name>OrbitData</name></member>
-      <member refid="structeuphoria_1_1core_1_1detail_1_1OrbitData_1a03f58db0113f44f6f25ff2cff6a3b5b1" prot="public" virt="non-virtual"><scope>euphoria::core::detail::OrbitData</scope><name>rotation_angle</name></member>
+      <member refid="structeuphoria_1_1core_1_1detail_1_1OrbitData_1a05ad892438e91011fb57f7927d9e08e7" prot="public" virt="non-virtual"><scope>euphoria::core::detail::OrbitData</scope><name>rotation_angle</name></member>
       <member refid="structeuphoria_1_1core_1_1detail_1_1OrbitData_1a2bbfabffa51cec638f1f0a56f05f5c72" prot="public" virt="non-virtual"><scope>euphoria::core::detail::OrbitData</scope><name>valid</name></member>
     </listofallmembers>
   </compounddef>

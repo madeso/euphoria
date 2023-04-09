@@ -224,13 +224,13 @@
         </inbodydescription>
         <location file="libs/core/src/core/mat4.h" line="42" column="23" bodyfile="libs/core/src/core/mat4.cc" bodystart="51" bodyend="62"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1mat4f_1a96d22d1270c7d652766dde22d42867af" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1mat4f_1a4a31e7980b25173d844d1d4438149228" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1mat4f" kindref="compound">mat4f</ref></type>
         <definition>mat4f euphoria::core::mat4f::from_rot_x</definition>
-        <argsstring>(const angle &amp;a)</argsstring>
+        <argsstring>(const Angle &amp;a)</argsstring>
         <name>from_rot_x</name>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1angle" kindref="compound">angle</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Angle" kindref="compound">Angle</ref> &amp;</type>
           <declname>a</declname>
         </param>
         <briefdescription>
@@ -241,13 +241,13 @@
         </inbodydescription>
         <location file="libs/core/src/core/mat4.h" line="43" column="23" bodyfile="libs/core/src/core/mat4.cc" bodystart="102" bodyend="113"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1mat4f_1a4c0f0a54c08fe0d5f234b450b5858b13" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1mat4f_1ac3c0f6abcdee3a34c6c1baf5ffd02668" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1mat4f" kindref="compound">mat4f</ref></type>
         <definition>mat4f euphoria::core::mat4f::from_rot_y</definition>
-        <argsstring>(const angle &amp;a)</argsstring>
+        <argsstring>(const Angle &amp;a)</argsstring>
         <name>from_rot_y</name>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1angle" kindref="compound">angle</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Angle" kindref="compound">Angle</ref> &amp;</type>
           <declname>a</declname>
         </param>
         <briefdescription>
@@ -258,13 +258,13 @@
         </inbodydescription>
         <location file="libs/core/src/core/mat4.h" line="44" column="23" bodyfile="libs/core/src/core/mat4.cc" bodystart="116" bodyend="127"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1mat4f_1a69531aa4e724cd82ac9d251e5ccef760" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1mat4f_1af91d97d3553fd92e87d654d2ef1b98f2" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1mat4f" kindref="compound">mat4f</ref></type>
         <definition>mat4f euphoria::core::mat4f::from_rot_z</definition>
-        <argsstring>(const angle &amp;a)</argsstring>
+        <argsstring>(const Angle &amp;a)</argsstring>
         <name>from_rot_z</name>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1angle" kindref="compound">angle</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Angle" kindref="compound">Angle</ref> &amp;</type>
           <declname>a</declname>
         </param>
         <briefdescription>
@@ -329,13 +329,13 @@
         </inbodydescription>
         <location file="libs/core/src/core/mat4.h" line="47" column="23" bodyfile="libs/core/src/core/mat4.cc" bodystart="395" bodyend="405"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1mat4f_1a4b848fda28dab124784ce3975c28c8c7" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1mat4f_1a9d86b7560f8a1841c563418c6b02bcc0" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1mat4f" kindref="compound">mat4f</ref></type>
         <definition>mat4f euphoria::core::mat4f::create_perspective</definition>
-        <argsstring>(const angle &amp;fov, float a, float near, float far)</argsstring>
+        <argsstring>(const Angle &amp;fov, float a, float near, float far)</argsstring>
         <name>create_perspective</name>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1angle" kindref="compound">angle</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Angle" kindref="compound">Angle</ref> &amp;</type>
           <declname>fov</declname>
         </param>
         <param>
@@ -934,14 +934,14 @@
     <location file="libs/core/src/core/mat4.h" line="13" column="5" bodyfile="libs/core/src/core/mat4.h" bodystart="14" bodyend="119"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1mat4f_1a5f3b9c2283ecc5b435ff07ceff18d8ff" prot="public" virt="non-virtual"><scope>euphoria::core::mat4f</scope><name>create_ortho</name></member>
-      <member refid="structeuphoria_1_1core_1_1mat4f_1a4b848fda28dab124784ce3975c28c8c7" prot="public" virt="non-virtual"><scope>euphoria::core::mat4f</scope><name>create_perspective</name></member>
+      <member refid="structeuphoria_1_1core_1_1mat4f_1a9d86b7560f8a1841c563418c6b02bcc0" prot="public" virt="non-virtual"><scope>euphoria::core::mat4f</scope><name>create_perspective</name></member>
       <member refid="structeuphoria_1_1core_1_1mat4f_1a85bf3b5fd7d6e1e81519ade4115e5ec3" prot="private" virt="non-virtual"><scope>euphoria::core::mat4f</scope><name>data</name></member>
       <member refid="structeuphoria_1_1core_1_1mat4f_1a8a98e4f25112a67b1ade73da8ccac413" prot="public" virt="non-virtual"><scope>euphoria::core::mat4f</scope><name>from_axis_angle</name></member>
       <member refid="structeuphoria_1_1core_1_1mat4f_1a9008aa53858089fe6f24f8a4c3f5f58d" prot="public" virt="non-virtual"><scope>euphoria::core::mat4f</scope><name>from_col_major</name></member>
       <member refid="structeuphoria_1_1core_1_1mat4f_1a9442e65cf672713a98273f35448188bc" prot="public" virt="non-virtual"><scope>euphoria::core::mat4f</scope><name>from_major</name></member>
-      <member refid="structeuphoria_1_1core_1_1mat4f_1a96d22d1270c7d652766dde22d42867af" prot="public" virt="non-virtual"><scope>euphoria::core::mat4f</scope><name>from_rot_x</name></member>
-      <member refid="structeuphoria_1_1core_1_1mat4f_1a4c0f0a54c08fe0d5f234b450b5858b13" prot="public" virt="non-virtual"><scope>euphoria::core::mat4f</scope><name>from_rot_y</name></member>
-      <member refid="structeuphoria_1_1core_1_1mat4f_1a69531aa4e724cd82ac9d251e5ccef760" prot="public" virt="non-virtual"><scope>euphoria::core::mat4f</scope><name>from_rot_z</name></member>
+      <member refid="structeuphoria_1_1core_1_1mat4f_1a4a31e7980b25173d844d1d4438149228" prot="public" virt="non-virtual"><scope>euphoria::core::mat4f</scope><name>from_rot_x</name></member>
+      <member refid="structeuphoria_1_1core_1_1mat4f_1ac3c0f6abcdee3a34c6c1baf5ffd02668" prot="public" virt="non-virtual"><scope>euphoria::core::mat4f</scope><name>from_rot_y</name></member>
+      <member refid="structeuphoria_1_1core_1_1mat4f_1af91d97d3553fd92e87d654d2ef1b98f2" prot="public" virt="non-virtual"><scope>euphoria::core::mat4f</scope><name>from_rot_z</name></member>
       <member refid="structeuphoria_1_1core_1_1mat4f_1a861725c24d49ff39b5fdbefdc70aaa02" prot="public" virt="non-virtual"><scope>euphoria::core::mat4f</scope><name>from_row_major</name></member>
       <member refid="structeuphoria_1_1core_1_1mat4f_1ad553de87d80156a717b97f734d706819" prot="public" virt="non-virtual"><scope>euphoria::core::mat4f</scope><name>from_scalar</name></member>
       <member refid="structeuphoria_1_1core_1_1mat4f_1a54bdef98460ba322e0ab3c8e5d6bb0ef" prot="public" virt="non-virtual"><scope>euphoria::core::mat4f</scope><name>from_scale</name></member>

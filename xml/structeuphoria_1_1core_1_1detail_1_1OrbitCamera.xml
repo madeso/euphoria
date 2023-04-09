@@ -443,6 +443,10 @@
         <label>euphoria::core::detail::EditorCameraState3</label>
         <link refid="structeuphoria_1_1core_1_1detail_1_1EditorCameraState3"/>
       </node>
+      <node id="8">
+        <label>euphoria::core::Angle</label>
+        <link refid="structeuphoria_1_1core_1_1Angle"/>
+      </node>
       <node id="1">
         <label>euphoria::core::detail::OrbitCamera</label>
         <link refid="structeuphoria_1_1core_1_1detail_1_1OrbitCamera"/>
@@ -473,10 +477,6 @@
         <childnode refid="10" relation="usage">
           <edgelabel>bounds</edgelabel>
         </childnode>
-      </node>
-      <node id="8">
-        <label>euphoria::core::angle</label>
-        <link refid="structeuphoria_1_1core_1_1angle"/>
       </node>
       <node id="3">
         <label>euphoria::core::CompiledCamera3</label>

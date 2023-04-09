@@ -17,9 +17,9 @@
         </inbodydescription>
         <location file="libs/core/src/core/lines.h" line="13" column="15" bodyfile="libs/core/src/core/lines.h" bodystart="13" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeuphoria_1_1core_1_1LinePoint_1aa341ded84be56277e120c216a08fe015" prot="public" static="no" mutable="no">
-        <type><ref refid="structeuphoria_1_1core_1_1rgb" kindref="compound">rgb</ref></type>
-        <definition>rgb euphoria::core::LinePoint::color</definition>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1LinePoint_1a7293caf27ee9de8d8199816e11eaea6d" prot="public" static="no" mutable="no">
+        <type><ref refid="structeuphoria_1_1core_1_1Rgb" kindref="compound">Rgb</ref></type>
+        <definition>Rgb euphoria::core::LinePoint::color</definition>
         <argsstring></argsstring>
         <name>color</name>
         <briefdescription>
@@ -32,17 +32,17 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1LinePoint_1aad67bfd9856389f13d89bfec9214d4bb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1LinePoint_1a2121a452f14499caa001186c1b55a1bc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>euphoria::core::LinePoint::LinePoint</definition>
-        <argsstring>(const vec3f &amp;p, const rgb &amp;c)</argsstring>
+        <argsstring>(const vec3f &amp;p, const Rgb &amp;c)</argsstring>
         <name>LinePoint</name>
         <param>
           <type>const <ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
           <declname>p</declname>
         </param>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1rgb" kindref="compound">rgb</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Rgb" kindref="compound">Rgb</ref> &amp;</type>
           <declname>c</declname>
         </param>
         <briefdescription>
@@ -59,29 +59,29 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-      <node id="3">
-        <label>euphoria::core::rgb</label>
-        <link refid="structeuphoria_1_1core_1_1rgb"/>
+      <node id="2">
+        <label>euphoria::core::Rgb</label>
+        <link refid="structeuphoria_1_1core_1_1Rgb"/>
       </node>
       <node id="1">
         <label>euphoria::core::LinePoint</label>
         <link refid="structeuphoria_1_1core_1_1LinePoint"/>
         <childnode refid="2" relation="usage">
-          <edgelabel>point</edgelabel>
-        </childnode>
-        <childnode refid="3" relation="usage">
           <edgelabel>color</edgelabel>
         </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>point</edgelabel>
+        </childnode>
       </node>
-      <node id="2">
+      <node id="3">
         <label>euphoria::core::vec3f</label>
         <link refid="structeuphoria_1_1core_1_1vec3f"/>
       </node>
     </collaborationgraph>
     <location file="libs/core/src/core/lines.h" line="11" column="5" bodyfile="libs/core/src/core/lines.h" bodystart="12" bodyend="17"/>
     <listofallmembers>
-      <member refid="structeuphoria_1_1core_1_1LinePoint_1aa341ded84be56277e120c216a08fe015" prot="public" virt="non-virtual"><scope>euphoria::core::LinePoint</scope><name>color</name></member>
-      <member refid="structeuphoria_1_1core_1_1LinePoint_1aad67bfd9856389f13d89bfec9214d4bb" prot="public" virt="non-virtual"><scope>euphoria::core::LinePoint</scope><name>LinePoint</name></member>
+      <member refid="structeuphoria_1_1core_1_1LinePoint_1a7293caf27ee9de8d8199816e11eaea6d" prot="public" virt="non-virtual"><scope>euphoria::core::LinePoint</scope><name>color</name></member>
+      <member refid="structeuphoria_1_1core_1_1LinePoint_1a2121a452f14499caa001186c1b55a1bc" prot="public" virt="non-virtual"><scope>euphoria::core::LinePoint</scope><name>LinePoint</name></member>
       <member refid="structeuphoria_1_1core_1_1LinePoint_1ab164866337baa7a9f36ab84336dc4cd9" prot="public" virt="non-virtual"><scope>euphoria::core::LinePoint</scope><name>point</name></member>
     </listofallmembers>
   </compounddef>

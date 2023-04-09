@@ -38,9 +38,9 @@
         </inbodydescription>
         <location file="libs/core/src/core/raytracer.cc" line="80" column="5" bodyfile="libs/core/src/core/raytracer.cc" bodystart="81" bodyend="93"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1raytracer_1ab7db55bd0459487e48ca52676ad41e22" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeuphoria_1_1core_1_1rgb" kindref="compound">rgb</ref></type>
-        <definition>rgb euphoria::core::raytracer::to_rgb</definition>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1raytracer_1a4481302286c388f9d1438b4920b5a252" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1Rgb" kindref="compound">Rgb</ref></type>
+        <definition>Rgb euphoria::core::raytracer::to_rgb</definition>
         <argsstring>(const unit3f &amp;normal)</argsstring>
         <name>to_rgb</name>
         <param>
@@ -139,13 +139,13 @@
         </inbodydescription>
         <location file="libs/core/src/core/raytracer.cc" line="248" column="5" bodyfile="libs/core/src/core/raytracer.cc" bodystart="248" bodyend="255"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1raytracer_1afaa38b089e3fc39a69ba2bb7dcc1c33f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1raytracer_1a5acb81fc208a1ece375fb61a021e9e2d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::shared_ptr&lt; <ref refid="structeuphoria_1_1core_1_1raytracer_1_1Material" kindref="compound">Material</ref> &gt;</type>
         <definition>std::shared_ptr&lt; Material &gt; euphoria::core::raytracer::create_diffuse_material</definition>
-        <argsstring>(const rgb &amp;albedo)</argsstring>
+        <argsstring>(const Rgb &amp;albedo)</argsstring>
         <name>create_diffuse_material</name>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1rgb" kindref="compound">rgb</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Rgb" kindref="compound">Rgb</ref> &amp;</type>
           <declname>albedo</declname>
         </param>
         <briefdescription>
@@ -156,13 +156,13 @@
         </inbodydescription>
         <location file="libs/core/src/core/raytracer.cc" line="328" column="5" bodyfile="libs/core/src/core/raytracer.cc" bodystart="329" bodyend="337" declfile="libs/core/src/core/raytracer.h" declline="90" declcolumn="25"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1raytracer_1a256bb53fc6724684e0766eb5532ec568" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1raytracer_1aae2232ae7b585be99ca2794cd73e0c46" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::shared_ptr&lt; <ref refid="structeuphoria_1_1core_1_1raytracer_1_1Material" kindref="compound">Material</ref> &gt;</type>
         <definition>std::shared_ptr&lt; Material &gt; euphoria::core::raytracer::create_metal_material</definition>
-        <argsstring>(const rgb &amp;albedo, float fuzz)</argsstring>
+        <argsstring>(const Rgb &amp;albedo, float fuzz)</argsstring>
         <name>create_metal_material</name>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1rgb" kindref="compound">rgb</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Rgb" kindref="compound">Rgb</ref> &amp;</type>
           <declname>albedo</declname>
         </param>
         <param>
@@ -177,13 +177,13 @@
         </inbodydescription>
         <location file="libs/core/src/core/raytracer.cc" line="341" column="5" bodyfile="libs/core/src/core/raytracer.cc" bodystart="342" bodyend="352" declfile="libs/core/src/core/raytracer.h" declline="96" declcolumn="25"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1raytracer_1a40e7ae3408e08ce84920c293bc646a04" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1raytracer_1aabd1074be0f22402945eb0586f8d536c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::shared_ptr&lt; <ref refid="structeuphoria_1_1core_1_1raytracer_1_1Material" kindref="compound">Material</ref> &gt;</type>
         <definition>std::shared_ptr&lt; Material &gt; euphoria::core::raytracer::create_dielectric_material</definition>
-        <argsstring>(const rgb &amp;albedo, float refractive_index)</argsstring>
+        <argsstring>(const Rgb &amp;albedo, float refractive_index)</argsstring>
         <name>create_dielectric_material</name>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1rgb" kindref="compound">rgb</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Rgb" kindref="compound">Rgb</ref> &amp;</type>
           <declname>albedo</declname>
         </param>
         <param>
@@ -198,9 +198,9 @@
         </inbodydescription>
         <location file="libs/core/src/core/raytracer.cc" line="356" column="5" bodyfile="libs/core/src/core/raytracer.cc" bodystart="357" bodyend="367" declfile="libs/core/src/core/raytracer.h" declline="104" declcolumn="25"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1raytracer_1a286dfbfda49ede1c12ab66c9f7a3edca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeuphoria_1_1core_1_1rgb" kindref="compound">rgb</ref></type>
-        <definition>rgb euphoria::core::raytracer::get_color</definition>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1raytracer_1ad6491e8b7ce2906c2f7f7b6c33e7bbf9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1Rgb" kindref="compound">Rgb</ref></type>
+        <definition>Rgb euphoria::core::raytracer::get_color</definition>
         <argsstring>(const Scene &amp;scene, const UnitRay3f &amp;ray, Random *random, int depth)</argsstring>
         <name>get_color</name>
         <param>
@@ -227,13 +227,13 @@
         </inbodydescription>
         <location file="libs/core/src/core/raytracer.cc" line="371" column="5" bodyfile="libs/core/src/core/raytracer.cc" bodystart="372" bodyend="422"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1raytracer_1ab36e790cfeb1c8bda167f7cc9b113e60" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeuphoria_1_1core_1_1rgb" kindref="compound">rgb</ref></type>
-        <definition>rgb euphoria::core::raytracer::correct_color_using_gamma2</definition>
-        <argsstring>(rgb color)</argsstring>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1raytracer_1a4e2ce6ecf83e252536c7eb11a6dfd328" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1Rgb" kindref="compound">Rgb</ref></type>
+        <definition>Rgb euphoria::core::raytracer::correct_color_using_gamma2</definition>
+        <argsstring>(const Rgb &amp;color)</argsstring>
         <name>correct_color_using_gamma2</name>
         <param>
-          <type><ref refid="structeuphoria_1_1core_1_1rgb" kindref="compound">rgb</ref></type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Rgb" kindref="compound">Rgb</ref> &amp;</type>
           <declname>color</declname>
         </param>
         <briefdescription>

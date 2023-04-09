@@ -951,23 +951,23 @@
         <link refid="materialshader_8cc"/>
       </node>
     </invincdepgraph>
-    <innerclass refid="structeuphoria_1_1core_1_1rgbi" prot="public">euphoria::core::rgbi</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1rgbai" prot="public">euphoria::core::rgbai</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1rgb" prot="public">euphoria::core::rgb</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1Rgbi" prot="public">euphoria::core::Rgbi</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1Rgbai" prot="public">euphoria::core::Rgbai</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1Rgb" prot="public">euphoria::core::Rgb</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1Hsl" prot="public">euphoria::core::Hsl</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1rgba" prot="public">euphoria::core::rgba</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1CustomArgparser_3_01rgbi_01_4" prot="public">euphoria::core::CustomArgparser&lt; rgbi &gt;</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1Rgba" prot="public">euphoria::core::Rgba</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1CustomArgparser_3_01Rgbi_01_4" prot="public">euphoria::core::CustomArgparser&lt; Rgbi &gt;</innerclass>
     <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
     <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
     <innernamespace refid="namespaceeuphoria_1_1core_1_1colorutil">euphoria::core::colorutil</innernamespace>
       <sectiondef kind="func">
-      <memberdef kind="function" id="rgb_8h_1ae232e37e69b4da43c69e9e128de045b0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="rgb_8h_1a628ffa91208747f79220f02acdf34d47" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>ADD_DEFAULT_FORMATTER</definition>
-        <argsstring>(euphoria::core::rgbi, std::string, euphoria::core::to_string)</argsstring>
+        <argsstring>(euphoria::core::Rgbi, std::string, euphoria::core::to_string)</argsstring>
         <name>ADD_DEFAULT_FORMATTER</name>
         <param>
-          <type><ref refid="structeuphoria_1_1core_1_1rgbi" kindref="compound">euphoria::core::rgbi</ref></type>
+          <type><ref refid="structeuphoria_1_1core_1_1Rgbi" kindref="compound">euphoria::core::Rgbi</ref></type>
         </param>
         <param>
           <type>std::string</type>
@@ -983,13 +983,13 @@
         </inbodydescription>
         <location file="libs/core/src/core/rgb.h" line="425" column="1" declfile="libs/core/src/core/rgb.h" declline="425" declcolumn="1"/>
       </memberdef>
-      <memberdef kind="function" id="rgb_8h_1a988627519bcce672d55ed2d0754e7b4f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="rgb_8h_1a7f82da6dc752de34c067b60097f18e31" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>ADD_DEFAULT_FORMATTER</definition>
-        <argsstring>(euphoria::core::rgbai, std::string, euphoria::core::to_string)</argsstring>
+        <argsstring>(euphoria::core::Rgbai, std::string, euphoria::core::to_string)</argsstring>
         <name>ADD_DEFAULT_FORMATTER</name>
         <param>
-          <type><ref refid="structeuphoria_1_1core_1_1rgbai" kindref="compound">euphoria::core::rgbai</ref></type>
+          <type><ref refid="structeuphoria_1_1core_1_1Rgbai" kindref="compound">euphoria::core::Rgbai</ref></type>
         </param>
         <param>
           <type>std::string</type>
@@ -1005,13 +1005,13 @@
         </inbodydescription>
         <location file="libs/core/src/core/rgb.h" line="426" column="1" declfile="libs/core/src/core/rgb.h" declline="426" declcolumn="1"/>
       </memberdef>
-      <memberdef kind="function" id="rgb_8h_1a27d2c81fc91ef63dfb3cc187669118df" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="rgb_8h_1a3479fabb48f153fa6dddb147d19b3829" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>ADD_DEFAULT_FORMATTER</definition>
-        <argsstring>(euphoria::core::rgb, std::string, euphoria::core::to_string)</argsstring>
+        <argsstring>(euphoria::core::Rgb, std::string, euphoria::core::to_string)</argsstring>
         <name>ADD_DEFAULT_FORMATTER</name>
         <param>
-          <type><ref refid="structeuphoria_1_1core_1_1rgb" kindref="compound">euphoria::core::rgb</ref></type>
+          <type><ref refid="structeuphoria_1_1core_1_1Rgb" kindref="compound">euphoria::core::Rgb</ref></type>
         </param>
         <param>
           <type>std::string</type>
@@ -1027,13 +1027,13 @@
         </inbodydescription>
         <location file="libs/core/src/core/rgb.h" line="427" column="1" declfile="libs/core/src/core/rgb.h" declline="427" declcolumn="1"/>
       </memberdef>
-      <memberdef kind="function" id="rgb_8h_1ae37370f9fb59e910db328c27df420fa0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="rgb_8h_1a63d4d59f1f22f0bedde2fde688c7d9af" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>ADD_DEFAULT_FORMATTER</definition>
-        <argsstring>(euphoria::core::rgba, std::string, euphoria::core::to_string)</argsstring>
+        <argsstring>(euphoria::core::Rgba, std::string, euphoria::core::to_string)</argsstring>
         <name>ADD_DEFAULT_FORMATTER</name>
         <param>
-          <type><ref refid="structeuphoria_1_1core_1_1rgba" kindref="compound">euphoria::core::rgba</ref></type>
+          <type><ref refid="structeuphoria_1_1core_1_1Rgba" kindref="compound">euphoria::core::Rgba</ref></type>
         </param>
         <param>
           <type>std::string</type>

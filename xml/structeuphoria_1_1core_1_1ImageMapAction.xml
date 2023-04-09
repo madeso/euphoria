@@ -17,9 +17,9 @@
         </inbodydescription>
         <location file="libs/core/src/core/image_to_text.h" line="19" column="14" bodyfile="libs/core/src/core/image_to_text.h" bodystart="19" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeuphoria_1_1core_1_1ImageMapAction_1a7a2c32977bc2e389a5bf442bca13214b" prot="public" static="no" mutable="no">
-        <type><ref refid="structeuphoria_1_1core_1_1rgbi" kindref="compound">rgbi</ref></type>
-        <definition>rgbi euphoria::core::ImageMapAction::from_color</definition>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1ImageMapAction_1a21a5afe44bb01cc3d823813029db2034" prot="public" static="no" mutable="no">
+        <type><ref refid="structeuphoria_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref></type>
+        <definition>Rgbi euphoria::core::ImageMapAction::from_color</definition>
         <argsstring></argsstring>
         <name>from_color</name>
         <briefdescription>
@@ -36,6 +36,10 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
+      <node id="2">
+        <label>euphoria::core::Rgbi</label>
+        <link refid="structeuphoria_1_1core_1_1Rgbi"/>
+      </node>
       <node id="1">
         <label>euphoria::core::ImageMapAction</label>
         <link refid="structeuphoria_1_1core_1_1ImageMapAction"/>
@@ -43,14 +47,10 @@
           <edgelabel>from_color</edgelabel>
         </childnode>
       </node>
-      <node id="2">
-        <label>euphoria::core::rgbi</label>
-        <link refid="structeuphoria_1_1core_1_1rgbi"/>
-      </node>
     </collaborationgraph>
     <location file="libs/core/src/core/image_to_text.h" line="17" column="5" bodyfile="libs/core/src/core/image_to_text.h" bodystart="18" bodyend="21"/>
     <listofallmembers>
-      <member refid="structeuphoria_1_1core_1_1ImageMapAction_1a7a2c32977bc2e389a5bf442bca13214b" prot="public" virt="non-virtual"><scope>euphoria::core::ImageMapAction</scope><name>from_color</name></member>
+      <member refid="structeuphoria_1_1core_1_1ImageMapAction_1a21a5afe44bb01cc3d823813029db2034" prot="public" virt="non-virtual"><scope>euphoria::core::ImageMapAction</scope><name>from_color</name></member>
       <member refid="structeuphoria_1_1core_1_1ImageMapAction_1acf63a0e739e2e2c7f9cbbe69a4a17eca" prot="public" virt="non-virtual"><scope>euphoria::core::ImageMapAction</scope><name>to</name></member>
     </listofallmembers>
   </compounddef>

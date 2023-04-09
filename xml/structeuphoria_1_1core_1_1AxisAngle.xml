@@ -18,9 +18,9 @@
         </inbodydescription>
         <location file="libs/core/src/core/axisangle.h" line="13" column="16" bodyfile="libs/core/src/core/axisangle.h" bodystart="13" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeuphoria_1_1core_1_1AxisAngle_1a3aed066da49bf34561a689431a073b16" prot="public" static="no" mutable="no">
-        <type><ref refid="structeuphoria_1_1core_1_1angle" kindref="compound">core::angle</ref></type>
-        <definition>core::angle euphoria::core::AxisAngle::angle</definition>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1AxisAngle_1a357c6f967461f2046451a21bdf3a3530" prot="public" static="no" mutable="no">
+        <type><ref refid="structeuphoria_1_1core_1_1Angle" kindref="compound">core::Angle</ref></type>
+        <definition>core::Angle euphoria::core::AxisAngle::angle</definition>
         <argsstring></argsstring>
         <name>angle</name>
         <briefdescription>
@@ -34,17 +34,17 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1AxisAngle_1afa3d95eacfb302c10e3eb0f1da16ddd0" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1AxisAngle_1acc758074031c74e0ae10897ed4ff09c3" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1AxisAngle" kindref="compound">AxisAngle</ref></type>
         <definition>AxisAngle euphoria::core::AxisAngle::from_right_hand_around</definition>
-        <argsstring>(const unit3f &amp;axis, const core::angle &amp;angle)</argsstring>
+        <argsstring>(const unit3f &amp;axis, const core::Angle &amp;angle)</argsstring>
         <name>from_right_hand_around</name>
         <param>
           <type>const <ref refid="structeuphoria_1_1core_1_1unit3f" kindref="compound">unit3f</ref> &amp;</type>
           <declname>axis</declname>
         </param>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1angle" kindref="compound">core::angle</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Angle" kindref="compound">core::Angle</ref> &amp;</type>
           <declname>angle</declname>
         </param>
         <briefdescription>
@@ -57,17 +57,17 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1AxisAngle_1a6dbd40dc4751a9e280f0516c6c3bb4db" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1AxisAngle_1aa5f061716771c7ac083e9b364dd7f990" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>euphoria::core::AxisAngle::AxisAngle</definition>
-        <argsstring>(const unit3f &amp;ax, const core::angle &amp;ang)</argsstring>
+        <argsstring>(const unit3f &amp;ax, const core::Angle &amp;ang)</argsstring>
         <name>AxisAngle</name>
         <param>
           <type>const <ref refid="structeuphoria_1_1core_1_1unit3f" kindref="compound">unit3f</ref> &amp;</type>
           <declname>ax</declname>
         </param>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1angle" kindref="compound">core::angle</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Angle" kindref="compound">core::Angle</ref> &amp;</type>
           <declname>ang</declname>
         </param>
         <briefdescription>
@@ -90,6 +90,10 @@
         <childnode refid="4" relation="public-inheritance">
         </childnode>
       </node>
+      <node id="2">
+        <label>euphoria::core::Angle</label>
+        <link refid="structeuphoria_1_1core_1_1Angle"/>
+      </node>
       <node id="1">
         <label>euphoria::core::AxisAngle</label>
         <link refid="structeuphoria_1_1core_1_1AxisAngle"/>
@@ -100,10 +104,6 @@
           <edgelabel>axis</edgelabel>
         </childnode>
       </node>
-      <node id="2">
-        <label>euphoria::core::angle</label>
-        <link refid="structeuphoria_1_1core_1_1angle"/>
-      </node>
       <node id="4">
         <label>euphoria::core::vec3f</label>
         <link refid="structeuphoria_1_1core_1_1vec3f"/>
@@ -111,10 +111,10 @@
     </collaborationgraph>
     <location file="libs/core/src/core/axisangle.h" line="10" column="5" bodyfile="libs/core/src/core/axisangle.h" bodystart="11" bodyend="23"/>
     <listofallmembers>
-      <member refid="structeuphoria_1_1core_1_1AxisAngle_1a3aed066da49bf34561a689431a073b16" prot="public" virt="non-virtual"><scope>euphoria::core::AxisAngle</scope><name>angle</name></member>
+      <member refid="structeuphoria_1_1core_1_1AxisAngle_1a357c6f967461f2046451a21bdf3a3530" prot="public" virt="non-virtual"><scope>euphoria::core::AxisAngle</scope><name>angle</name></member>
       <member refid="structeuphoria_1_1core_1_1AxisAngle_1a8d0d22073bffd85f0c8378d9e646375f" prot="public" virt="non-virtual"><scope>euphoria::core::AxisAngle</scope><name>axis</name></member>
-      <member refid="structeuphoria_1_1core_1_1AxisAngle_1a6dbd40dc4751a9e280f0516c6c3bb4db" prot="private" virt="non-virtual"><scope>euphoria::core::AxisAngle</scope><name>AxisAngle</name></member>
-      <member refid="structeuphoria_1_1core_1_1AxisAngle_1afa3d95eacfb302c10e3eb0f1da16ddd0" prot="public" virt="non-virtual"><scope>euphoria::core::AxisAngle</scope><name>from_right_hand_around</name></member>
+      <member refid="structeuphoria_1_1core_1_1AxisAngle_1aa5f061716771c7ac083e9b364dd7f990" prot="private" virt="non-virtual"><scope>euphoria::core::AxisAngle</scope><name>AxisAngle</name></member>
+      <member refid="structeuphoria_1_1core_1_1AxisAngle_1acc758074031c74e0ae10897ed4ff09c3" prot="public" virt="non-virtual"><scope>euphoria::core::AxisAngle</scope><name>from_right_hand_around</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

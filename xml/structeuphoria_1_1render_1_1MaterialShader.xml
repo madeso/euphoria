@@ -437,21 +437,21 @@
         </inbodydescription>
         <location file="libs/render/src/render/materialshader.h" line="85" column="14" bodyfile="libs/render/src/render/materialshader.cc" bodystart="211" bodyend="233"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1render_1_1MaterialShader_1a4577a4347ccfcbdab0c5f65dad1a54dd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1MaterialShader_1a760106dc580c6505c2e16663a7a23089" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void euphoria::render::MaterialShader::set_colors</definition>
-        <argsstring>(const core::rgb &amp;ambient_data, const core::rgb &amp;diffuse_data, const core::rgb &amp;specular_data, float shininess_data)</argsstring>
+        <argsstring>(const core::Rgb &amp;ambient_data, const core::Rgb &amp;diffuse_data, const core::Rgb &amp;specular_data, float shininess_data)</argsstring>
         <name>set_colors</name>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1rgb" kindref="compound">core::rgb</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Rgb" kindref="compound">core::Rgb</ref> &amp;</type>
           <declname>ambient_data</declname>
         </param>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1rgb" kindref="compound">core::rgb</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Rgb" kindref="compound">core::Rgb</ref> &amp;</type>
           <declname>diffuse_data</declname>
         </param>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1rgb" kindref="compound">core::rgb</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Rgb" kindref="compound">core::Rgb</ref> &amp;</type>
           <declname>specular_data</declname>
         </param>
         <param>
@@ -534,7 +534,7 @@
       <member refid="structeuphoria_1_1render_1_1MaterialShader_1a3b198b8f251a965805e088c307908e17" prot="public" virt="non-virtual"><scope>euphoria::render::MaterialShader</scope><name>model</name></member>
       <member refid="structeuphoria_1_1render_1_1MaterialShader_1a294231a039ae5aedff320617107cb9e9" prot="public" virt="non-virtual"><scope>euphoria::render::MaterialShader</scope><name>normal_matrix</name></member>
       <member refid="structeuphoria_1_1render_1_1MaterialShader_1a8853d144d258cce932da11b813af480e" prot="public" virt="non-virtual"><scope>euphoria::render::MaterialShader</scope><name>projection</name></member>
-      <member refid="structeuphoria_1_1render_1_1MaterialShader_1a4577a4347ccfcbdab0c5f65dad1a54dd" prot="public" virt="non-virtual"><scope>euphoria::render::MaterialShader</scope><name>set_colors</name></member>
+      <member refid="structeuphoria_1_1render_1_1MaterialShader_1a760106dc580c6505c2e16663a7a23089" prot="public" virt="non-virtual"><scope>euphoria::render::MaterialShader</scope><name>set_colors</name></member>
       <member refid="structeuphoria_1_1render_1_1MaterialShader_1a68333b1438d7b0ded15bd662bf5e4a29" prot="public" virt="non-virtual"><scope>euphoria::render::MaterialShader</scope><name>set_model</name></member>
       <member refid="structeuphoria_1_1render_1_1MaterialShader_1a590f6711bbc5d381de062f804f6fb660" prot="public" virt="non-virtual"><scope>euphoria::render::MaterialShader</scope><name>set_projection</name></member>
       <member refid="structeuphoria_1_1render_1_1MaterialShader_1a7790a35622f48b672bce649306e680f2" prot="public" virt="non-virtual"><scope>euphoria::render::MaterialShader</scope><name>set_view</name></member>

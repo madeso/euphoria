@@ -4,9 +4,9 @@
     <compoundname>euphoria::core::Canvas</compoundname>
     <includes refid="image__canvas_8h" local="no">image_canvas.h</includes>
       <sectiondef kind="public-attrib">
-      <memberdef kind="variable" id="structeuphoria_1_1core_1_1Canvas_1ad70d3f7cc92412f2e4cd231ecb0d72ad" prot="public" static="no" mutable="no">
-        <type><ref refid="structeuphoria_1_1core_1_1rgbi" kindref="compound">rgbi</ref></type>
-        <definition>rgbi euphoria::core::Canvas::fill_style</definition>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1Canvas_1a0283de87863ef10dc42ba3410b8c5467" prot="public" static="no" mutable="no">
+        <type><ref refid="structeuphoria_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref></type>
+        <definition>Rgbi euphoria::core::Canvas::fill_style</definition>
         <argsstring></argsstring>
         <name>fill_style</name>
         <briefdescription>
@@ -261,6 +261,10 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
+      <node id="2">
+        <label>euphoria::core::Rgbi</label>
+        <link refid="structeuphoria_1_1core_1_1Rgbi"/>
+      </node>
       <node id="1">
         <label>euphoria::core::Canvas</label>
         <link refid="structeuphoria_1_1core_1_1Canvas"/>
@@ -282,10 +286,6 @@
         <label>euphoria::core::mat3f</label>
         <link refid="structeuphoria_1_1core_1_1mat3f"/>
       </node>
-      <node id="2">
-        <label>euphoria::core::rgbi</label>
-        <link refid="structeuphoria_1_1core_1_1rgbi"/>
-      </node>
     </collaborationgraph>
     <location file="libs/core/src/core/image_canvas.h" line="15" column="5" bodyfile="libs/core/src/core/image_canvas.h" bodystart="16" bodyend="38"/>
     <listofallmembers>
@@ -296,7 +296,7 @@
       <member refid="structeuphoria_1_1core_1_1Canvas_1a44615b6f1e450488c7fcdb1232084442" prot="public" virt="non-virtual"><scope>euphoria::core::Canvas</scope><name>draw_line_to</name></member>
       <member refid="structeuphoria_1_1core_1_1Canvas_1acbe85f8b75c9c6bde274e93d4daee851" prot="public" virt="non-virtual"><scope>euphoria::core::Canvas</scope><name>fill</name></member>
       <member refid="structeuphoria_1_1core_1_1Canvas_1ac29ace836b24a841bbb684a76f1641ab" prot="public" virt="non-virtual"><scope>euphoria::core::Canvas</scope><name>fill_rect</name></member>
-      <member refid="structeuphoria_1_1core_1_1Canvas_1ad70d3f7cc92412f2e4cd231ecb0d72ad" prot="public" virt="non-virtual"><scope>euphoria::core::Canvas</scope><name>fill_style</name></member>
+      <member refid="structeuphoria_1_1core_1_1Canvas_1a0283de87863ef10dc42ba3410b8c5467" prot="public" virt="non-virtual"><scope>euphoria::core::Canvas</scope><name>fill_style</name></member>
       <member refid="structeuphoria_1_1core_1_1Canvas_1ac2fcbf7f3b5fcd4c7be82b3e291418c0" prot="public" virt="non-virtual"><scope>euphoria::core::Canvas</scope><name>move_to</name></member>
       <member refid="structeuphoria_1_1core_1_1Canvas_1aff5d70e104ecb53a3423f3e5eb34136c" prot="public" virt="non-virtual"><scope>euphoria::core::Canvas</scope><name>path</name></member>
       <member refid="structeuphoria_1_1core_1_1Canvas_1a9958b8a7941a37c13f2f14bde2ab5076" prot="public" virt="non-virtual"><scope>euphoria::core::Canvas</scope><name>rotate</name></member>

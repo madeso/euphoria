@@ -529,6 +529,10 @@
           <edgelabel>fps</edgelabel>
         </childnode>
       </node>
+      <node id="4">
+        <label>euphoria::core::Angle</label>
+        <link refid="structeuphoria_1_1core_1_1Angle"/>
+      </node>
       <node id="2">
         <label>euphoria::core::FpsController</label>
         <link refid="structeuphoria_1_1core_1_1FpsController"/>
@@ -542,10 +546,6 @@
         <childnode refid="5" relation="usage">
           <edgelabel>look_sensitivity</edgelabel>
         </childnode>
-      </node>
-      <node id="4">
-        <label>euphoria::core::angle</label>
-        <link refid="structeuphoria_1_1core_1_1angle"/>
       </node>
       <node id="3">
         <label>euphoria::core::vec3f</label>

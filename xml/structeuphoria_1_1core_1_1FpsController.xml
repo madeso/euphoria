@@ -4,9 +4,9 @@
     <compoundname>euphoria::core::FpsController</compoundname>
     <includes refid="fpscontroller_8h" local="no">fpscontroller.h</includes>
       <sectiondef kind="public-attrib">
-      <memberdef kind="variable" id="structeuphoria_1_1core_1_1FpsController_1ad34e2dd086bd6477b0169eb3125e994a" prot="public" static="no" mutable="no">
-        <type><ref refid="structeuphoria_1_1core_1_1angle" kindref="compound">angle</ref></type>
-        <definition>angle euphoria::core::FpsController::rotation_angle</definition>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1FpsController_1a47f49d242ec93d8a7975c518121bd095" prot="public" static="no" mutable="no">
+        <type><ref refid="structeuphoria_1_1core_1_1Angle" kindref="compound">Angle</ref></type>
+        <definition>Angle euphoria::core::FpsController::rotation_angle</definition>
         <argsstring></argsstring>
         <name>rotation_angle</name>
         <briefdescription>
@@ -17,9 +17,9 @@
         </inbodydescription>
         <location file="libs/core/src/core/fpscontroller.h" line="13" column="15" bodyfile="libs/core/src/core/fpscontroller.h" bodystart="13" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeuphoria_1_1core_1_1FpsController_1af7a35e695808bce79e67a16f51b7ace6" prot="public" static="no" mutable="no">
-        <type><ref refid="structeuphoria_1_1core_1_1angle" kindref="compound">angle</ref></type>
-        <definition>angle euphoria::core::FpsController::look_angle</definition>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1FpsController_1a91663d31ed213660ebb13290ddfe8199" prot="public" static="no" mutable="no">
+        <type><ref refid="structeuphoria_1_1core_1_1Angle" kindref="compound">Angle</ref></type>
+        <definition>Angle euphoria::core::FpsController::look_angle</definition>
         <argsstring></argsstring>
         <name>look_angle</name>
         <briefdescription>
@@ -362,17 +362,17 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1FpsController_1af4ee8c6f297bb4bb397a353eb9410e89" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1FpsController_1a14f7555903ffe7bf2168bd345bc7ae0b" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1quatf" kindref="compound">quatf</ref></type>
         <definition>quatf euphoria::core::FpsController::calc_rotation</definition>
-        <argsstring>(const angle &amp;rotation_angle, const angle &amp;look_angle)</argsstring>
+        <argsstring>(const Angle &amp;rotation_angle, const Angle &amp;look_angle)</argsstring>
         <name>calc_rotation</name>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1angle" kindref="compound">angle</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Angle" kindref="compound">Angle</ref> &amp;</type>
           <declname>rotation_angle</declname>
         </param>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1angle" kindref="compound">angle</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Angle" kindref="compound">Angle</ref> &amp;</type>
           <declname>look_angle</declname>
         </param>
         <briefdescription>
@@ -393,6 +393,10 @@
         <label>euphoria::core::Sensitivity</label>
         <link refid="structeuphoria_1_1core_1_1Sensitivity"/>
       </node>
+      <node id="3">
+        <label>euphoria::core::Angle</label>
+        <link refid="structeuphoria_1_1core_1_1Angle"/>
+      </node>
       <node id="1">
         <label>euphoria::core::FpsController</label>
         <link refid="structeuphoria_1_1core_1_1FpsController"/>
@@ -407,10 +411,6 @@
           <edgelabel>look_sensitivity</edgelabel>
         </childnode>
       </node>
-      <node id="3">
-        <label>euphoria::core::angle</label>
-        <link refid="structeuphoria_1_1core_1_1angle"/>
-      </node>
       <node id="2">
         <label>euphoria::core::vec3f</label>
         <link refid="structeuphoria_1_1core_1_1vec3f"/>
@@ -418,7 +418,7 @@
     </collaborationgraph>
     <location file="libs/core/src/core/fpscontroller.h" line="11" column="5" bodyfile="libs/core/src/core/fpscontroller.h" bodystart="12" bodyend="42"/>
     <listofallmembers>
-      <member refid="structeuphoria_1_1core_1_1FpsController_1af4ee8c6f297bb4bb397a353eb9410e89" prot="public" virt="non-virtual"><scope>euphoria::core::FpsController</scope><name>calc_rotation</name></member>
+      <member refid="structeuphoria_1_1core_1_1FpsController_1a14f7555903ffe7bf2168bd345bc7ae0b" prot="public" virt="non-virtual"><scope>euphoria::core::FpsController</scope><name>calc_rotation</name></member>
       <member refid="structeuphoria_1_1core_1_1FpsController_1a3b4458f968584a0bd9b25c0ce6be5eeb" prot="public" virt="non-virtual"><scope>euphoria::core::FpsController</scope><name>FpsController</name></member>
       <member refid="structeuphoria_1_1core_1_1FpsController_1ac1c0a82518e966fd89c6fa752f3b4e81" prot="public" virt="non-virtual"><scope>euphoria::core::FpsController</scope><name>get_rotation</name></member>
       <member refid="structeuphoria_1_1core_1_1FpsController_1a48a3a9af0bc3b97f574b11aea02e5de9" prot="public" virt="non-virtual"><scope>euphoria::core::FpsController</scope><name>is_backward_down</name></member>
@@ -428,7 +428,7 @@
       <member refid="structeuphoria_1_1core_1_1FpsController_1a6bccfff155e998b0b0b7d1fbc0ed5f8f" prot="public" virt="non-virtual"><scope>euphoria::core::FpsController</scope><name>is_right_down</name></member>
       <member refid="structeuphoria_1_1core_1_1FpsController_1ad5d1e52d33659d644d61d24217dd63c1" prot="public" virt="non-virtual"><scope>euphoria::core::FpsController</scope><name>is_up_down</name></member>
       <member refid="structeuphoria_1_1core_1_1FpsController_1a3d8662a592d70b4f41f547e2ff3e95e7" prot="public" virt="non-virtual"><scope>euphoria::core::FpsController</scope><name>look</name></member>
-      <member refid="structeuphoria_1_1core_1_1FpsController_1af7a35e695808bce79e67a16f51b7ace6" prot="public" virt="non-virtual"><scope>euphoria::core::FpsController</scope><name>look_angle</name></member>
+      <member refid="structeuphoria_1_1core_1_1FpsController_1a91663d31ed213660ebb13290ddfe8199" prot="public" virt="non-virtual"><scope>euphoria::core::FpsController</scope><name>look_angle</name></member>
       <member refid="structeuphoria_1_1core_1_1FpsController_1a6dbfe5199dacf3b5e14c93cc4831d380" prot="public" virt="non-virtual"><scope>euphoria::core::FpsController</scope><name>look_in_direction</name></member>
       <member refid="structeuphoria_1_1core_1_1FpsController_1a0878569f90542d5211c52a58412072de" prot="public" virt="non-virtual"><scope>euphoria::core::FpsController</scope><name>look_sensitivity</name></member>
       <member refid="structeuphoria_1_1core_1_1FpsController_1a49456fd3671a35194f4e8c86d601d46b" prot="public" virt="non-virtual"><scope>euphoria::core::FpsController</scope><name>move_backward</name></member>
@@ -440,7 +440,7 @@
       <member refid="structeuphoria_1_1core_1_1FpsController_1a9ac3532acf65d18b80ad717f7dec0d80" prot="public" virt="non-virtual"><scope>euphoria::core::FpsController</scope><name>move_up</name></member>
       <member refid="structeuphoria_1_1core_1_1FpsController_1a2f0943051f645deba88007f5c57a7306" prot="public" virt="non-virtual"><scope>euphoria::core::FpsController</scope><name>on_key</name></member>
       <member refid="structeuphoria_1_1core_1_1FpsController_1ad32bc4e0cd957ba97f75c6584d9f0658" prot="public" virt="non-virtual"><scope>euphoria::core::FpsController</scope><name>position</name></member>
-      <member refid="structeuphoria_1_1core_1_1FpsController_1ad34e2dd086bd6477b0169eb3125e994a" prot="public" virt="non-virtual"><scope>euphoria::core::FpsController</scope><name>rotation_angle</name></member>
+      <member refid="structeuphoria_1_1core_1_1FpsController_1a47f49d242ec93d8a7975c518121bd095" prot="public" virt="non-virtual"><scope>euphoria::core::FpsController</scope><name>rotation_angle</name></member>
       <member refid="structeuphoria_1_1core_1_1FpsController_1a658ca788e18d0f477730e6549cf0318b" prot="public" virt="non-virtual"><scope>euphoria::core::FpsController</scope><name>update</name></member>
     </listofallmembers>
   </compounddef>

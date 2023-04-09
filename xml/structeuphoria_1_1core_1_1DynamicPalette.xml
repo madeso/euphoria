@@ -17,9 +17,9 @@
         </inbodydescription>
         <location file="libs/core/src/core/palette.h" line="98" column="21" bodyfile="libs/core/src/core/palette.h" bodystart="98" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeuphoria_1_1core_1_1DynamicPalette_1af65a9ca92d9eef169581ffc204fcc919" prot="public" static="no" mutable="no">
-        <type>std::vector&lt; <ref refid="structeuphoria_1_1core_1_1rgbi" kindref="compound">rgbi</ref> &gt;</type>
-        <definition>std::vector&lt;rgbi&gt; euphoria::core::DynamicPalette::colors</definition>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1DynamicPalette_1ab98a503a2387906e985d7338557625b5" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structeuphoria_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref> &gt;</type>
+        <definition>std::vector&lt;Rgbi&gt; euphoria::core::DynamicPalette::colors</definition>
         <argsstring></argsstring>
         <name>colors</name>
         <briefdescription>
@@ -33,7 +33,7 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1DynamicPalette_1ad6011997c0bf0d27ae64ff4842490f59" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1DynamicPalette_1ae9405fe47b619aacad1f34498d52211b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename...</type>
@@ -43,14 +43,14 @@
         </templateparamlist>
         <type></type>
         <definition>euphoria::core::DynamicPalette::DynamicPalette</definition>
-        <argsstring>(const std::string &amp;n, const rgbi &amp;c0, const R &amp;... c)</argsstring>
+        <argsstring>(const std::string &amp;n, const Rgbi &amp;c0, const R &amp;... c)</argsstring>
         <name>DynamicPalette</name>
         <param>
           <type>const std::string &amp;</type>
           <declname>n</declname>
         </param>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1rgbi" kindref="compound">rgbi</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref> &amp;</type>
           <declname>c0</declname>
         </param>
         <param>
@@ -65,17 +65,17 @@
         </inbodydescription>
         <location file="libs/core/src/core/palette.h" line="104" column="9" bodyfile="libs/core/src/core/palette.h" bodystart="104" bodyend="108"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1DynamicPalette_1a7dcf4749bf7af1a7ed18561a1dea34c9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1DynamicPalette_1a3c09ed448eac1d280c4ef52ee45fc111" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>euphoria::core::DynamicPalette::DynamicPalette</definition>
-        <argsstring>(const std::string &amp;n, const std::vector&lt; rgbi &gt; &amp;c)</argsstring>
+        <argsstring>(const std::string &amp;n, const std::vector&lt; Rgbi &gt; &amp;c)</argsstring>
         <name>DynamicPalette</name>
         <param>
           <type>const std::string &amp;</type>
           <declname>n</declname>
         </param>
         <param>
-          <type>const std::vector&lt; <ref refid="structeuphoria_1_1core_1_1rgbi" kindref="compound">rgbi</ref> &gt; &amp;</type>
+          <type>const std::vector&lt; <ref refid="structeuphoria_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref> &gt; &amp;</type>
           <declname>c</declname>
         </param>
         <briefdescription>
@@ -159,21 +159,21 @@
         </inbodydescription>
         <location file="libs/core/src/core/palette.h" line="121" column="9" bodyfile="libs/core/src/core/palette.cc" bodystart="90" bodyend="103"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1DynamicPalette_1a74cda22fe70b945e6572d5f16ec4519f" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1DynamicPalette_1a8030675ba5155ed7a3cf11f429bb9dfa" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1DynamicPalette" kindref="compound">DynamicPalette</ref></type>
         <definition>DynamicPalette euphoria::core::DynamicPalette::create_rainbow</definition>
-        <argsstring>(int count, const angle &amp;from, const angle &amp;to, float saturation, float lightness)</argsstring>
+        <argsstring>(int count, const Angle &amp;from, const Angle &amp;to, float saturation, float lightness)</argsstring>
         <name>create_rainbow</name>
         <param>
           <type>int</type>
           <declname>count</declname>
         </param>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1angle" kindref="compound">angle</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Angle" kindref="compound">Angle</ref> &amp;</type>
           <declname>from</declname>
         </param>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1angle" kindref="compound">angle</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Angle" kindref="compound">Angle</ref> &amp;</type>
           <declname>to</declname>
         </param>
         <param>
@@ -219,12 +219,12 @@
     </detaileddescription>
     <location file="libs/core/src/core/palette.h" line="96" column="5" bodyfile="libs/core/src/core/palette.h" bodystart="97" bodyend="137"/>
     <listofallmembers>
-      <member refid="structeuphoria_1_1core_1_1DynamicPalette_1af65a9ca92d9eef169581ffc204fcc919" prot="public" virt="non-virtual"><scope>euphoria::core::DynamicPalette</scope><name>colors</name></member>
+      <member refid="structeuphoria_1_1core_1_1DynamicPalette_1ab98a503a2387906e985d7338557625b5" prot="public" virt="non-virtual"><scope>euphoria::core::DynamicPalette</scope><name>colors</name></member>
       <member refid="structeuphoria_1_1core_1_1DynamicPalette_1ac12de29f33a9c8dfb6f854786de7c38a" prot="public" virt="non-virtual"><scope>euphoria::core::DynamicPalette</scope><name>create_empty</name></member>
       <member refid="structeuphoria_1_1core_1_1DynamicPalette_1a809f71d5b2fa4143c9e56ea2c1b73458" prot="public" virt="non-virtual"><scope>euphoria::core::DynamicPalette</scope><name>create_rainbow</name></member>
-      <member refid="structeuphoria_1_1core_1_1DynamicPalette_1a74cda22fe70b945e6572d5f16ec4519f" prot="public" virt="non-virtual"><scope>euphoria::core::DynamicPalette</scope><name>create_rainbow</name></member>
-      <member refid="structeuphoria_1_1core_1_1DynamicPalette_1ad6011997c0bf0d27ae64ff4842490f59" prot="public" virt="non-virtual"><scope>euphoria::core::DynamicPalette</scope><name>DynamicPalette</name></member>
-      <member refid="structeuphoria_1_1core_1_1DynamicPalette_1a7dcf4749bf7af1a7ed18561a1dea34c9" prot="public" virt="non-virtual"><scope>euphoria::core::DynamicPalette</scope><name>DynamicPalette</name></member>
+      <member refid="structeuphoria_1_1core_1_1DynamicPalette_1a8030675ba5155ed7a3cf11f429bb9dfa" prot="public" virt="non-virtual"><scope>euphoria::core::DynamicPalette</scope><name>create_rainbow</name></member>
+      <member refid="structeuphoria_1_1core_1_1DynamicPalette_1ae9405fe47b619aacad1f34498d52211b" prot="public" virt="non-virtual"><scope>euphoria::core::DynamicPalette</scope><name>DynamicPalette</name></member>
+      <member refid="structeuphoria_1_1core_1_1DynamicPalette_1a3c09ed448eac1d280c4ef52ee45fc111" prot="public" virt="non-virtual"><scope>euphoria::core::DynamicPalette</scope><name>DynamicPalette</name></member>
       <member refid="structeuphoria_1_1core_1_1DynamicPalette_1aa1dcdc3eed2465d64a9412dd3dbb76ae" prot="private" virt="non-virtual"><scope>euphoria::core::DynamicPalette</scope><name>DynamicPalette</name></member>
       <member refid="structeuphoria_1_1core_1_1DynamicPalette_1a96e180578c443be8498a093b3ab6d631" prot="public" virt="non-virtual"><scope>euphoria::core::DynamicPalette</scope><name>name</name></member>
       <member refid="structeuphoria_1_1core_1_1DynamicPalette_1a1db5c6bb11ea05a006ac651051fe42b7" prot="public" virt="non-virtual"><scope>euphoria::core::DynamicPalette</scope><name>to_palette</name></member>

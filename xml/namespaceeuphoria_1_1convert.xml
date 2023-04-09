@@ -3,9 +3,9 @@
   <compounddef id="namespaceeuphoria_1_1convert" kind="namespace" language="C++">
     <compoundname>euphoria::convert</compoundname>
       <sectiondef kind="func">
-      <memberdef kind="function" id="namespaceeuphoria_1_1convert_1a04b90c570e95f97f2c6bd0e57ec4ca1f" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>constexpr <ref refid="structeuphoria_1_1core_1_1angle" kindref="compound">core::angle</ref></type>
-        <definition>constexpr core::angle euphoria::convert::operator&quot;&quot;_deg</definition>
+      <memberdef kind="function" id="namespaceeuphoria_1_1convert_1ae7428497be0bfccc9ceaf662a0a8c7c3" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>constexpr <ref refid="structeuphoria_1_1core_1_1Angle" kindref="compound">core::Angle</ref></type>
+        <definition>constexpr core::Angle euphoria::convert::operator&quot;&quot;_deg</definition>
         <argsstring>(long double d)</argsstring>
         <name>operator&quot;&quot;_deg</name>
         <param>
@@ -18,11 +18,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/angle.h" line="171" column="27" bodyfile="libs/core/src/core/angle.h" bodystart="171" bodyend="174"/>
+        <location file="libs/core/src/core/angle.h" line="125" column="27" bodyfile="libs/core/src/core/angle.h" bodystart="125" bodyend="128"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1convert_1aef08cba67e40452f788d35202d9fb9ac" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>constexpr <ref refid="structeuphoria_1_1core_1_1angle" kindref="compound">core::angle</ref></type>
-        <definition>constexpr core::angle euphoria::convert::operator&quot;&quot;_rad</definition>
+      <memberdef kind="function" id="namespaceeuphoria_1_1convert_1a45211991b54f443b32b710f2efc69dbb" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>constexpr <ref refid="structeuphoria_1_1core_1_1Angle" kindref="compound">core::Angle</ref></type>
+        <definition>constexpr core::Angle euphoria::convert::operator&quot;&quot;_rad</definition>
         <argsstring>(long double r)</argsstring>
         <name>operator&quot;&quot;_rad</name>
         <param>
@@ -35,13 +35,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/angle.h" line="177" column="27" bodyfile="libs/core/src/core/angle.h" bodystart="177" bodyend="180"/>
+        <location file="libs/core/src/core/angle.h" line="131" column="27" bodyfile="libs/core/src/core/angle.h" bodystart="131" bodyend="134"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/angle.h" line="169" column="1"/>
+    <location file="libs/core/src/core/angle.h" line="123" column="1"/>
   </compounddef>
 </doxygen>

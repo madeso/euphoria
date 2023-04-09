@@ -85,8 +85,8 @@ Classes</h2></td></tr>
 Functions</h2></td></tr>
 <tr class="memitem:abfd5a9b761d81e0ebaf7341827ee23af"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1Object.html">Object</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core_1_1raytracer.html#abfd5a9b761d81e0ebaf7341827ee23af">create_sphere</a> (const <a class="el" href="structeuphoria_1_1core_1_1Sphere.html">Sphere</a> &amp;sphere, const <a class="el" href="structeuphoria_1_1core_1_1vec3f.html">vec3f</a> &amp;position, std::shared_ptr&lt; <a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1Material.html">raytracer::Material</a> &gt; material)</td></tr>
 <tr class="separator:abfd5a9b761d81e0ebaf7341827ee23af"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab7db55bd0459487e48ca52676ad41e22"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1rgb.html">rgb</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core_1_1raytracer.html#ab7db55bd0459487e48ca52676ad41e22">to_rgb</a> (const <a class="el" href="structeuphoria_1_1core_1_1unit3f.html">unit3f</a> &amp;normal)</td></tr>
-<tr class="separator:ab7db55bd0459487e48ca52676ad41e22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4481302286c388f9d1438b4920b5a252"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1Rgb.html">Rgb</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core_1_1raytracer.html#a4481302286c388f9d1438b4920b5a252">to_rgb</a> (const <a class="el" href="structeuphoria_1_1core_1_1unit3f.html">unit3f</a> &amp;normal)</td></tr>
+<tr class="separator:a4481302286c388f9d1438b4920b5a252"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af41790f8067ed78ebfe5f6c3b7636779"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1vec3f.html">vec3f</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core_1_1raytracer.html#af41790f8067ed78ebfe5f6c3b7636779">get_random_vec3_in_unit_sphere</a> (<a class="el" href="structeuphoria_1_1core_1_1Random.html">Random</a> *random)</td></tr>
 <tr class="separator:af41790f8067ed78ebfe5f6c3b7636779"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2182bcc3d71753ef14ccc1bbe71604b0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1vec3f.html">vec3f</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core_1_1raytracer.html#a2182bcc3d71753ef14ccc1bbe71604b0">get_reflected</a> (const <a class="el" href="structeuphoria_1_1core_1_1vec3f.html">vec3f</a> &amp;v, const <a class="el" href="structeuphoria_1_1core_1_1unit3f.html">unit3f</a> &amp;normal)</td></tr>
@@ -95,16 +95,16 @@ Functions</h2></td></tr>
 <tr class="separator:ae4bf750032f4351c84688ab2388a24c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a29dc6138ccbbf3ec335e905fbca9523f"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core_1_1raytracer.html#a29dc6138ccbbf3ec335e905fbca9523f">calc_fresnel_factor</a> (float cosine, float ref_idx)</td></tr>
 <tr class="separator:a29dc6138ccbbf3ec335e905fbca9523f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afaa38b089e3fc39a69ba2bb7dcc1c33f"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1Material.html">Material</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core_1_1raytracer.html#afaa38b089e3fc39a69ba2bb7dcc1c33f">create_diffuse_material</a> (const <a class="el" href="structeuphoria_1_1core_1_1rgb.html">rgb</a> &amp;albedo)</td></tr>
-<tr class="separator:afaa38b089e3fc39a69ba2bb7dcc1c33f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a256bb53fc6724684e0766eb5532ec568"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1Material.html">Material</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core_1_1raytracer.html#a256bb53fc6724684e0766eb5532ec568">create_metal_material</a> (const <a class="el" href="structeuphoria_1_1core_1_1rgb.html">rgb</a> &amp;albedo, float fuzz)</td></tr>
-<tr class="separator:a256bb53fc6724684e0766eb5532ec568"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a40e7ae3408e08ce84920c293bc646a04"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1Material.html">Material</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core_1_1raytracer.html#a40e7ae3408e08ce84920c293bc646a04">create_dielectric_material</a> (const <a class="el" href="structeuphoria_1_1core_1_1rgb.html">rgb</a> &amp;albedo, float refractive_index)</td></tr>
-<tr class="separator:a40e7ae3408e08ce84920c293bc646a04"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a286dfbfda49ede1c12ab66c9f7a3edca"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1rgb.html">rgb</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core_1_1raytracer.html#a286dfbfda49ede1c12ab66c9f7a3edca">get_color</a> (const <a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1Scene.html">Scene</a> &amp;scene, const <a class="el" href="structeuphoria_1_1core_1_1UnitRay3f.html">UnitRay3f</a> &amp;ray, <a class="el" href="structeuphoria_1_1core_1_1Random.html">Random</a> *random, int depth)</td></tr>
-<tr class="separator:a286dfbfda49ede1c12ab66c9f7a3edca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab36e790cfeb1c8bda167f7cc9b113e60"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1rgb.html">rgb</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core_1_1raytracer.html#ab36e790cfeb1c8bda167f7cc9b113e60">correct_color_using_gamma2</a> (<a class="el" href="structeuphoria_1_1core_1_1rgb.html">rgb</a> color)</td></tr>
-<tr class="separator:ab36e790cfeb1c8bda167f7cc9b113e60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5acb81fc208a1ece375fb61a021e9e2d"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1Material.html">Material</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core_1_1raytracer.html#a5acb81fc208a1ece375fb61a021e9e2d">create_diffuse_material</a> (const <a class="el" href="structeuphoria_1_1core_1_1Rgb.html">Rgb</a> &amp;albedo)</td></tr>
+<tr class="separator:a5acb81fc208a1ece375fb61a021e9e2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae2232ae7b585be99ca2794cd73e0c46"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1Material.html">Material</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core_1_1raytracer.html#aae2232ae7b585be99ca2794cd73e0c46">create_metal_material</a> (const <a class="el" href="structeuphoria_1_1core_1_1Rgb.html">Rgb</a> &amp;albedo, float fuzz)</td></tr>
+<tr class="separator:aae2232ae7b585be99ca2794cd73e0c46"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aabd1074be0f22402945eb0586f8d536c"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1Material.html">Material</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core_1_1raytracer.html#aabd1074be0f22402945eb0586f8d536c">create_dielectric_material</a> (const <a class="el" href="structeuphoria_1_1core_1_1Rgb.html">Rgb</a> &amp;albedo, float refractive_index)</td></tr>
+<tr class="separator:aabd1074be0f22402945eb0586f8d536c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6491e8b7ce2906c2f7f7b6c33e7bbf9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1Rgb.html">Rgb</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core_1_1raytracer.html#ad6491e8b7ce2906c2f7f7b6c33e7bbf9">get_color</a> (const <a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1Scene.html">Scene</a> &amp;scene, const <a class="el" href="structeuphoria_1_1core_1_1UnitRay3f.html">UnitRay3f</a> &amp;ray, <a class="el" href="structeuphoria_1_1core_1_1Random.html">Random</a> *random, int depth)</td></tr>
+<tr class="separator:ad6491e8b7ce2906c2f7f7b6c33e7bbf9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e2ce6ecf83e252536c7eb11a6dfd328"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1Rgb.html">Rgb</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core_1_1raytracer.html#a4e2ce6ecf83e252536c7eb11a6dfd328">correct_color_using_gamma2</a> (const <a class="el" href="structeuphoria_1_1core_1_1Rgb.html">Rgb</a> &amp;color)</td></tr>
+<tr class="separator:a4e2ce6ecf83e252536c7eb11a6dfd328"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a634651f16fd3b82293a2cf1ac367ca5f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core_1_1raytracer.html#a634651f16fd3b82293a2cf1ac367ca5f">raytrace</a> (<a class="el" href="structeuphoria_1_1core_1_1Image.html">Image</a> *aimage, const <a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1Scene.html">raytracer::Scene</a> &amp;scene, int number_of_samples)</td></tr>
 <tr class="separator:a634651f16fd3b82293a2cf1ac367ca5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeaef9bf1f1d66a4dba5443bf2b9f2c25"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1Object.html">Object</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core_1_1raytracer.html#aeaef9bf1f1d66a4dba5443bf2b9f2c25">create_sphere</a> (const <a class="el" href="structeuphoria_1_1core_1_1Sphere.html">Sphere</a> &amp;sphere, const <a class="el" href="structeuphoria_1_1core_1_1vec3f.html">vec3f</a> &amp;position, std::shared_ptr&lt; <a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1Material.html">Material</a> &gt; material)</td></tr>
@@ -141,16 +141,16 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ab36e790cfeb1c8bda167f7cc9b113e60"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab36e790cfeb1c8bda167f7cc9b113e60">&#9670;&nbsp;</a></span>correct_color_using_gamma2()</h2>
+<a id="a4e2ce6ecf83e252536c7eb11a6dfd328"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e2ce6ecf83e252536c7eb11a6dfd328">&#9670;&nbsp;</a></span>correct_color_using_gamma2()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structeuphoria_1_1core_1_1rgb.html">rgb</a> euphoria::core::raytracer::correct_color_using_gamma2 </td>
+          <td class="memname"><a class="el" href="structeuphoria_1_1core_1_1Rgb.html">Rgb</a> euphoria::core::raytracer::correct_color_using_gamma2 </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structeuphoria_1_1core_1_1rgb.html">rgb</a>&#160;</td>
+          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1Rgb.html">Rgb</a> &amp;&#160;</td>
           <td class="paramname"><em>color</em></td><td>)</td>
           <td></td>
         </tr>
@@ -161,8 +161,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a40e7ae3408e08ce84920c293bc646a04"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a40e7ae3408e08ce84920c293bc646a04">&#9670;&nbsp;</a></span>create_dielectric_material()</h2>
+<a id="aabd1074be0f22402945eb0586f8d536c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aabd1074be0f22402945eb0586f8d536c">&#9670;&nbsp;</a></span>create_dielectric_material()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -170,7 +170,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">std::shared_ptr&lt; <a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1Material.html">Material</a> &gt; euphoria::core::raytracer::create_dielectric_material </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1rgb.html">rgb</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1Rgb.html">Rgb</a> &amp;&#160;</td>
           <td class="paramname"><em>albedo</em>, </td>
         </tr>
         <tr>
@@ -191,8 +191,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="afaa38b089e3fc39a69ba2bb7dcc1c33f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afaa38b089e3fc39a69ba2bb7dcc1c33f">&#9670;&nbsp;</a></span>create_diffuse_material()</h2>
+<a id="a5acb81fc208a1ece375fb61a021e9e2d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5acb81fc208a1ece375fb61a021e9e2d">&#9670;&nbsp;</a></span>create_diffuse_material()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -200,7 +200,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">std::shared_ptr&lt; <a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1Material.html">Material</a> &gt; euphoria::core::raytracer::create_diffuse_material </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1rgb.html">rgb</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1Rgb.html">Rgb</a> &amp;&#160;</td>
           <td class="paramname"><em>albedo</em></td><td>)</td>
           <td></td>
         </tr>
@@ -211,8 +211,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a256bb53fc6724684e0766eb5532ec568"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a256bb53fc6724684e0766eb5532ec568">&#9670;&nbsp;</a></span>create_metal_material()</h2>
+<a id="aae2232ae7b585be99ca2794cd73e0c46"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae2232ae7b585be99ca2794cd73e0c46">&#9670;&nbsp;</a></span>create_metal_material()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -220,7 +220,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">std::shared_ptr&lt; <a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1Material.html">Material</a> &gt; euphoria::core::raytracer::create_metal_material </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1rgb.html">rgb</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1Rgb.html">Rgb</a> &amp;&#160;</td>
           <td class="paramname"><em>albedo</em>, </td>
         </tr>
         <tr>
@@ -311,14 +311,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a286dfbfda49ede1c12ab66c9f7a3edca"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a286dfbfda49ede1c12ab66c9f7a3edca">&#9670;&nbsp;</a></span>get_color()</h2>
+<a id="ad6491e8b7ce2906c2f7f7b6c33e7bbf9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6491e8b7ce2906c2f7f7b6c33e7bbf9">&#9670;&nbsp;</a></span>get_color()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structeuphoria_1_1core_1_1rgb.html">rgb</a> euphoria::core::raytracer::get_color </td>
+          <td class="memname"><a class="el" href="structeuphoria_1_1core_1_1Rgb.html">Rgb</a> euphoria::core::raytracer::get_color </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1Scene.html">Scene</a> &amp;&#160;</td>
           <td class="paramname"><em>scene</em>, </td>
@@ -475,14 +475,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ab7db55bd0459487e48ca52676ad41e22"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab7db55bd0459487e48ca52676ad41e22">&#9670;&nbsp;</a></span>to_rgb()</h2>
+<a id="a4481302286c388f9d1438b4920b5a252"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4481302286c388f9d1438b4920b5a252">&#9670;&nbsp;</a></span>to_rgb()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structeuphoria_1_1core_1_1rgb.html">rgb</a> euphoria::core::raytracer::to_rgb </td>
+          <td class="memname"><a class="el" href="structeuphoria_1_1core_1_1Rgb.html">Rgb</a> euphoria::core::raytracer::to_rgb </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1unit3f.html">unit3f</a> &amp;&#160;</td>
           <td class="paramname"><em>normal</em></td><td>)</td>

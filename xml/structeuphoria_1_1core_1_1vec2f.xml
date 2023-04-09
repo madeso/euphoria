@@ -126,13 +126,13 @@
         </inbodydescription>
         <location file="libs/core/src/core/vec2.h" line="49" column="15" bodyfile="libs/core/src/core/vec2.cc" bodystart="109" bodyend="114"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1vec2f_1a4a832f2ff705d6d79d5c922840253fe2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1vec2f_1a5dc8ddc986814a83a8278aa25673dcd6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref></type>
         <definition>vec2f euphoria::core::vec2f::get_rotated</definition>
-        <argsstring>(const angle &amp;a) const</argsstring>
+        <argsstring>(const Angle &amp;a) const</argsstring>
         <name>get_rotated</name>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1angle" kindref="compound">angle</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Angle" kindref="compound">Angle</ref> &amp;</type>
           <declname>a</declname>
         </param>
         <briefdescription>
@@ -353,7 +353,7 @@
       <member refid="structeuphoria_1_1core_1_1vec2f_1a478fa938b6bed05ead24b08247fa2073" prot="public" virt="non-virtual"><scope>euphoria::core::vec2f</scope><name>get_length_squared</name></member>
       <member refid="structeuphoria_1_1core_1_1vec2f_1a5591d874a9542e00055b99617fb3020f" prot="public" virt="non-virtual"><scope>euphoria::core::vec2f</scope><name>get_normalized</name></member>
       <member refid="structeuphoria_1_1core_1_1vec2f_1a9e644c67e4e263b0a388468aa8760421" prot="public" virt="non-virtual"><scope>euphoria::core::vec2f</scope><name>get_normalized_and_length</name></member>
-      <member refid="structeuphoria_1_1core_1_1vec2f_1a4a832f2ff705d6d79d5c922840253fe2" prot="public" virt="non-virtual"><scope>euphoria::core::vec2f</scope><name>get_rotated</name></member>
+      <member refid="structeuphoria_1_1core_1_1vec2f_1a5dc8ddc986814a83a8278aa25673dcd6" prot="public" virt="non-virtual"><scope>euphoria::core::vec2f</scope><name>get_rotated</name></member>
       <member refid="structeuphoria_1_1core_1_1vec2f_1a84113eff5193f31dbc8121dcce39fd2c" prot="public" virt="non-virtual"><scope>euphoria::core::vec2f</scope><name>normalize</name></member>
       <member refid="structeuphoria_1_1core_1_1vec2f_1afe23815c042602a0b68e866244927f0a" prot="public" virt="non-virtual"><scope>euphoria::core::vec2f</scope><name>operator*=</name></member>
       <member refid="structeuphoria_1_1core_1_1vec2f_1ab304ddfc8bf280acc4192bf496b74383" prot="public" virt="non-virtual"><scope>euphoria::core::vec2f</scope><name>operator+=</name></member>

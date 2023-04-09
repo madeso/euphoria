@@ -44,9 +44,9 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="func">
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1palettes_1_1mycarta_1a11d0048452830ea6992b3803904b4eeb" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>constexpr <ref refid="structeuphoria_1_1core_1_1rgbi" kindref="compound">rgbi</ref></type>
-        <definition>constexpr rgbi euphoria::core::palettes::mycarta::con</definition>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1palettes_1_1mycarta_1aeeaa56dcfa132820f58af9f0638023e3" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>constexpr <ref refid="structeuphoria_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref></type>
+        <definition>constexpr Rgbi euphoria::core::palettes::mycarta::con</definition>
         <argsstring>(unsigned char r, unsigned char g, unsigned char b)</argsstring>
         <name>con</name>
         <param>

@@ -12,13 +12,13 @@
     <innernamespace refid="namespaceeuphoria_1_1core_1_1dump2d_1_1detail">euphoria::core::dump2d::detail</innernamespace>
     <innernamespace refid="namespaceeuphoria_1_1core_1_1dump2d_1_1strokes">euphoria::core::dump2d::strokes</innernamespace>
       <sectiondef kind="func">
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1dump2d_1acd72d25a35a9df7d45f8749d561b6740" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1dump2d_1a549570d286718c4096e7659731e8f087" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
         <definition>std::string euphoria::core::dump2d::to_html_or_none_string</definition>
-        <argsstring>(const std::optional&lt; rgbi &gt; &amp;c)</argsstring>
+        <argsstring>(const std::optional&lt; Rgbi &gt; &amp;c)</argsstring>
         <name>to_html_or_none_string</name>
         <param>
-          <type>const std::optional&lt; <ref refid="structeuphoria_1_1core_1_1rgbi" kindref="compound">rgbi</ref> &gt; &amp;</type>
+          <type>const std::optional&lt; <ref refid="structeuphoria_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref> &gt; &amp;</type>
           <declname>c</declname>
         </param>
         <briefdescription>

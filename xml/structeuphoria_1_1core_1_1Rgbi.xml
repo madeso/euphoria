@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
-  <compounddef id="structeuphoria_1_1core_1_1rgbi" kind="struct" language="C++" prot="public">
-    <compoundname>euphoria::core::rgbi</compoundname>
+  <compounddef id="structeuphoria_1_1core_1_1Rgbi" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::core::Rgbi</compoundname>
     <includes refid="rgb_8h" local="no">rgb.h</includes>
       <sectiondef kind="public-attrib">
-      <memberdef kind="variable" id="structeuphoria_1_1core_1_1rgbi_1a2823ebfa6abadce361fc6880c4cefb44" prot="public" static="no" mutable="no">
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1Rgbi_1a328ea1994f0f970c59a1deaec808b639" prot="public" static="no" mutable="no">
         <type><ref refid="namespaceeuphoria_1_1core_1a8d5a7dabfee4ed81c44079dc769697c3" kindref="member">U8</ref></type>
-        <definition>U8 euphoria::core::rgbi::r</definition>
+        <definition>U8 euphoria::core::Rgbi::r</definition>
         <argsstring></argsstring>
         <name>r</name>
         <briefdescription>
@@ -17,9 +17,9 @@
         </inbodydescription>
         <location file="libs/core/src/core/rgb.h" line="27" column="12" bodyfile="libs/core/src/core/rgb.h" bodystart="27" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeuphoria_1_1core_1_1rgbi_1ad054207af8d5898c75308e026ad3d857" prot="public" static="no" mutable="no">
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1Rgbi_1aa9f7147d4227a08c2a8217f533c5345c" prot="public" static="no" mutable="no">
         <type><ref refid="namespaceeuphoria_1_1core_1a8d5a7dabfee4ed81c44079dc769697c3" kindref="member">U8</ref></type>
-        <definition>U8 euphoria::core::rgbi::g</definition>
+        <definition>U8 euphoria::core::Rgbi::g</definition>
         <argsstring></argsstring>
         <name>g</name>
         <briefdescription>
@@ -30,9 +30,9 @@
         </inbodydescription>
         <location file="libs/core/src/core/rgb.h" line="28" column="12" bodyfile="libs/core/src/core/rgb.h" bodystart="28" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeuphoria_1_1core_1_1rgbi_1a74a4161907705c94309f659b79c02f81" prot="public" static="no" mutable="no">
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1Rgbi_1aaae6bb6ff32aa14713e0c4f33e0c9c2b" prot="public" static="no" mutable="no">
         <type><ref refid="namespaceeuphoria_1_1core_1a8d5a7dabfee4ed81c44079dc769697c3" kindref="member">U8</ref></type>
-        <definition>U8 euphoria::core::rgbi::b</definition>
+        <definition>U8 euphoria::core::Rgbi::b</definition>
         <argsstring></argsstring>
         <name>b</name>
         <briefdescription>
@@ -45,11 +45,11 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1rgbi_1a31b4102a8532d486ce626780cf67297a" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Rgbi_1a01a6e09d7a6c858a9f8983a6bd1078c6" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>constexpr</type>
-        <definition>constexpr euphoria::core::rgbi::rgbi</definition>
+        <definition>constexpr euphoria::core::Rgbi::Rgbi</definition>
         <argsstring>(U8 red, U8 green, U8 blue)</argsstring>
-        <name>rgbi</name>
+        <name>Rgbi</name>
         <param>
           <type><ref refid="namespaceeuphoria_1_1core_1a8d5a7dabfee4ed81c44079dc769697c3" kindref="member">U8</ref></type>
           <declname>red</declname>
@@ -70,11 +70,11 @@
         </inbodydescription>
         <location file="libs/core/src/core/rgb.h" line="31" column="19" bodyfile="libs/core/src/core/rgb.h" bodystart="345" bodyend="348"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1rgbi_1a728bde6b2fe8a6b813a1e6d56e699e9c" prot="public" static="no" constexpr="yes" const="no" explicit="yes" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Rgbi_1a2f16229baa42e60111d0e96ce9133e22" prot="public" static="no" constexpr="yes" const="no" explicit="yes" inline="no" virt="non-virtual">
         <type>constexpr</type>
-        <definition>constexpr euphoria::core::rgbi::rgbi</definition>
+        <definition>constexpr euphoria::core::Rgbi::Rgbi</definition>
         <argsstring>(U8 gray)</argsstring>
-        <name>rgbi</name>
+        <name>Rgbi</name>
         <param>
           <type><ref refid="namespaceeuphoria_1_1core_1a8d5a7dabfee4ed81c44079dc769697c3" kindref="member">U8</ref></type>
           <declname>gray</declname>
@@ -87,11 +87,11 @@
         </inbodydescription>
         <location file="libs/core/src/core/rgb.h" line="32" column="28" bodyfile="libs/core/src/core/rgb.h" bodystart="352" bodyend="355"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1rgbi_1a5f3ca751660f7acd56dbcaebdc477ae6" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Rgbi_1a75a11d8cb8d7f9eba4213f24347c54e5" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>constexpr</type>
-        <definition>constexpr euphoria::core::rgbi::rgbi</definition>
+        <definition>constexpr euphoria::core::Rgbi::Rgbi</definition>
         <argsstring>(NamedColor color)</argsstring>
-        <name>rgbi</name>
+        <name>Rgbi</name>
         <param>
           <type><ref refid="namespaceeuphoria_1_1core_1a4e52b01e84041d220929c7bcabfaf74e" kindref="member">NamedColor</ref></type>
           <declname>color</declname>
@@ -104,13 +104,13 @@
         </inbodydescription>
         <location file="libs/core/src/core/rgb.h" line="33" column="19" bodyfile="libs/core/src/core/rgb.h" bodystart="359" bodyend="362"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1rgbi_1a4bb92fda9834c0d1cc002851ce1bb821" prot="public" static="no" constexpr="yes" const="no" explicit="yes" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Rgbi_1a59b576faa399c06c235c2e3844a120d1" prot="public" static="no" constexpr="yes" const="no" explicit="yes" inline="no" virt="non-virtual">
         <type>constexpr</type>
-        <definition>constexpr euphoria::core::rgbi::rgbi</definition>
-        <argsstring>(const rgb &amp;c)</argsstring>
-        <name>rgbi</name>
+        <definition>constexpr euphoria::core::Rgbi::Rgbi</definition>
+        <argsstring>(const Rgb &amp;c)</argsstring>
+        <name>Rgbi</name>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1rgb" kindref="compound">rgb</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Rgb" kindref="compound">Rgb</ref> &amp;</type>
           <declname>c</declname>
         </param>
         <briefdescription>
@@ -121,9 +121,9 @@
         </inbodydescription>
         <location file="libs/core/src/core/rgb.h" line="34" column="28" bodyfile="libs/core/src/core/rgb.h" bodystart="366" bodyend="370"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1rgbi_1ab46affeafc2f42251dcd6ba39af2a609" prot="public" static="no" constexpr="yes" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Rgbi_1a5ad0bc2ba6249f45a9caf0d8337febaa" prot="public" static="no" constexpr="yes" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>constexpr int</type>
-        <definition>constexpr int euphoria::core::rgbi::to_hex</definition>
+        <definition>constexpr int euphoria::core::Rgbi::to_hex</definition>
         <argsstring>() const</argsstring>
         <name>to_hex</name>
         <briefdescription>
@@ -136,9 +136,9 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1rgbi_1aa00ee689bc155ca61bc1590e637b52e1" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>constexpr static <ref refid="structeuphoria_1_1core_1_1rgbi" kindref="compound">rgbi</ref></type>
-        <definition>constexpr rgbi euphoria::core::rgbi::from_hex</definition>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Rgbi_1ad9f777dc7b1d550bc9bd1209d98a7432" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>constexpr static <ref refid="structeuphoria_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref></type>
+        <definition>constexpr Rgbi euphoria::core::Rgbi::from_hex</definition>
         <argsstring>(unsigned int hex)</argsstring>
         <name>from_hex</name>
         <param>
@@ -160,15 +160,15 @@
     </detaileddescription>
     <location file="libs/core/src/core/rgb.h" line="25" column="5" bodyfile="libs/core/src/core/rgb.h" bodystart="26" bodyend="38"/>
     <listofallmembers>
-      <member refid="structeuphoria_1_1core_1_1rgbi_1a74a4161907705c94309f659b79c02f81" prot="public" virt="non-virtual"><scope>euphoria::core::rgbi</scope><name>b</name></member>
-      <member refid="structeuphoria_1_1core_1_1rgbi_1aa00ee689bc155ca61bc1590e637b52e1" prot="public" virt="non-virtual"><scope>euphoria::core::rgbi</scope><name>from_hex</name></member>
-      <member refid="structeuphoria_1_1core_1_1rgbi_1ad054207af8d5898c75308e026ad3d857" prot="public" virt="non-virtual"><scope>euphoria::core::rgbi</scope><name>g</name></member>
-      <member refid="structeuphoria_1_1core_1_1rgbi_1a2823ebfa6abadce361fc6880c4cefb44" prot="public" virt="non-virtual"><scope>euphoria::core::rgbi</scope><name>r</name></member>
-      <member refid="structeuphoria_1_1core_1_1rgbi_1a31b4102a8532d486ce626780cf67297a" prot="public" virt="non-virtual"><scope>euphoria::core::rgbi</scope><name>rgbi</name></member>
-      <member refid="structeuphoria_1_1core_1_1rgbi_1a728bde6b2fe8a6b813a1e6d56e699e9c" prot="public" virt="non-virtual"><scope>euphoria::core::rgbi</scope><name>rgbi</name></member>
-      <member refid="structeuphoria_1_1core_1_1rgbi_1a5f3ca751660f7acd56dbcaebdc477ae6" prot="public" virt="non-virtual"><scope>euphoria::core::rgbi</scope><name>rgbi</name></member>
-      <member refid="structeuphoria_1_1core_1_1rgbi_1a4bb92fda9834c0d1cc002851ce1bb821" prot="public" virt="non-virtual"><scope>euphoria::core::rgbi</scope><name>rgbi</name></member>
-      <member refid="structeuphoria_1_1core_1_1rgbi_1ab46affeafc2f42251dcd6ba39af2a609" prot="public" virt="non-virtual"><scope>euphoria::core::rgbi</scope><name>to_hex</name></member>
+      <member refid="structeuphoria_1_1core_1_1Rgbi_1aaae6bb6ff32aa14713e0c4f33e0c9c2b" prot="public" virt="non-virtual"><scope>euphoria::core::Rgbi</scope><name>b</name></member>
+      <member refid="structeuphoria_1_1core_1_1Rgbi_1ad9f777dc7b1d550bc9bd1209d98a7432" prot="public" virt="non-virtual"><scope>euphoria::core::Rgbi</scope><name>from_hex</name></member>
+      <member refid="structeuphoria_1_1core_1_1Rgbi_1aa9f7147d4227a08c2a8217f533c5345c" prot="public" virt="non-virtual"><scope>euphoria::core::Rgbi</scope><name>g</name></member>
+      <member refid="structeuphoria_1_1core_1_1Rgbi_1a328ea1994f0f970c59a1deaec808b639" prot="public" virt="non-virtual"><scope>euphoria::core::Rgbi</scope><name>r</name></member>
+      <member refid="structeuphoria_1_1core_1_1Rgbi_1a01a6e09d7a6c858a9f8983a6bd1078c6" prot="public" virt="non-virtual"><scope>euphoria::core::Rgbi</scope><name>Rgbi</name></member>
+      <member refid="structeuphoria_1_1core_1_1Rgbi_1a2f16229baa42e60111d0e96ce9133e22" prot="public" virt="non-virtual"><scope>euphoria::core::Rgbi</scope><name>Rgbi</name></member>
+      <member refid="structeuphoria_1_1core_1_1Rgbi_1a75a11d8cb8d7f9eba4213f24347c54e5" prot="public" virt="non-virtual"><scope>euphoria::core::Rgbi</scope><name>Rgbi</name></member>
+      <member refid="structeuphoria_1_1core_1_1Rgbi_1a59b576faa399c06c235c2e3844a120d1" prot="public" virt="non-virtual"><scope>euphoria::core::Rgbi</scope><name>Rgbi</name></member>
+      <member refid="structeuphoria_1_1core_1_1Rgbi_1a5ad0bc2ba6249f45a9caf0d8337febaa" prot="public" virt="non-virtual"><scope>euphoria::core::Rgbi</scope><name>to_hex</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

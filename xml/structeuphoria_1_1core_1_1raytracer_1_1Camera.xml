@@ -57,13 +57,13 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1raytracer_1_1Camera_1ac80b0ecf96ab8824ac777e9b4e75f921" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1raytracer_1_1Camera_1a90bb8ebe7cd3db05c1dcffa6f9137861" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1raytracer_1_1Camera" kindref="compound">Camera</ref></type>
         <definition>static Camera euphoria::core::raytracer::Camera::create</definition>
-        <argsstring>(const angle &amp;vfov, float aspect)</argsstring>
+        <argsstring>(const Angle &amp;vfov, float aspect)</argsstring>
         <name>create</name>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1angle" kindref="compound">angle</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Angle" kindref="compound">Angle</ref> &amp;</type>
           <declname>vfov</declname>
         </param>
         <param>
@@ -124,7 +124,7 @@
     </collaborationgraph>
     <location file="libs/core/src/core/raytracer.cc" line="425" column="5" bodyfile="libs/core/src/core/raytracer.cc" bodystart="426" bodyend="456"/>
     <listofallmembers>
-      <member refid="structeuphoria_1_1core_1_1raytracer_1_1Camera_1ac80b0ecf96ab8824ac777e9b4e75f921" prot="public" virt="non-virtual"><scope>euphoria::core::raytracer::Camera</scope><name>create</name></member>
+      <member refid="structeuphoria_1_1core_1_1raytracer_1_1Camera_1a90bb8ebe7cd3db05c1dcffa6f9137861" prot="public" virt="non-virtual"><scope>euphoria::core::raytracer::Camera</scope><name>create</name></member>
       <member refid="structeuphoria_1_1core_1_1raytracer_1_1Camera_1a7885e6e60bddbe805b3d236c9d7f2521" prot="public" virt="non-virtual"><scope>euphoria::core::raytracer::Camera</scope><name>get_ray</name></member>
       <member refid="structeuphoria_1_1core_1_1raytracer_1_1Camera_1af6d1da0cd46f2d5dfdd5fa9db4ab5677" prot="public" virt="non-virtual"><scope>euphoria::core::raytracer::Camera</scope><name>horizontal</name></member>
       <member refid="structeuphoria_1_1core_1_1raytracer_1_1Camera_1a0e71b78b17d40f9fb0d722a910cb0f54" prot="public" virt="non-virtual"><scope>euphoria::core::raytracer::Camera</scope><name>lower_left_corner</name></member>

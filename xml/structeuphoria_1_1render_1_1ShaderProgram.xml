@@ -261,17 +261,17 @@
         </inbodydescription>
         <location file="libs/render/src/render/shader.h" line="76" column="14" bodyfile="libs/render/src/render/shader.cc" bodystart="283" bodyend="288"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1render_1_1ShaderProgram_1a0ad9fd2613cd84b89b789cd8e848a3d7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1ShaderProgram_1aeb5f313c98a7bb457d45db83ed08e283" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void euphoria::render::ShaderProgram::set_uniform</definition>
-        <argsstring>(const ShaderUniform &amp;attribute, const core::rgb &amp;val)</argsstring>
+        <argsstring>(const ShaderUniform &amp;attribute, const core::Rgb &amp;val)</argsstring>
         <name>set_uniform</name>
         <param>
           <type>const <ref refid="structeuphoria_1_1render_1_1ShaderUniform" kindref="compound">ShaderUniform</ref> &amp;</type>
           <declname>attribute</declname>
         </param>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1rgb" kindref="compound">core::rgb</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Rgb" kindref="compound">core::Rgb</ref> &amp;</type>
           <declname>val</declname>
         </param>
         <briefdescription>
@@ -282,17 +282,17 @@
         </inbodydescription>
         <location file="libs/render/src/render/shader.h" line="77" column="14" bodyfile="libs/render/src/render/shader.cc" bodystart="301" bodyend="310"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1render_1_1ShaderProgram_1a1bd066950cadc841c94dfade3af2b8db" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1ShaderProgram_1a22979dfb599aa2c68a36d1e0ecd2e5db" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void euphoria::render::ShaderProgram::set_uniform</definition>
-        <argsstring>(const ShaderUniform &amp;attribute, const core::rgba &amp;val)</argsstring>
+        <argsstring>(const ShaderUniform &amp;attribute, const core::Rgba &amp;val)</argsstring>
         <name>set_uniform</name>
         <param>
           <type>const <ref refid="structeuphoria_1_1render_1_1ShaderUniform" kindref="compound">ShaderUniform</ref> &amp;</type>
           <declname>attribute</declname>
         </param>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1rgba" kindref="compound">core::rgba</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Rgba" kindref="compound">core::Rgba</ref> &amp;</type>
           <declname>val</declname>
         </param>
         <briefdescription>
@@ -535,8 +535,8 @@
       <member refid="structeuphoria_1_1render_1_1ShaderId_1a629ec60be7b194404124817ce52df606" prot="public" virt="non-virtual" ambiguityscope="euphoria::render::ShaderId::"><scope>euphoria::render::ShaderProgram</scope><name>operator=</name></member>
       <member refid="structeuphoria_1_1render_1_1ShaderProgram_1a272f5f30901f4b1f4bf271dc62f50043" prot="public" virt="non-virtual"><scope>euphoria::render::ShaderProgram</scope><name>set_uniform</name></member>
       <member refid="structeuphoria_1_1render_1_1ShaderProgram_1a9fa00719c155d70b26d3c740836f723f" prot="public" virt="non-virtual"><scope>euphoria::render::ShaderProgram</scope><name>set_uniform</name></member>
-      <member refid="structeuphoria_1_1render_1_1ShaderProgram_1a0ad9fd2613cd84b89b789cd8e848a3d7" prot="public" virt="non-virtual"><scope>euphoria::render::ShaderProgram</scope><name>set_uniform</name></member>
-      <member refid="structeuphoria_1_1render_1_1ShaderProgram_1a1bd066950cadc841c94dfade3af2b8db" prot="public" virt="non-virtual"><scope>euphoria::render::ShaderProgram</scope><name>set_uniform</name></member>
+      <member refid="structeuphoria_1_1render_1_1ShaderProgram_1aeb5f313c98a7bb457d45db83ed08e283" prot="public" virt="non-virtual"><scope>euphoria::render::ShaderProgram</scope><name>set_uniform</name></member>
+      <member refid="structeuphoria_1_1render_1_1ShaderProgram_1a22979dfb599aa2c68a36d1e0ecd2e5db" prot="public" virt="non-virtual"><scope>euphoria::render::ShaderProgram</scope><name>set_uniform</name></member>
       <member refid="structeuphoria_1_1render_1_1ShaderProgram_1a19747c0fbe05a1c8e0c3faf934776c7f" prot="public" virt="non-virtual"><scope>euphoria::render::ShaderProgram</scope><name>set_uniform</name></member>
       <member refid="structeuphoria_1_1render_1_1ShaderProgram_1a46ca682bf9a82a5ceadeb22a5fd6e427" prot="public" virt="non-virtual"><scope>euphoria::render::ShaderProgram</scope><name>set_uniform</name></member>
       <member refid="structeuphoria_1_1render_1_1ShaderProgram_1afef449ef69f485f406dcb2464e8590da" prot="public" virt="non-virtual"><scope>euphoria::render::ShaderProgram</scope><name>set_uniform</name></member>

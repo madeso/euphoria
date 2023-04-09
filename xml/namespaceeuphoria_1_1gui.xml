@@ -187,9 +187,9 @@
         </inbodydescription>
         <location file="libs/gui/src/gui/load.cc" line="105" column="5" bodyfile="libs/gui/src/gui/load.cc" bodystart="106" bodyend="188"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1gui_1a5d6b3f858a4201e0c92c9a2bf7986bab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeuphoria_1_1core_1_1rgb" kindref="compound">core::rgb</ref></type>
-        <definition>core::rgb euphoria::gui::load</definition>
+      <memberdef kind="function" id="namespaceeuphoria_1_1gui_1a9b006b69e504cf6cc2f15f300d6f47e4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1Rgb" kindref="compound">core::Rgb</ref></type>
+        <definition>core::Rgb euphoria::gui::load</definition>
         <argsstring>(const ::gui::Rgb &amp;src)</argsstring>
         <name>load</name>
         <param>

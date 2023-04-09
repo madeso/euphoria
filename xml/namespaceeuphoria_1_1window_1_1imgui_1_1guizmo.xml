@@ -78,17 +78,17 @@
         </inbodydescription>
         <location file="libs/window/src/window/imguizmo.cc" line="52" column="5" bodyfile="libs/window/src/window/imguizmo.cc" bodystart="53" bodyend="108" declfile="libs/window/src/window/imguizmo.h" declline="17" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1window_1_1imgui_1_1guizmo_1affe63bde57b0bdeb0e6f8a08ddd31488" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1window_1_1imgui_1_1guizmo_1a40b6ce196b0f910b000001f9502b9da5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
         <definition>bool euphoria::window::imgui::guizmo::rotate</definition>
-        <argsstring>(bool is_local, const std::optional&lt; core::angle &gt; &amp;snap, const core::mat4f &amp;camera_view, const core::mat4f &amp;camera_projection, const core::mat4f &amp;model, bool rx, bool ry, bool rz, core::quatf *new_rotation)</argsstring>
+        <argsstring>(bool is_local, const std::optional&lt; core::Angle &gt; &amp;snap, const core::mat4f &amp;camera_view, const core::mat4f &amp;camera_projection, const core::mat4f &amp;model, bool rx, bool ry, bool rz, core::quatf *new_rotation)</argsstring>
         <name>rotate</name>
         <param>
           <type>bool</type>
           <declname>is_local</declname>
         </param>
         <param>
-          <type>const std::optional&lt; <ref refid="structeuphoria_1_1core_1_1angle" kindref="compound">core::angle</ref> &gt; &amp;</type>
+          <type>const std::optional&lt; <ref refid="structeuphoria_1_1core_1_1Angle" kindref="compound">core::Angle</ref> &gt; &amp;</type>
           <declname>snap</declname>
         </param>
         <param>

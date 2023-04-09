@@ -18,9 +18,9 @@
         </inbodydescription>
         <location file="libs/window/src/window/app.h" line="17" column="14" bodyfile="libs/window/src/window/app.h" bodystart="17" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeuphoria_1_1window_1_1App_1afba2844ff99a6359472e6e756583cdc6" prot="public" static="no" mutable="no">
-        <type><ref refid="structeuphoria_1_1core_1_1rgb" kindref="compound">core::rgb</ref></type>
-        <definition>core::rgb euphoria::window::App::clear_color</definition>
+      <memberdef kind="variable" id="structeuphoria_1_1window_1_1App_1ad53b635d305f3c693e7ca15428144b81" prot="public" static="no" mutable="no">
+        <type><ref refid="structeuphoria_1_1core_1_1Rgb" kindref="compound">core::Rgb</ref></type>
+        <definition>core::Rgb euphoria::window::App::clear_color</definition>
         <argsstring></argsstring>
         <name>clear_color</name>
         <briefdescription>
@@ -156,8 +156,8 @@
     </detaileddescription>
     <collaborationgraph>
       <node id="2">
-        <label>euphoria::core::rgb</label>
-        <link refid="structeuphoria_1_1core_1_1rgb"/>
+        <label>euphoria::core::Rgb</label>
+        <link refid="structeuphoria_1_1core_1_1Rgb"/>
       </node>
       <node id="1">
         <label>euphoria::window::App</label>
@@ -172,7 +172,7 @@
       <member refid="structeuphoria_1_1window_1_1App_1af1ad2df7145db6c0f84bbdd2d9628f7d" prot="public" virt="non-virtual"><scope>euphoria::window::App</scope><name>App</name></member>
       <member refid="structeuphoria_1_1window_1_1App_1a22a41787a70ecabfc9a520090a488666" prot="public" virt="non-virtual"><scope>euphoria::window::App</scope><name>App</name></member>
       <member refid="structeuphoria_1_1window_1_1App_1a31e7091efe9483df217bce8262834cef" prot="public" virt="non-virtual"><scope>euphoria::window::App</scope><name>App</name></member>
-      <member refid="structeuphoria_1_1window_1_1App_1afba2844ff99a6359472e6e756583cdc6" prot="public" virt="non-virtual"><scope>euphoria::window::App</scope><name>clear_color</name></member>
+      <member refid="structeuphoria_1_1window_1_1App_1ad53b635d305f3c693e7ca15428144b81" prot="public" virt="non-virtual"><scope>euphoria::window::App</scope><name>clear_color</name></member>
       <member refid="structeuphoria_1_1window_1_1App_1a8f3dd3058ec27fe9cd954820806d4725" prot="public" virt="virtual"><scope>euphoria::window::App</scope><name>on_gui</name></member>
       <member refid="structeuphoria_1_1window_1_1App_1a57f891cefd25189c3a31ac4adcb94e47" prot="public" virt="virtual"><scope>euphoria::window::App</scope><name>on_quit</name></member>
       <member refid="structeuphoria_1_1window_1_1App_1ac5b2a9e5bcab608584055158387212fb" prot="public" virt="non-virtual"><scope>euphoria::window::App</scope><name>operator=</name></member>

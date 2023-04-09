@@ -304,13 +304,13 @@
         </inbodydescription>
         <location file="libs/core/src/core/mat2.h" line="42" column="23" bodyfile="libs/core/src/core/mat2.cc" bodystart="30" bodyend="37"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1mat2f_1a1905459e4faaf3fef5c1158bd4593c8c" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1mat2f_1a41a89b66c5f4666a8de473e1e8a7e9ed" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1mat2f" kindref="compound">mat2f</ref></type>
         <definition>mat2f euphoria::core::mat2f::from_rotation</definition>
-        <argsstring>(const angle &amp;a)</argsstring>
+        <argsstring>(const Angle &amp;a)</argsstring>
         <name>from_rotation</name>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1angle" kindref="compound">angle</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Angle" kindref="compound">Angle</ref> &amp;</type>
           <declname>a</declname>
         </param>
         <briefdescription>
@@ -374,7 +374,7 @@
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1mat2f_1aed27b73ea52c55acc135be124fcc7ffd" prot="private" virt="non-virtual"><scope>euphoria::core::mat2f</scope><name>data</name></member>
       <member refid="structeuphoria_1_1core_1_1mat2f_1a8fb3a1e8aadb5bffe318fa3412cd60e1" prot="public" virt="non-virtual"><scope>euphoria::core::mat2f</scope><name>from_col_major</name></member>
-      <member refid="structeuphoria_1_1core_1_1mat2f_1a1905459e4faaf3fef5c1158bd4593c8c" prot="public" virt="non-virtual"><scope>euphoria::core::mat2f</scope><name>from_rotation</name></member>
+      <member refid="structeuphoria_1_1core_1_1mat2f_1a41a89b66c5f4666a8de473e1e8a7e9ed" prot="public" virt="non-virtual"><scope>euphoria::core::mat2f</scope><name>from_rotation</name></member>
       <member refid="structeuphoria_1_1core_1_1mat2f_1aeaac3b0ce41fe8eae42de957cfe51fbe" prot="public" virt="non-virtual"><scope>euphoria::core::mat2f</scope><name>from_row_major</name></member>
       <member refid="structeuphoria_1_1core_1_1mat2f_1a5dbb5951d6f155f64e99295503586a75" prot="public" virt="non-virtual"><scope>euphoria::core::mat2f</scope><name>from_scalar</name></member>
       <member refid="structeuphoria_1_1core_1_1mat2f_1a2ec44978efefab24e5dd7526608b096d" prot="public" virt="non-virtual"><scope>euphoria::core::mat2f</scope><name>from_stretch_x</name></member>

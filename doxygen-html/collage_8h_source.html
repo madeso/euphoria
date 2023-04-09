@@ -66,7 +66,7 @@
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceeuphoria_1_1core.html">euphoria::core</a></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keyword">struct </span>Image;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keyword">struct </span>rgbi;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keyword">struct </span>Rgbi;</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    std::vector&lt;size2i&gt; <a class="code" href="namespaceeuphoria_1_1core.html#ad6e1498a630c9d0c60c0fa8755543151">collect_sizes</a></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    (</div>
@@ -75,12 +75,12 @@
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    );</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    Image</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <a class="code" href="namespaceeuphoria_1_1core.html#a726dd3e023e8621e3ba182f853ba9e0f">draw_image</a></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <a class="code" href="namespaceeuphoria_1_1core.html#a873bdcfe36f001708ba3df698817a69a">draw_image</a></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    (</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keyword">const</span> std::vector&lt;vec2i&gt;&amp; positions,</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keyword">const</span> std::vector&lt;Image&gt;&amp; images,</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keyword">const</span> size2i&amp; size,</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keyword">const</span> rgbi&amp; background_color</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keyword">const</span> Rgbi&amp; background_color</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    );</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    size2i</div>
@@ -111,7 +111,7 @@
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; files,</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keyword">const</span> size2i&amp; requested_size,</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordtype">int</span> padding,</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        rgbi background_color,</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        Rgbi background_color,</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="namespaceeuphoria_1_1core.html#a0e980c3e53d71647bba3fbcde6e23f90">pack_image</a></div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    );</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
@@ -133,7 +133,7 @@
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    (</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keyword">const</span> std::vector&lt;Image&gt;&amp; images,</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="keywordtype">int</span> padding,</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        rgbi background_color,</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        Rgbi background_color,</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="keywordtype">bool</span> top_to_bottom</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    );</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
@@ -141,7 +141,7 @@
 <div class="ttc" id="anamespaceeuphoria_1_1core_html"><div class="ttname"><a href="namespaceeuphoria_1_1core.html">euphoria::core</a></div><div class="ttdef"><b>Definition:</b> <a href="aabb_8cc_source.html#l00008">aabb.cc:9</a></div></div>
 <div class="ttc" id="anamespaceeuphoria_1_1core_html_a0956c7531d832003a497302768888734"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#a0956c7531d832003a497302768888734">euphoria::core::lay_out_in_a_grid</a></div><div class="ttdeci">std::pair&lt; std::vector&lt; vec2i &gt;, size2i &gt; lay_out_in_a_grid(const std::vector&lt; Image &gt; &amp;images, int padding, bool top_to_bottom)</div><div class="ttdef"><b>Definition:</b> <a href="collage_8cc_source.html#l00205">collage.cc:206</a></div></div>
 <div class="ttc" id="anamespaceeuphoria_1_1core_html_a0e980c3e53d71647bba3fbcde6e23f90"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#a0e980c3e53d71647bba3fbcde6e23f90">euphoria::core::pack_image</a></div><div class="ttdeci">std::vector&lt; vec2i &gt; pack_image(const size2i &amp;image_size, const std::vector&lt; Image &gt; &amp;images, const std::vector&lt; std::string &gt; &amp;files, int padding)</div><div class="ttdef"><b>Definition:</b> <a href="collage_8cc_source.html#l00113">collage.cc:114</a></div></div>
-<div class="ttc" id="anamespaceeuphoria_1_1core_html_a726dd3e023e8621e3ba182f853ba9e0f"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#a726dd3e023e8621e3ba182f853ba9e0f">euphoria::core::draw_image</a></div><div class="ttdeci">Image draw_image(const std::vector&lt; vec2i &gt; &amp;positions, const std::vector&lt; Image &gt; &amp;images, const size2i &amp;size, const rgbi &amp;background_color)</div><div class="ttdef"><b>Definition:</b> <a href="collage_8cc_source.html#l00037">collage.cc:38</a></div></div>
+<div class="ttc" id="anamespaceeuphoria_1_1core_html_a873bdcfe36f001708ba3df698817a69a"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#a873bdcfe36f001708ba3df698817a69a">euphoria::core::draw_image</a></div><div class="ttdeci">Image draw_image(const std::vector&lt; vec2i &gt; &amp;positions, const std::vector&lt; Image &gt; &amp;images, const size2i &amp;size, const Rgbi &amp;background_color)</div><div class="ttdef"><b>Definition:</b> <a href="collage_8cc_source.html#l00037">collage.cc:38</a></div></div>
 <div class="ttc" id="anamespaceeuphoria_1_1core_html_a8ec1fc16f3ecf899df7a5dd633ca446b"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#a8ec1fc16f3ecf899df7a5dd633ca446b">euphoria::core::pack_tight</a></div><div class="ttdeci">size2i pack_tight(const size2i &amp;default_size, std::vector&lt; vec2i &gt; *positions, const std::vector&lt; Image &gt; &amp;images, int padding)</div><div class="ttdef"><b>Definition:</b> <a href="collage_8cc_source.html#l00070">collage.cc:71</a></div></div>
 <div class="ttc" id="anamespaceeuphoria_1_1core_html_ad6e1498a630c9d0c60c0fa8755543151"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#ad6e1498a630c9d0c60c0fa8755543151">euphoria::core::collect_sizes</a></div><div class="ttdeci">std::vector&lt; size2i &gt; collect_sizes(const std::vector&lt; Image &gt; &amp;images, int padding)</div><div class="ttdef"><b>Definition:</b> <a href="collage_8cc_source.html#l00015">collage.cc:16</a></div></div>
 <div class="ttc" id="asize2_8h_html"><div class="ttname"><a href="size2_8h.html">size2.h</a></div></div>

@@ -167,10 +167,10 @@
         </inbodydescription>
         <location file="libs/render/src/render/spriterender.h" line="42" column="14"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1render_1_1SpriteRenderer_1a07417c0b81d84646a48316bd7a80f1f5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1SpriteRenderer_1a10bcc8d82ff3db6c437b92fca28f07da" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void euphoria::render::SpriteRenderer::draw_rect</definition>
-        <argsstring>(const Texture2 &amp;texture, const core::Rectf &amp;sprite_area, const core::Rectf &amp;texture_region, const core::angle &amp;rotation_angle, const core::Scale2f &amp;rotation_anchor, const core::rgba &amp;tint_color)</argsstring>
+        <argsstring>(const Texture2 &amp;texture, const core::Rectf &amp;sprite_area, const core::Rectf &amp;texture_region, const core::Angle &amp;rotation_angle, const core::Scale2f &amp;rotation_anchor, const core::Rgba &amp;tint_color)</argsstring>
         <name>draw_rect</name>
         <param>
           <type>const <ref refid="structeuphoria_1_1render_1_1Texture2" kindref="compound">Texture2</ref> &amp;</type>
@@ -185,7 +185,7 @@
           <declname>texture_region</declname>
         </param>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1angle" kindref="compound">core::angle</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Angle" kindref="compound">core::Angle</ref> &amp;</type>
           <declname>rotation_angle</declname>
         </param>
         <param>
@@ -193,7 +193,7 @@
           <declname>rotation_anchor</declname>
         </param>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1rgba" kindref="compound">core::rgba</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Rgba" kindref="compound">core::Rgba</ref> &amp;</type>
           <declname>tint_color</declname>
         </param>
         <briefdescription>
@@ -230,10 +230,10 @@
         </inbodydescription>
         <location file="libs/render/src/render/spriterender.h" line="57" column="9" bodyfile="libs/render/src/render/spriterender.cc" bodystart="125" bodyend="140"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1render_1_1SpriteRenderer_1a11d0b4cea50dc78a71cedbdf1d531065" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1SpriteRenderer_1a7430acfa994e6dac1ffe343f6d2ddbd6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void euphoria::render::SpriteRenderer::draw_ninepatch</definition>
-        <argsstring>(const ScalableSprite &amp;ninepatch, const core::Rectf &amp;rect, const core::rgba &amp;tint)</argsstring>
+        <argsstring>(const ScalableSprite &amp;ninepatch, const core::Rectf &amp;rect, const core::Rgba &amp;tint)</argsstring>
         <name>draw_ninepatch</name>
         <param>
           <type>const <ref refid="structeuphoria_1_1render_1_1ScalableSprite" kindref="compound">ScalableSprite</ref> &amp;</type>
@@ -244,7 +244,7 @@
           <declname>rect</declname>
         </param>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1rgba" kindref="compound">core::rgba</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Rgba" kindref="compound">core::Rgba</ref> &amp;</type>
           <declname>tint</declname>
         </param>
         <briefdescription>
@@ -278,8 +278,8 @@
     <location file="libs/render/src/render/spriterender.h" line="34" column="5" bodyfile="libs/render/src/render/spriterender.h" bodystart="35" bodyend="82"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1render_1_1SpriteRenderer_1a75dfa02de9927979b4f00d51f0135058" prot="private" virt="non-virtual"><scope>euphoria::render::SpriteRenderer</scope><name>color_uniform</name></member>
-      <member refid="structeuphoria_1_1render_1_1SpriteRenderer_1a11d0b4cea50dc78a71cedbdf1d531065" prot="public" virt="non-virtual"><scope>euphoria::render::SpriteRenderer</scope><name>draw_ninepatch</name></member>
-      <member refid="structeuphoria_1_1render_1_1SpriteRenderer_1a07417c0b81d84646a48316bd7a80f1f5" prot="public" virt="non-virtual"><scope>euphoria::render::SpriteRenderer</scope><name>draw_rect</name></member>
+      <member refid="structeuphoria_1_1render_1_1SpriteRenderer_1a7430acfa994e6dac1ffe343f6d2ddbd6" prot="public" virt="non-virtual"><scope>euphoria::render::SpriteRenderer</scope><name>draw_ninepatch</name></member>
+      <member refid="structeuphoria_1_1render_1_1SpriteRenderer_1a10bcc8d82ff3db6c437b92fca28f07da" prot="public" virt="non-virtual"><scope>euphoria::render::SpriteRenderer</scope><name>draw_rect</name></member>
       <member refid="structeuphoria_1_1render_1_1SpriteRenderer_1a6f4033aaf852d4704e899caf258398b6" prot="public" virt="non-virtual"><scope>euphoria::render::SpriteRenderer</scope><name>draw_sprite</name></member>
       <member refid="structeuphoria_1_1render_1_1SpriteRenderer_1a9fdb4abd74aa4bcba8b4be7c84dd72b0" prot="private" virt="non-virtual"><scope>euphoria::render::SpriteRenderer</scope><name>init_render_data</name></member>
       <member refid="structeuphoria_1_1render_1_1SpriteRenderer_1a1b31e75193a71bec7caa300dee8ccab7" prot="private" virt="non-virtual"><scope>euphoria::render::SpriteRenderer</scope><name>model_uniform</name></member>

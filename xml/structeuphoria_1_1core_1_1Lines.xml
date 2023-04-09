@@ -47,10 +47,10 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Lines_1a2c3597d0fffb93815194696400f04e42" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Lines_1a769ca68a15780e298c3f0edf6aa289ea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void euphoria::core::Lines::add_line</definition>
-        <argsstring>(const vec3f &amp;from, const vec3f &amp;to, const rgb &amp;c)</argsstring>
+        <argsstring>(const vec3f &amp;from, const vec3f &amp;to, const Rgb &amp;c)</argsstring>
         <name>add_line</name>
         <param>
           <type>const <ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
@@ -61,7 +61,7 @@
           <declname>to</declname>
         </param>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1rgb" kindref="compound">rgb</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Rgb" kindref="compound">Rgb</ref> &amp;</type>
           <declname>c</declname>
         </param>
         <briefdescription>
@@ -79,7 +79,7 @@
     </detaileddescription>
     <location file="libs/core/src/core/lines.h" line="20" column="5" bodyfile="libs/core/src/core/lines.h" bodystart="21" bodyend="28"/>
     <listofallmembers>
-      <member refid="structeuphoria_1_1core_1_1Lines_1a2c3597d0fffb93815194696400f04e42" prot="public" virt="non-virtual"><scope>euphoria::core::Lines</scope><name>add_line</name></member>
+      <member refid="structeuphoria_1_1core_1_1Lines_1a769ca68a15780e298c3f0edf6aa289ea" prot="public" virt="non-virtual"><scope>euphoria::core::Lines</scope><name>add_line</name></member>
       <member refid="structeuphoria_1_1core_1_1Lines_1a21f7c0dc862e52c894de211d52a61690" prot="public" virt="non-virtual"><scope>euphoria::core::Lines</scope><name>FromToIndices</name></member>
       <member refid="structeuphoria_1_1core_1_1Lines_1ae7aeb80099758503bf9a50dabd6f5c58" prot="public" virt="non-virtual"><scope>euphoria::core::Lines</scope><name>indices</name></member>
       <member refid="structeuphoria_1_1core_1_1Lines_1a706762b2ae0c57f5d0c5554a238d276b" prot="public" virt="non-virtual"><scope>euphoria::core::Lines</scope><name>points</name></member>
