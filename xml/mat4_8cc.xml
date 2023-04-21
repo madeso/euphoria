@@ -176,7 +176,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/mat4.cc" line="374" column="9"/>
+        <location file="libs/core/src/core/mat4.cc" line="371" column="9"/>
       </memberdef>
       <memberdef kind="define" id="mat4_8cc_1a52267107dd1016c80abd3e27e445e437" prot="public" static="no">
         <name>OP</name>
@@ -188,7 +188,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/mat4.cc" line="385" column="9"/>
+        <location file="libs/core/src/core/mat4.cc" line="382" column="9"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

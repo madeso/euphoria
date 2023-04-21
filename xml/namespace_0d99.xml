@@ -6,6 +6,6 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/hashgen.identicon.cc" line="19" column="1"/>
+    <location file="libs/core/src/core/hashgen.sprator.cc" line="16" column="1"/>
   </compounddef>
 </doxygen>

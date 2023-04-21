@@ -24,8 +24,6 @@
     <innerfile refid="camera3_8h">camera3.h</innerfile>
     <innerfile refid="canvaslogic_8cc">canvaslogic.cc</innerfile>
     <innerfile refid="canvaslogic_8h">canvaslogic.h</innerfile>
-    <innerfile refid="chatbot_8cc">chatbot.cc</innerfile>
-    <innerfile refid="chatbot_8h">chatbot.h</innerfile>
     <innerfile refid="cint_8cc">cint.cc</innerfile>
     <innerfile refid="cint_8h">cint.h</innerfile>
     <innerfile refid="cli__progress__dots_8cc">cli_progress_dots.cc</innerfile>

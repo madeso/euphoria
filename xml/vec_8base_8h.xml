@@ -9,105 +9,105 @@
         <label>libs/core/src/core/image_canvas.cc</label>
         <link refid="image__canvas_8cc"/>
       </node>
-      <node id="113">
+      <node id="111">
         <label>libs/core/src/core/shufflebag.h</label>
         <link refid="shufflebag_8h"/>
-        <childnode refid="114" relation="include">
+        <childnode refid="112" relation="include">
         </childnode>
       </node>
       <node id="5">
         <label>libs/core/src/core/bufferbuilder2d.cc</label>
         <link refid="bufferbuilder2d_8cc"/>
       </node>
-      <node id="180">
+      <node id="178">
         <label>libs/core/src/core/vec4.h</label>
         <link refid="vec4_8h"/>
         <childnode refid="43" relation="include">
         </childnode>
-        <childnode refid="181" relation="include">
+        <childnode refid="179" relation="include">
         </childnode>
         <childnode refid="79" relation="include">
         </childnode>
         <childnode refid="92" relation="include">
         </childnode>
       </node>
-      <node id="134">
+      <node id="132">
         <label>libs/core/src/core/pack.h</label>
         <link refid="pack_8h"/>
         <childnode refid="18" relation="include">
         </childnode>
-        <childnode refid="135" relation="include">
+        <childnode refid="133" relation="include">
         </childnode>
       </node>
       <node id="78">
         <label>libs/window/src/window/engine.cc</label>
         <link refid="engine_8cc"/>
       </node>
-      <node id="150">
+      <node id="148">
         <label>libs/gui/src/gui/layoutcontainer.cc</label>
         <link refid="layoutcontainer_8cc"/>
       </node>
-      <node id="136">
+      <node id="134">
         <label>libs/core/src/core/table.h</label>
         <link refid="table_8h"/>
-        <childnode refid="137" relation="include">
+        <childnode refid="135" relation="include">
         </childnode>
-        <childnode refid="138" relation="include">
+        <childnode refid="136" relation="include">
         </childnode>
         <childnode refid="21" relation="include">
         </childnode>
-        <childnode refid="140" relation="include">
+        <childnode refid="138" relation="include">
         </childnode>
-        <childnode refid="121" relation="include">
+        <childnode refid="119" relation="include">
         </childnode>
         <childnode refid="95" relation="include">
         </childnode>
-        <childnode refid="141" relation="include">
+        <childnode refid="139" relation="include">
         </childnode>
-        <childnode refid="128" relation="include">
+        <childnode refid="126" relation="include">
         </childnode>
-        <childnode refid="142" relation="include">
+        <childnode refid="140" relation="include">
         </childnode>
       </node>
-      <node id="158">
+      <node id="156">
         <label>libs/render/src/render/scalablesprite.h</label>
         <link refid="scalablesprite_8h"/>
         <childnode refid="89" relation="include">
         </childnode>
-        <childnode refid="147" relation="include">
+        <childnode refid="145" relation="include">
         </childnode>
         <childnode refid="91" relation="include">
         </childnode>
         <childnode refid="7" relation="include">
         </childnode>
       </node>
-      <node id="189">
+      <node id="187">
         <label>libs/window/src/window/sdlglcontext.cc</label>
         <link refid="sdlglcontext_8cc"/>
       </node>
-      <node id="181">
+      <node id="179">
         <label>libs/core/src/core/vec4.cc</label>
         <link refid="vec4_8cc"/>
       </node>
-      <node id="122">
+      <node id="120">
         <label>libs/core/src/core/loadedfont.h</label>
         <link refid="loadedfont_8h"/>
         <childnode refid="30" relation="include">
         </childnode>
         <childnode refid="31" relation="include">
         </childnode>
-        <childnode refid="123" relation="include">
+        <childnode refid="121" relation="include">
         </childnode>
       </node>
-      <node id="154">
+      <node id="152">
         <label>libs/gui/src/gui/root.h</label>
         <link refid="root_8h"/>
-        <childnode refid="147" relation="include">
+        <childnode refid="145" relation="include">
         </childnode>
         <childnode refid="90" relation="include">
         </childnode>
       </node>
-      <node id="119">
+      <node id="117">
         <label>libs/core/src/core/image.cc</label>
         <link refid="image_8cc"/>
       </node>
@@ -123,10 +123,10 @@
         <label>libs/render/src/render/buffer2d.cc</label>
         <link refid="buffer2d_8cc"/>
       </node>
-      <node id="165">
+      <node id="163">
         <label>libs/core/src/core/axisangle.h</label>
         <link refid="axisangle_8h"/>
-        <childnode refid="166" relation="include">
+        <childnode refid="164" relation="include">
         </childnode>
         <childnode refid="41" relation="include">
         </childnode>
@@ -137,30 +137,24 @@
         <childnode refid="60" relation="include">
         </childnode>
       </node>
-      <node id="161">
+      <node id="159">
         <label>libs/core/src/core/size2.h</label>
         <link refid="size2_8h"/>
         <childnode refid="17" relation="include">
         </childnode>
-        <childnode refid="134" relation="include">
+        <childnode refid="132" relation="include">
         </childnode>
-        <childnode refid="117" relation="include">
+        <childnode refid="115" relation="include">
         </childnode>
-        <childnode refid="162" relation="include">
+        <childnode refid="160" relation="include">
         </childnode>
-        <childnode refid="148" relation="include">
+        <childnode refid="146" relation="include">
         </childnode>
-        <childnode refid="151" relation="include">
+        <childnode refid="149" relation="include">
         </childnode>
-        <childnode refid="155" relation="include">
+        <childnode refid="153" relation="include">
         </childnode>
-        <childnode refid="159" relation="include">
-        </childnode>
-      </node>
-      <node id="102">
-        <label>libs/core/src/core/chatbot.h</label>
-        <link refid="chatbot_8h"/>
-        <childnode refid="103" relation="include">
+        <childnode refid="157" relation="include">
         </childnode>
       </node>
       <node id="54">
@@ -179,11 +173,11 @@
         <label>libs/core/src/core/hashgen.identicon.cc</label>
         <link refid="hashgen_8identicon_8cc"/>
       </node>
-      <node id="166">
+      <node id="164">
         <label>libs/core/src/core/axisangle.cc</label>
         <link refid="axisangle_8cc"/>
       </node>
-      <node id="179">
+      <node id="177">
         <label>libs/core/src/core/vec3.cc</label>
         <link refid="vec3_8cc"/>
       </node>
@@ -209,19 +203,15 @@
         <label>libs/core/src/core/vec.base.cc</label>
         <link refid="vec_8base_8cc"/>
       </node>
-      <node id="135">
+      <node id="133">
         <label>libs/core/src/core/pack.cc</label>
         <link refid="pack_8cc"/>
       </node>
-      <node id="103">
-        <label>libs/core/src/core/chatbot.cc</label>
-        <link refid="chatbot_8cc"/>
-      </node>
-      <node id="174">
+      <node id="172">
         <label>libs/core/src/core/propertytree.cc</label>
         <link refid="propertytree_8cc"/>
       </node>
-      <node id="126">
+      <node id="124">
         <label>libs/render/src/render/fontcache.cc</label>
         <link refid="fontcache_8cc"/>
       </node>
@@ -233,11 +223,11 @@
         <label>libs/window/src/window/canvas.cc</label>
         <link refid="canvas_8cc"/>
       </node>
-      <node id="176">
+      <node id="174">
         <label>libs/core/src/core/sphere.builder.cc</label>
         <link refid="sphere_8builder_8cc"/>
       </node>
-      <node id="116">
+      <node id="114">
         <label>libs/core/src/core/vec2.cc</label>
         <link refid="vec2_8cc"/>
       </node>
@@ -249,7 +239,7 @@
         <label>libs/core/src/core/poisson.cc</label>
         <link refid="poisson_8cc"/>
       </node>
-      <node id="153">
+      <node id="151">
         <label>libs/gui/src/gui/panelwidget.cc</label>
         <link refid="panelwidget_8cc"/>
       </node>
@@ -279,20 +269,20 @@
         <label>libs/gui/src/gui/button.cc</label>
         <link refid="button_8cc"/>
       </node>
-      <node id="169">
+      <node id="167">
         <label>libs/core/src/core/lines.cc</label>
         <link refid="lines_8cc"/>
       </node>
-      <node id="112">
+      <node id="110">
         <label>libs/core/src/core/rect.cc</label>
         <link refid="rect_8cc"/>
       </node>
-      <node id="152">
+      <node id="150">
         <label>libs/gui/src/gui/panelwidget.h</label>
         <link refid="panelwidget_8h"/>
-        <childnode refid="147" relation="include">
+        <childnode refid="145" relation="include">
         </childnode>
-        <childnode refid="153" relation="include">
+        <childnode refid="151" relation="include">
         </childnode>
       </node>
       <node id="48">
@@ -341,7 +331,7 @@
         <label>libs/core/src/core/hashgen.sprator.cc</label>
         <link refid="hashgen_8sprator_8cc"/>
       </node>
-      <node id="124">
+      <node id="122">
         <label>libs/gui/src/gui/skin.cc</label>
         <link refid="skin_8cc"/>
       </node>
@@ -351,16 +341,16 @@
         <childnode refid="50" relation="include">
         </childnode>
       </node>
-      <node id="188">
+      <node id="186">
         <label>libs/window/src/window/sdlwindow.h</label>
         <link refid="sdlwindow_8h"/>
         <childnode refid="77" relation="include">
         </childnode>
         <childnode refid="78" relation="include">
         </childnode>
-        <childnode refid="189" relation="include">
+        <childnode refid="187" relation="include">
         </childnode>
-        <childnode refid="190" relation="include">
+        <childnode refid="188" relation="include">
         </childnode>
       </node>
       <node id="55">
@@ -375,7 +365,7 @@
         <childnode refid="59" relation="include">
         </childnode>
       </node>
-      <node id="111">
+      <node id="109">
         <label>libs/core/src/core/random.cc</label>
         <link refid="random_8cc"/>
       </node>
@@ -389,28 +379,28 @@
         <childnode refid="7" relation="include">
         </childnode>
       </node>
-      <node id="163">
+      <node id="161">
         <label>libs/core/src/core/vec3.h</label>
         <link refid="vec3_8h"/>
-        <childnode refid="164" relation="include">
+        <childnode refid="162" relation="include">
         </childnode>
-        <childnode refid="165" relation="include">
+        <childnode refid="163" relation="include">
         </childnode>
         <childnode refid="5" relation="include">
         </childnode>
         <childnode refid="8" relation="include">
         </childnode>
-        <childnode refid="167" relation="include">
+        <childnode refid="165" relation="include">
         </childnode>
         <childnode refid="19" relation="include">
         </childnode>
         <childnode refid="46" relation="include">
         </childnode>
-        <childnode refid="121" relation="include">
+        <childnode refid="119" relation="include">
         </childnode>
         <childnode refid="35" relation="include">
         </childnode>
-        <childnode refid="168" relation="include">
+        <childnode refid="166" relation="include">
         </childnode>
         <childnode refid="41" relation="include">
         </childnode>
@@ -420,11 +410,11 @@
         </childnode>
         <childnode refid="49" relation="include">
         </childnode>
+        <childnode refid="168" relation="include">
+        </childnode>
         <childnode refid="170" relation="include">
         </childnode>
-        <childnode refid="172" relation="include">
-        </childnode>
-        <childnode refid="173" relation="include">
+        <childnode refid="171" relation="include">
         </childnode>
         <childnode refid="45" relation="include">
         </childnode>
@@ -432,44 +422,44 @@
         </childnode>
         <childnode refid="67" relation="include">
         </childnode>
+        <childnode refid="173" relation="include">
+        </childnode>
         <childnode refid="175" relation="include">
         </childnode>
         <childnode refid="177" relation="include">
         </childnode>
-        <childnode refid="179" relation="include">
-        </childnode>
-        <childnode refid="180" relation="include">
+        <childnode refid="178" relation="include">
         </childnode>
         <childnode refid="52" relation="include">
         </childnode>
         <childnode refid="72" relation="include">
         </childnode>
-        <childnode refid="123" relation="include">
+        <childnode refid="121" relation="include">
         </childnode>
         <childnode refid="55" relation="include">
         </childnode>
-        <childnode refid="182" relation="include">
+        <childnode refid="180" relation="include">
         </childnode>
         <childnode refid="79" relation="include">
         </childnode>
-        <childnode refid="184" relation="include">
+        <childnode refid="182" relation="include">
         </childnode>
         <childnode refid="60" relation="include">
         </childnode>
-        <childnode refid="185" relation="include">
+        <childnode refid="183" relation="include">
         </childnode>
         <childnode refid="62" relation="include">
         </childnode>
       </node>
-      <node id="162">
+      <node id="160">
         <label>libs/core/src/core/size2.cc</label>
         <link refid="size2_8cc"/>
       </node>
-      <node id="106">
+      <node id="104">
         <label>libs/core/src/core/knuthshuffle.cc</label>
         <link refid="knuthshuffle_8cc"/>
       </node>
-      <node id="178">
+      <node id="176">
         <label>libs/core/src/core/sphere.position.cc</label>
         <link refid="sphere_8position_8cc"/>
       </node>
@@ -477,10 +467,10 @@
         <label>libs/core/src/core/generator_maze.cc</label>
         <link refid="generator__maze_8cc"/>
       </node>
-      <node id="144">
+      <node id="142">
         <label>libs/core/src/core/viewportdef.h</label>
         <link refid="viewportdef_8h"/>
-        <childnode refid="145" relation="include">
+        <childnode refid="143" relation="include">
         </childnode>
         <childnode refid="70" relation="include">
         </childnode>
@@ -511,17 +501,17 @@
         <childnode refid="10" relation="include">
         </childnode>
       </node>
-      <node id="182">
+      <node id="180">
         <label>libs/render/src/render/light.h</label>
         <link refid="light_8h"/>
-        <childnode refid="183" relation="include">
+        <childnode refid="181" relation="include">
         </childnode>
         <childnode refid="82" relation="include">
         </childnode>
         <childnode refid="59" relation="include">
         </childnode>
       </node>
-      <node id="133">
+      <node id="131">
         <label>libs/window/src/window/imgui_extra.cc</label>
         <link refid="imgui__extra_8cc"/>
       </node>
@@ -541,10 +531,10 @@
         <label>libs/render/src/render/font.cc</label>
         <link refid="font_8cc"/>
       </node>
-      <node id="172">
+      <node id="170">
         <label>libs/core/src/core/polarcoord.h</label>
         <link refid="polarcoord_8h"/>
-        <childnode refid="110" relation="include">
+        <childnode refid="108" relation="include">
         </childnode>
         <childnode refid="45" relation="include">
         </childnode>
@@ -569,7 +559,7 @@
         <childnode refid="12" relation="include">
         </childnode>
       </node>
-      <node id="132">
+      <node id="130">
         <label>libs/render/src/render/texturecache.cc</label>
         <link refid="texturecache_8cc"/>
       </node>
@@ -586,33 +576,31 @@
         </childnode>
         <childnode refid="102" relation="include">
         </childnode>
-        <childnode refid="104" relation="include">
-        </childnode>
         <childnode refid="27" relation="include">
         </childnode>
         <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="103" relation="include">
         </childnode>
         <childnode refid="105" relation="include">
         </childnode>
         <childnode refid="107" relation="include">
         </childnode>
+        <childnode refid="96" relation="include">
+        </childnode>
+        <childnode refid="108" relation="include">
+        </childnode>
         <childnode refid="109" relation="include">
         </childnode>
-        <childnode refid="96" relation="include">
+        <childnode refid="38" relation="include">
         </childnode>
         <childnode refid="110" relation="include">
         </childnode>
         <childnode refid="111" relation="include">
         </childnode>
-        <childnode refid="38" relation="include">
-        </childnode>
-        <childnode refid="112" relation="include">
-        </childnode>
         <childnode refid="113" relation="include">
         </childnode>
-        <childnode refid="115" relation="include">
-        </childnode>
-        <childnode refid="116" relation="include">
+        <childnode refid="114" relation="include">
         </childnode>
       </node>
       <node id="83">
@@ -625,11 +613,11 @@
         <childnode refid="84" relation="include">
         </childnode>
       </node>
-      <node id="137">
+      <node id="135">
         <label>libs/core/src/core/argparse.cc</label>
         <link refid="argparse_8cc"/>
       </node>
-      <node id="125">
+      <node id="123">
         <label>libs/gui/src/gui/textdata.cc</label>
         <link refid="textdata_8cc"/>
       </node>
@@ -677,28 +665,28 @@
         <childnode refid="70" relation="include">
         </childnode>
       </node>
-      <node id="175">
+      <node id="173">
         <label>libs/core/src/core/sphere.builder.h</label>
         <link refid="sphere_8builder_8h"/>
-        <childnode refid="176" relation="include">
+        <childnode refid="174" relation="include">
         </childnode>
       </node>
       <node id="69">
         <label>libs/render/src/render/viewport.cc</label>
         <link refid="render_2src_2render_2viewport_8cc"/>
       </node>
-      <node id="145">
+      <node id="143">
         <label>libs/core/src/core/viewportdef.cc</label>
         <link refid="viewportdef_8cc"/>
       </node>
-      <node id="177">
+      <node id="175">
         <label>libs/core/src/core/sphere.position.h</label>
         <link refid="sphere_8position_8h"/>
         <childnode refid="10" relation="include">
         </childnode>
-        <childnode refid="175" relation="include">
+        <childnode refid="173" relation="include">
         </childnode>
-        <childnode refid="178" relation="include">
+        <childnode refid="176" relation="include">
         </childnode>
       </node>
       <node id="80">
@@ -717,7 +705,7 @@
         <childnode refid="3" relation="include">
         </childnode>
       </node>
-      <node id="109">
+      <node id="107">
         <label>libs/core/src/core/palette.cc</label>
         <link refid="palette_8cc"/>
       </node>
@@ -739,21 +727,21 @@
         <childnode refid="70" relation="include">
         </childnode>
       </node>
-      <node id="167">
+      <node id="165">
         <label>libs/core/src/core/collisionmesh.h</label>
         <link refid="collisionmesh_8h"/>
         <childnode refid="36" relation="include">
         </childnode>
       </node>
-      <node id="139">
+      <node id="137">
         <label>libs/core/src/core/drunken_bishop.cc</label>
         <link refid="drunken__bishop_8cc"/>
       </node>
-      <node id="130">
+      <node id="128">
         <label>libs/render/src/render/texture.cc</label>
         <link refid="texture_8cc"/>
       </node>
-      <node id="157">
+      <node id="155">
         <label>libs/gui/src/gui/widget.cc</label>
         <link refid="widget_8cc"/>
       </node>
@@ -767,66 +755,66 @@
         <label>libs/core/src/core/camera3.editor.cc</label>
         <link refid="camera3_8editor_8cc"/>
       </node>
-      <node id="138">
+      <node id="136">
         <label>libs/core/src/core/drunken_bishop.h</label>
         <link refid="drunken__bishop_8h"/>
-        <childnode refid="139" relation="include">
+        <childnode refid="137" relation="include">
         </childnode>
       </node>
-      <node id="151">
+      <node id="149">
         <label>libs/gui/src/gui/layoutcontainer.h</label>
         <link refid="layoutcontainer_8h"/>
-        <childnode refid="150" relation="include">
+        <childnode refid="148" relation="include">
         </childnode>
-        <childnode refid="147" relation="include">
+        <childnode refid="145" relation="include">
+        </childnode>
+        <childnode refid="150" relation="include">
         </childnode>
         <childnode refid="152" relation="include">
         </childnode>
-        <childnode refid="154" relation="include">
-        </childnode>
       </node>
-      <node id="123">
+      <node id="121">
         <label>libs/render/src/render/font.h</label>
         <link refid="font_8h"/>
         <childnode refid="89" relation="include">
         </childnode>
-        <childnode refid="124" relation="include">
+        <childnode refid="122" relation="include">
         </childnode>
-        <childnode refid="125" relation="include">
+        <childnode refid="123" relation="include">
         </childnode>
         <childnode refid="34" relation="include">
         </childnode>
-        <childnode refid="126" relation="include">
+        <childnode refid="124" relation="include">
         </childnode>
       </node>
       <node id="33">
         <label>libs/core/src/core/vfs_imagegenerator.cc</label>
         <link refid="vfs__imagegenerator_8cc"/>
       </node>
-      <node id="187">
+      <node id="185">
         <label>libs/gui/src/gui/uistate.cc</label>
         <link refid="uistate_8cc"/>
       </node>
-      <node id="107">
+      <node id="105">
         <label>libs/core/src/core/markov.h</label>
         <link refid="markov_8h"/>
-        <childnode refid="108" relation="include">
+        <childnode refid="106" relation="include">
         </childnode>
       </node>
-      <node id="159">
+      <node id="157">
         <label>libs/render/src/render/spritebatch.h</label>
         <link refid="spritebatch_8h"/>
-        <childnode refid="160" relation="include">
+        <childnode refid="158" relation="include">
         </childnode>
       </node>
-      <node id="131">
+      <node id="129">
         <label>libs/render/src/render/texture.h</label>
         <link refid="texture_8h"/>
         <childnode refid="54" relation="include">
         </childnode>
         <childnode refid="34" relation="include">
         </childnode>
-        <childnode refid="123" relation="include">
+        <childnode refid="121" relation="include">
         </childnode>
         <childnode refid="91" relation="include">
         </childnode>
@@ -834,11 +822,11 @@
         </childnode>
         <childnode refid="88" relation="include">
         </childnode>
+        <childnode refid="128" relation="include">
+        </childnode>
         <childnode refid="130" relation="include">
         </childnode>
-        <childnode refid="132" relation="include">
-        </childnode>
-        <childnode refid="133" relation="include">
+        <childnode refid="131" relation="include">
         </childnode>
       </node>
       <node id="86">
@@ -857,7 +845,7 @@
         <childnode refid="12" relation="include">
         </childnode>
       </node>
-      <node id="184">
+      <node id="182">
         <label>libs/render/src/render/sprite.h</label>
         <link refid="sprite_8h"/>
         <childnode refid="92" relation="include">
@@ -898,35 +886,37 @@
         </childnode>
         <childnode refid="99" relation="include">
         </childnode>
-        <childnode refid="117" relation="include">
-        </childnode>
-        <childnode refid="161" relation="include">
-        </childnode>
-        <childnode refid="116" relation="include">
-        </childnode>
-        <childnode refid="163" relation="include">
-        </childnode>
-        <childnode refid="68" relation="include">
-        </childnode>
-        <childnode refid="146" relation="include">
-        </childnode>
-        <childnode refid="154" relation="include">
-        </childnode>
-        <childnode refid="186" relation="include">
-        </childnode>
-        <childnode refid="123" relation="include">
-        </childnode>
-        <childnode refid="79" relation="include">
-        </childnode>
-        <childnode refid="184" relation="include">
+        <childnode refid="115" relation="include">
         </childnode>
         <childnode refid="159" relation="include">
         </childnode>
+        <childnode refid="134" relation="include">
+        </childnode>
+        <childnode refid="114" relation="include">
+        </childnode>
+        <childnode refid="161" relation="include">
+        </childnode>
+        <childnode refid="68" relation="include">
+        </childnode>
+        <childnode refid="144" relation="include">
+        </childnode>
+        <childnode refid="152" relation="include">
+        </childnode>
+        <childnode refid="184" relation="include">
+        </childnode>
+        <childnode refid="121" relation="include">
+        </childnode>
+        <childnode refid="79" relation="include">
+        </childnode>
+        <childnode refid="182" relation="include">
+        </childnode>
+        <childnode refid="157" relation="include">
+        </childnode>
         <childnode refid="88" relation="include">
         </childnode>
-        <childnode refid="185" relation="include">
+        <childnode refid="183" relation="include">
         </childnode>
-        <childnode refid="188" relation="include">
+        <childnode refid="186" relation="include">
         </childnode>
       </node>
       <node id="73">
@@ -953,7 +943,7 @@
         <label>libs/render/src/render/viewporthandler.cc</label>
         <link refid="viewporthandler_8cc"/>
       </node>
-      <node id="170">
+      <node id="168">
         <label>libs/core/src/core/plane.h</label>
         <link refid="plane_8h"/>
         <childnode refid="10" relation="include">
@@ -962,19 +952,19 @@
         </childnode>
         <childnode refid="37" relation="include">
         </childnode>
-        <childnode refid="171" relation="include">
+        <childnode refid="169" relation="include">
         </childnode>
       </node>
-      <node id="173">
+      <node id="171">
         <label>libs/core/src/core/propertytree.h</label>
         <link refid="propertytree_8h"/>
-        <childnode refid="174" relation="include">
+        <childnode refid="172" relation="include">
         </childnode>
       </node>
-      <node id="168">
+      <node id="166">
         <label>libs/core/src/core/lines.h</label>
         <link refid="lines_8h"/>
-        <childnode refid="169" relation="include">
+        <childnode refid="167" relation="include">
         </childnode>
         <childnode refid="73" relation="include">
         </childnode>
@@ -991,44 +981,44 @@
         <childnode refid="38" relation="include">
         </childnode>
       </node>
-      <node id="186">
+      <node id="184">
         <label>libs/gui/src/gui/uistate.h</label>
         <link refid="uistate_8h"/>
         <childnode refid="89" relation="include">
         </childnode>
-        <childnode refid="154" relation="include">
+        <childnode refid="152" relation="include">
         </childnode>
-        <childnode refid="187" relation="include">
+        <childnode refid="185" relation="include">
         </childnode>
-        <childnode refid="157" relation="include">
+        <childnode refid="155" relation="include">
         </childnode>
       </node>
-      <node id="171">
+      <node id="169">
         <label>libs/core/src/core/plane.cc</label>
         <link refid="plane_8cc"/>
       </node>
-      <node id="148">
+      <node id="146">
         <label>libs/gui/src/gui/layout.h</label>
         <link refid="layout_8h"/>
-        <childnode refid="149" relation="include">
-        </childnode>
-        <childnode refid="150" relation="include">
-        </childnode>
         <childnode refid="147" relation="include">
+        </childnode>
+        <childnode refid="148" relation="include">
+        </childnode>
+        <childnode refid="145" relation="include">
         </childnode>
       </node>
       <node id="9">
         <label>libs/core/src/core/camera3.cc</label>
         <link refid="camera3_8cc"/>
       </node>
-      <node id="185">
+      <node id="183">
         <label>libs/window/src/window/imgui_extra.h</label>
         <link refid="imgui__extra_8h"/>
         <childnode refid="77" relation="include">
         </childnode>
         <childnode refid="16" relation="include">
         </childnode>
-        <childnode refid="133" relation="include">
+        <childnode refid="131" relation="include">
         </childnode>
       </node>
       <node id="26">
@@ -1065,38 +1055,38 @@
         <childnode refid="58" relation="include">
         </childnode>
       </node>
-      <node id="155">
+      <node id="153">
         <label>libs/gui/src/gui/widget.h</label>
         <link refid="widget_8h"/>
-        <childnode refid="146" relation="include">
+        <childnode refid="144" relation="include">
         </childnode>
-        <childnode refid="156" relation="include">
+        <childnode refid="154" relation="include">
         </childnode>
-        <childnode refid="149" relation="include">
+        <childnode refid="147" relation="include">
         </childnode>
-        <childnode refid="152" relation="include">
+        <childnode refid="150" relation="include">
         </childnode>
-        <childnode refid="157" relation="include">
+        <childnode refid="155" relation="include">
         </childnode>
       </node>
       <node id="44">
         <label>libs/core/src/core/mat4.cc</label>
         <link refid="mat4_8cc"/>
       </node>
-      <node id="143">
+      <node id="141">
         <label>libs/core/src/core/table_string.cc</label>
         <link refid="table__string_8cc"/>
       </node>
-      <node id="115">
+      <node id="113">
         <label>libs/core/src/core/tracery.cc</label>
         <link refid="tracery_8cc"/>
       </node>
-      <node id="146">
+      <node id="144">
         <label>libs/gui/src/gui/button.h</label>
         <link refid="button_8h"/>
         <childnode refid="89" relation="include">
         </childnode>
-        <childnode refid="147" relation="include">
+        <childnode refid="145" relation="include">
         </childnode>
       </node>
       <node id="12">
@@ -1161,7 +1151,7 @@
         <childnode refid="62" relation="include">
         </childnode>
       </node>
-      <node id="121">
+      <node id="119">
         <label>libs/core/src/core/imagefilters.cc</label>
         <link refid="imagefilters_8cc"/>
       </node>
@@ -1213,7 +1203,7 @@
         <label>libs/core/src/core/mat2.cc</label>
         <link refid="mat2_8cc"/>
       </node>
-      <node id="164">
+      <node id="162">
         <label>libs/core/src/core/aabb.h</label>
         <link refid="aabb_8h"/>
         <childnode refid="100" relation="include">
@@ -1223,19 +1213,19 @@
         <childnode refid="93" relation="include">
         </childnode>
       </node>
-      <node id="128">
+      <node id="126">
         <label>libs/core/src/core/table_bool.h</label>
         <link refid="table__bool_8h"/>
         <childnode refid="27" relation="include">
         </childnode>
-        <childnode refid="129" relation="include">
+        <childnode refid="127" relation="include">
         </childnode>
         <childnode refid="29" relation="include">
         </childnode>
         <childnode refid="32" relation="include">
         </childnode>
       </node>
-      <node id="129">
+      <node id="127">
         <label>libs/core/src/core/generator_cell.h</label>
         <link refid="generator__cell_8h"/>
         <childnode refid="27" relation="include">
@@ -1243,10 +1233,10 @@
         <childnode refid="29" relation="include">
         </childnode>
       </node>
-      <node id="105">
+      <node id="103">
         <label>libs/core/src/core/knuthshuffle.h</label>
         <link refid="knuthshuffle_8h"/>
-        <childnode refid="106" relation="include">
+        <childnode refid="104" relation="include">
         </childnode>
       </node>
       <node id="97">
@@ -1259,25 +1249,25 @@
         <label>libs/core/src/core/polybezier.cc</label>
         <link refid="polybezier_8cc"/>
       </node>
-      <node id="108">
+      <node id="106">
         <label>libs/core/src/core/markov.cc</label>
         <link refid="markov_8cc"/>
       </node>
-      <node id="183">
+      <node id="181">
         <label>libs/render/src/render/light.cc</label>
         <link refid="light_8cc"/>
       </node>
-      <node id="114">
+      <node id="112">
         <label>libs/core/src/core/shufflebag.cc</label>
         <link refid="shufflebag_8cc"/>
       </node>
-      <node id="140">
+      <node id="138">
         <label>libs/core/src/core/image_to_text.h</label>
         <link refid="image__to__text_8h"/>
-        <childnode refid="120" relation="include">
+        <childnode refid="118" relation="include">
         </childnode>
       </node>
-      <node id="118">
+      <node id="116">
         <label>libs/core/src/core/image.h</label>
         <link refid="image_8h"/>
         <childnode refid="18" relation="include">
@@ -1292,86 +1282,86 @@
         </childnode>
         <childnode refid="29" relation="include">
         </childnode>
-        <childnode refid="119" relation="include">
+        <childnode refid="117" relation="include">
         </childnode>
         <childnode refid="25" relation="include">
         </childnode>
         <childnode refid="26" relation="include">
         </childnode>
+        <childnode refid="118" relation="include">
+        </childnode>
+        <childnode refid="119" relation="include">
+        </childnode>
         <childnode refid="120" relation="include">
         </childnode>
-        <childnode refid="121" relation="include">
-        </childnode>
-        <childnode refid="122" relation="include">
-        </childnode>
-        <childnode refid="127" relation="include">
+        <childnode refid="125" relation="include">
         </childnode>
         <childnode refid="38" relation="include">
         </childnode>
-        <childnode refid="128" relation="include">
+        <childnode refid="126" relation="include">
         </childnode>
         <childnode refid="33" relation="include">
         </childnode>
         <childnode refid="34" relation="include">
         </childnode>
-        <childnode refid="130" relation="include">
+        <childnode refid="128" relation="include">
         </childnode>
-        <childnode refid="131" relation="include">
+        <childnode refid="129" relation="include">
         </childnode>
       </node>
-      <node id="141">
+      <node id="139">
         <label>libs/core/src/core/table.cc</label>
         <link refid="table_8cc"/>
       </node>
-      <node id="117">
+      <node id="115">
         <label>libs/core/src/core/rect.h</label>
         <link refid="rect_8h"/>
-        <childnode refid="118" relation="include">
+        <childnode refid="116" relation="include">
         </childnode>
         <childnode refid="26" relation="include">
         </childnode>
-        <childnode refid="134" relation="include">
+        <childnode refid="132" relation="include">
         </childnode>
         <childnode refid="95" relation="include">
         </childnode>
-        <childnode refid="112" relation="include">
+        <childnode refid="110" relation="include">
         </childnode>
-        <childnode refid="136" relation="include">
+        <childnode refid="134" relation="include">
         </childnode>
         <childnode refid="68" relation="include">
+        </childnode>
+        <childnode refid="142" relation="include">
         </childnode>
         <childnode refid="144" relation="include">
         </childnode>
         <childnode refid="146" relation="include">
         </childnode>
-        <childnode refid="148" relation="include">
+        <childnode refid="149" relation="include">
         </childnode>
-        <childnode refid="151" relation="include">
+        <childnode refid="153" relation="include">
         </childnode>
-        <childnode refid="155" relation="include">
-        </childnode>
-        <childnode refid="123" relation="include">
+        <childnode refid="121" relation="include">
         </childnode>
         <childnode refid="75" relation="include">
         </childnode>
         <childnode refid="91" relation="include">
         </childnode>
-        <childnode refid="158" relation="include">
+        <childnode refid="156" relation="include">
         </childnode>
         <childnode refid="79" relation="include">
         </childnode>
-        <childnode refid="159" relation="include">
+        <childnode refid="157" relation="include">
         </childnode>
         <childnode refid="88" relation="include">
         </childnode>
         <childnode refid="71" relation="include">
         </childnode>
       </node>
-      <node id="156">
+      <node id="154">
         <label>libs/gui/src/gui/container.cc</label>
         <link refid="container_8cc"/>
       </node>
-      <node id="149">
+      <node id="147">
         <label>libs/gui/src/gui/layout.cc</label>
         <link refid="layout_8cc"/>
       </node>
@@ -1403,15 +1393,15 @@
         <childnode refid="12" relation="include">
         </childnode>
       </node>
-      <node id="110">
+      <node id="108">
         <label>libs/core/src/core/polarcoord.cc</label>
         <link refid="polarcoord_8cc"/>
       </node>
-      <node id="190">
+      <node id="188">
         <label>libs/window/src/window/sdlwindow.cc</label>
         <link refid="sdlwindow_8cc"/>
       </node>
-      <node id="104">
+      <node id="102">
         <label>libs/core/src/core/cp437.cc</label>
         <link refid="cp437_8cc"/>
       </node>
@@ -1423,7 +1413,7 @@
         <label>libs/render/src/render/shader.cc</label>
         <link refid="shader_8cc"/>
       </node>
-      <node id="160">
+      <node id="158">
         <label>libs/render/src/render/spritebatch.cc</label>
         <link refid="spritebatch_8cc"/>
       </node>
@@ -1435,10 +1425,10 @@
         <label>libs/core/src/core/ray.cc</label>
         <link refid="ray_8cc"/>
       </node>
-      <node id="142">
+      <node id="140">
         <label>libs/core/src/core/table_string.h</label>
         <link refid="table__string_8h"/>
-        <childnode refid="143" relation="include">
+        <childnode refid="141" relation="include">
         </childnode>
       </node>
       <node id="28">
@@ -1453,7 +1443,7 @@
         <childnode refid="54" relation="include">
         </childnode>
       </node>
-      <node id="127">
+      <node id="125">
         <label>libs/core/src/core/palette_extract.cc</label>
         <link refid="palette__extract_8cc"/>
       </node>
@@ -1475,11 +1465,11 @@
         <childnode refid="43" relation="include">
         </childnode>
       </node>
-      <node id="120">
+      <node id="118">
         <label>libs/core/src/core/image_to_text.cc</label>
         <link refid="image__to__text_8cc"/>
       </node>
-      <node id="147">
+      <node id="145">
         <label>libs/gui/src/gui/load.cc</label>
         <link refid="load_8cc"/>
       </node>

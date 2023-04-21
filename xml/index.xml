@@ -172,11 +172,6 @@
     <member refid="structeuphoria_1_1core_1_1AxisAngle_1acc758074031c74e0ae10897ed4ff09c3" kind="function"><name>from_right_hand_around</name></member>
     <member refid="structeuphoria_1_1core_1_1AxisAngle_1aa5f061716771c7ac083e9b364dd7f990" kind="function"><name>AxisAngle</name></member>
   </compound>
-  <compound refid="structeuphoria_1_1core_1_1detail_1_1BasicResponse" kind="struct"><name>euphoria::core::detail::BasicResponse</name>
-    <member refid="structeuphoria_1_1core_1_1detail_1_1BasicResponse_1a71fe98051eefb2ebad05ab18915eb29b" kind="variable"><name>responses</name></member>
-    <member refid="structeuphoria_1_1core_1_1detail_1_1BasicResponse_1ac4e6e687e34e7c3e0d733a1f3be943da" kind="function"><name>BasicResponse</name></member>
-    <member refid="structeuphoria_1_1core_1_1detail_1_1BasicResponse_1aaa9289e89797d0ab6fdc5b9ea4fdad5b" kind="function"><name>operator()</name></member>
-  </compound>
   <compound refid="structeuphoria_1_1core_1_1BezierSegment2" kind="struct"><name>euphoria::core::BezierSegment2</name>
     <member refid="structeuphoria_1_1core_1_1BezierSegment2_1abac7e549f6944879590989b7ab1884e3" kind="variable"><name>a0</name></member>
     <member refid="structeuphoria_1_1core_1_1BezierSegment2_1a77d5adc4e6b5ca7697af577f32509c9e" kind="variable"><name>c0</name></member>
@@ -371,25 +366,6 @@
     <member refid="structeuphoria_1_1core_1_1markov_1_1ChainBuilder_1aae1d0d45603419de6db542d8a59215a5" kind="function"><name>add</name></member>
     <member refid="structeuphoria_1_1core_1_1markov_1_1ChainBuilder_1a229fc36ca3ca5a411d9a1fe0f56855e3" kind="function"><name>build</name></member>
   </compound>
-  <compound refid="structeuphoria_1_1core_1_1Chatbot" kind="struct"><name>euphoria::core::Chatbot</name>
-    <member refid="structeuphoria_1_1core_1_1Chatbot_1adaf7b48f3c947febed3c309eee764955" kind="variable"><name>is_in_conversation</name></member>
-    <member refid="structeuphoria_1_1core_1_1Chatbot_1a9c8104f4c96e2b485adccb605a8b2309" kind="variable"><name>last_event</name></member>
-    <member refid="structeuphoria_1_1core_1_1Chatbot_1ae95af0b848b279d3fa4e19589cf61861" kind="variable"><name>max_responses</name></member>
-    <member refid="structeuphoria_1_1core_1_1Chatbot_1a02cfc0dfb1410adba9da2235bf8ba183" kind="variable"><name>last_input</name></member>
-    <member refid="structeuphoria_1_1core_1_1Chatbot_1aab8c0f0f67e28402a693d0e517e7de41" kind="variable"><name>random</name></member>
-    <member refid="structeuphoria_1_1core_1_1Chatbot_1a45274012692dac43e2ddcae6cc058a21" kind="variable"><name>transposer</name></member>
-    <member refid="structeuphoria_1_1core_1_1Chatbot_1a82ad632007c23eb0afbe3235348e8643" kind="variable"><name>database</name></member>
-    <member refid="structeuphoria_1_1core_1_1Chatbot_1a94c47373d8174e04948bc1147e57ab96" kind="variable"><name>current_topics</name></member>
-    <member refid="structeuphoria_1_1core_1_1Chatbot_1af8d728861117d1c5a3da22edcbbc0166" kind="variable"><name>last_responses</name></member>
-    <member refid="structeuphoria_1_1core_1_1Chatbot_1af5396aa56630c7438b2b071f5a701a27" kind="variable"><name>history</name></member>
-    <member refid="structeuphoria_1_1core_1_1Chatbot_1a36a423a08ea041c857b79fc9964ae39b" kind="variable"><name>missing_input</name></member>
-    <member refid="structeuphoria_1_1core_1_1Chatbot_1ac3c512be46b79221bad2de9136db4ca6" kind="function"><name>Chatbot</name></member>
-    <member refid="structeuphoria_1_1core_1_1Chatbot_1ae455e0623a3b72b17b11834b4d43f87e" kind="function"><name>get_response</name></member>
-    <member refid="structeuphoria_1_1core_1_1Chatbot_1a2cc6f7c1742b72c63c89e40b6f65b21a" kind="function"><name>get_complex_response</name></member>
-    <member refid="structeuphoria_1_1core_1_1Chatbot_1a55290aa7f87a90e2ab4ba419c9be1948" kind="function"><name>get_sign_on_message</name></member>
-    <member refid="structeuphoria_1_1core_1_1Chatbot_1ac23f62d8a5cf8554dad4579623feb9c8" kind="function"><name>debug_last_response</name></member>
-    <member refid="structeuphoria_1_1core_1_1Chatbot_1a7c1e044da4727938452c5cadadce6562" kind="function"><name>load_from_file</name></member>
-  </compound>
   <compound refid="structeuphoria_1_1core_1_1dump2d_1_1Circle" kind="struct"><name>euphoria::core::dump2d::Circle</name>
     <member refid="structeuphoria_1_1core_1_1dump2d_1_1Circle_1aa2e4c5f865f7aece4e50096601f78bd0" kind="variable"><name>point</name></member>
     <member refid="structeuphoria_1_1core_1_1dump2d_1_1Circle_1a798db0bc36c4f281045aa80d9d305248" kind="variable"><name>radius</name></member>
@@ -524,21 +500,6 @@
     <member refid="structeuphoria_1_1gui_1_1Container_1a89c820864c2a7e51f1a9a2615ab9f161" kind="function"><name>render</name></member>
     <member refid="structeuphoria_1_1gui_1_1Container_1a841fdb86cf3516c2529725d0ca8378b2" kind="function"><name>has_any_widgets</name></member>
   </compound>
-  <compound refid="structeuphoria_1_1core_1_1detail_1_1ConversationStatus" kind="struct"><name>euphoria::core::detail::ConversationStatus</name>
-    <member refid="structeuphoria_1_1core_1_1detail_1_1ConversationStatus_1add606277ea221865ce61e425b1ef1fad" kind="variable"><name>input</name></member>
-    <member refid="structeuphoria_1_1core_1_1detail_1_1ConversationStatus_1a1e6bf0074a60d4c7c458f8a81028b5c2" kind="variable"><name>response</name></member>
-    <member refid="structeuphoria_1_1core_1_1detail_1_1ConversationStatus_1a534afef0389064b60d4a410ede77b319" kind="variable"><name>section</name></member>
-    <member refid="structeuphoria_1_1core_1_1detail_1_1ConversationStatus_1ac22e09cdd4ff0469764a2bc2a7e27572" kind="variable"><name>topics</name></member>
-    <member refid="structeuphoria_1_1core_1_1detail_1_1ConversationStatus_1a422fa56a9c43e025845227c3a0b788b7" kind="variable"><name>logs</name></member>
-  </compound>
-  <compound refid="structeuphoria_1_1core_1_1detail_1_1ConversationTopics" kind="struct"><name>euphoria::core::detail::ConversationTopics</name>
-    <member refid="structeuphoria_1_1core_1_1detail_1_1ConversationTopics_1abc4d2559fb89cf3852bb2461ee6dff51" kind="variable"><name>topics</name></member>
-    <member refid="structeuphoria_1_1core_1_1detail_1_1ConversationTopics_1a0fc4fe5d3536874696527a57697c0d43" kind="function"><name>decrease_and_remove</name></member>
-    <member refid="structeuphoria_1_1core_1_1detail_1_1ConversationTopics_1aecfb23cd0ebd1e09d70f7691dbeceaa2" kind="function"><name>decrease</name></member>
-    <member refid="structeuphoria_1_1core_1_1detail_1_1ConversationTopics_1a34c82cbe179895952af07cd4c7a96cc3" kind="function"><name>remove</name></member>
-    <member refid="structeuphoria_1_1core_1_1detail_1_1ConversationTopics_1a387865f1af6e07ca5e16553afdcbd3ba" kind="function"><name>add</name></member>
-    <member refid="structeuphoria_1_1core_1_1detail_1_1ConversationTopics_1a92e68cb7612a2dbfdb9c180149693210" kind="function"><name>has</name></member>
-  </compound>
   <compound refid="structeuphoria_1_1core_1_1CsvParserOptions" kind="struct"><name>euphoria::core::CsvParserOptions</name>
     <member refid="structeuphoria_1_1core_1_1CsvParserOptions_1afcd5d891152cc3f6b5be93796fd79fcb" kind="variable"><name>delim</name></member>
     <member refid="structeuphoria_1_1core_1_1CsvParserOptions_1a3b4c52fe8697e9c353e3a5b26215a837" kind="variable"><name>str</name></member>
@@ -572,19 +533,6 @@
     <member refid="structeuphoria_1_1core_1_1CustomArgparser_3_01size2i_01_4_1a230322ac62d7d9beb2ce94b2eb0a8afeafcec4800d11d22ab856988c6bfccd697" kind="enumvalue"><name>value</name></member>
     <member refid="structeuphoria_1_1core_1_1CustomArgparser_3_01size2i_01_4_1a46e22eddae64535b0bcad0631f089ebf" kind="function"><name>to_string</name></member>
     <member refid="structeuphoria_1_1core_1_1CustomArgparser_3_01size2i_01_4_1acb1611b3d1f010684caa5090d26fd6c0" kind="function"><name>parse</name></member>
-  </compound>
-  <compound refid="structeuphoria_1_1core_1_1detail_1_1Database" kind="struct"><name>euphoria::core::detail::Database</name>
-    <member refid="structeuphoria_1_1core_1_1detail_1_1Database_1ad4b58f6c3f7da1ac90dc0d2a47da4466" kind="variable"><name>signon</name></member>
-    <member refid="structeuphoria_1_1core_1_1detail_1_1Database_1ab4e7a8e825b06c5b74aceb19d0434a43" kind="variable"><name>empty</name></member>
-    <member refid="structeuphoria_1_1core_1_1detail_1_1Database_1af69e6a900721f4508d599515673bca70" kind="variable"><name>no_response</name></member>
-    <member refid="structeuphoria_1_1core_1_1detail_1_1Database_1a00f06f380bdaafb252e66b404bc212be" kind="variable"><name>same_input</name></member>
-    <member refid="structeuphoria_1_1core_1_1detail_1_1Database_1ae808b7cbb79e842957a58c23917dc83a" kind="variable"><name>similar_input</name></member>
-    <member refid="structeuphoria_1_1core_1_1detail_1_1Database_1a4176417dcdeef456322763b4a88723df" kind="variable"><name>empty_repetition</name></member>
-    <member refid="structeuphoria_1_1core_1_1detail_1_1Database_1a9fe6dd06f7580cba1f1f3d7e51dedcb6" kind="variable"><name>responses</name></member>
-    <member refid="structeuphoria_1_1core_1_1detail_1_1Database_1a7184977a2a1b06d6b6cd1b42e336e3ae" kind="variable"><name>event_id</name></member>
-    <member refid="structeuphoria_1_1core_1_1detail_1_1Database_1aedb3bd5af9e7d252a7b86e881b2bd2e1" kind="function"><name>Database</name></member>
-    <member refid="structeuphoria_1_1core_1_1detail_1_1Database_1ac7986f4ca894e781fc413a7d4f6ebd89" kind="function"><name>create_response</name></member>
-    <member refid="structeuphoria_1_1core_1_1detail_1_1Database_1a2fc455c3ce19f447f95d3132e67c216a" kind="function"><name>add_response</name></member>
   </compound>
   <compound refid="structeuphoria_1_1core_1_1DateTime" kind="struct"><name>euphoria::core::DateTime</name>
     <member refid="structeuphoria_1_1core_1_1DateTime_1a185c33cd9ef2f54d9d55d885592d2ed0" kind="variable"><name>timezone</name></member>
@@ -1226,18 +1174,6 @@
     <member refid="structeuphoria_1_1render_1_1Init_1a7a949ecb88cb39776886a58e56b41425" kind="function"><name>clear_screen</name></member>
     <member refid="structeuphoria_1_1render_1_1Init_1a752934007c8d8810b78beebcee73249f" kind="function"><name>use_2d</name></member>
   </compound>
-  <compound refid="structeuphoria_1_1core_1_1detail_1_1Input" kind="struct"><name>euphoria::core::detail::Input</name>
-    <member refid="structeuphoria_1_1core_1_1detail_1_1Input_1aeddf00a5e8ba5b4ca227953b4ea8cc14" kind="enum"><name>LocationType</name></member>
-    <member refid="structeuphoria_1_1core_1_1detail_1_1Input_1aeddf00a5e8ba5b4ca227953b4ea8cc14aaaaa7d06ce4b2d300cc15385a5431ae8" kind="enumvalue"><name>lowest</name></member>
-    <member refid="structeuphoria_1_1core_1_1detail_1_1Input_1aeddf00a5e8ba5b4ca227953b4ea8cc14aeee92542fd643126915d92c3b3cf4cad" kind="enumvalue"><name>in_middle</name></member>
-    <member refid="structeuphoria_1_1core_1_1detail_1_1Input_1aeddf00a5e8ba5b4ca227953b4ea8cc14a363f6a1b7a1399ff748dd15e800a5da2" kind="enumvalue"><name>at_start</name></member>
-    <member refid="structeuphoria_1_1core_1_1detail_1_1Input_1aeddf00a5e8ba5b4ca227953b4ea8cc14a2a3c0b09d4003db79a25b896ebec8753" kind="enumvalue"><name>at_end</name></member>
-    <member refid="structeuphoria_1_1core_1_1detail_1_1Input_1aeddf00a5e8ba5b4ca227953b4ea8cc14a8410836f9eabd73b03e6494dfe9a1f85" kind="enumvalue"><name>alone</name></member>
-    <member refid="structeuphoria_1_1core_1_1detail_1_1Input_1adc7c0952cc9fbee0acf33e9ac85a258d" kind="variable"><name>words</name></member>
-    <member refid="structeuphoria_1_1core_1_1detail_1_1Input_1a3222ceed2ea1d6592fae1abf4cf88730" kind="variable"><name>location</name></member>
-    <member refid="structeuphoria_1_1core_1_1detail_1_1Input_1ae91e558f98420a01d58f1de9f7590bb3" kind="function"><name>Input</name></member>
-    <member refid="structeuphoria_1_1core_1_1detail_1_1Input_1a61bc997425b8da4d67c495e5cf1eec5e" kind="function"><name>Input</name></member>
-  </compound>
   <compound refid="structeuphoria_1_1render_1_1Instance" kind="struct"><name>euphoria::render::Instance</name>
     <member refid="structeuphoria_1_1render_1_1Instance_1aa8b9db17cb0fb1ddc2587b0a82a2538d" kind="variable"><name>remove_this</name></member>
     <member refid="structeuphoria_1_1render_1_1Instance_1a2dfbae9d4604b87fa25a1941678526b0" kind="variable"><name>position</name></member>
@@ -1459,10 +1395,6 @@
     <member refid="structeuphoria_1_1core_1_1detail_1_1LocationInFile_1a9ca2570d5da6e200385b11fb7bf42c46" kind="variable"><name>line</name></member>
     <member refid="structeuphoria_1_1core_1_1detail_1_1LocationInFile_1ad9109df56c2b43c13d5fad823fbce8a8" kind="variable"><name>column</name></member>
   </compound>
-  <compound refid="structeuphoria_1_1core_1_1detail_1_1ConversationStatus_1_1LogEntry" kind="struct"><name>euphoria::core::detail::ConversationStatus::LogEntry</name>
-    <member refid="structeuphoria_1_1core_1_1detail_1_1ConversationStatus_1_1LogEntry_1a9f183116fd6a919f461391de5d7019e9" kind="variable"><name>titles</name></member>
-    <member refid="structeuphoria_1_1core_1_1detail_1_1ConversationStatus_1_1LogEntry_1a27b6d30b67e6dd0735ec4449ca31e2d3" kind="variable"><name>lines</name></member>
-  </compound>
   <compound refid="structeuphoria_1_1core_1_1Lrud" kind="struct"><name>euphoria::core::Lrud</name>
     <member refid="structeuphoria_1_1core_1_1Lrud_1a9fbe87124c63e18fc8e30ebdbf13ac06" kind="typedef"><name>Self</name></member>
     <member refid="structeuphoria_1_1core_1_1Lrud_1ad10b4e84e7e48788dcb21799b993c72e" kind="variable"><name>left</name></member>
@@ -1495,8 +1427,6 @@
     <member refid="structeuphoria_1_1core_1_1mat2f_1ab7390e7644040706b20ac7e2234ea2f7" kind="function"><name>get_data_ptr</name></member>
     <member refid="structeuphoria_1_1core_1_1mat2f_1a427ad77a9c6d52889cd0f917c0aca254" kind="function"><name>operator+=</name></member>
     <member refid="structeuphoria_1_1core_1_1mat2f_1a6e1ceec3f9be083f5540ad0d2363242b" kind="function"><name>operator-=</name></member>
-    <member refid="structeuphoria_1_1core_1_1mat2f_1a4bdc697bac2efbbf69c055ecab96c391" kind="function"><name>operator()</name></member>
-    <member refid="structeuphoria_1_1core_1_1mat2f_1aeb89f2326dd0436257cb897b1491f51b" kind="function"><name>operator()</name></member>
     <member refid="structeuphoria_1_1core_1_1mat2f_1a8fb3a1e8aadb5bffe318fa3412cd60e1" kind="function"><name>from_col_major</name></member>
     <member refid="structeuphoria_1_1core_1_1mat2f_1aeaac3b0ce41fe8eae42de957cfe51fbe" kind="function"><name>from_row_major</name></member>
     <member refid="structeuphoria_1_1core_1_1mat2f_1a5dbb5951d6f155f64e99295503586a75" kind="function"><name>from_scalar</name></member>
@@ -1525,8 +1455,6 @@
     <member refid="structeuphoria_1_1core_1_1mat3f_1acb76f092afcc47cd4e24df68ec579620" kind="function"><name>get_data_ptr</name></member>
     <member refid="structeuphoria_1_1core_1_1mat3f_1a116bc652f510a4d9b5ce402cf841b867" kind="function"><name>operator+=</name></member>
     <member refid="structeuphoria_1_1core_1_1mat3f_1a135ec40916d0587e3af5d52689b09127" kind="function"><name>operator-=</name></member>
-    <member refid="structeuphoria_1_1core_1_1mat3f_1aa1cdbe8afa514854679cfd753b9ba22c" kind="function"><name>operator()</name></member>
-    <member refid="structeuphoria_1_1core_1_1mat3f_1a232fd94959a43872bc9c726d479e09d0" kind="function"><name>operator()</name></member>
     <member refid="structeuphoria_1_1core_1_1mat3f_1abbe624bf1654a925cf6a8cda05309377" kind="function"><name>from_major</name></member>
     <member refid="structeuphoria_1_1core_1_1mat3f_1a97703eeb48082472fe402d0592038107" kind="function"><name>from_scale</name></member>
     <member refid="structeuphoria_1_1core_1_1mat3f_1af773e6e37ebdd66071439d12bc30cc1a" kind="function"><name>from_translation2d</name></member>
@@ -1581,8 +1509,6 @@
     <member refid="structeuphoria_1_1core_1_1mat4f_1a8846dacdc0d77cf985bb4d863071ffc5" kind="function"><name>get_mat3</name></member>
     <member refid="structeuphoria_1_1core_1_1mat4f_1a7db27d45db1465f00196ea0d9f9cb153" kind="function"><name>operator+=</name></member>
     <member refid="structeuphoria_1_1core_1_1mat4f_1af7037dccdf4dbc9d853c53f499f7c05b" kind="function"><name>operator-=</name></member>
-    <member refid="structeuphoria_1_1core_1_1mat4f_1a5aa8f173c18b98203696e32793123c58" kind="function"><name>operator()</name></member>
-    <member refid="structeuphoria_1_1core_1_1mat4f_1a71a4ad413740eabe906a72bb067e42c7" kind="function"><name>operator()</name></member>
     <member refid="structeuphoria_1_1core_1_1mat4f_1a6e9fe8032a2c3d4fb6860015ba169113" kind="function"><name>mat4f</name></member>
     <member refid="structeuphoria_1_1core_1_1mat4f_1a66d4a2af5e3668e5711e09f2becca86b" kind="function"><name>mat4f</name></member>
   </compound>
@@ -2417,22 +2343,6 @@
     <member refid="structeuphoria_1_1core_1_1ecs_1_1RegistryPimpl_1af12249fea8d27b5125edaabeee25468d" kind="function"><name>get_components_base</name></member>
     <member refid="structeuphoria_1_1core_1_1ecs_1_1RegistryPimpl_1a9452b9d869aa11d0dec40d067a09a446" kind="function"><name>view</name></member>
   </compound>
-  <compound refid="structeuphoria_1_1core_1_1detail_1_1Response" kind="struct"><name>euphoria::core::detail::Response</name>
-    <member refid="structeuphoria_1_1core_1_1detail_1_1Response_1a152acc80a9326e03877204821a493685" kind="variable"><name>event_id</name></member>
-    <member refid="structeuphoria_1_1core_1_1detail_1_1Response_1a42fd6735602d8842b02f14945ea12ac4" kind="variable"><name>inputs</name></member>
-    <member refid="structeuphoria_1_1core_1_1detail_1_1Response_1a89694b7d7c0c514383ca359d6ba633c1" kind="variable"><name>ends_conversation</name></member>
-    <member refid="structeuphoria_1_1core_1_1detail_1_1Response_1af3055ddee74a7263eb125bc5c5109728" kind="variable"><name>responses</name></member>
-    <member refid="structeuphoria_1_1core_1_1detail_1_1Response_1a8ea5fd6d791ccaf5804340d81d6228f2" kind="variable"><name>topics_required</name></member>
-  </compound>
-  <compound refid="structeuphoria_1_1core_1_1detail_1_1ResponseBuilder" kind="struct"><name>euphoria::core::detail::ResponseBuilder</name>
-    <member refid="structeuphoria_1_1core_1_1detail_1_1ResponseBuilder_1a62308b6a8873cef8cffd2e8530b46e44" kind="variable"><name>response</name></member>
-    <member refid="structeuphoria_1_1core_1_1detail_1_1ResponseBuilder_1abacf3b4fbab44e565ea7012970af3d11" kind="function"><name>ResponseBuilder</name></member>
-    <member refid="structeuphoria_1_1core_1_1detail_1_1ResponseBuilder_1a796ef2b2565764cb333a52f2fc527ac0" kind="function"><name>add_input</name></member>
-    <member refid="structeuphoria_1_1core_1_1detail_1_1ResponseBuilder_1a6571b3563218017843b25d10e2c10461" kind="function"><name>add_topic</name></member>
-    <member refid="structeuphoria_1_1core_1_1detail_1_1ResponseBuilder_1ad7ae6f28b2b2a9866e774bd801e87852" kind="function"><name>end_conversation</name></member>
-    <member refid="structeuphoria_1_1core_1_1detail_1_1ResponseBuilder_1a748cedb48120405f57cbd98b68f6366f" kind="function"><name>operator()</name></member>
-    <member refid="structeuphoria_1_1core_1_1detail_1_1ResponseBuilder_1a0e31d00fd4b29bcec3193d3862583c33" kind="function"><name>operator()</name></member>
-  </compound>
   <compound refid="structeuphoria_1_1core_1_1Result" kind="struct"><name>euphoria::core::Result</name>
     <member refid="structeuphoria_1_1core_1_1Result_1a60a6c5d96f904dde612a5071d1bba668" kind="variable"><name>value</name></member>
     <member refid="structeuphoria_1_1core_1_1Result_1a766f87294ae29bd2f4143e07aeae8e91" kind="variable"><name>error</name></member>
@@ -2739,11 +2649,6 @@
     <member refid="structeuphoria_1_1core_1_1colorbrewer_1_1SinglePalette_1aa4fc94f868e9f152371a67b8f72dc831" kind="variable"><name>name</name></member>
     <member refid="structeuphoria_1_1core_1_1colorbrewer_1_1SinglePalette_1a30261504b6d3fcf29f412fd6d0f3304c" kind="variable"><name>palette</name></member>
   </compound>
-  <compound refid="structeuphoria_1_1core_1_1detail_1_1SingleResponse" kind="struct"><name>euphoria::core::detail::SingleResponse</name>
-    <member refid="structeuphoria_1_1core_1_1detail_1_1SingleResponse_1ad77e0a4d1032597b5df6f70cd931f59b" kind="variable"><name>to_say</name></member>
-    <member refid="structeuphoria_1_1core_1_1detail_1_1SingleResponse_1ace698e8a8740727a01a28ac8c9edae90" kind="variable"><name>topics_mentioned</name></member>
-    <member refid="structeuphoria_1_1core_1_1detail_1_1SingleResponse_1a26186e104871e2266e0b2a34b62718aa" kind="function"><name>SingleResponse</name></member>
-  </compound>
   <compound refid="structeuphoria_1_1gui_1_1SingleRowLayout" kind="struct"><name>euphoria::gui::SingleRowLayout</name>
     <member refid="structeuphoria_1_1gui_1_1SingleRowLayout_1abd58649daaa65ccf86d230dec1adfd00" kind="variable"><name>padding</name></member>
     <member refid="structeuphoria_1_1gui_1_1SingleRowLayout_1a247b841c6aabcc4cefeadf7fe34ebd3c" kind="function"><name>SingleRowLayout</name></member>
@@ -3047,12 +2952,12 @@
     <member refid="structeuphoria_1_1core_1_1Table_1aa9c590a0a7534caa8d14f48ddbb2df57" kind="function"><name>add_row</name></member>
     <member refid="structeuphoria_1_1core_1_1Table_1a5bcee0aa3cb8eea63f585f31c48ad2df" kind="function"><name>expand_width</name></member>
     <member refid="structeuphoria_1_1core_1_1Table_1af9af076dd551dcd88b75831180d7fa33" kind="function"><name>is_inside</name></member>
-    <member refid="structeuphoria_1_1core_1_1Table_1a4ed1c46db9a924ebbc96a9e91048f7e5" kind="function"><name>get_data_index</name></member>
+    <member refid="structeuphoria_1_1core_1_1Table_1adfa90b9589712d51b4d698a28ea0ceda" kind="function"><name>get_data_index</name></member>
     <member refid="structeuphoria_1_1core_1_1Table_1a6cb8c8f1dc3e864c14f24d886a3406f1" kind="function"><name>get_indices</name></member>
     <member refid="structeuphoria_1_1core_1_1Table_1a689c452066d5094b7d403fadd66c3f37" kind="function"><name>get_width</name></member>
     <member refid="structeuphoria_1_1core_1_1Table_1ac6be94e7d0a32d6a7eb9928f14813195" kind="function"><name>get_height</name></member>
-    <member refid="structeuphoria_1_1core_1_1Table_1a397f5f6884c4d3c9df52b391e5894bba" kind="function"><name>operator()</name></member>
-    <member refid="structeuphoria_1_1core_1_1Table_1ad9a91a438fa18d7e127a53405e87760d" kind="function"><name>operator()</name></member>
+    <member refid="structeuphoria_1_1core_1_1Table_1ac679be89648d2913ebee081b31d60399" kind="function"><name>operator[]</name></member>
+    <member refid="structeuphoria_1_1core_1_1Table_1a6698176f955dbae2a11aabb5709ee669" kind="function"><name>operator[]</name></member>
     <member refid="structeuphoria_1_1core_1_1Table_1a46cd939f6d02e7308d02fef52476b6c2" kind="function"><name>from_width_height</name></member>
     <member refid="structeuphoria_1_1core_1_1Table_1a1b2a0621147844fc6e41961f6c8a6b5f" kind="function"><name>from_height_width</name></member>
     <member refid="structeuphoria_1_1core_1_1Table_1a43f2001ad8ee9146504de2a84be80a36" kind="function"><name>conv</name></member>
@@ -3334,15 +3239,6 @@
     <member refid="structeuphoria_1_1minsynth_1_1ToneToFrequencyConverterNode_1a00a1d0dff3725bcc5677f3e015464df4" kind="variable"><name>next</name></member>
     <member refid="structeuphoria_1_1minsynth_1_1ToneToFrequencyConverterNode_1ab5ca243f34a0b60d5105536fafca9aed" kind="function"><name>on_tone</name></member>
     <member refid="structeuphoria_1_1minsynth_1_1ToneToFrequencyConverterNode_1a6c3253ae67290823f9cc31fd45ea0356" kind="function"><name>calc_frequency</name></member>
-  </compound>
-  <compound refid="structeuphoria_1_1core_1_1detail_1_1ConversationStatus_1_1TopicEntry" kind="struct"><name>euphoria::core::detail::ConversationStatus::TopicEntry</name>
-    <member refid="structeuphoria_1_1core_1_1detail_1_1ConversationStatus_1_1TopicEntry_1a3770c2b1864a66755060aeff47439adc" kind="variable"><name>topic</name></member>
-    <member refid="structeuphoria_1_1core_1_1detail_1_1ConversationStatus_1_1TopicEntry_1ae7aeab394226ee17bf54c7a861b5cbeb" kind="variable"><name>time</name></member>
-  </compound>
-  <compound refid="structeuphoria_1_1core_1_1detail_1_1Transposer" kind="struct"><name>euphoria::core::detail::Transposer</name>
-    <member refid="structeuphoria_1_1core_1_1detail_1_1Transposer_1a351622d4ad989dc8adee878e0758ae81" kind="variable"><name>store</name></member>
-    <member refid="structeuphoria_1_1core_1_1detail_1_1Transposer_1aab48d08437ec40452b83c150a36ba2b4" kind="function"><name>add</name></member>
-    <member refid="structeuphoria_1_1core_1_1detail_1_1Transposer_1a907d7054e04937db0011bc0481ca82f0" kind="function"><name>transpose</name></member>
   </compound>
   <compound refid="structeuphoria_1_1core_1_1TreeStyle" kind="struct"><name>euphoria::core::TreeStyle</name>
     <member refid="structeuphoria_1_1core_1_1TreeStyle_1a82872f727518cf4d30e3cedddf19728c" kind="variable"><name>t_cross</name></member>
@@ -3675,39 +3571,39 @@
     <member refid="structeuphoria_1_1core_1_1vfs_1_1WriteRootPhysicalFolder_1a05e219e2247b2d17936ec15f041dfc50" kind="function"><name>write_file</name></member>
   </compound>
   <compound refid="namespace_0d100" kind="namespace"><name>@100</name>
+    <member refid="namespace_0d100_1add757d38a3686a563fa8f3aa991950c3" kind="enum"><name>State</name></member>
   </compound>
-  <compound refid="namespace_0d101" kind="namespace"><name>@101</name>
+  <compound refid="namespace_0d174" kind="namespace"><name>@174</name>
+    <member refid="namespace_0d174_1a3098426cfb3f5982c9fab35484be578b" kind="enum"><name>SortRange</name></member>
+    <member refid="namespace_0d174_1a3098426cfb3f5982c9fab35484be578ba4b43b0aee35624cd95b910189b3dc231" kind="enumvalue"><name>r</name></member>
+    <member refid="namespace_0d174_1a3098426cfb3f5982c9fab35484be578bab2f5ff47436671b6e533d8dc3614845d" kind="enumvalue"><name>g</name></member>
+    <member refid="namespace_0d174_1a3098426cfb3f5982c9fab35484be578ba92eb5ffee6ae2fec3ad71c777531578f" kind="enumvalue"><name>b</name></member>
   </compound>
-  <compound refid="namespace_0d102" kind="namespace"><name>@102</name>
-    <member refid="namespace_0d102_1a7f21b62fde96289f6f9c1601246f002f" kind="enum"><name>State</name></member>
+  <compound refid="namespace_0d256" kind="namespace"><name>@256</name>
   </compound>
-  <compound refid="namespace_0d176" kind="namespace"><name>@176</name>
-    <member refid="namespace_0d176_1ae977b3de27f221d6fc7164c6d1448286" kind="enum"><name>SortRange</name></member>
-    <member refid="namespace_0d176_1ae977b3de27f221d6fc7164c6d1448286a4b43b0aee35624cd95b910189b3dc231" kind="enumvalue"><name>r</name></member>
-    <member refid="namespace_0d176_1ae977b3de27f221d6fc7164c6d1448286ab2f5ff47436671b6e533d8dc3614845d" kind="enumvalue"><name>g</name></member>
-    <member refid="namespace_0d176_1ae977b3de27f221d6fc7164c6d1448286a92eb5ffee6ae2fec3ad71c777531578f" kind="enumvalue"><name>b</name></member>
+  <compound refid="namespace_0d324" kind="namespace"><name>@324</name>
   </compound>
-  <compound refid="namespace_0d258" kind="namespace"><name>@258</name>
+  <compound refid="namespace_0d340" kind="namespace"><name>@340</name>
   </compound>
-  <compound refid="namespace_0d326" kind="namespace"><name>@326</name>
-  </compound>
-  <compound refid="namespace_0d342" kind="namespace"><name>@342</name>
+  <compound refid="namespace_0d366" kind="namespace"><name>@366</name>
   </compound>
   <compound refid="namespace_0d368" kind="namespace"><name>@368</name>
   </compound>
-  <compound refid="namespace_0d370" kind="namespace"><name>@370</name>
+  <compound refid="namespace_0d384" kind="namespace"><name>@384</name>
   </compound>
-  <compound refid="namespace_0d386" kind="namespace"><name>@386</name>
+  <compound refid="namespace_0d390" kind="namespace"><name>@390</name>
   </compound>
-  <compound refid="namespace_0d392" kind="namespace"><name>@392</name>
+  <compound refid="namespace_0d394" kind="namespace"><name>@394</name>
   </compound>
-  <compound refid="namespace_0d396" kind="namespace"><name>@396</name>
+  <compound refid="namespace_0d400" kind="namespace"><name>@400</name>
   </compound>
-  <compound refid="namespace_0d402" kind="namespace"><name>@402</name>
+  <compound refid="namespace_0d42" kind="namespace"><name>@42</name>
   </compound>
-  <compound refid="namespace_0d44" kind="namespace"><name>@44</name>
+  <compound refid="namespace_0d46" kind="namespace"><name>@46</name>
   </compound>
-  <compound refid="namespace_0d48" kind="namespace"><name>@48</name>
+  <compound refid="namespace_0d97" kind="namespace"><name>@97</name>
+  </compound>
+  <compound refid="namespace_0d98" kind="namespace"><name>@98</name>
   </compound>
   <compound refid="namespace_0d99" kind="namespace"><name>@99</name>
   </compound>
@@ -4673,60 +4569,58 @@
     <member refid="namespaceeuphoria_1_1core_1ae553513bff26192f7e466732663ca01e" kind="function"><name>determine_extend_scale</name></member>
     <member refid="namespaceeuphoria_1_1core_1a44e9d1a1a68b46aef858d848829d341c" kind="function"><name>get_word_wrapped</name></member>
   </compound>
-  <compound refid="namespaceeuphoria_1_1core_1_1_0d104" kind="namespace"><name>euphoria::core::@104</name>
+  <compound refid="namespaceeuphoria_1_1core_1_1_0d102" kind="namespace"><name>euphoria::core::@102</name>
   </compound>
-  <compound refid="namespaceeuphoria_1_1core_1_1_0d108" kind="namespace"><name>euphoria::core::@108</name>
+  <compound refid="namespaceeuphoria_1_1core_1_1_0d106" kind="namespace"><name>euphoria::core::@106</name>
   </compound>
-  <compound refid="namespaceeuphoria_1_1core_1_1_0d112" kind="namespace"><name>euphoria::core::@112</name>
+  <compound refid="namespaceeuphoria_1_1core_1_1_0d110" kind="namespace"><name>euphoria::core::@110</name>
   </compound>
-  <compound refid="namespaceeuphoria_1_1core_1_1_0d120" kind="namespace"><name>euphoria::core::@120</name>
+  <compound refid="namespaceeuphoria_1_1core_1_1_0d118" kind="namespace"><name>euphoria::core::@118</name>
   </compound>
-  <compound refid="namespaceeuphoria_1_1core_1_1_0d128" kind="namespace"><name>euphoria::core::@128</name>
+  <compound refid="namespaceeuphoria_1_1core_1_1_0d126" kind="namespace"><name>euphoria::core::@126</name>
   </compound>
   <compound refid="namespaceeuphoria_1_1core_1_1_0d14" kind="namespace"><name>euphoria::core::@14</name>
   </compound>
-  <compound refid="namespaceeuphoria_1_1core_1_1_0d148" kind="namespace"><name>euphoria::core::@148</name>
+  <compound refid="namespaceeuphoria_1_1core_1_1_0d146" kind="namespace"><name>euphoria::core::@146</name>
+  </compound>
+  <compound refid="namespaceeuphoria_1_1core_1_1_0d156" kind="namespace"><name>euphoria::core::@156</name>
   </compound>
   <compound refid="namespaceeuphoria_1_1core_1_1_0d158" kind="namespace"><name>euphoria::core::@158</name>
   </compound>
-  <compound refid="namespaceeuphoria_1_1core_1_1_0d160" kind="namespace"><name>euphoria::core::@160</name>
-  </compound>
-  <compound refid="namespaceeuphoria_1_1core_1_1_0d170" kind="namespace"><name>euphoria::core::@170</name>
+  <compound refid="namespaceeuphoria_1_1core_1_1_0d168" kind="namespace"><name>euphoria::core::@168</name>
   </compound>
   <compound refid="namespaceeuphoria_1_1core_1_1_0d18" kind="namespace"><name>euphoria::core::@18</name>
   </compound>
-  <compound refid="namespaceeuphoria_1_1core_1_1_0d194" kind="namespace"><name>euphoria::core::@194</name>
+  <compound refid="namespaceeuphoria_1_1core_1_1_0d192" kind="namespace"><name>euphoria::core::@192</name>
+  </compound>
+  <compound refid="namespaceeuphoria_1_1core_1_1_0d216" kind="namespace"><name>euphoria::core::@216</name>
   </compound>
   <compound refid="namespaceeuphoria_1_1core_1_1_0d218" kind="namespace"><name>euphoria::core::@218</name>
   </compound>
-  <compound refid="namespaceeuphoria_1_1core_1_1_0d220" kind="namespace"><name>euphoria::core::@220</name>
+  <compound refid="namespaceeuphoria_1_1core_1_1_0d240" kind="namespace"><name>euphoria::core::@240</name>
   </compound>
-  <compound refid="namespaceeuphoria_1_1core_1_1_0d24" kind="namespace"><name>euphoria::core::@24</name>
+  <compound refid="namespaceeuphoria_1_1core_1_1_0d244" kind="namespace"><name>euphoria::core::@244</name>
+    <member refid="namespaceeuphoria_1_1core_1_1_0d244_1aca03cc1a060514d50a922b3de5d8330d" kind="enum"><name>AddEmpty</name></member>
+    <member refid="namespaceeuphoria_1_1core_1_1_0d244_1aca03cc1a060514d50a922b3de5d8330da7fa3b767c460b54a2be4d49030b349c7" kind="enumvalue"><name>no</name></member>
+    <member refid="namespaceeuphoria_1_1core_1_1_0d244_1aca03cc1a060514d50a922b3de5d8330daa6105c0a611b41b08f1209506350279e" kind="enumvalue"><name>yes</name></member>
+    <member refid="namespaceeuphoria_1_1core_1_1_0d244_1aa4b552969aec01b33dba9679a8f7208c" kind="enum"><name>AddEmptyLast</name></member>
+    <member refid="namespaceeuphoria_1_1core_1_1_0d244_1aa4b552969aec01b33dba9679a8f7208ca7fa3b767c460b54a2be4d49030b349c7" kind="enumvalue"><name>no</name></member>
+    <member refid="namespaceeuphoria_1_1core_1_1_0d244_1aa4b552969aec01b33dba9679a8f7208caa6105c0a611b41b08f1209506350279e" kind="enumvalue"><name>yes</name></member>
   </compound>
-  <compound refid="namespaceeuphoria_1_1core_1_1_0d242" kind="namespace"><name>euphoria::core::@242</name>
+  <compound refid="namespaceeuphoria_1_1core_1_1_0d250" kind="namespace"><name>euphoria::core::@250</name>
   </compound>
-  <compound refid="namespaceeuphoria_1_1core_1_1_0d246" kind="namespace"><name>euphoria::core::@246</name>
-    <member refid="namespaceeuphoria_1_1core_1_1_0d246_1a9cf1e01149d09ff1657418e3adf7df1a" kind="enum"><name>AddEmpty</name></member>
-    <member refid="namespaceeuphoria_1_1core_1_1_0d246_1a9cf1e01149d09ff1657418e3adf7df1aa7fa3b767c460b54a2be4d49030b349c7" kind="enumvalue"><name>no</name></member>
-    <member refid="namespaceeuphoria_1_1core_1_1_0d246_1a9cf1e01149d09ff1657418e3adf7df1aaa6105c0a611b41b08f1209506350279e" kind="enumvalue"><name>yes</name></member>
-    <member refid="namespaceeuphoria_1_1core_1_1_0d246_1a24ab94a57e67909b2578bec2dd4b3675" kind="enum"><name>AddEmptyLast</name></member>
-    <member refid="namespaceeuphoria_1_1core_1_1_0d246_1a24ab94a57e67909b2578bec2dd4b3675a7fa3b767c460b54a2be4d49030b349c7" kind="enumvalue"><name>no</name></member>
-    <member refid="namespaceeuphoria_1_1core_1_1_0d246_1a24ab94a57e67909b2578bec2dd4b3675aa6105c0a611b41b08f1209506350279e" kind="enumvalue"><name>yes</name></member>
+  <compound refid="namespaceeuphoria_1_1core_1_1_0d258" kind="namespace"><name>euphoria::core::@258</name>
   </compound>
-  <compound refid="namespaceeuphoria_1_1core_1_1_0d252" kind="namespace"><name>euphoria::core::@252</name>
+  <compound refid="namespaceeuphoria_1_1core_1_1_0d270" kind="namespace"><name>euphoria::core::@270</name>
+    <member refid="namespaceeuphoria_1_1core_1_1_0d270_1af0fcbfe91f54d9b04f2862a4553914de" kind="enum"><name>ParserState</name></member>
+    <member refid="namespaceeuphoria_1_1core_1_1_0d270_1af0fcbfe91f54d9b04f2862a4553914dea1cb251ec0d568de6a929b520c4aed8d1" kind="enumvalue"><name>text</name></member>
+    <member refid="namespaceeuphoria_1_1core_1_1_0d270_1af0fcbfe91f54d9b04f2862a4553914dea78805a221a988e79ef3f42d7c5bfd418" kind="enumvalue"><name>image</name></member>
   </compound>
-  <compound refid="namespaceeuphoria_1_1core_1_1_0d260" kind="namespace"><name>euphoria::core::@260</name>
+  <compound refid="namespaceeuphoria_1_1core_1_1_0d294" kind="namespace"><name>euphoria::core::@294</name>
   </compound>
-  <compound refid="namespaceeuphoria_1_1core_1_1_0d272" kind="namespace"><name>euphoria::core::@272</name>
-    <member refid="namespaceeuphoria_1_1core_1_1_0d272_1adfc65c29e0cb9bf46aa8f559c7928342" kind="enum"><name>ParserState</name></member>
-    <member refid="namespaceeuphoria_1_1core_1_1_0d272_1adfc65c29e0cb9bf46aa8f559c7928342a1cb251ec0d568de6a929b520c4aed8d1" kind="enumvalue"><name>text</name></member>
-    <member refid="namespaceeuphoria_1_1core_1_1_0d272_1adfc65c29e0cb9bf46aa8f559c7928342a78805a221a988e79ef3f42d7c5bfd418" kind="enumvalue"><name>image</name></member>
+  <compound refid="namespaceeuphoria_1_1core_1_1_0d34" kind="namespace"><name>euphoria::core::@34</name>
   </compound>
-  <compound refid="namespaceeuphoria_1_1core_1_1_0d296" kind="namespace"><name>euphoria::core::@296</name>
-  </compound>
-  <compound refid="namespaceeuphoria_1_1core_1_1_0d36" kind="namespace"><name>euphoria::core::@36</name>
-  </compound>
-  <compound refid="namespaceeuphoria_1_1core_1_1_0d42" kind="namespace"><name>euphoria::core::@42</name>
+  <compound refid="namespaceeuphoria_1_1core_1_1_0d40" kind="namespace"><name>euphoria::core::@40</name>
   </compound>
   <compound refid="namespaceeuphoria_1_1core_1_1argparse" kind="namespace"><name>euphoria::core::argparse</name>
     <member refid="namespaceeuphoria_1_1core_1_1argparse_1a0af6040d256538cb352a8314efcbd222" kind="enum"><name>State</name></member>
@@ -4848,16 +4742,6 @@
     <member refid="namespaceeuphoria_1_1core_1_1detail_1a98c610b8d527337413a1c20193a750c0" kind="function"><name>calc_zoom_move</name></member>
     <member refid="namespaceeuphoria_1_1core_1_1detail_1a8cd790f315be53ee51dffb4216a4ecf8" kind="function"><name>set_default_state</name></member>
     <member refid="namespaceeuphoria_1_1core_1_1detail_1a6964b61b0e2fabf174d4b20b64f6cdc9" kind="function"><name>make_lerp_camera</name></member>
-    <member refid="namespaceeuphoria_1_1core_1_1detail_1aec4fa63808986e10d5299e702cea9049" kind="function"><name>clean_input</name></member>
-    <member refid="namespaceeuphoria_1_1core_1_1detail_1a546b6e2255462630d801a5c583d0b493" kind="function"><name>find_get_palette_sequential_pu_bu_gn</name></member>
-    <member refid="namespaceeuphoria_1_1core_1_1detail_1a8ee6d85b6283a579414435b8ff5a80bb" kind="function"><name>remove_from</name></member>
-    <member refid="namespaceeuphoria_1_1core_1_1detail_1aac9e391f94b34f64cc01bb43591e3312" kind="function"><name>add_response</name></member>
-    <member refid="namespaceeuphoria_1_1core_1_1detail_1a832f2f890e8a9e13ddb30b69d8b264ac" kind="function"><name>collect_topics</name></member>
-    <member refid="namespaceeuphoria_1_1core_1_1detail_1a7b42b39ba25af1dda5119ad48c76f2f3" kind="function"><name>transpose</name></member>
-    <member refid="namespaceeuphoria_1_1core_1_1detail_1afc081271bd20ee20cf05da6483aa7885" kind="function"><name>transpose_keywords</name></member>
-    <member refid="namespaceeuphoria_1_1core_1_1detail_1a753a9423baa0c59112b93b18a6254bb5" kind="function"><name>select_basic_response_index</name></member>
-    <member refid="namespaceeuphoria_1_1core_1_1detail_1a59d0873a1028dc6b4c7215be1c107b60" kind="function"><name>select_basic_response</name></member>
-    <member refid="namespaceeuphoria_1_1core_1_1detail_1ab00c7e80ffe77ad4ec7851536d4d2f6f" kind="function"><name>select_response</name></member>
     <member refid="namespaceeuphoria_1_1core_1_1detail_1aeaa44180ce162001071b87e7dd411369" kind="function"><name>create_from_string</name></member>
   </compound>
   <compound refid="namespaceeuphoria_1_1core_1_1dot" kind="namespace"><name>euphoria::core::dot</name>
@@ -4966,7 +4850,7 @@
     <member refid="namespaceeuphoria_1_1core_1_1io_1ab38e282cb9bdc09ff8f1bdabb68829f1" kind="function"><name>read_file_to_chunk</name></member>
     <member refid="namespaceeuphoria_1_1core_1_1io_1a19b1abddaf9df2e7d9b9737fe2be2e29" kind="function"><name>read_file_to_string</name></member>
   </compound>
-  <compound refid="namespaceeuphoria_1_1core_1_1io_1_1_0d124" kind="namespace"><name>euphoria::core::io::@124</name>
+  <compound refid="namespaceeuphoria_1_1core_1_1io_1_1_0d122" kind="namespace"><name>euphoria::core::io::@122</name>
   </compound>
   <compound refid="namespaceeuphoria_1_1core_1_1markov" kind="namespace"><name>euphoria::core::markov</name>
   </compound>
@@ -5168,7 +5052,7 @@
     <member refid="namespaceeuphoria_1_1core_1_1vfs_1acbcf751d24cb13570c2c57ce31058c55" kind="function"><name>operator&lt;</name></member>
     <member refid="namespaceeuphoria_1_1core_1_1vfs_1adcd7e4d38c474e3aec8c2a9b41dfa295" kind="function"><name>operator&lt;</name></member>
   </compound>
-  <compound refid="namespaceeuphoria_1_1core_1_1vfs_1_1_0d290" kind="namespace"><name>euphoria::core::vfs::@290</name>
+  <compound refid="namespaceeuphoria_1_1core_1_1vfs_1_1_0d288" kind="namespace"><name>euphoria::core::vfs::@288</name>
   </compound>
   <compound refid="namespaceeuphoria_1_1gui" kind="namespace"><name>euphoria::gui</name>
     <member refid="namespaceeuphoria_1_1gui_1af3c8bc83031fcb8547407521f11f8d71" kind="function"><name>create_table_layout</name></member>
@@ -5184,7 +5068,7 @@
     <member refid="namespaceeuphoria_1_1gui_1a94b15ef3d7bf20288337fcd4deaf6b5b" kind="function"><name>load_skin</name></member>
     <member refid="namespaceeuphoria_1_1gui_1abcbeb3e4ca1812f4ed4da278e33bd268" kind="function"><name>load_gui</name></member>
   </compound>
-  <compound refid="namespaceeuphoria_1_1gui_1_1_0d304" kind="namespace"><name>euphoria::gui::@304</name>
+  <compound refid="namespaceeuphoria_1_1gui_1_1_0d302" kind="namespace"><name>euphoria::gui::@302</name>
   </compound>
   <compound refid="namespaceeuphoria_1_1log" kind="namespace"><name>euphoria::log</name>
     <member refid="namespaceeuphoria_1_1log_1a2a5287da0ac5dc0ec18707167f0e0a95" kind="function"><name>setup_logging</name></member>
@@ -5252,7 +5136,7 @@
     <member refid="namespaceeuphoria_1_1minsynth_1a67142eb745db7fbaa143ffbd064c06a2" kind="function"><name>setup_one_octave_layout</name></member>
     <member refid="namespaceeuphoria_1_1minsynth_1a9024fac3bc4b8af0580b378ae267d230" kind="function"><name>setup_qwerty_two_octave_layout</name></member>
   </compound>
-  <compound refid="namespaceeuphoria_1_1minsynth_1_1_0d328" kind="namespace"><name>euphoria::minsynth::@328</name>
+  <compound refid="namespaceeuphoria_1_1minsynth_1_1_0d326" kind="namespace"><name>euphoria::minsynth::@326</name>
   </compound>
   <compound refid="namespaceeuphoria_1_1minsynth_1_1base__frequencies" kind="namespace"><name>euphoria::minsynth::base_frequencies</name>
     <member refid="namespaceeuphoria_1_1minsynth_1_1base__frequencies_1a14b3172f76c4c581e9467ef5ec782030" kind="variable"><name>c0</name></member>
@@ -5338,9 +5222,9 @@
     <member refid="namespaceeuphoria_1_1render_1ab55a76b5c59fb46879691f74362ee6e7" kind="function"><name>use</name></member>
     <member refid="namespaceeuphoria_1_1render_1ad04c12ef06239399250c99266a7a53c7" kind="function"><name>activate</name></member>
   </compound>
-  <compound refid="namespaceeuphoria_1_1render_1_1_0d334" kind="namespace"><name>euphoria::render::@334</name>
+  <compound refid="namespaceeuphoria_1_1render_1_1_0d332" kind="namespace"><name>euphoria::render::@332</name>
   </compound>
-  <compound refid="namespaceeuphoria_1_1render_1_1_0d340" kind="namespace"><name>euphoria::render::@340</name>
+  <compound refid="namespaceeuphoria_1_1render_1_1_0d338" kind="namespace"><name>euphoria::render::@338</name>
   </compound>
   <compound refid="namespaceeuphoria_1_1render_1_1attributes2d" kind="namespace"><name>euphoria::render::attributes2d</name>
     <member refid="namespaceeuphoria_1_1render_1_1attributes2d_1afffce8f624497729702134f5bc4454cc" kind="variable"><name>vertex</name></member>
@@ -5468,7 +5352,7 @@
     <member refid="namespaceeuphoria_1_1window_1_1imgui_1_1guizmo_1a223ac6c93554e780de19a0ac03bb8efd" kind="function"><name>translate</name></member>
     <member refid="namespaceeuphoria_1_1window_1_1imgui_1_1guizmo_1a40b6ce196b0f910b000001f9502b9da5" kind="function"><name>rotate</name></member>
   </compound>
-  <compound refid="namespaceeuphoria_1_1window_1_1imgui_1_1guizmo_1_1_0d426" kind="namespace"><name>euphoria::window::imgui::guizmo::@426</name>
+  <compound refid="namespaceeuphoria_1_1window_1_1imgui_1_1guizmo_1_1_0d424" kind="namespace"><name>euphoria::window::imgui::guizmo::@424</name>
   </compound>
   <compound refid="namespacefmt" kind="namespace"><name>fmt</name>
   </compound>
@@ -5549,10 +5433,6 @@
   <compound refid="canvaslogic_8cc" kind="file"><name>canvaslogic.cc</name>
   </compound>
   <compound refid="canvaslogic_8h" kind="file"><name>canvaslogic.h</name>
-  </compound>
-  <compound refid="chatbot_8cc" kind="file"><name>chatbot.cc</name>
-  </compound>
-  <compound refid="chatbot_8h" kind="file"><name>chatbot.h</name>
   </compound>
   <compound refid="cint_8cc" kind="file"><name>cint.cc</name>
   </compound>

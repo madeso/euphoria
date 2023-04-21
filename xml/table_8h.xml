@@ -6,6 +6,7 @@
     <includes refid="numeric_8h" local="yes">core/numeric.h</includes>
     <includes refid="rect_8h" local="yes">core/rect.h</includes>
     <includes refid="cint_8h" local="yes">core/cint.h</includes>
+    <includes refid="vec2_8h" local="yes">core/vec2.h</includes>
     <includedby refid="argparse_8cc" local="yes">libs/core/src/core/argparse.cc</includedby>
     <includedby refid="drunken__bishop_8h" local="yes">libs/core/src/core/drunken_bishop.h</includedby>
     <includedby refid="generator__maze_8h" local="yes">libs/core/src/core/generator_maze.h</includedby>
@@ -30,6 +31,8 @@
         <childnode refid="7" relation="include">
         </childnode>
         <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
         </childnode>
       </node>
       <node id="24">

@@ -5,7 +5,6 @@
     <includes local="no">string_view</includes>
     <includedby refid="argparse_8cc" local="yes">libs/core/src/core/argparse.cc</includedby>
     <includedby refid="argparse_8h" local="yes">libs/core/src/core/argparse.h</includedby>
-    <includedby refid="chatbot_8cc" local="yes">libs/core/src/core/chatbot.cc</includedby>
     <includedby refid="default__parse_8cc" local="yes">libs/core/src/core/default_parse.cc</includedby>
     <includedby refid="enum_8cc" local="yes">libs/core/src/core/enum.cc</includedby>
     <includedby refid="image__canvas_8cc" local="yes">libs/core/src/core/image_canvas.cc</includedby>
@@ -31,11 +30,11 @@
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="10">
+      <node id="9">
         <label>libs/core/src/core/image_canvas.cc</label>
         <link refid="image__canvas_8cc"/>
       </node>
-      <node id="14">
+      <node id="13">
         <label>libs/core/src/core/rgb.cc</label>
         <link refid="rgb_8cc"/>
       </node>
@@ -51,11 +50,7 @@
         <childnode refid="6" relation="include">
         </childnode>
       </node>
-      <node id="7">
-        <label>libs/core/src/core/chatbot.cc</label>
-        <link refid="chatbot_8cc"/>
-      </node>
-      <node id="13">
+      <node id="12">
         <label>libs/core/src/core/proto.cc</label>
         <link refid="proto_8cc"/>
       </node>
@@ -92,14 +87,12 @@
         </childnode>
         <childnode refid="19" relation="include">
         </childnode>
-        <childnode refid="20" relation="include">
-        </childnode>
       </node>
-      <node id="12">
+      <node id="11">
         <label>libs/core/src/core/nlp_line.cc</label>
         <link refid="nlp__line_8cc"/>
       </node>
-      <node id="11">
+      <node id="10">
         <label>libs/core/src/core/mesh.cc</label>
         <link refid="mesh_8cc"/>
       </node>
@@ -107,7 +100,7 @@
         <label>libs/window/src/window/app.cc</label>
         <link refid="app_8cc"/>
       </node>
-      <node id="20">
+      <node id="19">
         <label>libs/render/src/render/font.cc</label>
         <link refid="font_8cc"/>
       </node>
@@ -125,31 +118,31 @@
         <label>libs/core/src/core/argparse.cc</label>
         <link refid="argparse_8cc"/>
       </node>
-      <node id="17">
+      <node id="16">
         <label>libs/core/src/core/vfs_imagegenerator.cc</label>
         <link refid="vfs__imagegenerator_8cc"/>
       </node>
-      <node id="18">
+      <node id="17">
         <label>libs/core/src/core/vfs_path.cc</label>
         <link refid="vfs__path_8cc"/>
       </node>
-      <node id="8">
+      <node id="7">
         <label>libs/core/src/core/default_parse.cc</label>
         <link refid="default__parse_8cc"/>
       </node>
-      <node id="15">
+      <node id="14">
         <label>libs/core/src/core/stringmerger.cc</label>
         <link refid="stringmerger_8cc"/>
       </node>
-      <node id="9">
+      <node id="8">
         <label>libs/core/src/core/enum.cc</label>
         <link refid="enum_8cc"/>
       </node>
-      <node id="19">
+      <node id="18">
         <label>libs/gui/src/gui/layout.cc</label>
         <link refid="layout_8cc"/>
       </node>
-      <node id="16">
+      <node id="15">
         <label>libs/core/src/core/vfs.cc</label>
         <link refid="vfs_8cc"/>
       </node>

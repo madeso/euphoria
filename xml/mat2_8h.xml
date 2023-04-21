@@ -576,7 +576,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/mat2.h" line="90" column="1" declfile="libs/core/src/core/mat2.h" declline="90" declcolumn="1"/>
+        <location file="libs/core/src/core/mat2.h" line="87" column="1" declfile="libs/core/src/core/mat2.h" declline="87" declcolumn="1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

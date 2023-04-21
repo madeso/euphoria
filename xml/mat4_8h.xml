@@ -600,7 +600,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/mat4.h" line="133" column="1" declfile="libs/core/src/core/mat4.h" declline="133" declcolumn="1"/>
+        <location file="libs/core/src/core/mat4.h" line="129" column="1" declfile="libs/core/src/core/mat4.h" declline="129" declcolumn="1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

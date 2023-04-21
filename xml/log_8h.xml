@@ -6,7 +6,6 @@
     <includes local="yes">spdlog/fmt/ostr.h</includes>
     <includes local="yes">undef_windows/undef_windows.h</includes>
     <includedby refid="camera3_8editor_8cc" local="yes">libs/core/src/core/camera3.editor.cc</includedby>
-    <includedby refid="chatbot_8cc" local="yes">libs/core/src/core/chatbot.cc</includedby>
     <includedby refid="enum_8cc" local="yes">libs/core/src/core/enum.cc</includedby>
     <includedby refid="hashgen_8identicon_8cc" local="yes">libs/core/src/core/hashgen.identicon.cc</includedby>
     <includedby refid="image_8cc" local="yes">libs/core/src/core/image.cc</includedby>
@@ -63,83 +62,79 @@
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="7">
+      <node id="6">
         <label>libs/core/src/core/image_canvas.cc</label>
         <link refid="image__canvas_8cc"/>
       </node>
-      <node id="33">
+      <node id="32">
         <label>libs/window/src/window/engine.cc</label>
         <link refid="engine_8cc"/>
       </node>
-      <node id="35">
+      <node id="34">
         <label>libs/window/src/window/sdlglcontext.cc</label>
         <link refid="sdlglcontext_8cc"/>
       </node>
-      <node id="6">
+      <node id="5">
         <label>libs/core/src/core/image.cc</label>
         <link refid="image_8cc"/>
       </node>
-      <node id="25">
+      <node id="24">
         <label>libs/render/src/render/compiledmesh.cc</label>
         <link refid="compiledmesh_8cc"/>
       </node>
-      <node id="5">
+      <node id="4">
         <label>libs/core/src/core/hashgen.identicon.cc</label>
         <link refid="hashgen_8identicon_8cc"/>
       </node>
-      <node id="3">
-        <label>libs/core/src/core/chatbot.cc</label>
-        <link refid="chatbot_8cc"/>
-      </node>
-      <node id="10">
+      <node id="9">
         <label>libs/core/src/core/loadedfont.cc</label>
         <link refid="loadedfont_8cc"/>
       </node>
-      <node id="13">
+      <node id="12">
         <label>libs/core/src/core/proto.cc</label>
         <link refid="proto_8cc"/>
       </node>
-      <node id="11">
+      <node id="10">
         <label>libs/core/src/core/mesh.cc</label>
         <link refid="mesh_8cc"/>
       </node>
-      <node id="32">
+      <node id="31">
         <label>libs/window/src/window/app.cc</label>
         <link refid="app_8cc"/>
       </node>
-      <node id="27">
+      <node id="26">
         <label>libs/render/src/render/font.cc</label>
         <link refid="font_8cc"/>
       </node>
-      <node id="36">
+      <node id="35">
         <label>libs/window/src/window/sdllibrary.cc</label>
         <link refid="sdllibrary_8cc"/>
       </node>
-      <node id="34">
+      <node id="33">
         <label>libs/window/src/window/imguilibrary.cc</label>
         <link refid="imguilibrary_8cc"/>
       </node>
-      <node id="22">
+      <node id="21">
         <label>libs/log/src/log/log.cc</label>
         <link refid="log_8cc"/>
       </node>
-      <node id="20">
+      <node id="19">
         <label>libs/gui/src/gui/textdata.cc</label>
         <link refid="textdata_8cc"/>
       </node>
-      <node id="24">
+      <node id="23">
         <label>libs/render/src/render/buffer.cc</label>
         <link refid="buffer_8cc"/>
       </node>
-      <node id="8">
+      <node id="7">
         <label>libs/core/src/core/image_draw.cc</label>
         <link refid="image__draw_8cc"/>
       </node>
-      <node id="31">
+      <node id="30">
         <label>libs/render/src/render/texture.cc</label>
         <link refid="texture_8cc"/>
       </node>
-      <node id="21">
+      <node id="20">
         <label>libs/gui/src/gui/widget.cc</label>
         <link refid="widget_8cc"/>
       </node>
@@ -147,15 +142,15 @@
         <label>libs/core/src/core/camera3.editor.cc</label>
         <link refid="camera3_8editor_8cc"/>
       </node>
-      <node id="17">
+      <node id="16">
         <label>libs/core/src/core/vfs_imagegenerator.cc</label>
         <link refid="vfs__imagegenerator_8cc"/>
       </node>
-      <node id="26">
+      <node id="25">
         <label>libs/render/src/render/debuggl.cc</label>
         <link refid="debuggl_8cc"/>
       </node>
-      <node id="14">
+      <node id="13">
         <label>libs/core/src/core/ui_text.cc</label>
         <link refid="ui__text_8cc"/>
       </node>
@@ -232,54 +227,52 @@
         </childnode>
         <childnode refid="36" relation="include">
         </childnode>
-        <childnode refid="37" relation="include">
-        </childnode>
       </node>
-      <node id="23">
+      <node id="22">
         <label>libs/minsynth/src/minsynth/synth.cc</label>
         <link refid="synth_8cc"/>
       </node>
-      <node id="16">
+      <node id="15">
         <label>libs/core/src/core/vfs_defaultshaders.cc</label>
         <link refid="vfs__defaultshaders_8cc"/>
       </node>
-      <node id="4">
+      <node id="3">
         <label>libs/core/src/core/enum.cc</label>
         <link refid="enum_8cc"/>
       </node>
-      <node id="12">
+      <node id="11">
         <label>libs/core/src/core/polybezier.cc</label>
         <link refid="polybezier_8cc"/>
       </node>
-      <node id="18">
+      <node id="17">
         <label>libs/gui/src/gui/layout.cc</label>
         <link refid="layout_8cc"/>
       </node>
-      <node id="15">
+      <node id="14">
         <label>libs/core/src/core/vfs.cc</label>
         <link refid="vfs_8cc"/>
       </node>
-      <node id="37">
+      <node id="36">
         <label>libs/window/src/window/sdlwindow.cc</label>
         <link refid="sdlwindow_8cc"/>
       </node>
-      <node id="30">
+      <node id="29">
         <label>libs/render/src/render/shader.cc</label>
         <link refid="shader_8cc"/>
       </node>
-      <node id="9">
+      <node id="8">
         <label>libs/core/src/core/io.cc</label>
         <link refid="io_8cc"/>
       </node>
-      <node id="28">
+      <node id="27">
         <label>libs/render/src/render/init.cc</label>
         <link refid="init_8cc"/>
       </node>
-      <node id="19">
+      <node id="18">
         <label>libs/gui/src/gui/load.cc</label>
         <link refid="load_8cc"/>
       </node>
-      <node id="29">
+      <node id="28">
         <label>libs/render/src/render/materialshader.cc</label>
         <link refid="materialshader_8cc"/>
       </node>
