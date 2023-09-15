@@ -10,7 +10,7 @@
 #include "core/rgb.h"
 
 
-namespace euphoria::window
+namespace eu::window
 {
     struct App
     {

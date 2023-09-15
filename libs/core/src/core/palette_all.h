@@ -6,12 +6,12 @@
 #include "core/enumtostring.h"
 #include "core/compiler_warning.h"
 
-namespace euphoria::core
+namespace eu::core
 {
     struct Palette;
 }
 
-namespace euphoria::core::palettes
+namespace eu::core::palettes
 {
     enum class Name
     {

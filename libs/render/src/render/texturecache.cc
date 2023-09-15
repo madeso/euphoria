@@ -6,7 +6,7 @@
 
 #include "render/texture.h"
 
-namespace euphoria::render
+namespace eu::render
 {
     struct TextureCache::TextureCachePimpl
         : core::Cache<core::vfs::FilePath, Texture2, TextureCache::TextureCachePimpl>

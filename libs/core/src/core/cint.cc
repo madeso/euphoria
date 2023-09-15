@@ -5,7 +5,7 @@
 #include "assert/assert.h"
 
 
-namespace euphoria::core
+namespace eu::core
 {
     int
     c_sizet_to_int(size_t t)

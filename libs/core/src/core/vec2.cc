@@ -5,7 +5,7 @@
 
 
 
-namespace euphoria::core
+namespace eu::core
 {
     vec2f::vec2f(const std::tuple<float, float>& a)
         : x(std::get<0>(a))

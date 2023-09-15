@@ -3,7 +3,7 @@
 #include <string_view>
 
 
-namespace euphoria::core
+namespace eu::core
 {
     struct StringMerger
     {

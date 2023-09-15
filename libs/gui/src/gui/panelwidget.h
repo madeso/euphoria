@@ -5,7 +5,7 @@
 #include "gui/visitor.h"
 
 
-namespace euphoria::gui
+namespace eu::gui
 {
     struct PanelWidget : Widget
     {

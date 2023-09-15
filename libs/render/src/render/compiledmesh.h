@@ -8,13 +8,13 @@
 #include "render/buffer.h"
 
 
-namespace euphoria::core::vfs
+namespace eu::core::vfs
 {
     struct DirPath;
 }
 
 
-namespace euphoria::render
+namespace eu::render
 {
     struct Texture2;
     struct MaterialShader;

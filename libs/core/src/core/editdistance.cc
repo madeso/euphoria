@@ -8,7 +8,7 @@
 #include "assert/assert.h"
 #include "core/cint.h"
 
-namespace euphoria::core
+namespace eu::core
 {
     int
     calc_edit_distance(const std::string& source, const std::string& target)

@@ -6,7 +6,7 @@
 
 #include <map>
 
-namespace euphoria::core
+namespace eu::core
 {
     /** Provides a terminal like experience.
      * Case of the name is not important

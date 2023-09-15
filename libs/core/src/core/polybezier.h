@@ -5,7 +5,7 @@
 #include "core/vec2.h"
 #include "core/iterate.h"
 
-namespace euphoria::core
+namespace eu::core
 {
     // todo(Gustav): a poly is a closed path, so rename to path
     // todo(Gustav): add more features

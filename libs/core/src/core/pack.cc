@@ -9,7 +9,7 @@
 #endif
 
 
-namespace euphoria::core
+namespace eu::core
 {
     std::vector<std::optional<Recti>>
     pack

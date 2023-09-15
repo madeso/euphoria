@@ -17,7 +17,7 @@
 #include "runner/cameradata.h"
 
 
-namespace euphoria::runner
+namespace eu::runner
 {
 
     template<typename T>

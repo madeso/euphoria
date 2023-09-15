@@ -3,7 +3,7 @@
 
 #include <cstddef>
 
-namespace euphoria::core
+namespace eu::core
 {
     template <typename T, typename TSortFunc>
     void

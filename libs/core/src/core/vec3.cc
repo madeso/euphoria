@@ -1,7 +1,7 @@
 #include "core/vec3.h"
 
 
-namespace euphoria::core
+namespace eu::core
 {
     float*
     Scale3f::get_data_ptr()

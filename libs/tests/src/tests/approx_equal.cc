@@ -1,6 +1,6 @@
 #include "tests/approx_equal.h"
 
-namespace euphoria::tests
+namespace eu::tests
 {
     template <typename T>
     bool

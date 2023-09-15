@@ -7,7 +7,7 @@
 #include "core/sol.h"
 
 
-namespace euphoria::runner
+namespace eu::runner
 {
     void
 	add_print(LuaState* sol)

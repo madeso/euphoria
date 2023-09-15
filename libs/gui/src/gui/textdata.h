@@ -4,13 +4,13 @@
 
 
 
-namespace euphoria::render
+namespace eu::render
 {
     struct DrawableFont;
     struct DrawableText;
 }
 
-namespace euphoria::gui
+namespace eu::gui
 {
     struct TextData
     {

@@ -7,7 +7,7 @@ int
 main(int argc, char** argv)
 {
 #ifdef IMPLEMENT_ASSERT_LIB
-    euphoria::assertlib::begin_throwing();
+    eu::assertlib::begin_throwing();
 #endif
 
     int result = Catch::Session().run(argc, argv);

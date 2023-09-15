@@ -8,13 +8,13 @@
 #include "core/ecs.h"
 
 
-namespace euphoria::render
+namespace eu::render
 {
     struct SpriteRenderer;
 }
 
 
-namespace euphoria::runner
+namespace eu::runner
 {
     struct Systems;
 

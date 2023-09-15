@@ -7,7 +7,7 @@
 #include "core/size2.h"
 
 
-namespace euphoria::core
+namespace eu::core
 {
     struct Image;
     struct Rgbi;

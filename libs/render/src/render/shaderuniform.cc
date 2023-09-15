@@ -4,7 +4,7 @@
 
 #include <utility>
 
-namespace euphoria::render
+namespace eu::render
 {
     ShaderUniform::ShaderUniform(std::string aname, gl::Int aid, render::ShaderProgram* ashader)
         : name(std::move(aname))

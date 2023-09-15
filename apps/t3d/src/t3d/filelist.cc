@@ -7,7 +7,7 @@
 #include <algorithm>
 
 
-namespace euphoria::t3d
+namespace eu::t3d
 {
     void
     FileList::add_directory

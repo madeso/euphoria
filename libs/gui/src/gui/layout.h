@@ -7,13 +7,13 @@
 #include <memory>
 
 
-namespace euphoria::gui
+namespace eu::gui
 {
     struct Widget;
 }
 
 
-namespace euphoria::gui
+namespace eu::gui
 {
     struct Layout
     {

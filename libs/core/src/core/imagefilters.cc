@@ -6,7 +6,7 @@
 #include "core/vec3.h"
 
 
-namespace euphoria::core
+namespace eu::core
 {
     namespace
     {

@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-namespace euphoria::core
+namespace eu::core
 {
     void
     CliProgressDots::update()

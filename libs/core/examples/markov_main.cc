@@ -12,8 +12,8 @@
 #include "core/nlp_sentence.h"
 #include "core/nlp_line.h"
 
-namespace core = euphoria::core;
-namespace markov = euphoria::core::markov;
+namespace core = eu::core;
+namespace markov = eu::core::markov;
 
 
 std::vector<char>

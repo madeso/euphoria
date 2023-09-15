@@ -69,7 +69,7 @@ namespace
     }
 }
 
-namespace euphoria::core
+namespace eu::core
 {
 
 void HelpTextHover::update(bool currently_hovering_over_widget, float dt)

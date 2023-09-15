@@ -9,7 +9,7 @@
 #include "tests/vectortostring.h"
 
 
-namespace euphoria::tests
+namespace eu::tests
 {
     template
     <

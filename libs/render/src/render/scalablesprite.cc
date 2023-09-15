@@ -17,7 +17,7 @@
 #include "gaf_scalingsprite.h"
 #include "gaf_rapidjson_scalingsprite.h"
 
-using namespace euphoria::convert;
+using namespace eu::convert;
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -32,7 +32,7 @@ namespace
         {
             const auto f = static_cast<float>(s);
             dest->push_back(f);
-            size += euphoria::core::abs(f);
+            size += eu::core::abs(f);
         }
 
         if(dest->empty())
@@ -61,7 +61,7 @@ namespace
 }
 
 
-namespace euphoria::render
+namespace eu::render
 {
     ScalableSprite::ScalableSprite
     (

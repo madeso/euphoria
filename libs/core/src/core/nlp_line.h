@@ -5,7 +5,7 @@
 #include <optional>
 
 
-namespace euphoria::core
+namespace eu::core
 {
 
 using TextLine = std::vector<std::string>;

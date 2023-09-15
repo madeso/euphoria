@@ -5,7 +5,7 @@
 #include "core/random.h"
 #include "core/cint.h"
 
-namespace euphoria::core
+namespace eu::core
 {
     // Knuth shuffle aka Fisher–Yates shuffle
     // src: https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle

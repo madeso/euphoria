@@ -3,7 +3,7 @@
 #include "core/vfs.h"
 #include "core/vfs_path.h"
 
-namespace euphoria::core::vfs
+namespace eu::core::vfs
 {
     struct ReadRootImageGenerator : ReadRoot
     {

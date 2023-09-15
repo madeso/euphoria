@@ -6,8 +6,8 @@
 #include "catch.hpp"
 
 
-using namespace euphoria::tests;
-using namespace euphoria::core;
+using namespace eu::tests;
+using namespace eu::core;
 
 
 TEST_CASE("fonts-", "[fonts]")

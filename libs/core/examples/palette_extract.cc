@@ -15,7 +15,7 @@
 #include "core/palette_extract.h"
 
 
-using namespace euphoria::core;
+using namespace eu::core;
 
 
 struct ImageAndFile

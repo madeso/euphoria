@@ -6,7 +6,7 @@
 #include "core/cint.h"
 
 
-namespace euphoria::render
+namespace eu::render
 {
     int
     ShaderAttribute::get_element_count() const

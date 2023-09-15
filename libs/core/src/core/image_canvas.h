@@ -6,7 +6,7 @@
 #include "core/vec2.h"
 #include "core/mat3.h"
 
-namespace euphoria::core
+namespace eu::core
 {
     struct Image;
 

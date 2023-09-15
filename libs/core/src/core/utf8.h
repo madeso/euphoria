@@ -5,7 +5,7 @@
 
 #include "assert/assert.h"
 
-namespace euphoria::core
+namespace eu::core
 {
     template<typename TString, typename TOnCodepointFunc>
     bool calc_utf8_to_codepoints(const TString& string, TOnCodepointFunc on_codepoint)

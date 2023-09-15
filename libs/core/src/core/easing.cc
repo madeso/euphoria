@@ -12,7 +12,7 @@
 
 #include "assert/assert.h"
 
-namespace euphoria::core::easing
+namespace eu::core::easing
 {
 
 // easing "techniques"

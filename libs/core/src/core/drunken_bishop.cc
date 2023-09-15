@@ -5,7 +5,7 @@
 #include <algorithm>
 
 
-namespace euphoria::core
+namespace eu::core
 {
     // drunken bishop algorithm inspired by
     // https://blog.benjojo.co.uk/post/ssh-randomart-how-does-it-work-art

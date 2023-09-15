@@ -5,7 +5,7 @@
 #include "core/sol.h"
 
 
-namespace euphoria::runner
+namespace eu::runner
 {
     struct InputSystem;
     struct ScriptRegistry;

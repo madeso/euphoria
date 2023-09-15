@@ -2,7 +2,7 @@
 
 #include <type_traits>
 
-namespace euphoria::core
+namespace eu::core
 {
 
 

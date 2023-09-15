@@ -16,7 +16,7 @@
 #include "window/imguizmo.h"
 
 
-namespace euphoria::window::imgui
+namespace eu::window::imgui
 {
     void
     add_fork_awesome()

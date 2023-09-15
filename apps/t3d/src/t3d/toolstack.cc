@@ -3,7 +3,7 @@
 #include "assert/assert.h"
 
 
-namespace euphoria::t3d
+namespace eu::t3d
 {
     struct tool_action
     {

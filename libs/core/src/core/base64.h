@@ -4,7 +4,7 @@
 
 
 
-namespace euphoria::core::base64
+namespace eu::core::base64
 {
     std::string
     encode(std::shared_ptr<MemoryChunk> memory);

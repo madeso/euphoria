@@ -2,7 +2,7 @@
 
 #include "core/cint.h"
 
-namespace euphoria::core
+namespace eu::core
 {
     LinePoint::LinePoint(const vec3f& p, const Rgb& c)
         : point(p)

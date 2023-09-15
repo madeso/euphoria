@@ -7,7 +7,7 @@
 #include "core/cint.h"
 #include "core/vec2.h"
 
-namespace euphoria::core
+namespace eu::core
 {
     // NewCol function??? probably less useful than insert functions
     // todo(Gustav): add insert before/after row/col

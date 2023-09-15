@@ -2,7 +2,7 @@
 #include "core/image_draw.h"
 #include "core/io.h"
 
-using namespace euphoria::core;
+using namespace eu::core;
 
 
 int

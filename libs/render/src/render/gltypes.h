@@ -1,6 +1,6 @@
 #pragma once
 
-namespace euphoria::render::gl
+namespace eu::render::gl
 {
     using Float = float;
     using Uint = unsigned int;

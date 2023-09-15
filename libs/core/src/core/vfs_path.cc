@@ -8,7 +8,7 @@
 #include "core/stringmerger.h"
 
 
-namespace euphoria::core::vfs
+namespace eu::core::vfs
 {
     namespace
     {

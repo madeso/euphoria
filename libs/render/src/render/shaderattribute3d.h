@@ -3,7 +3,7 @@
 #include "render/shaderattribute.h"
 
 
-namespace euphoria::render
+namespace eu::render
 {
     struct ShaderProgram;
 }
@@ -14,7 +14,7 @@ Currently attributes are hardcoded into a special layout.
 It would be preferable if the layout is written in script
 and the actual values are dynamically created in script.
 */
-namespace euphoria::render::attributes3d
+namespace eu::render::attributes3d
 {
     constexpr ShaderAttribute vertex = ShaderAttribute
     {

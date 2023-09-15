@@ -7,7 +7,7 @@
 
 #include "render/shader.h"
 
-namespace euphoria::render
+namespace eu::render
 {
     struct Light;
 

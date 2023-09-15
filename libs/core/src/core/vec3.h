@@ -10,7 +10,7 @@
 #include "core/cint.h"
 
 
-namespace euphoria::core
+namespace eu::core
 {
     ////////////////////////////////////////////////////////////////////////////////
     /// Forward declarations
@@ -163,6 +163,6 @@ namespace euphoria::core
     std::string to_string(const Scale3f& v);
 }
 
-ADD_DEFAULT_FORMATTER(euphoria::core::vec3f, std::string, euphoria::core::to_string);
-ADD_DEFAULT_FORMATTER(euphoria::core::unit3f, std::string, euphoria::core::to_string);
-ADD_DEFAULT_FORMATTER(euphoria::core::Scale3f, std::string, euphoria::core::to_string);
+ADD_DEFAULT_FORMATTER(eu::core::vec3f, std::string, eu::core::to_string);
+ADD_DEFAULT_FORMATTER(eu::core::unit3f, std::string, eu::core::to_string);
+ADD_DEFAULT_FORMATTER(eu::core::Scale3f, std::string, eu::core::to_string);

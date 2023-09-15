@@ -8,7 +8,7 @@
 
 
 
-namespace euphoria::core
+namespace eu::core
 {
 
 

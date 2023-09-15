@@ -11,7 +11,7 @@
  https://groups.google.com/forum/?fromgroups=#!topic/d3-js/iyXFgJR1JY0
  */
 
-namespace euphoria::core
+namespace eu::core
 {
     namespace
     {

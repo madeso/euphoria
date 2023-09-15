@@ -6,7 +6,7 @@
 #include "core/cint.h"
 
 
-namespace euphoria::core
+namespace eu::core
 {
     // Hoare partition scheme as described in wikipedia
     // https://en.wikipedia.org/wiki/Quicksort

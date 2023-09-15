@@ -3,7 +3,7 @@
 
 #include <ostream>
 
-namespace euphoria::tests
+namespace eu::tests
 {
     /// represents a error (false) or empty string (true)
     struct FalseString

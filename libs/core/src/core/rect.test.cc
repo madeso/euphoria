@@ -4,7 +4,7 @@
 
 // constructor tests
 
-namespace euco = euphoria::core;
+namespace euco = eu::core;
 
 TEST_CASE("rect-constructor_topleftwidthheight", "[rect]")
 {

@@ -7,7 +7,7 @@
 #include "render/font.h"
 
 
-namespace euphoria::render
+namespace eu::render
 {
     struct FontCache::FontCachePimpl
         : core::Cache<core::vfs::FilePath, DrawableFont, FontCache::FontCachePimpl>

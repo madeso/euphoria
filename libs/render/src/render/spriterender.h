@@ -11,7 +11,7 @@
 #include "render/shader.h"
 #include "render/texture.h"
 
-namespace euphoria::render
+namespace eu::render
 {
     struct ScalableSprite;
     struct Buffer2d;

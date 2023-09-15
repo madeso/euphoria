@@ -4,7 +4,7 @@
 #include "core/angle.h"
 
 
-namespace euphoria::core
+namespace eu::core
 {
     struct mat2f
     {
@@ -84,4 +84,4 @@ namespace euphoria::core
 }
 
 // todo(Gustav): add a multi line format option?
-ADD_DEFAULT_FORMATTER(euphoria::core::mat2f, std::string, euphoria::core::to_string);
+ADD_DEFAULT_FORMATTER(eu::core::mat2f, std::string, eu::core::to_string);

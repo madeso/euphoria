@@ -10,7 +10,7 @@
 #include "gaf/lib_gaf.h"
 #include "rapidjson/document.h"
 
-namespace euphoria::core
+namespace eu::core
 {
     namespace vfs
     {

@@ -4,8 +4,8 @@
 
 #include "catch.hpp"
 
-namespace euco = euphoria::core;
-namespace vfs = euphoria::core::vfs;
+namespace euco = eu::core;
+namespace vfs = eu::core::vfs;
 
 
 TEST_CASE("template-test_replace", "[template]")

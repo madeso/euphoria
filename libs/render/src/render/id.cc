@@ -2,7 +2,7 @@
 
 #include "assert/assert.h"
 
-namespace euphoria::render
+namespace eu::render
 {
     Id::Id()
         : id(0)

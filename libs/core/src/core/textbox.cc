@@ -17,8 +17,8 @@ namespace
         if(clang != nullptr)
         {
             const auto lang = std::string(clang);
-            const auto lower = euphoria::core::to_lower(lang);
-            const auto ends = euphoria::core::ends_with(lower, "utf-8");
+            const auto lower = eu::core::to_lower(lang);
+            const auto ends = eu::core::ends_with(lower, "utf-8");
             return ends;
         }
 
@@ -29,7 +29,7 @@ namespace
     bool
     has_char(char c)
     {
-        return (c & euphoria::core::bit_no_line) != 0;
+        return (c & eu::core::bit_no_line) != 0;
     }
 
 
@@ -41,7 +41,7 @@ namespace
 }
 
 
-namespace euphoria::core
+namespace eu::core
 {
     std::string_view
     TextBoxStyle::get_string(char c) const

@@ -11,7 +11,7 @@
 #include "core/stringmerger.h"
 
 
-namespace euphoria::core
+namespace eu::core
 {
     Rgb::Rgb(float red, float green, float blue) : r(red), g(green), b(blue) {}
 

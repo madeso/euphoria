@@ -46,7 +46,7 @@ namespace
 }
 
 
-namespace euphoria::log
+namespace eu::log
 {
     void
     setup_logging(bool force_console)

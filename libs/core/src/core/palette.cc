@@ -6,7 +6,7 @@
 #include "core/colors.h"
 
 
-namespace euphoria::core
+namespace eu::core
 {
     namespace
     {

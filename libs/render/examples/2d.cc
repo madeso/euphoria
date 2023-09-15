@@ -33,9 +33,9 @@
 #include "imgui/imgui_internal.h"
 
 
-using namespace euphoria::core;
-using namespace euphoria::render;
-using namespace euphoria::window;
+using namespace eu::core;
+using namespace eu::render;
+using namespace eu::window;
 
 
 int
@@ -83,7 +83,7 @@ main(int argc, char* argv[])
     use(&shader);
     shader.set_uniform(shader.get_uniform("image"), 0);
 
-    auto viewport_handler = euphoria::render::ViewportHandler
+    auto viewport_handler = eu::render::ViewportHandler
     {
         engine.init.get(),
         nullptr
@@ -184,8 +184,8 @@ main(int argc, char* argv[])
         (
             vec2f{sprite_x, sprite_y},
             Scale2f{0.5f, 0.5f},
-            euphoria::core::max(0.0f, sprite_width),
-            euphoria::core::max(0.0f, sprite_height)
+            eu::core::max(0.0f, sprite_width),
+            eu::core::max(0.0f, sprite_height)
         );
         renderer.draw_sprite
         (

@@ -3,14 +3,14 @@
 #include <memory>
 
 
-namespace euphoria::core::vfs
+namespace eu::core::vfs
 {
     struct FileSystem;
     struct FilePath;
 }
 
 
-namespace euphoria::render
+namespace eu::render
 {
     struct DrawableFont;
     struct TextureCache;

@@ -5,7 +5,7 @@
 
 #include "core/key.h"
 
-namespace euphoria::window
+namespace eu::window
 {
     core::Key
     to_key(SDL_Keysym key);

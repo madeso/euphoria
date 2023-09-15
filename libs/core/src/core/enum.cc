@@ -19,7 +19,7 @@
 #include "gaf_enum.h"
 #include "gaf_rapidjson_enum.h"
 
-namespace euphoria::core
+namespace eu::core
 {
     EnumType::EnumType(std::string name)
         : type_name(std::move(name))

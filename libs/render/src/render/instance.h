@@ -5,7 +5,7 @@
 #include "core/quat.h"
 
 
-namespace euphoria::render
+namespace eu::render
 {
     struct Light;
 

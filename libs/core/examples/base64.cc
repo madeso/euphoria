@@ -7,7 +7,7 @@
 #include "core/vfs_path.h"
 
 
-namespace vfs = euphoria::core::vfs;
+namespace vfs = eu::core::vfs;
 
 
 void
@@ -33,7 +33,7 @@ run_encode(const std::string& data)
             vfs::FilePath{"~/invalid_input"}
         )
     );
-    auto encoded = euphoria::core::base64::encode(memory);
+    auto encoded = eu::core::base64::encode(memory);
     std::cout << "Encoded:\n" << encoded << "\n";
     return 0;
 }

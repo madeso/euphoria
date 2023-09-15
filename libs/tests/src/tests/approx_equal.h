@@ -8,7 +8,7 @@
 #include "tests/approx.h"
 
 
-namespace euphoria::tests
+namespace eu::tests
 {
     template <>
     bool

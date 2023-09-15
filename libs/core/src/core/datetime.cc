@@ -12,7 +12,7 @@
 #endif
 
 
-namespace euphoria::core
+namespace eu::core
 {
 
     int

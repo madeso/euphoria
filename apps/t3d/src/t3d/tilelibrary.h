@@ -7,12 +7,12 @@
 #include "render/compiledmesh.h"
 
 
-namespace euphoria::core::vfs
+namespace eu::core::vfs
 {
     struct FileSystem;
 }
 
-namespace euphoria::t3d
+namespace eu::t3d
 {
     struct Tile
     {

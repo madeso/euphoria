@@ -5,13 +5,13 @@
 
 #include "tests/falsestring.h"
 
-namespace euphoria::tests
+namespace eu::tests
 {
     /*
 
     Usage:
 
-    using namespace euphoria::tests;
+    using namespace eu::tests;
 
     CHECK(is_string_equal(foo(), "string"));
     CHECK(is_string_equal(bar(), {"some", "strings"}));

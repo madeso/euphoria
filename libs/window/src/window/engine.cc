@@ -19,7 +19,7 @@
 #include "window/sdlglcontext.h"
 #include "window/imguilibrary.h"
 
-namespace euphoria::window
+namespace eu::window
 {
     Engine::Engine()
         : window_id(0)

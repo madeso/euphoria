@@ -2,12 +2,12 @@
 
 #include "render/buffer.h"
 
-namespace euphoria::core
+namespace eu::core
 {
     struct BufferBuilder2;
 }
 
-namespace euphoria::render
+namespace eu::render
 {
     struct Buffer2d
     {

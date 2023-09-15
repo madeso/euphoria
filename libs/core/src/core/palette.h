@@ -7,7 +7,7 @@
 
 #include "core/rgb.h"
 
-namespace euphoria::core
+namespace eu::core
 {
     struct Random;
 

@@ -1,8 +1,8 @@
 #include "core/fpscontroller.h"
 
-namespace euphoria::core
+namespace eu::core
 {
-    using namespace euphoria::convert;
+    using namespace eu::convert;
 
     FpsController::FpsController()
         : rotation_angle(0.0_rad)

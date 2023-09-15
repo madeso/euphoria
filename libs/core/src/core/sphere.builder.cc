@@ -6,7 +6,7 @@
 #include "core/numeric.h"
 
 
-namespace euphoria::core
+namespace eu::core
 {
     vec3f
     calc_center(const std::vector<vec3f>& positions)

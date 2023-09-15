@@ -2,7 +2,7 @@
 
 #include <algorithm>
 
-namespace euphoria::core
+namespace eu::core
 {
     bool
     find(const std::string& target, const std::string& search)

@@ -2,7 +2,7 @@
 
 
 
-namespace euphoria::core
+namespace eu::core
 {
     mat3f::mat3f(const mat2f& mat)
         : data

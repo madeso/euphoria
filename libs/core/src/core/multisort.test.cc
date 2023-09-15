@@ -2,7 +2,7 @@
 
 #include "catch.hpp"
 
-namespace euco = euphoria::core;
+namespace euco = eu::core;
 
 template <typename T>
 struct SortBuilderCore : public euco::SortBuilder<T, SortBuilderCore<T>>

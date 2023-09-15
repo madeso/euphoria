@@ -4,8 +4,8 @@
 
 #include "catch.hpp"
 
-using namespace euphoria::tests;
-namespace euco = euphoria::core;
+using namespace eu::tests;
+namespace euco = eu::core;
 
 TEST_CASE("vec2-add", "[vec2]")
 {

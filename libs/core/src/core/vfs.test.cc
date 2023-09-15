@@ -6,9 +6,9 @@
 
 #define GTEST(X) TEST(filesystem, X)
 
-using namespace euphoria::core::vfs;
+using namespace eu::core::vfs;
 
-namespace euco = euphoria::core;
+namespace euco = eu::core;
 
 
 struct AlwaysExistRoot : public ReadRoot

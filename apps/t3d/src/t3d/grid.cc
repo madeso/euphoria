@@ -1,6 +1,6 @@
 #include "t3d/grid.h"
 
-namespace euphoria::t3d
+namespace eu::t3d
 {
     float
     snap_to(float val, float step)

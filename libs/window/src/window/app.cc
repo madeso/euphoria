@@ -15,7 +15,7 @@
 #include "window/imguilibrary.h"
 #include "window/sdlwindow.h"
 
-namespace euphoria::window
+namespace eu::window
 {
     App::App()
         : clear_color(core::NamedColor::light_gray)
@@ -37,7 +37,7 @@ namespace euphoria::window
     int
     run_app(int argc, char** argv, const std::string& window_title, CreateAppFunction create_app)
     {
-        EUPH_INIT_LOGGING();
+        EU_INIT_LOGGING();
         Engine engine;
 
         if (const auto r = engine.setup(core::argparse::NameAndArguments::extract(argc, argv)); r != 0)

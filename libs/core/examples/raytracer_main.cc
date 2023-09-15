@@ -6,7 +6,7 @@
 #include "core/argparse.h"
 #include "core/timepoint.h"
 
-using namespace euphoria::core;
+using namespace eu::core;
 
 int
 main(int argc, char* argv[])

@@ -4,7 +4,7 @@
 #include "core/intersection.h"
 
 
-namespace euphoria::core
+namespace eu::core
 {
 
 

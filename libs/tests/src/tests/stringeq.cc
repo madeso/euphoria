@@ -18,7 +18,7 @@ namespace
     }
 }
 
-namespace euphoria::tests
+namespace eu::tests
 {
     FalseString
     is_string_equal(const std::string& lhs, const std::string& rhs)

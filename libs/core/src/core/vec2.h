@@ -11,7 +11,7 @@
 #include "core/vec.base.h"
 
 
-namespace euphoria::core
+namespace eu::core
 {
     struct Random;
 
@@ -204,6 +204,6 @@ namespace euphoria::core
     unit2f create_random_unit(Random* random);
 }
 
-ADD_DEFAULT_FORMATTER(euphoria::core::vec2f, std::string, euphoria::core::to_string);
-ADD_DEFAULT_FORMATTER(euphoria::core::unit2f, std::string, euphoria::core::to_string);
-ADD_DEFAULT_FORMATTER(euphoria::core::vec2i, std::string, euphoria::core::to_string);
+ADD_DEFAULT_FORMATTER(eu::core::vec2f, std::string, eu::core::to_string);
+ADD_DEFAULT_FORMATTER(eu::core::unit2f, std::string, eu::core::to_string);
+ADD_DEFAULT_FORMATTER(eu::core::vec2i, std::string, eu::core::to_string);

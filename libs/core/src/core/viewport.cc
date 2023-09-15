@@ -3,7 +3,7 @@
 #include "core/cint.h"
 #include "core/camera3.h"
 
-namespace euphoria::core
+namespace eu::core
 {
     Viewport::Viewport(const Recti& r)
         : bounds(r)

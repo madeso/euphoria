@@ -43,10 +43,10 @@
 #include <iostream>
 #include <memory>
 
-using namespace euphoria;
-using namespace euphoria::core;
-using namespace euphoria::render;
-using namespace euphoria::window;
+using namespace eu;
+using namespace eu::core;
+using namespace eu::render;
+using namespace eu::window;
 
 struct CubeAnimation
 {
@@ -56,7 +56,7 @@ struct CubeAnimation
     {
     }
 
-    std::shared_ptr<euphoria::render::Actor> actor;
+    std::shared_ptr<eu::render::Actor> actor;
     float timer = 0.0f;
     quatf from;
     quatf to;
@@ -128,7 +128,7 @@ main(int argc, char** argv)
 
     SdlTimer timer;
 
-    auto world = euphoria::render::World {};
+    auto world = eu::render::World {};
 
     auto box_mesh1 = meshes::create_cube(0.5f);
     box_mesh1.materials[0].set_texture("Diffuse", vfs::FilePath{"./container2.png"});
@@ -240,7 +240,7 @@ main(int argc, char** argv)
     FpsController fps;
     fps.position = vec3f(0, 0, 3);
 
-    auto viewport_handler = euphoria::render::ViewportHandler
+    auto viewport_handler = eu::render::ViewportHandler
     {
         engine.init.get(),
         nullptr

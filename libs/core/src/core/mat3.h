@@ -6,7 +6,7 @@
 #include "core/angle.h"
 #include "core/axisangle.h"
 
-namespace euphoria::core
+namespace eu::core
 {
     struct mat3f
     {
@@ -103,4 +103,4 @@ namespace euphoria::core
     vec3f operator*(const mat3f& lhs, const vec3f& rhs);
 }
 
-ADD_DEFAULT_FORMATTER(euphoria::core::mat3f, std::string, euphoria::core::to_string);
+ADD_DEFAULT_FORMATTER(eu::core::mat3f, std::string, eu::core::to_string);

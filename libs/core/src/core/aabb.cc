@@ -5,7 +5,7 @@
 #include "core/range.h"
 #include "core/random.h"
 
-namespace euphoria::core
+namespace eu::core
 {
     Aabb::Aabb(const vec3f& amin, const vec3f& amax) : min(amin), max(amax)
     {
@@ -18,7 +18,7 @@ namespace euphoria::core
     {
         ASSERT(is_valid());
 #define COMP(C) \
-    const auto C = ::euphoria::core::wrap(make_range(min.C, max.C), vec.C)
+    const auto C = ::eu::core::wrap(make_range(min.C, max.C), vec.C)
         COMP(x);
         COMP(y);
         COMP(z);

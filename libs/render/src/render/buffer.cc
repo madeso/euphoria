@@ -11,7 +11,7 @@
 #include "euph_generated_config.h"
 
 
-namespace euphoria::render
+namespace eu::render
 {
     VertexBuffer::VertexBuffer()
     {
@@ -93,9 +93,9 @@ namespace euphoria::render
             // and not a actual pointer
 
             // use arch detection to store in a (potentially) bigger integer before converting to a pointer
-#if EUPH_ARCH_32 == 1
+#if EU_ARCH_32 == 1
             std::int32_t
-#elif EUPH_ARCH_64 == 1
+#elif EU_ARCH_64 == 1
             std::int64_t
 #else
     #error unknown arch

@@ -10,7 +10,7 @@
 #include "core/sphere.position.h"
 
 
-namespace euphoria::core
+namespace eu::core
 {
     /*
     todo:
@@ -657,7 +657,6 @@ namespace euphoria::core
         const auto index = c_int_to_sizet(id);
         const auto frame = detail::get_frame_from_editor(this);
         stored_cameras[index] = frame;
-        // LOG_INFO("Saved frame {} to {}", id, frame);
     }
 
     void
@@ -667,7 +666,6 @@ namespace euphoria::core
         const auto index = c_int_to_sizet(id);
         const auto& frame = stored_cameras[index];
         apply_frame(frame);
-        // LOG_INFO("Restored frame {} to {}", id, frame);
     }
 
 

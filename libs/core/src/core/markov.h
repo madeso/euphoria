@@ -8,7 +8,7 @@
 #include <deque>
 #include <memory>
 
-namespace euphoria::core::markov
+namespace eu::core::markov
 {
     template <typename T>
     struct Some

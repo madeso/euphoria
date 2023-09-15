@@ -3,7 +3,7 @@
 #include "SDL_types.h"
 
 
-namespace euphoria::window
+namespace eu::window
 {
     struct SdlTimer
     {

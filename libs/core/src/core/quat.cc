@@ -1,7 +1,7 @@
 #include "core/quat.h"
 
 
-namespace euphoria::core
+namespace eu::core
 {
     float* quatf::get_data_ptr()
     {

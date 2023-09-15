@@ -1,7 +1,7 @@
 #include "core/canvaslogic.h"
 #include "core/numeric.h"
 
-namespace euphoria::core
+namespace eu::core
 {
     void
     CanvasLogic::pan(const vec2f& p)

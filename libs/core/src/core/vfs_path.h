@@ -6,7 +6,7 @@
 #include <tuple>
 #include <type_traits>
 
-namespace euphoria::core::vfs
+namespace eu::core::vfs
 {
     // here lies the definitions of a virtual path
     // can either be a file or a directory
@@ -135,5 +135,5 @@ namespace euphoria::core::vfs
     operator<(const FilePath& lhs, const FilePath& rhs);
 }
 
-ADD_DEFAULT_FORMATTER(euphoria::core::vfs::FilePath, std::string, euphoria::core::vfs::to_string);
-ADD_DEFAULT_FORMATTER(euphoria::core::vfs::DirPath, std::string, euphoria::core::vfs::to_string);
+ADD_DEFAULT_FORMATTER(eu::core::vfs::FilePath, std::string, eu::core::vfs::to_string);
+ADD_DEFAULT_FORMATTER(eu::core::vfs::DirPath, std::string, eu::core::vfs::to_string);

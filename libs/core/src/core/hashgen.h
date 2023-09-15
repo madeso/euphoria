@@ -6,25 +6,25 @@
 #include "core/rgb.h"
 #include "core/ints.h"
 
-namespace euphoria::core
+namespace eu::core
 {
     struct Image;
 }
 
 
-namespace euphoria::core
+namespace eu::core
 {
     void render_retro(Image* image, U32 code);
 }
 
 // converted to c++ from https://github.com/donpark/identicon/blob/master/identicon-canvas/identicon_canvas.js
-namespace euphoria::core
+namespace eu::core
 {
     void render_identicon(Image* image, U32 code);
 }
 
 // based on https://github.com/yurkth/sprator/
-namespace euphoria::core
+namespace eu::core
 {
     void
     render_sprator

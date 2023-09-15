@@ -3,18 +3,18 @@
 #include <memory>
 
 
-namespace euphoria::render
+namespace eu::render
 {
     struct SpriteRenderer;
 }
 
-namespace euphoria::gui
+namespace eu::gui
 {
     struct Widget;
 }
 
 
-namespace euphoria::gui
+namespace eu::gui
 {
     struct Container
     {

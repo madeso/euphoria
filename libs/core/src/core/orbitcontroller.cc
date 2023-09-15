@@ -2,7 +2,7 @@
 
 #include "core/range.h"
 
-namespace euphoria::core
+namespace eu::core
 {
     OrbitController::OrbitController()
         : center(zero3f)

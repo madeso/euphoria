@@ -2,12 +2,12 @@
 
 #include "core/vec2.h"
 
-namespace euphoria::gui
+namespace eu::gui
 {
     struct Widget;
 }
 
-namespace euphoria::gui
+namespace eu::gui
 {
     struct State
     {

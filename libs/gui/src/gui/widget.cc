@@ -5,7 +5,7 @@
 #include "gui/uistate.h"
 
 
-namespace euphoria::gui
+namespace eu::gui
 {
     Widget::Widget(gui::State* state)
         : margin(0.0f)

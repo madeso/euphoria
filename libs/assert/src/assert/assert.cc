@@ -13,7 +13,7 @@
 #include <vector>
 #include <sstream>
 
-namespace euphoria
+namespace eu
 {
 #ifdef _MSC_VER
     // todo(Gustav): implement backtrace for windows?
@@ -107,16 +107,16 @@ namespace euphoria
 
 }
 
-template <> struct fmt::formatter<euphoria::assertlib::AssertArgumentValue> : formatter<std::string>
+template <> struct fmt::formatter<eu::assertlib::AssertArgumentValue> : formatter<std::string>
 {
     template <typename FormatContext>
-    auto format(const euphoria::assertlib::AssertArgumentValue& c, FormatContext& ctx) const
+    auto format(const eu::assertlib::AssertArgumentValue& c, FormatContext& ctx) const
     {
         return formatter<string_view>::format(c.value, ctx);
     }
 };
    
-namespace euphoria::assertlib
+namespace eu::assertlib
 {
     bool&
     should_throw_variable()

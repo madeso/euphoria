@@ -8,7 +8,7 @@
 #include <optional>
 
 
-namespace euphoria::window::imgui::guizmo
+namespace eu::window::imgui::guizmo
 {
     void setup();
     void begin();

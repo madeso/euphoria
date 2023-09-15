@@ -9,7 +9,7 @@
 #include "gui/skin.h"
 
 
-namespace euphoria::gui
+namespace eu::gui
 {
     Button::Button(gui::State* state)
         : Widget(state)

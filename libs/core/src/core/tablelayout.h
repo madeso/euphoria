@@ -6,7 +6,7 @@
 #include "assert/assert.h"
 
 
-namespace euphoria::core
+namespace eu::core
 {
     /** Calculates a table layout based on the input layout.
      * Since rows and columns are handled the same, this functions only handled 1d tables.

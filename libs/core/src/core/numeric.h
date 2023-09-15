@@ -3,7 +3,7 @@
 #include "core/interpolate.default.h"
 
 
-namespace euphoria::core
+namespace eu::core
 {
     constexpr float abs(float r)
     {

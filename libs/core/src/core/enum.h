@@ -4,7 +4,7 @@
 #include <map>
 
 
-namespace euphoria::core
+namespace eu::core
 {
     namespace vfs
     {
@@ -92,9 +92,9 @@ namespace euphoria::core
 // todo(Gustav): provide compile time option to use hashes instead
 // http://aras-p.info/blog/2016/08/09/More-Hash-Function-Tests/
 #define DEFINE_ENUM_VALUE(TYPE, NAME, STRING) \
-    const ::euphoria::core::EnumValue NAME = TYPE##_EnumType().to_enum(STRING)
+    const ::eu::core::EnumValue NAME = TYPE##_EnumType().to_enum(STRING)
 #define SET_ENUM_FROM_FILE(FS, PATH, TYPE) \
     load_enum_type(&TYPE##_EnumType(), FS, PATH)
 
 }
-ADD_DEFAULT_FORMATTER(euphoria::core::EnumValue, std::string, euphoria::core::to_string);
+ADD_DEFAULT_FORMATTER(eu::core::EnumValue, std::string, eu::core::to_string);

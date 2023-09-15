@@ -4,7 +4,7 @@
 #include "core/image_draw.h"
 #include "core/colors.h"
 
-namespace euphoria::core::generator
+namespace eu::core::generator
 {
     vec2i
     from_dir_to_offset(const Direction d)

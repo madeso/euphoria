@@ -1,6 +1,6 @@
 #include "core/texturetypes.h"
 
-namespace euphoria::core
+namespace eu::core
 {
     IMPLEMENT_ENUM_TYPE(texture_type)
 }

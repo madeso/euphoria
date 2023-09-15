@@ -3,7 +3,7 @@
 #include "core/random.h"
 
 
-namespace euphoria::core
+namespace eu::core
 {
 
     Rectf::Rectf()

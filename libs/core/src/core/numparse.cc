@@ -3,7 +3,7 @@
 #include <cstdlib>
 #include <limits>
 
-namespace euphoria::core
+namespace eu::core
 {
 
 

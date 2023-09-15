@@ -3,7 +3,7 @@
 #include "render/gltypes.h"
 
 
-namespace euphoria::render
+namespace eu::render
 {
     struct ShaderProgram;
 

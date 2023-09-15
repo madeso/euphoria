@@ -5,7 +5,7 @@
 #include "core/stringbuilder.h"
 
 
-namespace euco = euphoria::core;
+namespace euco = eu::core;
 
 TEST_CASE("base64-encode", "[base64]")
 {

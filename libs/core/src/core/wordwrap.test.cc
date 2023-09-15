@@ -3,8 +3,8 @@
 #include "tests/stringeq.h"
 #include "catch.hpp"
 
-using namespace euphoria::core;
-using namespace euphoria::tests;
+using namespace eu::core;
+using namespace eu::tests;
 
 
 TEST_CASE("test wordwrap", "[wordwrap]")

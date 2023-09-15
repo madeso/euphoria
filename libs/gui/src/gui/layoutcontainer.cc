@@ -3,7 +3,7 @@
 #include "gui/layout.h"
 
 
-namespace euphoria::gui
+namespace eu::gui
 {
     std::shared_ptr<Layout>
     create_table_layout

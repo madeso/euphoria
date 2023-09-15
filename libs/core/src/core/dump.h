@@ -11,13 +11,13 @@
 #include "core/rgb.h"
 #include "core/colors.h"
 
-namespace euphoria::core
+namespace eu::core
 {
     struct Plane;
     struct Ray3f;
 }
 
-namespace euphoria::core::dump2d
+namespace eu::core::dump2d
 {
     namespace strokes
     {
@@ -121,7 +121,7 @@ namespace euphoria::core::dump2d
     };
 }
 
-namespace euphoria::core::dump3d
+namespace eu::core::dump3d
 {
     struct Dumper
     {

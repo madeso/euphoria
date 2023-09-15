@@ -4,25 +4,25 @@
 
 #include <memory>
 
-namespace euphoria::core::vfs
+namespace eu::core::vfs
 {
     struct FileSystem;
     struct FilePath;
 }
 
-namespace euphoria::render
+namespace eu::render
 {
     struct TextureCache;
     struct FontCache;
 }
 
-namespace euphoria::gui
+namespace eu::gui
 {
     struct Root;
 }
 
 
-namespace euphoria::gui
+namespace eu::gui
 {
     bool
     load_gui

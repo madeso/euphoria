@@ -7,7 +7,7 @@
 #include "core/cint.h"
 
 
-namespace euphoria::core::ecs
+namespace eu::core::ecs
 {
     std::size_t c_comp(ComponentIndex v) { return static_cast<std::size_t>(v); }
     std::size_t c_ent(EntityHandle v) { return static_cast<std::size_t>(v); }

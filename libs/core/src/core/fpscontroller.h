@@ -6,7 +6,7 @@
 #include "core/key.h"
 #include "core/sensitivity.h"
 
-namespace euphoria::core
+namespace eu::core
 {
     struct FpsController
     {

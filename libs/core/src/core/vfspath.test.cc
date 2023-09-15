@@ -5,7 +5,7 @@
 #include "catch.hpp"
 
 
-namespace vfs = euphoria::core::vfs;
+namespace vfs = eu::core::vfs;
 
 
 TEST_CASE("vfspath-dir-root", "[vfspath]")

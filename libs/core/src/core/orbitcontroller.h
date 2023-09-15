@@ -5,7 +5,7 @@
 #include "core/quat.h"
 #include "core/sensitivity.h"
 
-namespace euphoria::core
+namespace eu::core
 {
     struct OrbitController
     {

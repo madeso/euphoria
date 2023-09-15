@@ -4,7 +4,7 @@
 
 #include "core/cint.h"
 
-namespace euphoria::window
+namespace eu::window
 {
     SdlTimer::SdlTimer()
         : current_time(SDL_GetPerformanceCounter())

@@ -15,7 +15,7 @@
 
 
 
-namespace euphoria::core::tracery
+namespace eu::core::tracery
 {
     // ----------------------------------------------------------------
     // Private

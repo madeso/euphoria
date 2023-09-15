@@ -10,7 +10,7 @@
 #include "core/quicksort.h"
 #include "core/insertionsort.h"
 
-namespace euphoria::core
+namespace eu::core
 {
     enum class SortStyle
     {

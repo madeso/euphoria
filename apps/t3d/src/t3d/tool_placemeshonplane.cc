@@ -11,7 +11,7 @@
 #include "t3d/grid.h"
 #include "t3d/tilelibrary.h"
 
-namespace euphoria::t3d
+namespace eu::t3d
 {
     ToolPlaceMeshOnAPlane::ToolPlaceMeshOnAPlane(std::shared_ptr<PlacedMesh> mesh_to_place)
         : placed_mesh(mesh_to_place)

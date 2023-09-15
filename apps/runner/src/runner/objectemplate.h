@@ -12,12 +12,12 @@ namespace game
     struct Game;
 }
 
-namespace euphoria::render
+namespace eu::render
 {
     struct TextureCache;
 }
 
-namespace euphoria::runner
+namespace eu::runner
 {
     struct ScriptRegistry;
     struct Components;

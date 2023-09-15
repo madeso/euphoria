@@ -5,7 +5,7 @@
 #include "core/numeric.h"
 
 
-namespace euphoria::core
+namespace eu::core
 {
 
 

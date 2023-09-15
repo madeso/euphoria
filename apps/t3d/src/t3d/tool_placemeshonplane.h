@@ -7,13 +7,13 @@
 #include "t3d/tool.h"
 
 
-namespace euphoria::render
+namespace eu::render
 {
     struct Actor;
 }
 
 
-namespace euphoria::t3d
+namespace eu::t3d
 {
     struct PlacedMesh;
 

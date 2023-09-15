@@ -8,10 +8,10 @@
 #include "render/gl.h"
 
 
-using namespace euphoria::convert;
+using namespace eu::convert;
 
 
-namespace euphoria::render
+namespace eu::render
 {
     //////////////////////////////////////////////////////////////////////////
 

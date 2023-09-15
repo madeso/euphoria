@@ -10,26 +10,26 @@
 #include <memory>
 
 
-namespace euphoria::core::vfs
+namespace eu::core::vfs
 {
     struct FileSystem;
     struct FilePath;
 }
 
-namespace euphoria::render
+namespace eu::render
 {
     struct Texture2;
     struct FontCache;
     struct TextureCache;
 }
 
-namespace euphoria::gui
+namespace eu::gui
 {
     struct Skin;
 }
 
 
-namespace euphoria::gui
+namespace eu::gui
 {
 
     struct Root
@@ -47,7 +47,7 @@ namespace euphoria::gui
         (
             core::vfs::FileSystem* fs,
             render::FontCache* font,
-            const ::euphoria::core::vfs::FilePath& path,
+            const ::eu::core::vfs::FilePath& path,
             render::TextureCache* cache
         );
 

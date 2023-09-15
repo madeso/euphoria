@@ -5,12 +5,12 @@
 
 
 
-namespace euphoria::core
+namespace eu::core
 {
     struct Random;
 }
 
-namespace euphoria::core::generator
+namespace eu::core::generator
 {
     using World = BoolTable;
 

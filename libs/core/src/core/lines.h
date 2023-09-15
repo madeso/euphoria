@@ -6,7 +6,7 @@
 
 #include <tuple>
 
-namespace euphoria::core
+namespace eu::core
 {
     struct LinePoint
     {

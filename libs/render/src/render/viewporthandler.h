@@ -6,7 +6,7 @@
 #include "core/viewport.h"
 
 
-namespace euphoria::render
+namespace eu::render
 {
     struct ShaderProgram;
     struct Init;

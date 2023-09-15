@@ -1,6 +1,6 @@
 #pragma once
 
-namespace euphoria::core
+namespace eu::core
 {
     template<typename TNormalized, typename TLength>
     struct NormalizedAndLength

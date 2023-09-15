@@ -5,9 +5,9 @@
 
 #include "window/imgui_extra.h"
 
-using namespace euphoria::core;
+using namespace eu::core;
 
-namespace euphoria::window
+namespace eu::window
 {
     void
     Canvas::show_grid(const CanvasConfig& cc) const

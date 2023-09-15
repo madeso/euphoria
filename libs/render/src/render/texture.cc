@@ -14,14 +14,14 @@
 
 namespace
 {
-    euphoria::render::gl::Int
-    con(euphoria::render::TextureWrap v)
+    eu::render::gl::Int
+    con(eu::render::TextureWrap v)
     {
         switch(v)
         {
-        case euphoria::render::TextureWrap::repeat: return GL_REPEAT;
-        case euphoria::render::TextureWrap::mirrored_repeat: return GL_MIRRORED_REPEAT;
-        case euphoria::render::TextureWrap::clamp_to_edge: return GL_CLAMP_TO_EDGE;
+        case eu::render::TextureWrap::repeat: return GL_REPEAT;
+        case eu::render::TextureWrap::mirrored_repeat: return GL_MIRRORED_REPEAT;
+        case eu::render::TextureWrap::clamp_to_edge: return GL_CLAMP_TO_EDGE;
         }
 
         DIE("Unhandled texture wrap value");
@@ -29,13 +29,13 @@ namespace
     }
 
 
-    euphoria::render::gl::Int
-    con(euphoria::render::FilterMagnification v)
+    eu::render::gl::Int
+    con(eu::render::FilterMagnification v)
     {
         switch(v)
         {
-        case euphoria::render::FilterMagnification::nearest: return GL_NEAREST;
-        case euphoria::render::FilterMagnification::linear: return GL_LINEAR;
+        case eu::render::FilterMagnification::nearest: return GL_NEAREST;
+        case eu::render::FilterMagnification::linear: return GL_LINEAR;
         }
 
 
@@ -44,13 +44,13 @@ namespace
     }
 
 
-    euphoria::render::gl::Int
-    con(euphoria::render::FilterMinification v)
+    eu::render::gl::Int
+    con(eu::render::FilterMinification v)
     {
         switch(v)
         {
-        case euphoria::render::FilterMinification::nearest: return GL_NEAREST;
-        case euphoria::render::FilterMinification::linear: return GL_LINEAR;
+        case eu::render::FilterMinification::nearest: return GL_NEAREST;
+        case eu::render::FilterMinification::linear: return GL_LINEAR;
         }
 
         DIE("Unhandled filter minification value");
@@ -58,17 +58,17 @@ namespace
     }
 
 
-    const euphoria::render::TextureId*&
+    const eu::render::TextureId*&
     get_bound_texture()
     {
-        static const euphoria::render::TextureId* bound_texture = nullptr;
+        static const eu::render::TextureId* bound_texture = nullptr;
         return bound_texture;
     }
 }
 
 
 
-namespace euphoria::render
+namespace eu::render
 {
     Texture2dLoadData::Texture2dLoadData()
         : wrap(TextureWrap::repeat)

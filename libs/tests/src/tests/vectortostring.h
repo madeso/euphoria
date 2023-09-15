@@ -3,7 +3,7 @@
 #include "core/stringbuilder.h"
 
 
-namespace euphoria::tests
+namespace eu::tests
 {
     template
     <

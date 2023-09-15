@@ -3,7 +3,7 @@
 #include "gui/widget.h"
 
 
-namespace euphoria::gui
+namespace eu::gui
 {
     Container::Container() = default;
 

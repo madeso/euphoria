@@ -7,7 +7,7 @@
 #include <cmath>
 
 
-namespace euphoria::core
+namespace eu::core
 {
     bool
     is_equal(int lhs, int rhs)

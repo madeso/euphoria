@@ -4,7 +4,7 @@
 #include "core/rgb.h"
 #include "core/angle.h"
 
-namespace euphoria::render
+namespace eu::render
 {
     struct LightAttenuation
     {

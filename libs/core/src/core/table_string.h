@@ -11,7 +11,7 @@
 #include "core/multisort.h"
 
 
-namespace euphoria::core
+namespace eu::core
 {
     using StringTable = Table<std::string>;
 

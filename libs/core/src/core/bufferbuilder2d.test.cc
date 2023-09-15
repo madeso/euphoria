@@ -6,8 +6,8 @@
 #include "catch.hpp"
 
 
-using namespace euphoria::core;
-using euphoria::tests::FalseString;
+using namespace eu::core;
+using eu::tests::FalseString;
 
 
 namespace
@@ -15,7 +15,7 @@ namespace
     FalseString
     vector_is_same(const std::vector<unsigned int> lhs, const std::vector<unsigned int>& rhs)
     {
-        return euphoria::tests::is_vector_equal
+        return eu::tests::is_vector_equal
         (
             lhs,
             rhs,
@@ -41,7 +41,7 @@ namespace
     FalseString
     vector_is_same(const std::vector<float> lhs, const std::vector<float>& rhs)
     {
-        return euphoria::tests::is_vector_equal
+        return eu::tests::is_vector_equal
         (
             lhs,
             rhs,
@@ -49,7 +49,7 @@ namespace
             { return fmt::to_string(f); },
             [](float a, float b) -> FalseString
             {
-                if (euphoria::tests::approx(a) == b)
+                if (eu::tests::approx(a) == b)
                 {
                     return FalseString::create_true();
                 } else

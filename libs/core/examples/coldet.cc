@@ -13,13 +13,13 @@
 #include <iostream>
 
 
-using namespace euphoria::core;
-using namespace euphoria::core::dump3d;
+using namespace eu::core;
+using namespace eu::core::dump3d;
 
 
 struct PlaneDemo
 {
-    const euphoria::core::Plane plane = euphoria::core::Plane::from_points
+    const eu::core::Plane plane = eu::core::Plane::from_points
     (vec3f(5, 6, 7), vec3f(6, 5, 4), vec3f(1, 2, 3));
     const std::vector<vec3f> points =
     {
@@ -45,7 +45,7 @@ struct PlaneDemo
         for (const auto& p : points)
         {
             const auto dist = get_distance_between(plane, p);
-            d.add_sphere(p, 0.1f, euphoria::core::abs(dist) < 0.01f ? NamedColor::yellow : (dist < 0 ? NamedColor::black : NamedColor::white));
+            d.add_sphere(p, 0.1f, eu::core::abs(dist) < 0.01f ? NamedColor::yellow : (dist < 0 ? NamedColor::black : NamedColor::white));
         }
     }
 
@@ -59,7 +59,7 @@ struct PlaneDemo
         for (const auto& p : points)
         {
             const auto dist = get_distance_between(plane, p);
-            if (euphoria::core::abs(dist) < 0.01f) { continue; }
+            if (eu::core::abs(dist) < 0.01f) { continue; }
 
             const auto pp = get_closest_point(plane, p);
             d.add_arrow(Ray3f::from_to(p, pp), NamedColor::black);

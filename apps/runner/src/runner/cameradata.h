@@ -2,7 +2,7 @@
 
 #include "core/rect.h"
 
-namespace euphoria::runner
+namespace eu::runner
 {
     struct CameraData
     {

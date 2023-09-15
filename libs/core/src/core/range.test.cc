@@ -2,7 +2,7 @@
 
 #include "core/range.h"
 
-namespace euco = euphoria::core;
+namespace euco = eu::core;
 
 #define TO_01(min, v, max) euco::to01(euco::make_range(min, max), v)
 #define FROM_01(min, v, max) euco::from_01(euco::make_range(min, max), v)

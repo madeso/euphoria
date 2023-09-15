@@ -5,9 +5,9 @@
 #include "catch.hpp"
 
 
-namespace euco = euphoria::core;
+namespace euco = eu::core;
 
-using namespace euphoria::tests;
+using namespace eu::tests;
 
 
 TEST_CASE("stringutils-laststrings", "[stringutils]")

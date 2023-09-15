@@ -7,7 +7,7 @@
 #include "core/ints.h"
 
 
-namespace euphoria::core
+namespace eu::core
 {
     struct TimetWrapper;
     struct StructTmWrapper;

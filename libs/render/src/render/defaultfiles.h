@@ -3,7 +3,7 @@
 #include <memory>
 
 
-namespace euphoria
+namespace eu
 {
     namespace core::vfs
     {

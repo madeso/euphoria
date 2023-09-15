@@ -13,7 +13,7 @@
 #include "t3d/tilelibrary.h"
 
 
-namespace euphoria::t3d
+namespace eu::t3d
 {
     ToolNoTool::ToolNoTool(Application* a)
         : app(a)

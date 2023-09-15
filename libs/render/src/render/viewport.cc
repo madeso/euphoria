@@ -5,7 +5,7 @@
 #include "render/gl.h"
 
 
-namespace euphoria::render
+namespace eu::render
 {
     void
     activate(const core::Viewport& vp)

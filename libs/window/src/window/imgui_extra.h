@@ -10,7 +10,7 @@
 #include "imgui/imgui.h"
 
 
-namespace euphoria::core
+namespace eu::core
 {
     struct Angle;
     struct Rgb;
@@ -18,7 +18,7 @@ namespace euphoria::core
     struct Rgbai;
 }
 
-namespace euphoria::render
+namespace eu::render
 {
     struct Texture2;
 }
@@ -27,7 +27,7 @@ struct ImVec2;
 struct ImVec4;
 
 
-namespace euphoria::window
+namespace eu::window
 {
     enum class Corner
     {
@@ -45,7 +45,7 @@ namespace euphoria::window
     con(const ImVec2 &v);
 }
 
-namespace euphoria::window::imgui
+namespace eu::window::imgui
 {
     // knob based on https://github.com/ocornut/imgui/issues/942
 

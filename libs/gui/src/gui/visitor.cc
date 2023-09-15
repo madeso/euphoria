@@ -1,6 +1,6 @@
 #include "gui/visitor.h"
 
-namespace euphoria::gui
+namespace eu::gui
 {
 }
 

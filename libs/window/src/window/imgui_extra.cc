@@ -21,7 +21,7 @@
 #include "euph_generated_config.h"
 
 
-namespace euphoria::window
+namespace eu::window
 {
     ImVec2
     con(const core::vec2f& v)
@@ -37,7 +37,7 @@ namespace euphoria::window
     }
 }
 
-namespace euphoria::window::imgui
+namespace eu::window::imgui
 {
     void
     add_help_marker_for_previous_widget(const char* desc)
@@ -171,9 +171,9 @@ namespace euphoria::window::imgui
     ImTextureID
     c_texture_to_imgui(render::Texture2* texture)
     {
-#if EUPH_ARCH_32 == 1
+#if EU_ARCH_32 == 1
         std::int32_t
-#elif EUPH_ARCH_64 == 1
+#elif EU_ARCH_64 == 1
         std::int64_t
 #else
 #error unknown arch

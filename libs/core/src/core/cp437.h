@@ -4,7 +4,7 @@
 
 // Code page 437 is the character set of the original IBM PC (personal computer)
 
-namespace euphoria::core
+namespace eu::core
 {
     struct Random;
 

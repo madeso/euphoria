@@ -4,7 +4,7 @@
 #include "core/key.h"
 
 
-namespace euphoria::t3d
+namespace eu::t3d
 {
     struct Editor;
     struct KeyboardState;

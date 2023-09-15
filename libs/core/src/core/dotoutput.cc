@@ -6,7 +6,7 @@
 
 
 
-namespace euphoria::core::dot
+namespace eu::core::dot
 {
     // std::vector<Node> nodes;
     // std::vector<Edge> edges;

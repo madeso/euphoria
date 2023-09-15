@@ -5,7 +5,7 @@
 #include "core/ints.h"
 #include "core/hash.h"
 
-namespace euphoria::core
+namespace eu::core
 {
     struct HashedStringView
     {

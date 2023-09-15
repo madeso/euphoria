@@ -7,7 +7,7 @@
 
 // reference: https://stackoverflow.com/questions/5919663/how-does-photoshop-blend-two-images-together
 
-namespace euphoria::core
+namespace eu::core
 {
     namespace
     {

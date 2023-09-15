@@ -9,7 +9,7 @@
 #include "core/default_parse.h"
 
 
-namespace euphoria::core
+namespace eu::core
 {
     // U8 colors: 0 - 255
     struct Rgbi;
@@ -218,7 +218,7 @@ namespace euphoria::core
 
         static std::string to_string(const Rgbi& c)
         {
-            return euphoria::core::to_string(c);
+            return eu::core::to_string(c);
         }
 
         static Result<Rgbi> parse(const std::string& value)
@@ -422,8 +422,8 @@ namespace euphoria::core
 
 }
 
-ADD_DEFAULT_FORMATTER(euphoria::core::Rgbi, std::string, euphoria::core::to_string);
-ADD_DEFAULT_FORMATTER(euphoria::core::Rgbai, std::string, euphoria::core::to_string);
-ADD_DEFAULT_FORMATTER(euphoria::core::Rgb, std::string, euphoria::core::to_string);
-ADD_DEFAULT_FORMATTER(euphoria::core::Rgba, std::string, euphoria::core::to_string);
-ADD_DEFAULT_FORMATTER(euphoria::core::Hsl, std::string, euphoria::core::to_string);
+ADD_DEFAULT_FORMATTER(eu::core::Rgbi, std::string, eu::core::to_string);
+ADD_DEFAULT_FORMATTER(eu::core::Rgbai, std::string, eu::core::to_string);
+ADD_DEFAULT_FORMATTER(eu::core::Rgb, std::string, eu::core::to_string);
+ADD_DEFAULT_FORMATTER(eu::core::Rgba, std::string, eu::core::to_string);
+ADD_DEFAULT_FORMATTER(eu::core::Hsl, std::string, eu::core::to_string);

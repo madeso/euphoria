@@ -6,7 +6,7 @@
 
 #include "core/memorychunk.h"
 
-namespace euphoria::core::io
+namespace eu::core::io
 {
     void
     write_chunk_to_file

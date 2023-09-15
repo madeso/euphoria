@@ -5,14 +5,14 @@
 #include "core/sol_forward.h"
 
 
-namespace euphoria::core::vfs
+namespace eu::core::vfs
 {
     struct FileSystem;
     struct FilePath;
 }
 
 
-namespace euphoria::runner
+namespace eu::runner
 {
     struct ScriptRegistry;
     struct ObjectCreator;

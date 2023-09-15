@@ -1,6 +1,6 @@
 #include "core/timepoint.h"
 
-namespace euphoria::core
+namespace eu::core
 {
     TimePoint
     get_current_timepoint()

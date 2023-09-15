@@ -4,7 +4,7 @@
 #include "assert/assert.h"
 #include <cmath>
 
-namespace euphoria::core
+namespace eu::core
 {
     void
     set_white_noise

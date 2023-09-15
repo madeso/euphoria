@@ -9,7 +9,7 @@
 #include "core/ray.h"
 
 
-namespace euphoria::core::dump2d
+namespace eu::core::dump2d
 {
     std::string to_html_or_none_string(const std::optional<Rgbi>& c)
     {
@@ -415,7 +415,7 @@ namespace euphoria::core::dump2d
     }
 }
 
-namespace euphoria::core::dump3d
+namespace eu::core::dump3d
 {
 
     Dumper::Dumper(const std::string& path)

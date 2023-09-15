@@ -19,10 +19,10 @@ namespace
 {
 
 
-    const euphoria::render::ShaderProgram*&
+    const eu::render::ShaderProgram*&
     get_current_shader()
     {
-        static const euphoria::render::ShaderProgram* current_shader = nullptr;
+        static const eu::render::ShaderProgram* current_shader = nullptr;
         return current_shader;
     }
 
@@ -80,7 +80,7 @@ namespace
 }
 
 
-namespace euphoria::render
+namespace eu::render
 {
 
 

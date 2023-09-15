@@ -1,6 +1,6 @@
 #include "core/plane.h"
 
-namespace euphoria::core
+namespace eu::core
 {
     Plane::Plane(const unit3f& n, float d)
         : normal(n)

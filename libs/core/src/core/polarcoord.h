@@ -3,7 +3,7 @@
 #include "core/angle.h"
 #include "core/vec3.h"
 
-namespace euphoria::core
+namespace eu::core
 {
     struct Random;
 
@@ -15,7 +15,7 @@ namespace euphoria::core
 
         PolarCoordinate(float azimuthal01, float polar01);
 
-        [[nodiscard]] static PolarCoordinate create_random(::euphoria::core::Random* random);
+        [[nodiscard]] static PolarCoordinate create_random(::eu::core::Random* random);
 
         [[nodiscard]] unit3f to_unit_vector() const;
     };

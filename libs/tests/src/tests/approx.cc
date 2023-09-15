@@ -12,7 +12,7 @@ namespace
 }
 
 
-namespace euphoria::tests
+namespace eu::tests
 {
     template <>
     bool

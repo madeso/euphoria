@@ -2,7 +2,7 @@
 
 #include "core/timepoint.h"
 
-namespace euphoria::core
+namespace eu::core
 {
     /** Prints dots on the commandline for long running processes.
      */

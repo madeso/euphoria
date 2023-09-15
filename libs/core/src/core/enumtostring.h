@@ -12,7 +12,7 @@
 #include "magic_enum/magic_enum.hpp"
 
 
-namespace euphoria::core
+namespace eu::core
 {
     template <typename T>
     struct MatchedEnum
@@ -185,7 +185,7 @@ struct fmt::formatter
     template <typename FormatContext>
     auto format(const TEnum& e, FormatContext& ctx) const
     {
-        const auto str = euphoria::core::from_enum_to_string<TEnum>(e);
+        const auto str = eu::core::from_enum_to_string<TEnum>(e);
         return fmt::formatter<std::string>::format(str, ctx);
     }
 };

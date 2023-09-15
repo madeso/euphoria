@@ -5,7 +5,7 @@
 // todo(Gustav): remove these and use core/filesystem functions instead
 
 
-namespace euphoria::window
+namespace eu::window
 {
     std::string
     get_base_path();

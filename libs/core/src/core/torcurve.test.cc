@@ -5,9 +5,9 @@
 #include "catch.hpp"
 
 
-namespace euco = euphoria::core;
-using namespace euphoria::tests;
-using namespace euphoria::convert;
+namespace euco = eu::core;
+using namespace eu::tests;
+using namespace eu::convert;
 
 TEST_CASE("torcurve-test", "[torcurve]")
 {

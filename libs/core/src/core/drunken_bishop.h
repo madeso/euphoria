@@ -6,7 +6,7 @@
 #include "core/ints.h"
 
 
-namespace euphoria::core
+namespace eu::core
 {
     // split hash to a msb->lsb array
     std::vector<U8>

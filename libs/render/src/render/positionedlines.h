@@ -5,7 +5,7 @@
 #include "render/instance.h"
 #include "render/compiledlines.h"
 
-namespace euphoria::render
+namespace eu::render
 {
     struct PositionedLines : public Instance
     {

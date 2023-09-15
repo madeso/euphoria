@@ -5,7 +5,7 @@
 #include "core/easing.h"
 #include "core/interpolate.default.h"
 
-namespace euphoria::core
+namespace eu::core
 {
     template <typename T>
     struct Interpolate

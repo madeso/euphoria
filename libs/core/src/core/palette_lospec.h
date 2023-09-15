@@ -3,7 +3,7 @@
 #include "core/palette.h"
 
 
-namespace euphoria::core::palettes::lospec
+namespace eu::core::palettes::lospec
 {
     constexpr Rgbi
     con(unsigned int hex)

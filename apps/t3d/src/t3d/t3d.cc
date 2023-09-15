@@ -38,7 +38,7 @@
 #include "t3d/keyboardstate.h"
 
 
-namespace euphoria::t3d
+namespace eu::t3d
 {
     std::optional<core::vec3f>
     EditorCamera3::raycast
@@ -69,7 +69,7 @@ namespace euphoria::t3d
     Application::Application()
     {
         editor_camera.parent = this;
-        EUPH_INIT_LOGGING();
+        EU_INIT_LOGGING();
 
         editor_camera.fps.position.y = 5.0f;
         editor_camera.fps.position.z = 10.0f;
@@ -129,7 +129,7 @@ namespace euphoria::t3d
 
         update_grid();
 
-        euphoria::window::enable_char_event(true);
+        eu::window::enable_char_event(true);
 
         viewport_handler = std::make_shared<render::ViewportHandler>
         (

@@ -2,8 +2,8 @@
 
 #include "tests/utils.h"
 
-using namespace euphoria::core::ecs;
-// using namespace euphoria::tests;
+using namespace eu::core::ecs;
+// using namespace eu::tests;
 
 namespace
 {

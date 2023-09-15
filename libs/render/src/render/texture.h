@@ -5,12 +5,12 @@
 #include "core/vfs.h"
 
 
-namespace euphoria::core
+namespace eu::core
 {
     struct Image;
 }
 
-namespace euphoria::render
+namespace eu::render
 {
     enum class TextureWrap
     {

@@ -8,13 +8,13 @@
 
 #include "render/texturecache.h"
 
-namespace euphoria::core::ecs
+namespace eu::core::ecs
 {
     struct Registry;
 }
 
 
-namespace euphoria::runner
+namespace eu::runner
 {
     struct ComponentPosition2
     {

@@ -1,6 +1,6 @@
 #include "core/rng.h"
 
-namespace euphoria::core
+namespace eu::core
 {
 }
 

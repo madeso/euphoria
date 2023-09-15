@@ -2,7 +2,7 @@
 
 #include "assert/assert.h"
 
-namespace euphoria::render
+namespace eu::render
 {
     Actor::Actor(const std::shared_ptr<CompiledMesh>& m)
         : mesh(m)

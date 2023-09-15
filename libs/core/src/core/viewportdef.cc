@@ -3,7 +3,7 @@
 #include "core/cint.h"
 
 
-namespace euphoria::core
+namespace eu::core
 {
     ViewportDefinition
     ViewportDefinition::from_fit_with_black_bars

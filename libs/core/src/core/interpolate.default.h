@@ -1,6 +1,6 @@
 #pragma once
 
-namespace euphoria::core
+namespace eu::core
 {
 
 // todo(Gustav): change to a function instead of a struct

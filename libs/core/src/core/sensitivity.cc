@@ -3,7 +3,7 @@
 #include "core/numeric.h"
 
 
-namespace euphoria::core
+namespace eu::core
 {
     Sensitivity::Sensitivity(float v, bool i)
         : multiplier(v)

@@ -4,12 +4,12 @@
 
 #include "catch.hpp"
 
-namespace tr = euphoria::core::tracery;
+namespace tr = eu::core::tracery;
 
 TEST_CASE("tracery-all", "[tracery]")
 {
     const std::string test_file = "test-file";
-    auto random = euphoria::core::Random{0};
+    auto random = eu::core::Random{0};
     tr::Grammar g;
     g.register_english();
 

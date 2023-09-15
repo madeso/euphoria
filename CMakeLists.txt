@@ -116,14 +116,14 @@ endif()
 
 ##-----------------------------------------------------------------------------
 ## arch detection
-set(EUPH_ARCH_64 OFF)
-set(EUPH_ARCH_32 OFF)
+set(EU_ARCH_64 OFF)
+set(EU_ARCH_32 OFF)
 
 if(CMAKE_SIZEOF_VOID_P EQUAL 8)
     # 64 bits
-    set(EUPH_ARCH_64 ON)
+    set(EU_ARCH_64 ON)
 elseif(CMAKE_SIZEOF_VOID_P EQUAL 4)
-    set(EUPH_ARCH_32 ON)
+    set(EU_ARCH_32 ON)
 else()
     message(FATAL_ERROR "Unsupported platform: ${CMAKE_SIZEOF_VOID_P}")
 endif()

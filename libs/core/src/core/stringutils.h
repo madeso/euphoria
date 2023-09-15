@@ -7,7 +7,7 @@ String utility functions
 #include <map>
 
 
-namespace euphoria::core
+namespace eu::core
 {
     /** @defgroup string String utility functions.
     @{

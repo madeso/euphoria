@@ -7,7 +7,7 @@
 #include "core/vfs.h"
 #include "core/vfs_path.h"
 
-namespace euphoria::editor
+namespace eu::editor
 {
     struct FileBrowser
     {

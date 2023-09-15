@@ -3,7 +3,7 @@
 #include "open-color.h"
 #include "imgui/imgui.h"
 
-namespace euphoria::window
+namespace eu::window
 {
     using Colors = std::array<ImU32, 10>;
 

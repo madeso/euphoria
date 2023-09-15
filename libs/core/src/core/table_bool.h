@@ -10,7 +10,7 @@
 #include <functional>
 #include <optional>
 
-namespace euphoria::core
+namespace eu::core
 {
     using BoolTable = Table<bool>;
 

@@ -4,7 +4,7 @@
 #include <optional>
 
 
-namespace euphoria::core
+namespace eu::core
 {
     template <typename T>
     struct Result

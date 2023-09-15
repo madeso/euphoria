@@ -20,7 +20,7 @@
 #include <iostream>
 #include <map>
 
-namespace euphoria::gui
+namespace eu::gui
 {
     std::shared_ptr<Layout>
     create_layout(const ::gui::Layout& c)

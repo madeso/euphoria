@@ -2,7 +2,7 @@
 
 #include "catch.hpp"
 
-using namespace euphoria::tests;
+using namespace eu::tests;
 
 TEST_CASE("tests-stringeq", "[tests]")
 {

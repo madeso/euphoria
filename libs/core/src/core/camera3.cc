@@ -2,7 +2,7 @@
 
 #include "assert/assert.h"
 
-namespace euphoria::core
+namespace eu::core
 {
     CompiledCamera3::CompiledCamera3(const mat4f& v, const mat4f& p)
         : view(v)

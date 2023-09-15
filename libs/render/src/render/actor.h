@@ -10,7 +10,7 @@
 #include "render/instance.h"
 #include "render/compiledmesh.h"
 
-namespace euphoria::render
+namespace eu::render
 {
     struct MaterialOverride
     {

@@ -2,7 +2,7 @@
 
 #include "catch.hpp"
 
-namespace synth = euphoria::minsynth;
+namespace synth = eu::minsynth;
 
 TEST_CASE("synth-verify", "[synth]")
 {

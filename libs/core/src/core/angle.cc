@@ -6,10 +6,10 @@
 
 #include <cmath>
 
-namespace euphoria::core
+namespace eu::core
 {
     Angle
-    get_random_angle(::euphoria::core::Random* random)
+    get_random_angle(::eu::core::Random* random)
     {
         return Angle::from_percent_of_360(random->get_next_float01());
     }
@@ -18,7 +18,7 @@ namespace euphoria::core
     void
     Angle::wrap()
     {
-        radians = ::euphoria::core::wrap(make_range(pi * 2.0f), radians);
+        radians = ::eu::core::wrap(make_range(pi * 2.0f), radians);
     }
 
 

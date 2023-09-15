@@ -42,10 +42,10 @@
 #include "imgui/imgui_internal.h"
 #include "imgui_stdlib.h"
 
-using namespace euphoria::core;
-using namespace euphoria::gui;
-using namespace euphoria::render;
-using namespace euphoria::window;
+using namespace eu::core;
+using namespace eu::gui;
+using namespace eu::render;
+using namespace eu::window;
 
 
 // todo(Gustav): move to window/imgui_ext
@@ -83,7 +83,7 @@ imgui_widget(const char* title, bool* b)
 
 
 bool
-imgui_widget(const char* title, euphoria::core::Lrud<float>* p)
+imgui_widget(const char* title, eu::core::Lrud<float>* p)
 {
     const auto spacing = ImGui::GetStyle().ItemInnerSpacing.x;
     ImGui::PushID(title);
@@ -156,16 +156,16 @@ imgui_widget(const char* title, Rectf* r)
 
 
 void
-imgui_widget(const char* title, euphoria::render::Texture2* tex)
+imgui_widget(const char* title, eu::render::Texture2* tex)
 {
     if(tex == nullptr) { return; }
 
     ImGui::Text("%s", title);
-    euphoria::window::imgui::imgui_image(tex);
+    eu::window::imgui::imgui_image(tex);
 }
 
 void
-imgui_widget(euphoria::render::ScalableSprite* sprite)
+imgui_widget(eu::render::ScalableSprite* sprite)
 {
     imgui_widget("texture", sprite->texture.get());
 }
@@ -252,7 +252,7 @@ imgui_widget(LayoutContainer* container)
 }
 
 void
-imgui_widget(int id, euphoria::render::Glyph* gl)
+imgui_widget(int id, eu::render::Glyph* gl)
 {
     const std::string s = fmt::format("glyph {}", id);
     if(ImGui::TreeNode(s.c_str()) == false) { return; }
@@ -269,7 +269,7 @@ imgui_widget(int id, euphoria::render::Glyph* gl)
 }
 
 void
-imgui_widget(const char* title, euphoria::render::DrawableFont* font)
+imgui_widget(const char* title, eu::render::DrawableFont* font)
 {
     if(ImGui::TreeNode(title) == false) {return;}
 
@@ -358,7 +358,7 @@ main(int argc, char* argv[])
     use(&shader);
     shader.set_uniform(shader.get_uniform("image"), 0);
 
-    auto root = euphoria::gui::Root
+    auto root = eu::gui::Root
     {
         size2f::create_from_width_height
         (
@@ -379,7 +379,7 @@ main(int argc, char* argv[])
         return -1;
     }
 
-    auto viewport_handler = euphoria::render::ViewportHandler
+    auto viewport_handler = eu::render::ViewportHandler
     {
         engine.init.get(),
         nullptr

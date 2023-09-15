@@ -4,7 +4,7 @@
 
 #include "render/buffer.h"
 
-namespace euphoria::render
+namespace eu::render
 {
     void
     bind_attributes

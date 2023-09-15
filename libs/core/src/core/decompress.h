@@ -2,7 +2,7 @@
 
 #pragma once
 
-namespace euphoria::core
+namespace eu::core
 {
     // Decompress is slighly modified code from the imgui repo, only to remove the use of global variables
     // this is mainly here so we can use the handy compression tool from the imgui distro for files other than fonts

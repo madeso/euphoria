@@ -6,7 +6,7 @@
 #include "core/stringutils.h"
 
 
-namespace euphoria::core
+namespace eu::core
 {
 
 // get_word_wrapped is currently based on https://stackoverflow.com/a/17635

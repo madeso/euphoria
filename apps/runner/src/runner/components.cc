@@ -10,7 +10,7 @@
 #include "render/spriterender.h"
 #include "render/texturecache.h"
 
-namespace euphoria::runner
+namespace eu::runner
 {
     ComponentPosition2::ComponentPosition2()
         : pos(0, 0)

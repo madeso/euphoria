@@ -5,7 +5,7 @@
 #include "core/vec3.h"
 #include "core/cint.h"
 
-namespace euphoria::core
+namespace eu::core
 {
     BufferPoint2::BufferPoint2(float x, float y, float u, float v)
         : pos(x, y)

@@ -7,7 +7,7 @@
 #include "core/key.h"
 
 
-namespace euphoria::minsynth
+namespace eu::minsynth
 {
     enum class Tuning
     {

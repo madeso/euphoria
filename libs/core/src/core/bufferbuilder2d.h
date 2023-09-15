@@ -6,7 +6,7 @@
 #include "core/vec2.h"
 
 
-namespace euphoria::core
+namespace eu::core
 {
     struct BufferPoint2
     {

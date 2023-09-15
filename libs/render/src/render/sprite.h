@@ -8,7 +8,7 @@
 #include "core/vec3.h"
 #include "core/rgb.h"
 
-namespace euphoria::render
+namespace eu::render
 {
     struct Texture2;
     struct SpriteRenderer;

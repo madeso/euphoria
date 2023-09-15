@@ -1,14 +1,14 @@
 #pragma once
 
 
-namespace euphoria::gui
+namespace eu::gui
 {
     struct Button;
     struct PanelWidget;
 }
 
 
-namespace euphoria::gui
+namespace eu::gui
 {
     struct Visitor
     {

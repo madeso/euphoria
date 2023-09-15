@@ -7,12 +7,12 @@
 
 #include <memory>
 
-namespace euphoria::core
+namespace eu::core
 {
     struct Lines;
 }
 
-namespace euphoria::render
+namespace eu::render
 {
     struct MaterialShader;
     struct MaterialShaderCache;

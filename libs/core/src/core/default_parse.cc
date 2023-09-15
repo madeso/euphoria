@@ -4,7 +4,7 @@
 #include "core/functional.h"
 
 
-namespace euphoria::core::argparse
+namespace eu::core::argparse
 {
     std::string
     add_quotes_and_combine_with_english_or(const std::vector<std::string>& matches)

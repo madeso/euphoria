@@ -2,7 +2,7 @@
 
 #include "SDL_filesystem.h"
 
-namespace euphoria::window
+namespace eu::window
 {
     std::string
     get_base_path()

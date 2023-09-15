@@ -1,7 +1,7 @@
 #include "core/size2.h"
 
 
-namespace euphoria::core
+namespace eu::core
 {
 
     size2f::size2f()

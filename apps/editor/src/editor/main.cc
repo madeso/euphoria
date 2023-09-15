@@ -47,10 +47,10 @@
 #include "gaf_rapidjson_enum.h"
 
 
-using namespace euphoria::core;
-using namespace euphoria::render;
-using namespace euphoria::window;
-using namespace euphoria::editor;
+using namespace eu::core;
+using namespace eu::render;
+using namespace eu::window;
+using namespace eu::editor;
 
 ImVec2
 operator+(const ImVec2& lhs, const ImVec2& rhs)
@@ -116,7 +116,7 @@ open_or_focus_window
 
 struct ScimedWindow : public GenericWindow
 {
-    euphoria::editor::Scimed scimed;
+    eu::editor::Scimed scimed;
 
     void
     run(StyleData* style_data) override
@@ -363,9 +363,9 @@ open_or_focus_on_generic_window
                 }
             );
             // todo(Gustav): don't open window if loading failed...
-            window->data = euphoria::core::get_default_but_log_errors
+            window->data = eu::core::get_default_but_log_errors
             (
-                euphoria::core::read_json_file_to_gaf_struct<T>(fs, path, read_json)
+                eu::core::read_json_file_to_gaf_struct<T>(fs, path, read_json)
             );
             return window;
         }
@@ -490,7 +490,7 @@ struct FileHandlerList
 int
 main(int argc, char** argv)
 {
-    EUPH_INIT_LOGGING();
+    EU_INIT_LOGGING();
     Engine engine;
 
     if (const auto r = engine.setup(argparse::NameAndArguments::extract(argc, argv)); r != 0)
@@ -650,7 +650,7 @@ main(int argc, char** argv)
         )
     );
 
-    auto viewport_handler = euphoria::render::ViewportHandler
+    auto viewport_handler = eu::render::ViewportHandler
     {
         engine.init.get(),
         nullptr

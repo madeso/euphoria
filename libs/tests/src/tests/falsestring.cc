@@ -1,7 +1,7 @@
 #include "tests/falsestring.h"
 
 
-namespace euphoria::tests
+namespace eu::tests
 {
     FalseString FalseString::create_false(const std::string& text)
     {

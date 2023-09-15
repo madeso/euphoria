@@ -1,7 +1,7 @@
 #pragma once
 
 
-namespace euphoria::core
+namespace eu::core
 {
     /** Determines when to display help text in a hover ui
      */

@@ -2,7 +2,7 @@
 
 #include "core/rgb.h"
 
-namespace euphoria::core
+namespace eu::core
 {
     enum class BlendMode
     {

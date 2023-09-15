@@ -7,7 +7,7 @@
 
 
 
-namespace euphoria::core
+namespace eu::core
 {
     // represents a homogeneous coordinate
     struct vec4f
@@ -44,4 +44,4 @@ namespace euphoria::core
     std::string to_string(const vec4f& v);
 }
 
-ADD_DEFAULT_FORMATTER(euphoria::core::vec4f, std::string, euphoria::core::to_string);
+ADD_DEFAULT_FORMATTER(eu::core::vec4f, std::string, eu::core::to_string);

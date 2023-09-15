@@ -2,7 +2,7 @@
 
 #include "catch.hpp"
 
-namespace euco = euphoria::core;
+namespace euco = eu::core;
 
 TEST_CASE("num-is_string_equal", "[numeric]")
 {

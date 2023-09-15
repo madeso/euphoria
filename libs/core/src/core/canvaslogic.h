@@ -3,7 +3,7 @@
 #include "core/vec2.h"
 #include "core/range.h"
 
-namespace euphoria::core
+namespace eu::core
 {
     struct CanvasLogic
     {

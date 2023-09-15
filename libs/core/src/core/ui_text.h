@@ -5,7 +5,7 @@
 #include "core/stringbuilder.h"
 
 
-namespace euphoria::core
+namespace eu::core
 {
     struct UiText;
 

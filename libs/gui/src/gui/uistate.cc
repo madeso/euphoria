@@ -1,7 +1,7 @@
 #include "gui/uistate.h"
 
 
-namespace euphoria::gui
+namespace eu::gui
 {
     void
     State::begin()

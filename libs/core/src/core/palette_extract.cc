@@ -11,7 +11,7 @@
 
 namespace
 {
-    using namespace euphoria::core;
+    using namespace eu::core;
 
 
     std::vector<Rgbi>
@@ -178,7 +178,7 @@ namespace
     }
 }
 
-namespace euphoria::core
+namespace eu::core
 {
     std::vector<Rgbi>
     extract_palette_median_cut(const Image& image, int depth, bool middle_split)

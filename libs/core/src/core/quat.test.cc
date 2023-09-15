@@ -5,8 +5,8 @@
 #include "catch.hpp"
 
 
-namespace euco = euphoria::core;
-using namespace euphoria::tests;
+namespace euco = eu::core;
+using namespace eu::tests;
 
 TEST_CASE("quat-identity", "[quat]")
 {

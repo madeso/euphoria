@@ -9,8 +9,8 @@
 #include "tests/stringeq.h"
 
 
-using namespace euphoria::core;
-using namespace euphoria::tests;
+using namespace eu::core;
+using namespace eu::tests;
 
 
 template<typename T, typename F>

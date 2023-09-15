@@ -4,7 +4,7 @@
 
 
 
-namespace euphoria::core
+namespace eu::core
 {
     std::string
     get_current_directory();

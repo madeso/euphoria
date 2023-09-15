@@ -6,7 +6,7 @@
 
 #include "assert/assert.h"
 
-namespace euphoria::core
+namespace eu::core
 {
     // todo(Gustav): replace with a better search alghoritm, like k-d tree och oct/quad-tree
     template

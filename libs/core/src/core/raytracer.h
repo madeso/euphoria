@@ -11,7 +11,7 @@
 #include <optional>
 
 
-namespace euphoria::core
+namespace eu::core
 {
     struct Image;
 

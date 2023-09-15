@@ -5,7 +5,7 @@
 #include <functional>
 #include <istream>
 
-namespace euphoria::core
+namespace eu::core
 {
 
 using TextSentence = std::vector<std::string>;

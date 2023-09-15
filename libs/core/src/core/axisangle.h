@@ -5,7 +5,7 @@
 #include "core/vec3.h"
 #include "core/angle.h"
 
-namespace euphoria::core
+namespace eu::core
 {
     struct AxisAngle
     {
@@ -26,4 +26,4 @@ namespace euphoria::core
 
 }
 
-ADD_DEFAULT_FORMATTER(euphoria::core::AxisAngle, std::string, euphoria::core::to_string);
+ADD_DEFAULT_FORMATTER(eu::core::AxisAngle, std::string, eu::core::to_string);

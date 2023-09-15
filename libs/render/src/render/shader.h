@@ -14,13 +14,13 @@
 #include "render/shaderuniform.h"
 
 
-namespace euphoria::core::vfs
+namespace eu::core::vfs
 {
     struct FileSystem;
 }
 
 
-namespace euphoria::render
+namespace eu::render
 {
     struct Texture2;
 

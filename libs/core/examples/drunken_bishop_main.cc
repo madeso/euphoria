@@ -17,8 +17,8 @@
 #include <iomanip>
 
 
-using namespace euphoria;
-using namespace euphoria::core;
+using namespace eu;
+using namespace eu::core;
 
 
 struct CommonArguments

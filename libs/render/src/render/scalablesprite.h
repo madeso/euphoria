@@ -5,18 +5,18 @@
 #include "core/rect.h"
 
 
-namespace euphoria::core::vfs
+namespace eu::core::vfs
 {
     struct FileSystem;
     struct FilePath;
 }
 
-namespace euphoria::core
+namespace eu::core
 {
     struct Rgba;
 }
 
-namespace euphoria::render
+namespace eu::render
 {
     struct Buffer2d;
     struct Texture2;

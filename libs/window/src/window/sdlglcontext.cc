@@ -7,7 +7,7 @@
 #include "SDL_video.h"
 
 
-namespace euphoria::window
+namespace eu::window
 {
     SdlOpenglContext::SdlOpenglContext(SdlWindow* window)
         : context(SDL_GL_CreateContext(window->window))

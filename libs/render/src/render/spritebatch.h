@@ -7,7 +7,7 @@
 #include "core/rgb.h"
 
 
-namespace euphoria::render
+namespace eu::render
 {
     // texture & shader will be handled by 2d world and sprite
     struct SpriteBatch

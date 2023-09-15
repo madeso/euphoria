@@ -9,14 +9,14 @@
 #include "gaf_scalingsprite.h"
 
 
-namespace euphoria::render
+namespace eu::render
 {
     struct Texture2;
     struct TextureCache;
 }
 
 
-namespace euphoria::editor
+namespace eu::editor
 {
     struct LineHoverData
     {

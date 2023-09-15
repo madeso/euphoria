@@ -7,7 +7,7 @@
 #include "catch.hpp"
 
 
-namespace euphoria::tests
+namespace eu::tests
 {
     struct ApproxData
     {

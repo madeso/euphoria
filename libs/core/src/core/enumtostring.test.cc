@@ -3,9 +3,9 @@
 #include "tests/utils.h"
 #include "tests/stringeq.h"
 
-namespace euco = euphoria::core;
+namespace euco = eu::core;
 
-using namespace euphoria::tests;
+using namespace eu::tests;
 
 namespace
 {

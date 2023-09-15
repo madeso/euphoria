@@ -34,8 +34,8 @@
         } \
         else \
         { \
-            if(::euphoria::assertlib::is_throwing() == false) { BREAK_IN_DEBUG(); } \
-            ::euphoria::assertlib::on_assert( \
+            if(::eu::assertlib::is_throwing() == false) { BREAK_IN_DEBUG(); } \
+            ::eu::assertlib::on_assert( \
                     #x, \
                     __LINE__, \
                     __FILE__, \
@@ -53,8 +53,8 @@
         } \
         else \
         { \
-            if(::euphoria::assertlib::is_throwing() == false) { BREAK_IN_DEBUG(); } \
-            ::euphoria::assertlib::on_assert( \
+            if(::eu::assertlib::is_throwing() == false) { BREAK_IN_DEBUG(); } \
+            ::eu::assertlib::on_assert( \
                     #x, \
                     __LINE__, \
                     __FILE__, \
@@ -65,7 +65,7 @@
     } while(false)
 
 #define DIE(message) \
-    ::euphoria::assertlib::on_assert( \
+    ::eu::assertlib::on_assert( \
             message, \
             __LINE__, \
             __FILE__, \
@@ -74,7 +74,7 @@
             __PRETTY_FUNCTION__)
 
 #define DIEX(message, ...) \
-    ::euphoria::assertlib::on_assert( \
+    ::eu::assertlib::on_assert( \
             message, \
             __LINE__, \
             __FILE__, \
@@ -86,7 +86,7 @@
 
 #ifdef IMPLEMENT_ASSERT_LIB
 
-namespace euphoria::assertlib
+namespace eu::assertlib
 {
     struct AssertArgumentValue
     {

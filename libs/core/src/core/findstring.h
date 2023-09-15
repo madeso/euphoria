@@ -4,7 +4,7 @@
 
 
 
-namespace euphoria::core
+namespace eu::core
 {
     // find part of a string in another
     // todo(Gustav): replace with a regex instead?

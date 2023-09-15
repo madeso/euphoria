@@ -3,12 +3,12 @@
 #include "window/fakesdlevent.h"
 
 
-namespace euphoria::window
+namespace eu::window
 {
     struct SdlOpenglContext;
 }
 
-namespace euphoria::window::imgui
+namespace eu::window::imgui
 {
     struct Library
     {

@@ -1,6 +1,6 @@
 #pragma once
 
-namespace euphoria::render
+namespace eu::render
 {
     void
     print_all_opengl_errors(const char* file, int line);
@@ -9,5 +9,5 @@ namespace euphoria::render
     setup_opengl_debug();
 }
 
-// #define CheckOpenglError() ::euphoria::render::print_all_opengl_errors(__FILE__, __LINE__)
+// #define CheckOpenglError() ::eu::render::print_all_opengl_errors(__FILE__, __LINE__)
 

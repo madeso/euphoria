@@ -7,7 +7,7 @@
 #include <optional>
 
 
-namespace euphoria::core::vfs
+namespace eu::core::vfs
 {
     struct FilePath;
     struct DirPath;

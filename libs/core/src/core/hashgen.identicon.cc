@@ -18,7 +18,7 @@
 
 namespace
 {
-    using namespace euphoria::core;
+    using namespace eu::core;
 
     const auto patch0 = std::vector<int>{0, 4, 24, 20 };
     const auto patch1 = std::vector<int>{0, 4, 20 };
@@ -113,7 +113,7 @@ namespace
     }
 }
 
-namespace euphoria::core
+namespace eu::core
 {
     void render_identicon(Image* image, U32 code)
     {

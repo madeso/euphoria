@@ -12,20 +12,20 @@
 #include "t3d/toolstack.h"
 
 
-namespace euphoria::core
+namespace eu::core
 {
     struct UnitRay3f;
 }
 
 
-namespace euphoria::render
+namespace eu::render
 {
     struct World;
     struct Actor;
 }
 
 
-namespace euphoria::t3d
+namespace eu::t3d
 {
     struct Tile;
     struct TileLibrary;

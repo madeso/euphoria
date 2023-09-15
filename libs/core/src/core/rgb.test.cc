@@ -4,9 +4,9 @@
 
 #include "catch.hpp"
 
-namespace euco = euphoria::core;
-using namespace euphoria::tests;
-using namespace euphoria::convert;
+namespace euco = eu::core;
+using namespace eu::tests;
+using namespace eu::convert;
 
 constexpr unsigned int darkslate_grey = 0x2f4f4f;
 constexpr unsigned int phtalo_green = 0x123524;

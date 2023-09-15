@@ -15,9 +15,9 @@
 #include <optional>
 
 
-using namespace euphoria::core;
+using namespace eu::core;
 
-namespace euphoria::editor
+namespace eu::editor
 {
     template <typename T, typename G>
     int

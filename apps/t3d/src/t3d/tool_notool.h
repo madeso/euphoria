@@ -5,7 +5,7 @@
 #include "t3d/tool.h"
 #include "t3d/editor.h"
 
-namespace euphoria::t3d
+namespace eu::t3d
 {
     struct Application;
 

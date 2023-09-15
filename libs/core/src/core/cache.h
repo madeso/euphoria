@@ -4,7 +4,7 @@
 #include <memory>
 
 
-namespace euphoria::core
+namespace eu::core
 {
     // todo(Gustav): support hotloading
     // todo(Gustav): rename to something better?

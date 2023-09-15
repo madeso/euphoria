@@ -12,7 +12,7 @@
 #include <memory>
 #include <functional>
 
-namespace euphoria::runner
+namespace eu::runner
 {
     struct CustomArguments
     {

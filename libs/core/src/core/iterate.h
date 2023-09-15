@@ -3,7 +3,7 @@
 #include "assert/assert.h"
 
 
-namespace euphoria::core
+namespace eu::core
 {
     // todo(Gustav): consider removing or simplifying this, it looks confusing and complex
     template<typename T>

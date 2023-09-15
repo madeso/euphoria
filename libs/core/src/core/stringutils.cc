@@ -10,7 +10,7 @@
 #include "core/stringbuilder.h"
 
 
-namespace euphoria::core
+namespace eu::core
 {
 
 std::pair<std::string, std::string>

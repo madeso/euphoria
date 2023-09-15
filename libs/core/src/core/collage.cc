@@ -10,7 +10,7 @@
 #include "core/numeric.h"
 
 
-namespace euphoria::core
+namespace eu::core
 {
     std::vector<size2i> collect_sizes
     (

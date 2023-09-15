@@ -2,7 +2,7 @@
 
 #include <cstdint>
 
-namespace euphoria::core
+namespace eu::core
 {
     using I64 = std::int64_t;
     using I32 = std::int32_t;

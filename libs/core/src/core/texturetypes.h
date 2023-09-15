@@ -3,7 +3,7 @@
 
 #include "core/enum.h"
 
-namespace euphoria::core
+namespace eu::core
 {
     DECLARE_ENUM_TYPE(texture_type)
 }

@@ -8,12 +8,12 @@
 #include "core/vfs_path.h"
 
 
-namespace euphoria::render
+namespace eu::render
 {
     struct DrawableFont;
 }
 
-namespace euphoria::gui
+namespace eu::gui
 {
     struct Interpolation
     {

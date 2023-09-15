@@ -10,7 +10,7 @@
 #include "core/vfs_path.h"
 
 
-namespace euphoria::t3d
+namespace eu::t3d
 {
     Tile::Tile()
         : path("~/unknown_tile")

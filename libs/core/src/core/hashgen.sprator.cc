@@ -15,7 +15,7 @@
 
 namespace
 {
-    using namespace euphoria::core;
+    using namespace eu::core;
 
 
     Rgbai
@@ -277,7 +277,7 @@ namespace
 }
 
 
-namespace euphoria::core
+namespace eu::core
 {
     void
     render_sprator

@@ -6,7 +6,7 @@
 
 #include "render/shaderattribute2d.h"
 
-namespace euphoria::render
+namespace eu::render
 {
     Buffer2d::Buffer2d(const core::BufferBuilder2& bb)
         : index_count(core::c_sizet_to_int(bb.tris.size()))

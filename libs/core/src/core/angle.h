@@ -6,7 +6,7 @@
 #include "core/interpolate.default.h"
 
 
-namespace euphoria::core
+namespace eu::core
 {
     struct Random;
 
@@ -89,7 +89,7 @@ namespace euphoria::core
     constexpr Angle quarter_turn = Angle::from_radians(pi / 2.0f);
     constexpr Angle no_rotation = Angle::from_radians(0.0f);
 
-    [[nodiscard]] Angle get_random_angle(::euphoria::core::Random* random);
+    [[nodiscard]] Angle get_random_angle(::eu::core::Random* random);
 
 
     float sin(const Angle& ang);
@@ -118,9 +118,9 @@ namespace euphoria::core
     DEFAULT_INTERPOLATE(Angle, lerp_angle);
 }
 
-ADD_DEFAULT_FORMATTER(euphoria::core::Angle, std::string, euphoria::core::to_string);
+ADD_DEFAULT_FORMATTER(eu::core::Angle, std::string, eu::core::to_string);
 
-namespace euphoria::convert
+namespace eu::convert
 {
     constexpr core::Angle operator"" _deg(long double d)
     {

@@ -5,8 +5,8 @@
 #include "catch.hpp"
 
 
-using namespace euphoria::core;
-using namespace euphoria::tests;
+using namespace eu::core;
+using namespace eu::tests;
 
 
 namespace

@@ -5,7 +5,7 @@
 #include "assert/assert.h"
 #include "core/random.h"
 
-namespace euphoria::core
+namespace eu::core
 {
     PolarCoordinate::PolarCoordinate(float azimuthal01, float polar01)
         : azimuthal(Angle::from_percent_of_360(azimuthal01))
@@ -31,7 +31,7 @@ namespace euphoria::core
     }
 
     PolarCoordinate
-    PolarCoordinate::create_random(::euphoria::core::Random* random)
+    PolarCoordinate::create_random(::eu::core::Random* random)
     {
         const float az = random->get_next_float01();
         const float polar = random->get_next_float01();

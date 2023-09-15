@@ -2,7 +2,7 @@
 
 
 
-namespace euphoria::core
+namespace eu::core
 {   
     [[nodiscard]] mat2f
     mat2f::from_col_major

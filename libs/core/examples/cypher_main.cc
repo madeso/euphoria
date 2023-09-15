@@ -5,8 +5,8 @@
 #include "core/argparse.h"
 
 
-using namespace euphoria::core;
-namespace core = euphoria::core;
+using namespace eu::core;
+namespace core = eu::core;
 
 
 void run_rot13_from_stream(std::istream& stream)

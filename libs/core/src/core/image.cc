@@ -14,7 +14,7 @@
 #include "core/vfs_path.h"
 
 
-namespace euphoria::core
+namespace eu::core
 {
     void
     Image::make_invalid()
@@ -344,19 +344,6 @@ namespace euphoria::core
         if(alpha == AlphaLoad::keep)
         {
             has_alpha = channels == 2 || channels == 4;
-        }
-
-        if(false)
-        {
-            LOG_INFO
-            (
-                "Image: {0} {1}x{2} alpha {3} channels {4}",
-                path,
-                image_width,
-                image_height,
-                has_alpha,
-                channels
-            );
         }
 
         ImageLoadResult result;

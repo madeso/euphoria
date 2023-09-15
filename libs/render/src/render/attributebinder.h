@@ -4,7 +4,7 @@
 
 
 
-namespace euphoria::render
+namespace eu::render
 {
     struct PointLayout;
 

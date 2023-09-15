@@ -1,7 +1,7 @@
 #include "runner/ecs.systems.h"
 
 
-namespace euphoria::runner
+namespace eu::runner
 {
     ComponentSystem::ComponentSystem(const std::string& the_name)
         : name(the_name)

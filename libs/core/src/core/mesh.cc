@@ -21,7 +21,7 @@
 #include "gaf_rapidjson_mesh.h"
 
 
-namespace euphoria::core
+namespace eu::core
 {
     MeshPoint::MeshPoint
     (
@@ -522,7 +522,6 @@ namespace euphoria::core
                 for(auto& t: m.textures)
                 {
                     const auto new_file = dir.get_file(t.path.get_file_with_extension());
-                    // LOG_INFO("Replacing {0} with {1}", t.path, new_file);
                     t.path = new_file;
                     fix_extension(&t.path, folder);
                     fix_filename(&t.path, folder);

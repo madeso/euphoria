@@ -6,7 +6,7 @@
 #include "assert/assert.h"
 #include "core/range.h"
 
-namespace euphoria::core
+namespace eu::core
 {
     template
     <

@@ -52,7 +52,7 @@ namespace
 
 
 
-namespace euphoria::render
+namespace eu::render
 {
     std::string
     from_opengl_error_to_string(GLenum error_code)

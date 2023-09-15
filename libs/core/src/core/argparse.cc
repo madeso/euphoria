@@ -41,7 +41,7 @@
 */
 
 
-namespace euphoria::core::argparse
+namespace eu::core::argparse
 {
     namespace
     {
@@ -140,7 +140,7 @@ namespace euphoria::core::argparse
     }
 
 
-    std::string to_string(const euphoria::core::argparse::NameAndArguments& args)
+    std::string to_string(const eu::core::argparse::NameAndArguments& args)
     {
         return fmt::format("{} [{}]", args.name, fmt::join(args.arguments, ", "));
     }

@@ -3,7 +3,7 @@
 
 #include "core/rect.h"
 
-namespace euphoria::core
+namespace eu::core
 {
     struct ViewportDefinition
     {

@@ -9,7 +9,7 @@
 #include "core/interpolate.default.h"
 
 
-namespace euphoria::core
+namespace eu::core
 {
     struct quatf
     {
@@ -87,4 +87,4 @@ namespace euphoria::core
     quatf operator-(const quatf& lhs, const quatf& rhs);
 }
 
-ADD_DEFAULT_FORMATTER(euphoria::core::quatf, std::string, euphoria::core::to_string);
+ADD_DEFAULT_FORMATTER(eu::core::quatf, std::string, eu::core::to_string);

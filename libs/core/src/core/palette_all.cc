@@ -8,7 +8,7 @@
 #include "core/palette_tableu.h"
 
 
-namespace euphoria::core::palettes
+namespace eu::core::palettes
 {
     Palette
     get_palette(Name palette_name)

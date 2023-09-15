@@ -1,6 +1,6 @@
 #include "core/range.h"
 
-namespace euphoria::core
+namespace eu::core
 {
     float
     from_01f(float lower_bound, float upper_bound, float value)

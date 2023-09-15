@@ -2,7 +2,7 @@
 
 #include "core/angle.h"
 
-namespace euphoria::t3d
+namespace eu::t3d
 {
     struct Grid
     {

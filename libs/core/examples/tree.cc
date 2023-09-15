@@ -9,7 +9,7 @@
 #include <iostream>
 
 
-using namespace euphoria::core;
+using namespace eu::core;
 
 
 struct Tree

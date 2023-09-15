@@ -6,7 +6,7 @@
 #include "core/cint.h"
 
 
-namespace euphoria::core
+namespace eu::core
 {
     // todo(Gustav): verify samples is inside Rect and considers the offset of the Rect
 

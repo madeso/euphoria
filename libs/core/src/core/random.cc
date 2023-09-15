@@ -6,7 +6,7 @@
 #include <limits>
 #include <ctime>
 
-namespace euphoria::core
+namespace eu::core
 {
     /*
 There are much better choices than Mersenne Twister nowadays. Here is a RNG

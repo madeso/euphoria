@@ -10,7 +10,7 @@
 #include "render/materialshader.h"
 #include "render/materialshadercache.h"
 
-namespace euphoria::render
+namespace eu::render
 {
     void
     convert_lines_to_index_buffer

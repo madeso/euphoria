@@ -2,7 +2,7 @@
 
 #include "core/ints.h"
 
-namespace euphoria::core::ecs
+namespace eu::core::ecs
 {
     // using EntityId = std::uint32_t;
     // using EntityVersion = std::uint16_t;

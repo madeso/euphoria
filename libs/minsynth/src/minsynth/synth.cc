@@ -24,7 +24,7 @@ using namespace fmt::literals;
    Do Re Mi Fa So La Si
 */
 
-namespace euphoria::minsynth
+namespace eu::minsynth
 {
     // todo(Gustav): get a better number here
     constexpr float pi = core::pi;
@@ -863,7 +863,7 @@ namespace euphoria::minsynth
     const KeyboardLayout&
     create_qwerty_keyboard_layout()
     {
-        using K = euphoria::core::Key;
+        using K = eu::core::Key;
 
         static const KeyboardLayout k =
         {

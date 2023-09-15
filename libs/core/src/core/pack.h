@@ -7,7 +7,7 @@
 #include "core/size2.h"
 
 
-namespace euphoria::core
+namespace eu::core
 {
     // place from top-left to down-right
     std::vector<std::optional<Recti>>

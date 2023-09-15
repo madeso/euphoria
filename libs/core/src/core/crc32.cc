@@ -4,7 +4,7 @@
 #include "crc32/crc32.h"
 
 
-namespace euphoria::core
+namespace eu::core
 {
     unsigned long
     calc_crc32(const MemoryChunk& chunk)

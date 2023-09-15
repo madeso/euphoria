@@ -1,6 +1,6 @@
 #pragma once
 
-namespace euphoria::gui
+namespace eu::gui
 {
     struct LayoutData
     {

@@ -12,8 +12,8 @@
 
 #include "core/aabb.h"
 
-using namespace euphoria::core;
-using namespace euphoria::core::dump3d;
+using namespace eu::core;
+using namespace eu::core::dump3d;
 
 void add_spiral(Dumper* dump, int number_of_steps, float number_of_spins, float height, float size, const Rgbi& color)
 {
@@ -44,7 +44,7 @@ main(int argc, char* argv[])
         return parse_result.return_value;
     }
 
-    euphoria::core::Random rand;
+    eu::core::Random rand;
 
     auto pal = create_shuffle_bag(palettes::tableau::color_blind_10->colors, 2);
 

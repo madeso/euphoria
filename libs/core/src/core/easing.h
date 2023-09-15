@@ -3,7 +3,7 @@
 
 
 
-namespace euphoria::core::easing
+namespace eu::core::easing
 {
 
 enum class Function

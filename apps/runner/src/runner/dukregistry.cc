@@ -6,7 +6,7 @@
 #include "log/log.h"
 
 
-namespace euphoria::runner
+namespace eu::runner
 {
     struct ScriptComponent
     {

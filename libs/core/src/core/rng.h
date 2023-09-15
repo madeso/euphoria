@@ -6,7 +6,7 @@
 #include "core/ints.h"
 
 
-namespace euphoria::core
+namespace eu::core
 {
     // https://en.wikipedia.org/wiki/Linear_congruential_generator
     template<typename I, I a, I c, I modulus>

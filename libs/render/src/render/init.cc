@@ -8,7 +8,7 @@
 #include "render/gl.h"
 
 
-namespace euphoria::render
+namespace eu::render
 {
     Init::Init(LoaderFunction loader, Init::BlendHack blend_hack)
         : is_ok(true)

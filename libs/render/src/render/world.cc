@@ -9,7 +9,7 @@
 
 #include <algorithm>
 
-namespace euphoria::render
+namespace eu::render
 {
     void
     World::add_actor(const std::shared_ptr<Instance>& actor)

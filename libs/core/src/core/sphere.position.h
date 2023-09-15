@@ -4,7 +4,7 @@
 #include "core/sphere.h"
 
 
-namespace euphoria::core
+namespace eu::core
 {
     struct SphereAndPosition
     {

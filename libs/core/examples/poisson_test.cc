@@ -7,9 +7,9 @@
 #include "core/image_draw.h"
 #include "core/io.h"
 
-using namespace euphoria;
-using namespace euphoria::core;
-using namespace euphoria::core::dump2d;
+using namespace eu;
+using namespace eu::core;
+using namespace eu::core::dump2d;
 
 void
 svg_dump()

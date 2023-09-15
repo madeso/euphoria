@@ -22,7 +22,7 @@ work. If not, see <http://creativecommons.org/publicdomain/zero/1.0/>.
 */
 
 
-namespace euphoria::core::palettes::matplot
+namespace eu::core::palettes::matplot
 {
     constexpr Rgbi
     con(unsigned char r, unsigned char g, unsigned char b)

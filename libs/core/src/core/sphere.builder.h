@@ -6,7 +6,7 @@
 #include "core/sphere.position.h"
 
 
-namespace euphoria::core
+namespace eu::core
 {
     SphereAndPosition
     build_bounding_sphere(const std::vector<vec3f>& positions);

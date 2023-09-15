@@ -14,7 +14,7 @@
 
 #include <fstream>
 
-namespace euphoria::core
+namespace eu::core
 {
     std::string
     get_string_from_path(const vfs::FilePath& p)

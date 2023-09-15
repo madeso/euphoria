@@ -3,9 +3,9 @@
 #include "catch.hpp"
 #include "tests/approx.h"
 
-namespace euco = euphoria::core;
+namespace euco = eu::core;
 
-using namespace euphoria::tests;
+using namespace eu::tests;
 
 TEST_CASE("camera-clip2world", "[camera]")
 {

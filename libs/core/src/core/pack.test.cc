@@ -4,7 +4,7 @@
 
 #include "catch.hpp"
 
-using namespace euphoria::core;
+using namespace eu::core;
 
 
 TEST_CASE("pack-sane", "[pack]")

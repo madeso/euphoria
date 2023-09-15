@@ -6,10 +6,10 @@
 #include "tests/stringeq.h"
 #include "tests/vectorequals.h"
 
-using namespace euphoria::core;
-using namespace euphoria::core::argparse;
+using namespace eu::core;
+using namespace eu::core::argparse;
 
-using namespace euphoria::tests;
+using namespace eu::tests;
 
 
 namespace
@@ -77,7 +77,7 @@ namespace
         const std::vector<std::string>& rhs
     )
     {
-        return euphoria::tests::is_vector_equal
+        return eu::tests::is_vector_equal
         (
             lhs,
             rhs,
@@ -99,7 +99,7 @@ namespace
         const std::vector<Message>& rhs
     )
     {
-        return euphoria::tests::is_vector_equal
+        return eu::tests::is_vector_equal
         (
             lhs,
             rhs,

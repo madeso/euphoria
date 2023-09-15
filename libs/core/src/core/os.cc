@@ -28,7 +28,7 @@
 #define GET_CURRENT_DIR getcwd
 #endif
 
-namespace euphoria::core
+namespace eu::core
 {
     std::string
     get_current_directory()

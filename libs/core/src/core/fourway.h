@@ -10,7 +10,7 @@
 #include "core/default_parse.h"
 
 
-namespace euphoria::core
+namespace eu::core
 {
     /**
       Generic version of a CSS like padding type.
@@ -186,10 +186,10 @@ namespace euphoria::core
 
 
 template<typename T>
-struct fmt::formatter<euphoria::core::Lrud<T>> : formatter<std::string>
+struct fmt::formatter<eu::core::Lrud<T>> : formatter<std::string>
 {
     template <typename FormatContext>
-    auto format(const euphoria::core::Lrud<T>& fw, FormatContext& ctx) const
+    auto format(const eu::core::Lrud<T>& fw, FormatContext& ctx) const
     {
         return formatter<string_view>::format
         (

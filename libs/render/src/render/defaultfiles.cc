@@ -3,7 +3,7 @@
 #include "core/vfs.h"
 #include "core/vfs_path.h"
 
-namespace euphoria::render
+namespace eu::render
 {
     void
     setup_default_files(std::shared_ptr<core::vfs::ReadRootCatalog> catalog)

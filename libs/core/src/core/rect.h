@@ -10,7 +10,7 @@
 
 // todo(Gustav): look into better names/easier discoverability for functions
 
-namespace euphoria::core
+namespace eu::core
 {
     struct Random;
 
@@ -235,5 +235,5 @@ namespace euphoria::core
     bool operator==(const Recti& lhs, const Recti& rhs);
 }
 
-ADD_DEFAULT_FORMATTER(euphoria::core::Rectf, std::string, euphoria::core::to_string);
-ADD_DEFAULT_FORMATTER(euphoria::core::Recti, std::string, euphoria::core::to_string);
+ADD_DEFAULT_FORMATTER(eu::core::Rectf, std::string, eu::core::to_string);
+ADD_DEFAULT_FORMATTER(eu::core::Recti, std::string, eu::core::to_string);

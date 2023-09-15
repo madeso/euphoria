@@ -3,7 +3,7 @@
 #include "core/vec3.h"
 #include "core/mat4.h"
 
-namespace euphoria::core
+namespace eu::core
 {
     struct UnitRay3f
     {

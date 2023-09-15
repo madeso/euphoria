@@ -9,7 +9,7 @@
 
 // source: https://en.wikipedia.org/wiki/Base64
 
-namespace euphoria::core::base64
+namespace eu::core::base64
 {
     namespace
     {

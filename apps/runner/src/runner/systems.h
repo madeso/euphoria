@@ -3,7 +3,7 @@
 #include "core/sol_forward.h"
 
 
-namespace euphoria::runner
+namespace eu::runner
 {
     struct Components;
     struct Systems;

@@ -11,7 +11,7 @@
 
 #include "core/ecs.id.h"
 
-namespace euphoria::core::ecs
+namespace eu::core::ecs
 {
     // todo(Gustav): move detail to detail namespace
     std::size_t c_ent(EntityHandle v);

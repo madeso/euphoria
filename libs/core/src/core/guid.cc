@@ -10,7 +10,7 @@
 #endif
 
 
-namespace euphoria::core
+namespace eu::core
 {
 #ifndef _WIN32
     std::optional<Guid> Guid::create()

@@ -5,7 +5,7 @@
 #include "core/vec3.h"
 
 
-namespace euphoria::core
+namespace eu::core
 {
     struct Random;
 
@@ -36,4 +36,4 @@ namespace euphoria::core
     vec3f get_random_point(Random* rand, const Aabb&);
 }
 
-ADD_DEFAULT_FORMATTER(euphoria::core::Aabb, std::string, euphoria::core::to_string);
+ADD_DEFAULT_FORMATTER(eu::core::Aabb, std::string, eu::core::to_string);

@@ -5,7 +5,7 @@
 
 #include <functional>
 
-namespace euphoria::core
+namespace eu::core
 {
     std::vector<std::string>
     get_word_wrapped

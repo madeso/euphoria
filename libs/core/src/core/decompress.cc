@@ -5,7 +5,7 @@
 
 #include "assert/assert.h"
 
-namespace euphoria::core
+namespace eu::core
 {
 
 unsigned int Decompressor::stb_decompress_length(const unsigned char *input)

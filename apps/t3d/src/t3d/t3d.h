@@ -23,18 +23,18 @@
 #include "t3d/keyboardstate.h"
 
 
-namespace euphoria::core
+namespace eu::core
 {
     struct Lines;
     struct UnitRay3f;
 }
 
-namespace euphoria::core::argparse
+namespace eu::core::argparse
 {
     struct NameAndArguments;
 }
 
-namespace euphoria::render
+namespace eu::render
 {
     struct MaterialShaderCache;
     struct TextureCache;
@@ -42,14 +42,14 @@ namespace euphoria::render
     struct PositionedLines;
 }
 
-namespace euphoria::window
+namespace eu::window
 {
     struct Engine;
     struct SdlTimer;
 }
 
 
-namespace euphoria::t3d
+namespace eu::t3d
 {
     struct Editor;
     struct TileLibrary;

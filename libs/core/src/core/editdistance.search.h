@@ -8,7 +8,7 @@
 #include "core/editdistance.h"
 
 
-namespace euphoria::core::search
+namespace eu::core::search
 {
     struct Match
     {

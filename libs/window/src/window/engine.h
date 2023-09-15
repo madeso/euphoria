@@ -7,23 +7,23 @@
 #include "window/fakesdlevent.h"
 
 
-namespace euphoria::core::vfs
+namespace eu::core::vfs
 {
     struct FileSystem;
     struct ReadRootCatalog;
 }
 
-namespace euphoria::render
+namespace eu::render
 {
     struct Init;
 }
 
-namespace euphoria::window::imgui
+namespace eu::window::imgui
 {
     struct Library;
 }
 
-namespace euphoria::window
+namespace eu::window
 {
     struct SdlLibrary;
     struct SdlWindow;

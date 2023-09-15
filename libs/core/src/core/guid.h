@@ -4,7 +4,7 @@
 #include <optional>
 #include <array>
 
-namespace euphoria::core
+namespace eu::core
 {
     struct Guid
     {

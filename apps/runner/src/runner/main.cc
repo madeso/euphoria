@@ -50,10 +50,10 @@
 #include "gaf_game.h"
 #include "gaf_rapidjson_game.h"
 
-using namespace euphoria::core;
-using namespace euphoria::render;
-using namespace euphoria::window;
-using namespace euphoria::runner;
+using namespace eu::core;
+using namespace eu::render;
+using namespace eu::window;
+using namespace eu::runner;
 
 
 std::optional<game::Game>
@@ -185,7 +185,7 @@ int custom_lua_exception_handler
 int
 main(int argc, char* argv[])
 {
-    EUPH_INIT_LOGGING();
+    EU_INIT_LOGGING();
     
     Engine engine;
     if(const auto ret = engine.setup(argparse::NameAndArguments::extract(argc, argv)); ret != 0)
@@ -300,7 +300,7 @@ main(int argc, char* argv[])
     use(&shader);
     shader.set_uniform(shader.get_uniform("image"), 0);
 
-    auto viewport_handler = euphoria::render::ViewportHandler
+    auto viewport_handler = eu::render::ViewportHandler
     {
         engine.init.get(),
         &camera_data.screen
@@ -407,7 +407,7 @@ main(int argc, char* argv[])
     {
         last = now;
         now = SDL_GetPerformanceCounter();
-        const float dt = euphoria::core::c_u64_to_float(now - last) / euphoria::core::c_u64_to_float(SDL_GetPerformanceFrequency());
+        const float dt = eu::core::c_u64_to_float(now - last) / eu::core::c_u64_to_float(SDL_GetPerformanceFrequency());
 
         handle_events();
         imgui::begin_new_frame();

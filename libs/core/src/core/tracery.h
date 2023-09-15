@@ -6,13 +6,13 @@
 #include <map>
 
 
-namespace euphoria::core
+namespace eu::core
 {
     struct Random;
 }
 
 
-namespace euphoria::core::tracery
+namespace eu::core::tracery
 {
     struct Result
     {
@@ -122,4 +122,4 @@ namespace euphoria::core::tracery
 
 }
 
-ADD_DEFAULT_FORMATTER(euphoria::core::tracery::Result, std::string, euphoria::core::tracery::to_string);
+ADD_DEFAULT_FORMATTER(eu::core::tracery::Result, std::string, eu::core::tracery::to_string);

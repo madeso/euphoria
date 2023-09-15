@@ -8,7 +8,7 @@
 #include "runner/ecs.systems.h"
 #include "runner/components.h"
 
-namespace euphoria::runner
+namespace eu::runner
 {
     struct SystemSpriteDraw
         : ComponentSystem

@@ -7,14 +7,14 @@
 #include "core/image.h"
 
 
-namespace euphoria::core::vfs
+namespace eu::core::vfs
 {
     struct FileSystem;
     struct FilePath;
 }
 
 
-namespace euphoria::core
+namespace eu::core
 {
     // This represents a loaded glyph not yet placed on a texture image
     struct LoadedGlyph

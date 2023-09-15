@@ -6,7 +6,7 @@
 #include "assert/assert.h"
 
 
-namespace euphoria::core
+namespace eu::core
 {
     template <typename K, typename V>
     std::vector<K>

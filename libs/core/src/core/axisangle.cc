@@ -2,7 +2,7 @@
 
 #include "assert/assert.h"
 
-namespace euphoria::core
+namespace eu::core
 {
     AxisAngle::AxisAngle(const unit3f& ax, const core::Angle& ang)
         : axis(ax), angle(ang)

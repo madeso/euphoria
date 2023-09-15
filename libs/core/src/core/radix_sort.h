@@ -4,7 +4,7 @@
 
 #include "core/cint.h"
 
-namespace euphoria::core
+namespace eu::core
 {
     template <typename TInt>
     struct BucketBase10

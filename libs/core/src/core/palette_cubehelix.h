@@ -30,7 +30,7 @@ ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-namespace euphoria::core::palettes::cubehelix
+namespace eu::core::palettes::cubehelix
 {
     constexpr Rgbi
     con(unsigned char r, unsigned char g, unsigned char b)

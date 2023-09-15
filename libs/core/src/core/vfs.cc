@@ -12,7 +12,7 @@
 #include "core/stringutils.h"
 
 
-namespace euphoria::core::vfs
+namespace eu::core::vfs
 {
     ////////////////////////////////////////////////////////////////////////////////
 

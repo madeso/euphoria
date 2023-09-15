@@ -15,7 +15,7 @@
 #include <cmath>
 
 
-namespace euphoria::core
+namespace eu::core
 {
     Recti
     on_whole_image(const Image& image)

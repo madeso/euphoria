@@ -10,7 +10,7 @@ extern "C"
 }
 
 
-namespace euphoria::window
+namespace eu::window
 {
     struct SdlWindow
     {

@@ -5,7 +5,7 @@
 #include "assert/assert.h"
 #include "render/materialshader.h"
 
-namespace euphoria::render
+namespace eu::render
 {
     struct MaterialShaderCache
         : core::Cache<core::vfs::FilePath, MaterialShader, MaterialShaderCache>

@@ -7,7 +7,7 @@
 #include "core/stringbuilder.h"
 
 
-namespace euphoria::core
+namespace eu::core
 {
     Table<char>
     from_image_to_string_table(const Image& img, const std::vector<ImageMapAction>& map)

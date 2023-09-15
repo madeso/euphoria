@@ -1,11 +1,13 @@
 #pragma once
 
+// todo(Gustav): move logging to app layer and use sdl as log base, with fmt formatting instead
+
 #include "spdlog/spdlog.h"
 #include "spdlog/fmt/ostr.h"
 
 #include "undef_windows/undef_windows.h"
 
-namespace euphoria::log
+namespace eu::log
 {
 
 #define LOG_TRACE(...) spdlog::trace(__VA_ARGS__)
@@ -18,8 +20,8 @@ namespace euphoria::log
     void setup_logging(bool force_console);
 }
 
-#ifdef EUPHORIA_LOG_FORCE_CONSOLE
-#define EUPH_INIT_LOGGING() ::euphoria::log::setup_logging(EUPHORIA_LOG_FORCE_CONSOLE)
+#ifdef EU_LOG_FORCE_CONSOLE
+#define EU_INIT_LOGGING() ::eu::log::setup_logging(EU_LOG_FORCE_CONSOLE)
 #else
-#define EUPH_INIT_LOGGING() it seems you forgot to to enable logging in cmake with set_win32_defines
+#define EU_INIT_LOGGING() it seems you forgot to to enable logging in cmake with set_win32_defines
 #endif

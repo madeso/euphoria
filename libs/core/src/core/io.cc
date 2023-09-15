@@ -6,7 +6,7 @@
 #include <fstream>
 
 
-namespace euphoria::core::io
+namespace eu::core::io
 {
     void
     write_chunk_to_file

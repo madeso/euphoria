@@ -3,7 +3,7 @@
 #include "gui/visitor.h"
 
 
-namespace euphoria::gui
+namespace eu::gui
 {
     PanelWidget::PanelWidget(gui::State* state)
         : Widget(state)

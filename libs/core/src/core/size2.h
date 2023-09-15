@@ -6,7 +6,7 @@
 #include "core/default_parse.h"
 
 
-namespace euphoria::core
+namespace eu::core
 {
     struct size2f
     {
@@ -93,5 +93,5 @@ namespace euphoria::core
     std::string to_string(const size2i& r);
 }
 
-ADD_DEFAULT_FORMATTER(euphoria::core::size2f, std::string, euphoria::core::to_string);
-ADD_DEFAULT_FORMATTER(euphoria::core::size2i, std::string, euphoria::core::to_string);
+ADD_DEFAULT_FORMATTER(eu::core::size2f, std::string, eu::core::to_string);
+ADD_DEFAULT_FORMATTER(eu::core::size2i, std::string, eu::core::to_string);

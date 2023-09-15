@@ -6,25 +6,25 @@
 #include "render/instance.h"
 #include "render/light.h"
 
-namespace euphoria::core
+namespace eu::core
 {
     struct Camera3;
     struct CompiledCamera3;
     struct Viewport;
 }
 
-namespace euphoria::core::vfs
+namespace eu::core::vfs
 {
     struct FileSystem;
 }
 
-namespace euphoria::render
+namespace eu::render
 {
     struct MaterialShader;
     struct ShaderUniform;
 }
 
-namespace euphoria::render
+namespace eu::render
 {
     struct World
     {

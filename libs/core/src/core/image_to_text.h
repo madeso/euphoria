@@ -9,7 +9,7 @@
 #include "core/imagefilters.h"
 
 
-namespace euphoria::core
+namespace eu::core
 {
     struct Image;
 

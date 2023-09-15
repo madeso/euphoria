@@ -8,7 +8,7 @@
 #include "core/random.h"
 #include "core/cint.h"
 
-namespace euphoria::core
+namespace eu::core
 {
     template <typename T>
     struct Shufflebag

@@ -8,7 +8,7 @@
 #include "gui/skin.h"
 
 
-namespace euphoria::gui
+namespace eu::gui
 {
     Root::Root(const core::size2f& s)
         : size(s)
@@ -28,7 +28,7 @@ namespace euphoria::gui
         render::TextureCache* cache
     )
     {
-        const bool result = euphoria::gui::load_gui(this, fs, font, path, cache);
+        const bool result = eu::gui::load_gui(this, fs, font, path, cache);
 
         if(result)
         {

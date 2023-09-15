@@ -6,7 +6,7 @@
 #include "core/image_canvas.h"
 
 
-using namespace euphoria::core;
+using namespace eu::core;
 
 
 int

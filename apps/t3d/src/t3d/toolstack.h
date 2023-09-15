@@ -3,7 +3,7 @@
 #include <memory>
 
 
-namespace euphoria::t3d
+namespace eu::t3d
 {
     struct Tool;
     struct tool_action;

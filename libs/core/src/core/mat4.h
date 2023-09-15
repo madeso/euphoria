@@ -8,7 +8,7 @@
 
 
 
-namespace euphoria::core
+namespace eu::core
 {
     struct mat4f
     {
@@ -126,4 +126,4 @@ namespace euphoria::core
     vec4f operator*(const mat4f& lhs, const vec4f& rhs);
 }
 
-ADD_DEFAULT_FORMATTER(euphoria::core::mat4f, std::string, euphoria::core::to_string);
+ADD_DEFAULT_FORMATTER(eu::core::mat4f, std::string, eu::core::to_string);

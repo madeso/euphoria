@@ -13,7 +13,7 @@
 #include "gaf_world.h"
 #include "gaf_rapidjson_world.h"
 
-namespace euphoria::runner
+namespace eu::runner
 {
     void
     load_world

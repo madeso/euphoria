@@ -3,8 +3,8 @@
 #include "tests/utils.h"
 #include "tests/vectorequals.h"
 
-using namespace euphoria::core;
-using namespace euphoria::tests;
+using namespace eu::core;
+using namespace eu::tests;
 
 
 namespace
@@ -16,7 +16,7 @@ namespace
         const std::vector<int>& rhs
     )
     {
-        return euphoria::tests::is_vector_equal
+        return eu::tests::is_vector_equal
         (
             lhs,
             rhs,

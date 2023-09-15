@@ -9,7 +9,7 @@
 #include "core/easing.h"
 
 
-namespace euphoria::core
+namespace eu::core
 {
     struct UnitRay3f;
     struct Camera3;
@@ -124,4 +124,4 @@ namespace euphoria::core
     };
 }
 
-ADD_DEFAULT_FORMATTER(euphoria::core::detail::CameraFrame, std::string, euphoria::core::detail::to_string);
+ADD_DEFAULT_FORMATTER(eu::core::detail::CameraFrame, std::string, eu::core::detail::to_string);

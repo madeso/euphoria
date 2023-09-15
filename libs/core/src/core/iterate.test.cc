@@ -5,7 +5,7 @@
 #include "catch.hpp"
 
 
-namespace euco = euphoria::core;
+namespace euco = eu::core;
 
 template<typename T>
 int sum_iterator(T iterator)

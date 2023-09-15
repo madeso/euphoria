@@ -5,7 +5,7 @@
 #include <map>
 
 
-namespace euphoria::core
+namespace eu::core
 {
     //
     // Common polymorphic higher order functions

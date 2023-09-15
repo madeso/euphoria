@@ -8,7 +8,7 @@
 #include "core/angle.h"
 
 
-namespace euphoria::core
+namespace eu::core
 {
     struct CompiledCamera3
     {

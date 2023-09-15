@@ -20,7 +20,7 @@
 #include "core/vfs_path.h"
 
 
-namespace euphoria::core
+namespace eu::core
 {
     struct FontData
     {

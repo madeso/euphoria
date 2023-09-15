@@ -10,7 +10,7 @@
 #include <functional>
 #include <optional>
 
-namespace euphoria::core::generator
+namespace eu::core::generator
 {
     struct SmoothRule final : public Rule
     {

@@ -10,7 +10,7 @@
 #include "core/range.h"
 
 
-namespace euphoria::core
+namespace eu::core
 {
     // todo(Gustav): make all rng use the same simple api
     // and template the helper functions with user user facing non-templated functions can pick the rng that is needed

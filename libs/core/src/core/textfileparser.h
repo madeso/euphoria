@@ -3,7 +3,7 @@
 
 #include <memory>
 
-namespace euphoria::core
+namespace eu::core
 {
     namespace detail
     {

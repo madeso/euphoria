@@ -2,7 +2,7 @@
 
 #include "core/sol_forward.h"
 
-namespace euphoria::runner
+namespace eu::runner
 {
     void
     bind_math(LuaState* duk);

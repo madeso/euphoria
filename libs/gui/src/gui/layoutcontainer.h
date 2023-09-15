@@ -9,7 +9,7 @@
 
 
 
-namespace euphoria::gui
+namespace eu::gui
 {
     struct Layout;
 

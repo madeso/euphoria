@@ -7,7 +7,7 @@
 
 #include "assert/assert.h"
 
-namespace euphoria::core
+namespace eu::core
 {
     // bitmasks
     constexpr unsigned char bit_up = 1 << 0;

@@ -11,14 +11,14 @@
 
 namespace
 {
-    namespace core = euphoria::core;
+    namespace core = eu::core;
 
     core::ViewportDefinition
-    create_definition(const euphoria::render::ViewportHandler& handler)
+    create_definition(const eu::render::ViewportHandler& handler)
     {
         switch(handler.type)
         {
-        case euphoria::render::ViewportType::fit_with_black_bars:
+        case eu::render::ViewportType::fit_with_black_bars:
             return core::ViewportDefinition::from_fit_with_black_bars
             (
                 handler.virtual_width,
@@ -26,13 +26,13 @@ namespace
                 handler.window_width,
                 handler.window_height
             );
-        case euphoria::render::ViewportType::screen_pixel:
+        case eu::render::ViewportType::screen_pixel:
             return core::ViewportDefinition::from_screen_pixel
             (
                 handler.window_width,
                 handler.window_height
             );
-        case euphoria::render::ViewportType::extend:
+        case eu::render::ViewportType::extend:
             return core::ViewportDefinition::from_extend
             (
                 handler.virtual_width,
@@ -53,7 +53,7 @@ namespace
 
     void apply_viewport
     (
-        euphoria::render::ViewportHandler* handler,
+        eu::render::ViewportHandler* handler,
         const core::ViewportDefinition& vp,
         bool shaders_too
     )
@@ -84,13 +84,13 @@ namespace
             );
         }
 
-        auto viewport = euphoria::core::Viewport{vp.screen_rect};
-        euphoria::render::activate(viewport);
+        auto viewport = eu::core::Viewport{vp.screen_rect};
+        eu::render::activate(viewport);
     }
 }
 
 
-namespace euphoria::render
+namespace eu::render
 {
     ViewportHandler::ViewportHandler(render::Init* i, core::Rectf* s)
         : init(i)

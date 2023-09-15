@@ -2,7 +2,7 @@
 #include "core/argparse.h"
 #include "core/io.h"
 
-using namespace euphoria::core;
+using namespace eu::core;
 
 enum class Type
 {

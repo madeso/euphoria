@@ -7,7 +7,7 @@
 #include "log/log.h"
 #include "core/vfs_path.h"
 
-namespace euphoria::core::vfs
+namespace eu::core::vfs
 {
     void
     ReadRootImageGenerator::add

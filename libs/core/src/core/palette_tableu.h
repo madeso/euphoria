@@ -12,7 +12,7 @@ http://kb.tableausoftware.com/articles/knowledgebase/creating-custom-color-palet
 http://tableaufriction.blogspot.ro/2012/11/finally-you-can-use-tableau-data-colors.html
 */
 
-namespace euphoria::core::palettes::tableau
+namespace eu::core::palettes::tableau
 {
     constexpr Rgbi
     con(unsigned char r, unsigned char g, unsigned char b)

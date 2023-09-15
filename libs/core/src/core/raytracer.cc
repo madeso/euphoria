@@ -12,7 +12,7 @@
 #include <limits>
 #include <cmath>
 
-namespace euphoria::core::raytracer
+namespace eu::core::raytracer
 {
     Collision::Collision
     (

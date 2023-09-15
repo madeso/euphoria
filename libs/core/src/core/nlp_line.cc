@@ -3,7 +3,7 @@
 #include "core/stringutils.h"
 #include "core/stringmerger.h"
 
-namespace euphoria::core
+namespace eu::core
 {
 
 std::optional<TextLine>

@@ -2,7 +2,7 @@
 
 #include "catch.hpp"
 
-namespace euco = euphoria::core;
+namespace euco = eu::core;
 
 template <typename T>
 std::vector<T>

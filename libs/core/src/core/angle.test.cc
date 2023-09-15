@@ -5,11 +5,11 @@
 #include "tests/approx.h"
 
 // todo(Gustav): don't use horrible define to use out custom Approx
-#define APPROX ::euphoria::tests::custom::Approx<float>
+#define APPROX ::eu::tests::custom::Approx<float>
 
-using namespace euphoria::convert;
-using namespace euphoria::tests;
-namespace euco = euphoria::core;
+using namespace eu::convert;
+using namespace eu::tests;
+namespace euco = eu::core;
 
 TEST_CASE("angle-constructor_degrees", "[angle]")
 {

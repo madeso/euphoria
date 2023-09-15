@@ -7,7 +7,7 @@
 
 #include "core/stringutils.h"
 
-namespace euphoria::core
+namespace eu::core
 {
     namespace
     {

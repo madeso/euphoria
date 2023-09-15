@@ -4,7 +4,7 @@
 #include "assert/assert.h"
 #include "core/cint.h"
 
-namespace euphoria::render
+namespace eu::render
 {
     // vertex + uv + color
     constexpr int quad_cont = 10;

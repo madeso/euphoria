@@ -2,7 +2,7 @@
 
 
 
-namespace euphoria::core
+namespace eu::core
 {
     // todo(Gustav) replace with range
     template<typename T>

@@ -8,7 +8,7 @@
 #include "core/io.h"
 #include "log/log.h"
 
-using namespace euphoria::core;
+using namespace eu::core;
 
 
 bool print_char
@@ -103,7 +103,7 @@ enum class FontName
 };
 
 
-euphoria::core::LoadedFont
+eu::core::LoadedFont
 get_font
 (
     FontName font_name,

@@ -4,7 +4,7 @@
 
 
 
-namespace euphoria::core::dot
+namespace eu::core::dot
 {
 
 

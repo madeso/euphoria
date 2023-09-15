@@ -12,7 +12,7 @@
 #include "log/log.h"
 
 
-namespace euphoria::core
+namespace eu::core
 {
     vec2f
     Canvas::transform_position(const vec2f& v) const

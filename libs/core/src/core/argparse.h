@@ -14,7 +14,7 @@
 #include "core/result.h"
 
 
-namespace euphoria::core::argparse
+namespace eu::core::argparse
 {
     struct ParserBase;
 
@@ -81,9 +81,9 @@ namespace euphoria::core::argparse
     std::string to_string(const ParseResult& pr);
 }
 
-ADD_DEFAULT_FORMATTER(euphoria::core::argparse::ParseResult, std::string, euphoria::core::argparse::to_string);
+ADD_DEFAULT_FORMATTER(eu::core::argparse::ParseResult, std::string, eu::core::argparse::to_string);
 
-namespace euphoria::core::argparse
+namespace eu::core::argparse
 {
     bool
     operator==(const ParseResult& lhs, const ParseResult& rhs);
@@ -108,9 +108,9 @@ namespace euphoria::core::argparse
     std::string to_string(const NameAndArguments& arguments);
 }
 
-ADD_DEFAULT_FORMATTER(euphoria::core::argparse::NameAndArguments, std::string, euphoria::core::argparse::to_string);
+ADD_DEFAULT_FORMATTER(eu::core::argparse::NameAndArguments, std::string, eu::core::argparse::to_string);
 
-namespace euphoria::core::argparse
+namespace eu::core::argparse
 {
     /// "file" like api for reading arguments
     struct ArgumentReader

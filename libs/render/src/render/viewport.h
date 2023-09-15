@@ -1,12 +1,12 @@
 #pragma once
 
 
-namespace euphoria::core
+namespace eu::core
 {
     struct Viewport;
 }
 
-namespace euphoria::render
+namespace eu::render
 {
     /** Sets the gl viewport.
      */

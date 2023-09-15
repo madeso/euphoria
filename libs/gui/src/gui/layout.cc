@@ -12,7 +12,7 @@
 #include <algorithm>
 
 
-namespace euphoria::gui
+namespace eu::gui
 {
     Layout::Layout() = default;
 

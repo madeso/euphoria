@@ -14,10 +14,10 @@
 #include <algorithm>
 #include <optional>
 
-using namespace euphoria::core;
-using namespace euphoria::window;
+using namespace eu::core;
+using namespace eu::window;
 
-namespace euphoria::editor
+namespace eu::editor
 {
     bool
     is_close_to(float a, float b, float c = 3)

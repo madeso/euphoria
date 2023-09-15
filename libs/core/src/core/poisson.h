@@ -8,7 +8,7 @@
 #include "core/rect.h"
 #include "core/table.h"
 
-namespace euphoria::core
+namespace eu::core
 {
     struct Random;
 

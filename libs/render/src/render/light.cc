@@ -1,6 +1,6 @@
 #include "render/light.h"
 
-namespace euphoria::render
+namespace eu::render
 {
     Light::Light()
         : light_type(Type::directional)

@@ -13,10 +13,10 @@
 
 #include "catch.hpp"
 
-namespace vfs = euphoria::core::vfs;
-namespace euco = euphoria::core;
+namespace vfs = eu::core::vfs;
+namespace euco = eu::core;
 
-using namespace euphoria::tests;
+using namespace eu::tests;
 
 
 // 4x4 image without transperency

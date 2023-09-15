@@ -2,12 +2,12 @@
 
 #include "render/shaderattribute.h"
 
-namespace euphoria::render
+namespace eu::render
 {
     struct ShaderProgram;
 }
 
-namespace euphoria::render::attributes2d
+namespace eu::render::attributes2d
 {
     constexpr ShaderAttribute vertex = ShaderAttribute
     {

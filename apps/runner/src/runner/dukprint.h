@@ -2,7 +2,7 @@
 
 #include "core/sol_forward.h"
 
-namespace euphoria::runner
+namespace eu::runner
 {
     void
 	add_print(LuaState* duk);

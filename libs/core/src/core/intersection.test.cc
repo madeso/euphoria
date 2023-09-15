@@ -3,7 +3,7 @@
 #include "catch.hpp"
 #include "core/ray.h"
 
-using namespace euphoria::core;
+using namespace eu::core;
 
 
 #if 0

@@ -1,6 +1,6 @@
 #include "render/instance.h"
 
-namespace euphoria::render
+namespace eu::render
 {
     Instance::Instance()
         : position(core::zero3f)

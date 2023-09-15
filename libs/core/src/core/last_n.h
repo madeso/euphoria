@@ -5,7 +5,7 @@
 #include "assert/assert.h"
 #include "core/cint.h"
 
-namespace euphoria::core
+namespace eu::core
 {
     // stores the "last N" values of some type, where N is configurable
     template <typename T>

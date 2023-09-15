@@ -12,7 +12,7 @@
 #include "core/aabb.h"
 #include "core/vfs_path.h"
 
-namespace euphoria::core
+namespace eu::core
 {
     namespace vfs
     {

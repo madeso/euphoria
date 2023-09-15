@@ -6,7 +6,7 @@
 #include "log/log.h"
 #include "core/cint.h"
 
-namespace euphoria::core { namespace
+namespace eu::core { namespace
 {
     constexpr size_t indices_between_anchor_points  = 3;
     constexpr size_t indices_between_anchor_pointsi = 3;
@@ -310,7 +310,7 @@ namespace euphoria::core { namespace
         }
     };
 
-    PolyBezierWrapper<vec2f, BezierSegment2, unit2f, false> make_wrapper(euphoria::core::PolyBezier2* self)
+    PolyBezierWrapper<vec2f, BezierSegment2, unit2f, false> make_wrapper(eu::core::PolyBezier2* self)
     {
         return
         {
@@ -320,7 +320,7 @@ namespace euphoria::core { namespace
         };
     }
 
-    PolyBezierWrapper<vec2f, BezierSegment2, unit2f, true> make_wrapper(const euphoria::core::PolyBezier2* self)
+    PolyBezierWrapper<vec2f, BezierSegment2, unit2f, true> make_wrapper(const eu::core::PolyBezier2* self)
     {
         return
         {
@@ -332,7 +332,7 @@ namespace euphoria::core { namespace
 }}
 
 
-namespace euphoria::core
+namespace eu::core
 {
     PolyBezier2::PolyBezier2(const vec2f& center)
     {

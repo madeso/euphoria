@@ -4,7 +4,7 @@
 #include "core/vec2.h"
 #include "core/ray.h"
 
-namespace euphoria::core
+namespace eu::core
 {
     struct Viewport
     {

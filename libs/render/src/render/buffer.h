@@ -4,7 +4,7 @@
 #include "render/shaderattribute.h"
 
 
-namespace euphoria::render
+namespace eu::render
 {
     /** Stores vertices, uv, etc.
      * Represents a OpenGL Vertex Buffer Object (VBO).

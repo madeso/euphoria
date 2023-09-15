@@ -1,7 +1,7 @@
 #include "core/vec4.h"
 
 
-namespace euphoria::core
+namespace eu::core
 {
     vec4f::vec4f(float a)
         : x(a)

@@ -9,7 +9,7 @@
 
 
 
-namespace euphoria::core
+namespace eu::core
 {
     struct LoadedFont;
 

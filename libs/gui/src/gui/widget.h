@@ -7,18 +7,18 @@
 #include "gui/layoutdata.h"
 
 
-namespace euphoria::render
+namespace eu::render
 {
     struct SpriteRenderer;
 }
 
-namespace euphoria::gui
+namespace eu::gui
 {
     struct State;
     struct Visitor;
 }
 
-namespace euphoria::gui
+namespace eu::gui
 {
     struct Widget
     {

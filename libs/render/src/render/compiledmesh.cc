@@ -20,7 +20,7 @@
 #include "render/texture.h"
 #include "render/actor.h"
 
-namespace euphoria::render
+namespace eu::render
 {
     CompiledMeshMaterial::CompiledMeshMaterial()
         : ambient(core::NamedColor::white)

@@ -2,7 +2,7 @@
 #include "render/font.h"
 
 
-namespace euphoria::gui
+namespace eu::gui
 {
     Skin::~Skin() = default;
 }

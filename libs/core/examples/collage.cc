@@ -15,7 +15,7 @@
 // todo(Gustav): move all logic to collage.cc/collage.h
 
 
-using namespace euphoria::core;
+using namespace eu::core;
 
 
 std::vector<Image>

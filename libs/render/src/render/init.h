@@ -4,7 +4,7 @@
 #include "core/mat4.h"
 #include "core/rgb.h"
 
-namespace euphoria::render
+namespace eu::render
 {
     using LoaderFunction = void* (*)(const char* name);
 

@@ -4,7 +4,7 @@
 
 #include "render/shader.h"
 
-namespace euphoria::render::attributes2d
+namespace eu::render::attributes2d
 {
     void add_attributes_to_shader(ShaderProgram* shader)
     {

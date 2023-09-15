@@ -63,9 +63,9 @@
 
 #include "RtMidi.h"
 
-using namespace euphoria::core;
-using namespace euphoria::window;
-using namespace euphoria::minsynth;
+using namespace eu::core;
+using namespace eu::window;
+using namespace eu::minsynth;
 
 
 struct ApplicationBase
@@ -200,7 +200,7 @@ struct ApplicationBase
 };
 
 
-struct MidiInputNode : public euphoria::minsynth::MidiInNode
+struct MidiInputNode : public eu::minsynth::MidiInNode
 {
     ToneTaker* tones = nullptr;
 
@@ -533,7 +533,7 @@ public:
 int
 main(int argc, char** argv)
 {
-    EUPH_INIT_LOGGING();
+    EU_INIT_LOGGING();
     Engine engine;
 
     if (const auto r = engine.setup(argparse::NameAndArguments::extract(argc, argv)); r != 0)
@@ -566,7 +566,7 @@ main(int argc, char** argv)
         last_time = current_time;
         current_time = SDL_GetPerformanceCounter();
 
-        const float dt = euphoria::core::c_u64_to_float(current_time - last_time) / euphoria::core::c_u64_to_float(SDL_GetPerformanceFrequency());
+        const float dt = eu::core::c_u64_to_float(current_time - last_time) / eu::core::c_u64_to_float(SDL_GetPerformanceFrequency());
 
         time += dt;
         app.current_time = time;

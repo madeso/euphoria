@@ -7,8 +7,8 @@
 #include <fstream>
 
 
-namespace tracery = euphoria::core::tracery;
-namespace argparse = euphoria::core::argparse;
+namespace tracery = eu::core::tracery;
+namespace argparse = eu::core::argparse;
 
 tracery::Result
 load_from_file(tracery::Grammar* grammar, const std::string& file)
@@ -29,13 +29,13 @@ load_from_file(tracery::Grammar* grammar, const std::string& file)
 int
 main(int argc, char* argv[])
 {
-    using namespace euphoria::core::argparse;
+    using namespace eu::core::argparse;
 
     std::string file;
     std::string rule = "#origin#";
     int count = 1;
 
-    auto parser = euphoria::core::argparse::Parser{"Tracery-like terminal interface."};
+    auto parser = eu::core::argparse::Parser{"Tracery-like terminal interface."};
     parser.add("file", &file).set_help("the tracery rule file");
     parser.add("--rule", &rule).set_help("the starting to expand from");
     parser.add("--count", &count).set_help("how many times to run the rule");
@@ -43,7 +43,7 @@ main(int argc, char* argv[])
     parser.on_complete([&]
     {
         tracery::Grammar grammar;
-        auto random = euphoria::core::Random{};
+        auto random = eu::core::Random{};
 
         grammar.register_english();
 

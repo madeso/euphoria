@@ -1,8 +1,8 @@
 #include "core/ui_text.h"
 #include "catch.hpp"
 
-namespace euco = euphoria::core;
-namespace textparser = euphoria::core::textparser;
+namespace euco = eu::core;
+namespace textparser = eu::core::textparser;
 
 TEST_CASE("textfileparser-test", "[textparser]")
 {

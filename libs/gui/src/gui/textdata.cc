@@ -6,7 +6,7 @@
 #include "render/font.h"
 
 
-namespace euphoria::gui
+namespace eu::gui
 {
     TextData::TextData()
         : font(nullptr)

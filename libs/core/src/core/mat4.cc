@@ -1,7 +1,7 @@
 #include "core/mat4.h"
 
 
-namespace euphoria::core
+namespace eu::core
 {
     float* mat4f::get_column_major() { return data; }
     const float* mat4f::get_column_major() const { return data; }

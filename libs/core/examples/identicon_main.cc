@@ -9,8 +9,8 @@
 #include "core/collage.h"
 #include "core/palette.h"
 
-using namespace euphoria;
-using namespace euphoria::core;
+using namespace eu;
+using namespace eu::core;
 
 
 enum class HashType
@@ -43,7 +43,7 @@ void run_main
     bool use_random,
     HashType type,
     bool collage,
-    const euphoria::core::Palette& palette
+    const eu::core::Palette& palette
 )
 {
     if(use_random==false && number_of_images > 1)
@@ -117,7 +117,7 @@ void run_sprator_collage
     int image_size,
     int number_of_images,
     int frames,
-    const euphoria::core::Palette& palette
+    const eu::core::Palette& palette
 )
 {
     core::Random random;
@@ -168,7 +168,7 @@ void run_sprator_collage
 int
 main(int argc, char* argv[])
 {
-    const auto palette = euphoria::core::Palette
+    const auto palette = eu::core::Palette
     {
         "",
         std::array

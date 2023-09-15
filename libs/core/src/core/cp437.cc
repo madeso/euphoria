@@ -30,7 +30,7 @@ namespace
     };
 }
 
-namespace euphoria::core
+namespace eu::core
 {
     std::string_view
     get_cp437(int c)

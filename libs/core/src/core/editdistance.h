@@ -1,7 +1,7 @@
 #pragma once
 
 
-namespace euphoria::core
+namespace eu::core
 {
     // todo(Gustav): replace with one single algorithm
 

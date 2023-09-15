@@ -1,6 +1,6 @@
 #include "gui/layoutdata.h"
 
-namespace euphoria::gui
+namespace eu::gui
 {
 }
 

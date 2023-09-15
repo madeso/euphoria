@@ -14,8 +14,8 @@
 #include "core/palette_tableu.h"
 #include "core/poisson.h"
 
-using namespace euphoria::core;
-namespace euco = euphoria::core;
+using namespace eu::core;
+namespace euco = eu::core;
 
 float
 i2f(int i)
@@ -45,7 +45,7 @@ enum class PointGeneration
 
 vec2f abs(const vec2f& a)
 {
-    return {euphoria::core::abs(a.x), euphoria::core::abs(a.y)};
+    return {eu::core::abs(a.x), eu::core::abs(a.y)};
 }
 
 float euclidian_distance(const vec2f& lhs, const vec2f& rhs)
@@ -145,7 +145,7 @@ main(int argc, char* argv[])
                 }
                 else
                 {
-                    return euphoria::core::abs(crazy_distance - dist);
+                    return eu::core::abs(crazy_distance - dist);
                 }
             }
         }
