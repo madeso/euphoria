@@ -1,0 +1,178 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1core_1_1MemoryChunk" kind="struct" language="C++" prot="public">
+    <compoundname>eu::core::MemoryChunk</compoundname>
+    <includes refid="memorychunk_8h" local="no">memorychunk.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="structeu_1_1core_1_1MemoryChunk_1a0a78897f1294b6ab1e24285712fe078a" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; char[]&gt;</type>
+        <definition>std::unique_ptr&lt;char[]&gt; eu::core::MemoryChunk::data</definition>
+        <argsstring></argsstring>
+        <name>data</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/memorychunk.h" line="22" column="25" bodyfile="libs/core/src/core/memorychunk.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1MemoryChunk_1a45c5f8040dc06fcc77b928dc508b36fd" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int eu::core::MemoryChunk::size</definition>
+        <argsstring></argsstring>
+        <name>size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/memorychunk.h" line="23" column="13" bodyfile="libs/core/src/core/memorychunk.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1MemoryChunk_1a2e8a1193286c3ea76a21c478acf7a5f2" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="structeu_1_1core_1_1MemoryChunk" kindref="compound">MemoryChunk</ref> &gt;</type>
+        <definition>std::shared_ptr&lt; MemoryChunk &gt; eu::core::MemoryChunk::allocate</definition>
+        <argsstring>(int size)</argsstring>
+        <name>allocate</name>
+        <param>
+          <type>int</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/memorychunk.h" line="10" column="33" bodyfile="libs/core/src/core/memorychunk.cc" bodystart="40" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1MemoryChunk_1a2321c6f1a4a94009869ea030085d8d5b" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="structeu_1_1core_1_1MemoryChunk" kindref="compound">MemoryChunk</ref> &gt;</type>
+        <definition>std::shared_ptr&lt; MemoryChunk &gt; eu::core::MemoryChunk::create_null</definition>
+        <argsstring>()</argsstring>
+        <name>create_null</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/memorychunk.h" line="11" column="33" bodyfile="libs/core/src/core/memorychunk.cc" bodystart="47" bodyend="51"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1MemoryChunk_1aac5c5ac6f560c2f2050e176a8c7650fa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>char *</type>
+        <definition>char * eu::core::MemoryChunk::get_data</definition>
+        <argsstring>()</argsstring>
+        <name>get_data</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/memorychunk.h" line="13" column="15" bodyfile="libs/core/src/core/memorychunk.cc" bodystart="12" bodyend="15"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1MemoryChunk_1a24f2e27bb8e942c5df118b14557ba908" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char * eu::core::MemoryChunk::get_data</definition>
+        <argsstring>() const</argsstring>
+        <name>get_data</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/memorychunk.h" line="15" column="21" bodyfile="libs/core/src/core/memorychunk.cc" bodystart="18" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1MemoryChunk_1a076c6e0d30f56a384b07390f019fe9a6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int eu::core::MemoryChunk::get_size</definition>
+        <argsstring>() const</argsstring>
+        <name>get_size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/memorychunk.h" line="16" column="14" bodyfile="libs/core/src/core/memorychunk.cc" bodystart="24" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1MemoryChunk_1a7ad33c810aea63c7e8b6f535457af080" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>char</type>
+        <definition>char eu::core::MemoryChunk::operator[]</definition>
+        <argsstring>(int index) const</argsstring>
+        <name>operator[]</name>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/memorychunk.h" line="18" column="14" bodyfile="libs/core/src/core/memorychunk.cc" bodystart="29" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1MemoryChunk_1ab474342c409b20e6f25eec08c8afb7cb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>char &amp;</type>
+        <definition>char &amp; eu::core::MemoryChunk::operator[]</definition>
+        <argsstring>(int index)</argsstring>
+        <name>operator[]</name>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/memorychunk.h" line="19" column="14" bodyfile="libs/core/src/core/memorychunk.cc" bodystart="34" bodyend="37"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1MemoryChunk_1a5f62063f2d132dd8c8c8949cbdd908b9" prot="private" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::core::MemoryChunk::MemoryChunk</definition>
+        <argsstring>(int the_size)</argsstring>
+        <name>MemoryChunk</name>
+        <param>
+          <type>int</type>
+          <declname>the_size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/memorychunk.h" line="25" column="18" bodyfile="libs/core/src/core/memorychunk.cc" bodystart="53" bodyend="57"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/memorychunk.h" line="8" column="5" bodyfile="libs/core/src/core/memorychunk.h" bodystart="9" bodyend="26"/>
+    <listofallmembers>
+      <member refid="structeu_1_1core_1_1MemoryChunk_1a2e8a1193286c3ea76a21c478acf7a5f2" prot="public" virt="non-virtual"><scope>eu::core::MemoryChunk</scope><name>allocate</name></member>
+      <member refid="structeu_1_1core_1_1MemoryChunk_1a2321c6f1a4a94009869ea030085d8d5b" prot="public" virt="non-virtual"><scope>eu::core::MemoryChunk</scope><name>create_null</name></member>
+      <member refid="structeu_1_1core_1_1MemoryChunk_1a0a78897f1294b6ab1e24285712fe078a" prot="private" virt="non-virtual"><scope>eu::core::MemoryChunk</scope><name>data</name></member>
+      <member refid="structeu_1_1core_1_1MemoryChunk_1aac5c5ac6f560c2f2050e176a8c7650fa" prot="public" virt="non-virtual"><scope>eu::core::MemoryChunk</scope><name>get_data</name></member>
+      <member refid="structeu_1_1core_1_1MemoryChunk_1a24f2e27bb8e942c5df118b14557ba908" prot="public" virt="non-virtual"><scope>eu::core::MemoryChunk</scope><name>get_data</name></member>
+      <member refid="structeu_1_1core_1_1MemoryChunk_1a076c6e0d30f56a384b07390f019fe9a6" prot="public" virt="non-virtual"><scope>eu::core::MemoryChunk</scope><name>get_size</name></member>
+      <member refid="structeu_1_1core_1_1MemoryChunk_1a5f62063f2d132dd8c8c8949cbdd908b9" prot="private" virt="non-virtual"><scope>eu::core::MemoryChunk</scope><name>MemoryChunk</name></member>
+      <member refid="structeu_1_1core_1_1MemoryChunk_1a7ad33c810aea63c7e8b6f535457af080" prot="public" virt="non-virtual"><scope>eu::core::MemoryChunk</scope><name>operator[]</name></member>
+      <member refid="structeu_1_1core_1_1MemoryChunk_1ab474342c409b20e6f25eec08c8afb7cb" prot="public" virt="non-virtual"><scope>eu::core::MemoryChunk</scope><name>operator[]</name></member>
+      <member refid="structeu_1_1core_1_1MemoryChunk_1a45c5f8040dc06fcc77b928dc508b36fd" prot="private" virt="non-virtual"><scope>eu::core::MemoryChunk</scope><name>size</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

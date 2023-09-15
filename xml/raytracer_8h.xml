@@ -321,14 +321,14 @@
         </childnode>
       </node>
     </invincdepgraph>
-    <innerclass refid="structeuphoria_1_1core_1_1raytracer_1_1ScatterResult" prot="public">euphoria::core::raytracer::ScatterResult</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1raytracer_1_1Material" prot="public">euphoria::core::raytracer::Material</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1raytracer_1_1Collision" prot="public">euphoria::core::raytracer::Collision</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1raytracer_1_1Object" prot="public">euphoria::core::raytracer::Object</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1raytracer_1_1Scene" prot="public">euphoria::core::raytracer::Scene</innerclass>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core_1_1raytracer">euphoria::core::raytracer</innernamespace>
+    <innerclass refid="structeu_1_1core_1_1raytracer_1_1ScatterResult" prot="public">eu::core::raytracer::ScatterResult</innerclass>
+    <innerclass refid="structeu_1_1core_1_1raytracer_1_1Material" prot="public">eu::core::raytracer::Material</innerclass>
+    <innerclass refid="structeu_1_1core_1_1raytracer_1_1Collision" prot="public">eu::core::raytracer::Collision</innerclass>
+    <innerclass refid="structeu_1_1core_1_1raytracer_1_1Object" prot="public">eu::core::raytracer::Object</innerclass>
+    <innerclass refid="structeu_1_1core_1_1raytracer_1_1Scene" prot="public">eu::core::raytracer::Scene</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core_1_1raytracer">eu::core::raytracer</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

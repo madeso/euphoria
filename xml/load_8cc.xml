@@ -503,9 +503,9 @@
         </childnode>
       </node>
     </incdepgraph>
-    <innerclass refid="structeuphoria_1_1gui_1_1CommandButton" prot="public">euphoria::gui::CommandButton</innerclass>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1gui">euphoria::gui</innernamespace>
+    <innerclass refid="structeu_1_1gui_1_1CommandButton" prot="public">eu::gui::CommandButton</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1gui">eu::gui</innernamespace>
       <sectiondef kind="define">
       <memberdef kind="define" id="load_8cc_1ad7b26bc5946d377af0206876da86744f" prot="public" static="no">
         <name>FUN</name>

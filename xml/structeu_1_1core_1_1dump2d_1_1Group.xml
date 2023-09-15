@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1core_1_1dump2d_1_1Group" kind="struct" language="C++" prot="public">
+    <compoundname>eu::core::dump2d::Group</compoundname>
+    <basecompoundref refid="structeu_1_1core_1_1dump2d_1_1AddWrapper" prot="public" virt="non-virtual">eu::core::dump2d::AddWrapper&lt; Group &gt;</basecompoundref>
+    <includes refid="dump_8h" local="no">dump.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1core_1_1dump2d_1_1Group_1ae5a4f7bee94fc277703723b04b453f89" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structeu_1_1core_1_1dump2d_1_1Item" kindref="compound">Item</ref> &gt;</type>
+        <definition>std::vector&lt;Item&gt; eu::core::dump2d::Group::items</definition>
+        <argsstring></argsstring>
+        <name>items</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/dump.h" line="97" column="21" bodyfile="libs/core/src/core/dump.h" bodystart="97" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1dump2d_1_1Group_1a5fc7eba356496e9bb21547119518461e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1dump2d_1_1Group" kindref="compound">Group</ref> &amp;</type>
+        <definition>Group &amp; eu::core::dump2d::Group::add</definition>
+        <argsstring>(const Item &amp;item)</argsstring>
+        <name>add</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1dump2d_1_1Item" kindref="compound">Item</ref> &amp;</type>
+          <declname>item</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/dump.h" line="99" column="15" bodyfile="libs/core/src/core/dump.cc" bodystart="74" bodyend="78"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>eu::core::dump2d::Group</label>
+        <link refid="structeu_1_1core_1_1dump2d_1_1Group"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>eu::core::dump2d::AddWrapper&lt; Group &gt;</label>
+        <link refid="structeu_1_1core_1_1dump2d_1_1AddWrapper"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>eu::core::dump2d::Group</label>
+        <link refid="structeu_1_1core_1_1dump2d_1_1Group"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>eu::core::dump2d::AddWrapper&lt; Group &gt;</label>
+        <link refid="structeu_1_1core_1_1dump2d_1_1AddWrapper"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/core/src/core/dump.h" line="95" column="5" bodyfile="libs/core/src/core/dump.h" bodystart="96" bodyend="100"/>
+    <listofallmembers>
+      <member refid="structeu_1_1core_1_1dump2d_1_1Group_1a5fc7eba356496e9bb21547119518461e" prot="public" virt="non-virtual"><scope>eu::core::dump2d::Group</scope><name>add</name></member>
+      <member refid="structeu_1_1core_1_1dump2d_1_1Group_1ae5a4f7bee94fc277703723b04b453f89" prot="public" virt="non-virtual"><scope>eu::core::dump2d::Group</scope><name>items</name></member>
+      <member refid="structeu_1_1core_1_1dump2d_1_1AddWrapper_1ab357e4a045335ea588e3903ba8a26d44" prot="public" virt="non-virtual"><scope>eu::core::dump2d::Group</scope><name>operator&lt;&lt;</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

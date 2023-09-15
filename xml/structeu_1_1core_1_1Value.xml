@@ -1,0 +1,166 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1core_1_1Value" kind="struct" language="C++" prot="public">
+    <compoundname>eu::core::Value</compoundname>
+    <derivedcompoundref refid="structeu_1_1core_1_1FloatValue" prot="public" virt="non-virtual">eu::core::FloatValue</derivedcompoundref>
+    <derivedcompoundref refid="structeu_1_1core_1_1IntValue" prot="public" virt="non-virtual">eu::core::IntValue</derivedcompoundref>
+    <derivedcompoundref refid="structeu_1_1core_1_1MapValue" prot="public" virt="non-virtual">eu::core::MapValue</derivedcompoundref>
+    <derivedcompoundref refid="structeu_1_1core_1_1Vec3fValue" prot="public" virt="non-virtual">eu::core::Vec3fValue</derivedcompoundref>
+    <includes refid="propertytree_8h" local="no">propertytree.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1core_1_1Value_1ac26cdb96b2d1cc53e743b61c19e3a88e" prot="public" static="no" mutable="no">
+        <type>const <ref refid="namespaceeu_1_1core_1abcdd2bd7606ecbe4d64fe39aaea2be80" kindref="member">ValueType</ref></type>
+        <definition>const ValueType eu::core::Value::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/propertytree.h" line="21" column="25" bodyfile="libs/core/src/core/propertytree.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1Value_1ae8f0e5df9cf755a2435630606a27a8c9" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>eu::core::Value::Value</definition>
+        <argsstring>(ValueType vt)</argsstring>
+        <name>Value</name>
+        <param>
+          <type><ref refid="namespaceeu_1_1core_1abcdd2bd7606ecbe4d64fe39aaea2be80" kindref="member">ValueType</ref></type>
+          <declname>vt</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/propertytree.h" line="23" column="18" bodyfile="libs/core/src/core/propertytree.h" bodystart="23" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1Value_1a397aba32a2b5c3214fc69ac2c357faf2" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual eu::core::Value::~Value</definition>
+        <argsstring>()=default</argsstring>
+        <name>~Value</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/propertytree.h" line="24" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1Value_1ab1b4f159617e686d68acdcc3735f2b49" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::core::Value::Value</definition>
+        <argsstring>(const Value &amp;)=delete</argsstring>
+        <name>Value</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1Value" kindref="compound">Value</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/propertytree.h" line="26" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1Value_1a0e4b87c5a600ae57f6a48f306a2d0dc7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::core::Value::Value</definition>
+        <argsstring>(Value &amp;&amp;)=delete</argsstring>
+        <name>Value</name>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1Value" kindref="compound">Value</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/propertytree.h" line="27" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1Value_1a156858dc155cc7fc9fbe31a4d7b34429" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::Value::operator=</definition>
+        <argsstring>(const Value &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1Value" kindref="compound">Value</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/propertytree.h" line="28" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1Value_1a601194f363cf4b5e46bfae1934471a85" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::Value::operator=</definition>
+        <argsstring>(Value &amp;&amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1Value" kindref="compound">Value</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/propertytree.h" line="29" column="14"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="5">
+        <label>eu::core::Vec3fValue</label>
+        <link refid="structeu_1_1core_1_1Vec3fValue"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>eu::core::Value</label>
+        <link refid="structeu_1_1core_1_1Value"/>
+      </node>
+      <node id="4">
+        <label>eu::core::MapValue</label>
+        <link refid="structeu_1_1core_1_1MapValue"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>eu::core::FloatValue</label>
+        <link refid="structeu_1_1core_1_1FloatValue"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>eu::core::IntValue</label>
+        <link refid="structeu_1_1core_1_1IntValue"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="libs/core/src/core/propertytree.h" line="19" column="5" bodyfile="libs/core/src/core/propertytree.h" bodystart="20" bodyend="30"/>
+    <listofallmembers>
+      <member refid="structeu_1_1core_1_1Value_1a156858dc155cc7fc9fbe31a4d7b34429" prot="public" virt="non-virtual"><scope>eu::core::Value</scope><name>operator=</name></member>
+      <member refid="structeu_1_1core_1_1Value_1a601194f363cf4b5e46bfae1934471a85" prot="public" virt="non-virtual"><scope>eu::core::Value</scope><name>operator=</name></member>
+      <member refid="structeu_1_1core_1_1Value_1ac26cdb96b2d1cc53e743b61c19e3a88e" prot="public" virt="non-virtual"><scope>eu::core::Value</scope><name>type</name></member>
+      <member refid="structeu_1_1core_1_1Value_1ae8f0e5df9cf755a2435630606a27a8c9" prot="public" virt="non-virtual"><scope>eu::core::Value</scope><name>Value</name></member>
+      <member refid="structeu_1_1core_1_1Value_1ab1b4f159617e686d68acdcc3735f2b49" prot="public" virt="non-virtual"><scope>eu::core::Value</scope><name>Value</name></member>
+      <member refid="structeu_1_1core_1_1Value_1a0e4b87c5a600ae57f6a48f306a2d0dc7" prot="public" virt="non-virtual"><scope>eu::core::Value</scope><name>Value</name></member>
+      <member refid="structeu_1_1core_1_1Value_1a397aba32a2b5c3214fc69ac2c357faf2" prot="public" virt="virtual"><scope>eu::core::Value</scope><name>~Value</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

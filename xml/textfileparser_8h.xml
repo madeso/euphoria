@@ -61,12 +61,12 @@
         </childnode>
       </node>
     </invincdepgraph>
-    <innerclass refid="structeuphoria_1_1core_1_1detail_1_1Textfile" prot="public">euphoria::core::detail::Textfile</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1detail_1_1LocationInFile" prot="public">euphoria::core::detail::LocationInFile</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1TextfileParser" prot="public">euphoria::core::TextfileParser</innerclass>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core_1_1detail">euphoria::core::detail</innernamespace>
+    <innerclass refid="structeu_1_1core_1_1detail_1_1Textfile" prot="public">eu::core::detail::Textfile</innerclass>
+    <innerclass refid="structeu_1_1core_1_1detail_1_1LocationInFile" prot="public">eu::core::detail::LocationInFile</innerclass>
+    <innerclass refid="structeu_1_1core_1_1TextfileParser" prot="public">eu::core::TextfileParser</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core_1_1detail">eu::core::detail</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

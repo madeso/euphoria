@@ -90,11 +90,11 @@
         </childnode>
       </node>
     </invincdepgraph>
-    <innerclass refid="structeuphoria_1_1core_1_1Sortable" prot="public">euphoria::core::Sortable</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1SortAction" prot="public">euphoria::core::SortAction</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1SortBuilder" prot="public">euphoria::core::SortBuilder</innerclass>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
+    <innerclass refid="structeu_1_1core_1_1Sortable" prot="public">eu::core::Sortable</innerclass>
+    <innerclass refid="structeu_1_1core_1_1SortAction" prot="public">eu::core::SortAction</innerclass>
+    <innerclass refid="structeu_1_1core_1_1SortBuilder" prot="public">eu::core::SortBuilder</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

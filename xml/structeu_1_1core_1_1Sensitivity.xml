@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1core_1_1Sensitivity" kind="struct" language="C++" prot="public">
+    <compoundname>eu::core::Sensitivity</compoundname>
+    <includes refid="sensitivity_8h" local="no">sensitivity.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1core_1_1Sensitivity_1a8f5f1f8fc259aa6f1161edf9d6ceb37f" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float eu::core::Sensitivity::multiplier</definition>
+        <argsstring></argsstring>
+        <name>multiplier</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/sensitivity.h" line="7" column="15" bodyfile="libs/core/src/core/sensitivity.h" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1Sensitivity_1a94631acd632eeedddad320eadb0f567c" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool eu::core::Sensitivity::inverted</definition>
+        <argsstring></argsstring>
+        <name>inverted</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/sensitivity.h" line="8" column="14" bodyfile="libs/core/src/core/sensitivity.h" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1Sensitivity_1a5d93aea426d7f5ce87009995abcda87a" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::core::Sensitivity::Sensitivity</definition>
+        <argsstring>(float v=1.0f, bool i=false)</argsstring>
+        <name>Sensitivity</name>
+        <param>
+          <type>float</type>
+          <declname>v</declname>
+          <defval>1.0f</defval>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>i</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/sensitivity.h" line="10" column="18" bodyfile="libs/core/src/core/sensitivity.cc" bodystart="8" bodyend="11"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1Sensitivity_1a50e6f6a9a6bbdd4161b7ba90b08d8696" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool eu::core::Sensitivity::is_valid</definition>
+        <argsstring>() const</argsstring>
+        <name>is_valid</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/sensitivity.h" line="12" column="15" bodyfile="libs/core/src/core/sensitivity.cc" bodystart="15" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1Sensitivity_1a4b8a9e1699114f46d1e53ae7c19726e7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float eu::core::Sensitivity::get_multiplier_with_sign</definition>
+        <argsstring>() const</argsstring>
+        <name>get_multiplier_with_sign</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/sensitivity.h" line="13" column="16" bodyfile="libs/core/src/core/sensitivity.cc" bodystart="22" bodyend="25"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/sensitivity.h" line="5" column="5" bodyfile="libs/core/src/core/sensitivity.h" bodystart="6" bodyend="14"/>
+    <listofallmembers>
+      <member refid="structeu_1_1core_1_1Sensitivity_1a4b8a9e1699114f46d1e53ae7c19726e7" prot="public" virt="non-virtual"><scope>eu::core::Sensitivity</scope><name>get_multiplier_with_sign</name></member>
+      <member refid="structeu_1_1core_1_1Sensitivity_1a94631acd632eeedddad320eadb0f567c" prot="public" virt="non-virtual"><scope>eu::core::Sensitivity</scope><name>inverted</name></member>
+      <member refid="structeu_1_1core_1_1Sensitivity_1a50e6f6a9a6bbdd4161b7ba90b08d8696" prot="public" virt="non-virtual"><scope>eu::core::Sensitivity</scope><name>is_valid</name></member>
+      <member refid="structeu_1_1core_1_1Sensitivity_1a8f5f1f8fc259aa6f1161edf9d6ceb37f" prot="public" virt="non-virtual"><scope>eu::core::Sensitivity</scope><name>multiplier</name></member>
+      <member refid="structeu_1_1core_1_1Sensitivity_1a5d93aea426d7f5ce87009995abcda87a" prot="public" virt="non-virtual"><scope>eu::core::Sensitivity</scope><name>Sensitivity</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

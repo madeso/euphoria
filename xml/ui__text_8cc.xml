@@ -51,9 +51,9 @@
         <label>memory</label>
       </node>
     </incdepgraph>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core_1_1textparser">euphoria::core::textparser</innernamespace>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core_1_1textparser">eu::core::textparser</innernamespace>
       <sectiondef kind="var">
       <memberdef kind="variable" id="ui__text_8cc_1a9d2f62de9d7d3d60426eb932b6e84596" prot="public" static="no" mutable="no">
         <type>UiText *</type>

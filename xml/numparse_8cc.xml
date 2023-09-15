@@ -32,8 +32,8 @@
         <label>cstdlib</label>
       </node>
     </incdepgraph>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
       <sectiondef kind="define">
       <memberdef kind="define" id="numparse_8cc_1a07254478368edb4c4074b5d3b0a512d5" prot="public" static="no">
         <name>SPECIALIZE</name>

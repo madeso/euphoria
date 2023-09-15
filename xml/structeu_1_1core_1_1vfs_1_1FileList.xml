@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1core_1_1vfs_1_1FileList" kind="struct" language="C++" prot="public">
+    <compoundname>eu::core::vfs::FileList</compoundname>
+    <includes refid="vfs_8h" local="no">vfs.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1core_1_1vfs_1_1FileList_1a8d51a42214ac159166d8d58d7755150a" prot="public" static="no" mutable="no">
+        <type>std::map&lt; std::string, <ref refid="structeu_1_1core_1_1vfs_1_1ListedFile" kindref="compound">ListedFile</ref> &gt;</type>
+        <definition>std::map&lt;std::string, ListedFile&gt; eu::core::vfs::FileList::files</definition>
+        <argsstring></argsstring>
+        <name>files</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vfs.h" line="27" column="18" bodyfile="libs/core/src/core/vfs.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1vfs_1_1FileList_1a6b91fd0939d900a835721a7b2aabf9ee" prot="public" static="no" mutable="no">
+        <type>std::map&lt; std::string, <ref refid="structeu_1_1core_1_1vfs_1_1ListedFile" kindref="compound">ListedFile</ref> &gt;</type>
+        <definition>std::map&lt;std::string, ListedFile&gt; eu::core::vfs::FileList::folders</definition>
+        <argsstring></argsstring>
+        <name>folders</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vfs.h" line="28" column="18" bodyfile="libs/core/src/core/vfs.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1vfs_1_1FileList_1a8f06ede91f71bbe13d3d7d7ab31b987c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::vfs::FileList::add</definition>
+        <argsstring>(const ListedFile &amp;file)</argsstring>
+        <name>add</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1vfs_1_1ListedFile" kindref="compound">ListedFile</ref> &amp;</type>
+          <declname>file</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vfs.h" line="31" column="9" bodyfile="libs/core/src/core/vfs.cc" bodystart="32" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1vfs_1_1FileList_1aedf5972d4ef5d5137645106c0b4ee243" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::vfs::FileList::add</definition>
+        <argsstring>(const std::string &amp;n, bool b, bool f)</argsstring>
+        <name>add</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>n</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>b</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>f</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vfs.h" line="34" column="9" bodyfile="libs/core/src/core/vfs.cc" bodystart="44" bodyend="47"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/vfs.h" line="25" column="5" bodyfile="libs/core/src/core/vfs.h" bodystart="26" bodyend="35"/>
+    <listofallmembers>
+      <member refid="structeu_1_1core_1_1vfs_1_1FileList_1a8f06ede91f71bbe13d3d7d7ab31b987c" prot="public" virt="non-virtual"><scope>eu::core::vfs::FileList</scope><name>add</name></member>
+      <member refid="structeu_1_1core_1_1vfs_1_1FileList_1aedf5972d4ef5d5137645106c0b4ee243" prot="public" virt="non-virtual"><scope>eu::core::vfs::FileList</scope><name>add</name></member>
+      <member refid="structeu_1_1core_1_1vfs_1_1FileList_1a8d51a42214ac159166d8d58d7755150a" prot="public" virt="non-virtual"><scope>eu::core::vfs::FileList</scope><name>files</name></member>
+      <member refid="structeu_1_1core_1_1vfs_1_1FileList_1a6b91fd0939d900a835721a7b2aabf9ee" prot="public" virt="non-virtual"><scope>eu::core::vfs::FileList</scope><name>folders</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

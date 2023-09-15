@@ -39,12 +39,12 @@
         </childnode>
       </node>
     </invincdepgraph>
-    <innerclass refid="structeuphoria_1_1core_1_1Defines" prot="public">euphoria::core::Defines</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1TemplateErrorList" prot="public">euphoria::core::TemplateErrorList</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1CompiledTextTemplate" prot="public">euphoria::core::CompiledTextTemplate</innerclass>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core_1_1vfs">euphoria::core::vfs</innernamespace>
+    <innerclass refid="structeu_1_1core_1_1Defines" prot="public">eu::core::Defines</innerclass>
+    <innerclass refid="structeu_1_1core_1_1TemplateErrorList" prot="public">eu::core::TemplateErrorList</innerclass>
+    <innerclass refid="structeu_1_1core_1_1CompiledTextTemplate" prot="public">eu::core::CompiledTextTemplate</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core_1_1vfs">eu::core::vfs</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

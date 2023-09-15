@@ -1,0 +1,304 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1core_1_1StringMerger" kind="struct" language="C++" prot="public">
+    <compoundname>eu::core::StringMerger</compoundname>
+    <includes refid="stringmerger_8h" local="no">stringmerger.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1core_1_1StringMerger_1a84358196bde869450e0e3a4a069299d5" prot="public" static="no" mutable="no">
+        <type>std::string_view</type>
+        <definition>std::string_view eu::core::StringMerger::separator</definition>
+        <argsstring></argsstring>
+        <name>separator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/stringmerger.h" line="10" column="26" bodyfile="libs/core/src/core/stringmerger.h" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1StringMerger_1af925a97789dc9af7fc15cc5ac4a41b29" prot="public" static="no" mutable="no">
+        <type>std::string_view</type>
+        <definition>std::string_view eu::core::StringMerger::final_separator</definition>
+        <argsstring></argsstring>
+        <name>final_separator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/stringmerger.h" line="11" column="26" bodyfile="libs/core/src/core/stringmerger.h" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1StringMerger_1a5a11b5c255b517147e2f86aa8dda7911" prot="public" static="no" mutable="no">
+        <type>std::string_view</type>
+        <definition>std::string_view eu::core::StringMerger::empty</definition>
+        <argsstring></argsstring>
+        <name>empty</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/stringmerger.h" line="12" column="26" bodyfile="libs/core/src/core/stringmerger.h" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1StringMerger_1a8036765941bb87d7bdaf2a31964641d8" prot="public" static="no" mutable="no">
+        <type>std::string_view</type>
+        <definition>std::string_view eu::core::StringMerger::start</definition>
+        <argsstring></argsstring>
+        <name>start</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/stringmerger.h" line="13" column="26" bodyfile="libs/core/src/core/stringmerger.h" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1StringMerger_1a0c675c006008cbbfb9d31451db3f75d7" prot="public" static="no" mutable="no">
+        <type>std::string_view</type>
+        <definition>std::string_view eu::core::StringMerger::end</definition>
+        <argsstring></argsstring>
+        <name>end</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/stringmerger.h" line="14" column="26" bodyfile="libs/core/src/core/stringmerger.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1StringMerger_1ace4f82084a7c75f7eb9c3e671d8cb194" prot="public" static="no" mutable="no">
+        <type>std::string_view</type>
+        <definition>std::string_view eu::core::StringMerger::before_each</definition>
+        <argsstring></argsstring>
+        <name>before_each</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/stringmerger.h" line="15" column="26" bodyfile="libs/core/src/core/stringmerger.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1StringMerger_1a9e1a748dafa0b1ccf32b53b737eec56a" prot="public" static="no" mutable="no">
+        <type>std::string_view</type>
+        <definition>std::string_view eu::core::StringMerger::after_each</definition>
+        <argsstring></argsstring>
+        <name>after_each</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/stringmerger.h" line="16" column="26" bodyfile="libs/core/src/core/stringmerger.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1StringMerger_1afbd0860aaf2bd8c98f2b75c3c1a43256" prot="public" static="no" mutable="no">
+        <type>std::string_view</type>
+        <definition>std::string_view eu::core::StringMerger::final_after_each</definition>
+        <argsstring></argsstring>
+        <name>final_after_each</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/stringmerger.h" line="17" column="26" bodyfile="libs/core/src/core/stringmerger.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1StringMerger_1a38f7189b8edde4c6ccde10ee6dac9d31" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string eu::core::StringMerger::merge</definition>
+        <argsstring>(const std::vector&lt; std::string &gt; &amp;strings) const</argsstring>
+        <name>merge</name>
+        <param>
+          <type>const std::vector&lt; std::string &gt; &amp;</type>
+          <declname>strings</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/stringmerger.h" line="20" column="9" bodyfile="libs/core/src/core/stringmerger.cc" bodystart="11" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1StringMerger_1ae153dc9c19c3fb1f121beb8e853b407d" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>constexpr <ref refid="structeu_1_1core_1_1StringMerger" kindref="compound">StringMerger</ref> &amp;</type>
+        <definition>constexpr StringMerger&amp; eu::core::StringMerger::set_separator</definition>
+        <argsstring>(const std::string_view &amp;the_separator, const std::string_view &amp;the_final_separator)</argsstring>
+        <name>set_separator</name>
+        <param>
+          <type>const std::string_view &amp;</type>
+          <declname>the_separator</declname>
+        </param>
+        <param>
+          <type>const std::string_view &amp;</type>
+          <declname>the_final_separator</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/stringmerger.h" line="24" column="9" bodyfile="libs/core/src/core/stringmerger.h" bodystart="24" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1StringMerger_1abf93f37aa4d4327940ef82d656a0d1c2" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>constexpr <ref refid="structeu_1_1core_1_1StringMerger" kindref="compound">StringMerger</ref> &amp;</type>
+        <definition>constexpr StringMerger&amp; eu::core::StringMerger::set_separator</definition>
+        <argsstring>(const std::string_view &amp;both)</argsstring>
+        <name>set_separator</name>
+        <param>
+          <type>const std::string_view &amp;</type>
+          <declname>both</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/stringmerger.h" line="32" column="9" bodyfile="libs/core/src/core/stringmerger.h" bodystart="32" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1StringMerger_1a02f52dd0d7659e399fa1854bcc2b7495" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>constexpr <ref refid="structeu_1_1core_1_1StringMerger" kindref="compound">StringMerger</ref> &amp;</type>
+        <definition>constexpr StringMerger&amp; eu::core::StringMerger::set_empty</definition>
+        <argsstring>(const std::string_view &amp;v)</argsstring>
+        <name>set_empty</name>
+        <param>
+          <type>const std::string_view &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/stringmerger.h" line="40" column="9" bodyfile="libs/core/src/core/stringmerger.h" bodystart="40" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1StringMerger_1af3d1481f40c8791b752f0132f116c6d6" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>constexpr <ref refid="structeu_1_1core_1_1StringMerger" kindref="compound">StringMerger</ref> &amp;</type>
+        <definition>constexpr StringMerger&amp; eu::core::StringMerger::set_start_and_end</definition>
+        <argsstring>(const std::string_view &amp;both, const std::string_view &amp;the_end)</argsstring>
+        <name>set_start_and_end</name>
+        <param>
+          <type>const std::string_view &amp;</type>
+          <declname>both</declname>
+        </param>
+        <param>
+          <type>const std::string_view &amp;</type>
+          <declname>the_end</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/stringmerger.h" line="47" column="9" bodyfile="libs/core/src/core/stringmerger.h" bodystart="47" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1StringMerger_1ae6e231e3f36d27134d9f5d8e429ad092" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>constexpr <ref refid="structeu_1_1core_1_1StringMerger" kindref="compound">StringMerger</ref> &amp;</type>
+        <definition>constexpr StringMerger&amp; eu::core::StringMerger::set_start_and_end</definition>
+        <argsstring>(const std::string_view &amp;v)</argsstring>
+        <name>set_start_and_end</name>
+        <param>
+          <type>const std::string_view &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/stringmerger.h" line="55" column="9" bodyfile="libs/core/src/core/stringmerger.h" bodystart="55" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1StringMerger_1a073bf19fb40f29fe2ed0e304d9a28cc7" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>constexpr <ref refid="structeu_1_1core_1_1StringMerger" kindref="compound">StringMerger</ref> &amp;</type>
+        <definition>constexpr StringMerger&amp; eu::core::StringMerger::set_before_each</definition>
+        <argsstring>(const std::string_view &amp;v)</argsstring>
+        <name>set_before_each</name>
+        <param>
+          <type>const std::string_view &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/stringmerger.h" line="63" column="9" bodyfile="libs/core/src/core/stringmerger.h" bodystart="63" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1StringMerger_1afd84a64459ecfd12300ba1d4d9cf0022" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>constexpr <ref refid="structeu_1_1core_1_1StringMerger" kindref="compound">StringMerger</ref> &amp;</type>
+        <definition>constexpr StringMerger&amp; eu::core::StringMerger::set_after_each</definition>
+        <argsstring>(const std::string_view &amp;both)</argsstring>
+        <name>set_after_each</name>
+        <param>
+          <type>const std::string_view &amp;</type>
+          <declname>both</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/stringmerger.h" line="70" column="9" bodyfile="libs/core/src/core/stringmerger.h" bodystart="70" bodyend="75"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1StringMerger_1ab554a2f59e42f2eba83d9e43f35cfb0f" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>constexpr <ref refid="structeu_1_1core_1_1StringMerger" kindref="compound">StringMerger</ref> &amp;</type>
+        <definition>constexpr StringMerger&amp; eu::core::StringMerger::set_after_each</definition>
+        <argsstring>(const std::string_view &amp;the_after, const std::string_view &amp;the_final)</argsstring>
+        <name>set_after_each</name>
+        <param>
+          <type>const std::string_view &amp;</type>
+          <declname>the_after</declname>
+        </param>
+        <param>
+          <type>const std::string_view &amp;</type>
+          <declname>the_final</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/stringmerger.h" line="78" column="9" bodyfile="libs/core/src/core/stringmerger.h" bodystart="78" bodyend="83"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/stringmerger.h" line="8" column="5" bodyfile="libs/core/src/core/stringmerger.h" bodystart="9" bodyend="84"/>
+    <listofallmembers>
+      <member refid="structeu_1_1core_1_1StringMerger_1a9e1a748dafa0b1ccf32b53b737eec56a" prot="public" virt="non-virtual"><scope>eu::core::StringMerger</scope><name>after_each</name></member>
+      <member refid="structeu_1_1core_1_1StringMerger_1ace4f82084a7c75f7eb9c3e671d8cb194" prot="public" virt="non-virtual"><scope>eu::core::StringMerger</scope><name>before_each</name></member>
+      <member refid="structeu_1_1core_1_1StringMerger_1a5a11b5c255b517147e2f86aa8dda7911" prot="public" virt="non-virtual"><scope>eu::core::StringMerger</scope><name>empty</name></member>
+      <member refid="structeu_1_1core_1_1StringMerger_1a0c675c006008cbbfb9d31451db3f75d7" prot="public" virt="non-virtual"><scope>eu::core::StringMerger</scope><name>end</name></member>
+      <member refid="structeu_1_1core_1_1StringMerger_1afbd0860aaf2bd8c98f2b75c3c1a43256" prot="public" virt="non-virtual"><scope>eu::core::StringMerger</scope><name>final_after_each</name></member>
+      <member refid="structeu_1_1core_1_1StringMerger_1af925a97789dc9af7fc15cc5ac4a41b29" prot="public" virt="non-virtual"><scope>eu::core::StringMerger</scope><name>final_separator</name></member>
+      <member refid="structeu_1_1core_1_1StringMerger_1a38f7189b8edde4c6ccde10ee6dac9d31" prot="public" virt="non-virtual"><scope>eu::core::StringMerger</scope><name>merge</name></member>
+      <member refid="structeu_1_1core_1_1StringMerger_1a84358196bde869450e0e3a4a069299d5" prot="public" virt="non-virtual"><scope>eu::core::StringMerger</scope><name>separator</name></member>
+      <member refid="structeu_1_1core_1_1StringMerger_1afd84a64459ecfd12300ba1d4d9cf0022" prot="public" virt="non-virtual"><scope>eu::core::StringMerger</scope><name>set_after_each</name></member>
+      <member refid="structeu_1_1core_1_1StringMerger_1ab554a2f59e42f2eba83d9e43f35cfb0f" prot="public" virt="non-virtual"><scope>eu::core::StringMerger</scope><name>set_after_each</name></member>
+      <member refid="structeu_1_1core_1_1StringMerger_1a073bf19fb40f29fe2ed0e304d9a28cc7" prot="public" virt="non-virtual"><scope>eu::core::StringMerger</scope><name>set_before_each</name></member>
+      <member refid="structeu_1_1core_1_1StringMerger_1a02f52dd0d7659e399fa1854bcc2b7495" prot="public" virt="non-virtual"><scope>eu::core::StringMerger</scope><name>set_empty</name></member>
+      <member refid="structeu_1_1core_1_1StringMerger_1ae153dc9c19c3fb1f121beb8e853b407d" prot="public" virt="non-virtual"><scope>eu::core::StringMerger</scope><name>set_separator</name></member>
+      <member refid="structeu_1_1core_1_1StringMerger_1abf93f37aa4d4327940ef82d656a0d1c2" prot="public" virt="non-virtual"><scope>eu::core::StringMerger</scope><name>set_separator</name></member>
+      <member refid="structeu_1_1core_1_1StringMerger_1af3d1481f40c8791b752f0132f116c6d6" prot="public" virt="non-virtual"><scope>eu::core::StringMerger</scope><name>set_start_and_end</name></member>
+      <member refid="structeu_1_1core_1_1StringMerger_1ae6e231e3f36d27134d9f5d8e429ad092" prot="public" virt="non-virtual"><scope>eu::core::StringMerger</scope><name>set_start_and_end</name></member>
+      <member refid="structeu_1_1core_1_1StringMerger_1a8036765941bb87d7bdaf2a31964641d8" prot="public" virt="non-virtual"><scope>eu::core::StringMerger</scope><name>start</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

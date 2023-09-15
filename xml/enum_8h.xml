@@ -137,11 +137,11 @@
         <link refid="materialshader_8cc"/>
       </node>
     </invincdepgraph>
-    <innerclass refid="structeuphoria_1_1core_1_1EnumType" prot="public">euphoria::core::EnumType</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1EnumValue" prot="public">euphoria::core::EnumValue</innerclass>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core_1_1vfs">euphoria::core::vfs</innernamespace>
+    <innerclass refid="structeu_1_1core_1_1EnumType" prot="public">eu::core::EnumType</innerclass>
+    <innerclass refid="structeu_1_1core_1_1EnumValue" prot="public">eu::core::EnumValue</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core_1_1vfs">eu::core::vfs</innernamespace>
       <sectiondef kind="define">
       <memberdef kind="define" id="enum_8h_1ad1827b2996cbb3dbf983f1de6aae16f8" prot="public" static="no">
         <name>DECLARE_ENUM_TYPE</name>
@@ -176,7 +176,7 @@
         <param><defname>TYPE</defname></param>
         <param><defname>NAME</defname></param>
         <param><defname>STRING</defname></param>
-        <initializer>    const ::<ref refid="structeuphoria_1_1core_1_1EnumValue" kindref="compound">euphoria::core::EnumValue</ref> NAME = TYPE##_EnumType().to_enum(STRING)</initializer>
+        <initializer>    const ::<ref refid="structeu_1_1core_1_1EnumValue" kindref="compound">eu::core::EnumValue</ref> NAME = TYPE##_EnumType().to_enum(STRING)</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -201,19 +201,19 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="func">
-      <memberdef kind="function" id="enum_8h_1a138ec14b892fa82bb3a49505321cd46b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="enum_8h_1a66ef4abcb82ca4b9d06b2a4a833ff157" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>ADD_DEFAULT_FORMATTER</definition>
-        <argsstring>(euphoria::core::EnumValue, std::string, euphoria::core::to_string)</argsstring>
+        <argsstring>(eu::core::EnumValue, std::string, eu::core::to_string)</argsstring>
         <name>ADD_DEFAULT_FORMATTER</name>
         <param>
-          <type><ref refid="structeuphoria_1_1core_1_1EnumValue" kindref="compound">euphoria::core::EnumValue</ref></type>
+          <type><ref refid="structeu_1_1core_1_1EnumValue" kindref="compound">eu::core::EnumValue</ref></type>
         </param>
         <param>
           <type>std::string</type>
         </param>
         <param>
-          <type><ref refid="namespaceeuphoria_1_1core_1a8596fa3efb42bc0ad86b46183bc305d3" kindref="member">euphoria::core::to_string</ref></type>
+          <type><ref refid="namespaceeu_1_1core_1abb347a6e512d991e31badda3ce5fef91" kindref="member">eu::core::to_string</ref></type>
         </param>
         <briefdescription>
         </briefdescription>

@@ -1,0 +1,494 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1core_1_1ecs_1_1Registry" kind="struct" language="C++" prot="public">
+    <compoundname>eu::core::ecs::Registry</compoundname>
+    <includes refid="ecs_8h" local="no">ecs.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="structeu_1_1core_1_1ecs_1_1Registry_1a983e598091d287c9219ddd24af89d461" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="structeu_1_1core_1_1ecs_1_1RegistryPimpl" kindref="compound">RegistryPimpl</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;RegistryPimpl&gt; eu::core::ecs::Registry::pimpl</definition>
+        <argsstring></argsstring>
+        <name>pimpl</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ecs.h" line="188" column="25" bodyfile="libs/core/src/core/ecs.h" bodystart="188" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1ecs_1_1Registry_1a5956737124d12a7ad4239a89f659fb5f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::core::ecs::Registry::Registry</definition>
+        <argsstring>()</argsstring>
+        <name>Registry</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ecs.h" line="134" column="9" bodyfile="libs/core/src/core/ecs.cc" bodystart="225" bodyend="228"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1ecs_1_1Registry_1aaa82abfc09809980337831ad6b98841a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::core::ecs::Registry::~Registry</definition>
+        <argsstring>()</argsstring>
+        <name>~Registry</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ecs.h" line="135" column="9" bodyfile="libs/core/src/core/ecs.cc" bodystart="230" bodyend="233"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1ecs_1_1Registry_1aa46b95661fdca28f0724273d3853186e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::core::ecs::Registry::Registry</definition>
+        <argsstring>(const Registry &amp;)=delete</argsstring>
+        <name>Registry</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1ecs_1_1Registry" kindref="compound">Registry</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ecs.h" line="137" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1ecs_1_1Registry_1ac042ce43ec6ca0c1246ef9e3718d0100" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::core::ecs::Registry::Registry</definition>
+        <argsstring>(Registry &amp;&amp;)=delete</argsstring>
+        <name>Registry</name>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1ecs_1_1Registry" kindref="compound">Registry</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ecs.h" line="138" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1ecs_1_1Registry_1a62e9c92c4b9c3e6c5d31a22d35b2ed7f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1ecs_1_1Registry" kindref="compound">Registry</ref> &amp;</type>
+        <definition>Registry&amp; eu::core::ecs::Registry::operator=</definition>
+        <argsstring>(const Registry &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1ecs_1_1Registry" kindref="compound">Registry</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ecs.h" line="139" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1ecs_1_1Registry_1abe6a355b7e9545d22f6387957a983cff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1ecs_1_1Registry" kindref="compound">Registry</ref> &amp;</type>
+        <definition>Registry&amp; eu::core::ecs::Registry::operator=</definition>
+        <argsstring>(Registry &amp;&amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1ecs_1_1Registry" kindref="compound">Registry</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ecs.h" line="140" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1ecs_1_1Registry_1a4088ebf304311136f74599ca03c534e7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespaceeu_1_1core_1_1ecs_1a6bc928b478aa35fd3e9e98d901552f38" kindref="member">EntityHandle</ref></type>
+        <definition>EntityHandle eu::core::ecs::Registry::create</definition>
+        <argsstring>()</argsstring>
+        <name>create</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ecs.h" line="142" column="22" bodyfile="libs/core/src/core/ecs.cc" bodystart="241" bodyend="244"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1ecs_1_1Registry_1ab881bf5d298d215ca4fec0b64ce3d335" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::ecs::Registry::destroy</definition>
+        <argsstring>(EntityHandle entity)</argsstring>
+        <name>destroy</name>
+        <param>
+          <type><ref refid="namespaceeu_1_1core_1_1ecs_1a6bc928b478aa35fd3e9e98d901552f38" kindref="member">EntityHandle</ref></type>
+          <declname>entity</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ecs.h" line="143" column="14" bodyfile="libs/core/src/core/ecs.cc" bodystart="252" bodyend="255"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1ecs_1_1Registry_1a4b36c9b974bd4d764f97edf6c6bc7b99" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespaceeu_1_1core_1_1ecs_1a6be7e1ab08b2e3baa2712ecd23d9b1a6" kindref="member">ComponentIndex</ref></type>
+        <definition>ComponentIndex eu::core::ecs::Registry::set_component_array</definition>
+        <argsstring>(const std::string &amp;name, std::unique_ptr&lt; ComponentArrayBase &gt; &amp;&amp;components)</argsstring>
+        <name>set_component_array</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>std::unique_ptr&lt; <ref refid="structeu_1_1core_1_1ecs_1_1ComponentArrayBase" kindref="compound">ComponentArrayBase</ref> &gt; &amp;&amp;</type>
+          <declname>components</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ecs.h" line="144" column="24" bodyfile="libs/core/src/core/ecs.cc" bodystart="263" bodyend="266"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1ecs_1_1Registry_1a40609a9e54ecbc728d5e4630565088c3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="namespaceeu_1_1core_1_1ecs_1a6be7e1ab08b2e3baa2712ecd23d9b1a6" kindref="member">ComponentIndex</ref></type>
+        <definition>ComponentIndex eu::core::ecs::Registry::register_component</definition>
+        <argsstring>(const std::string &amp;name)</argsstring>
+        <name>register_component</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ecs.h" line="148" column="24" bodyfile="libs/core/src/core/ecs.h" bodystart="148" bodyend="151"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1ecs_1_1Registry_1a88da8fdf95356a0e0c13770b15fae951" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void eu::core::ecs::Registry::add_component</definition>
+        <argsstring>(EntityHandle entity, ComponentIndex comp_ind, T &amp;&amp;component)</argsstring>
+        <name>add_component</name>
+        <param>
+          <type><ref refid="namespaceeu_1_1core_1_1ecs_1a6bc928b478aa35fd3e9e98d901552f38" kindref="member">EntityHandle</ref></type>
+          <declname>entity</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceeu_1_1core_1_1ecs_1a6be7e1ab08b2e3baa2712ecd23d9b1a6" kindref="member">ComponentIndex</ref></type>
+          <declname>comp_ind</declname>
+        </param>
+        <param>
+          <type>T &amp;&amp;</type>
+          <declname>component</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ecs.h" line="155" column="14" bodyfile="libs/core/src/core/ecs.h" bodystart="155" bodyend="159"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1ecs_1_1Registry_1a9e354f45dbf84399a5a5e81118230041" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void eu::core::ecs::Registry::remove_component</definition>
+        <argsstring>(EntityHandle entity, ComponentIndex comp_ind)</argsstring>
+        <name>remove_component</name>
+        <param>
+          <type><ref refid="namespaceeu_1_1core_1_1ecs_1a6bc928b478aa35fd3e9e98d901552f38" kindref="member">EntityHandle</ref></type>
+          <declname>entity</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceeu_1_1core_1_1ecs_1a6be7e1ab08b2e3baa2712ecd23d9b1a6" kindref="member">ComponentIndex</ref></type>
+          <declname>comp_ind</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ecs.h" line="163" column="14" bodyfile="libs/core/src/core/ecs.h" bodystart="163" bodyend="167"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1ecs_1_1Registry_1aecf906102c5c37325b1c4acc272da571" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>T &amp;</type>
+        <definition>T&amp; eu::core::ecs::Registry::get_component</definition>
+        <argsstring>(EntityHandle entity, ComponentIndex comp_ind)</argsstring>
+        <name>get_component</name>
+        <param>
+          <type><ref refid="namespaceeu_1_1core_1_1ecs_1a6bc928b478aa35fd3e9e98d901552f38" kindref="member">EntityHandle</ref></type>
+          <declname>entity</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceeu_1_1core_1_1ecs_1a6be7e1ab08b2e3baa2712ecd23d9b1a6" kindref="member">ComponentIndex</ref></type>
+          <declname>comp_ind</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ecs.h" line="171" column="11" bodyfile="libs/core/src/core/ecs.h" bodystart="171" bodyend="174"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1ecs_1_1Registry_1aa335bba8e01a46328166e276892a4308" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>T *</type>
+        <definition>T* eu::core::ecs::Registry::get_component_or_null</definition>
+        <argsstring>(EntityHandle entity, ComponentIndex comp_ind)</argsstring>
+        <name>get_component_or_null</name>
+        <param>
+          <type><ref refid="namespaceeu_1_1core_1_1ecs_1a6bc928b478aa35fd3e9e98d901552f38" kindref="member">EntityHandle</ref></type>
+          <declname>entity</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceeu_1_1core_1_1ecs_1a6be7e1ab08b2e3baa2712ecd23d9b1a6" kindref="member">ComponentIndex</ref></type>
+          <declname>comp_ind</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ecs.h" line="177" column="11" bodyfile="libs/core/src/core/ecs.h" bodystart="177" bodyend="180"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1ecs_1_1Registry_1ad1222c1ced3cf85878d114a1b7cbf6db" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string eu::core::ecs::Registry::get_component_debug_name</definition>
+        <argsstring>(ComponentIndex c) const</argsstring>
+        <name>get_component_debug_name</name>
+        <param>
+          <type><ref refid="namespaceeu_1_1core_1_1ecs_1a6be7e1ab08b2e3baa2712ecd23d9b1a6" kindref="member">ComponentIndex</ref></type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ecs.h" line="182" column="22" bodyfile="libs/core/src/core/ecs.cc" bodystart="247" bodyend="250"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1ecs_1_1Registry_1a325932aeda9e78b66cc226ca15f278b0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool eu::core::ecs::Registry::has_component</definition>
+        <argsstring>(EntityHandle entity, ComponentIndex comp_ind) const</argsstring>
+        <name>has_component</name>
+        <param>
+          <type><ref refid="namespaceeu_1_1core_1_1ecs_1a6bc928b478aa35fd3e9e98d901552f38" kindref="member">EntityHandle</ref></type>
+          <declname>entity</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceeu_1_1core_1_1ecs_1a6be7e1ab08b2e3baa2712ecd23d9b1a6" kindref="member">ComponentIndex</ref></type>
+          <declname>comp_ind</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ecs.h" line="183" column="15" bodyfile="libs/core/src/core/ecs.cc" bodystart="258" bodyend="261"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1ecs_1_1Registry_1ab74f7d6c2c392ffe714c8bbd1f48e88a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; <ref refid="namespaceeu_1_1core_1_1ecs_1a6bc928b478aa35fd3e9e98d901552f38" kindref="member">EntityHandle</ref> &gt;</type>
+        <definition>std::vector&lt; EntityHandle &gt; eu::core::ecs::Registry::view</definition>
+        <argsstring>(const std::vector&lt; ComponentIndex &gt; &amp;matching_components) const</argsstring>
+        <name>view</name>
+        <param>
+          <type>const std::vector&lt; <ref refid="namespaceeu_1_1core_1_1ecs_1a6be7e1ab08b2e3baa2712ecd23d9b1a6" kindref="member">ComponentIndex</ref> &gt; &amp;</type>
+          <declname>matching_components</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ecs.h" line="184" column="22" bodyfile="libs/core/src/core/ecs.cc" bodystart="279" bodyend="282"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1ecs_1_1Registry_1ab0f7e1c3a7bddb25e61c13cac37d9c15" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int eu::core::ecs::Registry::get_number_of_active_entities</definition>
+        <argsstring>() const</argsstring>
+        <name>get_number_of_active_entities</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ecs.h" line="186" column="14" bodyfile="libs/core/src/core/ecs.cc" bodystart="236" bodyend="239"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1ecs_1_1Registry_1a8e61de9b67efbdd0964d73d279423052" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="structeu_1_1core_1_1ecs_1_1GenericComponentArray" kindref="compound">GenericComponentArray</ref>&lt; T &gt; *</type>
+        <definition>GenericComponentArray&lt;T&gt;* eu::core::ecs::Registry::get_components</definition>
+        <argsstring>(ComponentIndex comp_ind)</argsstring>
+        <name>get_components</name>
+        <param>
+          <type><ref refid="namespaceeu_1_1core_1_1ecs_1a6be7e1ab08b2e3baa2712ecd23d9b1a6" kindref="member">ComponentIndex</ref></type>
+          <declname>comp_ind</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ecs.h" line="191" column="32" bodyfile="libs/core/src/core/ecs.h" bodystart="191" bodyend="196"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1ecs_1_1Registry_1a0d685ef1b514a6ae0ffc56be41724c5a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1ecs_1_1ComponentArrayBase" kindref="compound">ComponentArrayBase</ref> *</type>
+        <definition>ComponentArrayBase * eu::core::ecs::Registry::get_components_base</definition>
+        <argsstring>(ComponentIndex comp_ind)</argsstring>
+        <name>get_components_base</name>
+        <param>
+          <type><ref refid="namespaceeu_1_1core_1_1ecs_1a6be7e1ab08b2e3baa2712ecd23d9b1a6" kindref="member">ComponentIndex</ref></type>
+          <declname>comp_ind</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ecs.h" line="198" column="28" bodyfile="libs/core/src/core/ecs.cc" bodystart="274" bodyend="277"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1ecs_1_1Registry_1a1bcda3c528094e7e02e9797f9e221d9c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::ecs::Registry::on_added_component</definition>
+        <argsstring>(EntityHandle entity, ComponentIndex comp_ind)</argsstring>
+        <name>on_added_component</name>
+        <param>
+          <type><ref refid="namespaceeu_1_1core_1_1ecs_1a6bc928b478aa35fd3e9e98d901552f38" kindref="member">EntityHandle</ref></type>
+          <declname>entity</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceeu_1_1core_1_1ecs_1a6be7e1ab08b2e3baa2712ecd23d9b1a6" kindref="member">ComponentIndex</ref></type>
+          <declname>comp_ind</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ecs.h" line="199" column="14" bodyfile="libs/core/src/core/ecs.cc" bodystart="285" bodyend="288"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1ecs_1_1Registry_1a44e0dbb538568c0b43afffcd7c6d16f8" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::ecs::Registry::on_removed_component</definition>
+        <argsstring>(EntityHandle entity, ComponentIndex comp_ind)</argsstring>
+        <name>on_removed_component</name>
+        <param>
+          <type><ref refid="namespaceeu_1_1core_1_1ecs_1a6bc928b478aa35fd3e9e98d901552f38" kindref="member">EntityHandle</ref></type>
+          <declname>entity</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceeu_1_1core_1_1ecs_1a6be7e1ab08b2e3baa2712ecd23d9b1a6" kindref="member">ComponentIndex</ref></type>
+          <declname>comp_ind</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ecs.h" line="200" column="14" bodyfile="libs/core/src/core/ecs.cc" bodystart="291" bodyend="294"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1ecs_1_1Registry_1a29068ff48377d179a7384ff7395fc4c4" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string eu::core::ecs::Registry::get_component_name</definition>
+        <argsstring>(ComponentIndex comp_ind) const</argsstring>
+        <name>get_component_name</name>
+        <param>
+          <type><ref refid="namespaceeu_1_1core_1_1ecs_1a6be7e1ab08b2e3baa2712ecd23d9b1a6" kindref="member">ComponentIndex</ref></type>
+          <declname>comp_ind</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ecs.h" line="202" column="22" bodyfile="libs/core/src/core/ecs.cc" bodystart="269" bodyend="272"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/ecs.h" line="132" column="5" bodyfile="libs/core/src/core/ecs.h" bodystart="133" bodyend="203"/>
+    <listofallmembers>
+      <member refid="structeu_1_1core_1_1ecs_1_1Registry_1a88da8fdf95356a0e0c13770b15fae951" prot="public" virt="non-virtual"><scope>eu::core::ecs::Registry</scope><name>add_component</name></member>
+      <member refid="structeu_1_1core_1_1ecs_1_1Registry_1a4088ebf304311136f74599ca03c534e7" prot="public" virt="non-virtual"><scope>eu::core::ecs::Registry</scope><name>create</name></member>
+      <member refid="structeu_1_1core_1_1ecs_1_1Registry_1ab881bf5d298d215ca4fec0b64ce3d335" prot="public" virt="non-virtual"><scope>eu::core::ecs::Registry</scope><name>destroy</name></member>
+      <member refid="structeu_1_1core_1_1ecs_1_1Registry_1aecf906102c5c37325b1c4acc272da571" prot="public" virt="non-virtual"><scope>eu::core::ecs::Registry</scope><name>get_component</name></member>
+      <member refid="structeu_1_1core_1_1ecs_1_1Registry_1ad1222c1ced3cf85878d114a1b7cbf6db" prot="public" virt="non-virtual"><scope>eu::core::ecs::Registry</scope><name>get_component_debug_name</name></member>
+      <member refid="structeu_1_1core_1_1ecs_1_1Registry_1a29068ff48377d179a7384ff7395fc4c4" prot="private" virt="non-virtual"><scope>eu::core::ecs::Registry</scope><name>get_component_name</name></member>
+      <member refid="structeu_1_1core_1_1ecs_1_1Registry_1aa335bba8e01a46328166e276892a4308" prot="public" virt="non-virtual"><scope>eu::core::ecs::Registry</scope><name>get_component_or_null</name></member>
+      <member refid="structeu_1_1core_1_1ecs_1_1Registry_1a8e61de9b67efbdd0964d73d279423052" prot="private" virt="non-virtual"><scope>eu::core::ecs::Registry</scope><name>get_components</name></member>
+      <member refid="structeu_1_1core_1_1ecs_1_1Registry_1a0d685ef1b514a6ae0ffc56be41724c5a" prot="private" virt="non-virtual"><scope>eu::core::ecs::Registry</scope><name>get_components_base</name></member>
+      <member refid="structeu_1_1core_1_1ecs_1_1Registry_1ab0f7e1c3a7bddb25e61c13cac37d9c15" prot="public" virt="non-virtual"><scope>eu::core::ecs::Registry</scope><name>get_number_of_active_entities</name></member>
+      <member refid="structeu_1_1core_1_1ecs_1_1Registry_1a325932aeda9e78b66cc226ca15f278b0" prot="public" virt="non-virtual"><scope>eu::core::ecs::Registry</scope><name>has_component</name></member>
+      <member refid="structeu_1_1core_1_1ecs_1_1Registry_1a1bcda3c528094e7e02e9797f9e221d9c" prot="private" virt="non-virtual"><scope>eu::core::ecs::Registry</scope><name>on_added_component</name></member>
+      <member refid="structeu_1_1core_1_1ecs_1_1Registry_1a44e0dbb538568c0b43afffcd7c6d16f8" prot="private" virt="non-virtual"><scope>eu::core::ecs::Registry</scope><name>on_removed_component</name></member>
+      <member refid="structeu_1_1core_1_1ecs_1_1Registry_1a62e9c92c4b9c3e6c5d31a22d35b2ed7f" prot="public" virt="non-virtual"><scope>eu::core::ecs::Registry</scope><name>operator=</name></member>
+      <member refid="structeu_1_1core_1_1ecs_1_1Registry_1abe6a355b7e9545d22f6387957a983cff" prot="public" virt="non-virtual"><scope>eu::core::ecs::Registry</scope><name>operator=</name></member>
+      <member refid="structeu_1_1core_1_1ecs_1_1Registry_1a983e598091d287c9219ddd24af89d461" prot="private" virt="non-virtual"><scope>eu::core::ecs::Registry</scope><name>pimpl</name></member>
+      <member refid="structeu_1_1core_1_1ecs_1_1Registry_1a40609a9e54ecbc728d5e4630565088c3" prot="public" virt="non-virtual"><scope>eu::core::ecs::Registry</scope><name>register_component</name></member>
+      <member refid="structeu_1_1core_1_1ecs_1_1Registry_1a5956737124d12a7ad4239a89f659fb5f" prot="public" virt="non-virtual"><scope>eu::core::ecs::Registry</scope><name>Registry</name></member>
+      <member refid="structeu_1_1core_1_1ecs_1_1Registry_1aa46b95661fdca28f0724273d3853186e" prot="public" virt="non-virtual"><scope>eu::core::ecs::Registry</scope><name>Registry</name></member>
+      <member refid="structeu_1_1core_1_1ecs_1_1Registry_1ac042ce43ec6ca0c1246ef9e3718d0100" prot="public" virt="non-virtual"><scope>eu::core::ecs::Registry</scope><name>Registry</name></member>
+      <member refid="structeu_1_1core_1_1ecs_1_1Registry_1a9e354f45dbf84399a5a5e81118230041" prot="public" virt="non-virtual"><scope>eu::core::ecs::Registry</scope><name>remove_component</name></member>
+      <member refid="structeu_1_1core_1_1ecs_1_1Registry_1a4b36c9b974bd4d764f97edf6c6bc7b99" prot="public" virt="non-virtual"><scope>eu::core::ecs::Registry</scope><name>set_component_array</name></member>
+      <member refid="structeu_1_1core_1_1ecs_1_1Registry_1ab74f7d6c2c392ffe714c8bbd1f48e88a" prot="public" virt="non-virtual"><scope>eu::core::ecs::Registry</scope><name>view</name></member>
+      <member refid="structeu_1_1core_1_1ecs_1_1Registry_1aaa82abfc09809980337831ad6b98841a" prot="public" virt="non-virtual"><scope>eu::core::ecs::Registry</scope><name>~Registry</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

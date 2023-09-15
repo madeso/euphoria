@@ -1,0 +1,155 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1core_1_1generator_1_1CellularAutomata" kind="struct" language="C++" prot="public">
+    <compoundname>eu::core::generator::CellularAutomata</compoundname>
+    <includes refid="generator__cell_8h" local="no">generator_cell.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1core_1_1generator_1_1CellularAutomata_1a07df88f7eb5cc867186104fbee303ff9" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1core_1_1generator_1_1Rules" kindref="compound">generator::Rules</ref> *</type>
+        <definition>generator::Rules* eu::core::generator::CellularAutomata::rules</definition>
+        <argsstring></argsstring>
+        <name>rules</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_cell.h" line="45" column="26" bodyfile="libs/core/src/core/generator_cell.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1generator_1_1CellularAutomata_1a4a185dd8ecb24f015306d45cd42a2fef" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeu_1_1core_1_1generator_1ad4ad4c70b509bec9ebe38bf29975b6eb" kindref="member">generator::World</ref> *</type>
+        <definition>generator::World* eu::core::generator::CellularAutomata::world</definition>
+        <argsstring></argsstring>
+        <name>world</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_cell.h" line="46" column="26" bodyfile="libs/core/src/core/generator_cell.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1generator_1_1CellularAutomata_1ac113a4c4a35bc98b825d008210973503" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1core_1_1Lrud" kindref="compound">Lrud</ref>&lt; <ref refid="namespaceeu_1_1core_1a1c50537347b75b64ae1b2ebc9f3f82b8" kindref="member">core::OutsideRule</ref> &gt;</type>
+        <definition>Lrud&lt;core::OutsideRule&gt; eu::core::generator::CellularAutomata::outside_rule</definition>
+        <argsstring></argsstring>
+        <name>outside_rule</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_cell.h" line="47" column="14" bodyfile="libs/core/src/core/generator_cell.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1generator_1_1CellularAutomata_1a44ceb7b0a56fff3ff07e7b14733c1d0f" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int eu::core::generator::CellularAutomata::iteration</definition>
+        <argsstring></argsstring>
+        <name>iteration</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_cell.h" line="48" column="13" bodyfile="libs/core/src/core/generator_cell.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1generator_1_1CellularAutomata_1acb028deb0543bfe908424f41755a17c5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::core::generator::CellularAutomata::CellularAutomata</definition>
+        <argsstring>(generator::Rules *r, generator::World *w, const Lrud&lt; core::OutsideRule &gt; &amp;fw)</argsstring>
+        <name>CellularAutomata</name>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1generator_1_1Rules" kindref="compound">generator::Rules</ref> *</type>
+          <declname>r</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceeu_1_1core_1_1generator_1ad4ad4c70b509bec9ebe38bf29975b6eb" kindref="member">generator::World</ref> *</type>
+          <declname>w</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1Lrud" kindref="compound">Lrud</ref>&lt; <ref refid="namespaceeu_1_1core_1a1c50537347b75b64ae1b2ebc9f3f82b8" kindref="member">core::OutsideRule</ref> &gt; &amp;</type>
+          <declname>fw</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_cell.h" line="50" column="9" bodyfile="libs/core/src/core/generator_cell.cc" bodystart="183" bodyend="193"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1generator_1_1CellularAutomata_1a26b25c043187380a0fef3c11481ca120" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::generator::CellularAutomata::update</definition>
+        <argsstring>()</argsstring>
+        <name>update</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_cell.h" line="52" column="14" bodyfile="libs/core/src/core/generator_cell.cc" bodystart="204" bodyend="208"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1generator_1_1CellularAutomata_1aec4d366b39dc8cda0ff71f86f3962a04" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool eu::core::generator::CellularAutomata::is_done</definition>
+        <argsstring>() const</argsstring>
+        <name>is_done</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_cell.h" line="54" column="15" bodyfile="libs/core/src/core/generator_cell.cc" bodystart="197" bodyend="200"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="3">
+        <label>eu::core::Table&lt; T &gt;</label>
+        <link refid="structeu_1_1core_1_1Table"/>
+      </node>
+      <node id="4">
+        <label>eu::core::Lrud&lt; core::OutsideRule &gt;</label>
+        <link refid="structeu_1_1core_1_1Lrud"/>
+      </node>
+      <node id="1">
+        <label>eu::core::generator::CellularAutomata</label>
+        <link refid="structeu_1_1core_1_1generator_1_1CellularAutomata"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>rules</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>world</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>outside_rule</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>eu::core::generator::Rules</label>
+        <link refid="structeu_1_1core_1_1generator_1_1Rules"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/core/src/core/generator_cell.h" line="43" column="5" bodyfile="libs/core/src/core/generator_cell.h" bodystart="44" bodyend="55"/>
+    <listofallmembers>
+      <member refid="structeu_1_1core_1_1generator_1_1CellularAutomata_1acb028deb0543bfe908424f41755a17c5" prot="public" virt="non-virtual"><scope>eu::core::generator::CellularAutomata</scope><name>CellularAutomata</name></member>
+      <member refid="structeu_1_1core_1_1generator_1_1CellularAutomata_1aec4d366b39dc8cda0ff71f86f3962a04" prot="public" virt="non-virtual"><scope>eu::core::generator::CellularAutomata</scope><name>is_done</name></member>
+      <member refid="structeu_1_1core_1_1generator_1_1CellularAutomata_1a44ceb7b0a56fff3ff07e7b14733c1d0f" prot="public" virt="non-virtual"><scope>eu::core::generator::CellularAutomata</scope><name>iteration</name></member>
+      <member refid="structeu_1_1core_1_1generator_1_1CellularAutomata_1ac113a4c4a35bc98b825d008210973503" prot="public" virt="non-virtual"><scope>eu::core::generator::CellularAutomata</scope><name>outside_rule</name></member>
+      <member refid="structeu_1_1core_1_1generator_1_1CellularAutomata_1a07df88f7eb5cc867186104fbee303ff9" prot="public" virt="non-virtual"><scope>eu::core::generator::CellularAutomata</scope><name>rules</name></member>
+      <member refid="structeu_1_1core_1_1generator_1_1CellularAutomata_1a26b25c043187380a0fef3c11481ca120" prot="public" virt="non-virtual"><scope>eu::core::generator::CellularAutomata</scope><name>update</name></member>
+      <member refid="structeu_1_1core_1_1generator_1_1CellularAutomata_1a4a185dd8ecb24f015306d45cd42a2fef" prot="public" virt="non-virtual"><scope>eu::core::generator::CellularAutomata</scope><name>world</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

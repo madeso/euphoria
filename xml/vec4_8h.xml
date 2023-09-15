@@ -537,23 +537,23 @@
         <link refid="materialshader_8cc"/>
       </node>
     </invincdepgraph>
-    <innerclass refid="structeuphoria_1_1core_1_1vec4f" prot="public">euphoria::core::vec4f</innerclass>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
+    <innerclass refid="structeu_1_1core_1_1vec4f" prot="public">eu::core::vec4f</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
       <sectiondef kind="func">
-      <memberdef kind="function" id="vec4_8h_1a6529e9c0069df799ea2906ba5aabd2bf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="vec4_8h_1a3a5e6c04c503fe712a726c3121d53003" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>ADD_DEFAULT_FORMATTER</definition>
-        <argsstring>(euphoria::core::vec4f, std::string, euphoria::core::to_string)</argsstring>
+        <argsstring>(eu::core::vec4f, std::string, eu::core::to_string)</argsstring>
         <name>ADD_DEFAULT_FORMATTER</name>
         <param>
-          <type><ref refid="structeuphoria_1_1core_1_1vec4f" kindref="compound">euphoria::core::vec4f</ref></type>
+          <type><ref refid="structeu_1_1core_1_1vec4f" kindref="compound">eu::core::vec4f</ref></type>
         </param>
         <param>
           <type>std::string</type>
         </param>
         <param>
-          <type><ref refid="namespaceeuphoria_1_1core_1a8596fa3efb42bc0ad86b46183bc305d3" kindref="member">euphoria::core::to_string</ref></type>
+          <type><ref refid="namespaceeu_1_1core_1abb347a6e512d991e31badda3ce5fef91" kindref="member">eu::core::to_string</ref></type>
         </param>
         <briefdescription>
         </briefdescription>

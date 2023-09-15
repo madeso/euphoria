@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1core_1_1ImageLoadResult" kind="struct" language="C++" prot="public">
+    <compoundname>eu::core::ImageLoadResult</compoundname>
+    <includes refid="image_8h" local="no">image.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1core_1_1ImageLoadResult_1a2b9c3fcc32be1f8512b01019fa7f8d8d" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1core_1_1Image" kindref="compound">core::Image</ref></type>
+        <definition>core::Image eu::core::ImageLoadResult::image</definition>
+        <argsstring></argsstring>
+        <name>image</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/image.h" line="133" column="21" bodyfile="libs/core/src/core/image.h" bodystart="133" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1ImageLoadResult_1a60ecc246ae2c5032bfb4cb7969581b73" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string eu::core::ImageLoadResult::error</definition>
+        <argsstring></argsstring>
+        <name>error</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/image.h" line="134" column="21" bodyfile="libs/core/src/core/image.h" bodystart="134" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>eu::core::ImageLoadResult</label>
+        <link refid="structeu_1_1core_1_1ImageLoadResult"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>image</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>eu::core::Image</label>
+        <link refid="structeu_1_1core_1_1Image"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/core/src/core/image.h" line="131" column="5" bodyfile="libs/core/src/core/image.h" bodystart="132" bodyend="135"/>
+    <listofallmembers>
+      <member refid="structeu_1_1core_1_1ImageLoadResult_1a60ecc246ae2c5032bfb4cb7969581b73" prot="public" virt="non-virtual"><scope>eu::core::ImageLoadResult</scope><name>error</name></member>
+      <member refid="structeu_1_1core_1_1ImageLoadResult_1a2b9c3fcc32be1f8512b01019fa7f8d8d" prot="public" virt="non-virtual"><scope>eu::core::ImageLoadResult</scope><name>image</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

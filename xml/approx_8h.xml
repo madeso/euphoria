@@ -52,11 +52,11 @@
         <link refid="approx__equal_8cc"/>
       </node>
     </invincdepgraph>
-    <innerclass refid="structeuphoria_1_1tests_1_1ApproxData" prot="public">euphoria::tests::ApproxData</innerclass>
-    <innerclass refid="structeuphoria_1_1tests_1_1custom_1_1Approx" prot="public">euphoria::tests::custom::Approx</innerclass>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1tests">euphoria::tests</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1tests_1_1custom">euphoria::tests::custom</innernamespace>
+    <innerclass refid="structeu_1_1tests_1_1ApproxData" prot="public">eu::tests::ApproxData</innerclass>
+    <innerclass refid="structeu_1_1tests_1_1custom_1_1Approx" prot="public">eu::tests::custom::Approx</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1tests">eu::tests</innernamespace>
+    <innernamespace refid="namespaceeu_1_1tests_1_1custom">eu::tests::custom</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

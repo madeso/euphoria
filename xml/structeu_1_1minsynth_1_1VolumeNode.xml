@@ -1,0 +1,120 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1minsynth_1_1VolumeNode" kind="struct" language="C++" prot="public">
+    <compoundname>eu::minsynth::VolumeNode</compoundname>
+    <basecompoundref refid="structeu_1_1minsynth_1_1Effect" prot="public" virt="non-virtual">eu::minsynth::Effect</basecompoundref>
+    <basecompoundref refid="structeu_1_1minsynth_1_1Node" prot="public" virt="non-virtual">eu::minsynth::Node</basecompoundref>
+    <includes refid="synth_8h" local="no">synth.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1minsynth_1_1VolumeNode_1ae2500749f420da5192158470744bc05a" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float eu::minsynth::VolumeNode::volume</definition>
+        <argsstring></argsstring>
+        <name>volume</name>
+        <initializer>= 0.5f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="330" column="15" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="330" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1minsynth_1_1VolumeNode_1a158da71ffcedbe60ab75bd026ff80e76" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>float</type>
+        <definition>float eu::minsynth::VolumeNode::on_wave</definition>
+        <argsstring>(float wave) override</argsstring>
+        <name>on_wave</name>
+        <reimplements refid="structeu_1_1minsynth_1_1Effect_1a6f734d54a303e6082c308bb1308cca09">on_wave</reimplements>
+        <param>
+          <type>float</type>
+          <declname>wave</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="332" column="15" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="806" bodyend="809"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>eu::minsynth::WaveOut</label>
+        <link refid="structeu_1_1minsynth_1_1WaveOut"/>
+      </node>
+      <node id="1">
+        <label>eu::minsynth::VolumeNode</label>
+        <link refid="structeu_1_1minsynth_1_1VolumeNode"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>eu::minsynth::Effect</label>
+        <link refid="structeu_1_1minsynth_1_1Effect"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>eu::minsynth::Node</label>
+        <link refid="structeu_1_1minsynth_1_1Node"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>eu::minsynth::WaveOut</label>
+        <link refid="structeu_1_1minsynth_1_1WaveOut"/>
+      </node>
+      <node id="1">
+        <label>eu::minsynth::VolumeNode</label>
+        <link refid="structeu_1_1minsynth_1_1VolumeNode"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>eu::minsynth::Effect</label>
+        <link refid="structeu_1_1minsynth_1_1Effect"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>in</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>eu::minsynth::Node</label>
+        <link refid="structeu_1_1minsynth_1_1Node"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/minsynth/src/minsynth/synth.h" line="326" column="5" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="329" bodyend="333"/>
+    <listofallmembers>
+      <member refid="structeu_1_1minsynth_1_1Effect_1a00e792d4f66a55001f6ef9db65b60deb" prot="public" virt="virtual"><scope>eu::minsynth::VolumeNode</scope><name>get_output</name></member>
+      <member refid="structeu_1_1minsynth_1_1Effect_1a3bd319846f04f6796139f554b18f7600" prot="public" virt="non-virtual"><scope>eu::minsynth::VolumeNode</scope><name>in</name></member>
+      <member refid="structeu_1_1minsynth_1_1Node_1a002bc28d784af70c6fb70c52b03a8997" prot="public" virt="non-virtual"><scope>eu::minsynth::VolumeNode</scope><name>Node</name></member>
+      <member refid="structeu_1_1minsynth_1_1Node_1a630c8289c6375767f1c04a5ad2d89326" prot="public" virt="non-virtual"><scope>eu::minsynth::VolumeNode</scope><name>Node</name></member>
+      <member refid="structeu_1_1minsynth_1_1Node_1a410b013072925b526a5ff492b7d47401" prot="public" virt="non-virtual"><scope>eu::minsynth::VolumeNode</scope><name>Node</name></member>
+      <member refid="structeu_1_1minsynth_1_1VolumeNode_1a158da71ffcedbe60ab75bd026ff80e76" prot="public" virt="virtual"><scope>eu::minsynth::VolumeNode</scope><name>on_wave</name></member>
+      <member refid="structeu_1_1minsynth_1_1WaveOut_1a546884becb9317bb6e545a5e8b320e9c" prot="public" virt="non-virtual" ambiguityscope="eu::"><scope>eu::minsynth::VolumeNode</scope><name>operator=</name></member>
+      <member refid="structeu_1_1minsynth_1_1WaveOut_1adb0eb054905cecb371291da347e0c96d" prot="public" virt="non-virtual" ambiguityscope="eu::"><scope>eu::minsynth::VolumeNode</scope><name>operator=</name></member>
+      <member refid="structeu_1_1minsynth_1_1Node_1ac13f2131c392fedafa8df524da273bc7" prot="public" virt="non-virtual" ambiguityscope="eu::minsynth::Node::"><scope>eu::minsynth::VolumeNode</scope><name>operator=</name></member>
+      <member refid="structeu_1_1minsynth_1_1Node_1a140bda51a50bd2df3a7930dd79103893" prot="public" virt="non-virtual" ambiguityscope="eu::minsynth::Node::"><scope>eu::minsynth::VolumeNode</scope><name>operator=</name></member>
+      <member refid="structeu_1_1minsynth_1_1Node_1a49bfba1094d62ac6bda6d22b139337be" prot="public" virt="virtual"><scope>eu::minsynth::VolumeNode</scope><name>update</name></member>
+      <member refid="structeu_1_1minsynth_1_1VolumeNode_1ae2500749f420da5192158470744bc05a" prot="public" virt="non-virtual"><scope>eu::minsynth::VolumeNode</scope><name>volume</name></member>
+      <member refid="structeu_1_1minsynth_1_1WaveOut_1afb82b2d5ee2db4c46dfda74ee4890f43" prot="public" virt="non-virtual"><scope>eu::minsynth::VolumeNode</scope><name>WaveOut</name></member>
+      <member refid="structeu_1_1minsynth_1_1WaveOut_1ad94ed16dcd55113f76f31bb16f9a5e5f" prot="public" virt="non-virtual"><scope>eu::minsynth::VolumeNode</scope><name>WaveOut</name></member>
+      <member refid="structeu_1_1minsynth_1_1WaveOut_1a32c3fe782b77c5754e8fd170e9b02720" prot="public" virt="non-virtual"><scope>eu::minsynth::VolumeNode</scope><name>WaveOut</name></member>
+      <member refid="structeu_1_1minsynth_1_1Node_1afc23f2be2b9e942d84ef6b113af27e5f" prot="public" virt="virtual"><scope>eu::minsynth::VolumeNode</scope><name>~Node</name></member>
+      <member refid="structeu_1_1minsynth_1_1WaveOut_1aa6077eb2465d4d18a5889df75dadbf69" prot="public" virt="virtual"><scope>eu::minsynth::VolumeNode</scope><name>~WaveOut</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -235,10 +235,10 @@
         </childnode>
       </node>
     </invincdepgraph>
-    <innerclass refid="structeuphoria_1_1render_1_1Sprite" prot="public">euphoria::render::Sprite</innerclass>
-    <innerclass refid="structeuphoria_1_1render_1_1Layer" prot="public">euphoria::render::Layer</innerclass>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1render">euphoria::render</innernamespace>
+    <innerclass refid="structeu_1_1render_1_1Sprite" prot="public">eu::render::Sprite</innerclass>
+    <innerclass refid="structeu_1_1render_1_1Layer" prot="public">eu::render::Layer</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1render">eu::render</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

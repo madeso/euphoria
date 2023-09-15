@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1core_1_1argparse_1_1Name" kind="struct" language="C++" prot="public">
+    <compoundname>eu::core::argparse::Name</compoundname>
+    <includes refid="argparse_8h" local="no">argparse.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1core_1_1argparse_1_1Name_1aa87098df41cfa276942d8f01eafb645a" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>std::vector&lt;std::string&gt; eu::core::argparse::Name::names</definition>
+        <argsstring></argsstring>
+        <name>names</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/argparse.h" line="183" column="21" bodyfile="libs/core/src/core/argparse.h" bodystart="183" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1argparse_1_1Name_1a2997a6a9f68614951c063594d85c7bc1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::core::argparse::Name::Name</definition>
+        <argsstring>(const char *nn)</argsstring>
+        <name>Name</name>
+        <param>
+          <type>const char *</type>
+          <declname>nn</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/argparse.h" line="185" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1argparse_1_1Name_1a750587875a2eee3912ed208b2ee59c8b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string eu::core::argparse::Name::validate</definition>
+        <argsstring>() const</argsstring>
+        <name>validate</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/argparse.h" line="190" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1argparse_1_1Name_1afd62e57dffdb4ba5a3240f25b701f3ef" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool eu::core::argparse::Name::is_optional</definition>
+        <argsstring>() const</argsstring>
+        <name>is_optional</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/argparse.h" line="193" column="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>represents a command line argument optional: </para>
+    </briefdescription>
+    <detaileddescription>
+<para><itemizedlist>
+<listitem><para>start with either - or <ndash/></para>
+</listitem><listitem><para>can have many names positional:</para>
+</listitem><listitem><para>doesn&apos;t start with -</para>
+</listitem><listitem><para>can only have a single name </para>
+</listitem></itemizedlist>
+</para>
+    </detaileddescription>
+    <location file="libs/core/src/core/argparse.h" line="181" column="5" bodyfile="libs/core/src/core/argparse.h" bodystart="182" bodyend="194"/>
+    <listofallmembers>
+      <member refid="structeu_1_1core_1_1argparse_1_1Name_1afd62e57dffdb4ba5a3240f25b701f3ef" prot="public" virt="non-virtual"><scope>eu::core::argparse::Name</scope><name>is_optional</name></member>
+      <member refid="structeu_1_1core_1_1argparse_1_1Name_1a2997a6a9f68614951c063594d85c7bc1" prot="public" virt="non-virtual"><scope>eu::core::argparse::Name</scope><name>Name</name></member>
+      <member refid="structeu_1_1core_1_1argparse_1_1Name_1aa87098df41cfa276942d8f01eafb645a" prot="public" virt="non-virtual"><scope>eu::core::argparse::Name</scope><name>names</name></member>
+      <member refid="structeu_1_1core_1_1argparse_1_1Name_1a750587875a2eee3912ed208b2ee59c8b" prot="public" virt="non-virtual"><scope>eu::core::argparse::Name</scope><name>validate</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

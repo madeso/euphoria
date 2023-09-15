@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1core_1_1MaterialTexture" kind="struct" language="C++" prot="public">
+    <compoundname>eu::core::MaterialTexture</compoundname>
+    <includes refid="mesh_8h" local="no">mesh.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1core_1_1MaterialTexture_1aa356b565ec15c21de24e2325e18727d3" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1core_1_1vfs_1_1FilePath" kindref="compound">vfs::FilePath</ref></type>
+        <definition>vfs::FilePath eu::core::MaterialTexture::path</definition>
+        <argsstring></argsstring>
+        <name>path</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/mesh.h" line="71" column="23" bodyfile="libs/core/src/core/mesh.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1MaterialTexture_1a611584ca5a5fa03f094611f626fc3048" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1core_1_1EnumValue" kindref="compound">EnumValue</ref></type>
+        <definition>EnumValue eu::core::MaterialTexture::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/mesh.h" line="72" column="19" bodyfile="libs/core/src/core/mesh.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1MaterialTexture_1a9e9806b5384dadd61de18ffc489ffc67" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::core::MaterialTexture::MaterialTexture</definition>
+        <argsstring>(const vfs::FilePath &amp;p, EnumValue t)</argsstring>
+        <name>MaterialTexture</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1vfs_1_1FilePath" kindref="compound">vfs::FilePath</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1EnumValue" kindref="compound">EnumValue</ref></type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/mesh.h" line="74" column="9" bodyfile="libs/core/src/core/mesh.cc" bodystart="67" bodyend="71"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="4">
+        <label>eu::core::EnumType</label>
+        <link refid="structeu_1_1core_1_1EnumType"/>
+      </node>
+      <node id="1">
+        <label>eu::core::MaterialTexture</label>
+        <link refid="structeu_1_1core_1_1MaterialTexture"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>path</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>type</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>eu::core::EnumValue</label>
+        <link refid="structeu_1_1core_1_1EnumValue"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>type</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>eu::core::vfs::FilePath</label>
+        <link refid="structeu_1_1core_1_1vfs_1_1FilePath"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/core/src/core/mesh.h" line="69" column="5" bodyfile="libs/core/src/core/mesh.h" bodystart="70" bodyend="75"/>
+    <listofallmembers>
+      <member refid="structeu_1_1core_1_1MaterialTexture_1a9e9806b5384dadd61de18ffc489ffc67" prot="public" virt="non-virtual"><scope>eu::core::MaterialTexture</scope><name>MaterialTexture</name></member>
+      <member refid="structeu_1_1core_1_1MaterialTexture_1aa356b565ec15c21de24e2325e18727d3" prot="public" virt="non-virtual"><scope>eu::core::MaterialTexture</scope><name>path</name></member>
+      <member refid="structeu_1_1core_1_1MaterialTexture_1a611584ca5a5fa03f094611f626fc3048" prot="public" virt="non-virtual"><scope>eu::core::MaterialTexture</scope><name>type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

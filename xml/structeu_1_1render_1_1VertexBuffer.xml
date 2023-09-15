@@ -1,0 +1,199 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1render_1_1VertexBuffer" kind="struct" language="C++" prot="public">
+    <compoundname>eu::render::VertexBuffer</compoundname>
+    <basecompoundref refid="structeu_1_1render_1_1Id" prot="public" virt="non-virtual">eu::render::Id</basecompoundref>
+    <includes refid="buffer_8h" local="no">buffer.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1render_1_1VertexBuffer_1a3acfd52cc370bbb1e40db539c22d1985" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::VertexBuffer::VertexBuffer</definition>
+        <argsstring>()</argsstring>
+        <name>VertexBuffer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/buffer.h" line="14" column="9" bodyfile="libs/render/src/render/buffer.cc" bodystart="16" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1VertexBuffer_1a8adff64959ba178e92c83d6e3f472c7f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::VertexBuffer::~VertexBuffer</definition>
+        <argsstring>()</argsstring>
+        <name>~VertexBuffer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/buffer.h" line="15" column="9" bodyfile="libs/render/src/render/buffer.cc" bodystart="22" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1VertexBuffer_1a62a239a70a3f16ff034d8f65e83c5805" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::VertexBuffer::VertexBuffer</definition>
+        <argsstring>(const VertexBuffer &amp;)=delete</argsstring>
+        <name>VertexBuffer</name>
+        <param>
+          <type>const <ref refid="structeu_1_1render_1_1VertexBuffer" kindref="compound">VertexBuffer</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/buffer.h" line="17" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1VertexBuffer_1a9c1a8ef488fdf862fb33c1b9ae8d311f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::VertexBuffer::VertexBuffer</definition>
+        <argsstring>(VertexBuffer &amp;&amp;)=delete</argsstring>
+        <name>VertexBuffer</name>
+        <param>
+          <type><ref refid="structeu_1_1render_1_1VertexBuffer" kindref="compound">VertexBuffer</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/buffer.h" line="18" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1VertexBuffer_1a0b2147b6814e5ad8a10aa91968d58bee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::render::VertexBuffer::operator=</definition>
+        <argsstring>(const VertexBuffer &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="structeu_1_1render_1_1VertexBuffer" kindref="compound">VertexBuffer</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/buffer.h" line="19" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1VertexBuffer_1ab10c949bd1f6011befc714e26543b468" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::render::VertexBuffer::operator=</definition>
+        <argsstring>(VertexBuffer &amp;&amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="structeu_1_1render_1_1VertexBuffer" kindref="compound">VertexBuffer</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/buffer.h" line="20" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1VertexBuffer_1acd921ec97d519e62f659284f3be84911" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::render::VertexBuffer::set_data</definition>
+        <argsstring>(const std::vector&lt; float &gt; &amp;data)</argsstring>
+        <name>set_data</name>
+        <param>
+          <type>const std::vector&lt; float &gt; &amp;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/buffer.h" line="22" column="14" bodyfile="libs/render/src/render/buffer.cc" bodystart="29" bodyend="34"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="structeu_1_1render_1_1VertexBuffer_1afc6d15077f725ed2278ee7f84107dea4" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::render::VertexBuffer::bind</definition>
+        <argsstring>(const VertexBuffer *vbo)</argsstring>
+        <name>bind</name>
+        <param>
+          <type>const <ref refid="structeu_1_1render_1_1VertexBuffer" kindref="compound">VertexBuffer</ref> *</type>
+          <declname>vbo</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/buffer.h" line="24" column="21" bodyfile="libs/render/src/render/buffer.cc" bodystart="38" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1VertexBuffer_1a989cf6b3d8a9f696f7522be9703dc50d" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="structeu_1_1render_1_1VertexBuffer" kindref="compound">VertexBuffer</ref> *&amp;</type>
+        <definition>const VertexBuffer *&amp; eu::render::VertexBuffer::get_bound</definition>
+        <argsstring>()</argsstring>
+        <name>get_bound</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/buffer.h" line="26" column="35" bodyfile="libs/render/src/render/buffer.cc" bodystart="47" bodyend="51"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Stores vertices, uv, etc. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Represents a OpenGL Vertex Buffer Object (VBO). </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>eu::render::VertexBuffer</label>
+        <link refid="structeu_1_1render_1_1VertexBuffer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>eu::render::Id</label>
+        <link refid="structeu_1_1render_1_1Id"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>eu::render::VertexBuffer</label>
+        <link refid="structeu_1_1render_1_1VertexBuffer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>eu::render::Id</label>
+        <link refid="structeu_1_1render_1_1Id"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/render/src/render/buffer.h" line="12" column="5" bodyfile="libs/render/src/render/buffer.h" bodystart="13" bodyend="27"/>
+    <listofallmembers>
+      <member refid="structeu_1_1render_1_1VertexBuffer_1afc6d15077f725ed2278ee7f84107dea4" prot="public" virt="non-virtual"><scope>eu::render::VertexBuffer</scope><name>bind</name></member>
+      <member refid="structeu_1_1render_1_1VertexBuffer_1a989cf6b3d8a9f696f7522be9703dc50d" prot="public" virt="non-virtual"><scope>eu::render::VertexBuffer</scope><name>get_bound</name></member>
+      <member refid="structeu_1_1render_1_1Id_1a07937197b568b51b3cd26fed109957a8" prot="public" virt="non-virtual"><scope>eu::render::VertexBuffer</scope><name>get_id</name></member>
+      <member refid="structeu_1_1render_1_1Id_1aa90fc6770c9fc805ffff74b19c1f80c0" prot="protected" virt="non-virtual"><scope>eu::render::VertexBuffer</scope><name>id</name></member>
+      <member refid="structeu_1_1render_1_1Id_1a35d3deaa918e48a631dd12afa94fae3d" prot="public" virt="non-virtual"><scope>eu::render::VertexBuffer</scope><name>Id</name></member>
+      <member refid="structeu_1_1render_1_1Id_1aca7f863508e6ac855ecc9008a68c3636" prot="public" virt="non-virtual"><scope>eu::render::VertexBuffer</scope><name>Id</name></member>
+      <member refid="structeu_1_1render_1_1Id_1a3f8819cb870115479a71040bc437755d" prot="public" virt="non-virtual"><scope>eu::render::VertexBuffer</scope><name>Id</name></member>
+      <member refid="structeu_1_1render_1_1VertexBuffer_1a0b2147b6814e5ad8a10aa91968d58bee" prot="public" virt="non-virtual"><scope>eu::render::VertexBuffer</scope><name>operator=</name></member>
+      <member refid="structeu_1_1render_1_1VertexBuffer_1ab10c949bd1f6011befc714e26543b468" prot="public" virt="non-virtual"><scope>eu::render::VertexBuffer</scope><name>operator=</name></member>
+      <member refid="structeu_1_1render_1_1Id_1a74cc897f8eb4555625f0e6eac0b16598" prot="public" virt="non-virtual" ambiguityscope="eu::render::Id::"><scope>eu::render::VertexBuffer</scope><name>operator=</name></member>
+      <member refid="structeu_1_1render_1_1Id_1a1877ad126b56602095c4f968d3a52af2" prot="public" virt="non-virtual" ambiguityscope="eu::render::Id::"><scope>eu::render::VertexBuffer</scope><name>operator=</name></member>
+      <member refid="structeu_1_1render_1_1VertexBuffer_1acd921ec97d519e62f659284f3be84911" prot="public" virt="non-virtual"><scope>eu::render::VertexBuffer</scope><name>set_data</name></member>
+      <member refid="structeu_1_1render_1_1VertexBuffer_1a3acfd52cc370bbb1e40db539c22d1985" prot="public" virt="non-virtual"><scope>eu::render::VertexBuffer</scope><name>VertexBuffer</name></member>
+      <member refid="structeu_1_1render_1_1VertexBuffer_1a62a239a70a3f16ff034d8f65e83c5805" prot="public" virt="non-virtual"><scope>eu::render::VertexBuffer</scope><name>VertexBuffer</name></member>
+      <member refid="structeu_1_1render_1_1VertexBuffer_1a9c1a8ef488fdf862fb33c1b9ae8d311f" prot="public" virt="non-virtual"><scope>eu::render::VertexBuffer</scope><name>VertexBuffer</name></member>
+      <member refid="structeu_1_1render_1_1Id_1a6bf1f55eddb4520e2e3d3803f6231750" prot="public" virt="non-virtual"><scope>eu::render::VertexBuffer</scope><name>~Id</name></member>
+      <member refid="structeu_1_1render_1_1VertexBuffer_1a8adff64959ba178e92c83d6e3f472c7f" prot="public" virt="non-virtual"><scope>eu::render::VertexBuffer</scope><name>~VertexBuffer</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

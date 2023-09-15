@@ -1,0 +1,130 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1window_1_1SdlLibrary" kind="struct" language="C++" prot="public">
+    <compoundname>eu::window::SdlLibrary</compoundname>
+    <includes refid="sdllibrary_8h" local="no">sdllibrary.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1window_1_1SdlLibrary_1a82b3dc9840f16cadcb5a702e071aeafe" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool eu::window::SdlLibrary::ok</definition>
+        <argsstring></argsstring>
+        <name>ok</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/window/src/window/sdllibrary.h" line="17" column="14" bodyfile="libs/window/src/window/sdllibrary.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1window_1_1SdlLibrary_1a5f062eeeb5b63dabb869dacb7035dcc9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::window::SdlLibrary::SdlLibrary</definition>
+        <argsstring>()</argsstring>
+        <name>SdlLibrary</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/window/src/window/sdllibrary.h" line="9" column="9" bodyfile="libs/window/src/window/sdllibrary.cc" bodystart="35" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1window_1_1SdlLibrary_1a25a7ca04ad680fe8d6f3fb5633354421" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::window::SdlLibrary::~SdlLibrary</definition>
+        <argsstring>()</argsstring>
+        <name>~SdlLibrary</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/window/src/window/sdllibrary.h" line="10" column="9" bodyfile="libs/window/src/window/sdllibrary.cc" bodystart="48" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1window_1_1SdlLibrary_1afe5311f6433bb71089b890c07d1955c0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::window::SdlLibrary::SdlLibrary</definition>
+        <argsstring>(const SdlLibrary &amp;other)=delete</argsstring>
+        <name>SdlLibrary</name>
+        <param>
+          <type>const <ref refid="structeu_1_1window_1_1SdlLibrary" kindref="compound">SdlLibrary</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/window/src/window/sdllibrary.h" line="12" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1window_1_1SdlLibrary_1a4b146df28b1b2c274620c557db8bd3f3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::window::SdlLibrary::operator=</definition>
+        <argsstring>(const SdlLibrary &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="structeu_1_1window_1_1SdlLibrary" kindref="compound">SdlLibrary</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/window/src/window/sdllibrary.h" line="13" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1window_1_1SdlLibrary_1a647e6e3c3e8e686321cb69ffcfb2c755" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::window::SdlLibrary::SdlLibrary</definition>
+        <argsstring>(SdlLibrary &amp;&amp;other)=delete</argsstring>
+        <name>SdlLibrary</name>
+        <param>
+          <type><ref refid="structeu_1_1window_1_1SdlLibrary" kindref="compound">SdlLibrary</ref> &amp;&amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/window/src/window/sdllibrary.h" line="14" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1window_1_1SdlLibrary_1aa1c6a9568ddb89da28380ea0f0811f01" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::window::SdlLibrary::operator=</definition>
+        <argsstring>(SdlLibrary &amp;&amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="structeu_1_1window_1_1SdlLibrary" kindref="compound">SdlLibrary</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/window/src/window/sdllibrary.h" line="15" column="14"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/window/src/window/sdllibrary.h" line="6" column="5" bodyfile="libs/window/src/window/sdllibrary.h" bodystart="7" bodyend="18"/>
+    <listofallmembers>
+      <member refid="structeu_1_1window_1_1SdlLibrary_1a82b3dc9840f16cadcb5a702e071aeafe" prot="public" virt="non-virtual"><scope>eu::window::SdlLibrary</scope><name>ok</name></member>
+      <member refid="structeu_1_1window_1_1SdlLibrary_1a4b146df28b1b2c274620c557db8bd3f3" prot="public" virt="non-virtual"><scope>eu::window::SdlLibrary</scope><name>operator=</name></member>
+      <member refid="structeu_1_1window_1_1SdlLibrary_1aa1c6a9568ddb89da28380ea0f0811f01" prot="public" virt="non-virtual"><scope>eu::window::SdlLibrary</scope><name>operator=</name></member>
+      <member refid="structeu_1_1window_1_1SdlLibrary_1a5f062eeeb5b63dabb869dacb7035dcc9" prot="public" virt="non-virtual"><scope>eu::window::SdlLibrary</scope><name>SdlLibrary</name></member>
+      <member refid="structeu_1_1window_1_1SdlLibrary_1afe5311f6433bb71089b890c07d1955c0" prot="public" virt="non-virtual"><scope>eu::window::SdlLibrary</scope><name>SdlLibrary</name></member>
+      <member refid="structeu_1_1window_1_1SdlLibrary_1a647e6e3c3e8e686321cb69ffcfb2c755" prot="public" virt="non-virtual"><scope>eu::window::SdlLibrary</scope><name>SdlLibrary</name></member>
+      <member refid="structeu_1_1window_1_1SdlLibrary_1a25a7ca04ad680fe8d6f3fb5633354421" prot="public" virt="non-virtual"><scope>eu::window::SdlLibrary</scope><name>~SdlLibrary</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

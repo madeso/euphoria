@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="namespaceeu_1_1render_1_1attributes3d" kind="namespace" language="C++">
+    <compoundname>eu::render::attributes3d</compoundname>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="namespaceeu_1_1render_1_1attributes3d_1a598b090537bb451ee85c89983a1423cc" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr <ref refid="structeu_1_1render_1_1ShaderAttribute" kindref="compound">ShaderAttribute</ref></type>
+        <definition>constexpr ShaderAttribute eu::render::attributes3d::vertex</definition>
+        <argsstring></argsstring>
+        <name>vertex</name>
+        <initializer>= <ref refid="structeu_1_1render_1_1ShaderAttribute" kindref="compound">ShaderAttribute</ref>
+    {
+        1,
+        <ref refid="namespaceeu_1_1render_1a558560eca4f450f3fc0043c94bfe72e7a88bbd3e4df848c1fdfcf709115d2fe05" kindref="member">ShaderAttributeType::float3</ref>,
+        &quot;aPosition&quot;,
+        ShaderAttributeSource::vertex
+    }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/shaderattribute3d.h" line="19" column="31" bodyfile="libs/render/src/render/shaderattribute3d.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceeu_1_1render_1_1attributes3d_1a443802d21aeb21f9c9b19afbe6c8be68" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr <ref refid="structeu_1_1render_1_1ShaderAttribute" kindref="compound">ShaderAttribute</ref></type>
+        <definition>constexpr ShaderAttribute eu::render::attributes3d::normal</definition>
+        <argsstring></argsstring>
+        <name>normal</name>
+        <initializer>= <ref refid="structeu_1_1render_1_1ShaderAttribute" kindref="compound">ShaderAttribute</ref>
+    {
+        2,
+        <ref refid="namespaceeu_1_1render_1a558560eca4f450f3fc0043c94bfe72e7a88bbd3e4df848c1fdfcf709115d2fe05" kindref="member">ShaderAttributeType::float3</ref>,
+        &quot;aNormal&quot;,
+        ShaderAttributeSource::normal
+    }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/shaderattribute3d.h" line="27" column="31" bodyfile="libs/render/src/render/shaderattribute3d.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceeu_1_1render_1_1attributes3d_1a0b5b5e6b229791ef854e5d9f4a053daf" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr <ref refid="structeu_1_1render_1_1ShaderAttribute" kindref="compound">ShaderAttribute</ref></type>
+        <definition>constexpr ShaderAttribute eu::render::attributes3d::tex_coord</definition>
+        <argsstring></argsstring>
+        <name>tex_coord</name>
+        <initializer>= <ref refid="structeu_1_1render_1_1ShaderAttribute" kindref="compound">ShaderAttribute</ref>
+    {
+        3,
+        <ref refid="namespaceeu_1_1render_1a558560eca4f450f3fc0043c94bfe72e7adee550e4331867f8c3d135c617d73988" kindref="member">ShaderAttributeType::float2</ref>,
+        &quot;aTexCoord&quot;,
+        ShaderAttributeSource::uv
+    }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/shaderattribute3d.h" line="35" column="31" bodyfile="libs/render/src/render/shaderattribute3d.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceeu_1_1render_1_1attributes3d_1a6604dcfea0cb8994e48f93d01d986bf4" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr <ref refid="structeu_1_1render_1_1ShaderAttribute" kindref="compound">ShaderAttribute</ref></type>
+        <definition>constexpr ShaderAttribute eu::render::attributes3d::color</definition>
+        <argsstring></argsstring>
+        <name>color</name>
+        <initializer>= <ref refid="structeu_1_1render_1_1ShaderAttribute" kindref="compound">ShaderAttribute</ref>
+    {
+        4,
+        <ref refid="namespaceeu_1_1render_1a558560eca4f450f3fc0043c94bfe72e7a88bbd3e4df848c1fdfcf709115d2fe05" kindref="member">ShaderAttributeType::float3</ref>,
+        &quot;aColor&quot;,
+        ShaderAttributeSource::color
+    }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/shaderattribute3d.h" line="43" column="31" bodyfile="libs/render/src/render/shaderattribute3d.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespaceeu_1_1render_1_1attributes3d_1ad7305235785be3d213af2dbea289160f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::render::attributes3d::add_attributes_to_shader</definition>
+        <argsstring>(ShaderProgram *shader)</argsstring>
+        <name>add_attributes_to_shader</name>
+        <param>
+          <type><ref refid="structeu_1_1render_1_1ShaderProgram" kindref="compound">ShaderProgram</ref> *</type>
+          <declname>shader</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/shaderattribute3d.cc" line="10" column="10" bodyfile="libs/render/src/render/shaderattribute3d.cc" bodystart="10" bodyend="17" declfile="libs/render/src/render/shaderattribute3d.h" declline="52" declcolumn="10"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/render/src/render/shaderattribute3d.cc" line="8" column="1"/>
+  </compounddef>
+</doxygen>

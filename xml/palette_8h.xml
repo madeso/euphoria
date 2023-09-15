@@ -314,11 +314,11 @@
         <link refid="image__to__text_8cc"/>
       </node>
     </invincdepgraph>
-    <innerclass refid="structeuphoria_1_1core_1_1Palette" prot="public">euphoria::core::Palette</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1StaticPalette" prot="public">euphoria::core::StaticPalette</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1DynamicPalette" prot="public">euphoria::core::DynamicPalette</innerclass>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
+    <innerclass refid="structeu_1_1core_1_1Palette" prot="public">eu::core::Palette</innerclass>
+    <innerclass refid="structeu_1_1core_1_1StaticPalette" prot="public">eu::core::StaticPalette</innerclass>
+    <innerclass refid="structeu_1_1core_1_1DynamicPalette" prot="public">eu::core::DynamicPalette</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

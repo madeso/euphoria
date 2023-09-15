@@ -1,0 +1,147 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1core_1_1Camera3" kind="struct" language="C++" prot="public">
+    <compoundname>eu::core::Camera3</compoundname>
+    <includes refid="camera3_8h" local="no">camera3.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1core_1_1Camera3_1a4303baaa31d7d444ce8dfbe168830ae3" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
+        <definition>vec3f eu::core::Camera3::position</definition>
+        <argsstring></argsstring>
+        <name>position</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.h" line="30" column="15" bodyfile="libs/core/src/core/camera3.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1Camera3_1acb4236ad188a45c217e0580d3185c448" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1core_1_1quatf" kindref="compound">quatf</ref></type>
+        <definition>quatf eu::core::Camera3::rotation</definition>
+        <argsstring></argsstring>
+        <name>rotation</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.h" line="31" column="15" bodyfile="libs/core/src/core/camera3.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1Camera3_1a3b8e2db33647f7de185dc680b9de9737" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1core_1_1Angle" kindref="compound">Angle</ref></type>
+        <definition>Angle eu::core::Camera3::fov</definition>
+        <argsstring></argsstring>
+        <name>fov</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.h" line="32" column="15" bodyfile="libs/core/src/core/camera3.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1Camera3_1a142f9a6532336b28e6992ecce298039d" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float eu::core::Camera3::near</definition>
+        <argsstring></argsstring>
+        <name>near</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.h" line="33" column="15" bodyfile="libs/core/src/core/camera3.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1Camera3_1a9003d20121fc6a82adabe79ba41ea95b" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float eu::core::Camera3::far</definition>
+        <argsstring></argsstring>
+        <name>far</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.h" line="34" column="15" bodyfile="libs/core/src/core/camera3.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1Camera3_1a9f19683579bbf1713811e3a39f447db3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::core::Camera3::Camera3</definition>
+        <argsstring>()</argsstring>
+        <name>Camera3</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.h" line="36" column="9" bodyfile="libs/core/src/core/camera3.cc" bodystart="41" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1Camera3_1aa4a48db7d293cfc76e277928b3a33011" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1CompiledCamera3" kindref="compound">CompiledCamera3</ref></type>
+        <definition>CompiledCamera3 eu::core::Camera3::compile</definition>
+        <argsstring>(float aspect) const</argsstring>
+        <name>compile</name>
+        <param>
+          <type>float</type>
+          <declname>aspect</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.h" line="38" column="26" bodyfile="libs/core/src/core/camera3.cc" bodystart="74" bodyend="77"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>eu::core::quatf</label>
+        <link refid="structeu_1_1core_1_1quatf"/>
+      </node>
+      <node id="4">
+        <label>eu::core::vec3f</label>
+        <link refid="structeu_1_1core_1_1vec3f"/>
+      </node>
+      <node id="1">
+        <label>eu::core::Camera3</label>
+        <link refid="structeu_1_1core_1_1Camera3"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>rotation</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>fov</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>position</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>eu::core::Angle</label>
+        <link refid="structeu_1_1core_1_1Angle"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/core/src/core/camera3.h" line="28" column="5" bodyfile="libs/core/src/core/camera3.h" bodystart="29" bodyend="39"/>
+    <listofallmembers>
+      <member refid="structeu_1_1core_1_1Camera3_1a9f19683579bbf1713811e3a39f447db3" prot="public" virt="non-virtual"><scope>eu::core::Camera3</scope><name>Camera3</name></member>
+      <member refid="structeu_1_1core_1_1Camera3_1aa4a48db7d293cfc76e277928b3a33011" prot="public" virt="non-virtual"><scope>eu::core::Camera3</scope><name>compile</name></member>
+      <member refid="structeu_1_1core_1_1Camera3_1a9003d20121fc6a82adabe79ba41ea95b" prot="public" virt="non-virtual"><scope>eu::core::Camera3</scope><name>far</name></member>
+      <member refid="structeu_1_1core_1_1Camera3_1a3b8e2db33647f7de185dc680b9de9737" prot="public" virt="non-virtual"><scope>eu::core::Camera3</scope><name>fov</name></member>
+      <member refid="structeu_1_1core_1_1Camera3_1a142f9a6532336b28e6992ecce298039d" prot="public" virt="non-virtual"><scope>eu::core::Camera3</scope><name>near</name></member>
+      <member refid="structeu_1_1core_1_1Camera3_1a4303baaa31d7d444ce8dfbe168830ae3" prot="public" virt="non-virtual"><scope>eu::core::Camera3</scope><name>position</name></member>
+      <member refid="structeu_1_1core_1_1Camera3_1acb4236ad188a45c217e0580d3185c448" prot="public" virt="non-virtual"><scope>eu::core::Camera3</scope><name>rotation</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

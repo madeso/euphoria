@@ -231,9 +231,9 @@
         <link refid="viewporthandler_8cc"/>
       </node>
     </invincdepgraph>
-    <innerclass refid="structeuphoria_1_1core_1_1ViewportDefinition" prot="public">euphoria::core::ViewportDefinition</innerclass>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
+    <innerclass refid="structeu_1_1core_1_1ViewportDefinition" prot="public">eu::core::ViewportDefinition</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

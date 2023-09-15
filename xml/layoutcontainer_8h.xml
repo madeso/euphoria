@@ -279,9 +279,9 @@
         <link refid="load_8cc"/>
       </node>
     </invincdepgraph>
-    <innerclass refid="structeuphoria_1_1gui_1_1LayoutContainer" prot="public">euphoria::gui::LayoutContainer</innerclass>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1gui">euphoria::gui</innernamespace>
+    <innerclass refid="structeu_1_1gui_1_1LayoutContainer" prot="public">eu::gui::LayoutContainer</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1gui">eu::gui</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

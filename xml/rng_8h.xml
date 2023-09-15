@@ -53,10 +53,10 @@
         <link refid="hashgen_8retro_8cc"/>
       </node>
     </invincdepgraph>
-    <innerclass refid="structeuphoria_1_1core_1_1RandomLcg" prot="public">euphoria::core::RandomLcg</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1RandomXorShift" prot="public">euphoria::core::RandomXorShift</innerclass>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
+    <innerclass refid="structeu_1_1core_1_1RandomLcg" prot="public">eu::core::RandomLcg</innerclass>
+    <innerclass refid="structeu_1_1core_1_1RandomXorShift" prot="public">eu::core::RandomXorShift</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

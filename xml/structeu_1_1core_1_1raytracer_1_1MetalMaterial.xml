@@ -1,0 +1,132 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1core_1_1raytracer_1_1MetalMaterial" kind="struct" language="C++" prot="public">
+    <compoundname>eu::core::raytracer::MetalMaterial</compoundname>
+    <basecompoundref refid="structeu_1_1core_1_1raytracer_1_1Material" prot="public" virt="non-virtual">eu::core::raytracer::Material</basecompoundref>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1core_1_1raytracer_1_1MetalMaterial_1ae8b62a84b14f2936362a1b49df229e95" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1core_1_1Rgb" kindref="compound">Rgb</ref></type>
+        <definition>Rgb eu::core::raytracer::MetalMaterial::albedo</definition>
+        <argsstring></argsstring>
+        <name>albedo</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/raytracer.cc" line="178" column="13" bodyfile="libs/core/src/core/raytracer.cc" bodystart="178" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1raytracer_1_1MetalMaterial_1af1b98dfd5044cd37ed5429d40eaecc1d" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float eu::core::raytracer::MetalMaterial::fuzz</definition>
+        <argsstring></argsstring>
+        <name>fuzz</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/raytracer.cc" line="179" column="15" bodyfile="libs/core/src/core/raytracer.cc" bodystart="179" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1raytracer_1_1MetalMaterial_1a867584b38ea4142e29f422a022386dd8" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>eu::core::raytracer::MetalMaterial::MetalMaterial</definition>
+        <argsstring>(const Rgb &amp;aalbedo, float afuzz)</argsstring>
+        <name>MetalMaterial</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1Rgb" kindref="compound">Rgb</ref> &amp;</type>
+          <declname>aalbedo</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>afuzz</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/raytracer.cc" line="181" column="18" bodyfile="libs/core/src/core/raytracer.cc" bodystart="182" bodyend="189"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1raytracer_1_1MetalMaterial_1a6ab24cd757f88743a89107824619df73" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>std::optional&lt; <ref refid="structeu_1_1core_1_1raytracer_1_1ScatterResult" kindref="compound">ScatterResult</ref> &gt;</type>
+        <definition>std::optional&lt;ScatterResult&gt; eu::core::raytracer::MetalMaterial::get_scattered</definition>
+        <argsstring>(const UnitRay3f &amp;ray, const Collision &amp;hit, Random *random) override</argsstring>
+        <name>get_scattered</name>
+        <reimplements refid="structeu_1_1core_1_1raytracer_1_1Material_1a014206af0bc86f6e30bd5fa58272cd43">get_scattered</reimplements>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1UnitRay3f" kindref="compound">UnitRay3f</ref> &amp;</type>
+          <declname>ray</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1raytracer_1_1Collision" kindref="compound">Collision</ref> &amp;</type>
+          <declname>hit</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1Random" kindref="compound">Random</ref> *</type>
+          <declname>random</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/raytracer.cc" line="192" column="9" bodyfile="libs/core/src/core/raytracer.cc" bodystart="193" bodyend="222"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>eu::core::raytracer::MetalMaterial</label>
+        <link refid="structeu_1_1core_1_1raytracer_1_1MetalMaterial"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>eu::core::raytracer::Material</label>
+        <link refid="structeu_1_1core_1_1raytracer_1_1Material"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>eu::core::raytracer::MetalMaterial</label>
+        <link refid="structeu_1_1core_1_1raytracer_1_1MetalMaterial"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>albedo</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>eu::core::raytracer::Material</label>
+        <link refid="structeu_1_1core_1_1raytracer_1_1Material"/>
+      </node>
+      <node id="3">
+        <label>eu::core::Rgb</label>
+        <link refid="structeu_1_1core_1_1Rgb"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/core/src/core/raytracer.cc" line="176" column="5" bodyfile="libs/core/src/core/raytracer.cc" bodystart="177" bodyend="223"/>
+    <listofallmembers>
+      <member refid="structeu_1_1core_1_1raytracer_1_1MetalMaterial_1ae8b62a84b14f2936362a1b49df229e95" prot="public" virt="non-virtual"><scope>eu::core::raytracer::MetalMaterial</scope><name>albedo</name></member>
+      <member refid="structeu_1_1core_1_1raytracer_1_1MetalMaterial_1af1b98dfd5044cd37ed5429d40eaecc1d" prot="public" virt="non-virtual"><scope>eu::core::raytracer::MetalMaterial</scope><name>fuzz</name></member>
+      <member refid="structeu_1_1core_1_1raytracer_1_1MetalMaterial_1a6ab24cd757f88743a89107824619df73" prot="public" virt="virtual"><scope>eu::core::raytracer::MetalMaterial</scope><name>get_scattered</name></member>
+      <member refid="structeu_1_1core_1_1raytracer_1_1Material_1a2d886616954593f1426c743256a21a72" prot="public" virt="non-virtual"><scope>eu::core::raytracer::MetalMaterial</scope><name>Material</name></member>
+      <member refid="structeu_1_1core_1_1raytracer_1_1Material_1a7afa279ac698e93bd97de35234a2d311" prot="public" virt="non-virtual"><scope>eu::core::raytracer::MetalMaterial</scope><name>Material</name></member>
+      <member refid="structeu_1_1core_1_1raytracer_1_1Material_1a7e97d18b9e53cb408230a2e0f1266a67" prot="public" virt="non-virtual"><scope>eu::core::raytracer::MetalMaterial</scope><name>Material</name></member>
+      <member refid="structeu_1_1core_1_1raytracer_1_1MetalMaterial_1a867584b38ea4142e29f422a022386dd8" prot="public" virt="non-virtual"><scope>eu::core::raytracer::MetalMaterial</scope><name>MetalMaterial</name></member>
+      <member refid="structeu_1_1core_1_1raytracer_1_1Material_1a7e004c4dfaa6a863cb73465bced4fc3e" prot="public" virt="non-virtual"><scope>eu::core::raytracer::MetalMaterial</scope><name>operator=</name></member>
+      <member refid="structeu_1_1core_1_1raytracer_1_1Material_1abf7c45edf1b9227f43274a38891452cc" prot="public" virt="non-virtual"><scope>eu::core::raytracer::MetalMaterial</scope><name>operator=</name></member>
+      <member refid="structeu_1_1core_1_1raytracer_1_1Material_1a538f3adb65ee8e9d6efb14ce3a11fee9" prot="public" virt="virtual"><scope>eu::core::raytracer::MetalMaterial</scope><name>~Material</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

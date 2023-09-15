@@ -483,12 +483,12 @@
         <link refid="materialshader_8cc"/>
       </node>
     </invincdepgraph>
-    <innerclass refid="structeuphoria_1_1render_1_1ShaderId" prot="public">euphoria::render::ShaderId</innerclass>
-    <innerclass refid="structeuphoria_1_1render_1_1ShaderProgram" prot="public">euphoria::render::ShaderProgram</innerclass>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core_1_1vfs">euphoria::core::vfs</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1render">euphoria::render</innernamespace>
+    <innerclass refid="structeu_1_1render_1_1ShaderId" prot="public">eu::render::ShaderId</innerclass>
+    <innerclass refid="structeu_1_1render_1_1ShaderProgram" prot="public">eu::render::ShaderProgram</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core_1_1vfs">eu::core::vfs</innernamespace>
+    <innernamespace refid="namespaceeu_1_1render">eu::render</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

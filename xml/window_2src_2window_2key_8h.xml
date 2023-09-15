@@ -40,8 +40,8 @@
         <link refid="window_2src_2window_2key_8cc"/>
       </node>
     </invincdepgraph>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1window">euphoria::window</innernamespace>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1window">eu::window</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

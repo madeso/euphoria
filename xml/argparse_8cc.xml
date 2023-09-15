@@ -307,9 +307,9 @@
         <label>memory</label>
       </node>
     </incdepgraph>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core_1_1argparse">euphoria::core::argparse</innernamespace>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core_1_1argparse">eu::core::argparse</innernamespace>
       <sectiondef kind="var">
       <memberdef kind="variable" id="argparse_8cc_1aa9fa58075e79743578544e2fa3f19880" prot="public" static="no" mutable="no">
         <type>ParserBase *</type>

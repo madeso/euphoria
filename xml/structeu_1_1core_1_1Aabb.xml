@@ -1,0 +1,244 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1core_1_1Aabb" kind="struct" language="C++" prot="public">
+    <compoundname>eu::core::Aabb</compoundname>
+    <includes refid="aabb_8h" local="no">aabb.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1core_1_1Aabb_1a9e8ddbe4fd70003d2accb2e47f693762" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
+        <definition>vec3f eu::core::Aabb::min</definition>
+        <argsstring></argsstring>
+        <name>min</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/aabb.h" line="14" column="15" bodyfile="libs/core/src/core/aabb.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1Aabb_1a51584093ffbba758d3e8e79e049ee11f" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
+        <definition>vec3f eu::core::Aabb::max</definition>
+        <argsstring></argsstring>
+        <name>max</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/aabb.h" line="15" column="15" bodyfile="libs/core/src/core/aabb.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1Aabb_1ac7c5f5b1f32e6a553a248b5728ccdde0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::core::Aabb::Aabb</definition>
+        <argsstring>(const vec3f &amp;amin, const vec3f &amp;amax)</argsstring>
+        <name>Aabb</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
+          <declname>amin</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
+          <declname>amax</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/aabb.h" line="17" column="9" bodyfile="libs/core/src/core/aabb.cc" bodystart="10" bodyend="13"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1Aabb_1afbfb0f2abf1f9eccf09402c0f06e4828" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::Aabb::extend</definition>
+        <argsstring>(const vec3f &amp;vec)</argsstring>
+        <name>extend</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
+          <declname>vec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/aabb.h" line="20" column="14" bodyfile="libs/core/src/core/aabb.cc" bodystart="49" bodyend="54"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1Aabb_1a84fb6e67ce46cf55726639513b421e07" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::Aabb::extend</definition>
+        <argsstring>(const Aabb &amp;aabb)</argsstring>
+        <name>extend</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1Aabb" kindref="compound">Aabb</ref> &amp;</type>
+          <declname>aabb</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/aabb.h" line="21" column="14" bodyfile="libs/core/src/core/aabb.cc" bodystart="58" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1Aabb_1ae5af804c10f8a84883ed210d92914b90" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::Aabb::offset</definition>
+        <argsstring>(const vec3f &amp;vec)</argsstring>
+        <name>offset</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
+          <declname>vec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/aabb.h" line="22" column="14" bodyfile="libs/core/src/core/aabb.cc" bodystart="99" bodyend="103"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1Aabb_1a8c85d7d4bd11fc44626815e300110f4f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
+        <definition>vec3f eu::core::Aabb::wrap</definition>
+        <argsstring>(const vec3f &amp;vec) const</argsstring>
+        <name>wrap</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
+          <declname>vec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/aabb.h" line="24" column="16" bodyfile="libs/core/src/core/aabb.cc" bodystart="17" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1Aabb_1a8dfb44d17e6aff243e6a728df32faf19" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1Aabb" kindref="compound">Aabb</ref></type>
+        <definition>Aabb eu::core::Aabb::offset_copy</definition>
+        <argsstring>(const vec3f &amp;vec) const</argsstring>
+        <name>offset_copy</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
+          <declname>vec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/aabb.h" line="25" column="15" bodyfile="libs/core/src/core/aabb.cc" bodystart="107" bodyend="112"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1Aabb_1a686476d0927ec3bec707f9a77093efa5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
+        <definition>vec3f eu::core::Aabb::get_size</definition>
+        <argsstring>() const</argsstring>
+        <name>get_size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/aabb.h" line="27" column="16" bodyfile="libs/core/src/core/aabb.cc" bodystart="74" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1Aabb_1acf0d722394aa0ddbdcc9597345260bcc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool eu::core::Aabb::is_valid</definition>
+        <argsstring>() const</argsstring>
+        <name>is_valid</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/aabb.h" line="28" column="15" bodyfile="libs/core/src/core/aabb.cc" bodystart="82" bodyend="87"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1Aabb_1ab608e3f3f3cca9ac0f5efd33c94b6c21" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
+        <definition>vec3f eu::core::Aabb::get_offset</definition>
+        <argsstring>() const</argsstring>
+        <name>get_offset</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/aabb.h" line="29" column="16" bodyfile="libs/core/src/core/aabb.cc" bodystart="91" bodyend="95"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1Aabb_1a978fde98ae531fd08cc86199d70c5ee2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; <ref refid="structeu_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &gt;</type>
+        <definition>std::vector&lt; vec3f &gt; eu::core::Aabb::calc_all_corners</definition>
+        <argsstring>() const</argsstring>
+        <name>calc_all_corners</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/aabb.h" line="32" column="22" bodyfile="libs/core/src/core/aabb.cc" bodystart="116" bodyend="125"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1Aabb_1a90fbf9ee580d9f8e695a5446cbb8c393" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1Aabb" kindref="compound">Aabb</ref></type>
+        <definition>Aabb eu::core::Aabb::create_empty</definition>
+        <argsstring>()</argsstring>
+        <name>create_empty</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/aabb.h" line="18" column="22" bodyfile="libs/core/src/core/aabb.cc" bodystart="67" bodyend="70"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>eu::core::vec3f</label>
+        <link refid="structeu_1_1core_1_1vec3f"/>
+      </node>
+      <node id="1">
+        <label>eu::core::Aabb</label>
+        <link refid="structeu_1_1core_1_1Aabb"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>max</edgelabel>
+          <edgelabel>min</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="libs/core/src/core/aabb.h" line="12" column="5" bodyfile="libs/core/src/core/aabb.h" bodystart="13" bodyend="33"/>
+    <listofallmembers>
+      <member refid="structeu_1_1core_1_1Aabb_1ac7c5f5b1f32e6a553a248b5728ccdde0" prot="public" virt="non-virtual"><scope>eu::core::Aabb</scope><name>Aabb</name></member>
+      <member refid="structeu_1_1core_1_1Aabb_1a978fde98ae531fd08cc86199d70c5ee2" prot="public" virt="non-virtual"><scope>eu::core::Aabb</scope><name>calc_all_corners</name></member>
+      <member refid="structeu_1_1core_1_1Aabb_1a90fbf9ee580d9f8e695a5446cbb8c393" prot="public" virt="non-virtual"><scope>eu::core::Aabb</scope><name>create_empty</name></member>
+      <member refid="structeu_1_1core_1_1Aabb_1afbfb0f2abf1f9eccf09402c0f06e4828" prot="public" virt="non-virtual"><scope>eu::core::Aabb</scope><name>extend</name></member>
+      <member refid="structeu_1_1core_1_1Aabb_1a84fb6e67ce46cf55726639513b421e07" prot="public" virt="non-virtual"><scope>eu::core::Aabb</scope><name>extend</name></member>
+      <member refid="structeu_1_1core_1_1Aabb_1ab608e3f3f3cca9ac0f5efd33c94b6c21" prot="public" virt="non-virtual"><scope>eu::core::Aabb</scope><name>get_offset</name></member>
+      <member refid="structeu_1_1core_1_1Aabb_1a686476d0927ec3bec707f9a77093efa5" prot="public" virt="non-virtual"><scope>eu::core::Aabb</scope><name>get_size</name></member>
+      <member refid="structeu_1_1core_1_1Aabb_1acf0d722394aa0ddbdcc9597345260bcc" prot="public" virt="non-virtual"><scope>eu::core::Aabb</scope><name>is_valid</name></member>
+      <member refid="structeu_1_1core_1_1Aabb_1a51584093ffbba758d3e8e79e049ee11f" prot="public" virt="non-virtual"><scope>eu::core::Aabb</scope><name>max</name></member>
+      <member refid="structeu_1_1core_1_1Aabb_1a9e8ddbe4fd70003d2accb2e47f693762" prot="public" virt="non-virtual"><scope>eu::core::Aabb</scope><name>min</name></member>
+      <member refid="structeu_1_1core_1_1Aabb_1ae5af804c10f8a84883ed210d92914b90" prot="public" virt="non-virtual"><scope>eu::core::Aabb</scope><name>offset</name></member>
+      <member refid="structeu_1_1core_1_1Aabb_1a8dfb44d17e6aff243e6a728df32faf19" prot="public" virt="non-virtual"><scope>eu::core::Aabb</scope><name>offset_copy</name></member>
+      <member refid="structeu_1_1core_1_1Aabb_1a8c85d7d4bd11fc44626815e300110f4f" prot="public" virt="non-virtual"><scope>eu::core::Aabb</scope><name>wrap</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

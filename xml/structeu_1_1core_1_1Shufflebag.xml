@@ -1,0 +1,138 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1core_1_1Shufflebag" kind="struct" language="C++" prot="public">
+    <compoundname>eu::core::Shufflebag</compoundname>
+    <includes refid="shufflebag_8h" local="no">shufflebag.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename T</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="structeu_1_1core_1_1Shufflebag_1a4da54a9a94045503286be72aa2bf6cff" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; T &gt;</type>
+        <definition>std::vector&lt;T&gt; eu::core::Shufflebag&lt; T &gt;::data</definition>
+        <argsstring></argsstring>
+        <name>data</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/shufflebag.h" line="60" column="21" bodyfile="libs/core/src/core/shufflebag.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1Shufflebag_1a517f6a34adb6f8171415b3e82369cdf8" prot="private" static="no" mutable="no">
+        <type>unsigned long</type>
+        <definition>unsigned long eu::core::Shufflebag&lt; T &gt;::cursor</definition>
+        <argsstring></argsstring>
+        <name>cursor</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/shufflebag.h" line="61" column="23" bodyfile="libs/core/src/core/shufflebag.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1Shufflebag_1a1b6e6314fe404d191962b646c57904a9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::core::Shufflebag&lt; T &gt;::Shufflebag</definition>
+        <argsstring>()=default</argsstring>
+        <name>Shufflebag</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/shufflebag.h" line="16" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1Shufflebag_1a9bf95e042a15ebd0ac1c2677d0f70e03" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::Shufflebag&lt; T &gt;::reserve</definition>
+        <argsstring>(int count)</argsstring>
+        <name>reserve</name>
+        <param>
+          <type>int</type>
+          <declname>count</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/shufflebag.h" line="18" column="14" bodyfile="libs/core/src/core/shufflebag.h" bodystart="18" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1Shufflebag_1a233ebc947f786feb26f2f2928d209379" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::Shufflebag&lt; T &gt;::add</definition>
+        <argsstring>(const T &amp;item, int amount)</argsstring>
+        <name>add</name>
+        <param>
+          <type>const T &amp;</type>
+          <declname>item</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>amount</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/shufflebag.h" line="23" column="14" bodyfile="libs/core/src/core/shufflebag.h" bodystart="23" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1Shufflebag_1aec79ebbc527922a9bded2d1006658dc6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const T &amp;</type>
+        <definition>const T&amp; eu::core::Shufflebag&lt; T &gt;::get_random_item</definition>
+        <argsstring>(Random *rand)</argsstring>
+        <name>get_random_item</name>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1Random" kindref="compound">Random</ref> *</type>
+          <declname>rand</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/shufflebag.h" line="35" column="18" bodyfile="libs/core/src/core/shufflebag.h" bodystart="35" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1Shufflebag_1ac54742a9d6e7725f4a1078a77e1616ed" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int eu::core::Shufflebag&lt; T &gt;::get_size</definition>
+        <argsstring>() const</argsstring>
+        <name>get_size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/shufflebag.h" line="54" column="14" bodyfile="libs/core/src/core/shufflebag.h" bodystart="54" bodyend="57"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/shufflebag.h" line="14" column="5" bodyfile="libs/core/src/core/shufflebag.h" bodystart="15" bodyend="62"/>
+    <listofallmembers>
+      <member refid="structeu_1_1core_1_1Shufflebag_1a233ebc947f786feb26f2f2928d209379" prot="public" virt="non-virtual"><scope>eu::core::Shufflebag</scope><name>add</name></member>
+      <member refid="structeu_1_1core_1_1Shufflebag_1a517f6a34adb6f8171415b3e82369cdf8" prot="private" virt="non-virtual"><scope>eu::core::Shufflebag</scope><name>cursor</name></member>
+      <member refid="structeu_1_1core_1_1Shufflebag_1a4da54a9a94045503286be72aa2bf6cff" prot="private" virt="non-virtual"><scope>eu::core::Shufflebag</scope><name>data</name></member>
+      <member refid="structeu_1_1core_1_1Shufflebag_1aec79ebbc527922a9bded2d1006658dc6" prot="public" virt="non-virtual"><scope>eu::core::Shufflebag</scope><name>get_random_item</name></member>
+      <member refid="structeu_1_1core_1_1Shufflebag_1ac54742a9d6e7725f4a1078a77e1616ed" prot="public" virt="non-virtual"><scope>eu::core::Shufflebag</scope><name>get_size</name></member>
+      <member refid="structeu_1_1core_1_1Shufflebag_1a9bf95e042a15ebd0ac1c2677d0f70e03" prot="public" virt="non-virtual"><scope>eu::core::Shufflebag</scope><name>reserve</name></member>
+      <member refid="structeu_1_1core_1_1Shufflebag_1a1b6e6314fe404d191962b646c57904a9" prot="public" virt="non-virtual"><scope>eu::core::Shufflebag</scope><name>Shufflebag</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -234,12 +234,12 @@
         <link refid="load_8cc"/>
       </node>
     </invincdepgraph>
-    <innerclass refid="structeuphoria_1_1gui_1_1Interpolation" prot="public">euphoria::gui::Interpolation</innerclass>
-    <innerclass refid="structeuphoria_1_1gui_1_1ButtonState" prot="public">euphoria::gui::ButtonState</innerclass>
-    <innerclass refid="structeuphoria_1_1gui_1_1Skin" prot="public">euphoria::gui::Skin</innerclass>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1render">euphoria::render</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1gui">euphoria::gui</innernamespace>
+    <innerclass refid="structeu_1_1gui_1_1Interpolation" prot="public">eu::gui::Interpolation</innerclass>
+    <innerclass refid="structeu_1_1gui_1_1ButtonState" prot="public">eu::gui::ButtonState</innerclass>
+    <innerclass refid="structeu_1_1gui_1_1Skin" prot="public">eu::gui::Skin</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1render">eu::render</innernamespace>
+    <innernamespace refid="namespaceeu_1_1gui">eu::gui</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

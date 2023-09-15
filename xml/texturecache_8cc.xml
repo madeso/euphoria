@@ -314,9 +314,9 @@
         <label>memory</label>
       </node>
     </incdepgraph>
-    <innerclass refid="structeuphoria_1_1render_1_1TextureCache_1_1TextureCachePimpl" prot="public">euphoria::render::TextureCache::TextureCachePimpl</innerclass>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1render">euphoria::render</innernamespace>
+    <innerclass refid="structeu_1_1render_1_1TextureCache_1_1TextureCachePimpl" prot="public">eu::render::TextureCache::TextureCachePimpl</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1render">eu::render</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

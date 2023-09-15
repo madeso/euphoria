@@ -1,0 +1,107 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="namespaceeu_1_1core_1_1dump2d" kind="namespace" language="C++">
+    <compoundname>eu::core::dump2d</compoundname>
+    <innerclass refid="structeu_1_1core_1_1dump2d_1_1Poly" prot="public">eu::core::dump2d::Poly</innerclass>
+    <innerclass refid="structeu_1_1core_1_1dump2d_1_1Text" prot="public">eu::core::dump2d::Text</innerclass>
+    <innerclass refid="structeu_1_1core_1_1dump2d_1_1Circle" prot="public">eu::core::dump2d::Circle</innerclass>
+    <innerclass refid="structeu_1_1core_1_1dump2d_1_1Item" prot="public">eu::core::dump2d::Item</innerclass>
+    <innerclass refid="structeu_1_1core_1_1dump2d_1_1AddWrapper" prot="public">eu::core::dump2d::AddWrapper</innerclass>
+    <innerclass refid="structeu_1_1core_1_1dump2d_1_1Group" prot="public">eu::core::dump2d::Group</innerclass>
+    <innerclass refid="structeu_1_1core_1_1dump2d_1_1Dumper" prot="public">eu::core::dump2d::Dumper</innerclass>
+    <innernamespace refid="namespaceeu_1_1core_1_1dump2d_1_1detail">eu::core::dump2d::detail</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core_1_1dump2d_1_1strokes">eu::core::dump2d::strokes</innernamespace>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespaceeu_1_1core_1_1dump2d_1a2e7b990531e8682bcfa18e6f08fc3552" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string eu::core::dump2d::to_html_or_none_string</definition>
+        <argsstring>(const std::optional&lt; Rgbi &gt; &amp;c)</argsstring>
+        <name>to_html_or_none_string</name>
+        <param>
+          <type>const std::optional&lt; <ref refid="structeu_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref> &gt; &amp;</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/dump.cc" line="14" column="17" bodyfile="libs/core/src/core/dump.cc" bodystart="14" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1core_1_1dump2d_1aa611b5c9c789e7a75bd8a48204feb09c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="structeu_1_1core_1_1dump2d_1_1Poly" kindref="compound">Poly</ref> *</type>
+        <definition>const Poly * eu::core::dump2d::as_poly</definition>
+        <argsstring>(const Item *item)</argsstring>
+        <name>as_poly</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1dump2d_1_1Item" kindref="compound">Item</ref> *</type>
+          <declname>item</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/dump.cc" line="69" column="16" bodyfile="libs/core/src/core/dump.cc" bodystart="69" bodyend="69" declfile="libs/core/src/core/dump.h" declline="80" declcolumn="16"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1core_1_1dump2d_1a9232645395055a03e57e6793e06935fc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="structeu_1_1core_1_1dump2d_1_1Text" kindref="compound">Text</ref> *</type>
+        <definition>const Text * eu::core::dump2d::as_text</definition>
+        <argsstring>(const Item *item)</argsstring>
+        <name>as_text</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1dump2d_1_1Item" kindref="compound">Item</ref> *</type>
+          <declname>item</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/dump.cc" line="70" column="16" bodyfile="libs/core/src/core/dump.cc" bodystart="70" bodyend="70" declfile="libs/core/src/core/dump.h" declline="81" declcolumn="16"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1core_1_1dump2d_1aae5afbfcf59dcf24deb628bf42285856" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="structeu_1_1core_1_1dump2d_1_1Group" kindref="compound">Group</ref> *</type>
+        <definition>const Group * eu::core::dump2d::as_group</definition>
+        <argsstring>(const Item *item)</argsstring>
+        <name>as_group</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1dump2d_1_1Item" kindref="compound">Item</ref> *</type>
+          <declname>item</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/dump.cc" line="71" column="17" bodyfile="libs/core/src/core/dump.cc" bodystart="71" bodyend="71" declfile="libs/core/src/core/dump.h" declline="82" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1core_1_1dump2d_1ae802a4581e90e12a3bcf1470d35b2244" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="structeu_1_1core_1_1dump2d_1_1Circle" kindref="compound">Circle</ref> *</type>
+        <definition>const Circle * eu::core::dump2d::as_circle</definition>
+        <argsstring>(const Item *item)</argsstring>
+        <name>as_circle</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1dump2d_1_1Item" kindref="compound">Item</ref> *</type>
+          <declname>item</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/dump.cc" line="72" column="18" bodyfile="libs/core/src/core/dump.cc" bodystart="72" bodyend="72" declfile="libs/core/src/core/dump.h" declline="83" declcolumn="18"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/dump.cc" line="12" column="1"/>
+  </compounddef>
+</doxygen>

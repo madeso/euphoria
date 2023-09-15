@@ -291,10 +291,10 @@
         </childnode>
       </node>
     </invincdepgraph>
-    <innerclass refid="structeuphoria_1_1core_1_1TableGenerator" prot="public">euphoria::core::TableGenerator</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1CsvParserOptions" prot="public">euphoria::core::CsvParserOptions</innerclass>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
+    <innerclass refid="structeu_1_1core_1_1TableGenerator" prot="public">eu::core::TableGenerator</innerclass>
+    <innerclass refid="structeu_1_1core_1_1CsvParserOptions" prot="public">eu::core::CsvParserOptions</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

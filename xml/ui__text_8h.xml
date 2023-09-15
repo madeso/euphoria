@@ -74,16 +74,16 @@
         <link refid="ui__text_8cc"/>
       </node>
     </invincdepgraph>
-    <innerclass refid="structeuphoria_1_1core_1_1textparser_1_1Node" prot="public">euphoria::core::textparser::Node</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1textparser_1_1NodeText" prot="public">euphoria::core::textparser::NodeText</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1textparser_1_1NodeImage" prot="public">euphoria::core::textparser::NodeImage</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1textparser_1_1NodeBeginOrEnd" prot="public">euphoria::core::textparser::NodeBeginOrEnd</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1textparser_1_1Visitor" prot="public">euphoria::core::textparser::Visitor</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1textparser_1_1VisitorDebugString" prot="public">euphoria::core::textparser::VisitorDebugString</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1UiText" prot="public">euphoria::core::UiText</innerclass>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core_1_1textparser">euphoria::core::textparser</innernamespace>
+    <innerclass refid="structeu_1_1core_1_1textparser_1_1Node" prot="public">eu::core::textparser::Node</innerclass>
+    <innerclass refid="structeu_1_1core_1_1textparser_1_1NodeText" prot="public">eu::core::textparser::NodeText</innerclass>
+    <innerclass refid="structeu_1_1core_1_1textparser_1_1NodeImage" prot="public">eu::core::textparser::NodeImage</innerclass>
+    <innerclass refid="structeu_1_1core_1_1textparser_1_1NodeBeginOrEnd" prot="public">eu::core::textparser::NodeBeginOrEnd</innerclass>
+    <innerclass refid="structeu_1_1core_1_1textparser_1_1Visitor" prot="public">eu::core::textparser::Visitor</innerclass>
+    <innerclass refid="structeu_1_1core_1_1textparser_1_1VisitorDebugString" prot="public">eu::core::textparser::VisitorDebugString</innerclass>
+    <innerclass refid="structeu_1_1core_1_1UiText" prot="public">eu::core::UiText</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core_1_1textparser">eu::core::textparser</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

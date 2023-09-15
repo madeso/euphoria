@@ -620,9 +620,9 @@
         </childnode>
       </node>
     </incdepgraph>
-    <innerclass refid="structeuphoria_1_1render_1_1UiTextCompileVisitor" prot="public">euphoria::render::UiTextCompileVisitor</innerclass>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1render">euphoria::render</innernamespace>
+    <innerclass refid="structeu_1_1render_1_1UiTextCompileVisitor" prot="public">eu::render::UiTextCompileVisitor</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1render">eu::render</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

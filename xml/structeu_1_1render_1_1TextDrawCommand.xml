@@ -1,0 +1,131 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1render_1_1TextDrawCommand" kind="struct" language="C++" prot="public">
+    <compoundname>eu::render::TextDrawCommand</compoundname>
+    <includes refid="font_8h" local="no">font.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1render_1_1TextDrawCommand_1ab2c411a8635b90b3d095490cf5cdf5f3" prot="public" static="no" mutable="no">
+        <type>const <ref refid="structeu_1_1render_1_1Texture2" kindref="compound">Texture2</ref> *</type>
+        <definition>const Texture2* eu::render::TextDrawCommand::texture</definition>
+        <argsstring></argsstring>
+        <name>texture</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/font.h" line="68" column="24" bodyfile="libs/render/src/render/font.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1TextDrawCommand_1a985078f7f1e7734ec1cd54cce9cd198f" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1core_1_1Rectf" kindref="compound">core::Rectf</ref></type>
+        <definition>core::Rectf eu::render::TextDrawCommand::sprite_rect</definition>
+        <argsstring></argsstring>
+        <name>sprite_rect</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/font.h" line="69" column="21" bodyfile="libs/render/src/render/font.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1TextDrawCommand_1a4b7c0e1e9689f823c8a0eecbc3c3f9c7" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1core_1_1Rectf" kindref="compound">core::Rectf</ref></type>
+        <definition>core::Rectf eu::render::TextDrawCommand::texture_rect</definition>
+        <argsstring></argsstring>
+        <name>texture_rect</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/font.h" line="70" column="21" bodyfile="libs/render/src/render/font.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1TextDrawCommand_1afa811a8de43377bfdfb466053ce942a2" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool eu::render::TextDrawCommand::hi</definition>
+        <argsstring></argsstring>
+        <name>hi</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/font.h" line="71" column="14" bodyfile="libs/render/src/render/font.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1render_1_1TextDrawCommand_1a0ab234748ff8feae5246ec036105ed64" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::TextDrawCommand::TextDrawCommand</definition>
+        <argsstring>(const Texture2 *texture, const core::Rectf &amp;sprite_rect, const core::Rectf &amp;texture_rect, bool hi)</argsstring>
+        <name>TextDrawCommand</name>
+        <param>
+          <type>const <ref refid="structeu_1_1render_1_1Texture2" kindref="compound">Texture2</ref> *</type>
+          <declname>texture</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1Rectf" kindref="compound">core::Rectf</ref> &amp;</type>
+          <declname>sprite_rect</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1Rectf" kindref="compound">core::Rectf</ref> &amp;</type>
+          <declname>texture_rect</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>hi</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/font.h" line="73" column="9" bodyfile="libs/render/src/render/font.cc" bodystart="306" bodyend="317"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="3">
+        <label>eu::render::Texture2</label>
+        <link refid="structeu_1_1render_1_1Texture2"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>eu::core::Rectf</label>
+        <link refid="structeu_1_1core_1_1Rectf"/>
+      </node>
+      <node id="1">
+        <label>eu::render::TextDrawCommand</label>
+        <link refid="structeu_1_1render_1_1TextDrawCommand"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>sprite_rect</edgelabel>
+          <edgelabel>texture_rect</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>texture</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>eu::render::TextureId</label>
+        <link refid="structeu_1_1render_1_1TextureId"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/render/src/render/font.h" line="66" column="5" bodyfile="libs/render/src/render/font.h" bodystart="67" bodyend="80"/>
+    <listofallmembers>
+      <member refid="structeu_1_1render_1_1TextDrawCommand_1afa811a8de43377bfdfb466053ce942a2" prot="public" virt="non-virtual"><scope>eu::render::TextDrawCommand</scope><name>hi</name></member>
+      <member refid="structeu_1_1render_1_1TextDrawCommand_1a985078f7f1e7734ec1cd54cce9cd198f" prot="public" virt="non-virtual"><scope>eu::render::TextDrawCommand</scope><name>sprite_rect</name></member>
+      <member refid="structeu_1_1render_1_1TextDrawCommand_1a0ab234748ff8feae5246ec036105ed64" prot="public" virt="non-virtual"><scope>eu::render::TextDrawCommand</scope><name>TextDrawCommand</name></member>
+      <member refid="structeu_1_1render_1_1TextDrawCommand_1ab2c411a8635b90b3d095490cf5cdf5f3" prot="public" virt="non-virtual"><scope>eu::render::TextDrawCommand</scope><name>texture</name></member>
+      <member refid="structeu_1_1render_1_1TextDrawCommand_1a4b7c0e1e9689f823c8a0eecbc3c3f9c7" prot="public" virt="non-virtual"><scope>eu::render::TextDrawCommand</scope><name>texture_rect</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

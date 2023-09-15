@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1render_1_1MaterialShaderBinding" kind="struct" language="C++" prot="public">
+    <compoundname>eu::render::MaterialShaderBinding</compoundname>
+    <includes refid="materialshader_8h" local="no">materialshader.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1render_1_1MaterialShaderBinding_1a3a72f7a9fca0526f26040a5476bfb504" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1render_1_1ShaderUniform" kindref="compound">ShaderUniform</ref></type>
+        <definition>ShaderUniform eu::render::MaterialShaderBinding::uniform</definition>
+        <argsstring></argsstring>
+        <name>uniform</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/materialshader.h" line="28" column="23" bodyfile="libs/render/src/render/materialshader.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1MaterialShaderBinding_1a8f5bbaf0772ae778bdfe3fddde4d8a48" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1core_1_1EnumValue" kindref="compound">core::EnumValue</ref></type>
+        <definition>core::EnumValue eu::render::MaterialShaderBinding::name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/materialshader.h" line="29" column="25" bodyfile="libs/render/src/render/materialshader.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1render_1_1MaterialShaderBinding_1a63a8c16ce009673d9e1a95037d3c1853" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::MaterialShaderBinding::MaterialShaderBinding</definition>
+        <argsstring>(ShaderUniform a_uniform, const core::EnumValue &amp;a_name)</argsstring>
+        <name>MaterialShaderBinding</name>
+        <param>
+          <type><ref refid="structeu_1_1render_1_1ShaderUniform" kindref="compound">ShaderUniform</ref></type>
+          <declname>a_uniform</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1EnumValue" kindref="compound">core::EnumValue</ref> &amp;</type>
+          <declname>a_name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/materialshader.h" line="31" column="9" bodyfile="libs/render/src/render/materialshader.cc" bodystart="30" bodyend="37"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>eu::render::MaterialShaderBinding</label>
+        <link refid="structeu_1_1render_1_1MaterialShaderBinding"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>uniform</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>name</edgelabel>
+        </childnode>
+      </node>
+      <node id="6">
+        <label>eu::core::EnumType</label>
+        <link refid="structeu_1_1core_1_1EnumType"/>
+      </node>
+      <node id="2">
+        <label>eu::render::ShaderUniform</label>
+        <link refid="structeu_1_1render_1_1ShaderUniform"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>shader</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>eu::core::EnumValue</label>
+        <link refid="structeu_1_1core_1_1EnumValue"/>
+        <childnode refid="6" relation="usage">
+          <edgelabel>type</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>eu::render::ShaderId</label>
+        <link refid="structeu_1_1render_1_1ShaderId"/>
+      </node>
+      <node id="3">
+        <label>eu::render::ShaderProgram</label>
+        <link refid="structeu_1_1render_1_1ShaderProgram"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="libs/render/src/render/materialshader.h" line="26" column="5" bodyfile="libs/render/src/render/materialshader.h" bodystart="27" bodyend="36"/>
+    <listofallmembers>
+      <member refid="structeu_1_1render_1_1MaterialShaderBinding_1a63a8c16ce009673d9e1a95037d3c1853" prot="public" virt="non-virtual"><scope>eu::render::MaterialShaderBinding</scope><name>MaterialShaderBinding</name></member>
+      <member refid="structeu_1_1render_1_1MaterialShaderBinding_1a8f5bbaf0772ae778bdfe3fddde4d8a48" prot="public" virt="non-virtual"><scope>eu::render::MaterialShaderBinding</scope><name>name</name></member>
+      <member refid="structeu_1_1render_1_1MaterialShaderBinding_1a3a72f7a9fca0526f26040a5476bfb504" prot="public" virt="non-virtual"><scope>eu::render::MaterialShaderBinding</scope><name>uniform</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

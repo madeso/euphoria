@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1core_1_1dot_1_1Graph" kind="struct" language="C++" prot="public">
+    <compoundname>eu::core::dot::Graph</compoundname>
+    <includes refid="dotoutput_8h" local="no">dotoutput.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1core_1_1dot_1_1Graph_1a31d780fb2dd7ca6c295ac1adc1967da3" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structeu_1_1core_1_1dot_1_1Node" kindref="compound">Node</ref> &gt;</type>
+        <definition>std::vector&lt;Node&gt; eu::core::dot::Graph::nodes</definition>
+        <argsstring></argsstring>
+        <name>nodes</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/dotoutput.h" line="27" column="17" bodyfile="libs/core/src/core/dotoutput.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1dot_1_1Graph_1ac7b326ac893143aa77b752bc3703e9b2" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structeu_1_1core_1_1dot_1_1Edge" kindref="compound">Edge</ref> &gt;</type>
+        <definition>std::vector&lt;Edge&gt; eu::core::dot::Graph::edges</definition>
+        <argsstring></argsstring>
+        <name>edges</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/dotoutput.h" line="28" column="17" bodyfile="libs/core/src/core/dotoutput.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1dot_1_1Graph_1a3b48e685f14f4bbf63dc05892a99a9a7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1dot_1_1Node" kindref="compound">Node</ref> *</type>
+        <definition>Node * eu::core::dot::Graph::add_new_node</definition>
+        <argsstring>(const std::string &amp;name)</argsstring>
+        <name>add_new_node</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/dotoutput.h" line="30" column="10" bodyfile="libs/core/src/core/dotoutput.cc" bodystart="14" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1dot_1_1Graph_1ab3c0ba82df8671d763295c1a0c695782" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1dot_1_1Edge" kindref="compound">Edge</ref> *</type>
+        <definition>Edge * eu::core::dot::Graph::add_new_edge</definition>
+        <argsstring>(NodeId from, NodeId to)</argsstring>
+        <name>add_new_edge</name>
+        <param>
+          <type><ref refid="namespaceeu_1_1core_1_1dot_1af638b8d325c8803fff4fa8069d90e458" kindref="member">NodeId</ref></type>
+          <declname>from</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceeu_1_1core_1_1dot_1af638b8d325c8803fff4fa8069d90e458" kindref="member">NodeId</ref></type>
+          <declname>to</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/dotoutput.h" line="31" column="10" bodyfile="libs/core/src/core/dotoutput.cc" bodystart="28" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1dot_1_1Graph_1a3f2c60b2b89d95f98f2156d1daa9acbc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::dot::Graph::print</definition>
+        <argsstring>()</argsstring>
+        <name>print</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/dotoutput.h" line="33" column="10" bodyfile="libs/core/src/core/dotoutput.cc" bodystart="47" bodyend="66"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/dotoutput.h" line="25" column="1" bodyfile="libs/core/src/core/dotoutput.h" bodystart="26" bodyend="34"/>
+    <listofallmembers>
+      <member refid="structeu_1_1core_1_1dot_1_1Graph_1ab3c0ba82df8671d763295c1a0c695782" prot="public" virt="non-virtual"><scope>eu::core::dot::Graph</scope><name>add_new_edge</name></member>
+      <member refid="structeu_1_1core_1_1dot_1_1Graph_1a3b48e685f14f4bbf63dc05892a99a9a7" prot="public" virt="non-virtual"><scope>eu::core::dot::Graph</scope><name>add_new_node</name></member>
+      <member refid="structeu_1_1core_1_1dot_1_1Graph_1ac7b326ac893143aa77b752bc3703e9b2" prot="public" virt="non-virtual"><scope>eu::core::dot::Graph</scope><name>edges</name></member>
+      <member refid="structeu_1_1core_1_1dot_1_1Graph_1a31d780fb2dd7ca6c295ac1adc1967da3" prot="public" virt="non-virtual"><scope>eu::core::dot::Graph</scope><name>nodes</name></member>
+      <member refid="structeu_1_1core_1_1dot_1_1Graph_1a3f2c60b2b89d95f98f2156d1daa9acbc" prot="public" virt="non-virtual"><scope>eu::core::dot::Graph</scope><name>print</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

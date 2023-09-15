@@ -322,8 +322,8 @@
         </childnode>
       </node>
     </incdepgraph>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1tests">euphoria::tests</innernamespace>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1tests">eu::tests</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

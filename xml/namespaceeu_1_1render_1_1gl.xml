@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="namespaceeu_1_1render_1_1gl" kind="namespace" language="C++">
+    <compoundname>eu::render::gl</compoundname>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="namespaceeu_1_1render_1_1gl_1a7cd98b54dff84354ba0a7e3be96a6ed7" prot="public" static="no">
+        <type>float</type>
+        <definition>using eu::render::gl::Float = typedef float</definition>
+        <argsstring></argsstring>
+        <name>Float</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/gltypes.h" line="5" column="5" bodyfile="libs/render/src/render/gltypes.h" bodystart="5" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespaceeu_1_1render_1_1gl_1a396c4599948eb3bd41559a2f39acdb22" prot="public" static="no">
+        <type>unsigned int</type>
+        <definition>using eu::render::gl::Uint = typedef unsigned int</definition>
+        <argsstring></argsstring>
+        <name>Uint</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/gltypes.h" line="6" column="5" bodyfile="libs/render/src/render/gltypes.h" bodystart="6" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespaceeu_1_1render_1_1gl_1ad8366bf6293b380fc6914c935533eef7" prot="public" static="no">
+        <type>int</type>
+        <definition>using eu::render::gl::Int = typedef int</definition>
+        <argsstring></argsstring>
+        <name>Int</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/gltypes.h" line="7" column="5" bodyfile="libs/render/src/render/gltypes.h" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespaceeu_1_1render_1_1gl_1a379d17a8f0d4f4136ba17aa160bb9a07" prot="public" static="no">
+        <type>char</type>
+        <definition>using eu::render::gl::Char = typedef char</definition>
+        <argsstring></argsstring>
+        <name>Char</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/gltypes.h" line="8" column="5" bodyfile="libs/render/src/render/gltypes.h" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/render/src/render/gltypes.h" line="3" column="1"/>
+  </compounddef>
+</doxygen>

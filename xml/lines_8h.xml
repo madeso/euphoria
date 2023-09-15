@@ -233,10 +233,10 @@
         </childnode>
       </node>
     </invincdepgraph>
-    <innerclass refid="structeuphoria_1_1core_1_1LinePoint" prot="public">euphoria::core::LinePoint</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1Lines" prot="public">euphoria::core::Lines</innerclass>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
+    <innerclass refid="structeu_1_1core_1_1LinePoint" prot="public">eu::core::LinePoint</innerclass>
+    <innerclass refid="structeu_1_1core_1_1Lines" prot="public">eu::core::Lines</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

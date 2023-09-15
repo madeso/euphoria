@@ -353,23 +353,23 @@
         </childnode>
       </node>
     </invincdepgraph>
-    <innerclass refid="structeuphoria_1_1core_1_1quatf" prot="public">euphoria::core::quatf</innerclass>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
+    <innerclass refid="structeu_1_1core_1_1quatf" prot="public">eu::core::quatf</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
       <sectiondef kind="func">
-      <memberdef kind="function" id="quat_8h_1ae6bf7fe6651a46d1baba77801e1d5f6f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="quat_8h_1aad95f0a75972bffab9a7acae18feb631" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>ADD_DEFAULT_FORMATTER</definition>
-        <argsstring>(euphoria::core::quatf, std::string, euphoria::core::to_string)</argsstring>
+        <argsstring>(eu::core::quatf, std::string, eu::core::to_string)</argsstring>
         <name>ADD_DEFAULT_FORMATTER</name>
         <param>
-          <type><ref refid="structeuphoria_1_1core_1_1quatf" kindref="compound">euphoria::core::quatf</ref></type>
+          <type><ref refid="structeu_1_1core_1_1quatf" kindref="compound">eu::core::quatf</ref></type>
         </param>
         <param>
           <type>std::string</type>
         </param>
         <param>
-          <type><ref refid="namespaceeuphoria_1_1core_1a8596fa3efb42bc0ad86b46183bc305d3" kindref="member">euphoria::core::to_string</ref></type>
+          <type><ref refid="namespaceeu_1_1core_1abb347a6e512d991e31badda3ce5fef91" kindref="member">eu::core::to_string</ref></type>
         </param>
         <briefdescription>
         </briefdescription>

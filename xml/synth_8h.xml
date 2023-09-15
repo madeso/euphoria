@@ -34,27 +34,27 @@
         <link refid="synth_8cc"/>
       </node>
     </invincdepgraph>
-    <innerclass refid="structeuphoria_1_1minsynth_1_1Node" prot="public">euphoria::minsynth::Node</innerclass>
-    <innerclass refid="structeuphoria_1_1minsynth_1_1ToneTaker" prot="public">euphoria::minsynth::ToneTaker</innerclass>
-    <innerclass refid="structeuphoria_1_1minsynth_1_1ToneSender" prot="public">euphoria::minsynth::ToneSender</innerclass>
-    <innerclass refid="structeuphoria_1_1minsynth_1_1FrequencyTaker" prot="public">euphoria::minsynth::FrequencyTaker</innerclass>
-    <innerclass refid="structeuphoria_1_1minsynth_1_1WaveOut" prot="public">euphoria::minsynth::WaveOut</innerclass>
-    <innerclass refid="structeuphoria_1_1minsynth_1_1ToneToFrequencyConverterNode" prot="public">euphoria::minsynth::ToneToFrequencyConverterNode</innerclass>
-    <innerclass refid="structeuphoria_1_1minsynth_1_1PianoKey" prot="public">euphoria::minsynth::PianoKey</innerclass>
-    <innerclass refid="structeuphoria_1_1minsynth_1_1MidiInNode" prot="public">euphoria::minsynth::MidiInNode</innerclass>
-    <innerclass refid="structeuphoria_1_1minsynth_1_1KeyboardInputNode" prot="public">euphoria::minsynth::KeyboardInputNode</innerclass>
-    <innerclass refid="structeuphoria_1_1minsynth_1_1SingleToneNode" prot="public">euphoria::minsynth::SingleToneNode</innerclass>
-    <innerclass refid="structeuphoria_1_1minsynth_1_1ArpegiatorNode" prot="public">euphoria::minsynth::ArpegiatorNode</innerclass>
-    <innerclass refid="structeuphoria_1_1minsynth_1_1LiveFrequency" prot="public">euphoria::minsynth::LiveFrequency</innerclass>
-    <innerclass refid="structeuphoria_1_1minsynth_1_1DeadFrequency" prot="public">euphoria::minsynth::DeadFrequency</innerclass>
-    <innerclass refid="structeuphoria_1_1minsynth_1_1Envelope" prot="public">euphoria::minsynth::Envelope</innerclass>
-    <innerclass refid="structeuphoria_1_1minsynth_1_1OscilatorNode" prot="public">euphoria::minsynth::OscilatorNode</innerclass>
-    <innerclass refid="structeuphoria_1_1minsynth_1_1Effect" prot="public">euphoria::minsynth::Effect</innerclass>
-    <innerclass refid="structeuphoria_1_1minsynth_1_1VolumeNode" prot="public">euphoria::minsynth::VolumeNode</innerclass>
-    <innerclass refid="structeuphoria_1_1minsynth_1_1ScalerEffect" prot="public">euphoria::minsynth::ScalerEffect</innerclass>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1minsynth">euphoria::minsynth</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1minsynth_1_1base__frequencies">euphoria::minsynth::base_frequencies</innernamespace>
+    <innerclass refid="structeu_1_1minsynth_1_1Node" prot="public">eu::minsynth::Node</innerclass>
+    <innerclass refid="structeu_1_1minsynth_1_1ToneTaker" prot="public">eu::minsynth::ToneTaker</innerclass>
+    <innerclass refid="structeu_1_1minsynth_1_1ToneSender" prot="public">eu::minsynth::ToneSender</innerclass>
+    <innerclass refid="structeu_1_1minsynth_1_1FrequencyTaker" prot="public">eu::minsynth::FrequencyTaker</innerclass>
+    <innerclass refid="structeu_1_1minsynth_1_1WaveOut" prot="public">eu::minsynth::WaveOut</innerclass>
+    <innerclass refid="structeu_1_1minsynth_1_1ToneToFrequencyConverterNode" prot="public">eu::minsynth::ToneToFrequencyConverterNode</innerclass>
+    <innerclass refid="structeu_1_1minsynth_1_1PianoKey" prot="public">eu::minsynth::PianoKey</innerclass>
+    <innerclass refid="structeu_1_1minsynth_1_1MidiInNode" prot="public">eu::minsynth::MidiInNode</innerclass>
+    <innerclass refid="structeu_1_1minsynth_1_1KeyboardInputNode" prot="public">eu::minsynth::KeyboardInputNode</innerclass>
+    <innerclass refid="structeu_1_1minsynth_1_1SingleToneNode" prot="public">eu::minsynth::SingleToneNode</innerclass>
+    <innerclass refid="structeu_1_1minsynth_1_1ArpegiatorNode" prot="public">eu::minsynth::ArpegiatorNode</innerclass>
+    <innerclass refid="structeu_1_1minsynth_1_1LiveFrequency" prot="public">eu::minsynth::LiveFrequency</innerclass>
+    <innerclass refid="structeu_1_1minsynth_1_1DeadFrequency" prot="public">eu::minsynth::DeadFrequency</innerclass>
+    <innerclass refid="structeu_1_1minsynth_1_1Envelope" prot="public">eu::minsynth::Envelope</innerclass>
+    <innerclass refid="structeu_1_1minsynth_1_1OscilatorNode" prot="public">eu::minsynth::OscilatorNode</innerclass>
+    <innerclass refid="structeu_1_1minsynth_1_1Effect" prot="public">eu::minsynth::Effect</innerclass>
+    <innerclass refid="structeu_1_1minsynth_1_1VolumeNode" prot="public">eu::minsynth::VolumeNode</innerclass>
+    <innerclass refid="structeu_1_1minsynth_1_1ScalerEffect" prot="public">eu::minsynth::ScalerEffect</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1minsynth">eu::minsynth</innernamespace>
+    <innernamespace refid="namespaceeu_1_1minsynth_1_1base__frequencies">eu::minsynth::base_frequencies</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

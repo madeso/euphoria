@@ -1,0 +1,122 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1core_1_1Defines" kind="struct" language="C++" prot="public">
+    <compoundname>eu::core::Defines</compoundname>
+    <includes refid="texttemplate_8h" local="no">texttemplate.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1core_1_1Defines_1a7497edd7ca04e5186210fe661e3af922" prot="public" static="no" mutable="no">
+        <type>std::map&lt; std::string, std::string &gt;</type>
+        <definition>std::map&lt;std::string, std::string&gt; eu::core::Defines::values</definition>
+        <argsstring></argsstring>
+        <name>values</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/texttemplate.h" line="19" column="18" bodyfile="libs/core/src/core/texttemplate.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1Defines_1aac7671639ca8d3b7bf97c27d24dd12cc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::core::Defines::Defines</definition>
+        <argsstring>()</argsstring>
+        <name>Defines</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/texttemplate.h" line="21" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1Defines_1a875fb18b0e22cc2199bbb6871b918761" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::Defines::remove</definition>
+        <argsstring>(const std::string &amp;name)</argsstring>
+        <name>remove</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/texttemplate.h" line="23" column="14" bodyfile="libs/core/src/core/texttemplate.cc" bodystart="46" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1Defines_1ad2534c0b28711ce4b86c64987dc77dca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::Defines::set</definition>
+        <argsstring>(const std::string &amp;name, const std::string &amp;value)</argsstring>
+        <name>set</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/texttemplate.h" line="24" column="14" bodyfile="libs/core/src/core/texttemplate.cc" bodystart="53" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1Defines_1ac457cccc0445ba19c6031fcf1bf8e2f1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool eu::core::Defines::is_defined</definition>
+        <argsstring>(const std::string &amp;name) const</argsstring>
+        <name>is_defined</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/texttemplate.h" line="26" column="15" bodyfile="libs/core/src/core/texttemplate.cc" bodystart="25" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1Defines_1a9843a6afd1575d243cd2e268cb93b3db" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string eu::core::Defines::get_value</definition>
+        <argsstring>(const std::string &amp;name) const</argsstring>
+        <name>get_value</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/texttemplate.h" line="27" column="22" bodyfile="libs/core/src/core/texttemplate.cc" bodystart="33" bodyend="42"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/texttemplate.h" line="17" column="5" bodyfile="libs/core/src/core/texttemplate.h" bodystart="18" bodyend="28"/>
+    <listofallmembers>
+      <member refid="structeu_1_1core_1_1Defines_1aac7671639ca8d3b7bf97c27d24dd12cc" prot="public" virt="non-virtual"><scope>eu::core::Defines</scope><name>Defines</name></member>
+      <member refid="structeu_1_1core_1_1Defines_1a9843a6afd1575d243cd2e268cb93b3db" prot="public" virt="non-virtual"><scope>eu::core::Defines</scope><name>get_value</name></member>
+      <member refid="structeu_1_1core_1_1Defines_1ac457cccc0445ba19c6031fcf1bf8e2f1" prot="public" virt="non-virtual"><scope>eu::core::Defines</scope><name>is_defined</name></member>
+      <member refid="structeu_1_1core_1_1Defines_1a875fb18b0e22cc2199bbb6871b918761" prot="public" virt="non-virtual"><scope>eu::core::Defines</scope><name>remove</name></member>
+      <member refid="structeu_1_1core_1_1Defines_1ad2534c0b28711ce4b86c64987dc77dca" prot="public" virt="non-virtual"><scope>eu::core::Defines</scope><name>set</name></member>
+      <member refid="structeu_1_1core_1_1Defines_1a7497edd7ca04e5186210fe661e3af922" prot="public" virt="non-virtual"><scope>eu::core::Defines</scope><name>values</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

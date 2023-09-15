@@ -546,11 +546,11 @@
         <link refid="image__to__text_8cc"/>
       </node>
     </invincdepgraph>
-    <innerclass refid="structeuphoria_1_1core_1_1Image" prot="public">euphoria::core::Image</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1ImageLoadResult" prot="public">euphoria::core::ImageLoadResult</innerclass>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core_1_1vfs">euphoria::core::vfs</innernamespace>
+    <innerclass refid="structeu_1_1core_1_1Image" prot="public">eu::core::Image</innerclass>
+    <innerclass refid="structeu_1_1core_1_1ImageLoadResult" prot="public">eu::core::ImageLoadResult</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core_1_1vfs">eu::core::vfs</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

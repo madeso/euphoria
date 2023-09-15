@@ -1,0 +1,118 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1core_1_1Token" kind="struct" language="C++" prot="public">
+    <compoundname>eu::core::Token</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1core_1_1Token_1a827480a1c727a1047cf58f84d99216b5" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeu_1_1core_1a397b3f091ce5435d67c8c7d121a4e3ce" kindref="member">TokenType</ref></type>
+        <definition>TokenType eu::core::Token::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/texttemplate.cc" line="310" column="15" bodyfile="libs/core/src/core/texttemplate.cc" bodystart="310" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1Token_1a87d952cff5e825504d3271956adae78b" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string eu::core::Token::value</definition>
+        <argsstring></argsstring>
+        <name>value</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/texttemplate.cc" line="311" column="17" bodyfile="libs/core/src/core/texttemplate.cc" bodystart="311" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1Token_1a6978e87bba8d6b98145f7022a8d52653" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int eu::core::Token::line</definition>
+        <argsstring></argsstring>
+        <name>line</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/texttemplate.cc" line="312" column="9" bodyfile="libs/core/src/core/texttemplate.cc" bodystart="312" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1Token_1ad446f71ba778c610050f5ae9edf4101d" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int eu::core::Token::column</definition>
+        <argsstring></argsstring>
+        <name>column</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/texttemplate.cc" line="313" column="9" bodyfile="libs/core/src/core/texttemplate.cc" bodystart="313" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1Token_1a506a7ade816edb39d99d9eac0c98767d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>eu::core::Token::Token</definition>
+        <argsstring>(TokenType t, int l, int c, std::string v=&quot;&quot;)</argsstring>
+        <name>Token</name>
+        <param>
+          <type><ref refid="namespaceeu_1_1core_1a397b3f091ce5435d67c8c7d121a4e3ce" kindref="member">TokenType</ref></type>
+          <declname>t</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>l</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>c</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>v</declname>
+          <defval>&quot;&quot;</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/texttemplate.cc" line="315" column="5" bodyfile="libs/core/src/core/texttemplate.cc" bodystart="315" bodyend="321"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1Token_1afcec9e50b5adbfe171c5b1a117a7a014" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string eu::core::Token::to_string</definition>
+        <argsstring>() const</argsstring>
+        <name>to_string</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/texttemplate.cc" line="324" column="5" bodyfile="libs/core/src/core/texttemplate.cc" bodystart="324" bodyend="327"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/texttemplate.cc" line="308" column="1" bodyfile="libs/core/src/core/texttemplate.cc" bodystart="309" bodyend="328"/>
+    <listofallmembers>
+      <member refid="structeu_1_1core_1_1Token_1ad446f71ba778c610050f5ae9edf4101d" prot="public" virt="non-virtual"><scope>eu::core::Token</scope><name>column</name></member>
+      <member refid="structeu_1_1core_1_1Token_1a6978e87bba8d6b98145f7022a8d52653" prot="public" virt="non-virtual"><scope>eu::core::Token</scope><name>line</name></member>
+      <member refid="structeu_1_1core_1_1Token_1afcec9e50b5adbfe171c5b1a117a7a014" prot="public" virt="non-virtual"><scope>eu::core::Token</scope><name>to_string</name></member>
+      <member refid="structeu_1_1core_1_1Token_1a506a7ade816edb39d99d9eac0c98767d" prot="public" virt="non-virtual"><scope>eu::core::Token</scope><name>Token</name></member>
+      <member refid="structeu_1_1core_1_1Token_1a827480a1c727a1047cf58f84d99216b5" prot="public" virt="non-virtual"><scope>eu::core::Token</scope><name>type</name></member>
+      <member refid="structeu_1_1core_1_1Token_1a87d952cff5e825504d3271956adae78b" prot="public" virt="non-virtual"><scope>eu::core::Token</scope><name>value</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

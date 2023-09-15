@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1core_1_1dot_1_1Edge" kind="struct" language="C++" prot="public">
+    <compoundname>eu::core::dot::Edge</compoundname>
+    <includes refid="dotoutput_8h" local="no">dotoutput.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1core_1_1dot_1_1Edge_1ab5a4f8283fff005af5b0451f5e0fb350" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeu_1_1core_1_1dot_1af638b8d325c8803fff4fa8069d90e458" kindref="member">NodeId</ref></type>
+        <definition>NodeId eu::core::dot::Edge::from</definition>
+        <argsstring></argsstring>
+        <name>from</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/dotoutput.h" line="21" column="12" bodyfile="libs/core/src/core/dotoutput.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1dot_1_1Edge_1a3607add82fb0145842f2d53b808760ef" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeu_1_1core_1_1dot_1af638b8d325c8803fff4fa8069d90e458" kindref="member">NodeId</ref></type>
+        <definition>NodeId eu::core::dot::Edge::to</definition>
+        <argsstring></argsstring>
+        <name>to</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/dotoutput.h" line="22" column="12" bodyfile="libs/core/src/core/dotoutput.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/dotoutput.h" line="19" column="1" bodyfile="libs/core/src/core/dotoutput.h" bodystart="20" bodyend="23"/>
+    <listofallmembers>
+      <member refid="structeu_1_1core_1_1dot_1_1Edge_1ab5a4f8283fff005af5b0451f5e0fb350" prot="public" virt="non-virtual"><scope>eu::core::dot::Edge</scope><name>from</name></member>
+      <member refid="structeu_1_1core_1_1dot_1_1Edge_1a3607add82fb0145842f2d53b808760ef" prot="public" virt="non-virtual"><scope>eu::core::dot::Edge</scope><name>to</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

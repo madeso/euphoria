@@ -329,8 +329,8 @@
         </childnode>
       </node>
     </incdepgraph>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
       <sectiondef kind="define">
       <memberdef kind="define" id="table__bool_8cc_1a291de52353e15a69f9719cc4a2b1734b" prot="public" static="no">
         <name>CHECK_BORDER</name>

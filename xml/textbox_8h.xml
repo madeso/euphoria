@@ -56,10 +56,10 @@
         </childnode>
       </node>
     </invincdepgraph>
-    <innerclass refid="structeuphoria_1_1core_1_1TextBoxStyle" prot="public">euphoria::core::TextBoxStyle</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1TextBox" prot="public">euphoria::core::TextBox</innerclass>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
+    <innerclass refid="structeu_1_1core_1_1TextBoxStyle" prot="public">eu::core::TextBoxStyle</innerclass>
+    <innerclass refid="structeu_1_1core_1_1TextBox" prot="public">eu::core::TextBox</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

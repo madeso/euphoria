@@ -58,17 +58,17 @@
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;algorithm&gt;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceeuphoria_1_1core.html">euphoria::core</a></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceeu_1_1core.html">eu::core</a></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;{</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    <span class="keywordtype">bool</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="namespaceeuphoria_1_1core.html#a6aee73bde8335c83077c9f0aeec17f40">    8</a></span>&#160;    <a class="code" href="namespaceeuphoria_1_1core.html#a6aee73bde8335c83077c9f0aeec17f40">find</a>(<span class="keyword">const</span> std::string&amp; target, <span class="keyword">const</span> std::string&amp; search)</div>
+<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="namespaceeu_1_1core.html#ad553deac3718b70193c330e3034bcbdb">    8</a></span>&#160;    <a class="code" href="namespaceeu_1_1core.html#ad553deac3718b70193c330e3034bcbdb">find</a>(<span class="keyword">const</span> std::string&amp; target, <span class="keyword">const</span> std::string&amp; search)</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    {</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;        <span class="keywordflow">return</span> target.find(search) != std::string::npos;</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    }</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordtype">bool</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="namespaceeuphoria_1_1core.html#a6d178b4db9b4d51ef3f0da748f8a62a7">   15</a></span>&#160;    <a class="code" href="namespaceeuphoria_1_1core.html#a6aee73bde8335c83077c9f0aeec17f40">find</a>(<span class="keyword">const</span> std::string&amp; target, <span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; searches)</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="namespaceeu_1_1core.html#a128ab05683bb92adec69fb4ef0d7855b">   15</a></span>&#160;    <a class="code" href="namespaceeu_1_1core.html#ad553deac3718b70193c330e3034bcbdb">find</a>(<span class="keyword">const</span> std::string&amp; target, <span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; searches)</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    {</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <span class="keywordflow">return</span> std::all_of</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        (</div>
@@ -83,7 +83,7 @@
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordtype">bool</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="namespaceeuphoria_1_1core.html#a246455882fca127f106f865c3062fffd">   30</a></span>&#160;    <a class="code" href="namespaceeuphoria_1_1core.html#a6aee73bde8335c83077c9f0aeec17f40">find</a>(<span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; targets, <span class="keyword">const</span> std::string&amp; search)</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="namespaceeu_1_1core.html#aa019568317ac2ca5b8487bf7fd7e03a2">   30</a></span>&#160;    <a class="code" href="namespaceeu_1_1core.html#ad553deac3718b70193c330e3034bcbdb">find</a>(<span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; targets, <span class="keyword">const</span> std::string&amp; search)</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    {</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keywordflow">return</span> std::any_of</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        (</div>
@@ -98,7 +98,7 @@
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">bool</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="namespaceeuphoria_1_1core.html#a941b08dbfbf2445019dbe372b694d94f">   45</a></span>&#160;    <a class="code" href="namespaceeuphoria_1_1core.html#a6aee73bde8335c83077c9f0aeec17f40">find</a>(<span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; targets,</div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="namespaceeu_1_1core.html#a6ca3f6d2ff14c2b64d9ad5f90f64dbe9">   45</a></span>&#160;    <a class="code" href="namespaceeu_1_1core.html#ad553deac3718b70193c330e3034bcbdb">find</a>(<span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; targets,</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;         <span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; searches)</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    {</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keywordflow">return</span> std::any_of</div>
@@ -114,8 +114,8 @@
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;}</div>
 <div class="ttc" id="afindstring_8h_html"><div class="ttname"><a href="findstring_8h.html">findstring.h</a></div></div>
-<div class="ttc" id="anamespaceeuphoria_1_1core_html"><div class="ttname"><a href="namespaceeuphoria_1_1core.html">euphoria::core</a></div><div class="ttdef"><b>Definition:</b> <a href="aabb_8cc_source.html#l00008">aabb.cc:9</a></div></div>
-<div class="ttc" id="anamespaceeuphoria_1_1core_html_a6aee73bde8335c83077c9f0aeec17f40"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#a6aee73bde8335c83077c9f0aeec17f40">euphoria::core::find</a></div><div class="ttdeci">bool find(const std::string &amp;target, const std::string &amp;search)</div><div class="ttdef"><b>Definition:</b> <a href="findstring_8cc_source.html#l00008">findstring.cc:8</a></div></div>
+<div class="ttc" id="anamespaceeu_1_1core_html"><div class="ttname"><a href="namespaceeu_1_1core.html">eu::core</a></div><div class="ttdef"><b>Definition:</b> <a href="aabb_8cc_source.html#l00008">aabb.cc:9</a></div></div>
+<div class="ttc" id="anamespaceeu_1_1core_html_ad553deac3718b70193c330e3034bcbdb"><div class="ttname"><a href="namespaceeu_1_1core.html#ad553deac3718b70193c330e3034bcbdb">eu::core::find</a></div><div class="ttdeci">bool find(const std::string &amp;target, const std::string &amp;search)</div><div class="ttdef"><b>Definition:</b> <a href="findstring_8cc_source.html#l00008">findstring.cc:8</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.17-->
 <!-- start footer part -->

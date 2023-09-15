@@ -209,10 +209,10 @@
         </childnode>
       </node>
     </invincdepgraph>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core_1_1palettes">euphoria::core::palettes</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core_1_1palettes_1_1lospec">euphoria::core::palettes::lospec</innernamespace>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core_1_1palettes">eu::core::palettes</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core_1_1palettes_1_1lospec">eu::core::palettes::lospec</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

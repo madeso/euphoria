@@ -199,9 +199,9 @@
         </childnode>
       </node>
     </invincdepgraph>
-    <innerclass refid="structeuphoria_1_1window_1_1App" prot="public">euphoria::window::App</innerclass>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1window">euphoria::window</innernamespace>
+    <innerclass refid="structeu_1_1window_1_1App" prot="public">eu::window::App</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1window">eu::window</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1core_1_1colorbrewer_1_1SinglePalette" kind="struct" language="C++" prot="public">
+    <compoundname>eu::core::colorbrewer::SinglePalette</compoundname>
+    <includes refid="colorbrewer_8h" local="no">colorbrewer.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1core_1_1colorbrewer_1_1SinglePalette_1a2daf454c3a027f8ae970b8bcc36eed06" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string eu::core::colorbrewer::SinglePalette::name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/colorbrewer.h" line="57" column="25" bodyfile="libs/core/src/core/colorbrewer.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1colorbrewer_1_1SinglePalette_1a932cff2e2a8ec5f5dcc93a3fe3d9bf23" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1core_1_1colorbrewer_1_1BrewerPalette" kindref="compound">BrewerPalette</ref></type>
+        <definition>BrewerPalette eu::core::colorbrewer::SinglePalette::palette</definition>
+        <argsstring></argsstring>
+        <name>palette</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/colorbrewer.h" line="58" column="27" bodyfile="libs/core/src/core/colorbrewer.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="3">
+        <label>eu::core::Palette</label>
+        <link refid="structeu_1_1core_1_1Palette"/>
+      </node>
+      <node id="2">
+        <label>eu::core::colorbrewer::BrewerPalette</label>
+        <link refid="structeu_1_1core_1_1colorbrewer_1_1BrewerPalette"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>palette</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>eu::core::colorbrewer::SinglePalette</label>
+        <link refid="structeu_1_1core_1_1colorbrewer_1_1SinglePalette"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>palette</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="libs/core/src/core/colorbrewer.h" line="55" column="9" bodyfile="libs/core/src/core/colorbrewer.h" bodystart="56" bodyend="59"/>
+    <listofallmembers>
+      <member refid="structeu_1_1core_1_1colorbrewer_1_1SinglePalette_1a2daf454c3a027f8ae970b8bcc36eed06" prot="public" virt="non-virtual"><scope>eu::core::colorbrewer::SinglePalette</scope><name>name</name></member>
+      <member refid="structeu_1_1core_1_1colorbrewer_1_1SinglePalette_1a932cff2e2a8ec5f5dcc93a3fe3d9bf23" prot="public" virt="non-virtual"><scope>eu::core::colorbrewer::SinglePalette</scope><name>palette</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

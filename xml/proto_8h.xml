@@ -111,11 +111,11 @@
         <link refid="materialshader_8cc"/>
       </node>
     </invincdepgraph>
-    <innerclass refid="structeuphoria_1_1core_1_1ReadErrorFileMissing" prot="public">euphoria::core::ReadErrorFileMissing</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1ReadErrorFileError" prot="public">euphoria::core::ReadErrorFileError</innerclass>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core_1_1vfs">euphoria::core::vfs</innernamespace>
+    <innerclass refid="structeu_1_1core_1_1ReadErrorFileMissing" prot="public">eu::core::ReadErrorFileMissing</innerclass>
+    <innerclass refid="structeu_1_1core_1_1ReadErrorFileError" prot="public">eu::core::ReadErrorFileError</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core_1_1vfs">eu::core::vfs</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

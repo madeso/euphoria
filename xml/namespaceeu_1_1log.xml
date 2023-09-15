@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="namespaceeu_1_1log" kind="namespace" language="C++">
+    <compoundname>eu::log</compoundname>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespaceeu_1_1log_1af229837389867f8991d406a1a0018ebc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::log::setup_logging</definition>
+        <argsstring>(bool force_console)</argsstring>
+        <name>setup_logging</name>
+        <param>
+          <type>bool</type>
+          <declname>force_console</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/log/src/log/log.cc" line="52" column="5" bodyfile="libs/log/src/log/log.cc" bodystart="52" bodyend="57" declfile="libs/log/src/log/log.h" declline="20" declcolumn="10"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/log/src/log/log.cc" line="49" column="1"/>
+  </compounddef>
+</doxygen>

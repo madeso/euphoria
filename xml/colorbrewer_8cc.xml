@@ -203,9 +203,9 @@
         <label>algorithm</label>
       </node>
     </incdepgraph>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core_1_1colorbrewer">euphoria::core::colorbrewer</innernamespace>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core_1_1colorbrewer">eu::core::colorbrewer</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

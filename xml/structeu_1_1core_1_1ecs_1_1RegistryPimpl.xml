@@ -1,0 +1,176 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1core_1_1ecs_1_1RegistryPimpl" kind="struct" language="C++" prot="public">
+    <compoundname>eu::core::ecs::RegistryPimpl</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1core_1_1ecs_1_1RegistryPimpl_1a3f90ba6d8783eaf34559a753062a7ecd" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1core_1_1ecs_1_1AliveEntities" kindref="compound">AliveEntities</ref></type>
+        <definition>AliveEntities eu::core::ecs::RegistryPimpl::alive_entities</definition>
+        <argsstring></argsstring>
+        <name>alive_entities</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ecs.cc" line="191" column="23" bodyfile="libs/core/src/core/ecs.cc" bodystart="191" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1ecs_1_1RegistryPimpl_1a9ee7695046a243cbe853a51a44fc9d7d" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1core_1_1ecs_1_1KnownComponentTypes" kindref="compound">KnownComponentTypes</ref></type>
+        <definition>KnownComponentTypes eu::core::ecs::RegistryPimpl::known_component_types</definition>
+        <argsstring></argsstring>
+        <name>known_component_types</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ecs.cc" line="192" column="29" bodyfile="libs/core/src/core/ecs.cc" bodystart="192" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1ecs_1_1RegistryPimpl_1a3f3be672613ab475cce2f29b07966e9c" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1core_1_1ecs_1_1AllComponents" kindref="compound">AllComponents</ref></type>
+        <definition>AllComponents eu::core::ecs::RegistryPimpl::all_components</definition>
+        <argsstring></argsstring>
+        <name>all_components</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ecs.cc" line="193" column="23" bodyfile="libs/core/src/core/ecs.cc" bodystart="193" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1ecs_1_1RegistryPimpl_1a29e6227b0e902d4e72a2a4ac6f8325b6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespaceeu_1_1core_1_1ecs_1a6bc928b478aa35fd3e9e98d901552f38" kindref="member">EntityHandle</ref></type>
+        <definition>EntityHandle eu::core::ecs::RegistryPimpl::create</definition>
+        <argsstring>()</argsstring>
+        <name>create</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ecs.cc" line="195" column="22" bodyfile="libs/core/src/core/ecs.cc" bodystart="195" bodyend="198"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1ecs_1_1RegistryPimpl_1aa0696e4b11dec4720b3f0c9a2e86d603" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::ecs::RegistryPimpl::destroy</definition>
+        <argsstring>(EntityHandle entity)</argsstring>
+        <name>destroy</name>
+        <param>
+          <type><ref refid="namespaceeu_1_1core_1_1ecs_1a6bc928b478aa35fd3e9e98d901552f38" kindref="member">EntityHandle</ref></type>
+          <declname>entity</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ecs.cc" line="200" column="14" bodyfile="libs/core/src/core/ecs.cc" bodystart="200" bodyend="204"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1ecs_1_1RegistryPimpl_1a4d392452394c6ffeacd7cc7b641707a8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespaceeu_1_1core_1_1ecs_1a6be7e1ab08b2e3baa2712ecd23d9b1a6" kindref="member">ComponentIndex</ref></type>
+        <definition>ComponentIndex eu::core::ecs::RegistryPimpl::set_component_array</definition>
+        <argsstring>(const std::string &amp;name, std::unique_ptr&lt; ComponentArrayBase &gt; &amp;&amp;components)</argsstring>
+        <name>set_component_array</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>std::unique_ptr&lt; <ref refid="structeu_1_1core_1_1ecs_1_1ComponentArrayBase" kindref="compound">ComponentArrayBase</ref> &gt; &amp;&amp;</type>
+          <declname>components</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ecs.cc" line="206" column="24" bodyfile="libs/core/src/core/ecs.cc" bodystart="206" bodyend="211"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1ecs_1_1RegistryPimpl_1ac022f8a3c3bfa6b154822876bc01b41c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1ecs_1_1ComponentArrayBase" kindref="compound">ComponentArrayBase</ref> *</type>
+        <definition>ComponentArrayBase* eu::core::ecs::RegistryPimpl::get_components_base</definition>
+        <argsstring>(ComponentIndex comp_ind)</argsstring>
+        <name>get_components_base</name>
+        <param>
+          <type><ref refid="namespaceeu_1_1core_1_1ecs_1a6be7e1ab08b2e3baa2712ecd23d9b1a6" kindref="member">ComponentIndex</ref></type>
+          <declname>comp_ind</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ecs.cc" line="213" column="28" bodyfile="libs/core/src/core/ecs.cc" bodystart="213" bodyend="216"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1ecs_1_1RegistryPimpl_1a7947fa0ad8be49b519524375977ad1e7" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::vector&lt; <ref refid="namespaceeu_1_1core_1_1ecs_1a6bc928b478aa35fd3e9e98d901552f38" kindref="member">EntityHandle</ref> &gt;</type>
+        <definition>std::vector&lt;EntityHandle&gt; eu::core::ecs::RegistryPimpl::view</definition>
+        <argsstring>(const std::vector&lt; ComponentIndex &gt; &amp;matching_components) const</argsstring>
+        <name>view</name>
+        <param>
+          <type>const std::vector&lt; <ref refid="namespaceeu_1_1core_1_1ecs_1a6be7e1ab08b2e3baa2712ecd23d9b1a6" kindref="member">ComponentIndex</ref> &gt; &amp;</type>
+          <declname>matching_components</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ecs.cc" line="218" column="21" bodyfile="libs/core/src/core/ecs.cc" bodystart="218" bodyend="221"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="4">
+        <label>eu::core::ecs::KnownComponentTypes</label>
+        <link refid="structeu_1_1core_1_1ecs_1_1KnownComponentTypes"/>
+      </node>
+      <node id="1">
+        <label>eu::core::ecs::RegistryPimpl</label>
+        <link refid="structeu_1_1core_1_1ecs_1_1RegistryPimpl"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>alive_entities</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>all_components</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>known_component_types</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>eu::core::ecs::AliveEntities</label>
+        <link refid="structeu_1_1core_1_1ecs_1_1AliveEntities"/>
+      </node>
+      <node id="3">
+        <label>eu::core::ecs::AllComponents</label>
+        <link refid="structeu_1_1core_1_1ecs_1_1AllComponents"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/core/src/core/ecs.cc" line="189" column="5" bodyfile="libs/core/src/core/ecs.cc" bodystart="190" bodyend="222"/>
+    <listofallmembers>
+      <member refid="structeu_1_1core_1_1ecs_1_1RegistryPimpl_1a3f90ba6d8783eaf34559a753062a7ecd" prot="public" virt="non-virtual"><scope>eu::core::ecs::RegistryPimpl</scope><name>alive_entities</name></member>
+      <member refid="structeu_1_1core_1_1ecs_1_1RegistryPimpl_1a3f3be672613ab475cce2f29b07966e9c" prot="public" virt="non-virtual"><scope>eu::core::ecs::RegistryPimpl</scope><name>all_components</name></member>
+      <member refid="structeu_1_1core_1_1ecs_1_1RegistryPimpl_1a29e6227b0e902d4e72a2a4ac6f8325b6" prot="public" virt="non-virtual"><scope>eu::core::ecs::RegistryPimpl</scope><name>create</name></member>
+      <member refid="structeu_1_1core_1_1ecs_1_1RegistryPimpl_1aa0696e4b11dec4720b3f0c9a2e86d603" prot="public" virt="non-virtual"><scope>eu::core::ecs::RegistryPimpl</scope><name>destroy</name></member>
+      <member refid="structeu_1_1core_1_1ecs_1_1RegistryPimpl_1ac022f8a3c3bfa6b154822876bc01b41c" prot="public" virt="non-virtual"><scope>eu::core::ecs::RegistryPimpl</scope><name>get_components_base</name></member>
+      <member refid="structeu_1_1core_1_1ecs_1_1RegistryPimpl_1a9ee7695046a243cbe853a51a44fc9d7d" prot="public" virt="non-virtual"><scope>eu::core::ecs::RegistryPimpl</scope><name>known_component_types</name></member>
+      <member refid="structeu_1_1core_1_1ecs_1_1RegistryPimpl_1a4d392452394c6ffeacd7cc7b641707a8" prot="public" virt="non-virtual"><scope>eu::core::ecs::RegistryPimpl</scope><name>set_component_array</name></member>
+      <member refid="structeu_1_1core_1_1ecs_1_1RegistryPimpl_1a7947fa0ad8be49b519524375977ad1e7" prot="public" virt="non-virtual"><scope>eu::core::ecs::RegistryPimpl</scope><name>view</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

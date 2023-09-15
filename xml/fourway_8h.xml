@@ -224,11 +224,11 @@
         </childnode>
       </node>
     </invincdepgraph>
-    <innerclass refid="structeuphoria_1_1core_1_1Lrud" prot="public">euphoria::core::Lrud</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1CustomArgparser_3_01Lrud_3_01T_01_4_01_4" prot="public">euphoria::core::CustomArgparser&lt; Lrud&lt; T &gt; &gt;</innerclass>
-    <innerclass refid="structfmt_1_1formatter_3_01euphoria_1_1core_1_1Lrud_3_01T_01_4_01_4" prot="public">fmt::formatter&lt; euphoria::core::Lrud&lt; T &gt; &gt;</innerclass>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
+    <innerclass refid="structeu_1_1core_1_1Lrud" prot="public">eu::core::Lrud</innerclass>
+    <innerclass refid="structeu_1_1core_1_1CustomArgparser_3_01Lrud_3_01T_01_4_01_4" prot="public">eu::core::CustomArgparser&lt; Lrud&lt; T &gt; &gt;</innerclass>
+    <innerclass refid="structfmt_1_1formatter_3_01eu_1_1core_1_1Lrud_3_01T_01_4_01_4" prot="public">fmt::formatter&lt; eu::core::Lrud&lt; T &gt; &gt;</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

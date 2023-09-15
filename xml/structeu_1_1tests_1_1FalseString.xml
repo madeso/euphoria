@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1tests_1_1FalseString" kind="struct" language="C++" prot="public">
+    <compoundname>eu::tests::FalseString</compoundname>
+    <includes refid="falsestring_8h" local="no">falsestring.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1tests_1_1FalseString_1afc5e759e6f07295e009c2f425781e260" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string eu::tests::FalseString::str</definition>
+        <argsstring></argsstring>
+        <name>str</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/tests/src/tests/falsestring.h" line="11" column="21" bodyfile="libs/tests/src/tests/falsestring.h" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="structeu_1_1tests_1_1FalseString_1af47f1df23455bab958acef8659f4d0f0" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1tests_1_1FalseString" kindref="compound">FalseString</ref></type>
+        <definition>FalseString eu::tests::FalseString::create_false</definition>
+        <argsstring>(const std::string &amp;text)</argsstring>
+        <name>create_false</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>text</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/tests/src/tests/falsestring.h" line="13" column="28" bodyfile="libs/tests/src/tests/falsestring.cc" bodystart="6" bodyend="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1tests_1_1FalseString_1a610b92c173cf653be54a3cba477b3885" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1tests_1_1FalseString" kindref="compound">FalseString</ref></type>
+        <definition>FalseString eu::tests::FalseString::create_true</definition>
+        <argsstring>()</argsstring>
+        <name>create_true</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/tests/src/tests/falsestring.h" line="14" column="28" bodyfile="libs/tests/src/tests/falsestring.cc" bodystart="13" bodyend="16"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1tests_1_1FalseString_1a3df73ffb335ff42c602a45cd7ebb967e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::tests::FalseString::operator bool</definition>
+        <argsstring>() const</argsstring>
+        <name>operator bool</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/tests/src/tests/falsestring.h" line="16" column="9" bodyfile="libs/tests/src/tests/falsestring.cc" bodystart="19" bodyend="22"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>represents a error (false) or empty string (true) </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/tests/src/tests/falsestring.h" line="9" column="5" bodyfile="libs/tests/src/tests/falsestring.h" bodystart="10" bodyend="17"/>
+    <listofallmembers>
+      <member refid="structeu_1_1tests_1_1FalseString_1af47f1df23455bab958acef8659f4d0f0" prot="public" virt="non-virtual"><scope>eu::tests::FalseString</scope><name>create_false</name></member>
+      <member refid="structeu_1_1tests_1_1FalseString_1a610b92c173cf653be54a3cba477b3885" prot="public" virt="non-virtual"><scope>eu::tests::FalseString</scope><name>create_true</name></member>
+      <member refid="structeu_1_1tests_1_1FalseString_1a3df73ffb335ff42c602a45cd7ebb967e" prot="public" virt="non-virtual"><scope>eu::tests::FalseString</scope><name>operator bool</name></member>
+      <member refid="structeu_1_1tests_1_1FalseString_1afc5e759e6f07295e009c2f425781e260" prot="public" virt="non-virtual"><scope>eu::tests::FalseString</scope><name>str</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="namespaceeu_1_1core_1_1textparser" kind="namespace" language="C++">
+    <compoundname>eu::core::textparser</compoundname>
+    <innerclass refid="structeu_1_1core_1_1textparser_1_1Node" prot="public">eu::core::textparser::Node</innerclass>
+    <innerclass refid="structeu_1_1core_1_1textparser_1_1NodeText" prot="public">eu::core::textparser::NodeText</innerclass>
+    <innerclass refid="structeu_1_1core_1_1textparser_1_1NodeImage" prot="public">eu::core::textparser::NodeImage</innerclass>
+    <innerclass refid="structeu_1_1core_1_1textparser_1_1NodeBeginOrEnd" prot="public">eu::core::textparser::NodeBeginOrEnd</innerclass>
+    <innerclass refid="structeu_1_1core_1_1textparser_1_1Visitor" prot="public">eu::core::textparser::Visitor</innerclass>
+    <innerclass refid="structeu_1_1core_1_1textparser_1_1VisitorDebugString" prot="public">eu::core::textparser::VisitorDebugString</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/ui_text.cc" line="10" column="5"/>
+  </compounddef>
+</doxygen>

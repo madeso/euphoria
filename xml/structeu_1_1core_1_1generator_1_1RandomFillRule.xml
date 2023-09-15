@@ -1,0 +1,149 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1core_1_1generator_1_1RandomFillRule" kind="struct" language="C++" prot="public">
+    <compoundname>eu::core::generator::RandomFillRule</compoundname>
+    <basecompoundref refid="structeu_1_1core_1_1generator_1_1Rule" prot="public" virt="non-virtual">eu::core::generator::Rule</basecompoundref>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1core_1_1generator_1_1RandomFillRule_1a3ee136676b54ddeab6c48458d3082d50" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1core_1_1Random" kindref="compound">Random</ref> *</type>
+        <definition>Random* eu::core::generator::RandomFillRule::rand</definition>
+        <argsstring></argsstring>
+        <name>rand</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_cell.cc" line="41" column="16" bodyfile="libs/core/src/core/generator_cell.cc" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1generator_1_1RandomFillRule_1ab6b73c12a44adf47a8b34f951dc211b4" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float eu::core::generator::RandomFillRule::random_fill</definition>
+        <argsstring></argsstring>
+        <name>random_fill</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_cell.cc" line="42" column="15" bodyfile="libs/core/src/core/generator_cell.cc" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1generator_1_1RandomFillRule_1a87becf66fd7c991fbc1c786253d66fbe" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1core_1_1Lrud" kindref="compound">Lrud</ref>&lt; <ref refid="namespaceeu_1_1core_1ad816ec64a4ad2c10feb5ed0b227785df" kindref="member">BorderSetupRule</ref> &gt;</type>
+        <definition>Lrud&lt;BorderSetupRule&gt; eu::core::generator::RandomFillRule::border_control</definition>
+        <argsstring></argsstring>
+        <name>border_control</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_cell.cc" line="43" column="14" bodyfile="libs/core/src/core/generator_cell.cc" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1generator_1_1RandomFillRule_1a271e0b3436a4b4883cdf03ddb86a5ec9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>eu::core::generator::RandomFillRule::RandomFillRule</definition>
+        <argsstring>(Random *r, float rf, Lrud&lt; BorderSetupRule &gt; bc)</argsstring>
+        <name>RandomFillRule</name>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1Random" kindref="compound">Random</ref> *</type>
+          <declname>r</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>rf</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1Lrud" kindref="compound">Lrud</ref>&lt; <ref refid="namespaceeu_1_1core_1ad816ec64a4ad2c10feb5ed0b227785df" kindref="member">BorderSetupRule</ref> &gt;</type>
+          <declname>bc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_cell.cc" line="45" column="9" bodyfile="libs/core/src/core/generator_cell.cc" bodystart="46" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1generator_1_1RandomFillRule_1a6ca9ff0f2a3dc265ce4103884fa94122" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void eu::core::generator::RandomFillRule::update</definition>
+        <argsstring>(CellularAutomata *self) override</argsstring>
+        <name>update</name>
+        <reimplements refid="structeu_1_1core_1_1generator_1_1Rule_1ade8830cd904a3451ce788d30a19fd37f">update</reimplements>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1generator_1_1CellularAutomata" kindref="compound">CellularAutomata</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_cell.cc" line="58" column="9" bodyfile="libs/core/src/core/generator_cell.cc" bodystart="58" bodyend="64"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>eu::core::generator::Rule</label>
+        <link refid="structeu_1_1core_1_1generator_1_1Rule"/>
+      </node>
+      <node id="1">
+        <label>eu::core::generator::RandomFillRule</label>
+        <link refid="structeu_1_1core_1_1generator_1_1RandomFillRule"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="4">
+        <label>eu::core::Lrud&lt; BorderSetupRule &gt;</label>
+        <link refid="structeu_1_1core_1_1Lrud"/>
+      </node>
+      <node id="3">
+        <label>eu::core::Random</label>
+        <link refid="structeu_1_1core_1_1Random"/>
+      </node>
+      <node id="2">
+        <label>eu::core::generator::Rule</label>
+        <link refid="structeu_1_1core_1_1generator_1_1Rule"/>
+      </node>
+      <node id="1">
+        <label>eu::core::generator::RandomFillRule</label>
+        <link refid="structeu_1_1core_1_1generator_1_1RandomFillRule"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>rand</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>border_control</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="libs/core/src/core/generator_cell.cc" line="39" column="5" bodyfile="libs/core/src/core/generator_cell.cc" bodystart="40" bodyend="65"/>
+    <listofallmembers>
+      <member refid="structeu_1_1core_1_1generator_1_1RandomFillRule_1a87becf66fd7c991fbc1c786253d66fbe" prot="public" virt="non-virtual"><scope>eu::core::generator::RandomFillRule</scope><name>border_control</name></member>
+      <member refid="structeu_1_1core_1_1generator_1_1Rule_1a1952ef89fb57f11c325bf2d3ba740f03" prot="public" virt="non-virtual"><scope>eu::core::generator::RandomFillRule</scope><name>operator=</name></member>
+      <member refid="structeu_1_1core_1_1generator_1_1Rule_1aa350df05a08e00098e2554b9ed266740" prot="public" virt="non-virtual"><scope>eu::core::generator::RandomFillRule</scope><name>operator=</name></member>
+      <member refid="structeu_1_1core_1_1generator_1_1RandomFillRule_1a3ee136676b54ddeab6c48458d3082d50" prot="public" virt="non-virtual"><scope>eu::core::generator::RandomFillRule</scope><name>rand</name></member>
+      <member refid="structeu_1_1core_1_1generator_1_1RandomFillRule_1ab6b73c12a44adf47a8b34f951dc211b4" prot="public" virt="non-virtual"><scope>eu::core::generator::RandomFillRule</scope><name>random_fill</name></member>
+      <member refid="structeu_1_1core_1_1generator_1_1RandomFillRule_1a271e0b3436a4b4883cdf03ddb86a5ec9" prot="public" virt="non-virtual"><scope>eu::core::generator::RandomFillRule</scope><name>RandomFillRule</name></member>
+      <member refid="structeu_1_1core_1_1generator_1_1Rule_1a2cc99f83e0445005a0182fbc0f35fbbb" prot="public" virt="non-virtual"><scope>eu::core::generator::RandomFillRule</scope><name>Rule</name></member>
+      <member refid="structeu_1_1core_1_1generator_1_1Rule_1afc670d5cfa21cbeab7b9bb73d07a1be3" prot="public" virt="non-virtual"><scope>eu::core::generator::RandomFillRule</scope><name>Rule</name></member>
+      <member refid="structeu_1_1core_1_1generator_1_1Rule_1a6d26158a71ce1d94edea3278423ff3c3" prot="public" virt="non-virtual"><scope>eu::core::generator::RandomFillRule</scope><name>Rule</name></member>
+      <member refid="structeu_1_1core_1_1generator_1_1RandomFillRule_1a6ca9ff0f2a3dc265ce4103884fa94122" prot="public" virt="virtual"><scope>eu::core::generator::RandomFillRule</scope><name>update</name></member>
+      <member refid="structeu_1_1core_1_1generator_1_1Rule_1a166890d09b76a20fb94005a3747251f6" prot="public" virt="virtual"><scope>eu::core::generator::RandomFillRule</scope><name>~Rule</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

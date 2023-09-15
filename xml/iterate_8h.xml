@@ -51,10 +51,10 @@
         <link refid="polybezier_8cc"/>
       </node>
     </invincdepgraph>
-    <innerclass refid="structeuphoria_1_1core_1_1StepIterator" prot="public">euphoria::core::StepIterator</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1StepIteratorCreator" prot="public">euphoria::core::StepIteratorCreator</innerclass>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
+    <innerclass refid="structeu_1_1core_1_1StepIterator" prot="public">eu::core::StepIterator</innerclass>
+    <innerclass refid="structeu_1_1core_1_1StepIteratorCreator" prot="public">eu::core::StepIteratorCreator</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

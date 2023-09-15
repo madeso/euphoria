@@ -44,10 +44,10 @@
         <link refid="radix__sort_8cc"/>
       </node>
     </invincdepgraph>
-    <innerclass refid="structeuphoria_1_1core_1_1BucketBase10" prot="public">euphoria::core::BucketBase10</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1BucketBase16" prot="public">euphoria::core::BucketBase16</innerclass>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
+    <innerclass refid="structeu_1_1core_1_1BucketBase10" prot="public">eu::core::BucketBase10</innerclass>
+    <innerclass refid="structeu_1_1core_1_1BucketBase16" prot="public">eu::core::BucketBase16</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

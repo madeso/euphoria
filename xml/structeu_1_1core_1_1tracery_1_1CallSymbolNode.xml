@@ -1,0 +1,145 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1core_1_1tracery_1_1CallSymbolNode" kind="struct" language="C++" prot="public">
+    <compoundname>eu::core::tracery::CallSymbolNode</compoundname>
+    <basecompoundref refid="structeu_1_1core_1_1tracery_1_1Node" prot="public" virt="non-virtual">eu::core::tracery::Node</basecompoundref>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1core_1_1tracery_1_1CallSymbolNode_1a2da0f9d23bc1ebe06cc4885eb306fb57" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string eu::core::tracery::CallSymbolNode::symbol</definition>
+        <argsstring></argsstring>
+        <name>symbol</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/tracery.cc" line="142" column="21" bodyfile="libs/core/src/core/tracery.cc" bodystart="142" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1tracery_1_1CallSymbolNode_1aab55d3a7fde4da16bf9b18fc4e2d256b" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>std::vector&lt;std::string&gt; eu::core::tracery::CallSymbolNode::modifiers</definition>
+        <argsstring></argsstring>
+        <name>modifiers</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/tracery.cc" line="143" column="21" bodyfile="libs/core/src/core/tracery.cc" bodystart="143" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1tracery_1_1CallSymbolNode_1abb06af7dcdcf8040f7c45af2f95f69c4" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structeu_1_1core_1_1tracery_1_1ActionRule" kindref="compound">ActionRule</ref> &gt;</type>
+        <definition>std::vector&lt;ActionRule&gt; eu::core::tracery::CallSymbolNode::action_rules</definition>
+        <argsstring></argsstring>
+        <name>action_rules</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/tracery.cc" line="144" column="21" bodyfile="libs/core/src/core/tracery.cc" bodystart="144" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1tracery_1_1CallSymbolNode_1a6275af4639fb505aa49bc93a2684b898" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::core::tracery::CallSymbolNode::CallSymbolNode</definition>
+        <argsstring>()=default</argsstring>
+        <name>CallSymbolNode</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/tracery.cc" line="146" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1tracery_1_1CallSymbolNode_1a580eb0c100c777e844615d293ffc64f4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::tracery::CallSymbolNode::add_action_rule</definition>
+        <argsstring>(const std::string &amp;action_key, const std::string &amp;action_symbol)</argsstring>
+        <name>add_action_rule</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>action_key</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>action_symbol</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/tracery.cc" line="148" column="14" bodyfile="libs/core/src/core/tracery.cc" bodystart="149" bodyend="155"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1tracery_1_1CallSymbolNode_1a873119fe46e16791d00fa06b472e5abf" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="structeu_1_1core_1_1tracery_1_1Result" kindref="compound">Result</ref></type>
+        <definition>Result eu::core::tracery::CallSymbolNode::flatten</definition>
+        <argsstring>(GeneratorArgument *generator) const override</argsstring>
+        <name>flatten</name>
+        <reimplements refid="structeu_1_1core_1_1tracery_1_1Node_1a36f9ad67aeb0a0b3eb24895a6f4593c8">flatten</reimplements>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1tracery_1_1GeneratorArgument" kindref="compound">GeneratorArgument</ref> *</type>
+          <declname>generator</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/tracery.cc" line="157" column="16" bodyfile="libs/core/src/core/tracery.cc" bodystart="157" bodyend="190"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>eu::core::tracery::CallSymbolNode</label>
+        <link refid="structeu_1_1core_1_1tracery_1_1CallSymbolNode"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>eu::core::tracery::Node</label>
+        <link refid="structeu_1_1core_1_1tracery_1_1Node"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>eu::core::tracery::CallSymbolNode</label>
+        <link refid="structeu_1_1core_1_1tracery_1_1CallSymbolNode"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>eu::core::tracery::Node</label>
+        <link refid="structeu_1_1core_1_1tracery_1_1Node"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/core/src/core/tracery.cc" line="140" column="5" bodyfile="libs/core/src/core/tracery.cc" bodystart="141" bodyend="191"/>
+    <listofallmembers>
+      <member refid="structeu_1_1core_1_1tracery_1_1CallSymbolNode_1abb06af7dcdcf8040f7c45af2f95f69c4" prot="public" virt="non-virtual"><scope>eu::core::tracery::CallSymbolNode</scope><name>action_rules</name></member>
+      <member refid="structeu_1_1core_1_1tracery_1_1CallSymbolNode_1a580eb0c100c777e844615d293ffc64f4" prot="public" virt="non-virtual"><scope>eu::core::tracery::CallSymbolNode</scope><name>add_action_rule</name></member>
+      <member refid="structeu_1_1core_1_1tracery_1_1CallSymbolNode_1a6275af4639fb505aa49bc93a2684b898" prot="public" virt="non-virtual"><scope>eu::core::tracery::CallSymbolNode</scope><name>CallSymbolNode</name></member>
+      <member refid="structeu_1_1core_1_1tracery_1_1CallSymbolNode_1a873119fe46e16791d00fa06b472e5abf" prot="public" virt="virtual"><scope>eu::core::tracery::CallSymbolNode</scope><name>flatten</name></member>
+      <member refid="structeu_1_1core_1_1tracery_1_1CallSymbolNode_1aab55d3a7fde4da16bf9b18fc4e2d256b" prot="public" virt="non-virtual"><scope>eu::core::tracery::CallSymbolNode</scope><name>modifiers</name></member>
+      <member refid="structeu_1_1core_1_1tracery_1_1Node_1a3744843c94030900d6944ae5a0b7f1c3" prot="public" virt="non-virtual"><scope>eu::core::tracery::CallSymbolNode</scope><name>Node</name></member>
+      <member refid="structeu_1_1core_1_1tracery_1_1Node_1a837184b4a86a1281bea14f9c0bed70a2" prot="public" virt="non-virtual"><scope>eu::core::tracery::CallSymbolNode</scope><name>Node</name></member>
+      <member refid="structeu_1_1core_1_1tracery_1_1Node_1a88ea418636dec1be34675d4b53d6d302" prot="public" virt="non-virtual"><scope>eu::core::tracery::CallSymbolNode</scope><name>Node</name></member>
+      <member refid="structeu_1_1core_1_1tracery_1_1Node_1a596e72a8b8b42be50f97b9531e7324a9" prot="public" virt="non-virtual"><scope>eu::core::tracery::CallSymbolNode</scope><name>operator=</name></member>
+      <member refid="structeu_1_1core_1_1tracery_1_1Node_1a40a3d32962a2a80addae251cb65227d6" prot="public" virt="non-virtual"><scope>eu::core::tracery::CallSymbolNode</scope><name>operator=</name></member>
+      <member refid="structeu_1_1core_1_1tracery_1_1CallSymbolNode_1a2da0f9d23bc1ebe06cc4885eb306fb57" prot="public" virt="non-virtual"><scope>eu::core::tracery::CallSymbolNode</scope><name>symbol</name></member>
+      <member refid="structeu_1_1core_1_1tracery_1_1Node_1a95681fff3cba839270725ac03342d6de" prot="public" virt="virtual"><scope>eu::core::tracery::CallSymbolNode</scope><name>~Node</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

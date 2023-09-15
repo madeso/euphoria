@@ -56,8 +56,8 @@
         <label>istream</label>
       </node>
     </incdepgraph>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
       <sectiondef kind="var">
       <memberdef kind="variable" id="nlp__sentence_8cc_1a1d67bd6634a9002df97231d8c8dbc66c" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -100,7 +100,7 @@
         <location file="libs/core/src/core/nlp_sentence.cc" line="88" column="18" bodyfile="libs/core/src/core/nlp_sentence.cc" bodystart="88" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="nlp__sentence_8cc_1aa01189088dea0d02046b3dedb8648c19" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeuphoria_1_1core_1a1c3acd5fd095ea1e72c187b4b0c955bf" kindref="member">core::OnSentenceFunction</ref></type>
+        <type><ref refid="namespaceeu_1_1core_1a3de614308c570881dd5ce14fd84c32cf" kindref="member">core::OnSentenceFunction</ref></type>
         <definition>core::OnSentenceFunction on_sentence</definition>
         <argsstring></argsstring>
         <name>on_sentence</name>

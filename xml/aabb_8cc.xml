@@ -157,13 +157,13 @@
         <label>type_traits</label>
       </node>
     </incdepgraph>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
       <sectiondef kind="define">
       <memberdef kind="define" id="aabb_8cc_1aeb4907ff583eb3efac864f43f3ed76f3" prot="public" static="no">
         <name>COMP</name>
         <param><defname>C</defname></param>
-        <initializer>    const auto C = ::<ref refid="namespaceeuphoria_1_1core_1a8608fd1d423c6d7c90786fe3994f1b6d" kindref="member">euphoria::core::wrap</ref>(make_range(min.C, max.C), vec.C)</initializer>
+        <initializer>    const auto C = ::<ref refid="namespaceeu_1_1core_1a7ab7de30525fd7c0d6682d56e8cc9921" kindref="member">eu::core::wrap</ref>(make_range(min.C, max.C), vec.C)</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>

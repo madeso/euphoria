@@ -1188,11 +1188,11 @@
         <link refid="materialshader_8cc"/>
       </node>
     </invincdepgraph>
-    <innerclass refid="structeuphoria_1_1core_1_1MatchedEnum" prot="public">euphoria::core::MatchedEnum</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1EnumToStringImplementation" prot="public">euphoria::core::EnumToStringImplementation</innerclass>
+    <innerclass refid="structeu_1_1core_1_1MatchedEnum" prot="public">eu::core::MatchedEnum</innerclass>
+    <innerclass refid="structeu_1_1core_1_1EnumToStringImplementation" prot="public">eu::core::EnumToStringImplementation</innerclass>
     <innerclass refid="structfmt_1_1formatter_3_01TEnum_00_01char_00_01std_1_1enable__if__t_3_01std_1_1is__enum__v_3_01TEnum_01_4_00_01void_01_4_01_4" prot="public">fmt::formatter&lt; TEnum, char, std::enable_if_t&lt; std::is_enum_v&lt; TEnum &gt;, void &gt; &gt;</innerclass>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
     <innernamespace refid="namespacemagic__enum_1_1ostream__operators">magic_enum::ostream_operators</innernamespace>
     <briefdescription>
     </briefdescription>

@@ -156,9 +156,9 @@
         <link refid="materialshader_8cc"/>
       </node>
     </invincdepgraph>
-    <innerclass refid="structeuphoria_1_1render_1_1ShaderUniform" prot="public">euphoria::render::ShaderUniform</innerclass>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1render">euphoria::render</innernamespace>
+    <innerclass refid="structeu_1_1render_1_1ShaderUniform" prot="public">eu::render::ShaderUniform</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1render">eu::render</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

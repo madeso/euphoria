@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1gui_1_1LayoutData" kind="struct" language="C++" prot="public">
+    <compoundname>eu::gui::LayoutData</compoundname>
+    <includes refid="layoutdata_8h" local="no">layoutdata.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1gui_1_1LayoutData_1a8ebc1de309a4e532c1d6365fb847efc2" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int eu::gui::LayoutData::column</definition>
+        <argsstring></argsstring>
+        <name>column</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/layoutdata.h" line="7" column="13" bodyfile="libs/gui/src/gui/layoutdata.h" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1gui_1_1LayoutData_1a913cc37e124fa68bcdbd2a1569c5403f" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int eu::gui::LayoutData::row</definition>
+        <argsstring></argsstring>
+        <name>row</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/layoutdata.h" line="8" column="13" bodyfile="libs/gui/src/gui/layoutdata.h" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1gui_1_1LayoutData_1a8a4f44ac00dab881459b6692044c4746" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float eu::gui::LayoutData::preferred_width</definition>
+        <argsstring></argsstring>
+        <name>preferred_width</name>
+        <initializer>= 0.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/layoutdata.h" line="9" column="15" bodyfile="libs/gui/src/gui/layoutdata.h" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1gui_1_1LayoutData_1a584031997f3099a6da5acb7a2a905431" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float eu::gui::LayoutData::preferred_height</definition>
+        <argsstring></argsstring>
+        <name>preferred_height</name>
+        <initializer>= 0.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/layoutdata.h" line="10" column="15" bodyfile="libs/gui/src/gui/layoutdata.h" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1gui_1_1LayoutData_1a58d4003c55dc112631538151819250c2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::gui::LayoutData::LayoutData</definition>
+        <argsstring>()=default</argsstring>
+        <name>LayoutData</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/layoutdata.h" line="12" column="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/gui/src/gui/layoutdata.h" line="5" column="5" bodyfile="libs/gui/src/gui/layoutdata.h" bodystart="6" bodyend="13"/>
+    <listofallmembers>
+      <member refid="structeu_1_1gui_1_1LayoutData_1a8ebc1de309a4e532c1d6365fb847efc2" prot="public" virt="non-virtual"><scope>eu::gui::LayoutData</scope><name>column</name></member>
+      <member refid="structeu_1_1gui_1_1LayoutData_1a58d4003c55dc112631538151819250c2" prot="public" virt="non-virtual"><scope>eu::gui::LayoutData</scope><name>LayoutData</name></member>
+      <member refid="structeu_1_1gui_1_1LayoutData_1a584031997f3099a6da5acb7a2a905431" prot="public" virt="non-virtual"><scope>eu::gui::LayoutData</scope><name>preferred_height</name></member>
+      <member refid="structeu_1_1gui_1_1LayoutData_1a8a4f44ac00dab881459b6692044c4746" prot="public" virt="non-virtual"><scope>eu::gui::LayoutData</scope><name>preferred_width</name></member>
+      <member refid="structeu_1_1gui_1_1LayoutData_1a913cc37e124fa68bcdbd2a1569c5403f" prot="public" virt="non-virtual"><scope>eu::gui::LayoutData</scope><name>row</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

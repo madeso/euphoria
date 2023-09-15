@@ -175,8 +175,8 @@
         <label>algorithm</label>
       </node>
     </incdepgraph>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1window">euphoria::window</innernamespace>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1window">eu::window</innernamespace>
       <sectiondef kind="define">
       <memberdef kind="define" id="canvas_8cc_1adf4d73301961430d50d7edd96f92ce38" prot="public" static="no">
         <name>IMGUI_DEFINE_MATH_OPERATORS</name>

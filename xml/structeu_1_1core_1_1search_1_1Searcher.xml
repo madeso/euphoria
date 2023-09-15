@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1core_1_1search_1_1Searcher" kind="struct" language="C++" prot="public">
+    <compoundname>eu::core::search::Searcher</compoundname>
+    <includes refid="editdistance_8search_8h" local="no">editdistance.search.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename T</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1core_1_1search_1_1Searcher_1a09917d068f22d01ebddde602426a47d4" prot="public" static="no" mutable="no">
+        <type>std::priority_queue&lt; T &gt;</type>
+        <definition>std::priority_queue&lt;T&gt; eu::core::search::Searcher&lt; T &gt;::matches</definition>
+        <argsstring></argsstring>
+        <name>matches</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/editdistance.search.h" line="34" column="29" bodyfile="libs/core/src/core/editdistance.search.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1search_1_1Searcher_1a3dffdf5a38f8ac4db9f10a156a62aa04" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::search::Searcher&lt; T &gt;::add</definition>
+        <argsstring>(const T &amp;t, std::size_t max_size)</argsstring>
+        <name>add</name>
+        <param>
+          <type>const T &amp;</type>
+          <declname>t</declname>
+        </param>
+        <param>
+          <type>std::size_t</type>
+          <declname>max_size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/editdistance.search.h" line="36" column="14" bodyfile="libs/core/src/core/editdistance.search.h" bodystart="36" bodyend="43"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/editdistance.search.h" line="32" column="5" bodyfile="libs/core/src/core/editdistance.search.h" bodystart="33" bodyend="44"/>
+    <listofallmembers>
+      <member refid="structeu_1_1core_1_1search_1_1Searcher_1a3dffdf5a38f8ac4db9f10a156a62aa04" prot="public" virt="non-virtual"><scope>eu::core::search::Searcher</scope><name>add</name></member>
+      <member refid="structeu_1_1core_1_1search_1_1Searcher_1a09917d068f22d01ebddde602426a47d4" prot="public" virt="non-virtual"><scope>eu::core::search::Searcher</scope><name>matches</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

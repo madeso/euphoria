@@ -53,9 +53,9 @@
         </childnode>
       </node>
     </invincdepgraph>
-    <innerclass refid="structeuphoria_1_1tests_1_1FalseString" prot="public">euphoria::tests::FalseString</innerclass>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1tests">euphoria::tests</innernamespace>
+    <innerclass refid="structeu_1_1tests_1_1FalseString" prot="public">eu::tests::FalseString</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1tests">eu::tests</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1core_1_1colorbrewer_1_1Properties" kind="struct" language="C++" prot="public">
+    <compoundname>eu::core::colorbrewer::Properties</compoundname>
+    <includes refid="colorbrewer_8h" local="no">colorbrewer.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1core_1_1colorbrewer_1_1Properties_1a7daa6c8ea32035d2811351abd9766351" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeu_1_1core_1_1colorbrewer_1a110cb114f5280256b8a9ee9f9afd9e99" kindref="member">BlindProperties</ref></type>
+        <definition>BlindProperties eu::core::colorbrewer::Properties::blind</definition>
+        <argsstring></argsstring>
+        <name>blind</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/colorbrewer.h" line="33" column="29" bodyfile="libs/core/src/core/colorbrewer.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1colorbrewer_1_1Properties_1a2938e187c0867709b62d5612a741e94e" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeu_1_1core_1_1colorbrewer_1ab4331ff571600e49a75099e817262a9a" kindref="member">PrintProperties</ref></type>
+        <definition>PrintProperties eu::core::colorbrewer::Properties::print</definition>
+        <argsstring></argsstring>
+        <name>print</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/colorbrewer.h" line="34" column="29" bodyfile="libs/core/src/core/colorbrewer.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1colorbrewer_1_1Properties_1ac5664c3695b2f0abcd5ef27377c00a98" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeu_1_1core_1_1colorbrewer_1aa3eb559c5c55ac0270dfaffd6d820930" kindref="member">CopyProperties</ref></type>
+        <definition>CopyProperties eu::core::colorbrewer::Properties::copy</definition>
+        <argsstring></argsstring>
+        <name>copy</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/colorbrewer.h" line="35" column="28" bodyfile="libs/core/src/core/colorbrewer.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1colorbrewer_1_1Properties_1af0a2a9e10c108785f57812d47467b3d0" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeu_1_1core_1_1colorbrewer_1a43804f245d34e431074886af1d9802ae" kindref="member">ScreenProperties</ref></type>
+        <definition>ScreenProperties eu::core::colorbrewer::Properties::screen</definition>
+        <argsstring></argsstring>
+        <name>screen</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/colorbrewer.h" line="36" column="30" bodyfile="libs/core/src/core/colorbrewer.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/colorbrewer.h" line="31" column="9" bodyfile="libs/core/src/core/colorbrewer.h" bodystart="32" bodyend="37"/>
+    <listofallmembers>
+      <member refid="structeu_1_1core_1_1colorbrewer_1_1Properties_1a7daa6c8ea32035d2811351abd9766351" prot="public" virt="non-virtual"><scope>eu::core::colorbrewer::Properties</scope><name>blind</name></member>
+      <member refid="structeu_1_1core_1_1colorbrewer_1_1Properties_1ac5664c3695b2f0abcd5ef27377c00a98" prot="public" virt="non-virtual"><scope>eu::core::colorbrewer::Properties</scope><name>copy</name></member>
+      <member refid="structeu_1_1core_1_1colorbrewer_1_1Properties_1a2938e187c0867709b62d5612a741e94e" prot="public" virt="non-virtual"><scope>eu::core::colorbrewer::Properties</scope><name>print</name></member>
+      <member refid="structeu_1_1core_1_1colorbrewer_1_1Properties_1af0a2a9e10c108785f57812d47467b3d0" prot="public" virt="non-virtual"><scope>eu::core::colorbrewer::Properties</scope><name>screen</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

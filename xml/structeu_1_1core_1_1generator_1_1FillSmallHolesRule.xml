@@ -1,0 +1,117 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1core_1_1generator_1_1FillSmallHolesRule" kind="struct" language="C++" prot="public">
+    <compoundname>eu::core::generator::FillSmallHolesRule</compoundname>
+    <basecompoundref refid="structeu_1_1core_1_1generator_1_1Rule" prot="public" virt="non-virtual">eu::core::generator::Rule</basecompoundref>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1core_1_1generator_1_1FillSmallHolesRule_1ab12f2248c9e1a215f360592f2a90bd4c" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool eu::core::generator::FillSmallHolesRule::allow_diagonals</definition>
+        <argsstring></argsstring>
+        <name>allow_diagonals</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_cell.cc" line="70" column="14" bodyfile="libs/core/src/core/generator_cell.cc" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1generator_1_1FillSmallHolesRule_1af737909347532900e6c607c31fb72d54" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int eu::core::generator::FillSmallHolesRule::min_count</definition>
+        <argsstring></argsstring>
+        <name>min_count</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_cell.cc" line="71" column="13" bodyfile="libs/core/src/core/generator_cell.cc" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1generator_1_1FillSmallHolesRule_1af92936b1a2ff2db04100488706b1c46a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>eu::core::generator::FillSmallHolesRule::FillSmallHolesRule</definition>
+        <argsstring>(bool ad, int mc)</argsstring>
+        <name>FillSmallHolesRule</name>
+        <param>
+          <type>bool</type>
+          <declname>ad</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>mc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_cell.cc" line="73" column="9" bodyfile="libs/core/src/core/generator_cell.cc" bodystart="73" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1generator_1_1FillSmallHolesRule_1ae94768017afed6a11339958e2c4bab3a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void eu::core::generator::FillSmallHolesRule::update</definition>
+        <argsstring>(CellularAutomata *self) override</argsstring>
+        <name>update</name>
+        <reimplements refid="structeu_1_1core_1_1generator_1_1Rule_1ade8830cd904a3451ce788d30a19fd37f">update</reimplements>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1generator_1_1CellularAutomata" kindref="compound">CellularAutomata</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_cell.cc" line="80" column="9" bodyfile="libs/core/src/core/generator_cell.cc" bodystart="80" bodyend="94"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>eu::core::generator::FillSmallHolesRule</label>
+        <link refid="structeu_1_1core_1_1generator_1_1FillSmallHolesRule"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>eu::core::generator::Rule</label>
+        <link refid="structeu_1_1core_1_1generator_1_1Rule"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>eu::core::generator::FillSmallHolesRule</label>
+        <link refid="structeu_1_1core_1_1generator_1_1FillSmallHolesRule"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>eu::core::generator::Rule</label>
+        <link refid="structeu_1_1core_1_1generator_1_1Rule"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/core/src/core/generator_cell.cc" line="68" column="5" bodyfile="libs/core/src/core/generator_cell.cc" bodystart="69" bodyend="95"/>
+    <listofallmembers>
+      <member refid="structeu_1_1core_1_1generator_1_1FillSmallHolesRule_1ab12f2248c9e1a215f360592f2a90bd4c" prot="public" virt="non-virtual"><scope>eu::core::generator::FillSmallHolesRule</scope><name>allow_diagonals</name></member>
+      <member refid="structeu_1_1core_1_1generator_1_1FillSmallHolesRule_1af92936b1a2ff2db04100488706b1c46a" prot="public" virt="non-virtual"><scope>eu::core::generator::FillSmallHolesRule</scope><name>FillSmallHolesRule</name></member>
+      <member refid="structeu_1_1core_1_1generator_1_1FillSmallHolesRule_1af737909347532900e6c607c31fb72d54" prot="public" virt="non-virtual"><scope>eu::core::generator::FillSmallHolesRule</scope><name>min_count</name></member>
+      <member refid="structeu_1_1core_1_1generator_1_1Rule_1a1952ef89fb57f11c325bf2d3ba740f03" prot="public" virt="non-virtual"><scope>eu::core::generator::FillSmallHolesRule</scope><name>operator=</name></member>
+      <member refid="structeu_1_1core_1_1generator_1_1Rule_1aa350df05a08e00098e2554b9ed266740" prot="public" virt="non-virtual"><scope>eu::core::generator::FillSmallHolesRule</scope><name>operator=</name></member>
+      <member refid="structeu_1_1core_1_1generator_1_1Rule_1a2cc99f83e0445005a0182fbc0f35fbbb" prot="public" virt="non-virtual"><scope>eu::core::generator::FillSmallHolesRule</scope><name>Rule</name></member>
+      <member refid="structeu_1_1core_1_1generator_1_1Rule_1afc670d5cfa21cbeab7b9bb73d07a1be3" prot="public" virt="non-virtual"><scope>eu::core::generator::FillSmallHolesRule</scope><name>Rule</name></member>
+      <member refid="structeu_1_1core_1_1generator_1_1Rule_1a6d26158a71ce1d94edea3278423ff3c3" prot="public" virt="non-virtual"><scope>eu::core::generator::FillSmallHolesRule</scope><name>Rule</name></member>
+      <member refid="structeu_1_1core_1_1generator_1_1FillSmallHolesRule_1ae94768017afed6a11339958e2c4bab3a" prot="public" virt="virtual"><scope>eu::core::generator::FillSmallHolesRule</scope><name>update</name></member>
+      <member refid="structeu_1_1core_1_1generator_1_1Rule_1a166890d09b76a20fb94005a3747251f6" prot="public" virt="virtual"><scope>eu::core::generator::FillSmallHolesRule</scope><name>~Rule</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

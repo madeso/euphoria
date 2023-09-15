@@ -319,13 +319,13 @@
         </childnode>
       </node>
     </incdepgraph>
-    <innerclass refid="structeuphoria_1_1core_1_1dump2d_1_1detail_1_1Writer" prot="public">euphoria::core::dump2d::detail::Writer</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1dump2d_1_1detail_1_1MinMaxer" prot="public">euphoria::core::dump2d::detail::MinMaxer</innerclass>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core_1_1dump2d">euphoria::core::dump2d</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core_1_1dump2d_1_1strokes">euphoria::core::dump2d::strokes</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core_1_1dump2d_1_1detail">euphoria::core::dump2d::detail</innernamespace>
+    <innerclass refid="structeu_1_1core_1_1dump2d_1_1detail_1_1Writer" prot="public">eu::core::dump2d::detail::Writer</innerclass>
+    <innerclass refid="structeu_1_1core_1_1dump2d_1_1detail_1_1MinMaxer" prot="public">eu::core::dump2d::detail::MinMaxer</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core_1_1dump2d">eu::core::dump2d</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core_1_1dump2d_1_1strokes">eu::core::dump2d::strokes</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core_1_1dump2d_1_1detail">eu::core::dump2d::detail</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

@@ -1,0 +1,184 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1window_1_1App" kind="struct" language="C++" prot="public">
+    <compoundname>eu::window::App</compoundname>
+    <includes refid="app_8h" local="no">app.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1window_1_1App_1a73a4d905fde307258246f0eea3a3da06" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool eu::window::App::running</definition>
+        <argsstring></argsstring>
+        <name>running</name>
+        <initializer>= true</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/window/src/window/app.h" line="17" column="14" bodyfile="libs/window/src/window/app.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1window_1_1App_1a5198cfd8024bd46060e760cb9f2b98f9" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1core_1_1Rgb" kindref="compound">core::Rgb</ref></type>
+        <definition>core::Rgb eu::window::App::clear_color</definition>
+        <argsstring></argsstring>
+        <name>clear_color</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/window/src/window/app.h" line="18" column="19" bodyfile="libs/window/src/window/app.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1window_1_1App_1a53951e99504d8ac4b75f3bf8da870ebd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::window::App::App</definition>
+        <argsstring>()</argsstring>
+        <name>App</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/window/src/window/app.h" line="20" column="9" bodyfile="libs/window/src/window/app.cc" bodystart="20" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1window_1_1App_1abe7cebb62c6fc89339b91b58234d6737" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual eu::window::App::~App</definition>
+        <argsstring>()=default</argsstring>
+        <name>~App</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/window/src/window/app.h" line="21" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1window_1_1App_1a246783ca142d2627ebdd0063bd0411e2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::window::App::App</definition>
+        <argsstring>(const App &amp;)=delete</argsstring>
+        <name>App</name>
+        <param>
+          <type>const <ref refid="structeu_1_1window_1_1App" kindref="compound">App</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/window/src/window/app.h" line="23" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1window_1_1App_1a3956f97810b8b26529ec8ec40f35e0c3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::window::App::App</definition>
+        <argsstring>(App &amp;&amp;)=delete</argsstring>
+        <name>App</name>
+        <param>
+          <type><ref refid="structeu_1_1window_1_1App" kindref="compound">App</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/window/src/window/app.h" line="24" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1window_1_1App_1a2cb3638737725d427a24e613de17756f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::window::App::operator=</definition>
+        <argsstring>(const App &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="structeu_1_1window_1_1App" kindref="compound">App</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/window/src/window/app.h" line="25" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1window_1_1App_1a8efaa291975a8abc584c75e622a744c4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::window::App::operator=</definition>
+        <argsstring>(App &amp;&amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="structeu_1_1window_1_1App" kindref="compound">App</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/window/src/window/app.h" line="26" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1window_1_1App_1a616f7786b96deb65ff0ace9eb17ae944" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void eu::window::App::on_quit</definition>
+        <argsstring>()</argsstring>
+        <name>on_quit</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/window/src/window/app.h" line="28" column="22" bodyfile="libs/window/src/window/app.cc" bodystart="25" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1window_1_1App_1ae026bf2e4444a92725dc9e3676f832c1" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void eu::window::App::on_gui</definition>
+        <argsstring>()</argsstring>
+        <name>on_gui</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/window/src/window/app.h" line="29" column="22" bodyfile="libs/window/src/window/app.cc" bodystart="31" bodyend="34"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>eu::window::App</label>
+        <link refid="structeu_1_1window_1_1App"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>clear_color</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>eu::core::Rgb</label>
+        <link refid="structeu_1_1core_1_1Rgb"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/window/src/window/app.h" line="15" column="5" bodyfile="libs/window/src/window/app.h" bodystart="16" bodyend="30"/>
+    <listofallmembers>
+      <member refid="structeu_1_1window_1_1App_1a53951e99504d8ac4b75f3bf8da870ebd" prot="public" virt="non-virtual"><scope>eu::window::App</scope><name>App</name></member>
+      <member refid="structeu_1_1window_1_1App_1a246783ca142d2627ebdd0063bd0411e2" prot="public" virt="non-virtual"><scope>eu::window::App</scope><name>App</name></member>
+      <member refid="structeu_1_1window_1_1App_1a3956f97810b8b26529ec8ec40f35e0c3" prot="public" virt="non-virtual"><scope>eu::window::App</scope><name>App</name></member>
+      <member refid="structeu_1_1window_1_1App_1a5198cfd8024bd46060e760cb9f2b98f9" prot="public" virt="non-virtual"><scope>eu::window::App</scope><name>clear_color</name></member>
+      <member refid="structeu_1_1window_1_1App_1ae026bf2e4444a92725dc9e3676f832c1" prot="public" virt="virtual"><scope>eu::window::App</scope><name>on_gui</name></member>
+      <member refid="structeu_1_1window_1_1App_1a616f7786b96deb65ff0ace9eb17ae944" prot="public" virt="virtual"><scope>eu::window::App</scope><name>on_quit</name></member>
+      <member refid="structeu_1_1window_1_1App_1a2cb3638737725d427a24e613de17756f" prot="public" virt="non-virtual"><scope>eu::window::App</scope><name>operator=</name></member>
+      <member refid="structeu_1_1window_1_1App_1a8efaa291975a8abc584c75e622a744c4" prot="public" virt="non-virtual"><scope>eu::window::App</scope><name>operator=</name></member>
+      <member refid="structeu_1_1window_1_1App_1a73a4d905fde307258246f0eea3a3da06" prot="public" virt="non-virtual"><scope>eu::window::App</scope><name>running</name></member>
+      <member refid="structeu_1_1window_1_1App_1abe7cebb62c6fc89339b91b58234d6737" prot="public" virt="virtual"><scope>eu::window::App</scope><name>~App</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

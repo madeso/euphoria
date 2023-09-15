@@ -1,0 +1,226 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1core_1_1argparse_1_1SubParser" kind="struct" language="C++" prot="public">
+    <compoundname>eu::core::argparse::SubParser</compoundname>
+    <basecompoundref refid="structeu_1_1core_1_1argparse_1_1ParserBase" prot="public" virt="non-virtual">eu::core::argparse::ParserBase</basecompoundref>
+    <includes refid="argparse_8h" local="no">argparse.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1core_1_1argparse_1_1SubParser_1a286ff68b977054b6de2044e9a2fe4b24" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1core_1_1argparse_1_1ParserBase" kindref="compound">ParserBase</ref> *</type>
+        <definition>ParserBase* eu::core::argparse::SubParser::parent</definition>
+        <argsstring></argsstring>
+        <name>parent</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/argparse.h" line="555" column="20" bodyfile="libs/core/src/core/argparse.h" bodystart="555" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1argparse_1_1SubParser_1a7408fa155b461149962e19715120b36d" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1core_1_1argparse_1_1Runner" kindref="compound">argparse::Runner</ref> *</type>
+        <definition>argparse::Runner* eu::core::argparse::SubParser::runner</definition>
+        <argsstring></argsstring>
+        <name>runner</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/argparse.h" line="556" column="26" bodyfile="libs/core/src/core/argparse.h" bodystart="556" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1argparse_1_1SubParser_1a84da439ad712a9be2eaa916ff5578d67" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string eu::core::argparse::SubParser::calling_name</definition>
+        <argsstring></argsstring>
+        <name>calling_name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/argparse.h" line="557" column="21" bodyfile="libs/core/src/core/argparse.h" bodystart="557" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1argparse_1_1SubParser_1ac71700c58bf4626798b1cc058acbc516" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::core::argparse::SubParser::SubParser</definition>
+        <argsstring>(const std::string &amp;d, ParserBase *p, argparse::Runner *r, const std::string &amp;cn)</argsstring>
+        <name>SubParser</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>d</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1argparse_1_1ParserBase" kindref="compound">ParserBase</ref> *</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1argparse_1_1Runner" kindref="compound">argparse::Runner</ref> *</type>
+          <declname>r</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>cn</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/argparse.h" line="559" column="9" bodyfile="libs/core/src/core/argparse.cc" bodystart="1252" bodyend="1263"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1argparse_1_1SubParser_1ad9c3f73bf00b08c5c61af384d4a8f531" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1argparse_1_1ParseResult" kindref="compound">ParseResult</ref></type>
+        <definition>ParseResult eu::core::argparse::SubParser::on_complete</definition>
+        <argsstring>(CompleteFunction com)</argsstring>
+        <name>on_complete</name>
+        <param>
+          <type><ref refid="namespaceeu_1_1core_1_1argparse_1a5239f6ef8511bcf055eb257abdb06b31" kindref="member">CompleteFunction</ref></type>
+          <declname>com</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/argparse.h" line="567" column="22" bodyfile="libs/core/src/core/argparse.cc" bodystart="1281" bodyend="1285"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1argparse_1_1SubParser_1a43b92af082305ad0288eba0519402755" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="structeu_1_1core_1_1argparse_1_1ParserBase" kindref="compound">ParserBase</ref> *</type>
+        <definition>ParserBase * eu::core::argparse::SubParser::get_parent_or_null</definition>
+        <argsstring>() override</argsstring>
+        <name>get_parent_or_null</name>
+        <reimplements refid="structeu_1_1core_1_1argparse_1_1ParserBase_1a5829167bf4653814bbf18439b6cb3d66">get_parent_or_null</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/argparse.h" line="569" column="20" bodyfile="libs/core/src/core/argparse.cc" bodystart="1267" bodyend="1270"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1argparse_1_1SubParser_1abfaf79dcf2560523bc9bba0ccdc06172" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>std::string</type>
+        <definition>std::string eu::core::argparse::SubParser::get_calling_name</definition>
+        <argsstring>(const NameAndArguments &amp;args) override</argsstring>
+        <name>get_calling_name</name>
+        <reimplements refid="structeu_1_1core_1_1argparse_1_1ParserBase_1a286cae3f70a4dd6f6044f677ea8d99ad">get_calling_name</reimplements>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1argparse_1_1NameAndArguments" kindref="compound">NameAndArguments</ref> &amp;</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/argparse.h" line="570" column="21" bodyfile="libs/core/src/core/argparse.cc" bodystart="1274" bodyend="1277"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>subparser, don&apos;t create manually but add to a existing parser AddSubParsers()-&gt;Add(...); </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>eu::core::argparse::ParserBase</label>
+        <link refid="structeu_1_1core_1_1argparse_1_1ParserBase"/>
+      </node>
+      <node id="1">
+        <label>eu::core::argparse::SubParser</label>
+        <link refid="structeu_1_1core_1_1argparse_1_1SubParser"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="5">
+        <label>eu::core::argparse::ArgumentReader</label>
+        <link refid="structeu_1_1core_1_1argparse_1_1ArgumentReader"/>
+        <childnode refid="6" relation="usage">
+          <edgelabel>arguments</edgelabel>
+        </childnode>
+      </node>
+      <node id="6">
+        <label>eu::core::argparse::NameAndArguments</label>
+        <link refid="structeu_1_1core_1_1argparse_1_1NameAndArguments"/>
+      </node>
+      <node id="4">
+        <label>eu::core::argparse::Runner</label>
+        <link refid="structeu_1_1core_1_1argparse_1_1Runner"/>
+        <childnode refid="5" relation="usage">
+          <edgelabel>arguments</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>eu::core::argparse::ParserBase</label>
+        <link refid="structeu_1_1core_1_1argparse_1_1ParserBase"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>subparsers</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>eu::core::argparse::SubParser</label>
+        <link refid="structeu_1_1core_1_1argparse_1_1SubParser"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>runner</edgelabel>
+        </childnode>
+        <childnode refid="2" relation="usage">
+          <edgelabel>parent</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>eu::core::EnumToStringImplementation&lt; std::shared_ptr&lt; eu::core::argparse::SubParserContainer &gt; &gt;</label>
+        <link refid="structeu_1_1core_1_1EnumToStringImplementation"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/core/src/core/argparse.h" line="553" column="5" bodyfile="libs/core/src/core/argparse.h" bodystart="554" bodyend="571"/>
+    <listofallmembers>
+      <member refid="structeu_1_1core_1_1argparse_1_1ParserBase_1abd880f3c835e9b1bb5a8c9c5660550fb" prot="public" virt="non-virtual"><scope>eu::core::argparse::SubParser</scope><name>add</name></member>
+      <member refid="structeu_1_1core_1_1argparse_1_1ParserBase_1ac94acab571273cc2e6dbefce45b624cd" prot="public" virt="non-virtual"><scope>eu::core::argparse::SubParser</scope><name>add_argument</name></member>
+      <member refid="structeu_1_1core_1_1argparse_1_1ParserBase_1ab65b5ec9aff05aaa9b3dec9e2511796d" prot="public" virt="non-virtual"><scope>eu::core::argparse::SubParser</scope><name>add_sub_parsers</name></member>
+      <member refid="structeu_1_1core_1_1argparse_1_1ParserBase_1a2c978ab819784a2a60ae08c7728fc8e5" prot="public" virt="non-virtual"><scope>eu::core::argparse::SubParser</scope><name>add_vector</name></member>
+      <member refid="structeu_1_1core_1_1argparse_1_1ParserBase_1aaa35d883ce1845f6d820896849dac69c" prot="public" virt="non-virtual"><scope>eu::core::argparse::SubParser</scope><name>add_void_function</name></member>
+      <member refid="structeu_1_1core_1_1argparse_1_1SubParser_1a84da439ad712a9be2eaa916ff5578d67" prot="public" virt="non-virtual"><scope>eu::core::argparse::SubParser</scope><name>calling_name</name></member>
+      <member refid="structeu_1_1core_1_1argparse_1_1ParserBase_1a691e07c2126137007337e6ca83bf3ec5" prot="public" virt="non-virtual"><scope>eu::core::argparse::SubParser</scope><name>description</name></member>
+      <member refid="structeu_1_1core_1_1argparse_1_1ParserBase_1a4b5bf87b41987009b27acea7cb158fe2" prot="public" virt="non-virtual"><scope>eu::core::argparse::SubParser</scope><name>find_argument</name></member>
+      <member refid="structeu_1_1core_1_1argparse_1_1ParserBase_1af682e00135d802ef74a3cc6d6830d75c" prot="public" virt="non-virtual"><scope>eu::core::argparse::SubParser</scope><name>generate_usage_string</name></member>
+      <member refid="structeu_1_1core_1_1argparse_1_1SubParser_1abfaf79dcf2560523bc9bba0ccdc06172" prot="public" virt="virtual"><scope>eu::core::argparse::SubParser</scope><name>get_calling_name</name></member>
+      <member refid="structeu_1_1core_1_1argparse_1_1SubParser_1a43b92af082305ad0288eba0519402755" prot="public" virt="virtual"><scope>eu::core::argparse::SubParser</scope><name>get_parent_or_null</name></member>
+      <member refid="structeu_1_1core_1_1argparse_1_1SubParser_1ad9c3f73bf00b08c5c61af384d4a8f531" prot="public" virt="non-virtual"><scope>eu::core::argparse::SubParser</scope><name>on_complete</name></member>
+      <member refid="structeu_1_1core_1_1argparse_1_1ParserBase_1a984ae4887d06a09e4f8b6595e0f18e51" prot="public" virt="non-virtual"><scope>eu::core::argparse::SubParser</scope><name>on_complete_function</name></member>
+      <member refid="structeu_1_1core_1_1argparse_1_1ParserBase_1a0fcf209a3f921a3bc873f776240d1ebd" prot="public" virt="non-virtual"><scope>eu::core::argparse::SubParser</scope><name>operator=</name></member>
+      <member refid="structeu_1_1core_1_1argparse_1_1ParserBase_1a03d8c251466f74881050f0a3546c788f" prot="public" virt="non-virtual"><scope>eu::core::argparse::SubParser</scope><name>operator=</name></member>
+      <member refid="structeu_1_1core_1_1argparse_1_1ParserBase_1a676c452d672b154812b9044fc52997e2" prot="public" virt="non-virtual"><scope>eu::core::argparse::SubParser</scope><name>optional_argument_list</name></member>
+      <member refid="structeu_1_1core_1_1argparse_1_1ParserBase_1a29adbc4ca14ee091b158e72ce080b2b7" prot="public" virt="non-virtual"><scope>eu::core::argparse::SubParser</scope><name>optional_arguments</name></member>
+      <member refid="structeu_1_1core_1_1argparse_1_1SubParser_1a286ff68b977054b6de2044e9a2fe4b24" prot="public" virt="non-virtual"><scope>eu::core::argparse::SubParser</scope><name>parent</name></member>
+      <member refid="structeu_1_1core_1_1argparse_1_1ParserBase_1abb574d73a5b7332f2e9001198e6feb43" prot="public" virt="non-virtual"><scope>eu::core::argparse::SubParser</scope><name>parse_args</name></member>
+      <member refid="structeu_1_1core_1_1argparse_1_1ParserBase_1a2d1103e75485b765829b7eb60cac79cf" prot="public" virt="non-virtual"><scope>eu::core::argparse::SubParser</scope><name>parser_state</name></member>
+      <member refid="structeu_1_1core_1_1argparse_1_1ParserBase_1a4f9fb8f569d86498147c74621e7c0ad5" prot="public" virt="non-virtual"><scope>eu::core::argparse::SubParser</scope><name>parser_style</name></member>
+      <member refid="structeu_1_1core_1_1argparse_1_1ParserBase_1ab986522adf3286a0b9b12c7cd1f529e3" prot="public" virt="non-virtual"><scope>eu::core::argparse::SubParser</scope><name>ParserBase</name></member>
+      <member refid="structeu_1_1core_1_1argparse_1_1ParserBase_1a7b9124bd8065d1808eb89d176c4473fe" prot="public" virt="non-virtual"><scope>eu::core::argparse::SubParser</scope><name>ParserBase</name></member>
+      <member refid="structeu_1_1core_1_1argparse_1_1ParserBase_1a27142d3be4e250148ed1e09607f88182" prot="public" virt="non-virtual"><scope>eu::core::argparse::SubParser</scope><name>ParserBase</name></member>
+      <member refid="structeu_1_1core_1_1argparse_1_1ParserBase_1a30f3e037806b8f9e91498bc8b7de64c8" prot="public" virt="non-virtual"><scope>eu::core::argparse::SubParser</scope><name>positional_argument_list</name></member>
+      <member refid="structeu_1_1core_1_1argparse_1_1ParserBase_1a6ba4a8ea43c59084b6ea6612d2765a74" prot="public" virt="non-virtual"><scope>eu::core::argparse::SubParser</scope><name>print_help</name></member>
+      <member refid="structeu_1_1core_1_1argparse_1_1SubParser_1a7408fa155b461149962e19715120b36d" prot="public" virt="non-virtual"><scope>eu::core::argparse::SubParser</scope><name>runner</name></member>
+      <member refid="structeu_1_1core_1_1argparse_1_1ParserBase_1a4d5c1c6be797fb87ec9b1aa2cbe95f2e" prot="public" virt="non-virtual"><scope>eu::core::argparse::SubParser</scope><name>set_const</name></member>
+      <member refid="structeu_1_1core_1_1argparse_1_1ParserBase_1a977c097addc5e80983c8f945a1d195a1" prot="public" virt="non-virtual"><scope>eu::core::argparse::SubParser</scope><name>set_false</name></member>
+      <member refid="structeu_1_1core_1_1argparse_1_1ParserBase_1a7a7b2377e743a759f43c71ff85916558" prot="public" virt="non-virtual"><scope>eu::core::argparse::SubParser</scope><name>set_true</name></member>
+      <member refid="structeu_1_1core_1_1argparse_1_1SubParser_1ac71700c58bf4626798b1cc058acbc516" prot="public" virt="non-virtual"><scope>eu::core::argparse::SubParser</scope><name>SubParser</name></member>
+      <member refid="structeu_1_1core_1_1argparse_1_1ParserBase_1a16dbfe59f7b9165e2a8dafc537b275a6" prot="public" virt="non-virtual"><scope>eu::core::argparse::SubParser</scope><name>subparser_groups</name></member>
+      <member refid="structeu_1_1core_1_1argparse_1_1ParserBase_1affb7df6c679e76cb4bbe5181d6291272" prot="public" virt="non-virtual"><scope>eu::core::argparse::SubParser</scope><name>subparsers</name></member>
+      <member refid="structeu_1_1core_1_1argparse_1_1ParserBase_1ab0f20555e6e20c9e40142ee274999a26" prot="public" virt="virtual"><scope>eu::core::argparse::SubParser</scope><name>~ParserBase</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

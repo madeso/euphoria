@@ -132,13 +132,13 @@
         </childnode>
       </node>
     </invincdepgraph>
-    <innerclass refid="structeuphoria_1_1core_1_1Value" prot="public">euphoria::core::Value</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1IntValue" prot="public">euphoria::core::IntValue</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1FloatValue" prot="public">euphoria::core::FloatValue</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1Vec3fValue" prot="public">euphoria::core::Vec3fValue</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1MapValue" prot="public">euphoria::core::MapValue</innerclass>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
+    <innerclass refid="structeu_1_1core_1_1Value" prot="public">eu::core::Value</innerclass>
+    <innerclass refid="structeu_1_1core_1_1IntValue" prot="public">eu::core::IntValue</innerclass>
+    <innerclass refid="structeu_1_1core_1_1FloatValue" prot="public">eu::core::FloatValue</innerclass>
+    <innerclass refid="structeu_1_1core_1_1Vec3fValue" prot="public">eu::core::Vec3fValue</innerclass>
+    <innerclass refid="structeu_1_1core_1_1MapValue" prot="public">eu::core::MapValue</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

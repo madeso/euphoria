@@ -69,10 +69,10 @@
         <label>memory</label>
       </node>
     </incdepgraph>
-    <innerclass refid="structeuphoria_1_1core_1_1detail_1_1TextFileString" prot="public">euphoria::core::detail::TextFileString</innerclass>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core_1_1detail">euphoria::core::detail</innernamespace>
+    <innerclass refid="structeu_1_1core_1_1detail_1_1TextFileString" prot="public">eu::core::detail::TextFileString</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core_1_1detail">eu::core::detail</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

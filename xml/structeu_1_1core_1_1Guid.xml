@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1core_1_1Guid" kind="struct" language="C++" prot="public">
+    <compoundname>eu::core::Guid</compoundname>
+    <includes refid="guid_8h" local="no">guid.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1core_1_1Guid_1ad2b58cead5df4acdb34678ffee7d3b9d" prot="public" static="no" mutable="no">
+        <type>std::array&lt; uint8_t, 16 &gt;</type>
+        <definition>std::array&lt;uint8_t, 16&gt; eu::core::Guid::data</definition>
+        <argsstring></argsstring>
+        <name>data</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/guid.h" line="11" column="20" bodyfile="libs/core/src/core/guid.h" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1Guid_1a07bf49accbe1b40cde4cc35d8e0cda8d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::core::Guid::Guid</definition>
+        <argsstring>()=default</argsstring>
+        <name>Guid</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/guid.h" line="13" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1Guid_1af75e447a970e5679b00e46310d78eb7f" prot="public" static="no" constexpr="yes" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type>constexpr</type>
+        <definition>constexpr eu::core::Guid::Guid</definition>
+        <argsstring>(std::array&lt; uint8_t, 16 &gt; d)</argsstring>
+        <name>Guid</name>
+        <param>
+          <type>std::array&lt; uint8_t, 16 &gt;</type>
+          <declname>d</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/guid.h" line="14" column="28" bodyfile="libs/core/src/core/guid.h" bodystart="14" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1Guid_1a4fdf20c36d7a23f394863476d63cd663" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string eu::core::Guid::to_string</definition>
+        <argsstring>() const</argsstring>
+        <name>to_string</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/guid.h" line="22" column="22" bodyfile="libs/core/src/core/guid.cc" bodystart="109" bodyend="124"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1Guid_1a9f3f1bae195afa64275ac3f09704ccaa" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::optional&lt; <ref refid="structeu_1_1core_1_1Guid" kindref="compound">Guid</ref> &gt;</type>
+        <definition>std::optional&lt; Guid &gt; eu::core::Guid::create</definition>
+        <argsstring>()</argsstring>
+        <name>create</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/guid.h" line="19" column="31" bodyfile="libs/core/src/core/guid.cc" bodystart="16" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1Guid_1ace21bc2a00b7efd4b69529faf73cb575" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::optional&lt; <ref refid="structeu_1_1core_1_1Guid" kindref="compound">Guid</ref> &gt;</type>
+        <definition>std::optional&lt; Guid &gt; eu::core::Guid::parse</definition>
+        <argsstring>(const std::string &amp;str)</argsstring>
+        <name>parse</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/guid.h" line="20" column="31" bodyfile="libs/core/src/core/guid.cc" bodystart="56" bodyend="107"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/guid.h" line="9" column="5" bodyfile="libs/core/src/core/guid.h" bodystart="10" bodyend="23"/>
+    <listofallmembers>
+      <member refid="structeu_1_1core_1_1Guid_1a9f3f1bae195afa64275ac3f09704ccaa" prot="public" virt="non-virtual"><scope>eu::core::Guid</scope><name>create</name></member>
+      <member refid="structeu_1_1core_1_1Guid_1ad2b58cead5df4acdb34678ffee7d3b9d" prot="public" virt="non-virtual"><scope>eu::core::Guid</scope><name>data</name></member>
+      <member refid="structeu_1_1core_1_1Guid_1a07bf49accbe1b40cde4cc35d8e0cda8d" prot="public" virt="non-virtual"><scope>eu::core::Guid</scope><name>Guid</name></member>
+      <member refid="structeu_1_1core_1_1Guid_1af75e447a970e5679b00e46310d78eb7f" prot="public" virt="non-virtual"><scope>eu::core::Guid</scope><name>Guid</name></member>
+      <member refid="structeu_1_1core_1_1Guid_1ace21bc2a00b7efd4b69529faf73cb575" prot="public" virt="non-virtual"><scope>eu::core::Guid</scope><name>parse</name></member>
+      <member refid="structeu_1_1core_1_1Guid_1a4fdf20c36d7a23f394863476d63cd663" prot="public" virt="non-virtual"><scope>eu::core::Guid</scope><name>to_string</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

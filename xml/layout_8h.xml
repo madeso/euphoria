@@ -247,11 +247,11 @@
         <link refid="load_8cc"/>
       </node>
     </invincdepgraph>
-    <innerclass refid="structeuphoria_1_1gui_1_1Layout" prot="public">euphoria::gui::Layout</innerclass>
-    <innerclass refid="structeuphoria_1_1gui_1_1TableLayout" prot="public">euphoria::gui::TableLayout</innerclass>
-    <innerclass refid="structeuphoria_1_1gui_1_1SingleRowLayout" prot="public">euphoria::gui::SingleRowLayout</innerclass>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1gui">euphoria::gui</innernamespace>
+    <innerclass refid="structeu_1_1gui_1_1Layout" prot="public">eu::gui::Layout</innerclass>
+    <innerclass refid="structeu_1_1gui_1_1TableLayout" prot="public">eu::gui::TableLayout</innerclass>
+    <innerclass refid="structeu_1_1gui_1_1SingleRowLayout" prot="public">eu::gui::SingleRowLayout</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1gui">eu::gui</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

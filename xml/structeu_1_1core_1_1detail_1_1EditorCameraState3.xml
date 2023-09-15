@@ -1,0 +1,330 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1core_1_1detail_1_1EditorCameraState3" kind="struct" language="C++" prot="public" abstract="yes">
+    <compoundname>eu::core::detail::EditorCameraState3</compoundname>
+    <derivedcompoundref refid="structeu_1_1core_1_1detail_1_1DefaultCamera" prot="public" virt="non-virtual">eu::core::detail::DefaultCamera</derivedcompoundref>
+    <derivedcompoundref refid="structeu_1_1core_1_1detail_1_1LerpCamera" prot="public" virt="non-virtual">eu::core::detail::LerpCamera</derivedcompoundref>
+    <derivedcompoundref refid="structeu_1_1core_1_1detail_1_1OrbitCamera" prot="public" virt="non-virtual">eu::core::detail::OrbitCamera</derivedcompoundref>
+    <includes refid="camera3_8editor_8h" local="no">camera3.editor.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1detail_1_1EditorCameraState3_1a751725de1ac75a9cacf6b069192508bc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::core::detail::EditorCameraState3::EditorCameraState3</definition>
+        <argsstring>()=default</argsstring>
+        <name>EditorCameraState3</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.editor.h" line="36" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1detail_1_1EditorCameraState3_1adb93490c2420e2b2d9708fd0f224c737" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual eu::core::detail::EditorCameraState3::~EditorCameraState3</definition>
+        <argsstring>()=default</argsstring>
+        <name>~EditorCameraState3</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.editor.h" line="37" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1detail_1_1EditorCameraState3_1aa69c648faa09ee696f0db6ae5a71137a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::core::detail::EditorCameraState3::EditorCameraState3</definition>
+        <argsstring>(EditorCameraState3 &amp;&amp;)=delete</argsstring>
+        <name>EditorCameraState3</name>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1detail_1_1EditorCameraState3" kindref="compound">EditorCameraState3</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.editor.h" line="39" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1detail_1_1EditorCameraState3_1a97df306bb8bae15aa213d3b2ad75f23e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::core::detail::EditorCameraState3::EditorCameraState3</definition>
+        <argsstring>(const EditorCameraState3 &amp;)=delete</argsstring>
+        <name>EditorCameraState3</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1detail_1_1EditorCameraState3" kindref="compound">EditorCameraState3</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.editor.h" line="40" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1detail_1_1EditorCameraState3_1a0af181369fe6d34cad667b0295e0fa69" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::detail::EditorCameraState3::operator=</definition>
+        <argsstring>(EditorCameraState3 &amp;&amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1detail_1_1EditorCameraState3" kindref="compound">EditorCameraState3</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.editor.h" line="41" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1detail_1_1EditorCameraState3_1a8c7d80d03225e8595974c86eb9d8ec13" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::detail::EditorCameraState3::operator=</definition>
+        <argsstring>(const EditorCameraState3 &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1detail_1_1EditorCameraState3" kindref="compound">EditorCameraState3</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.editor.h" line="42" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1detail_1_1EditorCameraState3_1a9c43534e0ce8a1ade49284fe73c6f78a" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void eu::core::detail::EditorCameraState3::on_mouse_move</definition>
+        <argsstring>(EditorCamera3 *owner, int dx, int dy)=0</argsstring>
+        <name>on_mouse_move</name>
+        <reimplementedby refid="structeu_1_1core_1_1detail_1_1LerpCamera_1a6b666b88f7c2b6ec2f8247afbceccbea">on_mouse_move</reimplementedby>
+        <reimplementedby refid="structeu_1_1core_1_1detail_1_1OrbitCamera_1aa80a5d2192dfebe77d3beb860829e8d1">on_mouse_move</reimplementedby>
+        <reimplementedby refid="structeu_1_1core_1_1detail_1_1DefaultCamera_1ae9b49923774ec1e0e6434049311125c2">on_mouse_move</reimplementedby>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1EditorCamera3" kindref="compound">EditorCamera3</ref> *</type>
+          <declname>owner</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>dx</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>dy</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.editor.h" line="44" column="26"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1detail_1_1EditorCameraState3_1a6b87aa81f6c4b06288a8229bc3a68ddf" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void eu::core::detail::EditorCameraState3::on_key</definition>
+        <argsstring>(EditorCamera3 *owner, Key key, bool down)=0</argsstring>
+        <name>on_key</name>
+        <reimplementedby refid="structeu_1_1core_1_1detail_1_1OrbitCamera_1af6b180f6fcafa357f7dcd9c89ad9b8a2">on_key</reimplementedby>
+        <reimplementedby refid="structeu_1_1core_1_1detail_1_1DefaultCamera_1ad238adf9a681f0167aafc6bc815a753d">on_key</reimplementedby>
+        <reimplementedby refid="structeu_1_1core_1_1detail_1_1LerpCamera_1a1d05ad7aa3145d9f550f53373e5b9763">on_key</reimplementedby>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1EditorCamera3" kindref="compound">EditorCamera3</ref> *</type>
+          <declname>owner</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceeu_1_1core_1a6fca7b841e42734cd5c01e04fc9e6511" kindref="member">Key</ref></type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>down</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.editor.h" line="45" column="26"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1detail_1_1EditorCameraState3_1aa3c5f50c2bce30a9acd56fd94bcb23a3" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void eu::core::detail::EditorCameraState3::update</definition>
+        <argsstring>(EditorCamera3 *owner, bool shift_state, const vec2i &amp;mouse, const CompiledCamera3 &amp;camera, const Viewport &amp;viewport, float dt)=0</argsstring>
+        <name>update</name>
+        <reimplementedby refid="structeu_1_1core_1_1detail_1_1DefaultCamera_1a0d755c569330255dbcf6e3aba864441a">update</reimplementedby>
+        <reimplementedby refid="structeu_1_1core_1_1detail_1_1OrbitCamera_1a42fa7867f2c244e0ae6bc18b818b9269">update</reimplementedby>
+        <reimplementedby refid="structeu_1_1core_1_1detail_1_1LerpCamera_1a38e5256a020f1846774fa0b390f92f9f">update</reimplementedby>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1EditorCamera3" kindref="compound">EditorCamera3</ref> *</type>
+          <declname>owner</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>shift_state</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1vec2i" kindref="compound">vec2i</ref> &amp;</type>
+          <declname>mouse</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1CompiledCamera3" kindref="compound">CompiledCamera3</ref> &amp;</type>
+          <declname>camera</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1Viewport" kindref="compound">Viewport</ref> &amp;</type>
+          <declname>viewport</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>dt</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.editor.h" line="46" column="26"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1detail_1_1EditorCameraState3_1a2f00e246f8f65a884c36e6c32acfd8d1" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void eu::core::detail::EditorCameraState3::on_scroll</definition>
+        <argsstring>(EditorCamera3 *owner, int dx, int dy)=0</argsstring>
+        <name>on_scroll</name>
+        <reimplementedby refid="structeu_1_1core_1_1detail_1_1LerpCamera_1a6fc1426bda2de607b83a86a15fdc2fc8">on_scroll</reimplementedby>
+        <reimplementedby refid="structeu_1_1core_1_1detail_1_1OrbitCamera_1ab2ede6d0e48469d7b843dd70aed21d31">on_scroll</reimplementedby>
+        <reimplementedby refid="structeu_1_1core_1_1detail_1_1DefaultCamera_1ab29ce32ec01e76f180286e3a93a14852">on_scroll</reimplementedby>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1EditorCamera3" kindref="compound">EditorCamera3</ref> *</type>
+          <declname>owner</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>dx</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>dy</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.editor.h" line="57" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1detail_1_1EditorCameraState3_1a3d5d2860958296c058897288f43b5670" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void eu::core::detail::EditorCameraState3::on_camera_start</definition>
+        <argsstring>(EditorCamera3 *owner)=0</argsstring>
+        <name>on_camera_start</name>
+        <reimplementedby refid="structeu_1_1core_1_1detail_1_1OrbitCamera_1a3403f2afacb3f8a423f976a28a6b3042">on_camera_start</reimplementedby>
+        <reimplementedby refid="structeu_1_1core_1_1detail_1_1LerpCamera_1a571f51d6ddac16ef6497d08c8472bca3">on_camera_start</reimplementedby>
+        <reimplementedby refid="structeu_1_1core_1_1detail_1_1DefaultCamera_1ae16196f81c585f86714e480d2f856322">on_camera_start</reimplementedby>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1EditorCamera3" kindref="compound">EditorCamera3</ref> *</type>
+          <declname>owner</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.editor.h" line="59" column="26"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1detail_1_1EditorCameraState3_1a2e0961235674a72fc05b58462d18dad6" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void eu::core::detail::EditorCameraState3::on_camera_stop</definition>
+        <argsstring>(EditorCamera3 *owner)=0</argsstring>
+        <name>on_camera_stop</name>
+        <reimplementedby refid="structeu_1_1core_1_1detail_1_1DefaultCamera_1a820de12c87dc87e91d80db4bb76f0333">on_camera_stop</reimplementedby>
+        <reimplementedby refid="structeu_1_1core_1_1detail_1_1LerpCamera_1a637759bde2b0879947173add6f487358">on_camera_stop</reimplementedby>
+        <reimplementedby refid="structeu_1_1core_1_1detail_1_1OrbitCamera_1a1303cdae580621d23e5e6060d902eded">on_camera_stop</reimplementedby>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1EditorCamera3" kindref="compound">EditorCamera3</ref> *</type>
+          <declname>owner</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.editor.h" line="60" column="26"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1detail_1_1EditorCameraState3_1ab48aaabd1a0fec06f6320375293e7db7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="namespaceeu_1_1core_1af4fa494e006059dce5d3f4187bbb80f6" kindref="member">MouseBehaviour</ref></type>
+        <definition>virtual MouseBehaviour eu::core::detail::EditorCameraState3::get_mouse</definition>
+        <argsstring>(const EditorCamera3 *owner) const =0</argsstring>
+        <name>get_mouse</name>
+        <reimplementedby refid="structeu_1_1core_1_1detail_1_1OrbitCamera_1ab213769709975ce2900f606cb59a6656">get_mouse</reimplementedby>
+        <reimplementedby refid="structeu_1_1core_1_1detail_1_1DefaultCamera_1a165abeaea958b4c029be54160ed8e993">get_mouse</reimplementedby>
+        <reimplementedby refid="structeu_1_1core_1_1detail_1_1LerpCamera_1ad84383e18fa478cccd5c55659703a8cd">get_mouse</reimplementedby>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1EditorCamera3" kindref="compound">EditorCamera3</ref> *</type>
+          <declname>owner</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.editor.h" line="62" column="36"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>eu::core::detail::DefaultCamera</label>
+        <link refid="structeu_1_1core_1_1detail_1_1DefaultCamera"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>eu::core::detail::OrbitCamera</label>
+        <link refid="structeu_1_1core_1_1detail_1_1OrbitCamera"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>eu::core::detail::EditorCameraState3</label>
+        <link refid="structeu_1_1core_1_1detail_1_1EditorCameraState3"/>
+      </node>
+      <node id="3">
+        <label>eu::core::detail::LerpCamera</label>
+        <link refid="structeu_1_1core_1_1detail_1_1LerpCamera"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="libs/core/src/core/camera3.editor.h" line="34" column="9" bodyfile="libs/core/src/core/camera3.editor.h" bodystart="35" bodyend="63"/>
+    <listofallmembers>
+      <member refid="structeu_1_1core_1_1detail_1_1EditorCameraState3_1a751725de1ac75a9cacf6b069192508bc" prot="public" virt="non-virtual"><scope>eu::core::detail::EditorCameraState3</scope><name>EditorCameraState3</name></member>
+      <member refid="structeu_1_1core_1_1detail_1_1EditorCameraState3_1aa69c648faa09ee696f0db6ae5a71137a" prot="public" virt="non-virtual"><scope>eu::core::detail::EditorCameraState3</scope><name>EditorCameraState3</name></member>
+      <member refid="structeu_1_1core_1_1detail_1_1EditorCameraState3_1a97df306bb8bae15aa213d3b2ad75f23e" prot="public" virt="non-virtual"><scope>eu::core::detail::EditorCameraState3</scope><name>EditorCameraState3</name></member>
+      <member refid="structeu_1_1core_1_1detail_1_1EditorCameraState3_1ab48aaabd1a0fec06f6320375293e7db7" prot="public" virt="pure-virtual"><scope>eu::core::detail::EditorCameraState3</scope><name>get_mouse</name></member>
+      <member refid="structeu_1_1core_1_1detail_1_1EditorCameraState3_1a3d5d2860958296c058897288f43b5670" prot="public" virt="pure-virtual"><scope>eu::core::detail::EditorCameraState3</scope><name>on_camera_start</name></member>
+      <member refid="structeu_1_1core_1_1detail_1_1EditorCameraState3_1a2e0961235674a72fc05b58462d18dad6" prot="public" virt="pure-virtual"><scope>eu::core::detail::EditorCameraState3</scope><name>on_camera_stop</name></member>
+      <member refid="structeu_1_1core_1_1detail_1_1EditorCameraState3_1a6b87aa81f6c4b06288a8229bc3a68ddf" prot="public" virt="pure-virtual"><scope>eu::core::detail::EditorCameraState3</scope><name>on_key</name></member>
+      <member refid="structeu_1_1core_1_1detail_1_1EditorCameraState3_1a9c43534e0ce8a1ade49284fe73c6f78a" prot="public" virt="pure-virtual"><scope>eu::core::detail::EditorCameraState3</scope><name>on_mouse_move</name></member>
+      <member refid="structeu_1_1core_1_1detail_1_1EditorCameraState3_1a2f00e246f8f65a884c36e6c32acfd8d1" prot="public" virt="pure-virtual"><scope>eu::core::detail::EditorCameraState3</scope><name>on_scroll</name></member>
+      <member refid="structeu_1_1core_1_1detail_1_1EditorCameraState3_1a0af181369fe6d34cad667b0295e0fa69" prot="public" virt="non-virtual"><scope>eu::core::detail::EditorCameraState3</scope><name>operator=</name></member>
+      <member refid="structeu_1_1core_1_1detail_1_1EditorCameraState3_1a8c7d80d03225e8595974c86eb9d8ec13" prot="public" virt="non-virtual"><scope>eu::core::detail::EditorCameraState3</scope><name>operator=</name></member>
+      <member refid="structeu_1_1core_1_1detail_1_1EditorCameraState3_1aa3c5f50c2bce30a9acd56fd94bcb23a3" prot="public" virt="pure-virtual"><scope>eu::core::detail::EditorCameraState3</scope><name>update</name></member>
+      <member refid="structeu_1_1core_1_1detail_1_1EditorCameraState3_1adb93490c2420e2b2d9708fd0f224c737" prot="public" virt="virtual"><scope>eu::core::detail::EditorCameraState3</scope><name>~EditorCameraState3</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

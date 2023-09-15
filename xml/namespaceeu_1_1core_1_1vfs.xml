@@ -1,0 +1,382 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="namespaceeu_1_1core_1_1vfs" kind="namespace" language="C++">
+    <compoundname>eu::core::vfs</compoundname>
+    <innerclass refid="structeu_1_1core_1_1vfs_1_1ListedFile" prot="public">eu::core::vfs::ListedFile</innerclass>
+    <innerclass refid="structeu_1_1core_1_1vfs_1_1FileList" prot="public">eu::core::vfs::FileList</innerclass>
+    <innerclass refid="structeu_1_1core_1_1vfs_1_1ReadRoot" prot="public">eu::core::vfs::ReadRoot</innerclass>
+    <innerclass refid="structeu_1_1core_1_1vfs_1_1WriteRoot" prot="public">eu::core::vfs::WriteRoot</innerclass>
+    <innerclass refid="structeu_1_1core_1_1vfs_1_1FileSystem" prot="public">eu::core::vfs::FileSystem</innerclass>
+    <innerclass refid="structeu_1_1core_1_1vfs_1_1ReadRootCatalog" prot="public">eu::core::vfs::ReadRootCatalog</innerclass>
+    <innerclass refid="structeu_1_1core_1_1vfs_1_1ReadRootPhysicalFolder" prot="public">eu::core::vfs::ReadRootPhysicalFolder</innerclass>
+    <innerclass refid="structeu_1_1core_1_1vfs_1_1WriteRootPhysicalFolder" prot="public">eu::core::vfs::WriteRootPhysicalFolder</innerclass>
+    <innerclass refid="structeu_1_1core_1_1vfs_1_1ReadRootImageGenerator" prot="public">eu::core::vfs::ReadRootImageGenerator</innerclass>
+    <innerclass refid="structeu_1_1core_1_1vfs_1_1FilePath" prot="public">eu::core::vfs::FilePath</innerclass>
+    <innerclass refid="structeu_1_1core_1_1vfs_1_1DirPath" prot="public">eu::core::vfs::DirPath</innerclass>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespaceeu_1_1core_1_1vfs_1a19813f9c3b5b76e4df5212588ca5c597" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string eu::core::vfs::combine_folder_and_path</definition>
+        <argsstring>(const std::string &amp;folder, const FilePath &amp;path)</argsstring>
+        <name>combine_folder_and_path</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>folder</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1vfs_1_1FilePath" kindref="compound">FilePath</ref> &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vfs.cc" line="265" column="5" bodyfile="libs/core/src/core/vfs.cc" bodystart="265" bodyend="268"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1core_1_1vfs_1a774b89be56717abed3d5536fe06ec69d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string eu::core::vfs::combine_folder_and_path</definition>
+        <argsstring>(const std::string &amp;folder, const DirPath &amp;path)</argsstring>
+        <name>combine_folder_and_path</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>folder</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1vfs_1_1DirPath" kindref="compound">DirPath</ref> &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vfs.cc" line="272" column="5" bodyfile="libs/core/src/core/vfs.cc" bodystart="272" bodyend="275"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1core_1_1vfs_1a1bce807569777cc009294231e644e31c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string eu::core::vfs::make_sure_folder_ends_with_slash</definition>
+        <argsstring>(const std::string &amp;folder)</argsstring>
+        <name>make_sure_folder_ends_with_slash</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>folder</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vfs.cc" line="279" column="5" bodyfile="libs/core/src/core/vfs.cc" bodystart="279" bodyend="286"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1core_1_1vfs_1ab3539de96b385867a5f2efd03bc94d94" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::vfs::add_default_shaders</definition>
+        <argsstring>(FileSystem *fs, const DirPath &amp;base)</argsstring>
+        <name>add_default_shaders</name>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1vfs_1_1FileSystem" kindref="compound">FileSystem</ref> *</type>
+          <declname>fs</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1vfs_1_1DirPath" kindref="compound">DirPath</ref> &amp;</type>
+          <declname>base</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vfs_defaultshaders.cc" line="10" column="5" bodyfile="libs/core/src/core/vfs_defaultshaders.cc" bodystart="10" bodyend="19" declfile="libs/core/src/core/vfs_defaultshaders.h" declline="9" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1core_1_1vfs_1a759c0a0c3c32b10320ea76bc7b38d7c9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string eu::core::vfs::to_string</definition>
+        <argsstring>(const FilePath &amp;p)</argsstring>
+        <name>to_string</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1vfs_1_1FilePath" kindref="compound">FilePath</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vfs_path.cc" line="321" column="17" bodyfile="libs/core/src/core/vfs_path.cc" bodystart="321" bodyend="322" declfile="libs/core/src/core/vfs_path.h" declline="63" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1core_1_1vfs_1a6a03539bbd1a9709d43f91d4b91fa4cc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string eu::core::vfs::to_string</definition>
+        <argsstring>(const DirPath &amp;p)</argsstring>
+        <name>to_string</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1vfs_1_1DirPath" kindref="compound">DirPath</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vfs_path.cc" line="324" column="17" bodyfile="libs/core/src/core/vfs_path.cc" bodystart="324" bodyend="325" declfile="libs/core/src/core/vfs_path.h" declline="87" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1core_1_1vfs_1abf49a285c613a33c01186c19d836d423" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::optional&lt; <ref refid="structeu_1_1core_1_1vfs_1_1DirPath" kindref="compound">DirPath</ref> &gt;</type>
+        <definition>std::optional&lt; DirPath &gt; eu::core::vfs::resolve_relative</definition>
+        <argsstring>(const DirPath &amp;base)</argsstring>
+        <name>resolve_relative</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1vfs_1_1DirPath" kindref="compound">DirPath</ref> &amp;</type>
+          <declname>base</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vfs_path.cc" line="349" column="5" bodyfile="libs/core/src/core/vfs_path.cc" bodystart="349" bodyend="384" declfile="libs/core/src/core/vfs_path.h" declline="91" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1core_1_1vfs_1a824e5979f737b9395780df5987609d96" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::optional&lt; <ref refid="structeu_1_1core_1_1vfs_1_1DirPath" kindref="compound">DirPath</ref> &gt;</type>
+        <definition>std::optional&lt; DirPath &gt; eu::core::vfs::resolve_relative</definition>
+        <argsstring>(const DirPath &amp;base, const DirPath &amp;root)</argsstring>
+        <name>resolve_relative</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1vfs_1_1DirPath" kindref="compound">DirPath</ref> &amp;</type>
+          <declname>base</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1vfs_1_1DirPath" kindref="compound">DirPath</ref> &amp;</type>
+          <declname>root</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vfs_path.cc" line="388" column="5" bodyfile="libs/core/src/core/vfs_path.cc" bodystart="388" bodyend="396" declfile="libs/core/src/core/vfs_path.h" declline="95" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1core_1_1vfs_1a7c5403dbe41c689cf241636ae55c1991" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::optional&lt; <ref refid="structeu_1_1core_1_1vfs_1_1FilePath" kindref="compound">FilePath</ref> &gt;</type>
+        <definition>std::optional&lt; FilePath &gt; eu::core::vfs::resolve_relative</definition>
+        <argsstring>(const FilePath &amp;base)</argsstring>
+        <name>resolve_relative</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1vfs_1_1FilePath" kindref="compound">FilePath</ref> &amp;</type>
+          <declname>base</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vfs_path.cc" line="400" column="5" bodyfile="libs/core/src/core/vfs_path.cc" bodystart="400" bodyend="406" declfile="libs/core/src/core/vfs_path.h" declline="99" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1core_1_1vfs_1a322368512f1ddaa921a8f47ad83e36ef" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::optional&lt; <ref refid="structeu_1_1core_1_1vfs_1_1FilePath" kindref="compound">FilePath</ref> &gt;</type>
+        <definition>std::optional&lt; FilePath &gt; eu::core::vfs::resolve_relative</definition>
+        <argsstring>(const FilePath &amp;base, const DirPath &amp;root)</argsstring>
+        <name>resolve_relative</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1vfs_1_1FilePath" kindref="compound">FilePath</ref> &amp;</type>
+          <declname>base</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1vfs_1_1DirPath" kindref="compound">DirPath</ref> &amp;</type>
+          <declname>root</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vfs_path.cc" line="409" column="5" bodyfile="libs/core/src/core/vfs_path.cc" bodystart="409" bodyend="415" declfile="libs/core/src/core/vfs_path.h" declline="103" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1core_1_1vfs_1a1d6ac80eeea23a1b5ebcabd0fae68f2f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1vfs_1_1DirPath" kindref="compound">DirPath</ref></type>
+        <definition>DirPath eu::core::vfs::join</definition>
+        <argsstring>(const DirPath &amp;lhs, const DirPath &amp;rhs)</argsstring>
+        <name>join</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1vfs_1_1DirPath" kindref="compound">DirPath</ref> &amp;</type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1vfs_1_1DirPath" kindref="compound">DirPath</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vfs_path.cc" line="419" column="5" bodyfile="libs/core/src/core/vfs_path.cc" bodystart="419" bodyend="431" declfile="libs/core/src/core/vfs_path.h" declline="107" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1core_1_1vfs_1a6c8c76230d7f08bdd4d9715f301a1b95" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1vfs_1_1FilePath" kindref="compound">FilePath</ref></type>
+        <definition>FilePath eu::core::vfs::join</definition>
+        <argsstring>(const DirPath &amp;lhs, const FilePath &amp;rhs)</argsstring>
+        <name>join</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1vfs_1_1DirPath" kindref="compound">DirPath</ref> &amp;</type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1vfs_1_1FilePath" kindref="compound">FilePath</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vfs_path.cc" line="435" column="5" bodyfile="libs/core/src/core/vfs_path.cc" bodystart="435" bodyend="440" declfile="libs/core/src/core/vfs_path.h" declline="111" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1core_1_1vfs_1a7701ac2adcb997e35b92a98823b69b5a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool eu::core::vfs::operator==</definition>
+        <argsstring>(const DirPath &amp;lhs, const DirPath &amp;rhs)</argsstring>
+        <name>operator==</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1vfs_1_1DirPath" kindref="compound">DirPath</ref> &amp;</type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1vfs_1_1DirPath" kindref="compound">DirPath</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vfs_path.cc" line="444" column="5" bodyfile="libs/core/src/core/vfs_path.cc" bodystart="444" bodyend="447" declfile="libs/core/src/core/vfs_path.h" declline="115" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1core_1_1vfs_1aed8de3ece93d321ae00b467ccc953a18" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool eu::core::vfs::operator==</definition>
+        <argsstring>(const FilePath &amp;lhs, const FilePath &amp;rhs)</argsstring>
+        <name>operator==</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1vfs_1_1FilePath" kindref="compound">FilePath</ref> &amp;</type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1vfs_1_1FilePath" kindref="compound">FilePath</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vfs_path.cc" line="451" column="5" bodyfile="libs/core/src/core/vfs_path.cc" bodystart="451" bodyend="454" declfile="libs/core/src/core/vfs_path.h" declline="119" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1core_1_1vfs_1a68232b80b314a713ab14470de5b43fb5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool eu::core::vfs::operator!=</definition>
+        <argsstring>(const DirPath &amp;lhs, const DirPath &amp;rhs)</argsstring>
+        <name>operator!=</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1vfs_1_1DirPath" kindref="compound">DirPath</ref> &amp;</type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1vfs_1_1DirPath" kindref="compound">DirPath</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vfs_path.cc" line="458" column="5" bodyfile="libs/core/src/core/vfs_path.cc" bodystart="458" bodyend="461" declfile="libs/core/src/core/vfs_path.h" declline="123" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1core_1_1vfs_1a736b5e825058da1d3082d974e633971e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool eu::core::vfs::operator!=</definition>
+        <argsstring>(const FilePath &amp;lhs, const FilePath &amp;rhs)</argsstring>
+        <name>operator!=</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1vfs_1_1FilePath" kindref="compound">FilePath</ref> &amp;</type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1vfs_1_1FilePath" kindref="compound">FilePath</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vfs_path.cc" line="465" column="5" bodyfile="libs/core/src/core/vfs_path.cc" bodystart="465" bodyend="468" declfile="libs/core/src/core/vfs_path.h" declline="127" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1core_1_1vfs_1ae319da546af4e011fdec44bf56ee0fcb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool eu::core::vfs::operator&lt;</definition>
+        <argsstring>(const DirPath &amp;lhs, const DirPath &amp;rhs)</argsstring>
+        <name>operator&lt;</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1vfs_1_1DirPath" kindref="compound">DirPath</ref> &amp;</type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1vfs_1_1DirPath" kindref="compound">DirPath</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vfs_path.cc" line="471" column="5" bodyfile="libs/core/src/core/vfs_path.cc" bodystart="472" bodyend="475" declfile="libs/core/src/core/vfs_path.h" declline="130" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1core_1_1vfs_1a755645cc90d8128b3d5d03ef1d1b2359" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool eu::core::vfs::operator&lt;</definition>
+        <argsstring>(const FilePath &amp;lhs, const FilePath &amp;rhs)</argsstring>
+        <name>operator&lt;</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1vfs_1_1FilePath" kindref="compound">FilePath</ref> &amp;</type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1vfs_1_1FilePath" kindref="compound">FilePath</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vfs_path.cc" line="478" column="5" bodyfile="libs/core/src/core/vfs_path.cc" bodystart="479" bodyend="482" declfile="libs/core/src/core/vfs_path.h" declline="134" declcolumn="5"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/enum.h" line="9" column="5"/>
+  </compounddef>
+</doxygen>

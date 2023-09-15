@@ -461,10 +461,10 @@
         <link refid="scalablesprite_8cc"/>
       </node>
     </invincdepgraph>
-    <innerclass refid="structeuphoria_1_1render_1_1DrawData" prot="public">euphoria::render::DrawData</innerclass>
-    <innerclass refid="structeuphoria_1_1render_1_1SpriteRenderer" prot="public">euphoria::render::SpriteRenderer</innerclass>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1render">euphoria::render</innernamespace>
+    <innerclass refid="structeu_1_1render_1_1DrawData" prot="public">eu::render::DrawData</innerclass>
+    <innerclass refid="structeu_1_1render_1_1SpriteRenderer" prot="public">eu::render::SpriteRenderer</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1render">eu::render</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

@@ -244,19 +244,19 @@
         </childnode>
       </node>
     </invincdepgraph>
-    <innerclass refid="structeuphoria_1_1core_1_1dump2d_1_1Poly" prot="public">euphoria::core::dump2d::Poly</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1dump2d_1_1Text" prot="public">euphoria::core::dump2d::Text</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1dump2d_1_1Circle" prot="public">euphoria::core::dump2d::Circle</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1dump2d_1_1Item" prot="public">euphoria::core::dump2d::Item</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1dump2d_1_1AddWrapper" prot="public">euphoria::core::dump2d::AddWrapper</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1dump2d_1_1Group" prot="public">euphoria::core::dump2d::Group</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1dump2d_1_1Dumper" prot="public">euphoria::core::dump2d::Dumper</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1dump3d_1_1Dumper" prot="public">euphoria::core::dump3d::Dumper</innerclass>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core_1_1dump2d">euphoria::core::dump2d</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core_1_1dump2d_1_1strokes">euphoria::core::dump2d::strokes</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core_1_1dump3d">euphoria::core::dump3d</innernamespace>
+    <innerclass refid="structeu_1_1core_1_1dump2d_1_1Poly" prot="public">eu::core::dump2d::Poly</innerclass>
+    <innerclass refid="structeu_1_1core_1_1dump2d_1_1Text" prot="public">eu::core::dump2d::Text</innerclass>
+    <innerclass refid="structeu_1_1core_1_1dump2d_1_1Circle" prot="public">eu::core::dump2d::Circle</innerclass>
+    <innerclass refid="structeu_1_1core_1_1dump2d_1_1Item" prot="public">eu::core::dump2d::Item</innerclass>
+    <innerclass refid="structeu_1_1core_1_1dump2d_1_1AddWrapper" prot="public">eu::core::dump2d::AddWrapper</innerclass>
+    <innerclass refid="structeu_1_1core_1_1dump2d_1_1Group" prot="public">eu::core::dump2d::Group</innerclass>
+    <innerclass refid="structeu_1_1core_1_1dump2d_1_1Dumper" prot="public">eu::core::dump2d::Dumper</innerclass>
+    <innerclass refid="structeu_1_1core_1_1dump3d_1_1Dumper" prot="public">eu::core::dump3d::Dumper</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core_1_1dump2d">eu::core::dump2d</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core_1_1dump2d_1_1strokes">eu::core::dump2d::strokes</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core_1_1dump3d">eu::core::dump3d</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1render_1_1Buffer2d" kind="struct" language="C++" prot="public">
+    <compoundname>eu::render::Buffer2d</compoundname>
+    <includes refid="buffer2d_8h" local="no">buffer2d.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="structeu_1_1render_1_1Buffer2d_1a92c320a0187bb64bfe64b64f637cfd60" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int eu::render::Buffer2d::index_count</definition>
+        <argsstring></argsstring>
+        <name>index_count</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/buffer2d.h" line="21" column="13" bodyfile="libs/render/src/render/buffer2d.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1Buffer2d_1a7f424ca6aee2b8c7c7d72fe2acc1240a" prot="private" static="no" mutable="no">
+        <type><ref refid="structeu_1_1render_1_1VertexBuffer" kindref="compound">VertexBuffer</ref></type>
+        <definition>VertexBuffer eu::render::Buffer2d::vbo</definition>
+        <argsstring></argsstring>
+        <name>vbo</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/buffer2d.h" line="22" column="22" bodyfile="libs/render/src/render/buffer2d.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1Buffer2d_1a9a735eb7e0bb0f074ce8b43da5ea9c70" prot="private" static="no" mutable="no">
+        <type><ref refid="structeu_1_1render_1_1PointLayout" kindref="compound">PointLayout</ref></type>
+        <definition>PointLayout eu::render::Buffer2d::vao</definition>
+        <argsstring></argsstring>
+        <name>vao</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/buffer2d.h" line="23" column="21" bodyfile="libs/render/src/render/buffer2d.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1Buffer2d_1a101c7cb99e0f56591ec9bffdea6bc654" prot="private" static="no" mutable="no">
+        <type><ref refid="structeu_1_1render_1_1IndexBuffer" kindref="compound">IndexBuffer</ref></type>
+        <definition>IndexBuffer eu::render::Buffer2d::ebo</definition>
+        <argsstring></argsstring>
+        <name>ebo</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/buffer2d.h" line="24" column="21" bodyfile="libs/render/src/render/buffer2d.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1render_1_1Buffer2d_1aa8ce177b450fcd2e196957dc2da986a7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::Buffer2d::Buffer2d</definition>
+        <argsstring>(const core::BufferBuilder2 &amp;bb)</argsstring>
+        <name>Buffer2d</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1BufferBuilder2" kindref="compound">core::BufferBuilder2</ref> &amp;</type>
+          <declname>bb</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/buffer2d.h" line="15" column="9" bodyfile="libs/render/src/render/buffer2d.cc" bodystart="11" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1Buffer2d_1ad12add1aa3a74509eeecca9bd9285666" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::render::Buffer2d::draw</definition>
+        <argsstring>() const</argsstring>
+        <name>draw</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/buffer2d.h" line="18" column="9" bodyfile="libs/render/src/render/buffer2d.cc" bodystart="32" bodyend="39"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/render/src/render/buffer2d.h" line="12" column="5" bodyfile="libs/render/src/render/buffer2d.h" bodystart="13" bodyend="25"/>
+    <listofallmembers>
+      <member refid="structeu_1_1render_1_1Buffer2d_1aa8ce177b450fcd2e196957dc2da986a7" prot="public" virt="non-virtual"><scope>eu::render::Buffer2d</scope><name>Buffer2d</name></member>
+      <member refid="structeu_1_1render_1_1Buffer2d_1ad12add1aa3a74509eeecca9bd9285666" prot="public" virt="non-virtual"><scope>eu::render::Buffer2d</scope><name>draw</name></member>
+      <member refid="structeu_1_1render_1_1Buffer2d_1a101c7cb99e0f56591ec9bffdea6bc654" prot="private" virt="non-virtual"><scope>eu::render::Buffer2d</scope><name>ebo</name></member>
+      <member refid="structeu_1_1render_1_1Buffer2d_1a92c320a0187bb64bfe64b64f637cfd60" prot="private" virt="non-virtual"><scope>eu::render::Buffer2d</scope><name>index_count</name></member>
+      <member refid="structeu_1_1render_1_1Buffer2d_1a9a735eb7e0bb0f074ce8b43da5ea9c70" prot="private" virt="non-virtual"><scope>eu::render::Buffer2d</scope><name>vao</name></member>
+      <member refid="structeu_1_1render_1_1Buffer2d_1a7f424ca6aee2b8c7c7d72fe2acc1240a" prot="private" virt="non-virtual"><scope>eu::render::Buffer2d</scope><name>vbo</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

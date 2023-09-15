@@ -118,17 +118,17 @@
         <label>memory</label>
       </node>
     </incdepgraph>
-    <innerclass refid="structeuphoria_1_1core_1_1TemplateNode" prot="public">euphoria::core::TemplateNode</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1TemplateNodeString" prot="public">euphoria::core::TemplateNodeString</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1TemplateNodeList" prot="public">euphoria::core::TemplateNodeList</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1TemplateNodeScopedList" prot="public">euphoria::core::TemplateNodeScopedList</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1TemplateNodeIfdef" prot="public">euphoria::core::TemplateNodeIfdef</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1TemplateNodeEval" prot="public">euphoria::core::TemplateNodeEval</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1TemplateNodeSet" prot="public">euphoria::core::TemplateNodeSet</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1Token" prot="public">euphoria::core::Token</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1TokenReader" prot="public">euphoria::core::TokenReader</innerclass>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
+    <innerclass refid="structeu_1_1core_1_1TemplateNode" prot="public">eu::core::TemplateNode</innerclass>
+    <innerclass refid="structeu_1_1core_1_1TemplateNodeString" prot="public">eu::core::TemplateNodeString</innerclass>
+    <innerclass refid="structeu_1_1core_1_1TemplateNodeList" prot="public">eu::core::TemplateNodeList</innerclass>
+    <innerclass refid="structeu_1_1core_1_1TemplateNodeScopedList" prot="public">eu::core::TemplateNodeScopedList</innerclass>
+    <innerclass refid="structeu_1_1core_1_1TemplateNodeIfdef" prot="public">eu::core::TemplateNodeIfdef</innerclass>
+    <innerclass refid="structeu_1_1core_1_1TemplateNodeEval" prot="public">eu::core::TemplateNodeEval</innerclass>
+    <innerclass refid="structeu_1_1core_1_1TemplateNodeSet" prot="public">eu::core::TemplateNodeSet</innerclass>
+    <innerclass refid="structeu_1_1core_1_1Token" prot="public">eu::core::Token</innerclass>
+    <innerclass refid="structeu_1_1core_1_1TokenReader" prot="public">eu::core::TokenReader</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
       <sectiondef kind="define">
       <memberdef kind="define" id="texttemplate_8cc_1ace4b534cbd732c3b750191869b94ef7e" prot="public" static="no">
         <name>CASE</name>

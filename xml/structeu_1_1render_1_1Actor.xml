@@ -1,0 +1,158 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1render_1_1Actor" kind="struct" language="C++" prot="public">
+    <compoundname>eu::render::Actor</compoundname>
+    <basecompoundref refid="structeu_1_1render_1_1Instance" prot="public" virt="non-virtual">eu::render::Instance</basecompoundref>
+    <includes refid="actor_8h" local="no">actor.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1render_1_1Actor_1afacedd5f9bfdaa2069b674099483ecfc" prot="public" static="no" mutable="no">
+        <type>std::shared_ptr&lt; <ref refid="structeu_1_1render_1_1CompiledMesh" kindref="compound">CompiledMesh</ref> &gt;</type>
+        <definition>std::shared_ptr&lt;CompiledMesh&gt; eu::render::Actor::mesh</definition>
+        <argsstring></argsstring>
+        <name>mesh</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/actor.h" line="22" column="25" bodyfile="libs/render/src/render/actor.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1Actor_1ab69704a7704955b740602648a039f37c" prot="public" static="no" mutable="no">
+        <type>std::shared_ptr&lt; <ref refid="structeu_1_1render_1_1MaterialOverride" kindref="compound">MaterialOverride</ref> &gt;</type>
+        <definition>std::shared_ptr&lt;MaterialOverride&gt; eu::render::Actor::overriden_materials</definition>
+        <argsstring></argsstring>
+        <name>overriden_materials</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/actor.h" line="23" column="25" bodyfile="libs/render/src/render/actor.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1render_1_1Actor_1a6b269c2ea233583ed7e962e6bf91fb37" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::Actor::Actor</definition>
+        <argsstring>(const std::shared_ptr&lt; CompiledMesh &gt; &amp;mesh)</argsstring>
+        <name>Actor</name>
+        <param>
+          <type>const std::shared_ptr&lt; <ref refid="structeu_1_1render_1_1CompiledMesh" kindref="compound">CompiledMesh</ref> &gt; &amp;</type>
+          <declname>mesh</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/actor.h" line="25" column="9" bodyfile="libs/render/src/render/actor.cc" bodystart="7" bodyend="11"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1Actor_1aba26551a64b241405989c417bbf64370" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="structeu_1_1render_1_1MaterialOverride" kindref="compound">MaterialOverride</ref> &gt;</type>
+        <definition>std::shared_ptr&lt; MaterialOverride &gt; eu::render::Actor::create_override</definition>
+        <argsstring>() const</argsstring>
+        <name>create_override</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/actor.h" line="28" column="9" bodyfile="libs/render/src/render/actor.cc" bodystart="15" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1Actor_1a46dd1c189024d198b24c65e1719c6ecc" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void eu::render::Actor::render</definition>
+        <argsstring>(const core::mat4f &amp;projection_matrix, const core::mat4f &amp;view_matrix, const core::vec3f &amp;camera, const Light &amp;light) override</argsstring>
+        <name>render</name>
+        <reimplements refid="structeu_1_1render_1_1Instance_1a1c652df1886f046c11df6f351fcdc474">render</reimplements>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1mat4f" kindref="compound">core::mat4f</ref> &amp;</type>
+          <declname>projection_matrix</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1mat4f" kindref="compound">core::mat4f</ref> &amp;</type>
+          <declname>view_matrix</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1vec3f" kindref="compound">core::vec3f</ref> &amp;</type>
+          <declname>camera</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1render_1_1Light" kindref="compound">Light</ref> &amp;</type>
+          <declname>light</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/actor.h" line="31" column="9" bodyfile="libs/render/src/render/actor.cc" bodystart="30" bodyend="46"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>eu::render::Instance</label>
+        <link refid="structeu_1_1render_1_1Instance"/>
+      </node>
+      <node id="1">
+        <label>eu::render::Actor</label>
+        <link refid="structeu_1_1render_1_1Actor"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>eu::core::quatf</label>
+        <link refid="structeu_1_1core_1_1quatf"/>
+      </node>
+      <node id="2">
+        <label>eu::render::Instance</label>
+        <link refid="structeu_1_1render_1_1Instance"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>rotation</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>position</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>eu::core::vec3f</label>
+        <link refid="structeu_1_1core_1_1vec3f"/>
+      </node>
+      <node id="1">
+        <label>eu::render::Actor</label>
+        <link refid="structeu_1_1render_1_1Actor"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="libs/render/src/render/actor.h" line="20" column="5" bodyfile="libs/render/src/render/actor.h" bodystart="21" bodyend="38"/>
+    <listofallmembers>
+      <member refid="structeu_1_1render_1_1Actor_1a6b269c2ea233583ed7e962e6bf91fb37" prot="public" virt="non-virtual"><scope>eu::render::Actor</scope><name>Actor</name></member>
+      <member refid="structeu_1_1render_1_1Instance_1a3aff8f0109d0366c1fa6e3d4f21cfba2" prot="public" virt="non-virtual"><scope>eu::render::Actor</scope><name>calc_model_matrix</name></member>
+      <member refid="structeu_1_1render_1_1Actor_1aba26551a64b241405989c417bbf64370" prot="public" virt="non-virtual"><scope>eu::render::Actor</scope><name>create_override</name></member>
+      <member refid="structeu_1_1render_1_1Instance_1a7d4b8c1d8a999492bbd8ce7bcd015e7b" prot="public" virt="non-virtual"><scope>eu::render::Actor</scope><name>Instance</name></member>
+      <member refid="structeu_1_1render_1_1Instance_1a157fd9a8006146da8bd41ef08eff9ac4" prot="public" virt="non-virtual"><scope>eu::render::Actor</scope><name>Instance</name></member>
+      <member refid="structeu_1_1render_1_1Instance_1a573e014f37ed01c10fb4946385d39c79" prot="public" virt="non-virtual"><scope>eu::render::Actor</scope><name>Instance</name></member>
+      <member refid="structeu_1_1render_1_1Actor_1afacedd5f9bfdaa2069b674099483ecfc" prot="public" virt="non-virtual"><scope>eu::render::Actor</scope><name>mesh</name></member>
+      <member refid="structeu_1_1render_1_1Instance_1afa61c41b025df6775f483aaa4a77e1b4" prot="public" virt="non-virtual"><scope>eu::render::Actor</scope><name>operator=</name></member>
+      <member refid="structeu_1_1render_1_1Instance_1a27ca8b1f49de66f681555b8a69c372a1" prot="public" virt="non-virtual"><scope>eu::render::Actor</scope><name>operator=</name></member>
+      <member refid="structeu_1_1render_1_1Actor_1ab69704a7704955b740602648a039f37c" prot="public" virt="non-virtual"><scope>eu::render::Actor</scope><name>overriden_materials</name></member>
+      <member refid="structeu_1_1render_1_1Instance_1ac8c1a3943a832e735cc230a0a0ec1105" prot="public" virt="non-virtual"><scope>eu::render::Actor</scope><name>position</name></member>
+      <member refid="structeu_1_1render_1_1Instance_1ad68aa24c7baaf6b1ea0009105198860a" prot="public" virt="non-virtual"><scope>eu::render::Actor</scope><name>remove_this</name></member>
+      <member refid="structeu_1_1render_1_1Actor_1a46dd1c189024d198b24c65e1719c6ecc" prot="public" virt="virtual"><scope>eu::render::Actor</scope><name>render</name></member>
+      <member refid="structeu_1_1render_1_1Instance_1ab7038a64df17d999694f846235cbc21a" prot="public" virt="non-virtual"><scope>eu::render::Actor</scope><name>rotation</name></member>
+      <member refid="structeu_1_1render_1_1Instance_1a10320da7995e89a0ed412e432dcc1f75" prot="public" virt="virtual"><scope>eu::render::Actor</scope><name>~Instance</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

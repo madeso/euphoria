@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="namespaceeu" kind="namespace" language="C++">
+    <compoundname>eu</compoundname>
+    <innernamespace refid="namespaceeu_1_1assertlib">eu::assertlib</innernamespace>
+    <innernamespace refid="namespaceeu_1_1convert">eu::convert</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
+    <innernamespace refid="namespaceeu_1_1gui">eu::gui</innernamespace>
+    <innernamespace refid="namespaceeu_1_1log">eu::log</innernamespace>
+    <innernamespace refid="namespaceeu_1_1minsynth">eu::minsynth</innernamespace>
+    <innernamespace refid="namespaceeu_1_1render">eu::render</innernamespace>
+    <innernamespace refid="namespaceeu_1_1tests">eu::tests</innernamespace>
+    <innernamespace refid="namespaceeu_1_1window">eu::window</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/assert/src/assert/assert.h" line="89" column="1"/>
+  </compounddef>
+</doxygen>

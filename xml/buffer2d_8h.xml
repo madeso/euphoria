@@ -62,10 +62,10 @@
         <link refid="scalablesprite_8cc"/>
       </node>
     </invincdepgraph>
-    <innerclass refid="structeuphoria_1_1render_1_1Buffer2d" prot="public">euphoria::render::Buffer2d</innerclass>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1render">euphoria::render</innernamespace>
+    <innerclass refid="structeu_1_1render_1_1Buffer2d" prot="public">eu::render::Buffer2d</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
+    <innernamespace refid="namespaceeu_1_1render">eu::render</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

@@ -418,10 +418,10 @@
         </childnode>
       </node>
     </invincdepgraph>
-    <innerclass refid="structeuphoria_1_1render_1_1MaterialOverride" prot="public">euphoria::render::MaterialOverride</innerclass>
-    <innerclass refid="structeuphoria_1_1render_1_1Actor" prot="public">euphoria::render::Actor</innerclass>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1render">euphoria::render</innernamespace>
+    <innerclass refid="structeu_1_1render_1_1MaterialOverride" prot="public">eu::render::MaterialOverride</innerclass>
+    <innerclass refid="structeu_1_1render_1_1Actor" prot="public">eu::render::Actor</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1render">eu::render</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

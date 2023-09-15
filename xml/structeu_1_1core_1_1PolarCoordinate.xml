@@ -1,0 +1,116 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1core_1_1PolarCoordinate" kind="struct" language="C++" prot="public">
+    <compoundname>eu::core::PolarCoordinate</compoundname>
+    <includes refid="polarcoord_8h" local="no">polarcoord.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1core_1_1PolarCoordinate_1a185cf2bd8ae2ffd5672729d845188dfd" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1core_1_1Angle" kindref="compound">Angle</ref></type>
+        <definition>Angle eu::core::PolarCoordinate::azimuthal</definition>
+        <argsstring></argsstring>
+        <name>azimuthal</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/polarcoord.h" line="13" column="15" bodyfile="libs/core/src/core/polarcoord.h" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1PolarCoordinate_1aa9460457cc89857f7d8daea249287b04" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1core_1_1Angle" kindref="compound">Angle</ref></type>
+        <definition>Angle eu::core::PolarCoordinate::polar</definition>
+        <argsstring></argsstring>
+        <name>polar</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/polarcoord.h" line="14" column="15" bodyfile="libs/core/src/core/polarcoord.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1PolarCoordinate_1af87c6d526a7da58b4fcb29b6edf67b79" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::core::PolarCoordinate::PolarCoordinate</definition>
+        <argsstring>(float azimuthal01, float polar01)</argsstring>
+        <name>PolarCoordinate</name>
+        <param>
+          <type>float</type>
+          <declname>azimuthal01</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>polar01</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/polarcoord.h" line="16" column="9" bodyfile="libs/core/src/core/polarcoord.cc" bodystart="10" bodyend="16"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1PolarCoordinate_1abb28d56e1d00a675ed1013d427a83e87" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1unit3f" kindref="compound">unit3f</ref></type>
+        <definition>unit3f eu::core::PolarCoordinate::to_unit_vector</definition>
+        <argsstring>() const</argsstring>
+        <name>to_unit_vector</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/polarcoord.h" line="20" column="17" bodyfile="libs/core/src/core/polarcoord.cc" bodystart="19" bodyend="31"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1PolarCoordinate_1ae0622159edb907970e1b231789fb101b" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1PolarCoordinate" kindref="compound">PolarCoordinate</ref></type>
+        <definition>PolarCoordinate eu::core::PolarCoordinate::create_random</definition>
+        <argsstring>(::eu::core::Random *random)</argsstring>
+        <name>create_random</name>
+        <param>
+          <type>::<ref refid="structeu_1_1core_1_1Random" kindref="compound">eu::core::Random</ref> *</type>
+          <declname>random</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/polarcoord.h" line="18" column="33" bodyfile="libs/core/src/core/polarcoord.cc" bodystart="34" bodyend="39"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>eu::core::PolarCoordinate</label>
+        <link refid="structeu_1_1core_1_1PolarCoordinate"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>azimuthal</edgelabel>
+          <edgelabel>polar</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>eu::core::Angle</label>
+        <link refid="structeu_1_1core_1_1Angle"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/core/src/core/polarcoord.h" line="11" column="5" bodyfile="libs/core/src/core/polarcoord.h" bodystart="12" bodyend="21"/>
+    <listofallmembers>
+      <member refid="structeu_1_1core_1_1PolarCoordinate_1a185cf2bd8ae2ffd5672729d845188dfd" prot="public" virt="non-virtual"><scope>eu::core::PolarCoordinate</scope><name>azimuthal</name></member>
+      <member refid="structeu_1_1core_1_1PolarCoordinate_1ae0622159edb907970e1b231789fb101b" prot="public" virt="non-virtual"><scope>eu::core::PolarCoordinate</scope><name>create_random</name></member>
+      <member refid="structeu_1_1core_1_1PolarCoordinate_1aa9460457cc89857f7d8daea249287b04" prot="public" virt="non-virtual"><scope>eu::core::PolarCoordinate</scope><name>polar</name></member>
+      <member refid="structeu_1_1core_1_1PolarCoordinate_1af87c6d526a7da58b4fcb29b6edf67b79" prot="public" virt="non-virtual"><scope>eu::core::PolarCoordinate</scope><name>PolarCoordinate</name></member>
+      <member refid="structeu_1_1core_1_1PolarCoordinate_1abb28d56e1d00a675ed1013d427a83e87" prot="public" virt="non-virtual"><scope>eu::core::PolarCoordinate</scope><name>to_unit_vector</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

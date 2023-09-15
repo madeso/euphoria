@@ -895,26 +895,26 @@
         <link refid="materialshader_8cc"/>
       </node>
     </invincdepgraph>
-    <innerclass refid="structeuphoria_1_1core_1_1Scale3f" prot="public">euphoria::core::Scale3f</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1vec3f" prot="public">euphoria::core::vec3f</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1unit3f" prot="public">euphoria::core::unit3f</innerclass>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core_1_1common">euphoria::core::common</innernamespace>
+    <innerclass refid="structeu_1_1core_1_1Scale3f" prot="public">eu::core::Scale3f</innerclass>
+    <innerclass refid="structeu_1_1core_1_1vec3f" prot="public">eu::core::vec3f</innerclass>
+    <innerclass refid="structeu_1_1core_1_1unit3f" prot="public">eu::core::unit3f</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core_1_1common">eu::core::common</innernamespace>
       <sectiondef kind="func">
-      <memberdef kind="function" id="vec3_8h_1afcd2b046130eb621535a12c6876cc18e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="vec3_8h_1afd7b721638f8e51522879293869e52b1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>ADD_DEFAULT_FORMATTER</definition>
-        <argsstring>(euphoria::core::vec3f, std::string, euphoria::core::to_string)</argsstring>
+        <argsstring>(eu::core::vec3f, std::string, eu::core::to_string)</argsstring>
         <name>ADD_DEFAULT_FORMATTER</name>
         <param>
-          <type><ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">euphoria::core::vec3f</ref></type>
+          <type><ref refid="structeu_1_1core_1_1vec3f" kindref="compound">eu::core::vec3f</ref></type>
         </param>
         <param>
           <type>std::string</type>
         </param>
         <param>
-          <type><ref refid="namespaceeuphoria_1_1core_1a8596fa3efb42bc0ad86b46183bc305d3" kindref="member">euphoria::core::to_string</ref></type>
+          <type><ref refid="namespaceeu_1_1core_1abb347a6e512d991e31badda3ce5fef91" kindref="member">eu::core::to_string</ref></type>
         </param>
         <briefdescription>
         </briefdescription>
@@ -924,19 +924,19 @@
         </inbodydescription>
         <location file="libs/core/src/core/vec3.h" line="166" column="1" declfile="libs/core/src/core/vec3.h" declline="166" declcolumn="1"/>
       </memberdef>
-      <memberdef kind="function" id="vec3_8h_1a700bbcb4c2b7d1008736bd8c33689167" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="vec3_8h_1a64b3310bc4e33d37ab9204e1479c5cd5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>ADD_DEFAULT_FORMATTER</definition>
-        <argsstring>(euphoria::core::unit3f, std::string, euphoria::core::to_string)</argsstring>
+        <argsstring>(eu::core::unit3f, std::string, eu::core::to_string)</argsstring>
         <name>ADD_DEFAULT_FORMATTER</name>
         <param>
-          <type><ref refid="structeuphoria_1_1core_1_1unit3f" kindref="compound">euphoria::core::unit3f</ref></type>
+          <type><ref refid="structeu_1_1core_1_1unit3f" kindref="compound">eu::core::unit3f</ref></type>
         </param>
         <param>
           <type>std::string</type>
         </param>
         <param>
-          <type><ref refid="namespaceeuphoria_1_1core_1a8596fa3efb42bc0ad86b46183bc305d3" kindref="member">euphoria::core::to_string</ref></type>
+          <type><ref refid="namespaceeu_1_1core_1abb347a6e512d991e31badda3ce5fef91" kindref="member">eu::core::to_string</ref></type>
         </param>
         <briefdescription>
         </briefdescription>
@@ -946,19 +946,19 @@
         </inbodydescription>
         <location file="libs/core/src/core/vec3.h" line="167" column="1" declfile="libs/core/src/core/vec3.h" declline="167" declcolumn="1"/>
       </memberdef>
-      <memberdef kind="function" id="vec3_8h_1a377cc81815f48457532cc84bef43bce0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="vec3_8h_1ade1452e719290747422973c896b5e73c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>ADD_DEFAULT_FORMATTER</definition>
-        <argsstring>(euphoria::core::Scale3f, std::string, euphoria::core::to_string)</argsstring>
+        <argsstring>(eu::core::Scale3f, std::string, eu::core::to_string)</argsstring>
         <name>ADD_DEFAULT_FORMATTER</name>
         <param>
-          <type><ref refid="structeuphoria_1_1core_1_1Scale3f" kindref="compound">euphoria::core::Scale3f</ref></type>
+          <type><ref refid="structeu_1_1core_1_1Scale3f" kindref="compound">eu::core::Scale3f</ref></type>
         </param>
         <param>
           <type>std::string</type>
         </param>
         <param>
-          <type><ref refid="namespaceeuphoria_1_1core_1a8596fa3efb42bc0ad86b46183bc305d3" kindref="member">euphoria::core::to_string</ref></type>
+          <type><ref refid="namespaceeu_1_1core_1abb347a6e512d991e31badda3ce5fef91" kindref="member">eu::core::to_string</ref></type>
         </param>
         <briefdescription>
         </briefdescription>

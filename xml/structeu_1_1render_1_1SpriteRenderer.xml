@@ -1,0 +1,297 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1render_1_1SpriteRenderer" kind="struct" language="C++" prot="public">
+    <compoundname>eu::render::SpriteRenderer</compoundname>
+    <includes refid="spriterender_8h" local="no">spriterender.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="structeu_1_1render_1_1SpriteRenderer_1a2abe92ff41d861889dd2adcbdba6f66a" prot="private" static="no" mutable="no">
+        <type><ref refid="structeu_1_1render_1_1ShaderProgram" kindref="compound">ShaderProgram</ref> *</type>
+        <definition>ShaderProgram* eu::render::SpriteRenderer::sprite_shader</definition>
+        <argsstring></argsstring>
+        <name>sprite_shader</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/spriterender.h" line="74" column="23" bodyfile="libs/render/src/render/spriterender.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1SpriteRenderer_1a18881ba6846cd374f93d2f4a878d45d9" prot="private" static="no" mutable="no">
+        <type><ref refid="structeu_1_1render_1_1ShaderUniform" kindref="compound">ShaderUniform</ref></type>
+        <definition>ShaderUniform eu::render::SpriteRenderer::color_uniform</definition>
+        <argsstring></argsstring>
+        <name>color_uniform</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/spriterender.h" line="75" column="23" bodyfile="libs/render/src/render/spriterender.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1SpriteRenderer_1a33ac87dd503c7f1da5204954175c7b90" prot="private" static="no" mutable="no">
+        <type><ref refid="structeu_1_1render_1_1ShaderUniform" kindref="compound">ShaderUniform</ref></type>
+        <definition>ShaderUniform eu::render::SpriteRenderer::model_uniform</definition>
+        <argsstring></argsstring>
+        <name>model_uniform</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/spriterender.h" line="76" column="23" bodyfile="libs/render/src/render/spriterender.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1SpriteRenderer_1a69d1ac911e0d999e6a510398402a215d" prot="private" static="no" mutable="no">
+        <type><ref refid="structeu_1_1render_1_1ShaderUniform" kindref="compound">ShaderUniform</ref></type>
+        <definition>ShaderUniform eu::render::SpriteRenderer::region_uniform</definition>
+        <argsstring></argsstring>
+        <name>region_uniform</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/spriterender.h" line="77" column="23" bodyfile="libs/render/src/render/spriterender.h" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1SpriteRenderer_1aded1da6609be2302b84c7248a04c32d6" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="structeu_1_1render_1_1Buffer2d" kindref="compound">Buffer2d</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;Buffer2d&gt; eu::render::SpriteRenderer::single_quad_buffer</definition>
+        <argsstring></argsstring>
+        <name>single_quad_buffer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/spriterender.h" line="78" column="25" bodyfile="libs/render/src/render/spriterender.h" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1render_1_1SpriteRenderer_1a1f32449f5dbe7c4a606bdd9e5bca19e4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::SpriteRenderer::SpriteRenderer</definition>
+        <argsstring>(render::ShaderProgram *shader)</argsstring>
+        <name>SpriteRenderer</name>
+        <param>
+          <type><ref refid="structeu_1_1render_1_1ShaderProgram" kindref="compound">render::ShaderProgram</ref> *</type>
+          <declname>shader</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/spriterender.h" line="36" column="9" bodyfile="libs/render/src/render/spriterender.cc" bodystart="53" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1SpriteRenderer_1ace33da13df02a1592090f6d6f8c2301c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::SpriteRenderer::~SpriteRenderer</definition>
+        <argsstring>()</argsstring>
+        <name>~SpriteRenderer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/spriterender.h" line="37" column="9" bodyfile="libs/render/src/render/spriterender.cc" bodystart="63" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1SpriteRenderer_1a6fb43593878e8b10312efa8e7fe94969" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::SpriteRenderer::SpriteRenderer</definition>
+        <argsstring>(const SpriteRenderer &amp;other)=delete</argsstring>
+        <name>SpriteRenderer</name>
+        <param>
+          <type>const <ref refid="structeu_1_1render_1_1SpriteRenderer" kindref="compound">SpriteRenderer</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/spriterender.h" line="39" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1SpriteRenderer_1a39df4aca40dfdc2b71cec32adb0ae6d9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::render::SpriteRenderer::operator=</definition>
+        <argsstring>(const SpriteRenderer &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="structeu_1_1render_1_1SpriteRenderer" kindref="compound">SpriteRenderer</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/spriterender.h" line="40" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1SpriteRenderer_1ac2ccb5cd506346eb944b71a60b965fc0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::SpriteRenderer::SpriteRenderer</definition>
+        <argsstring>(SpriteRenderer &amp;&amp;other)=delete</argsstring>
+        <name>SpriteRenderer</name>
+        <param>
+          <type><ref refid="structeu_1_1render_1_1SpriteRenderer" kindref="compound">SpriteRenderer</ref> &amp;&amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/spriterender.h" line="41" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1SpriteRenderer_1a0d9762e19b8b7a034f660f30973ad979" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::render::SpriteRenderer::operator=</definition>
+        <argsstring>(SpriteRenderer &amp;&amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="structeu_1_1render_1_1SpriteRenderer" kindref="compound">SpriteRenderer</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/spriterender.h" line="42" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1SpriteRenderer_1a4629272fd9e125e085910a33e083fc5b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::render::SpriteRenderer::draw_rect</definition>
+        <argsstring>(const Texture2 &amp;texture, const core::Rectf &amp;sprite_area, const core::Rectf &amp;texture_region, const core::Angle &amp;rotation_angle, const core::Scale2f &amp;rotation_anchor, const core::Rgba &amp;tint_color)</argsstring>
+        <name>draw_rect</name>
+        <param>
+          <type>const <ref refid="structeu_1_1render_1_1Texture2" kindref="compound">Texture2</ref> &amp;</type>
+          <declname>texture</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1Rectf" kindref="compound">core::Rectf</ref> &amp;</type>
+          <declname>sprite_area</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1Rectf" kindref="compound">core::Rectf</ref> &amp;</type>
+          <declname>texture_region</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1Angle" kindref="compound">core::Angle</ref> &amp;</type>
+          <declname>rotation_angle</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1Scale2f" kindref="compound">core::Scale2f</ref> &amp;</type>
+          <declname>rotation_anchor</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1Rgba" kindref="compound">core::Rgba</ref> &amp;</type>
+          <declname>tint_color</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/spriterender.h" line="45" column="9" bodyfile="libs/render/src/render/spriterender.cc" bodystart="71" bodyend="120"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1SpriteRenderer_1a2678526ede433ce5da01b0f88abef5da" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::render::SpriteRenderer::draw_sprite</definition>
+        <argsstring>(const Texture2 &amp;texture, const core::Rectf &amp;position, const DrawData &amp;data=DrawData{})</argsstring>
+        <name>draw_sprite</name>
+        <param>
+          <type>const <ref refid="structeu_1_1render_1_1Texture2" kindref="compound">Texture2</ref> &amp;</type>
+          <declname>texture</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1Rectf" kindref="compound">core::Rectf</ref> &amp;</type>
+          <declname>position</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1render_1_1DrawData" kindref="compound">DrawData</ref> &amp;</type>
+          <declname>data</declname>
+          <defval><ref refid="structeu_1_1render_1_1DrawData" kindref="compound">DrawData</ref>{}</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/spriterender.h" line="57" column="9" bodyfile="libs/render/src/render/spriterender.cc" bodystart="125" bodyend="140"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1SpriteRenderer_1a36162b9a3d48ec420d72dd64beb4d269" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::render::SpriteRenderer::draw_ninepatch</definition>
+        <argsstring>(const ScalableSprite &amp;ninepatch, const core::Rectf &amp;rect, const core::Rgba &amp;tint)</argsstring>
+        <name>draw_ninepatch</name>
+        <param>
+          <type>const <ref refid="structeu_1_1render_1_1ScalableSprite" kindref="compound">ScalableSprite</ref> &amp;</type>
+          <declname>ninepatch</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1Rectf" kindref="compound">core::Rectf</ref> &amp;</type>
+          <declname>rect</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1Rgba" kindref="compound">core::Rgba</ref> &amp;</type>
+          <declname>tint</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/spriterender.h" line="66" column="9" bodyfile="libs/render/src/render/spriterender.cc" bodystart="145" bodyend="152"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="structeu_1_1render_1_1SpriteRenderer_1ad6fc40417cf150adf91e6632d7272ad5" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::render::SpriteRenderer::init_render_data</definition>
+        <argsstring>()</argsstring>
+        <name>init_render_data</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/spriterender.h" line="81" column="9" bodyfile="libs/render/src/render/spriterender.cc" bodystart="156" bodyend="168"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/render/src/render/spriterender.h" line="34" column="5" bodyfile="libs/render/src/render/spriterender.h" bodystart="35" bodyend="82"/>
+    <listofallmembers>
+      <member refid="structeu_1_1render_1_1SpriteRenderer_1a18881ba6846cd374f93d2f4a878d45d9" prot="private" virt="non-virtual"><scope>eu::render::SpriteRenderer</scope><name>color_uniform</name></member>
+      <member refid="structeu_1_1render_1_1SpriteRenderer_1a36162b9a3d48ec420d72dd64beb4d269" prot="public" virt="non-virtual"><scope>eu::render::SpriteRenderer</scope><name>draw_ninepatch</name></member>
+      <member refid="structeu_1_1render_1_1SpriteRenderer_1a4629272fd9e125e085910a33e083fc5b" prot="public" virt="non-virtual"><scope>eu::render::SpriteRenderer</scope><name>draw_rect</name></member>
+      <member refid="structeu_1_1render_1_1SpriteRenderer_1a2678526ede433ce5da01b0f88abef5da" prot="public" virt="non-virtual"><scope>eu::render::SpriteRenderer</scope><name>draw_sprite</name></member>
+      <member refid="structeu_1_1render_1_1SpriteRenderer_1ad6fc40417cf150adf91e6632d7272ad5" prot="private" virt="non-virtual"><scope>eu::render::SpriteRenderer</scope><name>init_render_data</name></member>
+      <member refid="structeu_1_1render_1_1SpriteRenderer_1a33ac87dd503c7f1da5204954175c7b90" prot="private" virt="non-virtual"><scope>eu::render::SpriteRenderer</scope><name>model_uniform</name></member>
+      <member refid="structeu_1_1render_1_1SpriteRenderer_1a39df4aca40dfdc2b71cec32adb0ae6d9" prot="public" virt="non-virtual"><scope>eu::render::SpriteRenderer</scope><name>operator=</name></member>
+      <member refid="structeu_1_1render_1_1SpriteRenderer_1a0d9762e19b8b7a034f660f30973ad979" prot="public" virt="non-virtual"><scope>eu::render::SpriteRenderer</scope><name>operator=</name></member>
+      <member refid="structeu_1_1render_1_1SpriteRenderer_1a69d1ac911e0d999e6a510398402a215d" prot="private" virt="non-virtual"><scope>eu::render::SpriteRenderer</scope><name>region_uniform</name></member>
+      <member refid="structeu_1_1render_1_1SpriteRenderer_1aded1da6609be2302b84c7248a04c32d6" prot="private" virt="non-virtual"><scope>eu::render::SpriteRenderer</scope><name>single_quad_buffer</name></member>
+      <member refid="structeu_1_1render_1_1SpriteRenderer_1a2abe92ff41d861889dd2adcbdba6f66a" prot="private" virt="non-virtual"><scope>eu::render::SpriteRenderer</scope><name>sprite_shader</name></member>
+      <member refid="structeu_1_1render_1_1SpriteRenderer_1a1f32449f5dbe7c4a606bdd9e5bca19e4" prot="public" virt="non-virtual"><scope>eu::render::SpriteRenderer</scope><name>SpriteRenderer</name></member>
+      <member refid="structeu_1_1render_1_1SpriteRenderer_1a6fb43593878e8b10312efa8e7fe94969" prot="public" virt="non-virtual"><scope>eu::render::SpriteRenderer</scope><name>SpriteRenderer</name></member>
+      <member refid="structeu_1_1render_1_1SpriteRenderer_1ac2ccb5cd506346eb944b71a60b965fc0" prot="public" virt="non-virtual"><scope>eu::render::SpriteRenderer</scope><name>SpriteRenderer</name></member>
+      <member refid="structeu_1_1render_1_1SpriteRenderer_1ace33da13df02a1592090f6d6f8c2301c" prot="public" virt="non-virtual"><scope>eu::render::SpriteRenderer</scope><name>~SpriteRenderer</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

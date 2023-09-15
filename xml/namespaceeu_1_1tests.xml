@@ -1,0 +1,588 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="namespaceeu_1_1tests" kind="namespace" language="C++">
+    <compoundname>eu::tests</compoundname>
+    <innerclass refid="structeu_1_1tests_1_1ApproxData" prot="public">eu::tests::ApproxData</innerclass>
+    <innerclass refid="structeu_1_1tests_1_1FalseString" prot="public">eu::tests::FalseString</innerclass>
+    <innernamespace refid="namespaceeu_1_1tests_1_1custom">eu::tests::custom</innernamespace>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespaceeu_1_1tests_1af345ce71ac050b0e3ecdf61c8bbb060d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool eu::tests::is_approximately_equal</definition>
+        <argsstring>(float const &amp;lhs, float const &amp;rhs, const ApproxData &amp;data)</argsstring>
+        <name>is_approximately_equal</name>
+        <param>
+          <type>float const &amp;</type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type>float const &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1tests_1_1ApproxData" kindref="compound">ApproxData</ref> &amp;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/tests/src/tests/approx.cc" line="19" column="5" bodyfile="libs/tests/src/tests/approx.cc" bodystart="20" bodyend="46" declfile="libs/tests/src/tests/approx.h" declline="28" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1tests_1a429f06a337ab5eca77d8f680617bbb3e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool eu::tests::is_approximately_equal</definition>
+        <argsstring>(const T &amp;lhs, const T &amp;rhs, const ApproxData &amp;data)</argsstring>
+        <name>is_approximately_equal</name>
+        <param>
+          <type>const T &amp;</type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type>const T &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1tests_1_1ApproxData" kindref="compound">ApproxData</ref> &amp;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/tests/src/tests/approx.h" line="23" column="5" declfile="libs/tests/src/tests/approx.h" declline="23" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1tests_1afa0999b9bfbdab97b21eaae368471724" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>std::ostream &amp;</type>
+        <definition>std::ostream&amp; eu::tests::operator&lt;&lt;</definition>
+        <argsstring>(std::ostream &amp;stream, const custom::Approx&lt; T &gt; &amp;v)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>stream</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1tests_1_1custom_1_1Approx" kindref="compound">custom::Approx</ref>&lt; T &gt; &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/tests/src/tests/approx.h" line="117" column="5" bodyfile="libs/tests/src/tests/approx.h" bodystart="118" bodyend="121"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1tests_1a4b0aba80b59059e6bb077580be52f819" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="structeu_1_1tests_1_1custom_1_1Approx" kindref="compound">custom::Approx</ref>&lt; T &gt;</type>
+        <definition>custom::Approx&lt;T&gt; eu::tests::approx</definition>
+        <argsstring>(T const &amp;t)</argsstring>
+        <name>approx</name>
+        <param>
+          <type>T const &amp;</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/tests/src/tests/approx.h" line="128" column="5" bodyfile="libs/tests/src/tests/approx.h" bodystart="128" bodyend="131"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1tests_1ad1779ec1241adec7990ffaad2a6db8c5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool eu::tests::is_approximately_equal_xyz</definition>
+        <argsstring>(T const &amp;lhs, T const &amp;rhs, const ApproxData &amp;data)</argsstring>
+        <name>is_approximately_equal_xyz</name>
+        <param>
+          <type>T const &amp;</type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type>T const &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1tests_1_1ApproxData" kindref="compound">ApproxData</ref> &amp;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/tests/src/tests/approx_equal.cc" line="7" column="5" bodyfile="libs/tests/src/tests/approx_equal.cc" bodystart="7" bodyend="12"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1tests_1a0ebdbc0941faa6757f7a99979f54d4ce" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool eu::tests::is_approximately_equal</definition>
+        <argsstring>(core::vec3f const &amp;lhs, core::vec3f const &amp;rhs, const ApproxData &amp;data)</argsstring>
+        <name>is_approximately_equal</name>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1vec3f" kindref="compound">core::vec3f</ref> const &amp;</type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1vec3f" kindref="compound">core::vec3f</ref> const &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1tests_1_1ApproxData" kindref="compound">ApproxData</ref> &amp;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/tests/src/tests/approx_equal.cc" line="16" column="5" bodyfile="libs/tests/src/tests/approx_equal.cc" bodystart="16" bodyend="22" declfile="libs/tests/src/tests/approx_equal.h" declline="15" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1tests_1ad9de263f2a6df1f2960b0c93c9cab59c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool eu::tests::is_approximately_equal</definition>
+        <argsstring>(core::vec4f const &amp;lhs, core::vec4f const &amp;rhs, const ApproxData &amp;data)</argsstring>
+        <name>is_approximately_equal</name>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1vec4f" kindref="compound">core::vec4f</ref> const &amp;</type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1vec4f" kindref="compound">core::vec4f</ref> const &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1tests_1_1ApproxData" kindref="compound">ApproxData</ref> &amp;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/tests/src/tests/approx_equal.cc" line="26" column="5" bodyfile="libs/tests/src/tests/approx_equal.cc" bodystart="26" bodyend="36" declfile="libs/tests/src/tests/approx_equal.h" declline="22" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1tests_1a799b1d2c99d88c6b3bc8217bd308a723" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool eu::tests::is_approximately_equal</definition>
+        <argsstring>(core::Rgb const &amp;lhs, core::Rgb const &amp;rhs, const ApproxData &amp;data)</argsstring>
+        <name>is_approximately_equal</name>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1Rgb" kindref="compound">core::Rgb</ref> const &amp;</type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1Rgb" kindref="compound">core::Rgb</ref> const &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1tests_1_1ApproxData" kindref="compound">ApproxData</ref> &amp;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/tests/src/tests/approx_equal.cc" line="40" column="5" bodyfile="libs/tests/src/tests/approx_equal.cc" bodystart="40" bodyend="48" declfile="libs/tests/src/tests/approx_equal.h" declline="29" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1tests_1a59715d934260b19db882cccadd1c6b3d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool eu::tests::is_approximately_equal</definition>
+        <argsstring>(core::Hsl const &amp;lhs, core::Hsl const &amp;rhs, const ApproxData &amp;data)</argsstring>
+        <name>is_approximately_equal</name>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1Hsl" kindref="compound">core::Hsl</ref> const &amp;</type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1Hsl" kindref="compound">core::Hsl</ref> const &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1tests_1_1ApproxData" kindref="compound">ApproxData</ref> &amp;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/tests/src/tests/approx_equal.cc" line="52" column="5" bodyfile="libs/tests/src/tests/approx_equal.cc" bodystart="52" bodyend="60" declfile="libs/tests/src/tests/approx_equal.h" declline="43" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1tests_1aa89ad2534b5101fe16741c9b87a25bc2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool eu::tests::is_approximately_equal</definition>
+        <argsstring>(core::unit3f const &amp;lhs, core::unit3f const &amp;rhs, const ApproxData &amp;data)</argsstring>
+        <name>is_approximately_equal</name>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1unit3f" kindref="compound">core::unit3f</ref> const &amp;</type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1unit3f" kindref="compound">core::unit3f</ref> const &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1tests_1_1ApproxData" kindref="compound">ApproxData</ref> &amp;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/tests/src/tests/approx_equal.cc" line="64" column="5" bodyfile="libs/tests/src/tests/approx_equal.cc" bodystart="64" bodyend="70" declfile="libs/tests/src/tests/approx_equal.h" declline="50" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1tests_1abc30b0ac7fda737eecc7f7a7dca53775" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool eu::tests::is_approximately_equal</definition>
+        <argsstring>(core::Rgba const &amp;lhs, core::Rgba const &amp;rhs, const ApproxData &amp;data)</argsstring>
+        <name>is_approximately_equal</name>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1Rgba" kindref="compound">core::Rgba</ref> const &amp;</type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1Rgba" kindref="compound">core::Rgba</ref> const &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1tests_1_1ApproxData" kindref="compound">ApproxData</ref> &amp;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/tests/src/tests/approx_equal.cc" line="74" column="5" bodyfile="libs/tests/src/tests/approx_equal.cc" bodystart="74" bodyend="83" declfile="libs/tests/src/tests/approx_equal.h" declline="36" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1tests_1a300d0e7459e2aee212b74f374775a247" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool eu::tests::is_approximately_equal</definition>
+        <argsstring>(core::quatf const &amp;lhs, core::quatf const &amp;rhs, const ApproxData &amp;data)</argsstring>
+        <name>is_approximately_equal</name>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1quatf" kindref="compound">core::quatf</ref> const &amp;</type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1quatf" kindref="compound">core::quatf</ref> const &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1tests_1_1ApproxData" kindref="compound">ApproxData</ref> &amp;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/tests/src/tests/approx_equal.cc" line="88" column="5" bodyfile="libs/tests/src/tests/approx_equal.cc" bodystart="88" bodyend="94" declfile="libs/tests/src/tests/approx_equal.h" declline="57" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1tests_1ac8091ece9544f878ba7626da0fcb73fe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool eu::tests::is_approximately_equal</definition>
+        <argsstring>(core::AxisAngle const &amp;lhs, core::AxisAngle const &amp;rhs, const ApproxData &amp;data)</argsstring>
+        <name>is_approximately_equal</name>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1AxisAngle" kindref="compound">core::AxisAngle</ref> const &amp;</type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1AxisAngle" kindref="compound">core::AxisAngle</ref> const &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1tests_1_1ApproxData" kindref="compound">ApproxData</ref> &amp;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/tests/src/tests/approx_equal.cc" line="98" column="5" bodyfile="libs/tests/src/tests/approx_equal.cc" bodystart="98" bodyend="121" declfile="libs/tests/src/tests/approx_equal.h" declline="64" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1tests_1a895b1bc09bab9d8d0e199d13a39d1a2c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool eu::tests::is_approximately_equal</definition>
+        <argsstring>(core::mat4f const &amp;lhs, core::mat4f const &amp;rhs, const ApproxData &amp;data)</argsstring>
+        <name>is_approximately_equal</name>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1mat4f" kindref="compound">core::mat4f</ref> const &amp;</type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1mat4f" kindref="compound">core::mat4f</ref> const &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1tests_1_1ApproxData" kindref="compound">ApproxData</ref> &amp;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/tests/src/tests/approx_equal.cc" line="126" column="5" bodyfile="libs/tests/src/tests/approx_equal.cc" bodystart="126" bodyend="139"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1tests_1a8fd2f73b23ff07027fc254f2c8ed915b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::ostream &amp;</type>
+        <definition>std::ostream &amp; eu::tests::operator&lt;&lt;</definition>
+        <argsstring>(std::ostream &amp;s, const FalseString &amp;f)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>s</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1tests_1_1FalseString" kindref="compound">FalseString</ref> &amp;</type>
+          <declname>f</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/tests/src/tests/falsestring.cc" line="25" column="5" bodyfile="libs/tests/src/tests/falsestring.cc" bodystart="26" bodyend="37" declfile="libs/tests/src/tests/falsestring.h" declline="19" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1tests_1a1d2a6c9bfd7efc4f4a472b41184ba889" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1tests_1_1FalseString" kindref="compound">FalseString</ref></type>
+        <definition>FalseString eu::tests::is_string_equal</definition>
+        <argsstring>(const std::string &amp;lhs, const std::string &amp;rhs)</argsstring>
+        <name>is_string_equal</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/tests/src/tests/stringeq.cc" line="24" column="5" bodyfile="libs/tests/src/tests/stringeq.cc" bodystart="24" bodyend="47" declfile="libs/tests/src/tests/stringeq.h" declline="25" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1tests_1ad7e978e859cd47730b3c654f073cd5c4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1tests_1_1FalseString" kindref="compound">FalseString</ref></type>
+        <definition>FalseString eu::tests::is_string_equal</definition>
+        <argsstring>(const std::vector&lt; std::string &gt; &amp;lhs, const std::vector&lt; std::string &gt; &amp;rhs)</argsstring>
+        <name>is_string_equal</name>
+        <param>
+          <type>const std::vector&lt; std::string &gt; &amp;</type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; std::string &gt; &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/tests/src/tests/stringeq.cc" line="51" column="5" bodyfile="libs/tests/src/tests/stringeq.cc" bodystart="51" bodyend="101" declfile="libs/tests/src/tests/stringeq.h" declline="22" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1tests_1a1ec620443f8af47cdc278fffe8d1a3f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>typename TToString</type>
+          </param>
+          <param>
+            <type>typename TCompare</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="structeu_1_1tests_1_1FalseString" kindref="compound">FalseString</ref></type>
+        <definition>FalseString eu::tests::is_vector_equal</definition>
+        <argsstring>(const std::vector&lt; T &gt; &amp;lhs, const std::vector&lt; T &gt; &amp;rhs, TToString to_string_functor, TCompare compare_functor)</argsstring>
+        <name>is_vector_equal</name>
+        <param>
+          <type>const std::vector&lt; T &gt; &amp;</type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; T &gt; &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <param>
+          <type>TToString</type>
+          <declname>to_string_functor</declname>
+        </param>
+        <param>
+          <type>TCompare</type>
+          <declname>compare_functor</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/tests/src/tests/vectorequals.h" line="23" column="5" bodyfile="libs/tests/src/tests/vectorequals.h" bodystart="24" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1tests_1a8a4aebead962bcb0ff2d3a8dab3d74c2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>typename TConverter</type>
+          </param>
+        </templateparamlist>
+        <type>std::string</type>
+        <definition>std::string eu::tests::from_vector_to_string_impl</definition>
+        <argsstring>(const std::vector&lt; T &gt; &amp;v, bool one_line, TConverter converter)</argsstring>
+        <name>from_vector_to_string_impl</name>
+        <param>
+          <type>const std::vector&lt; T &gt; &amp;</type>
+          <declname>v</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>one_line</declname>
+        </param>
+        <param>
+          <type>TConverter</type>
+          <declname>converter</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/tests/src/tests/vectortostring.h" line="14" column="5" bodyfile="libs/tests/src/tests/vectortostring.h" bodystart="15" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1tests_1a395026b52975360623821c3dbbcfaecf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>typename TConverter</type>
+          </param>
+        </templateparamlist>
+        <type>std::pair&lt; std::string, bool &gt;</type>
+        <definition>std::pair&lt;std::string, bool&gt; eu::tests::from_vector_to_string_ex</definition>
+        <argsstring>(const std::vector&lt; T &gt; &amp;v, TConverter converter)</argsstring>
+        <name>from_vector_to_string_ex</name>
+        <param>
+          <type>const std::vector&lt; T &gt; &amp;</type>
+          <declname>v</declname>
+        </param>
+        <param>
+          <type>TConverter</type>
+          <declname>converter</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/tests/src/tests/vectortostring.h" line="49" column="5" bodyfile="libs/tests/src/tests/vectortostring.h" bodystart="49" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1tests_1a6a1ce9e6480f3f263330f6910813399e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>typename TConverter</type>
+          </param>
+        </templateparamlist>
+        <type>std::string</type>
+        <definition>std::string eu::tests::from_vector_to_string</definition>
+        <argsstring>(const std::vector&lt; T &gt; &amp;v, TConverter converter)</argsstring>
+        <name>from_vector_to_string</name>
+        <param>
+          <type>const std::vector&lt; T &gt; &amp;</type>
+          <declname>v</declname>
+        </param>
+        <param>
+          <type>TConverter</type>
+          <declname>converter</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/tests/src/tests/vectortostring.h" line="72" column="5" bodyfile="libs/tests/src/tests/vectortostring.h" bodystart="72" bodyend="75"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/tests/src/tests/approx.cc" line="15" column="1"/>
+  </compounddef>
+</doxygen>

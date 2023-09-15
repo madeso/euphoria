@@ -1,0 +1,548 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1core_1_1detail_1_1OrbitCamera" kind="struct" language="C++" prot="public">
+    <compoundname>eu::core::detail::OrbitCamera</compoundname>
+    <basecompoundref refid="structeu_1_1core_1_1detail_1_1EditorCameraState3" prot="public" virt="non-virtual">eu::core::detail::EditorCameraState3</basecompoundref>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1core_1_1detail_1_1OrbitCamera_1a831e6ce131c1ca246ac0e98a6594c80d" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1core_1_1detail_1_1CameraFrame" kindref="compound">CameraFrame</ref></type>
+        <definition>CameraFrame eu::core::detail::OrbitCamera::start_frame</definition>
+        <argsstring></argsstring>
+        <name>start_frame</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.editor.cc" line="123" column="25" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="123" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1detail_1_1OrbitCamera_1a2430e9ad0b7417be6b4361eaadb67f31" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1core_1_1CompiledCamera3" kindref="compound">CompiledCamera3</ref></type>
+        <definition>CompiledCamera3 eu::core::detail::OrbitCamera::camera</definition>
+        <argsstring></argsstring>
+        <name>camera</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.editor.cc" line="124" column="29" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="124" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1detail_1_1OrbitCamera_1a313c349034b130f54a6b6b165d8048f7" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1core_1_1CompiledCamera3" kindref="compound">CompiledCamera3</ref></type>
+        <definition>CompiledCamera3 eu::core::detail::OrbitCamera::latest_camera</definition>
+        <argsstring></argsstring>
+        <name>latest_camera</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.editor.cc" line="125" column="29" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="125" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1detail_1_1OrbitCamera_1aa8b71b235762211494a7c2e0ee810b70" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1core_1_1Viewport" kindref="compound">Viewport</ref></type>
+        <definition>Viewport eu::core::detail::OrbitCamera::viewport</definition>
+        <argsstring></argsstring>
+        <name>viewport</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.editor.cc" line="126" column="22" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="126" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1detail_1_1OrbitCamera_1a10754ed9b26ff71ce544e14e87bdeca1" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1core_1_1vec2i" kindref="compound">vec2i</ref></type>
+        <definition>vec2i eu::core::detail::OrbitCamera::start_mouse</definition>
+        <argsstring></argsstring>
+        <name>start_mouse</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.editor.cc" line="127" column="19" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="127" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1detail_1_1OrbitCamera_1aa10af30525405eccbac577ba0eb26ff9" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1core_1_1vec2i" kindref="compound">vec2i</ref></type>
+        <definition>vec2i eu::core::detail::OrbitCamera::mouse</definition>
+        <argsstring></argsstring>
+        <name>mouse</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.editor.cc" line="128" column="19" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="128" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1detail_1_1OrbitCamera_1adda45111cd40a0e5f51c5a15aad9740c" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool eu::core::detail::OrbitCamera::shift</definition>
+        <argsstring></argsstring>
+        <name>shift</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.editor.cc" line="129" column="18" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="129" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1detail_1_1OrbitCamera_1a9368379f1fdbdb580e0c4a18b0d8c472" prot="public" static="no" mutable="no">
+        <type>std::optional&lt; <ref refid="structeu_1_1core_1_1detail_1_1PanData" kindref="compound">PanData</ref> &gt;</type>
+        <definition>std::optional&lt;PanData&gt; eu::core::detail::OrbitCamera::pan</definition>
+        <argsstring></argsstring>
+        <name>pan</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.editor.cc" line="131" column="27" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="131" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1detail_1_1OrbitCamera_1a2fe888096c34755da79ff68f5fe94358" prot="public" static="no" mutable="no">
+        <type>std::optional&lt; <ref refid="structeu_1_1core_1_1detail_1_1OrbitData" kindref="compound">OrbitData</ref> &gt;</type>
+        <definition>std::optional&lt;OrbitData&gt; eu::core::detail::OrbitCamera::orbit</definition>
+        <argsstring></argsstring>
+        <name>orbit</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.editor.cc" line="132" column="27" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="132" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1detail_1_1OrbitCamera_1af5460569a61133037bfde28ffc393595" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>eu::core::detail::OrbitCamera::OrbitCamera</definition>
+        <argsstring>(const CameraFrame &amp;start, const CompiledCamera3 &amp;latest_c, const Viewport &amp;latest_viewport, const vec2i &amp;latest_mouse, bool latest_shift)</argsstring>
+        <name>OrbitCamera</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1detail_1_1CameraFrame" kindref="compound">CameraFrame</ref> &amp;</type>
+          <declname>start</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1CompiledCamera3" kindref="compound">CompiledCamera3</ref> &amp;</type>
+          <declname>latest_c</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1Viewport" kindref="compound">Viewport</ref> &amp;</type>
+          <declname>latest_viewport</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1vec2i" kindref="compound">vec2i</ref> &amp;</type>
+          <declname>latest_mouse</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>latest_shift</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.editor.cc" line="134" column="13" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="135" bodyend="151"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1detail_1_1OrbitCamera_1a318d68d645180d3bf89a857f68eda2b8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::detail::OrbitCamera::update_data</definition>
+        <argsstring>(EditorCamera3 *owner)</argsstring>
+        <name>update_data</name>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1EditorCamera3" kindref="compound">EditorCamera3</ref> *</type>
+          <declname>owner</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.editor.cc" line="153" column="18" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="153" bodyend="180"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1detail_1_1OrbitCamera_1a93b8610b86cdefba9b94e9a26fc6bc14" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::detail::OrbitCamera::update_panning</definition>
+        <argsstring>(EditorCamera3 *owner)</argsstring>
+        <name>update_panning</name>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1EditorCamera3" kindref="compound">EditorCamera3</ref> *</type>
+          <declname>owner</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.editor.cc" line="182" column="18" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="182" bodyend="199"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1detail_1_1OrbitCamera_1a7b044719595bb67d8e064b216f53974c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::detail::OrbitCamera::update_orbit</definition>
+        <argsstring>(EditorCamera3 *owner)</argsstring>
+        <name>update_orbit</name>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1EditorCamera3" kindref="compound">EditorCamera3</ref> *</type>
+          <declname>owner</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.editor.cc" line="201" column="18" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="201" bodyend="218"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1detail_1_1OrbitCamera_1acc7d282c29318f8eb6afc98e747ccee2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::detail::OrbitCamera::update_camera</definition>
+        <argsstring>(EditorCamera3 *owner)</argsstring>
+        <name>update_camera</name>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1EditorCamera3" kindref="compound">EditorCamera3</ref> *</type>
+          <declname>owner</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.editor.cc" line="220" column="18" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="220" bodyend="230"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1detail_1_1OrbitCamera_1af77de5cf0d255fe5715395ae7bd64fc1" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
+        <definition>vec3f eu::core::detail::OrbitCamera::get_far_point</definition>
+        <argsstring>(const vec2i &amp;p, const CompiledCamera3 &amp;cc) const</argsstring>
+        <name>get_far_point</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1vec2i" kindref="compound">vec2i</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1CompiledCamera3" kindref="compound">CompiledCamera3</ref> &amp;</type>
+          <declname>cc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.editor.cc" line="232" column="20" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="232" bodyend="235"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1detail_1_1OrbitCamera_1a77451930fe4bd5d906dec28394597e73" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool eu::core::detail::OrbitCamera::is_panning</definition>
+        <argsstring>() const</argsstring>
+        <name>is_panning</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.editor.cc" line="238" column="18" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="238" bodyend="241"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1detail_1_1OrbitCamera_1aa80a5d2192dfebe77d3beb860829e8d1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void eu::core::detail::OrbitCamera::on_mouse_move</definition>
+        <argsstring>(EditorCamera3 *owner, int dx, int dy) override</argsstring>
+        <name>on_mouse_move</name>
+        <reimplements refid="structeu_1_1core_1_1detail_1_1EditorCameraState3_1a9c43534e0ce8a1ade49284fe73c6f78a">on_mouse_move</reimplements>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1EditorCamera3" kindref="compound">EditorCamera3</ref> *</type>
+          <declname>owner</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>dx</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>dy</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.editor.cc" line="243" column="18" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="243" bodyend="256"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1detail_1_1OrbitCamera_1ab2ede6d0e48469d7b843dd70aed21d31" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void eu::core::detail::OrbitCamera::on_scroll</definition>
+        <argsstring>(EditorCamera3 *owner, int dx, int dy) override</argsstring>
+        <name>on_scroll</name>
+        <reimplements refid="structeu_1_1core_1_1detail_1_1EditorCameraState3_1a2f00e246f8f65a884c36e6c32acfd8d1">on_scroll</reimplements>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1EditorCamera3" kindref="compound">EditorCamera3</ref> *</type>
+          <declname>owner</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>dx</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>dy</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.editor.cc" line="258" column="18" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="258" bodyend="269"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1detail_1_1OrbitCamera_1af6b180f6fcafa357f7dcd9c89ad9b8a2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void eu::core::detail::OrbitCamera::on_key</definition>
+        <argsstring>(EditorCamera3 *, Key, bool) override</argsstring>
+        <name>on_key</name>
+        <reimplements refid="structeu_1_1core_1_1detail_1_1EditorCameraState3_1a6b87aa81f6c4b06288a8229bc3a68ddf">on_key</reimplements>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1EditorCamera3" kindref="compound">EditorCamera3</ref> *</type>
+        </param>
+        <param>
+          <type><ref refid="namespaceeu_1_1core_1a6fca7b841e42734cd5c01e04fc9e6511" kindref="member">Key</ref></type>
+        </param>
+        <param>
+          <type>bool</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.editor.cc" line="271" column="18" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="271" bodyend="273"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1detail_1_1OrbitCamera_1a42fa7867f2c244e0ae6bc18b818b9269" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void eu::core::detail::OrbitCamera::update</definition>
+        <argsstring>(EditorCamera3 *owner, bool shift_state, const vec2i &amp;m, const CompiledCamera3 &amp;cc, const Viewport &amp;, float) override</argsstring>
+        <name>update</name>
+        <reimplements refid="structeu_1_1core_1_1detail_1_1EditorCameraState3_1aa3c5f50c2bce30a9acd56fd94bcb23a3">update</reimplements>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1EditorCamera3" kindref="compound">EditorCamera3</ref> *</type>
+          <declname>owner</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>shift_state</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1vec2i" kindref="compound">vec2i</ref> &amp;</type>
+          <declname>m</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1CompiledCamera3" kindref="compound">CompiledCamera3</ref> &amp;</type>
+          <declname>cc</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1Viewport" kindref="compound">Viewport</ref> &amp;</type>
+        </param>
+        <param>
+          <type>float</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.editor.cc" line="275" column="18" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="276" bodyend="306"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1detail_1_1OrbitCamera_1a3403f2afacb3f8a423f976a28a6b3042" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void eu::core::detail::OrbitCamera::on_camera_start</definition>
+        <argsstring>(EditorCamera3 *) override</argsstring>
+        <name>on_camera_start</name>
+        <reimplements refid="structeu_1_1core_1_1detail_1_1EditorCameraState3_1a3d5d2860958296c058897288f43b5670">on_camera_start</reimplements>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1EditorCamera3" kindref="compound">EditorCamera3</ref> *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.editor.cc" line="308" column="18" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="308" bodyend="310"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1detail_1_1OrbitCamera_1a1303cdae580621d23e5e6060d902eded" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void eu::core::detail::OrbitCamera::on_camera_stop</definition>
+        <argsstring>(EditorCamera3 *owner) override</argsstring>
+        <name>on_camera_stop</name>
+        <reimplements refid="structeu_1_1core_1_1detail_1_1EditorCameraState3_1a2e0961235674a72fc05b58462d18dad6">on_camera_stop</reimplements>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1EditorCamera3" kindref="compound">EditorCamera3</ref> *</type>
+          <declname>owner</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.editor.cc" line="312" column="18" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="312" bodyend="315"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1detail_1_1OrbitCamera_1ab213769709975ce2900f606cb59a6656" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="namespaceeu_1_1core_1af4fa494e006059dce5d3f4187bbb80f6" kindref="member">MouseBehaviour</ref></type>
+        <definition>MouseBehaviour eu::core::detail::OrbitCamera::get_mouse</definition>
+        <argsstring>(const EditorCamera3 *) const override</argsstring>
+        <name>get_mouse</name>
+        <reimplements refid="structeu_1_1core_1_1detail_1_1EditorCameraState3_1ab48aaabd1a0fec06f6320375293e7db7">get_mouse</reimplements>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1EditorCamera3" kindref="compound">EditorCamera3</ref> *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.editor.cc" line="317" column="28" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="317" bodyend="320"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>eu::core::detail::OrbitCamera</label>
+        <link refid="structeu_1_1core_1_1detail_1_1OrbitCamera"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>eu::core::detail::EditorCameraState3</label>
+        <link refid="structeu_1_1core_1_1detail_1_1EditorCameraState3"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>eu::core::detail::OrbitCamera</label>
+        <link refid="structeu_1_1core_1_1detail_1_1OrbitCamera"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>mouse</edgelabel>
+          <edgelabel>start_mouse</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>start_frame</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>camera</edgelabel>
+          <edgelabel>latest_camera</edgelabel>
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>viewport</edgelabel>
+        </childnode>
+      </node>
+      <node id="10">
+        <label>eu::core::Recti</label>
+        <link refid="structeu_1_1core_1_1Recti"/>
+      </node>
+      <node id="8">
+        <label>eu::core::mat4f</label>
+        <link refid="structeu_1_1core_1_1mat4f"/>
+      </node>
+      <node id="3">
+        <label>eu::core::vec2i</label>
+        <link refid="structeu_1_1core_1_1vec2i"/>
+      </node>
+      <node id="9">
+        <label>eu::core::Viewport</label>
+        <link refid="structeu_1_1core_1_1Viewport"/>
+        <childnode refid="10" relation="usage">
+          <edgelabel>bounds</edgelabel>
+        </childnode>
+      </node>
+      <node id="6">
+        <label>eu::core::vec3f</label>
+        <link refid="structeu_1_1core_1_1vec3f"/>
+      </node>
+      <node id="4">
+        <label>eu::core::detail::CameraFrame</label>
+        <link refid="structeu_1_1core_1_1detail_1_1CameraFrame"/>
+        <childnode refid="5" relation="usage">
+          <edgelabel>look_angle</edgelabel>
+          <edgelabel>rotation_angle</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>position</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>eu::core::detail::EditorCameraState3</label>
+        <link refid="structeu_1_1core_1_1detail_1_1EditorCameraState3"/>
+      </node>
+      <node id="7">
+        <label>eu::core::CompiledCamera3</label>
+        <link refid="structeu_1_1core_1_1CompiledCamera3"/>
+        <childnode refid="8" relation="usage">
+          <edgelabel>combined</edgelabel>
+          <edgelabel>combined_inverted</edgelabel>
+          <edgelabel>projection</edgelabel>
+          <edgelabel>view</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>eu::core::Angle</label>
+        <link refid="structeu_1_1core_1_1Angle"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/core/src/core/camera3.editor.cc" line="121" column="9" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="122" bodyend="321"/>
+    <listofallmembers>
+      <member refid="structeu_1_1core_1_1detail_1_1OrbitCamera_1a2430e9ad0b7417be6b4361eaadb67f31" prot="public" virt="non-virtual"><scope>eu::core::detail::OrbitCamera</scope><name>camera</name></member>
+      <member refid="structeu_1_1core_1_1detail_1_1EditorCameraState3_1a751725de1ac75a9cacf6b069192508bc" prot="public" virt="non-virtual"><scope>eu::core::detail::OrbitCamera</scope><name>EditorCameraState3</name></member>
+      <member refid="structeu_1_1core_1_1detail_1_1EditorCameraState3_1aa69c648faa09ee696f0db6ae5a71137a" prot="public" virt="non-virtual"><scope>eu::core::detail::OrbitCamera</scope><name>EditorCameraState3</name></member>
+      <member refid="structeu_1_1core_1_1detail_1_1EditorCameraState3_1a97df306bb8bae15aa213d3b2ad75f23e" prot="public" virt="non-virtual"><scope>eu::core::detail::OrbitCamera</scope><name>EditorCameraState3</name></member>
+      <member refid="structeu_1_1core_1_1detail_1_1OrbitCamera_1af77de5cf0d255fe5715395ae7bd64fc1" prot="public" virt="non-virtual"><scope>eu::core::detail::OrbitCamera</scope><name>get_far_point</name></member>
+      <member refid="structeu_1_1core_1_1detail_1_1OrbitCamera_1ab213769709975ce2900f606cb59a6656" prot="public" virt="virtual"><scope>eu::core::detail::OrbitCamera</scope><name>get_mouse</name></member>
+      <member refid="structeu_1_1core_1_1detail_1_1OrbitCamera_1a77451930fe4bd5d906dec28394597e73" prot="public" virt="non-virtual"><scope>eu::core::detail::OrbitCamera</scope><name>is_panning</name></member>
+      <member refid="structeu_1_1core_1_1detail_1_1OrbitCamera_1a313c349034b130f54a6b6b165d8048f7" prot="public" virt="non-virtual"><scope>eu::core::detail::OrbitCamera</scope><name>latest_camera</name></member>
+      <member refid="structeu_1_1core_1_1detail_1_1OrbitCamera_1aa10af30525405eccbac577ba0eb26ff9" prot="public" virt="non-virtual"><scope>eu::core::detail::OrbitCamera</scope><name>mouse</name></member>
+      <member refid="structeu_1_1core_1_1detail_1_1OrbitCamera_1a3403f2afacb3f8a423f976a28a6b3042" prot="public" virt="virtual"><scope>eu::core::detail::OrbitCamera</scope><name>on_camera_start</name></member>
+      <member refid="structeu_1_1core_1_1detail_1_1OrbitCamera_1a1303cdae580621d23e5e6060d902eded" prot="public" virt="virtual"><scope>eu::core::detail::OrbitCamera</scope><name>on_camera_stop</name></member>
+      <member refid="structeu_1_1core_1_1detail_1_1OrbitCamera_1af6b180f6fcafa357f7dcd9c89ad9b8a2" prot="public" virt="virtual"><scope>eu::core::detail::OrbitCamera</scope><name>on_key</name></member>
+      <member refid="structeu_1_1core_1_1detail_1_1OrbitCamera_1aa80a5d2192dfebe77d3beb860829e8d1" prot="public" virt="virtual"><scope>eu::core::detail::OrbitCamera</scope><name>on_mouse_move</name></member>
+      <member refid="structeu_1_1core_1_1detail_1_1OrbitCamera_1ab2ede6d0e48469d7b843dd70aed21d31" prot="public" virt="virtual"><scope>eu::core::detail::OrbitCamera</scope><name>on_scroll</name></member>
+      <member refid="structeu_1_1core_1_1detail_1_1EditorCameraState3_1a0af181369fe6d34cad667b0295e0fa69" prot="public" virt="non-virtual"><scope>eu::core::detail::OrbitCamera</scope><name>operator=</name></member>
+      <member refid="structeu_1_1core_1_1detail_1_1EditorCameraState3_1a8c7d80d03225e8595974c86eb9d8ec13" prot="public" virt="non-virtual"><scope>eu::core::detail::OrbitCamera</scope><name>operator=</name></member>
+      <member refid="structeu_1_1core_1_1detail_1_1OrbitCamera_1a2fe888096c34755da79ff68f5fe94358" prot="public" virt="non-virtual"><scope>eu::core::detail::OrbitCamera</scope><name>orbit</name></member>
+      <member refid="structeu_1_1core_1_1detail_1_1OrbitCamera_1af5460569a61133037bfde28ffc393595" prot="public" virt="non-virtual"><scope>eu::core::detail::OrbitCamera</scope><name>OrbitCamera</name></member>
+      <member refid="structeu_1_1core_1_1detail_1_1OrbitCamera_1a9368379f1fdbdb580e0c4a18b0d8c472" prot="public" virt="non-virtual"><scope>eu::core::detail::OrbitCamera</scope><name>pan</name></member>
+      <member refid="structeu_1_1core_1_1detail_1_1OrbitCamera_1adda45111cd40a0e5f51c5a15aad9740c" prot="public" virt="non-virtual"><scope>eu::core::detail::OrbitCamera</scope><name>shift</name></member>
+      <member refid="structeu_1_1core_1_1detail_1_1OrbitCamera_1a831e6ce131c1ca246ac0e98a6594c80d" prot="public" virt="non-virtual"><scope>eu::core::detail::OrbitCamera</scope><name>start_frame</name></member>
+      <member refid="structeu_1_1core_1_1detail_1_1OrbitCamera_1a10754ed9b26ff71ce544e14e87bdeca1" prot="public" virt="non-virtual"><scope>eu::core::detail::OrbitCamera</scope><name>start_mouse</name></member>
+      <member refid="structeu_1_1core_1_1detail_1_1OrbitCamera_1a42fa7867f2c244e0ae6bc18b818b9269" prot="public" virt="virtual"><scope>eu::core::detail::OrbitCamera</scope><name>update</name></member>
+      <member refid="structeu_1_1core_1_1detail_1_1OrbitCamera_1acc7d282c29318f8eb6afc98e747ccee2" prot="public" virt="non-virtual"><scope>eu::core::detail::OrbitCamera</scope><name>update_camera</name></member>
+      <member refid="structeu_1_1core_1_1detail_1_1OrbitCamera_1a318d68d645180d3bf89a857f68eda2b8" prot="public" virt="non-virtual"><scope>eu::core::detail::OrbitCamera</scope><name>update_data</name></member>
+      <member refid="structeu_1_1core_1_1detail_1_1OrbitCamera_1a7b044719595bb67d8e064b216f53974c" prot="public" virt="non-virtual"><scope>eu::core::detail::OrbitCamera</scope><name>update_orbit</name></member>
+      <member refid="structeu_1_1core_1_1detail_1_1OrbitCamera_1a93b8610b86cdefba9b94e9a26fc6bc14" prot="public" virt="non-virtual"><scope>eu::core::detail::OrbitCamera</scope><name>update_panning</name></member>
+      <member refid="structeu_1_1core_1_1detail_1_1OrbitCamera_1aa8b71b235762211494a7c2e0ee810b70" prot="public" virt="non-virtual"><scope>eu::core::detail::OrbitCamera</scope><name>viewport</name></member>
+      <member refid="structeu_1_1core_1_1detail_1_1EditorCameraState3_1adb93490c2420e2b2d9708fd0f224c737" prot="public" virt="virtual"><scope>eu::core::detail::OrbitCamera</scope><name>~EditorCameraState3</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

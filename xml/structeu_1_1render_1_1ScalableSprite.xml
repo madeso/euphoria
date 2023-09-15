@@ -1,0 +1,238 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1render_1_1ScalableSprite" kind="struct" language="C++" prot="public">
+    <compoundname>eu::render::ScalableSprite</compoundname>
+    <includes refid="scalablesprite_8h" local="no">scalablesprite.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1render_1_1ScalableSprite_1a973f73f30ce56b0541b827b8ab773b65" prot="public" static="no" mutable="no">
+        <type>std::shared_ptr&lt; <ref refid="structeu_1_1render_1_1Texture2" kindref="compound">Texture2</ref> &gt;</type>
+        <definition>std::shared_ptr&lt;Texture2&gt; eu::render::ScalableSprite::texture</definition>
+        <argsstring></argsstring>
+        <name>texture</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/scalablesprite.h" line="48" column="25" bodyfile="libs/render/src/render/scalablesprite.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1ScalableSprite_1a91bb0d39c0cb02b3cf1cabd9d6fec82d" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; float &gt;</type>
+        <definition>std::vector&lt;float&gt; eu::render::ScalableSprite::columns</definition>
+        <argsstring></argsstring>
+        <name>columns</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/scalablesprite.h" line="50" column="21" bodyfile="libs/render/src/render/scalablesprite.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1ScalableSprite_1a75dc9eb061e451dfac2e8031d79a0af1" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; float &gt;</type>
+        <definition>std::vector&lt;float&gt; eu::render::ScalableSprite::rows</definition>
+        <argsstring></argsstring>
+        <name>rows</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/scalablesprite.h" line="51" column="21" bodyfile="libs/render/src/render/scalablesprite.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1ScalableSprite_1acbe08a81dca81c73eba1d22291e3092c" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float eu::render::ScalableSprite::calculated_texture_size_columns</definition>
+        <argsstring></argsstring>
+        <name>calculated_texture_size_columns</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/scalablesprite.h" line="53" column="15" bodyfile="libs/render/src/render/scalablesprite.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1ScalableSprite_1a2f674b71326250c23f075d88848f86f4" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float eu::render::ScalableSprite::calculated_texture_size_rows</definition>
+        <argsstring></argsstring>
+        <name>calculated_texture_size_rows</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/scalablesprite.h" line="54" column="15" bodyfile="libs/render/src/render/scalablesprite.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1render_1_1ScalableSprite_1ac4c80b80e6a8bf333b771df97b145567" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::ScalableSprite::ScalableSprite</definition>
+        <argsstring>(core::vfs::FileSystem *fs, const core::vfs::FilePath &amp;path, TextureCache *cache)</argsstring>
+        <name>ScalableSprite</name>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1vfs_1_1FileSystem" kindref="compound">core::vfs::FileSystem</ref> *</type>
+          <declname>fs</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1vfs_1_1FilePath" kindref="compound">core::vfs::FilePath</ref> &amp;</type>
+          <declname>path</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1render_1_1TextureCache" kindref="compound">TextureCache</ref> *</type>
+          <declname>cache</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/scalablesprite.h" line="29" column="9" bodyfile="libs/render/src/render/scalablesprite.cc" bodystart="67" bodyend="82"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1ScalableSprite_1a5297f56e420b4cef63fea5fb4efb8911" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::ScalableSprite::~ScalableSprite</definition>
+        <argsstring>()</argsstring>
+        <name>~ScalableSprite</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/scalablesprite.h" line="35" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1ScalableSprite_1ab2adde6c9981a9efc5534a4de4c814e6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::ScalableSprite::ScalableSprite</definition>
+        <argsstring>(const ScalableSprite &amp;other)=delete</argsstring>
+        <name>ScalableSprite</name>
+        <param>
+          <type>const <ref refid="structeu_1_1render_1_1ScalableSprite" kindref="compound">ScalableSprite</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/scalablesprite.h" line="37" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1ScalableSprite_1a630b73649800439fc5c224a4d4224c0d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::render::ScalableSprite::operator=</definition>
+        <argsstring>(const ScalableSprite &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="structeu_1_1render_1_1ScalableSprite" kindref="compound">ScalableSprite</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/scalablesprite.h" line="38" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1ScalableSprite_1a8d4d8c68df16b116209dcfb5fb8c2cb6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::ScalableSprite::ScalableSprite</definition>
+        <argsstring>(ScalableSprite &amp;&amp;other)=delete</argsstring>
+        <name>ScalableSprite</name>
+        <param>
+          <type><ref refid="structeu_1_1render_1_1ScalableSprite" kindref="compound">ScalableSprite</ref> &amp;&amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/scalablesprite.h" line="39" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1ScalableSprite_1ac541edf199934383a960ffdc3c853e4d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::render::ScalableSprite::operator=</definition>
+        <argsstring>(ScalableSprite &amp;&amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="structeu_1_1render_1_1ScalableSprite" kindref="compound">ScalableSprite</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/scalablesprite.h" line="40" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1ScalableSprite_1a39364e72cf8851d68638f9b395017c38" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1size2f" kindref="compound">core::size2f</ref></type>
+        <definition>core::size2f eu::render::ScalableSprite::get_minimum_size</definition>
+        <argsstring>() const</argsstring>
+        <name>get_minimum_size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/scalablesprite.h" line="43" column="9" bodyfile="libs/render/src/render/scalablesprite.cc" bodystart="89" bodyend="96"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1ScalableSprite_1af89b17a9a6260cd9003229da74b758c9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::render::ScalableSprite::render</definition>
+        <argsstring>(SpriteRenderer *renderer, const core::Rectf &amp;rect, const core::Rgba &amp;tint) const</argsstring>
+        <name>render</name>
+        <param>
+          <type><ref refid="structeu_1_1render_1_1SpriteRenderer" kindref="compound">SpriteRenderer</ref> *</type>
+          <declname>renderer</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1Rectf" kindref="compound">core::Rectf</ref> &amp;</type>
+          <declname>rect</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1Rgba" kindref="compound">core::Rgba</ref> &amp;</type>
+          <declname>tint</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/scalablesprite.h" line="46" column="9" bodyfile="libs/render/src/render/scalablesprite.cc" bodystart="100" bodyend="171"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/render/src/render/scalablesprite.h" line="27" column="5" bodyfile="libs/render/src/render/scalablesprite.h" bodystart="28" bodyend="55"/>
+    <listofallmembers>
+      <member refid="structeu_1_1render_1_1ScalableSprite_1acbe08a81dca81c73eba1d22291e3092c" prot="public" virt="non-virtual"><scope>eu::render::ScalableSprite</scope><name>calculated_texture_size_columns</name></member>
+      <member refid="structeu_1_1render_1_1ScalableSprite_1a2f674b71326250c23f075d88848f86f4" prot="public" virt="non-virtual"><scope>eu::render::ScalableSprite</scope><name>calculated_texture_size_rows</name></member>
+      <member refid="structeu_1_1render_1_1ScalableSprite_1a91bb0d39c0cb02b3cf1cabd9d6fec82d" prot="public" virt="non-virtual"><scope>eu::render::ScalableSprite</scope><name>columns</name></member>
+      <member refid="structeu_1_1render_1_1ScalableSprite_1a39364e72cf8851d68638f9b395017c38" prot="public" virt="non-virtual"><scope>eu::render::ScalableSprite</scope><name>get_minimum_size</name></member>
+      <member refid="structeu_1_1render_1_1ScalableSprite_1a630b73649800439fc5c224a4d4224c0d" prot="public" virt="non-virtual"><scope>eu::render::ScalableSprite</scope><name>operator=</name></member>
+      <member refid="structeu_1_1render_1_1ScalableSprite_1ac541edf199934383a960ffdc3c853e4d" prot="public" virt="non-virtual"><scope>eu::render::ScalableSprite</scope><name>operator=</name></member>
+      <member refid="structeu_1_1render_1_1ScalableSprite_1af89b17a9a6260cd9003229da74b758c9" prot="public" virt="non-virtual"><scope>eu::render::ScalableSprite</scope><name>render</name></member>
+      <member refid="structeu_1_1render_1_1ScalableSprite_1a75dc9eb061e451dfac2e8031d79a0af1" prot="public" virt="non-virtual"><scope>eu::render::ScalableSprite</scope><name>rows</name></member>
+      <member refid="structeu_1_1render_1_1ScalableSprite_1ac4c80b80e6a8bf333b771df97b145567" prot="public" virt="non-virtual"><scope>eu::render::ScalableSprite</scope><name>ScalableSprite</name></member>
+      <member refid="structeu_1_1render_1_1ScalableSprite_1ab2adde6c9981a9efc5534a4de4c814e6" prot="public" virt="non-virtual"><scope>eu::render::ScalableSprite</scope><name>ScalableSprite</name></member>
+      <member refid="structeu_1_1render_1_1ScalableSprite_1a8d4d8c68df16b116209dcfb5fb8c2cb6" prot="public" virt="non-virtual"><scope>eu::render::ScalableSprite</scope><name>ScalableSprite</name></member>
+      <member refid="structeu_1_1render_1_1ScalableSprite_1a973f73f30ce56b0541b827b8ab773b65" prot="public" virt="non-virtual"><scope>eu::render::ScalableSprite</scope><name>texture</name></member>
+      <member refid="structeu_1_1render_1_1ScalableSprite_1a5297f56e420b4cef63fea5fb4efb8911" prot="public" virt="non-virtual"><scope>eu::render::ScalableSprite</scope><name>~ScalableSprite</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

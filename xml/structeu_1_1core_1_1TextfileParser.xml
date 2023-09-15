@@ -1,0 +1,288 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1core_1_1TextfileParser" kind="struct" language="C++" prot="public">
+    <compoundname>eu::core::TextfileParser</compoundname>
+    <includes refid="textfileparser_8h" local="no">textfileparser.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1core_1_1TextfileParser_1a978cd5bbb5174fdc49154f52f6ff178f" prot="public" static="no" mutable="no">
+        <type>std::shared_ptr&lt; <ref refid="structeu_1_1core_1_1detail_1_1Textfile" kindref="compound">detail::Textfile</ref> &gt;</type>
+        <definition>std::shared_ptr&lt;detail::Textfile&gt; eu::core::TextfileParser::file</definition>
+        <argsstring></argsstring>
+        <name>file</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textfileparser.h" line="43" column="25" bodyfile="libs/core/src/core/textfileparser.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1TextfileParser_1a7b6b7b9d450a252d019008104813fbee" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1core_1_1detail_1_1LocationInFile" kindref="compound">detail::LocationInFile</ref></type>
+        <definition>detail::LocationInFile eu::core::TextfileParser::location</definition>
+        <argsstring></argsstring>
+        <name>location</name>
+        <initializer>= <ref refid="structeu_1_1core_1_1detail_1_1LocationInFile" kindref="compound">detail::LocationInFile</ref>{ 1, 1 }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textfileparser.h" line="44" column="32" bodyfile="libs/core/src/core/textfileparser.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1TextfileParser_1a3312798033f1e5d69081417c29bb8869" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::core::TextfileParser::TextfileParser</definition>
+        <argsstring>(std::shared_ptr&lt; detail::Textfile &gt; afile)</argsstring>
+        <name>TextfileParser</name>
+        <param>
+          <type>std::shared_ptr&lt; <ref refid="structeu_1_1core_1_1detail_1_1Textfile" kindref="compound">detail::Textfile</ref> &gt;</type>
+          <declname>afile</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textfileparser.h" line="47" column="18" bodyfile="libs/core/src/core/textfileparser.cc" bodystart="90" bodyend="93"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1TextfileParser_1aee9521dd9c02e1bb8cb9b528102afbca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>char</type>
+        <definition>char eu::core::TextfileParser::peek_char</definition>
+        <argsstring>(int advance=0)</argsstring>
+        <name>peek_char</name>
+        <param>
+          <type>int</type>
+          <declname>advance</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+<para>advance = 0 - next char, 1-the one after that, negative values are not allowed </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textfileparser.h" line="54" column="14" bodyfile="libs/core/src/core/textfileparser.cc" bodystart="102" bodyend="105"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1TextfileParser_1a48e794d7655603d9dcc3484a269675c9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string eu::core::TextfileParser::peek_string</definition>
+        <argsstring>(int advance=0)</argsstring>
+        <name>peek_string</name>
+        <param>
+          <type>int</type>
+          <declname>advance</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+<para>like PeekChar but returns human readable strings for some chars </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textfileparser.h" line="57" column="21" bodyfile="libs/core/src/core/textfileparser.cc" bodystart="109" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1TextfileParser_1a1a3ab23adab1673b118e317f03fc59b7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool eu::core::TextfileParser::expect_char</definition>
+        <argsstring>(char c)</argsstring>
+        <name>expect_char</name>
+        <param>
+          <type>char</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+<para>if peekchar(0) is c then it is read and function returns true, otherwise false </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textfileparser.h" line="60" column="14" bodyfile="libs/core/src/core/textfileparser.cc" bodystart="118" bodyend="129"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1TextfileParser_1ad7e19741f41ce3c47e92c824f6ea35a4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::TextfileParser::advance_char</definition>
+        <argsstring>()</argsstring>
+        <name>advance_char</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textfileparser.h" line="62" column="14" bodyfile="libs/core/src/core/textfileparser.cc" bodystart="151" bodyend="154"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1TextfileParser_1a9dc0b1250663baeaa0e2ad4c73c2f91e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>char</type>
+        <definition>char eu::core::TextfileParser::read_char</definition>
+        <argsstring>()</argsstring>
+        <name>read_char</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textfileparser.h" line="63" column="14" bodyfile="libs/core/src/core/textfileparser.cc" bodystart="133" bodyend="148"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1TextfileParser_1a1d23b4a90f502ff47d4b6751cdf3c08b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string eu::core::TextfileParser::read_ident</definition>
+        <argsstring>()</argsstring>
+        <name>read_ident</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textfileparser.h" line="64" column="21" bodyfile="libs/core/src/core/textfileparser.cc" bodystart="189" bodyend="199"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1TextfileParser_1a6ade70ba53816aa30987a0a1e8836854" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string eu::core::TextfileParser::read_string</definition>
+        <argsstring>()</argsstring>
+        <name>read_string</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textfileparser.h" line="65" column="21" bodyfile="libs/core/src/core/textfileparser.cc" bodystart="202" bodyend="249"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1TextfileParser_1a6f07be0e7bdf1870151a1926db675e27" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string eu::core::TextfileParser::read_to_end_of_line</definition>
+        <argsstring>()</argsstring>
+        <name>read_to_end_of_line</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textfileparser.h" line="66" column="21" bodyfile="libs/core/src/core/textfileparser.cc" bodystart="252" bodyend="266"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1TextfileParser_1a3db831b7c63077eb072801cb1eb6c40f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::TextfileParser::skip_spaces</definition>
+        <argsstring>(bool include_newline)</argsstring>
+        <name>skip_spaces</name>
+        <param>
+          <type>bool</type>
+          <declname>include_newline</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textfileparser.h" line="67" column="14" bodyfile="libs/core/src/core/textfileparser.cc" bodystart="285" bodyend="291"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1TextfileParser_1aaea02cf9249f2a169adf51ff04cfcfeb" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool eu::core::TextfileParser::has_more</definition>
+        <argsstring>() const</argsstring>
+        <name>has_more</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textfileparser.h" line="70" column="15" bodyfile="libs/core/src/core/textfileparser.cc" bodystart="294" bodyend="297"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1TextfileParser_1a8fc972235487f87ce10b296e82fb7639" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int eu::core::TextfileParser::get_line</definition>
+        <argsstring>() const</argsstring>
+        <name>get_line</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textfileparser.h" line="71" column="14" bodyfile="libs/core/src/core/textfileparser.cc" bodystart="300" bodyend="303"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1TextfileParser_1af791064a35663159837c5bc288549a22" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int eu::core::TextfileParser::get_column</definition>
+        <argsstring>() const</argsstring>
+        <name>get_column</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textfileparser.h" line="72" column="14" bodyfile="libs/core/src/core/textfileparser.cc" bodystart="306" bodyend="309"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1TextfileParser_1ac456cb5573562a5d26bf78d49e351b71" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1TextfileParser" kindref="compound">TextfileParser</ref></type>
+        <definition>TextfileParser eu::core::TextfileParser::from_string</definition>
+        <argsstring>(const std::string &amp;str)</argsstring>
+        <name>from_string</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textfileparser.h" line="50" column="31" bodyfile="libs/core/src/core/textfileparser.cc" bodystart="96" bodyend="99"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Parses a text file in memory. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>eu::core::detail::LocationInFile</label>
+        <link refid="structeu_1_1core_1_1detail_1_1LocationInFile"/>
+      </node>
+      <node id="1">
+        <label>eu::core::TextfileParser</label>
+        <link refid="structeu_1_1core_1_1TextfileParser"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>location</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="libs/core/src/core/textfileparser.h" line="41" column="5" bodyfile="libs/core/src/core/textfileparser.h" bodystart="42" bodyend="73"/>
+    <listofallmembers>
+      <member refid="structeu_1_1core_1_1TextfileParser_1ad7e19741f41ce3c47e92c824f6ea35a4" prot="public" virt="non-virtual"><scope>eu::core::TextfileParser</scope><name>advance_char</name></member>
+      <member refid="structeu_1_1core_1_1TextfileParser_1a1a3ab23adab1673b118e317f03fc59b7" prot="public" virt="non-virtual"><scope>eu::core::TextfileParser</scope><name>expect_char</name></member>
+      <member refid="structeu_1_1core_1_1TextfileParser_1a978cd5bbb5174fdc49154f52f6ff178f" prot="public" virt="non-virtual"><scope>eu::core::TextfileParser</scope><name>file</name></member>
+      <member refid="structeu_1_1core_1_1TextfileParser_1ac456cb5573562a5d26bf78d49e351b71" prot="public" virt="non-virtual"><scope>eu::core::TextfileParser</scope><name>from_string</name></member>
+      <member refid="structeu_1_1core_1_1TextfileParser_1af791064a35663159837c5bc288549a22" prot="public" virt="non-virtual"><scope>eu::core::TextfileParser</scope><name>get_column</name></member>
+      <member refid="structeu_1_1core_1_1TextfileParser_1a8fc972235487f87ce10b296e82fb7639" prot="public" virt="non-virtual"><scope>eu::core::TextfileParser</scope><name>get_line</name></member>
+      <member refid="structeu_1_1core_1_1TextfileParser_1aaea02cf9249f2a169adf51ff04cfcfeb" prot="public" virt="non-virtual"><scope>eu::core::TextfileParser</scope><name>has_more</name></member>
+      <member refid="structeu_1_1core_1_1TextfileParser_1a7b6b7b9d450a252d019008104813fbee" prot="public" virt="non-virtual"><scope>eu::core::TextfileParser</scope><name>location</name></member>
+      <member refid="structeu_1_1core_1_1TextfileParser_1aee9521dd9c02e1bb8cb9b528102afbca" prot="public" virt="non-virtual"><scope>eu::core::TextfileParser</scope><name>peek_char</name></member>
+      <member refid="structeu_1_1core_1_1TextfileParser_1a48e794d7655603d9dcc3484a269675c9" prot="public" virt="non-virtual"><scope>eu::core::TextfileParser</scope><name>peek_string</name></member>
+      <member refid="structeu_1_1core_1_1TextfileParser_1a9dc0b1250663baeaa0e2ad4c73c2f91e" prot="public" virt="non-virtual"><scope>eu::core::TextfileParser</scope><name>read_char</name></member>
+      <member refid="structeu_1_1core_1_1TextfileParser_1a1d23b4a90f502ff47d4b6751cdf3c08b" prot="public" virt="non-virtual"><scope>eu::core::TextfileParser</scope><name>read_ident</name></member>
+      <member refid="structeu_1_1core_1_1TextfileParser_1a6ade70ba53816aa30987a0a1e8836854" prot="public" virt="non-virtual"><scope>eu::core::TextfileParser</scope><name>read_string</name></member>
+      <member refid="structeu_1_1core_1_1TextfileParser_1a6f07be0e7bdf1870151a1926db675e27" prot="public" virt="non-virtual"><scope>eu::core::TextfileParser</scope><name>read_to_end_of_line</name></member>
+      <member refid="structeu_1_1core_1_1TextfileParser_1a3db831b7c63077eb072801cb1eb6c40f" prot="public" virt="non-virtual"><scope>eu::core::TextfileParser</scope><name>skip_spaces</name></member>
+      <member refid="structeu_1_1core_1_1TextfileParser_1a3312798033f1e5d69081417c29bb8869" prot="public" virt="non-virtual"><scope>eu::core::TextfileParser</scope><name>TextfileParser</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

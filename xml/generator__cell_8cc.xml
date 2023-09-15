@@ -366,14 +366,14 @@
         </childnode>
       </node>
     </incdepgraph>
-    <innerclass refid="structeuphoria_1_1core_1_1generator_1_1SmoothRule" prot="public">euphoria::core::generator::SmoothRule</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1generator_1_1RandomFillRule" prot="public">euphoria::core::generator::RandomFillRule</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1generator_1_1FillSmallHolesRule" prot="public">euphoria::core::generator::FillSmallHolesRule</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1generator_1_1FillAllHoles" prot="public">euphoria::core::generator::FillAllHoles</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1generator_1_1HorizontalBlankRule" prot="public">euphoria::core::generator::HorizontalBlankRule</innerclass>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core_1_1generator">euphoria::core::generator</innernamespace>
+    <innerclass refid="structeu_1_1core_1_1generator_1_1SmoothRule" prot="public">eu::core::generator::SmoothRule</innerclass>
+    <innerclass refid="structeu_1_1core_1_1generator_1_1RandomFillRule" prot="public">eu::core::generator::RandomFillRule</innerclass>
+    <innerclass refid="structeu_1_1core_1_1generator_1_1FillSmallHolesRule" prot="public">eu::core::generator::FillSmallHolesRule</innerclass>
+    <innerclass refid="structeu_1_1core_1_1generator_1_1FillAllHoles" prot="public">eu::core::generator::FillAllHoles</innerclass>
+    <innerclass refid="structeu_1_1core_1_1generator_1_1HorizontalBlankRule" prot="public">eu::core::generator::HorizontalBlankRule</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core_1_1generator">eu::core::generator</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

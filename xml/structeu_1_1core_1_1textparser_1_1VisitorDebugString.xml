@@ -1,0 +1,158 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1core_1_1textparser_1_1VisitorDebugString" kind="struct" language="C++" prot="public">
+    <compoundname>eu::core::textparser::VisitorDebugString</compoundname>
+    <basecompoundref refid="structeu_1_1core_1_1textparser_1_1Visitor" prot="public" virt="non-virtual">eu::core::textparser::Visitor</basecompoundref>
+    <includes refid="ui__text_8h" local="no">ui_text.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1core_1_1textparser_1_1VisitorDebugString_1a6c58cc9408b6a6d6293639fbd159968b" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1core_1_1StringBuilder" kindref="compound">StringBuilder</ref></type>
+        <definition>StringBuilder eu::core::textparser::VisitorDebugString::ss</definition>
+        <argsstring></argsstring>
+        <name>ss</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ui_text.h" line="87" column="27" bodyfile="libs/core/src/core/ui_text.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1textparser_1_1VisitorDebugString_1a05a54a023a616e503dd8b443c3e2737a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string eu::core::textparser::VisitorDebugString::accept_all_nodes</definition>
+        <argsstring>(UiText *visitor)</argsstring>
+        <name>accept_all_nodes</name>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1UiText" kindref="compound">UiText</ref> *</type>
+          <declname>visitor</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ui_text.h" line="89" column="32" bodyfile="libs/core/src/core/ui_text.cc" bodystart="73" bodyend="78"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1textparser_1_1VisitorDebugString_1a9eb70ccb84ab7ea5518bf1ce9a84f3aa" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void eu::core::textparser::VisitorDebugString::on_text</definition>
+        <argsstring>(const std::string &amp;text) override</argsstring>
+        <name>on_text</name>
+        <reimplements refid="structeu_1_1core_1_1textparser_1_1Visitor_1a4da2d1238158322d0f18673caa5a4bfc">on_text</reimplements>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>text</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ui_text.h" line="91" column="18" bodyfile="libs/core/src/core/ui_text.cc" bodystart="49" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1textparser_1_1VisitorDebugString_1a4859cbc4cd580f5af594365a18b6f958" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void eu::core::textparser::VisitorDebugString::on_image</definition>
+        <argsstring>(const std::string &amp;img) override</argsstring>
+        <name>on_image</name>
+        <reimplements refid="structeu_1_1core_1_1textparser_1_1Visitor_1acd3fb782b67d55635f6239ee06bb02d3">on_image</reimplements>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>img</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ui_text.h" line="92" column="18" bodyfile="libs/core/src/core/ui_text.cc" bodystart="55" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1textparser_1_1VisitorDebugString_1a935eaa31e6266a317d5a7adb48e5791a" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void eu::core::textparser::VisitorDebugString::on_begin</definition>
+        <argsstring>() override</argsstring>
+        <name>on_begin</name>
+        <reimplements refid="structeu_1_1core_1_1textparser_1_1Visitor_1a6e91bddb9eae7a4da285cc544f4b894b">on_begin</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ui_text.h" line="93" column="18" bodyfile="libs/core/src/core/ui_text.cc" bodystart="61" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1textparser_1_1VisitorDebugString_1a7f8f856b7891098eb2b45d03ac43acb3" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void eu::core::textparser::VisitorDebugString::on_end</definition>
+        <argsstring>() override</argsstring>
+        <name>on_end</name>
+        <reimplements refid="structeu_1_1core_1_1textparser_1_1Visitor_1a07eab181985309caf54699bdb8b239f2">on_end</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ui_text.h" line="94" column="18" bodyfile="libs/core/src/core/ui_text.cc" bodystart="67" bodyend="70"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>eu::core::textparser::Visitor</label>
+        <link refid="structeu_1_1core_1_1textparser_1_1Visitor"/>
+      </node>
+      <node id="1">
+        <label>eu::core::textparser::VisitorDebugString</label>
+        <link refid="structeu_1_1core_1_1textparser_1_1VisitorDebugString"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>eu::core::textparser::Visitor</label>
+        <link refid="structeu_1_1core_1_1textparser_1_1Visitor"/>
+      </node>
+      <node id="3">
+        <label>eu::core::StringBuilder</label>
+        <link refid="structeu_1_1core_1_1StringBuilder"/>
+      </node>
+      <node id="1">
+        <label>eu::core::textparser::VisitorDebugString</label>
+        <link refid="structeu_1_1core_1_1textparser_1_1VisitorDebugString"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>ss</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="libs/core/src/core/ui_text.h" line="85" column="9" bodyfile="libs/core/src/core/ui_text.h" bodystart="86" bodyend="95"/>
+    <listofallmembers>
+      <member refid="structeu_1_1core_1_1textparser_1_1VisitorDebugString_1a05a54a023a616e503dd8b443c3e2737a" prot="public" virt="non-virtual"><scope>eu::core::textparser::VisitorDebugString</scope><name>accept_all_nodes</name></member>
+      <member refid="structeu_1_1core_1_1textparser_1_1VisitorDebugString_1a935eaa31e6266a317d5a7adb48e5791a" prot="public" virt="virtual"><scope>eu::core::textparser::VisitorDebugString</scope><name>on_begin</name></member>
+      <member refid="structeu_1_1core_1_1textparser_1_1VisitorDebugString_1a7f8f856b7891098eb2b45d03ac43acb3" prot="public" virt="virtual"><scope>eu::core::textparser::VisitorDebugString</scope><name>on_end</name></member>
+      <member refid="structeu_1_1core_1_1textparser_1_1VisitorDebugString_1a4859cbc4cd580f5af594365a18b6f958" prot="public" virt="virtual"><scope>eu::core::textparser::VisitorDebugString</scope><name>on_image</name></member>
+      <member refid="structeu_1_1core_1_1textparser_1_1VisitorDebugString_1a9eb70ccb84ab7ea5518bf1ce9a84f3aa" prot="public" virt="virtual"><scope>eu::core::textparser::VisitorDebugString</scope><name>on_text</name></member>
+      <member refid="structeu_1_1core_1_1textparser_1_1Visitor_1a5acf87d8aecb4456278d2a8cf958baf3" prot="public" virt="non-virtual"><scope>eu::core::textparser::VisitorDebugString</scope><name>operator=</name></member>
+      <member refid="structeu_1_1core_1_1textparser_1_1Visitor_1a4b8edd9d97bd2ce8bc01aaaffac75b2f" prot="public" virt="non-virtual"><scope>eu::core::textparser::VisitorDebugString</scope><name>operator=</name></member>
+      <member refid="structeu_1_1core_1_1textparser_1_1VisitorDebugString_1a6c58cc9408b6a6d6293639fbd159968b" prot="public" virt="non-virtual"><scope>eu::core::textparser::VisitorDebugString</scope><name>ss</name></member>
+      <member refid="structeu_1_1core_1_1textparser_1_1Visitor_1a3d4b74f12f18c14927559a0f1cb1020e" prot="public" virt="non-virtual"><scope>eu::core::textparser::VisitorDebugString</scope><name>Visitor</name></member>
+      <member refid="structeu_1_1core_1_1textparser_1_1Visitor_1afc52a1f036129df97a9d74ef916159d8" prot="public" virt="non-virtual"><scope>eu::core::textparser::VisitorDebugString</scope><name>Visitor</name></member>
+      <member refid="structeu_1_1core_1_1textparser_1_1Visitor_1addf7d2734913f5fce0b0f44f7fcecda1" prot="public" virt="non-virtual"><scope>eu::core::textparser::VisitorDebugString</scope><name>Visitor</name></member>
+      <member refid="structeu_1_1core_1_1textparser_1_1Visitor_1a97c7a978b9f903930aff13d95382f28d" prot="public" virt="virtual"><scope>eu::core::textparser::VisitorDebugString</scope><name>~Visitor</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -147,10 +147,10 @@
         <link refid="vfs_8cc"/>
       </node>
     </invincdepgraph>
-    <innerclass refid="structeuphoria_1_1core_1_1StringMerger" prot="public">euphoria::core::StringMerger</innerclass>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core_1_1string__mergers">euphoria::core::string_mergers</innernamespace>
+    <innerclass refid="structeu_1_1core_1_1StringMerger" prot="public">eu::core::StringMerger</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core_1_1string__mergers">eu::core::string_mergers</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

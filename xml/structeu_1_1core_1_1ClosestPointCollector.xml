@@ -1,0 +1,118 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1core_1_1ClosestPointCollector" kind="struct" language="C++" prot="public">
+    <compoundname>eu::core::ClosestPointCollector</compoundname>
+    <includes refid="closestpoint_8h" local="no">closestpoint.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename TVec</type>
+      </param>
+      <param>
+        <type>typename TData</type>
+      </param>
+      <param>
+        <type>typename TDistanceFunc</type>
+      </param>
+      <param>
+        <type>typename TDistance</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1core_1_1ClosestPointCollector_1ae6ef092a990ec1aab7a9bdabf4345490" prot="public" static="no" mutable="no">
+        <type>TDistanceFunc</type>
+        <definition>TDistanceFunc eu::core::ClosestPointCollector&lt; TVec, TData, TDistanceFunc, TDistance &gt;::distance_func</definition>
+        <argsstring></argsstring>
+        <name>distance_func</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/closestpoint.h" line="21" column="23" bodyfile="libs/core/src/core/closestpoint.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1ClosestPointCollector_1ab2d6c67e97c32f7121a59b0a77a59947" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; std::tuple&lt; TVec, TData &gt; &gt;</type>
+        <definition>std::vector&lt;std::tuple&lt;TVec, TData&gt; &gt; eu::core::ClosestPointCollector&lt; TVec, TData, TDistanceFunc, TDistance &gt;::points</definition>
+        <argsstring></argsstring>
+        <name>points</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/closestpoint.h" line="22" column="21" bodyfile="libs/core/src/core/closestpoint.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1ClosestPointCollector_1a44becd3032175430ef20bd5a482e9730" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>eu::core::ClosestPointCollector&lt; TVec, TData, TDistanceFunc, TDistance &gt;::ClosestPointCollector</definition>
+        <argsstring>(TDistanceFunc a_distance_func)</argsstring>
+        <name>ClosestPointCollector</name>
+        <param>
+          <type>TDistanceFunc</type>
+          <declname>a_distance_func</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/closestpoint.h" line="24" column="9" bodyfile="libs/core/src/core/closestpoint.h" bodystart="24" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1ClosestPointCollector_1aeaca292e61a2031da9f5c799dddfb910" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::ClosestPointCollector&lt; TVec, TData, TDistanceFunc, TDistance &gt;::add</definition>
+        <argsstring>(const TVec &amp;v, const TData &amp;data)</argsstring>
+        <name>add</name>
+        <param>
+          <type>const TVec &amp;</type>
+          <declname>v</declname>
+        </param>
+        <param>
+          <type>const TData &amp;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/closestpoint.h" line="30" column="9" bodyfile="libs/core/src/core/closestpoint.h" bodystart="30" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1ClosestPointCollector_1ae4a73799160c8355aa49e0679d91938e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>TData</type>
+        <definition>TData eu::core::ClosestPointCollector&lt; TVec, TData, TDistanceFunc, TDistance &gt;::find_closest</definition>
+        <argsstring>(const TVec &amp;v)</argsstring>
+        <name>find_closest</name>
+        <param>
+          <type>const TVec &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/closestpoint.h" line="36" column="9" bodyfile="libs/core/src/core/closestpoint.h" bodystart="36" bodyend="53"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/closestpoint.h" line="19" column="5" bodyfile="libs/core/src/core/closestpoint.h" bodystart="20" bodyend="54"/>
+    <listofallmembers>
+      <member refid="structeu_1_1core_1_1ClosestPointCollector_1aeaca292e61a2031da9f5c799dddfb910" prot="public" virt="non-virtual"><scope>eu::core::ClosestPointCollector</scope><name>add</name></member>
+      <member refid="structeu_1_1core_1_1ClosestPointCollector_1a44becd3032175430ef20bd5a482e9730" prot="public" virt="non-virtual"><scope>eu::core::ClosestPointCollector</scope><name>ClosestPointCollector</name></member>
+      <member refid="structeu_1_1core_1_1ClosestPointCollector_1ae6ef092a990ec1aab7a9bdabf4345490" prot="public" virt="non-virtual"><scope>eu::core::ClosestPointCollector</scope><name>distance_func</name></member>
+      <member refid="structeu_1_1core_1_1ClosestPointCollector_1ae4a73799160c8355aa49e0679d91938e" prot="public" virt="non-virtual"><scope>eu::core::ClosestPointCollector</scope><name>find_closest</name></member>
+      <member refid="structeu_1_1core_1_1ClosestPointCollector_1ab2d6c67e97c32f7121a59b0a77a59947" prot="public" virt="non-virtual"><scope>eu::core::ClosestPointCollector</scope><name>points</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,170 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1core_1_1raytracer_1_1Material" kind="struct" language="C++" prot="public" abstract="yes">
+    <compoundname>eu::core::raytracer::Material</compoundname>
+    <derivedcompoundref refid="structeu_1_1core_1_1raytracer_1_1DielectricMaterial" prot="public" virt="non-virtual">eu::core::raytracer::DielectricMaterial</derivedcompoundref>
+    <derivedcompoundref refid="structeu_1_1core_1_1raytracer_1_1DiffuseMaterial" prot="public" virt="non-virtual">eu::core::raytracer::DiffuseMaterial</derivedcompoundref>
+    <derivedcompoundref refid="structeu_1_1core_1_1raytracer_1_1MetalMaterial" prot="public" virt="non-virtual">eu::core::raytracer::MetalMaterial</derivedcompoundref>
+    <includes refid="raytracer_8h" local="no">raytracer.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1raytracer_1_1Material_1a2d886616954593f1426c743256a21a72" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::core::raytracer::Material::Material</definition>
+        <argsstring>()=default</argsstring>
+        <name>Material</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/raytracer.h" line="32" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1raytracer_1_1Material_1a538f3adb65ee8e9d6efb14ce3a11fee9" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual eu::core::raytracer::Material::~Material</definition>
+        <argsstring>()=default</argsstring>
+        <name>~Material</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/raytracer.h" line="33" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1raytracer_1_1Material_1a7afa279ac698e93bd97de35234a2d311" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::core::raytracer::Material::Material</definition>
+        <argsstring>(const Material &amp;other)=delete</argsstring>
+        <name>Material</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1raytracer_1_1Material" kindref="compound">Material</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/raytracer.h" line="35" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1raytracer_1_1Material_1a7e004c4dfaa6a863cb73465bced4fc3e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::raytracer::Material::operator=</definition>
+        <argsstring>(const Material &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1raytracer_1_1Material" kindref="compound">Material</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/raytracer.h" line="36" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1raytracer_1_1Material_1a7e97d18b9e53cb408230a2e0f1266a67" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::core::raytracer::Material::Material</definition>
+        <argsstring>(Material &amp;&amp;other)=delete</argsstring>
+        <name>Material</name>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1raytracer_1_1Material" kindref="compound">Material</ref> &amp;&amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/raytracer.h" line="37" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1raytracer_1_1Material_1abf7c45edf1b9227f43274a38891452cc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::raytracer::Material::operator=</definition>
+        <argsstring>(Material &amp;&amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1raytracer_1_1Material" kindref="compound">Material</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/raytracer.h" line="38" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1raytracer_1_1Material_1a014206af0bc86f6e30bd5fa58272cd43" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>std::optional&lt; <ref refid="structeu_1_1core_1_1raytracer_1_1ScatterResult" kindref="compound">ScatterResult</ref> &gt;</type>
+        <definition>virtual std::optional&lt;ScatterResult&gt; eu::core::raytracer::Material::get_scattered</definition>
+        <argsstring>(const UnitRay3f &amp;ray, const Collision &amp;hit, Random *random)=0</argsstring>
+        <name>get_scattered</name>
+        <reimplementedby refid="structeu_1_1core_1_1raytracer_1_1DiffuseMaterial_1a1c82e85f1dc5a635dcee0cf3b9c3a39b">get_scattered</reimplementedby>
+        <reimplementedby refid="structeu_1_1core_1_1raytracer_1_1MetalMaterial_1a6ab24cd757f88743a89107824619df73">get_scattered</reimplementedby>
+        <reimplementedby refid="structeu_1_1core_1_1raytracer_1_1DielectricMaterial_1a44d0abc219b724181923655bf717f319">get_scattered</reimplementedby>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1UnitRay3f" kindref="compound">UnitRay3f</ref> &amp;</type>
+          <declname>ray</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1raytracer_1_1Collision" kindref="compound">Collision</ref> &amp;</type>
+          <declname>hit</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1Random" kindref="compound">Random</ref> *</type>
+          <declname>random</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/raytracer.h" line="41" column="13"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>eu::core::raytracer::DielectricMaterial</label>
+        <link refid="structeu_1_1core_1_1raytracer_1_1DielectricMaterial"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>eu::core::raytracer::DiffuseMaterial</label>
+        <link refid="structeu_1_1core_1_1raytracer_1_1DiffuseMaterial"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>eu::core::raytracer::MetalMaterial</label>
+        <link refid="structeu_1_1core_1_1raytracer_1_1MetalMaterial"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>eu::core::raytracer::Material</label>
+        <link refid="structeu_1_1core_1_1raytracer_1_1Material"/>
+      </node>
+    </inheritancegraph>
+    <location file="libs/core/src/core/raytracer.h" line="30" column="9" bodyfile="libs/core/src/core/raytracer.h" bodystart="31" bodyend="47"/>
+    <listofallmembers>
+      <member refid="structeu_1_1core_1_1raytracer_1_1Material_1a014206af0bc86f6e30bd5fa58272cd43" prot="public" virt="pure-virtual"><scope>eu::core::raytracer::Material</scope><name>get_scattered</name></member>
+      <member refid="structeu_1_1core_1_1raytracer_1_1Material_1a2d886616954593f1426c743256a21a72" prot="public" virt="non-virtual"><scope>eu::core::raytracer::Material</scope><name>Material</name></member>
+      <member refid="structeu_1_1core_1_1raytracer_1_1Material_1a7afa279ac698e93bd97de35234a2d311" prot="public" virt="non-virtual"><scope>eu::core::raytracer::Material</scope><name>Material</name></member>
+      <member refid="structeu_1_1core_1_1raytracer_1_1Material_1a7e97d18b9e53cb408230a2e0f1266a67" prot="public" virt="non-virtual"><scope>eu::core::raytracer::Material</scope><name>Material</name></member>
+      <member refid="structeu_1_1core_1_1raytracer_1_1Material_1a7e004c4dfaa6a863cb73465bced4fc3e" prot="public" virt="non-virtual"><scope>eu::core::raytracer::Material</scope><name>operator=</name></member>
+      <member refid="structeu_1_1core_1_1raytracer_1_1Material_1abf7c45edf1b9227f43274a38891452cc" prot="public" virt="non-virtual"><scope>eu::core::raytracer::Material</scope><name>operator=</name></member>
+      <member refid="structeu_1_1core_1_1raytracer_1_1Material_1a538f3adb65ee8e9d6efb14ce3a11fee9" prot="public" virt="virtual"><scope>eu::core::raytracer::Material</scope><name>~Material</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

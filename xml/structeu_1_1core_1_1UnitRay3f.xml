@@ -1,0 +1,168 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1core_1_1UnitRay3f" kind="struct" language="C++" prot="public">
+    <compoundname>eu::core::UnitRay3f</compoundname>
+    <includes refid="ray_8h" local="no">ray.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1core_1_1UnitRay3f_1af717480976181e7d80f06a3be9ff0c54" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
+        <definition>vec3f eu::core::UnitRay3f::from</definition>
+        <argsstring></argsstring>
+        <name>from</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ray.h" line="10" column="15" bodyfile="libs/core/src/core/ray.h" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1UnitRay3f_1a8954c8c55f6c42bb1e34c214fb21ea12" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1core_1_1unit3f" kindref="compound">unit3f</ref></type>
+        <definition>unit3f eu::core::UnitRay3f::dir</definition>
+        <argsstring></argsstring>
+        <name>dir</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ray.h" line="11" column="16" bodyfile="libs/core/src/core/ray.h" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1UnitRay3f_1a6c8897f68c5553b12c5427a968799b74" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::core::UnitRay3f::UnitRay3f</definition>
+        <argsstring>(const vec3f &amp;from, const unit3f &amp;dir)</argsstring>
+        <name>UnitRay3f</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
+          <declname>from</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1unit3f" kindref="compound">unit3f</ref> &amp;</type>
+          <declname>dir</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ray.h" line="13" column="9" bodyfile="libs/core/src/core/ray.cc" bodystart="9" bodyend="13"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1UnitRay3f_1ab3db934907a48bb1aa37429ade761830" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
+        <definition>vec3f eu::core::UnitRay3f::get_point</definition>
+        <argsstring>(float at) const</argsstring>
+        <name>get_point</name>
+        <param>
+          <type>float</type>
+          <declname>at</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ray.h" line="18" column="16" bodyfile="libs/core/src/core/ray.cc" bodystart="31" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1UnitRay3f_1a4b33f7ab81a54c440d1d772028fae942" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1UnitRay3f" kindref="compound">UnitRay3f</ref></type>
+        <definition>UnitRay3f eu::core::UnitRay3f::get_transform</definition>
+        <argsstring>(const mat4f &amp;m) const</argsstring>
+        <name>get_transform</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1mat4f" kindref="compound">mat4f</ref> &amp;</type>
+          <declname>m</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ray.h" line="19" column="20" bodyfile="libs/core/src/core/ray.cc" bodystart="38" bodyend="45"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1UnitRay3f_1a259eee037d2ca78a63c14f209ca666ad" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1UnitRay3f" kindref="compound">UnitRay3f</ref></type>
+        <definition>UnitRay3f eu::core::UnitRay3f::from_to</definition>
+        <argsstring>(const vec3f &amp;from, const vec3f &amp;to)</argsstring>
+        <name>from_to</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
+          <declname>from</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
+          <declname>to</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ray.h" line="15" column="27" bodyfile="libs/core/src/core/ray.cc" bodystart="17" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1UnitRay3f_1a66474a39b64a7fda6e8efda90af6a3e1" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1UnitRay3f" kindref="compound">UnitRay3f</ref></type>
+        <definition>UnitRay3f eu::core::UnitRay3f::from_direction</definition>
+        <argsstring>(const unit3f &amp;dir)</argsstring>
+        <name>from_direction</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1unit3f" kindref="compound">unit3f</ref> &amp;</type>
+          <declname>dir</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ray.h" line="16" column="27" bodyfile="libs/core/src/core/ray.cc" bodystart="24" bodyend="27"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="3">
+        <label>eu::core::vec3f</label>
+        <link refid="structeu_1_1core_1_1vec3f"/>
+      </node>
+      <node id="1">
+        <label>eu::core::UnitRay3f</label>
+        <link refid="structeu_1_1core_1_1UnitRay3f"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>dir</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>from</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>eu::core::unit3f</label>
+        <link refid="structeu_1_1core_1_1unit3f"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="libs/core/src/core/ray.h" line="8" column="5" bodyfile="libs/core/src/core/ray.h" bodystart="9" bodyend="20"/>
+    <listofallmembers>
+      <member refid="structeu_1_1core_1_1UnitRay3f_1a8954c8c55f6c42bb1e34c214fb21ea12" prot="public" virt="non-virtual"><scope>eu::core::UnitRay3f</scope><name>dir</name></member>
+      <member refid="structeu_1_1core_1_1UnitRay3f_1af717480976181e7d80f06a3be9ff0c54" prot="public" virt="non-virtual"><scope>eu::core::UnitRay3f</scope><name>from</name></member>
+      <member refid="structeu_1_1core_1_1UnitRay3f_1a66474a39b64a7fda6e8efda90af6a3e1" prot="public" virt="non-virtual"><scope>eu::core::UnitRay3f</scope><name>from_direction</name></member>
+      <member refid="structeu_1_1core_1_1UnitRay3f_1a259eee037d2ca78a63c14f209ca666ad" prot="public" virt="non-virtual"><scope>eu::core::UnitRay3f</scope><name>from_to</name></member>
+      <member refid="structeu_1_1core_1_1UnitRay3f_1ab3db934907a48bb1aa37429ade761830" prot="public" virt="non-virtual"><scope>eu::core::UnitRay3f</scope><name>get_point</name></member>
+      <member refid="structeu_1_1core_1_1UnitRay3f_1a4b33f7ab81a54c440d1d772028fae942" prot="public" virt="non-virtual"><scope>eu::core::UnitRay3f</scope><name>get_transform</name></member>
+      <member refid="structeu_1_1core_1_1UnitRay3f_1a6c8897f68c5553b12c5427a968799b74" prot="public" virt="non-virtual"><scope>eu::core::UnitRay3f</scope><name>UnitRay3f</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

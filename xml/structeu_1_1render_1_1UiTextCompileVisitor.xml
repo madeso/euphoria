@@ -1,0 +1,268 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1render_1_1UiTextCompileVisitor" kind="struct" language="C++" prot="public">
+    <compoundname>eu::render::UiTextCompileVisitor</compoundname>
+    <basecompoundref refid="structeu_1_1core_1_1textparser_1_1Visitor" prot="public" virt="non-virtual">eu::core::textparser::Visitor</basecompoundref>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1render_1_1UiTextCompileVisitor_1a2f25ae58dfd547979ef31f18d2634656" prot="public" static="no" mutable="no">
+        <type>const <ref refid="structeu_1_1render_1_1DrawableFont" kindref="compound">DrawableFont</ref> &amp;</type>
+        <definition>const DrawableFont&amp; eu::render::UiTextCompileVisitor::font</definition>
+        <argsstring></argsstring>
+        <name>font</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/font.cc" line="360" column="28" bodyfile="libs/render/src/render/font.cc" bodystart="360" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1UiTextCompileVisitor_1a05aa2022d0f9c968c4a689e60f89b157" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float eu::render::UiTextCompileVisitor::size</definition>
+        <argsstring></argsstring>
+        <name>size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/font.cc" line="361" column="15" bodyfile="libs/render/src/render/font.cc" bodystart="361" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1UiTextCompileVisitor_1a7af1147599ac7a2ae2c48b5cf4360252" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool eu::render::UiTextCompileVisitor::apply_highlight</definition>
+        <argsstring></argsstring>
+        <name>apply_highlight</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/font.cc" line="362" column="14" bodyfile="libs/render/src/render/font.cc" bodystart="362" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1UiTextCompileVisitor_1a0af498d34a7bbc7b40a11225d4beacbc" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1core_1_1vec2f" kindref="compound">core::vec2f</ref></type>
+        <definition>core::vec2f eu::render::UiTextCompileVisitor::position</definition>
+        <argsstring></argsstring>
+        <name>position</name>
+        <initializer>= <ref refid="structeu_1_1core_1_1vec2f" kindref="compound">core::vec2f</ref>{0, 0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/font.cc" line="363" column="21" bodyfile="libs/render/src/render/font.cc" bodystart="363" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1UiTextCompileVisitor_1abf6c60b9252e1c6539613b160e33b55b" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int eu::render::UiTextCompileVisitor::last_char_index</definition>
+        <argsstring></argsstring>
+        <name>last_char_index</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/font.cc" line="364" column="13" bodyfile="libs/render/src/render/font.cc" bodystart="364" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1UiTextCompileVisitor_1a59ac1323bb75d2b73fc849ff0a648f8c" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1render_1_1ListOfTextDrawCommands" kindref="compound">ListOfTextDrawCommands</ref> *</type>
+        <definition>ListOfTextDrawCommands* eu::render::UiTextCompileVisitor::list</definition>
+        <argsstring></argsstring>
+        <name>list</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/font.cc" line="367" column="32" bodyfile="libs/render/src/render/font.cc" bodystart="367" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1render_1_1UiTextCompileVisitor_1a665a7816ae59e6d584e60651f9ce147c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::UiTextCompileVisitor::UiTextCompileVisitor</definition>
+        <argsstring>(const DrawableFont &amp;f, float s, ListOfTextDrawCommands *li)</argsstring>
+        <name>UiTextCompileVisitor</name>
+        <param>
+          <type>const <ref refid="structeu_1_1render_1_1DrawableFont" kindref="compound">DrawableFont</ref> &amp;</type>
+          <declname>f</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>s</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1render_1_1ListOfTextDrawCommands" kindref="compound">ListOfTextDrawCommands</ref> *</type>
+          <declname>li</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/font.cc" line="369" column="9" bodyfile="libs/render/src/render/font.cc" bodystart="370" bodyend="379"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1UiTextCompileVisitor_1abc98d828b96e91f6989010f34dcfb691" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void eu::render::UiTextCompileVisitor::on_text</definition>
+        <argsstring>(const std::string &amp;text) override</argsstring>
+        <name>on_text</name>
+        <reimplements refid="structeu_1_1core_1_1textparser_1_1Visitor_1a4da2d1238158322d0f18673caa5a4bfc">on_text</reimplements>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>text</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/font.cc" line="383" column="9" bodyfile="libs/render/src/render/font.cc" bodystart="383" bodyend="393"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1UiTextCompileVisitor_1a91cc65752017b224b92c63390b77b61b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void eu::render::UiTextCompileVisitor::on_image</definition>
+        <argsstring>(const std::string &amp;image) override</argsstring>
+        <name>on_image</name>
+        <reimplements refid="structeu_1_1core_1_1textparser_1_1Visitor_1acd3fb782b67d55635f6239ee06bb02d3">on_image</reimplements>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>image</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/font.cc" line="397" column="9" bodyfile="libs/render/src/render/font.cc" bodystart="397" bodyend="412"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1UiTextCompileVisitor_1a0638a6f2ad7f2c3a822fc07188198f89" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void eu::render::UiTextCompileVisitor::on_begin</definition>
+        <argsstring>() override</argsstring>
+        <name>on_begin</name>
+        <reimplements refid="structeu_1_1core_1_1textparser_1_1Visitor_1a6e91bddb9eae7a4da285cc544f4b894b">on_begin</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/font.cc" line="416" column="9" bodyfile="libs/render/src/render/font.cc" bodystart="416" bodyend="419"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1UiTextCompileVisitor_1a8368ca174929dc6d1cc437df6fc3e4ec" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void eu::render::UiTextCompileVisitor::on_end</definition>
+        <argsstring>() override</argsstring>
+        <name>on_end</name>
+        <reimplements refid="structeu_1_1core_1_1textparser_1_1Visitor_1a07eab181985309caf54699bdb8b239f2">on_end</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/font.cc" line="423" column="9" bodyfile="libs/render/src/render/font.cc" bodystart="423" bodyend="426"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1UiTextCompileVisitor_1a9ff82e877cd3e5d1933dfd68c5b221a9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::render::UiTextCompileVisitor::add_char_index</definition>
+        <argsstring>(int code_point)</argsstring>
+        <name>add_char_index</name>
+        <param>
+          <type>int</type>
+          <declname>code_point</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/font.cc" line="430" column="9" bodyfile="libs/render/src/render/font.cc" bodystart="430" bodyend="470"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>eu::core::textparser::Visitor</label>
+        <link refid="structeu_1_1core_1_1textparser_1_1Visitor"/>
+      </node>
+      <node id="1">
+        <label>eu::render::UiTextCompileVisitor</label>
+        <link refid="structeu_1_1render_1_1UiTextCompileVisitor"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="4">
+        <label>eu::render::DrawableFont</label>
+        <link refid="structeu_1_1render_1_1DrawableFont"/>
+      </node>
+      <node id="2">
+        <label>eu::core::textparser::Visitor</label>
+        <link refid="structeu_1_1core_1_1textparser_1_1Visitor"/>
+      </node>
+      <node id="1">
+        <label>eu::render::UiTextCompileVisitor</label>
+        <link refid="structeu_1_1render_1_1UiTextCompileVisitor"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>list</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>font</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>position</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>eu::core::vec2f</label>
+        <link refid="structeu_1_1core_1_1vec2f"/>
+      </node>
+      <node id="3">
+        <label>eu::render::ListOfTextDrawCommands</label>
+        <link refid="structeu_1_1render_1_1ListOfTextDrawCommands"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/render/src/render/font.cc" line="358" column="5" bodyfile="libs/render/src/render/font.cc" bodystart="359" bodyend="471"/>
+    <listofallmembers>
+      <member refid="structeu_1_1render_1_1UiTextCompileVisitor_1a9ff82e877cd3e5d1933dfd68c5b221a9" prot="public" virt="non-virtual"><scope>eu::render::UiTextCompileVisitor</scope><name>add_char_index</name></member>
+      <member refid="structeu_1_1render_1_1UiTextCompileVisitor_1a7af1147599ac7a2ae2c48b5cf4360252" prot="public" virt="non-virtual"><scope>eu::render::UiTextCompileVisitor</scope><name>apply_highlight</name></member>
+      <member refid="structeu_1_1render_1_1UiTextCompileVisitor_1a2f25ae58dfd547979ef31f18d2634656" prot="public" virt="non-virtual"><scope>eu::render::UiTextCompileVisitor</scope><name>font</name></member>
+      <member refid="structeu_1_1render_1_1UiTextCompileVisitor_1abf6c60b9252e1c6539613b160e33b55b" prot="public" virt="non-virtual"><scope>eu::render::UiTextCompileVisitor</scope><name>last_char_index</name></member>
+      <member refid="structeu_1_1render_1_1UiTextCompileVisitor_1a59ac1323bb75d2b73fc849ff0a648f8c" prot="public" virt="non-virtual"><scope>eu::render::UiTextCompileVisitor</scope><name>list</name></member>
+      <member refid="structeu_1_1render_1_1UiTextCompileVisitor_1a0638a6f2ad7f2c3a822fc07188198f89" prot="public" virt="virtual"><scope>eu::render::UiTextCompileVisitor</scope><name>on_begin</name></member>
+      <member refid="structeu_1_1render_1_1UiTextCompileVisitor_1a8368ca174929dc6d1cc437df6fc3e4ec" prot="public" virt="virtual"><scope>eu::render::UiTextCompileVisitor</scope><name>on_end</name></member>
+      <member refid="structeu_1_1render_1_1UiTextCompileVisitor_1a91cc65752017b224b92c63390b77b61b" prot="public" virt="virtual"><scope>eu::render::UiTextCompileVisitor</scope><name>on_image</name></member>
+      <member refid="structeu_1_1render_1_1UiTextCompileVisitor_1abc98d828b96e91f6989010f34dcfb691" prot="public" virt="virtual"><scope>eu::render::UiTextCompileVisitor</scope><name>on_text</name></member>
+      <member refid="structeu_1_1core_1_1textparser_1_1Visitor_1a5acf87d8aecb4456278d2a8cf958baf3" prot="public" virt="non-virtual"><scope>eu::render::UiTextCompileVisitor</scope><name>operator=</name></member>
+      <member refid="structeu_1_1core_1_1textparser_1_1Visitor_1a4b8edd9d97bd2ce8bc01aaaffac75b2f" prot="public" virt="non-virtual"><scope>eu::render::UiTextCompileVisitor</scope><name>operator=</name></member>
+      <member refid="structeu_1_1render_1_1UiTextCompileVisitor_1a0af498d34a7bbc7b40a11225d4beacbc" prot="public" virt="non-virtual"><scope>eu::render::UiTextCompileVisitor</scope><name>position</name></member>
+      <member refid="structeu_1_1render_1_1UiTextCompileVisitor_1a05aa2022d0f9c968c4a689e60f89b157" prot="public" virt="non-virtual"><scope>eu::render::UiTextCompileVisitor</scope><name>size</name></member>
+      <member refid="structeu_1_1render_1_1UiTextCompileVisitor_1a665a7816ae59e6d584e60651f9ce147c" prot="public" virt="non-virtual"><scope>eu::render::UiTextCompileVisitor</scope><name>UiTextCompileVisitor</name></member>
+      <member refid="structeu_1_1core_1_1textparser_1_1Visitor_1a3d4b74f12f18c14927559a0f1cb1020e" prot="public" virt="non-virtual"><scope>eu::render::UiTextCompileVisitor</scope><name>Visitor</name></member>
+      <member refid="structeu_1_1core_1_1textparser_1_1Visitor_1afc52a1f036129df97a9d74ef916159d8" prot="public" virt="non-virtual"><scope>eu::render::UiTextCompileVisitor</scope><name>Visitor</name></member>
+      <member refid="structeu_1_1core_1_1textparser_1_1Visitor_1addf7d2734913f5fce0b0f44f7fcecda1" prot="public" virt="non-virtual"><scope>eu::render::UiTextCompileVisitor</scope><name>Visitor</name></member>
+      <member refid="structeu_1_1core_1_1textparser_1_1Visitor_1a97c7a978b9f903930aff13d95382f28d" prot="public" virt="virtual"><scope>eu::render::UiTextCompileVisitor</scope><name>~Visitor</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

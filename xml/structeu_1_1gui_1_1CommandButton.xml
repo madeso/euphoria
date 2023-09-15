@@ -1,0 +1,246 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1gui_1_1CommandButton" kind="struct" language="C++" prot="public">
+    <compoundname>eu::gui::CommandButton</compoundname>
+    <basecompoundref refid="structeu_1_1gui_1_1Button" prot="public" virt="non-virtual">eu::gui::Button</basecompoundref>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1gui_1_1CommandButton_1a51a93a673732f84e5aa6d9069d83616b" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string eu::gui::CommandButton::cmd</definition>
+        <argsstring></argsstring>
+        <name>cmd</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/load.cc" line="65" column="21" bodyfile="libs/gui/src/gui/load.cc" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1gui_1_1CommandButton_1a3a571ae8d28dd8786643f19fbcd8660b" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>eu::gui::CommandButton::CommandButton</definition>
+        <argsstring>(gui::State *state)</argsstring>
+        <name>CommandButton</name>
+        <param>
+          <type><ref refid="structeu_1_1gui_1_1State" kindref="compound">gui::State</ref> *</type>
+          <declname>state</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/load.cc" line="53" column="18" bodyfile="libs/gui/src/gui/load.cc" bodystart="53" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1gui_1_1CommandButton_1a7588f890ae4e9da54bd7c60c9713c522" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void eu::gui::CommandButton::on_clicked</definition>
+        <argsstring>() override</argsstring>
+        <name>on_clicked</name>
+        <reimplements refid="structeu_1_1gui_1_1Button_1a18d0ca940268532c9874ddc2035bf503">on_clicked</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/load.cc" line="59" column="9" bodyfile="libs/gui/src/gui/load.cc" bodystart="59" bodyend="63"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>eu::gui::Button</label>
+        <link refid="structeu_1_1gui_1_1Button"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>eu::gui::CommandButton</label>
+        <link refid="structeu_1_1gui_1_1CommandButton"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>eu::gui::Widget</label>
+        <link refid="structeu_1_1gui_1_1Widget"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>eu::gui::Button</label>
+        <link refid="structeu_1_1gui_1_1Button"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>text</edgelabel>
+        </childnode>
+        <childnode refid="10" relation="usage">
+          <edgelabel>image_color</edgelabel>
+          <edgelabel>text_color</edgelabel>
+        </childnode>
+        <childnode refid="11" relation="usage">
+          <edgelabel>position_displacement</edgelabel>
+        </childnode>
+        <childnode refid="12" relation="usage">
+          <edgelabel>scale</edgelabel>
+        </childnode>
+        <childnode refid="13" relation="usage">
+          <edgelabel>last_state</edgelabel>
+        </childnode>
+        <childnode refid="16" relation="usage">
+          <edgelabel>skin</edgelabel>
+        </childnode>
+      </node>
+      <node id="13">
+        <label>eu::gui::ButtonState</label>
+        <link refid="structeu_1_1gui_1_1ButtonState"/>
+        <childnode refid="14" relation="usage">
+          <edgelabel>image_color</edgelabel>
+          <edgelabel>text_color</edgelabel>
+        </childnode>
+        <childnode refid="15" relation="usage">
+          <edgelabel>interpolation_color</edgelabel>
+          <edgelabel>interpolation_position</edgelabel>
+          <edgelabel>interpolation_size</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>eu::gui::CommandButton</label>
+        <link refid="structeu_1_1gui_1_1CommandButton"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>eu::gui::LayoutData</label>
+        <link refid="structeu_1_1gui_1_1LayoutData"/>
+      </node>
+      <node id="11">
+        <label>eu::core::Interpolate&lt; eu::core::vec2f &gt;</label>
+        <link refid="structeu_1_1core_1_1Interpolate"/>
+      </node>
+      <node id="7">
+        <label>eu::gui::State</label>
+        <link refid="structeu_1_1gui_1_1State"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>active</edgelabel>
+          <edgelabel>hot</edgelabel>
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>mouse</edgelabel>
+        </childnode>
+      </node>
+      <node id="15">
+        <label>eu::gui::Interpolation</label>
+        <link refid="structeu_1_1gui_1_1Interpolation"/>
+      </node>
+      <node id="3">
+        <label>eu::gui::Widget</label>
+        <link refid="structeu_1_1gui_1_1Widget"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>margin</edgelabel>
+          <edgelabel>padding</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>layout</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>rect</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>ui_state</edgelabel>
+        </childnode>
+      </node>
+      <node id="6">
+        <label>eu::core::Rectf</label>
+        <link refid="structeu_1_1core_1_1Rectf"/>
+      </node>
+      <node id="9">
+        <label>eu::gui::TextData</label>
+        <link refid="structeu_1_1gui_1_1TextData"/>
+      </node>
+      <node id="4">
+        <label>eu::core::Lrud&lt; float &gt;</label>
+        <link refid="structeu_1_1core_1_1Lrud"/>
+      </node>
+      <node id="8">
+        <label>eu::core::vec2f</label>
+        <link refid="structeu_1_1core_1_1vec2f"/>
+      </node>
+      <node id="16">
+        <label>eu::gui::Skin</label>
+        <link refid="structeu_1_1gui_1_1Skin"/>
+        <childnode refid="13" relation="usage">
+          <edgelabel>button_active_hot</edgelabel>
+          <edgelabel>button_hot</edgelabel>
+          <edgelabel>button_idle</edgelabel>
+        </childnode>
+      </node>
+      <node id="10">
+        <label>eu::core::Interpolate&lt; eu::core::Rgb &gt;</label>
+        <link refid="structeu_1_1core_1_1Interpolate"/>
+      </node>
+      <node id="12">
+        <label>eu::core::Interpolate&lt; float &gt;</label>
+        <link refid="structeu_1_1core_1_1Interpolate"/>
+      </node>
+      <node id="14">
+        <label>eu::core::Rgb</label>
+        <link refid="structeu_1_1core_1_1Rgb"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/gui/src/gui/load.cc" line="51" column="5" bodyfile="libs/gui/src/gui/load.cc" bodystart="52" bodyend="66"/>
+    <listofallmembers>
+      <member refid="structeu_1_1gui_1_1Button_1a10aa83fcea1a9c34ad0700221194a4fb" prot="public" virt="non-virtual"><scope>eu::gui::CommandButton</scope><name>Button</name></member>
+      <member refid="structeu_1_1gui_1_1Button_1a96595d9f0a4c549f2ddd7d061063456e" prot="public" virt="non-virtual"><scope>eu::gui::CommandButton</scope><name>Button</name></member>
+      <member refid="structeu_1_1gui_1_1Button_1a8c359ceca12a75ff027b98119cae7de5" prot="public" virt="non-virtual"><scope>eu::gui::CommandButton</scope><name>Button</name></member>
+      <member refid="structeu_1_1gui_1_1Button_1a00a9b34c1c48c68c4a80aa8d944695e4" prot="public" virt="virtual"><scope>eu::gui::CommandButton</scope><name>calc_minimum_size</name></member>
+      <member refid="structeu_1_1gui_1_1CommandButton_1a51a93a673732f84e5aa6d9069d83616b" prot="public" virt="non-virtual"><scope>eu::gui::CommandButton</scope><name>cmd</name></member>
+      <member refid="structeu_1_1gui_1_1CommandButton_1a3a571ae8d28dd8786643f19fbcd8660b" prot="public" virt="non-virtual"><scope>eu::gui::CommandButton</scope><name>CommandButton</name></member>
+      <member refid="structeu_1_1gui_1_1Widget_1ace63dd0d2edff1ab3b37eac212045469" prot="public" virt="non-virtual"><scope>eu::gui::CommandButton</scope><name>get_background_rect</name></member>
+      <member refid="structeu_1_1gui_1_1Widget_1ae56a00329498c528f30d05d656dd03bc" prot="public" virt="non-virtual"><scope>eu::gui::CommandButton</scope><name>get_client_rect</name></member>
+      <member refid="structeu_1_1gui_1_1Widget_1ac7dfea87136042e49a1d17c1e53bad32" prot="public" virt="non-virtual"><scope>eu::gui::CommandButton</scope><name>get_preferred_size</name></member>
+      <member refid="structeu_1_1gui_1_1Widget_1aa08520c479054f5f99ff7624e25f272e" prot="public" virt="non-virtual"><scope>eu::gui::CommandButton</scope><name>get_state</name></member>
+      <member refid="structeu_1_1gui_1_1Widget_1ad3910564b1357dc1bc6a587e8fb813d0" prot="public" virt="non-virtual"><scope>eu::gui::CommandButton</scope><name>get_state_ptr</name></member>
+      <member refid="structeu_1_1gui_1_1Button_1a72433f9a7b139566f24021185d3da340" prot="public" virt="non-virtual"><scope>eu::gui::CommandButton</scope><name>image_color</name></member>
+      <member refid="structeu_1_1gui_1_1Widget_1ae58c6d8b3ce887c1f64bc750dcc95772" prot="public" virt="non-virtual"><scope>eu::gui::CommandButton</scope><name>is_active</name></member>
+      <member refid="structeu_1_1gui_1_1Widget_1aad17ccf02f65c793ed3e03dd5046b2f8" prot="public" virt="non-virtual"><scope>eu::gui::CommandButton</scope><name>is_hot</name></member>
+      <member refid="structeu_1_1gui_1_1Button_1a356ff478557f41aac6743a0456d08a78" prot="public" virt="non-virtual"><scope>eu::gui::CommandButton</scope><name>last_state</name></member>
+      <member refid="structeu_1_1gui_1_1Widget_1a157692c253b368287807e547ccc325dd" prot="public" virt="non-virtual"><scope>eu::gui::CommandButton</scope><name>layout</name></member>
+      <member refid="structeu_1_1gui_1_1Widget_1a0a6df16e9fde456098ec1b2fc9ba54b6" prot="public" virt="non-virtual"><scope>eu::gui::CommandButton</scope><name>margin</name></member>
+      <member refid="structeu_1_1gui_1_1Widget_1a3a49e8762bc6f81eb4cd2b5c8baf7327" prot="public" virt="non-virtual"><scope>eu::gui::CommandButton</scope><name>name</name></member>
+      <member refid="structeu_1_1gui_1_1CommandButton_1a7588f890ae4e9da54bd7c60c9713c522" prot="public" virt="virtual"><scope>eu::gui::CommandButton</scope><name>on_clicked</name></member>
+      <member refid="structeu_1_1gui_1_1Button_1afddceb5614ce10bb553d6a80ef633a48" prot="public" virt="virtual"><scope>eu::gui::CommandButton</scope><name>on_size_changed</name></member>
+      <member refid="structeu_1_1gui_1_1Button_1a3da5fd546d2d57f09d992575bda5de27" prot="public" virt="non-virtual"><scope>eu::gui::CommandButton</scope><name>operator=</name></member>
+      <member refid="structeu_1_1gui_1_1Button_1a8ffd0158323c2e9adefa74ac6f894132" prot="public" virt="non-virtual"><scope>eu::gui::CommandButton</scope><name>operator=</name></member>
+      <member refid="structeu_1_1gui_1_1Widget_1af343985d829d1762489fc919de8c8eee" prot="public" virt="non-virtual" ambiguityscope="eu::gui::Widget::"><scope>eu::gui::CommandButton</scope><name>operator=</name></member>
+      <member refid="structeu_1_1gui_1_1Widget_1a38ac4c4a62294a9e62e6810f1526b272" prot="public" virt="non-virtual" ambiguityscope="eu::gui::Widget::"><scope>eu::gui::CommandButton</scope><name>operator=</name></member>
+      <member refid="structeu_1_1gui_1_1Widget_1a003d621488b80afaf7175a6893304ddb" prot="public" virt="non-virtual"><scope>eu::gui::CommandButton</scope><name>padding</name></member>
+      <member refid="structeu_1_1gui_1_1Button_1aa9c0b328e515cab7e7258c36bed89796" prot="public" virt="non-virtual"><scope>eu::gui::CommandButton</scope><name>position_displacement</name></member>
+      <member refid="structeu_1_1gui_1_1Widget_1afae177ba97123035fa398d845a9a5a44" prot="public" virt="non-virtual"><scope>eu::gui::CommandButton</scope><name>rect</name></member>
+      <member refid="structeu_1_1gui_1_1Button_1a1b56450618e00bb09a3929aa7039fc19" prot="public" virt="virtual"><scope>eu::gui::CommandButton</scope><name>render</name></member>
+      <member refid="structeu_1_1gui_1_1Button_1a2e02e2274475cfcf8d9330835c0b1882" prot="public" virt="non-virtual"><scope>eu::gui::CommandButton</scope><name>scale</name></member>
+      <member refid="structeu_1_1gui_1_1Widget_1a2b0adbde0b17b6cef0ba96d2461b684e" prot="public" virt="non-virtual"><scope>eu::gui::CommandButton</scope><name>set_rect</name></member>
+      <member refid="structeu_1_1gui_1_1Button_1a833725130d82f2ec024d809b8a05dc29" prot="public" virt="non-virtual"><scope>eu::gui::CommandButton</scope><name>set_skin</name></member>
+      <member refid="structeu_1_1gui_1_1Button_1a91ebdc39aff399515c52abf42e097851" prot="public" virt="non-virtual"><scope>eu::gui::CommandButton</scope><name>skin</name></member>
+      <member refid="structeu_1_1gui_1_1Button_1a36e465610b6b9da77ea1af4748b3c455" prot="public" virt="non-virtual"><scope>eu::gui::CommandButton</scope><name>sprite</name></member>
+      <member refid="structeu_1_1gui_1_1Button_1a0ae42a9a9aaef877206ca81088bc67ef" prot="public" virt="non-virtual"><scope>eu::gui::CommandButton</scope><name>text</name></member>
+      <member refid="structeu_1_1gui_1_1Button_1a9a7ae2e8dea029e650c4fb553058a15e" prot="public" virt="non-virtual"><scope>eu::gui::CommandButton</scope><name>text_color</name></member>
+      <member refid="structeu_1_1gui_1_1Widget_1ac87b45827270598e7af4798b9f9112c7" prot="public" virt="non-virtual"><scope>eu::gui::CommandButton</scope><name>ui_state</name></member>
+      <member refid="structeu_1_1gui_1_1Button_1a695eb538d3ef1cd4f149ca64e1952270" prot="public" virt="virtual"><scope>eu::gui::CommandButton</scope><name>update</name></member>
+      <member refid="structeu_1_1gui_1_1Button_1a2c913e7e9be6fc349ce7d944ac979e31" prot="public" virt="virtual"><scope>eu::gui::CommandButton</scope><name>visit</name></member>
+      <member refid="structeu_1_1gui_1_1Widget_1a79b4714126902f2045d16e3406aee010" prot="public" virt="non-virtual"><scope>eu::gui::CommandButton</scope><name>Widget</name></member>
+      <member refid="structeu_1_1gui_1_1Widget_1a61930393a2ec12c34aa4cfb447605665" prot="public" virt="non-virtual"><scope>eu::gui::CommandButton</scope><name>Widget</name></member>
+      <member refid="structeu_1_1gui_1_1Widget_1ac20aa0f96bab0748d2c0b89fe9ef47c0" prot="public" virt="non-virtual"><scope>eu::gui::CommandButton</scope><name>Widget</name></member>
+      <member refid="structeu_1_1gui_1_1Button_1a896bdc2bbd9641414407d8fcd8d341b5" prot="public" virt="non-virtual"><scope>eu::gui::CommandButton</scope><name>~Button</name></member>
+      <member refid="structeu_1_1gui_1_1Widget_1a1f359c4c0a55c7a3b0babfcc081dc371" prot="public" virt="virtual"><scope>eu::gui::CommandButton</scope><name>~Widget</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

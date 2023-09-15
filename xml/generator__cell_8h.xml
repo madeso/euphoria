@@ -320,12 +320,12 @@
         </childnode>
       </node>
     </invincdepgraph>
-    <innerclass refid="structeuphoria_1_1core_1_1generator_1_1Rule" prot="public">euphoria::core::generator::Rule</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1generator_1_1Rules" prot="public">euphoria::core::generator::Rules</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1generator_1_1CellularAutomata" prot="public">euphoria::core::generator::CellularAutomata</innerclass>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core_1_1generator">euphoria::core::generator</innernamespace>
+    <innerclass refid="structeu_1_1core_1_1generator_1_1Rule" prot="public">eu::core::generator::Rule</innerclass>
+    <innerclass refid="structeu_1_1core_1_1generator_1_1Rules" prot="public">eu::core::generator::Rules</innerclass>
+    <innerclass refid="structeu_1_1core_1_1generator_1_1CellularAutomata" prot="public">eu::core::generator::CellularAutomata</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core_1_1generator">eu::core::generator</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

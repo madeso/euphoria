@@ -404,11 +404,11 @@
         <label>memory</label>
       </node>
     </incdepgraph>
-    <innerclass refid="structeuphoria_1_1core_1_1meshes_1_1FileForAssimp" prot="public">euphoria::core::meshes::FileForAssimp</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1meshes_1_1FilesystemForAssimp" prot="public">euphoria::core::meshes::FilesystemForAssimp</innerclass>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core_1_1meshes">euphoria::core::meshes</innernamespace>
+    <innerclass refid="structeu_1_1core_1_1meshes_1_1FileForAssimp" prot="public">eu::core::meshes::FileForAssimp</innerclass>
+    <innerclass refid="structeu_1_1core_1_1meshes_1_1FilesystemForAssimp" prot="public">eu::core::meshes::FilesystemForAssimp</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core_1_1meshes">eu::core::meshes</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

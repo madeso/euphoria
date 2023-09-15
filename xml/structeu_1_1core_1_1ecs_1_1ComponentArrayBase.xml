@@ -1,0 +1,181 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1core_1_1ecs_1_1ComponentArrayBase" kind="struct" language="C++" prot="public" abstract="yes">
+    <compoundname>eu::core::ecs::ComponentArrayBase</compoundname>
+    <derivedcompoundref refid="structeu_1_1core_1_1ecs_1_1GenericComponentArray" prot="public" virt="non-virtual">eu::core::ecs::GenericComponentArray&lt; T &gt;</derivedcompoundref>
+    <includes refid="ecs_8h" local="no">ecs.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1core_1_1ecs_1_1ComponentArrayBase_1a75293459eaedc87dfa2fa51c10c66e79" prot="public" static="no" mutable="no">
+        <type>std::string_view</type>
+        <definition>std::string_view eu::core::ecs::ComponentArrayBase::name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ecs.h" line="28" column="26" bodyfile="libs/core/src/core/ecs.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1ecs_1_1ComponentArrayBase_1aedf7a38e5b9d88de448ba134d8c7ef8c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::core::ecs::ComponentArrayBase::ComponentArrayBase</definition>
+        <argsstring>(std::string_view n)</argsstring>
+        <name>ComponentArrayBase</name>
+        <param>
+          <type>std::string_view</type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ecs.h" line="30" column="9" bodyfile="libs/core/src/core/ecs.cc" bodystart="18" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1ecs_1_1ComponentArrayBase_1a7f17272e5a7ce20e413e5cb4cda722d2" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual eu::core::ecs::ComponentArrayBase::~ComponentArrayBase</definition>
+        <argsstring>()=default</argsstring>
+        <name>~ComponentArrayBase</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ecs.h" line="31" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1ecs_1_1ComponentArrayBase_1a892179d0f7e780bafe0efe8f6b8ab8eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::core::ecs::ComponentArrayBase::ComponentArrayBase</definition>
+        <argsstring>(const ComponentArrayBase &amp;)=delete</argsstring>
+        <name>ComponentArrayBase</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1ecs_1_1ComponentArrayBase" kindref="compound">ComponentArrayBase</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ecs.h" line="33" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1ecs_1_1ComponentArrayBase_1a92322b246afd6dcaeddfc9cff668b97f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::core::ecs::ComponentArrayBase::ComponentArrayBase</definition>
+        <argsstring>(ComponentArrayBase &amp;&amp;)=delete</argsstring>
+        <name>ComponentArrayBase</name>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1ecs_1_1ComponentArrayBase" kindref="compound">ComponentArrayBase</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ecs.h" line="34" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1ecs_1_1ComponentArrayBase_1afd8113e78c7742550186182c5ddcbfa7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1ecs_1_1ComponentArrayBase" kindref="compound">ComponentArrayBase</ref> &amp;</type>
+        <definition>ComponentArrayBase&amp; eu::core::ecs::ComponentArrayBase::operator=</definition>
+        <argsstring>(const ComponentArrayBase &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1ecs_1_1ComponentArrayBase" kindref="compound">ComponentArrayBase</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ecs.h" line="35" column="28"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1ecs_1_1ComponentArrayBase_1a15ebb87680eafb1250e8776bdcc287da" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1ecs_1_1ComponentArrayBase" kindref="compound">ComponentArrayBase</ref> &amp;</type>
+        <definition>ComponentArrayBase&amp; eu::core::ecs::ComponentArrayBase::operator=</definition>
+        <argsstring>(ComponentArrayBase &amp;&amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1ecs_1_1ComponentArrayBase" kindref="compound">ComponentArrayBase</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ecs.h" line="36" column="28"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1ecs_1_1ComponentArrayBase_1a919e5855a2f5b614b6c03368e46a55ea" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void eu::core::ecs::ComponentArrayBase::remove</definition>
+        <argsstring>(EntityHandle)=0</argsstring>
+        <name>remove</name>
+        <reimplementedby refid="structeu_1_1core_1_1ecs_1_1GenericComponentArray_1a9b55840082639b48bc7d22362fc8cfdd">remove</reimplementedby>
+        <param>
+          <type><ref refid="namespaceeu_1_1core_1_1ecs_1a6bc928b478aa35fd3e9e98d901552f38" kindref="member">EntityHandle</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ecs.h" line="39" column="22"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1ecs_1_1ComponentArrayBase_1ab91d43bee75dd102070d30791532d674" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>bool</type>
+        <definition>virtual bool eu::core::ecs::ComponentArrayBase::has</definition>
+        <argsstring>(EntityHandle) const =0</argsstring>
+        <name>has</name>
+        <reimplementedby refid="structeu_1_1core_1_1ecs_1_1GenericComponentArray_1aa7dd00504c66995cf76449e2199ba44f">has</reimplementedby>
+        <param>
+          <type><ref refid="namespaceeu_1_1core_1_1ecs_1a6bc928b478aa35fd3e9e98d901552f38" kindref="member">EntityHandle</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ecs.h" line="40" column="23"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>eu::core::ecs::ComponentArrayBase</label>
+        <link refid="structeu_1_1core_1_1ecs_1_1ComponentArrayBase"/>
+      </node>
+      <node id="2">
+        <label>eu::core::ecs::GenericComponentArray&lt; T &gt;</label>
+        <link refid="structeu_1_1core_1_1ecs_1_1GenericComponentArray"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="libs/core/src/core/ecs.h" line="26" column="5" bodyfile="libs/core/src/core/ecs.h" bodystart="27" bodyend="41"/>
+    <listofallmembers>
+      <member refid="structeu_1_1core_1_1ecs_1_1ComponentArrayBase_1aedf7a38e5b9d88de448ba134d8c7ef8c" prot="public" virt="non-virtual"><scope>eu::core::ecs::ComponentArrayBase</scope><name>ComponentArrayBase</name></member>
+      <member refid="structeu_1_1core_1_1ecs_1_1ComponentArrayBase_1a892179d0f7e780bafe0efe8f6b8ab8eb" prot="public" virt="non-virtual"><scope>eu::core::ecs::ComponentArrayBase</scope><name>ComponentArrayBase</name></member>
+      <member refid="structeu_1_1core_1_1ecs_1_1ComponentArrayBase_1a92322b246afd6dcaeddfc9cff668b97f" prot="public" virt="non-virtual"><scope>eu::core::ecs::ComponentArrayBase</scope><name>ComponentArrayBase</name></member>
+      <member refid="structeu_1_1core_1_1ecs_1_1ComponentArrayBase_1ab91d43bee75dd102070d30791532d674" prot="public" virt="pure-virtual"><scope>eu::core::ecs::ComponentArrayBase</scope><name>has</name></member>
+      <member refid="structeu_1_1core_1_1ecs_1_1ComponentArrayBase_1a75293459eaedc87dfa2fa51c10c66e79" prot="public" virt="non-virtual"><scope>eu::core::ecs::ComponentArrayBase</scope><name>name</name></member>
+      <member refid="structeu_1_1core_1_1ecs_1_1ComponentArrayBase_1afd8113e78c7742550186182c5ddcbfa7" prot="public" virt="non-virtual"><scope>eu::core::ecs::ComponentArrayBase</scope><name>operator=</name></member>
+      <member refid="structeu_1_1core_1_1ecs_1_1ComponentArrayBase_1a15ebb87680eafb1250e8776bdcc287da" prot="public" virt="non-virtual"><scope>eu::core::ecs::ComponentArrayBase</scope><name>operator=</name></member>
+      <member refid="structeu_1_1core_1_1ecs_1_1ComponentArrayBase_1a919e5855a2f5b614b6c03368e46a55ea" prot="public" virt="pure-virtual"><scope>eu::core::ecs::ComponentArrayBase</scope><name>remove</name></member>
+      <member refid="structeu_1_1core_1_1ecs_1_1ComponentArrayBase_1a7f17272e5a7ce20e413e5cb4cda722d2" prot="public" virt="virtual"><scope>eu::core::ecs::ComponentArrayBase</scope><name>~ComponentArrayBase</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1core_1_1TemplateErrorList" kind="struct" language="C++" prot="public">
+    <compoundname>eu::core::TemplateErrorList</compoundname>
+    <includes refid="texttemplate_8h" local="no">texttemplate.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1core_1_1TemplateErrorList_1a5eb9fc205e0bb7159f3c0b57fdb82fa1" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>std::vector&lt;std::string&gt; eu::core::TemplateErrorList::errors</definition>
+        <argsstring></argsstring>
+        <name>errors</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/texttemplate.h" line="32" column="21" bodyfile="libs/core/src/core/texttemplate.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1TemplateErrorList_1a7c8e4e75001282521b72baedee8f4540" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::core::TemplateErrorList::TemplateErrorList</definition>
+        <argsstring>()</argsstring>
+        <name>TemplateErrorList</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/texttemplate.h" line="34" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1TemplateErrorList_1ae25a701852674665708e6619c288884f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::TemplateErrorList::add_error</definition>
+        <argsstring>(const std::optional&lt; vfs::FilePath &gt; &amp;file, int line, int column, const std::string &amp;error)</argsstring>
+        <name>add_error</name>
+        <param>
+          <type>const std::optional&lt; <ref refid="structeu_1_1core_1_1vfs_1_1FilePath" kindref="compound">vfs::FilePath</ref> &gt; &amp;</type>
+          <declname>file</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>line</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>column</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>error</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/texttemplate.h" line="36" column="14" bodyfile="libs/core/src/core/texttemplate.cc" bodystart="74" bodyend="88"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1TemplateErrorList_1a8fa0f499ed82f2a7e657fc125d1ad0b3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool eu::core::TemplateErrorList::has_errors</definition>
+        <argsstring>() const</argsstring>
+        <name>has_errors</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/texttemplate.h" line="44" column="15" bodyfile="libs/core/src/core/texttemplate.cc" bodystart="66" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1TemplateErrorList_1ac84d0a363f9c98f41fd7f17fd3810a34" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string eu::core::TemplateErrorList::get_combined_errors</definition>
+        <argsstring>() const</argsstring>
+        <name>get_combined_errors</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/texttemplate.h" line="45" column="22" bodyfile="libs/core/src/core/texttemplate.cc" bodystart="92" bodyend="103"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/texttemplate.h" line="30" column="5" bodyfile="libs/core/src/core/texttemplate.h" bodystart="31" bodyend="46"/>
+    <listofallmembers>
+      <member refid="structeu_1_1core_1_1TemplateErrorList_1ae25a701852674665708e6619c288884f" prot="public" virt="non-virtual"><scope>eu::core::TemplateErrorList</scope><name>add_error</name></member>
+      <member refid="structeu_1_1core_1_1TemplateErrorList_1a5eb9fc205e0bb7159f3c0b57fdb82fa1" prot="public" virt="non-virtual"><scope>eu::core::TemplateErrorList</scope><name>errors</name></member>
+      <member refid="structeu_1_1core_1_1TemplateErrorList_1ac84d0a363f9c98f41fd7f17fd3810a34" prot="public" virt="non-virtual"><scope>eu::core::TemplateErrorList</scope><name>get_combined_errors</name></member>
+      <member refid="structeu_1_1core_1_1TemplateErrorList_1a8fa0f499ed82f2a7e657fc125d1ad0b3" prot="public" virt="non-virtual"><scope>eu::core::TemplateErrorList</scope><name>has_errors</name></member>
+      <member refid="structeu_1_1core_1_1TemplateErrorList_1a7c8e4e75001282521b72baedee8f4540" prot="public" virt="non-virtual"><scope>eu::core::TemplateErrorList</scope><name>TemplateErrorList</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

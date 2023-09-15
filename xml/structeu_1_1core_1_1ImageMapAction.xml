@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1core_1_1ImageMapAction" kind="struct" language="C++" prot="public">
+    <compoundname>eu::core::ImageMapAction</compoundname>
+    <includes refid="image__to__text_8h" local="no">image_to_text.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1core_1_1ImageMapAction_1a89758a4bf34682de587b3de495fab11f" prot="public" static="no" mutable="no">
+        <type>char</type>
+        <definition>char eu::core::ImageMapAction::to</definition>
+        <argsstring></argsstring>
+        <name>to</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/image_to_text.h" line="19" column="14" bodyfile="libs/core/src/core/image_to_text.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1ImageMapAction_1aa3ad64a7372797b33f1c9dc3143b7029" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref></type>
+        <definition>Rgbi eu::core::ImageMapAction::from_color</definition>
+        <argsstring></argsstring>
+        <name>from_color</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/image_to_text.h" line="20" column="14" bodyfile="libs/core/src/core/image_to_text.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>eu::core::ImageMapAction</label>
+        <link refid="structeu_1_1core_1_1ImageMapAction"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>from_color</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>eu::core::Rgbi</label>
+        <link refid="structeu_1_1core_1_1Rgbi"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/core/src/core/image_to_text.h" line="17" column="5" bodyfile="libs/core/src/core/image_to_text.h" bodystart="18" bodyend="21"/>
+    <listofallmembers>
+      <member refid="structeu_1_1core_1_1ImageMapAction_1aa3ad64a7372797b33f1c9dc3143b7029" prot="public" virt="non-virtual"><scope>eu::core::ImageMapAction</scope><name>from_color</name></member>
+      <member refid="structeu_1_1core_1_1ImageMapAction_1a89758a4bf34682de587b3de495fab11f" prot="public" virt="non-virtual"><scope>eu::core::ImageMapAction</scope><name>to</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

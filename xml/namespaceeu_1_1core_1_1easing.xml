@@ -1,0 +1,408 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="namespaceeu_1_1core_1_1easing" kind="namespace" language="C++">
+    <compoundname>eu::core::easing</compoundname>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="namespaceeu_1_1core_1_1easing_1a999cd23e606018b1ab295e172ef2ddd1" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>Function</name>
+        <enumvalue id="namespaceeu_1_1core_1_1easing_1a999cd23e606018b1ab295e172ef2ddd1a9a932b3cb396238423eb2f33ec17d6aa" prot="public">
+          <name>linear</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeu_1_1core_1_1easing_1a999cd23e606018b1ab295e172ef2ddd1afa895a26331f387347b5ad505ec83bb8" prot="public">
+          <name>smooth_start2</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeu_1_1core_1_1easing_1a999cd23e606018b1ab295e172ef2ddd1a9e3b4124b585e9fb8d2b1f598010b0ae" prot="public">
+          <name>smooth_start3</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeu_1_1core_1_1easing_1a999cd23e606018b1ab295e172ef2ddd1a8ed3a1e147d6e9abbbe97b3bb07edeb7" prot="public">
+          <name>smooth_start4</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeu_1_1core_1_1easing_1a999cd23e606018b1ab295e172ef2ddd1a131d22c112595c7a958f2f77638dfb18" prot="public">
+          <name>smooth_stop2</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeu_1_1core_1_1easing_1a999cd23e606018b1ab295e172ef2ddd1a4f96aff0d5ee8c8140da2971ea9a6eef" prot="public">
+          <name>smooth_stop3</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeu_1_1core_1_1easing_1a999cd23e606018b1ab295e172ef2ddd1aa66d7e7356e156553d0b3e99688fb707" prot="public">
+          <name>smooth_stop4</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeu_1_1core_1_1easing_1a999cd23e606018b1ab295e172ef2ddd1acdad0d86bb4ae1d67976350e38439f95" prot="public">
+          <name>smooth_step2</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeu_1_1core_1_1easing_1a999cd23e606018b1ab295e172ef2ddd1af51029e10a78023657a20f6749b160f7" prot="public">
+          <name>smooth_step3</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeu_1_1core_1_1easing_1a999cd23e606018b1ab295e172ef2ddd1a269a0f89ecdda0788a1acde512c01ff4" prot="public">
+          <name>smooth_step4</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/easing.h" line="9" column="1" bodyfile="libs/core/src/core/easing.h" bodystart="10" bodyend="24"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespaceeu_1_1core_1_1easing_1a86661c189e59cbdfb10dc64261230fd7" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>steps</declname>
+            <defname>steps</defname>
+          </param>
+        </templateparamlist>
+        <type>constexpr float</type>
+        <definition>constexpr float eu::core::easing::ipow</definition>
+        <argsstring>(float t)</argsstring>
+        <name>ipow</name>
+        <param>
+          <type>float</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/easing.cc" line="20" column="28" bodyfile="libs/core/src/core/easing.cc" bodystart="20" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1core_1_1easing_1ad00a416e5f089a44f888e0890b371c46" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+        </templateparamlist>
+        <type>constexpr float</type>
+        <definition>constexpr float eu::core::easing::ipow&lt; 1 &gt;</definition>
+        <argsstring>(float t)</argsstring>
+        <name>ipow&lt; 1 &gt;</name>
+        <param>
+          <type>float</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/easing.cc" line="21" column="30" bodyfile="libs/core/src/core/easing.cc" bodystart="21" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1core_1_1easing_1a8196d503987aadf1b8c3049efd7f95ec" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>constexpr float</type>
+        <definition>constexpr float eu::core::easing::flip</definition>
+        <argsstring>(float t)</argsstring>
+        <name>flip</name>
+        <param>
+          <type>float</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/easing.cc" line="23" column="17" bodyfile="libs/core/src/core/easing.cc" bodystart="23" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1core_1_1easing_1a8f7aaab347c33dd49182f346dd04ed25" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>constexpr float</type>
+        <definition>constexpr float eu::core::easing::blend</definition>
+        <argsstring>(float a, float b, float weight)</argsstring>
+        <name>blend</name>
+        <param>
+          <type>float</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>b</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>weight</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/easing.cc" line="25" column="17" bodyfile="libs/core/src/core/easing.cc" bodystart="25" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1core_1_1easing_1ad7e30405dbd26084efe1795c2d2ed8db" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>steps</declname>
+            <defname>steps</defname>
+          </param>
+        </templateparamlist>
+        <type>constexpr float</type>
+        <definition>constexpr float eu::core::easing::fracpow</definition>
+        <argsstring>(float frac, float t)</argsstring>
+        <name>fracpow</name>
+        <param>
+          <type>float</type>
+          <declname>frac</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/easing.cc" line="28" column="28" bodyfile="libs/core/src/core/easing.cc" bodystart="28" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1core_1_1easing_1a8273cd5dd2176e13cf491daec29e0d66" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>constexpr float</type>
+        <definition>constexpr float eu::core::easing::fabs</definition>
+        <argsstring>(float t)</argsstring>
+        <name>fabs</name>
+        <param>
+          <type>float</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/easing.cc" line="30" column="17" bodyfile="libs/core/src/core/easing.cc" bodystart="30" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1core_1_1easing_1af82af137fe2770bf55b1eea2680777a6" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>constexpr float</type>
+        <definition>constexpr float eu::core::easing::bounce_clamp_top</definition>
+        <argsstring>(float t)</argsstring>
+        <name>bounce_clamp_top</name>
+        <param>
+          <type>float</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/easing.cc" line="32" column="17" bodyfile="libs/core/src/core/easing.cc" bodystart="32" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1core_1_1easing_1ad18a23714d029c586ac3b76fadc1ea7d" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>constexpr float</type>
+        <definition>constexpr float eu::core::easing::bounce_clamp_bottom</definition>
+        <argsstring>(float t)</argsstring>
+        <name>bounce_clamp_bottom</name>
+        <param>
+          <type>float</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/easing.cc" line="34" column="17" bodyfile="libs/core/src/core/easing.cc" bodystart="34" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1core_1_1easing_1a13f187fe0a89eb914589c80f1708111e" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>constexpr float</type>
+        <definition>constexpr float eu::core::easing::bounce_clamp</definition>
+        <argsstring>(float t)</argsstring>
+        <name>bounce_clamp</name>
+        <param>
+          <type>float</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/easing.cc" line="36" column="17" bodyfile="libs/core/src/core/easing.cc" bodystart="36" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1core_1_1easing_1ad26e19f4ec55a417b1a252c66626f2d8" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>constexpr float</type>
+        <definition>constexpr float eu::core::easing::normalized_bezier_curve3</definition>
+        <argsstring>(float b, float c, float t)</argsstring>
+        <name>normalized_bezier_curve3</name>
+        <param>
+          <type>float</type>
+          <declname>b</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>c</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/easing.cc" line="38" column="17" bodyfile="libs/core/src/core/easing.cc" bodystart="38" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1core_1_1easing_1a3cde2be851600b8e5929e1dc55060f82" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>steps</declname>
+            <defname>steps</defname>
+          </param>
+        </templateparamlist>
+        <type>float</type>
+        <definition>float eu::core::easing::smooth_start</definition>
+        <argsstring>(float t)</argsstring>
+        <name>smooth_start</name>
+        <param>
+          <type>float</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/easing.cc" line="52" column="7" bodyfile="libs/core/src/core/easing.cc" bodystart="52" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1core_1_1easing_1a5044d7ed5dc24a684c276f433f5e3752" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>steps</declname>
+            <defname>steps</defname>
+          </param>
+        </templateparamlist>
+        <type>float</type>
+        <definition>float eu::core::easing::smooth_stop</definition>
+        <argsstring>(float t)</argsstring>
+        <name>smooth_stop</name>
+        <param>
+          <type>float</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/easing.cc" line="55" column="7" bodyfile="libs/core/src/core/easing.cc" bodystart="55" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1core_1_1easing_1a888087d1970045f0a647c51623266e23" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>steps</declname>
+            <defname>steps</defname>
+          </param>
+        </templateparamlist>
+        <type>float</type>
+        <definition>float eu::core::easing::smooth_step</definition>
+        <argsstring>(float t)</argsstring>
+        <name>smooth_step</name>
+        <param>
+          <type>float</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/easing.cc" line="58" column="7" bodyfile="libs/core/src/core/easing.cc" bodystart="58" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1core_1_1easing_1a97b8c8a8fa469b948f0575cbec799719" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float eu::core::easing::apply</definition>
+        <argsstring>(Function f, float t)</argsstring>
+        <name>apply</name>
+        <param>
+          <type><ref refid="namespaceeu_1_1core_1_1easing_1a999cd23e606018b1ab295e172ef2ddd1" kindref="member">Function</ref></type>
+          <declname>f</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/easing.cc" line="61" column="7" bodyfile="libs/core/src/core/easing.cc" bodystart="61" bodyend="83" declfile="libs/core/src/core/easing.h" declline="27" declcolumn="7"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1core_1_1easing_1a94ebaba90cd77e790fe44b0e7b9faaf1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; std::pair&lt; const char *, <ref refid="namespaceeu_1_1core_1_1easing_1a999cd23e606018b1ab295e172ef2ddd1" kindref="member">Function</ref> &gt; &gt;</type>
+        <definition>std::vector&lt; std::pair&lt; const char *, Function &gt; &gt; eu::core::easing::get_all_values</definition>
+        <argsstring>()</argsstring>
+        <name>get_all_values</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/easing.cc" line="87" column="13" bodyfile="libs/core/src/core/easing.cc" bodystart="87" bodyend="107" declfile="libs/core/src/core/easing.h" declline="30" declcolumn="13"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/easing.cc" line="15" column="1"/>
+  </compounddef>
+</doxygen>

@@ -69,8 +69,8 @@
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        <span class="keywordflow">if</span>(clang != <span class="keyword">nullptr</span>)</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        {</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span> lang = std::string(clang);</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span> lower = <a class="code" href="group__string.html#ga0969511cbbc86a70a94662d9e6365200">euphoria::core::to_lower</a>(lang);</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span> ends = <a class="code" href="namespaceeuphoria_1_1core.html#ab81ad001decb30501e6e7db63c588f0e">euphoria::core::ends_with</a>(lower, <span class="stringliteral">&quot;utf-8&quot;</span>);</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span> lower = <a class="code" href="group__string.html#ga6e9e71c020e91ad3cf38ab945c7a1122">eu::core::to_lower</a>(lang);</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span> ends = <a class="code" href="namespaceeu_1_1core.html#ae7f48742d894fcc1e3195dfb739199df">eu::core::ends_with</a>(lower, <span class="stringliteral">&quot;utf-8&quot;</span>);</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;            <span class="keywordflow">return</span> ends;</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        }</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
@@ -78,32 +78,32 @@
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    }</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;}</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceeuphoria_1_1core.html">euphoria::core</a></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceeu_1_1core.html">eu::core</a></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="namespaceeuphoria_1_1core.html#a7c9218b5cbc7ed8555742dd10a461b38">   29</a></span>&#160;<a class="code" href="structeuphoria_1_1core_1_1TreeStyle.html">TreeStyle</a> <a class="code" href="namespaceeuphoria_1_1core.html#a7c9218b5cbc7ed8555742dd10a461b38">determine_style</a>()</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="namespaceeu_1_1core.html#a68add9fafef2dc9ac7fe1fe0e22f5d79">   29</a></span>&#160;<a class="code" href="structeu_1_1core_1_1TreeStyle.html">TreeStyle</a> <a class="code" href="namespaceeu_1_1core.html#a68add9fafef2dc9ac7fe1fe0e22f5d79">determine_style</a>()</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordflow">if</span>(is_terminal_supporting_utf8())</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    {</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespaceeuphoria_1_1core.html#a30157908a127fa403eae44e8610d8a16">utf8_tree_style</a>;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespaceeu_1_1core.html#ac8d07e4d58e6997694a9b3b1c277932f">utf8_tree_style</a>;</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    }</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    {</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespaceeuphoria_1_1core.html#afebe3bf610951c7a779a27f8c73381e3">cross_style</a>;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespaceeu_1_1core.html#af154257fa7e1b0dc536e6155f86b1093">cross_style</a>;</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    }</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;}</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;}</div>
 <div class="ttc" id="actree_8h_html"><div class="ttname"><a href="ctree_8h.html">ctree.h</a></div></div>
-<div class="ttc" id="agroup__string_html_ga0969511cbbc86a70a94662d9e6365200"><div class="ttname"><a href="group__string.html#ga0969511cbbc86a70a94662d9e6365200">euphoria::core::to_lower</a></div><div class="ttdeci">std::string to_lower(const std::string &amp;str)</div><div class="ttdoc">Generate a string containing only lower characters.</div><div class="ttdef"><b>Definition:</b> <a href="stringutils_8cc_source.html#l00143">stringutils.cc:143</a></div></div>
-<div class="ttc" id="anamespaceeuphoria_1_1core_html"><div class="ttname"><a href="namespaceeuphoria_1_1core.html">euphoria::core</a></div><div class="ttdef"><b>Definition:</b> <a href="aabb_8cc_source.html#l00008">aabb.cc:9</a></div></div>
-<div class="ttc" id="anamespaceeuphoria_1_1core_html_a30157908a127fa403eae44e8610d8a16"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#a30157908a127fa403eae44e8610d8a16">euphoria::core::utf8_tree_style</a></div><div class="ttdeci">constexpr TreeStyle utf8_tree_style</div><div class="ttdef"><b>Definition:</b> <a href="ctree_8h_source.html#l00031">ctree.h:31</a></div></div>
-<div class="ttc" id="anamespaceeuphoria_1_1core_html_a7c9218b5cbc7ed8555742dd10a461b38"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#a7c9218b5cbc7ed8555742dd10a461b38">euphoria::core::determine_style</a></div><div class="ttdeci">TreeStyle determine_style()</div><div class="ttdef"><b>Definition:</b> <a href="ctree_8cc_source.html#l00029">ctree.cc:29</a></div></div>
-<div class="ttc" id="anamespaceeuphoria_1_1core_html_ab81ad001decb30501e6e7db63c588f0e"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#ab81ad001decb30501e6e7db63c588f0e">euphoria::core::ends_with</a></div><div class="ttdeci">bool ends_with(const std::string &amp;str, char c)</div><div class="ttdef"><b>Definition:</b> <a href="os_8cc_source.html#l00138">os.cc:138</a></div></div>
-<div class="ttc" id="anamespaceeuphoria_1_1core_html_afebe3bf610951c7a779a27f8c73381e3"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#afebe3bf610951c7a779a27f8c73381e3">euphoria::core::cross_style</a></div><div class="ttdeci">constexpr TreeStyle cross_style</div><div class="ttdef"><b>Definition:</b> <a href="ctree_8h_source.html#l00041">ctree.h:42</a></div></div>
+<div class="ttc" id="agroup__string_html_ga6e9e71c020e91ad3cf38ab945c7a1122"><div class="ttname"><a href="group__string.html#ga6e9e71c020e91ad3cf38ab945c7a1122">eu::core::to_lower</a></div><div class="ttdeci">std::string to_lower(const std::string &amp;str)</div><div class="ttdoc">Generate a string containing only lower characters.</div><div class="ttdef"><b>Definition:</b> <a href="stringutils_8cc_source.html#l00143">stringutils.cc:143</a></div></div>
+<div class="ttc" id="anamespaceeu_1_1core_html"><div class="ttname"><a href="namespaceeu_1_1core.html">eu::core</a></div><div class="ttdef"><b>Definition:</b> <a href="aabb_8cc_source.html#l00008">aabb.cc:9</a></div></div>
+<div class="ttc" id="anamespaceeu_1_1core_html_a68add9fafef2dc9ac7fe1fe0e22f5d79"><div class="ttname"><a href="namespaceeu_1_1core.html#a68add9fafef2dc9ac7fe1fe0e22f5d79">eu::core::determine_style</a></div><div class="ttdeci">TreeStyle determine_style()</div><div class="ttdef"><b>Definition:</b> <a href="ctree_8cc_source.html#l00029">ctree.cc:29</a></div></div>
+<div class="ttc" id="anamespaceeu_1_1core_html_ac8d07e4d58e6997694a9b3b1c277932f"><div class="ttname"><a href="namespaceeu_1_1core.html#ac8d07e4d58e6997694a9b3b1c277932f">eu::core::utf8_tree_style</a></div><div class="ttdeci">constexpr TreeStyle utf8_tree_style</div><div class="ttdef"><b>Definition:</b> <a href="ctree_8h_source.html#l00031">ctree.h:31</a></div></div>
+<div class="ttc" id="anamespaceeu_1_1core_html_ae7f48742d894fcc1e3195dfb739199df"><div class="ttname"><a href="namespaceeu_1_1core.html#ae7f48742d894fcc1e3195dfb739199df">eu::core::ends_with</a></div><div class="ttdeci">bool ends_with(const std::string &amp;str, char c)</div><div class="ttdef"><b>Definition:</b> <a href="os_8cc_source.html#l00138">os.cc:138</a></div></div>
+<div class="ttc" id="anamespaceeu_1_1core_html_af154257fa7e1b0dc536e6155f86b1093"><div class="ttname"><a href="namespaceeu_1_1core.html#af154257fa7e1b0dc536e6155f86b1093">eu::core::cross_style</a></div><div class="ttdeci">constexpr TreeStyle cross_style</div><div class="ttdef"><b>Definition:</b> <a href="ctree_8h_source.html#l00041">ctree.h:42</a></div></div>
 <div class="ttc" id="astringutils_8h_html"><div class="ttname"><a href="stringutils_8h.html">stringutils.h</a></div><div class="ttdoc">String utility functions.</div></div>
-<div class="ttc" id="astructeuphoria_1_1core_1_1TreeStyle_html"><div class="ttname"><a href="structeuphoria_1_1core_1_1TreeStyle.html">euphoria::core::TreeStyle</a></div><div class="ttdef"><b>Definition:</b> <a href="ctree_8h_source.html#l00007">ctree.h:8</a></div></div>
+<div class="ttc" id="astructeu_1_1core_1_1TreeStyle_html"><div class="ttname"><a href="structeu_1_1core_1_1TreeStyle.html">eu::core::TreeStyle</a></div><div class="ttdef"><b>Definition:</b> <a href="ctree_8h_source.html#l00007">ctree.h:8</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.17-->
 <!-- start footer part -->

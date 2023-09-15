@@ -115,11 +115,11 @@
         <link refid="polybezier_8cc"/>
       </node>
     </invincdepgraph>
-    <innerclass refid="structeuphoria_1_1core_1_1BezierSegment2" prot="public">euphoria::core::BezierSegment2</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1PolyBezier2" prot="public">euphoria::core::PolyBezier2</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1Polyline2" prot="public">euphoria::core::Polyline2</innerclass>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
+    <innerclass refid="structeu_1_1core_1_1BezierSegment2" prot="public">eu::core::BezierSegment2</innerclass>
+    <innerclass refid="structeu_1_1core_1_1PolyBezier2" prot="public">eu::core::PolyBezier2</innerclass>
+    <innerclass refid="structeu_1_1core_1_1Polyline2" prot="public">eu::core::Polyline2</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

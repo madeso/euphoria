@@ -127,11 +127,11 @@
         </childnode>
       </node>
     </invincdepgraph>
-    <innerclass refid="structeuphoria_1_1render_1_1VertexBuffer" prot="public">euphoria::render::VertexBuffer</innerclass>
-    <innerclass refid="structeuphoria_1_1render_1_1PointLayout" prot="public">euphoria::render::PointLayout</innerclass>
-    <innerclass refid="structeuphoria_1_1render_1_1IndexBuffer" prot="public">euphoria::render::IndexBuffer</innerclass>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1render">euphoria::render</innernamespace>
+    <innerclass refid="structeu_1_1render_1_1VertexBuffer" prot="public">eu::render::VertexBuffer</innerclass>
+    <innerclass refid="structeu_1_1render_1_1PointLayout" prot="public">eu::render::PointLayout</innerclass>
+    <innerclass refid="structeu_1_1render_1_1IndexBuffer" prot="public">eu::render::IndexBuffer</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1render">eu::render</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

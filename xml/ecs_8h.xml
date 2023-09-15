@@ -86,12 +86,12 @@
         </childnode>
       </node>
     </invincdepgraph>
-    <innerclass refid="structeuphoria_1_1core_1_1ecs_1_1ComponentArrayBase" prot="public">euphoria::core::ecs::ComponentArrayBase</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1ecs_1_1GenericComponentArray" prot="public">euphoria::core::ecs::GenericComponentArray</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1ecs_1_1Registry" prot="public">euphoria::core::ecs::Registry</innerclass>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core_1_1ecs">euphoria::core::ecs</innernamespace>
+    <innerclass refid="structeu_1_1core_1_1ecs_1_1ComponentArrayBase" prot="public">eu::core::ecs::ComponentArrayBase</innerclass>
+    <innerclass refid="structeu_1_1core_1_1ecs_1_1GenericComponentArray" prot="public">eu::core::ecs::GenericComponentArray</innerclass>
+    <innerclass refid="structeu_1_1core_1_1ecs_1_1Registry" prot="public">eu::core::ecs::Registry</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core_1_1ecs">eu::core::ecs</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

@@ -172,13 +172,13 @@
         <link refid="app_8cc"/>
       </node>
     </invincdepgraph>
-    <innerclass refid="structeuphoria_1_1window_1_1Engine" prot="public">euphoria::window::Engine</innerclass>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core_1_1vfs">euphoria::core::vfs</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1render">euphoria::render</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1window">euphoria::window</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1window_1_1imgui">euphoria::window::imgui</innernamespace>
+    <innerclass refid="structeu_1_1window_1_1Engine" prot="public">eu::window::Engine</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core_1_1vfs">eu::core::vfs</innernamespace>
+    <innernamespace refid="namespaceeu_1_1render">eu::render</innernamespace>
+    <innernamespace refid="namespaceeu_1_1window">eu::window</innernamespace>
+    <innernamespace refid="namespaceeu_1_1window_1_1imgui">eu::window::imgui</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

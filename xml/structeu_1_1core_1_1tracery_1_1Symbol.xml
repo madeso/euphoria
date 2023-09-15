@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1core_1_1tracery_1_1Symbol" kind="struct" language="C++" prot="public">
+    <compoundname>eu::core::tracery::Symbol</compoundname>
+    <includes refid="tracery_8h" local="no">tracery.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1core_1_1tracery_1_1Symbol_1add14db2470373c8fee81f1b2b2fee5bb" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string eu::core::tracery::Symbol::key</definition>
+        <argsstring></argsstring>
+        <name>key</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/tracery.h" line="93" column="21" bodyfile="libs/core/src/core/tracery.h" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1tracery_1_1Symbol_1a0ae259555c28351e6d5a47dd91948bc7" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structeu_1_1core_1_1tracery_1_1Rule" kindref="compound">Rule</ref> &gt;</type>
+        <definition>std::vector&lt;Rule&gt; eu::core::tracery::Symbol::ruleset</definition>
+        <argsstring></argsstring>
+        <name>ruleset</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/tracery.h" line="94" column="21" bodyfile="libs/core/src/core/tracery.h" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1tracery_1_1Symbol_1a38af217d7f0bbe84827a3dd6e2f9450c" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::core::tracery::Symbol::Symbol</definition>
+        <argsstring>(const std::string &amp;k)</argsstring>
+        <name>Symbol</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>k</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/tracery.h" line="96" column="18" bodyfile="libs/core/src/core/tracery.cc" bodystart="424" bodyend="424"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1tracery_1_1Symbol_1a34aeb64983bd401fbbb220029ec9270c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1tracery_1_1Result" kindref="compound">Result</ref></type>
+        <definition>Result eu::core::tracery::Symbol::add_rule</definition>
+        <argsstring>(const std::string &amp;rule)</argsstring>
+        <name>add_rule</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>rule</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/tracery.h" line="98" column="16" bodyfile="libs/core/src/core/tracery.cc" bodystart="428" bodyend="437"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1tracery_1_1Symbol_1a401c454ab49171f73c05a50632a0e080" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1tracery_1_1Result" kindref="compound">Result</ref></type>
+        <definition>Result eu::core::tracery::Symbol::flatten</definition>
+        <argsstring>(GeneratorArgument *gen) const</argsstring>
+        <name>flatten</name>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1tracery_1_1GeneratorArgument" kindref="compound">GeneratorArgument</ref> *</type>
+          <declname>gen</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/tracery.h" line="99" column="16" bodyfile="libs/core/src/core/tracery.cc" bodystart="441" bodyend="447"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/tracery.h" line="91" column="5" bodyfile="libs/core/src/core/tracery.h" bodystart="92" bodyend="100"/>
+    <listofallmembers>
+      <member refid="structeu_1_1core_1_1tracery_1_1Symbol_1a34aeb64983bd401fbbb220029ec9270c" prot="public" virt="non-virtual"><scope>eu::core::tracery::Symbol</scope><name>add_rule</name></member>
+      <member refid="structeu_1_1core_1_1tracery_1_1Symbol_1a401c454ab49171f73c05a50632a0e080" prot="public" virt="non-virtual"><scope>eu::core::tracery::Symbol</scope><name>flatten</name></member>
+      <member refid="structeu_1_1core_1_1tracery_1_1Symbol_1add14db2470373c8fee81f1b2b2fee5bb" prot="public" virt="non-virtual"><scope>eu::core::tracery::Symbol</scope><name>key</name></member>
+      <member refid="structeu_1_1core_1_1tracery_1_1Symbol_1a0ae259555c28351e6d5a47dd91948bc7" prot="public" virt="non-virtual"><scope>eu::core::tracery::Symbol</scope><name>ruleset</name></member>
+      <member refid="structeu_1_1core_1_1tracery_1_1Symbol_1a38af217d7f0bbe84827a3dd6e2f9450c" prot="public" virt="non-virtual"><scope>eu::core::tracery::Symbol</scope><name>Symbol</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

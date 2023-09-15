@@ -178,42 +178,42 @@
         <link refid="argparse_8cc"/>
       </node>
     </invincdepgraph>
-    <innerclass refid="structeuphoria_1_1core_1_1argparse_1_1FileOutput" prot="public">euphoria::core::argparse::FileOutput</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1argparse_1_1ParseResult" prot="public">euphoria::core::argparse::ParseResult</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1argparse_1_1NameAndArguments" prot="public">euphoria::core::argparse::NameAndArguments</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1argparse_1_1ArgumentReader" prot="public">euphoria::core::argparse::ArgumentReader</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1argparse_1_1Printer" prot="public">euphoria::core::argparse::Printer</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1argparse_1_1ConsolePrinter" prot="public">euphoria::core::argparse::ConsolePrinter</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1argparse_1_1Runner" prot="public">euphoria::core::argparse::Runner</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1argparse_1_1Name" prot="public">euphoria::core::argparse::Name</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1argparse_1_1Argument" prot="public">euphoria::core::argparse::Argument</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1argparse_1_1ArgumentAndName" prot="public">euphoria::core::argparse::ArgumentAndName</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1argparse_1_1ArgumentNoValue" prot="public">euphoria::core::argparse::ArgumentNoValue</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1argparse_1_1SingleArgument" prot="public">euphoria::core::argparse::SingleArgument</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1argparse_1_1MultiArgument" prot="public">euphoria::core::argparse::MultiArgument</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1argparse_1_1SubParserNames" prot="public">euphoria::core::argparse::SubParserNames</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1argparse_1_1SubParserContainer" prot="public">euphoria::core::argparse::SubParserContainer</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1argparse_1_1SubParserGroup" prot="public">euphoria::core::argparse::SubParserGroup</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1argparse_1_1ParserBase" prot="public">euphoria::core::argparse::ParserBase</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1argparse_1_1SubParser" prot="public">euphoria::core::argparse::SubParser</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1argparse_1_1Parser" prot="public">euphoria::core::argparse::Parser</innerclass>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core_1_1argparse">euphoria::core::argparse</innernamespace>
+    <innerclass refid="structeu_1_1core_1_1argparse_1_1FileOutput" prot="public">eu::core::argparse::FileOutput</innerclass>
+    <innerclass refid="structeu_1_1core_1_1argparse_1_1ParseResult" prot="public">eu::core::argparse::ParseResult</innerclass>
+    <innerclass refid="structeu_1_1core_1_1argparse_1_1NameAndArguments" prot="public">eu::core::argparse::NameAndArguments</innerclass>
+    <innerclass refid="structeu_1_1core_1_1argparse_1_1ArgumentReader" prot="public">eu::core::argparse::ArgumentReader</innerclass>
+    <innerclass refid="structeu_1_1core_1_1argparse_1_1Printer" prot="public">eu::core::argparse::Printer</innerclass>
+    <innerclass refid="structeu_1_1core_1_1argparse_1_1ConsolePrinter" prot="public">eu::core::argparse::ConsolePrinter</innerclass>
+    <innerclass refid="structeu_1_1core_1_1argparse_1_1Runner" prot="public">eu::core::argparse::Runner</innerclass>
+    <innerclass refid="structeu_1_1core_1_1argparse_1_1Name" prot="public">eu::core::argparse::Name</innerclass>
+    <innerclass refid="structeu_1_1core_1_1argparse_1_1Argument" prot="public">eu::core::argparse::Argument</innerclass>
+    <innerclass refid="structeu_1_1core_1_1argparse_1_1ArgumentAndName" prot="public">eu::core::argparse::ArgumentAndName</innerclass>
+    <innerclass refid="structeu_1_1core_1_1argparse_1_1ArgumentNoValue" prot="public">eu::core::argparse::ArgumentNoValue</innerclass>
+    <innerclass refid="structeu_1_1core_1_1argparse_1_1SingleArgument" prot="public">eu::core::argparse::SingleArgument</innerclass>
+    <innerclass refid="structeu_1_1core_1_1argparse_1_1MultiArgument" prot="public">eu::core::argparse::MultiArgument</innerclass>
+    <innerclass refid="structeu_1_1core_1_1argparse_1_1SubParserNames" prot="public">eu::core::argparse::SubParserNames</innerclass>
+    <innerclass refid="structeu_1_1core_1_1argparse_1_1SubParserContainer" prot="public">eu::core::argparse::SubParserContainer</innerclass>
+    <innerclass refid="structeu_1_1core_1_1argparse_1_1SubParserGroup" prot="public">eu::core::argparse::SubParserGroup</innerclass>
+    <innerclass refid="structeu_1_1core_1_1argparse_1_1ParserBase" prot="public">eu::core::argparse::ParserBase</innerclass>
+    <innerclass refid="structeu_1_1core_1_1argparse_1_1SubParser" prot="public">eu::core::argparse::SubParser</innerclass>
+    <innerclass refid="structeu_1_1core_1_1argparse_1_1Parser" prot="public">eu::core::argparse::Parser</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core_1_1argparse">eu::core::argparse</innernamespace>
       <sectiondef kind="func">
-      <memberdef kind="function" id="argparse_8h_1a28218431508c44cc785894b64181de5f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="argparse_8h_1a640e8bc8f7efa33a7853b7cf7cdcb2f9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>ADD_DEFAULT_FORMATTER</definition>
-        <argsstring>(euphoria::core::argparse::ParseResult, std::string, euphoria::core::argparse::to_string)</argsstring>
+        <argsstring>(eu::core::argparse::ParseResult, std::string, eu::core::argparse::to_string)</argsstring>
         <name>ADD_DEFAULT_FORMATTER</name>
         <param>
-          <type><ref refid="structeuphoria_1_1core_1_1argparse_1_1ParseResult" kindref="compound">euphoria::core::argparse::ParseResult</ref></type>
+          <type><ref refid="structeu_1_1core_1_1argparse_1_1ParseResult" kindref="compound">eu::core::argparse::ParseResult</ref></type>
         </param>
         <param>
           <type>std::string</type>
         </param>
         <param>
-          <type><ref refid="namespaceeuphoria_1_1core_1_1argparse_1a2c6d66dcb5d8f4156c47178fc2b031d3" kindref="member">euphoria::core::argparse::to_string</ref></type>
+          <type><ref refid="namespaceeu_1_1core_1_1argparse_1aa6a76d8e4ba59911f9ee7f5ada9389f6" kindref="member">eu::core::argparse::to_string</ref></type>
         </param>
         <briefdescription>
         </briefdescription>
@@ -223,19 +223,19 @@
         </inbodydescription>
         <location file="libs/core/src/core/argparse.h" line="84" column="1" declfile="libs/core/src/core/argparse.h" declline="84" declcolumn="1"/>
       </memberdef>
-      <memberdef kind="function" id="argparse_8h_1a6300688b5969f7661382eeed51216997" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="argparse_8h_1a06736d91873eb40d392cc04552b8bf5d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>ADD_DEFAULT_FORMATTER</definition>
-        <argsstring>(euphoria::core::argparse::NameAndArguments, std::string, euphoria::core::argparse::to_string)</argsstring>
+        <argsstring>(eu::core::argparse::NameAndArguments, std::string, eu::core::argparse::to_string)</argsstring>
         <name>ADD_DEFAULT_FORMATTER</name>
         <param>
-          <type><ref refid="structeuphoria_1_1core_1_1argparse_1_1NameAndArguments" kindref="compound">euphoria::core::argparse::NameAndArguments</ref></type>
+          <type><ref refid="structeu_1_1core_1_1argparse_1_1NameAndArguments" kindref="compound">eu::core::argparse::NameAndArguments</ref></type>
         </param>
         <param>
           <type>std::string</type>
         </param>
         <param>
-          <type><ref refid="namespaceeuphoria_1_1core_1_1argparse_1a2c6d66dcb5d8f4156c47178fc2b031d3" kindref="member">euphoria::core::argparse::to_string</ref></type>
+          <type><ref refid="namespaceeu_1_1core_1_1argparse_1aa6a76d8e4ba59911f9ee7f5ada9389f6" kindref="member">eu::core::argparse::to_string</ref></type>
         </param>
         <briefdescription>
         </briefdescription>

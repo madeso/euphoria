@@ -147,9 +147,9 @@
         <link refid="core_2src_2core_2key_8h"/>
       </node>
     </incdepgraph>
-    <innerclass refid="structeuphoria_1_1minsynth_1_1ToneToFrequencyConverter" prot="public">euphoria::minsynth::ToneToFrequencyConverter</innerclass>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1minsynth">euphoria::minsynth</innernamespace>
+    <innerclass refid="structeu_1_1minsynth_1_1ToneToFrequencyConverter" prot="public">eu::minsynth::ToneToFrequencyConverter</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1minsynth">eu::minsynth</innernamespace>
     <innernamespace refid="namespacefmt_1_1literals">fmt::literals</innernamespace>
     <briefdescription>
     </briefdescription>

@@ -375,15 +375,15 @@
         </childnode>
       </node>
     </invincdepgraph>
-    <innerclass refid="structeuphoria_1_1render_1_1Glyph" prot="public">euphoria::render::Glyph</innerclass>
-    <innerclass refid="structeuphoria_1_1render_1_1TextDrawCommand" prot="public">euphoria::render::TextDrawCommand</innerclass>
-    <innerclass refid="structeuphoria_1_1render_1_1ListOfTextDrawCommands" prot="public">euphoria::render::ListOfTextDrawCommands</innerclass>
-    <innerclass refid="structeuphoria_1_1render_1_1DrawableText" prot="public">euphoria::render::DrawableText</innerclass>
-    <innerclass refid="structeuphoria_1_1render_1_1DrawableFont" prot="public">euphoria::render::DrawableFont</innerclass>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core_1_1vfs">euphoria::core::vfs</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1render">euphoria::render</innernamespace>
+    <innerclass refid="structeu_1_1render_1_1Glyph" prot="public">eu::render::Glyph</innerclass>
+    <innerclass refid="structeu_1_1render_1_1TextDrawCommand" prot="public">eu::render::TextDrawCommand</innerclass>
+    <innerclass refid="structeu_1_1render_1_1ListOfTextDrawCommands" prot="public">eu::render::ListOfTextDrawCommands</innerclass>
+    <innerclass refid="structeu_1_1render_1_1DrawableText" prot="public">eu::render::DrawableText</innerclass>
+    <innerclass refid="structeu_1_1render_1_1DrawableFont" prot="public">eu::render::DrawableFont</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core_1_1vfs">eu::core::vfs</innernamespace>
+    <innernamespace refid="namespaceeu_1_1render">eu::render</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

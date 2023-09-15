@@ -381,9 +381,9 @@
         <label>memory</label>
       </node>
     </incdepgraph>
-    <innerclass refid="structeuphoria_1_1core_1_1FontData" prot="public">euphoria::core::FontData</innerclass>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
+    <innerclass refid="structeu_1_1core_1_1FontData" prot="public">eu::core::FontData</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

@@ -1,0 +1,221 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1render_1_1CompiledMeshMaterial" kind="struct" language="C++" prot="public">
+    <compoundname>eu::render::CompiledMeshMaterial</compoundname>
+    <includes refid="compiledmesh_8h" local="no">compiledmesh.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1render_1_1CompiledMeshMaterial_1ae05a33c3789bfd3ff19a31a43da4c0d3" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1core_1_1Rgb" kindref="compound">core::Rgb</ref></type>
+        <definition>core::Rgb eu::render::CompiledMeshMaterial::ambient</definition>
+        <argsstring></argsstring>
+        <name>ambient</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/compiledmesh.h" line="43" column="19" bodyfile="libs/render/src/render/compiledmesh.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1CompiledMeshMaterial_1aabb751f549d705f554f2d6220ba915e7" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1core_1_1Rgb" kindref="compound">core::Rgb</ref></type>
+        <definition>core::Rgb eu::render::CompiledMeshMaterial::diffuse</definition>
+        <argsstring></argsstring>
+        <name>diffuse</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/compiledmesh.h" line="44" column="19" bodyfile="libs/render/src/render/compiledmesh.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1CompiledMeshMaterial_1a87d3fc9516ee13c4e5b370d9386fa8cc" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1core_1_1Rgb" kindref="compound">core::Rgb</ref></type>
+        <definition>core::Rgb eu::render::CompiledMeshMaterial::specular</definition>
+        <argsstring></argsstring>
+        <name>specular</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/compiledmesh.h" line="45" column="19" bodyfile="libs/render/src/render/compiledmesh.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1CompiledMeshMaterial_1aa3130656cc44ef34899e86fa9f1cea6f" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float eu::render::CompiledMeshMaterial::shininess</definition>
+        <argsstring></argsstring>
+        <name>shininess</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/compiledmesh.h" line="46" column="15" bodyfile="libs/render/src/render/compiledmesh.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1CompiledMeshMaterial_1adbcf4b6027a1b55fe0f99b298c447f00" prot="public" static="no" mutable="no">
+        <type>std::shared_ptr&lt; <ref refid="structeu_1_1render_1_1MaterialShader" kindref="compound">MaterialShader</ref> &gt;</type>
+        <definition>std::shared_ptr&lt;MaterialShader&gt; eu::render::CompiledMeshMaterial::shader</definition>
+        <argsstring></argsstring>
+        <name>shader</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/compiledmesh.h" line="47" column="25" bodyfile="libs/render/src/render/compiledmesh.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1CompiledMeshMaterial_1aa5f26caace2d905cd818d585d0216460" prot="public" static="no" mutable="no">
+        <type>std::map&lt; <ref refid="structeu_1_1core_1_1EnumValue" kindref="compound">core::EnumValue</ref>, std::shared_ptr&lt; <ref refid="structeu_1_1render_1_1Texture2" kindref="compound">Texture2</ref> &gt; &gt;</type>
+        <definition>std::map&lt;core::EnumValue, std::shared_ptr&lt;Texture2&gt; &gt; eu::render::CompiledMeshMaterial::textures</definition>
+        <argsstring></argsstring>
+        <name>textures</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/compiledmesh.h" line="48" column="18" bodyfile="libs/render/src/render/compiledmesh.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1render_1_1CompiledMeshMaterial_1ae1980de5347740d22a8fc4a96fac01f9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::CompiledMeshMaterial::CompiledMeshMaterial</definition>
+        <argsstring>()</argsstring>
+        <name>CompiledMeshMaterial</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/compiledmesh.h" line="51" column="9" bodyfile="libs/render/src/render/compiledmesh.cc" bodystart="25" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1CompiledMeshMaterial_1afac3eca67e30e97e318dacc307b4e6c3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::render::CompiledMeshMaterial::set_texture</definition>
+        <argsstring>(const core::EnumValue &amp;name, std::shared_ptr&lt; Texture2 &gt; texture)</argsstring>
+        <name>set_texture</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1EnumValue" kindref="compound">core::EnumValue</ref> &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>std::shared_ptr&lt; <ref refid="structeu_1_1render_1_1Texture2" kindref="compound">Texture2</ref> &gt;</type>
+          <declname>texture</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/compiledmesh.h" line="53" column="14" bodyfile="libs/render/src/render/compiledmesh.cc" bodystart="36" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1CompiledMeshMaterial_1a91b760307030efa142e54ce3b85366e6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::render::CompiledMeshMaterial::load_default_materials_from_shader</definition>
+        <argsstring>(TextureCache *cache)</argsstring>
+        <name>load_default_materials_from_shader</name>
+        <param>
+          <type><ref refid="structeu_1_1render_1_1TextureCache" kindref="compound">TextureCache</ref> *</type>
+          <declname>cache</declname>
+        </param>
+        <briefdescription>
+<para>Gets the default materials from the shader if they are null/not set. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/compiledmesh.h" line="61" column="14" bodyfile="libs/render/src/render/compiledmesh.cc" bodystart="93" bodyend="105"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1CompiledMeshMaterial_1a5c4ae6fc2cd23d32e7b1ecba3d326d69" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::render::CompiledMeshMaterial::apply</definition>
+        <argsstring>(const core::mat4f &amp;model_matrix, const core::mat4f &amp;projection_matrix, const core::mat4f &amp;view_matrix, const core::vec3f &amp;camera, const Light &amp;light) const</argsstring>
+        <name>apply</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1mat4f" kindref="compound">core::mat4f</ref> &amp;</type>
+          <declname>model_matrix</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1mat4f" kindref="compound">core::mat4f</ref> &amp;</type>
+          <declname>projection_matrix</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1mat4f" kindref="compound">core::mat4f</ref> &amp;</type>
+          <declname>view_matrix</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1vec3f" kindref="compound">core::vec3f</ref> &amp;</type>
+          <declname>camera</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1render_1_1Light" kindref="compound">Light</ref> &amp;</type>
+          <declname>light</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/compiledmesh.h" line="63" column="14" bodyfile="libs/render/src/render/compiledmesh.cc" bodystart="51" bodyend="89"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1CompiledMeshMaterial_1a4e6e23a9bb0e562b9376306307f98cd4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool eu::render::CompiledMeshMaterial::validate</definition>
+        <argsstring>() const</argsstring>
+        <name>validate</name>
+        <briefdescription>
+<para>Asks the shader if all the textures are set, and if more than necessary are set. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/compiledmesh.h" line="75" column="15" bodyfile="libs/render/src/render/compiledmesh.cc" bodystart="109" bodyend="149"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>eu::render::CompiledMeshMaterial</label>
+        <link refid="structeu_1_1render_1_1CompiledMeshMaterial"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>ambient</edgelabel>
+          <edgelabel>diffuse</edgelabel>
+          <edgelabel>specular</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>eu::core::Rgb</label>
+        <link refid="structeu_1_1core_1_1Rgb"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/render/src/render/compiledmesh.h" line="41" column="5" bodyfile="libs/render/src/render/compiledmesh.h" bodystart="42" bodyend="76"/>
+    <listofallmembers>
+      <member refid="structeu_1_1render_1_1CompiledMeshMaterial_1ae05a33c3789bfd3ff19a31a43da4c0d3" prot="public" virt="non-virtual"><scope>eu::render::CompiledMeshMaterial</scope><name>ambient</name></member>
+      <member refid="structeu_1_1render_1_1CompiledMeshMaterial_1a5c4ae6fc2cd23d32e7b1ecba3d326d69" prot="public" virt="non-virtual"><scope>eu::render::CompiledMeshMaterial</scope><name>apply</name></member>
+      <member refid="structeu_1_1render_1_1CompiledMeshMaterial_1ae1980de5347740d22a8fc4a96fac01f9" prot="public" virt="non-virtual"><scope>eu::render::CompiledMeshMaterial</scope><name>CompiledMeshMaterial</name></member>
+      <member refid="structeu_1_1render_1_1CompiledMeshMaterial_1aabb751f549d705f554f2d6220ba915e7" prot="public" virt="non-virtual"><scope>eu::render::CompiledMeshMaterial</scope><name>diffuse</name></member>
+      <member refid="structeu_1_1render_1_1CompiledMeshMaterial_1a91b760307030efa142e54ce3b85366e6" prot="public" virt="non-virtual"><scope>eu::render::CompiledMeshMaterial</scope><name>load_default_materials_from_shader</name></member>
+      <member refid="structeu_1_1render_1_1CompiledMeshMaterial_1afac3eca67e30e97e318dacc307b4e6c3" prot="public" virt="non-virtual"><scope>eu::render::CompiledMeshMaterial</scope><name>set_texture</name></member>
+      <member refid="structeu_1_1render_1_1CompiledMeshMaterial_1adbcf4b6027a1b55fe0f99b298c447f00" prot="public" virt="non-virtual"><scope>eu::render::CompiledMeshMaterial</scope><name>shader</name></member>
+      <member refid="structeu_1_1render_1_1CompiledMeshMaterial_1aa3130656cc44ef34899e86fa9f1cea6f" prot="public" virt="non-virtual"><scope>eu::render::CompiledMeshMaterial</scope><name>shininess</name></member>
+      <member refid="structeu_1_1render_1_1CompiledMeshMaterial_1a87d3fc9516ee13c4e5b370d9386fa8cc" prot="public" virt="non-virtual"><scope>eu::render::CompiledMeshMaterial</scope><name>specular</name></member>
+      <member refid="structeu_1_1render_1_1CompiledMeshMaterial_1aa5f26caace2d905cd818d585d0216460" prot="public" virt="non-virtual"><scope>eu::render::CompiledMeshMaterial</scope><name>textures</name></member>
+      <member refid="structeu_1_1render_1_1CompiledMeshMaterial_1a4e6e23a9bb0e562b9376306307f98cd4" prot="public" virt="non-virtual"><scope>eu::render::CompiledMeshMaterial</scope><name>validate</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

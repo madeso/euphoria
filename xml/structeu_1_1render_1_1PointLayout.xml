@@ -1,0 +1,222 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1render_1_1PointLayout" kind="struct" language="C++" prot="public">
+    <compoundname>eu::render::PointLayout</compoundname>
+    <basecompoundref refid="structeu_1_1render_1_1Id" prot="public" virt="non-virtual">eu::render::Id</basecompoundref>
+    <includes refid="buffer_8h" local="no">buffer.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1render_1_1PointLayout_1a0fdc65103b600e6f8ca6d71b82bbba9c" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structeu_1_1render_1_1ShaderAttribute" kindref="compound">ShaderAttribute</ref> &gt;</type>
+        <definition>std::vector&lt;ShaderAttribute&gt; eu::render::PointLayout::attributes</definition>
+        <argsstring></argsstring>
+        <name>attributes</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/buffer.h" line="35" column="21" bodyfile="libs/render/src/render/buffer.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1render_1_1PointLayout_1adc5e38ef9c9596e91efb0d43c18ff7a3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::PointLayout::PointLayout</definition>
+        <argsstring>()</argsstring>
+        <name>PointLayout</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/buffer.h" line="37" column="9" bodyfile="libs/render/src/render/buffer.cc" bodystart="57" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1PointLayout_1ada06714cdf7ac7a9749b51ad45993d50" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::PointLayout::~PointLayout</definition>
+        <argsstring>()</argsstring>
+        <name>~PointLayout</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/buffer.h" line="38" column="9" bodyfile="libs/render/src/render/buffer.cc" bodystart="63" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1PointLayout_1a56db6616554e697e5ceca664b2a5ca47" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::PointLayout::PointLayout</definition>
+        <argsstring>(const PointLayout &amp;)=delete</argsstring>
+        <name>PointLayout</name>
+        <param>
+          <type>const <ref refid="structeu_1_1render_1_1PointLayout" kindref="compound">PointLayout</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/buffer.h" line="40" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1PointLayout_1a4f6196d708c555cfe7538e7b204dca62" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::PointLayout::PointLayout</definition>
+        <argsstring>(PointLayout &amp;&amp;)=delete</argsstring>
+        <name>PointLayout</name>
+        <param>
+          <type><ref refid="structeu_1_1render_1_1PointLayout" kindref="compound">PointLayout</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/buffer.h" line="41" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1PointLayout_1ae4e8db5792fa180f2fba754761c7bfbb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::render::PointLayout::operator=</definition>
+        <argsstring>(const PointLayout &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="structeu_1_1render_1_1PointLayout" kindref="compound">PointLayout</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/buffer.h" line="42" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1PointLayout_1ab58c9eb4245e14e02d49a165032bfaea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::render::PointLayout::operator=</definition>
+        <argsstring>(PointLayout &amp;&amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="structeu_1_1render_1_1PointLayout" kindref="compound">PointLayout</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/buffer.h" line="43" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1PointLayout_1af73b7704f06b759885eb801500632d83" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::render::PointLayout::bind_data</definition>
+        <argsstring>(const ShaderAttribute &amp;attribute, int stride, int offset)</argsstring>
+        <name>bind_data</name>
+        <param>
+          <type>const <ref refid="structeu_1_1render_1_1ShaderAttribute" kindref="compound">ShaderAttribute</ref> &amp;</type>
+          <declname>attribute</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>stride</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>offset</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/buffer.h" line="47" column="14" bodyfile="libs/render/src/render/buffer.cc" bodystart="110" bodyend="126"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="structeu_1_1render_1_1PointLayout_1a050d6f9afcc4dd9be4287c9d749164a1" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="structeu_1_1render_1_1PointLayout" kindref="compound">PointLayout</ref> *&amp;</type>
+        <definition>const PointLayout *&amp; eu::render::PointLayout::get_bound</definition>
+        <argsstring>()</argsstring>
+        <name>get_bound</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/buffer.h" line="45" column="34" bodyfile="libs/render/src/render/buffer.cc" bodystart="139" bodyend="143"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1PointLayout_1ae146f7ae375970ca5daa36cd8ab4f16a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::render::PointLayout::bind</definition>
+        <argsstring>(const PointLayout *vao)</argsstring>
+        <name>bind</name>
+        <param>
+          <type>const <ref refid="structeu_1_1render_1_1PointLayout" kindref="compound">PointLayout</ref> *</type>
+          <declname>vao</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/buffer.h" line="49" column="21" bodyfile="libs/render/src/render/buffer.cc" bodystart="130" bodyend="135"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Stores what the data in the vertex_buffer is and how it is laid out/used Represents a OpenGL Vertex Array Object (VAO). </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>eu::render::PointLayout</label>
+        <link refid="structeu_1_1render_1_1PointLayout"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>eu::render::Id</label>
+        <link refid="structeu_1_1render_1_1Id"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>eu::render::PointLayout</label>
+        <link refid="structeu_1_1render_1_1PointLayout"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>eu::render::Id</label>
+        <link refid="structeu_1_1render_1_1Id"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/render/src/render/buffer.h" line="33" column="5" bodyfile="libs/render/src/render/buffer.h" bodystart="34" bodyend="50"/>
+    <listofallmembers>
+      <member refid="structeu_1_1render_1_1PointLayout_1a0fdc65103b600e6f8ca6d71b82bbba9c" prot="public" virt="non-virtual"><scope>eu::render::PointLayout</scope><name>attributes</name></member>
+      <member refid="structeu_1_1render_1_1PointLayout_1ae146f7ae375970ca5daa36cd8ab4f16a" prot="public" virt="non-virtual"><scope>eu::render::PointLayout</scope><name>bind</name></member>
+      <member refid="structeu_1_1render_1_1PointLayout_1af73b7704f06b759885eb801500632d83" prot="public" virt="non-virtual"><scope>eu::render::PointLayout</scope><name>bind_data</name></member>
+      <member refid="structeu_1_1render_1_1PointLayout_1a050d6f9afcc4dd9be4287c9d749164a1" prot="public" virt="non-virtual"><scope>eu::render::PointLayout</scope><name>get_bound</name></member>
+      <member refid="structeu_1_1render_1_1Id_1a07937197b568b51b3cd26fed109957a8" prot="public" virt="non-virtual"><scope>eu::render::PointLayout</scope><name>get_id</name></member>
+      <member refid="structeu_1_1render_1_1Id_1aa90fc6770c9fc805ffff74b19c1f80c0" prot="protected" virt="non-virtual"><scope>eu::render::PointLayout</scope><name>id</name></member>
+      <member refid="structeu_1_1render_1_1Id_1a35d3deaa918e48a631dd12afa94fae3d" prot="public" virt="non-virtual"><scope>eu::render::PointLayout</scope><name>Id</name></member>
+      <member refid="structeu_1_1render_1_1Id_1aca7f863508e6ac855ecc9008a68c3636" prot="public" virt="non-virtual"><scope>eu::render::PointLayout</scope><name>Id</name></member>
+      <member refid="structeu_1_1render_1_1Id_1a3f8819cb870115479a71040bc437755d" prot="public" virt="non-virtual"><scope>eu::render::PointLayout</scope><name>Id</name></member>
+      <member refid="structeu_1_1render_1_1PointLayout_1ae4e8db5792fa180f2fba754761c7bfbb" prot="public" virt="non-virtual"><scope>eu::render::PointLayout</scope><name>operator=</name></member>
+      <member refid="structeu_1_1render_1_1PointLayout_1ab58c9eb4245e14e02d49a165032bfaea" prot="public" virt="non-virtual"><scope>eu::render::PointLayout</scope><name>operator=</name></member>
+      <member refid="structeu_1_1render_1_1Id_1a74cc897f8eb4555625f0e6eac0b16598" prot="public" virt="non-virtual" ambiguityscope="eu::render::Id::"><scope>eu::render::PointLayout</scope><name>operator=</name></member>
+      <member refid="structeu_1_1render_1_1Id_1a1877ad126b56602095c4f968d3a52af2" prot="public" virt="non-virtual" ambiguityscope="eu::render::Id::"><scope>eu::render::PointLayout</scope><name>operator=</name></member>
+      <member refid="structeu_1_1render_1_1PointLayout_1adc5e38ef9c9596e91efb0d43c18ff7a3" prot="public" virt="non-virtual"><scope>eu::render::PointLayout</scope><name>PointLayout</name></member>
+      <member refid="structeu_1_1render_1_1PointLayout_1a56db6616554e697e5ceca664b2a5ca47" prot="public" virt="non-virtual"><scope>eu::render::PointLayout</scope><name>PointLayout</name></member>
+      <member refid="structeu_1_1render_1_1PointLayout_1a4f6196d708c555cfe7538e7b204dca62" prot="public" virt="non-virtual"><scope>eu::render::PointLayout</scope><name>PointLayout</name></member>
+      <member refid="structeu_1_1render_1_1Id_1a6bf1f55eddb4520e2e3d3803f6231750" prot="public" virt="non-virtual"><scope>eu::render::PointLayout</scope><name>~Id</name></member>
+      <member refid="structeu_1_1render_1_1PointLayout_1ada06714cdf7ac7a9749b51ad45993d50" prot="public" virt="non-virtual"><scope>eu::render::PointLayout</scope><name>~PointLayout</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

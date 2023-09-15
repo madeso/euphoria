@@ -1,0 +1,142 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1minsynth_1_1SingleToneNode" kind="struct" language="C++" prot="public">
+    <compoundname>eu::minsynth::SingleToneNode</compoundname>
+    <basecompoundref refid="structeu_1_1minsynth_1_1ToneTaker" prot="public" virt="non-virtual">eu::minsynth::ToneTaker</basecompoundref>
+    <basecompoundref refid="structeu_1_1minsynth_1_1ToneSender" prot="public" virt="non-virtual">eu::minsynth::ToneSender</basecompoundref>
+    <basecompoundref refid="structeu_1_1minsynth_1_1Node" prot="public" virt="non-virtual">eu::minsynth::Node</basecompoundref>
+    <includes refid="synth_8h" local="no">synth.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1minsynth_1_1SingleToneNode_1a1caac258e0b555476332dfb368579fbc" prot="public" static="no" mutable="no">
+        <type>std::map&lt; int, float &gt;</type>
+        <definition>std::map&lt;int, float&gt; eu::minsynth::SingleToneNode::down_tones</definition>
+        <argsstring></argsstring>
+        <name>down_tones</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="237" column="18" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="237" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1minsynth_1_1SingleToneNode_1abcc0c5f9e4c58ff12abdbb3dc8e4e034" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void eu::minsynth::SingleToneNode::on_tone</definition>
+        <argsstring>(int tone, bool down, float time) override</argsstring>
+        <name>on_tone</name>
+        <reimplements refid="structeu_1_1minsynth_1_1ToneTaker_1af2e7fbe1c33550ea94573730da0dfc4e">on_tone</reimplements>
+        <param>
+          <type>int</type>
+          <declname>tone</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>down</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>time</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="239" column="14" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="458" bodyend="490"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1minsynth_1_1SingleToneNode_1ab19fb1e9ff9dea57bf8c426ac563d019" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int eu::minsynth::SingleToneNode::get_current_tone</definition>
+        <argsstring>() const</argsstring>
+        <name>get_current_tone</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="241" column="14" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="493" bodyend="518"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>eu::minsynth::ToneTaker</label>
+        <link refid="structeu_1_1minsynth_1_1ToneTaker"/>
+      </node>
+      <node id="1">
+        <label>eu::minsynth::SingleToneNode</label>
+        <link refid="structeu_1_1minsynth_1_1SingleToneNode"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>eu::minsynth::Node</label>
+        <link refid="structeu_1_1minsynth_1_1Node"/>
+      </node>
+      <node id="3">
+        <label>eu::minsynth::ToneSender</label>
+        <link refid="structeu_1_1minsynth_1_1ToneSender"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>eu::minsynth::ToneTaker</label>
+        <link refid="structeu_1_1minsynth_1_1ToneTaker"/>
+      </node>
+      <node id="1">
+        <label>eu::minsynth::SingleToneNode</label>
+        <link refid="structeu_1_1minsynth_1_1SingleToneNode"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>eu::minsynth::Node</label>
+        <link refid="structeu_1_1minsynth_1_1Node"/>
+      </node>
+      <node id="3">
+        <label>eu::minsynth::ToneSender</label>
+        <link refid="structeu_1_1minsynth_1_1ToneSender"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>next_node</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="libs/minsynth/src/minsynth/synth.h" line="232" column="5" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="236" bodyend="242"/>
+    <listofallmembers>
+      <member refid="structeu_1_1minsynth_1_1SingleToneNode_1a1caac258e0b555476332dfb368579fbc" prot="public" virt="non-virtual"><scope>eu::minsynth::SingleToneNode</scope><name>down_tones</name></member>
+      <member refid="structeu_1_1minsynth_1_1SingleToneNode_1ab19fb1e9ff9dea57bf8c426ac563d019" prot="public" virt="non-virtual"><scope>eu::minsynth::SingleToneNode</scope><name>get_current_tone</name></member>
+      <member refid="structeu_1_1minsynth_1_1ToneSender_1a27abfd1945692445a0195923fa251c4d" prot="public" virt="non-virtual"><scope>eu::minsynth::SingleToneNode</scope><name>next_node</name></member>
+      <member refid="structeu_1_1minsynth_1_1Node_1a002bc28d784af70c6fb70c52b03a8997" prot="public" virt="non-virtual"><scope>eu::minsynth::SingleToneNode</scope><name>Node</name></member>
+      <member refid="structeu_1_1minsynth_1_1Node_1a630c8289c6375767f1c04a5ad2d89326" prot="public" virt="non-virtual"><scope>eu::minsynth::SingleToneNode</scope><name>Node</name></member>
+      <member refid="structeu_1_1minsynth_1_1Node_1a410b013072925b526a5ff492b7d47401" prot="public" virt="non-virtual"><scope>eu::minsynth::SingleToneNode</scope><name>Node</name></member>
+      <member refid="structeu_1_1minsynth_1_1SingleToneNode_1abcc0c5f9e4c58ff12abdbb3dc8e4e034" prot="public" virt="virtual"><scope>eu::minsynth::SingleToneNode</scope><name>on_tone</name></member>
+      <member refid="structeu_1_1minsynth_1_1ToneTaker_1a75069b326065f6fc37c93500244c0406" prot="public" virt="non-virtual" ambiguityscope="eu::"><scope>eu::minsynth::SingleToneNode</scope><name>operator=</name></member>
+      <member refid="structeu_1_1minsynth_1_1ToneTaker_1a16ce2b57130122160e12d69704be36bc" prot="public" virt="non-virtual" ambiguityscope="eu::"><scope>eu::minsynth::SingleToneNode</scope><name>operator=</name></member>
+      <member refid="structeu_1_1minsynth_1_1Node_1ac13f2131c392fedafa8df524da273bc7" prot="public" virt="non-virtual" ambiguityscope="eu::minsynth::Node::"><scope>eu::minsynth::SingleToneNode</scope><name>operator=</name></member>
+      <member refid="structeu_1_1minsynth_1_1Node_1a140bda51a50bd2df3a7930dd79103893" prot="public" virt="non-virtual" ambiguityscope="eu::minsynth::Node::"><scope>eu::minsynth::SingleToneNode</scope><name>operator=</name></member>
+      <member refid="structeu_1_1minsynth_1_1ToneSender_1aff617162c224e8dba0c3bfe665c51ae8" prot="public" virt="non-virtual"><scope>eu::minsynth::SingleToneNode</scope><name>send_tone</name></member>
+      <member refid="structeu_1_1minsynth_1_1ToneTaker_1a4a602e00e3b022fc410692aa468ffd82" prot="public" virt="non-virtual"><scope>eu::minsynth::SingleToneNode</scope><name>ToneTaker</name></member>
+      <member refid="structeu_1_1minsynth_1_1ToneTaker_1a4d5d6b847e1dc8944f1f0b94e9c774ed" prot="public" virt="non-virtual"><scope>eu::minsynth::SingleToneNode</scope><name>ToneTaker</name></member>
+      <member refid="structeu_1_1minsynth_1_1ToneTaker_1abed0cb4df901a770200d7291a97a001e" prot="public" virt="non-virtual"><scope>eu::minsynth::SingleToneNode</scope><name>ToneTaker</name></member>
+      <member refid="structeu_1_1minsynth_1_1Node_1a49bfba1094d62ac6bda6d22b139337be" prot="public" virt="virtual"><scope>eu::minsynth::SingleToneNode</scope><name>update</name></member>
+      <member refid="structeu_1_1minsynth_1_1Node_1afc23f2be2b9e942d84ef6b113af27e5f" prot="public" virt="virtual"><scope>eu::minsynth::SingleToneNode</scope><name>~Node</name></member>
+      <member refid="structeu_1_1minsynth_1_1ToneTaker_1a50695974ca85c8448e22cd6ed9d97ba1" prot="public" virt="virtual"><scope>eu::minsynth::SingleToneNode</scope><name>~ToneTaker</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

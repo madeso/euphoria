@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1core_1_1MemoryChunkFile" kind="struct" language="C++" prot="public">
+    <compoundname>eu::core::MemoryChunkFile</compoundname>
+    <includes refid="memorychunk_8h" local="no">memorychunk.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1core_1_1MemoryChunkFile_1a711863ae90f7442f76adb01da8bf09c5" prot="public" static="no" mutable="no">
+        <type>std::shared_ptr&lt; <ref refid="structeu_1_1core_1_1MemoryChunk" kindref="compound">MemoryChunk</ref> &gt;</type>
+        <definition>std::shared_ptr&lt;MemoryChunk&gt; eu::core::MemoryChunkFile::data</definition>
+        <argsstring></argsstring>
+        <name>data</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/memorychunk.h" line="34" column="25" bodyfile="libs/core/src/core/memorychunk.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1MemoryChunkFile_1a70a097432b62ec2e155ef8291ffe7100" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int eu::core::MemoryChunkFile::position</definition>
+        <argsstring></argsstring>
+        <name>position</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/memorychunk.h" line="35" column="13" bodyfile="libs/core/src/core/memorychunk.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1MemoryChunkFile_1a8a8f2c60ce46c2d5a41296e4693e0cc6" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::core::MemoryChunkFile::MemoryChunkFile</definition>
+        <argsstring>(std::shared_ptr&lt; MemoryChunk &gt; d)</argsstring>
+        <name>MemoryChunkFile</name>
+        <param>
+          <type>std::shared_ptr&lt; <ref refid="structeu_1_1core_1_1MemoryChunk" kindref="compound">MemoryChunk</ref> &gt;</type>
+          <declname>d</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/memorychunk.h" line="37" column="18" bodyfile="libs/core/src/core/memorychunk.cc" bodystart="76" bodyend="80"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1MemoryChunkFile_1a3fdb7e91dee3d619d550343d228749a5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::MemoryChunkFile::write</definition>
+        <argsstring>(const void *src, int size)</argsstring>
+        <name>write</name>
+        <param>
+          <type>const void *</type>
+          <declname>src</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/memorychunk.h" line="39" column="14" bodyfile="libs/core/src/core/memorychunk.cc" bodystart="83" bodyend="88"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/memorychunk.h" line="32" column="5" bodyfile="libs/core/src/core/memorychunk.h" bodystart="33" bodyend="40"/>
+    <listofallmembers>
+      <member refid="structeu_1_1core_1_1MemoryChunkFile_1a711863ae90f7442f76adb01da8bf09c5" prot="public" virt="non-virtual"><scope>eu::core::MemoryChunkFile</scope><name>data</name></member>
+      <member refid="structeu_1_1core_1_1MemoryChunkFile_1a8a8f2c60ce46c2d5a41296e4693e0cc6" prot="public" virt="non-virtual"><scope>eu::core::MemoryChunkFile</scope><name>MemoryChunkFile</name></member>
+      <member refid="structeu_1_1core_1_1MemoryChunkFile_1a70a097432b62ec2e155ef8291ffe7100" prot="public" virt="non-virtual"><scope>eu::core::MemoryChunkFile</scope><name>position</name></member>
+      <member refid="structeu_1_1core_1_1MemoryChunkFile_1a3fdb7e91dee3d619d550343d228749a5" prot="public" virt="non-virtual"><scope>eu::core::MemoryChunkFile</scope><name>write</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

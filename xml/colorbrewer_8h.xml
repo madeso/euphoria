@@ -205,13 +205,13 @@
         <link refid="colorbrewer_8cc"/>
       </node>
     </invincdepgraph>
-    <innerclass refid="structeuphoria_1_1core_1_1colorbrewer_1_1Properties" prot="public">euphoria::core::colorbrewer::Properties</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1colorbrewer_1_1BrewerPalette" prot="public">euphoria::core::colorbrewer::BrewerPalette</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1colorbrewer_1_1Colorbrewer" prot="public">euphoria::core::colorbrewer::Colorbrewer</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1colorbrewer_1_1SinglePalette" prot="public">euphoria::core::colorbrewer::SinglePalette</innerclass>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core_1_1colorbrewer">euphoria::core::colorbrewer</innernamespace>
+    <innerclass refid="structeu_1_1core_1_1colorbrewer_1_1Properties" prot="public">eu::core::colorbrewer::Properties</innerclass>
+    <innerclass refid="structeu_1_1core_1_1colorbrewer_1_1BrewerPalette" prot="public">eu::core::colorbrewer::BrewerPalette</innerclass>
+    <innerclass refid="structeu_1_1core_1_1colorbrewer_1_1Colorbrewer" prot="public">eu::core::colorbrewer::Colorbrewer</innerclass>
+    <innerclass refid="structeu_1_1core_1_1colorbrewer_1_1SinglePalette" prot="public">eu::core::colorbrewer::SinglePalette</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core_1_1colorbrewer">eu::core::colorbrewer</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

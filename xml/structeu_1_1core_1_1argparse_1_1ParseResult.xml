@@ -1,0 +1,144 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1core_1_1argparse_1_1ParseResult" kind="struct" language="C++" prot="public">
+    <compoundname>eu::core::argparse::ParseResult</compoundname>
+    <includes refid="argparse_8h" local="no">argparse.h</includes>
+      <sectiondef kind="public-type">
+      <memberdef kind="enum" id="structeu_1_1core_1_1argparse_1_1ParseResult_1a4fbdda1b7c1d3bead58d135c4522c397" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>Type</name>
+        <enumvalue id="structeu_1_1core_1_1argparse_1_1ParseResult_1a4fbdda1b7c1d3bead58d135c4522c397acb5e100e5a9a3e7f6d1fd97512215282" prot="public">
+          <name>error</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="structeu_1_1core_1_1argparse_1_1ParseResult_1a4fbdda1b7c1d3bead58d135c4522c397a444bcb3a3fcf8389296c49467f27e1d6" prot="public">
+          <name>ok</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="structeu_1_1core_1_1argparse_1_1ParseResult_1a4fbdda1b7c1d3bead58d135c4522c397adbd73c2b545209688ed794c0d5413d5a" prot="public">
+          <name>quit</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="structeu_1_1core_1_1argparse_1_1ParseResult_1a4fbdda1b7c1d3bead58d135c4522c397a8b9035807842a4e4dbe009f3f1478127" prot="public">
+          <name>custom</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/argparse.h" line="43" column="9" bodyfile="libs/core/src/core/argparse.h" bodystart="43" bodyend="43"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1core_1_1argparse_1_1ParseResult_1ab16ccb3a2c839dd95025a1696cf30272" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1core_1_1argparse_1_1ParseResult_1a4fbdda1b7c1d3bead58d135c4522c397" kindref="member">Type</ref></type>
+        <definition>Type eu::core::argparse::ParseResult::internal_type</definition>
+        <argsstring></argsstring>
+        <name>internal_type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/argparse.h" line="45" column="14" bodyfile="libs/core/src/core/argparse.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1argparse_1_1ParseResult_1a66f053e4bc740c6a9002f5202e7dd6df" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int eu::core::argparse::ParseResult::return_value</definition>
+        <argsstring></argsstring>
+        <name>return_value</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/argparse.h" line="46" column="13" bodyfile="libs/core/src/core/argparse.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1argparse_1_1ParseResult_1a62045e6aea3cac048ea5e06fb52e593f" prot="public" static="no" constexpr="yes" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type>constexpr</type>
+        <definition>constexpr eu::core::argparse::ParseResult::ParseResult</definition>
+        <argsstring>(Type t)</argsstring>
+        <name>ParseResult</name>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1argparse_1_1ParseResult_1a4fbdda1b7c1d3bead58d135c4522c397" kindref="member">Type</ref></type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/argparse.h" line="48" column="28" bodyfile="libs/core/src/core/argparse.h" bodystart="48" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1argparse_1_1ParseResult_1a4c257291f5f90127baa5537bfe33b765" prot="public" static="no" constexpr="yes" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type>constexpr</type>
+        <definition>constexpr eu::core::argparse::ParseResult::ParseResult</definition>
+        <argsstring>(int rv)</argsstring>
+        <name>ParseResult</name>
+        <param>
+          <type>int</type>
+          <declname>rv</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/argparse.h" line="54" column="28" bodyfile="libs/core/src/core/argparse.h" bodystart="54" bodyend="58"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1argparse_1_1ParseResult_1a21962c8d4829490fbebd0bf2934c57c5" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>constexpr int</type>
+        <definition>static constexpr int eu::core::argparse::ParseResult::get_default_return_value</definition>
+        <argsstring>(Type pr)</argsstring>
+        <name>get_default_return_value</name>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1argparse_1_1ParseResult_1a4fbdda1b7c1d3bead58d135c4522c397" kindref="member">Type</ref></type>
+          <declname>pr</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/argparse.h" line="60" column="30" bodyfile="libs/core/src/core/argparse.h" bodystart="60" bodyend="69"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/argparse.h" line="41" column="5" bodyfile="libs/core/src/core/argparse.h" bodystart="42" bodyend="70"/>
+    <listofallmembers>
+      <member refid="structeu_1_1core_1_1argparse_1_1ParseResult_1a21962c8d4829490fbebd0bf2934c57c5" prot="public" virt="non-virtual"><scope>eu::core::argparse::ParseResult</scope><name>get_default_return_value</name></member>
+      <member refid="structeu_1_1core_1_1argparse_1_1ParseResult_1ab16ccb3a2c839dd95025a1696cf30272" prot="public" virt="non-virtual"><scope>eu::core::argparse::ParseResult</scope><name>internal_type</name></member>
+      <member refid="structeu_1_1core_1_1argparse_1_1ParseResult_1a62045e6aea3cac048ea5e06fb52e593f" prot="public" virt="non-virtual"><scope>eu::core::argparse::ParseResult</scope><name>ParseResult</name></member>
+      <member refid="structeu_1_1core_1_1argparse_1_1ParseResult_1a4c257291f5f90127baa5537bfe33b765" prot="public" virt="non-virtual"><scope>eu::core::argparse::ParseResult</scope><name>ParseResult</name></member>
+      <member refid="structeu_1_1core_1_1argparse_1_1ParseResult_1a66f053e4bc740c6a9002f5202e7dd6df" prot="public" virt="non-virtual"><scope>eu::core::argparse::ParseResult</scope><name>return_value</name></member>
+      <member refid="structeu_1_1core_1_1argparse_1_1ParseResult_1a4fbdda1b7c1d3bead58d135c4522c397" prot="public" virt="non-virtual"><scope>eu::core::argparse::ParseResult</scope><name>Type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

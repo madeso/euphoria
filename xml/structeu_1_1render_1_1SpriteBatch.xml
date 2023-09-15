@@ -1,0 +1,266 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1render_1_1SpriteBatch" kind="struct" language="C++" prot="public">
+    <compoundname>eu::render::SpriteBatch</compoundname>
+    <includes refid="spritebatch_8h" local="no">spritebatch.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="structeu_1_1render_1_1SpriteBatch_1a82f9d6d643fcfa02262cd6b6a58c7093" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool eu::render::SpriteBatch::is_inside</definition>
+        <argsstring></argsstring>
+        <name>is_inside</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/spritebatch.h" line="45" column="14" bodyfile="libs/render/src/render/spritebatch.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1SpriteBatch_1acadf1210507a6389138fed4f77bbf14b" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int eu::render::SpriteBatch::current_quad_count</definition>
+        <argsstring></argsstring>
+        <name>current_quad_count</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/spritebatch.h" line="46" column="13" bodyfile="libs/render/src/render/spritebatch.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1SpriteBatch_1a8ba354fbe429cbc80e9b2de6ca7f7fe8" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int eu::render::SpriteBatch::number_of_render_calls</definition>
+        <argsstring></argsstring>
+        <name>number_of_render_calls</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/spritebatch.h" line="47" column="13" bodyfile="libs/render/src/render/spritebatch.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1SpriteBatch_1a063da8482bb6cb6610655a5cf8920852" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; float &gt;</type>
+        <definition>std::vector&lt;float&gt; eu::render::SpriteBatch::vertex_data</definition>
+        <argsstring></argsstring>
+        <name>vertex_data</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/spritebatch.h" line="48" column="21" bodyfile="libs/render/src/render/spritebatch.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1SpriteBatch_1aa6c07e8e31e41aa423624675fe10f40e" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; int &gt;</type>
+        <definition>std::vector&lt;int&gt; eu::render::SpriteBatch::quad_indices</definition>
+        <argsstring></argsstring>
+        <name>quad_indices</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/spritebatch.h" line="49" column="21" bodyfile="libs/render/src/render/spritebatch.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1render_1_1SpriteBatch_1a9c7522db53e0500de909dd44524616af" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::SpriteBatch::SpriteBatch</definition>
+        <argsstring>()</argsstring>
+        <name>SpriteBatch</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/spritebatch.h" line="16" column="9" bodyfile="libs/render/src/render/spritebatch.cc" bodystart="14" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1SpriteBatch_1af662f618b37483ae6e782fa560739b51" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::SpriteBatch::~SpriteBatch</definition>
+        <argsstring>()</argsstring>
+        <name>~SpriteBatch</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/spritebatch.h" line="17" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1SpriteBatch_1a226cc36f8c2df5c870ca8b7f8fdd8e2c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::SpriteBatch::SpriteBatch</definition>
+        <argsstring>(const SpriteBatch &amp;other)=delete</argsstring>
+        <name>SpriteBatch</name>
+        <param>
+          <type>const <ref refid="structeu_1_1render_1_1SpriteBatch" kindref="compound">SpriteBatch</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/spritebatch.h" line="19" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1SpriteBatch_1a1bdeccf1a75f03db27f5751b9183dfc2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::render::SpriteBatch::operator=</definition>
+        <argsstring>(const SpriteBatch &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="structeu_1_1render_1_1SpriteBatch" kindref="compound">SpriteBatch</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/spritebatch.h" line="20" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1SpriteBatch_1af84416d3dae05124ce0da01095c7b90d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::SpriteBatch::SpriteBatch</definition>
+        <argsstring>(SpriteBatch &amp;&amp;other)=delete</argsstring>
+        <name>SpriteBatch</name>
+        <param>
+          <type><ref refid="structeu_1_1render_1_1SpriteBatch" kindref="compound">SpriteBatch</ref> &amp;&amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/spritebatch.h" line="21" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1SpriteBatch_1ae6fe69a3ff9cf2bded6cc53c6cff888d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::render::SpriteBatch::operator=</definition>
+        <argsstring>(SpriteBatch &amp;&amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="structeu_1_1render_1_1SpriteBatch" kindref="compound">SpriteBatch</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/spritebatch.h" line="22" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1SpriteBatch_1aedb9e415425bab713e7368ec8db7f880" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::render::SpriteBatch::begin</definition>
+        <argsstring>()</argsstring>
+        <name>begin</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/spritebatch.h" line="25" column="9" bodyfile="libs/render/src/render/spritebatch.cc" bodystart="25" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1SpriteBatch_1a63379a2447679de7dcea22708608cf7b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::render::SpriteBatch::render_quad</definition>
+        <argsstring>(const core::vec2f &amp;pos, const core::size2f &amp;quad, const core::Rectf &amp;uv, const core::Scale2f &amp;center, const core::Angle &amp;rotation, const core::Rgba &amp;color)</argsstring>
+        <name>render_quad</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1vec2f" kindref="compound">core::vec2f</ref> &amp;</type>
+          <declname>pos</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1size2f" kindref="compound">core::size2f</ref> &amp;</type>
+          <declname>quad</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1Rectf" kindref="compound">core::Rectf</ref> &amp;</type>
+          <declname>uv</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1Scale2f" kindref="compound">core::Scale2f</ref> &amp;</type>
+          <declname>center</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1Angle" kindref="compound">core::Angle</ref> &amp;</type>
+          <declname>rotation</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1Rgba" kindref="compound">core::Rgba</ref> &amp;</type>
+          <declname>color</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/spritebatch.h" line="28" column="9" bodyfile="libs/render/src/render/spritebatch.cc" bodystart="34" bodyend="106"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1SpriteBatch_1a77d62026531421c2eba6ef044dc88b6d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::render::SpriteBatch::end</definition>
+        <argsstring>()</argsstring>
+        <name>end</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/spritebatch.h" line="39" column="9" bodyfile="libs/render/src/render/spritebatch.cc" bodystart="110" bodyend="115"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1SpriteBatch_1a12abde08579fcab22b8229ed0487e45f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::render::SpriteBatch::flush</definition>
+        <argsstring>()</argsstring>
+        <name>flush</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/spritebatch.h" line="42" column="9" bodyfile="libs/render/src/render/spritebatch.cc" bodystart="119" bodyend="130"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/render/src/render/spritebatch.h" line="13" column="5" bodyfile="libs/render/src/render/spritebatch.h" bodystart="14" bodyend="50"/>
+    <listofallmembers>
+      <member refid="structeu_1_1render_1_1SpriteBatch_1aedb9e415425bab713e7368ec8db7f880" prot="public" virt="non-virtual"><scope>eu::render::SpriteBatch</scope><name>begin</name></member>
+      <member refid="structeu_1_1render_1_1SpriteBatch_1acadf1210507a6389138fed4f77bbf14b" prot="private" virt="non-virtual"><scope>eu::render::SpriteBatch</scope><name>current_quad_count</name></member>
+      <member refid="structeu_1_1render_1_1SpriteBatch_1a77d62026531421c2eba6ef044dc88b6d" prot="public" virt="non-virtual"><scope>eu::render::SpriteBatch</scope><name>end</name></member>
+      <member refid="structeu_1_1render_1_1SpriteBatch_1a12abde08579fcab22b8229ed0487e45f" prot="public" virt="non-virtual"><scope>eu::render::SpriteBatch</scope><name>flush</name></member>
+      <member refid="structeu_1_1render_1_1SpriteBatch_1a82f9d6d643fcfa02262cd6b6a58c7093" prot="private" virt="non-virtual"><scope>eu::render::SpriteBatch</scope><name>is_inside</name></member>
+      <member refid="structeu_1_1render_1_1SpriteBatch_1a8ba354fbe429cbc80e9b2de6ca7f7fe8" prot="private" virt="non-virtual"><scope>eu::render::SpriteBatch</scope><name>number_of_render_calls</name></member>
+      <member refid="structeu_1_1render_1_1SpriteBatch_1a1bdeccf1a75f03db27f5751b9183dfc2" prot="public" virt="non-virtual"><scope>eu::render::SpriteBatch</scope><name>operator=</name></member>
+      <member refid="structeu_1_1render_1_1SpriteBatch_1ae6fe69a3ff9cf2bded6cc53c6cff888d" prot="public" virt="non-virtual"><scope>eu::render::SpriteBatch</scope><name>operator=</name></member>
+      <member refid="structeu_1_1render_1_1SpriteBatch_1aa6c07e8e31e41aa423624675fe10f40e" prot="private" virt="non-virtual"><scope>eu::render::SpriteBatch</scope><name>quad_indices</name></member>
+      <member refid="structeu_1_1render_1_1SpriteBatch_1a63379a2447679de7dcea22708608cf7b" prot="public" virt="non-virtual"><scope>eu::render::SpriteBatch</scope><name>render_quad</name></member>
+      <member refid="structeu_1_1render_1_1SpriteBatch_1a9c7522db53e0500de909dd44524616af" prot="public" virt="non-virtual"><scope>eu::render::SpriteBatch</scope><name>SpriteBatch</name></member>
+      <member refid="structeu_1_1render_1_1SpriteBatch_1a226cc36f8c2df5c870ca8b7f8fdd8e2c" prot="public" virt="non-virtual"><scope>eu::render::SpriteBatch</scope><name>SpriteBatch</name></member>
+      <member refid="structeu_1_1render_1_1SpriteBatch_1af84416d3dae05124ce0da01095c7b90d" prot="public" virt="non-virtual"><scope>eu::render::SpriteBatch</scope><name>SpriteBatch</name></member>
+      <member refid="structeu_1_1render_1_1SpriteBatch_1a063da8482bb6cb6610655a5cf8920852" prot="private" virt="non-virtual"><scope>eu::render::SpriteBatch</scope><name>vertex_data</name></member>
+      <member refid="structeu_1_1render_1_1SpriteBatch_1af662f618b37483ae6e782fa560739b51" prot="public" virt="non-virtual"><scope>eu::render::SpriteBatch</scope><name>~SpriteBatch</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,753 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="namespaceeu_1_1minsynth" kind="namespace" language="C++">
+    <compoundname>eu::minsynth</compoundname>
+    <innerclass refid="structeu_1_1minsynth_1_1ToneToFrequencyConverter" prot="public">eu::minsynth::ToneToFrequencyConverter</innerclass>
+    <innerclass refid="structeu_1_1minsynth_1_1Node" prot="public">eu::minsynth::Node</innerclass>
+    <innerclass refid="structeu_1_1minsynth_1_1ToneTaker" prot="public">eu::minsynth::ToneTaker</innerclass>
+    <innerclass refid="structeu_1_1minsynth_1_1ToneSender" prot="public">eu::minsynth::ToneSender</innerclass>
+    <innerclass refid="structeu_1_1minsynth_1_1FrequencyTaker" prot="public">eu::minsynth::FrequencyTaker</innerclass>
+    <innerclass refid="structeu_1_1minsynth_1_1WaveOut" prot="public">eu::minsynth::WaveOut</innerclass>
+    <innerclass refid="structeu_1_1minsynth_1_1ToneToFrequencyConverterNode" prot="public">eu::minsynth::ToneToFrequencyConverterNode</innerclass>
+    <innerclass refid="structeu_1_1minsynth_1_1PianoKey" prot="public">eu::minsynth::PianoKey</innerclass>
+    <innerclass refid="structeu_1_1minsynth_1_1MidiInNode" prot="public">eu::minsynth::MidiInNode</innerclass>
+    <innerclass refid="structeu_1_1minsynth_1_1KeyboardInputNode" prot="public">eu::minsynth::KeyboardInputNode</innerclass>
+    <innerclass refid="structeu_1_1minsynth_1_1SingleToneNode" prot="public">eu::minsynth::SingleToneNode</innerclass>
+    <innerclass refid="structeu_1_1minsynth_1_1ArpegiatorNode" prot="public">eu::minsynth::ArpegiatorNode</innerclass>
+    <innerclass refid="structeu_1_1minsynth_1_1LiveFrequency" prot="public">eu::minsynth::LiveFrequency</innerclass>
+    <innerclass refid="structeu_1_1minsynth_1_1DeadFrequency" prot="public">eu::minsynth::DeadFrequency</innerclass>
+    <innerclass refid="structeu_1_1minsynth_1_1Envelope" prot="public">eu::minsynth::Envelope</innerclass>
+    <innerclass refid="structeu_1_1minsynth_1_1OscilatorNode" prot="public">eu::minsynth::OscilatorNode</innerclass>
+    <innerclass refid="structeu_1_1minsynth_1_1Effect" prot="public">eu::minsynth::Effect</innerclass>
+    <innerclass refid="structeu_1_1minsynth_1_1VolumeNode" prot="public">eu::minsynth::VolumeNode</innerclass>
+    <innerclass refid="structeu_1_1minsynth_1_1ScalerEffect" prot="public">eu::minsynth::ScalerEffect</innerclass>
+    <innernamespace refid="namespaceeu_1_1minsynth_1_1base__frequencies">eu::minsynth::base_frequencies</innernamespace>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="namespaceeu_1_1minsynth_1abbe511565fbff93d0c069f0e8e1e3e33" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>Tuning</name>
+        <enumvalue id="namespaceeu_1_1minsynth_1abbe511565fbff93d0c069f0e8e1e3e33a894f782a148b33af1e39a0efed952d69" prot="public">
+          <name>a4</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeu_1_1minsynth_1abbe511565fbff93d0c069f0e8e1e3e33a6aecdfe8b004d1e8cb1e42c4414687a9" prot="public">
+          <name>boston</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeu_1_1minsynth_1abbe511565fbff93d0c069f0e8e1e3e33ad638b0705af4bda395eb42847a96d916" prot="public">
+          <name>new_york</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeu_1_1minsynth_1abbe511565fbff93d0c069f0e8e1e3e33a7612e84033b6f5f1a8b8039d9e25d9b5" prot="public">
+          <name>europe</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeu_1_1minsynth_1abbe511565fbff93d0c069f0e8e1e3e33a64e12ab6aa0d4c7473286d43b6a35fc8" prot="public">
+          <name>french</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeu_1_1minsynth_1abbe511565fbff93d0c069f0e8e1e3e33ad0a25191da492e555fa283fc8f3252be" prot="public">
+          <name>baroque</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeu_1_1minsynth_1abbe511565fbff93d0c069f0e8e1e3e33aba9d4c3b2d64b2cc7a446256be85f910" prot="public">
+          <name>chorton</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeu_1_1minsynth_1abbe511565fbff93d0c069f0e8e1e3e33a700e61469b84a66ddb24304a85b0c181" prot="public">
+          <name>classical</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeu_1_1minsynth_1abbe511565fbff93d0c069f0e8e1e3e33ac6a35ba1ad0a628e419cac7f32385bcf" prot="public">
+          <name>max_value</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="12" column="5" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="13" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespaceeu_1_1minsynth_1a05f9580c35aaf4a587d8697fa3e9de8d" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>ChordEmulation</name>
+        <enumvalue id="namespaceeu_1_1minsynth_1a05f9580c35aaf4a587d8697fa3e9de8da334c4a4c42fdb79d7ebc3e73b517e6f8" prot="public">
+          <name>none</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeu_1_1minsynth_1a05f9580c35aaf4a587d8697fa3e9de8daf1425da40a9f2d21ab702a1c7feae026" prot="public">
+          <name>major</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeu_1_1minsynth_1a05f9580c35aaf4a587d8697fa3e9de8daab846c0e3717a3e7d14af45cab70b44a" prot="public">
+          <name>minor</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeu_1_1minsynth_1a05f9580c35aaf4a587d8697fa3e9de8da3817ca7a4a012aea289ac958d1b35849" prot="public">
+          <name>diminished</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeu_1_1minsynth_1a05f9580c35aaf4a587d8697fa3e9de8da896a5c8ac8a608b457aaae270a455380" prot="public">
+          <name>augmented</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeu_1_1minsynth_1a05f9580c35aaf4a587d8697fa3e9de8dab88d8a9c1d48378f9ec8e97ad1a4a7f4" prot="public">
+          <name>major7</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeu_1_1minsynth_1a05f9580c35aaf4a587d8697fa3e9de8daa845661bc0ad00aaf479b14e913fcc85" prot="public">
+          <name>dominant7</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeu_1_1minsynth_1a05f9580c35aaf4a587d8697fa3e9de8dae87dfd0e289c9c5187364b38113bf418" prot="public">
+          <name>augmented7</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeu_1_1minsynth_1a05f9580c35aaf4a587d8697fa3e9de8daec7834a056e14c2a1411b2b88638ccdc" prot="public">
+          <name>augmented_major7</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeu_1_1minsynth_1a05f9580c35aaf4a587d8697fa3e9de8daa9ae8ee8cb30f70d8c71dacd8d4356c9" prot="public">
+          <name>minor_major7</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeu_1_1minsynth_1a05f9580c35aaf4a587d8697fa3e9de8dac6a35ba1ad0a628e419cac7f32385bcf" prot="public">
+          <name>max_value</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="26" column="5" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="27" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespaceeu_1_1minsynth_1a8a90a4e482243cc67e8b46f3addb46da" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>MidiEvent</name>
+        <enumvalue id="namespaceeu_1_1minsynth_1a8a90a4e482243cc67e8b46f3addb46daae7737df06d749a9c7c6cefab12c8c2b1" prot="public">
+          <name>note_off</name>
+          <initializer>= 0b000</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeu_1_1minsynth_1a8a90a4e482243cc67e8b46f3addb46daab8ebafffbfcf4b5ea97a6fd00c3cef73" prot="public">
+          <name>note_on</name>
+          <initializer>= 0b001</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeu_1_1minsynth_1a8a90a4e482243cc67e8b46f3addb46daab80498fcef1979d8e3364a3f9de3009c" prot="public">
+          <name>aftertouch</name>
+          <initializer>= 0b010</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeu_1_1minsynth_1a8a90a4e482243cc67e8b46f3addb46daaeae0d793394132f1d86f2ec9759591f5" prot="public">
+          <name>control_change</name>
+          <initializer>= 0b011</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeu_1_1minsynth_1a8a90a4e482243cc67e8b46f3addb46daaa9f5b969ffbdb8de117c1ea3b28ce067" prot="public">
+          <name>program_change</name>
+          <initializer>= 0b100</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeu_1_1minsynth_1a8a90a4e482243cc67e8b46f3addb46daafae116aeac001bc3d5cf3979917aa9e8" prot="public">
+          <name>channel_pressure</name>
+          <initializer>= 0b101</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeu_1_1minsynth_1a8a90a4e482243cc67e8b46f3addb46daa25fea90b07c2b14963a0408439a04841" prot="public">
+          <name>pitch_bend</name>
+          <initializer>= 0b110</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="42" column="5" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="43" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespaceeu_1_1minsynth_1af5158683664222fb91c060d869992567" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>ArpMode</name>
+        <enumvalue id="namespaceeu_1_1minsynth_1af5158683664222fb91c060d869992567a46c48bec0d282018b9d167eef7711b2c" prot="public">
+          <name>up</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeu_1_1minsynth_1af5158683664222fb91c060d869992567a74e8333ad11685ff3bdae589c8f6e34d" prot="public">
+          <name>down</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeu_1_1minsynth_1af5158683664222fb91c060d869992567aee59b75315ec633a33ce9f74c1718348" prot="public">
+          <name>up_down_inclusive</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeu_1_1minsynth_1af5158683664222fb91c060d869992567ab5e8c1db470ee51ee001a4fd6d847e19" prot="public">
+          <name>up_down_exclusive</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeu_1_1minsynth_1af5158683664222fb91c060d869992567a7ddf32e17a6ac5ce04a8ecbf782ca509" prot="public">
+          <name>random</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeu_1_1minsynth_1af5158683664222fb91c060d869992567a032f0a077d6a9cbf84a3285a70b85a60" prot="public">
+          <name>random_no_repeat</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeu_1_1minsynth_1af5158683664222fb91c060d869992567ac6a35ba1ad0a628e419cac7f32385bcf" prot="public">
+          <name>max_value</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="54" column="5" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="55" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespaceeu_1_1minsynth_1abbbfac032ca392fccc0dfce357512fae" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>OscilatorType</name>
+        <enumvalue id="namespaceeu_1_1minsynth_1abbbfac032ca392fccc0dfce357512faea925212d1624625aed9491413b4b7be05" prot="public">
+          <name>sine</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeu_1_1minsynth_1abbbfac032ca392fccc0dfce357512faea2fc01ec765ec0cb3dcc559126de20b30" prot="public">
+          <name>square</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeu_1_1minsynth_1abbbfac032ca392fccc0dfce357512faeacef44b46f16ae8ecf664df4266ffdbf9" prot="public">
+          <name>triangle</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeu_1_1minsynth_1abbbfac032ca392fccc0dfce357512faea80a88eaa47bfd7f08532da7c2070ec3f" prot="public">
+          <name>sawtooth</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeu_1_1minsynth_1abbbfac032ca392fccc0dfce357512faeaaaddc3454ccbefbb2d8d8461f8f7f481" prot="public">
+          <name>noise</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeu_1_1minsynth_1abbbfac032ca392fccc0dfce357512faeac6a35ba1ad0a628e419cac7f32385bcf" prot="public">
+          <name>max_value</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="66" column="5" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="67" bodyend="74"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="namespaceeu_1_1minsynth_1a9184924598c6b3238619d4e4d4b1c060" prot="public" static="no">
+        <type>std::vector&lt; std::vector&lt; <ref refid="namespaceeu_1_1core_1a6fca7b841e42734cd5c01e04fc9e6511" kindref="member">core::Key</ref> &gt; &gt;</type>
+        <definition>using eu::minsynth::KeyboardLayout = typedef std::vector&lt;std::vector&lt;core::Key&gt; &gt;</definition>
+        <argsstring></argsstring>
+        <name>KeyboardLayout</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="345" column="5" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="345" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="namespaceeu_1_1minsynth_1a8937c082baae8cf4c6e7de0e218ab292" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr float</type>
+        <definition>constexpr float eu::minsynth::pi</definition>
+        <argsstring></argsstring>
+        <name>pi</name>
+        <initializer>= core::pi</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.cc" line="30" column="21" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespaceeu_1_1minsynth_1a9469f69c6aed74ea772a748adbfa68cc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string eu::minsynth::to_string</definition>
+        <argsstring>(Tuning t)</argsstring>
+        <name>to_string</name>
+        <param>
+          <type><ref refid="namespaceeu_1_1minsynth_1abbe511565fbff93d0c069f0e8e1e3e33" kindref="member">Tuning</ref></type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.cc" line="34" column="5" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="34" bodyend="48" declfile="libs/minsynth/src/minsynth/synth.h" declline="91" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1minsynth_1a5d2b87236fcc89c6b9731c6511eacaac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string eu::minsynth::to_string</definition>
+        <argsstring>(ChordEmulation em)</argsstring>
+        <name>to_string</name>
+        <param>
+          <type><ref refid="namespaceeu_1_1minsynth_1a05f9580c35aaf4a587d8697fa3e9de8d" kindref="member">ChordEmulation</ref></type>
+          <declname>em</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.cc" line="51" column="5" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="51" bodyend="67" declfile="libs/minsynth/src/minsynth/synth.h" declline="92" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1minsynth_1ab9e14c1010c5bafce7d2b2fad61fad70" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float eu::minsynth::from_tuning_to_base_frequency</definition>
+        <argsstring>(Tuning t)</argsstring>
+        <name>from_tuning_to_base_frequency</name>
+        <param>
+          <type><ref refid="namespaceeu_1_1minsynth_1abbe511565fbff93d0c069f0e8e1e3e33" kindref="member">Tuning</ref></type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.cc" line="70" column="5" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="70" bodyend="84" declfile="libs/minsynth/src/minsynth/synth.h" declline="98" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1minsynth_1a304dc5cbe5100946a1f0156260a1ddb4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string eu::minsynth::from_midi_event_to_string</definition>
+        <argsstring>(MidiEvent e)</argsstring>
+        <name>from_midi_event_to_string</name>
+        <param>
+          <type><ref refid="namespaceeu_1_1minsynth_1a8a90a4e482243cc67e8b46f3addb46da" kindref="member">MidiEvent</ref></type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.cc" line="88" column="5" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="88" bodyend="101" declfile="libs/minsynth/src/minsynth/synth.h" declline="96" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1minsynth_1a21ccfa0fba486ead81a437e951d7e37a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string eu::minsynth::to_string</definition>
+        <argsstring>(ArpMode mode)</argsstring>
+        <name>to_string</name>
+        <param>
+          <type><ref refid="namespaceeu_1_1minsynth_1af5158683664222fb91c060d869992567" kindref="member">ArpMode</ref></type>
+          <declname>mode</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.cc" line="105" column="5" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="105" bodyend="117" declfile="libs/minsynth/src/minsynth/synth.h" declline="93" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1minsynth_1aa6b9c7bc18c76def272edacc19f3dbd3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string eu::minsynth::to_string</definition>
+        <argsstring>(OscilatorType osc)</argsstring>
+        <name>to_string</name>
+        <param>
+          <type><ref refid="namespaceeu_1_1minsynth_1abbbfac032ca392fccc0dfce357512fae" kindref="member">OscilatorType</ref></type>
+          <declname>osc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.cc" line="121" column="5" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="121" bodyend="132" declfile="libs/minsynth/src/minsynth/synth.h" declline="94" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1minsynth_1a0219021e18e8b9fc691fe48667e92a9c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>tones_per_octave</declname>
+            <defname>tones_per_octave</defname>
+          </param>
+        </templateparamlist>
+        <type>float</type>
+        <definition>float eu::minsynth::from_tone_to_frequency_impl</definition>
+        <argsstring>(int tone, float base_frequency)</argsstring>
+        <name>from_tone_to_frequency_impl</name>
+        <param>
+          <type>int</type>
+          <declname>tone</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>base_frequency</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.cc" line="180" column="5" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="180" bodyend="184"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1minsynth_1a39136627cc756b932e8aa60dc57cdc1a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float eu::minsynth::from_tone_to_frequency</definition>
+        <argsstring>(int tone, float base_frequency)</argsstring>
+        <name>from_tone_to_frequency</name>
+        <param>
+          <type>int</type>
+          <declname>tone</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>base_frequency</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.cc" line="187" column="5" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="187" bodyend="190" declfile="libs/minsynth/src/minsynth/synth.h" declline="100" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1minsynth_1af900e2ce3db44537a04f30c9a14e8994" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float eu::minsynth::run_oscilator</definition>
+        <argsstring>(float frequency, float time, OscilatorType osc)</argsstring>
+        <name>run_oscilator</name>
+        <param>
+          <type>float</type>
+          <declname>frequency</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>time</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceeu_1_1minsynth_1abbbfac032ca392fccc0dfce357512fae" kindref="member">OscilatorType</ref></type>
+          <declname>osc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.cc" line="626" column="5" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="626" bodyend="642" declfile="libs/minsynth/src/minsynth/synth.h" declline="265" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1minsynth_1a75aa75245fa669eba787a16848e84267" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float eu::minsynth::to01</definition>
+        <argsstring>(float lower_bound, float value, float upper_bound)</argsstring>
+        <name>to01</name>
+        <param>
+          <type>float</type>
+          <declname>lower_bound</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>upper_bound</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.cc" line="646" column="5" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="646" bodyend="649" declfile="libs/minsynth/src/minsynth/synth.h" declline="283" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1minsynth_1afd0c77f94ccb738ab5f49705948dcbf4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; <ref refid="structeu_1_1minsynth_1_1PianoKey" kindref="compound">PianoKey</ref> &gt;</type>
+        <definition>std::vector&lt;PianoKey&gt; eu::minsynth::build_one_cctave_of_piano_keys</definition>
+        <argsstring>(int octave, int semitone_offset, core::Key c, core::Key d, core::Key e, core::Key f, core::Key g, core::Key a, core::Key b, core::Key c_sharp, core::Key d_sharp, core::Key f_sharp, core::Key g_sharp, core::Key a_sharp)</argsstring>
+        <name>build_one_cctave_of_piano_keys</name>
+        <param>
+          <type>int</type>
+          <declname>octave</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>semitone_offset</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceeu_1_1core_1a6fca7b841e42734cd5c01e04fc9e6511" kindref="member">core::Key</ref></type>
+          <declname>c</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceeu_1_1core_1a6fca7b841e42734cd5c01e04fc9e6511" kindref="member">core::Key</ref></type>
+          <declname>d</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceeu_1_1core_1a6fca7b841e42734cd5c01e04fc9e6511" kindref="member">core::Key</ref></type>
+          <declname>e</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceeu_1_1core_1a6fca7b841e42734cd5c01e04fc9e6511" kindref="member">core::Key</ref></type>
+          <declname>f</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceeu_1_1core_1a6fca7b841e42734cd5c01e04fc9e6511" kindref="member">core::Key</ref></type>
+          <declname>g</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceeu_1_1core_1a6fca7b841e42734cd5c01e04fc9e6511" kindref="member">core::Key</ref></type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceeu_1_1core_1a6fca7b841e42734cd5c01e04fc9e6511" kindref="member">core::Key</ref></type>
+          <declname>b</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceeu_1_1core_1a6fca7b841e42734cd5c01e04fc9e6511" kindref="member">core::Key</ref></type>
+          <declname>c_sharp</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceeu_1_1core_1a6fca7b841e42734cd5c01e04fc9e6511" kindref="member">core::Key</ref></type>
+          <declname>d_sharp</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceeu_1_1core_1a6fca7b841e42734cd5c01e04fc9e6511" kindref="member">core::Key</ref></type>
+          <declname>f_sharp</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceeu_1_1core_1a6fca7b841e42734cd5c01e04fc9e6511" kindref="member">core::Key</ref></type>
+          <declname>g_sharp</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceeu_1_1core_1a6fca7b841e42734cd5c01e04fc9e6511" kindref="member">core::Key</ref></type>
+          <declname>a_sharp</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.cc" line="826" column="5" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="827" bodyend="860"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1minsynth_1a172bc4755cfad9dba7f68b3bdbe58811" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="namespaceeu_1_1minsynth_1a9184924598c6b3238619d4e4d4b1c060" kindref="member">KeyboardLayout</ref> &amp;</type>
+        <definition>const KeyboardLayout &amp; eu::minsynth::create_qwerty_keyboard_layout</definition>
+        <argsstring>()</argsstring>
+        <name>create_qwerty_keyboard_layout</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.cc" line="864" column="5" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="864" bodyend="877" declfile="libs/minsynth/src/minsynth/synth.h" declline="348" declcolumn="26"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1minsynth_1a9c318a51e69d885398ffbcf1b134b86a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::minsynth::setup_one_octave_layout</definition>
+        <argsstring>(std::vector&lt; PianoKey &gt; *keys, int base_octave, int octave, const KeyboardLayout &amp;k, int start_row, int start_col)</argsstring>
+        <name>setup_one_octave_layout</name>
+        <param>
+          <type>std::vector&lt; <ref refid="structeu_1_1minsynth_1_1PianoKey" kindref="compound">PianoKey</ref> &gt; *</type>
+          <declname>keys</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>base_octave</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>octave</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespaceeu_1_1minsynth_1a9184924598c6b3238619d4e4d4b1c060" kindref="member">KeyboardLayout</ref> &amp;</type>
+          <declname>k</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>start_row</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>start_col</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.cc" line="881" column="5" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="882" bodyend="926"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1minsynth_1aca319766557fbd53bdfdb4ab353865b0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::minsynth::setup_qwerty_two_octave_layout</definition>
+        <argsstring>(std::vector&lt; PianoKey &gt; *keys, int base_octave, int octave_offset)</argsstring>
+        <name>setup_qwerty_two_octave_layout</name>
+        <param>
+          <type>std::vector&lt; <ref refid="structeu_1_1minsynth_1_1PianoKey" kindref="compound">PianoKey</ref> &gt; *</type>
+          <declname>keys</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>base_octave</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>octave_offset</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.cc" line="930" column="5" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="931" bodyend="955" declfile="libs/minsynth/src/minsynth/synth.h" declline="350" declcolumn="10"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/minsynth/src/minsynth/synth.cc" line="27" column="1"/>
+  </compounddef>
+</doxygen>

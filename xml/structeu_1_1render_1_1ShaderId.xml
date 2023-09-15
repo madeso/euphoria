@@ -1,0 +1,171 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1render_1_1ShaderId" kind="struct" language="C++" prot="public">
+    <compoundname>eu::render::ShaderId</compoundname>
+    <derivedcompoundref refid="structeu_1_1render_1_1ShaderProgram" prot="public" virt="non-virtual">eu::render::ShaderProgram</derivedcompoundref>
+    <includes refid="shader_8h" local="no">shader.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="structeu_1_1render_1_1ShaderId_1aa99b8125a56bf7e5db4c9742709db36a" prot="private" static="no" mutable="no">
+        <type><ref refid="namespaceeu_1_1render_1_1gl_1a396c4599948eb3bd41559a2f39acdb22" kindref="member">gl::Uint</ref></type>
+        <definition>gl::Uint eu::render::ShaderId::id</definition>
+        <argsstring></argsstring>
+        <name>id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/shader.h" line="46" column="18" bodyfile="libs/render/src/render/shader.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1render_1_1ShaderId_1a7614d55f0ae4dc035a05ec4d29d741fc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::ShaderId::ShaderId</definition>
+        <argsstring>()</argsstring>
+        <name>ShaderId</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/shader.h" line="31" column="9" bodyfile="libs/render/src/render/shader.cc" bodystart="87" bodyend="90"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1ShaderId_1a3e35f7f115ce414fe31b76c331e0f530" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::ShaderId::~ShaderId</definition>
+        <argsstring>()</argsstring>
+        <name>~ShaderId</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/shader.h" line="32" column="9" bodyfile="libs/render/src/render/shader.cc" bodystart="93" bodyend="96"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1ShaderId_1a7e29c7bf43af96744a7c21c1cd40bafd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::ShaderId::ShaderId</definition>
+        <argsstring>(const ShaderId &amp;other)=delete</argsstring>
+        <name>ShaderId</name>
+        <param>
+          <type>const <ref refid="structeu_1_1render_1_1ShaderId" kindref="compound">ShaderId</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/shader.h" line="34" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1ShaderId_1a6d79cabd6e46f6607719536691527566" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::render::ShaderId::operator=</definition>
+        <argsstring>(const ShaderId &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="structeu_1_1render_1_1ShaderId" kindref="compound">ShaderId</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/shader.h" line="35" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1ShaderId_1af96a5d6155647f82d50bbecfd1c7aa14" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::ShaderId::ShaderId</definition>
+        <argsstring>(ShaderId &amp;&amp;other)=delete</argsstring>
+        <name>ShaderId</name>
+        <param>
+          <type><ref refid="structeu_1_1render_1_1ShaderId" kindref="compound">ShaderId</ref> &amp;&amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/shader.h" line="36" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1ShaderId_1afb9f0a2270bae0ce81ed7263f9430a22" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::render::ShaderId::operator=</definition>
+        <argsstring>(ShaderId &amp;&amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="structeu_1_1render_1_1ShaderId" kindref="compound">ShaderId</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/shader.h" line="37" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1ShaderId_1a0234905c8e2a07cb28dd3f8aa29cd854" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool eu::render::ShaderId::is_currently_bound</definition>
+        <argsstring>() const</argsstring>
+        <name>is_currently_bound</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/shader.h" line="40" column="9" bodyfile="libs/render/src/render/shader.cc" bodystart="107" bodyend="110"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1ShaderId_1afc2a825bb741ab322712ece328cc475c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespaceeu_1_1render_1_1gl_1a396c4599948eb3bd41559a2f39acdb22" kindref="member">gl::Uint</ref></type>
+        <definition>GLuint eu::render::ShaderId::get_id</definition>
+        <argsstring>() const</argsstring>
+        <name>get_id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/shader.h" line="43" column="9" bodyfile="libs/render/src/render/shader.cc" bodystart="100" bodyend="103"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>eu::render::ShaderId</label>
+        <link refid="structeu_1_1render_1_1ShaderId"/>
+      </node>
+      <node id="2">
+        <label>eu::render::ShaderProgram</label>
+        <link refid="structeu_1_1render_1_1ShaderProgram"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="libs/render/src/render/shader.h" line="28" column="5" bodyfile="libs/render/src/render/shader.h" bodystart="29" bodyend="47"/>
+    <listofallmembers>
+      <member refid="structeu_1_1render_1_1ShaderId_1afc2a825bb741ab322712ece328cc475c" prot="public" virt="non-virtual"><scope>eu::render::ShaderId</scope><name>get_id</name></member>
+      <member refid="structeu_1_1render_1_1ShaderId_1aa99b8125a56bf7e5db4c9742709db36a" prot="private" virt="non-virtual"><scope>eu::render::ShaderId</scope><name>id</name></member>
+      <member refid="structeu_1_1render_1_1ShaderId_1a0234905c8e2a07cb28dd3f8aa29cd854" prot="public" virt="non-virtual"><scope>eu::render::ShaderId</scope><name>is_currently_bound</name></member>
+      <member refid="structeu_1_1render_1_1ShaderId_1a6d79cabd6e46f6607719536691527566" prot="public" virt="non-virtual"><scope>eu::render::ShaderId</scope><name>operator=</name></member>
+      <member refid="structeu_1_1render_1_1ShaderId_1afb9f0a2270bae0ce81ed7263f9430a22" prot="public" virt="non-virtual"><scope>eu::render::ShaderId</scope><name>operator=</name></member>
+      <member refid="structeu_1_1render_1_1ShaderId_1a7614d55f0ae4dc035a05ec4d29d741fc" prot="public" virt="non-virtual"><scope>eu::render::ShaderId</scope><name>ShaderId</name></member>
+      <member refid="structeu_1_1render_1_1ShaderId_1a7e29c7bf43af96744a7c21c1cd40bafd" prot="public" virt="non-virtual"><scope>eu::render::ShaderId</scope><name>ShaderId</name></member>
+      <member refid="structeu_1_1render_1_1ShaderId_1af96a5d6155647f82d50bbecfd1c7aa14" prot="public" virt="non-virtual"><scope>eu::render::ShaderId</scope><name>ShaderId</name></member>
+      <member refid="structeu_1_1render_1_1ShaderId_1a3e35f7f115ce414fe31b76c331e0f530" prot="public" virt="non-virtual"><scope>eu::render::ShaderId</scope><name>~ShaderId</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

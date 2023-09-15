@@ -241,17 +241,17 @@
         </childnode>
       </node>
     </invincdepgraph>
-    <innerclass refid="structeuphoria_1_1core_1_1vfs_1_1ListedFile" prot="public">euphoria::core::vfs::ListedFile</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1vfs_1_1FileList" prot="public">euphoria::core::vfs::FileList</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1vfs_1_1ReadRoot" prot="public">euphoria::core::vfs::ReadRoot</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1vfs_1_1WriteRoot" prot="public">euphoria::core::vfs::WriteRoot</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1vfs_1_1FileSystem" prot="public">euphoria::core::vfs::FileSystem</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1vfs_1_1ReadRootCatalog" prot="public">euphoria::core::vfs::ReadRootCatalog</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1vfs_1_1ReadRootPhysicalFolder" prot="public">euphoria::core::vfs::ReadRootPhysicalFolder</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1vfs_1_1WriteRootPhysicalFolder" prot="public">euphoria::core::vfs::WriteRootPhysicalFolder</innerclass>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core_1_1vfs">euphoria::core::vfs</innernamespace>
+    <innerclass refid="structeu_1_1core_1_1vfs_1_1ListedFile" prot="public">eu::core::vfs::ListedFile</innerclass>
+    <innerclass refid="structeu_1_1core_1_1vfs_1_1FileList" prot="public">eu::core::vfs::FileList</innerclass>
+    <innerclass refid="structeu_1_1core_1_1vfs_1_1ReadRoot" prot="public">eu::core::vfs::ReadRoot</innerclass>
+    <innerclass refid="structeu_1_1core_1_1vfs_1_1WriteRoot" prot="public">eu::core::vfs::WriteRoot</innerclass>
+    <innerclass refid="structeu_1_1core_1_1vfs_1_1FileSystem" prot="public">eu::core::vfs::FileSystem</innerclass>
+    <innerclass refid="structeu_1_1core_1_1vfs_1_1ReadRootCatalog" prot="public">eu::core::vfs::ReadRootCatalog</innerclass>
+    <innerclass refid="structeu_1_1core_1_1vfs_1_1ReadRootPhysicalFolder" prot="public">eu::core::vfs::ReadRootPhysicalFolder</innerclass>
+    <innerclass refid="structeu_1_1core_1_1vfs_1_1WriteRootPhysicalFolder" prot="public">eu::core::vfs::WriteRootPhysicalFolder</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core_1_1vfs">eu::core::vfs</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

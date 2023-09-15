@@ -32,9 +32,9 @@
         <label>vector</label>
       </node>
     </incdepgraph>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core_1_1easing">euphoria::core::easing</innernamespace>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core_1_1easing">eu::core::easing</innernamespace>
       <sectiondef kind="define">
       <memberdef kind="define" id="easing_8cc_1ad705dc78222473228fa826e42eca95f1" prot="public" static="no">
         <name>VALUE</name>

@@ -412,11 +412,11 @@
         <link refid="materialshader_8cc"/>
       </node>
     </invincdepgraph>
-    <innerclass refid="structeuphoria_1_1render_1_1MaterialShaderDefaultTexture" prot="public">euphoria::render::MaterialShaderDefaultTexture</innerclass>
-    <innerclass refid="structeuphoria_1_1render_1_1MaterialShaderBinding" prot="public">euphoria::render::MaterialShaderBinding</innerclass>
-    <innerclass refid="structeuphoria_1_1render_1_1MaterialShader" prot="public">euphoria::render::MaterialShader</innerclass>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1render">euphoria::render</innernamespace>
+    <innerclass refid="structeu_1_1render_1_1MaterialShaderDefaultTexture" prot="public">eu::render::MaterialShaderDefaultTexture</innerclass>
+    <innerclass refid="structeu_1_1render_1_1MaterialShaderBinding" prot="public">eu::render::MaterialShaderBinding</innerclass>
+    <innerclass refid="structeu_1_1render_1_1MaterialShader" prot="public">eu::render::MaterialShader</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1render">eu::render</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

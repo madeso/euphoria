@@ -456,14 +456,14 @@
         </childnode>
       </node>
     </incdepgraph>
-    <innerclass refid="structeuphoria_1_1core_1_1detail_1_1PanData" prot="public">euphoria::core::detail::PanData</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1detail_1_1OrbitData" prot="public">euphoria::core::detail::OrbitData</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1detail_1_1OrbitCamera" prot="public">euphoria::core::detail::OrbitCamera</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1detail_1_1DefaultCamera" prot="public">euphoria::core::detail::DefaultCamera</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1detail_1_1LerpCamera" prot="public">euphoria::core::detail::LerpCamera</innerclass>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core_1_1detail">euphoria::core::detail</innernamespace>
+    <innerclass refid="structeu_1_1core_1_1detail_1_1PanData" prot="public">eu::core::detail::PanData</innerclass>
+    <innerclass refid="structeu_1_1core_1_1detail_1_1OrbitData" prot="public">eu::core::detail::OrbitData</innerclass>
+    <innerclass refid="structeu_1_1core_1_1detail_1_1OrbitCamera" prot="public">eu::core::detail::OrbitCamera</innerclass>
+    <innerclass refid="structeu_1_1core_1_1detail_1_1DefaultCamera" prot="public">eu::core::detail::DefaultCamera</innerclass>
+    <innerclass refid="structeu_1_1core_1_1detail_1_1LerpCamera" prot="public">eu::core::detail::LerpCamera</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core_1_1detail">eu::core::detail</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

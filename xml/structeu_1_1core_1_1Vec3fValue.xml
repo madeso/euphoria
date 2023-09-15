@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1core_1_1Vec3fValue" kind="struct" language="C++" prot="public">
+    <compoundname>eu::core::Vec3fValue</compoundname>
+    <basecompoundref refid="structeu_1_1core_1_1Value" prot="public" virt="non-virtual">eu::core::Value</basecompoundref>
+    <includes refid="propertytree_8h" local="no">propertytree.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1core_1_1Vec3fValue_1a5d0da60bc6dc458fae4751fcd49d487a" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
+        <definition>vec3f eu::core::Vec3fValue::value</definition>
+        <argsstring></argsstring>
+        <name>value</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/propertytree.h" line="52" column="15" bodyfile="libs/core/src/core/propertytree.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1Vec3fValue_1a01df96034bc752f4f0216623f016a6f1" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::core::Vec3fValue::Vec3fValue</definition>
+        <argsstring>(const vec3f &amp;v)</argsstring>
+        <name>Vec3fValue</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/propertytree.h" line="54" column="18" bodyfile="libs/core/src/core/propertytree.cc" bodystart="34" bodyend="35"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1Vec3fValue_1a820f2afb6719c825d2dfd4f7e8778e0b" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
+        <definition>vec3f &amp; eu::core::Vec3fValue::get</definition>
+        <argsstring>(core::Value *value)</argsstring>
+        <name>get</name>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1Value" kindref="compound">core::Value</ref> *</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/propertytree.h" line="56" column="23" bodyfile="libs/core/src/core/propertytree.cc" bodystart="38" bodyend="43"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>eu::core::Vec3fValue</label>
+        <link refid="structeu_1_1core_1_1Vec3fValue"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>eu::core::Value</label>
+        <link refid="structeu_1_1core_1_1Value"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>eu::core::Vec3fValue</label>
+        <link refid="structeu_1_1core_1_1Vec3fValue"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>value</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>eu::core::Value</label>
+        <link refid="structeu_1_1core_1_1Value"/>
+      </node>
+      <node id="3">
+        <label>eu::core::vec3f</label>
+        <link refid="structeu_1_1core_1_1vec3f"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/core/src/core/propertytree.h" line="50" column="5" bodyfile="libs/core/src/core/propertytree.h" bodystart="51" bodyend="57"/>
+    <listofallmembers>
+      <member refid="structeu_1_1core_1_1Vec3fValue_1a820f2afb6719c825d2dfd4f7e8778e0b" prot="public" virt="non-virtual"><scope>eu::core::Vec3fValue</scope><name>get</name></member>
+      <member refid="structeu_1_1core_1_1Value_1a156858dc155cc7fc9fbe31a4d7b34429" prot="public" virt="non-virtual"><scope>eu::core::Vec3fValue</scope><name>operator=</name></member>
+      <member refid="structeu_1_1core_1_1Value_1a601194f363cf4b5e46bfae1934471a85" prot="public" virt="non-virtual"><scope>eu::core::Vec3fValue</scope><name>operator=</name></member>
+      <member refid="structeu_1_1core_1_1Value_1ac26cdb96b2d1cc53e743b61c19e3a88e" prot="public" virt="non-virtual"><scope>eu::core::Vec3fValue</scope><name>type</name></member>
+      <member refid="structeu_1_1core_1_1Vec3fValue_1a5d0da60bc6dc458fae4751fcd49d487a" prot="public" virt="non-virtual"><scope>eu::core::Vec3fValue</scope><name>value</name></member>
+      <member refid="structeu_1_1core_1_1Value_1ae8f0e5df9cf755a2435630606a27a8c9" prot="public" virt="non-virtual"><scope>eu::core::Vec3fValue</scope><name>Value</name></member>
+      <member refid="structeu_1_1core_1_1Value_1ab1b4f159617e686d68acdcc3735f2b49" prot="public" virt="non-virtual"><scope>eu::core::Vec3fValue</scope><name>Value</name></member>
+      <member refid="structeu_1_1core_1_1Value_1a0e4b87c5a600ae57f6a48f306a2d0dc7" prot="public" virt="non-virtual"><scope>eu::core::Vec3fValue</scope><name>Value</name></member>
+      <member refid="structeu_1_1core_1_1Vec3fValue_1a01df96034bc752f4f0216623f016a6f1" prot="public" virt="non-virtual"><scope>eu::core::Vec3fValue</scope><name>Vec3fValue</name></member>
+      <member refid="structeu_1_1core_1_1Value_1a397aba32a2b5c3214fc69ac2c357faf2" prot="public" virt="virtual"><scope>eu::core::Vec3fValue</scope><name>~Value</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

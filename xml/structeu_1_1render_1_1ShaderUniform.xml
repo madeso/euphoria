@@ -1,0 +1,233 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1render_1_1ShaderUniform" kind="struct" language="C++" prot="public">
+    <compoundname>eu::render::ShaderUniform</compoundname>
+    <includes refid="shaderuniform_8h" local="no">shaderuniform.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1render_1_1ShaderUniform_1a51dc01988176c518b078f7e7f3a7ef94" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string eu::render::ShaderUniform::name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/shaderuniform.h" line="27" column="21" bodyfile="libs/render/src/render/shaderuniform.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1ShaderUniform_1a8320f38f56bfe7961a9f27040f290cb3" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeu_1_1render_1_1gl_1ad8366bf6293b380fc6914c935533eef7" kindref="member">gl::Int</ref></type>
+        <definition>gl::Int eu::render::ShaderUniform::id</definition>
+        <argsstring></argsstring>
+        <name>id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/shaderuniform.h" line="28" column="17" bodyfile="libs/render/src/render/shaderuniform.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1ShaderUniform_1abd9d41c04dabf28270d56999c927ce12" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1render_1_1ShaderProgram" kindref="compound">render::ShaderProgram</ref> *</type>
+        <definition>render::ShaderProgram* eu::render::ShaderUniform::shader</definition>
+        <argsstring></argsstring>
+        <name>shader</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/shaderuniform.h" line="29" column="31" bodyfile="libs/render/src/render/shaderuniform.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1render_1_1ShaderUniform_1aeb644eee85715f7a22e79f347a949146" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::ShaderUniform::ShaderUniform</definition>
+        <argsstring>(std::string aname, gl::Int aid, render::ShaderProgram *ashader)</argsstring>
+        <name>ShaderUniform</name>
+        <param>
+          <type>std::string</type>
+          <declname>aname</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceeu_1_1render_1_1gl_1ad8366bf6293b380fc6914c935533eef7" kindref="member">gl::Int</ref></type>
+          <declname>aid</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1render_1_1ShaderProgram" kindref="compound">render::ShaderProgram</ref> *</type>
+          <declname>ashader</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/shaderuniform.h" line="13" column="9" bodyfile="libs/render/src/render/shaderuniform.cc" bodystart="9" bodyend="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1ShaderUniform_1ad2abb168be9ad8cf096c7c9b4b2fe479" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::ShaderUniform::~ShaderUniform</definition>
+        <argsstring>()=default</argsstring>
+        <name>~ShaderUniform</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/shaderuniform.h" line="15" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1ShaderUniform_1ada01cccdf9090facd365c2ff0df340cd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::ShaderUniform::ShaderUniform</definition>
+        <argsstring>(const ShaderUniform &amp;)=default</argsstring>
+        <name>ShaderUniform</name>
+        <param>
+          <type>const <ref refid="structeu_1_1render_1_1ShaderUniform" kindref="compound">ShaderUniform</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/shaderuniform.h" line="16" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1ShaderUniform_1ad7e3af378bfa5061957e314c3c72cda6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::ShaderUniform::ShaderUniform</definition>
+        <argsstring>(ShaderUniform &amp;&amp;)=default</argsstring>
+        <name>ShaderUniform</name>
+        <param>
+          <type><ref refid="structeu_1_1render_1_1ShaderUniform" kindref="compound">ShaderUniform</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/shaderuniform.h" line="17" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1ShaderUniform_1a785b7f480042fb7909af2405c4a66ff1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1render_1_1ShaderUniform" kindref="compound">ShaderUniform</ref> &amp;</type>
+        <definition>ShaderUniform&amp; eu::render::ShaderUniform::operator=</definition>
+        <argsstring>(const ShaderUniform &amp;)=default</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="structeu_1_1render_1_1ShaderUniform" kindref="compound">ShaderUniform</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/shaderuniform.h" line="18" column="23"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1ShaderUniform_1a8611f02cb5de8af1605765604eef4682" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1render_1_1ShaderUniform" kindref="compound">ShaderUniform</ref> &amp;</type>
+        <definition>ShaderUniform&amp; eu::render::ShaderUniform::operator=</definition>
+        <argsstring>(ShaderUniform &amp;&amp;)=default</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="structeu_1_1render_1_1ShaderUniform" kindref="compound">ShaderUniform</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/shaderuniform.h" line="19" column="23"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1ShaderUniform_1a1c6b927ac11dcedc0cbb16a6673ff5ed" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool eu::render::ShaderUniform::is_null</definition>
+        <argsstring>() const</argsstring>
+        <name>is_null</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/shaderuniform.h" line="25" column="9" bodyfile="libs/render/src/render/shaderuniform.cc" bodystart="27" bodyend="30"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="structeu_1_1render_1_1ShaderUniform_1adfaed30aed93f67ff24033441eea3bfb" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="structeu_1_1render_1_1ShaderUniform" kindref="compound">ShaderUniform</ref> &amp;</type>
+        <definition>const ShaderUniform &amp; eu::render::ShaderUniform::create_null</definition>
+        <argsstring>()</argsstring>
+        <name>create_null</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/shaderuniform.h" line="22" column="9" bodyfile="libs/render/src/render/shaderuniform.cc" bodystart="18" bodyend="23"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="structeu_1_1render_1_1ShaderUniform_1aa9458a086c07941cc61921f9512d3646" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::ShaderUniform::ShaderUniform</definition>
+        <argsstring>()</argsstring>
+        <name>ShaderUniform</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/shaderuniform.h" line="32" column="9" bodyfile="libs/render/src/render/shaderuniform.cc" bodystart="42" bodyend="46"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>eu::render::ShaderUniform</label>
+        <link refid="structeu_1_1render_1_1ShaderUniform"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>shader</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>eu::render::ShaderId</label>
+        <link refid="structeu_1_1render_1_1ShaderId"/>
+      </node>
+      <node id="2">
+        <label>eu::render::ShaderProgram</label>
+        <link refid="structeu_1_1render_1_1ShaderProgram"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="libs/render/src/render/shaderuniform.h" line="10" column="5" bodyfile="libs/render/src/render/shaderuniform.h" bodystart="11" bodyend="33"/>
+    <listofallmembers>
+      <member refid="structeu_1_1render_1_1ShaderUniform_1adfaed30aed93f67ff24033441eea3bfb" prot="public" virt="non-virtual"><scope>eu::render::ShaderUniform</scope><name>create_null</name></member>
+      <member refid="structeu_1_1render_1_1ShaderUniform_1a8320f38f56bfe7961a9f27040f290cb3" prot="public" virt="non-virtual"><scope>eu::render::ShaderUniform</scope><name>id</name></member>
+      <member refid="structeu_1_1render_1_1ShaderUniform_1a1c6b927ac11dcedc0cbb16a6673ff5ed" prot="public" virt="non-virtual"><scope>eu::render::ShaderUniform</scope><name>is_null</name></member>
+      <member refid="structeu_1_1render_1_1ShaderUniform_1a51dc01988176c518b078f7e7f3a7ef94" prot="public" virt="non-virtual"><scope>eu::render::ShaderUniform</scope><name>name</name></member>
+      <member refid="structeu_1_1render_1_1ShaderUniform_1a785b7f480042fb7909af2405c4a66ff1" prot="public" virt="non-virtual"><scope>eu::render::ShaderUniform</scope><name>operator=</name></member>
+      <member refid="structeu_1_1render_1_1ShaderUniform_1a8611f02cb5de8af1605765604eef4682" prot="public" virt="non-virtual"><scope>eu::render::ShaderUniform</scope><name>operator=</name></member>
+      <member refid="structeu_1_1render_1_1ShaderUniform_1abd9d41c04dabf28270d56999c927ce12" prot="public" virt="non-virtual"><scope>eu::render::ShaderUniform</scope><name>shader</name></member>
+      <member refid="structeu_1_1render_1_1ShaderUniform_1aeb644eee85715f7a22e79f347a949146" prot="public" virt="non-virtual"><scope>eu::render::ShaderUniform</scope><name>ShaderUniform</name></member>
+      <member refid="structeu_1_1render_1_1ShaderUniform_1ada01cccdf9090facd365c2ff0df340cd" prot="public" virt="non-virtual"><scope>eu::render::ShaderUniform</scope><name>ShaderUniform</name></member>
+      <member refid="structeu_1_1render_1_1ShaderUniform_1ad7e3af378bfa5061957e314c3c72cda6" prot="public" virt="non-virtual"><scope>eu::render::ShaderUniform</scope><name>ShaderUniform</name></member>
+      <member refid="structeu_1_1render_1_1ShaderUniform_1aa9458a086c07941cc61921f9512d3646" prot="private" virt="non-virtual"><scope>eu::render::ShaderUniform</scope><name>ShaderUniform</name></member>
+      <member refid="structeu_1_1render_1_1ShaderUniform_1ad2abb168be9ad8cf096c7c9b4b2fe479" prot="public" virt="non-virtual"><scope>eu::render::ShaderUniform</scope><name>~ShaderUniform</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

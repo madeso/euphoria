@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1core_1_1TemplateNodeScopedList" kind="struct" language="C++" prot="public">
+    <compoundname>eu::core::TemplateNodeScopedList</compoundname>
+    <basecompoundref refid="structeu_1_1core_1_1TemplateNodeList" prot="public" virt="non-virtual">eu::core::TemplateNodeList</basecompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1TemplateNodeScopedList_1ae841085bb3ae3a0bba5b040291420907" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::core::TemplateNodeScopedList::TemplateNodeScopedList</definition>
+        <argsstring>()=default</argsstring>
+        <name>TemplateNodeScopedList</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/texttemplate.cc" line="177" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1TemplateNodeScopedList_1a1871c976c1ccc36b20cb7b88171e0de9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void eu::core::TemplateNodeScopedList::build_string</definition>
+        <argsstring>(core::Defines *defines, StringBuilder *out, TemplateErrorList *error) override</argsstring>
+        <name>build_string</name>
+        <reimplements refid="structeu_1_1core_1_1TemplateNodeList_1a0083d48230831423747c16325e6db062">build_string</reimplements>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1Defines" kindref="compound">core::Defines</ref> *</type>
+          <declname>defines</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1StringBuilder" kindref="compound">StringBuilder</ref> *</type>
+          <declname>out</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1TemplateErrorList" kindref="compound">TemplateErrorList</ref> *</type>
+          <declname>error</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/texttemplate.cc" line="180" column="5" bodyfile="libs/core/src/core/texttemplate.cc" bodystart="180" bodyend="185"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>eu::core::TemplateNodeList</label>
+        <link refid="structeu_1_1core_1_1TemplateNodeList"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>eu::core::TemplateNodeScopedList</label>
+        <link refid="structeu_1_1core_1_1TemplateNodeScopedList"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>eu::core::TemplateNode</label>
+        <link refid="structeu_1_1core_1_1TemplateNode"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>eu::core::TemplateNodeList</label>
+        <link refid="structeu_1_1core_1_1TemplateNodeList"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>eu::core::TemplateNodeScopedList</label>
+        <link refid="structeu_1_1core_1_1TemplateNodeScopedList"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>eu::core::TemplateNode</label>
+        <link refid="structeu_1_1core_1_1TemplateNode"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/core/src/core/texttemplate.cc" line="175" column="1" bodyfile="libs/core/src/core/texttemplate.cc" bodystart="176" bodyend="186"/>
+    <listofallmembers>
+      <member refid="structeu_1_1core_1_1TemplateNodeList_1a61f4a6222dbdc880c738e2391ca669ee" prot="public" virt="non-virtual"><scope>eu::core::TemplateNodeScopedList</scope><name>add</name></member>
+      <member refid="structeu_1_1core_1_1TemplateNodeScopedList_1a1871c976c1ccc36b20cb7b88171e0de9" prot="public" virt="virtual"><scope>eu::core::TemplateNodeScopedList</scope><name>build_string</name></member>
+      <member refid="structeu_1_1core_1_1TemplateNodeList_1a4750109734c5f9c2749d5156f78ac492" prot="public" virt="non-virtual"><scope>eu::core::TemplateNodeScopedList</scope><name>nodes</name></member>
+      <member refid="structeu_1_1core_1_1TemplateNode_1a0a6ffdd51835e7eee49a53888b4f236f" prot="public" virt="non-virtual"><scope>eu::core::TemplateNodeScopedList</scope><name>operator=</name></member>
+      <member refid="structeu_1_1core_1_1TemplateNode_1a1f39a55cd756df7d252e53bbd2820d07" prot="public" virt="non-virtual"><scope>eu::core::TemplateNodeScopedList</scope><name>operator=</name></member>
+      <member refid="structeu_1_1core_1_1TemplateNode_1a7e1f641e7142e35e22e04307faf3625c" prot="public" virt="non-virtual"><scope>eu::core::TemplateNodeScopedList</scope><name>TemplateNode</name></member>
+      <member refid="structeu_1_1core_1_1TemplateNode_1a27d64272e8f36d412def4abde8080555" prot="public" virt="non-virtual"><scope>eu::core::TemplateNodeScopedList</scope><name>TemplateNode</name></member>
+      <member refid="structeu_1_1core_1_1TemplateNode_1ab6e8188655a0187a98cd2ef41a73f498" prot="public" virt="non-virtual"><scope>eu::core::TemplateNodeScopedList</scope><name>TemplateNode</name></member>
+      <member refid="structeu_1_1core_1_1TemplateNodeList_1a455238cd1325adc94d3b95d0eea02d8e" prot="public" virt="non-virtual"><scope>eu::core::TemplateNodeScopedList</scope><name>TemplateNodeList</name></member>
+      <member refid="structeu_1_1core_1_1TemplateNodeScopedList_1ae841085bb3ae3a0bba5b040291420907" prot="public" virt="non-virtual"><scope>eu::core::TemplateNodeScopedList</scope><name>TemplateNodeScopedList</name></member>
+      <member refid="structeu_1_1core_1_1TemplateNode_1ac2e13165de2ce0a78e22236d6fdbfe82" prot="public" virt="virtual"><scope>eu::core::TemplateNodeScopedList</scope><name>~TemplateNode</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

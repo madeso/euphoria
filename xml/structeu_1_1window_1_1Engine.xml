@@ -1,0 +1,301 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1window_1_1Engine" kind="struct" language="C++" prot="public">
+    <compoundname>eu::window::Engine</compoundname>
+    <includes refid="engine_8h" local="no">engine.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1window_1_1Engine_1a1e7908cbaacced51d87fb92c8d437494" prot="public" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="structeu_1_1window_1_1SdlLibrary" kindref="compound">SdlLibrary</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;SdlLibrary&gt; eu::window::Engine::sdl</definition>
+        <argsstring></argsstring>
+        <name>sdl</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/window/src/window/engine.h" line="34" column="25" bodyfile="libs/window/src/window/engine.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1window_1_1Engine_1ac5fe1a11bedf338f3bc1c434dfae32f5" prot="public" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="structeu_1_1core_1_1vfs_1_1FileSystem" kindref="compound">core::vfs::FileSystem</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;core::vfs::FileSystem&gt; eu::window::Engine::file_system</definition>
+        <argsstring></argsstring>
+        <name>file_system</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/window/src/window/engine.h" line="35" column="25" bodyfile="libs/window/src/window/engine.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1window_1_1Engine_1afbe9ab994c3b104df481e114b3d1c7b8" prot="public" static="no" mutable="no">
+        <type>std::shared_ptr&lt; <ref refid="structeu_1_1core_1_1vfs_1_1ReadRootCatalog" kindref="compound">core::vfs::ReadRootCatalog</ref> &gt;</type>
+        <definition>std::shared_ptr&lt;core::vfs::ReadRootCatalog&gt; eu::window::Engine::catalog</definition>
+        <argsstring></argsstring>
+        <name>catalog</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/window/src/window/engine.h" line="36" column="25" bodyfile="libs/window/src/window/engine.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1window_1_1Engine_1a0fd23898422e1f040dc34d3b3e036832" prot="public" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="structeu_1_1window_1_1SdlWindow" kindref="compound">SdlWindow</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;SdlWindow&gt; eu::window::Engine::window</definition>
+        <argsstring></argsstring>
+        <name>window</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/window/src/window/engine.h" line="37" column="25" bodyfile="libs/window/src/window/engine.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1window_1_1Engine_1acc14caa35ee9c836ea5ffabb37d2ca99" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int eu::window::Engine::window_id</definition>
+        <argsstring></argsstring>
+        <name>window_id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/window/src/window/engine.h" line="38" column="22" bodyfile="libs/window/src/window/engine.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1window_1_1Engine_1a319d5fd1e5b7d564714b331e3f5c62ec" prot="public" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="structeu_1_1window_1_1SdlOpenglContext" kindref="compound">SdlOpenglContext</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;SdlOpenglContext&gt; eu::window::Engine::context</definition>
+        <argsstring></argsstring>
+        <name>context</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/window/src/window/engine.h" line="39" column="25" bodyfile="libs/window/src/window/engine.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1window_1_1Engine_1ab26ff44b9cd788b9eb27032b45e02bd2" prot="public" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="structeu_1_1render_1_1Init" kindref="compound">render::Init</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;render::Init&gt; eu::window::Engine::init</definition>
+        <argsstring></argsstring>
+        <name>init</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/window/src/window/engine.h" line="40" column="25" bodyfile="libs/window/src/window/engine.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1window_1_1Engine_1aede07ee63e727efbc700368d8527d27d" prot="public" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="structeu_1_1window_1_1imgui_1_1Library" kindref="compound">imgui::Library</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;imgui::Library&gt; eu::window::Engine::imgui</definition>
+        <argsstring></argsstring>
+        <name>imgui</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/window/src/window/engine.h" line="41" column="25" bodyfile="libs/window/src/window/engine.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1window_1_1Engine_1a0f12252a119a9778a3855a71d520174d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::window::Engine::Engine</definition>
+        <argsstring>()</argsstring>
+        <name>Engine</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/window/src/window/engine.h" line="43" column="9" bodyfile="libs/window/src/window/engine.cc" bodystart="24" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1window_1_1Engine_1aae02339be1e27491888c73d90c1afeb2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::window::Engine::~Engine</definition>
+        <argsstring>()</argsstring>
+        <name>~Engine</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/window/src/window/engine.h" line="44" column="9" bodyfile="libs/window/src/window/engine.cc" bodystart="30" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1window_1_1Engine_1aea9e56a0462be807b249b78a3cd225d2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::window::Engine::Engine</definition>
+        <argsstring>(const Engine &amp;)=delete</argsstring>
+        <name>Engine</name>
+        <param>
+          <type>const <ref refid="structeu_1_1window_1_1Engine" kindref="compound">Engine</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/window/src/window/engine.h" line="46" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1window_1_1Engine_1a916159ae4950065f305b4d43276a4f77" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::window::Engine::Engine</definition>
+        <argsstring>(Engine &amp;&amp;)=delete</argsstring>
+        <name>Engine</name>
+        <param>
+          <type><ref refid="structeu_1_1window_1_1Engine" kindref="compound">Engine</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/window/src/window/engine.h" line="47" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1window_1_1Engine_1a2bcee3ad290b9198c03dc01fce04de0d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::window::Engine::operator=</definition>
+        <argsstring>(const Engine &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="structeu_1_1window_1_1Engine" kindref="compound">Engine</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/window/src/window/engine.h" line="48" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1window_1_1Engine_1a0be4ff20ef0aba62eac52a169d4bd4f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::window::Engine::operator=</definition>
+        <argsstring>(Engine &amp;&amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="structeu_1_1window_1_1Engine" kindref="compound">Engine</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/window/src/window/engine.h" line="49" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1window_1_1Engine_1afff00bfa82bb04f0bc2ed02e50b30801" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int eu::window::Engine::setup</definition>
+        <argsstring>(const core::argparse::NameAndArguments &amp;args)</argsstring>
+        <name>setup</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1argparse_1_1NameAndArguments" kindref="compound">core::argparse::NameAndArguments</ref> &amp;</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/window/src/window/engine.h" line="51" column="13" bodyfile="libs/window/src/window/engine.cc" bodystart="43" bodyend="88"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1window_1_1Engine_1a94d52c1cca5b41585ee4a3faee5bd97d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool eu::window::Engine::create_window</definition>
+        <argsstring>(const std::string &amp;title, int width, int height, bool blend_hack=false)</argsstring>
+        <name>create_window</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>title</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>width</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>height</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>blend_hack</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/window/src/window/engine.h" line="53" column="14" bodyfile="libs/window/src/window/engine.cc" bodystart="93" bodyend="140"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1window_1_1Engine_1aa215d13b641cc34535d05f4209d36ad5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool eu::window::Engine::on_resize</definition>
+        <argsstring>(SDL_Event e, int *width, int *height) const</argsstring>
+        <name>on_resize</name>
+        <param>
+          <type><ref refid="fakesdlevent_8h_1a33fcc6aa445cb781bfca881e39e5333e" kindref="member">SDL_Event</ref></type>
+          <declname>e</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>width</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>height</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/window/src/window/engine.h" line="61" column="14" bodyfile="libs/window/src/window/engine.cc" bodystart="144" bodyend="162"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/window/src/window/engine.h" line="32" column="5" bodyfile="libs/window/src/window/engine.h" bodystart="33" bodyend="62"/>
+    <listofallmembers>
+      <member refid="structeu_1_1window_1_1Engine_1afbe9ab994c3b104df481e114b3d1c7b8" prot="public" virt="non-virtual"><scope>eu::window::Engine</scope><name>catalog</name></member>
+      <member refid="structeu_1_1window_1_1Engine_1a319d5fd1e5b7d564714b331e3f5c62ec" prot="public" virt="non-virtual"><scope>eu::window::Engine</scope><name>context</name></member>
+      <member refid="structeu_1_1window_1_1Engine_1a94d52c1cca5b41585ee4a3faee5bd97d" prot="public" virt="non-virtual"><scope>eu::window::Engine</scope><name>create_window</name></member>
+      <member refid="structeu_1_1window_1_1Engine_1a0f12252a119a9778a3855a71d520174d" prot="public" virt="non-virtual"><scope>eu::window::Engine</scope><name>Engine</name></member>
+      <member refid="structeu_1_1window_1_1Engine_1aea9e56a0462be807b249b78a3cd225d2" prot="public" virt="non-virtual"><scope>eu::window::Engine</scope><name>Engine</name></member>
+      <member refid="structeu_1_1window_1_1Engine_1a916159ae4950065f305b4d43276a4f77" prot="public" virt="non-virtual"><scope>eu::window::Engine</scope><name>Engine</name></member>
+      <member refid="structeu_1_1window_1_1Engine_1ac5fe1a11bedf338f3bc1c434dfae32f5" prot="public" virt="non-virtual"><scope>eu::window::Engine</scope><name>file_system</name></member>
+      <member refid="structeu_1_1window_1_1Engine_1aede07ee63e727efbc700368d8527d27d" prot="public" virt="non-virtual"><scope>eu::window::Engine</scope><name>imgui</name></member>
+      <member refid="structeu_1_1window_1_1Engine_1ab26ff44b9cd788b9eb27032b45e02bd2" prot="public" virt="non-virtual"><scope>eu::window::Engine</scope><name>init</name></member>
+      <member refid="structeu_1_1window_1_1Engine_1aa215d13b641cc34535d05f4209d36ad5" prot="public" virt="non-virtual"><scope>eu::window::Engine</scope><name>on_resize</name></member>
+      <member refid="structeu_1_1window_1_1Engine_1a2bcee3ad290b9198c03dc01fce04de0d" prot="public" virt="non-virtual"><scope>eu::window::Engine</scope><name>operator=</name></member>
+      <member refid="structeu_1_1window_1_1Engine_1a0be4ff20ef0aba62eac52a169d4bd4f8" prot="public" virt="non-virtual"><scope>eu::window::Engine</scope><name>operator=</name></member>
+      <member refid="structeu_1_1window_1_1Engine_1a1e7908cbaacced51d87fb92c8d437494" prot="public" virt="non-virtual"><scope>eu::window::Engine</scope><name>sdl</name></member>
+      <member refid="structeu_1_1window_1_1Engine_1afff00bfa82bb04f0bc2ed02e50b30801" prot="public" virt="non-virtual"><scope>eu::window::Engine</scope><name>setup</name></member>
+      <member refid="structeu_1_1window_1_1Engine_1a0fd23898422e1f040dc34d3b3e036832" prot="public" virt="non-virtual"><scope>eu::window::Engine</scope><name>window</name></member>
+      <member refid="structeu_1_1window_1_1Engine_1acc14caa35ee9c836ea5ffabb37d2ca99" prot="public" virt="non-virtual"><scope>eu::window::Engine</scope><name>window_id</name></member>
+      <member refid="structeu_1_1window_1_1Engine_1aae02339be1e27491888c73d90c1afeb2" prot="public" virt="non-virtual"><scope>eu::window::Engine</scope><name>~Engine</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

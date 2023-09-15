@@ -418,14 +418,14 @@
         </childnode>
       </node>
     </incdepgraph>
-    <innerclass refid="structeuphoria_1_1core_1_1raytracer_1_1SphereObject" prot="public">euphoria::core::raytracer::SphereObject</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1raytracer_1_1DiffuseMaterial" prot="public">euphoria::core::raytracer::DiffuseMaterial</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1raytracer_1_1MetalMaterial" prot="public">euphoria::core::raytracer::MetalMaterial</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1raytracer_1_1DielectricMaterial" prot="public">euphoria::core::raytracer::DielectricMaterial</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1raytracer_1_1Camera" prot="public">euphoria::core::raytracer::Camera</innerclass>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core_1_1raytracer">euphoria::core::raytracer</innernamespace>
+    <innerclass refid="structeu_1_1core_1_1raytracer_1_1SphereObject" prot="public">eu::core::raytracer::SphereObject</innerclass>
+    <innerclass refid="structeu_1_1core_1_1raytracer_1_1DiffuseMaterial" prot="public">eu::core::raytracer::DiffuseMaterial</innerclass>
+    <innerclass refid="structeu_1_1core_1_1raytracer_1_1MetalMaterial" prot="public">eu::core::raytracer::MetalMaterial</innerclass>
+    <innerclass refid="structeu_1_1core_1_1raytracer_1_1DielectricMaterial" prot="public">eu::core::raytracer::DielectricMaterial</innerclass>
+    <innerclass refid="structeu_1_1core_1_1raytracer_1_1Camera" prot="public">eu::core::raytracer::Camera</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core_1_1raytracer">eu::core::raytracer</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

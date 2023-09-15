@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1core_1_1colorbrewer_1_1Colorbrewer" kind="struct" language="C++" prot="public">
+    <compoundname>eu::core::colorbrewer::Colorbrewer</compoundname>
+    <includes refid="colorbrewer_8h" local="no">colorbrewer.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1core_1_1colorbrewer_1_1Colorbrewer_1a105d9c0f78b3cf8bc62c4ce1349010a7" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string eu::core::colorbrewer::Colorbrewer::name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/colorbrewer.h" line="49" column="25" bodyfile="libs/core/src/core/colorbrewer.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1colorbrewer_1_1Colorbrewer_1a54f63a7f635fdbd327d7ebc71a3815ab" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeu_1_1core_1_1colorbrewer_1aa3ec62e6c15bf2c107da9c994acc9c55" kindref="member">SizeToPaletteMap</ref></type>
+        <definition>SizeToPaletteMap eu::core::colorbrewer::Colorbrewer::palettes</definition>
+        <argsstring></argsstring>
+        <name>palettes</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/colorbrewer.h" line="50" column="30" bodyfile="libs/core/src/core/colorbrewer.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1colorbrewer_1_1Colorbrewer_1a99c47ca7808faf6d7147ce67b3d55bdd" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeu_1_1core_1_1colorbrewer_1a57836f17b5778f73cd9883b3515f9b4c" kindref="member">BrewerType</ref></type>
+        <definition>BrewerType eu::core::colorbrewer::Colorbrewer::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/colorbrewer.h" line="51" column="24" bodyfile="libs/core/src/core/colorbrewer.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1colorbrewer_1_1Colorbrewer_1aa9401a67f4289742d569b17c25a265f4" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1core_1_1colorbrewer_1_1Properties" kindref="compound">Properties</ref></type>
+        <definition>Properties eu::core::colorbrewer::Colorbrewer::props</definition>
+        <argsstring></argsstring>
+        <name>props</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/colorbrewer.h" line="52" column="24" bodyfile="libs/core/src/core/colorbrewer.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>eu::core::colorbrewer::Properties</label>
+        <link refid="structeu_1_1core_1_1colorbrewer_1_1Properties"/>
+      </node>
+      <node id="1">
+        <label>eu::core::colorbrewer::Colorbrewer</label>
+        <link refid="structeu_1_1core_1_1colorbrewer_1_1Colorbrewer"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>props</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="libs/core/src/core/colorbrewer.h" line="47" column="9" bodyfile="libs/core/src/core/colorbrewer.h" bodystart="48" bodyend="53"/>
+    <listofallmembers>
+      <member refid="structeu_1_1core_1_1colorbrewer_1_1Colorbrewer_1a105d9c0f78b3cf8bc62c4ce1349010a7" prot="public" virt="non-virtual"><scope>eu::core::colorbrewer::Colorbrewer</scope><name>name</name></member>
+      <member refid="structeu_1_1core_1_1colorbrewer_1_1Colorbrewer_1a54f63a7f635fdbd327d7ebc71a3815ab" prot="public" virt="non-virtual"><scope>eu::core::colorbrewer::Colorbrewer</scope><name>palettes</name></member>
+      <member refid="structeu_1_1core_1_1colorbrewer_1_1Colorbrewer_1aa9401a67f4289742d569b17c25a265f4" prot="public" virt="non-virtual"><scope>eu::core::colorbrewer::Colorbrewer</scope><name>props</name></member>
+      <member refid="structeu_1_1core_1_1colorbrewer_1_1Colorbrewer_1a99c47ca7808faf6d7147ce67b3d55bdd" prot="public" virt="non-virtual"><scope>eu::core::colorbrewer::Colorbrewer</scope><name>type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

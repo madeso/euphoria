@@ -1,0 +1,159 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1core_1_1CanvasLogic" kind="struct" language="C++" prot="public">
+    <compoundname>eu::core::CanvasLogic</compoundname>
+    <includes refid="canvaslogic_8h" local="no">canvaslogic.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1core_1_1CanvasLogic_1a6156d725b260b25d32012ddac2a5a9d2" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1core_1_1vec2f" kindref="compound">vec2f</ref></type>
+        <definition>vec2f eu::core::CanvasLogic::scroll</definition>
+        <argsstring></argsstring>
+        <name>scroll</name>
+        <initializer>= <ref refid="structeu_1_1core_1_1vec2f" kindref="compound">vec2f</ref> {0, 0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/canvaslogic.h" line="11" column="15" bodyfile="libs/core/src/core/canvaslogic.h" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1CanvasLogic_1af9effb24677d8e9ce00f6bf01a51073f" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float eu::core::CanvasLogic::scale</definition>
+        <argsstring></argsstring>
+        <name>scale</name>
+        <initializer>= 1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/canvaslogic.h" line="12" column="15" bodyfile="libs/core/src/core/canvaslogic.h" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1CanvasLogic_1ad90f9dc752a73eaaaf242e34215bcd5c" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1core_1_1Range" kindref="compound">Range</ref>&lt; float &gt;</type>
+        <definition>Range&lt;float&gt; eu::core::CanvasLogic::scale_range</definition>
+        <argsstring></argsstring>
+        <name>scale_range</name>
+        <initializer>= <ref refid="namespaceeu_1_1core_1a7c75e3b9f4ff1a5f45fb364e46705d83" kindref="member">make_range</ref>(0.1f, 15.0f)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/canvaslogic.h" line="15" column="15" bodyfile="libs/core/src/core/canvaslogic.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1CanvasLogic_1a266012dee36f8c534fe56ac9959948b6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::CanvasLogic::pan</definition>
+        <argsstring>(const vec2f &amp;p)</argsstring>
+        <name>pan</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/canvaslogic.h" line="18" column="9" bodyfile="libs/core/src/core/canvaslogic.cc" bodystart="7" bodyend="10"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1CanvasLogic_1ab1c97e72364a6a0ca665ae7acb1ebacf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::CanvasLogic::zoom</definition>
+        <argsstring>(const vec2f &amp;mouse, float zoom)</argsstring>
+        <name>zoom</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
+          <declname>mouse</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>zoom</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/canvaslogic.h" line="21" column="9" bodyfile="libs/core/src/core/canvaslogic.cc" bodystart="13" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1CanvasLogic_1af78e66489ae3276df807d4869dd1a479" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1vec2f" kindref="compound">vec2f</ref></type>
+        <definition>vec2f eu::core::CanvasLogic::from_screen_to_world</definition>
+        <argsstring>(const vec2f &amp;p) const</argsstring>
+        <name>from_screen_to_world</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/canvaslogic.h" line="24" column="9" bodyfile="libs/core/src/core/canvaslogic.cc" bodystart="44" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1CanvasLogic_1a5bf78d8afbe00bd16a4d50b75064baa0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1vec2f" kindref="compound">vec2f</ref></type>
+        <definition>vec2f eu::core::CanvasLogic::from_world_to_screen</definition>
+        <argsstring>(const vec2f &amp;p) const</argsstring>
+        <name>from_world_to_screen</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/canvaslogic.h" line="27" column="9" bodyfile="libs/core/src/core/canvaslogic.cc" bodystart="38" bodyend="41"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>eu::core::Range&lt; float &gt;</label>
+        <link refid="structeu_1_1core_1_1Range"/>
+      </node>
+      <node id="1">
+        <label>eu::core::CanvasLogic</label>
+        <link refid="structeu_1_1core_1_1CanvasLogic"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>scale_range</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>scroll</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>eu::core::vec2f</label>
+        <link refid="structeu_1_1core_1_1vec2f"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/core/src/core/canvaslogic.h" line="8" column="5" bodyfile="libs/core/src/core/canvaslogic.h" bodystart="9" bodyend="28"/>
+    <listofallmembers>
+      <member refid="structeu_1_1core_1_1CanvasLogic_1af78e66489ae3276df807d4869dd1a479" prot="public" virt="non-virtual"><scope>eu::core::CanvasLogic</scope><name>from_screen_to_world</name></member>
+      <member refid="structeu_1_1core_1_1CanvasLogic_1a5bf78d8afbe00bd16a4d50b75064baa0" prot="public" virt="non-virtual"><scope>eu::core::CanvasLogic</scope><name>from_world_to_screen</name></member>
+      <member refid="structeu_1_1core_1_1CanvasLogic_1a266012dee36f8c534fe56ac9959948b6" prot="public" virt="non-virtual"><scope>eu::core::CanvasLogic</scope><name>pan</name></member>
+      <member refid="structeu_1_1core_1_1CanvasLogic_1af9effb24677d8e9ce00f6bf01a51073f" prot="public" virt="non-virtual"><scope>eu::core::CanvasLogic</scope><name>scale</name></member>
+      <member refid="structeu_1_1core_1_1CanvasLogic_1ad90f9dc752a73eaaaf242e34215bcd5c" prot="public" virt="non-virtual"><scope>eu::core::CanvasLogic</scope><name>scale_range</name></member>
+      <member refid="structeu_1_1core_1_1CanvasLogic_1a6156d725b260b25d32012ddac2a5a9d2" prot="public" virt="non-virtual"><scope>eu::core::CanvasLogic</scope><name>scroll</name></member>
+      <member refid="structeu_1_1core_1_1CanvasLogic_1ab1c97e72364a6a0ca665ae7acb1ebacf" prot="public" virt="non-virtual"><scope>eu::core::CanvasLogic</scope><name>zoom</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

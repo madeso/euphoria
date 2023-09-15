@@ -1,0 +1,243 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1render_1_1Instance" kind="struct" language="C++" prot="public" abstract="yes">
+    <compoundname>eu::render::Instance</compoundname>
+    <derivedcompoundref refid="structeu_1_1render_1_1Actor" prot="public" virt="non-virtual">eu::render::Actor</derivedcompoundref>
+    <derivedcompoundref refid="structeu_1_1render_1_1PositionedLines" prot="public" virt="non-virtual">eu::render::PositionedLines</derivedcompoundref>
+    <includes refid="instance_8h" local="no">instance.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1render_1_1Instance_1ad68aa24c7baaf6b1ea0009105198860a" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool eu::render::Instance::remove_this</definition>
+        <argsstring></argsstring>
+        <name>remove_this</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/instance.h" line="14" column="14" bodyfile="libs/render/src/render/instance.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1Instance_1ac8c1a3943a832e735cc230a0a0ec1105" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1core_1_1vec3f" kindref="compound">core::vec3f</ref></type>
+        <definition>core::vec3f eu::render::Instance::position</definition>
+        <argsstring></argsstring>
+        <name>position</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/instance.h" line="15" column="21" bodyfile="libs/render/src/render/instance.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1Instance_1ab7038a64df17d999694f846235cbc21a" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1core_1_1quatf" kindref="compound">core::quatf</ref></type>
+        <definition>core::quatf eu::render::Instance::rotation</definition>
+        <argsstring></argsstring>
+        <name>rotation</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/instance.h" line="16" column="21" bodyfile="libs/render/src/render/instance.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1render_1_1Instance_1a7d4b8c1d8a999492bbd8ce7bcd015e7b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::Instance::Instance</definition>
+        <argsstring>()</argsstring>
+        <name>Instance</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/instance.h" line="18" column="9" bodyfile="libs/render/src/render/instance.cc" bodystart="5" bodyend="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1Instance_1a10320da7995e89a0ed412e432dcc1f75" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual eu::render::Instance::~Instance</definition>
+        <argsstring>()=default</argsstring>
+        <name>~Instance</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/instance.h" line="19" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1Instance_1a157fd9a8006146da8bd41ef08eff9ac4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::Instance::Instance</definition>
+        <argsstring>(const Instance &amp;)=delete</argsstring>
+        <name>Instance</name>
+        <param>
+          <type>const <ref refid="structeu_1_1render_1_1Instance" kindref="compound">Instance</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/instance.h" line="21" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1Instance_1a573e014f37ed01c10fb4946385d39c79" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::Instance::Instance</definition>
+        <argsstring>(Instance &amp;&amp;)=delete</argsstring>
+        <name>Instance</name>
+        <param>
+          <type><ref refid="structeu_1_1render_1_1Instance" kindref="compound">Instance</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/instance.h" line="22" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1Instance_1afa61c41b025df6775f483aaa4a77e1b4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::render::Instance::operator=</definition>
+        <argsstring>(const Instance &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="structeu_1_1render_1_1Instance" kindref="compound">Instance</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/instance.h" line="23" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1Instance_1a27ca8b1f49de66f681555b8a69c372a1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::render::Instance::operator=</definition>
+        <argsstring>(Instance &amp;&amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="structeu_1_1render_1_1Instance" kindref="compound">Instance</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/instance.h" line="24" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1Instance_1a3aff8f0109d0366c1fa6e3d4f21cfba2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1mat4f" kindref="compound">core::mat4f</ref></type>
+        <definition>core::mat4f eu::render::Instance::calc_model_matrix</definition>
+        <argsstring>() const</argsstring>
+        <name>calc_model_matrix</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/instance.h" line="26" column="22" bodyfile="libs/render/src/render/instance.cc" bodystart="12" bodyend="15"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1Instance_1a1c652df1886f046c11df6f351fcdc474" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void eu::render::Instance::render</definition>
+        <argsstring>(const core::mat4f &amp;projection_matrix, const core::mat4f &amp;view_matrix, const core::vec3f &amp;camera, const Light &amp;light)=0</argsstring>
+        <name>render</name>
+        <reimplementedby refid="structeu_1_1render_1_1Actor_1a46dd1c189024d198b24c65e1719c6ecc">render</reimplementedby>
+        <reimplementedby refid="structeu_1_1render_1_1PositionedLines_1af68076dea0b4a779d7f6827e045c3b28">render</reimplementedby>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1mat4f" kindref="compound">core::mat4f</ref> &amp;</type>
+          <declname>projection_matrix</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1mat4f" kindref="compound">core::mat4f</ref> &amp;</type>
+          <declname>view_matrix</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1vec3f" kindref="compound">core::vec3f</ref> &amp;</type>
+          <declname>camera</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1render_1_1Light" kindref="compound">Light</ref> &amp;</type>
+          <declname>light</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/instance.h" line="28" column="22"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>eu::render::Instance</label>
+        <link refid="structeu_1_1render_1_1Instance"/>
+      </node>
+      <node id="3">
+        <label>eu::render::PositionedLines</label>
+        <link refid="structeu_1_1render_1_1PositionedLines"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>eu::render::Actor</label>
+        <link refid="structeu_1_1render_1_1Actor"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>eu::core::quatf</label>
+        <link refid="structeu_1_1core_1_1quatf"/>
+      </node>
+      <node id="1">
+        <label>eu::render::Instance</label>
+        <link refid="structeu_1_1render_1_1Instance"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>rotation</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>position</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>eu::core::vec3f</label>
+        <link refid="structeu_1_1core_1_1vec3f"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/render/src/render/instance.h" line="12" column="5" bodyfile="libs/render/src/render/instance.h" bodystart="13" bodyend="35"/>
+    <listofallmembers>
+      <member refid="structeu_1_1render_1_1Instance_1a3aff8f0109d0366c1fa6e3d4f21cfba2" prot="public" virt="non-virtual"><scope>eu::render::Instance</scope><name>calc_model_matrix</name></member>
+      <member refid="structeu_1_1render_1_1Instance_1a7d4b8c1d8a999492bbd8ce7bcd015e7b" prot="public" virt="non-virtual"><scope>eu::render::Instance</scope><name>Instance</name></member>
+      <member refid="structeu_1_1render_1_1Instance_1a157fd9a8006146da8bd41ef08eff9ac4" prot="public" virt="non-virtual"><scope>eu::render::Instance</scope><name>Instance</name></member>
+      <member refid="structeu_1_1render_1_1Instance_1a573e014f37ed01c10fb4946385d39c79" prot="public" virt="non-virtual"><scope>eu::render::Instance</scope><name>Instance</name></member>
+      <member refid="structeu_1_1render_1_1Instance_1afa61c41b025df6775f483aaa4a77e1b4" prot="public" virt="non-virtual"><scope>eu::render::Instance</scope><name>operator=</name></member>
+      <member refid="structeu_1_1render_1_1Instance_1a27ca8b1f49de66f681555b8a69c372a1" prot="public" virt="non-virtual"><scope>eu::render::Instance</scope><name>operator=</name></member>
+      <member refid="structeu_1_1render_1_1Instance_1ac8c1a3943a832e735cc230a0a0ec1105" prot="public" virt="non-virtual"><scope>eu::render::Instance</scope><name>position</name></member>
+      <member refid="structeu_1_1render_1_1Instance_1ad68aa24c7baaf6b1ea0009105198860a" prot="public" virt="non-virtual"><scope>eu::render::Instance</scope><name>remove_this</name></member>
+      <member refid="structeu_1_1render_1_1Instance_1a1c652df1886f046c11df6f351fcdc474" prot="public" virt="pure-virtual"><scope>eu::render::Instance</scope><name>render</name></member>
+      <member refid="structeu_1_1render_1_1Instance_1ab7038a64df17d999694f846235cbc21a" prot="public" virt="non-virtual"><scope>eu::render::Instance</scope><name>rotation</name></member>
+      <member refid="structeu_1_1render_1_1Instance_1a10320da7995e89a0ed412e432dcc1f75" prot="public" virt="virtual"><scope>eu::render::Instance</scope><name>~Instance</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

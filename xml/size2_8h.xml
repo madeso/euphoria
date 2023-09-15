@@ -878,26 +878,26 @@
         <link refid="materialshader_8cc"/>
       </node>
     </invincdepgraph>
-    <innerclass refid="structeuphoria_1_1core_1_1size2f" prot="public">euphoria::core::size2f</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1size2i" prot="public">euphoria::core::size2i</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1CustomArgparser_3_01size2f_01_4" prot="public">euphoria::core::CustomArgparser&lt; size2f &gt;</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1CustomArgparser_3_01size2i_01_4" prot="public">euphoria::core::CustomArgparser&lt; size2i &gt;</innerclass>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
+    <innerclass refid="structeu_1_1core_1_1size2f" prot="public">eu::core::size2f</innerclass>
+    <innerclass refid="structeu_1_1core_1_1size2i" prot="public">eu::core::size2i</innerclass>
+    <innerclass refid="structeu_1_1core_1_1CustomArgparser_3_01size2f_01_4" prot="public">eu::core::CustomArgparser&lt; size2f &gt;</innerclass>
+    <innerclass refid="structeu_1_1core_1_1CustomArgparser_3_01size2i_01_4" prot="public">eu::core::CustomArgparser&lt; size2i &gt;</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
       <sectiondef kind="func">
-      <memberdef kind="function" id="size2_8h_1a1fa8f4dceb19577801980a156326d5af" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="size2_8h_1a16415bab981be090d3119c27ff580079" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>ADD_DEFAULT_FORMATTER</definition>
-        <argsstring>(euphoria::core::size2f, std::string, euphoria::core::to_string)</argsstring>
+        <argsstring>(eu::core::size2f, std::string, eu::core::to_string)</argsstring>
         <name>ADD_DEFAULT_FORMATTER</name>
         <param>
-          <type><ref refid="structeuphoria_1_1core_1_1size2f" kindref="compound">euphoria::core::size2f</ref></type>
+          <type><ref refid="structeu_1_1core_1_1size2f" kindref="compound">eu::core::size2f</ref></type>
         </param>
         <param>
           <type>std::string</type>
         </param>
         <param>
-          <type><ref refid="namespaceeuphoria_1_1core_1a8596fa3efb42bc0ad86b46183bc305d3" kindref="member">euphoria::core::to_string</ref></type>
+          <type><ref refid="namespaceeu_1_1core_1abb347a6e512d991e31badda3ce5fef91" kindref="member">eu::core::to_string</ref></type>
         </param>
         <briefdescription>
         </briefdescription>
@@ -907,19 +907,19 @@
         </inbodydescription>
         <location file="libs/core/src/core/size2.h" line="96" column="1" declfile="libs/core/src/core/size2.h" declline="96" declcolumn="1"/>
       </memberdef>
-      <memberdef kind="function" id="size2_8h_1a60416ff0563f83b041d58a42dc3a429d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="size2_8h_1aaef2cb0552b2279795d8f0b5e1b97df2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>ADD_DEFAULT_FORMATTER</definition>
-        <argsstring>(euphoria::core::size2i, std::string, euphoria::core::to_string)</argsstring>
+        <argsstring>(eu::core::size2i, std::string, eu::core::to_string)</argsstring>
         <name>ADD_DEFAULT_FORMATTER</name>
         <param>
-          <type><ref refid="structeuphoria_1_1core_1_1size2i" kindref="compound">euphoria::core::size2i</ref></type>
+          <type><ref refid="structeu_1_1core_1_1size2i" kindref="compound">eu::core::size2i</ref></type>
         </param>
         <param>
           <type>std::string</type>
         </param>
         <param>
-          <type><ref refid="namespaceeuphoria_1_1core_1a8596fa3efb42bc0ad86b46183bc305d3" kindref="member">euphoria::core::to_string</ref></type>
+          <type><ref refid="namespaceeu_1_1core_1abb347a6e512d991e31badda3ce5fef91" kindref="member">eu::core::to_string</ref></type>
         </param>
         <briefdescription>
         </briefdescription>

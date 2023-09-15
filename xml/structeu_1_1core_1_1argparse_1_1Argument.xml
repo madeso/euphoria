@@ -1,0 +1,312 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1core_1_1argparse_1_1Argument" kind="struct" language="C++" prot="public" abstract="yes">
+    <compoundname>eu::core::argparse::Argument</compoundname>
+    <derivedcompoundref refid="structeu_1_1core_1_1argparse_1_1ArgumentNoValue" prot="public" virt="non-virtual">eu::core::argparse::ArgumentNoValue</derivedcompoundref>
+    <derivedcompoundref refid="structeu_1_1core_1_1argparse_1_1MultiArgument" prot="public" virt="non-virtual">eu::core::argparse::MultiArgument</derivedcompoundref>
+    <derivedcompoundref refid="structeu_1_1core_1_1argparse_1_1SingleArgument" prot="public" virt="non-virtual">eu::core::argparse::SingleArgument</derivedcompoundref>
+    <includes refid="argparse_8h" local="no">argparse.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1core_1_1argparse_1_1Argument_1ad19ae30f5105dea0303a7e93e2b40819" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string eu::core::argparse::Argument::help</definition>
+        <argsstring></argsstring>
+        <name>help</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/argparse.h" line="200" column="21" bodyfile="libs/core/src/core/argparse.h" bodystart="200" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1argparse_1_1Argument_1a6982159c429d01ec7bc2343a8c8203aa" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string eu::core::argparse::Argument::nargs</definition>
+        <argsstring></argsstring>
+        <name>nargs</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/argparse.h" line="201" column="21" bodyfile="libs/core/src/core/argparse.h" bodystart="201" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1argparse_1_1Argument_1a3f3c2c74023a6a5e30db3181cb7701f1" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool eu::core::argparse::Argument::allow_before_positionals</definition>
+        <argsstring></argsstring>
+        <name>allow_before_positionals</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/argparse.h" line="202" column="14" bodyfile="libs/core/src/core/argparse.h" bodystart="202" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1argparse_1_1Argument_1a1fe96bb76f37312a5906fe2d6ba4ceb0" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string eu::core::argparse::Argument::default_value</definition>
+        <argsstring></argsstring>
+        <name>default_value</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/argparse.h" line="205" column="21" bodyfile="libs/core/src/core/argparse.h" bodystart="205" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1argparse_1_1Argument_1a54c9aabde2b9f492661b0e1429046540" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::core::argparse::Argument::Argument</definition>
+        <argsstring>()=default</argsstring>
+        <name>Argument</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/argparse.h" line="207" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1argparse_1_1Argument_1a6ff80cd4c87e609de46fef356d86a68f" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual eu::core::argparse::Argument::~Argument</definition>
+        <argsstring>()=default</argsstring>
+        <name>~Argument</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/argparse.h" line="208" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1argparse_1_1Argument_1a8e731d3813acdc966edc38f01ad1eff9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::core::argparse::Argument::Argument</definition>
+        <argsstring>(const Argument &amp;)=delete</argsstring>
+        <name>Argument</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1argparse_1_1Argument" kindref="compound">Argument</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/argparse.h" line="210" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1argparse_1_1Argument_1af3985e46f4d3a134b763906208d2db8f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::core::argparse::Argument::Argument</definition>
+        <argsstring>(Argument &amp;&amp;)=delete</argsstring>
+        <name>Argument</name>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1argparse_1_1Argument" kindref="compound">Argument</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/argparse.h" line="211" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1argparse_1_1Argument_1ac4c8f1e890fa784cadec83e91dc61db6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::argparse::Argument::operator=</definition>
+        <argsstring>(const Argument &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1argparse_1_1Argument" kindref="compound">Argument</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/argparse.h" line="212" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1argparse_1_1Argument_1a3678bd8e3d09c0af5468528c4732b98f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::argparse::Argument::operator=</definition>
+        <argsstring>(Argument &amp;&amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1argparse_1_1Argument" kindref="compound">Argument</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/argparse.h" line="213" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1argparse_1_1Argument_1a9fc5a369eb667294a78e5736dcc05444" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1argparse_1_1Argument" kindref="compound">Argument</ref> &amp;</type>
+        <definition>Argument &amp; eu::core::argparse::Argument::set_nargs</definition>
+        <argsstring>(const std::string &amp;na)</argsstring>
+        <name>set_nargs</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>na</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/argparse.h" line="216" column="9" bodyfile="libs/core/src/core/argparse.cc" bodystart="302" bodyend="306"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1argparse_1_1Argument_1a1f0e8afff6d896162f8a4c8cbaf1fce9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1argparse_1_1Argument" kindref="compound">Argument</ref> &amp;</type>
+        <definition>Argument &amp; eu::core::argparse::Argument::set_help</definition>
+        <argsstring>(const std::string &amp;h)</argsstring>
+        <name>set_help</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>h</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/argparse.h" line="219" column="9" bodyfile="libs/core/src/core/argparse.cc" bodystart="310" bodyend="314"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1argparse_1_1Argument_1a83fa895fe98e49accfe7a5af04057b69" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1argparse_1_1Argument" kindref="compound">Argument</ref> &amp;</type>
+        <definition>Argument &amp; eu::core::argparse::Argument::set_allow_before_positionals</definition>
+        <argsstring>()</argsstring>
+        <name>set_allow_before_positionals</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/argparse.h" line="222" column="9" bodyfile="libs/core/src/core/argparse.cc" bodystart="318" bodyend="322"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1argparse_1_1Argument_1ab3d72dac1ab347fb1669f9aca8002e62" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>std::optional&lt; std::string &gt;</type>
+        <definition>virtual std::optional&lt;std::string&gt; eu::core::argparse::Argument::get_second_line</definition>
+        <argsstring>()=0</argsstring>
+        <name>get_second_line</name>
+        <reimplementedby refid="structeu_1_1core_1_1argparse_1_1ArgumentNoValue_1a60a44df08c5746ab48a54b69747c6050">get_second_line</reimplementedby>
+        <reimplementedby refid="structeu_1_1core_1_1argparse_1_1SingleArgument_1ad3e2c7e2d7b2d314f17809ee197a2e68">get_second_line</reimplementedby>
+        <reimplementedby refid="structeu_1_1core_1_1argparse_1_1MultiArgument_1aa5002177787d675074946f419d8b6a03">get_second_line</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/argparse.h" line="226" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1argparse_1_1Argument_1ab9e843c06dc53a432ea0f5b6d6dcd075" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>bool</type>
+        <definition>virtual bool eu::core::argparse::Argument::have_nargs</definition>
+        <argsstring>()=0</argsstring>
+        <name>have_nargs</name>
+        <reimplementedby refid="structeu_1_1core_1_1argparse_1_1ArgumentNoValue_1a5f3b3ecdcae74180dde738d8b2ddbcba">have_nargs</reimplementedby>
+        <reimplementedby refid="structeu_1_1core_1_1argparse_1_1SingleArgument_1aa3fe0d70347e1d58bfc5a48b84cb7bff">have_nargs</reimplementedby>
+        <reimplementedby refid="structeu_1_1core_1_1argparse_1_1MultiArgument_1ae266d88db5152bec8fce930ebde2db80">have_nargs</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/argparse.h" line="230" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1argparse_1_1Argument_1a9323a5c689699ecd8a7b002e18390840" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="structeu_1_1core_1_1argparse_1_1ParseResult" kindref="compound">ParseResult</ref></type>
+        <definition>virtual ParseResult eu::core::argparse::Argument::parse_arguments</definition>
+        <argsstring>(Runner *runner, const std::string &amp;name, ParserBase *caller)=0</argsstring>
+        <name>parse_arguments</name>
+        <reimplementedby refid="structeu_1_1core_1_1argparse_1_1ArgumentNoValue_1a991d18e443b9fb123fd150c413bf4c9e">parse_arguments</reimplementedby>
+        <reimplementedby refid="structeu_1_1core_1_1argparse_1_1SingleArgument_1a74ba31b944edcdcc9d74f01b3b6b5d7e">parse_arguments</reimplementedby>
+        <reimplementedby refid="structeu_1_1core_1_1argparse_1_1MultiArgument_1a32bd92712200f8d8816cd8ff727c79c2">parse_arguments</reimplementedby>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1argparse_1_1Runner" kindref="compound">Runner</ref> *</type>
+          <declname>runner</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1argparse_1_1ParserBase" kindref="compound">ParserBase</ref> *</type>
+          <declname>caller</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/argparse.h" line="234" column="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>base class for argument </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>eu::core::argparse::ArgumentNoValue</label>
+        <link refid="structeu_1_1core_1_1argparse_1_1ArgumentNoValue"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>eu::core::argparse::Argument</label>
+        <link refid="structeu_1_1core_1_1argparse_1_1Argument"/>
+      </node>
+      <node id="3">
+        <label>eu::core::argparse::MultiArgument</label>
+        <link refid="structeu_1_1core_1_1argparse_1_1MultiArgument"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>eu::core::argparse::SingleArgument</label>
+        <link refid="structeu_1_1core_1_1argparse_1_1SingleArgument"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="libs/core/src/core/argparse.h" line="198" column="5" bodyfile="libs/core/src/core/argparse.h" bodystart="199" bodyend="240"/>
+    <listofallmembers>
+      <member refid="structeu_1_1core_1_1argparse_1_1Argument_1a3f3c2c74023a6a5e30db3181cb7701f1" prot="public" virt="non-virtual"><scope>eu::core::argparse::Argument</scope><name>allow_before_positionals</name></member>
+      <member refid="structeu_1_1core_1_1argparse_1_1Argument_1a54c9aabde2b9f492661b0e1429046540" prot="public" virt="non-virtual"><scope>eu::core::argparse::Argument</scope><name>Argument</name></member>
+      <member refid="structeu_1_1core_1_1argparse_1_1Argument_1a8e731d3813acdc966edc38f01ad1eff9" prot="public" virt="non-virtual"><scope>eu::core::argparse::Argument</scope><name>Argument</name></member>
+      <member refid="structeu_1_1core_1_1argparse_1_1Argument_1af3985e46f4d3a134b763906208d2db8f" prot="public" virt="non-virtual"><scope>eu::core::argparse::Argument</scope><name>Argument</name></member>
+      <member refid="structeu_1_1core_1_1argparse_1_1Argument_1a1fe96bb76f37312a5906fe2d6ba4ceb0" prot="public" virt="non-virtual"><scope>eu::core::argparse::Argument</scope><name>default_value</name></member>
+      <member refid="structeu_1_1core_1_1argparse_1_1Argument_1ab3d72dac1ab347fb1669f9aca8002e62" prot="public" virt="pure-virtual"><scope>eu::core::argparse::Argument</scope><name>get_second_line</name></member>
+      <member refid="structeu_1_1core_1_1argparse_1_1Argument_1ab9e843c06dc53a432ea0f5b6d6dcd075" prot="public" virt="pure-virtual"><scope>eu::core::argparse::Argument</scope><name>have_nargs</name></member>
+      <member refid="structeu_1_1core_1_1argparse_1_1Argument_1ad19ae30f5105dea0303a7e93e2b40819" prot="public" virt="non-virtual"><scope>eu::core::argparse::Argument</scope><name>help</name></member>
+      <member refid="structeu_1_1core_1_1argparse_1_1Argument_1a6982159c429d01ec7bc2343a8c8203aa" prot="public" virt="non-virtual"><scope>eu::core::argparse::Argument</scope><name>nargs</name></member>
+      <member refid="structeu_1_1core_1_1argparse_1_1Argument_1ac4c8f1e890fa784cadec83e91dc61db6" prot="public" virt="non-virtual"><scope>eu::core::argparse::Argument</scope><name>operator=</name></member>
+      <member refid="structeu_1_1core_1_1argparse_1_1Argument_1a3678bd8e3d09c0af5468528c4732b98f" prot="public" virt="non-virtual"><scope>eu::core::argparse::Argument</scope><name>operator=</name></member>
+      <member refid="structeu_1_1core_1_1argparse_1_1Argument_1a9323a5c689699ecd8a7b002e18390840" prot="public" virt="pure-virtual"><scope>eu::core::argparse::Argument</scope><name>parse_arguments</name></member>
+      <member refid="structeu_1_1core_1_1argparse_1_1Argument_1a83fa895fe98e49accfe7a5af04057b69" prot="public" virt="non-virtual"><scope>eu::core::argparse::Argument</scope><name>set_allow_before_positionals</name></member>
+      <member refid="structeu_1_1core_1_1argparse_1_1Argument_1a1f0e8afff6d896162f8a4c8cbaf1fce9" prot="public" virt="non-virtual"><scope>eu::core::argparse::Argument</scope><name>set_help</name></member>
+      <member refid="structeu_1_1core_1_1argparse_1_1Argument_1a9fc5a369eb667294a78e5736dcc05444" prot="public" virt="non-virtual"><scope>eu::core::argparse::Argument</scope><name>set_nargs</name></member>
+      <member refid="structeu_1_1core_1_1argparse_1_1Argument_1a6ff80cd4c87e609de46fef356d86a68f" prot="public" virt="virtual"><scope>eu::core::argparse::Argument</scope><name>~Argument</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -15,12 +15,12 @@
         </childnode>
       </node>
     </invincdepgraph>
-    <innerclass refid="structeuphoria_1_1core_1_1dot_1_1Node" prot="public">euphoria::core::dot::Node</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1dot_1_1Edge" prot="public">euphoria::core::dot::Edge</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1dot_1_1Graph" prot="public">euphoria::core::dot::Graph</innerclass>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core_1_1dot">euphoria::core::dot</innernamespace>
+    <innerclass refid="structeu_1_1core_1_1dot_1_1Node" prot="public">eu::core::dot::Node</innerclass>
+    <innerclass refid="structeu_1_1core_1_1dot_1_1Edge" prot="public">eu::core::dot::Edge</innerclass>
+    <innerclass refid="structeu_1_1core_1_1dot_1_1Graph" prot="public">eu::core::dot::Graph</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core_1_1dot">eu::core::dot</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

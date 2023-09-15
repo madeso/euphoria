@@ -292,15 +292,15 @@
         </childnode>
       </node>
     </invincdepgraph>
-    <innerclass refid="structeuphoria_1_1core_1_1generator_1_1Algorithm" prot="public">euphoria::core::generator::Algorithm</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1generator_1_1RecursiveBacktracker" prot="public">euphoria::core::generator::RecursiveBacktracker</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1generator_1_1RandomTraversal" prot="public">euphoria::core::generator::RandomTraversal</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1generator_1_1RandomTraversal_1_1Entry" prot="public">euphoria::core::generator::RandomTraversal::Entry</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1generator_1_1Drawer" prot="public">euphoria::core::generator::Drawer</innerclass>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core_1_1generator">euphoria::core::generator</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core_1_1generator_1_1cell">euphoria::core::generator::cell</innernamespace>
+    <innerclass refid="structeu_1_1core_1_1generator_1_1Algorithm" prot="public">eu::core::generator::Algorithm</innerclass>
+    <innerclass refid="structeu_1_1core_1_1generator_1_1RecursiveBacktracker" prot="public">eu::core::generator::RecursiveBacktracker</innerclass>
+    <innerclass refid="structeu_1_1core_1_1generator_1_1RandomTraversal" prot="public">eu::core::generator::RandomTraversal</innerclass>
+    <innerclass refid="structeu_1_1core_1_1generator_1_1RandomTraversal_1_1Entry" prot="public">eu::core::generator::RandomTraversal::Entry</innerclass>
+    <innerclass refid="structeu_1_1core_1_1generator_1_1Drawer" prot="public">eu::core::generator::Drawer</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core_1_1generator">eu::core::generator</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core_1_1generator_1_1cell">eu::core::generator::cell</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

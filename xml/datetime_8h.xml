@@ -42,11 +42,11 @@
         <link refid="datetime_8cc"/>
       </node>
     </invincdepgraph>
-    <innerclass refid="structeuphoria_1_1core_1_1TimetWrapper" prot="public">euphoria::core::TimetWrapper</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1StructTmWrapper" prot="public">euphoria::core::StructTmWrapper</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1DateTime" prot="public">euphoria::core::DateTime</innerclass>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
+    <innerclass refid="structeu_1_1core_1_1TimetWrapper" prot="public">eu::core::TimetWrapper</innerclass>
+    <innerclass refid="structeu_1_1core_1_1StructTmWrapper" prot="public">eu::core::StructTmWrapper</innerclass>
+    <innerclass refid="structeu_1_1core_1_1DateTime" prot="public">eu::core::DateTime</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

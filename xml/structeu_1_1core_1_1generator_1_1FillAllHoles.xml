@@ -1,0 +1,117 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1core_1_1generator_1_1FillAllHoles" kind="struct" language="C++" prot="public">
+    <compoundname>eu::core::generator::FillAllHoles</compoundname>
+    <basecompoundref refid="structeu_1_1core_1_1generator_1_1Rule" prot="public" virt="non-virtual">eu::core::generator::Rule</basecompoundref>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1core_1_1generator_1_1FillAllHoles_1a091cd0f1ddcc38de0198387a26a7c991" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool eu::core::generator::FillAllHoles::allow_diagonals</definition>
+        <argsstring></argsstring>
+        <name>allow_diagonals</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_cell.cc" line="100" column="14" bodyfile="libs/core/src/core/generator_cell.cc" bodystart="100" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1generator_1_1FillAllHoles_1aee4a9ef22f1d1f6f4269a0400848e0f7" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int eu::core::generator::FillAllHoles::holes_to_keep</definition>
+        <argsstring></argsstring>
+        <name>holes_to_keep</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_cell.cc" line="101" column="13" bodyfile="libs/core/src/core/generator_cell.cc" bodystart="101" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1generator_1_1FillAllHoles_1a7d480161eb1ac10291383af75d570687" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>eu::core::generator::FillAllHoles::FillAllHoles</definition>
+        <argsstring>(bool ad, int htk)</argsstring>
+        <name>FillAllHoles</name>
+        <param>
+          <type>bool</type>
+          <declname>ad</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>htk</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_cell.cc" line="103" column="9" bodyfile="libs/core/src/core/generator_cell.cc" bodystart="103" bodyend="107"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1generator_1_1FillAllHoles_1ae9ea3ac92ed5f6a52c896dabb1fa52e4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void eu::core::generator::FillAllHoles::update</definition>
+        <argsstring>(CellularAutomata *self) override</argsstring>
+        <name>update</name>
+        <reimplements refid="structeu_1_1core_1_1generator_1_1Rule_1ade8830cd904a3451ce788d30a19fd37f">update</reimplements>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1generator_1_1CellularAutomata" kindref="compound">CellularAutomata</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_cell.cc" line="110" column="9" bodyfile="libs/core/src/core/generator_cell.cc" bodystart="110" bodyend="135"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>eu::core::generator::FillAllHoles</label>
+        <link refid="structeu_1_1core_1_1generator_1_1FillAllHoles"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>eu::core::generator::Rule</label>
+        <link refid="structeu_1_1core_1_1generator_1_1Rule"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>eu::core::generator::FillAllHoles</label>
+        <link refid="structeu_1_1core_1_1generator_1_1FillAllHoles"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>eu::core::generator::Rule</label>
+        <link refid="structeu_1_1core_1_1generator_1_1Rule"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/core/src/core/generator_cell.cc" line="98" column="5" bodyfile="libs/core/src/core/generator_cell.cc" bodystart="99" bodyend="136"/>
+    <listofallmembers>
+      <member refid="structeu_1_1core_1_1generator_1_1FillAllHoles_1a091cd0f1ddcc38de0198387a26a7c991" prot="public" virt="non-virtual"><scope>eu::core::generator::FillAllHoles</scope><name>allow_diagonals</name></member>
+      <member refid="structeu_1_1core_1_1generator_1_1FillAllHoles_1a7d480161eb1ac10291383af75d570687" prot="public" virt="non-virtual"><scope>eu::core::generator::FillAllHoles</scope><name>FillAllHoles</name></member>
+      <member refid="structeu_1_1core_1_1generator_1_1FillAllHoles_1aee4a9ef22f1d1f6f4269a0400848e0f7" prot="public" virt="non-virtual"><scope>eu::core::generator::FillAllHoles</scope><name>holes_to_keep</name></member>
+      <member refid="structeu_1_1core_1_1generator_1_1Rule_1a1952ef89fb57f11c325bf2d3ba740f03" prot="public" virt="non-virtual"><scope>eu::core::generator::FillAllHoles</scope><name>operator=</name></member>
+      <member refid="structeu_1_1core_1_1generator_1_1Rule_1aa350df05a08e00098e2554b9ed266740" prot="public" virt="non-virtual"><scope>eu::core::generator::FillAllHoles</scope><name>operator=</name></member>
+      <member refid="structeu_1_1core_1_1generator_1_1Rule_1a2cc99f83e0445005a0182fbc0f35fbbb" prot="public" virt="non-virtual"><scope>eu::core::generator::FillAllHoles</scope><name>Rule</name></member>
+      <member refid="structeu_1_1core_1_1generator_1_1Rule_1afc670d5cfa21cbeab7b9bb73d07a1be3" prot="public" virt="non-virtual"><scope>eu::core::generator::FillAllHoles</scope><name>Rule</name></member>
+      <member refid="structeu_1_1core_1_1generator_1_1Rule_1a6d26158a71ce1d94edea3278423ff3c3" prot="public" virt="non-virtual"><scope>eu::core::generator::FillAllHoles</scope><name>Rule</name></member>
+      <member refid="structeu_1_1core_1_1generator_1_1FillAllHoles_1ae9ea3ac92ed5f6a52c896dabb1fa52e4" prot="public" virt="virtual"><scope>eu::core::generator::FillAllHoles</scope><name>update</name></member>
+      <member refid="structeu_1_1core_1_1generator_1_1Rule_1a166890d09b76a20fb94005a3747251f6" prot="public" virt="virtual"><scope>eu::core::generator::FillAllHoles</scope><name>~Rule</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

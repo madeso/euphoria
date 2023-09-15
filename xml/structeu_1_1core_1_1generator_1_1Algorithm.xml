@@ -1,0 +1,180 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1core_1_1generator_1_1Algorithm" kind="struct" language="C++" prot="public" abstract="yes">
+    <compoundname>eu::core::generator::Algorithm</compoundname>
+    <derivedcompoundref refid="structeu_1_1core_1_1generator_1_1RandomTraversal" prot="public" virt="non-virtual">eu::core::generator::RandomTraversal</derivedcompoundref>
+    <derivedcompoundref refid="structeu_1_1core_1_1generator_1_1RecursiveBacktracker" prot="public" virt="non-virtual">eu::core::generator::RecursiveBacktracker</derivedcompoundref>
+    <includes refid="generator__maze_8h" local="no">generator_maze.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1generator_1_1Algorithm_1ad3f4aa529765753cd43f0b7781a0dff8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::core::generator::Algorithm::Algorithm</definition>
+        <argsstring>()=default</argsstring>
+        <name>Algorithm</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_maze.h" line="49" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1generator_1_1Algorithm_1a3401082f4de9949e8fbcc4bb825bcddc" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual eu::core::generator::Algorithm::~Algorithm</definition>
+        <argsstring>()=default</argsstring>
+        <name>~Algorithm</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_maze.h" line="50" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1generator_1_1Algorithm_1ab6639ba74df41fbd82314f8e2277bdd0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::core::generator::Algorithm::Algorithm</definition>
+        <argsstring>(const Algorithm &amp;)=delete</argsstring>
+        <name>Algorithm</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1generator_1_1Algorithm" kindref="compound">Algorithm</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_maze.h" line="52" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1generator_1_1Algorithm_1ae7b4188d2a30817d801d2461135f338e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::core::generator::Algorithm::Algorithm</definition>
+        <argsstring>(Algorithm &amp;&amp;)=delete</argsstring>
+        <name>Algorithm</name>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1generator_1_1Algorithm" kindref="compound">Algorithm</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_maze.h" line="53" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1generator_1_1Algorithm_1a151a6578cd68f44ddff3505e08b5a750" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::generator::Algorithm::operator=</definition>
+        <argsstring>(const Algorithm &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1generator_1_1Algorithm" kindref="compound">Algorithm</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_maze.h" line="54" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1generator_1_1Algorithm_1ab055493756509037ef8c01f4b1189143" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::generator::Algorithm::operator=</definition>
+        <argsstring>(Algorithm &amp;&amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1generator_1_1Algorithm" kindref="compound">Algorithm</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_maze.h" line="55" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1generator_1_1Algorithm_1ac552c4186ac126ab4f77ec25bea887df" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void eu::core::generator::Algorithm::setup</definition>
+        <argsstring>()=0</argsstring>
+        <name>setup</name>
+        <reimplementedby refid="structeu_1_1core_1_1generator_1_1RecursiveBacktracker_1aeb493f2054a429f4f1c7b49e0a3565f7">setup</reimplementedby>
+        <reimplementedby refid="structeu_1_1core_1_1generator_1_1RandomTraversal_1aece238baa76a4aa9ebaca5d2e9f6f69b">setup</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_maze.h" line="57" column="22"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1generator_1_1Algorithm_1a058a0e0a34ec386621054be36c3cdb8d" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void eu::core::generator::Algorithm::update</definition>
+        <argsstring>()=0</argsstring>
+        <name>update</name>
+        <reimplementedby refid="structeu_1_1core_1_1generator_1_1RecursiveBacktracker_1ab5b5653ba4180b795d1a8e0d290dd30e">update</reimplementedby>
+        <reimplementedby refid="structeu_1_1core_1_1generator_1_1RandomTraversal_1ae4ff191cd7ee1ea844e7389c21c1d2d5">update</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_maze.h" line="58" column="22"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1generator_1_1Algorithm_1a0d334571263e9dd6db549b0f66f344c3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>bool</type>
+        <definition>virtual bool eu::core::generator::Algorithm::is_done</definition>
+        <argsstring>() const =0</argsstring>
+        <name>is_done</name>
+        <reimplementedby refid="structeu_1_1core_1_1generator_1_1RecursiveBacktracker_1a0bf4feace36b8d218029aeb97399c682">is_done</reimplementedby>
+        <reimplementedby refid="structeu_1_1core_1_1generator_1_1RandomTraversal_1a592d6435f849bd289039ce1e4f7ed05e">is_done</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_maze.h" line="59" column="23"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>eu::core::generator::RecursiveBacktracker</label>
+        <link refid="structeu_1_1core_1_1generator_1_1RecursiveBacktracker"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>eu::core::generator::RandomTraversal</label>
+        <link refid="structeu_1_1core_1_1generator_1_1RandomTraversal"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>eu::core::generator::Algorithm</label>
+        <link refid="structeu_1_1core_1_1generator_1_1Algorithm"/>
+      </node>
+    </inheritancegraph>
+    <location file="libs/core/src/core/generator_maze.h" line="47" column="5" bodyfile="libs/core/src/core/generator_maze.h" bodystart="48" bodyend="60"/>
+    <listofallmembers>
+      <member refid="structeu_1_1core_1_1generator_1_1Algorithm_1ad3f4aa529765753cd43f0b7781a0dff8" prot="public" virt="non-virtual"><scope>eu::core::generator::Algorithm</scope><name>Algorithm</name></member>
+      <member refid="structeu_1_1core_1_1generator_1_1Algorithm_1ab6639ba74df41fbd82314f8e2277bdd0" prot="public" virt="non-virtual"><scope>eu::core::generator::Algorithm</scope><name>Algorithm</name></member>
+      <member refid="structeu_1_1core_1_1generator_1_1Algorithm_1ae7b4188d2a30817d801d2461135f338e" prot="public" virt="non-virtual"><scope>eu::core::generator::Algorithm</scope><name>Algorithm</name></member>
+      <member refid="structeu_1_1core_1_1generator_1_1Algorithm_1a0d334571263e9dd6db549b0f66f344c3" prot="public" virt="pure-virtual"><scope>eu::core::generator::Algorithm</scope><name>is_done</name></member>
+      <member refid="structeu_1_1core_1_1generator_1_1Algorithm_1a151a6578cd68f44ddff3505e08b5a750" prot="public" virt="non-virtual"><scope>eu::core::generator::Algorithm</scope><name>operator=</name></member>
+      <member refid="structeu_1_1core_1_1generator_1_1Algorithm_1ab055493756509037ef8c01f4b1189143" prot="public" virt="non-virtual"><scope>eu::core::generator::Algorithm</scope><name>operator=</name></member>
+      <member refid="structeu_1_1core_1_1generator_1_1Algorithm_1ac552c4186ac126ab4f77ec25bea887df" prot="public" virt="pure-virtual"><scope>eu::core::generator::Algorithm</scope><name>setup</name></member>
+      <member refid="structeu_1_1core_1_1generator_1_1Algorithm_1a058a0e0a34ec386621054be36c3cdb8d" prot="public" virt="pure-virtual"><scope>eu::core::generator::Algorithm</scope><name>update</name></member>
+      <member refid="structeu_1_1core_1_1generator_1_1Algorithm_1a3401082f4de9949e8fbcc4bb825bcddc" prot="public" virt="virtual"><scope>eu::core::generator::Algorithm</scope><name>~Algorithm</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

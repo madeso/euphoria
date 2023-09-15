@@ -1156,11 +1156,11 @@
         <link refid="materialshader_8cc"/>
       </node>
     </invincdepgraph>
-    <innerclass refid="structeuphoria_1_1core_1_1search_1_1Match" prot="public">euphoria::core::search::Match</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1search_1_1Searcher" prot="public">euphoria::core::search::Searcher</innerclass>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core_1_1search">euphoria::core::search</innernamespace>
+    <innerclass refid="structeu_1_1core_1_1search_1_1Match" prot="public">eu::core::search::Match</innerclass>
+    <innerclass refid="structeu_1_1core_1_1search_1_1Searcher" prot="public">eu::core::search::Searcher</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core_1_1search">eu::core::search</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

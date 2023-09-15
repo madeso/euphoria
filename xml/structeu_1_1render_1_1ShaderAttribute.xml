@@ -1,0 +1,156 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1render_1_1ShaderAttribute" kind="struct" language="C++" prot="public">
+    <compoundname>eu::render::ShaderAttribute</compoundname>
+    <includes refid="shaderattribute_8h" local="no">shaderattribute.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1render_1_1ShaderAttribute_1a08e7f972a44f10333ee589a785b7f083" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeu_1_1render_1_1gl_1ad8366bf6293b380fc6914c935533eef7" kindref="member">gl::Int</ref></type>
+        <definition>gl::Int eu::render::ShaderAttribute::id</definition>
+        <argsstring></argsstring>
+        <name>id</name>
+        <briefdescription>
+<para>the id of the attribute </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/shaderattribute.h" line="55" column="17" bodyfile="libs/render/src/render/shaderattribute.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1ShaderAttribute_1acb3e74ae12b5683e9fd8825b242514ff" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeu_1_1render_1a558560eca4f450f3fc0043c94bfe72e7" kindref="member">ShaderAttributeType</ref></type>
+        <definition>ShaderAttributeType eu::render::ShaderAttribute::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <briefdescription>
+<para>the type of the attribute </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/shaderattribute.h" line="58" column="29" bodyfile="libs/render/src/render/shaderattribute.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1ShaderAttribute_1a2d8698f29516ab1c224fb158b5a16100" prot="public" static="no" mutable="no">
+        <type>std::string_view</type>
+        <definition>std::string_view eu::render::ShaderAttribute::name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <briefdescription>
+<para>the name of the shader attribute </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/shaderattribute.h" line="61" column="26" bodyfile="libs/render/src/render/shaderattribute.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1ShaderAttribute_1ad2ba44321fc746f09cad4f550328e446" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeu_1_1render_1a14d60d4937ff486925ae418ed8f5f67b" kindref="member">ShaderAttributeSource</ref></type>
+        <definition>ShaderAttributeSource eu::render::ShaderAttribute::source</definition>
+        <argsstring></argsstring>
+        <name>source</name>
+        <briefdescription>
+<para>the source of the shader attribute </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/shaderattribute.h" line="64" column="31" bodyfile="libs/render/src/render/shaderattribute.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1ShaderAttribute_1a5e26bc59b51be96b05072449562d2012" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool eu::render::ShaderAttribute::normalize</definition>
+        <argsstring></argsstring>
+        <name>normalize</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/shaderattribute.h" line="67" column="14" bodyfile="libs/render/src/render/shaderattribute.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1render_1_1ShaderAttribute_1a676ba722334adb54036cf4043e923cd9" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>constexpr</type>
+        <definition>constexpr eu::render::ShaderAttribute::ShaderAttribute</definition>
+        <argsstring>(gl::Int a_id, ShaderAttributeType a_type, std::string_view a_name, ShaderAttributeSource a_source, bool a_normalize=false)</argsstring>
+        <name>ShaderAttribute</name>
+        <param>
+          <type><ref refid="namespaceeu_1_1render_1_1gl_1ad8366bf6293b380fc6914c935533eef7" kindref="member">gl::Int</ref></type>
+          <declname>a_id</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceeu_1_1render_1a558560eca4f450f3fc0043c94bfe72e7" kindref="member">ShaderAttributeType</ref></type>
+          <declname>a_type</declname>
+        </param>
+        <param>
+          <type>std::string_view</type>
+          <declname>a_name</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceeu_1_1render_1a14d60d4937ff486925ae418ed8f5f67b" kindref="member">ShaderAttributeSource</ref></type>
+          <declname>a_source</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>a_normalize</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/shaderattribute.h" line="32" column="19" bodyfile="libs/render/src/render/shaderattribute.h" bodystart="33" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1ShaderAttribute_1af1d4942c6e6a6a64af44895a1d8b70d7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int eu::render::ShaderAttribute::get_element_count</definition>
+        <argsstring>() const</argsstring>
+        <name>get_element_count</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/shaderattribute.h" line="49" column="9" bodyfile="libs/render/src/render/shaderattribute.cc" bodystart="12" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1ShaderAttribute_1a692e659c3cfcf5288d1ae09b7bff3169" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int eu::render::ShaderAttribute::get_byte_size</definition>
+        <argsstring>() const</argsstring>
+        <name>get_byte_size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/shaderattribute.h" line="52" column="9" bodyfile="libs/render/src/render/shaderattribute.cc" bodystart="28" bodyend="42"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Represents a shader attribute like vertex, normal or uv coord. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/render/src/render/shaderattribute.h" line="29" column="5" bodyfile="libs/render/src/render/shaderattribute.h" bodystart="30" bodyend="68"/>
+    <listofallmembers>
+      <member refid="structeu_1_1render_1_1ShaderAttribute_1a692e659c3cfcf5288d1ae09b7bff3169" prot="public" virt="non-virtual"><scope>eu::render::ShaderAttribute</scope><name>get_byte_size</name></member>
+      <member refid="structeu_1_1render_1_1ShaderAttribute_1af1d4942c6e6a6a64af44895a1d8b70d7" prot="public" virt="non-virtual"><scope>eu::render::ShaderAttribute</scope><name>get_element_count</name></member>
+      <member refid="structeu_1_1render_1_1ShaderAttribute_1a08e7f972a44f10333ee589a785b7f083" prot="public" virt="non-virtual"><scope>eu::render::ShaderAttribute</scope><name>id</name></member>
+      <member refid="structeu_1_1render_1_1ShaderAttribute_1a2d8698f29516ab1c224fb158b5a16100" prot="public" virt="non-virtual"><scope>eu::render::ShaderAttribute</scope><name>name</name></member>
+      <member refid="structeu_1_1render_1_1ShaderAttribute_1a5e26bc59b51be96b05072449562d2012" prot="public" virt="non-virtual"><scope>eu::render::ShaderAttribute</scope><name>normalize</name></member>
+      <member refid="structeu_1_1render_1_1ShaderAttribute_1a676ba722334adb54036cf4043e923cd9" prot="public" virt="non-virtual"><scope>eu::render::ShaderAttribute</scope><name>ShaderAttribute</name></member>
+      <member refid="structeu_1_1render_1_1ShaderAttribute_1ad2ba44321fc746f09cad4f550328e446" prot="public" virt="non-virtual"><scope>eu::render::ShaderAttribute</scope><name>source</name></member>
+      <member refid="structeu_1_1render_1_1ShaderAttribute_1acb3e74ae12b5683e9fd8825b242514ff" prot="public" virt="non-virtual"><scope>eu::render::ShaderAttribute</scope><name>type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

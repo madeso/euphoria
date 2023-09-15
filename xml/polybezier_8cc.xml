@@ -153,8 +153,8 @@
         <label>type_traits</label>
       </node>
     </incdepgraph>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
       <sectiondef kind="var">
       <memberdef kind="variable" id="polybezier_8cc_1af0993825ffcb654e85f5287d7928fd18" prot="public" static="no" mutable="no">
         <type>TPoints *</type>

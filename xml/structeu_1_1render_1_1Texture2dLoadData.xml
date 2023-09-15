@@ -1,0 +1,128 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1render_1_1Texture2dLoadData" kind="struct" language="C++" prot="public">
+    <compoundname>eu::render::Texture2dLoadData</compoundname>
+    <includes refid="texture_8h" local="no">texture.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1render_1_1Texture2dLoadData_1a3559328b1168b178283cc2d5811921ff" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeu_1_1render_1a9d61a94de71ae5eee8d9160e99ee8703" kindref="member">TextureWrap</ref></type>
+        <definition>TextureWrap eu::render::Texture2dLoadData::wrap</definition>
+        <argsstring></argsstring>
+        <name>wrap</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/texture.h" line="48" column="21" bodyfile="libs/render/src/render/texture.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1Texture2dLoadData_1add9cfb766d27164b9bb1c81bac0a3de1" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeu_1_1render_1a7778db7fea39f45547d379a78b83e749" kindref="member">FilterMinification</ref></type>
+        <definition>FilterMinification eu::render::Texture2dLoadData::minification</definition>
+        <argsstring></argsstring>
+        <name>minification</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/texture.h" line="49" column="28" bodyfile="libs/render/src/render/texture.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1Texture2dLoadData_1a86c34898f8a03ab33d0640beb53affb8" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeu_1_1render_1a22236fcd61d449ec844f00cad8060c3b" kindref="member">FilterMagnification</ref></type>
+        <definition>FilterMagnification eu::render::Texture2dLoadData::magnification</definition>
+        <argsstring></argsstring>
+        <name>magnification</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/texture.h" line="50" column="29" bodyfile="libs/render/src/render/texture.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1render_1_1Texture2dLoadData_1a38e9a740b4cd19131dae8a25c429bb61" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::Texture2dLoadData::Texture2dLoadData</definition>
+        <argsstring>()</argsstring>
+        <name>Texture2dLoadData</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/texture.h" line="37" column="9" bodyfile="libs/render/src/render/texture.cc" bodystart="73" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1Texture2dLoadData_1a00951991804d89e01e803fc9bfc32966" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1render_1_1Texture2dLoadData" kindref="compound">Texture2dLoadData</ref> &amp;</type>
+        <definition>Texture2dLoadData &amp; eu::render::Texture2dLoadData::set_wrap</definition>
+        <argsstring>(TextureWrap v)</argsstring>
+        <name>set_wrap</name>
+        <param>
+          <type><ref refid="namespaceeu_1_1render_1a9d61a94de71ae5eee8d9160e99ee8703" kindref="member">TextureWrap</ref></type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/texture.h" line="40" column="9" bodyfile="libs/render/src/render/texture.cc" bodystart="82" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1Texture2dLoadData_1a355566670cddf4d23ae1d62be631a8fd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1render_1_1Texture2dLoadData" kindref="compound">Texture2dLoadData</ref> &amp;</type>
+        <definition>Texture2dLoadData &amp; eu::render::Texture2dLoadData::set_filter_magnification</definition>
+        <argsstring>(FilterMagnification v)</argsstring>
+        <name>set_filter_magnification</name>
+        <param>
+          <type><ref refid="namespaceeu_1_1render_1a22236fcd61d449ec844f00cad8060c3b" kindref="member">FilterMagnification</ref></type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/texture.h" line="43" column="9" bodyfile="libs/render/src/render/texture.cc" bodystart="90" bodyend="94"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1Texture2dLoadData_1aaf0ef1e580d3232a85f28c49a32fae16" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1render_1_1Texture2dLoadData" kindref="compound">Texture2dLoadData</ref> &amp;</type>
+        <definition>Texture2dLoadData &amp; eu::render::Texture2dLoadData::set_filter_minification</definition>
+        <argsstring>(FilterMinification v)</argsstring>
+        <name>set_filter_minification</name>
+        <param>
+          <type><ref refid="namespaceeu_1_1render_1a7778db7fea39f45547d379a78b83e749" kindref="member">FilterMinification</ref></type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/texture.h" line="46" column="9" bodyfile="libs/render/src/render/texture.cc" bodystart="98" bodyend="102"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/render/src/render/texture.h" line="35" column="5" bodyfile="libs/render/src/render/texture.h" bodystart="36" bodyend="51"/>
+    <listofallmembers>
+      <member refid="structeu_1_1render_1_1Texture2dLoadData_1a86c34898f8a03ab33d0640beb53affb8" prot="public" virt="non-virtual"><scope>eu::render::Texture2dLoadData</scope><name>magnification</name></member>
+      <member refid="structeu_1_1render_1_1Texture2dLoadData_1add9cfb766d27164b9bb1c81bac0a3de1" prot="public" virt="non-virtual"><scope>eu::render::Texture2dLoadData</scope><name>minification</name></member>
+      <member refid="structeu_1_1render_1_1Texture2dLoadData_1a355566670cddf4d23ae1d62be631a8fd" prot="public" virt="non-virtual"><scope>eu::render::Texture2dLoadData</scope><name>set_filter_magnification</name></member>
+      <member refid="structeu_1_1render_1_1Texture2dLoadData_1aaf0ef1e580d3232a85f28c49a32fae16" prot="public" virt="non-virtual"><scope>eu::render::Texture2dLoadData</scope><name>set_filter_minification</name></member>
+      <member refid="structeu_1_1render_1_1Texture2dLoadData_1a00951991804d89e01e803fc9bfc32966" prot="public" virt="non-virtual"><scope>eu::render::Texture2dLoadData</scope><name>set_wrap</name></member>
+      <member refid="structeu_1_1render_1_1Texture2dLoadData_1a38e9a740b4cd19131dae8a25c429bb61" prot="public" virt="non-virtual"><scope>eu::render::Texture2dLoadData</scope><name>Texture2dLoadData</name></member>
+      <member refid="structeu_1_1render_1_1Texture2dLoadData_1a3559328b1168b178283cc2d5811921ff" prot="public" virt="non-virtual"><scope>eu::render::Texture2dLoadData</scope><name>wrap</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

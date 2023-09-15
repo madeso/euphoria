@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1core_1_1Polyline2" kind="struct" language="C++" prot="public">
+    <compoundname>eu::core::Polyline2</compoundname>
+    <includes refid="polybezier_8h" local="no">polybezier.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1core_1_1Polyline2_1a5b0d1ec35a853e2f41d9306f4bffad70" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structeu_1_1core_1_1vec2f" kindref="compound">vec2f</ref> &gt;</type>
+        <definition>std::vector&lt;vec2f&gt; eu::core::Polyline2::points</definition>
+        <argsstring></argsstring>
+        <name>points</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/polybezier.h" line="81" column="21" bodyfile="libs/core/src/core/polybezier.h" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1Polyline2_1a816a3d3e7ec26e57e8726f9f8a42a274" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool eu::core::Polyline2::is_closed</definition>
+        <argsstring></argsstring>
+        <name>is_closed</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/polybezier.h" line="82" column="14" bodyfile="libs/core/src/core/polybezier.h" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Straight lines only. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Other names according to Wikipedia are:<itemizedlist>
+<listitem><para>polygonal chain</para>
+</listitem><listitem><para>polygonal curve</para>
+</listitem><listitem><para>polygonal path</para>
+</listitem><listitem><para>piecewise linear curve</para>
+</listitem><listitem><para>broken line </para>
+</listitem></itemizedlist>
+</para>
+    </detaileddescription>
+    <location file="libs/core/src/core/polybezier.h" line="79" column="5" bodyfile="libs/core/src/core/polybezier.h" bodystart="80" bodyend="83"/>
+    <listofallmembers>
+      <member refid="structeu_1_1core_1_1Polyline2_1a816a3d3e7ec26e57e8726f9f8a42a274" prot="public" virt="non-virtual"><scope>eu::core::Polyline2</scope><name>is_closed</name></member>
+      <member refid="structeu_1_1core_1_1Polyline2_1a5b0d1ec35a853e2f41d9306f4bffad70" prot="public" virt="non-virtual"><scope>eu::core::Polyline2</scope><name>points</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

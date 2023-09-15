@@ -335,10 +335,10 @@
         </childnode>
       </node>
     </invincdepgraph>
-    <innerclass refid="structeuphoria_1_1core_1_1WallCounter" prot="public">euphoria::core::WallCounter</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1BorderSettings" prot="public">euphoria::core::BorderSettings</innerclass>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
+    <innerclass refid="structeu_1_1core_1_1WallCounter" prot="public">eu::core::WallCounter</innerclass>
+    <innerclass refid="structeu_1_1core_1_1BorderSettings" prot="public">eu::core::BorderSettings</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

@@ -1,0 +1,257 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1tests_1_1custom_1_1Approx" kind="struct" language="C++" prot="public">
+    <compoundname>eu::tests::custom::Approx</compoundname>
+    <includes refid="approx_8h" local="no">approx.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename T</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="structeu_1_1tests_1_1custom_1_1Approx_1afd5b6648547bc4bb76e5f6e3e5186c2f" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float eu::tests::custom::Approx&lt; T &gt;::epsilon</definition>
+        <argsstring></argsstring>
+        <name>epsilon</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/tests/src/tests/approx.h" line="108" column="19" bodyfile="libs/tests/src/tests/approx.h" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1tests_1_1custom_1_1Approx_1ac3346499e3efe4db2a65619de49a3885" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float eu::tests::custom::Approx&lt; T &gt;::margin</definition>
+        <argsstring></argsstring>
+        <name>margin</name>
+        <initializer>= 0.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/tests/src/tests/approx.h" line="109" column="19" bodyfile="libs/tests/src/tests/approx.h" bodystart="109" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1tests_1_1custom_1_1Approx_1a274b1ff6b6aa40b3367f1581f412cb78" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float eu::tests::custom::Approx&lt; T &gt;::scale</definition>
+        <argsstring></argsstring>
+        <name>scale</name>
+        <initializer>= 1.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/tests/src/tests/approx.h" line="110" column="19" bodyfile="libs/tests/src/tests/approx.h" bodystart="110" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1tests_1_1custom_1_1Approx_1aa11c80373473b24908c5f02af025439e" prot="private" static="no" mutable="no">
+        <type>T</type>
+        <definition>T eu::tests::custom::Approx&lt; T &gt;::value</definition>
+        <argsstring></argsstring>
+        <name>value</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/tests/src/tests/approx.h" line="112" column="15" bodyfile="libs/tests/src/tests/approx.h" bodystart="112" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1tests_1_1custom_1_1Approx_1ac9ec24e16b32338da57eda34219888aa" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>eu::tests::custom::Approx&lt; T &gt;::Approx</definition>
+        <argsstring>(T v)</argsstring>
+        <name>Approx</name>
+        <param>
+          <type>T</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/tests/src/tests/approx.h" line="43" column="22" bodyfile="libs/tests/src/tests/approx.h" bodystart="43" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1tests_1_1custom_1_1Approx_1ae1fadad710dacac5a8aa57db7c3552d7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeu_1_1tests_1_1custom_1_1Approx" kindref="compound">Approx</ref> &amp;</type>
+        <definition>Approx&amp; eu::tests::custom::Approx&lt; T &gt;::set_epsilon</definition>
+        <argsstring>(float new_epsilon)</argsstring>
+        <name>set_epsilon</name>
+        <param>
+          <type>float</type>
+          <declname>new_epsilon</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/tests/src/tests/approx.h" line="50" column="13" bodyfile="libs/tests/src/tests/approx.h" bodystart="50" bodyend="54"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1tests_1_1custom_1_1Approx_1a596ee41dd78403ad2c87b63824eaa3db" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeu_1_1tests_1_1custom_1_1Approx" kindref="compound">Approx</ref> &amp;</type>
+        <definition>Approx&amp; eu::tests::custom::Approx&lt; T &gt;::set_margin</definition>
+        <argsstring>(float new_margin)</argsstring>
+        <name>set_margin</name>
+        <param>
+          <type>float</type>
+          <declname>new_margin</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/tests/src/tests/approx.h" line="57" column="13" bodyfile="libs/tests/src/tests/approx.h" bodystart="57" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1tests_1_1custom_1_1Approx_1af19c7887c33d127fa1e8c3e6402089ec" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeu_1_1tests_1_1custom_1_1Approx" kindref="compound">Approx</ref> &amp;</type>
+        <definition>Approx&amp; eu::tests::custom::Approx&lt; T &gt;::set_scale</definition>
+        <argsstring>(float new_scale)</argsstring>
+        <name>set_scale</name>
+        <param>
+          <type>float</type>
+          <declname>new_scale</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/tests/src/tests/approx.h" line="64" column="13" bodyfile="libs/tests/src/tests/approx.h" bodystart="64" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1tests_1_1custom_1_1Approx_1a733fee95d9d25fef82996941cc03bc66" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string eu::tests::custom::Approx&lt; T &gt;::to_string</definition>
+        <argsstring>() const</argsstring>
+        <name>to_string</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/tests/src/tests/approx.h" line="71" column="13" bodyfile="libs/tests/src/tests/approx.h" bodystart="71" bodyend="77"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="structeu_1_1tests_1_1custom_1_1Approx_1ad4e89e4fc9539b3d1cd1087ecfa07985" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool operator==</definition>
+        <argsstring>(T lhs, Approx&lt; T &gt; const &amp;rhs)</argsstring>
+        <name>operator==</name>
+        <param>
+          <type>T</type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1tests_1_1custom_1_1Approx" kindref="compound">Approx</ref>&lt; T &gt; const &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/tests/src/tests/approx.h" line="80" column="13" bodyfile="libs/tests/src/tests/approx.h" bodystart="80" bodyend="87"/>
+      </memberdef>
+      <memberdef kind="friend" id="structeu_1_1tests_1_1custom_1_1Approx_1a66bc64b9f6ca0ed5c6256a10b59260df" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool operator==</definition>
+        <argsstring>(Approx&lt; T &gt; const &amp;lhs, T rhs)</argsstring>
+        <name>operator==</name>
+        <param>
+          <type><ref refid="structeu_1_1tests_1_1custom_1_1Approx" kindref="compound">Approx</ref>&lt; T &gt; const &amp;</type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/tests/src/tests/approx.h" line="90" column="13" bodyfile="libs/tests/src/tests/approx.h" bodystart="90" bodyend="93"/>
+      </memberdef>
+      <memberdef kind="friend" id="structeu_1_1tests_1_1custom_1_1Approx_1a98eb1ff7b0e1a2a9f75c35339f7185ea" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool operator!=</definition>
+        <argsstring>(T lhs, Approx&lt; T &gt; const &amp;rhs)</argsstring>
+        <name>operator!=</name>
+        <param>
+          <type>T</type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1tests_1_1custom_1_1Approx" kindref="compound">Approx</ref>&lt; T &gt; const &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/tests/src/tests/approx.h" line="96" column="13" bodyfile="libs/tests/src/tests/approx.h" bodystart="96" bodyend="99"/>
+      </memberdef>
+      <memberdef kind="friend" id="structeu_1_1tests_1_1custom_1_1Approx_1a28a5d2ba6f6162d86c8d6afd3b4618dc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool operator!=</definition>
+        <argsstring>(Approx&lt; T &gt; const &amp;lhs, T rhs)</argsstring>
+        <name>operator!=</name>
+        <param>
+          <type><ref refid="structeu_1_1tests_1_1custom_1_1Approx" kindref="compound">Approx</ref>&lt; T &gt; const &amp;</type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/tests/src/tests/approx.h" line="102" column="13" bodyfile="libs/tests/src/tests/approx.h" bodystart="102" bodyend="105"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/tests/src/tests/approx.h" line="40" column="9" bodyfile="libs/tests/src/tests/approx.h" bodystart="41" bodyend="113"/>
+    <listofallmembers>
+      <member refid="structeu_1_1tests_1_1custom_1_1Approx_1ac9ec24e16b32338da57eda34219888aa" prot="public" virt="non-virtual"><scope>eu::tests::custom::Approx</scope><name>Approx</name></member>
+      <member refid="structeu_1_1tests_1_1custom_1_1Approx_1afd5b6648547bc4bb76e5f6e3e5186c2f" prot="private" virt="non-virtual"><scope>eu::tests::custom::Approx</scope><name>epsilon</name></member>
+      <member refid="structeu_1_1tests_1_1custom_1_1Approx_1ac3346499e3efe4db2a65619de49a3885" prot="private" virt="non-virtual"><scope>eu::tests::custom::Approx</scope><name>margin</name></member>
+      <member refid="structeu_1_1tests_1_1custom_1_1Approx_1a98eb1ff7b0e1a2a9f75c35339f7185ea" prot="public" virt="non-virtual"><scope>eu::tests::custom::Approx</scope><name>operator!=</name></member>
+      <member refid="structeu_1_1tests_1_1custom_1_1Approx_1a28a5d2ba6f6162d86c8d6afd3b4618dc" prot="public" virt="non-virtual"><scope>eu::tests::custom::Approx</scope><name>operator!=</name></member>
+      <member refid="structeu_1_1tests_1_1custom_1_1Approx_1ad4e89e4fc9539b3d1cd1087ecfa07985" prot="public" virt="non-virtual"><scope>eu::tests::custom::Approx</scope><name>operator==</name></member>
+      <member refid="structeu_1_1tests_1_1custom_1_1Approx_1a66bc64b9f6ca0ed5c6256a10b59260df" prot="public" virt="non-virtual"><scope>eu::tests::custom::Approx</scope><name>operator==</name></member>
+      <member refid="structeu_1_1tests_1_1custom_1_1Approx_1a274b1ff6b6aa40b3367f1581f412cb78" prot="private" virt="non-virtual"><scope>eu::tests::custom::Approx</scope><name>scale</name></member>
+      <member refid="structeu_1_1tests_1_1custom_1_1Approx_1ae1fadad710dacac5a8aa57db7c3552d7" prot="public" virt="non-virtual"><scope>eu::tests::custom::Approx</scope><name>set_epsilon</name></member>
+      <member refid="structeu_1_1tests_1_1custom_1_1Approx_1a596ee41dd78403ad2c87b63824eaa3db" prot="public" virt="non-virtual"><scope>eu::tests::custom::Approx</scope><name>set_margin</name></member>
+      <member refid="structeu_1_1tests_1_1custom_1_1Approx_1af19c7887c33d127fa1e8c3e6402089ec" prot="public" virt="non-virtual"><scope>eu::tests::custom::Approx</scope><name>set_scale</name></member>
+      <member refid="structeu_1_1tests_1_1custom_1_1Approx_1a733fee95d9d25fef82996941cc03bc66" prot="public" virt="non-virtual"><scope>eu::tests::custom::Approx</scope><name>to_string</name></member>
+      <member refid="structeu_1_1tests_1_1custom_1_1Approx_1aa11c80373473b24908c5f02af025439e" prot="private" virt="non-virtual"><scope>eu::tests::custom::Approx</scope><name>value</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

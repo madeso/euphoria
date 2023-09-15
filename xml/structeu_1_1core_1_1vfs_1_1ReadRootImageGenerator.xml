@@ -1,0 +1,169 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1core_1_1vfs_1_1ReadRootImageGenerator" kind="struct" language="C++" prot="public">
+    <compoundname>eu::core::vfs::ReadRootImageGenerator</compoundname>
+    <basecompoundref refid="structeu_1_1core_1_1vfs_1_1ReadRoot" prot="public" virt="non-virtual">eu::core::vfs::ReadRoot</basecompoundref>
+    <includes refid="vfs__imagegenerator_8h" local="no">vfs_imagegenerator.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1core_1_1vfs_1_1ReadRootImageGenerator_1a2feeb2f02b6d54cc79518f7199913953" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1core_1_1vfs_1_1DirPath" kindref="compound">DirPath</ref></type>
+        <definition>DirPath eu::core::vfs::ReadRootImageGenerator::base</definition>
+        <argsstring></argsstring>
+        <name>base</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vfs_imagegenerator.h" line="24" column="17" bodyfile="libs/core/src/core/vfs_imagegenerator.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1vfs_1_1ReadRootImageGenerator_1a5533e52c6d37a7df3f037312e26b367f" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::vfs::ReadRootImageGenerator::add</definition>
+        <argsstring>(FileSystem *fs, const DirPath &amp;base)</argsstring>
+        <name>add</name>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1vfs_1_1FileSystem" kindref="compound">FileSystem</ref> *</type>
+          <declname>fs</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1vfs_1_1DirPath" kindref="compound">DirPath</ref> &amp;</type>
+          <declname>base</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vfs_imagegenerator.h" line="11" column="9" bodyfile="libs/core/src/core/vfs_imagegenerator.cc" bodystart="14" bodyend="21"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1vfs_1_1ReadRootImageGenerator_1ac9b2cb9736be7235f317f84764701477" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>std::shared_ptr&lt; <ref refid="structeu_1_1core_1_1MemoryChunk" kindref="compound">MemoryChunk</ref> &gt;</type>
+        <definition>std::shared_ptr&lt; MemoryChunk &gt; eu::core::vfs::ReadRootImageGenerator::read_file</definition>
+        <argsstring>(const FilePath &amp;path) override</argsstring>
+        <name>read_file</name>
+        <reimplements refid="structeu_1_1core_1_1vfs_1_1ReadRoot_1a1ccc041bfcdbae18a0b65d45f6f66cc4">read_file</reimplements>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1vfs_1_1FilePath" kindref="compound">FilePath</ref> &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vfs_imagegenerator.h" line="14" column="9" bodyfile="libs/core/src/core/vfs_imagegenerator.cc" bodystart="25" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1vfs_1_1ReadRootImageGenerator_1af80e8ee89d692d022348e311367dd335" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void eu::core::vfs::ReadRootImageGenerator::add_description</definition>
+        <argsstring>(std::vector&lt; std::string &gt; *strings) override</argsstring>
+        <name>add_description</name>
+        <reimplements refid="structeu_1_1core_1_1vfs_1_1ReadRoot_1a2c72130cb426fab6de9376f46eb2bda9">add_description</reimplements>
+        <param>
+          <type>std::vector&lt; std::string &gt; *</type>
+          <declname>strings</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vfs_imagegenerator.h" line="17" column="9" bodyfile="libs/core/src/core/vfs_imagegenerator.cc" bodystart="59" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1vfs_1_1ReadRootImageGenerator_1a610a9dae8cdbcd3f95bfd8cd02f4837c" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::core::vfs::ReadRootImageGenerator::ReadRootImageGenerator</definition>
+        <argsstring>(const DirPath &amp;base)</argsstring>
+        <name>ReadRootImageGenerator</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1vfs_1_1DirPath" kindref="compound">DirPath</ref> &amp;</type>
+          <declname>base</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vfs_imagegenerator.h" line="19" column="18" bodyfile="libs/core/src/core/vfs_imagegenerator.cc" bodystart="65" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1vfs_1_1ReadRootImageGenerator_1a63eb0e55bb500eec58388675ae0aeef8" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="structeu_1_1core_1_1vfs_1_1FileList" kindref="compound">FileList</ref></type>
+        <definition>FileList eu::core::vfs::ReadRootImageGenerator::list_files</definition>
+        <argsstring>(const DirPath &amp;path) override</argsstring>
+        <name>list_files</name>
+        <reimplements refid="structeu_1_1core_1_1vfs_1_1ReadRoot_1a7f5ab9b5ed9a53ace2ffb80a4d3bcd73">list_files</reimplements>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1vfs_1_1DirPath" kindref="compound">DirPath</ref> &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vfs_imagegenerator.h" line="22" column="9" bodyfile="libs/core/src/core/vfs_imagegenerator.cc" bodystart="73" bodyend="97"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>eu::core::vfs::ReadRoot</label>
+        <link refid="structeu_1_1core_1_1vfs_1_1ReadRoot"/>
+      </node>
+      <node id="1">
+        <label>eu::core::vfs::ReadRootImageGenerator</label>
+        <link refid="structeu_1_1core_1_1vfs_1_1ReadRootImageGenerator"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>eu::core::vfs::DirPath</label>
+        <link refid="structeu_1_1core_1_1vfs_1_1DirPath"/>
+      </node>
+      <node id="2">
+        <label>eu::core::vfs::ReadRoot</label>
+        <link refid="structeu_1_1core_1_1vfs_1_1ReadRoot"/>
+      </node>
+      <node id="1">
+        <label>eu::core::vfs::ReadRootImageGenerator</label>
+        <link refid="structeu_1_1core_1_1vfs_1_1ReadRootImageGenerator"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>base</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="libs/core/src/core/vfs_imagegenerator.h" line="8" column="5" bodyfile="libs/core/src/core/vfs_imagegenerator.h" bodystart="9" bodyend="25"/>
+    <listofallmembers>
+      <member refid="structeu_1_1core_1_1vfs_1_1ReadRootImageGenerator_1a5533e52c6d37a7df3f037312e26b367f" prot="public" virt="non-virtual"><scope>eu::core::vfs::ReadRootImageGenerator</scope><name>add</name></member>
+      <member refid="structeu_1_1core_1_1vfs_1_1ReadRootImageGenerator_1af80e8ee89d692d022348e311367dd335" prot="public" virt="virtual"><scope>eu::core::vfs::ReadRootImageGenerator</scope><name>add_description</name></member>
+      <member refid="structeu_1_1core_1_1vfs_1_1ReadRootImageGenerator_1a2feeb2f02b6d54cc79518f7199913953" prot="public" virt="non-virtual"><scope>eu::core::vfs::ReadRootImageGenerator</scope><name>base</name></member>
+      <member refid="structeu_1_1core_1_1vfs_1_1ReadRootImageGenerator_1a63eb0e55bb500eec58388675ae0aeef8" prot="public" virt="virtual"><scope>eu::core::vfs::ReadRootImageGenerator</scope><name>list_files</name></member>
+      <member refid="structeu_1_1core_1_1vfs_1_1ReadRoot_1ab1a50bb68eac9d0de6de63784c1462c3" prot="public" virt="non-virtual"><scope>eu::core::vfs::ReadRootImageGenerator</scope><name>operator=</name></member>
+      <member refid="structeu_1_1core_1_1vfs_1_1ReadRoot_1ac88957770b7c3f7253fe7ee0590a3740" prot="public" virt="non-virtual"><scope>eu::core::vfs::ReadRootImageGenerator</scope><name>operator=</name></member>
+      <member refid="structeu_1_1core_1_1vfs_1_1ReadRootImageGenerator_1ac9b2cb9736be7235f317f84764701477" prot="public" virt="virtual"><scope>eu::core::vfs::ReadRootImageGenerator</scope><name>read_file</name></member>
+      <member refid="structeu_1_1core_1_1vfs_1_1ReadRoot_1af9bbc4b1fa32eb3a5165e09d263685c2" prot="public" virt="non-virtual"><scope>eu::core::vfs::ReadRootImageGenerator</scope><name>ReadRoot</name></member>
+      <member refid="structeu_1_1core_1_1vfs_1_1ReadRoot_1a122f747f30ba75ae6786f3b82436e7d2" prot="public" virt="non-virtual"><scope>eu::core::vfs::ReadRootImageGenerator</scope><name>ReadRoot</name></member>
+      <member refid="structeu_1_1core_1_1vfs_1_1ReadRoot_1afc35effc835a889b832d113b59cbf23f" prot="public" virt="non-virtual"><scope>eu::core::vfs::ReadRootImageGenerator</scope><name>ReadRoot</name></member>
+      <member refid="structeu_1_1core_1_1vfs_1_1ReadRootImageGenerator_1a610a9dae8cdbcd3f95bfd8cd02f4837c" prot="public" virt="non-virtual"><scope>eu::core::vfs::ReadRootImageGenerator</scope><name>ReadRootImageGenerator</name></member>
+      <member refid="structeu_1_1core_1_1vfs_1_1ReadRoot_1a6df2cdac9ad7fa1e235264c96655a7e4" prot="public" virt="virtual"><scope>eu::core::vfs::ReadRootImageGenerator</scope><name>~ReadRoot</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

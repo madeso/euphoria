@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1render_1_1LightAttenuation" kind="struct" language="C++" prot="public">
+    <compoundname>eu::render::LightAttenuation</compoundname>
+    <includes refid="light_8h" local="no">light.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1render_1_1LightAttenuation_1a2f43cb0d2d9978f433cae94e838217e3" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float eu::render::LightAttenuation::constant</definition>
+        <argsstring></argsstring>
+        <name>constant</name>
+        <initializer>= 1.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/light.h" line="11" column="15" bodyfile="libs/render/src/render/light.h" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1LightAttenuation_1a71dad49548d6f39d78172d010ef3ccce" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float eu::render::LightAttenuation::linear</definition>
+        <argsstring></argsstring>
+        <name>linear</name>
+        <initializer>= 0.09f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/light.h" line="12" column="15" bodyfile="libs/render/src/render/light.h" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1LightAttenuation_1a20a4490dfe09ed100a2b333cbdf7825d" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float eu::render::LightAttenuation::quadratic</definition>
+        <argsstring></argsstring>
+        <name>quadratic</name>
+        <initializer>= 0.032f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/light.h" line="13" column="15" bodyfile="libs/render/src/render/light.h" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/render/src/render/light.h" line="9" column="5" bodyfile="libs/render/src/render/light.h" bodystart="10" bodyend="14"/>
+    <listofallmembers>
+      <member refid="structeu_1_1render_1_1LightAttenuation_1a2f43cb0d2d9978f433cae94e838217e3" prot="public" virt="non-virtual"><scope>eu::render::LightAttenuation</scope><name>constant</name></member>
+      <member refid="structeu_1_1render_1_1LightAttenuation_1a71dad49548d6f39d78172d010ef3ccce" prot="public" virt="non-virtual"><scope>eu::render::LightAttenuation</scope><name>linear</name></member>
+      <member refid="structeu_1_1render_1_1LightAttenuation_1a20a4490dfe09ed100a2b333cbdf7825d" prot="public" virt="non-virtual"><scope>eu::render::LightAttenuation</scope><name>quadratic</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

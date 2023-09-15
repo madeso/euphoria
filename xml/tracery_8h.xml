@@ -33,29 +33,29 @@
         <link refid="tracery_8cc"/>
       </node>
     </invincdepgraph>
-    <innerclass refid="structeuphoria_1_1core_1_1tracery_1_1Result" prot="public">euphoria::core::tracery::Result</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1tracery_1_1Node" prot="public">euphoria::core::tracery::Node</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1tracery_1_1Modifier" prot="public">euphoria::core::tracery::Modifier</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1tracery_1_1Rule" prot="public">euphoria::core::tracery::Rule</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1tracery_1_1Symbol" prot="public">euphoria::core::tracery::Symbol</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1tracery_1_1Grammar" prot="public">euphoria::core::tracery::Grammar</innerclass>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core_1_1tracery">euphoria::core::tracery</innernamespace>
+    <innerclass refid="structeu_1_1core_1_1tracery_1_1Result" prot="public">eu::core::tracery::Result</innerclass>
+    <innerclass refid="structeu_1_1core_1_1tracery_1_1Node" prot="public">eu::core::tracery::Node</innerclass>
+    <innerclass refid="structeu_1_1core_1_1tracery_1_1Modifier" prot="public">eu::core::tracery::Modifier</innerclass>
+    <innerclass refid="structeu_1_1core_1_1tracery_1_1Rule" prot="public">eu::core::tracery::Rule</innerclass>
+    <innerclass refid="structeu_1_1core_1_1tracery_1_1Symbol" prot="public">eu::core::tracery::Symbol</innerclass>
+    <innerclass refid="structeu_1_1core_1_1tracery_1_1Grammar" prot="public">eu::core::tracery::Grammar</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core_1_1tracery">eu::core::tracery</innernamespace>
       <sectiondef kind="func">
-      <memberdef kind="function" id="tracery_8h_1a6814e4a23d7ca72cf4350e6bec619bc8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="tracery_8h_1a54ddf25f38ad7a182f9e5b837b394bc6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>ADD_DEFAULT_FORMATTER</definition>
-        <argsstring>(euphoria::core::tracery::Result, std::string, euphoria::core::tracery::to_string)</argsstring>
+        <argsstring>(eu::core::tracery::Result, std::string, eu::core::tracery::to_string)</argsstring>
         <name>ADD_DEFAULT_FORMATTER</name>
         <param>
-          <type><ref refid="structeuphoria_1_1core_1_1tracery_1_1Result" kindref="compound">euphoria::core::tracery::Result</ref></type>
+          <type><ref refid="structeu_1_1core_1_1tracery_1_1Result" kindref="compound">eu::core::tracery::Result</ref></type>
         </param>
         <param>
           <type>std::string</type>
         </param>
         <param>
-          <type><ref refid="namespaceeuphoria_1_1core_1_1tracery_1ae326cbf2e9ac1542cf168bb17c245efb" kindref="member">euphoria::core::tracery::to_string</ref></type>
+          <type><ref refid="namespaceeu_1_1core_1_1tracery_1ac4782b44cae3dca092b6c10666ec9185" kindref="member">eu::core::tracery::to_string</ref></type>
         </param>
         <briefdescription>
         </briefdescription>

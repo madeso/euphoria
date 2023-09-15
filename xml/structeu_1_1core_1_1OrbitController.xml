@@ -1,0 +1,281 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1core_1_1OrbitController" kind="struct" language="C++" prot="public">
+    <compoundname>eu::core::OrbitController</compoundname>
+    <includes refid="orbitcontroller_8h" local="no">orbitcontroller.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1core_1_1OrbitController_1a73768cef4f51064a62f5efaceaee1b34" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
+        <definition>vec3f eu::core::OrbitController::center</definition>
+        <argsstring></argsstring>
+        <name>center</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/orbitcontroller.h" line="12" column="15" bodyfile="libs/core/src/core/orbitcontroller.h" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1OrbitController_1a9bd399c5e0fb5030b4189d4445995ea2" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1core_1_1Angle" kindref="compound">Angle</ref></type>
+        <definition>Angle eu::core::OrbitController::horizontal_rotation</definition>
+        <argsstring></argsstring>
+        <name>horizontal_rotation</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/orbitcontroller.h" line="13" column="15" bodyfile="libs/core/src/core/orbitcontroller.h" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1OrbitController_1ae40fff858a0262a7dca1d4dfb2909c7b" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1core_1_1Angle" kindref="compound">Angle</ref></type>
+        <definition>Angle eu::core::OrbitController::vertical_rotation</definition>
+        <argsstring></argsstring>
+        <name>vertical_rotation</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/orbitcontroller.h" line="14" column="15" bodyfile="libs/core/src/core/orbitcontroller.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1OrbitController_1adb00899a0b3d26ff153ca7609e350d0a" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float eu::core::OrbitController::distance</definition>
+        <argsstring></argsstring>
+        <name>distance</name>
+        <initializer>= 10.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/orbitcontroller.h" line="15" column="15" bodyfile="libs/core/src/core/orbitcontroller.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1OrbitController_1ac3cb5d66359d8d6bb34caf802a2f1a64" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1core_1_1Sensitivity" kindref="compound">Sensitivity</ref></type>
+        <definition>Sensitivity eu::core::OrbitController::pan_dx</definition>
+        <argsstring></argsstring>
+        <name>pan_dx</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/orbitcontroller.h" line="16" column="21" bodyfile="libs/core/src/core/orbitcontroller.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1OrbitController_1a1d45ddb923d5532717e0cf5b7441560e" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1core_1_1Sensitivity" kindref="compound">Sensitivity</ref></type>
+        <definition>Sensitivity eu::core::OrbitController::pan_dy</definition>
+        <argsstring></argsstring>
+        <name>pan_dy</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/orbitcontroller.h" line="17" column="21" bodyfile="libs/core/src/core/orbitcontroller.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1OrbitController_1a936626b8bd8bfb15f51e1e6d3e46f2f7" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1core_1_1Sensitivity" kindref="compound">Sensitivity</ref></type>
+        <definition>Sensitivity eu::core::OrbitController::rotate_dx</definition>
+        <argsstring></argsstring>
+        <name>rotate_dx</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/orbitcontroller.h" line="18" column="21" bodyfile="libs/core/src/core/orbitcontroller.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1OrbitController_1a30e3e52d7c2b7b9dd2a91a64a09ed4de" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1core_1_1Sensitivity" kindref="compound">Sensitivity</ref></type>
+        <definition>Sensitivity eu::core::OrbitController::rotate_dy</definition>
+        <argsstring></argsstring>
+        <name>rotate_dy</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/orbitcontroller.h" line="19" column="21" bodyfile="libs/core/src/core/orbitcontroller.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1OrbitController_1ae020ff2c15a38cc02655c622f7a77156" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1core_1_1Sensitivity" kindref="compound">Sensitivity</ref></type>
+        <definition>Sensitivity eu::core::OrbitController::zoom</definition>
+        <argsstring></argsstring>
+        <name>zoom</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/orbitcontroller.h" line="20" column="21" bodyfile="libs/core/src/core/orbitcontroller.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1OrbitController_1a3c2758291ff0c9334b085b87623f2ff5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::core::OrbitController::OrbitController</definition>
+        <argsstring>()</argsstring>
+        <name>OrbitController</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/orbitcontroller.h" line="22" column="9" bodyfile="libs/core/src/core/orbitcontroller.cc" bodystart="7" bodyend="11"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1OrbitController_1a5b37a9d5d4b0e8e1704f3516e08d76ec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::OrbitController::on_pan_input</definition>
+        <argsstring>(float dx, float dy)</argsstring>
+        <name>on_pan_input</name>
+        <param>
+          <type>float</type>
+          <declname>dx</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>dy</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/orbitcontroller.h" line="24" column="14" bodyfile="libs/core/src/core/orbitcontroller.cc" bodystart="40" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1OrbitController_1ac51f72b30f9133af8e9292f0e003183a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::OrbitController::on_rotate_input</definition>
+        <argsstring>(float dx, float dy)</argsstring>
+        <name>on_rotate_input</name>
+        <param>
+          <type>float</type>
+          <declname>dx</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>dy</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/orbitcontroller.h" line="25" column="14" bodyfile="libs/core/src/core/orbitcontroller.cc" bodystart="53" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1OrbitController_1a91726a798336c38229a06811b9249bea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::OrbitController::on_zoom_input</definition>
+        <argsstring>(float z)</argsstring>
+        <name>on_zoom_input</name>
+        <param>
+          <type>float</type>
+          <declname>z</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/orbitcontroller.h" line="26" column="14" bodyfile="libs/core/src/core/orbitcontroller.cc" bodystart="71" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1OrbitController_1a1da2b8c04da94e686ef22d42e74a7b56" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1quatf" kindref="compound">quatf</ref></type>
+        <definition>quatf eu::core::OrbitController::get_rotation</definition>
+        <argsstring>() const</argsstring>
+        <name>get_rotation</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/orbitcontroller.h" line="28" column="16" bodyfile="libs/core/src/core/orbitcontroller.cc" bodystart="15" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1OrbitController_1a863edf288753fea1405dd3702b97b5f0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
+        <definition>vec3f eu::core::OrbitController::get_camera_position</definition>
+        <argsstring>() const</argsstring>
+        <name>get_camera_position</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/orbitcontroller.h" line="29" column="16" bodyfile="libs/core/src/core/orbitcontroller.cc" bodystart="78" bodyend="81"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>eu::core::OrbitController</label>
+        <link refid="structeu_1_1core_1_1OrbitController"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>pan_dx</edgelabel>
+          <edgelabel>pan_dy</edgelabel>
+          <edgelabel>rotate_dx</edgelabel>
+          <edgelabel>rotate_dy</edgelabel>
+          <edgelabel>zoom</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>horizontal_rotation</edgelabel>
+          <edgelabel>vertical_rotation</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>center</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>eu::core::Sensitivity</label>
+        <link refid="structeu_1_1core_1_1Sensitivity"/>
+      </node>
+      <node id="4">
+        <label>eu::core::vec3f</label>
+        <link refid="structeu_1_1core_1_1vec3f"/>
+      </node>
+      <node id="3">
+        <label>eu::core::Angle</label>
+        <link refid="structeu_1_1core_1_1Angle"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/core/src/core/orbitcontroller.h" line="10" column="5" bodyfile="libs/core/src/core/orbitcontroller.h" bodystart="11" bodyend="30"/>
+    <listofallmembers>
+      <member refid="structeu_1_1core_1_1OrbitController_1a73768cef4f51064a62f5efaceaee1b34" prot="public" virt="non-virtual"><scope>eu::core::OrbitController</scope><name>center</name></member>
+      <member refid="structeu_1_1core_1_1OrbitController_1adb00899a0b3d26ff153ca7609e350d0a" prot="public" virt="non-virtual"><scope>eu::core::OrbitController</scope><name>distance</name></member>
+      <member refid="structeu_1_1core_1_1OrbitController_1a863edf288753fea1405dd3702b97b5f0" prot="public" virt="non-virtual"><scope>eu::core::OrbitController</scope><name>get_camera_position</name></member>
+      <member refid="structeu_1_1core_1_1OrbitController_1a1da2b8c04da94e686ef22d42e74a7b56" prot="public" virt="non-virtual"><scope>eu::core::OrbitController</scope><name>get_rotation</name></member>
+      <member refid="structeu_1_1core_1_1OrbitController_1a9bd399c5e0fb5030b4189d4445995ea2" prot="public" virt="non-virtual"><scope>eu::core::OrbitController</scope><name>horizontal_rotation</name></member>
+      <member refid="structeu_1_1core_1_1OrbitController_1a5b37a9d5d4b0e8e1704f3516e08d76ec" prot="public" virt="non-virtual"><scope>eu::core::OrbitController</scope><name>on_pan_input</name></member>
+      <member refid="structeu_1_1core_1_1OrbitController_1ac51f72b30f9133af8e9292f0e003183a" prot="public" virt="non-virtual"><scope>eu::core::OrbitController</scope><name>on_rotate_input</name></member>
+      <member refid="structeu_1_1core_1_1OrbitController_1a91726a798336c38229a06811b9249bea" prot="public" virt="non-virtual"><scope>eu::core::OrbitController</scope><name>on_zoom_input</name></member>
+      <member refid="structeu_1_1core_1_1OrbitController_1a3c2758291ff0c9334b085b87623f2ff5" prot="public" virt="non-virtual"><scope>eu::core::OrbitController</scope><name>OrbitController</name></member>
+      <member refid="structeu_1_1core_1_1OrbitController_1ac3cb5d66359d8d6bb34caf802a2f1a64" prot="public" virt="non-virtual"><scope>eu::core::OrbitController</scope><name>pan_dx</name></member>
+      <member refid="structeu_1_1core_1_1OrbitController_1a1d45ddb923d5532717e0cf5b7441560e" prot="public" virt="non-virtual"><scope>eu::core::OrbitController</scope><name>pan_dy</name></member>
+      <member refid="structeu_1_1core_1_1OrbitController_1a936626b8bd8bfb15f51e1e6d3e46f2f7" prot="public" virt="non-virtual"><scope>eu::core::OrbitController</scope><name>rotate_dx</name></member>
+      <member refid="structeu_1_1core_1_1OrbitController_1a30e3e52d7c2b7b9dd2a91a64a09ed4de" prot="public" virt="non-virtual"><scope>eu::core::OrbitController</scope><name>rotate_dy</name></member>
+      <member refid="structeu_1_1core_1_1OrbitController_1ae40fff858a0262a7dca1d4dfb2909c7b" prot="public" virt="non-virtual"><scope>eu::core::OrbitController</scope><name>vertical_rotation</name></member>
+      <member refid="structeu_1_1core_1_1OrbitController_1ae020ff2c15a38cc02655c622f7a77156" prot="public" virt="non-virtual"><scope>eu::core::OrbitController</scope><name>zoom</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

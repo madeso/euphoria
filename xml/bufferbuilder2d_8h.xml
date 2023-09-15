@@ -120,10 +120,10 @@
         <link refid="spriterender_8cc"/>
       </node>
     </invincdepgraph>
-    <innerclass refid="structeuphoria_1_1core_1_1BufferPoint2" prot="public">euphoria::core::BufferPoint2</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1BufferBuilder2" prot="public">euphoria::core::BufferBuilder2</innerclass>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
+    <innerclass refid="structeu_1_1core_1_1BufferPoint2" prot="public">eu::core::BufferPoint2</innerclass>
+    <innerclass refid="structeu_1_1core_1_1BufferBuilder2" prot="public">eu::core::BufferBuilder2</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

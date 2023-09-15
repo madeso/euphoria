@@ -1,0 +1,157 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1core_1_1VirtualConsole" kind="struct" language="C++" prot="public">
+    <compoundname>eu::core::VirtualConsole</compoundname>
+    <includes refid="console_8h" local="no">console.h</includes>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="structeu_1_1core_1_1VirtualConsole_1a1878e6be19a57e44598b644228958f30" prot="public" static="no">
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>using eu::core::VirtualConsole::Args =  std::vector&lt;std::string&gt;</definition>
+        <argsstring></argsstring>
+        <name>Args</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/console.h" line="16" column="9" bodyfile="libs/core/src/core/console.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="structeu_1_1core_1_1VirtualConsole_1a228bef612d68cc930fc238b842340f11" prot="public" static="no">
+        <type>std::function&lt; void(const std::string &amp;)&gt;</type>
+        <definition>using eu::core::VirtualConsole::PrintFunction =  std::function&lt;void(const std::string&amp;)&gt;</definition>
+        <argsstring></argsstring>
+        <name>PrintFunction</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/console.h" line="17" column="9" bodyfile="libs/core/src/core/console.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="structeu_1_1core_1_1VirtualConsole_1afbbe7da2a5244fe3947496365b081d60" prot="public" static="no">
+        <type>std::function&lt; void(<ref refid="structeu_1_1core_1_1VirtualConsole_1a228bef612d68cc930fc238b842340f11" kindref="member">PrintFunction</ref>, const <ref refid="structeu_1_1core_1_1VirtualConsole_1a1878e6be19a57e44598b644228958f30" kindref="member">Args</ref> &amp;)&gt;</type>
+        <definition>using eu::core::VirtualConsole::ActionFunction =  std::function&lt;void(PrintFunction, const Args&amp;)&gt;</definition>
+        <argsstring></argsstring>
+        <name>ActionFunction</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/console.h" line="18" column="9" bodyfile="libs/core/src/core/console.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="structeu_1_1core_1_1VirtualConsole_1a13c356ed72bafd125c1c92d4a69c1868" prot="private" static="no" mutable="no">
+        <type>std::map&lt; std::string, <ref refid="structeu_1_1core_1_1VirtualConsole_1afbbe7da2a5244fe3947496365b081d60" kindref="member">ActionFunction</ref> &gt;</type>
+        <definition>std::map&lt;std::string, ActionFunction&gt; eu::core::VirtualConsole::callbacks</definition>
+        <argsstring></argsstring>
+        <name>callbacks</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/console.h" line="33" column="18" bodyfile="libs/core/src/core/console.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1VirtualConsole_1aa50a661718192af6a0601bc7096e5c85" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::core::VirtualConsole::VirtualConsole</definition>
+        <argsstring>()</argsstring>
+        <name>VirtualConsole</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/console.h" line="20" column="9" bodyfile="libs/core/src/core/console.cc" bodystart="11" bodyend="16"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1VirtualConsole_1ab7c15173f5c23a1e4334f5a0c416b48d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::VirtualConsole::register_command</definition>
+        <argsstring>(const std::string &amp;name, ActionFunction callback)</argsstring>
+        <name>register_command</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1VirtualConsole_1afbbe7da2a5244fe3947496365b081d60" kindref="member">ActionFunction</ref></type>
+          <declname>callback</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/console.h" line="23" column="9" bodyfile="libs/core/src/core/console.cc" bodystart="20" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1VirtualConsole_1a3594436b69aa10f303e2952fc5330b94" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::VirtualConsole::run</definition>
+        <argsstring>(PrintFunction print, const std::string &amp;cmd)</argsstring>
+        <name>run</name>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1VirtualConsole_1a228bef612d68cc930fc238b842340f11" kindref="member">PrintFunction</ref></type>
+          <declname>print</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>cmd</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/console.h" line="26" column="9" bodyfile="libs/core/src/core/console.cc" bodystart="27" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1VirtualConsole_1af96c95e7c7a44ed2bae4c7a5ae600638" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::VirtualConsole::print_help</definition>
+        <argsstring>(VirtualConsole::PrintFunction print, const Args &amp;)</argsstring>
+        <name>print_help</name>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1VirtualConsole_1a228bef612d68cc930fc238b842340f11" kindref="member">VirtualConsole::PrintFunction</ref></type>
+          <declname>print</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1VirtualConsole_1a1878e6be19a57e44598b644228958f30" kindref="member">Args</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/console.h" line="29" column="9" bodyfile="libs/core/src/core/console.cc" bodystart="54" bodyend="62"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Provides a terminal like experience. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Case of the name is not important </para>
+    </detaileddescription>
+    <location file="libs/core/src/core/console.h" line="14" column="5" bodyfile="libs/core/src/core/console.h" bodystart="15" bodyend="34"/>
+    <listofallmembers>
+      <member refid="structeu_1_1core_1_1VirtualConsole_1afbbe7da2a5244fe3947496365b081d60" prot="public" virt="non-virtual"><scope>eu::core::VirtualConsole</scope><name>ActionFunction</name></member>
+      <member refid="structeu_1_1core_1_1VirtualConsole_1a1878e6be19a57e44598b644228958f30" prot="public" virt="non-virtual"><scope>eu::core::VirtualConsole</scope><name>Args</name></member>
+      <member refid="structeu_1_1core_1_1VirtualConsole_1a13c356ed72bafd125c1c92d4a69c1868" prot="private" virt="non-virtual"><scope>eu::core::VirtualConsole</scope><name>callbacks</name></member>
+      <member refid="structeu_1_1core_1_1VirtualConsole_1af96c95e7c7a44ed2bae4c7a5ae600638" prot="public" virt="non-virtual"><scope>eu::core::VirtualConsole</scope><name>print_help</name></member>
+      <member refid="structeu_1_1core_1_1VirtualConsole_1a228bef612d68cc930fc238b842340f11" prot="public" virt="non-virtual"><scope>eu::core::VirtualConsole</scope><name>PrintFunction</name></member>
+      <member refid="structeu_1_1core_1_1VirtualConsole_1ab7c15173f5c23a1e4334f5a0c416b48d" prot="public" virt="non-virtual"><scope>eu::core::VirtualConsole</scope><name>register_command</name></member>
+      <member refid="structeu_1_1core_1_1VirtualConsole_1a3594436b69aa10f303e2952fc5330b94" prot="public" virt="non-virtual"><scope>eu::core::VirtualConsole</scope><name>run</name></member>
+      <member refid="structeu_1_1core_1_1VirtualConsole_1aa50a661718192af6a0601bc7096e5c85" prot="public" virt="non-virtual"><scope>eu::core::VirtualConsole</scope><name>VirtualConsole</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

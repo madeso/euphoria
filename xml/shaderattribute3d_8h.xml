@@ -55,9 +55,9 @@
         <link refid="materialshader_8cc"/>
       </node>
     </invincdepgraph>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1render">euphoria::render</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1render_1_1attributes3d">euphoria::render::attributes3d</innernamespace>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1render">eu::render</innernamespace>
+    <innernamespace refid="namespaceeu_1_1render_1_1attributes3d">eu::render::attributes3d</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

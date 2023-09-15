@@ -1,0 +1,383 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1gui_1_1Root" kind="struct" language="C++" prot="public">
+    <compoundname>eu::gui::Root</compoundname>
+    <includes refid="root_8h" local="no">root.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1gui_1_1Root_1a3fdc940ecfbe88588e88967c63c3fbd5" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; std::shared_ptr&lt; <ref refid="structeu_1_1gui_1_1Skin" kindref="compound">Skin</ref> &gt; &gt;</type>
+        <definition>std::vector&lt;std::shared_ptr&lt;Skin&gt; &gt; eu::gui::Root::skins</definition>
+        <argsstring></argsstring>
+        <name>skins</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/root.h" line="66" column="21" bodyfile="libs/gui/src/gui/root.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1gui_1_1Root_1a523b85dbff13bd5566f102c96f6e805e" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1core_1_1size2f" kindref="compound">core::size2f</ref></type>
+        <definition>core::size2f eu::gui::Root::size</definition>
+        <argsstring></argsstring>
+        <name>size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/root.h" line="67" column="22" bodyfile="libs/gui/src/gui/root.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1gui_1_1Root_1a3d2c7435c40db75a54a62814d89a70da" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1gui_1_1State" kindref="compound">State</ref></type>
+        <definition>State eu::gui::Root::state</definition>
+        <argsstring></argsstring>
+        <name>state</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/root.h" line="68" column="15" bodyfile="libs/gui/src/gui/root.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1gui_1_1Root_1a917932dfae3570c661e23d38cb98f309" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1gui_1_1LayoutContainer" kindref="compound">LayoutContainer</ref></type>
+        <definition>LayoutContainer eu::gui::Root::container</definition>
+        <argsstring></argsstring>
+        <name>container</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/root.h" line="69" column="25" bodyfile="libs/gui/src/gui/root.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1gui_1_1Root_1acd10b847e5bec33a30e2c88e2fe3c056" prot="public" static="no" mutable="no">
+        <type>std::shared_ptr&lt; <ref refid="structeu_1_1render_1_1Texture2" kindref="compound">render::Texture2</ref> &gt;</type>
+        <definition>std::shared_ptr&lt;render::Texture2&gt; eu::gui::Root::cursor_image</definition>
+        <argsstring></argsstring>
+        <name>cursor_image</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/root.h" line="70" column="25" bodyfile="libs/gui/src/gui/root.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1gui_1_1Root_1a20f7697d31ecea4a2e64aa7e0e8e81cf" prot="public" static="no" mutable="no">
+        <type>std::shared_ptr&lt; <ref refid="structeu_1_1render_1_1Texture2" kindref="compound">render::Texture2</ref> &gt;</type>
+        <definition>std::shared_ptr&lt;render::Texture2&gt; eu::gui::Root::hover_image</definition>
+        <argsstring></argsstring>
+        <name>hover_image</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/root.h" line="71" column="25" bodyfile="libs/gui/src/gui/root.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1gui_1_1Root_1a4fe6f0c446b683d4bb98b57680b25cb3" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::gui::Root::Root</definition>
+        <argsstring>(const core::size2f &amp;s)</argsstring>
+        <name>Root</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1size2f" kindref="compound">core::size2f</ref> &amp;</type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/root.h" line="37" column="18" bodyfile="libs/gui/src/gui/root.cc" bodystart="13" bodyend="16"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1gui_1_1Root_1a4a753152541156f0b296aaeb53c4e3fc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::gui::Root::~Root</definition>
+        <argsstring>()</argsstring>
+        <name>~Root</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/root.h" line="38" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1gui_1_1Root_1a07f2f60d77f526cc76a9ea2b26e13a06" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::gui::Root::Root</definition>
+        <argsstring>(const Root &amp;other)=delete</argsstring>
+        <name>Root</name>
+        <param>
+          <type>const <ref refid="structeu_1_1gui_1_1Root" kindref="compound">Root</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/root.h" line="40" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1gui_1_1Root_1a61dcd4da3b4ebb57e89a2a818b8facd3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::gui::Root::operator=</definition>
+        <argsstring>(const Root &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="structeu_1_1gui_1_1Root" kindref="compound">Root</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/root.h" line="41" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1gui_1_1Root_1ad2b85f721e1aec988a1f5ba0606ac21d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::gui::Root::Root</definition>
+        <argsstring>(Root &amp;&amp;other)=delete</argsstring>
+        <name>Root</name>
+        <param>
+          <type><ref refid="structeu_1_1gui_1_1Root" kindref="compound">Root</ref> &amp;&amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/root.h" line="42" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1gui_1_1Root_1ab73b4c584c5807dae3169baf884f7b5d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::gui::Root::operator=</definition>
+        <argsstring>(Root &amp;&amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="structeu_1_1gui_1_1Root" kindref="compound">Root</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/root.h" line="43" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1gui_1_1Root_1a355c4e4fbf626b45f0d29fd4ec234646" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool eu::gui::Root::load</definition>
+        <argsstring>(core::vfs::FileSystem *fs, render::FontCache *font, const ::eu::core::vfs::FilePath &amp;path, render::TextureCache *cache)</argsstring>
+        <name>load</name>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1vfs_1_1FileSystem" kindref="compound">core::vfs::FileSystem</ref> *</type>
+          <declname>fs</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1render_1_1FontCache" kindref="compound">render::FontCache</ref> *</type>
+          <declname>font</declname>
+        </param>
+        <param>
+          <type>const ::<ref refid="structeu_1_1core_1_1vfs_1_1FilePath" kindref="compound">eu::core::vfs::FilePath</ref> &amp;</type>
+          <declname>path</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1render_1_1TextureCache" kindref="compound">render::TextureCache</ref> *</type>
+          <declname>cache</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/root.h" line="46" column="9" bodyfile="libs/gui/src/gui/root.cc" bodystart="24" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1gui_1_1Root_1a8456f3984d27c913c3dcf7c03bd37f44" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::gui::Root::set_input_mouse</definition>
+        <argsstring>(const core::vec2f &amp;pos, bool down)</argsstring>
+        <name>set_input_mouse</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1vec2f" kindref="compound">core::vec2f</ref> &amp;</type>
+          <declname>pos</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>down</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/root.h" line="55" column="9" bodyfile="libs/gui/src/gui/root.cc" bodystart="43" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1gui_1_1Root_1a67449fb769595a1bc7c2c0f4df2daa4a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::gui::Root::update</definition>
+        <argsstring>(float dt)</argsstring>
+        <name>update</name>
+        <param>
+          <type>float</type>
+          <declname>dt</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/root.h" line="58" column="9" bodyfile="libs/gui/src/gui/root.cc" bodystart="51" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1gui_1_1Root_1a0a44be0fa4f15c24682f50328e955a1f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::gui::Root::set_size</definition>
+        <argsstring>(const core::size2f &amp;new_size)</argsstring>
+        <name>set_size</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1size2f" kindref="compound">core::size2f</ref> &amp;</type>
+          <declname>new_size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/root.h" line="61" column="9" bodyfile="libs/gui/src/gui/root.cc" bodystart="60" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1gui_1_1Root_1aa319db9d619039e931cddc098484469d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::gui::Root::render</definition>
+        <argsstring>(render::SpriteRenderer *sp) const</argsstring>
+        <name>render</name>
+        <param>
+          <type><ref refid="structeu_1_1render_1_1SpriteRenderer" kindref="compound">render::SpriteRenderer</ref> *</type>
+          <declname>sp</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/root.h" line="64" column="9" bodyfile="libs/gui/src/gui/root.cc" bodystart="68" bodyend="88"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="7">
+        <label>eu::gui::LayoutData</label>
+        <link refid="structeu_1_1gui_1_1LayoutData"/>
+      </node>
+      <node id="3">
+        <label>eu::gui::Container</label>
+        <link refid="structeu_1_1gui_1_1Container"/>
+      </node>
+      <node id="4">
+        <label>eu::gui::State</label>
+        <link refid="structeu_1_1gui_1_1State"/>
+        <childnode refid="5" relation="usage">
+          <edgelabel>active</edgelabel>
+          <edgelabel>hot</edgelabel>
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>mouse</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>eu::gui::Widget</label>
+        <link refid="structeu_1_1gui_1_1Widget"/>
+        <childnode refid="6" relation="usage">
+          <edgelabel>margin</edgelabel>
+          <edgelabel>padding</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>layout</edgelabel>
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>rect</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>ui_state</edgelabel>
+        </childnode>
+      </node>
+      <node id="8">
+        <label>eu::core::Rectf</label>
+        <link refid="structeu_1_1core_1_1Rectf"/>
+      </node>
+      <node id="6">
+        <label>eu::core::Lrud&lt; float &gt;</label>
+        <link refid="structeu_1_1core_1_1Lrud"/>
+      </node>
+      <node id="9">
+        <label>eu::core::vec2f</label>
+        <link refid="structeu_1_1core_1_1vec2f"/>
+      </node>
+      <node id="1">
+        <label>eu::gui::Root</label>
+        <link refid="structeu_1_1gui_1_1Root"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>container</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>state</edgelabel>
+        </childnode>
+        <childnode refid="10" relation="usage">
+          <edgelabel>size</edgelabel>
+        </childnode>
+      </node>
+      <node id="10">
+        <label>eu::core::size2f</label>
+        <link refid="structeu_1_1core_1_1size2f"/>
+      </node>
+      <node id="2">
+        <label>eu::gui::LayoutContainer</label>
+        <link refid="structeu_1_1gui_1_1LayoutContainer"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="libs/gui/src/gui/root.h" line="35" column="5" bodyfile="libs/gui/src/gui/root.h" bodystart="36" bodyend="72"/>
+    <listofallmembers>
+      <member refid="structeu_1_1gui_1_1Root_1a917932dfae3570c661e23d38cb98f309" prot="public" virt="non-virtual"><scope>eu::gui::Root</scope><name>container</name></member>
+      <member refid="structeu_1_1gui_1_1Root_1acd10b847e5bec33a30e2c88e2fe3c056" prot="public" virt="non-virtual"><scope>eu::gui::Root</scope><name>cursor_image</name></member>
+      <member refid="structeu_1_1gui_1_1Root_1a20f7697d31ecea4a2e64aa7e0e8e81cf" prot="public" virt="non-virtual"><scope>eu::gui::Root</scope><name>hover_image</name></member>
+      <member refid="structeu_1_1gui_1_1Root_1a355c4e4fbf626b45f0d29fd4ec234646" prot="public" virt="non-virtual"><scope>eu::gui::Root</scope><name>load</name></member>
+      <member refid="structeu_1_1gui_1_1Root_1a61dcd4da3b4ebb57e89a2a818b8facd3" prot="public" virt="non-virtual"><scope>eu::gui::Root</scope><name>operator=</name></member>
+      <member refid="structeu_1_1gui_1_1Root_1ab73b4c584c5807dae3169baf884f7b5d" prot="public" virt="non-virtual"><scope>eu::gui::Root</scope><name>operator=</name></member>
+      <member refid="structeu_1_1gui_1_1Root_1aa319db9d619039e931cddc098484469d" prot="public" virt="non-virtual"><scope>eu::gui::Root</scope><name>render</name></member>
+      <member refid="structeu_1_1gui_1_1Root_1a4fe6f0c446b683d4bb98b57680b25cb3" prot="public" virt="non-virtual"><scope>eu::gui::Root</scope><name>Root</name></member>
+      <member refid="structeu_1_1gui_1_1Root_1a07f2f60d77f526cc76a9ea2b26e13a06" prot="public" virt="non-virtual"><scope>eu::gui::Root</scope><name>Root</name></member>
+      <member refid="structeu_1_1gui_1_1Root_1ad2b85f721e1aec988a1f5ba0606ac21d" prot="public" virt="non-virtual"><scope>eu::gui::Root</scope><name>Root</name></member>
+      <member refid="structeu_1_1gui_1_1Root_1a8456f3984d27c913c3dcf7c03bd37f44" prot="public" virt="non-virtual"><scope>eu::gui::Root</scope><name>set_input_mouse</name></member>
+      <member refid="structeu_1_1gui_1_1Root_1a0a44be0fa4f15c24682f50328e955a1f" prot="public" virt="non-virtual"><scope>eu::gui::Root</scope><name>set_size</name></member>
+      <member refid="structeu_1_1gui_1_1Root_1a523b85dbff13bd5566f102c96f6e805e" prot="public" virt="non-virtual"><scope>eu::gui::Root</scope><name>size</name></member>
+      <member refid="structeu_1_1gui_1_1Root_1a3fdc940ecfbe88588e88967c63c3fbd5" prot="public" virt="non-virtual"><scope>eu::gui::Root</scope><name>skins</name></member>
+      <member refid="structeu_1_1gui_1_1Root_1a3d2c7435c40db75a54a62814d89a70da" prot="public" virt="non-virtual"><scope>eu::gui::Root</scope><name>state</name></member>
+      <member refid="structeu_1_1gui_1_1Root_1a67449fb769595a1bc7c2c0f4df2daa4a" prot="public" virt="non-virtual"><scope>eu::gui::Root</scope><name>update</name></member>
+      <member refid="structeu_1_1gui_1_1Root_1a4a753152541156f0b296aaeb53c4e3fc" prot="public" virt="non-virtual"><scope>eu::gui::Root</scope><name>~Root</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

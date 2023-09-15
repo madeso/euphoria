@@ -1,0 +1,306 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="namespaceeu_1_1gui" kind="namespace" language="C++">
+    <compoundname>eu::gui</compoundname>
+    <innerclass refid="structeu_1_1gui_1_1Button" prot="public">eu::gui::Button</innerclass>
+    <innerclass refid="structeu_1_1gui_1_1Container" prot="public">eu::gui::Container</innerclass>
+    <innerclass refid="structeu_1_1gui_1_1Layout" prot="public">eu::gui::Layout</innerclass>
+    <innerclass refid="structeu_1_1gui_1_1TableLayout" prot="public">eu::gui::TableLayout</innerclass>
+    <innerclass refid="structeu_1_1gui_1_1SingleRowLayout" prot="public">eu::gui::SingleRowLayout</innerclass>
+    <innerclass refid="structeu_1_1gui_1_1LayoutContainer" prot="public">eu::gui::LayoutContainer</innerclass>
+    <innerclass refid="structeu_1_1gui_1_1LayoutData" prot="public">eu::gui::LayoutData</innerclass>
+    <innerclass refid="structeu_1_1gui_1_1CommandButton" prot="public">eu::gui::CommandButton</innerclass>
+    <innerclass refid="structeu_1_1gui_1_1PanelWidget" prot="public">eu::gui::PanelWidget</innerclass>
+    <innerclass refid="structeu_1_1gui_1_1Root" prot="public">eu::gui::Root</innerclass>
+    <innerclass refid="structeu_1_1gui_1_1Interpolation" prot="public">eu::gui::Interpolation</innerclass>
+    <innerclass refid="structeu_1_1gui_1_1ButtonState" prot="public">eu::gui::ButtonState</innerclass>
+    <innerclass refid="structeu_1_1gui_1_1Skin" prot="public">eu::gui::Skin</innerclass>
+    <innerclass refid="structeu_1_1gui_1_1TextData" prot="public">eu::gui::TextData</innerclass>
+    <innerclass refid="structeu_1_1gui_1_1State" prot="public">eu::gui::State</innerclass>
+    <innerclass refid="structeu_1_1gui_1_1Visitor" prot="public">eu::gui::Visitor</innerclass>
+    <innerclass refid="structeu_1_1gui_1_1Widget" prot="public">eu::gui::Widget</innerclass>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespaceeu_1_1gui_1aa626346c666fed96bd50d1821e025ab3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="structeu_1_1gui_1_1Layout" kindref="compound">Layout</ref> &gt;</type>
+        <definition>std::shared_ptr&lt; Layout &gt; eu::gui::create_table_layout</definition>
+        <argsstring>(const std::vector&lt; bool &gt; &amp;expandable_rows, const std::vector&lt; bool &gt; &amp;expandable_cols, float combined_padding)</argsstring>
+        <name>create_table_layout</name>
+        <param>
+          <type>const std::vector&lt; bool &gt; &amp;</type>
+          <declname>expandable_rows</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; bool &gt; &amp;</type>
+          <declname>expandable_cols</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>combined_padding</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/layoutcontainer.cc" line="9" column="5" bodyfile="libs/gui/src/gui/layoutcontainer.cc" bodystart="10" bodyend="26" declfile="libs/gui/src/gui/layoutcontainer.h" declline="17" declcolumn="21"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1gui_1a4f125c5aada91b80e1e1794808603f20" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="structeu_1_1gui_1_1Layout" kindref="compound">Layout</ref> &gt;</type>
+        <definition>std::shared_ptr&lt; Layout &gt; eu::gui::create_single_row_layout</definition>
+        <argsstring>(float padding)</argsstring>
+        <name>create_single_row_layout</name>
+        <param>
+          <type>float</type>
+          <declname>padding</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/layoutcontainer.cc" line="30" column="5" bodyfile="libs/gui/src/gui/layoutcontainer.cc" bodystart="30" bodyend="34" declfile="libs/gui/src/gui/layoutcontainer.h" declline="24" declcolumn="21"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1gui_1a30cb6ca7b254a70208dcdaeeda0d7440" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="structeu_1_1gui_1_1Layout" kindref="compound">Layout</ref> &gt;</type>
+        <definition>std::shared_ptr&lt;Layout&gt; eu::gui::create_layout</definition>
+        <argsstring>(const ::gui::Layout &amp;c)</argsstring>
+        <name>create_layout</name>
+        <param>
+          <type>const ::<ref refid="structeu_1_1gui_1_1Layout" kindref="compound">gui::Layout</ref> &amp;</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/load.cc" line="26" column="5" bodyfile="libs/gui/src/gui/load.cc" bodystart="26" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1gui_1a881afffaa435081f11cef552f1c38ac8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::gui::build_layout_container</definition>
+        <argsstring>(core::vfs::FileSystem *fs, State *state, LayoutContainer *root, const ::gui::LayoutContainer &amp;c, render::TextureCache *cache, const std::map&lt; std::string, Skin * &gt; &amp;skins)</argsstring>
+        <name>build_layout_container</name>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1vfs_1_1FileSystem" kindref="compound">core::vfs::FileSystem</ref> *</type>
+          <declname>fs</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1gui_1_1State" kindref="compound">State</ref> *</type>
+          <declname>state</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1gui_1_1LayoutContainer" kindref="compound">LayoutContainer</ref> *</type>
+          <declname>root</declname>
+        </param>
+        <param>
+          <type>const ::<ref refid="structeu_1_1gui_1_1LayoutContainer" kindref="compound">gui::LayoutContainer</ref> &amp;</type>
+          <declname>c</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1render_1_1TextureCache" kindref="compound">render::TextureCache</ref> *</type>
+          <declname>cache</declname>
+        </param>
+        <param>
+          <type>const std::map&lt; std::string, <ref refid="structeu_1_1gui_1_1Skin" kindref="compound">Skin</ref> * &gt; &amp;</type>
+          <declname>skins</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/load.cc" line="191" column="5" bodyfile="libs/gui/src/gui/load.cc" bodystart="192" bodyend="206" declfile="libs/gui/src/gui/load.cc" declline="70" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1gui_1a2c4c12b0d3ef87aa4104763abde509c2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::gui::setup_layout</definition>
+        <argsstring>(LayoutData *data, const ::gui::Widget &amp;src)</argsstring>
+        <name>setup_layout</name>
+        <param>
+          <type><ref refid="structeu_1_1gui_1_1LayoutData" kindref="compound">LayoutData</ref> *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>const ::<ref refid="structeu_1_1gui_1_1Widget" kindref="compound">gui::Widget</ref> &amp;</type>
+          <declname>src</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/load.cc" line="82" column="5" bodyfile="libs/gui/src/gui/load.cc" bodystart="82" bodyend="88"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1gui_1ac560b772596cb8d99133d893f0dde5bf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1Lrud" kindref="compound">core::Lrud</ref>&lt; float &gt;</type>
+        <definition>core::Lrud&lt;float&gt; eu::gui::from_gaf_to_lrud</definition>
+        <argsstring>(const ::gui::Lrtb &amp;lrtd)</argsstring>
+        <name>from_gaf_to_lrud</name>
+        <param>
+          <type>const ::gui::Lrtb &amp;</type>
+          <declname>lrtd</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/load.cc" line="92" column="5" bodyfile="libs/gui/src/gui/load.cc" bodystart="92" bodyend="101"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1gui_1a48dcc180d030fe8b78c56ddffdb43060" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="structeu_1_1gui_1_1Widget" kindref="compound">Widget</ref> &gt;</type>
+        <definition>std::shared_ptr&lt;Widget&gt; eu::gui::create_widget</definition>
+        <argsstring>(core::vfs::FileSystem *fs, State *state, const ::gui::Widget &amp;w, render::TextureCache *cache, const std::map&lt; std::string, Skin * &gt; &amp;skins)</argsstring>
+        <name>create_widget</name>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1vfs_1_1FileSystem" kindref="compound">core::vfs::FileSystem</ref> *</type>
+          <declname>fs</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1gui_1_1State" kindref="compound">State</ref> *</type>
+          <declname>state</declname>
+        </param>
+        <param>
+          <type>const ::<ref refid="structeu_1_1gui_1_1Widget" kindref="compound">gui::Widget</ref> &amp;</type>
+          <declname>w</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1render_1_1TextureCache" kindref="compound">render::TextureCache</ref> *</type>
+          <declname>cache</declname>
+        </param>
+        <param>
+          <type>const std::map&lt; std::string, <ref refid="structeu_1_1gui_1_1Skin" kindref="compound">Skin</ref> * &gt; &amp;</type>
+          <declname>skins</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/load.cc" line="105" column="5" bodyfile="libs/gui/src/gui/load.cc" bodystart="106" bodyend="188"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1gui_1a2bc2a27601d2524c47c57fbf7afb63f6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1Rgb" kindref="compound">core::Rgb</ref></type>
+        <definition>core::Rgb eu::gui::load</definition>
+        <argsstring>(const ::gui::Rgb &amp;src)</argsstring>
+        <name>load</name>
+        <param>
+          <type>const ::gui::Rgb &amp;</type>
+          <declname>src</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/load.cc" line="209" column="5" bodyfile="libs/gui/src/gui/load.cc" bodystart="209" bodyend="212"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1gui_1a169bf43cd2277d2a3c10add450502af3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespaceeu_1_1core_1_1easing_1a999cd23e606018b1ab295e172ef2ddd1" kindref="member">core::easing::Function</ref></type>
+        <definition>core::easing::Function eu::gui::load</definition>
+        <argsstring>(::gui::InterpolationType t)</argsstring>
+        <name>load</name>
+        <param>
+          <type>::gui::InterpolationType</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/load.cc" line="215" column="5" bodyfile="libs/gui/src/gui/load.cc" bodystart="215" bodyend="234"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1gui_1a4b17d31ff3f610943d589b38a2e6b433" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1gui_1_1ButtonState" kindref="compound">ButtonState</ref></type>
+        <definition>ButtonState eu::gui::load_button</definition>
+        <argsstring>(const ::gui::ButtonState &amp;src)</argsstring>
+        <name>load_button</name>
+        <param>
+          <type>const ::<ref refid="structeu_1_1gui_1_1ButtonState" kindref="compound">gui::ButtonState</ref> &amp;</type>
+          <declname>src</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/load.cc" line="238" column="5" bodyfile="libs/gui/src/gui/load.cc" bodystart="238" bodyend="263"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1gui_1a2c1d0c044621b5deea882d8f65ba9876" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="structeu_1_1gui_1_1Skin" kindref="compound">Skin</ref> &gt;</type>
+        <definition>std::shared_ptr&lt;Skin&gt; eu::gui::load_skin</definition>
+        <argsstring>(const ::gui::Skin &amp;src, render::FontCache *font, const core::vfs::DirPath &amp;folder)</argsstring>
+        <name>load_skin</name>
+        <param>
+          <type>const ::<ref refid="structeu_1_1gui_1_1Skin" kindref="compound">gui::Skin</ref> &amp;</type>
+          <declname>src</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1render_1_1FontCache" kindref="compound">render::FontCache</ref> *</type>
+          <declname>font</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1vfs_1_1DirPath" kindref="compound">core::vfs::DirPath</ref> &amp;</type>
+          <declname>folder</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/load.cc" line="267" column="5" bodyfile="libs/gui/src/gui/load.cc" bodystart="267" bodyend="307"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1gui_1aa03fc7a09afa1c296c8830a995a046a2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool eu::gui::load_gui</definition>
+        <argsstring>(Root *root, core::vfs::FileSystem *fs, render::FontCache *font, const core::vfs::FilePath &amp;path, render::TextureCache *cache)</argsstring>
+        <name>load_gui</name>
+        <param>
+          <type><ref refid="structeu_1_1gui_1_1Root" kindref="compound">Root</ref> *</type>
+          <declname>root</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1vfs_1_1FileSystem" kindref="compound">core::vfs::FileSystem</ref> *</type>
+          <declname>fs</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1render_1_1FontCache" kindref="compound">render::FontCache</ref> *</type>
+          <declname>font</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1vfs_1_1FilePath" kindref="compound">core::vfs::FilePath</ref> &amp;</type>
+          <declname>path</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1render_1_1TextureCache" kindref="compound">render::TextureCache</ref> *</type>
+          <declname>cache</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/load.cc" line="311" column="5" bodyfile="libs/gui/src/gui/load.cc" bodystart="312" bodyend="380" declfile="libs/gui/src/gui/load.h" declline="28" declcolumn="5"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/gui/src/gui/button.cc" line="12" column="1"/>
+  </compounddef>
+</doxygen>

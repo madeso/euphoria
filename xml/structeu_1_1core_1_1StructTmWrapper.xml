@@ -1,0 +1,357 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1core_1_1StructTmWrapper" kind="struct" language="C++" prot="public">
+    <compoundname>eu::core::StructTmWrapper</compoundname>
+    <includes refid="datetime_8h" local="no">datetime.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1core_1_1StructTmWrapper_1a2e9498ff18683b19638febc5ae299696" prot="public" static="no" mutable="no">
+        <type>struct tm</type>
+        <definition>struct tm eu::core::StructTmWrapper::time</definition>
+        <argsstring></argsstring>
+        <name>time</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/datetime.h" line="46" column="23" bodyfile="libs/core/src/core/datetime.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1StructTmWrapper_1a9e197d993ee0514819307e7c78664f6d" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::core::StructTmWrapper::StructTmWrapper</definition>
+        <argsstring>(struct tm time)</argsstring>
+        <name>StructTmWrapper</name>
+        <param>
+          <type>struct tm</type>
+          <declname>time</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/datetime.h" line="54" column="18" bodyfile="libs/core/src/core/datetime.cc" bodystart="89" bodyend="92"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1StructTmWrapper_1af96e8cb59fb0cb64edd7c038aaf84431" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::core::StructTmWrapper::StructTmWrapper</definition>
+        <argsstring>(int year, core::Month month, int day)</argsstring>
+        <name>StructTmWrapper</name>
+        <param>
+          <type>int</type>
+          <declname>year</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceeu_1_1core_1a5f12e6e80caddd71516199992fae0450" kindref="member">core::Month</ref></type>
+          <declname>month</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>day</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/datetime.h" line="55" column="9" bodyfile="libs/core/src/core/datetime.cc" bodystart="95" bodyend="105"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1StructTmWrapper_1a9570b107e4669dc617ce7fb54750d1e1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::core::StructTmWrapper::StructTmWrapper</definition>
+        <argsstring>(int year, core::Month month, int day, int hour, int minute, int second, bool dst=false)</argsstring>
+        <name>StructTmWrapper</name>
+        <param>
+          <type>int</type>
+          <declname>year</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceeu_1_1core_1a5f12e6e80caddd71516199992fae0450" kindref="member">core::Month</ref></type>
+          <declname>month</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>day</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>hour</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>minute</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>second</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>dst</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/datetime.h" line="56" column="9" bodyfile="libs/core/src/core/datetime.cc" bodystart="108" bodyend="119"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1StructTmWrapper_1a1669e59090766909308ad25338f25d5a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::StructTmWrapper::set_seconds</definition>
+        <argsstring>(int seconds)</argsstring>
+        <name>set_seconds</name>
+        <param>
+          <type>int</type>
+          <declname>seconds</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/datetime.h" line="58" column="14" bodyfile="libs/core/src/core/datetime.cc" bodystart="123" bodyend="126"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1StructTmWrapper_1a8b686187baed92afe9d3512f5934e8eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::StructTmWrapper::set_minutes</definition>
+        <argsstring>(int minutes)</argsstring>
+        <name>set_minutes</name>
+        <param>
+          <type>int</type>
+          <declname>minutes</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/datetime.h" line="59" column="14" bodyfile="libs/core/src/core/datetime.cc" bodystart="130" bodyend="133"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1StructTmWrapper_1a2ce8b35b82b4882faf0e1ce4cf0d9142" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::StructTmWrapper::set_hour</definition>
+        <argsstring>(int hour)</argsstring>
+        <name>set_hour</name>
+        <param>
+          <type>int</type>
+          <declname>hour</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/datetime.h" line="60" column="14" bodyfile="libs/core/src/core/datetime.cc" bodystart="137" bodyend="140"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1StructTmWrapper_1a63d6b09f700971e6c748169f48440d01" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::StructTmWrapper::set_day_of_moth</definition>
+        <argsstring>(int day_of_moth)</argsstring>
+        <name>set_day_of_moth</name>
+        <param>
+          <type>int</type>
+          <declname>day_of_moth</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/datetime.h" line="61" column="14" bodyfile="libs/core/src/core/datetime.cc" bodystart="144" bodyend="147"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1StructTmWrapper_1a5e7265f3da35c900017198c3f63e8c54" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::StructTmWrapper::set_month</definition>
+        <argsstring>(core::Month month)</argsstring>
+        <name>set_month</name>
+        <param>
+          <type><ref refid="namespaceeu_1_1core_1a5f12e6e80caddd71516199992fae0450" kindref="member">core::Month</ref></type>
+          <declname>month</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/datetime.h" line="62" column="14" bodyfile="libs/core/src/core/datetime.cc" bodystart="151" bodyend="154"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1StructTmWrapper_1a2bd7d0f9a4aee6f21874835a51328e64" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::StructTmWrapper::set_year</definition>
+        <argsstring>(int year)</argsstring>
+        <name>set_year</name>
+        <param>
+          <type>int</type>
+          <declname>year</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/datetime.h" line="63" column="14" bodyfile="libs/core/src/core/datetime.cc" bodystart="158" bodyend="161"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1StructTmWrapper_1a734dfce47b5c80bfb55d6339d9f54506" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::StructTmWrapper::set_dst</definition>
+        <argsstring>(DstInfo dst)</argsstring>
+        <name>set_dst</name>
+        <param>
+          <type><ref refid="namespaceeu_1_1core_1a915bce2718270b73bf9e3f0de43a6c94" kindref="member">DstInfo</ref></type>
+          <declname>dst</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/datetime.h" line="64" column="14" bodyfile="libs/core/src/core/datetime.cc" bodystart="165" bodyend="181"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1StructTmWrapper_1a0315c305ced74f601a0a3c783a74bffc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int eu::core::StructTmWrapper::get_seconds</definition>
+        <argsstring>() const</argsstring>
+        <name>get_seconds</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/datetime.h" line="66" column="14" bodyfile="libs/core/src/core/datetime.cc" bodystart="185" bodyend="188"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1StructTmWrapper_1a9faf5b3de0fb0f7c1f22fd1a3b4b88e6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int eu::core::StructTmWrapper::get_minutes</definition>
+        <argsstring>() const</argsstring>
+        <name>get_minutes</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/datetime.h" line="67" column="14" bodyfile="libs/core/src/core/datetime.cc" bodystart="192" bodyend="195"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1StructTmWrapper_1ae3c05c95bcc88e553c9fab0c07c1115f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int eu::core::StructTmWrapper::get_hour</definition>
+        <argsstring>() const</argsstring>
+        <name>get_hour</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/datetime.h" line="68" column="14" bodyfile="libs/core/src/core/datetime.cc" bodystart="198" bodyend="201"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1StructTmWrapper_1abd2e6cf3ec10bfcfd957b4870fc8410f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int eu::core::StructTmWrapper::get_day_of_moth</definition>
+        <argsstring>() const</argsstring>
+        <name>get_day_of_moth</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/datetime.h" line="69" column="14" bodyfile="libs/core/src/core/datetime.cc" bodystart="205" bodyend="208"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1StructTmWrapper_1a25a916fc96a7f44c8cd4e1469f9c17c9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespaceeu_1_1core_1a5f12e6e80caddd71516199992fae0450" kindref="member">Month</ref></type>
+        <definition>Month eu::core::StructTmWrapper::get_month</definition>
+        <argsstring>() const</argsstring>
+        <name>get_month</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/datetime.h" line="70" column="16" bodyfile="libs/core/src/core/datetime.cc" bodystart="212" bodyend="215"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1StructTmWrapper_1ab41343047f3bda740e9df98856e56f34" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int eu::core::StructTmWrapper::get_year</definition>
+        <argsstring>() const</argsstring>
+        <name>get_year</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/datetime.h" line="71" column="14" bodyfile="libs/core/src/core/datetime.cc" bodystart="218" bodyend="221"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1StructTmWrapper_1a159072f290192773c1b5582f8265f60c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespaceeu_1_1core_1a915bce2718270b73bf9e3f0de43a6c94" kindref="member">DstInfo</ref></type>
+        <definition>DstInfo eu::core::StructTmWrapper::get_dst</definition>
+        <argsstring>() const</argsstring>
+        <name>get_dst</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/datetime.h" line="72" column="18" bodyfile="libs/core/src/core/datetime.cc" bodystart="225" bodyend="239"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1StructTmWrapper_1a81501d71f3c591b977100544a6aa2181" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string eu::core::StructTmWrapper::to_debug_string</definition>
+        <argsstring>() const</argsstring>
+        <name>to_debug_string</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/datetime.h" line="74" column="22" bodyfile="libs/core/src/core/datetime.cc" bodystart="243" bodyend="263"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/datetime.h" line="50" column="5" bodyfile="libs/core/src/core/datetime.h" bodystart="51" bodyend="75"/>
+    <listofallmembers>
+      <member refid="structeu_1_1core_1_1StructTmWrapper_1abd2e6cf3ec10bfcfd957b4870fc8410f" prot="public" virt="non-virtual"><scope>eu::core::StructTmWrapper</scope><name>get_day_of_moth</name></member>
+      <member refid="structeu_1_1core_1_1StructTmWrapper_1a159072f290192773c1b5582f8265f60c" prot="public" virt="non-virtual"><scope>eu::core::StructTmWrapper</scope><name>get_dst</name></member>
+      <member refid="structeu_1_1core_1_1StructTmWrapper_1ae3c05c95bcc88e553c9fab0c07c1115f" prot="public" virt="non-virtual"><scope>eu::core::StructTmWrapper</scope><name>get_hour</name></member>
+      <member refid="structeu_1_1core_1_1StructTmWrapper_1a9faf5b3de0fb0f7c1f22fd1a3b4b88e6" prot="public" virt="non-virtual"><scope>eu::core::StructTmWrapper</scope><name>get_minutes</name></member>
+      <member refid="structeu_1_1core_1_1StructTmWrapper_1a25a916fc96a7f44c8cd4e1469f9c17c9" prot="public" virt="non-virtual"><scope>eu::core::StructTmWrapper</scope><name>get_month</name></member>
+      <member refid="structeu_1_1core_1_1StructTmWrapper_1a0315c305ced74f601a0a3c783a74bffc" prot="public" virt="non-virtual"><scope>eu::core::StructTmWrapper</scope><name>get_seconds</name></member>
+      <member refid="structeu_1_1core_1_1StructTmWrapper_1ab41343047f3bda740e9df98856e56f34" prot="public" virt="non-virtual"><scope>eu::core::StructTmWrapper</scope><name>get_year</name></member>
+      <member refid="structeu_1_1core_1_1StructTmWrapper_1a63d6b09f700971e6c748169f48440d01" prot="public" virt="non-virtual"><scope>eu::core::StructTmWrapper</scope><name>set_day_of_moth</name></member>
+      <member refid="structeu_1_1core_1_1StructTmWrapper_1a734dfce47b5c80bfb55d6339d9f54506" prot="public" virt="non-virtual"><scope>eu::core::StructTmWrapper</scope><name>set_dst</name></member>
+      <member refid="structeu_1_1core_1_1StructTmWrapper_1a2ce8b35b82b4882faf0e1ce4cf0d9142" prot="public" virt="non-virtual"><scope>eu::core::StructTmWrapper</scope><name>set_hour</name></member>
+      <member refid="structeu_1_1core_1_1StructTmWrapper_1a8b686187baed92afe9d3512f5934e8eb" prot="public" virt="non-virtual"><scope>eu::core::StructTmWrapper</scope><name>set_minutes</name></member>
+      <member refid="structeu_1_1core_1_1StructTmWrapper_1a5e7265f3da35c900017198c3f63e8c54" prot="public" virt="non-virtual"><scope>eu::core::StructTmWrapper</scope><name>set_month</name></member>
+      <member refid="structeu_1_1core_1_1StructTmWrapper_1a1669e59090766909308ad25338f25d5a" prot="public" virt="non-virtual"><scope>eu::core::StructTmWrapper</scope><name>set_seconds</name></member>
+      <member refid="structeu_1_1core_1_1StructTmWrapper_1a2bd7d0f9a4aee6f21874835a51328e64" prot="public" virt="non-virtual"><scope>eu::core::StructTmWrapper</scope><name>set_year</name></member>
+      <member refid="structeu_1_1core_1_1StructTmWrapper_1a9e197d993ee0514819307e7c78664f6d" prot="public" virt="non-virtual"><scope>eu::core::StructTmWrapper</scope><name>StructTmWrapper</name></member>
+      <member refid="structeu_1_1core_1_1StructTmWrapper_1af96e8cb59fb0cb64edd7c038aaf84431" prot="public" virt="non-virtual"><scope>eu::core::StructTmWrapper</scope><name>StructTmWrapper</name></member>
+      <member refid="structeu_1_1core_1_1StructTmWrapper_1a9570b107e4669dc617ce7fb54750d1e1" prot="public" virt="non-virtual"><scope>eu::core::StructTmWrapper</scope><name>StructTmWrapper</name></member>
+      <member refid="structeu_1_1core_1_1StructTmWrapper_1a2e9498ff18683b19638febc5ae299696" prot="public" virt="non-virtual"><scope>eu::core::StructTmWrapper</scope><name>time</name></member>
+      <member refid="structeu_1_1core_1_1StructTmWrapper_1a81501d71f3c591b977100544a6aa2181" prot="public" virt="non-virtual"><scope>eu::core::StructTmWrapper</scope><name>to_debug_string</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,115 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1core_1_1LastN" kind="struct" language="C++" prot="public">
+    <compoundname>eu::core::LastN</compoundname>
+    <includes refid="last__n_8h" local="no">last_n.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename T</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1core_1_1LastN_1a714043dc4fc4b8d65e608369f62cda39" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; T &gt;</type>
+        <definition>std::vector&lt;T&gt; eu::core::LastN&lt; T &gt;::d</definition>
+        <argsstring></argsstring>
+        <name>d</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/last_n.h" line="14" column="21" bodyfile="libs/core/src/core/last_n.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1LastN_1a144130f8c9e10cd8eb19c88062b9b189" prot="public" static="no" mutable="no">
+        <type>std::size_t</type>
+        <definition>std::size_t eu::core::LastN&lt; T &gt;::max</definition>
+        <argsstring></argsstring>
+        <name>max</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/last_n.h" line="15" column="21" bodyfile="libs/core/src/core/last_n.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1LastN_1a920fdc898e64023aee757dd598f7217d" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>eu::core::LastN&lt; T &gt;::LastN</definition>
+        <argsstring>(std::size_t s)</argsstring>
+        <name>LastN</name>
+        <param>
+          <type>std::size_t</type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/last_n.h" line="17" column="18" bodyfile="libs/core/src/core/last_n.h" bodystart="17" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1LastN_1a9027977a2eae8d3de846b85df153dcd6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::LastN&lt; T &gt;::push</definition>
+        <argsstring>(const T &amp;t)</argsstring>
+        <name>push</name>
+        <param>
+          <type>const T &amp;</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/last_n.h" line="20" column="9" bodyfile="libs/core/src/core/last_n.h" bodystart="20" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1LastN_1a1d160407ce6deec2bee661f763b1d6ce" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const T *</type>
+        <definition>const T* eu::core::LastN&lt; T &gt;::data</definition>
+        <argsstring>() const</argsstring>
+        <name>data</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/last_n.h" line="30" column="9" bodyfile="libs/core/src/core/last_n.h" bodystart="30" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1LastN_1a2d0fc3e650248e327b99b40e4c59e5bd" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int eu::core::LastN&lt; T &gt;::size</definition>
+        <argsstring>() const</argsstring>
+        <name>size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/last_n.h" line="37" column="9" bodyfile="libs/core/src/core/last_n.h" bodystart="37" bodyend="40"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/last_n.h" line="12" column="5" bodyfile="libs/core/src/core/last_n.h" bodystart="13" bodyend="41"/>
+    <listofallmembers>
+      <member refid="structeu_1_1core_1_1LastN_1a714043dc4fc4b8d65e608369f62cda39" prot="public" virt="non-virtual"><scope>eu::core::LastN</scope><name>d</name></member>
+      <member refid="structeu_1_1core_1_1LastN_1a1d160407ce6deec2bee661f763b1d6ce" prot="public" virt="non-virtual"><scope>eu::core::LastN</scope><name>data</name></member>
+      <member refid="structeu_1_1core_1_1LastN_1a920fdc898e64023aee757dd598f7217d" prot="public" virt="non-virtual"><scope>eu::core::LastN</scope><name>LastN</name></member>
+      <member refid="structeu_1_1core_1_1LastN_1a144130f8c9e10cd8eb19c88062b9b189" prot="public" virt="non-virtual"><scope>eu::core::LastN</scope><name>max</name></member>
+      <member refid="structeu_1_1core_1_1LastN_1a9027977a2eae8d3de846b85df153dcd6" prot="public" virt="non-virtual"><scope>eu::core::LastN</scope><name>push</name></member>
+      <member refid="structeu_1_1core_1_1LastN_1a2d0fc3e650248e327b99b40e4c59e5bd" prot="public" virt="non-virtual"><scope>eu::core::LastN</scope><name>size</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

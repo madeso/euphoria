@@ -1,0 +1,623 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1core_1_1quatf" kind="struct" language="C++" prot="public">
+    <compoundname>eu::core::quatf</compoundname>
+    <includes refid="quat_8h" local="no">quat.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1core_1_1quatf_1a16633faec0f693713c6065df70e06345" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float eu::core::quatf::w</definition>
+        <argsstring></argsstring>
+        <name>w</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/quat.h" line="16" column="15" bodyfile="libs/core/src/core/quat.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1quatf_1ae79e6fd86b2288c6c8d448b340ea9e32" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float eu::core::quatf::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/quat.h" line="17" column="15" bodyfile="libs/core/src/core/quat.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1quatf_1abded80b72b4d82ae947d92c83d2b825a" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float eu::core::quatf::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/quat.h" line="18" column="15" bodyfile="libs/core/src/core/quat.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1quatf_1a7125f9b3a8634dea3de7423665f2d3dc" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float eu::core::quatf::z</definition>
+        <argsstring></argsstring>
+        <name>z</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/quat.h" line="19" column="15" bodyfile="libs/core/src/core/quat.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1quatf_1a1c622f799c4ac79288df79720d53ceee" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>constexpr</type>
+        <definition>constexpr eu::core::quatf::quatf</definition>
+        <argsstring>(float aw, const vec3f &amp;v)</argsstring>
+        <name>quatf</name>
+        <param>
+          <type>float</type>
+          <declname>aw</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/quat.h" line="21" column="19" bodyfile="libs/core/src/core/quat.h" bodystart="21" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1quatf_1a12278c8b92ac9b7f8e31ce690b19874d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float *</type>
+        <definition>float * eu::core::quatf::get_data_ptr</definition>
+        <argsstring>()</argsstring>
+        <name>get_data_ptr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/quat.h" line="36" column="15" bodyfile="libs/core/src/core/quat.cc" bodystart="6" bodyend="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1quatf_1a7f092830166fb7c18579dcc401832a85" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::quatf::normalize</definition>
+        <argsstring>()</argsstring>
+        <name>normalize</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/quat.h" line="37" column="14" bodyfile="libs/core/src/core/quat.cc" bodystart="160" bodyend="174"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1quatf_1a413b707ff462fba6a172527155c61e98" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
+        <definition>vec3f eu::core::quatf::create_from_right_up_in</definition>
+        <argsstring>(const vec3f &amp;v) const</argsstring>
+        <name>create_from_right_up_in</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+<para>returns In*Z + Right*X + Up*Y </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/quat.h" line="40" column="16" bodyfile="libs/core/src/core/quat.cc" bodystart="196" bodyend="199"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1quatf_1ac71e1cd80ac5c4607d978be35279d041" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1quatf" kindref="compound">quatf</ref></type>
+        <definition>quatf eu::core::quatf::get_rotated</definition>
+        <argsstring>(const quatf &amp;q) const</argsstring>
+        <name>get_rotated</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1quatf" kindref="compound">quatf</ref> &amp;</type>
+          <declname>q</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/quat.h" line="41" column="16" bodyfile="libs/core/src/core/quat.cc" bodystart="105" bodyend="108"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1quatf_1a74b6c49122da56dace1fe9d39dacf49e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1unit3f" kindref="compound">unit3f</ref></type>
+        <definition>unit3f eu::core::quatf::rotate_around_origo</definition>
+        <argsstring>(const unit3f &amp;v) const</argsstring>
+        <name>rotate_around_origo</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1unit3f" kindref="compound">unit3f</ref> &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/quat.h" line="42" column="17" bodyfile="libs/core/src/core/quat.cc" bodystart="203" bodyend="210"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1quatf_1a0d7ecaac3314bdd2a47dc799609dcc0e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1quatf" kindref="compound">quatf</ref></type>
+        <definition>quatf eu::core::quatf::get_negated</definition>
+        <argsstring>() const</argsstring>
+        <name>get_negated</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/quat.h" line="45" column="16" bodyfile="libs/core/src/core/quat.cc" bodystart="129" bodyend="132"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1quatf_1a601277b17af37982bc7c147d62113036" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1mat4f" kindref="compound">mat4f</ref></type>
+        <definition>mat4f eu::core::quatf::to_mat4</definition>
+        <argsstring>() const</argsstring>
+        <name>to_mat4</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/quat.h" line="47" column="16" bodyfile="libs/core/src/core/quat.cc" bodystart="75" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1quatf_1a899bc8376c0ca0243dcb26f7c0c2f12d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1AxisAngle" kindref="compound">AxisAngle</ref></type>
+        <definition>AxisAngle eu::core::quatf::to_axis_angle</definition>
+        <argsstring>() const</argsstring>
+        <name>to_axis_angle</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/quat.h" line="48" column="20" bodyfile="libs/core/src/core/quat.cc" bodystart="82" bodyend="91"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1quatf_1a1840ebba381c25279a893396be0c444f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const float *</type>
+        <definition>const float * eu::core::quatf::get_data_ptr</definition>
+        <argsstring>() const</argsstring>
+        <name>get_data_ptr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/quat.h" line="49" column="22" bodyfile="libs/core/src/core/quat.cc" bodystart="11" bodyend="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1quatf_1a53828f0be4c5799f0058eeda4e5f6e6f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
+        <definition>vec3f eu::core::quatf::get_vec_part</definition>
+        <argsstring>() const</argsstring>
+        <name>get_vec_part</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/quat.h" line="50" column="16" bodyfile="libs/core/src/core/quat.cc" bodystart="16" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1quatf_1a96c77c05abfd01445972ca9f2449f6bd" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1quatf" kindref="compound">quatf</ref></type>
+        <definition>quatf eu::core::quatf::get_conjugate</definition>
+        <argsstring>() const</argsstring>
+        <name>get_conjugate</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/quat.h" line="51" column="16" bodyfile="libs/core/src/core/quat.cc" bodystart="112" bodyend="115"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1quatf_1ab2a283a41690cdb2e66fb961e4182345" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1quatf" kindref="compound">quatf</ref></type>
+        <definition>quatf eu::core::quatf::get_inverse</definition>
+        <argsstring>() const</argsstring>
+        <name>get_inverse</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/quat.h" line="52" column="16" bodyfile="libs/core/src/core/quat.cc" bodystart="119" bodyend="124"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1quatf_1ad2a31597ef4bd4b2b067801d34008cce" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1quatf" kindref="compound">quatf</ref></type>
+        <definition>quatf eu::core::quatf::get_identity</definition>
+        <argsstring>() const</argsstring>
+        <name>get_identity</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/quat.h" line="53" column="16" bodyfile="libs/core/src/core/quat.cc" bodystart="136" bodyend="142"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1quatf_1a7ab73c5a575b169c6cb08c0944f02709" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float eu::core::quatf::get_length</definition>
+        <argsstring>() const</argsstring>
+        <name>get_length</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/quat.h" line="54" column="16" bodyfile="libs/core/src/core/quat.cc" bodystart="146" bodyend="149"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1quatf_1a6559b2fab68fa628c7a2bc422dcf4007" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float eu::core::quatf::get_length_squared</definition>
+        <argsstring>() const</argsstring>
+        <name>get_length_squared</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/quat.h" line="55" column="16" bodyfile="libs/core/src/core/quat.cc" bodystart="153" bodyend="156"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1quatf_1a8c28c9b8e35997262fd06d57001c275e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1quatf" kindref="compound">quatf</ref></type>
+        <definition>quatf eu::core::quatf::get_normalized</definition>
+        <argsstring>() const</argsstring>
+        <name>get_normalized</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/quat.h" line="56" column="16" bodyfile="libs/core/src/core/quat.cc" bodystart="178" bodyend="183"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1quatf_1a2eaff86b943c6cce4c0fc3c6db0a09d3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1unit3f" kindref="compound">unit3f</ref></type>
+        <definition>unit3f eu::core::quatf::get_in</definition>
+        <argsstring>() const</argsstring>
+        <name>get_in</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/quat.h" line="58" column="17" bodyfile="libs/core/src/core/quat.cc" bodystart="186" bodyend="186"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1quatf_1a00d191e02ebc537eb8163cd60d5e7552" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1unit3f" kindref="compound">unit3f</ref></type>
+        <definition>unit3f eu::core::quatf::get_out</definition>
+        <argsstring>() const</argsstring>
+        <name>get_out</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/quat.h" line="59" column="17" bodyfile="libs/core/src/core/quat.cc" bodystart="187" bodyend="187"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1quatf_1aa0ffa85007f9c2713f4bdcaaaf9e64af" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1unit3f" kindref="compound">unit3f</ref></type>
+        <definition>unit3f eu::core::quatf::get_right</definition>
+        <argsstring>() const</argsstring>
+        <name>get_right</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/quat.h" line="60" column="17" bodyfile="libs/core/src/core/quat.cc" bodystart="188" bodyend="188"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1quatf_1ae75b27c4a57f68f41245a42024e504e1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1unit3f" kindref="compound">unit3f</ref></type>
+        <definition>unit3f eu::core::quatf::get_left</definition>
+        <argsstring>() const</argsstring>
+        <name>get_left</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/quat.h" line="61" column="17" bodyfile="libs/core/src/core/quat.cc" bodystart="189" bodyend="189"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1quatf_1a1d8dd155e701912345ef69411dcbb3ca" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1unit3f" kindref="compound">unit3f</ref></type>
+        <definition>unit3f eu::core::quatf::get_up</definition>
+        <argsstring>() const</argsstring>
+        <name>get_up</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/quat.h" line="62" column="17" bodyfile="libs/core/src/core/quat.cc" bodystart="190" bodyend="190"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1quatf_1a7e0dcf4885addee42e8b29a7933740eb" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1unit3f" kindref="compound">unit3f</ref></type>
+        <definition>unit3f eu::core::quatf::get_down</definition>
+        <argsstring>() const</argsstring>
+        <name>get_down</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/quat.h" line="63" column="17" bodyfile="libs/core/src/core/quat.cc" bodystart="191" bodyend="191"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1quatf_1a8de4539fcbbbcc9ebe0d649a225876dc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::quatf::operator+=</definition>
+        <argsstring>(const quatf &amp;rhs)</argsstring>
+        <name>operator+=</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1quatf" kindref="compound">quatf</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/quat.h" line="65" column="14" bodyfile="libs/core/src/core/quat.cc" bodystart="272" bodyend="278"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1quatf_1aa560e7bfcd495c200c582bc3e20df6ac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::quatf::operator-=</definition>
+        <argsstring>(const quatf &amp;rhs)</argsstring>
+        <name>operator-=</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1quatf" kindref="compound">quatf</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/quat.h" line="66" column="14" bodyfile="libs/core/src/core/quat.cc" bodystart="282" bodyend="288"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1quatf_1af6fbff80b729b83e3175b7188a6a10b8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::quatf::operator*=</definition>
+        <argsstring>(float rhs)</argsstring>
+        <name>operator*=</name>
+        <param>
+          <type>float</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/quat.h" line="67" column="14" bodyfile="libs/core/src/core/quat.cc" bodystart="292" bodyend="298"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1quatf_1a8feadd48244c86ba1b390c0bfa9f6df0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::quatf::operator*=</definition>
+        <argsstring>(const quatf &amp;rhs)</argsstring>
+        <name>operator*=</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1quatf" kindref="compound">quatf</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/quat.h" line="68" column="14" bodyfile="libs/core/src/core/quat.cc" bodystart="302" bodyend="330"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1quatf_1a04b7f7b4df2c832f9d113b1699e57d44" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1quatf" kindref="compound">quatf</ref></type>
+        <definition>quatf eu::core::quatf::from_axis_angle</definition>
+        <argsstring>(const AxisAngle &amp;aa)</argsstring>
+        <name>from_axis_angle</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1AxisAngle" kindref="compound">AxisAngle</ref> &amp;</type>
+          <declname>aa</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/quat.h" line="29" column="23" bodyfile="libs/core/src/core/quat.cc" bodystart="23" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1quatf_1a3617e0e070134ac856458d288cd94583" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1quatf" kindref="compound">quatf</ref></type>
+        <definition>quatf eu::core::quatf::from_ypr</definition>
+        <argsstring>(const Angle &amp;yaw, const Angle &amp;pitch, const Angle &amp;roll)</argsstring>
+        <name>from_ypr</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1Angle" kindref="compound">Angle</ref> &amp;</type>
+          <declname>yaw</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1Angle" kindref="compound">Angle</ref> &amp;</type>
+          <declname>pitch</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1Angle" kindref="compound">Angle</ref> &amp;</type>
+          <declname>roll</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/quat.h" line="30" column="23" bodyfile="libs/core/src/core/quat.cc" bodystart="34" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1quatf_1a814393e85faf16dee2852b19dcd383c3" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1quatf" kindref="compound">quatf</ref></type>
+        <definition>quatf eu::core::quatf::from_to</definition>
+        <argsstring>(const quatf &amp;from, const quatf &amp;to)</argsstring>
+        <name>from_to</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1quatf" kindref="compound">quatf</ref> &amp;</type>
+          <declname>from</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1quatf" kindref="compound">quatf</ref> &amp;</type>
+          <declname>to</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/quat.h" line="31" column="23" bodyfile="libs/core/src/core/quat.cc" bodystart="57" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1quatf_1a6c5e0819c9f02bb4079d6fcdfca1c328" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1quatf" kindref="compound">quatf</ref></type>
+        <definition>quatf eu::core::quatf::from_random</definition>
+        <argsstring>(Random *random)</argsstring>
+        <name>from_random</name>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1Random" kindref="compound">Random</ref> *</type>
+          <declname>random</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/quat.h" line="32" column="23" bodyfile="libs/core/src/core/quat.cc" bodystart="65" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1quatf_1a10bc7f21e138399a04075696c5f17a10" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1quatf" kindref="compound">quatf</ref></type>
+        <definition>quatf eu::core::quatf::look_at</definition>
+        <argsstring>(const vec3f &amp;from, const vec3f &amp;to, const unit3f &amp;up)</argsstring>
+        <name>look_at</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
+          <declname>from</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
+          <declname>to</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1unit3f" kindref="compound">unit3f</ref> &amp;</type>
+          <declname>up</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/quat.h" line="33" column="23" bodyfile="libs/core/src/core/quat.cc" bodystart="98" bodyend="101"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1quatf_1a3a80d6ae79e0b9c19f23b4fe1e2c28c9" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1quatf" kindref="compound">quatf</ref></type>
+        <definition>quatf eu::core::quatf::look_in_direction</definition>
+        <argsstring>(const unit3f &amp;dir, const unit3f &amp;up)</argsstring>
+        <name>look_in_direction</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1unit3f" kindref="compound">unit3f</ref> &amp;</type>
+          <declname>dir</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1unit3f" kindref="compound">unit3f</ref> &amp;</type>
+          <declname>up</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/quat.h" line="34" column="23" bodyfile="libs/core/src/core/quat.cc" bodystart="332" bodyend="353"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/quat.h" line="14" column="5" bodyfile="libs/core/src/core/quat.h" bodystart="15" bodyend="69"/>
+    <listofallmembers>
+      <member refid="structeu_1_1core_1_1quatf_1a413b707ff462fba6a172527155c61e98" prot="public" virt="non-virtual"><scope>eu::core::quatf</scope><name>create_from_right_up_in</name></member>
+      <member refid="structeu_1_1core_1_1quatf_1a04b7f7b4df2c832f9d113b1699e57d44" prot="public" virt="non-virtual"><scope>eu::core::quatf</scope><name>from_axis_angle</name></member>
+      <member refid="structeu_1_1core_1_1quatf_1a6c5e0819c9f02bb4079d6fcdfca1c328" prot="public" virt="non-virtual"><scope>eu::core::quatf</scope><name>from_random</name></member>
+      <member refid="structeu_1_1core_1_1quatf_1a814393e85faf16dee2852b19dcd383c3" prot="public" virt="non-virtual"><scope>eu::core::quatf</scope><name>from_to</name></member>
+      <member refid="structeu_1_1core_1_1quatf_1a3617e0e070134ac856458d288cd94583" prot="public" virt="non-virtual"><scope>eu::core::quatf</scope><name>from_ypr</name></member>
+      <member refid="structeu_1_1core_1_1quatf_1a96c77c05abfd01445972ca9f2449f6bd" prot="public" virt="non-virtual"><scope>eu::core::quatf</scope><name>get_conjugate</name></member>
+      <member refid="structeu_1_1core_1_1quatf_1a12278c8b92ac9b7f8e31ce690b19874d" prot="public" virt="non-virtual"><scope>eu::core::quatf</scope><name>get_data_ptr</name></member>
+      <member refid="structeu_1_1core_1_1quatf_1a1840ebba381c25279a893396be0c444f" prot="public" virt="non-virtual"><scope>eu::core::quatf</scope><name>get_data_ptr</name></member>
+      <member refid="structeu_1_1core_1_1quatf_1a7e0dcf4885addee42e8b29a7933740eb" prot="public" virt="non-virtual"><scope>eu::core::quatf</scope><name>get_down</name></member>
+      <member refid="structeu_1_1core_1_1quatf_1ad2a31597ef4bd4b2b067801d34008cce" prot="public" virt="non-virtual"><scope>eu::core::quatf</scope><name>get_identity</name></member>
+      <member refid="structeu_1_1core_1_1quatf_1a2eaff86b943c6cce4c0fc3c6db0a09d3" prot="public" virt="non-virtual"><scope>eu::core::quatf</scope><name>get_in</name></member>
+      <member refid="structeu_1_1core_1_1quatf_1ab2a283a41690cdb2e66fb961e4182345" prot="public" virt="non-virtual"><scope>eu::core::quatf</scope><name>get_inverse</name></member>
+      <member refid="structeu_1_1core_1_1quatf_1ae75b27c4a57f68f41245a42024e504e1" prot="public" virt="non-virtual"><scope>eu::core::quatf</scope><name>get_left</name></member>
+      <member refid="structeu_1_1core_1_1quatf_1a7ab73c5a575b169c6cb08c0944f02709" prot="public" virt="non-virtual"><scope>eu::core::quatf</scope><name>get_length</name></member>
+      <member refid="structeu_1_1core_1_1quatf_1a6559b2fab68fa628c7a2bc422dcf4007" prot="public" virt="non-virtual"><scope>eu::core::quatf</scope><name>get_length_squared</name></member>
+      <member refid="structeu_1_1core_1_1quatf_1a0d7ecaac3314bdd2a47dc799609dcc0e" prot="public" virt="non-virtual"><scope>eu::core::quatf</scope><name>get_negated</name></member>
+      <member refid="structeu_1_1core_1_1quatf_1a8c28c9b8e35997262fd06d57001c275e" prot="public" virt="non-virtual"><scope>eu::core::quatf</scope><name>get_normalized</name></member>
+      <member refid="structeu_1_1core_1_1quatf_1a00d191e02ebc537eb8163cd60d5e7552" prot="public" virt="non-virtual"><scope>eu::core::quatf</scope><name>get_out</name></member>
+      <member refid="structeu_1_1core_1_1quatf_1aa0ffa85007f9c2713f4bdcaaaf9e64af" prot="public" virt="non-virtual"><scope>eu::core::quatf</scope><name>get_right</name></member>
+      <member refid="structeu_1_1core_1_1quatf_1ac71e1cd80ac5c4607d978be35279d041" prot="public" virt="non-virtual"><scope>eu::core::quatf</scope><name>get_rotated</name></member>
+      <member refid="structeu_1_1core_1_1quatf_1a1d8dd155e701912345ef69411dcbb3ca" prot="public" virt="non-virtual"><scope>eu::core::quatf</scope><name>get_up</name></member>
+      <member refid="structeu_1_1core_1_1quatf_1a53828f0be4c5799f0058eeda4e5f6e6f" prot="public" virt="non-virtual"><scope>eu::core::quatf</scope><name>get_vec_part</name></member>
+      <member refid="structeu_1_1core_1_1quatf_1a10bc7f21e138399a04075696c5f17a10" prot="public" virt="non-virtual"><scope>eu::core::quatf</scope><name>look_at</name></member>
+      <member refid="structeu_1_1core_1_1quatf_1a3a80d6ae79e0b9c19f23b4fe1e2c28c9" prot="public" virt="non-virtual"><scope>eu::core::quatf</scope><name>look_in_direction</name></member>
+      <member refid="structeu_1_1core_1_1quatf_1a7f092830166fb7c18579dcc401832a85" prot="public" virt="non-virtual"><scope>eu::core::quatf</scope><name>normalize</name></member>
+      <member refid="structeu_1_1core_1_1quatf_1af6fbff80b729b83e3175b7188a6a10b8" prot="public" virt="non-virtual"><scope>eu::core::quatf</scope><name>operator*=</name></member>
+      <member refid="structeu_1_1core_1_1quatf_1a8feadd48244c86ba1b390c0bfa9f6df0" prot="public" virt="non-virtual"><scope>eu::core::quatf</scope><name>operator*=</name></member>
+      <member refid="structeu_1_1core_1_1quatf_1a8de4539fcbbbcc9ebe0d649a225876dc" prot="public" virt="non-virtual"><scope>eu::core::quatf</scope><name>operator+=</name></member>
+      <member refid="structeu_1_1core_1_1quatf_1aa560e7bfcd495c200c582bc3e20df6ac" prot="public" virt="non-virtual"><scope>eu::core::quatf</scope><name>operator-=</name></member>
+      <member refid="structeu_1_1core_1_1quatf_1a1c622f799c4ac79288df79720d53ceee" prot="public" virt="non-virtual"><scope>eu::core::quatf</scope><name>quatf</name></member>
+      <member refid="structeu_1_1core_1_1quatf_1a74b6c49122da56dace1fe9d39dacf49e" prot="public" virt="non-virtual"><scope>eu::core::quatf</scope><name>rotate_around_origo</name></member>
+      <member refid="structeu_1_1core_1_1quatf_1a899bc8376c0ca0243dcb26f7c0c2f12d" prot="public" virt="non-virtual"><scope>eu::core::quatf</scope><name>to_axis_angle</name></member>
+      <member refid="structeu_1_1core_1_1quatf_1a601277b17af37982bc7c147d62113036" prot="public" virt="non-virtual"><scope>eu::core::quatf</scope><name>to_mat4</name></member>
+      <member refid="structeu_1_1core_1_1quatf_1a16633faec0f693713c6065df70e06345" prot="public" virt="non-virtual"><scope>eu::core::quatf</scope><name>w</name></member>
+      <member refid="structeu_1_1core_1_1quatf_1ae79e6fd86b2288c6c8d448b340ea9e32" prot="public" virt="non-virtual"><scope>eu::core::quatf</scope><name>x</name></member>
+      <member refid="structeu_1_1core_1_1quatf_1abded80b72b4d82ae947d92c83d2b825a" prot="public" virt="non-virtual"><scope>eu::core::quatf</scope><name>y</name></member>
+      <member refid="structeu_1_1core_1_1quatf_1a7125f9b3a8634dea3de7423665f2d3dc" prot="public" virt="non-virtual"><scope>eu::core::quatf</scope><name>z</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

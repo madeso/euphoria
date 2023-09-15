@@ -1,0 +1,152 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1core_1_1TimetWrapper" kind="struct" language="C++" prot="public">
+    <compoundname>eu::core::TimetWrapper</compoundname>
+    <includes refid="datetime_8h" local="no">datetime.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1core_1_1TimetWrapper_1a2cb812522d41d7e29e6ae7c18d975a28" prot="public" static="no" mutable="no">
+        <type>time_t</type>
+        <definition>time_t eu::core::TimetWrapper::time</definition>
+        <argsstring></argsstring>
+        <name>time</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/datetime.h" line="35" column="16" bodyfile="libs/core/src/core/datetime.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1TimetWrapper_1ad1eb5f8e1272ef098654c030bcb4183c" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::core::TimetWrapper::TimetWrapper</definition>
+        <argsstring>(time_t time)</argsstring>
+        <name>TimetWrapper</name>
+        <param>
+          <type>time_t</type>
+          <declname>time</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/datetime.h" line="37" column="18" bodyfile="libs/core/src/core/datetime.cc" bodystart="36" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1TimetWrapper_1a02e431b851bc646f52f0b8a71420da8c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1StructTmWrapper" kindref="compound">StructTmWrapper</ref></type>
+        <definition>StructTmWrapper eu::core::TimetWrapper::to_local_time</definition>
+        <argsstring>() const</argsstring>
+        <name>to_local_time</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/datetime.h" line="43" column="26" bodyfile="libs/core/src/core/datetime.cc" bodystart="73" bodyend="76"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1TimetWrapper_1adb8a71c762a7d02a943150a6cf7d1599" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1StructTmWrapper" kindref="compound">StructTmWrapper</ref></type>
+        <definition>StructTmWrapper eu::core::TimetWrapper::to_gmt</definition>
+        <argsstring>() const</argsstring>
+        <name>to_gmt</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/datetime.h" line="44" column="26" bodyfile="libs/core/src/core/datetime.cc" bodystart="80" bodyend="83"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1TimetWrapper_1a6ee1dfd80ea108698a1dc5c313c503e4" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1TimetWrapper" kindref="compound">TimetWrapper</ref></type>
+        <definition>TimetWrapper eu::core::TimetWrapper::from_local_time</definition>
+        <argsstring>(const StructTmWrapper &amp;dt)</argsstring>
+        <name>from_local_time</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1StructTmWrapper" kindref="compound">StructTmWrapper</ref> &amp;</type>
+          <declname>dt</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/datetime.h" line="39" column="29" bodyfile="libs/core/src/core/datetime.cc" bodystart="43" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1TimetWrapper_1a9248830800fad6a316ee9d8a4d803571" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1TimetWrapper" kindref="compound">TimetWrapper</ref></type>
+        <definition>TimetWrapper eu::core::TimetWrapper::from_gmt</definition>
+        <argsstring>(const StructTmWrapper &amp;dt)</argsstring>
+        <name>from_gmt</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1StructTmWrapper" kindref="compound">StructTmWrapper</ref> &amp;</type>
+          <declname>dt</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/datetime.h" line="40" column="29" bodyfile="libs/core/src/core/datetime.cc" bodystart="51" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1TimetWrapper_1a14fc06b4c6ee9a547581ed9ca9417603" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1TimetWrapper" kindref="compound">TimetWrapper</ref></type>
+        <definition>TimetWrapper eu::core::TimetWrapper::from_current_time</definition>
+        <argsstring>()</argsstring>
+        <name>from_current_time</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/datetime.h" line="41" column="29" bodyfile="libs/core/src/core/datetime.cc" bodystart="59" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1TimetWrapper_1abbae251cc2726080a6ef9e0b837d6dbe" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double eu::core::TimetWrapper::get_difference</definition>
+        <argsstring>(const TimetWrapper &amp;start, const TimetWrapper &amp;end)</argsstring>
+        <name>get_difference</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1TimetWrapper" kindref="compound">TimetWrapper</ref> &amp;</type>
+          <declname>start</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1TimetWrapper" kindref="compound">TimetWrapper</ref> &amp;</type>
+          <declname>end</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/datetime.h" line="46" column="23" bodyfile="libs/core/src/core/datetime.cc" bodystart="66" bodyend="69"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/datetime.h" line="33" column="5" bodyfile="libs/core/src/core/datetime.h" bodystart="34" bodyend="47"/>
+    <listofallmembers>
+      <member refid="structeu_1_1core_1_1TimetWrapper_1a14fc06b4c6ee9a547581ed9ca9417603" prot="public" virt="non-virtual"><scope>eu::core::TimetWrapper</scope><name>from_current_time</name></member>
+      <member refid="structeu_1_1core_1_1TimetWrapper_1a9248830800fad6a316ee9d8a4d803571" prot="public" virt="non-virtual"><scope>eu::core::TimetWrapper</scope><name>from_gmt</name></member>
+      <member refid="structeu_1_1core_1_1TimetWrapper_1a6ee1dfd80ea108698a1dc5c313c503e4" prot="public" virt="non-virtual"><scope>eu::core::TimetWrapper</scope><name>from_local_time</name></member>
+      <member refid="structeu_1_1core_1_1TimetWrapper_1abbae251cc2726080a6ef9e0b837d6dbe" prot="public" virt="non-virtual"><scope>eu::core::TimetWrapper</scope><name>get_difference</name></member>
+      <member refid="structeu_1_1core_1_1TimetWrapper_1a2cb812522d41d7e29e6ae7c18d975a28" prot="public" virt="non-virtual"><scope>eu::core::TimetWrapper</scope><name>time</name></member>
+      <member refid="structeu_1_1core_1_1TimetWrapper_1ad1eb5f8e1272ef098654c030bcb4183c" prot="public" virt="non-virtual"><scope>eu::core::TimetWrapper</scope><name>TimetWrapper</name></member>
+      <member refid="structeu_1_1core_1_1TimetWrapper_1adb8a71c762a7d02a943150a6cf7d1599" prot="public" virt="non-virtual"><scope>eu::core::TimetWrapper</scope><name>to_gmt</name></member>
+      <member refid="structeu_1_1core_1_1TimetWrapper_1a02e431b851bc646f52f0b8a71420da8c" prot="public" virt="non-virtual"><scope>eu::core::TimetWrapper</scope><name>to_local_time</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

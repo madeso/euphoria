@@ -1,0 +1,147 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1core_1_1Ray2f" kind="struct" language="C++" prot="public">
+    <compoundname>eu::core::Ray2f</compoundname>
+    <includes refid="ray_8h" local="no">ray.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1core_1_1Ray2f_1aa55b1fce3630cd6140943ac2aac39fac" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1core_1_1vec2f" kindref="compound">vec2f</ref></type>
+        <definition>vec2f eu::core::Ray2f::position</definition>
+        <argsstring></argsstring>
+        <name>position</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ray.h" line="25" column="15" bodyfile="libs/core/src/core/ray.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1Ray2f_1ab8a13281a3e90a1f7056f02de74eb1ad" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1core_1_1vec2f" kindref="compound">vec2f</ref></type>
+        <definition>vec2f eu::core::Ray2f::direction</definition>
+        <argsstring></argsstring>
+        <name>direction</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ray.h" line="26" column="15" bodyfile="libs/core/src/core/ray.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1Ray2f_1a4408287e547c43fc66f524b1b071efec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::core::Ray2f::Ray2f</definition>
+        <argsstring>(const vec2f &amp;p, const vec2f &amp;d)</argsstring>
+        <name>Ray2f</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
+          <declname>d</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ray.h" line="28" column="9" bodyfile="libs/core/src/core/ray.cc" bodystart="69" bodyend="73"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1Ray2f_1a514452078a837d2017133a0612850793" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1vec2f" kindref="compound">vec2f</ref></type>
+        <definition>vec2f eu::core::Ray2f::get_position</definition>
+        <argsstring>(float d) const</argsstring>
+        <name>get_position</name>
+        <param>
+          <type>float</type>
+          <declname>d</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ray.h" line="33" column="16" bodyfile="libs/core/src/core/ray.cc" bodystart="63" bodyend="66"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1Ray2f_1a63a0d23c57a683bd473abd4daa78f5f6" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1Ray2f" kindref="compound">Ray2f</ref></type>
+        <definition>Ray2f eu::core::Ray2f::from_to</definition>
+        <argsstring>(const vec2f &amp;from, const vec2f &amp;to)</argsstring>
+        <name>from_to</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
+          <declname>from</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
+          <declname>to</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ray.h" line="30" column="23" bodyfile="libs/core/src/core/ray.cc" bodystart="56" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1Ray2f_1a26e5d6770c81d7c22d1ffa01159cdff6" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1Ray2f" kindref="compound">Ray2f</ref></type>
+        <definition>Ray2f eu::core::Ray2f::from_direction</definition>
+        <argsstring>(const vec2f &amp;direction, const vec2f &amp;pos=zero2f)</argsstring>
+        <name>from_direction</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
+          <declname>direction</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
+          <declname>pos</declname>
+          <defval><ref refid="namespaceeu_1_1core_1a3799c7bb5d813bb4947e06e774f739ba" kindref="member">zero2f</ref></defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ray.h" line="31" column="23" bodyfile="libs/core/src/core/ray.cc" bodystart="49" bodyend="52"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>eu::core::vec2f</label>
+        <link refid="structeu_1_1core_1_1vec2f"/>
+      </node>
+      <node id="1">
+        <label>eu::core::Ray2f</label>
+        <link refid="structeu_1_1core_1_1Ray2f"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>direction</edgelabel>
+          <edgelabel>position</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="libs/core/src/core/ray.h" line="23" column="5" bodyfile="libs/core/src/core/ray.h" bodystart="24" bodyend="34"/>
+    <listofallmembers>
+      <member refid="structeu_1_1core_1_1Ray2f_1ab8a13281a3e90a1f7056f02de74eb1ad" prot="public" virt="non-virtual"><scope>eu::core::Ray2f</scope><name>direction</name></member>
+      <member refid="structeu_1_1core_1_1Ray2f_1a26e5d6770c81d7c22d1ffa01159cdff6" prot="public" virt="non-virtual"><scope>eu::core::Ray2f</scope><name>from_direction</name></member>
+      <member refid="structeu_1_1core_1_1Ray2f_1a63a0d23c57a683bd473abd4daa78f5f6" prot="public" virt="non-virtual"><scope>eu::core::Ray2f</scope><name>from_to</name></member>
+      <member refid="structeu_1_1core_1_1Ray2f_1a514452078a837d2017133a0612850793" prot="public" virt="non-virtual"><scope>eu::core::Ray2f</scope><name>get_position</name></member>
+      <member refid="structeu_1_1core_1_1Ray2f_1aa55b1fce3630cd6140943ac2aac39fac" prot="public" virt="non-virtual"><scope>eu::core::Ray2f</scope><name>position</name></member>
+      <member refid="structeu_1_1core_1_1Ray2f_1a4408287e547c43fc66f524b1b071efec" prot="public" virt="non-virtual"><scope>eu::core::Ray2f</scope><name>Ray2f</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

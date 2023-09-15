@@ -391,12 +391,12 @@
         <link refid="shader_8cc"/>
       </node>
     </invincdepgraph>
-    <innerclass refid="structeuphoria_1_1render_1_1Texture2dLoadData" prot="public">euphoria::render::Texture2dLoadData</innerclass>
-    <innerclass refid="structeuphoria_1_1render_1_1TextureId" prot="public">euphoria::render::TextureId</innerclass>
-    <innerclass refid="structeuphoria_1_1render_1_1Texture2" prot="public">euphoria::render::Texture2</innerclass>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1render">euphoria::render</innernamespace>
+    <innerclass refid="structeu_1_1render_1_1Texture2dLoadData" prot="public">eu::render::Texture2dLoadData</innerclass>
+    <innerclass refid="structeu_1_1render_1_1TextureId" prot="public">eu::render::TextureId</innerclass>
+    <innerclass refid="structeu_1_1render_1_1Texture2" prot="public">eu::render::Texture2</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
+    <innernamespace refid="namespaceeu_1_1render">eu::render</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

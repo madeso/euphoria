@@ -74,10 +74,10 @@
         <link refid="load_8cc"/>
       </node>
     </invincdepgraph>
-    <innerclass refid="structeuphoria_1_1gui_1_1Container" prot="public">euphoria::gui::Container</innerclass>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1render">euphoria::render</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1gui">euphoria::gui</innernamespace>
+    <innerclass refid="structeu_1_1gui_1_1Container" prot="public">eu::gui::Container</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1render">eu::render</innernamespace>
+    <innernamespace refid="namespaceeu_1_1gui">eu::gui</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

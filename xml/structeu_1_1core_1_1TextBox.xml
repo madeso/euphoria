@@ -1,0 +1,748 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1core_1_1TextBox" kind="struct" language="C++" prot="public">
+    <compoundname>eu::core::TextBox</compoundname>
+    <includes refid="textbox_8h" local="no">textbox.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="structeu_1_1core_1_1TextBox_1a5af773f9b88ce03c8a571c01d4e7725b" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>std::vector&lt;std::string&gt; eu::core::TextBox::data</definition>
+        <argsstring></argsstring>
+        <name>data</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textbox.h" line="343" column="21" bodyfile="libs/core/src/core/textbox.h" bodystart="343" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1TextBox_1a52aceac48f91a2c7b91ab270a92be1eb" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1TextBox" kindref="compound">TextBox</ref></type>
+        <definition>TextBox eu::core::TextBox::create_empty</definition>
+        <argsstring>()</argsstring>
+        <name>create_empty</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textbox.h" line="144" column="24" bodyfile="libs/core/src/core/textbox.cc" bodystart="77" bodyend="80"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1TextBox_1ab6082b3f26869de04f42c9665739a599" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1TextBox" kindref="compound">TextBox</ref></type>
+        <definition>TextBox eu::core::TextBox::create_from_strings</definition>
+        <argsstring>(const std::vector&lt; std::string &gt; &amp;str)</argsstring>
+        <name>create_from_strings</name>
+        <param>
+          <type>const std::vector&lt; std::string &gt; &amp;</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textbox.h" line="145" column="24" bodyfile="libs/core/src/core/textbox.cc" bodystart="84" bodyend="89"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1TextBox_1ad20de6cab3c8413cf8758564b00bcfe6" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1TextBox" kindref="compound">TextBox</ref></type>
+        <definition>TextBox eu::core::TextBox::from_string</definition>
+        <argsstring>(const std::string &amp;s, int x=0, int y=0)</argsstring>
+        <name>from_string</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>s</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textbox.h" line="146" column="24" bodyfile="libs/core/src/core/textbox.cc" bodystart="129" bodyend="134"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1TextBox_1a9d51c96173461d1e8aec2493263650c7" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>typename TToStringFunc</type>
+          </param>
+          <param>
+            <type>typename TCountChildrenFunc</type>
+          </param>
+          <param>
+            <type>typename TOneLinerTestFunc</type>
+          </param>
+          <param>
+            <type>typename TSimpleTestFunc</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="structeu_1_1core_1_1TextBox" kindref="compound">TextBox</ref></type>
+        <definition>static TextBox eu::core::TextBox::create_tree_graph</definition>
+        <argsstring>(const T &amp;e, int maxwidth, TToStringFunc &amp;&amp;to_string, TCountChildrenFunc &amp;&amp;count_children_func, TOneLinerTestFunc &amp;&amp;oneliner_test_func, TSimpleTestFunc &amp;&amp;simple_test_func, int margin=4, int firstx=2)</argsstring>
+        <name>create_tree_graph</name>
+        <param>
+          <type>const T &amp;</type>
+          <declname>e</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>maxwidth</declname>
+        </param>
+        <param>
+          <type>TToStringFunc &amp;&amp;</type>
+          <declname>to_string</declname>
+        </param>
+        <param>
+          <type>TCountChildrenFunc &amp;&amp;</type>
+          <declname>count_children_func</declname>
+        </param>
+        <param>
+          <type>TOneLinerTestFunc &amp;&amp;</type>
+          <declname>oneliner_test_func</declname>
+        </param>
+        <param>
+          <type>TSimpleTestFunc &amp;&amp;</type>
+          <declname>simple_test_func</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>margin</declname>
+          <defval>4</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>firstx</declname>
+          <defval>2</defval>
+        </param>
+        <briefdescription>
+<para>An utility function that can be used to create a tree graph rendering from a structure. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The element that will be rendered. Possibly some user-defined type that represents a node in a tree structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>maxwidth</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The maximum width of the resulting box in characters. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>to_string</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A functor of type std::string(const T&amp;). It renders the given element into an 1D string. Note that the string must not contain multibyte characters, because size() will be used to determine its width in columns. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>count_children_func</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A functor of type std::pair&lt;ForwardIterator,ForwardIterator&gt;(const T&amp;). It returns a pair of iterators representing the range of children for the given element. create_tree_graph will call itself recursively for each element in this range. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>oneliner_test_func</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A functor of type bool(const T&amp;). If the result is true, enables simplified horizontal topology. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>simple_test_func</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A functor of type bool(const T&amp;). If the result is true, enables very simplified horizontal topology.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>margin</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the spacing between children </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>firstx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the first child offset</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+Topology types: <verbatim>   Vertical:
+</verbatim> <programlisting><codeline><highlight class="normal">element</highlight></codeline>
+<codeline><highlight class="normal">├─child1</highlight></codeline>
+<codeline><highlight class="normal">├─child2</highlight></codeline>
+<codeline><highlight class="normal">└─child3</highlight></codeline>
+</programlisting> Horizontal: <programlisting><codeline><highlight class="normal">element</highlight></codeline>
+<codeline><highlight class="normal">└─┬─────────┬─────────┐</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>child1<sp/><sp/><sp/><sp/>child2<sp/><sp/><sp/><sp/>child3</highlight></codeline>
+</programlisting> Simplified horizontal: <programlisting><codeline><highlight class="normal">element──┬───────┬───────┐</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>child1<sp/><sp/>child2<sp/><sp/>child3</highlight></codeline>
+</programlisting></para>
+<para>The vertical and horizontal topologies are automatically chosen depending on the situation compared to the maxwidth parameter.</para>
+<para>Simplified topology will be used if<itemizedlist>
+<listitem><para>oneliner_test_func() returns true,</para>
+</listitem><listitem><para>all children fit on one line,</para>
+</listitem><listitem><para>and very simplified topology is not used.</para>
+</listitem></itemizedlist>
+</para>
+<para>Very simplified topology will be used if<itemizedlist>
+<listitem><para>oneliner_test_func() returns true,</para>
+</listitem><listitem><para>simple_test_func() returns true,</para>
+</listitem><listitem><para>there is only 1 child,</para>
+</listitem><listitem><para>and it fits on one line. </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textbox.h" line="213" column="9" bodyfile="libs/core/src/core/textbox.h" bodystart="214" bodyend="265"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1TextBox_1ab9033732e7ccf559c38710dc6ba92479" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::TextBox::put_char</definition>
+        <argsstring>(int x, int y, char c)</argsstring>
+        <name>put_char</name>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+<para>Place a single character in the given coordinate. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Notice that behavior is undefined if the character is in 00-1F range. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textbox.h" line="272" column="14" bodyfile="libs/core/src/core/textbox.cc" bodystart="93" bodyend="97"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1TextBox_1a3b30f2b4653bac51454ed00abc1b10e1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename F</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void eu::core::TextBox::mod_char</definition>
+        <argsstring>(int x, int y, F &amp;&amp;func)</argsstring>
+        <name>mod_char</name>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>F &amp;&amp;</type>
+          <declname>func</declname>
+        </param>
+        <briefdescription>
+<para>Modify a character using a callback. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textbox.h" line="276" column="14" bodyfile="libs/core/src/core/textbox.h" bodystart="276" bodyend="280"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1TextBox_1a79f1873cef403cb8ab190cb6fba4f327" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::TextBox::put_string</definition>
+        <argsstring>(int x, int y, const std::string &amp;s)</argsstring>
+        <name>put_string</name>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+<para>Put a string of characters starting at the given coordinate. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Note that behavior is undefined if the string contains characters in 00-1F range or if the string includes multibyte characters. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textbox.h" line="286" column="14" bodyfile="libs/core/src/core/textbox.cc" bodystart="116" bodyend="126"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1TextBox_1a1c9726a0f8d476cf8a74003f573e7610" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::TextBox::put_box</definition>
+        <argsstring>(int x, int y, const TextBox &amp;b)</argsstring>
+        <name>put_box</name>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1TextBox" kindref="compound">TextBox</ref> &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textbox.h" line="289" column="14" bodyfile="libs/core/src/core/textbox.cc" bodystart="139" bodyend="178"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1TextBox_1aa7a96ce854d461b38bdb7437fedf7cc9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::TextBox::put_horizontal_line</definition>
+        <argsstring>(int x, int y, int width, bool bef, bool aft)</argsstring>
+        <name>put_horizontal_line</name>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>width</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>bef</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>aft</declname>
+        </param>
+        <briefdescription>
+<para>Draw a horizontal line. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If bef=true, the line starts from the left edge of the first character cell, otherwise it starts from its center. If aft=true, the line ends in the right edge of the last character cell, otherwise it ends in its center </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textbox.h" line="294" column="14" bodyfile="libs/core/src/core/textbox.cc" bodystart="245" bodyend="273"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1TextBox_1aff4b91a5a6e5105c80c635467f6eeb04" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::TextBox::put_vertical_line</definition>
+        <argsstring>(int x, int y, int height, bool bef, bool aft)</argsstring>
+        <name>put_vertical_line</name>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>height</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>bef</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>aft</declname>
+        </param>
+        <briefdescription>
+<para>Draw a vertical line. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If bef=true, the line starts from the top edge of the first character cell, otherwise it starts from its center. If aft=true, the line ends in the bottom edge of the last character cell, otherwise it ends in its center </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textbox.h" line="306" column="14" bodyfile="libs/core/src/core/textbox.cc" bodystart="278" bodyend="306"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1TextBox_1ac55fe39cdec04dfafcf4a3d814674f8d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::TextBox::trim</definition>
+        <argsstring>()</argsstring>
+        <name>trim</name>
+        <briefdescription>
+<para>Delete trailing blank from the bottom and right edges. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textbox.h" line="316" column="14" bodyfile="libs/core/src/core/textbox.cc" bodystart="196" bodyend="212"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1TextBox_1a969387dad7087fc04331e4566d497a4b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1TextBox" kindref="compound">TextBox</ref></type>
+        <definition>TextBox eu::core::TextBox::put_box_copy</definition>
+        <argsstring>(int x, int y, const TextBox &amp;b) const</argsstring>
+        <name>put_box_copy</name>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1TextBox" kindref="compound">TextBox</ref> &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textbox.h" line="320" column="18" bodyfile="libs/core/src/core/textbox.cc" bodystart="183" bodyend="192"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1TextBox_1ae4fe49f4ed53310fdcba847e0ca3888b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>std::vector&lt; std::string &gt; eu::core::TextBox::to_string</definition>
+        <argsstring>(const TextBoxStyle &amp;style=get_terminal_style()) const</argsstring>
+        <name>to_string</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1TextBoxStyle" kindref="compound">TextBoxStyle</ref> &amp;</type>
+          <declname>style</declname>
+          <defval><ref refid="namespaceeu_1_1core_1abcaaa59ed36aeb9132eb8a65fd9a70f2" kindref="member">get_terminal_style</ref>()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textbox.h" line="321" column="22" bodyfile="libs/core/src/core/textbox.cc" bodystart="344" bodyend="399"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1TextBox_1a4b415974d94db369ad0490806daaa5b8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int eu::core::TextBox::get_horizontal_append_position</definition>
+        <argsstring>(int y, const TextBox &amp;b) const</argsstring>
+        <name>get_horizontal_append_position</name>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1TextBox" kindref="compound">TextBox</ref> &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+<para>Calculate the earliest X coordinate where the given box could be placed. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>without colliding with existing content in this box. Guaranteed to be &lt;= width(). Find leftmost position where box b can be appended into *this without overlap </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textbox.h" line="327" column="14" bodyfile="libs/core/src/core/textbox.cc" bodystart="310" bodyend="321"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1TextBox_1a08033c46e3b72f1d88d493674d3ebac5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int eu::core::TextBox::get_vertical_append_position</definition>
+        <argsstring>(int x, const TextBox &amp;b) const</argsstring>
+        <name>get_vertical_append_position</name>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1TextBox" kindref="compound">TextBox</ref> &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+<para>Calculate the earliest Y coordinate where the given box could be placed without colliding with existing content in this box. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Guaranteed to be &lt;= height(). Find topmost position where box b can be appended into *this without overlap </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textbox.h" line="332" column="14" bodyfile="libs/core/src/core/textbox.cc" bodystart="326" bodyend="340"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1TextBox_1a40c10f9e4d6a4164ee7bf116b9210d39" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int eu::core::TextBox::get_height</definition>
+        <argsstring>() const</argsstring>
+        <name>get_height</name>
+        <briefdescription>
+<para>Calculate the current dimensions of the string. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textbox.h" line="335" column="14" bodyfile="libs/core/src/core/textbox.cc" bodystart="216" bodyend="219"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1TextBox_1a5fc00c4be55b87ff81153a1e546c8d9e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int eu::core::TextBox::get_width</definition>
+        <argsstring>() const</argsstring>
+        <name>get_width</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textbox.h" line="337" column="14" bodyfile="libs/core/src/core/textbox.cc" bodystart="223" bodyend="233"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1TextBox_1acfb025b98ed68564d1cfb7e7668c55c5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::pair&lt; int, int &gt;</type>
+        <definition>std::pair&lt; int, int &gt; eu::core::TextBox::get_size</definition>
+        <argsstring>() const</argsstring>
+        <name>get_size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>width x height </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textbox.h" line="340" column="20" bodyfile="libs/core/src/core/textbox.cc" bodystart="237" bodyend="240"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1TextBox_1a0cecaa41beefe9720991be14ebba284e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::core::TextBox::TextBox</definition>
+        <argsstring>()</argsstring>
+        <name>TextBox</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textbox.h" line="345" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1TextBox_1acac0621c278ffa321fb6dcf2173715be" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::TextBox::extend_to</definition>
+        <argsstring>(int x, int y)</argsstring>
+        <name>extend_to</name>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textbox.h" line="347" column="14" bodyfile="libs/core/src/core/textbox.cc" bodystart="101" bodyend="111"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1TextBox_1a3230239fd164b1b733f48291103bb020" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int eu::core::TextBox::find_left_padding</definition>
+        <argsstring>(int y) const</argsstring>
+        <name>find_left_padding</name>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textbox.h" line="349" column="14" bodyfile="libs/core/src/core/textbox.cc" bodystart="403" bodyend="421"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1TextBox_1a1069d9a2b6764d3bfb85fdad4d4c10c8" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int eu::core::TextBox::find_right_padding</definition>
+        <argsstring>(int y) const</argsstring>
+        <name>find_right_padding</name>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textbox.h" line="350" column="14" bodyfile="libs/core/src/core/textbox.cc" bodystart="425" bodyend="448"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1TextBox_1a2464cf6596c051f602f1abdd42886fd8" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int eu::core::TextBox::find_top_padding</definition>
+        <argsstring>(int x) const</argsstring>
+        <name>find_top_padding</name>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textbox.h" line="351" column="14" bodyfile="libs/core/src/core/textbox.cc" bodystart="474" bodyend="489"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1TextBox_1a1b78f846d45e1518bf7c2ad64edca14f" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int eu::core::TextBox::find_bottom_padding</definition>
+        <argsstring>(int x) const</argsstring>
+        <name>find_bottom_padding</name>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textbox.h" line="352" column="14" bodyfile="libs/core/src/core/textbox.cc" bodystart="452" bodyend="470"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1TextBox_1a8f6715e2a9eba6c17b77544560cce657" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::TextBox::create_tree_graph_impl</definition>
+        <argsstring>(TextBox *result, int maxwidth, const std::vector&lt; TextBox &gt; &amp;boxes, bool oneliner_test_func, bool simple_test_func, const std::string &amp;label, int margin, int firstx)</argsstring>
+        <name>create_tree_graph_impl</name>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1TextBox" kindref="compound">TextBox</ref> *</type>
+          <declname>result</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>maxwidth</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; <ref refid="structeu_1_1core_1_1TextBox" kindref="compound">TextBox</ref> &gt; &amp;</type>
+          <declname>boxes</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>oneliner_test_func</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>simple_test_func</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>label</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>margin</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>firstx</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textbox.h" line="354" column="21" bodyfile="libs/core/src/core/textbox.cc" bodystart="494" bodyend="676"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/textbox.h" line="142" column="5" bodyfile="libs/core/src/core/textbox.h" bodystart="143" bodyend="365"/>
+    <listofallmembers>
+      <member refid="structeu_1_1core_1_1TextBox_1a52aceac48f91a2c7b91ab270a92be1eb" prot="public" virt="non-virtual"><scope>eu::core::TextBox</scope><name>create_empty</name></member>
+      <member refid="structeu_1_1core_1_1TextBox_1ab6082b3f26869de04f42c9665739a599" prot="public" virt="non-virtual"><scope>eu::core::TextBox</scope><name>create_from_strings</name></member>
+      <member refid="structeu_1_1core_1_1TextBox_1a9d51c96173461d1e8aec2493263650c7" prot="public" virt="non-virtual"><scope>eu::core::TextBox</scope><name>create_tree_graph</name></member>
+      <member refid="structeu_1_1core_1_1TextBox_1a8f6715e2a9eba6c17b77544560cce657" prot="private" virt="non-virtual"><scope>eu::core::TextBox</scope><name>create_tree_graph_impl</name></member>
+      <member refid="structeu_1_1core_1_1TextBox_1a5af773f9b88ce03c8a571c01d4e7725b" prot="private" virt="non-virtual"><scope>eu::core::TextBox</scope><name>data</name></member>
+      <member refid="structeu_1_1core_1_1TextBox_1acac0621c278ffa321fb6dcf2173715be" prot="private" virt="non-virtual"><scope>eu::core::TextBox</scope><name>extend_to</name></member>
+      <member refid="structeu_1_1core_1_1TextBox_1a1b78f846d45e1518bf7c2ad64edca14f" prot="private" virt="non-virtual"><scope>eu::core::TextBox</scope><name>find_bottom_padding</name></member>
+      <member refid="structeu_1_1core_1_1TextBox_1a3230239fd164b1b733f48291103bb020" prot="private" virt="non-virtual"><scope>eu::core::TextBox</scope><name>find_left_padding</name></member>
+      <member refid="structeu_1_1core_1_1TextBox_1a1069d9a2b6764d3bfb85fdad4d4c10c8" prot="private" virt="non-virtual"><scope>eu::core::TextBox</scope><name>find_right_padding</name></member>
+      <member refid="structeu_1_1core_1_1TextBox_1a2464cf6596c051f602f1abdd42886fd8" prot="private" virt="non-virtual"><scope>eu::core::TextBox</scope><name>find_top_padding</name></member>
+      <member refid="structeu_1_1core_1_1TextBox_1ad20de6cab3c8413cf8758564b00bcfe6" prot="public" virt="non-virtual"><scope>eu::core::TextBox</scope><name>from_string</name></member>
+      <member refid="structeu_1_1core_1_1TextBox_1a40c10f9e4d6a4164ee7bf116b9210d39" prot="public" virt="non-virtual"><scope>eu::core::TextBox</scope><name>get_height</name></member>
+      <member refid="structeu_1_1core_1_1TextBox_1a4b415974d94db369ad0490806daaa5b8" prot="public" virt="non-virtual"><scope>eu::core::TextBox</scope><name>get_horizontal_append_position</name></member>
+      <member refid="structeu_1_1core_1_1TextBox_1acfb025b98ed68564d1cfb7e7668c55c5" prot="public" virt="non-virtual"><scope>eu::core::TextBox</scope><name>get_size</name></member>
+      <member refid="structeu_1_1core_1_1TextBox_1a08033c46e3b72f1d88d493674d3ebac5" prot="public" virt="non-virtual"><scope>eu::core::TextBox</scope><name>get_vertical_append_position</name></member>
+      <member refid="structeu_1_1core_1_1TextBox_1a5fc00c4be55b87ff81153a1e546c8d9e" prot="public" virt="non-virtual"><scope>eu::core::TextBox</scope><name>get_width</name></member>
+      <member refid="structeu_1_1core_1_1TextBox_1a3b30f2b4653bac51454ed00abc1b10e1" prot="public" virt="non-virtual"><scope>eu::core::TextBox</scope><name>mod_char</name></member>
+      <member refid="structeu_1_1core_1_1TextBox_1a1c9726a0f8d476cf8a74003f573e7610" prot="public" virt="non-virtual"><scope>eu::core::TextBox</scope><name>put_box</name></member>
+      <member refid="structeu_1_1core_1_1TextBox_1a969387dad7087fc04331e4566d497a4b" prot="public" virt="non-virtual"><scope>eu::core::TextBox</scope><name>put_box_copy</name></member>
+      <member refid="structeu_1_1core_1_1TextBox_1ab9033732e7ccf559c38710dc6ba92479" prot="public" virt="non-virtual"><scope>eu::core::TextBox</scope><name>put_char</name></member>
+      <member refid="structeu_1_1core_1_1TextBox_1aa7a96ce854d461b38bdb7437fedf7cc9" prot="public" virt="non-virtual"><scope>eu::core::TextBox</scope><name>put_horizontal_line</name></member>
+      <member refid="structeu_1_1core_1_1TextBox_1a79f1873cef403cb8ab190cb6fba4f327" prot="public" virt="non-virtual"><scope>eu::core::TextBox</scope><name>put_string</name></member>
+      <member refid="structeu_1_1core_1_1TextBox_1aff4b91a5a6e5105c80c635467f6eeb04" prot="public" virt="non-virtual"><scope>eu::core::TextBox</scope><name>put_vertical_line</name></member>
+      <member refid="structeu_1_1core_1_1TextBox_1a0cecaa41beefe9720991be14ebba284e" prot="private" virt="non-virtual"><scope>eu::core::TextBox</scope><name>TextBox</name></member>
+      <member refid="structeu_1_1core_1_1TextBox_1ae4fe49f4ed53310fdcba847e0ca3888b" prot="public" virt="non-virtual"><scope>eu::core::TextBox</scope><name>to_string</name></member>
+      <member refid="structeu_1_1core_1_1TextBox_1ac55fe39cdec04dfafcf4a3d814674f8d" prot="public" virt="non-virtual"><scope>eu::core::TextBox</scope><name>trim</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -294,17 +294,17 @@
         </childnode>
       </node>
     </invincdepgraph>
-    <innerclass refid="structeuphoria_1_1core_1_1MeshPoint" prot="public">euphoria::core::MeshPoint</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1MeshFace" prot="public">euphoria::core::MeshFace</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1MeshPart" prot="public">euphoria::core::MeshPart</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1MaterialTexture" prot="public">euphoria::core::MaterialTexture</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1Material" prot="public">euphoria::core::Material</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1Mesh" prot="public">euphoria::core::Mesh</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1LoadedMeshOrError" prot="public">euphoria::core::LoadedMeshOrError</innerclass>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core_1_1vfs">euphoria::core::vfs</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core_1_1meshes">euphoria::core::meshes</innernamespace>
+    <innerclass refid="structeu_1_1core_1_1MeshPoint" prot="public">eu::core::MeshPoint</innerclass>
+    <innerclass refid="structeu_1_1core_1_1MeshFace" prot="public">eu::core::MeshFace</innerclass>
+    <innerclass refid="structeu_1_1core_1_1MeshPart" prot="public">eu::core::MeshPart</innerclass>
+    <innerclass refid="structeu_1_1core_1_1MaterialTexture" prot="public">eu::core::MaterialTexture</innerclass>
+    <innerclass refid="structeu_1_1core_1_1Material" prot="public">eu::core::Material</innerclass>
+    <innerclass refid="structeu_1_1core_1_1Mesh" prot="public">eu::core::Mesh</innerclass>
+    <innerclass refid="structeu_1_1core_1_1LoadedMeshOrError" prot="public">eu::core::LoadedMeshOrError</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core_1_1vfs">eu::core::vfs</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core_1_1meshes">eu::core::meshes</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

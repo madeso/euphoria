@@ -370,13 +370,13 @@
         </childnode>
       </node>
     </invincdepgraph>
-    <innerclass refid="structeuphoria_1_1render_1_1CompiledMeshPart" prot="public">euphoria::render::CompiledMeshPart</innerclass>
-    <innerclass refid="structeuphoria_1_1render_1_1CompiledMeshMaterial" prot="public">euphoria::render::CompiledMeshMaterial</innerclass>
-    <innerclass refid="structeuphoria_1_1render_1_1CompiledMesh" prot="public">euphoria::render::CompiledMesh</innerclass>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core_1_1vfs">euphoria::core::vfs</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1render">euphoria::render</innernamespace>
+    <innerclass refid="structeu_1_1render_1_1CompiledMeshPart" prot="public">eu::render::CompiledMeshPart</innerclass>
+    <innerclass refid="structeu_1_1render_1_1CompiledMeshMaterial" prot="public">eu::render::CompiledMeshMaterial</innerclass>
+    <innerclass refid="structeu_1_1render_1_1CompiledMesh" prot="public">eu::render::CompiledMesh</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core_1_1vfs">eu::core::vfs</innernamespace>
+    <innernamespace refid="namespaceeu_1_1render">eu::render</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

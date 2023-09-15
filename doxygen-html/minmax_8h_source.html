@@ -62,7 +62,7 @@
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="assert_8h.html">assert/assert.h</a>&quot;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="range_8h.html">core/range.h</a>&quot;</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceeuphoria_1_1core.html">euphoria::core</a></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceeu_1_1core.html">eu::core</a></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keyword">template</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    &lt;</div>
@@ -72,7 +72,7 @@
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <span class="keyword">typename</span> TExtract</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    &gt;</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    std::pair&lt;std::array&lt;T, count&gt;, std::array&lt;T, count&gt;&gt;</div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="namespaceeuphoria_1_1core.html#a56e30a10f8a1679c99b3e601fd752a4c">   19</a></span>&#160;    <a class="code" href="namespaceeuphoria_1_1core.html#a56e30a10f8a1679c99b3e601fd752a4c">find_min_max_ranges</a></div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="namespaceeu_1_1core.html#a22ed316258c98abac4cb51c858d03e7a">   19</a></span>&#160;    <a class="code" href="namespaceeu_1_1core.html#a22ed316258c98abac4cb51c858d03e7a">find_min_max_ranges</a></div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    (</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keyword">const</span> TContainer&amp; ts,</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        TExtract extract</div>
@@ -90,11 +90,11 @@
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keywordflow">for</span>(; it!=ts.end(); it+=1)</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        {</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            <span class="keyword">const</span> A <a class="code" href="namespaceeuphoria_1_1core.html#a352b811085853f7ec220af1a5b92a124a0cc175b9c0f1b6a831c399e269772661">a</a> = extract(*it);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            <span class="keyword">const</span> A <a class="code" href="namespaceeu_1_1core.html#aa1676f6b793bf695a9a6fdb9c6e0833aa0cc175b9c0f1b6a831c399e269772661">a</a> = extract(*it);</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> sub = 0; sub&lt; count; sub += 1)</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            {</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                min_value[sub] = <a class="code" href="namespaceeuphoria_1_1core.html#a601920b359719cbc0731466fd734c3cd">std::min</a>(min_value[sub], <a class="code" href="namespaceeuphoria_1_1core.html#a352b811085853f7ec220af1a5b92a124a0cc175b9c0f1b6a831c399e269772661">a</a>[sub]);</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                max_value[sub] = <a class="code" href="namespaceeuphoria_1_1core.html#ab6fb5580825e85e2a19488ec6ec33c7f">std::max</a>(max_value[sub], <a class="code" href="namespaceeuphoria_1_1core.html#a352b811085853f7ec220af1a5b92a124a0cc175b9c0f1b6a831c399e269772661">a</a>[sub]);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                min_value[sub] = <a class="code" href="namespaceeu_1_1core.html#ad3870359986324d79e00cf2a1c0c4f57">std::min</a>(min_value[sub], <a class="code" href="namespaceeu_1_1core.html#aa1676f6b793bf695a9a6fdb9c6e0833aa0cc175b9c0f1b6a831c399e269772661">a</a>[sub]);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                max_value[sub] = <a class="code" href="namespaceeu_1_1core.html#a57038e2fac2e1e15a5dc83511b753769">std::max</a>(max_value[sub], <a class="code" href="namespaceeu_1_1core.html#aa1676f6b793bf695a9a6fdb9c6e0833aa0cc175b9c0f1b6a831c399e269772661">a</a>[sub]);</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            }</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        }</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
@@ -108,7 +108,7 @@
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keyword">typename</span> TExtract</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    &gt;</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    Range&lt;T&gt;</div>
-<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="namespaceeuphoria_1_1core.html#a7bb28f8df460791773966a1b399227c5">   55</a></span>&#160;    <a class="code" href="namespaceeuphoria_1_1core.html#a7bb28f8df460791773966a1b399227c5">find_min_max_range</a></div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="namespaceeu_1_1core.html#a5cf2e236be57d2aea490ccde74af771e">   55</a></span>&#160;    <a class="code" href="namespaceeu_1_1core.html#a5cf2e236be57d2aea490ccde74af771e">find_min_max_range</a></div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    (</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keyword">const</span> TContainer&amp; ts,</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        TExtract extract</div>
@@ -123,8 +123,8 @@
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keywordflow">for</span>(; it!=ts.end(); it+=1)</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        {</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            min_value = <a class="code" href="namespaceeuphoria_1_1core.html#a601920b359719cbc0731466fd734c3cd">std::min</a>(min_value, extract(*it));</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            max_value = <a class="code" href="namespaceeuphoria_1_1core.html#ab6fb5580825e85e2a19488ec6ec33c7f">std::max</a>(max_value, extract(*it));</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            min_value = <a class="code" href="namespaceeu_1_1core.html#ad3870359986324d79e00cf2a1c0c4f57">std::min</a>(min_value, extract(*it));</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            max_value = <a class="code" href="namespaceeu_1_1core.html#a57038e2fac2e1e15a5dc83511b753769">std::max</a>(max_value, extract(*it));</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        }</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keywordflow">return</span> {min_value, max_value};</div>
@@ -139,7 +139,7 @@
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="keyword">typename</span> TMaxFunc</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    &gt;</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    std::tuple&lt;T, T&gt;</div>
-<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="namespaceeuphoria_1_1core.html#a6300229c0ea1c037662c631324580c56">   86</a></span>&#160;    <a class="code" href="namespaceeuphoria_1_1core.html#a6300229c0ea1c037662c631324580c56">find_min_max</a></div>
+<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="namespaceeu_1_1core.html#a409e11f3d1194d403245cd06c0d17f58">   86</a></span>&#160;    <a class="code" href="namespaceeu_1_1core.html#a409e11f3d1194d403245cd06c0d17f58">find_min_max</a></div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    (</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <span class="keyword">const</span> TContainer&amp; ts,</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        TMinFunc min_func,</div>
@@ -165,13 +165,13 @@
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
 <div class="ttc" id="aassert_8h_html"><div class="ttname"><a href="assert_8h.html">assert.h</a></div></div>
 <div class="ttc" id="aassert_8h_html_aca68c0d4ac8df0838e209fb5300f7be3"><div class="ttname"><a href="assert_8h.html#aca68c0d4ac8df0838e209fb5300f7be3">ASSERT</a></div><div class="ttdeci">#define ASSERT(x)</div><div class="ttdef"><b>Definition:</b> <a href="assert_8h_source.html#l00029">assert.h:29</a></div></div>
-<div class="ttc" id="anamespaceeuphoria_1_1core_html"><div class="ttname"><a href="namespaceeuphoria_1_1core.html">euphoria::core</a></div><div class="ttdef"><b>Definition:</b> <a href="aabb_8cc_source.html#l00008">aabb.cc:9</a></div></div>
-<div class="ttc" id="anamespaceeuphoria_1_1core_html_a352b811085853f7ec220af1a5b92a124a0cc175b9c0f1b6a831c399e269772661"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#a352b811085853f7ec220af1a5b92a124a0cc175b9c0f1b6a831c399e269772661">euphoria::core::Grayscale::a</a></div><div class="ttdeci">@ a</div></div>
-<div class="ttc" id="anamespaceeuphoria_1_1core_html_a56e30a10f8a1679c99b3e601fd752a4c"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#a56e30a10f8a1679c99b3e601fd752a4c">euphoria::core::find_min_max_ranges</a></div><div class="ttdeci">std::pair&lt; std::array&lt; T, count &gt;, std::array&lt; T, count &gt; &gt; find_min_max_ranges(const TContainer &amp;ts, TExtract extract)</div><div class="ttdef"><b>Definition:</b> <a href="minmax_8h_source.html#l00019">minmax.h:20</a></div></div>
-<div class="ttc" id="anamespaceeuphoria_1_1core_html_a601920b359719cbc0731466fd734c3cd"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#a601920b359719cbc0731466fd734c3cd">euphoria::core::min</a></div><div class="ttdeci">vec3f min(const vec3f &amp;lhs, const vec3f &amp;rhs)</div><div class="ttdef"><b>Definition:</b> <a href="aabb_8cc_source.html#l00031">aabb.cc:31</a></div></div>
-<div class="ttc" id="anamespaceeuphoria_1_1core_html_a6300229c0ea1c037662c631324580c56"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#a6300229c0ea1c037662c631324580c56">euphoria::core::find_min_max</a></div><div class="ttdeci">std::tuple&lt; T, T &gt; find_min_max(const TContainer &amp;ts, TMinFunc min_func, TMaxFunc max_func)</div><div class="ttdef"><b>Definition:</b> <a href="minmax_8h_source.html#l00086">minmax.h:87</a></div></div>
-<div class="ttc" id="anamespaceeuphoria_1_1core_html_a7bb28f8df460791773966a1b399227c5"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#a7bb28f8df460791773966a1b399227c5">euphoria::core::find_min_max_range</a></div><div class="ttdeci">Range&lt; T &gt; find_min_max_range(const TContainer &amp;ts, TExtract extract)</div><div class="ttdef"><b>Definition:</b> <a href="minmax_8h_source.html#l00055">minmax.h:56</a></div></div>
-<div class="ttc" id="anamespaceeuphoria_1_1core_html_ab6fb5580825e85e2a19488ec6ec33c7f"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#ab6fb5580825e85e2a19488ec6ec33c7f">euphoria::core::max</a></div><div class="ttdeci">vec3f max(const vec3f &amp;lhs, const vec3f &amp;rhs)</div><div class="ttdef"><b>Definition:</b> <a href="aabb_8cc_source.html#l00040">aabb.cc:40</a></div></div>
+<div class="ttc" id="anamespaceeu_1_1core_html"><div class="ttname"><a href="namespaceeu_1_1core.html">eu::core</a></div><div class="ttdef"><b>Definition:</b> <a href="aabb_8cc_source.html#l00008">aabb.cc:9</a></div></div>
+<div class="ttc" id="anamespaceeu_1_1core_html_a22ed316258c98abac4cb51c858d03e7a"><div class="ttname"><a href="namespaceeu_1_1core.html#a22ed316258c98abac4cb51c858d03e7a">eu::core::find_min_max_ranges</a></div><div class="ttdeci">std::pair&lt; std::array&lt; T, count &gt;, std::array&lt; T, count &gt; &gt; find_min_max_ranges(const TContainer &amp;ts, TExtract extract)</div><div class="ttdef"><b>Definition:</b> <a href="minmax_8h_source.html#l00019">minmax.h:20</a></div></div>
+<div class="ttc" id="anamespaceeu_1_1core_html_a409e11f3d1194d403245cd06c0d17f58"><div class="ttname"><a href="namespaceeu_1_1core.html#a409e11f3d1194d403245cd06c0d17f58">eu::core::find_min_max</a></div><div class="ttdeci">std::tuple&lt; T, T &gt; find_min_max(const TContainer &amp;ts, TMinFunc min_func, TMaxFunc max_func)</div><div class="ttdef"><b>Definition:</b> <a href="minmax_8h_source.html#l00086">minmax.h:87</a></div></div>
+<div class="ttc" id="anamespaceeu_1_1core_html_a57038e2fac2e1e15a5dc83511b753769"><div class="ttname"><a href="namespaceeu_1_1core.html#a57038e2fac2e1e15a5dc83511b753769">eu::core::max</a></div><div class="ttdeci">vec3f max(const vec3f &amp;lhs, const vec3f &amp;rhs)</div><div class="ttdef"><b>Definition:</b> <a href="aabb_8cc_source.html#l00040">aabb.cc:40</a></div></div>
+<div class="ttc" id="anamespaceeu_1_1core_html_a5cf2e236be57d2aea490ccde74af771e"><div class="ttname"><a href="namespaceeu_1_1core.html#a5cf2e236be57d2aea490ccde74af771e">eu::core::find_min_max_range</a></div><div class="ttdeci">Range&lt; T &gt; find_min_max_range(const TContainer &amp;ts, TExtract extract)</div><div class="ttdef"><b>Definition:</b> <a href="minmax_8h_source.html#l00055">minmax.h:56</a></div></div>
+<div class="ttc" id="anamespaceeu_1_1core_html_aa1676f6b793bf695a9a6fdb9c6e0833aa0cc175b9c0f1b6a831c399e269772661"><div class="ttname"><a href="namespaceeu_1_1core.html#aa1676f6b793bf695a9a6fdb9c6e0833aa0cc175b9c0f1b6a831c399e269772661">eu::core::Grayscale::a</a></div><div class="ttdeci">@ a</div></div>
+<div class="ttc" id="anamespaceeu_1_1core_html_ad3870359986324d79e00cf2a1c0c4f57"><div class="ttname"><a href="namespaceeu_1_1core.html#ad3870359986324d79e00cf2a1c0c4f57">eu::core::min</a></div><div class="ttdeci">vec3f min(const vec3f &amp;lhs, const vec3f &amp;rhs)</div><div class="ttdef"><b>Definition:</b> <a href="aabb_8cc_source.html#l00031">aabb.cc:31</a></div></div>
 <div class="ttc" id="arange_8h_html"><div class="ttname"><a href="range_8h.html">range.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.17-->

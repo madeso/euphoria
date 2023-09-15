@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="namespaceeu_1_1core_1_1base64" kind="namespace" language="C++">
+    <compoundname>eu::core::base64</compoundname>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespaceeu_1_1core_1_1base64_1a64a7ebecb1801eb53525b5d2345ed007" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string eu::core::base64::encode</definition>
+        <argsstring>(std::shared_ptr&lt; MemoryChunk &gt; memory)</argsstring>
+        <name>encode</name>
+        <param>
+          <type>std::shared_ptr&lt; <ref refid="structeu_1_1core_1_1MemoryChunk" kindref="compound">MemoryChunk</ref> &gt;</type>
+          <declname>memory</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/base64.cc" line="20" column="5" bodyfile="libs/core/src/core/base64.cc" bodystart="20" bodyend="56" declfile="libs/core/src/core/base64.h" declline="10" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1core_1_1base64_1a6776db65e309ad4de0f8aa6857ec3c95" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="structeu_1_1core_1_1MemoryChunk" kindref="compound">MemoryChunk</ref> &gt;</type>
+        <definition>std::shared_ptr&lt; MemoryChunk &gt; eu::core::base64::decode</definition>
+        <argsstring>(const std::string &amp;input)</argsstring>
+        <name>decode</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>input</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/base64.cc" line="59" column="5" bodyfile="libs/core/src/core/base64.cc" bodystart="59" bodyend="100" declfile="libs/core/src/core/base64.h" declline="13" declcolumn="5"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/base64.cc" line="12" column="1"/>
+  </compounddef>
+</doxygen>

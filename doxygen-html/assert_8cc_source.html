@@ -69,7 +69,7 @@
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;sstream&gt;</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceeuphoria.html">euphoria</a></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceeu.html">eu</a></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#ifdef _MSC_VER</span></div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="comment">// todo(Gustav): implement backtrace for windows?</span></div>
@@ -109,7 +109,7 @@
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        {</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            <span class="comment">// todo replace hardcoded limit?</span></div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            <span class="keywordtype">void</span>* addresses[256];</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a7b8b965ad4bca0e41ab51de7b31363a1">n</a> = ::backtrace</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="namespaceeu_1_1core.html#a6fca7b841e42734cd5c01e04fc9e6511a7b8b965ad4bca0e41ab51de7b31363a1">n</a> = ::backtrace</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            (</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span>**<span class="keyword">&gt;</span>(addresses),</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                std::extent&lt;decltype(addresses)&gt;::value</div>
@@ -121,33 +121,33 @@
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            );</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            std::vector&lt;std::string&gt; ret;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            <span class="keywordflow">for</span>(<span class="keywordtype">int</span> backtrace_index = skip; backtrace_index &lt; <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a7b8b965ad4bca0e41ab51de7b31363a1">n</a>; backtrace_index += 1)</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            <span class="keywordflow">for</span>(<span class="keywordtype">int</span> backtrace_index = skip; backtrace_index &lt; <a class="code" href="namespaceeu_1_1core.html#a6fca7b841e42734cd5c01e04fc9e6511a7b8b965ad4bca0e41ab51de7b31363a1">n</a>; backtrace_index += 1)</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            {</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                <span class="comment">// we parse the symbols retrieved from backtrace_symbols() to</span></div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                <span class="comment">// extract the &quot;real&quot; symbols that represent the mangled names.</span></div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                <span class="keywordtype">char</span>* <span class="keyword">const</span> symbol = symbols.get()[backtrace_index];</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                <span class="keywordtype">char</span>* <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a7f021a1415b86f2d013b2618fb31ae53">end</a> = symbol;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                <span class="keywordtype">char</span>* <a class="code" href="namespaceeu_1_1core.html#a6fca7b841e42734cd5c01e04fc9e6511a7f021a1415b86f2d013b2618fb31ae53">end</a> = symbol;</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                <span class="keywordflow">while</span>(*end != 0)</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                {</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                    ++<a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a7f021a1415b86f2d013b2618fb31ae53">end</a>;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                    ++<a class="code" href="namespaceeu_1_1core.html#a6fca7b841e42734cd5c01e04fc9e6511a7f021a1415b86f2d013b2618fb31ae53">end</a>;</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                }</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                <span class="comment">// scanning is done backwards, since the module name</span></div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                <span class="comment">// might contain both &#39;+&#39; or &#39;(&#39; characters.</span></div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                <span class="keywordflow">while</span>(end != symbol &amp;&amp; *end != <span class="charliteral">&#39;+&#39;</span>)</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                {</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                    --<a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a7f021a1415b86f2d013b2618fb31ae53">end</a>;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                    --<a class="code" href="namespaceeu_1_1core.html#a6fca7b841e42734cd5c01e04fc9e6511a7f021a1415b86f2d013b2618fb31ae53">end</a>;</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                }</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                <span class="keywordtype">char</span>* <a class="code" href="namespaceeuphoria_1_1window_1_1imgui_1_1guizmo.html#aa69a92892b08654f81eab99691bbd7b2">begin</a> = <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a7f021a1415b86f2d013b2618fb31ae53">end</a>;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                <span class="keywordflow">while</span>(<a class="code" href="namespaceeuphoria_1_1window_1_1imgui_1_1guizmo.html#aa69a92892b08654f81eab99691bbd7b2">begin</a> != symbol &amp;&amp; *<a class="code" href="namespaceeuphoria_1_1window_1_1imgui_1_1guizmo.html#aa69a92892b08654f81eab99691bbd7b2">begin</a> != <span class="charliteral">&#39;(&#39;</span>)</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                <span class="keywordtype">char</span>* <a class="code" href="namespaceeu_1_1window_1_1imgui_1_1guizmo.html#ad61765427be2eedee9e2ffc1561b9e49">begin</a> = <a class="code" href="namespaceeu_1_1core.html#a6fca7b841e42734cd5c01e04fc9e6511a7f021a1415b86f2d013b2618fb31ae53">end</a>;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                <span class="keywordflow">while</span>(<a class="code" href="namespaceeu_1_1window_1_1imgui_1_1guizmo.html#ad61765427be2eedee9e2ffc1561b9e49">begin</a> != symbol &amp;&amp; *<a class="code" href="namespaceeu_1_1window_1_1imgui_1_1guizmo.html#ad61765427be2eedee9e2ffc1561b9e49">begin</a> != <span class="charliteral">&#39;(&#39;</span>)</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                {</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                    --<a class="code" href="namespaceeuphoria_1_1window_1_1imgui_1_1guizmo.html#aa69a92892b08654f81eab99691bbd7b2">begin</a>;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                    --<a class="code" href="namespaceeu_1_1window_1_1imgui_1_1guizmo.html#ad61765427be2eedee9e2ffc1561b9e49">begin</a>;</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                }</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                <span class="keywordflow">if</span>(<a class="code" href="namespaceeuphoria_1_1window_1_1imgui_1_1guizmo.html#aa69a92892b08654f81eab99691bbd7b2">begin</a> != symbol)</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                <span class="keywordflow">if</span>(<a class="code" href="namespaceeu_1_1window_1_1imgui_1_1guizmo.html#ad61765427be2eedee9e2ffc1561b9e49">begin</a> != symbol)</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                {</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                    <span class="keyword">const</span> <span class="keyword">auto</span> first_symbol = std::string(symbol, ++<a class="code" href="namespaceeuphoria_1_1window_1_1imgui_1_1guizmo.html#aa69a92892b08654f81eab99691bbd7b2">begin</a> - symbol);</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                    *<a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a7f021a1415b86f2d013b2618fb31ae53">end</a>++ = <span class="charliteral">&#39;\0&#39;</span>;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                    <span class="keyword">const</span> <span class="keyword">auto</span> second_symbol = demangle_symbol(<a class="code" href="namespaceeuphoria_1_1window_1_1imgui_1_1guizmo.html#aa69a92892b08654f81eab99691bbd7b2">begin</a>);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                    <span class="keyword">const</span> <span class="keyword">auto</span> first_symbol = std::string(symbol, ++<a class="code" href="namespaceeu_1_1window_1_1imgui_1_1guizmo.html#ad61765427be2eedee9e2ffc1561b9e49">begin</a> - symbol);</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                    *<a class="code" href="namespaceeu_1_1core.html#a6fca7b841e42734cd5c01e04fc9e6511a7f021a1415b86f2d013b2618fb31ae53">end</a>++ = <span class="charliteral">&#39;\0&#39;</span>;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                    <span class="keyword">const</span> <span class="keyword">auto</span> second_symbol = demangle_symbol(<a class="code" href="namespaceeu_1_1window_1_1imgui_1_1guizmo.html#ad61765427be2eedee9e2ffc1561b9e49">begin</a>);</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                    ret.emplace_back(fmt::format(<span class="stringliteral">&quot;{}{}+{}&quot;</span>, first_symbol, second_symbol, end));</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                }</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                <span class="keywordflow">else</span></div>
@@ -163,16 +163,16 @@
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;}</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="keyword">template</span> &lt;&gt; <span class="keyword">struct </span>fmt::formatter&lt;<a class="code" href="namespaceeuphoria.html">euphoria</a>::assertlib::AssertArgumentValue&gt; : formatter&lt;std::string&gt;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="keyword">template</span> &lt;&gt; <span class="keyword">struct </span>fmt::formatter&lt;<a class="code" href="namespaceeu.html">eu</a>::assertlib::AssertArgumentValue&gt; : formatter&lt;std::string&gt;</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;{</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> FormatContext&gt;</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keyword">auto</span> format(<span class="keyword">const</span> <a class="code" href="structeuphoria_1_1assertlib_1_1AssertArgumentValue.html">euphoria::assertlib::AssertArgumentValue</a>&amp; c, FormatContext&amp; ctx)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keyword">auto</span> format(<span class="keyword">const</span> <a class="code" href="structeu_1_1assertlib_1_1AssertArgumentValue.html">eu::assertlib::AssertArgumentValue</a>&amp; c, FormatContext&amp; ctx)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        <span class="keywordflow">return</span> formatter&lt;string_view&gt;::format(<a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a4a8a08f09d37b73795649038408b5f33">c</a>.value, ctx);</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        <span class="keywordflow">return</span> formatter&lt;string_view&gt;::format(<a class="code" href="namespaceeu_1_1core.html#a6fca7b841e42734cd5c01e04fc9e6511a4a8a08f09d37b73795649038408b5f33">c</a>.value, ctx);</div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    }</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;};</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;   </div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceeuphoria_1_1assertlib.html">euphoria::assertlib</a></div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceeu_1_1assertlib.html">eu::assertlib</a></div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;{</div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keywordtype">bool</span>&amp;</div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    should_throw_variable()</div>
@@ -182,19 +182,19 @@
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    }</div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; </div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <a class="code" href="namespaceeuphoria_1_1assertlib.html#a7085dadc44d2f0d41014a748a4629498">begin_throwing</a>()</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <a class="code" href="namespaceeu_1_1assertlib.html#a7ca844c158bbf7e734f29b4312c6db01">begin_throwing</a>()</div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    {</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        should_throw_variable() = <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    }</div>
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160; </div>
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    <span class="keywordtype">bool</span></div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    <a class="code" href="namespaceeuphoria_1_1assertlib.html#aadc50e6c320a759f0f79559b26dd4c7f">is_throwing</a>()</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    <a class="code" href="namespaceeu_1_1assertlib.html#a0edb7b21ba4d86e980bd40b0f63a0c2e">is_throwing</a>()</div>
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    {</div>
 <div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;        <span class="keywordflow">return</span> should_throw_variable();</div>
 <div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    }</div>
 <div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160; </div>
 <div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    <a class="code" href="namespaceeuphoria_1_1assertlib.html#aca4984e08a6871d591be4b6c9a3d8c91">on_assert</a></div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    <a class="code" href="namespaceeu_1_1assertlib.html#adc0b8ea0bf3e97d51c38156ad5484a67">on_assert</a></div>
 <div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    (</div>
 <div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">char</span>* <span class="keyword">const</span> expression,</div>
 <div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;        <span class="keywordtype">int</span> <a class="code" href="nlp__sentence_8cc.html#a41ebd28ef1d7c6ade45642cb6acc1039">line</a>,</div>
@@ -211,13 +211,13 @@
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160; </div>
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> with_arguments = arguments.empty()</div>
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;            ? start</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;            : fmt::format(<span class="stringliteral">&quot;{}({}) = {}\n&quot;</span>, start, argstr, <a class="code" href="namespaceeuphoria_1_1core_1_1vfs.html#a9f247cea3e947109876c594b692ef65a">fmt::join</a>(arguments, <span class="stringliteral">&quot;, &quot;</span>))</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;            : fmt::format(<span class="stringliteral">&quot;{}({}) = {}\n&quot;</span>, start, argstr, <a class="code" href="namespaceeu_1_1core_1_1vfs.html#a1d6ac80eeea23a1b5ebcabd0fae68f2f">fmt::join</a>(arguments, <span class="stringliteral">&quot;, &quot;</span>))</div>
 <div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;            ;</div>
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160; </div>
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> trace = run_backtrace(2);</div>
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> message = trace.empty()</div>
 <div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;            ? with_arguments</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;            : fmt::format(<span class="stringliteral">&quot;{}Backtrace:\n{}\n&quot;</span>, with_arguments, <a class="code" href="namespaceeuphoria_1_1core_1_1vfs.html#a9f247cea3e947109876c594b692ef65a">fmt::join</a>(trace, <span class="stringliteral">&quot;\n&quot;</span>))</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;            : fmt::format(<span class="stringliteral">&quot;{}Backtrace:\n{}\n&quot;</span>, with_arguments, <a class="code" href="namespaceeu_1_1core_1_1vfs.html#a1d6ac80eeea23a1b5ebcabd0fae68f2f">fmt::join</a>(trace, <span class="stringliteral">&quot;\n&quot;</span>))</div>
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;            ;</div>
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160; </div>
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;        <span class="keywordflow">if</span>(should_throw_variable())</div>
@@ -235,18 +235,18 @@
 <div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160; </div>
 <div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aassert_8h_html"><div class="ttname"><a href="assert_8h.html">assert.h</a></div></div>
-<div class="ttc" id="anamespaceeuphoria_1_1assertlib_html"><div class="ttname"><a href="namespaceeuphoria_1_1assertlib.html">euphoria::assertlib</a></div><div class="ttdef"><b>Definition:</b> <a href="assert_8h_source.html#l00089">assert.h:90</a></div></div>
-<div class="ttc" id="anamespaceeuphoria_1_1assertlib_html_a7085dadc44d2f0d41014a748a4629498"><div class="ttname"><a href="namespaceeuphoria_1_1assertlib.html#a7085dadc44d2f0d41014a748a4629498">euphoria::assertlib::begin_throwing</a></div><div class="ttdeci">void begin_throwing()</div></div>
-<div class="ttc" id="anamespaceeuphoria_1_1assertlib_html_aadc50e6c320a759f0f79559b26dd4c7f"><div class="ttname"><a href="namespaceeuphoria_1_1assertlib.html#aadc50e6c320a759f0f79559b26dd4c7f">euphoria::assertlib::is_throwing</a></div><div class="ttdeci">bool is_throwing()</div></div>
-<div class="ttc" id="anamespaceeuphoria_1_1assertlib_html_aca4984e08a6871d591be4b6c9a3d8c91"><div class="ttname"><a href="namespaceeuphoria_1_1assertlib.html#aca4984e08a6871d591be4b6c9a3d8c91">euphoria::assertlib::on_assert</a></div><div class="ttdeci">void on_assert(const char *expression, int line, const char *file, const char *argstr, const std::vector&lt; AssertArgumentValue &gt; &amp;arguments, const char *function)</div></div>
-<div class="ttc" id="anamespaceeuphoria_1_1core_1_1vfs_html_a9f247cea3e947109876c594b692ef65a"><div class="ttname"><a href="namespaceeuphoria_1_1core_1_1vfs.html#a9f247cea3e947109876c594b692ef65a">euphoria::core::vfs::join</a></div><div class="ttdeci">DirPath join(const DirPath &amp;lhs, const DirPath &amp;rhs)</div><div class="ttdef"><b>Definition:</b> <a href="vfs__path_8cc_source.html#l00419">vfs_path.cc:419</a></div></div>
-<div class="ttc" id="anamespaceeuphoria_1_1core_html_aa9db03a38fd9999446a4ebf0584cd710a4a8a08f09d37b73795649038408b5f33"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a4a8a08f09d37b73795649038408b5f33">euphoria::core::Key::c</a></div><div class="ttdeci">@ c</div></div>
-<div class="ttc" id="anamespaceeuphoria_1_1core_html_aa9db03a38fd9999446a4ebf0584cd710a7b8b965ad4bca0e41ab51de7b31363a1"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a7b8b965ad4bca0e41ab51de7b31363a1">euphoria::core::Key::n</a></div><div class="ttdeci">@ n</div></div>
-<div class="ttc" id="anamespaceeuphoria_1_1core_html_aa9db03a38fd9999446a4ebf0584cd710a7f021a1415b86f2d013b2618fb31ae53"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a7f021a1415b86f2d013b2618fb31ae53">euphoria::core::Key::end</a></div><div class="ttdeci">@ end</div></div>
-<div class="ttc" id="anamespaceeuphoria_1_1window_1_1imgui_1_1guizmo_html_aa69a92892b08654f81eab99691bbd7b2"><div class="ttname"><a href="namespaceeuphoria_1_1window_1_1imgui_1_1guizmo.html#aa69a92892b08654f81eab99691bbd7b2">euphoria::window::imgui::guizmo::begin</a></div><div class="ttdeci">void begin()</div><div class="ttdef"><b>Definition:</b> <a href="imguizmo_8cc_source.html#l00015">imguizmo.cc:15</a></div></div>
-<div class="ttc" id="anamespaceeuphoria_html"><div class="ttname"><a href="namespaceeuphoria.html">euphoria</a></div><div class="ttdef"><b>Definition:</b> <a href="assert_8h_source.html#l00089">assert.h:90</a></div></div>
+<div class="ttc" id="anamespaceeu_1_1assertlib_html"><div class="ttname"><a href="namespaceeu_1_1assertlib.html">eu::assertlib</a></div><div class="ttdef"><b>Definition:</b> <a href="assert_8h_source.html#l00089">assert.h:90</a></div></div>
+<div class="ttc" id="anamespaceeu_1_1assertlib_html_a0edb7b21ba4d86e980bd40b0f63a0c2e"><div class="ttname"><a href="namespaceeu_1_1assertlib.html#a0edb7b21ba4d86e980bd40b0f63a0c2e">eu::assertlib::is_throwing</a></div><div class="ttdeci">bool is_throwing()</div></div>
+<div class="ttc" id="anamespaceeu_1_1assertlib_html_a7ca844c158bbf7e734f29b4312c6db01"><div class="ttname"><a href="namespaceeu_1_1assertlib.html#a7ca844c158bbf7e734f29b4312c6db01">eu::assertlib::begin_throwing</a></div><div class="ttdeci">void begin_throwing()</div></div>
+<div class="ttc" id="anamespaceeu_1_1assertlib_html_adc0b8ea0bf3e97d51c38156ad5484a67"><div class="ttname"><a href="namespaceeu_1_1assertlib.html#adc0b8ea0bf3e97d51c38156ad5484a67">eu::assertlib::on_assert</a></div><div class="ttdeci">void on_assert(const char *expression, int line, const char *file, const char *argstr, const std::vector&lt; AssertArgumentValue &gt; &amp;arguments, const char *function)</div></div>
+<div class="ttc" id="anamespaceeu_1_1core_1_1vfs_html_a1d6ac80eeea23a1b5ebcabd0fae68f2f"><div class="ttname"><a href="namespaceeu_1_1core_1_1vfs.html#a1d6ac80eeea23a1b5ebcabd0fae68f2f">eu::core::vfs::join</a></div><div class="ttdeci">DirPath join(const DirPath &amp;lhs, const DirPath &amp;rhs)</div><div class="ttdef"><b>Definition:</b> <a href="vfs__path_8cc_source.html#l00419">vfs_path.cc:419</a></div></div>
+<div class="ttc" id="anamespaceeu_1_1core_html_a6fca7b841e42734cd5c01e04fc9e6511a4a8a08f09d37b73795649038408b5f33"><div class="ttname"><a href="namespaceeu_1_1core.html#a6fca7b841e42734cd5c01e04fc9e6511a4a8a08f09d37b73795649038408b5f33">eu::core::Key::c</a></div><div class="ttdeci">@ c</div></div>
+<div class="ttc" id="anamespaceeu_1_1core_html_a6fca7b841e42734cd5c01e04fc9e6511a7b8b965ad4bca0e41ab51de7b31363a1"><div class="ttname"><a href="namespaceeu_1_1core.html#a6fca7b841e42734cd5c01e04fc9e6511a7b8b965ad4bca0e41ab51de7b31363a1">eu::core::Key::n</a></div><div class="ttdeci">@ n</div></div>
+<div class="ttc" id="anamespaceeu_1_1core_html_a6fca7b841e42734cd5c01e04fc9e6511a7f021a1415b86f2d013b2618fb31ae53"><div class="ttname"><a href="namespaceeu_1_1core.html#a6fca7b841e42734cd5c01e04fc9e6511a7f021a1415b86f2d013b2618fb31ae53">eu::core::Key::end</a></div><div class="ttdeci">@ end</div></div>
+<div class="ttc" id="anamespaceeu_1_1window_1_1imgui_1_1guizmo_html_ad61765427be2eedee9e2ffc1561b9e49"><div class="ttname"><a href="namespaceeu_1_1window_1_1imgui_1_1guizmo.html#ad61765427be2eedee9e2ffc1561b9e49">eu::window::imgui::guizmo::begin</a></div><div class="ttdeci">void begin()</div><div class="ttdef"><b>Definition:</b> <a href="imguizmo_8cc_source.html#l00015">imguizmo.cc:15</a></div></div>
+<div class="ttc" id="anamespaceeu_html"><div class="ttname"><a href="namespaceeu.html">eu</a></div><div class="ttdef"><b>Definition:</b> <a href="assert_8h_source.html#l00089">assert.h:90</a></div></div>
 <div class="ttc" id="anlp__sentence_8cc_html_a41ebd28ef1d7c6ade45642cb6acc1039"><div class="ttname"><a href="nlp__sentence_8cc.html#a41ebd28ef1d7c6ade45642cb6acc1039">line</a></div><div class="ttdeci">int line</div><div class="ttdef"><b>Definition:</b> <a href="nlp__sentence_8cc_source.html#l00091">nlp_sentence.cc:91</a></div></div>
-<div class="ttc" id="astructeuphoria_1_1assertlib_1_1AssertArgumentValue_html"><div class="ttname"><a href="structeuphoria_1_1assertlib_1_1AssertArgumentValue.html">euphoria::assertlib::AssertArgumentValue</a></div><div class="ttdef"><b>Definition:</b> <a href="assert_8h_source.html#l00091">assert.h:92</a></div></div>
+<div class="ttc" id="astructeu_1_1assertlib_1_1AssertArgumentValue_html"><div class="ttname"><a href="structeu_1_1assertlib_1_1AssertArgumentValue.html">eu::assertlib::AssertArgumentValue</a></div><div class="ttdef"><b>Definition:</b> <a href="assert_8h_source.html#l00091">assert.h:92</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.17-->
 <!-- start footer part -->

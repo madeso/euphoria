@@ -1,0 +1,252 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1core_1_1dump3d_1_1Dumper" kind="struct" language="C++" prot="public">
+    <compoundname>eu::core::dump3d::Dumper</compoundname>
+    <includes refid="dump_8h" local="no">dump.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1core_1_1dump3d_1_1Dumper_1a29377233aa532289de9d6a537c55941f" prot="public" static="no" mutable="no">
+        <type>std::ofstream</type>
+        <definition>std::ofstream eu::core::dump3d::Dumper::file</definition>
+        <argsstring></argsstring>
+        <name>file</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/dump.h" line="128" column="23" bodyfile="libs/core/src/core/dump.h" bodystart="128" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1dump3d_1_1Dumper_1ac03e94aca702db8109396058ff8749c5" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::core::dump3d::Dumper::Dumper</definition>
+        <argsstring>(const std::string &amp;path)</argsstring>
+        <name>Dumper</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/dump.h" line="130" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1dump3d_1_1Dumper_1a47ea9286f251e618509b3dba7cd79592" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::core::dump3d::Dumper::~Dumper</definition>
+        <argsstring>()</argsstring>
+        <name>~Dumper</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/dump.h" line="131" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1dump3d_1_1Dumper_1a7f7354dcfd41500863e9bd8aaabc747e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::core::dump3d::Dumper::Dumper</definition>
+        <argsstring>(const Dumper &amp;)=delete</argsstring>
+        <name>Dumper</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1dump3d_1_1Dumper" kindref="compound">Dumper</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/dump.h" line="133" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1dump3d_1_1Dumper_1a2b38ef9bc41d2e94b6cdcb1e2ce34782" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::core::dump3d::Dumper::Dumper</definition>
+        <argsstring>(Dumper &amp;&amp;)=delete</argsstring>
+        <name>Dumper</name>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1dump3d_1_1Dumper" kindref="compound">Dumper</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/dump.h" line="134" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1dump3d_1_1Dumper_1a59381622d21a6a0b1e0783642d9bd590" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::dump3d::Dumper::operator=</definition>
+        <argsstring>(const Dumper &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1dump3d_1_1Dumper" kindref="compound">Dumper</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/dump.h" line="135" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1dump3d_1_1Dumper_1a10191a9d408522149837ced9eaafdbbc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::dump3d::Dumper::operator=</definition>
+        <argsstring>(Dumper &amp;&amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1dump3d_1_1Dumper" kindref="compound">Dumper</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/dump.h" line="136" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1dump3d_1_1Dumper_1ad652e3d29c31b74b68f3031abbc3ecb7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::dump3d::Dumper::add_sphere</definition>
+        <argsstring>(const vec3f &amp;p, float radius, const Rgbi &amp;color)</argsstring>
+        <name>add_sphere</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>radius</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref> &amp;</type>
+          <declname>color</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/dump.h" line="138" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1dump3d_1_1Dumper_1a8ebd365170d4eb079c9355cf95028f1a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>auto</type>
+        <definition>auto eu::core::dump3d::Dumper::add_lines</definition>
+        <argsstring>(const std::vector&lt; vec3f &gt; &amp;lines, const Rgbi &amp;color) -&gt; void</argsstring>
+        <name>add_lines</name>
+        <param>
+          <type>const std::vector&lt; <ref refid="structeu_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &gt; &amp;</type>
+          <declname>lines</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref> &amp;</type>
+          <declname>color</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/dump.h" line="139" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1dump3d_1_1Dumper_1a7d31eea9ece8fa65922c9a09d6ef0204" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::dump3d::Dumper::add_plane</definition>
+        <argsstring>(const Plane &amp;plane, const Rgbi &amp;color)</argsstring>
+        <name>add_plane</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1Plane" kindref="compound">Plane</ref> &amp;</type>
+          <declname>plane</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref> &amp;</type>
+          <declname>color</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/dump.h" line="140" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1dump3d_1_1Dumper_1a3bbd53198ead0420737478613e7fa9b0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::dump3d::Dumper::add_arrow</definition>
+        <argsstring>(const Ray3f &amp;ray, const Rgbi &amp;color)</argsstring>
+        <name>add_arrow</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1Ray3f" kindref="compound">Ray3f</ref> &amp;</type>
+          <declname>ray</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref> &amp;</type>
+          <declname>color</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/dump.h" line="141" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1dump3d_1_1Dumper_1aff31c26dce3753951d858e1726a4ca3b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::dump3d::Dumper::add_axis</definition>
+        <argsstring>()</argsstring>
+        <name>add_axis</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/dump.h" line="143" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1dump3d_1_1Dumper_1a44db2f283c7f29ac9372208bafec8017" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::dump3d::Dumper::add_grid</definition>
+        <argsstring>()</argsstring>
+        <name>add_grid</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/dump.h" line="144" column="14"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/dump.h" line="126" column="5" bodyfile="libs/core/src/core/dump.h" bodystart="127" bodyend="145"/>
+    <listofallmembers>
+      <member refid="structeu_1_1core_1_1dump3d_1_1Dumper_1a3bbd53198ead0420737478613e7fa9b0" prot="public" virt="non-virtual"><scope>eu::core::dump3d::Dumper</scope><name>add_arrow</name></member>
+      <member refid="structeu_1_1core_1_1dump3d_1_1Dumper_1aff31c26dce3753951d858e1726a4ca3b" prot="public" virt="non-virtual"><scope>eu::core::dump3d::Dumper</scope><name>add_axis</name></member>
+      <member refid="structeu_1_1core_1_1dump3d_1_1Dumper_1a44db2f283c7f29ac9372208bafec8017" prot="public" virt="non-virtual"><scope>eu::core::dump3d::Dumper</scope><name>add_grid</name></member>
+      <member refid="structeu_1_1core_1_1dump3d_1_1Dumper_1a8ebd365170d4eb079c9355cf95028f1a" prot="public" virt="non-virtual"><scope>eu::core::dump3d::Dumper</scope><name>add_lines</name></member>
+      <member refid="structeu_1_1core_1_1dump3d_1_1Dumper_1a7d31eea9ece8fa65922c9a09d6ef0204" prot="public" virt="non-virtual"><scope>eu::core::dump3d::Dumper</scope><name>add_plane</name></member>
+      <member refid="structeu_1_1core_1_1dump3d_1_1Dumper_1ad652e3d29c31b74b68f3031abbc3ecb7" prot="public" virt="non-virtual"><scope>eu::core::dump3d::Dumper</scope><name>add_sphere</name></member>
+      <member refid="structeu_1_1core_1_1dump3d_1_1Dumper_1ac03e94aca702db8109396058ff8749c5" prot="public" virt="non-virtual"><scope>eu::core::dump3d::Dumper</scope><name>Dumper</name></member>
+      <member refid="structeu_1_1core_1_1dump3d_1_1Dumper_1a7f7354dcfd41500863e9bd8aaabc747e" prot="public" virt="non-virtual"><scope>eu::core::dump3d::Dumper</scope><name>Dumper</name></member>
+      <member refid="structeu_1_1core_1_1dump3d_1_1Dumper_1a2b38ef9bc41d2e94b6cdcb1e2ce34782" prot="public" virt="non-virtual"><scope>eu::core::dump3d::Dumper</scope><name>Dumper</name></member>
+      <member refid="structeu_1_1core_1_1dump3d_1_1Dumper_1a29377233aa532289de9d6a537c55941f" prot="public" virt="non-virtual"><scope>eu::core::dump3d::Dumper</scope><name>file</name></member>
+      <member refid="structeu_1_1core_1_1dump3d_1_1Dumper_1a59381622d21a6a0b1e0783642d9bd590" prot="public" virt="non-virtual"><scope>eu::core::dump3d::Dumper</scope><name>operator=</name></member>
+      <member refid="structeu_1_1core_1_1dump3d_1_1Dumper_1a10191a9d408522149837ced9eaafdbbc" prot="public" virt="non-virtual"><scope>eu::core::dump3d::Dumper</scope><name>operator=</name></member>
+      <member refid="structeu_1_1core_1_1dump3d_1_1Dumper_1a47ea9286f251e618509b3dba7cd79592" prot="public" virt="non-virtual"><scope>eu::core::dump3d::Dumper</scope><name>~Dumper</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

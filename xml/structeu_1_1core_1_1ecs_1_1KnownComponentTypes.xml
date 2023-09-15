@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1core_1_1ecs_1_1KnownComponentTypes" kind="struct" language="C++" prot="public">
+    <compoundname>eu::core::ecs::KnownComponentTypes</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1core_1_1ecs_1_1KnownComponentTypes_1a999e3bf01542bc0daee90f026c7b9123" prot="public" static="no" mutable="no">
+        <type>std::unordered_map&lt; std::string, <ref refid="namespaceeu_1_1core_1_1ecs_1a6be7e1ab08b2e3baa2712ecd23d9b1a6" kindref="member">ComponentIndex</ref> &gt;</type>
+        <definition>std::unordered_map&lt;std::string, ComponentIndex&gt; eu::core::ecs::KnownComponentTypes::name_to_index</definition>
+        <argsstring></argsstring>
+        <name>name_to_index</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ecs.cc" line="124" column="28" bodyfile="libs/core/src/core/ecs.cc" bodystart="124" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1ecs_1_1KnownComponentTypes_1a8d9e94ee5c0c51879c259d1e73d94b77" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>std::vector&lt;std::string&gt; eu::core::ecs::KnownComponentTypes::index_to_name</definition>
+        <argsstring></argsstring>
+        <name>index_to_name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ecs.cc" line="125" column="21" bodyfile="libs/core/src/core/ecs.cc" bodystart="125" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1ecs_1_1KnownComponentTypes_1ab119594de5f237a56eaf1d2af573ea2b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespaceeu_1_1core_1_1ecs_1a6be7e1ab08b2e3baa2712ecd23d9b1a6" kindref="member">ComponentIndex</ref></type>
+        <definition>ComponentIndex eu::core::ecs::KnownComponentTypes::add</definition>
+        <argsstring>(const std::string &amp;name)</argsstring>
+        <name>add</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ecs.cc" line="127" column="24" bodyfile="libs/core/src/core/ecs.cc" bodystart="127" bodyend="135"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1ecs_1_1KnownComponentTypes_1a6bad37f35092ac8ca78987eebf1819de" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespaceeu_1_1core_1_1ecs_1a6be7e1ab08b2e3baa2712ecd23d9b1a6" kindref="member">ComponentIndex</ref></type>
+        <definition>ComponentIndex eu::core::ecs::KnownComponentTypes::get_index</definition>
+        <argsstring>(const std::string &amp;name)</argsstring>
+        <name>get_index</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ecs.cc" line="137" column="24" bodyfile="libs/core/src/core/ecs.cc" bodystart="137" bodyend="142"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1ecs_1_1KnownComponentTypes_1a2476a692b41b1aa67e36b5a9a77a1a90" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string eu::core::ecs::KnownComponentTypes::get_name</definition>
+        <argsstring>(ComponentIndex c)</argsstring>
+        <name>get_name</name>
+        <param>
+          <type><ref refid="namespaceeu_1_1core_1_1ecs_1a6be7e1ab08b2e3baa2712ecd23d9b1a6" kindref="member">ComponentIndex</ref></type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ecs.cc" line="144" column="21" bodyfile="libs/core/src/core/ecs.cc" bodystart="144" bodyend="147"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/ecs.cc" line="122" column="5" bodyfile="libs/core/src/core/ecs.cc" bodystart="123" bodyend="148"/>
+    <listofallmembers>
+      <member refid="structeu_1_1core_1_1ecs_1_1KnownComponentTypes_1ab119594de5f237a56eaf1d2af573ea2b" prot="public" virt="non-virtual"><scope>eu::core::ecs::KnownComponentTypes</scope><name>add</name></member>
+      <member refid="structeu_1_1core_1_1ecs_1_1KnownComponentTypes_1a6bad37f35092ac8ca78987eebf1819de" prot="public" virt="non-virtual"><scope>eu::core::ecs::KnownComponentTypes</scope><name>get_index</name></member>
+      <member refid="structeu_1_1core_1_1ecs_1_1KnownComponentTypes_1a2476a692b41b1aa67e36b5a9a77a1a90" prot="public" virt="non-virtual"><scope>eu::core::ecs::KnownComponentTypes</scope><name>get_name</name></member>
+      <member refid="structeu_1_1core_1_1ecs_1_1KnownComponentTypes_1a8d9e94ee5c0c51879c259d1e73d94b77" prot="public" virt="non-virtual"><scope>eu::core::ecs::KnownComponentTypes</scope><name>index_to_name</name></member>
+      <member refid="structeu_1_1core_1_1ecs_1_1KnownComponentTypes_1a999e3bf01542bc0daee90f026c7b9123" prot="public" virt="non-virtual"><scope>eu::core::ecs::KnownComponentTypes</scope><name>name_to_index</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

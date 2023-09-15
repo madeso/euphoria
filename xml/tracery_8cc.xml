@@ -214,15 +214,15 @@
         <label>memory</label>
       </node>
     </incdepgraph>
-    <innerclass refid="structeuphoria_1_1core_1_1tracery_1_1GeneratorArgument" prot="public">euphoria::core::tracery::GeneratorArgument</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1tracery_1_1LiteralStringNode" prot="public">euphoria::core::tracery::LiteralStringNode</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1tracery_1_1ActionRule" prot="public">euphoria::core::tracery::ActionRule</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1tracery_1_1CallSymbolNode" prot="public">euphoria::core::tracery::CallSymbolNode</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1tracery_1_1english_1_1FunctionModifier" prot="public">euphoria::core::tracery::english::FunctionModifier</innerclass>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core_1_1tracery">euphoria::core::tracery</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core_1_1tracery_1_1english">euphoria::core::tracery::english</innernamespace>
+    <innerclass refid="structeu_1_1core_1_1tracery_1_1GeneratorArgument" prot="public">eu::core::tracery::GeneratorArgument</innerclass>
+    <innerclass refid="structeu_1_1core_1_1tracery_1_1LiteralStringNode" prot="public">eu::core::tracery::LiteralStringNode</innerclass>
+    <innerclass refid="structeu_1_1core_1_1tracery_1_1ActionRule" prot="public">eu::core::tracery::ActionRule</innerclass>
+    <innerclass refid="structeu_1_1core_1_1tracery_1_1CallSymbolNode" prot="public">eu::core::tracery::CallSymbolNode</innerclass>
+    <innerclass refid="structeu_1_1core_1_1tracery_1_1english_1_1FunctionModifier" prot="public">eu::core::tracery::english::FunctionModifier</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core_1_1tracery">eu::core::tracery</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core_1_1tracery_1_1english">eu::core::tracery::english</innernamespace>
       <sectiondef kind="define">
       <memberdef kind="define" id="tracery_8cc_1a634b6e5ceac487681852b9b7580e5c43" prot="public" static="no">
         <name>EMPTY_STRING</name>

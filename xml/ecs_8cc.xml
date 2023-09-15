@@ -99,14 +99,14 @@
         <label>memory</label>
       </node>
     </incdepgraph>
-    <innerclass refid="structeuphoria_1_1core_1_1ecs_1_1Signature" prot="public">euphoria::core::ecs::Signature</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1ecs_1_1AliveEntities" prot="public">euphoria::core::ecs::AliveEntities</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1ecs_1_1KnownComponentTypes" prot="public">euphoria::core::ecs::KnownComponentTypes</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1ecs_1_1AllComponents" prot="public">euphoria::core::ecs::AllComponents</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1ecs_1_1RegistryPimpl" prot="public">euphoria::core::ecs::RegistryPimpl</innerclass>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core_1_1ecs">euphoria::core::ecs</innernamespace>
+    <innerclass refid="structeu_1_1core_1_1ecs_1_1Signature" prot="public">eu::core::ecs::Signature</innerclass>
+    <innerclass refid="structeu_1_1core_1_1ecs_1_1AliveEntities" prot="public">eu::core::ecs::AliveEntities</innerclass>
+    <innerclass refid="structeu_1_1core_1_1ecs_1_1KnownComponentTypes" prot="public">eu::core::ecs::KnownComponentTypes</innerclass>
+    <innerclass refid="structeu_1_1core_1_1ecs_1_1AllComponents" prot="public">eu::core::ecs::AllComponents</innerclass>
+    <innerclass refid="structeu_1_1core_1_1ecs_1_1RegistryPimpl" prot="public">eu::core::ecs::RegistryPimpl</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core_1_1ecs">eu::core::ecs</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

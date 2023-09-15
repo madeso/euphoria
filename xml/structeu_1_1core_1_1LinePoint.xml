@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1core_1_1LinePoint" kind="struct" language="C++" prot="public">
+    <compoundname>eu::core::LinePoint</compoundname>
+    <includes refid="lines_8h" local="no">lines.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1core_1_1LinePoint_1aee012150cd66be2017c4967425175eb2" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
+        <definition>vec3f eu::core::LinePoint::point</definition>
+        <argsstring></argsstring>
+        <name>point</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/lines.h" line="13" column="15" bodyfile="libs/core/src/core/lines.h" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1LinePoint_1af5c8f596b6a875e1a35438a534b50fd8" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1core_1_1Rgb" kindref="compound">Rgb</ref></type>
+        <definition>Rgb eu::core::LinePoint::color</definition>
+        <argsstring></argsstring>
+        <name>color</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/lines.h" line="14" column="13" bodyfile="libs/core/src/core/lines.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1LinePoint_1ace9ab8b1e1f6e31359a3547e5b24f050" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::core::LinePoint::LinePoint</definition>
+        <argsstring>(const vec3f &amp;p, const Rgb &amp;c)</argsstring>
+        <name>LinePoint</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1Rgb" kindref="compound">Rgb</ref> &amp;</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/lines.h" line="16" column="9" bodyfile="libs/core/src/core/lines.cc" bodystart="7" bodyend="10"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>eu::core::LinePoint</label>
+        <link refid="structeu_1_1core_1_1LinePoint"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>color</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>point</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>eu::core::vec3f</label>
+        <link refid="structeu_1_1core_1_1vec3f"/>
+      </node>
+      <node id="2">
+        <label>eu::core::Rgb</label>
+        <link refid="structeu_1_1core_1_1Rgb"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/core/src/core/lines.h" line="11" column="5" bodyfile="libs/core/src/core/lines.h" bodystart="12" bodyend="17"/>
+    <listofallmembers>
+      <member refid="structeu_1_1core_1_1LinePoint_1af5c8f596b6a875e1a35438a534b50fd8" prot="public" virt="non-virtual"><scope>eu::core::LinePoint</scope><name>color</name></member>
+      <member refid="structeu_1_1core_1_1LinePoint_1ace9ab8b1e1f6e31359a3547e5b24f050" prot="public" virt="non-virtual"><scope>eu::core::LinePoint</scope><name>LinePoint</name></member>
+      <member refid="structeu_1_1core_1_1LinePoint_1aee012150cd66be2017c4967425175eb2" prot="public" virt="non-virtual"><scope>eu::core::LinePoint</scope><name>point</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

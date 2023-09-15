@@ -1,0 +1,176 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1core_1_1generator_1_1Rule" kind="struct" language="C++" prot="public" abstract="yes">
+    <compoundname>eu::core::generator::Rule</compoundname>
+    <derivedcompoundref refid="structeu_1_1core_1_1generator_1_1FillAllHoles" prot="public" virt="non-virtual">eu::core::generator::FillAllHoles</derivedcompoundref>
+    <derivedcompoundref refid="structeu_1_1core_1_1generator_1_1FillSmallHolesRule" prot="public" virt="non-virtual">eu::core::generator::FillSmallHolesRule</derivedcompoundref>
+    <derivedcompoundref refid="structeu_1_1core_1_1generator_1_1HorizontalBlankRule" prot="public" virt="non-virtual">eu::core::generator::HorizontalBlankRule</derivedcompoundref>
+    <derivedcompoundref refid="structeu_1_1core_1_1generator_1_1RandomFillRule" prot="public" virt="non-virtual">eu::core::generator::RandomFillRule</derivedcompoundref>
+    <derivedcompoundref refid="structeu_1_1core_1_1generator_1_1SmoothRule" prot="public" virt="non-virtual">eu::core::generator::SmoothRule</derivedcompoundref>
+    <includes refid="generator__cell_8h" local="no">generator_cell.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1generator_1_1Rule_1a2cc99f83e0445005a0182fbc0f35fbbb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::core::generator::Rule::Rule</definition>
+        <argsstring>()=default</argsstring>
+        <name>Rule</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_cell.h" line="24" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1generator_1_1Rule_1a166890d09b76a20fb94005a3747251f6" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual eu::core::generator::Rule::~Rule</definition>
+        <argsstring>()=default</argsstring>
+        <name>~Rule</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_cell.h" line="25" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1generator_1_1Rule_1afc670d5cfa21cbeab7b9bb73d07a1be3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::core::generator::Rule::Rule</definition>
+        <argsstring>(const Rule &amp;)=delete</argsstring>
+        <name>Rule</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1generator_1_1Rule" kindref="compound">Rule</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_cell.h" line="27" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1generator_1_1Rule_1a6d26158a71ce1d94edea3278423ff3c3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::core::generator::Rule::Rule</definition>
+        <argsstring>(Rule &amp;&amp;)=delete</argsstring>
+        <name>Rule</name>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1generator_1_1Rule" kindref="compound">Rule</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_cell.h" line="28" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1generator_1_1Rule_1a1952ef89fb57f11c325bf2d3ba740f03" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::generator::Rule::operator=</definition>
+        <argsstring>(const Rule &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1generator_1_1Rule" kindref="compound">Rule</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_cell.h" line="29" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1generator_1_1Rule_1aa350df05a08e00098e2554b9ed266740" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::generator::Rule::operator=</definition>
+        <argsstring>(Rule &amp;&amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1generator_1_1Rule" kindref="compound">Rule</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_cell.h" line="30" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1generator_1_1Rule_1ade8830cd904a3451ce788d30a19fd37f" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void eu::core::generator::Rule::update</definition>
+        <argsstring>(CellularAutomata *self)=0</argsstring>
+        <name>update</name>
+        <reimplementedby refid="structeu_1_1core_1_1generator_1_1SmoothRule_1a2ea8a4964ccd7503fec80efaabb2fba9">update</reimplementedby>
+        <reimplementedby refid="structeu_1_1core_1_1generator_1_1RandomFillRule_1a6ca9ff0f2a3dc265ce4103884fa94122">update</reimplementedby>
+        <reimplementedby refid="structeu_1_1core_1_1generator_1_1FillSmallHolesRule_1ae94768017afed6a11339958e2c4bab3a">update</reimplementedby>
+        <reimplementedby refid="structeu_1_1core_1_1generator_1_1FillAllHoles_1ae9ea3ac92ed5f6a52c896dabb1fa52e4">update</reimplementedby>
+        <reimplementedby refid="structeu_1_1core_1_1generator_1_1HorizontalBlankRule_1a7cd398615fe3cd0d4ce188ca88c23f76">update</reimplementedby>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1generator_1_1CellularAutomata" kindref="compound">CellularAutomata</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_cell.h" line="32" column="22"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="4">
+        <label>eu::core::generator::HorizontalBlankRule</label>
+        <link refid="structeu_1_1core_1_1generator_1_1HorizontalBlankRule"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>eu::core::generator::SmoothRule</label>
+        <link refid="structeu_1_1core_1_1generator_1_1SmoothRule"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>eu::core::generator::FillSmallHolesRule</label>
+        <link refid="structeu_1_1core_1_1generator_1_1FillSmallHolesRule"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>eu::core::generator::FillAllHoles</label>
+        <link refid="structeu_1_1core_1_1generator_1_1FillAllHoles"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>eu::core::generator::Rule</label>
+        <link refid="structeu_1_1core_1_1generator_1_1Rule"/>
+      </node>
+      <node id="5">
+        <label>eu::core::generator::RandomFillRule</label>
+        <link refid="structeu_1_1core_1_1generator_1_1RandomFillRule"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="libs/core/src/core/generator_cell.h" line="22" column="5" bodyfile="libs/core/src/core/generator_cell.h" bodystart="23" bodyend="33"/>
+    <listofallmembers>
+      <member refid="structeu_1_1core_1_1generator_1_1Rule_1a1952ef89fb57f11c325bf2d3ba740f03" prot="public" virt="non-virtual"><scope>eu::core::generator::Rule</scope><name>operator=</name></member>
+      <member refid="structeu_1_1core_1_1generator_1_1Rule_1aa350df05a08e00098e2554b9ed266740" prot="public" virt="non-virtual"><scope>eu::core::generator::Rule</scope><name>operator=</name></member>
+      <member refid="structeu_1_1core_1_1generator_1_1Rule_1a2cc99f83e0445005a0182fbc0f35fbbb" prot="public" virt="non-virtual"><scope>eu::core::generator::Rule</scope><name>Rule</name></member>
+      <member refid="structeu_1_1core_1_1generator_1_1Rule_1afc670d5cfa21cbeab7b9bb73d07a1be3" prot="public" virt="non-virtual"><scope>eu::core::generator::Rule</scope><name>Rule</name></member>
+      <member refid="structeu_1_1core_1_1generator_1_1Rule_1a6d26158a71ce1d94edea3278423ff3c3" prot="public" virt="non-virtual"><scope>eu::core::generator::Rule</scope><name>Rule</name></member>
+      <member refid="structeu_1_1core_1_1generator_1_1Rule_1ade8830cd904a3451ce788d30a19fd37f" prot="public" virt="pure-virtual"><scope>eu::core::generator::Rule</scope><name>update</name></member>
+      <member refid="structeu_1_1core_1_1generator_1_1Rule_1a166890d09b76a20fb94005a3747251f6" prot="public" virt="virtual"><scope>eu::core::generator::Rule</scope><name>~Rule</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

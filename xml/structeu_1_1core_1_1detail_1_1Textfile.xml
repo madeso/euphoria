@@ -1,0 +1,188 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1core_1_1detail_1_1Textfile" kind="struct" language="C++" prot="public" abstract="yes">
+    <compoundname>eu::core::detail::Textfile</compoundname>
+    <derivedcompoundref refid="structeu_1_1core_1_1detail_1_1TextFileString" prot="public" virt="non-virtual">eu::core::detail::TextFileString</derivedcompoundref>
+    <includes refid="textfileparser_8h" local="no">textfileparser.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1detail_1_1Textfile_1a092dcda554b22e3ada13d0514863d435" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::core::detail::Textfile::Textfile</definition>
+        <argsstring>()=default</argsstring>
+        <name>Textfile</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textfileparser.h" line="12" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1detail_1_1Textfile_1af87f9ff683c725a0949e331cf61b0ede" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual eu::core::detail::Textfile::~Textfile</definition>
+        <argsstring>()=default</argsstring>
+        <name>~Textfile</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textfileparser.h" line="13" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1detail_1_1Textfile_1a59f813478eb55571ca90f6e3b6326d4a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::core::detail::Textfile::Textfile</definition>
+        <argsstring>(const Textfile &amp;)=delete</argsstring>
+        <name>Textfile</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1detail_1_1Textfile" kindref="compound">Textfile</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textfileparser.h" line="15" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1detail_1_1Textfile_1abab2ec9412736b27718956f9264ddcc6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::core::detail::Textfile::Textfile</definition>
+        <argsstring>(Textfile &amp;&amp;)=delete</argsstring>
+        <name>Textfile</name>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1detail_1_1Textfile" kindref="compound">Textfile</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textfileparser.h" line="16" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1detail_1_1Textfile_1a963107536e3fcac3d60aca23a9daa4c6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::detail::Textfile::operator=</definition>
+        <argsstring>(const Textfile &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1detail_1_1Textfile" kindref="compound">Textfile</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textfileparser.h" line="17" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1detail_1_1Textfile_1a7ebe06720bb345f04ca9b7d682ca8adf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::detail::Textfile::operator=</definition>
+        <argsstring>(Textfile &amp;&amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1detail_1_1Textfile" kindref="compound">Textfile</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textfileparser.h" line="18" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1detail_1_1Textfile_1aa0e4731c61c72b598fb4959c35a28e22" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>char</type>
+        <definition>char eu::core::detail::Textfile::peek</definition>
+        <argsstring>()</argsstring>
+        <name>peek</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textfileparser.h" line="20" column="18" bodyfile="libs/core/src/core/textfileparser.cc" bodystart="15" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1detail_1_1Textfile_1a91e7388bfa089425f529b0d464a45984" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>bool</type>
+        <definition>virtual bool eu::core::detail::Textfile::has_more</definition>
+        <argsstring>() const =0</argsstring>
+        <name>has_more</name>
+        <reimplementedby refid="structeu_1_1core_1_1detail_1_1TextFileString_1a81a4844fb459ea5a29bf62490197c9ad">has_more</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textfileparser.h" line="22" column="27"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1detail_1_1Textfile_1a31db6ba6d21aa22f41ee87d75fe6f06a" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>char</type>
+        <definition>virtual char eu::core::detail::Textfile::peek</definition>
+        <argsstring>(int advance)=0</argsstring>
+        <name>peek</name>
+        <reimplementedby refid="structeu_1_1core_1_1detail_1_1TextFileString_1a6e75121bfd046a1614ef67dab7cbf29d">peek</reimplementedby>
+        <param>
+          <type>int</type>
+          <declname>advance</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textfileparser.h" line="24" column="27"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1detail_1_1Textfile_1ad545747d4a16f9c1465a67c9663cab4a" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>char</type>
+        <definition>virtual char eu::core::detail::Textfile::read</definition>
+        <argsstring>()=0</argsstring>
+        <name>read</name>
+        <reimplementedby refid="structeu_1_1core_1_1detail_1_1TextFileString_1a3928596f4f9d8150678e65dfc09a8730">read</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textfileparser.h" line="25" column="27"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>eu::core::detail::Textfile</label>
+        <link refid="structeu_1_1core_1_1detail_1_1Textfile"/>
+      </node>
+      <node id="2">
+        <label>eu::core::detail::TextFileString</label>
+        <link refid="structeu_1_1core_1_1detail_1_1TextFileString"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="libs/core/src/core/textfileparser.h" line="10" column="9" bodyfile="libs/core/src/core/textfileparser.h" bodystart="11" bodyend="26"/>
+    <listofallmembers>
+      <member refid="structeu_1_1core_1_1detail_1_1Textfile_1a91e7388bfa089425f529b0d464a45984" prot="public" virt="pure-virtual"><scope>eu::core::detail::Textfile</scope><name>has_more</name></member>
+      <member refid="structeu_1_1core_1_1detail_1_1Textfile_1a963107536e3fcac3d60aca23a9daa4c6" prot="public" virt="non-virtual"><scope>eu::core::detail::Textfile</scope><name>operator=</name></member>
+      <member refid="structeu_1_1core_1_1detail_1_1Textfile_1a7ebe06720bb345f04ca9b7d682ca8adf" prot="public" virt="non-virtual"><scope>eu::core::detail::Textfile</scope><name>operator=</name></member>
+      <member refid="structeu_1_1core_1_1detail_1_1Textfile_1aa0e4731c61c72b598fb4959c35a28e22" prot="public" virt="non-virtual"><scope>eu::core::detail::Textfile</scope><name>peek</name></member>
+      <member refid="structeu_1_1core_1_1detail_1_1Textfile_1a31db6ba6d21aa22f41ee87d75fe6f06a" prot="public" virt="pure-virtual"><scope>eu::core::detail::Textfile</scope><name>peek</name></member>
+      <member refid="structeu_1_1core_1_1detail_1_1Textfile_1ad545747d4a16f9c1465a67c9663cab4a" prot="public" virt="pure-virtual"><scope>eu::core::detail::Textfile</scope><name>read</name></member>
+      <member refid="structeu_1_1core_1_1detail_1_1Textfile_1a092dcda554b22e3ada13d0514863d435" prot="public" virt="non-virtual"><scope>eu::core::detail::Textfile</scope><name>Textfile</name></member>
+      <member refid="structeu_1_1core_1_1detail_1_1Textfile_1a59f813478eb55571ca90f6e3b6326d4a" prot="public" virt="non-virtual"><scope>eu::core::detail::Textfile</scope><name>Textfile</name></member>
+      <member refid="structeu_1_1core_1_1detail_1_1Textfile_1abab2ec9412736b27718956f9264ddcc6" prot="public" virt="non-virtual"><scope>eu::core::detail::Textfile</scope><name>Textfile</name></member>
+      <member refid="structeu_1_1core_1_1detail_1_1Textfile_1af87f9ff683c725a0949e331cf61b0ede" prot="public" virt="virtual"><scope>eu::core::detail::Textfile</scope><name>~Textfile</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

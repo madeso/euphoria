@@ -1,0 +1,174 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1core_1_1Rgbi" kind="struct" language="C++" prot="public">
+    <compoundname>eu::core::Rgbi</compoundname>
+    <includes refid="rgb_8h" local="no">rgb.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1core_1_1Rgbi_1a8c65eda8a17b91df8e98c671d72ec305" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeu_1_1core_1a359b6ab0e11d1d70bf85d3135f625b81" kindref="member">U8</ref></type>
+        <definition>U8 eu::core::Rgbi::r</definition>
+        <argsstring></argsstring>
+        <name>r</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/rgb.h" line="27" column="12" bodyfile="libs/core/src/core/rgb.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1Rgbi_1a615d4aa42ae0a2cff612f0e19fb9559d" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeu_1_1core_1a359b6ab0e11d1d70bf85d3135f625b81" kindref="member">U8</ref></type>
+        <definition>U8 eu::core::Rgbi::g</definition>
+        <argsstring></argsstring>
+        <name>g</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/rgb.h" line="28" column="12" bodyfile="libs/core/src/core/rgb.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1Rgbi_1aa5c5641671fd7ca96091959642a48bc6" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeu_1_1core_1a359b6ab0e11d1d70bf85d3135f625b81" kindref="member">U8</ref></type>
+        <definition>U8 eu::core::Rgbi::b</definition>
+        <argsstring></argsstring>
+        <name>b</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/rgb.h" line="29" column="12" bodyfile="libs/core/src/core/rgb.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1Rgbi_1af2c4f1de8250abd32d7808e4bfa9b2a6" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>constexpr</type>
+        <definition>constexpr eu::core::Rgbi::Rgbi</definition>
+        <argsstring>(U8 red, U8 green, U8 blue)</argsstring>
+        <name>Rgbi</name>
+        <param>
+          <type><ref refid="namespaceeu_1_1core_1a359b6ab0e11d1d70bf85d3135f625b81" kindref="member">U8</ref></type>
+          <declname>red</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceeu_1_1core_1a359b6ab0e11d1d70bf85d3135f625b81" kindref="member">U8</ref></type>
+          <declname>green</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceeu_1_1core_1a359b6ab0e11d1d70bf85d3135f625b81" kindref="member">U8</ref></type>
+          <declname>blue</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/rgb.h" line="31" column="19" bodyfile="libs/core/src/core/rgb.h" bodystart="345" bodyend="348"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1Rgbi_1adf938d8036168159e1af97331c881c4d" prot="public" static="no" constexpr="yes" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type>constexpr</type>
+        <definition>constexpr eu::core::Rgbi::Rgbi</definition>
+        <argsstring>(U8 gray)</argsstring>
+        <name>Rgbi</name>
+        <param>
+          <type><ref refid="namespaceeu_1_1core_1a359b6ab0e11d1d70bf85d3135f625b81" kindref="member">U8</ref></type>
+          <declname>gray</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/rgb.h" line="32" column="28" bodyfile="libs/core/src/core/rgb.h" bodystart="352" bodyend="355"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1Rgbi_1ae70bc1103a781012983703e93a9d842c" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>constexpr</type>
+        <definition>constexpr eu::core::Rgbi::Rgbi</definition>
+        <argsstring>(NamedColor color)</argsstring>
+        <name>Rgbi</name>
+        <param>
+          <type><ref refid="namespaceeu_1_1core_1acc82ad41a2d08ca1285b4c68238fa544" kindref="member">NamedColor</ref></type>
+          <declname>color</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/rgb.h" line="33" column="19" bodyfile="libs/core/src/core/rgb.h" bodystart="359" bodyend="362"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1Rgbi_1ac681f171c6fe8ffd0d8a2cfd2a0de4dc" prot="public" static="no" constexpr="yes" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type>constexpr</type>
+        <definition>constexpr eu::core::Rgbi::Rgbi</definition>
+        <argsstring>(const Rgb &amp;c)</argsstring>
+        <name>Rgbi</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1Rgb" kindref="compound">Rgb</ref> &amp;</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/rgb.h" line="34" column="28" bodyfile="libs/core/src/core/rgb.h" bodystart="366" bodyend="370"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1Rgbi_1a47192468802b91d8a56ac46989c417f1" prot="public" static="no" constexpr="yes" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>constexpr int</type>
+        <definition>constexpr int eu::core::Rgbi::to_hex</definition>
+        <argsstring>() const</argsstring>
+        <name>to_hex</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/rgb.h" line="37" column="24" bodyfile="libs/core/src/core/rgb.h" bodystart="387" bodyend="391"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1Rgbi_1a7813986992e1aaf794ab403d5c35a125" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>constexpr static <ref refid="structeu_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref></type>
+        <definition>constexpr Rgbi eu::core::Rgbi::from_hex</definition>
+        <argsstring>(unsigned int hex)</argsstring>
+        <name>from_hex</name>
+        <param>
+          <type>unsigned int</type>
+          <declname>hex</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/rgb.h" line="36" column="32" bodyfile="libs/core/src/core/rgb.h" bodystart="374" bodyend="382"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/rgb.h" line="25" column="5" bodyfile="libs/core/src/core/rgb.h" bodystart="26" bodyend="38"/>
+    <listofallmembers>
+      <member refid="structeu_1_1core_1_1Rgbi_1aa5c5641671fd7ca96091959642a48bc6" prot="public" virt="non-virtual"><scope>eu::core::Rgbi</scope><name>b</name></member>
+      <member refid="structeu_1_1core_1_1Rgbi_1a7813986992e1aaf794ab403d5c35a125" prot="public" virt="non-virtual"><scope>eu::core::Rgbi</scope><name>from_hex</name></member>
+      <member refid="structeu_1_1core_1_1Rgbi_1a615d4aa42ae0a2cff612f0e19fb9559d" prot="public" virt="non-virtual"><scope>eu::core::Rgbi</scope><name>g</name></member>
+      <member refid="structeu_1_1core_1_1Rgbi_1a8c65eda8a17b91df8e98c671d72ec305" prot="public" virt="non-virtual"><scope>eu::core::Rgbi</scope><name>r</name></member>
+      <member refid="structeu_1_1core_1_1Rgbi_1af2c4f1de8250abd32d7808e4bfa9b2a6" prot="public" virt="non-virtual"><scope>eu::core::Rgbi</scope><name>Rgbi</name></member>
+      <member refid="structeu_1_1core_1_1Rgbi_1adf938d8036168159e1af97331c881c4d" prot="public" virt="non-virtual"><scope>eu::core::Rgbi</scope><name>Rgbi</name></member>
+      <member refid="structeu_1_1core_1_1Rgbi_1ae70bc1103a781012983703e93a9d842c" prot="public" virt="non-virtual"><scope>eu::core::Rgbi</scope><name>Rgbi</name></member>
+      <member refid="structeu_1_1core_1_1Rgbi_1ac681f171c6fe8ffd0d8a2cfd2a0de4dc" prot="public" virt="non-virtual"><scope>eu::core::Rgbi</scope><name>Rgbi</name></member>
+      <member refid="structeu_1_1core_1_1Rgbi_1a47192468802b91d8a56ac46989c417f1" prot="public" virt="non-virtual"><scope>eu::core::Rgbi</scope><name>to_hex</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

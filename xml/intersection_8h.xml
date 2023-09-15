@@ -157,10 +157,10 @@
         <link refid="intersection_8cc"/>
       </node>
     </invincdepgraph>
-    <innerclass refid="structeuphoria_1_1core_1_1Ray2Ray2Result" prot="public">euphoria::core::Ray2Ray2Result</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1Ray3AabbResult" prot="public">euphoria::core::Ray3AabbResult</innerclass>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
+    <innerclass refid="structeu_1_1core_1_1Ray2Ray2Result" prot="public">eu::core::Ray2Ray2Result</innerclass>
+    <innerclass refid="structeu_1_1core_1_1Ray3AabbResult" prot="public">eu::core::Ray3AabbResult</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

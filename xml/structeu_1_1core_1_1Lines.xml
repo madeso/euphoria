@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1core_1_1Lines" kind="struct" language="C++" prot="public">
+    <compoundname>eu::core::Lines</compoundname>
+    <includes refid="lines_8h" local="no">lines.h</includes>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="structeu_1_1core_1_1Lines_1ad18141ba3e232b163b6c93b1f71e951e" prot="public" static="no">
+        <type>std::tuple&lt; int, int &gt;</type>
+        <definition>using eu::core::Lines::FromToIndices =  std::tuple&lt;int, int&gt;</definition>
+        <argsstring></argsstring>
+        <name>FromToIndices</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/lines.h" line="22" column="9" bodyfile="libs/core/src/core/lines.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1core_1_1Lines_1aecf315e6dbbea1407472e222aea09133" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structeu_1_1core_1_1LinePoint" kindref="compound">LinePoint</ref> &gt;</type>
+        <definition>std::vector&lt;LinePoint&gt; eu::core::Lines::points</definition>
+        <argsstring></argsstring>
+        <name>points</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/lines.h" line="24" column="21" bodyfile="libs/core/src/core/lines.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1Lines_1aadb1bfaa4f64cb0e93ac4f64f03ec342" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structeu_1_1core_1_1Lines_1ad18141ba3e232b163b6c93b1f71e951e" kindref="member">FromToIndices</ref> &gt;</type>
+        <definition>std::vector&lt;FromToIndices&gt; eu::core::Lines::indices</definition>
+        <argsstring></argsstring>
+        <name>indices</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/lines.h" line="25" column="21" bodyfile="libs/core/src/core/lines.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1Lines_1a76c460227d057604695922a63405cead" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::Lines::add_line</definition>
+        <argsstring>(const vec3f &amp;from, const vec3f &amp;to, const Rgb &amp;c)</argsstring>
+        <name>add_line</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
+          <declname>from</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
+          <declname>to</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1Rgb" kindref="compound">Rgb</ref> &amp;</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/lines.h" line="27" column="14" bodyfile="libs/core/src/core/lines.cc" bodystart="14" bodyend="20"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/lines.h" line="20" column="5" bodyfile="libs/core/src/core/lines.h" bodystart="21" bodyend="28"/>
+    <listofallmembers>
+      <member refid="structeu_1_1core_1_1Lines_1a76c460227d057604695922a63405cead" prot="public" virt="non-virtual"><scope>eu::core::Lines</scope><name>add_line</name></member>
+      <member refid="structeu_1_1core_1_1Lines_1ad18141ba3e232b163b6c93b1f71e951e" prot="public" virt="non-virtual"><scope>eu::core::Lines</scope><name>FromToIndices</name></member>
+      <member refid="structeu_1_1core_1_1Lines_1aadb1bfaa4f64cb0e93ac4f64f03ec342" prot="public" virt="non-virtual"><scope>eu::core::Lines</scope><name>indices</name></member>
+      <member refid="structeu_1_1core_1_1Lines_1aecf315e6dbbea1407472e222aea09133" prot="public" virt="non-virtual"><scope>eu::core::Lines</scope><name>points</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

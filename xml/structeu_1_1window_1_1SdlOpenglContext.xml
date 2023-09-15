@@ -1,0 +1,134 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1window_1_1SdlOpenglContext" kind="struct" language="C++" prot="public">
+    <compoundname>eu::window::SdlOpenglContext</compoundname>
+    <includes refid="sdlglcontext_8h" local="no">sdlglcontext.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1window_1_1SdlOpenglContext_1a6b48318c9c28080bf76f850a2665d5ed" prot="public" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void* eu::window::SdlOpenglContext::context</definition>
+        <argsstring></argsstring>
+        <name>context</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/window/src/window/sdlglcontext.h" line="19" column="14" bodyfile="libs/window/src/window/sdlglcontext.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1window_1_1SdlOpenglContext_1aaa009c94979a51c55b0fd1df57579d4d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::window::SdlOpenglContext::SdlOpenglContext</definition>
+        <argsstring>(SdlWindow *window)</argsstring>
+        <name>SdlOpenglContext</name>
+        <param>
+          <type><ref refid="structeu_1_1window_1_1SdlWindow" kindref="compound">SdlWindow</ref> *</type>
+          <declname>window</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/window/src/window/sdlglcontext.h" line="11" column="9" bodyfile="libs/window/src/window/sdlglcontext.cc" bodystart="12" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1window_1_1SdlOpenglContext_1ad4c9c1b9e8e541cc6f44e229e00201d9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::window::SdlOpenglContext::~SdlOpenglContext</definition>
+        <argsstring>()</argsstring>
+        <name>~SdlOpenglContext</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/window/src/window/sdlglcontext.h" line="12" column="9" bodyfile="libs/window/src/window/sdlglcontext.cc" bodystart="22" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1window_1_1SdlOpenglContext_1a0f7b478adef5c06b22e5ba98dbf6de0b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::window::SdlOpenglContext::SdlOpenglContext</definition>
+        <argsstring>(const SdlOpenglContext &amp;other)=delete</argsstring>
+        <name>SdlOpenglContext</name>
+        <param>
+          <type>const <ref refid="structeu_1_1window_1_1SdlOpenglContext" kindref="compound">SdlOpenglContext</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/window/src/window/sdlglcontext.h" line="14" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1window_1_1SdlOpenglContext_1a145c0cf5e5c00f3490f6bca80a92f858" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::window::SdlOpenglContext::operator=</definition>
+        <argsstring>(const SdlOpenglContext &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="structeu_1_1window_1_1SdlOpenglContext" kindref="compound">SdlOpenglContext</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/window/src/window/sdlglcontext.h" line="15" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1window_1_1SdlOpenglContext_1aae823a3d663b08be604a775536f43b0c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::window::SdlOpenglContext::SdlOpenglContext</definition>
+        <argsstring>(SdlOpenglContext &amp;&amp;other)=delete</argsstring>
+        <name>SdlOpenglContext</name>
+        <param>
+          <type><ref refid="structeu_1_1window_1_1SdlOpenglContext" kindref="compound">SdlOpenglContext</ref> &amp;&amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/window/src/window/sdlglcontext.h" line="16" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1window_1_1SdlOpenglContext_1a489eea3ea84efe6a72a373d7f31db287" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::window::SdlOpenglContext::operator=</definition>
+        <argsstring>(SdlOpenglContext &amp;&amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="structeu_1_1window_1_1SdlOpenglContext" kindref="compound">SdlOpenglContext</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/window/src/window/sdlglcontext.h" line="17" column="14"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/window/src/window/sdlglcontext.h" line="8" column="5" bodyfile="libs/window/src/window/sdlglcontext.h" bodystart="9" bodyend="20"/>
+    <listofallmembers>
+      <member refid="structeu_1_1window_1_1SdlOpenglContext_1a6b48318c9c28080bf76f850a2665d5ed" prot="public" virt="non-virtual"><scope>eu::window::SdlOpenglContext</scope><name>context</name></member>
+      <member refid="structeu_1_1window_1_1SdlOpenglContext_1a145c0cf5e5c00f3490f6bca80a92f858" prot="public" virt="non-virtual"><scope>eu::window::SdlOpenglContext</scope><name>operator=</name></member>
+      <member refid="structeu_1_1window_1_1SdlOpenglContext_1a489eea3ea84efe6a72a373d7f31db287" prot="public" virt="non-virtual"><scope>eu::window::SdlOpenglContext</scope><name>operator=</name></member>
+      <member refid="structeu_1_1window_1_1SdlOpenglContext_1aaa009c94979a51c55b0fd1df57579d4d" prot="public" virt="non-virtual"><scope>eu::window::SdlOpenglContext</scope><name>SdlOpenglContext</name></member>
+      <member refid="structeu_1_1window_1_1SdlOpenglContext_1a0f7b478adef5c06b22e5ba98dbf6de0b" prot="public" virt="non-virtual"><scope>eu::window::SdlOpenglContext</scope><name>SdlOpenglContext</name></member>
+      <member refid="structeu_1_1window_1_1SdlOpenglContext_1aae823a3d663b08be604a775536f43b0c" prot="public" virt="non-virtual"><scope>eu::window::SdlOpenglContext</scope><name>SdlOpenglContext</name></member>
+      <member refid="structeu_1_1window_1_1SdlOpenglContext_1ad4c9c1b9e8e541cc6f44e229e00201d9" prot="public" virt="non-virtual"><scope>eu::window::SdlOpenglContext</scope><name>~SdlOpenglContext</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

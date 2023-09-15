@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1core_1_1Cache" kind="struct" language="C++" prot="public">
+    <compoundname>eu::core::Cache</compoundname>
+    <includes refid="cache_8h" local="no">cache.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename TKey</type>
+      </param>
+      <param>
+        <type>typename TData</type>
+      </param>
+      <param>
+        <type>typename TLoader</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1core_1_1Cache_1ac9106d4936a6d02ed6757cf6d7a4a599" prot="public" static="no" mutable="no">
+        <type>std::map&lt; TKey, std::weak_ptr&lt; TData &gt; &gt;</type>
+        <definition>std::map&lt;TKey, std::weak_ptr&lt;TData&gt; &gt; eu::core::Cache&lt; TKey, TData, TLoader &gt;::store</definition>
+        <argsstring></argsstring>
+        <name>store</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/cache.h" line="16" column="18" bodyfile="libs/core/src/core/cache.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1Cache_1adb88227ec9d4e11cba555ed61f01da1d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::shared_ptr&lt; TData &gt;</type>
+        <definition>std::shared_ptr&lt;TData&gt; eu::core::Cache&lt; TKey, TData, TLoader &gt;::get</definition>
+        <argsstring>(const TKey &amp;key)</argsstring>
+        <name>get</name>
+        <param>
+          <type>const TKey &amp;</type>
+          <declname>key</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/cache.h" line="18" column="25" bodyfile="libs/core/src/core/cache.h" bodystart="18" bodyend="37"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/cache.h" line="14" column="5" bodyfile="libs/core/src/core/cache.h" bodystart="15" bodyend="38"/>
+    <listofallmembers>
+      <member refid="structeu_1_1core_1_1Cache_1adb88227ec9d4e11cba555ed61f01da1d" prot="public" virt="non-virtual"><scope>eu::core::Cache</scope><name>get</name></member>
+      <member refid="structeu_1_1core_1_1Cache_1ac9106d4936a6d02ed6757cf6d7a4a599" prot="public" virt="non-virtual"><scope>eu::core::Cache</scope><name>store</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

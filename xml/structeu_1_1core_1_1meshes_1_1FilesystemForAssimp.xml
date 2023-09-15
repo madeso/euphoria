@@ -1,0 +1,168 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1core_1_1meshes_1_1FilesystemForAssimp" kind="struct" language="C++" prot="public">
+    <compoundname>eu::core::meshes::FilesystemForAssimp</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Assimp::IOSystem</basecompoundref>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1core_1_1meshes_1_1FilesystemForAssimp_1a431a9b61131c9b23a1bd89e9dfabbc0a" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1core_1_1vfs_1_1FileSystem" kindref="compound">vfs::FileSystem</ref> *</type>
+        <definition>vfs::FileSystem* eu::core::meshes::FilesystemForAssimp::file_system</definition>
+        <argsstring></argsstring>
+        <name>file_system</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/mesh.cc" line="594" column="29" bodyfile="libs/core/src/core/mesh.cc" bodystart="594" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1meshes_1_1FilesystemForAssimp_1a33ec9b9b28ff60f921d032dd890281ee" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>eu::core::meshes::FilesystemForAssimp::FilesystemForAssimp</definition>
+        <argsstring>(vfs::FileSystem *fs)</argsstring>
+        <name>FilesystemForAssimp</name>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1vfs_1_1FileSystem" kindref="compound">vfs::FileSystem</ref> *</type>
+          <declname>fs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/mesh.cc" line="596" column="13" bodyfile="libs/core/src/core/mesh.cc" bodystart="596" bodyend="599"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1meshes_1_1FilesystemForAssimp_1a3110439a4f2400bce8391ef78bed19f2" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool eu::core::meshes::FilesystemForAssimp::Exists</definition>
+        <argsstring>(const char *file) const override</argsstring>
+        <name>Exists</name>
+        <param>
+          <type>const char *</type>
+          <declname>file</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/mesh.cc" line="601" column="18" bodyfile="libs/core/src/core/mesh.cc" bodystart="601" bodyend="605"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1meshes_1_1FilesystemForAssimp_1a455a772a3f8cd293f782a37c49ef7f6f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>char</type>
+        <definition>char eu::core::meshes::FilesystemForAssimp::getOsSeparator</definition>
+        <argsstring>() const override</argsstring>
+        <name>getOsSeparator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/mesh.cc" line="607" column="19" bodyfile="libs/core/src/core/mesh.cc" bodystart="607" bodyend="610"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1meshes_1_1FilesystemForAssimp_1a1b2e02fbd470b2f4b745ec57269ab921" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Assimp::IOStream *</type>
+        <definition>Assimp::IOStream* eu::core::meshes::FilesystemForAssimp::Open</definition>
+        <argsstring>(const char *file, const char *mode_cstr) override</argsstring>
+        <name>Open</name>
+        <param>
+          <type>const char *</type>
+          <declname>file</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>mode_cstr</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/mesh.cc" line="612" column="30" bodyfile="libs/core/src/core/mesh.cc" bodystart="612" bodyend="625"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1meshes_1_1FilesystemForAssimp_1a355813fbeb9e7478aeafdffb305eeb9d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::meshes::FilesystemForAssimp::Close</definition>
+        <argsstring>(Assimp::IOStream *file) override</argsstring>
+        <name>Close</name>
+        <param>
+          <type>Assimp::IOStream *</type>
+          <declname>file</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/mesh.cc" line="627" column="18" bodyfile="libs/core/src/core/mesh.cc" bodystart="627" bodyend="630"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1meshes_1_1FilesystemForAssimp_1a9cd37bb61e32e1ab410a3e1e8ac7ddc4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool eu::core::meshes::FilesystemForAssimp::DeleteFile</definition>
+        <argsstring>(const std::string &amp;) override</argsstring>
+        <name>DeleteFile</name>
+        <param>
+          <type>const std::string &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/mesh.cc" line="632" column="18" bodyfile="libs/core/src/core/mesh.cc" bodystart="632" bodyend="635"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>eu::core::meshes::FilesystemForAssimp</label>
+        <link refid="structeu_1_1core_1_1meshes_1_1FilesystemForAssimp"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Assimp::IOSystem</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>eu::core::meshes::FilesystemForAssimp</label>
+        <link refid="structeu_1_1core_1_1meshes_1_1FilesystemForAssimp"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>file_system</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>eu::core::vfs::FileSystem</label>
+        <link refid="structeu_1_1core_1_1vfs_1_1FileSystem"/>
+      </node>
+      <node id="2">
+        <label>Assimp::IOSystem</label>
+      </node>
+    </collaborationgraph>
+    <location file="libs/core/src/core/mesh.cc" line="592" column="9" bodyfile="libs/core/src/core/mesh.cc" bodystart="593" bodyend="636"/>
+    <listofallmembers>
+      <member refid="structeu_1_1core_1_1meshes_1_1FilesystemForAssimp_1a355813fbeb9e7478aeafdffb305eeb9d" prot="public" virt="non-virtual"><scope>eu::core::meshes::FilesystemForAssimp</scope><name>Close</name></member>
+      <member refid="structeu_1_1core_1_1meshes_1_1FilesystemForAssimp_1a9cd37bb61e32e1ab410a3e1e8ac7ddc4" prot="public" virt="non-virtual"><scope>eu::core::meshes::FilesystemForAssimp</scope><name>DeleteFile</name></member>
+      <member refid="structeu_1_1core_1_1meshes_1_1FilesystemForAssimp_1a3110439a4f2400bce8391ef78bed19f2" prot="public" virt="non-virtual"><scope>eu::core::meshes::FilesystemForAssimp</scope><name>Exists</name></member>
+      <member refid="structeu_1_1core_1_1meshes_1_1FilesystemForAssimp_1a431a9b61131c9b23a1bd89e9dfabbc0a" prot="public" virt="non-virtual"><scope>eu::core::meshes::FilesystemForAssimp</scope><name>file_system</name></member>
+      <member refid="structeu_1_1core_1_1meshes_1_1FilesystemForAssimp_1a33ec9b9b28ff60f921d032dd890281ee" prot="public" virt="non-virtual"><scope>eu::core::meshes::FilesystemForAssimp</scope><name>FilesystemForAssimp</name></member>
+      <member refid="structeu_1_1core_1_1meshes_1_1FilesystemForAssimp_1a455a772a3f8cd293f782a37c49ef7f6f" prot="public" virt="non-virtual"><scope>eu::core::meshes::FilesystemForAssimp</scope><name>getOsSeparator</name></member>
+      <member refid="structeu_1_1core_1_1meshes_1_1FilesystemForAssimp_1a1b2e02fbd470b2f4b745ec57269ab921" prot="public" virt="non-virtual"><scope>eu::core::meshes::FilesystemForAssimp</scope><name>Open</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

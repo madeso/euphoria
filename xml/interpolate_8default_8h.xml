@@ -1950,9 +1950,9 @@
         <link refid="materialshader_8cc"/>
       </node>
     </invincdepgraph>
-    <innerclass refid="structeuphoria_1_1core_1_1InterpolateDefault" prot="public">euphoria::core::InterpolateDefault</innerclass>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
+    <innerclass refid="structeu_1_1core_1_1InterpolateDefault" prot="public">eu::core::InterpolateDefault</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
       <sectiondef kind="define">
       <memberdef kind="define" id="interpolate_8default_8h_1afc88b34a7d075bd3aee47cbe9d8bbffb" prot="public" static="no">
         <name>DEFAULT_INTERPOLATE</name>

@@ -1,0 +1,130 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1render_1_1PositionedLines" kind="struct" language="C++" prot="public">
+    <compoundname>eu::render::PositionedLines</compoundname>
+    <basecompoundref refid="structeu_1_1render_1_1Instance" prot="public" virt="non-virtual">eu::render::Instance</basecompoundref>
+    <includes refid="positionedlines_8h" local="no">positionedlines.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1render_1_1PositionedLines_1a86549ade1d7f4097fd647b48144f5419" prot="public" static="no" mutable="no">
+        <type>std::shared_ptr&lt; <ref refid="structeu_1_1render_1_1CompiledLines" kindref="compound">CompiledLines</ref> &gt;</type>
+        <definition>std::shared_ptr&lt;CompiledLines&gt; eu::render::PositionedLines::lines</definition>
+        <argsstring></argsstring>
+        <name>lines</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/positionedlines.h" line="23" column="25" bodyfile="libs/render/src/render/positionedlines.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1render_1_1PositionedLines_1afa989fced67bc239191ce7be4ca87572" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::PositionedLines::PositionedLines</definition>
+        <argsstring>(const std::shared_ptr&lt; CompiledLines &gt; &amp;alines)</argsstring>
+        <name>PositionedLines</name>
+        <param>
+          <type>const std::shared_ptr&lt; <ref refid="structeu_1_1render_1_1CompiledLines" kindref="compound">CompiledLines</ref> &gt; &amp;</type>
+          <declname>alines</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/positionedlines.h" line="12" column="9" bodyfile="libs/render/src/render/positionedlines.cc" bodystart="8" bodyend="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1PositionedLines_1af68076dea0b4a779d7f6827e045c3b28" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void eu::render::PositionedLines::render</definition>
+        <argsstring>(const core::mat4f &amp;projection_matrix, const core::mat4f &amp;view_matrix, const core::vec3f &amp;camera, const render::Light &amp;light) override</argsstring>
+        <name>render</name>
+        <reimplements refid="structeu_1_1render_1_1Instance_1a1c652df1886f046c11df6f351fcdc474">render</reimplements>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1mat4f" kindref="compound">core::mat4f</ref> &amp;</type>
+          <declname>projection_matrix</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1mat4f" kindref="compound">core::mat4f</ref> &amp;</type>
+          <declname>view_matrix</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1vec3f" kindref="compound">core::vec3f</ref> &amp;</type>
+          <declname>camera</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1render_1_1Light" kindref="compound">render::Light</ref> &amp;</type>
+          <declname>light</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/positionedlines.h" line="15" column="9" bodyfile="libs/render/src/render/positionedlines.cc" bodystart="18" bodyend="31"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>eu::render::Instance</label>
+        <link refid="structeu_1_1render_1_1Instance"/>
+      </node>
+      <node id="1">
+        <label>eu::render::PositionedLines</label>
+        <link refid="structeu_1_1render_1_1PositionedLines"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>eu::core::quatf</label>
+        <link refid="structeu_1_1core_1_1quatf"/>
+      </node>
+      <node id="2">
+        <label>eu::render::Instance</label>
+        <link refid="structeu_1_1render_1_1Instance"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>rotation</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>position</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>eu::render::PositionedLines</label>
+        <link refid="structeu_1_1render_1_1PositionedLines"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>eu::core::vec3f</label>
+        <link refid="structeu_1_1core_1_1vec3f"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/render/src/render/positionedlines.h" line="10" column="5" bodyfile="libs/render/src/render/positionedlines.h" bodystart="11" bodyend="24"/>
+    <listofallmembers>
+      <member refid="structeu_1_1render_1_1Instance_1a3aff8f0109d0366c1fa6e3d4f21cfba2" prot="public" virt="non-virtual"><scope>eu::render::PositionedLines</scope><name>calc_model_matrix</name></member>
+      <member refid="structeu_1_1render_1_1Instance_1a7d4b8c1d8a999492bbd8ce7bcd015e7b" prot="public" virt="non-virtual"><scope>eu::render::PositionedLines</scope><name>Instance</name></member>
+      <member refid="structeu_1_1render_1_1Instance_1a157fd9a8006146da8bd41ef08eff9ac4" prot="public" virt="non-virtual"><scope>eu::render::PositionedLines</scope><name>Instance</name></member>
+      <member refid="structeu_1_1render_1_1Instance_1a573e014f37ed01c10fb4946385d39c79" prot="public" virt="non-virtual"><scope>eu::render::PositionedLines</scope><name>Instance</name></member>
+      <member refid="structeu_1_1render_1_1PositionedLines_1a86549ade1d7f4097fd647b48144f5419" prot="public" virt="non-virtual"><scope>eu::render::PositionedLines</scope><name>lines</name></member>
+      <member refid="structeu_1_1render_1_1Instance_1afa61c41b025df6775f483aaa4a77e1b4" prot="public" virt="non-virtual"><scope>eu::render::PositionedLines</scope><name>operator=</name></member>
+      <member refid="structeu_1_1render_1_1Instance_1a27ca8b1f49de66f681555b8a69c372a1" prot="public" virt="non-virtual"><scope>eu::render::PositionedLines</scope><name>operator=</name></member>
+      <member refid="structeu_1_1render_1_1Instance_1ac8c1a3943a832e735cc230a0a0ec1105" prot="public" virt="non-virtual"><scope>eu::render::PositionedLines</scope><name>position</name></member>
+      <member refid="structeu_1_1render_1_1PositionedLines_1afa989fced67bc239191ce7be4ca87572" prot="public" virt="non-virtual"><scope>eu::render::PositionedLines</scope><name>PositionedLines</name></member>
+      <member refid="structeu_1_1render_1_1Instance_1ad68aa24c7baaf6b1ea0009105198860a" prot="public" virt="non-virtual"><scope>eu::render::PositionedLines</scope><name>remove_this</name></member>
+      <member refid="structeu_1_1render_1_1PositionedLines_1af68076dea0b4a779d7f6827e045c3b28" prot="public" virt="virtual"><scope>eu::render::PositionedLines</scope><name>render</name></member>
+      <member refid="structeu_1_1render_1_1Instance_1ab7038a64df17d999694f846235cbc21a" prot="public" virt="non-virtual"><scope>eu::render::PositionedLines</scope><name>rotation</name></member>
+      <member refid="structeu_1_1render_1_1Instance_1a10320da7995e89a0ed412e432dcc1f75" prot="public" virt="virtual"><scope>eu::render::PositionedLines</scope><name>~Instance</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

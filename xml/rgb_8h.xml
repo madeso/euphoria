@@ -951,29 +951,29 @@
         <link refid="materialshader_8cc"/>
       </node>
     </invincdepgraph>
-    <innerclass refid="structeuphoria_1_1core_1_1Rgbi" prot="public">euphoria::core::Rgbi</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1Rgbai" prot="public">euphoria::core::Rgbai</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1Rgb" prot="public">euphoria::core::Rgb</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1Hsl" prot="public">euphoria::core::Hsl</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1Rgba" prot="public">euphoria::core::Rgba</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1CustomArgparser_3_01Rgbi_01_4" prot="public">euphoria::core::CustomArgparser&lt; Rgbi &gt;</innerclass>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1core_1_1colorutil">euphoria::core::colorutil</innernamespace>
+    <innerclass refid="structeu_1_1core_1_1Rgbi" prot="public">eu::core::Rgbi</innerclass>
+    <innerclass refid="structeu_1_1core_1_1Rgbai" prot="public">eu::core::Rgbai</innerclass>
+    <innerclass refid="structeu_1_1core_1_1Rgb" prot="public">eu::core::Rgb</innerclass>
+    <innerclass refid="structeu_1_1core_1_1Hsl" prot="public">eu::core::Hsl</innerclass>
+    <innerclass refid="structeu_1_1core_1_1Rgba" prot="public">eu::core::Rgba</innerclass>
+    <innerclass refid="structeu_1_1core_1_1CustomArgparser_3_01Rgbi_01_4" prot="public">eu::core::CustomArgparser&lt; Rgbi &gt;</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core_1_1colorutil">eu::core::colorutil</innernamespace>
       <sectiondef kind="func">
-      <memberdef kind="function" id="rgb_8h_1a628ffa91208747f79220f02acdf34d47" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="rgb_8h_1a645a7a4c51d04eb20b3bfb4214fb19b8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>ADD_DEFAULT_FORMATTER</definition>
-        <argsstring>(euphoria::core::Rgbi, std::string, euphoria::core::to_string)</argsstring>
+        <argsstring>(eu::core::Rgbi, std::string, eu::core::to_string)</argsstring>
         <name>ADD_DEFAULT_FORMATTER</name>
         <param>
-          <type><ref refid="structeuphoria_1_1core_1_1Rgbi" kindref="compound">euphoria::core::Rgbi</ref></type>
+          <type><ref refid="structeu_1_1core_1_1Rgbi" kindref="compound">eu::core::Rgbi</ref></type>
         </param>
         <param>
           <type>std::string</type>
         </param>
         <param>
-          <type><ref refid="namespaceeuphoria_1_1core_1a8596fa3efb42bc0ad86b46183bc305d3" kindref="member">euphoria::core::to_string</ref></type>
+          <type><ref refid="namespaceeu_1_1core_1abb347a6e512d991e31badda3ce5fef91" kindref="member">eu::core::to_string</ref></type>
         </param>
         <briefdescription>
         </briefdescription>
@@ -983,19 +983,19 @@
         </inbodydescription>
         <location file="libs/core/src/core/rgb.h" line="425" column="1" declfile="libs/core/src/core/rgb.h" declline="425" declcolumn="1"/>
       </memberdef>
-      <memberdef kind="function" id="rgb_8h_1a7f82da6dc752de34c067b60097f18e31" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="rgb_8h_1a3df19dfc25bfdb0215a4b4d3b574f6bd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>ADD_DEFAULT_FORMATTER</definition>
-        <argsstring>(euphoria::core::Rgbai, std::string, euphoria::core::to_string)</argsstring>
+        <argsstring>(eu::core::Rgbai, std::string, eu::core::to_string)</argsstring>
         <name>ADD_DEFAULT_FORMATTER</name>
         <param>
-          <type><ref refid="structeuphoria_1_1core_1_1Rgbai" kindref="compound">euphoria::core::Rgbai</ref></type>
+          <type><ref refid="structeu_1_1core_1_1Rgbai" kindref="compound">eu::core::Rgbai</ref></type>
         </param>
         <param>
           <type>std::string</type>
         </param>
         <param>
-          <type><ref refid="namespaceeuphoria_1_1core_1a8596fa3efb42bc0ad86b46183bc305d3" kindref="member">euphoria::core::to_string</ref></type>
+          <type><ref refid="namespaceeu_1_1core_1abb347a6e512d991e31badda3ce5fef91" kindref="member">eu::core::to_string</ref></type>
         </param>
         <briefdescription>
         </briefdescription>
@@ -1005,19 +1005,19 @@
         </inbodydescription>
         <location file="libs/core/src/core/rgb.h" line="426" column="1" declfile="libs/core/src/core/rgb.h" declline="426" declcolumn="1"/>
       </memberdef>
-      <memberdef kind="function" id="rgb_8h_1a3479fabb48f153fa6dddb147d19b3829" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="rgb_8h_1a1c065bd95cd66e9dc0c978bdf33e5621" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>ADD_DEFAULT_FORMATTER</definition>
-        <argsstring>(euphoria::core::Rgb, std::string, euphoria::core::to_string)</argsstring>
+        <argsstring>(eu::core::Rgb, std::string, eu::core::to_string)</argsstring>
         <name>ADD_DEFAULT_FORMATTER</name>
         <param>
-          <type><ref refid="structeuphoria_1_1core_1_1Rgb" kindref="compound">euphoria::core::Rgb</ref></type>
+          <type><ref refid="structeu_1_1core_1_1Rgb" kindref="compound">eu::core::Rgb</ref></type>
         </param>
         <param>
           <type>std::string</type>
         </param>
         <param>
-          <type><ref refid="namespaceeuphoria_1_1core_1a8596fa3efb42bc0ad86b46183bc305d3" kindref="member">euphoria::core::to_string</ref></type>
+          <type><ref refid="namespaceeu_1_1core_1abb347a6e512d991e31badda3ce5fef91" kindref="member">eu::core::to_string</ref></type>
         </param>
         <briefdescription>
         </briefdescription>
@@ -1027,19 +1027,19 @@
         </inbodydescription>
         <location file="libs/core/src/core/rgb.h" line="427" column="1" declfile="libs/core/src/core/rgb.h" declline="427" declcolumn="1"/>
       </memberdef>
-      <memberdef kind="function" id="rgb_8h_1a63d4d59f1f22f0bedde2fde688c7d9af" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="rgb_8h_1a63393eed7e29a60b6d833daa40e1945c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>ADD_DEFAULT_FORMATTER</definition>
-        <argsstring>(euphoria::core::Rgba, std::string, euphoria::core::to_string)</argsstring>
+        <argsstring>(eu::core::Rgba, std::string, eu::core::to_string)</argsstring>
         <name>ADD_DEFAULT_FORMATTER</name>
         <param>
-          <type><ref refid="structeuphoria_1_1core_1_1Rgba" kindref="compound">euphoria::core::Rgba</ref></type>
+          <type><ref refid="structeu_1_1core_1_1Rgba" kindref="compound">eu::core::Rgba</ref></type>
         </param>
         <param>
           <type>std::string</type>
         </param>
         <param>
-          <type><ref refid="namespaceeuphoria_1_1core_1a8596fa3efb42bc0ad86b46183bc305d3" kindref="member">euphoria::core::to_string</ref></type>
+          <type><ref refid="namespaceeu_1_1core_1abb347a6e512d991e31badda3ce5fef91" kindref="member">eu::core::to_string</ref></type>
         </param>
         <briefdescription>
         </briefdescription>
@@ -1049,19 +1049,19 @@
         </inbodydescription>
         <location file="libs/core/src/core/rgb.h" line="428" column="1" declfile="libs/core/src/core/rgb.h" declline="428" declcolumn="1"/>
       </memberdef>
-      <memberdef kind="function" id="rgb_8h_1adc91cc23380c1a7d7362f3cab1dec9e0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="rgb_8h_1a21e96d26d8e9753a8ed983b95c58a3ad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>ADD_DEFAULT_FORMATTER</definition>
-        <argsstring>(euphoria::core::Hsl, std::string, euphoria::core::to_string)</argsstring>
+        <argsstring>(eu::core::Hsl, std::string, eu::core::to_string)</argsstring>
         <name>ADD_DEFAULT_FORMATTER</name>
         <param>
-          <type><ref refid="structeuphoria_1_1core_1_1Hsl" kindref="compound">euphoria::core::Hsl</ref></type>
+          <type><ref refid="structeu_1_1core_1_1Hsl" kindref="compound">eu::core::Hsl</ref></type>
         </param>
         <param>
           <type>std::string</type>
         </param>
         <param>
-          <type><ref refid="namespaceeuphoria_1_1core_1a8596fa3efb42bc0ad86b46183bc305d3" kindref="member">euphoria::core::to_string</ref></type>
+          <type><ref refid="namespaceeu_1_1core_1abb347a6e512d991e31badda3ce5fef91" kindref="member">eu::core::to_string</ref></type>
         </param>
         <briefdescription>
         </briefdescription>

@@ -2362,9 +2362,9 @@
         <link refid="materialshader_8cc"/>
       </node>
     </invincdepgraph>
-    <innerclass refid="structeuphoria_1_1assertlib_1_1AssertArgumentValue" prot="public">euphoria::assertlib::AssertArgumentValue</innerclass>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1assertlib">euphoria::assertlib</innernamespace>
+    <innerclass refid="structeu_1_1assertlib_1_1AssertArgumentValue" prot="public">eu::assertlib::AssertArgumentValue</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1assertlib">eu::assertlib</innernamespace>
       <sectiondef kind="define">
       <memberdef kind="define" id="assert_8h_1a3950e5c477d263585dc2704da469ae98" prot="public" static="no">
         <name>BREAK_IN_DEBUG</name>
@@ -2400,8 +2400,8 @@
         } \
         else \
         { \
-            if(::<ref refid="namespaceeuphoria_1_1assertlib_1aadc50e6c320a759f0f79559b26dd4c7f" kindref="member">euphoria::assertlib::is_throwing</ref>() == false) { <ref refid="assert_8h_1a3950e5c477d263585dc2704da469ae98" kindref="member">BREAK_IN_DEBUG</ref>(); } \
-            ::<ref refid="namespaceeuphoria_1_1assertlib_1aca4984e08a6871d591be4b6c9a3d8c91" kindref="member">euphoria::assertlib::on_assert</ref>( \
+            if(::<ref refid="namespaceeu_1_1assertlib_1a0edb7b21ba4d86e980bd40b0f63a0c2e" kindref="member">eu::assertlib::is_throwing</ref>() == false) { <ref refid="assert_8h_1a3950e5c477d263585dc2704da469ae98" kindref="member">BREAK_IN_DEBUG</ref>(); } \
+            ::<ref refid="namespaceeu_1_1assertlib_1adc0b8ea0bf3e97d51c38156ad5484a67" kindref="member">eu::assertlib::on_assert</ref>( \
                     #x, \
                     __LINE__, \
                     __FILE__, \
@@ -2429,8 +2429,8 @@
         } \
         else \
         { \
-            if(::<ref refid="namespaceeuphoria_1_1assertlib_1aadc50e6c320a759f0f79559b26dd4c7f" kindref="member">euphoria::assertlib::is_throwing</ref>() == false) { <ref refid="assert_8h_1a3950e5c477d263585dc2704da469ae98" kindref="member">BREAK_IN_DEBUG</ref>(); } \
-            ::<ref refid="namespaceeuphoria_1_1assertlib_1aca4984e08a6871d591be4b6c9a3d8c91" kindref="member">euphoria::assertlib::on_assert</ref>( \
+            if(::<ref refid="namespaceeu_1_1assertlib_1a0edb7b21ba4d86e980bd40b0f63a0c2e" kindref="member">eu::assertlib::is_throwing</ref>() == false) { <ref refid="assert_8h_1a3950e5c477d263585dc2704da469ae98" kindref="member">BREAK_IN_DEBUG</ref>(); } \
+            ::<ref refid="namespaceeu_1_1assertlib_1adc0b8ea0bf3e97d51c38156ad5484a67" kindref="member">eu::assertlib::on_assert</ref>( \
                     #x, \
                     __LINE__, \
                     __FILE__, \
@@ -2450,7 +2450,7 @@
       <memberdef kind="define" id="assert_8h_1ae9328389a3cf2705a8a3f35a4a9ceca2" prot="public" static="no">
         <name>DIE</name>
         <param><defname>message</defname></param>
-        <initializer>    ::<ref refid="namespaceeuphoria_1_1assertlib_1aca4984e08a6871d591be4b6c9a3d8c91" kindref="member">euphoria::assertlib::on_assert</ref>( \
+        <initializer>    ::<ref refid="namespaceeu_1_1assertlib_1adc0b8ea0bf3e97d51c38156ad5484a67" kindref="member">eu::assertlib::on_assert</ref>( \
             message, \
             __LINE__, \
             __FILE__, \
@@ -2469,7 +2469,7 @@
         <name>DIEX</name>
         <param><defname>message</defname></param>
         <param><defname>...</defname></param>
-        <initializer>    ::<ref refid="namespaceeuphoria_1_1assertlib_1aca4984e08a6871d591be4b6c9a3d8c91" kindref="member">euphoria::assertlib::on_assert</ref>( \
+        <initializer>    ::<ref refid="namespaceeu_1_1assertlib_1adc0b8ea0bf3e97d51c38156ad5484a67" kindref="member">eu::assertlib::on_assert</ref>( \
             message, \
             __LINE__, \
             __FILE__, \

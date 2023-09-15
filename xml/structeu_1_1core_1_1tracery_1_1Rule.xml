@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1core_1_1tracery_1_1Rule" kind="struct" language="C++" prot="public">
+    <compoundname>eu::core::tracery::Rule</compoundname>
+    <includes refid="tracery_8h" local="no">tracery.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1core_1_1tracery_1_1Rule_1a18d1c8d40edb8614255372bb6e5e0de0" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; std::shared_ptr&lt; <ref refid="structeu_1_1core_1_1tracery_1_1Node" kindref="compound">Node</ref> &gt; &gt;</type>
+        <definition>std::vector&lt;std::shared_ptr&lt;Node&gt; &gt; eu::core::tracery::Rule::syntax</definition>
+        <argsstring></argsstring>
+        <name>syntax</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/tracery.h" line="80" column="21" bodyfile="libs/core/src/core/tracery.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1tracery_1_1Rule_1ae0cadd7d9cb6f11647d59c666f9347da" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::core::tracery::Rule::Rule</definition>
+        <argsstring>()</argsstring>
+        <name>Rule</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/tracery.h" line="82" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1tracery_1_1Rule_1a5b28dc8f0ec9c647e90e387a0ec2c9ce" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1tracery_1_1Result" kindref="compound">Result</ref></type>
+        <definition>Result eu::core::tracery::Rule::compile</definition>
+        <argsstring>(const std::string &amp;s)</argsstring>
+        <name>compile</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/tracery.h" line="84" column="16" bodyfile="libs/core/src/core/tracery.cc" bodystart="283" bodyend="398"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1tracery_1_1Rule_1a26194c4ace17b1d6e051f55dcfa33dba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::tracery::Rule::add</definition>
+        <argsstring>(std::shared_ptr&lt; Node &gt; p)</argsstring>
+        <name>add</name>
+        <param>
+          <type>std::shared_ptr&lt; <ref refid="structeu_1_1core_1_1tracery_1_1Node" kindref="compound">Node</ref> &gt;</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/tracery.h" line="85" column="14" bodyfile="libs/core/src/core/tracery.cc" bodystart="416" bodyend="419"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1tracery_1_1Rule_1a84606c29ab1927ce6fe67ff662828ebf" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1tracery_1_1Result" kindref="compound">Result</ref></type>
+        <definition>Result eu::core::tracery::Rule::flatten</definition>
+        <argsstring>(GeneratorArgument *gen) const</argsstring>
+        <name>flatten</name>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1tracery_1_1GeneratorArgument" kindref="compound">GeneratorArgument</ref> *</type>
+          <declname>gen</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/tracery.h" line="87" column="16" bodyfile="libs/core/src/core/tracery.cc" bodystart="402" bodyend="412"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/tracery.h" line="78" column="5" bodyfile="libs/core/src/core/tracery.h" bodystart="79" bodyend="88"/>
+    <listofallmembers>
+      <member refid="structeu_1_1core_1_1tracery_1_1Rule_1a26194c4ace17b1d6e051f55dcfa33dba" prot="public" virt="non-virtual"><scope>eu::core::tracery::Rule</scope><name>add</name></member>
+      <member refid="structeu_1_1core_1_1tracery_1_1Rule_1a5b28dc8f0ec9c647e90e387a0ec2c9ce" prot="public" virt="non-virtual"><scope>eu::core::tracery::Rule</scope><name>compile</name></member>
+      <member refid="structeu_1_1core_1_1tracery_1_1Rule_1a84606c29ab1927ce6fe67ff662828ebf" prot="public" virt="non-virtual"><scope>eu::core::tracery::Rule</scope><name>flatten</name></member>
+      <member refid="structeu_1_1core_1_1tracery_1_1Rule_1ae0cadd7d9cb6f11647d59c666f9347da" prot="public" virt="non-virtual"><scope>eu::core::tracery::Rule</scope><name>Rule</name></member>
+      <member refid="structeu_1_1core_1_1tracery_1_1Rule_1a18d1c8d40edb8614255372bb6e5e0de0" prot="public" virt="non-virtual"><scope>eu::core::tracery::Rule</scope><name>syntax</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

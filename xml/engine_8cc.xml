@@ -514,8 +514,8 @@
         <link refid="os_8h"/>
       </node>
     </incdepgraph>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1window">euphoria::window</innernamespace>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1window">eu::window</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1core_1_1tracery_1_1LiteralStringNode" kind="struct" language="C++" prot="public">
+    <compoundname>eu::core::tracery::LiteralStringNode</compoundname>
+    <basecompoundref refid="structeu_1_1core_1_1tracery_1_1Node" prot="public" virt="non-virtual">eu::core::tracery::Node</basecompoundref>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1core_1_1tracery_1_1LiteralStringNode_1a4b0c42e8d29f5eaf0c540884ffeb2547" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string eu::core::tracery::LiteralStringNode::text</definition>
+        <argsstring></argsstring>
+        <name>text</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/tracery.cc" line="118" column="21" bodyfile="libs/core/src/core/tracery.cc" bodystart="118" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1tracery_1_1LiteralStringNode_1a9040392d86634261fe7c66b4784f7901" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>eu::core::tracery::LiteralStringNode::LiteralStringNode</definition>
+        <argsstring>(const std::string &amp;t)</argsstring>
+        <name>LiteralStringNode</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/tracery.cc" line="120" column="9" bodyfile="libs/core/src/core/tracery.cc" bodystart="120" bodyend="123"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1tracery_1_1LiteralStringNode_1a2c9d2e3dc41251db560912a67ae0657e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="structeu_1_1core_1_1tracery_1_1Result" kindref="compound">Result</ref></type>
+        <definition>Result eu::core::tracery::LiteralStringNode::flatten</definition>
+        <argsstring>(GeneratorArgument *) const override</argsstring>
+        <name>flatten</name>
+        <reimplements refid="structeu_1_1core_1_1tracery_1_1Node_1a36f9ad67aeb0a0b3eb24895a6f4593c8">flatten</reimplements>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1tracery_1_1GeneratorArgument" kindref="compound">GeneratorArgument</ref> *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/tracery.cc" line="125" column="16" bodyfile="libs/core/src/core/tracery.cc" bodystart="125" bodyend="128"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>eu::core::tracery::Node</label>
+        <link refid="structeu_1_1core_1_1tracery_1_1Node"/>
+      </node>
+      <node id="1">
+        <label>eu::core::tracery::LiteralStringNode</label>
+        <link refid="structeu_1_1core_1_1tracery_1_1LiteralStringNode"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>eu::core::tracery::Node</label>
+        <link refid="structeu_1_1core_1_1tracery_1_1Node"/>
+      </node>
+      <node id="1">
+        <label>eu::core::tracery::LiteralStringNode</label>
+        <link refid="structeu_1_1core_1_1tracery_1_1LiteralStringNode"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="libs/core/src/core/tracery.cc" line="116" column="5" bodyfile="libs/core/src/core/tracery.cc" bodystart="117" bodyend="129"/>
+    <listofallmembers>
+      <member refid="structeu_1_1core_1_1tracery_1_1LiteralStringNode_1a2c9d2e3dc41251db560912a67ae0657e" prot="public" virt="virtual"><scope>eu::core::tracery::LiteralStringNode</scope><name>flatten</name></member>
+      <member refid="structeu_1_1core_1_1tracery_1_1LiteralStringNode_1a9040392d86634261fe7c66b4784f7901" prot="public" virt="non-virtual"><scope>eu::core::tracery::LiteralStringNode</scope><name>LiteralStringNode</name></member>
+      <member refid="structeu_1_1core_1_1tracery_1_1Node_1a3744843c94030900d6944ae5a0b7f1c3" prot="public" virt="non-virtual"><scope>eu::core::tracery::LiteralStringNode</scope><name>Node</name></member>
+      <member refid="structeu_1_1core_1_1tracery_1_1Node_1a837184b4a86a1281bea14f9c0bed70a2" prot="public" virt="non-virtual"><scope>eu::core::tracery::LiteralStringNode</scope><name>Node</name></member>
+      <member refid="structeu_1_1core_1_1tracery_1_1Node_1a88ea418636dec1be34675d4b53d6d302" prot="public" virt="non-virtual"><scope>eu::core::tracery::LiteralStringNode</scope><name>Node</name></member>
+      <member refid="structeu_1_1core_1_1tracery_1_1Node_1a596e72a8b8b42be50f97b9531e7324a9" prot="public" virt="non-virtual"><scope>eu::core::tracery::LiteralStringNode</scope><name>operator=</name></member>
+      <member refid="structeu_1_1core_1_1tracery_1_1Node_1a40a3d32962a2a80addae251cb65227d6" prot="public" virt="non-virtual"><scope>eu::core::tracery::LiteralStringNode</scope><name>operator=</name></member>
+      <member refid="structeu_1_1core_1_1tracery_1_1LiteralStringNode_1a4b0c42e8d29f5eaf0c540884ffeb2547" prot="public" virt="non-virtual"><scope>eu::core::tracery::LiteralStringNode</scope><name>text</name></member>
+      <member refid="structeu_1_1core_1_1tracery_1_1Node_1a95681fff3cba839270725ac03342d6de" prot="public" virt="virtual"><scope>eu::core::tracery::LiteralStringNode</scope><name>~Node</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

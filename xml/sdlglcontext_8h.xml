@@ -29,9 +29,9 @@
         <link refid="imguilibrary_8cc"/>
       </node>
     </invincdepgraph>
-    <innerclass refid="structeuphoria_1_1window_1_1SdlOpenglContext" prot="public">euphoria::window::SdlOpenglContext</innerclass>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1window">euphoria::window</innernamespace>
+    <innerclass refid="structeu_1_1window_1_1SdlOpenglContext" prot="public">eu::window::SdlOpenglContext</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1window">eu::window</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

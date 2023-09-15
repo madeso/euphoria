@@ -1,0 +1,151 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1minsynth_1_1ToneToFrequencyConverterNode" kind="struct" language="C++" prot="public">
+    <compoundname>eu::minsynth::ToneToFrequencyConverterNode</compoundname>
+    <basecompoundref refid="structeu_1_1minsynth_1_1ToneTaker" prot="public" virt="non-virtual">eu::minsynth::ToneTaker</basecompoundref>
+    <basecompoundref refid="structeu_1_1minsynth_1_1Node" prot="public" virt="non-virtual">eu::minsynth::Node</basecompoundref>
+    <includes refid="synth_8h" local="no">synth.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1minsynth_1_1ToneToFrequencyConverterNode_1ac2450b5abd443b1e1c382763b3719fc9" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeu_1_1minsynth_1abbe511565fbff93d0c069f0e8e1e3e33" kindref="member">minsynth::Tuning</ref></type>
+        <definition>minsynth::Tuning eu::minsynth::ToneToFrequencyConverterNode::tuning</definition>
+        <argsstring></argsstring>
+        <name>tuning</name>
+        <initializer>= <ref refid="namespaceeu_1_1minsynth_1abbe511565fbff93d0c069f0e8e1e3e33a894f782a148b33af1e39a0efed952d69" kindref="member">minsynth::Tuning::a4</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="170" column="26" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="170" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1minsynth_1_1ToneToFrequencyConverterNode_1a8de3f704ace55d682b6d5f2a04ee8eae" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1minsynth_1_1FrequencyTaker" kindref="compound">FrequencyTaker</ref> *</type>
+        <definition>FrequencyTaker* eu::minsynth::ToneToFrequencyConverterNode::next</definition>
+        <argsstring></argsstring>
+        <name>next</name>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="171" column="24" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="171" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1minsynth_1_1ToneToFrequencyConverterNode_1a3f90c798cac1d9c69ab6558ecae5a05a" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void eu::minsynth::ToneToFrequencyConverterNode::on_tone</definition>
+        <argsstring>(int tone, bool down, float time) override</argsstring>
+        <name>on_tone</name>
+        <reimplements refid="structeu_1_1minsynth_1_1ToneTaker_1af2e7fbe1c33550ea94573730da0dfc4e">on_tone</reimplements>
+        <param>
+          <type>int</type>
+          <declname>tone</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>down</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>time</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="173" column="14" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="208" bodyend="223"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1minsynth_1_1ToneToFrequencyConverterNode_1a92c23199d948381605279f8061a80e1e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float eu::minsynth::ToneToFrequencyConverterNode::calc_frequency</definition>
+        <argsstring>(int semitone) const</argsstring>
+        <name>calc_frequency</name>
+        <param>
+          <type>int</type>
+          <declname>semitone</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="175" column="16" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="226" bodyend="234"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>eu::minsynth::ToneTaker</label>
+        <link refid="structeu_1_1minsynth_1_1ToneTaker"/>
+      </node>
+      <node id="1">
+        <label>eu::minsynth::ToneToFrequencyConverterNode</label>
+        <link refid="structeu_1_1minsynth_1_1ToneToFrequencyConverterNode"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>eu::minsynth::Node</label>
+        <link refid="structeu_1_1minsynth_1_1Node"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>eu::minsynth::ToneTaker</label>
+        <link refid="structeu_1_1minsynth_1_1ToneTaker"/>
+      </node>
+      <node id="1">
+        <label>eu::minsynth::ToneToFrequencyConverterNode</label>
+        <link refid="structeu_1_1minsynth_1_1ToneToFrequencyConverterNode"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>next</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>eu::minsynth::Node</label>
+        <link refid="structeu_1_1minsynth_1_1Node"/>
+      </node>
+      <node id="4">
+        <label>eu::minsynth::FrequencyTaker</label>
+        <link refid="structeu_1_1minsynth_1_1FrequencyTaker"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/minsynth/src/minsynth/synth.h" line="166" column="5" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="169" bodyend="176"/>
+    <listofallmembers>
+      <member refid="structeu_1_1minsynth_1_1ToneToFrequencyConverterNode_1a92c23199d948381605279f8061a80e1e" prot="public" virt="non-virtual"><scope>eu::minsynth::ToneToFrequencyConverterNode</scope><name>calc_frequency</name></member>
+      <member refid="structeu_1_1minsynth_1_1ToneToFrequencyConverterNode_1a8de3f704ace55d682b6d5f2a04ee8eae" prot="public" virt="non-virtual"><scope>eu::minsynth::ToneToFrequencyConverterNode</scope><name>next</name></member>
+      <member refid="structeu_1_1minsynth_1_1Node_1a002bc28d784af70c6fb70c52b03a8997" prot="public" virt="non-virtual"><scope>eu::minsynth::ToneToFrequencyConverterNode</scope><name>Node</name></member>
+      <member refid="structeu_1_1minsynth_1_1Node_1a630c8289c6375767f1c04a5ad2d89326" prot="public" virt="non-virtual"><scope>eu::minsynth::ToneToFrequencyConverterNode</scope><name>Node</name></member>
+      <member refid="structeu_1_1minsynth_1_1Node_1a410b013072925b526a5ff492b7d47401" prot="public" virt="non-virtual"><scope>eu::minsynth::ToneToFrequencyConverterNode</scope><name>Node</name></member>
+      <member refid="structeu_1_1minsynth_1_1ToneToFrequencyConverterNode_1a3f90c798cac1d9c69ab6558ecae5a05a" prot="public" virt="virtual"><scope>eu::minsynth::ToneToFrequencyConverterNode</scope><name>on_tone</name></member>
+      <member refid="structeu_1_1minsynth_1_1ToneTaker_1a75069b326065f6fc37c93500244c0406" prot="public" virt="non-virtual" ambiguityscope="eu::"><scope>eu::minsynth::ToneToFrequencyConverterNode</scope><name>operator=</name></member>
+      <member refid="structeu_1_1minsynth_1_1ToneTaker_1a16ce2b57130122160e12d69704be36bc" prot="public" virt="non-virtual" ambiguityscope="eu::"><scope>eu::minsynth::ToneToFrequencyConverterNode</scope><name>operator=</name></member>
+      <member refid="structeu_1_1minsynth_1_1Node_1ac13f2131c392fedafa8df524da273bc7" prot="public" virt="non-virtual" ambiguityscope="eu::minsynth::Node::"><scope>eu::minsynth::ToneToFrequencyConverterNode</scope><name>operator=</name></member>
+      <member refid="structeu_1_1minsynth_1_1Node_1a140bda51a50bd2df3a7930dd79103893" prot="public" virt="non-virtual" ambiguityscope="eu::minsynth::Node::"><scope>eu::minsynth::ToneToFrequencyConverterNode</scope><name>operator=</name></member>
+      <member refid="structeu_1_1minsynth_1_1ToneTaker_1a4a602e00e3b022fc410692aa468ffd82" prot="public" virt="non-virtual"><scope>eu::minsynth::ToneToFrequencyConverterNode</scope><name>ToneTaker</name></member>
+      <member refid="structeu_1_1minsynth_1_1ToneTaker_1a4d5d6b847e1dc8944f1f0b94e9c774ed" prot="public" virt="non-virtual"><scope>eu::minsynth::ToneToFrequencyConverterNode</scope><name>ToneTaker</name></member>
+      <member refid="structeu_1_1minsynth_1_1ToneTaker_1abed0cb4df901a770200d7291a97a001e" prot="public" virt="non-virtual"><scope>eu::minsynth::ToneToFrequencyConverterNode</scope><name>ToneTaker</name></member>
+      <member refid="structeu_1_1minsynth_1_1ToneToFrequencyConverterNode_1ac2450b5abd443b1e1c382763b3719fc9" prot="public" virt="non-virtual"><scope>eu::minsynth::ToneToFrequencyConverterNode</scope><name>tuning</name></member>
+      <member refid="structeu_1_1minsynth_1_1Node_1a49bfba1094d62ac6bda6d22b139337be" prot="public" virt="virtual"><scope>eu::minsynth::ToneToFrequencyConverterNode</scope><name>update</name></member>
+      <member refid="structeu_1_1minsynth_1_1Node_1afc23f2be2b9e942d84ef6b113af27e5f" prot="public" virt="virtual"><scope>eu::minsynth::ToneToFrequencyConverterNode</scope><name>~Node</name></member>
+      <member refid="structeu_1_1minsynth_1_1ToneTaker_1a50695974ca85c8448e22cd6ed9d97ba1" prot="public" virt="virtual"><scope>eu::minsynth::ToneToFrequencyConverterNode</scope><name>~ToneTaker</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

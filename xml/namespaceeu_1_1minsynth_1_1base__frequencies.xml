@@ -1,0 +1,139 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="namespaceeu_1_1minsynth_1_1base__frequencies" kind="namespace" language="C++">
+    <compoundname>eu::minsynth::base_frequencies</compoundname>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="namespaceeu_1_1minsynth_1_1base__frequencies_1acf02c38064151b023752fcff2303b300" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr float</type>
+        <definition>constexpr float eu::minsynth::base_frequencies::c0</definition>
+        <argsstring></argsstring>
+        <name>c0</name>
+        <initializer>= 16.35f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="80" column="25" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceeu_1_1minsynth_1_1base__frequencies_1a76f2a40c04469a3d2b0b5c8b6bc95ccb" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr float</type>
+        <definition>constexpr float eu::minsynth::base_frequencies::a4</definition>
+        <argsstring></argsstring>
+        <name>a4</name>
+        <initializer>= 440.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="81" column="25" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceeu_1_1minsynth_1_1base__frequencies_1a4b253adf413b2740f8d7604768cb7007" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr float</type>
+        <definition>constexpr float eu::minsynth::base_frequencies::boston_a4</definition>
+        <argsstring></argsstring>
+        <name>boston_a4</name>
+        <initializer>= 441.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="82" column="25" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceeu_1_1minsynth_1_1base__frequencies_1ae8b99e019c182e393ec86a76bad33234" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr float</type>
+        <definition>constexpr float eu::minsynth::base_frequencies::new_york_a4</definition>
+        <argsstring></argsstring>
+        <name>new_york_a4</name>
+        <initializer>= 442.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="83" column="25" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceeu_1_1minsynth_1_1base__frequencies_1a4d15776333e49597258dccf6da38cc6d" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr float</type>
+        <definition>constexpr float eu::minsynth::base_frequencies::europe_a4</definition>
+        <argsstring></argsstring>
+        <name>europe_a4</name>
+        <initializer>= 443.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="84" column="25" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceeu_1_1minsynth_1_1base__frequencies_1a729249357a0e4ef7a06417ca7200d76f" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr float</type>
+        <definition>constexpr float eu::minsynth::base_frequencies::french_a4</definition>
+        <argsstring></argsstring>
+        <name>french_a4</name>
+        <initializer>= 435.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="85" column="25" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceeu_1_1minsynth_1_1base__frequencies_1a1b70fd3dd513f9cc91e281372e9d3017" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr float</type>
+        <definition>constexpr float eu::minsynth::base_frequencies::baroque_a4</definition>
+        <argsstring></argsstring>
+        <name>baroque_a4</name>
+        <initializer>= 415.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="86" column="25" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceeu_1_1minsynth_1_1base__frequencies_1a24785d93d361f91574a847c803669de9" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr float</type>
+        <definition>constexpr float eu::minsynth::base_frequencies::chorton_a4</definition>
+        <argsstring></argsstring>
+        <name>chorton_a4</name>
+        <initializer>= 466.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="87" column="25" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceeu_1_1minsynth_1_1base__frequencies_1a03e43a3e826b0e83cdb39493352bf076" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr float</type>
+        <definition>constexpr float eu::minsynth::base_frequencies::classical_a4</definition>
+        <argsstring></argsstring>
+        <name>classical_a4</name>
+        <initializer>= 430.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="88" column="25" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/minsynth/src/minsynth/synth.h" line="78" column="5"/>
+  </compounddef>
+</doxygen>

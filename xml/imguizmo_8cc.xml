@@ -218,10 +218,10 @@
         </childnode>
       </node>
     </incdepgraph>
-    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1window">euphoria::window</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1window_1_1imgui">euphoria::window::imgui</innernamespace>
-    <innernamespace refid="namespaceeuphoria_1_1window_1_1imgui_1_1guizmo">euphoria::window::imgui::guizmo</innernamespace>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1window">eu::window</innernamespace>
+    <innernamespace refid="namespaceeu_1_1window_1_1imgui">eu::window::imgui</innernamespace>
+    <innernamespace refid="namespaceeu_1_1window_1_1imgui_1_1guizmo">eu::window::imgui::guizmo</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

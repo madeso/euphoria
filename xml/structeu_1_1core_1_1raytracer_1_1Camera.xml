@@ -1,0 +1,135 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1core_1_1raytracer_1_1Camera" kind="struct" language="C++" prot="public">
+    <compoundname>eu::core::raytracer::Camera</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1core_1_1raytracer_1_1Camera_1aa35182073786a857a46a74383a373fa1" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
+        <definition>vec3f eu::core::raytracer::Camera::lower_left_corner</definition>
+        <argsstring></argsstring>
+        <name>lower_left_corner</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/raytracer.cc" line="427" column="15" bodyfile="libs/core/src/core/raytracer.cc" bodystart="427" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1raytracer_1_1Camera_1a8e4309ff53327f32f1ba18932cab2fef" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
+        <definition>vec3f eu::core::raytracer::Camera::horizontal</definition>
+        <argsstring></argsstring>
+        <name>horizontal</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/raytracer.cc" line="428" column="15" bodyfile="libs/core/src/core/raytracer.cc" bodystart="428" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1raytracer_1_1Camera_1a585fe4003cf25619eaf76982dae359e8" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
+        <definition>vec3f eu::core::raytracer::Camera::vertical</definition>
+        <argsstring></argsstring>
+        <name>vertical</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/raytracer.cc" line="429" column="15" bodyfile="libs/core/src/core/raytracer.cc" bodystart="429" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1raytracer_1_1Camera_1ad09a5cd51a5c01ae39bcd5651396adc1" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
+        <definition>vec3f eu::core::raytracer::Camera::origin</definition>
+        <argsstring></argsstring>
+        <name>origin</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/raytracer.cc" line="430" column="15" bodyfile="libs/core/src/core/raytracer.cc" bodystart="430" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1raytracer_1_1Camera_1abb8fc4fb2cfdc47d91fb07d9ea666c40" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1raytracer_1_1Camera" kindref="compound">Camera</ref></type>
+        <definition>static Camera eu::core::raytracer::Camera::create</definition>
+        <argsstring>(const Angle &amp;vfov, float aspect)</argsstring>
+        <name>create</name>
+        <param>
+          <type>const <ref refid="structeu_1_1core_1_1Angle" kindref="compound">Angle</ref> &amp;</type>
+          <declname>vfov</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>aspect</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/raytracer.cc" line="432" column="23" bodyfile="libs/core/src/core/raytracer.cc" bodystart="432" bodyend="449"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1raytracer_1_1Camera_1a59f021b4484c55f9d0e98b4e80c494b4" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1UnitRay3f" kindref="compound">UnitRay3f</ref></type>
+        <definition>UnitRay3f eu::core::raytracer::Camera::get_ray</definition>
+        <argsstring>(float u, float v) const</argsstring>
+        <name>get_ray</name>
+        <param>
+          <type>float</type>
+          <declname>u</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/raytracer.cc" line="452" column="9" bodyfile="libs/core/src/core/raytracer.cc" bodystart="452" bodyend="455"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>eu::core::vec3f</label>
+        <link refid="structeu_1_1core_1_1vec3f"/>
+      </node>
+      <node id="1">
+        <label>eu::core::raytracer::Camera</label>
+        <link refid="structeu_1_1core_1_1raytracer_1_1Camera"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>horizontal</edgelabel>
+          <edgelabel>lower_left_corner</edgelabel>
+          <edgelabel>origin</edgelabel>
+          <edgelabel>vertical</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="libs/core/src/core/raytracer.cc" line="425" column="5" bodyfile="libs/core/src/core/raytracer.cc" bodystart="426" bodyend="456"/>
+    <listofallmembers>
+      <member refid="structeu_1_1core_1_1raytracer_1_1Camera_1abb8fc4fb2cfdc47d91fb07d9ea666c40" prot="public" virt="non-virtual"><scope>eu::core::raytracer::Camera</scope><name>create</name></member>
+      <member refid="structeu_1_1core_1_1raytracer_1_1Camera_1a59f021b4484c55f9d0e98b4e80c494b4" prot="public" virt="non-virtual"><scope>eu::core::raytracer::Camera</scope><name>get_ray</name></member>
+      <member refid="structeu_1_1core_1_1raytracer_1_1Camera_1a8e4309ff53327f32f1ba18932cab2fef" prot="public" virt="non-virtual"><scope>eu::core::raytracer::Camera</scope><name>horizontal</name></member>
+      <member refid="structeu_1_1core_1_1raytracer_1_1Camera_1aa35182073786a857a46a74383a373fa1" prot="public" virt="non-virtual"><scope>eu::core::raytracer::Camera</scope><name>lower_left_corner</name></member>
+      <member refid="structeu_1_1core_1_1raytracer_1_1Camera_1ad09a5cd51a5c01ae39bcd5651396adc1" prot="public" virt="non-virtual"><scope>eu::core::raytracer::Camera</scope><name>origin</name></member>
+      <member refid="structeu_1_1core_1_1raytracer_1_1Camera_1a585fe4003cf25619eaf76982dae359e8" prot="public" virt="non-virtual"><scope>eu::core::raytracer::Camera</scope><name>vertical</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

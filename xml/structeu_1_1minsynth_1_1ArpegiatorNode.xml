@@ -1,0 +1,268 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1minsynth_1_1ArpegiatorNode" kind="struct" language="C++" prot="public">
+    <compoundname>eu::minsynth::ArpegiatorNode</compoundname>
+    <basecompoundref refid="structeu_1_1minsynth_1_1ToneTaker" prot="public" virt="non-virtual">eu::minsynth::ToneTaker</basecompoundref>
+    <basecompoundref refid="structeu_1_1minsynth_1_1ToneSender" prot="public" virt="non-virtual">eu::minsynth::ToneSender</basecompoundref>
+    <basecompoundref refid="structeu_1_1minsynth_1_1Node" prot="public" virt="non-virtual">eu::minsynth::Node</basecompoundref>
+    <includes refid="synth_8h" local="no">synth.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1minsynth_1_1ArpegiatorNode_1a4dca6fc5cf608ba21d284b0f0eb392a5" prot="public" static="no" mutable="no">
+        <type>std::map&lt; int, float &gt;</type>
+        <definition>std::map&lt;int, float&gt; eu::minsynth::ArpegiatorNode::down_tones</definition>
+        <argsstring></argsstring>
+        <name>down_tones</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="250" column="18" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="250" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1minsynth_1_1ArpegiatorNode_1a53c1ff981e6fc433545206d4b98a0e4c" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float eu::minsynth::ArpegiatorNode::current_time_in_interval</definition>
+        <argsstring></argsstring>
+        <name>current_time_in_interval</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="251" column="15" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="251" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1minsynth_1_1ArpegiatorNode_1a4684cf252247ad26644e35b74da023c4" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int eu::minsynth::ArpegiatorNode::index</definition>
+        <argsstring></argsstring>
+        <name>index</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="252" column="13" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="252" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1minsynth_1_1ArpegiatorNode_1a8da9972cf9877f8e60ff8aa43c4a3019" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; int &gt;</type>
+        <definition>std::vector&lt;int&gt; eu::minsynth::ArpegiatorNode::tones</definition>
+        <argsstring></argsstring>
+        <name>tones</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="253" column="21" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="253" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1minsynth_1_1ArpegiatorNode_1ab8529720fcbbcf022ac7b10433d725a2" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeu_1_1minsynth_1af5158683664222fb91c060d869992567" kindref="member">ArpMode</ref></type>
+        <definition>ArpMode eu::minsynth::ArpegiatorNode::mode</definition>
+        <argsstring></argsstring>
+        <name>mode</name>
+        <initializer>= <ref refid="namespaceeu_1_1minsynth_1af5158683664222fb91c060d869992567a46c48bec0d282018b9d167eef7711b2c" kindref="member">ArpMode::up</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="254" column="17" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="254" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1minsynth_1_1ArpegiatorNode_1a355f52306c78ad64eae76cda2f5fcd75" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int eu::minsynth::ArpegiatorNode::octaves</definition>
+        <argsstring></argsstring>
+        <name>octaves</name>
+        <initializer>= 3</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="255" column="13" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="255" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1minsynth_1_1ArpegiatorNode_1a43d2518797661240f18ca8b4bb8dabd7" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float eu::minsynth::ArpegiatorNode::update_time</definition>
+        <argsstring></argsstring>
+        <name>update_time</name>
+        <initializer>= 1.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="256" column="15" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="256" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1minsynth_1_1ArpegiatorNode_1a828c828d2437fff664a01370dacbf1f6" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float eu::minsynth::ArpegiatorNode::tone_time</definition>
+        <argsstring></argsstring>
+        <name>tone_time</name>
+        <initializer>= 0.3f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="257" column="15" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="257" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1minsynth_1_1ArpegiatorNode_1aad5010dbd9086d7df0cdfa8e64c44d92" prot="public" static="no" mutable="no">
+        <type>std::map&lt; int, float &gt;</type>
+        <definition>std::map&lt;int, float&gt; eu::minsynth::ArpegiatorNode::active_tones</definition>
+        <argsstring></argsstring>
+        <name>active_tones</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="258" column="18" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="258" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1minsynth_1_1ArpegiatorNode_1a1febea9978da782449716f08c675caaf" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void eu::minsynth::ArpegiatorNode::update</definition>
+        <argsstring>(float dt, float current_time) override</argsstring>
+        <name>update</name>
+        <reimplements refid="structeu_1_1minsynth_1_1Node_1a49bfba1094d62ac6bda6d22b139337be">update</reimplements>
+        <param>
+          <type>float</type>
+          <declname>dt</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>current_time</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="260" column="14" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="522" bodyend="568"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1minsynth_1_1ArpegiatorNode_1ad64aa01e83147bca7b0aeb3b7d621139" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void eu::minsynth::ArpegiatorNode::on_tone</definition>
+        <argsstring>(int tone, bool down, float time) override</argsstring>
+        <name>on_tone</name>
+        <reimplements refid="structeu_1_1minsynth_1_1ToneTaker_1af2e7fbe1c33550ea94573730da0dfc4e">on_tone</reimplements>
+        <param>
+          <type>int</type>
+          <declname>tone</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>down</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>time</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="261" column="14" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="571" bodyend="622"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>eu::minsynth::ToneTaker</label>
+        <link refid="structeu_1_1minsynth_1_1ToneTaker"/>
+      </node>
+      <node id="1">
+        <label>eu::minsynth::ArpegiatorNode</label>
+        <link refid="structeu_1_1minsynth_1_1ArpegiatorNode"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>eu::minsynth::Node</label>
+        <link refid="structeu_1_1minsynth_1_1Node"/>
+      </node>
+      <node id="3">
+        <label>eu::minsynth::ToneSender</label>
+        <link refid="structeu_1_1minsynth_1_1ToneSender"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>eu::minsynth::ToneTaker</label>
+        <link refid="structeu_1_1minsynth_1_1ToneTaker"/>
+      </node>
+      <node id="1">
+        <label>eu::minsynth::ArpegiatorNode</label>
+        <link refid="structeu_1_1minsynth_1_1ArpegiatorNode"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>eu::minsynth::Node</label>
+        <link refid="structeu_1_1minsynth_1_1Node"/>
+      </node>
+      <node id="3">
+        <label>eu::minsynth::ToneSender</label>
+        <link refid="structeu_1_1minsynth_1_1ToneSender"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>next_node</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="libs/minsynth/src/minsynth/synth.h" line="245" column="5" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="249" bodyend="262"/>
+    <listofallmembers>
+      <member refid="structeu_1_1minsynth_1_1ArpegiatorNode_1aad5010dbd9086d7df0cdfa8e64c44d92" prot="public" virt="non-virtual"><scope>eu::minsynth::ArpegiatorNode</scope><name>active_tones</name></member>
+      <member refid="structeu_1_1minsynth_1_1ArpegiatorNode_1a53c1ff981e6fc433545206d4b98a0e4c" prot="public" virt="non-virtual"><scope>eu::minsynth::ArpegiatorNode</scope><name>current_time_in_interval</name></member>
+      <member refid="structeu_1_1minsynth_1_1ArpegiatorNode_1a4dca6fc5cf608ba21d284b0f0eb392a5" prot="public" virt="non-virtual"><scope>eu::minsynth::ArpegiatorNode</scope><name>down_tones</name></member>
+      <member refid="structeu_1_1minsynth_1_1ArpegiatorNode_1a4684cf252247ad26644e35b74da023c4" prot="public" virt="non-virtual"><scope>eu::minsynth::ArpegiatorNode</scope><name>index</name></member>
+      <member refid="structeu_1_1minsynth_1_1ArpegiatorNode_1ab8529720fcbbcf022ac7b10433d725a2" prot="public" virt="non-virtual"><scope>eu::minsynth::ArpegiatorNode</scope><name>mode</name></member>
+      <member refid="structeu_1_1minsynth_1_1ToneSender_1a27abfd1945692445a0195923fa251c4d" prot="public" virt="non-virtual"><scope>eu::minsynth::ArpegiatorNode</scope><name>next_node</name></member>
+      <member refid="structeu_1_1minsynth_1_1Node_1a002bc28d784af70c6fb70c52b03a8997" prot="public" virt="non-virtual"><scope>eu::minsynth::ArpegiatorNode</scope><name>Node</name></member>
+      <member refid="structeu_1_1minsynth_1_1Node_1a630c8289c6375767f1c04a5ad2d89326" prot="public" virt="non-virtual"><scope>eu::minsynth::ArpegiatorNode</scope><name>Node</name></member>
+      <member refid="structeu_1_1minsynth_1_1Node_1a410b013072925b526a5ff492b7d47401" prot="public" virt="non-virtual"><scope>eu::minsynth::ArpegiatorNode</scope><name>Node</name></member>
+      <member refid="structeu_1_1minsynth_1_1ArpegiatorNode_1a355f52306c78ad64eae76cda2f5fcd75" prot="public" virt="non-virtual"><scope>eu::minsynth::ArpegiatorNode</scope><name>octaves</name></member>
+      <member refid="structeu_1_1minsynth_1_1ArpegiatorNode_1ad64aa01e83147bca7b0aeb3b7d621139" prot="public" virt="virtual"><scope>eu::minsynth::ArpegiatorNode</scope><name>on_tone</name></member>
+      <member refid="structeu_1_1minsynth_1_1ToneTaker_1a75069b326065f6fc37c93500244c0406" prot="public" virt="non-virtual" ambiguityscope="eu::"><scope>eu::minsynth::ArpegiatorNode</scope><name>operator=</name></member>
+      <member refid="structeu_1_1minsynth_1_1ToneTaker_1a16ce2b57130122160e12d69704be36bc" prot="public" virt="non-virtual" ambiguityscope="eu::"><scope>eu::minsynth::ArpegiatorNode</scope><name>operator=</name></member>
+      <member refid="structeu_1_1minsynth_1_1Node_1ac13f2131c392fedafa8df524da273bc7" prot="public" virt="non-virtual" ambiguityscope="eu::minsynth::Node::"><scope>eu::minsynth::ArpegiatorNode</scope><name>operator=</name></member>
+      <member refid="structeu_1_1minsynth_1_1Node_1a140bda51a50bd2df3a7930dd79103893" prot="public" virt="non-virtual" ambiguityscope="eu::minsynth::Node::"><scope>eu::minsynth::ArpegiatorNode</scope><name>operator=</name></member>
+      <member refid="structeu_1_1minsynth_1_1ToneSender_1aff617162c224e8dba0c3bfe665c51ae8" prot="public" virt="non-virtual"><scope>eu::minsynth::ArpegiatorNode</scope><name>send_tone</name></member>
+      <member refid="structeu_1_1minsynth_1_1ArpegiatorNode_1a828c828d2437fff664a01370dacbf1f6" prot="public" virt="non-virtual"><scope>eu::minsynth::ArpegiatorNode</scope><name>tone_time</name></member>
+      <member refid="structeu_1_1minsynth_1_1ArpegiatorNode_1a8da9972cf9877f8e60ff8aa43c4a3019" prot="public" virt="non-virtual"><scope>eu::minsynth::ArpegiatorNode</scope><name>tones</name></member>
+      <member refid="structeu_1_1minsynth_1_1ToneTaker_1a4a602e00e3b022fc410692aa468ffd82" prot="public" virt="non-virtual"><scope>eu::minsynth::ArpegiatorNode</scope><name>ToneTaker</name></member>
+      <member refid="structeu_1_1minsynth_1_1ToneTaker_1a4d5d6b847e1dc8944f1f0b94e9c774ed" prot="public" virt="non-virtual"><scope>eu::minsynth::ArpegiatorNode</scope><name>ToneTaker</name></member>
+      <member refid="structeu_1_1minsynth_1_1ToneTaker_1abed0cb4df901a770200d7291a97a001e" prot="public" virt="non-virtual"><scope>eu::minsynth::ArpegiatorNode</scope><name>ToneTaker</name></member>
+      <member refid="structeu_1_1minsynth_1_1ArpegiatorNode_1a1febea9978da782449716f08c675caaf" prot="public" virt="virtual"><scope>eu::minsynth::ArpegiatorNode</scope><name>update</name></member>
+      <member refid="structeu_1_1minsynth_1_1ArpegiatorNode_1a43d2518797661240f18ca8b4bb8dabd7" prot="public" virt="non-virtual"><scope>eu::minsynth::ArpegiatorNode</scope><name>update_time</name></member>
+      <member refid="structeu_1_1minsynth_1_1Node_1afc23f2be2b9e942d84ef6b113af27e5f" prot="public" virt="virtual"><scope>eu::minsynth::ArpegiatorNode</scope><name>~Node</name></member>
+      <member refid="structeu_1_1minsynth_1_1ToneTaker_1a50695974ca85c8448e22cd6ed9d97ba1" prot="public" virt="virtual"><scope>eu::minsynth::ArpegiatorNode</scope><name>~ToneTaker</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
