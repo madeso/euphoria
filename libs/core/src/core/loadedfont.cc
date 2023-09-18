@@ -357,13 +357,6 @@ namespace eu::core
 
         fontchars.line_height = f.line_height;
 
-        LOG_INFO
-        (
-            "Loaded {0} characters",
-            fontchars.codepoint_to_glyph.size()
-        );
-        LOG_INFO("kerning: {0}", f.kernings.empty() == false);
-
         const float scale = 1 / static_cast<float>(font_size);
 
         for(int cp: code_points)

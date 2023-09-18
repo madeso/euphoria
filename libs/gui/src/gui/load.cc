@@ -27,7 +27,6 @@ namespace eu::gui
     {
         if(c.table)
         {
-            LOG_INFO("Creating a table layout");
             return create_table_layout
             (
                 c.table->expanded_rows,
@@ -37,12 +36,11 @@ namespace eu::gui
         }
         else if(c.single_row)
         {
-            LOG_INFO("Creating a single row layout");
             return create_single_row_layout(c.single_row->padding);
         }
         else
         {
-            LOG_ERROR("Missing a layout");
+            ASSERT(false && "Missing a layout");
             return create_single_row_layout(0);
         }
     }
@@ -115,7 +113,6 @@ namespace eu::gui
 
         if(w.button)
         {
-            LOG_INFO("Creating a button widget");
             auto b = std::make_shared<CommandButton>(state);
 
             const std::string skin_name = w.button->skin;
@@ -157,7 +154,6 @@ namespace eu::gui
         }
         else if(w.panel)
         {
-            LOG_INFO("Creating a panel widget");
             auto l = std::make_shared<PanelWidget>(state);
             ret = l;
             build_layout_container

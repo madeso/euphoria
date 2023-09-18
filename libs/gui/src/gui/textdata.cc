@@ -95,7 +95,7 @@ namespace eu::gui
             {
                 LOG_ERROR("Failed to parse {0}", string);
             }
-            LOG_INFO("Loaded {0}", core::textparser::VisitorDebugString::accept_all_nodes(&parsed));
+            
             text->set_text(parsed);
             text->set_size(size);
         }

@@ -68,7 +68,6 @@ namespace eu::gui
             std::accumulate(height.begin(), height.end(), 0.0f)
         );
 
-        LOG_INFO("Calculate minimum area {0}", s);
         return s;
     }
 
@@ -93,8 +92,6 @@ namespace eu::gui
         const core::Rectf& area
     ) const
     {
-        LOG_INFO("Doing table layout in {0}", area);
-
         // todo(Gustav): include padding
         std::vector<float> width(expandable_cols.size(), 0.0f);
         std::vector<float> height(expandable_rows.size(), 0.0f);
@@ -107,13 +104,8 @@ namespace eu::gui
             update_max(&height[d.row], s.height);
         }
 
-        LOG_INFO("Table widths: {0}", from_vector_to_string(width));
-        LOG_INFO("Table heights: {0}", from_vector_to_string(height));
-
         const float total_width = std::accumulate(width.begin(), width.end(), 0.0f);
         const float total_height = std::accumulate(height.begin(), height.end(), 0.0f);
-
-        LOG_INFO("Width {0} height: {1}", total_width, total_height);
 
         const float leftover_width = area.get_width() - total_width;
         const float leftover_height = area.get_height() - total_height;
@@ -157,14 +149,6 @@ namespace eu::gui
             const auto topleft = area.get_top_left();
             float x = topleft.x;
             float y = topleft.y;
-
-            LOG_INFO
-            (
-                "widget '{0}' x {1} y {2}",
-                w->name,
-                x,
-                y
-            );
 
             for(int column_index = 0; column_index < d.column; ++column_index)
             {
@@ -217,7 +201,6 @@ namespace eu::gui
         }
 
         const auto s = core::size2f::create_from_width_height(width, height);
-        LOG_INFO("Single row layout min size: {0}", s);
         return s;
     }
 
@@ -229,7 +212,6 @@ namespace eu::gui
         const core::Rectf& area
     ) const
     {
-        LOG_INFO("Doing single row layout in {0}", area);
         const auto tl = area.get_top_left();
         float x = tl.x;
         for(const auto& w: *widgets)

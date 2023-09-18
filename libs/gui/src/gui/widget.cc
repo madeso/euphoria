@@ -62,7 +62,6 @@ namespace eu::gui
             margin.up,
             margin.down
         );
-        LOG_INFO("Setting gui rect of '{0}' {1}", name, rect);
         on_size_changed();
     }
 

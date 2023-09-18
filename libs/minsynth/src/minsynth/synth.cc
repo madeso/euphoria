@@ -280,9 +280,9 @@ namespace eu::minsynth
 
                 LOG_INFO
                 (
-                "STAT ({0}) {1}",
-                static_cast<unsigned int>(channel),
-                from_midi_event_to_string(static_cast<MidiEvent>(message))
+                    "STAT ({0}) {1}",
+                    static_cast<unsigned int>(channel),
+                    from_midi_event_to_string(static_cast<MidiEvent>(message))
                 );
             }
             else

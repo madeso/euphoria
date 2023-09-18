@@ -78,13 +78,6 @@ namespace eu::render
         {
             const auto uniform = sh->shader.get_uniform(texture.uniform);
             DEFINE_ENUM_VALUE(core::texture_type, texture_name, texture.texture);
-            LOG_INFO
-            (
-                "Defining shader {0}: {1} to {2}",
-                path,
-                texture.uniform,
-                texture.texture
-            );
             sh->bindings.emplace_back(uniform, texture_name);
         }
 

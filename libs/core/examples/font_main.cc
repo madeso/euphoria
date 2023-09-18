@@ -42,7 +42,7 @@ bool print_char
 
     if (ppx < 0 || ppy < 0)
     {
-        LOG_INFO("warning: xy out of bounds {0} {1}", ppx, ppy);
+        std::cerr << "warning: xy out of bounds " << ppx << " " << ppy << "\n";
     }
 
     // todo(Gustav): ImageToStringTable might not convert corectly,
