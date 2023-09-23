@@ -42,10 +42,10 @@ namespace eu::core::tracery
                 {
                     if (auto* vstr = v.AsString(doc); vstr != nullptr)
                     {
-                        Result r = rule->add_rule(vstr->value);
-                        if (r == false)
+                        Result res = rule->add_rule(vstr->value);
+                        if (res == false)
                         {
-                            return r;
+                            return res;
                         }
                     }
                     else

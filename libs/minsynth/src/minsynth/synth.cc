@@ -711,7 +711,7 @@ namespace eu::minsynth
             (
                 dead.begin(),
                 dead.end(),
-                [=](const DeadFrequency& df) -> bool
+                [=, this](const DeadFrequency& df) -> bool
                 {
                     return df.time_end + envelope.time_to_end < current_time;
                 }
