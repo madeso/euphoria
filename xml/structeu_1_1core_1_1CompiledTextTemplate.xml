@@ -49,17 +49,17 @@
         </inbodydescription>
         <location file="libs/core/src/core/texttemplate.h" line="57" column="18" bodyfile="libs/core/src/core/texttemplate.cc" bodystart="820" bodyend="826"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1core_1_1CompiledTextTemplate_1abf8ca6b9b79a536c50aa925eb9853ac7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1core_1_1CompiledTextTemplate_1a50c8c5f271542c77dfc76bf1a70fdf73" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>eu::core::CompiledTextTemplate::CompiledTextTemplate</definition>
-        <argsstring>(vfs::FileSystem *fs, const vfs::FilePath &amp;path)</argsstring>
+        <argsstring>(io::FileSystem *fs, const io::FilePath &amp;path)</argsstring>
         <name>CompiledTextTemplate</name>
         <param>
-          <type><ref refid="structeu_1_1core_1_1vfs_1_1FileSystem" kindref="compound">vfs::FileSystem</ref> *</type>
+          <type><ref refid="structeu_1_1io_1_1FileSystem" kindref="compound">io::FileSystem</ref> *</type>
           <declname>fs</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1vfs_1_1FilePath" kindref="compound">vfs::FilePath</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1io_1_1FilePath" kindref="compound">io::FilePath</ref> &amp;</type>
           <declname>path</declname>
         </param>
         <briefdescription>
@@ -186,7 +186,7 @@
     <listofallmembers>
       <member refid="structeu_1_1core_1_1CompiledTextTemplate_1a97a38caf09d405398225aa82565f87c7" prot="public" virt="non-virtual"><scope>eu::core::CompiledTextTemplate</scope><name>build_string</name></member>
       <member refid="structeu_1_1core_1_1CompiledTextTemplate_1afc20826d1f39a6ed3ff2ebba218c5804" prot="public" virt="non-virtual"><scope>eu::core::CompiledTextTemplate</scope><name>CompiledTextTemplate</name></member>
-      <member refid="structeu_1_1core_1_1CompiledTextTemplate_1abf8ca6b9b79a536c50aa925eb9853ac7" prot="public" virt="non-virtual"><scope>eu::core::CompiledTextTemplate</scope><name>CompiledTextTemplate</name></member>
+      <member refid="structeu_1_1core_1_1CompiledTextTemplate_1a50c8c5f271542c77dfc76bf1a70fdf73" prot="public" virt="non-virtual"><scope>eu::core::CompiledTextTemplate</scope><name>CompiledTextTemplate</name></member>
       <member refid="structeu_1_1core_1_1CompiledTextTemplate_1aea66ede475f97dc094ec1dd274ec9095" prot="public" virt="non-virtual"><scope>eu::core::CompiledTextTemplate</scope><name>CompiledTextTemplate</name></member>
       <member refid="structeu_1_1core_1_1CompiledTextTemplate_1a98716fd64e59ac85a044a75598cbefe2" prot="public" virt="non-virtual"><scope>eu::core::CompiledTextTemplate</scope><name>CompiledTextTemplate</name></member>
       <member refid="structeu_1_1core_1_1CompiledTextTemplate_1a84c72c82175f155f07b2cceb7a2d781e" prot="public" virt="non-virtual"><scope>eu::core::CompiledTextTemplate</scope><name>errors</name></member>

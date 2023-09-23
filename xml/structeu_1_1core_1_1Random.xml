@@ -5,7 +5,7 @@
     <includes refid="random_8h" local="no">random.h</includes>
       <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structeu_1_1core_1_1Random_1a4c0278a415dbd6910c7c3d7870155ef5" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeu_1_1core_1a019a836f7e88088fbbb23733e6a3fb69" kindref="member">U32</ref></type>
+        <type><ref refid="namespaceeu_1a4906aa2bac1ba15d71b5b473ee9dfcd4" kindref="member">U32</ref></type>
         <definition>U32 eu::core::Random::index</definition>
         <argsstring></argsstring>
         <name>index</name>
@@ -18,7 +18,7 @@
         <location file="libs/core/src/core/random.h" line="22" column="13" bodyfile="libs/core/src/core/random.h" bodystart="22" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1Random_1ad28ea8b8a6a294ce87acc6a79346ab5a" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeu_1_1core_1a019a836f7e88088fbbb23733e6a3fb69" kindref="member">U32</ref></type>
+        <type><ref refid="namespaceeu_1a4906aa2bac1ba15d71b5b473ee9dfcd4" kindref="member">U32</ref></type>
         <definition>U32 eu::core::Random::state[16]</definition>
         <argsstring>[16]</argsstring>
         <name>state</name>
@@ -38,7 +38,7 @@
         <argsstring>(U32 seed=generate_time_seed())</argsstring>
         <name>Random</name>
         <param>
-          <type><ref refid="namespaceeu_1_1core_1a019a836f7e88088fbbb23733e6a3fb69" kindref="member">U32</ref></type>
+          <type><ref refid="namespaceeu_1a4906aa2bac1ba15d71b5b473ee9dfcd4" kindref="member">U32</ref></type>
           <declname>seed</declname>
           <defval><ref refid="structeu_1_1core_1_1Random_1a870ea4c3fe8875bc1e3607c82a89868f" kindref="member">generate_time_seed</ref>()</defval>
         </param>
@@ -51,7 +51,7 @@
         <location file="libs/core/src/core/random.h" line="25" column="18" bodyfile="libs/core/src/core/random.cc" bodystart="44" bodyend="51"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1Random_1a5041d1cca94255b5333c2548b3a617dd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="namespaceeu_1_1core_1a019a836f7e88088fbbb23733e6a3fb69" kindref="member">U32</ref></type>
+        <type><ref refid="namespaceeu_1a4906aa2bac1ba15d71b5b473ee9dfcd4" kindref="member">U32</ref></type>
         <definition>U32 eu::core::Random::get_next_u32</definition>
         <argsstring>()</argsstring>
         <name>get_next_u32</name>
@@ -64,7 +64,7 @@
         <location file="libs/core/src/core/random.h" line="27" column="13" bodyfile="libs/core/src/core/random.cc" bodystart="54" bodyend="67"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1Random_1a6cb4147d108e01bbeaa48f979bcc7eaf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="namespaceeu_1_1core_1a490e48e85948bba664c6c503902a2dae" kindref="member">U64</ref></type>
+        <type><ref refid="namespaceeu_1ac4791a29620a564f20a57ac1f705d39f" kindref="member">U64</ref></type>
         <definition>U64 eu::core::Random::get_next_u64</definition>
         <argsstring>()</argsstring>
         <name>get_next_u64</name>
@@ -118,7 +118,7 @@
       </sectiondef>
       <sectiondef kind="public-static-func">
       <memberdef kind="function" id="structeu_1_1core_1_1Random_1a870ea4c3fe8875bc1e3607c82a89868f" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="namespaceeu_1_1core_1a019a836f7e88088fbbb23733e6a3fb69" kindref="member">U32</ref></type>
+        <type><ref refid="namespaceeu_1a4906aa2bac1ba15d71b5b473ee9dfcd4" kindref="member">U32</ref></type>
         <definition>U32 eu::core::Random::generate_time_seed</definition>
         <argsstring>()</argsstring>
         <name>generate_time_seed</name>

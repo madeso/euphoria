@@ -22,6 +22,8 @@
     <innerfile refid="imguizmo_8h">imguizmo.h</innerfile>
     <innerfile refid="window_2src_2window_2key_8cc">key.cc</innerfile>
     <innerfile refid="window_2src_2window_2key_8h">key.h</innerfile>
+    <innerfile refid="window_2src_2window_2log_8cc">log.cc</innerfile>
+    <innerfile refid="window_2src_2window_2log_8h">log.h</innerfile>
     <innerfile refid="open__color_8imgui_8cc">open_color.imgui.cc</innerfile>
     <innerfile refid="open__color_8imgui_8h">open_color.imgui.h</innerfile>
     <innerfile refid="sdlglcontext_8cc">sdlglcontext.cc</innerfile>

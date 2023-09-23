@@ -90,13 +90,13 @@
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            std::is_same&lt;T, std::string&gt;::value</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        , <span class="keywordtype">int</span>&gt; = 0</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    &gt;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="structeu_1_1core_1_1Result.html">Result&lt;T&gt;</a></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="structeu_1_1Result.html">Result&lt;T&gt;</a></div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <a class="code" href="namespaceeu_1_1core_1_1argparse.html#ac1384467d92e234b3184b8fc48f91baa">default_parse_function</a></div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    (</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keyword">const</span> std::string&amp; value</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    )</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    {</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="structeu_1_1core_1_1Result.html#a55933664f2108cba2f4a3aa6cbb107c1">Result&lt;T&gt;::create_value</a>(value);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="structeu_1_1Result.html#a74e531c359c34867ccbc2a0061cb58c7">Result&lt;T&gt;::create_value</a>(value);</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    }</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="comment">// default parse function for non-enums</span></div>
@@ -109,7 +109,7 @@
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            <span class="keywordtype">int</span></div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        &gt; = 0</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    &gt;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    Result&lt;T&gt;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <a class="code" href="structeu_1_1Result.html">Result&lt;T&gt;</a></div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <a class="code" href="namespaceeu_1_1core_1_1argparse.html#ac1384467d92e234b3184b8fc48f91baa">default_parse_function</a></div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    (</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keyword">const</span> std::string&amp; value</div>
@@ -118,11 +118,11 @@
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keyword">auto</span> parsed = locale_parse_generic&lt;T&gt;(value);</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keywordflow">if</span>(parsed)</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        {</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="structeu_1_1core_1_1Result.html#a55933664f2108cba2f4a3aa6cbb107c1">Result&lt;T&gt;::create_value</a>(*parsed);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="structeu_1_1Result.html#a74e531c359c34867ccbc2a0061cb58c7">Result&lt;T&gt;::create_value</a>(*parsed);</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        }</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        {</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="structeu_1_1core_1_1Result.html#ad195c2cd4e046d8fe59d26ad823d2604">Result&lt;T&gt;::create_error</a>();</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="structeu_1_1Result.html#a02d9b3a1153f9489db2a2593c1dd466b">Result&lt;T&gt;::create_error</a>(<span class="stringliteral">&quot;&quot;</span>);</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        }</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    }</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
@@ -145,11 +145,11 @@
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <span class="keyword">auto</span> matches = core::from_string_to_enum&lt;T&gt;(value);</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <span class="keywordflow">if</span> (matches.single_match)</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        {</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="structeu_1_1core_1_1Result.html#a55933664f2108cba2f4a3aa6cbb107c1">Result&lt;T&gt;::create_value</a>(matches.values[0]);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="structeu_1_1Result.html#a74e531c359c34867ccbc2a0061cb58c7">Result&lt;T&gt;::create_value</a>(matches.values[0]);</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        }</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        {</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="structeu_1_1core_1_1Result.html#ad195c2cd4e046d8fe59d26ad823d2604">Result&lt;T&gt;::create_error</a>(fmt::format(<span class="stringliteral">&quot;did you mean {}?&quot;</span>, <a class="code" href="namespaceeu_1_1core_1_1argparse.html#a604a71dea552b0763cbbeca1b31e6d4b">add_quotes_and_combine_with_english_or</a>(matches.names)));</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="structeu_1_1Result.html#a02d9b3a1153f9489db2a2593c1dd466b">Result&lt;T&gt;::create_error</a>(fmt::format(<span class="stringliteral">&quot;did you mean {}?&quot;</span>, <a class="code" href="namespaceeu_1_1core_1_1argparse.html#a604a71dea552b0763cbbeca1b31e6d4b">add_quotes_and_combine_with_english_or</a>(matches.names)));</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        }</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    }</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
@@ -235,16 +235,16 @@
 <div class="ttc" id="anamespaceeu_1_1core_1_1argparse_html_ab5073158dd27a2d9969f36f36d90f6ba"><div class="ttname"><a href="namespaceeu_1_1core_1_1argparse.html#ab5073158dd27a2d9969f36f36d90f6ba">eu::core::argparse::from_default_value_to_string</a></div><div class="ttdeci">std::string from_default_value_to_string(const T &amp;t)</div><div class="ttdef"><b>Definition:</b> <a href="default__parse_8h_source.html#l00137">default_parse.h:137</a></div></div>
 <div class="ttc" id="anamespaceeu_1_1core_1_1argparse_html_ac1384467d92e234b3184b8fc48f91baa"><div class="ttname"><a href="namespaceeu_1_1core_1_1argparse.html#ac1384467d92e234b3184b8fc48f91baa">eu::core::argparse::default_parse_function</a></div><div class="ttdeci">Result&lt; T &gt; default_parse_function(const std::string &amp;value)</div><div class="ttdef"><b>Definition:</b> <a href="default__parse_8h_source.html#l00020">default_parse.h:21</a></div></div>
 <div class="ttc" id="anamespaceeu_1_1core_1_1argparse_html_ad848be83cb584b63c2daa6b6108e9f6a"><div class="ttname"><a href="namespaceeu_1_1core_1_1argparse.html#ad848be83cb584b63c2daa6b6108e9f6a">eu::core::argparse::default_describe</a></div><div class="ttdeci">std::optional&lt; std::string &gt; default_describe()</div><div class="ttdef"><b>Definition:</b> <a href="default__parse_8h_source.html#l00107">default_parse.h:107</a></div></div>
-<div class="ttc" id="anamespaceeu_1_1core_html_a36ad7b54f473c7387d10a52902477502"><div class="ttname"><a href="namespaceeu_1_1core.html#a36ad7b54f473c7387d10a52902477502">eu::core::from_enum_to_string</a></div><div class="ttdeci">std::string from_enum_to_string(T t)</div><div class="ttdef"><b>Definition:</b> <a href="enumtostring_8h_source.html#l00115">enumtostring.h:115</a></div></div>
+<div class="ttc" id="anamespaceeu_1_1core_html_a36ad7b54f473c7387d10a52902477502"><div class="ttname"><a href="namespaceeu_1_1core.html#a36ad7b54f473c7387d10a52902477502">eu::core::from_enum_to_string</a></div><div class="ttdeci">std::string from_enum_to_string(T t)</div><div class="ttdef"><b>Definition:</b> <a href="enumtostring_8h_source.html#l00116">enumtostring.h:116</a></div></div>
 <div class="ttc" id="anamespaceeu_1_1core_html_a6fca7b841e42734cd5c01e04fc9e6511ae358efa489f58062f10dd7316b65649e"><div class="ttname"><a href="namespaceeu_1_1core.html#a6fca7b841e42734cd5c01e04fc9e6511ae358efa489f58062f10dd7316b65649e">eu::core::Key::t</a></div><div class="ttdeci">@ t</div></div>
 <div class="ttc" id="anamespaceeu_1_1core_html_aa1676f6b793bf695a9a6fdb9c6e0833aa4b43b0aee35624cd95b910189b3dc231"><div class="ttname"><a href="namespaceeu_1_1core.html#aa1676f6b793bf695a9a6fdb9c6e0833aa4b43b0aee35624cd95b910189b3dc231">eu::core::Grayscale::r</a></div><div class="ttdeci">@ r</div></div>
 <div class="ttc" id="anamespaceeu_1_1core_html_aec983f4de1a41848d7f6652d73d07def"><div class="ttname"><a href="namespaceeu_1_1core.html#aec983f4de1a41848d7f6652d73d07def">eu::core::to_string_for_custom_argparser</a></div><div class="ttdeci">std::string to_string_for_custom_argparser(const T &amp;t)</div><div class="ttdef"><b>Definition:</b> <a href="custom__parser_8h_source.html#l00023">custom_parser.h:23</a></div></div>
 <div class="ttc" id="anumparse_8h_html"><div class="ttname"><a href="numparse_8h.html">numparse.h</a></div></div>
+<div class="ttc" id="astructeu_1_1Result_html"><div class="ttname"><a href="structeu_1_1Result.html">eu::Result</a></div><div class="ttdef"><b>Definition:</b> <a href="result_8h_source.html#l00010">result.h:11</a></div></div>
+<div class="ttc" id="astructeu_1_1Result_html_a02d9b3a1153f9489db2a2593c1dd466b"><div class="ttname"><a href="structeu_1_1Result.html#a02d9b3a1153f9489db2a2593c1dd466b">eu::Result::create_error</a></div><div class="ttdeci">static Self create_error(const Error &amp;error)</div><div class="ttdef"><b>Definition:</b> <a href="result_8h_source.html#l00021">result.h:21</a></div></div>
+<div class="ttc" id="astructeu_1_1Result_html_a74e531c359c34867ccbc2a0061cb58c7"><div class="ttname"><a href="structeu_1_1Result.html#a74e531c359c34867ccbc2a0061cb58c7">eu::Result::create_value</a></div><div class="ttdeci">static Self create_value(const T &amp;t)</div><div class="ttdef"><b>Definition:</b> <a href="result_8h_source.html#l00015">result.h:15</a></div></div>
 <div class="ttc" id="astructeu_1_1core_1_1CustomArgparser_html"><div class="ttname"><a href="structeu_1_1core_1_1CustomArgparser.html">eu::core::CustomArgparser</a></div><div class="ttdef"><b>Definition:</b> <a href="custom__parser_8h_source.html#l00011">custom_parser.h:12</a></div></div>
 <div class="ttc" id="astructeu_1_1core_1_1CustomArgparser_html_aa84f8f3c226ee12b1388d4f001f0c1e7aaaf7d5f0d089bfa0b0e97ecb505fbf07"><div class="ttname"><a href="structeu_1_1core_1_1CustomArgparser.html#aa84f8f3c226ee12b1388d4f001f0c1e7aaaf7d5f0d089bfa0b0e97ecb505fbf07">eu::core::CustomArgparser::value</a></div><div class="ttdeci">@ value</div><div class="ttdef"><b>Definition:</b> <a href="custom__parser_8h_source.html#l00013">custom_parser.h:13</a></div></div>
-<div class="ttc" id="astructeu_1_1core_1_1Result_html"><div class="ttname"><a href="structeu_1_1core_1_1Result.html">eu::core::Result</a></div><div class="ttdef"><b>Definition:</b> <a href="result_8h_source.html#l00010">result.h:11</a></div></div>
-<div class="ttc" id="astructeu_1_1core_1_1Result_html_a55933664f2108cba2f4a3aa6cbb107c1"><div class="ttname"><a href="structeu_1_1core_1_1Result.html#a55933664f2108cba2f4a3aa6cbb107c1">eu::core::Result::create_value</a></div><div class="ttdeci">static Result&lt; T &gt; create_value(const T &amp;t)</div><div class="ttdef"><b>Definition:</b> <a href="result_8h_source.html#l00013">result.h:13</a></div></div>
-<div class="ttc" id="astructeu_1_1core_1_1Result_html_ad195c2cd4e046d8fe59d26ad823d2604"><div class="ttname"><a href="structeu_1_1core_1_1Result.html#ad195c2cd4e046d8fe59d26ad823d2604">eu::core::Result::create_error</a></div><div class="ttdeci">static Result&lt; T &gt; create_error(const std::string &amp;error=&quot;&quot;)</div><div class="ttdef"><b>Definition:</b> <a href="result_8h_source.html#l00019">result.h:19</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.17-->
 <!-- start footer part -->

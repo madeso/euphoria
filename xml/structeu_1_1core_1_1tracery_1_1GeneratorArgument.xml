@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/tracery.cc" line="25" column="22" bodyfile="libs/core/src/core/tracery.cc" bodystart="25" bodyend="-1"/>
+        <location file="libs/core/src/core/tracery.cc" line="24" column="22" bodyfile="libs/core/src/core/tracery.cc" bodystart="24" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1tracery_1_1GeneratorArgument_1ad232fcb4057bc556f3379c16d4073152" prot="public" static="no" mutable="no">
         <type>const <ref refid="structeu_1_1core_1_1tracery_1_1Grammar" kindref="compound">tracery::Grammar</ref> *</type>
@@ -29,7 +29,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/tracery.cc" line="26" column="32" bodyfile="libs/core/src/core/tracery.cc" bodystart="26" bodyend="-1"/>
+        <location file="libs/core/src/core/tracery.cc" line="25" column="32" bodyfile="libs/core/src/core/tracery.cc" bodystart="25" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1tracery_1_1GeneratorArgument_1a4ccd1bcbfecd2c3cffa10d3f3ed9818a" prot="public" static="no" mutable="no">
         <type>std::map&lt; std::string, std::string &gt;</type>
@@ -42,7 +42,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/tracery.cc" line="27" column="18" bodyfile="libs/core/src/core/tracery.cc" bodystart="27" bodyend="-1"/>
+        <location file="libs/core/src/core/tracery.cc" line="26" column="18" bodyfile="libs/core/src/core/tracery.cc" bodystart="26" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -69,7 +69,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/tracery.cc" line="23" column="5" bodyfile="libs/core/src/core/tracery.cc" bodystart="24" bodyend="28"/>
+    <location file="libs/core/src/core/tracery.cc" line="22" column="5" bodyfile="libs/core/src/core/tracery.cc" bodystart="23" bodyend="27"/>
     <listofallmembers>
       <member refid="structeu_1_1core_1_1tracery_1_1GeneratorArgument_1ad0d53c6150f2f59107c1718dd74ac4f6" prot="public" virt="non-virtual"><scope>eu::core::tracery::GeneratorArgument</scope><name>generator</name></member>
       <member refid="structeu_1_1core_1_1tracery_1_1GeneratorArgument_1ad232fcb4057bc556f3379c16d4073152" prot="public" virt="non-virtual"><scope>eu::core::tracery::GeneratorArgument</scope><name>grammar</name></member>

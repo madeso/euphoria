@@ -3,21 +3,19 @@
   <compounddef id="sdlwindow_8cc" kind="file" language="C++">
     <compoundname>sdlwindow.cc</compoundname>
     <includes refid="sdlwindow_8h" local="yes">window/sdlwindow.h</includes>
-    <includes refid="log_8h" local="yes">log/log.h</includes>
+    <includes refid="log_2src_2log_2log_8h" local="yes">log/log.h</includes>
     <includes local="yes">SDL.h</includes>
     <incdepgraph>
-      <node id="22">
+      <node id="19">
         <label>SDL.h</label>
       </node>
       <node id="15">
         <label>cstdint</label>
       </node>
-      <node id="13">
-        <label>core/cint.h</label>
-        <link refid="cint_8h"/>
-        <childnode refid="14" relation="include">
-        </childnode>
-        <childnode refid="16" relation="include">
+      <node id="14">
+        <label>base/ints.h</label>
+        <link refid="ints_8h"/>
+        <childnode refid="15" relation="include">
         </childnode>
       </node>
       <node id="2">
@@ -31,12 +29,6 @@
       <node id="7">
         <label>string</label>
       </node>
-      <node id="21">
-        <label>undef_windows/undef_windows.h</label>
-      </node>
-      <node id="20">
-        <label>spdlog/fmt/ostr.h</label>
-      </node>
       <node id="17">
         <label>core/vec.base.h</label>
         <link refid="vec_8base_8h"/>
@@ -48,9 +40,6 @@
         </childnode>
         <childnode refid="8" relation="include">
         </childnode>
-      </node>
-      <node id="19">
-        <label>spdlog/spdlog.h</label>
       </node>
       <node id="4">
         <label>core/vec2.h</label>
@@ -84,19 +73,7 @@
       </node>
       <node id="18">
         <label>log/log.h</label>
-        <link refid="log_8h"/>
-        <childnode refid="19" relation="include">
-        </childnode>
-        <childnode refid="20" relation="include">
-        </childnode>
-        <childnode refid="21" relation="include">
-        </childnode>
-      </node>
-      <node id="14">
-        <label>core/ints.h</label>
-        <link refid="ints_8h"/>
-        <childnode refid="15" relation="include">
-        </childnode>
+        <link refid="log_2src_2log_2log_8h"/>
       </node>
       <node id="3">
         <label>core/mousebehaviour.h</label>
@@ -122,6 +99,14 @@
         <childnode refid="9" relation="include">
         </childnode>
       </node>
+      <node id="13">
+        <label>base/cint.h</label>
+        <link refid="cint_8h"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
       <node id="1">
         <label>libs/window/src/window/sdlwindow.cc</label>
         <link refid="sdlwindow_8cc"/>
@@ -129,7 +114,7 @@
         </childnode>
         <childnode refid="18" relation="include">
         </childnode>
-        <childnode refid="22" relation="include">
+        <childnode refid="19" relation="include">
         </childnode>
       </node>
     </incdepgraph>

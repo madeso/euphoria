@@ -6,42 +6,26 @@
     <includes refid="palette_8h" local="yes">core/palette.h</includes>
     <includes local="no">map</includes>
     <incdepgraph>
-      <node id="28">
-        <label>core/editdistance.h</label>
-        <link refid="editdistance_8h"/>
-      </node>
       <node id="26">
         <label>queue</label>
+      </node>
+      <node id="24">
+        <label>base/stringutils.h</label>
+        <link refid="stringutils_8h"/>
+        <childnode refid="19" relation="include">
+        </childnode>
       </node>
       <node id="12">
         <label>core/colors.h</label>
         <link refid="colors_8h"/>
       </node>
-      <node id="25">
-        <label>core/editdistance.search.h</label>
-        <link refid="editdistance_8search_8h"/>
-        <childnode refid="26" relation="include">
-        </childnode>
-        <childnode refid="27" relation="include">
-        </childnode>
-        <childnode refid="28" relation="include">
-        </childnode>
-      </node>
       <node id="10">
         <label>cstdint</label>
       </node>
-      <node id="8">
-        <label>core/cint.h</label>
-        <link refid="cint_8h"/>
-        <childnode refid="9" relation="include">
-        </childnode>
-        <childnode refid="11" relation="include">
-        </childnode>
-      </node>
-      <node id="24">
-        <label>core/stringutils.h</label>
-        <link refid="stringutils_8h"/>
-        <childnode refid="19" relation="include">
+      <node id="9">
+        <label>base/ints.h</label>
+        <link refid="ints_8h"/>
+        <childnode refid="10" relation="include">
         </childnode>
       </node>
       <node id="7">
@@ -56,12 +40,6 @@
         <childnode refid="16" relation="include">
         </childnode>
         <childnode refid="17" relation="include">
-        </childnode>
-      </node>
-      <node id="31">
-        <label>core/result.h</label>
-        <link refid="result_8h"/>
-        <childnode refid="32" relation="include">
         </childnode>
       </node>
       <node id="22">
@@ -108,6 +86,12 @@
         <childnode refid="32" relation="include">
         </childnode>
       </node>
+      <node id="31">
+        <label>base/result.h</label>
+        <link refid="result_8h"/>
+        <childnode refid="32" relation="include">
+        </childnode>
+      </node>
       <node id="32">
         <label>optional</label>
       </node>
@@ -135,6 +119,16 @@
         <childnode refid="7" relation="include">
         </childnode>
       </node>
+      <node id="25">
+        <label>base/editdistance.search.h</label>
+        <link refid="editdistance_8search_8h"/>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+      </node>
       <node id="30">
         <label>core/custom_parser.h</label>
         <link refid="custom__parser_8h"/>
@@ -143,12 +137,6 @@
       </node>
       <node id="5">
         <label>array</label>
-      </node>
-      <node id="9">
-        <label>core/ints.h</label>
-        <link refid="ints_8h"/>
-        <childnode refid="10" relation="include">
-        </childnode>
       </node>
       <node id="14">
         <label>iostream</label>
@@ -176,6 +164,10 @@
         <childnode refid="29" relation="include">
         </childnode>
       </node>
+      <node id="28">
+        <label>base/editdistance.h</label>
+        <link refid="editdistance_8h"/>
+      </node>
       <node id="13">
         <label>core/angle.h</label>
         <link refid="angle_8h"/>
@@ -184,6 +176,14 @@
         <childnode refid="15" relation="include">
         </childnode>
         <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>base/cint.h</label>
+        <link refid="cint_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
         </childnode>
       </node>
       <node id="17">

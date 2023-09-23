@@ -56,17 +56,17 @@
 <div class="contents">
 <a href="defaultfiles_8cc.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="defaultfiles_8h.html">render/defaultfiles.h</a>&quot;</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="vfs_8h.html">core/vfs.h</a>&quot;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="vfs__path_8h.html">core/vfs_path.h</a>&quot;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="vfs_8h.html">io/vfs.h</a>&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="vfs__path_8h.html">io/vfs_path.h</a>&quot;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceeu_1_1render.html">eu::render</a></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;{</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="namespaceeu_1_1render.html#a11c320057163b175260f9ebe72bf8c4b">    9</a></span>&#160;    <a class="code" href="namespaceeu_1_1render.html#a11c320057163b175260f9ebe72bf8c4b">setup_default_files</a>(std::shared_ptr&lt;core::vfs::ReadRootCatalog&gt; catalog)</div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="namespaceeu_1_1render.html#ad607fa709c2286c270bf3e079b59937b">    9</a></span>&#160;    <a class="code" href="namespaceeu_1_1render.html#ad607fa709c2286c270bf3e079b59937b">setup_default_files</a>(std::shared_ptr&lt;io::ReadRootCatalog&gt; catalog)</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    {</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;        catalog-&gt;register_file_string</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        (</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;            <a class="code" href="structeu_1_1core_1_1vfs_1_1FilePath.html">core::vfs::FilePath</a>{<span class="stringliteral">&quot;~/texture_types.json&quot;</span>},</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;            <a class="code" href="structeu_1_1io_1_1FilePath.html">io::FilePath</a>{<span class="stringliteral">&quot;~/texture_types.json&quot;</span>},</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;            R<span class="stringliteral">&quot;json(</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="stringliteral">                {</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="stringliteral">                    &quot;name&quot;:</span></div>
@@ -80,7 +80,7 @@
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="stringliteral"></span> </div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="stringliteral">        catalog-&gt;register_file_string</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="stringliteral">        (</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="stringliteral">            <a class="code" href="structeu_1_1core_1_1vfs_1_1FilePath.html">core::vfs::FilePath</a>{</span><span class="stringliteral">&quot;~/default_shader.json&quot;</span>},</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="stringliteral">            <a class="code" href="structeu_1_1io_1_1FilePath.html">io::FilePath</a>{</span><span class="stringliteral">&quot;~/default_shader.json&quot;</span>},</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;            R<span class="stringliteral">&quot;json(</span></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="stringliteral">                {</span></div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="stringliteral">                    &quot;has_light&quot;: true,</span></div>
@@ -115,7 +115,7 @@
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="stringliteral">        );</span></div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="stringliteral">        catalog-&gt;register_file_string</span></div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="stringliteral">        (</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="stringliteral">            <a class="code" href="structeu_1_1core_1_1vfs_1_1FilePath.html">core::vfs::FilePath</a>{</span><span class="stringliteral">&quot;~/default_shader.vert&quot;</span>},</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="stringliteral">            <a class="code" href="structeu_1_1io_1_1FilePath.html">io::FilePath</a>{</span><span class="stringliteral">&quot;~/default_shader.vert&quot;</span>},</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            R<span class="stringliteral">&quot;glsl(</span></div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="stringliteral">                #version 330 core</span></div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="stringliteral">                in vec3 aPosition;</span></div>
@@ -142,7 +142,7 @@
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="stringliteral">        );</span></div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="stringliteral">        catalog-&gt;register_file_string</span></div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="stringliteral">        (</span></div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="stringliteral">            <a class="code" href="structeu_1_1core_1_1vfs_1_1FilePath.html">core::vfs::FilePath</a>{</span><span class="stringliteral">&quot;~/default_shader.frag&quot;</span>},</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="stringliteral">            <a class="code" href="structeu_1_1io_1_1FilePath.html">io::FilePath</a>{</span><span class="stringliteral">&quot;~/default_shader.frag&quot;</span>},</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            R<span class="stringliteral">&quot;glsl(</span></div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="stringliteral">                #version 330 core</span></div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="stringliteral">                struct Material</span></div>
@@ -239,7 +239,7 @@
 <div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;<span class="stringliteral">        </span><span class="comment">// basic_shader</span></div>
 <div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;        catalog-&gt;register_file_string</div>
 <div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;        (</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;            <a class="code" href="structeu_1_1core_1_1vfs_1_1FilePath.html">core::vfs::FilePath</a>{<span class="stringliteral">&quot;~/basic_shader.json&quot;</span>},</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;            <a class="code" href="structeu_1_1io_1_1FilePath.html">io::FilePath</a>{<span class="stringliteral">&quot;~/basic_shader.json&quot;</span>},</div>
 <div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;            R<span class="stringliteral">&quot;json(</span></div>
 <div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;<span class="stringliteral">                {</span></div>
 <div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;<span class="stringliteral">                    &quot;diffuse&quot;: &quot;uDiffuse&quot;,</span></div>
@@ -251,7 +251,7 @@
 <div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;<span class="stringliteral">        );</span></div>
 <div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;<span class="stringliteral">        catalog-&gt;register_file_string</span></div>
 <div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;<span class="stringliteral">        (</span></div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;<span class="stringliteral">            <a class="code" href="structeu_1_1core_1_1vfs_1_1FilePath.html">core::vfs::FilePath</a>{</span><span class="stringliteral">&quot;~/basic_shader.vert&quot;</span>},</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;<span class="stringliteral">            <a class="code" href="structeu_1_1io_1_1FilePath.html">io::FilePath</a>{</span><span class="stringliteral">&quot;~/basic_shader.vert&quot;</span>},</div>
 <div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;            R<span class="stringliteral">&quot;glsl(</span></div>
 <div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;<span class="stringliteral">                #version 330 core</span></div>
 <div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;<span class="stringliteral">                in vec3 aPosition;</span></div>
@@ -268,7 +268,7 @@
 <div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;<span class="stringliteral">        );</span></div>
 <div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;<span class="stringliteral">        catalog-&gt;register_file_string</span></div>
 <div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;<span class="stringliteral">        (</span></div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;<span class="stringliteral">            <a class="code" href="structeu_1_1core_1_1vfs_1_1FilePath.html">core::vfs::FilePath</a>{</span><span class="stringliteral">&quot;~/basic_shader.frag&quot;</span>},</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;<span class="stringliteral">            <a class="code" href="structeu_1_1io_1_1FilePath.html">io::FilePath</a>{</span><span class="stringliteral">&quot;~/basic_shader.frag&quot;</span>},</div>
 <div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;            R<span class="stringliteral">&quot;glsl(</span></div>
 <div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;<span class="stringliteral">                #version 330 core</span></div>
 <div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;<span class="stringliteral"></span> </div>
@@ -286,7 +286,7 @@
 <div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;<span class="stringliteral">        </span><span class="comment">// default_line_shader</span></div>
 <div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;        catalog-&gt;register_file_string</div>
 <div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;        (</div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;            <a class="code" href="structeu_1_1core_1_1vfs_1_1FilePath.html">core::vfs::FilePath</a>{<span class="stringliteral">&quot;~/default_line_shader.json&quot;</span>},</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;            <a class="code" href="structeu_1_1io_1_1FilePath.html">io::FilePath</a>{<span class="stringliteral">&quot;~/default_line_shader.json&quot;</span>},</div>
 <div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;            R<span class="stringliteral">&quot;json(</span></div>
 <div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;<span class="stringliteral">                {</span></div>
 <div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;<span class="stringliteral">                    &quot;has_light&quot;: false,</span></div>
@@ -297,7 +297,7 @@
 <div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;<span class="stringliteral">        );</span></div>
 <div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;<span class="stringliteral">        catalog-&gt;register_file_string</span></div>
 <div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;<span class="stringliteral">        (</span></div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;<span class="stringliteral">            <a class="code" href="structeu_1_1core_1_1vfs_1_1FilePath.html">core::vfs::FilePath</a>{</span><span class="stringliteral">&quot;~/default_line_shader.vert&quot;</span>},</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;<span class="stringliteral">            <a class="code" href="structeu_1_1io_1_1FilePath.html">io::FilePath</a>{</span><span class="stringliteral">&quot;~/default_line_shader.vert&quot;</span>},</div>
 <div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;            R<span class="stringliteral">&quot;glsl(</span></div>
 <div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;<span class="stringliteral">                #version 330 core</span></div>
 <div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;<span class="stringliteral">                in vec3 aPosition;</span></div>
@@ -318,7 +318,7 @@
 <div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;<span class="stringliteral">        );</span></div>
 <div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;<span class="stringliteral">        catalog-&gt;register_file_string</span></div>
 <div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;<span class="stringliteral">        (</span></div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;<span class="stringliteral">            <a class="code" href="structeu_1_1core_1_1vfs_1_1FilePath.html">core::vfs::FilePath</a>{</span><span class="stringliteral">&quot;~/default_line_shader.frag&quot;</span>},</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;<span class="stringliteral">            <a class="code" href="structeu_1_1io_1_1FilePath.html">io::FilePath</a>{</span><span class="stringliteral">&quot;~/default_line_shader.frag&quot;</span>},</div>
 <div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;            R<span class="stringliteral">&quot;glsl(</span></div>
 <div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;<span class="stringliteral">                #version 330 core</span></div>
 <div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;<span class="stringliteral"></span> </div>
@@ -336,8 +336,8 @@
 <div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;<span class="stringliteral">}</span></div>
 <div class="ttc" id="adefaultfiles_8h_html"><div class="ttname"><a href="defaultfiles_8h.html">defaultfiles.h</a></div></div>
 <div class="ttc" id="anamespaceeu_1_1render_html"><div class="ttname"><a href="namespaceeu_1_1render.html">eu::render</a></div><div class="ttdef"><b>Definition:</b> <a href="button_8h_source.html#l00014">button.h:15</a></div></div>
-<div class="ttc" id="anamespaceeu_1_1render_html_a11c320057163b175260f9ebe72bf8c4b"><div class="ttname"><a href="namespaceeu_1_1render.html#a11c320057163b175260f9ebe72bf8c4b">eu::render::setup_default_files</a></div><div class="ttdeci">void setup_default_files(std::shared_ptr&lt; core::vfs::ReadRootCatalog &gt; catalog)</div><div class="ttdef"><b>Definition:</b> <a href="defaultfiles_8cc_source.html#l00009">defaultfiles.cc:9</a></div></div>
-<div class="ttc" id="astructeu_1_1core_1_1vfs_1_1FilePath_html"><div class="ttname"><a href="structeu_1_1core_1_1vfs_1_1FilePath.html">eu::core::vfs::FilePath</a></div><div class="ttdef"><b>Definition:</b> <a href="vfs__path_8h_source.html#l00035">vfs_path.h:36</a></div></div>
+<div class="ttc" id="anamespaceeu_1_1render_html_ad607fa709c2286c270bf3e079b59937b"><div class="ttname"><a href="namespaceeu_1_1render.html#ad607fa709c2286c270bf3e079b59937b">eu::render::setup_default_files</a></div><div class="ttdeci">void setup_default_files(std::shared_ptr&lt; io::ReadRootCatalog &gt; catalog)</div><div class="ttdef"><b>Definition:</b> <a href="defaultfiles_8cc_source.html#l00009">defaultfiles.cc:9</a></div></div>
+<div class="ttc" id="astructeu_1_1io_1_1FilePath_html"><div class="ttname"><a href="structeu_1_1io_1_1FilePath.html">eu::io::FilePath</a></div><div class="ttdef"><b>Definition:</b> <a href="vfs__path_8h_source.html#l00035">vfs_path.h:36</a></div></div>
 <div class="ttc" id="avfs_8h_html"><div class="ttname"><a href="vfs_8h.html">vfs.h</a></div></div>
 <div class="ttc" id="avfs__path_8h_html"><div class="ttname"><a href="vfs__path_8h.html">vfs_path.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->

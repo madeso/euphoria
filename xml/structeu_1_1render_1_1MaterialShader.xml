@@ -2,7 +2,7 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeu_1_1render_1_1MaterialShader" kind="struct" language="C++" prot="public">
     <compoundname>eu::render::MaterialShader</compoundname>
-    <includes refid="materialshader_8h" local="no">materialshader.h</includes>
+    <includes refid="render_2src_2render_2materialshader_8h" local="no">materialshader.h</includes>
       <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structeu_1_1render_1_1MaterialShader_1ac0b6e3b62f1c462028073236c8feed52" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1render_1_1ShaderProgram" kindref="compound">render::ShaderProgram</ref></type>
@@ -331,17 +331,17 @@
         </inbodydescription>
         <location file="libs/render/src/render/materialshader.h" line="73" column="9" bodyfile="libs/render/src/render/materialshader.cc" bodystart="42" bodyend="65"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1render_1_1MaterialShader_1a1a6a5662209198690e6d09b186347acb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1render_1_1MaterialShader_1a64b45a8dee9a6ee4df3810aae33435a2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
         <definition>bool eu::render::MaterialShader::load</definition>
-        <argsstring>(core::vfs::FileSystem *file_system, const core::vfs::FilePath &amp;path)</argsstring>
+        <argsstring>(io::FileSystem *file_system, const io::FilePath &amp;path)</argsstring>
         <name>load</name>
         <param>
-          <type><ref refid="structeu_1_1core_1_1vfs_1_1FileSystem" kindref="compound">core::vfs::FileSystem</ref> *</type>
+          <type><ref refid="structeu_1_1io_1_1FileSystem" kindref="compound">io::FileSystem</ref> *</type>
           <declname>file_system</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1vfs_1_1FilePath" kindref="compound">core::vfs::FilePath</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1io_1_1FilePath" kindref="compound">io::FilePath</ref> &amp;</type>
           <declname>path</declname>
         </param>
         <briefdescription>
@@ -350,7 +350,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/materialshader.h" line="75" column="14" bodyfile="libs/render/src/render/materialshader.cc" bodystart="157" bodyend="176"/>
+        <location file="libs/render/src/render/materialshader.h" line="75" column="14" bodyfile="libs/render/src/render/materialshader.cc" bodystart="150" bodyend="182"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1MaterialShader_1aec21c1f27908940653fc5f80f649baed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -363,7 +363,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/materialshader.h" line="81" column="14" bodyfile="libs/render/src/render/materialshader.cc" bodystart="179" bodyend="182"/>
+        <location file="libs/render/src/render/materialshader.h" line="81" column="14" bodyfile="libs/render/src/render/materialshader.cc" bodystart="185" bodyend="188"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1MaterialShader_1ad61cb2f43486e53087c6456bfaf8f3b7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -380,7 +380,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/materialshader.h" line="82" column="14" bodyfile="libs/render/src/render/materialshader.cc" bodystart="185" bodyend="188"/>
+        <location file="libs/render/src/render/materialshader.h" line="82" column="14" bodyfile="libs/render/src/render/materialshader.cc" bodystart="191" bodyend="194"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1MaterialShader_1afdc9caeb54bf561e5a779b392a3170dc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -397,7 +397,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/materialshader.h" line="83" column="14" bodyfile="libs/render/src/render/materialshader.cc" bodystart="191" bodyend="194"/>
+        <location file="libs/render/src/render/materialshader.h" line="83" column="14" bodyfile="libs/render/src/render/materialshader.cc" bodystart="197" bodyend="200"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1MaterialShader_1a30c40cc31966d03dfb65391f1e97579f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -414,7 +414,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/materialshader.h" line="84" column="14" bodyfile="libs/render/src/render/materialshader.cc" bodystart="197" bodyend="208"/>
+        <location file="libs/render/src/render/materialshader.h" line="84" column="14" bodyfile="libs/render/src/render/materialshader.cc" bodystart="203" bodyend="214"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1MaterialShader_1a7a4d71887a44139e82a4405094a25e09" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -435,7 +435,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/materialshader.h" line="85" column="14" bodyfile="libs/render/src/render/materialshader.cc" bodystart="211" bodyend="233"/>
+        <location file="libs/render/src/render/materialshader.h" line="85" column="14" bodyfile="libs/render/src/render/materialshader.cc" bodystart="217" bodyend="239"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1MaterialShader_1a35677adf2ed43fdb70279619322243ae" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -464,7 +464,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/materialshader.h" line="87" column="14" bodyfile="libs/render/src/render/materialshader.cc" bodystart="237" bodyend="269"/>
+        <location file="libs/render/src/render/materialshader.h" line="87" column="14" bodyfile="libs/render/src/render/materialshader.cc" bodystart="243" bodyend="275"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -529,7 +529,7 @@
       <member refid="structeu_1_1render_1_1MaterialShader_1a1d9d684f470320dc355f9ed232c34871" prot="public" virt="non-virtual"><scope>eu::render::MaterialShader</scope><name>light_position</name></member>
       <member refid="structeu_1_1render_1_1MaterialShader_1a9d096b0f060d0b312e0e9e2291858128" prot="public" virt="non-virtual"><scope>eu::render::MaterialShader</scope><name>light_specular</name></member>
       <member refid="structeu_1_1render_1_1MaterialShader_1af7ec5b718c35568d050f6a11a3d5214c" prot="public" virt="non-virtual"><scope>eu::render::MaterialShader</scope><name>light_type</name></member>
-      <member refid="structeu_1_1render_1_1MaterialShader_1a1a6a5662209198690e6d09b186347acb" prot="public" virt="non-virtual"><scope>eu::render::MaterialShader</scope><name>load</name></member>
+      <member refid="structeu_1_1render_1_1MaterialShader_1a64b45a8dee9a6ee4df3810aae33435a2" prot="public" virt="non-virtual"><scope>eu::render::MaterialShader</scope><name>load</name></member>
       <member refid="structeu_1_1render_1_1MaterialShader_1ac6d0dac16a5b47f136475237da19e032" prot="public" virt="non-virtual"><scope>eu::render::MaterialShader</scope><name>MaterialShader</name></member>
       <member refid="structeu_1_1render_1_1MaterialShader_1a15db0424e887b15e5a2683529092d9bb" prot="public" virt="non-virtual"><scope>eu::render::MaterialShader</scope><name>model</name></member>
       <member refid="structeu_1_1render_1_1MaterialShader_1a2ddf899014ad883406d8d76b2bff2294" prot="public" virt="non-virtual"><scope>eu::render::MaterialShader</scope><name>normal_matrix</name></member>

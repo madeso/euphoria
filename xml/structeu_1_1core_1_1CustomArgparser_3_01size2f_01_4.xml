@@ -45,7 +45,7 @@
         <location file="libs/core/src/core/size2.h" line="61" column="28" bodyfile="libs/core/src/core/size2.cc" bodystart="78" bodyend="81"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1CustomArgparser_3_01size2f_01_4_1ae020324c700e0e6c08460b0120400625" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1core_1_1Result" kindref="compound">Result</ref>&lt; <ref refid="structeu_1_1core_1_1size2f" kindref="compound">size2f</ref> &gt;</type>
+        <type><ref refid="structeu_1_1Result" kindref="compound">Result</ref>&lt; <ref refid="structeu_1_1core_1_1size2f" kindref="compound">size2f</ref> &gt;</type>
         <definition>Result&lt; size2f &gt; eu::core::CustomArgparser&lt; size2f &gt;::parse</definition>
         <argsstring>(const std::string &amp;value)</argsstring>
         <name>parse</name>

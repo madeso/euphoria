@@ -1,0 +1,198 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1io_1_1ReadRootCatalog" kind="struct" language="C++" prot="public">
+    <compoundname>eu::io::ReadRootCatalog</compoundname>
+    <basecompoundref refid="structeu_1_1io_1_1ReadRoot" prot="public" virt="non-virtual">eu::io::ReadRoot</basecompoundref>
+    <includes refid="vfs_8h" local="no">vfs.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="structeu_1_1io_1_1ReadRootCatalog_1ab554e687b31c38666e902f7e2c9b07ec" prot="private" static="no" mutable="no">
+        <type>std::map&lt; <ref refid="structeu_1_1io_1_1FilePath" kindref="compound">FilePath</ref>, std::shared_ptr&lt; <ref refid="structeu_1_1MemoryChunk" kindref="compound">MemoryChunk</ref> &gt; &gt;</type>
+        <definition>std::map&lt;FilePath, std::shared_ptr&lt;MemoryChunk&gt; &gt; eu::io::ReadRootCatalog::catalog</definition>
+        <argsstring></argsstring>
+        <name>catalog</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/io/src/io/vfs.h" line="134" column="18" bodyfile="libs/io/src/io/vfs.h" bodystart="134" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1io_1_1ReadRootCatalog_1a09e2fd716212c3ceb8e896b47003cacd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::io::ReadRootCatalog::ReadRootCatalog</definition>
+        <argsstring>()</argsstring>
+        <name>ReadRootCatalog</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/io/src/io/vfs.h" line="103" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1io_1_1ReadRootCatalog_1ae136d7f9a0b6448a4355d8c5c0546c5a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::io::ReadRootCatalog::register_file_string</definition>
+        <argsstring>(const FilePath &amp;path, const std::string &amp;content)</argsstring>
+        <name>register_file_string</name>
+        <param>
+          <type>const <ref refid="structeu_1_1io_1_1FilePath" kindref="compound">FilePath</ref> &amp;</type>
+          <declname>path</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>content</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/io/src/io/vfs.h" line="108" column="9" bodyfile="libs/io/src/io/vfs.cc" bodystart="194" bodyend="201"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1io_1_1ReadRootCatalog_1a30ebf50bf5941ff873705960fc442ddf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::io::ReadRootCatalog::register_file_data</definition>
+        <argsstring>(const FilePath &amp;path, const std::shared_ptr&lt; MemoryChunk &gt; &amp;content)</argsstring>
+        <name>register_file_data</name>
+        <param>
+          <type>const <ref refid="structeu_1_1io_1_1FilePath" kindref="compound">FilePath</ref> &amp;</type>
+          <declname>path</declname>
+        </param>
+        <param>
+          <type>const std::shared_ptr&lt; <ref refid="structeu_1_1MemoryChunk" kindref="compound">MemoryChunk</ref> &gt; &amp;</type>
+          <declname>content</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/io/src/io/vfs.h" line="115" column="9" bodyfile="libs/io/src/io/vfs.cc" bodystart="206" bodyend="212"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1io_1_1ReadRootCatalog_1acb6784c35be719801c57a7e9676b0597" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>std::shared_ptr&lt; <ref refid="structeu_1_1MemoryChunk" kindref="compound">MemoryChunk</ref> &gt;</type>
+        <definition>std::shared_ptr&lt; MemoryChunk &gt; eu::io::ReadRootCatalog::read_file</definition>
+        <argsstring>(const FilePath &amp;path) override</argsstring>
+        <name>read_file</name>
+        <reimplements refid="structeu_1_1io_1_1ReadRoot_1ac3abe4f7fa76d9ecc1c335e204e65c0b">read_file</reimplements>
+        <param>
+          <type>const <ref refid="structeu_1_1io_1_1FilePath" kindref="compound">FilePath</ref> &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/io/src/io/vfs.h" line="125" column="9" bodyfile="libs/io/src/io/vfs.cc" bodystart="226" bodyend="236"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1io_1_1ReadRootCatalog_1a88e7e7390c15c38fc2f4df7b89b556d3" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void eu::io::ReadRootCatalog::add_description</definition>
+        <argsstring>(std::vector&lt; std::string &gt; *strings) override</argsstring>
+        <name>add_description</name>
+        <reimplements refid="structeu_1_1io_1_1ReadRoot_1a8ddcf3a4eb6a9df8033e2fd254bbab21">add_description</reimplements>
+        <param>
+          <type>std::vector&lt; std::string &gt; *</type>
+          <declname>strings</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/io/src/io/vfs.h" line="128" column="9" bodyfile="libs/io/src/io/vfs.cc" bodystart="240" bodyend="244"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1io_1_1ReadRootCatalog_1ac490d5d7563949f85caeadb7f490aa70" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="structeu_1_1io_1_1FileList" kindref="compound">FileList</ref></type>
+        <definition>FileList eu::io::ReadRootCatalog::list_files</definition>
+        <argsstring>(const DirPath &amp;path) override</argsstring>
+        <name>list_files</name>
+        <reimplements refid="structeu_1_1io_1_1ReadRoot_1aa67674f6fcf7e29a4ee47fca642184f0">list_files</reimplements>
+        <param>
+          <type>const <ref refid="structeu_1_1io_1_1DirPath" kindref="compound">DirPath</ref> &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/io/src/io/vfs.h" line="131" column="9" bodyfile="libs/io/src/io/vfs.cc" bodystart="247" bodyend="261"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="structeu_1_1io_1_1ReadRootCatalog_1ac2e74058364f0b0508ed05288814dcf3" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="structeu_1_1io_1_1ReadRootCatalog" kindref="compound">ReadRootCatalog</ref> &gt;</type>
+        <definition>std::shared_ptr&lt; ReadRootCatalog &gt; eu::io::ReadRootCatalog::create_and_add</definition>
+        <argsstring>(FileSystem *fs)</argsstring>
+        <name>create_and_add</name>
+        <param>
+          <type><ref refid="structeu_1_1io_1_1FileSystem" kindref="compound">FileSystem</ref> *</type>
+          <declname>fs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/io/src/io/vfs.h" line="122" column="9" bodyfile="libs/io/src/io/vfs.cc" bodystart="216" bodyend="222"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>eu::io::ReadRootCatalog</label>
+        <link refid="structeu_1_1io_1_1ReadRootCatalog"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>eu::io::ReadRoot</label>
+        <link refid="structeu_1_1io_1_1ReadRoot"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>eu::io::ReadRootCatalog</label>
+        <link refid="structeu_1_1io_1_1ReadRootCatalog"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>eu::io::ReadRoot</label>
+        <link refid="structeu_1_1io_1_1ReadRoot"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/io/src/io/vfs.h" line="101" column="5" bodyfile="libs/io/src/io/vfs.h" bodystart="102" bodyend="135"/>
+    <listofallmembers>
+      <member refid="structeu_1_1io_1_1ReadRootCatalog_1a88e7e7390c15c38fc2f4df7b89b556d3" prot="public" virt="virtual"><scope>eu::io::ReadRootCatalog</scope><name>add_description</name></member>
+      <member refid="structeu_1_1io_1_1ReadRootCatalog_1ab554e687b31c38666e902f7e2c9b07ec" prot="private" virt="non-virtual"><scope>eu::io::ReadRootCatalog</scope><name>catalog</name></member>
+      <member refid="structeu_1_1io_1_1ReadRootCatalog_1ac2e74058364f0b0508ed05288814dcf3" prot="public" virt="non-virtual"><scope>eu::io::ReadRootCatalog</scope><name>create_and_add</name></member>
+      <member refid="structeu_1_1io_1_1ReadRootCatalog_1ac490d5d7563949f85caeadb7f490aa70" prot="public" virt="virtual"><scope>eu::io::ReadRootCatalog</scope><name>list_files</name></member>
+      <member refid="structeu_1_1io_1_1ReadRoot_1abd589f47657a2cf4cc491fdace2d656f" prot="public" virt="non-virtual"><scope>eu::io::ReadRootCatalog</scope><name>operator=</name></member>
+      <member refid="structeu_1_1io_1_1ReadRoot_1a69e026712a68d4a82d3ffe1a007c3163" prot="public" virt="non-virtual"><scope>eu::io::ReadRootCatalog</scope><name>operator=</name></member>
+      <member refid="structeu_1_1io_1_1ReadRootCatalog_1acb6784c35be719801c57a7e9676b0597" prot="public" virt="virtual"><scope>eu::io::ReadRootCatalog</scope><name>read_file</name></member>
+      <member refid="structeu_1_1io_1_1ReadRoot_1a136597922ec1d6f8ae89845b8dc22850" prot="public" virt="non-virtual"><scope>eu::io::ReadRootCatalog</scope><name>ReadRoot</name></member>
+      <member refid="structeu_1_1io_1_1ReadRoot_1ab92be8bc1c8a798e7cbf382c7fabeb6b" prot="public" virt="non-virtual"><scope>eu::io::ReadRootCatalog</scope><name>ReadRoot</name></member>
+      <member refid="structeu_1_1io_1_1ReadRoot_1a65f34a36dd4fe6e322643d20a8aa8fef" prot="public" virt="non-virtual"><scope>eu::io::ReadRootCatalog</scope><name>ReadRoot</name></member>
+      <member refid="structeu_1_1io_1_1ReadRootCatalog_1a09e2fd716212c3ceb8e896b47003cacd" prot="public" virt="non-virtual"><scope>eu::io::ReadRootCatalog</scope><name>ReadRootCatalog</name></member>
+      <member refid="structeu_1_1io_1_1ReadRootCatalog_1a30ebf50bf5941ff873705960fc442ddf" prot="public" virt="non-virtual"><scope>eu::io::ReadRootCatalog</scope><name>register_file_data</name></member>
+      <member refid="structeu_1_1io_1_1ReadRootCatalog_1ae136d7f9a0b6448a4355d8c5c0546c5a" prot="public" virt="non-virtual"><scope>eu::io::ReadRootCatalog</scope><name>register_file_string</name></member>
+      <member refid="structeu_1_1io_1_1ReadRoot_1a19a2e25e7c0b23682363eb18e3248136" prot="public" virt="virtual"><scope>eu::io::ReadRootCatalog</scope><name>~ReadRoot</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -4,7 +4,7 @@
     <compoundname>eu::core::colorutil</compoundname>
       <sectiondef kind="func">
       <memberdef kind="function" id="namespaceeu_1_1core_1_1colorutil_1a1a374c4cb0cbd111af5750a782462448" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>constexpr <ref refid="namespaceeu_1_1core_1a359b6ab0e11d1d70bf85d3135f625b81" kindref="member">U8</ref></type>
+        <type>constexpr <ref refid="namespaceeu_1a7bb0af5256676c7db8a48a8ec6da2622" kindref="member">U8</ref></type>
         <definition>constexpr U8 eu::core::colorutil::get_component</definition>
         <argsstring>(unsigned int i, unsigned int steps)</argsstring>
         <name>get_component</name>
@@ -25,7 +25,7 @@
         <location file="libs/core/src/core/rgb.h" line="237" column="22" bodyfile="libs/core/src/core/rgb.h" bodystart="237" bodyend="242"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1core_1_1colorutil_1a17de087745fa9b7c94cb72d3d952283d" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>constexpr <ref refid="namespaceeu_1_1core_1a359b6ab0e11d1d70bf85d3135f625b81" kindref="member">U8</ref></type>
+        <type>constexpr <ref refid="namespaceeu_1a7bb0af5256676c7db8a48a8ec6da2622" kindref="member">U8</ref></type>
         <definition>constexpr U8 eu::core::colorutil::get_red</definition>
         <argsstring>(unsigned int c)</argsstring>
         <name>get_red</name>
@@ -42,7 +42,7 @@
         <location file="libs/core/src/core/rgb.h" line="244" column="22" bodyfile="libs/core/src/core/rgb.h" bodystart="244" bodyend="247"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1core_1_1colorutil_1ab4ca728fb0a38400bcb9511dca77e7c9" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>constexpr <ref refid="namespaceeu_1_1core_1a359b6ab0e11d1d70bf85d3135f625b81" kindref="member">U8</ref></type>
+        <type>constexpr <ref refid="namespaceeu_1a7bb0af5256676c7db8a48a8ec6da2622" kindref="member">U8</ref></type>
         <definition>constexpr U8 eu::core::colorutil::get_green</definition>
         <argsstring>(unsigned int c)</argsstring>
         <name>get_green</name>
@@ -59,7 +59,7 @@
         <location file="libs/core/src/core/rgb.h" line="249" column="22" bodyfile="libs/core/src/core/rgb.h" bodystart="249" bodyend="252"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1core_1_1colorutil_1a0adfa6eabfa3b62b7d8bd0ae34fe8b10" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>constexpr <ref refid="namespaceeu_1_1core_1a359b6ab0e11d1d70bf85d3135f625b81" kindref="member">U8</ref></type>
+        <type>constexpr <ref refid="namespaceeu_1a7bb0af5256676c7db8a48a8ec6da2622" kindref="member">U8</ref></type>
         <definition>constexpr U8 eu::core::colorutil::get_blue</definition>
         <argsstring>(unsigned int c)</argsstring>
         <name>get_blue</name>
@@ -81,7 +81,7 @@
         <argsstring>(U8 c)</argsstring>
         <name>to_float</name>
         <param>
-          <type><ref refid="namespaceeu_1_1core_1a359b6ab0e11d1d70bf85d3135f625b81" kindref="member">U8</ref></type>
+          <type><ref refid="namespaceeu_1a7bb0af5256676c7db8a48a8ec6da2622" kindref="member">U8</ref></type>
           <declname>c</declname>
         </param>
         <briefdescription>
@@ -93,7 +93,7 @@
         <location file="libs/core/src/core/rgb.h" line="259" column="25" bodyfile="libs/core/src/core/rgb.h" bodystart="259" bodyend="262"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1core_1_1colorutil_1a98e4dc5552c305effee0ab3cce63af7f" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>constexpr <ref refid="namespaceeu_1_1core_1a359b6ab0e11d1d70bf85d3135f625b81" kindref="member">U8</ref></type>
+        <type>constexpr <ref refid="namespaceeu_1a7bb0af5256676c7db8a48a8ec6da2622" kindref="member">U8</ref></type>
         <definition>constexpr U8 eu::core::colorutil::to_unsigned_char</definition>
         <argsstring>(float f)</argsstring>
         <name>to_unsigned_char</name>

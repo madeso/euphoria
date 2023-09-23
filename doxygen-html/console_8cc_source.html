@@ -56,8 +56,8 @@
 <div class="contents">
 <a href="console_8cc.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="console_8h.html">core/console.h</a>&quot;</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="stringutils_8h.html">core/stringutils.h</a>&quot;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="stringbuilder_8h.html">core/stringbuilder.h</a>&quot;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="stringutils_8h.html">base/stringutils.h</a>&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="stringbuilder_8h.html">base/stringbuilder.h</a>&quot;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceeu_1_1core.html">eu::core</a></div>
@@ -75,7 +75,7 @@
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keywordtype">void</span></div>
 <div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="structeu_1_1core_1_1VirtualConsole.html#ab7c15173f5c23a1e4334f5a0c416b48d">   20</a></span>&#160;<a class="code" href="structeu_1_1core_1_1VirtualConsole.html#ab7c15173f5c23a1e4334f5a0c416b48d">VirtualConsole::register_command</a>(<span class="keyword">const</span> std::string&amp; name, <a class="code" href="structeu_1_1core_1_1VirtualConsole.html#afbbe7da2a5244fe3947496365b081d60">ActionFunction</a> callback)</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    callbacks[<a class="code" href="group__string.html#ga6e9e71c020e91ad3cf38ab945c7a1122">to_lower</a>(name)] = callback;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    callbacks[<a class="code" href="group__string.html#ga3490fea5c2e06de7db10f26fd799ebcf">to_lower</a>(name)] = callback;</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;}</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
@@ -92,7 +92,7 @@
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    }</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> name = <a class="code" href="nlp__sentence_8cc.html#a41ebd28ef1d7c6ade45642cb6acc1039">line</a>[0];</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">auto</span> found = callbacks.find(<a class="code" href="group__string.html#ga6e9e71c020e91ad3cf38ab945c7a1122">to_lower</a>(name));</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">auto</span> found = callbacks.find(<a class="code" href="group__string.html#ga3490fea5c2e06de7db10f26fd799ebcf">to_lower</a>(name));</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordflow">if</span>(found == callbacks.end())</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    {</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="comment">// unable to find cmd</span></div>
@@ -162,7 +162,7 @@
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="ui__text_8cc.html#a147a254077ae4109b7ca44c246c0b0d2">escape</a> = <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keywordtype">char</span> current_string_character = 0;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="keyword">auto</span> <a class="code" href="nlp__sentence_8cc.html#ab3d71a3630661054e58116e2249c2e9e">buffer</a> = <a class="code" href="structeu_1_1core_1_1StringBuilder.html">StringBuilder</a>{};</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="keyword">auto</span> <a class="code" href="nlp__sentence_8cc.html#ab3d71a3630661054e58116e2249c2e9e">buffer</a> = <a class="code" href="structeu_1_1StringBuilder.html">StringBuilder</a>{};</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">char</span> <a class="code" href="namespaceeu_1_1core.html#a6fca7b841e42734cd5c01e04fc9e6511a4a8a08f09d37b73795649038408b5f33">c</a> : str)</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    {</div>
@@ -231,7 +231,7 @@
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160; </div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;}</div>
 <div class="ttc" id="aconsole_8h_html"><div class="ttname"><a href="console_8h.html">console.h</a></div></div>
-<div class="ttc" id="agroup__string_html_ga6e9e71c020e91ad3cf38ab945c7a1122"><div class="ttname"><a href="group__string.html#ga6e9e71c020e91ad3cf38ab945c7a1122">eu::core::to_lower</a></div><div class="ttdeci">std::string to_lower(const std::string &amp;str)</div><div class="ttdoc">Generate a string containing only lower characters.</div><div class="ttdef"><b>Definition:</b> <a href="stringutils_8cc_source.html#l00143">stringutils.cc:143</a></div></div>
+<div class="ttc" id="agroup__string_html_ga3490fea5c2e06de7db10f26fd799ebcf"><div class="ttname"><a href="group__string.html#ga3490fea5c2e06de7db10f26fd799ebcf">eu::to_lower</a></div><div class="ttdeci">std::string to_lower(const std::string &amp;str)</div><div class="ttdoc">Generate a string containing only lower characters.</div><div class="ttdef"><b>Definition:</b> <a href="stringutils_8cc_source.html#l00143">stringutils.cc:143</a></div></div>
 <div class="ttc" id="anamespaceeu_1_1core_html"><div class="ttname"><a href="namespaceeu_1_1core.html">eu::core</a></div><div class="ttdef"><b>Definition:</b> <a href="aabb_8cc_source.html#l00008">aabb.cc:9</a></div></div>
 <div class="ttc" id="anamespaceeu_1_1core_html_a35886a668f9b03b70adde7f18f02f9b6"><div class="ttname"><a href="namespaceeu_1_1core.html#a35886a668f9b03b70adde7f18f02f9b6">eu::core::parse_commandline</a></div><div class="ttdeci">std::vector&lt; std::string &gt; parse_commandline(const std::string &amp;str)</div><div class="ttdef"><b>Definition:</b> <a href="console_8cc_source.html#l00103">console.cc:103</a></div></div>
 <div class="ttc" id="anamespaceeu_1_1core_html_a6fca7b841e42734cd5c01e04fc9e6511a4a8a08f09d37b73795649038408b5f33"><div class="ttname"><a href="namespaceeu_1_1core.html#a6fca7b841e42734cd5c01e04fc9e6511a4a8a08f09d37b73795649038408b5f33">eu::core::Key::c</a></div><div class="ttdeci">@ c</div></div>
@@ -240,7 +240,7 @@
 <div class="ttc" id="anlp__sentence_8cc_html_ab3d71a3630661054e58116e2249c2e9e"><div class="ttname"><a href="nlp__sentence_8cc.html#ab3d71a3630661054e58116e2249c2e9e">buffer</a></div><div class="ttdeci">std::string buffer</div><div class="ttdef"><b>Definition:</b> <a href="nlp__sentence_8cc_source.html#l00087">nlp_sentence.cc:87</a></div></div>
 <div class="ttc" id="astringbuilder_8h_html"><div class="ttname"><a href="stringbuilder_8h.html">stringbuilder.h</a></div></div>
 <div class="ttc" id="astringutils_8h_html"><div class="ttname"><a href="stringutils_8h.html">stringutils.h</a></div><div class="ttdoc">String utility functions.</div></div>
-<div class="ttc" id="astructeu_1_1core_1_1StringBuilder_html"><div class="ttname"><a href="structeu_1_1core_1_1StringBuilder.html">eu::core::StringBuilder</a></div><div class="ttdef"><b>Definition:</b> <a href="stringbuilder_8h_source.html#l00008">stringbuilder.h:9</a></div></div>
+<div class="ttc" id="astructeu_1_1StringBuilder_html"><div class="ttname"><a href="structeu_1_1StringBuilder.html">eu::StringBuilder</a></div><div class="ttdef"><b>Definition:</b> <a href="stringbuilder_8h_source.html#l00008">stringbuilder.h:9</a></div></div>
 <div class="ttc" id="astructeu_1_1core_1_1VirtualConsole_html_a1878e6be19a57e44598b644228958f30"><div class="ttname"><a href="structeu_1_1core_1_1VirtualConsole.html#a1878e6be19a57e44598b644228958f30">eu::core::VirtualConsole::Args</a></div><div class="ttdeci">std::vector&lt; std::string &gt; Args</div><div class="ttdef"><b>Definition:</b> <a href="console_8h_source.html#l00016">console.h:16</a></div></div>
 <div class="ttc" id="astructeu_1_1core_1_1VirtualConsole_html_a228bef612d68cc930fc238b842340f11"><div class="ttname"><a href="structeu_1_1core_1_1VirtualConsole.html#a228bef612d68cc930fc238b842340f11">eu::core::VirtualConsole::PrintFunction</a></div><div class="ttdeci">std::function&lt; void(const std::string &amp;)&gt; PrintFunction</div><div class="ttdef"><b>Definition:</b> <a href="console_8h_source.html#l00017">console.h:17</a></div></div>
 <div class="ttc" id="astructeu_1_1core_1_1VirtualConsole_html_a3594436b69aa10f303e2952fc5330b94"><div class="ttname"><a href="structeu_1_1core_1_1VirtualConsole.html#a3594436b69aa10f303e2952fc5330b94">eu::core::VirtualConsole::run</a></div><div class="ttdeci">void run(PrintFunction print, const std::string &amp;cmd)</div><div class="ttdef"><b>Definition:</b> <a href="console_8cc_source.html#l00027">console.cc:27</a></div></div>

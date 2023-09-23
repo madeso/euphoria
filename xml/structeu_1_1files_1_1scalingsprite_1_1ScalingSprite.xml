@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1files_1_1scalingsprite_1_1ScalingSprite" kind="struct" language="C++" prot="public">
+    <compoundname>eu::files::scalingsprite::ScalingSprite</compoundname>
+    <includes refid="scalingsprite_8h" local="no">scalingsprite.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1files_1_1scalingsprite_1_1ScalingSprite_1aee7ac2812af1a6a5ee5b0554198e0226" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; int &gt;</type>
+        <definition>std::vector&lt;int&gt; eu::files::scalingsprite::ScalingSprite::rows</definition>
+        <argsstring></argsstring>
+        <name>rows</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/files/src/files/scalingsprite.h" line="17" column="21" bodyfile="libs/files/src/files/scalingsprite.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1files_1_1scalingsprite_1_1ScalingSprite_1aaf80a666dd871c60b83b88e6259a60e9" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; int &gt;</type>
+        <definition>std::vector&lt;int&gt; eu::files::scalingsprite::ScalingSprite::cols</definition>
+        <argsstring></argsstring>
+        <name>cols</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/files/src/files/scalingsprite.h" line="18" column="21" bodyfile="libs/files/src/files/scalingsprite.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1files_1_1scalingsprite_1_1ScalingSprite_1a70141670f94e286b69c3730322c6a09c" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structeu_1_1files_1_1scalingsprite_1_1Rect" kindref="compound">Rect</ref> &gt;</type>
+        <definition>std::vector&lt;Rect&gt; eu::files::scalingsprite::ScalingSprite::rects</definition>
+        <argsstring></argsstring>
+        <name>rects</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/files/src/files/scalingsprite.h" line="19" column="21" bodyfile="libs/files/src/files/scalingsprite.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/files/src/files/scalingsprite.h" line="15" column="5" bodyfile="libs/files/src/files/scalingsprite.h" bodystart="15" bodyend="20"/>
+    <listofallmembers>
+      <member refid="structeu_1_1files_1_1scalingsprite_1_1ScalingSprite_1aaf80a666dd871c60b83b88e6259a60e9" prot="public" virt="non-virtual"><scope>eu::files::scalingsprite::ScalingSprite</scope><name>cols</name></member>
+      <member refid="structeu_1_1files_1_1scalingsprite_1_1ScalingSprite_1a70141670f94e286b69c3730322c6a09c" prot="public" virt="non-virtual"><scope>eu::files::scalingsprite::ScalingSprite</scope><name>rects</name></member>
+      <member refid="structeu_1_1files_1_1scalingsprite_1_1ScalingSprite_1aee7ac2812af1a6a5ee5b0554198e0226" prot="public" virt="non-virtual"><scope>eu::files::scalingsprite::ScalingSprite</scope><name>rows</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

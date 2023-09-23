@@ -2,7 +2,7 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="rgb_8h" kind="file" language="C++">
     <compoundname>rgb.h</compoundname>
-    <includes refid="cint_8h" local="yes">core/cint.h</includes>
+    <includes refid="cint_8h" local="yes">base/cint.h</includes>
     <includes refid="colors_8h" local="yes">core/colors.h</includes>
     <includes refid="angle_8h" local="yes">core/angle.h</includes>
     <includes refid="interpolate_8default_8h" local="yes">core/interpolate.default.h</includes>
@@ -19,7 +19,7 @@
     <includedby refid="image__to__text_8h" local="yes">libs/core/src/core/image_to_text.h</includedby>
     <includedby refid="imagefilters_8h" local="yes">libs/core/src/core/imagefilters.h</includedby>
     <includedby refid="lines_8h" local="yes">libs/core/src/core/lines.h</includedby>
-    <includedby refid="mesh_8h" local="yes">libs/core/src/core/mesh.h</includedby>
+    <includedby refid="core_2src_2core_2mesh_8h" local="yes">libs/core/src/core/mesh.h</includedby>
     <includedby refid="palette_8h" local="yes">libs/core/src/core/palette.h</includedby>
     <includedby refid="palette__extract_8h" local="yes">libs/core/src/core/palette_extract.h</includedby>
     <includedby refid="raytracer_8h" local="yes">libs/core/src/core/raytracer.h</includedby>
@@ -30,7 +30,7 @@
     <includedby refid="skin_8h" local="yes">libs/gui/src/gui/skin.h</includedby>
     <includedby refid="actor_8h" local="yes">libs/render/src/render/actor.h</includedby>
     <includedby refid="compiledmesh_8cc" local="yes">libs/render/src/render/compiledmesh.cc</includedby>
-    <includedby refid="font_8h" local="yes">libs/render/src/render/font.h</includedby>
+    <includedby refid="render_2src_2render_2font_8h" local="yes">libs/render/src/render/font.h</includedby>
     <includedby refid="init_8h" local="yes">libs/render/src/render/init.h</includedby>
     <includedby refid="light_8h" local="yes">libs/render/src/render/light.h</includedby>
     <includedby refid="shader_8h" local="yes">libs/render/src/render/shader.h</includedby>
@@ -41,42 +41,26 @@
     <includedby refid="app_8h" local="yes">libs/window/src/window/app.h</includedby>
     <includedby refid="imgui__extra_8cc" local="yes">libs/window/src/window/imgui_extra.cc</includedby>
     <incdepgraph>
-      <node id="22">
-        <label>core/editdistance.h</label>
-        <link refid="editdistance_8h"/>
-      </node>
       <node id="20">
         <label>queue</label>
+      </node>
+      <node id="18">
+        <label>base/stringutils.h</label>
+        <link refid="stringutils_8h"/>
+        <childnode refid="13" relation="include">
+        </childnode>
       </node>
       <node id="6">
         <label>core/colors.h</label>
         <link refid="colors_8h"/>
       </node>
-      <node id="19">
-        <label>core/editdistance.search.h</label>
-        <link refid="editdistance_8search_8h"/>
-        <childnode refid="20" relation="include">
-        </childnode>
-        <childnode refid="21" relation="include">
-        </childnode>
-        <childnode refid="22" relation="include">
-        </childnode>
-      </node>
       <node id="4">
         <label>cstdint</label>
       </node>
-      <node id="2">
-        <label>core/cint.h</label>
-        <link refid="cint_8h"/>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="5" relation="include">
-        </childnode>
-      </node>
-      <node id="18">
-        <label>core/stringutils.h</label>
-        <link refid="stringutils_8h"/>
-        <childnode refid="13" relation="include">
+      <node id="3">
+        <label>base/ints.h</label>
+        <link refid="ints_8h"/>
+        <childnode refid="4" relation="include">
         </childnode>
       </node>
       <node id="1">
@@ -91,12 +75,6 @@
         <childnode refid="10" relation="include">
         </childnode>
         <childnode refid="11" relation="include">
-        </childnode>
-      </node>
-      <node id="25">
-        <label>core/result.h</label>
-        <link refid="result_8h"/>
-        <childnode refid="26" relation="include">
         </childnode>
       </node>
       <node id="16">
@@ -119,6 +97,12 @@
         <childnode refid="26" relation="include">
         </childnode>
       </node>
+      <node id="25">
+        <label>base/result.h</label>
+        <link refid="result_8h"/>
+        <childnode refid="26" relation="include">
+        </childnode>
+      </node>
       <node id="26">
         <label>optional</label>
       </node>
@@ -134,16 +118,20 @@
       <node id="17">
         <label>vector</label>
       </node>
+      <node id="19">
+        <label>base/editdistance.search.h</label>
+        <link refid="editdistance_8search_8h"/>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
       <node id="24">
         <label>core/custom_parser.h</label>
         <link refid="custom__parser_8h"/>
         <childnode refid="25" relation="include">
-        </childnode>
-      </node>
-      <node id="3">
-        <label>core/ints.h</label>
-        <link refid="ints_8h"/>
-        <childnode refid="4" relation="include">
         </childnode>
       </node>
       <node id="8">
@@ -172,6 +160,10 @@
         <childnode refid="23" relation="include">
         </childnode>
       </node>
+      <node id="22">
+        <label>base/editdistance.h</label>
+        <link refid="editdistance_8h"/>
+      </node>
       <node id="7">
         <label>core/angle.h</label>
         <link refid="angle_8h"/>
@@ -180,6 +172,14 @@
         <childnode refid="9" relation="include">
         </childnode>
         <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>base/cint.h</label>
+        <link refid="cint_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
         </childnode>
       </node>
       <node id="11">
@@ -264,7 +264,7 @@
       </node>
       <node id="50">
         <label>libs/core/src/core/mesh.h</label>
-        <link refid="mesh_8h"/>
+        <link refid="core_2src_2core_2mesh_8h"/>
         <childnode refid="51" relation="include">
         </childnode>
         <childnode refid="52" relation="include">
@@ -406,7 +406,7 @@
       </node>
       <node id="52">
         <label>libs/core/src/core/mesh.cc</label>
-        <link refid="mesh_8cc"/>
+        <link refid="core_2src_2core_2mesh_8cc"/>
       </node>
       <node id="38">
         <label>libs/render/src/render/spriterender.h</label>
@@ -444,7 +444,7 @@
       </node>
       <node id="20">
         <label>libs/render/src/render/font.cc</label>
-        <link refid="font_8cc"/>
+        <link refid="render_2src_2render_2font_8cc"/>
       </node>
       <node id="30">
         <label>libs/core/src/core/raytracer.cc</label>
@@ -458,7 +458,7 @@
       </node>
       <node id="91">
         <label>libs/render/src/render/materialshader.h</label>
-        <link refid="materialshader_8h"/>
+        <link refid="render_2src_2render_2materialshader_8h"/>
         <childnode refid="49" relation="include">
         </childnode>
         <childnode refid="35" relation="include">
@@ -564,13 +564,13 @@
       </node>
       <node id="87">
         <label>libs/render/src/render/world.h</label>
-        <link refid="world_8h"/>
+        <link refid="render_2src_2render_2world_8h"/>
         <childnode refid="88" relation="include">
         </childnode>
       </node>
       <node id="24">
         <label>libs/render/src/render/font.h</label>
-        <link refid="font_8h"/>
+        <link refid="render_2src_2render_2font_8h"/>
         <childnode refid="25" relation="include">
         </childnode>
         <childnode refid="26" relation="include">
@@ -730,7 +730,7 @@
       </node>
       <node id="88">
         <label>libs/render/src/render/world.cc</label>
-        <link refid="world_8cc"/>
+        <link refid="render_2src_2render_2world_8cc"/>
       </node>
       <node id="51">
         <label>libs/core/src/core/collisionmesh.cc</label>
@@ -948,7 +948,7 @@
       </node>
       <node id="86">
         <label>libs/render/src/render/materialshader.cc</label>
-        <link refid="materialshader_8cc"/>
+        <link refid="render_2src_2render_2materialshader_8cc"/>
       </node>
     </invincdepgraph>
     <innerclass refid="structeu_1_1core_1_1Rgbi" prot="public">eu::core::Rgbi</innerclass>

@@ -28,12 +28,10 @@
       <node id="16">
         <label>cstdint</label>
       </node>
-      <node id="14">
-        <label>core/cint.h</label>
-        <link refid="cint_8h"/>
-        <childnode refid="15" relation="include">
-        </childnode>
-        <childnode refid="17" relation="include">
+      <node id="15">
+        <label>base/ints.h</label>
+        <link refid="ints_8h"/>
+        <childnode refid="16" relation="include">
         </childnode>
       </node>
       <node id="22">
@@ -143,12 +141,6 @@
         <childnode refid="7" relation="include">
         </childnode>
       </node>
-      <node id="15">
-        <label>core/ints.h</label>
-        <link refid="ints_8h"/>
-        <childnode refid="16" relation="include">
-        </childnode>
-      </node>
       <node id="23">
         <label>core/quat.h</label>
         <link refid="quat_8h"/>
@@ -199,6 +191,14 @@
         <childnode refid="13" relation="include">
         </childnode>
         <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>base/cint.h</label>
+        <link refid="cint_8h"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
         </childnode>
       </node>
       <node id="21">

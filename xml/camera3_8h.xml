@@ -11,7 +11,7 @@
     <includedby refid="camera3_8cc" local="yes">libs/core/src/core/camera3.cc</includedby>
     <includedby refid="camera3_8editor_8cc" local="yes">libs/core/src/core/camera3.editor.cc</includedby>
     <includedby refid="core_2src_2core_2viewport_8cc" local="yes">libs/core/src/core/viewport.cc</includedby>
-    <includedby refid="world_8cc" local="yes">libs/render/src/render/world.cc</includedby>
+    <includedby refid="render_2src_2render_2world_8cc" local="yes">libs/render/src/render/world.cc</includedby>
     <incdepgraph>
       <node id="18">
         <label>core/vec4.h</label>
@@ -36,12 +36,10 @@
       <node id="15">
         <label>cstdint</label>
       </node>
-      <node id="13">
-        <label>core/cint.h</label>
-        <link refid="cint_8h"/>
-        <childnode refid="14" relation="include">
-        </childnode>
-        <childnode refid="16" relation="include">
+      <node id="14">
+        <label>base/ints.h</label>
+        <link refid="ints_8h"/>
+        <childnode refid="15" relation="include">
         </childnode>
       </node>
       <node id="21">
@@ -143,12 +141,6 @@
       <node id="8">
         <label>vector</label>
       </node>
-      <node id="14">
-        <label>core/ints.h</label>
-        <link refid="ints_8h"/>
-        <childnode refid="15" relation="include">
-        </childnode>
-      </node>
       <node id="22">
         <label>core/quat.h</label>
         <link refid="quat_8h"/>
@@ -201,6 +193,14 @@
         <childnode refid="9" relation="include">
         </childnode>
       </node>
+      <node id="13">
+        <label>base/cint.h</label>
+        <link refid="cint_8h"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
       <node id="20">
         <label>core/mat3.h</label>
         <link refid="mat3_8h"/>
@@ -243,7 +243,7 @@
       </node>
       <node id="5">
         <label>libs/render/src/render/world.cc</label>
-        <link refid="world_8cc"/>
+        <link refid="render_2src_2render_2world_8cc"/>
       </node>
     </invincdepgraph>
     <innerclass refid="structeu_1_1core_1_1CompiledCamera3" prot="public">eu::core::CompiledCamera3</innerclass>

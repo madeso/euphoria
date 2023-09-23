@@ -2,7 +2,7 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeu_1_1render_1_1Glyph" kind="struct" language="C++" prot="public">
     <compoundname>eu::render::Glyph</compoundname>
-    <includes refid="font_8h" local="no">font.h</includes>
+    <includes refid="render_2src_2render_2font_8h" local="no">font.h</includes>
       <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structeu_1_1render_1_1Glyph_1a6942f397d453bcebbf5eed11e026c405" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1core_1_1Rectf" kindref="compound">core::Rectf</ref></type>
@@ -85,7 +85,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.h" line="39" column="9" bodyfile="libs/render/src/render/font.cc" bodystart="35" bodyend="46"/>
+        <location file="libs/render/src/render/font.h" line="39" column="9" bodyfile="libs/render/src/render/font.cc" bodystart="34" bodyend="45"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

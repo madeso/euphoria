@@ -2,17 +2,19 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="editdistance_8search_8cc" kind="file" language="C++">
     <compoundname>editdistance.search.cc</compoundname>
-    <includes refid="editdistance_8search_8h" local="yes">core/editdistance.search.h</includes>
+    <includes refid="editdistance_8search_8h" local="yes">base/editdistance.search.h</includes>
     <incdepgraph>
-      <node id="5">
-        <label>core/editdistance.h</label>
-        <link refid="editdistance_8h"/>
-      </node>
       <node id="3">
         <label>queue</label>
       </node>
+      <node id="1">
+        <label>libs/base/src/base/editdistance.search.cc</label>
+        <link refid="editdistance_8search_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
       <node id="2">
-        <label>core/editdistance.search.h</label>
+        <label>base/editdistance.search.h</label>
         <link refid="editdistance_8search_8h"/>
         <childnode refid="3" relation="include">
         </childnode>
@@ -21,11 +23,9 @@
         <childnode refid="5" relation="include">
         </childnode>
       </node>
-      <node id="1">
-        <label>libs/core/src/core/editdistance.search.cc</label>
-        <link refid="editdistance_8search_8cc"/>
-        <childnode refid="2" relation="include">
-        </childnode>
+      <node id="5">
+        <label>base/editdistance.h</label>
+        <link refid="editdistance_8h"/>
       </node>
       <node id="4">
         <label>algorithm</label>
@@ -35,6 +35,6 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/editdistance.search.cc"/>
+    <location file="libs/base/src/base/editdistance.search.cc"/>
   </compounddef>
 </doxygen>

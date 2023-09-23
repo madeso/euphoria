@@ -64,10 +64,10 @@
 <code>#include &lt;utility&gt;</code><br />
 <code>#include &quot;<a class="el" href="assert_8h_source.html">assert/assert.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="textfileparser_8h_source.html">core/textfileparser.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="vfs_8h_source.html">core/vfs.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="vfs__path_8h_source.html">core/vfs_path.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="stringutils_8h_source.html">core/stringutils.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="stringbuilder_8h_source.html">core/stringbuilder.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="vfs_8h_source.html">io/vfs.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="vfs__path_8h_source.html">io/vfs_path.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="stringutils_8h_source.html">base/stringutils.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="stringbuilder_8h_source.html">base/stringbuilder.h</a>&quot;</code><br />
 </div>
 <p><a href="texttemplate_8cc_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -126,22 +126,22 @@ Enumerations</h2></td></tr>
 Functions</h2></td></tr>
 <tr class="memitem:a3a193bde2f88a736ecfdbd79d2d65e4e"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#a3a193bde2f88a736ecfdbd79d2d65e4e">eu::core::to_string</a> (TokenType t)</td></tr>
 <tr class="separator:a3a193bde2f88a736ecfdbd79d2d65e4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e3a0c7a8977ff65c52ccc038a30c596"><td class="memItemLeft" align="right" valign="top">std::vector&lt; Token &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#a8e3a0c7a8977ff65c52ccc038a30c596">eu::core::tokenize</a> (const std::string &amp;content, TemplateErrorList *error, const vfs::FilePath &amp;file)</td></tr>
-<tr class="separator:a8e3a0c7a8977ff65c52ccc038a30c596"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac1394e08073fded7e54d743cb4ce9fe1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#ac1394e08073fded7e54d743cb4ce9fe1">eu::core::parse_template_list</a> (std::shared_ptr&lt; TemplateNodeList &gt; *<a class="el" href="ui__text_8cc.html#a9d2f62de9d7d3d60426eb932b6e84596">nodes</a>, TokenReader *reader, TemplateErrorList *errors, const vfs::FilePath &amp;file, bool expect_end, vfs::FileSystem *fs)</td></tr>
-<tr class="separator:ac1394e08073fded7e54d743cb4ce9fe1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a267b175113cb0eacbcef19e01c480579"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#a267b175113cb0eacbcef19e01c480579">eu::core::load_from_filesystem_to_node_list</a> (vfs::FileSystem *fs, const vfs::FilePath &amp;path, TemplateErrorList *error, std::shared_ptr&lt; TemplateNodeList &gt; *<a class="el" href="ui__text_8cc.html#a9d2f62de9d7d3d60426eb932b6e84596">nodes</a>)</td></tr>
-<tr class="separator:a267b175113cb0eacbcef19e01c480579"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5b0d68a17cc18de11a1d0be221aef20f"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; TemplateNodeString &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#a5b0d68a17cc18de11a1d0be221aef20f">eu::core::parse_text</a> (TokenReader *reader, TemplateErrorList *, const vfs::FilePath &amp;, vfs::FileSystem *)</td></tr>
-<tr class="separator:a5b0d68a17cc18de11a1d0be221aef20f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad6b1b22a53d6406c60287740c78bfa33"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; TemplateNodeEval &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#ad6b1b22a53d6406c60287740c78bfa33">eu::core::parse_eval</a> (TokenReader *reader, TemplateErrorList *errors, const vfs::FilePath &amp;file, vfs::FileSystem *)</td></tr>
-<tr class="separator:ad6b1b22a53d6406c60287740c78bfa33"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae20098672be6f385cb66f616a46d95cf"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; TemplateNodeSet &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#ae20098672be6f385cb66f616a46d95cf">eu::core::parse_set</a> (TokenReader *reader, TemplateErrorList *errors, const vfs::FilePath &amp;file, vfs::FileSystem *)</td></tr>
-<tr class="separator:ae20098672be6f385cb66f616a46d95cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac057a57944dd806ac7b4aaac2ec24afa"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; TemplateNodeIfdef &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#ac057a57944dd806ac7b4aaac2ec24afa">eu::core::parse_ifdef</a> (TokenReader *reader, TemplateErrorList *errors, const vfs::FilePath &amp;file, vfs::FileSystem *fs)</td></tr>
-<tr class="separator:ac057a57944dd806ac7b4aaac2ec24afa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9a2338c6c70fadf99cd2879dc78c804c"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; TemplateNodeList &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#a9a2338c6c70fadf99cd2879dc78c804c">eu::core::parse_include</a> (TokenReader *reader, TemplateErrorList *errors, const vfs::FilePath &amp;file, vfs::FileSystem *fs)</td></tr>
-<tr class="separator:a9a2338c6c70fadf99cd2879dc78c804c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f5099636c50ae9ec60a561f53b4127a"><td class="memItemLeft" align="right" valign="top">std::vector&lt; Token &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#a6f5099636c50ae9ec60a561f53b4127a">eu::core::tokenize</a> (const std::string &amp;content, TemplateErrorList *error, const io::FilePath &amp;file)</td></tr>
+<tr class="separator:a6f5099636c50ae9ec60a561f53b4127a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99a66c8b147cd2fed499b22ecb116973"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#a99a66c8b147cd2fed499b22ecb116973">eu::core::parse_template_list</a> (std::shared_ptr&lt; TemplateNodeList &gt; *<a class="el" href="ui__text_8cc.html#a9d2f62de9d7d3d60426eb932b6e84596">nodes</a>, TokenReader *reader, TemplateErrorList *errors, const io::FilePath &amp;file, bool expect_end, io::FileSystem *fs)</td></tr>
+<tr class="separator:a99a66c8b147cd2fed499b22ecb116973"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c794ee32a02ec2ef2fc3b36095df35b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#a8c794ee32a02ec2ef2fc3b36095df35b">eu::core::load_from_filesystem_to_node_list</a> (io::FileSystem *fs, const io::FilePath &amp;path, TemplateErrorList *error, std::shared_ptr&lt; TemplateNodeList &gt; *<a class="el" href="ui__text_8cc.html#a9d2f62de9d7d3d60426eb932b6e84596">nodes</a>)</td></tr>
+<tr class="separator:a8c794ee32a02ec2ef2fc3b36095df35b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91b7a61a62561b5de147f6b8ceae30ff"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; TemplateNodeString &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#a91b7a61a62561b5de147f6b8ceae30ff">eu::core::parse_text</a> (TokenReader *reader, TemplateErrorList *, const io::FilePath &amp;, io::FileSystem *)</td></tr>
+<tr class="separator:a91b7a61a62561b5de147f6b8ceae30ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f2238b0379c3f6797b53693ac655065"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; TemplateNodeEval &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#a1f2238b0379c3f6797b53693ac655065">eu::core::parse_eval</a> (TokenReader *reader, TemplateErrorList *errors, const io::FilePath &amp;file, io::FileSystem *)</td></tr>
+<tr class="separator:a1f2238b0379c3f6797b53693ac655065"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88a4ad4c88bfe9da2a28f2b898767ffa"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; TemplateNodeSet &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#a88a4ad4c88bfe9da2a28f2b898767ffa">eu::core::parse_set</a> (TokenReader *reader, TemplateErrorList *errors, const io::FilePath &amp;file, io::FileSystem *)</td></tr>
+<tr class="separator:a88a4ad4c88bfe9da2a28f2b898767ffa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79a470a9e68497199311cf079a408665"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; TemplateNodeIfdef &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#a79a470a9e68497199311cf079a408665">eu::core::parse_ifdef</a> (TokenReader *reader, TemplateErrorList *errors, const io::FilePath &amp;file, io::FileSystem *fs)</td></tr>
+<tr class="separator:a79a470a9e68497199311cf079a408665"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b91b20ac3546e2d385740b6325c04f6"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; TemplateNodeList &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#a7b91b20ac3546e2d385740b6325c04f6">eu::core::parse_include</a> (TokenReader *reader, TemplateErrorList *errors, const io::FilePath &amp;file, io::FileSystem *fs)</td></tr>
+<tr class="separator:a7b91b20ac3546e2d385740b6325c04f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="ace4b534cbd732c3b750191869b94ef7e"></a>

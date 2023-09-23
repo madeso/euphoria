@@ -2,7 +2,7 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeu_1_1core_1_1Material" kind="struct" language="C++" prot="public">
     <compoundname>eu::core::Material</compoundname>
-    <includes refid="mesh_8h" local="no">mesh.h</includes>
+    <includes refid="core_2src_2core_2mesh_8h" local="no">mesh.h</includes>
       <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structeu_1_1core_1_1Material_1af0b8244fe0624093fc6458c2111680e5" prot="public" static="no" mutable="no">
         <type>std::string</type>
@@ -15,11 +15,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/mesh.h" line="80" column="21" bodyfile="libs/core/src/core/mesh.h" bodystart="80" bodyend="-1"/>
+        <location file="libs/core/src/core/mesh.h" line="79" column="21" bodyfile="libs/core/src/core/mesh.h" bodystart="79" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeu_1_1core_1_1Material_1a01164d9b356c5ab5143958327b1cccb6" prot="public" static="no" mutable="no">
-        <type>std::optional&lt; <ref refid="structeu_1_1core_1_1vfs_1_1FilePath" kindref="compound">core::vfs::FilePath</ref> &gt;</type>
-        <definition>std::optional&lt;core::vfs::FilePath&gt; eu::core::Material::shader</definition>
+      <memberdef kind="variable" id="structeu_1_1core_1_1Material_1afb8becad5ca9e5ed24adea1793a2c18b" prot="public" static="no" mutable="no">
+        <type>std::optional&lt; <ref refid="structeu_1_1io_1_1FilePath" kindref="compound">io::FilePath</ref> &gt;</type>
+        <definition>std::optional&lt;io::FilePath&gt; eu::core::Material::shader</definition>
         <argsstring></argsstring>
         <name>shader</name>
         <briefdescription>
@@ -28,7 +28,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/mesh.h" line="81" column="23" bodyfile="libs/core/src/core/mesh.h" bodystart="81" bodyend="-1"/>
+        <location file="libs/core/src/core/mesh.h" line="80" column="23" bodyfile="libs/core/src/core/mesh.h" bodystart="80" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1Material_1a72b5204abdeddbb9b3b1114827b7f38e" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1core_1_1Rgb" kindref="compound">Rgb</ref></type>
@@ -41,7 +41,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/mesh.h" line="82" column="13" bodyfile="libs/core/src/core/mesh.h" bodystart="82" bodyend="-1"/>
+        <location file="libs/core/src/core/mesh.h" line="81" column="13" bodyfile="libs/core/src/core/mesh.h" bodystart="81" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1Material_1ab73b8913b51b6c5a2fd2eab239b559bd" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1core_1_1Rgb" kindref="compound">Rgb</ref></type>
@@ -54,7 +54,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/mesh.h" line="83" column="13" bodyfile="libs/core/src/core/mesh.h" bodystart="83" bodyend="-1"/>
+        <location file="libs/core/src/core/mesh.h" line="82" column="13" bodyfile="libs/core/src/core/mesh.h" bodystart="82" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1Material_1a3c6df145654d2c25919fb2347d6347b2" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1core_1_1Rgb" kindref="compound">Rgb</ref></type>
@@ -67,7 +67,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/mesh.h" line="84" column="13" bodyfile="libs/core/src/core/mesh.h" bodystart="84" bodyend="-1"/>
+        <location file="libs/core/src/core/mesh.h" line="83" column="13" bodyfile="libs/core/src/core/mesh.h" bodystart="83" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1Material_1aee9c0104ee7d4884a1e7780f272fd14d" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -80,7 +80,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/mesh.h" line="85" column="15" bodyfile="libs/core/src/core/mesh.h" bodystart="85" bodyend="-1"/>
+        <location file="libs/core/src/core/mesh.h" line="84" column="15" bodyfile="libs/core/src/core/mesh.h" bodystart="84" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1Material_1a3dae80730a03c8947634f1a7f01318da" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -93,7 +93,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/mesh.h" line="86" column="15" bodyfile="libs/core/src/core/mesh.h" bodystart="86" bodyend="-1"/>
+        <location file="libs/core/src/core/mesh.h" line="85" column="15" bodyfile="libs/core/src/core/mesh.h" bodystart="85" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1Material_1a26d91a753085e28f86bf3d82d784cc89" prot="public" static="no" mutable="no">
         <type>std::vector&lt; <ref refid="structeu_1_1core_1_1MaterialTexture" kindref="compound">MaterialTexture</ref> &gt;</type>
@@ -106,7 +106,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/mesh.h" line="87" column="21" bodyfile="libs/core/src/core/mesh.h" bodystart="87" bodyend="-1"/>
+        <location file="libs/core/src/core/mesh.h" line="86" column="21" bodyfile="libs/core/src/core/mesh.h" bodystart="86" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1Material_1a3de0d88b149562ba2cb5513e5162ba84" prot="public" static="no" mutable="no">
         <type><ref refid="namespaceeu_1_1core_1ad10483f2e2b8b30c883f99ec29b64253" kindref="member">WrapMode</ref></type>
@@ -119,7 +119,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/mesh.h" line="88" column="18" bodyfile="libs/core/src/core/mesh.h" bodystart="88" bodyend="-1"/>
+        <location file="libs/core/src/core/mesh.h" line="87" column="18" bodyfile="libs/core/src/core/mesh.h" bodystart="87" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1Material_1af19adbe65393b38f465102b46b2b5373" prot="public" static="no" mutable="no">
         <type><ref refid="namespaceeu_1_1core_1ad10483f2e2b8b30c883f99ec29b64253" kindref="member">WrapMode</ref></type>
@@ -132,7 +132,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/mesh.h" line="89" column="18" bodyfile="libs/core/src/core/mesh.h" bodystart="89" bodyend="-1"/>
+        <location file="libs/core/src/core/mesh.h" line="88" column="18" bodyfile="libs/core/src/core/mesh.h" bodystart="88" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -147,19 +147,19 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/mesh.h" line="91" column="9" bodyfile="libs/core/src/core/mesh.cc" bodystart="74" bodyend="85"/>
+        <location file="libs/core/src/core/mesh.h" line="90" column="9" bodyfile="libs/core/src/core/mesh.cc" bodystart="73" bodyend="84"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1core_1_1Material_1a15db7f521f88ccfa2c549fbf74e78fe4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1core_1_1Material_1a4e8c6f752b893e4d88ef577f4c0caca4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void eu::core::Material::set_texture</definition>
-        <argsstring>(const std::string &amp;texture_name, const vfs::FilePath &amp;texture_path)</argsstring>
+        <argsstring>(const std::string &amp;texture_name, const io::FilePath &amp;texture_path)</argsstring>
         <name>set_texture</name>
         <param>
           <type>const std::string &amp;</type>
           <declname>texture_name</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1vfs_1_1FilePath" kindref="compound">vfs::FilePath</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1io_1_1FilePath" kindref="compound">io::FilePath</ref> &amp;</type>
           <declname>texture_path</declname>
         </param>
         <briefdescription>
@@ -168,7 +168,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/mesh.h" line="93" column="14" bodyfile="libs/core/src/core/mesh.cc" bodystart="90" bodyend="97"/>
+        <location file="libs/core/src/core/mesh.h" line="92" column="14" bodyfile="libs/core/src/core/mesh.cc" bodystart="89" bodyend="96"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -190,15 +190,15 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/mesh.h" line="78" column="5" bodyfile="libs/core/src/core/mesh.h" bodystart="79" bodyend="98"/>
+    <location file="libs/core/src/core/mesh.h" line="77" column="5" bodyfile="libs/core/src/core/mesh.h" bodystart="78" bodyend="97"/>
     <listofallmembers>
       <member refid="structeu_1_1core_1_1Material_1a3dae80730a03c8947634f1a7f01318da" prot="public" virt="non-virtual"><scope>eu::core::Material</scope><name>alpha</name></member>
       <member refid="structeu_1_1core_1_1Material_1a72b5204abdeddbb9b3b1114827b7f38e" prot="public" virt="non-virtual"><scope>eu::core::Material</scope><name>ambient</name></member>
       <member refid="structeu_1_1core_1_1Material_1ab73b8913b51b6c5a2fd2eab239b559bd" prot="public" virt="non-virtual"><scope>eu::core::Material</scope><name>diffuse</name></member>
       <member refid="structeu_1_1core_1_1Material_1a425a5ce6c5174bd391984e5d1aa849b2" prot="public" virt="non-virtual"><scope>eu::core::Material</scope><name>Material</name></member>
       <member refid="structeu_1_1core_1_1Material_1af0b8244fe0624093fc6458c2111680e5" prot="public" virt="non-virtual"><scope>eu::core::Material</scope><name>name</name></member>
-      <member refid="structeu_1_1core_1_1Material_1a15db7f521f88ccfa2c549fbf74e78fe4" prot="public" virt="non-virtual"><scope>eu::core::Material</scope><name>set_texture</name></member>
-      <member refid="structeu_1_1core_1_1Material_1a01164d9b356c5ab5143958327b1cccb6" prot="public" virt="non-virtual"><scope>eu::core::Material</scope><name>shader</name></member>
+      <member refid="structeu_1_1core_1_1Material_1a4e8c6f752b893e4d88ef577f4c0caca4" prot="public" virt="non-virtual"><scope>eu::core::Material</scope><name>set_texture</name></member>
+      <member refid="structeu_1_1core_1_1Material_1afb8becad5ca9e5ed24adea1793a2c18b" prot="public" virt="non-virtual"><scope>eu::core::Material</scope><name>shader</name></member>
       <member refid="structeu_1_1core_1_1Material_1aee9c0104ee7d4884a1e7780f272fd14d" prot="public" virt="non-virtual"><scope>eu::core::Material</scope><name>shininess</name></member>
       <member refid="structeu_1_1core_1_1Material_1a3c6df145654d2c25919fb2347d6347b2" prot="public" virt="non-virtual"><scope>eu::core::Material</scope><name>specular</name></member>
       <member refid="structeu_1_1core_1_1Material_1a26d91a753085e28f86bf3d82d784cc89" prot="public" virt="non-virtual"><scope>eu::core::Material</scope><name>textures</name></member>

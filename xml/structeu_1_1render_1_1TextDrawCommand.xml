@@ -2,7 +2,7 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeu_1_1render_1_1TextDrawCommand" kind="struct" language="C++" prot="public">
     <compoundname>eu::render::TextDrawCommand</compoundname>
-    <includes refid="font_8h" local="no">font.h</includes>
+    <includes refid="render_2src_2render_2font_8h" local="no">font.h</includes>
       <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structeu_1_1render_1_1TextDrawCommand_1ab2c411a8635b90b3d095490cf5cdf5f3" prot="public" static="no" mutable="no">
         <type>const <ref refid="structeu_1_1render_1_1Texture2" kindref="compound">Texture2</ref> *</type>
@@ -85,7 +85,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.h" line="73" column="9" bodyfile="libs/render/src/render/font.cc" bodystart="306" bodyend="317"/>
+        <location file="libs/render/src/render/font.h" line="73" column="9" bodyfile="libs/render/src/render/font.cc" bodystart="320" bodyend="331"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

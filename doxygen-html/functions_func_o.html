@@ -92,6 +92,9 @@
 <li>Object()
 : <a class="el" href="structeu_1_1core_1_1raytracer_1_1Object.html#a22041cd4354f2215b9126219f0aafa3e">eu::core::raytracer::Object</a>
 </li>
+<li>ObjectQuery()
+: <a class="el" href="structeu_1_1io_1_1ObjectQuery.html#a18aa8bd58e206a101976f74a24ba2e29">eu::io::ObjectQuery</a>
+</li>
 <li>offset()
 : <a class="el" href="structeu_1_1core_1_1Aabb.html#ae5af804c10f8a84883ed210d92914b90">eu::core::Aabb</a>
 </li>
@@ -217,8 +220,8 @@
 : <a class="el" href="structeu_1_1core_1_1meshes_1_1FilesystemForAssimp.html#a1b2e02fbd470b2f4b745ec57269ab921">eu::core::meshes::FilesystemForAssimp</a>
 </li>
 <li>operator bool()
-: <a class="el" href="structeu_1_1core_1_1Result.html#a63d377bb5bc1f62e4fd7a6df476ba353">eu::core::Result&lt; T &gt;</a>
-, <a class="el" href="structeu_1_1core_1_1tracery_1_1Result.html#ae56e2ff2d8367f5c1ecdffd8081a00d5">eu::core::tracery::Result</a>
+: <a class="el" href="structeu_1_1core_1_1tracery_1_1Result.html#ae56e2ff2d8367f5c1ecdffd8081a00d5">eu::core::tracery::Result</a>
+, <a class="el" href="structeu_1_1Result.html#a7bfbd0b96698f609e43cb994f1df5878">eu::Result&lt; T, Error &gt;</a>
 , <a class="el" href="structeu_1_1tests_1_1FalseString.html#a3df73ffb335ff42c602a45cd7ebb967e">eu::tests::FalseString</a>
 </li>
 <li>operator!=()
@@ -226,9 +229,9 @@
 , <a class="el" href="structeu_1_1core_1_1StepIterator.html#a171ab67f5d8f690d2ea9c7f1d217e6d0">eu::core::StepIterator&lt; T &gt;</a>
 </li>
 <li>operator*()
-: <a class="el" href="structeu_1_1core_1_1Result.html#a9d87c02634083b1a46baefa98d571d39">eu::core::Result&lt; T &gt;</a>
-, <a class="el" href="structeu_1_1core_1_1StaticPalette.html#a06dd0e427e03b13573f39c7c63dd2079">eu::core::StaticPalette&lt; size &gt;</a>
+: <a class="el" href="structeu_1_1core_1_1StaticPalette.html#a06dd0e427e03b13573f39c7c63dd2079">eu::core::StaticPalette&lt; size &gt;</a>
 , <a class="el" href="structeu_1_1core_1_1StepIterator.html#a667660494baf64cbebc0fd11680d6712">eu::core::StepIterator&lt; T &gt;</a>
+, <a class="el" href="structeu_1_1Result.html#ae707cfbda8bdd032ca69bbfcafda9282">eu::Result&lt; T, Error &gt;</a>
 </li>
 <li>operator*=()
 : <a class="el" href="structeu_1_1core_1_1Angle.html#a1b83bee230ebf070af647064a740c85d">eu::core::Angle</a>
@@ -290,7 +293,7 @@
 </li>
 <li>operator&lt;()
 : <a class="el" href="structeu_1_1core_1_1EnumValue.html#a653bbc99d7b0a73416985b763835d495">eu::core::EnumValue</a>
-, <a class="el" href="structeu_1_1core_1_1search_1_1Match.html#a84976244bfb8a924ec445408f7167df6">eu::core::search::Match</a>
+, <a class="el" href="structeu_1_1search_1_1Match.html#ac9f684f2ec74576afd2264e86863478e">eu::search::Match</a>
 </li>
 <li>operator&lt;&lt;()
 : <a class="el" href="structeu_1_1core_1_1dump2d_1_1AddWrapper.html#ab357e4a045335ea588e3903ba8a26d44">eu::core::dump2d::AddWrapper&lt; TBase &gt;</a>
@@ -311,51 +314,52 @@
 , <a class="el" href="structeu_1_1core_1_1EnumType.html#a7ef375222afe7fe89d51413c3fceb527">eu::core::EnumType</a>
 , <a class="el" href="structeu_1_1core_1_1generator_1_1Algorithm.html#a151a6578cd68f44ddff3505e08b5a750">eu::core::generator::Algorithm</a>
 , <a class="el" href="structeu_1_1core_1_1generator_1_1Rule.html#aa350df05a08e00098e2554b9ed266740">eu::core::generator::Rule</a>
-, <a class="el" href="structeu_1_1core_1_1raytracer_1_1Material.html#a7e004c4dfaa6a863cb73465bced4fc3e">eu::core::raytracer::Material</a>
+, <a class="el" href="structeu_1_1core_1_1raytracer_1_1Material.html#abf7c45edf1b9227f43274a38891452cc">eu::core::raytracer::Material</a>
 , <a class="el" href="structeu_1_1core_1_1raytracer_1_1Object.html#a5bdd73a11e812f3ee836dbe3eab02a96">eu::core::raytracer::Object</a>
-, <a class="el" href="structeu_1_1core_1_1Sortable.html#a3947844b07fbaeab138ada0f3d295313">eu::core::Sortable&lt; T &gt;</a>
+, <a class="el" href="structeu_1_1core_1_1Sortable.html#a8e5660aabe86fe76d51056ba103794f2">eu::core::Sortable&lt; T &gt;</a>
 , <a class="el" href="structeu_1_1core_1_1TemplateNode.html#a0a6ffdd51835e7eee49a53888b4f236f">eu::core::TemplateNode</a>
-, <a class="el" href="structeu_1_1core_1_1textparser_1_1Node.html#ab59a8859b87a04c5768455c2e52d0c53">eu::core::textparser::Node</a>
+, <a class="el" href="structeu_1_1core_1_1textparser_1_1Node.html#ae41b76bcce3963088fc5310715474a4d">eu::core::textparser::Node</a>
 , <a class="el" href="structeu_1_1core_1_1textparser_1_1Visitor.html#a5acf87d8aecb4456278d2a8cf958baf3">eu::core::textparser::Visitor</a>
-, <a class="el" href="structeu_1_1core_1_1tracery_1_1Modifier.html#ae15e42f6e26169fcf34d0720ece85a19">eu::core::tracery::Modifier</a>
-, <a class="el" href="structeu_1_1core_1_1tracery_1_1Node.html#a40a3d32962a2a80addae251cb65227d6">eu::core::tracery::Node</a>
+, <a class="el" href="structeu_1_1core_1_1tracery_1_1Modifier.html#a14caed107d5f8e0991551ff80e082cfb">eu::core::tracery::Modifier</a>
+, <a class="el" href="structeu_1_1core_1_1tracery_1_1Node.html#a596e72a8b8b42be50f97b9531e7324a9">eu::core::tracery::Node</a>
 , <a class="el" href="structeu_1_1core_1_1Value.html#a156858dc155cc7fc9fbe31a4d7b34429">eu::core::Value</a>
-, <a class="el" href="structeu_1_1core_1_1vfs_1_1FileSystem.html#aecc3d24f8c8d3a780bfb26f9b43fe04c">eu::core::vfs::FileSystem</a>
-, <a class="el" href="structeu_1_1core_1_1vfs_1_1ReadRoot.html#ab1a50bb68eac9d0de6de63784c1462c3">eu::core::vfs::ReadRoot</a>
-, <a class="el" href="structeu_1_1core_1_1vfs_1_1WriteRoot.html#ab938715ebc60ad07684e297101457fd3">eu::core::vfs::WriteRoot</a>
-, <a class="el" href="structeu_1_1gui_1_1Button.html#a3da5fd546d2d57f09d992575bda5de27">eu::gui::Button</a>
+, <a class="el" href="structeu_1_1gui_1_1Button.html#a8ffd0158323c2e9adefa74ac6f894132">eu::gui::Button</a>
 , <a class="el" href="structeu_1_1gui_1_1Container.html#a1392b4a048e0d1bc8aa6d9ba172167d9">eu::gui::Container</a>
 , <a class="el" href="structeu_1_1gui_1_1Layout.html#a9dff7710e874f74f46f4e12103fe2dbc">eu::gui::Layout</a>
 , <a class="el" href="structeu_1_1gui_1_1LayoutContainer.html#ab22ed7b4d41118a3769ee33455a5b56e">eu::gui::LayoutContainer</a>
-, <a class="el" href="structeu_1_1gui_1_1PanelWidget.html#a99806a18f0d21bdb6e0c380dc821188d">eu::gui::PanelWidget</a>
+, <a class="el" href="structeu_1_1gui_1_1PanelWidget.html#a98920e3ebd9a35421ae676fae7bf4271">eu::gui::PanelWidget</a>
 , <a class="el" href="structeu_1_1gui_1_1Root.html#a61dcd4da3b4ebb57e89a2a818b8facd3">eu::gui::Root</a>
-, <a class="el" href="structeu_1_1gui_1_1SingleRowLayout.html#a7cc16972caf7eba64b78fd0d294bfcbd">eu::gui::SingleRowLayout</a>
-, <a class="el" href="structeu_1_1gui_1_1Skin.html#aad5aa015c822d85472fc9d77c3615bdf">eu::gui::Skin</a>
+, <a class="el" href="structeu_1_1gui_1_1SingleRowLayout.html#af47c3c21dc6a81b7ec733be7d020553a">eu::gui::SingleRowLayout</a>
+, <a class="el" href="structeu_1_1gui_1_1Skin.html#a6b90628b10b3f14780c9bd9aa0a995aa">eu::gui::Skin</a>
 , <a class="el" href="structeu_1_1gui_1_1TableLayout.html#a951a053feebce2a311d1dd55538a329d">eu::gui::TableLayout</a>
 , <a class="el" href="structeu_1_1gui_1_1TextData.html#a05ebe0053ab5ef79cd4ac16ae63cecfd">eu::gui::TextData</a>
 , <a class="el" href="structeu_1_1gui_1_1Visitor.html#a2b9c02791cfdc849d227499fef3fb309">eu::gui::Visitor</a>
 , <a class="el" href="structeu_1_1gui_1_1Widget.html#af343985d829d1762489fc919de8c8eee">eu::gui::Widget</a>
+, <a class="el" href="structeu_1_1io_1_1FileSystem.html#a8437ba306af0174c97dc1a7060f1c201">eu::io::FileSystem</a>
+, <a class="el" href="structeu_1_1io_1_1ReadRoot.html#abd589f47657a2cf4cc491fdace2d656f">eu::io::ReadRoot</a>
+, <a class="el" href="structeu_1_1io_1_1WriteRoot.html#a0f1c18a6b085af26fb17faa5644db743">eu::io::WriteRoot</a>
+, <a class="el" href="structeu_1_1log_1_1ScopedLogger.html#abf3cd5fa18bcdf1ad2107b3f9782039e">eu::log::ScopedLogger</a>
 , <a class="el" href="structeu_1_1minsynth_1_1FrequencyTaker.html#aeb6a57ffed4ec22f19e56a924083a850">eu::minsynth::FrequencyTaker</a>
-, <a class="el" href="structeu_1_1minsynth_1_1Node.html#ac13f2131c392fedafa8df524da273bc7">eu::minsynth::Node</a>
+, <a class="el" href="structeu_1_1minsynth_1_1Node.html#a140bda51a50bd2df3a7930dd79103893">eu::minsynth::Node</a>
 , <a class="el" href="structeu_1_1minsynth_1_1ToneTaker.html#a75069b326065f6fc37c93500244c0406">eu::minsynth::ToneTaker</a>
 , <a class="el" href="structeu_1_1minsynth_1_1WaveOut.html#a546884becb9317bb6e545a5e8b320e9c">eu::minsynth::WaveOut</a>
 , <a class="el" href="structeu_1_1render_1_1DrawableText.html#a44178d9ca89d53e98e69bab8d16f0ae1">eu::render::DrawableText</a>
-, <a class="el" href="structeu_1_1render_1_1FontCache.html#a7090e1dd7006acc4c243add3e7973cec">eu::render::FontCache</a>
+, <a class="el" href="structeu_1_1render_1_1FontCache.html#a9948c2e8d6e8dff931ce377101c99e4f">eu::render::FontCache</a>
 , <a class="el" href="structeu_1_1render_1_1Id.html#a74cc897f8eb4555625f0e6eac0b16598">eu::render::Id</a>
 , <a class="el" href="structeu_1_1render_1_1IndexBuffer.html#ae26ee4a139c134f3914130ff99c587e9">eu::render::IndexBuffer</a>
-, <a class="el" href="structeu_1_1render_1_1Init.html#a6857bfacfb5093881ad988187612c783">eu::render::Init</a>
-, <a class="el" href="structeu_1_1render_1_1Instance.html#a27ca8b1f49de66f681555b8a69c372a1">eu::render::Instance</a>
+, <a class="el" href="structeu_1_1render_1_1Init.html#a3ab68c344a0ea6f5a1b6e284cc597a72">eu::render::Init</a>
+, <a class="el" href="structeu_1_1render_1_1Instance.html#afa61c41b025df6775f483aaa4a77e1b4">eu::render::Instance</a>
 , <a class="el" href="structeu_1_1render_1_1PointLayout.html#ab58c9eb4245e14e02d49a165032bfaea">eu::render::PointLayout</a>
 , <a class="el" href="structeu_1_1render_1_1ScalableSprite.html#a630b73649800439fc5c224a4d4224c0d">eu::render::ScalableSprite</a>
-, <a class="el" href="structeu_1_1render_1_1ShaderId.html#a6d79cabd6e46f6607719536691527566">eu::render::ShaderId</a>
+, <a class="el" href="structeu_1_1render_1_1ShaderId.html#afb9f0a2270bae0ce81ed7263f9430a22">eu::render::ShaderId</a>
 , <a class="el" href="structeu_1_1render_1_1ShaderProgram.html#af51d53d47ad66306d9d46c44497fcc1c">eu::render::ShaderProgram</a>
 , <a class="el" href="structeu_1_1render_1_1ShaderUniform.html#a785b7f480042fb7909af2405c4a66ff1">eu::render::ShaderUniform</a>
 , <a class="el" href="structeu_1_1render_1_1SpriteBatch.html#a1bdeccf1a75f03db27f5751b9183dfc2">eu::render::SpriteBatch</a>
 , <a class="el" href="structeu_1_1render_1_1SpriteRenderer.html#a39df4aca40dfdc2b71cec32adb0ae6d9">eu::render::SpriteRenderer</a>
-, <a class="el" href="structeu_1_1render_1_1Texture2.html#a6528c2e3f7d29363c029b957088ccccf">eu::render::Texture2</a>
-, <a class="el" href="structeu_1_1render_1_1TextureCache.html#ad38722fcf845bcc58c439ce4920fd5bd">eu::render::TextureCache</a>
-, <a class="el" href="structeu_1_1render_1_1TextureId.html#a6e424aae01bbc13858c8e32fe720d21a">eu::render::TextureId</a>
-, <a class="el" href="structeu_1_1render_1_1VertexBuffer.html#ab10c949bd1f6011befc714e26543b468">eu::render::VertexBuffer</a>
+, <a class="el" href="structeu_1_1render_1_1Texture2.html#a919e390d3aab37f68becfed9d69c144b">eu::render::Texture2</a>
+, <a class="el" href="structeu_1_1render_1_1TextureCache.html#a58928b8e3db8ca21037d773973401864">eu::render::TextureCache</a>
+, <a class="el" href="structeu_1_1render_1_1TextureId.html#adb9d25908a4d6e511376911ba06ceb22">eu::render::TextureId</a>
+, <a class="el" href="structeu_1_1render_1_1VertexBuffer.html#a0b2147b6814e5ad8a10aa91968d58bee">eu::render::VertexBuffer</a>
 , <a class="el" href="structeu_1_1window_1_1App.html#a2cb3638737725d427a24e613de17756f">eu::window::App</a>
 , <a class="el" href="structeu_1_1window_1_1Engine.html#a2bcee3ad290b9198c03dc01fce04de0d">eu::window::Engine</a>
 , <a class="el" href="structeu_1_1window_1_1imgui_1_1Library.html#ad9a2eb779dcfdd762e0165ee30f4e4d5">eu::window::imgui::Library</a>
@@ -376,9 +380,9 @@
 , <a class="el" href="structeu_1_1core_1_1vec4f.html#a3cb3b3384d2cb6df68e0bc06ecef1194">eu::core::vec4f</a>
 </li>
 <li>operator[]()
-: <a class="el" href="structeu_1_1core_1_1MemoryChunk.html#a7ad33c810aea63c7e8b6f535457af080">eu::core::MemoryChunk</a>
-, <a class="el" href="structeu_1_1core_1_1SubVec.html#a16096b922460ff5f7aec6df210225827">eu::core::SubVec&lt; T &gt;</a>
+: <a class="el" href="structeu_1_1core_1_1SubVec.html#a16096b922460ff5f7aec6df210225827">eu::core::SubVec&lt; T &gt;</a>
 , <a class="el" href="structeu_1_1core_1_1Table.html#a0c993a6e91a97cb4e85e1608e999f6b7">eu::core::Table&lt; T &gt;</a>
+, <a class="el" href="structeu_1_1MemoryChunk.html#a2b74af6694dc16d3a7561afffdfd1c51">eu::MemoryChunk</a>
 </li>
 <li>OrbitCamera()
 : <a class="el" href="structeu_1_1core_1_1detail_1_1OrbitCamera.html#af5460569a61133037bfde28ffc393595">eu::core::detail::OrbitCamera</a>

@@ -5,8 +5,8 @@
     <includes refid="nlp__sentence_8h" local="yes">core/nlp_sentence.h</includes>
     <includes local="no">iostream</includes>
     <includes local="no">string_view</includes>
-    <includes refid="stringutils_8h" local="yes">core/stringutils.h</includes>
-    <includes refid="stringbuilder_8h" local="yes">core/stringbuilder.h</includes>
+    <includes refid="stringutils_8h" local="yes">base/stringutils.h</includes>
+    <includes refid="stringbuilder_8h" local="yes">base/stringbuilder.h</includes>
     <incdepgraph>
       <node id="1">
         <label>libs/core/src/core/nlp_sentence.cc</label>
@@ -25,12 +25,8 @@
       <node id="3">
         <label>functional</label>
       </node>
-      <node id="9">
-        <label>core/stringbuilder.h</label>
-        <link refid="stringbuilder_8h"/>
-      </node>
       <node id="7">
-        <label>core/stringutils.h</label>
+        <label>base/stringutils.h</label>
         <link refid="stringutils_8h"/>
         <childnode refid="8" relation="include">
         </childnode>
@@ -45,6 +41,10 @@
         </childnode>
         <childnode refid="4" relation="include">
         </childnode>
+      </node>
+      <node id="9">
+        <label>base/stringbuilder.h</label>
+        <link refid="stringbuilder_8h"/>
       </node>
       <node id="6">
         <label>string_view</label>

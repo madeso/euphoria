@@ -1,0 +1,130 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1StringBuilder" kind="struct" language="C++" prot="public">
+    <compoundname>eu::StringBuilder</compoundname>
+    <includes refid="stringbuilder_8h" local="no">stringbuilder.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1StringBuilder_1a5eb5e453aabde8abaeae2879f535fc9e" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; char &gt;</type>
+        <definition>std::vector&lt;char&gt; eu::StringBuilder::data</definition>
+        <argsstring></argsstring>
+        <name>data</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/stringbuilder.h" line="11" column="17" bodyfile="libs/base/src/base/stringbuilder.h" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1StringBuilder_1a2fa5a1f087fb169a1497e5379771ff8c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::StringBuilder::clear</definition>
+        <argsstring>()</argsstring>
+        <name>clear</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/stringbuilder.h" line="13" column="10" bodyfile="libs/base/src/base/stringbuilder.cc" bodystart="29" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1StringBuilder_1afa7b6372655e1f69b0a998fd33011b95" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1StringBuilder" kindref="compound">StringBuilder</ref> &amp;</type>
+        <definition>StringBuilder &amp; eu::StringBuilder::add_char</definition>
+        <argsstring>(char c)</argsstring>
+        <name>add_char</name>
+        <param>
+          <type>char</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/stringbuilder.h" line="15" column="19" bodyfile="libs/base/src/base/stringbuilder.cc" bodystart="35" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1StringBuilder_1aaf8da5e808309598bcf540684ef66f5a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1StringBuilder" kindref="compound">StringBuilder</ref> &amp;</type>
+        <definition>StringBuilder &amp; eu::StringBuilder::add_string</definition>
+        <argsstring>(const std::string &amp;str)</argsstring>
+        <name>add_string</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/stringbuilder.h" line="16" column="19" bodyfile="libs/base/src/base/stringbuilder.cc" bodystart="43" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1StringBuilder_1a5d320a7e73d81ead3685e76d6d5ec80d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1StringBuilder" kindref="compound">StringBuilder</ref> &amp;</type>
+        <definition>StringBuilder &amp; eu::StringBuilder::add_view</definition>
+        <argsstring>(const std::string_view &amp;str)</argsstring>
+        <name>add_view</name>
+        <param>
+          <type>const std::string_view &amp;</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/stringbuilder.h" line="17" column="19" bodyfile="libs/base/src/base/stringbuilder.cc" bodystart="55" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1StringBuilder_1a4a033750a373fdda7b3e4214bdf4d897" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string eu::StringBuilder::to_string</definition>
+        <argsstring>()</argsstring>
+        <name>to_string</name>
+        <briefdescription>
+<para>Complete the builder and return the resulting string. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>No strings can be added after this operation. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/stringbuilder.h" line="22" column="17" bodyfile="libs/base/src/base/stringbuilder.cc" bodystart="67" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1StringBuilder_1a05d132213c71b0b28c072888ad370480" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool eu::StringBuilder::has_content</definition>
+        <argsstring>() const</argsstring>
+        <name>has_content</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/stringbuilder.h" line="25" column="11" bodyfile="libs/base/src/base/stringbuilder.cc" bodystart="23" bodyend="26"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/base/src/base/stringbuilder.h" line="8" column="1" bodyfile="libs/base/src/base/stringbuilder.h" bodystart="9" bodyend="26"/>
+    <listofallmembers>
+      <member refid="structeu_1_1StringBuilder_1afa7b6372655e1f69b0a998fd33011b95" prot="public" virt="non-virtual"><scope>eu::StringBuilder</scope><name>add_char</name></member>
+      <member refid="structeu_1_1StringBuilder_1aaf8da5e808309598bcf540684ef66f5a" prot="public" virt="non-virtual"><scope>eu::StringBuilder</scope><name>add_string</name></member>
+      <member refid="structeu_1_1StringBuilder_1a5d320a7e73d81ead3685e76d6d5ec80d" prot="public" virt="non-virtual"><scope>eu::StringBuilder</scope><name>add_view</name></member>
+      <member refid="structeu_1_1StringBuilder_1a2fa5a1f087fb169a1497e5379771ff8c" prot="public" virt="non-virtual"><scope>eu::StringBuilder</scope><name>clear</name></member>
+      <member refid="structeu_1_1StringBuilder_1a5eb5e453aabde8abaeae2879f535fc9e" prot="public" virt="non-virtual"><scope>eu::StringBuilder</scope><name>data</name></member>
+      <member refid="structeu_1_1StringBuilder_1a05d132213c71b0b28c072888ad370480" prot="public" virt="non-virtual"><scope>eu::StringBuilder</scope><name>has_content</name></member>
+      <member refid="structeu_1_1StringBuilder_1a4a033750a373fdda7b3e4214bdf4d897" prot="public" virt="non-virtual"><scope>eu::StringBuilder</scope><name>to_string</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

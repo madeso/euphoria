@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1files_1_1game_1_1Color" kind="struct" language="C++" prot="public">
+    <compoundname>eu::files::game::Color</compoundname>
+    <includes refid="game_8h" local="no">game.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1files_1_1game_1_1Color_1ac1a0958c86abc79967487aced1907bcd" prot="public" static="no" mutable="no">
+        <type>std::optional&lt; std::string &gt;</type>
+        <definition>std::optional&lt;std::string&gt; eu::files::game::Color::hex</definition>
+        <argsstring></argsstring>
+        <name>hex</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/files/src/files/game.h" line="79" column="23" bodyfile="libs/files/src/files/game.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/files/src/files/game.h" line="76" column="5" bodyfile="libs/files/src/files/game.h" bodystart="77" bodyend="80"/>
+    <listofallmembers>
+      <member refid="structeu_1_1files_1_1game_1_1Color_1ac1a0958c86abc79967487aced1907bcd" prot="public" virt="non-virtual"><scope>eu::files::game::Color</scope><name>hex</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -2,15 +2,1778 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="namespaceeu" kind="namespace" language="C++">
     <compoundname>eu</compoundname>
+    <innerclass refid="structeu_1_1MemoryChunk" prot="public">eu::MemoryChunk</innerclass>
+    <innerclass refid="structeu_1_1MemoryChunkFile" prot="public">eu::MemoryChunkFile</innerclass>
+    <innerclass refid="structeu_1_1DirectoryListing" prot="public">eu::DirectoryListing</innerclass>
+    <innerclass refid="structeu_1_1Result" prot="public">eu::Result</innerclass>
+    <innerclass refid="structeu_1_1StringBuilder" prot="public">eu::StringBuilder</innerclass>
+    <innerclass refid="structeu_1_1StringMerger" prot="public">eu::StringMerger</innerclass>
     <innernamespace refid="namespaceeu_1_1assertlib">eu::assertlib</innernamespace>
     <innernamespace refid="namespaceeu_1_1convert">eu::convert</innernamespace>
     <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
+    <innernamespace refid="namespaceeu_1_1files">eu::files</innernamespace>
     <innernamespace refid="namespaceeu_1_1gui">eu::gui</innernamespace>
+    <innernamespace refid="namespaceeu_1_1io">eu::io</innernamespace>
     <innernamespace refid="namespaceeu_1_1log">eu::log</innernamespace>
     <innernamespace refid="namespaceeu_1_1minsynth">eu::minsynth</innernamespace>
     <innernamespace refid="namespaceeu_1_1render">eu::render</innernamespace>
+    <innernamespace refid="namespaceeu_1_1search">eu::search</innernamespace>
+    <innernamespace refid="namespaceeu_1_1string__mergers">eu::string_mergers</innernamespace>
     <innernamespace refid="namespaceeu_1_1tests">eu::tests</innernamespace>
     <innernamespace refid="namespaceeu_1_1window">eu::window</innernamespace>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="group__string_1ga20491245288871dc76aabddb7437225f" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>CharToStringStyle</name>
+        <enumvalue id="group__string_1gga20491245288871dc76aabddb7437225fa8c319f28d81d1527a9428e9a5c2195f5" prot="public">
+          <name>smart</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__string_1gga20491245288871dc76aabddb7437225fafa2f1c8dc686b38506663647e5242622" prot="public">
+          <name>include_hex</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/stringutils.h" line="112" column="5" bodyfile="libs/base/src/base/stringutils.h" bodystart="113" bodyend="115"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="namespaceeu_1a51f3cf55562ab46dbe987c89293242d2" prot="public" static="no">
+        <type>std::int64_t</type>
+        <definition>using eu::I64 = typedef std::int64_t</definition>
+        <argsstring></argsstring>
+        <name>I64</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/ints.h" line="7" column="5" bodyfile="libs/base/src/base/ints.h" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespaceeu_1a3f086b3a574824463b1e1eec01c660bd" prot="public" static="no">
+        <type>std::int32_t</type>
+        <definition>using eu::I32 = typedef std::int32_t</definition>
+        <argsstring></argsstring>
+        <name>I32</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/ints.h" line="8" column="5" bodyfile="libs/base/src/base/ints.h" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespaceeu_1aa7a3f12191cbdeb21f83f76d36566a68" prot="public" static="no">
+        <type>std::int16_t</type>
+        <definition>using eu::I16 = typedef std::int16_t</definition>
+        <argsstring></argsstring>
+        <name>I16</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/ints.h" line="9" column="5" bodyfile="libs/base/src/base/ints.h" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespaceeu_1a48aa058de332e8af6f40bcd3cd7096f1" prot="public" static="no">
+        <type>std::int8_t</type>
+        <definition>using eu::I8 = typedef std::int8_t</definition>
+        <argsstring></argsstring>
+        <name>I8</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/ints.h" line="10" column="5" bodyfile="libs/base/src/base/ints.h" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespaceeu_1ac4791a29620a564f20a57ac1f705d39f" prot="public" static="no">
+        <type>std::uint64_t</type>
+        <definition>using eu::U64 = typedef std::uint64_t</definition>
+        <argsstring></argsstring>
+        <name>U64</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/ints.h" line="12" column="5" bodyfile="libs/base/src/base/ints.h" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespaceeu_1a4906aa2bac1ba15d71b5b473ee9dfcd4" prot="public" static="no">
+        <type>std::uint32_t</type>
+        <definition>using eu::U32 = typedef std::uint32_t</definition>
+        <argsstring></argsstring>
+        <name>U32</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/ints.h" line="13" column="5" bodyfile="libs/base/src/base/ints.h" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespaceeu_1a403a203901e0e2a2cdf05404b80c10f9" prot="public" static="no">
+        <type>std::uint16_t</type>
+        <definition>using eu::U16 = typedef std::uint16_t</definition>
+        <argsstring></argsstring>
+        <name>U16</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/ints.h" line="14" column="5" bodyfile="libs/base/src/base/ints.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespaceeu_1a7bb0af5256676c7db8a48a8ec6da2622" prot="public" static="no">
+        <type>std::uint8_t</type>
+        <definition>using eu::U8 = typedef std::uint8_t</definition>
+        <argsstring></argsstring>
+        <name>U8</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/ints.h" line="15" column="5" bodyfile="libs/base/src/base/ints.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="namespaceeu_1a3ca3b5e1b7b0ab10423719113ff875be" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr char</type>
+        <definition>constexpr char eu::path_separator</definition>
+        <argsstring></argsstring>
+        <name>path_separator</name>
+        <initializer>= &apos;/&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/os.h" line="23" column="20" bodyfile="libs/base/src/base/os.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group__string_1ga15da2155ca42b256f31ead0dcf4f212d" prot="public" static="no" mutable="no">
+        <type>const std::string</type>
+        <definition>const std::string eu::space_characters</definition>
+        <argsstring></argsstring>
+        <name>space_characters</name>
+        <initializer>= &quot; \n\r\t&quot;</initializer>
+        <briefdescription>
+<para>Space characters. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the space characters. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/stringutils.h" line="24" column="23" bodyfile="libs/base/src/base/stringutils.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespaceeu_1a175a9253ebea7fa874013257344e2a54" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int eu::c_sizet_to_int</definition>
+        <argsstring>(size_t t)</argsstring>
+        <name>c_sizet_to_int</name>
+        <param>
+          <type>size_t</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/cint.cc" line="11" column="5" bodyfile="libs/base/src/base/cint.cc" bodystart="11" bodyend="15" declfile="libs/base/src/base/cint.h" declline="11" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1aa83f7621e40670af5136fa49e22755b5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int eu::c_unsigned_int_to_int</definition>
+        <argsstring>(unsigned int i)</argsstring>
+        <name>c_unsigned_int_to_int</name>
+        <param>
+          <type>unsigned int</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/cint.cc" line="19" column="5" bodyfile="libs/base/src/base/cint.cc" bodystart="19" bodyend="23" declfile="libs/base/src/base/cint.h" declline="15" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1ae08d27f1cc9cab262d4c0af72d13c967" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>unsigned int</type>
+        <definition>unsigned int eu::c_int_to_unsigned_int</definition>
+        <argsstring>(int i)</argsstring>
+        <name>c_int_to_unsigned_int</name>
+        <param>
+          <type>int</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/cint.cc" line="27" column="5" bodyfile="libs/base/src/base/cint.cc" bodystart="27" bodyend="31" declfile="libs/base/src/base/cint.h" declline="19" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1a36a24bdd3f414af0c9d8c95ec8815991" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t eu::c_int_to_sizet</definition>
+        <argsstring>(int i)</argsstring>
+        <name>c_int_to_sizet</name>
+        <param>
+          <type>int</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/cint.cc" line="35" column="5" bodyfile="libs/base/src/base/cint.cc" bodystart="35" bodyend="39" declfile="libs/base/src/base/cint.h" declline="23" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1a62edc421c9c3e061a05866b92a898942" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespaceeu_1a7bb0af5256676c7db8a48a8ec6da2622" kindref="member">U8</ref></type>
+        <definition>U8 eu::c_int_to_u8</definition>
+        <argsstring>(unsigned int i)</argsstring>
+        <name>c_int_to_u8</name>
+        <param>
+          <type>unsigned int</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/cint.cc" line="42" column="5" bodyfile="libs/base/src/base/cint.cc" bodystart="42" bodyend="46" declfile="libs/base/src/base/cint.h" declline="27" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1a1ad26d02cd6cd78b1ed7779d5839931e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int eu::c_u64_to_int</definition>
+        <argsstring>(U64 u)</argsstring>
+        <name>c_u64_to_int</name>
+        <param>
+          <type><ref refid="namespaceeu_1ac4791a29620a564f20a57ac1f705d39f" kindref="member">U64</ref></type>
+          <declname>u</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/cint.cc" line="49" column="5" bodyfile="libs/base/src/base/cint.cc" bodystart="49" bodyend="53" declfile="libs/base/src/base/cint.h" declline="31" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1a3774923d7b347df1605c63a510864518" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>constexpr int</type>
+        <definition>constexpr int eu::c_float_to_int</definition>
+        <argsstring>(float f)</argsstring>
+        <name>c_float_to_int</name>
+        <param>
+          <type>float</type>
+          <declname>f</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/cint.h" line="36" column="5" bodyfile="libs/base/src/base/cint.h" bodystart="36" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1a0bf6f3d026ddfbf012b2f738691c0091" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>constexpr float</type>
+        <definition>constexpr float eu::c_sizet_to_float</definition>
+        <argsstring>(std::size_t f)</argsstring>
+        <name>c_sizet_to_float</name>
+        <param>
+          <type>std::size_t</type>
+          <declname>f</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/cint.h" line="43" column="5" bodyfile="libs/base/src/base/cint.h" bodystart="43" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1a818c2206be78d8ee004918bc5fae777e" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>constexpr float</type>
+        <definition>constexpr float eu::c_int_to_float</definition>
+        <argsstring>(int i)</argsstring>
+        <name>c_int_to_float</name>
+        <param>
+          <type>int</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/cint.h" line="50" column="5" bodyfile="libs/base/src/base/cint.h" bodystart="50" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1a243381476e611067b6f5b6df2dbbc47c" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>constexpr float</type>
+        <definition>constexpr float eu::c_u64_to_float</definition>
+        <argsstring>(U64 i)</argsstring>
+        <name>c_u64_to_float</name>
+        <param>
+          <type><ref refid="namespaceeu_1ac4791a29620a564f20a57ac1f705d39f" kindref="member">U64</ref></type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/cint.h" line="57" column="5" bodyfile="libs/base/src/base/cint.h" bodystart="57" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1a3e1ec707286b49487eb42f5e369cb0e6" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>constexpr <ref refid="namespaceeu_1a4906aa2bac1ba15d71b5b473ee9dfcd4" kindref="member">U32</ref></type>
+        <definition>constexpr U32 eu::c_bit_signed_to_unsigned</definition>
+        <argsstring>(I32 i)</argsstring>
+        <name>c_bit_signed_to_unsigned</name>
+        <param>
+          <type><ref refid="namespaceeu_1a3f086b3a574824463b1e1eec01c660bd" kindref="member">I32</ref></type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/cint.h" line="64" column="5" bodyfile="libs/base/src/base/cint.h" bodystart="64" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1a9b547b8fa4e0a3950061628048d7629f" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>constexpr double</type>
+        <definition>constexpr double eu::c_float_to_double</definition>
+        <argsstring>(float f)</argsstring>
+        <name>c_float_to_double</name>
+        <param>
+          <type>float</type>
+          <declname>f</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/cint.h" line="73" column="5" bodyfile="libs/base/src/base/cint.h" bodystart="73" bodyend="76"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1a159eda382388f22d302070e1416afe81" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>constexpr float</type>
+        <definition>constexpr float eu::c_double_to_float</definition>
+        <argsstring>(double f)</argsstring>
+        <name>c_double_to_float</name>
+        <param>
+          <type>double</type>
+          <declname>f</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/cint.h" line="80" column="5" bodyfile="libs/base/src/base/cint.h" bodystart="80" bodyend="83"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1afa6c8e77e7bd6872619a926ce0d5a894" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int eu::calc_edit_distance</definition>
+        <argsstring>(const std::string &amp;source, const std::string &amp;target)</argsstring>
+        <name>calc_edit_distance</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>source</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>target</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/editdistance.cc" line="14" column="5" bodyfile="libs/base/src/base/editdistance.cc" bodystart="14" bodyend="83" declfile="libs/base/src/base/editdistance.h" declline="12" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1ab2f47b63a33a6d3853f54665ba055b96" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int eu::calc_edit_distance_fast</definition>
+        <argsstring>(const std::string &amp;the_row, const std::string &amp;the_col)</argsstring>
+        <name>calc_edit_distance_fast</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>the_row</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>the_col</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/editdistance.cc" line="86" column="5" bodyfile="libs/base/src/base/editdistance.cc" bodystart="86" bodyend="130" declfile="libs/base/src/base/editdistance.h" declline="18" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1a70bdf9fe42beb00691f28215741f29be" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename A</type>
+          </param>
+          <param>
+            <type>typename B</type>
+          </param>
+        </templateparamlist>
+        <type>std::vector&lt; std::pair&lt; A, B &gt; &gt;</type>
+        <definition>std::vector&lt;std::pair&lt;A, B&gt; &gt; eu::zip</definition>
+        <argsstring>(const std::vector&lt; A &gt; &amp;as, const std::vector&lt; B &gt; &amp;bs)</argsstring>
+        <name>zip</name>
+        <param>
+          <type>const std::vector&lt; A &gt; &amp;</type>
+          <declname>as</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; B &gt; &amp;</type>
+          <declname>bs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/functional.h" line="19" column="5" bodyfile="libs/base/src/base/functional.h" bodystart="19" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1a175501e62b5378f378e409236ed056ac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename A</type>
+          </param>
+          <param>
+            <type>typename B</type>
+          </param>
+        </templateparamlist>
+        <type>std::vector&lt; std::pair&lt; A, B &gt; &gt;</type>
+        <definition>std::vector&lt;std::pair&lt;A, B&gt; &gt; eu::zip_longest</definition>
+        <argsstring>(const std::vector&lt; A &gt; &amp;as, const std::vector&lt; B &gt; &amp;bs, A da=A(), B db=B())</argsstring>
+        <name>zip_longest</name>
+        <param>
+          <type>const std::vector&lt; A &gt; &amp;</type>
+          <declname>as</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; B &gt; &amp;</type>
+          <declname>bs</declname>
+        </param>
+        <param>
+          <type>A</type>
+          <declname>da</declname>
+          <defval>A()</defval>
+        </param>
+        <param>
+          <type>B</type>
+          <declname>db</declname>
+          <defval>B()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/functional.h" line="33" column="5" bodyfile="libs/base/src/base/functional.h" bodystart="34" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1a6507a8ec64647f0a38e1bd35499f073b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>typename F</type>
+            <defval>T</defval>
+          </param>
+          <param>
+            <type>typename C</type>
+          </param>
+        </templateparamlist>
+        <type>std::vector&lt; T &gt;</type>
+        <definition>std::vector&lt;T&gt; eu::map</definition>
+        <argsstring>(const std::vector&lt; F &gt; &amp;fs, C convert)</argsstring>
+        <name>map</name>
+        <param>
+          <type>const std::vector&lt; F &gt; &amp;</type>
+          <declname>fs</declname>
+        </param>
+        <param>
+          <type>C</type>
+          <declname>convert</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/functional.h" line="56" column="5" bodyfile="libs/base/src/base/functional.h" bodystart="56" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1a9d77d46b5904b314de84290ac4a15bc0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>typename K</type>
+          </param>
+          <param>
+            <type>typename V</type>
+          </param>
+          <param>
+            <type>typename C</type>
+          </param>
+        </templateparamlist>
+        <type>std::vector&lt; T &gt;</type>
+        <definition>std::vector&lt;T&gt; eu::map</definition>
+        <argsstring>(const std::map&lt; K, V &gt; &amp;fs, C convert)</argsstring>
+        <name>map</name>
+        <param>
+          <type>const std::map&lt; K, V &gt; &amp;</type>
+          <declname>fs</declname>
+        </param>
+        <param>
+          <type>C</type>
+          <declname>convert</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/functional.h" line="70" column="5" bodyfile="libs/base/src/base/functional.h" bodystart="70" bodyend="79"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1ad9f1c4e8fcbe15f6db7c7576868d0493" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>typename C</type>
+          </param>
+        </templateparamlist>
+        <type>std::vector&lt; T &gt;</type>
+        <definition>std::vector&lt;T&gt; eu::filter</definition>
+        <argsstring>(const std::vector&lt; T &gt; &amp;ts, C check)</argsstring>
+        <name>filter</name>
+        <param>
+          <type>const std::vector&lt; T &gt; &amp;</type>
+          <declname>ts</declname>
+        </param>
+        <param>
+          <type>C</type>
+          <declname>check</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/functional.h" line="86" column="5" bodyfile="libs/base/src/base/functional.h" bodystart="86" bodyend="98"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1a1956c93ce39188f20c4f35d097c619f4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>typename C</type>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool eu::all</definition>
+        <argsstring>(const std::vector&lt; T &gt; &amp;ts, C check)</argsstring>
+        <name>all</name>
+        <param>
+          <type>const std::vector&lt; T &gt; &amp;</type>
+          <declname>ts</declname>
+        </param>
+        <param>
+          <type>C</type>
+          <declname>check</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/functional.h" line="105" column="5" bodyfile="libs/base/src/base/functional.h" bodystart="105" bodyend="117"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1ad9b77a383d49915450bfd82b3a8e0a4f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>typename C</type>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool eu::any</definition>
+        <argsstring>(const std::vector&lt; T &gt; &amp;ts, C check)</argsstring>
+        <name>any</name>
+        <param>
+          <type>const std::vector&lt; T &gt; &amp;</type>
+          <declname>ts</declname>
+        </param>
+        <param>
+          <type>C</type>
+          <declname>check</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/functional.h" line="122" column="5" bodyfile="libs/base/src/base/functional.h" bodystart="122" bodyend="134"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1a0885bc2c8931deca30b7a0df512954c4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>typename R</type>
+            <defval>T</defval>
+          </param>
+          <param>
+            <type>typename C</type>
+          </param>
+        </templateparamlist>
+        <type>R</type>
+        <definition>R eu::fold</definition>
+        <argsstring>(const std::vector&lt; T &gt; &amp;ts, C concat, R zero)</argsstring>
+        <name>fold</name>
+        <param>
+          <type>const std::vector&lt; T &gt; &amp;</type>
+          <declname>ts</declname>
+        </param>
+        <param>
+          <type>C</type>
+          <declname>concat</declname>
+        </param>
+        <param>
+          <type>R</type>
+          <declname>zero</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/functional.h" line="147" column="5" bodyfile="libs/base/src/base/functional.h" bodystart="147" bodyend="155"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1af07da73403a6887bdc97b0ad4ed130db" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::copy_to_memory</definition>
+        <argsstring>(MemoryChunk *memory, const void *src)</argsstring>
+        <name>copy_to_memory</name>
+        <param>
+          <type><ref refid="structeu_1_1MemoryChunk" kindref="compound">MemoryChunk</ref> *</type>
+          <declname>memory</declname>
+        </param>
+        <param>
+          <type>const void *</type>
+          <declname>src</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/memorychunk.cc" line="60" column="5" bodyfile="libs/base/src/base/memorychunk.cc" bodystart="60" bodyend="63" declfile="libs/base/src/base/memorychunk.h" declline="28" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1aaa5de64e566a349dbf805e4e78173f80" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="structeu_1_1MemoryChunk" kindref="compound">MemoryChunk</ref> &gt;</type>
+        <definition>std::shared_ptr&lt; MemoryChunk &gt; eu::create_memory_chunk_from_string</definition>
+        <argsstring>(const std::string &amp;content)</argsstring>
+        <name>create_memory_chunk_from_string</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>content</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/memorychunk.cc" line="66" column="5" bodyfile="libs/base/src/base/memorychunk.cc" bodystart="66" bodyend="74" declfile="libs/base/src/base/memorychunk.h" declline="30" declcolumn="22"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1a1ea41c93d809a2e9ae6ca65e3a03eedf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string eu::get_current_directory</definition>
+        <argsstring>()</argsstring>
+        <name>get_current_directory</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/os.cc" line="35" column="5" bodyfile="libs/base/src/base/os.cc" bodystart="35" bodyend="50" declfile="libs/base/src/base/os.h" declline="10" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1afd8c9110b5643d53fbf0ebd237a05261" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1DirectoryListing" kindref="compound">DirectoryListing</ref></type>
+        <definition>DirectoryListing eu::list_directory</definition>
+        <argsstring>(const std::string &amp;path)</argsstring>
+        <name>list_directory</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/os.cc" line="95" column="5" bodyfile="libs/base/src/base/os.cc" bodystart="95" bodyend="134" declfile="libs/base/src/base/os.h" declline="21" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1a5c6d0f6da6365a54b442d80a1fc93e7b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool eu::ends_with</definition>
+        <argsstring>(const std::string &amp;str, char c)</argsstring>
+        <name>ends_with</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>str</declname>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/os.cc" line="139" column="5" bodyfile="libs/base/src/base/os.cc" bodystart="139" bodyend="149" declfile="libs/base/src/base/os.h" declline="26" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1a8aac0f6d240fed6e952ac16cb92e6379" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string eu::join_path</definition>
+        <argsstring>(const std::string &amp;left, const std::string &amp;right)</argsstring>
+        <name>join_path</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>left</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>right</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/os.cc" line="152" column="5" bodyfile="libs/base/src/base/os.cc" bodystart="152" bodyend="162" declfile="libs/base/src/base/os.h" declline="29" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1a38ccdf740a6252ff460d18f353d47a2d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string eu::get_extension</definition>
+        <argsstring>(const std::string &amp;path)</argsstring>
+        <name>get_extension</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/os.cc" line="165" column="5" bodyfile="libs/base/src/base/os.cc" bodystart="165" bodyend="168" declfile="libs/base/src/base/os.h" declline="32" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1a69883171877eaa656ec28f13f39deb88" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string eu::get_file_name_including_extension</definition>
+        <argsstring>(const std::string &amp;path)</argsstring>
+        <name>get_file_name_including_extension</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/os.cc" line="171" column="5" bodyfile="libs/base/src/base/os.cc" bodystart="171" bodyend="183" declfile="libs/base/src/base/os.h" declline="35" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1ab915433d195017cc02947489d6c8b356" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string eu::get_file_name_without_extension</definition>
+        <argsstring>(const std::string &amp;path)</argsstring>
+        <name>get_file_name_without_extension</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/os.cc" line="186" column="5" bodyfile="libs/base/src/base/os.cc" bodystart="186" bodyend="189" declfile="libs/base/src/base/os.h" declline="38" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__string_1gad9066d3055457c57ae5375b238a22a93" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::pair&lt; std::string, std::string &gt;</type>
+        <definition>std::pair&lt; std::string, std::string &gt; eu::get_last_string</definition>
+        <argsstring>(const std::string &amp;str, char sep)</argsstring>
+        <name>get_last_string</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>str</declname>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>sep</declname>
+        </param>
+        <briefdescription>
+<para>for hello.dog gets .dog </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/stringutils.cc" line="17" column="1" bodyfile="libs/base/src/base/stringutils.cc" bodystart="17" bodyend="28" declfile="libs/base/src/base/stringutils.h" declline="34" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__string_1ga2ae1e3ca3167ed8f8138a4b275de664c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string eu::get_first_chars</definition>
+        <argsstring>(const std::string &amp;str, std::size_t count)</argsstring>
+        <name>get_first_chars</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>str</declname>
+        </param>
+        <param>
+          <type>std::size_t</type>
+          <declname>count</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/stringutils.cc" line="32" column="1" bodyfile="libs/base/src/base/stringutils.cc" bodystart="32" bodyend="36" declfile="libs/base/src/base/stringutils.h" declline="38" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__string_1ga562092e6d5cdff99bb2002135520d43a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string eu::get_first_chars_with_ellipsis</definition>
+        <argsstring>(const std::string &amp;str, unsigned int count)</argsstring>
+        <name>get_first_chars_with_ellipsis</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>str</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>count</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/stringutils.cc" line="40" column="1" bodyfile="libs/base/src/base/stringutils.cc" bodystart="40" bodyend="48" declfile="libs/base/src/base/stringutils.h" declline="41" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__string_1gaf34bd10282008511adeee9b34ed68de1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string eu::strip_last_string</definition>
+        <argsstring>(const std::string &amp;str, char sep)</argsstring>
+        <name>strip_last_string</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>str</declname>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>sep</declname>
+        </param>
+        <briefdescription>
+<para>for hello.dog and . gets hello </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/stringutils.cc" line="52" column="1" bodyfile="libs/base/src/base/stringutils.cc" bodystart="52" bodyend="61" declfile="libs/base/src/base/stringutils.h" declline="29" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__string_1ga6835c61b16a0e91db39e1759f3ccf07f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string eu::trim_right</definition>
+        <argsstring>(const std::string &amp;string_to_trim, const std::string &amp;trim_characters=space_characters)</argsstring>
+        <name>trim_right</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>string_to_trim</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>trim_characters</declname>
+          <defval><ref refid="group__string_1ga15da2155ca42b256f31ead0dcf4f212d" kindref="member">space_characters</ref></defval>
+        </param>
+        <briefdescription>
+<para>Remove characters from the right, stops at a invalid character. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>string_to_trim</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the string to remove characters from. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>trim_characters</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the characters to remove. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the trimmed string. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/stringutils.cc" line="65" column="1" bodyfile="libs/base/src/base/stringutils.cc" bodystart="65" bodyend="68" declfile="libs/base/src/base/stringutils.h" declline="50" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__string_1ga4189207e12bfff75ed562aac7fc68bd9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string eu::trim_left</definition>
+        <argsstring>(const std::string &amp;string_to_trim, const std::string &amp;trim_characters=space_characters)</argsstring>
+        <name>trim_left</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>string_to_trim</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>trim_characters</declname>
+          <defval><ref refid="group__string_1ga15da2155ca42b256f31ead0dcf4f212d" kindref="member">space_characters</ref></defval>
+        </param>
+        <briefdescription>
+<para>Remove characters from the left, stops at invalid character. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>string_to_trim</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the string to remove characters from. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>trim_characters</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the characters to remove. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the trimmed string. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/stringutils.cc" line="72" column="1" bodyfile="libs/base/src/base/stringutils.cc" bodystart="72" bodyend="75" declfile="libs/base/src/base/stringutils.h" declline="59" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__string_1gaba5dbc7e97fd23465bfb415e8d222087" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string eu::trim</definition>
+        <argsstring>(const std::string &amp;string_to_trim, const std::string &amp;trim_characters=space_characters)</argsstring>
+        <name>trim</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>string_to_trim</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>trim_characters</declname>
+          <defval><ref refid="group__string_1ga15da2155ca42b256f31ead0dcf4f212d" kindref="member">space_characters</ref></defval>
+        </param>
+        <briefdescription>
+<para>Remove characters from both the start and the end. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>string_to_trim</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the string to remove characters from. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>trim_characters</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the characters to remove. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the trimmed string. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/stringutils.cc" line="79" column="1" bodyfile="libs/base/src/base/stringutils.cc" bodystart="79" bodyend="82" declfile="libs/base/src/base/stringutils.h" declline="68" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__string_1gaf84b447fd234f94fb8dd8edf185f58bf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool eu::begins_with</definition>
+        <argsstring>(const std::string &amp;string_to_test, const std::string &amp;start)</argsstring>
+        <name>begins_with</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>string_to_test</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>start</declname>
+        </param>
+        <briefdescription>
+<para>Tests if a string starts with another string. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>string_to_test</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the string to test. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>start</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the start of the string. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if the start match, false if not. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/stringutils.cc" line="87" column="1" bodyfile="libs/base/src/base/stringutils.cc" bodystart="87" bodyend="97" declfile="libs/base/src/base/stringutils.h" declline="77" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__string_1ga0769382ce3f4a117a18b8adf61298297" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool eu::ends_with</definition>
+        <argsstring>(const std::string &amp;string_to_test, const std::string &amp;end)</argsstring>
+        <name>ends_with</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>string_to_test</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>end</declname>
+        </param>
+        <briefdescription>
+<para>Tests if a string ends with another string. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>string_to_test</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the string to test. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>end</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the end of the string. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if the end match, false if not. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/stringutils.cc" line="101" column="1" bodyfile="libs/base/src/base/stringutils.cc" bodystart="101" bodyend="112" declfile="libs/base/src/base/stringutils.h" declline="86" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__string_1gae2f29a648243ade3cadfacad13ce419d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>char</type>
+        <definition>char eu::to_lower_char</definition>
+        <argsstring>(char b)</argsstring>
+        <name>to_lower_char</name>
+        <param>
+          <type>char</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/stringutils.cc" line="116" column="1" bodyfile="libs/base/src/base/stringutils.cc" bodystart="116" bodyend="126" declfile="libs/base/src/base/stringutils.h" declline="90" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__string_1gaaccdb9e1d319324e3ceb237b5cfd8545" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>char</type>
+        <definition>char eu::to_upper_char</definition>
+        <argsstring>(char b)</argsstring>
+        <name>to_upper_char</name>
+        <param>
+          <type>char</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/stringutils.cc" line="129" column="1" bodyfile="libs/base/src/base/stringutils.cc" bodystart="129" bodyend="139" declfile="libs/base/src/base/stringutils.h" declline="93" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__string_1ga3490fea5c2e06de7db10f26fd799ebcf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string eu::to_lower</definition>
+        <argsstring>(const std::string &amp;str)</argsstring>
+        <name>to_lower</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+<para>Generate a string containing only lower characters. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>str</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the string to lower. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the lowered string. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/stringutils.cc" line="143" column="1" bodyfile="libs/base/src/base/stringutils.cc" bodystart="143" bodyend="148" declfile="libs/base/src/base/stringutils.h" declline="101" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__string_1gac5b13077cd22cdd2639ed0e78343dc96" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>std::vector&lt; std::string &gt; eu::to_lower</definition>
+        <argsstring>(const std::vector&lt; std::string &gt; &amp;str)</argsstring>
+        <name>to_lower</name>
+        <param>
+          <type>const std::vector&lt; std::string &gt; &amp;</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/stringutils.cc" line="152" column="1" bodyfile="libs/base/src/base/stringutils.cc" bodystart="152" bodyend="155" declfile="libs/base/src/base/stringutils.h" declline="105" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__string_1gac1da104b0fb3bb262e6b0b239d4e6b6d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string eu::to_upper</definition>
+        <argsstring>(const std::string &amp;str)</argsstring>
+        <name>to_upper</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/stringutils.cc" line="159" column="1" bodyfile="libs/base/src/base/stringutils.cc" bodystart="159" bodyend="164" declfile="libs/base/src/base/stringutils.h" declline="109" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__string_1ga718ab12abe2887f18e26d30ee2da17a0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string eu::from_char_to_string</definition>
+        <argsstring>(char c, CharToStringStyle style)</argsstring>
+        <name>from_char_to_string</name>
+        <param>
+          <type>char</type>
+          <declname>c</declname>
+        </param>
+        <param>
+          <type><ref refid="group__string_1ga20491245288871dc76aabddb7437225f" kindref="member">CharToStringStyle</ref></type>
+          <declname>style</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/stringutils.cc" line="168" column="1" bodyfile="libs/base/src/base/stringutils.cc" bodystart="168" bodyend="240" declfile="libs/base/src/base/stringutils.h" declline="119" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__string_1gacf20f68a47700651f5d80f922a7f7755" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string::size_type</type>
+        <definition>std::string::size_type eu::find_first_index_of_mismatch</definition>
+        <argsstring>(const std::string &amp;lhs, const std::string &amp;rhs)</argsstring>
+        <name>find_first_index_of_mismatch</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/stringutils.cc" line="244" column="1" bodyfile="libs/base/src/base/stringutils.cc" bodystart="244" bodyend="265" declfile="libs/base/src/base/stringutils.h" declline="123" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__string_1ga8bc5963164a5020bcb0eea52227390f6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::replace_all</definition>
+        <argsstring>(std::string *string, const std::string &amp;to_find, const std::string &amp;to_replace)</argsstring>
+        <name>replace_all</name>
+        <param>
+          <type>std::string *</type>
+          <declname>string</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>to_find</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>to_replace</declname>
+        </param>
+        <briefdescription>
+<para>Replace all occurrences in a string. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>string</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the source string. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>to_find</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the string to find. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>to_replace</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the string to replace it. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/stringutils.cc" line="269" column="1" bodyfile="libs/base/src/base/stringutils.cc" bodystart="269" bodyend="280" declfile="libs/base/src/base/stringutils.h" declline="132" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__string_1ga4d4c1fb3db56599eff70f89fa2de5cd7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string eu::replace_all</definition>
+        <argsstring>(const std::string &amp;string, const std::string &amp;to_find, const std::string &amp;to_replace)</argsstring>
+        <name>replace_all</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>string</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>to_find</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>to_replace</declname>
+        </param>
+        <briefdescription>
+<para>Replace all occurrences in a string. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>string</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the source string. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>to_find</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the string to find. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>to_replace</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the string to replace it. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the modified string. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/stringutils.cc" line="284" column="1" bodyfile="libs/base/src/base/stringutils.cc" bodystart="284" bodyend="289" declfile="libs/base/src/base/stringutils.h" declline="142" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__string_1ga3638c6b55c2dcc81648800da6de164ad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::copy</definition>
+        <argsstring>(char *dst, const std::string &amp;src, const std::string::size_type &amp;count)</argsstring>
+        <name>copy</name>
+        <param>
+          <type>char *</type>
+          <declname>dst</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>src</declname>
+        </param>
+        <param>
+          <type>const std::string::size_type &amp;</type>
+          <declname>count</declname>
+        </param>
+        <briefdescription>
+<para>Copy a string to a character buffer, adding null terminator at the end. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dst</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the destination buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>src</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the source string. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>count</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the maximum number of characters to copy (including null terminator) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/stringutils.cc" line="293" column="1" bodyfile="libs/base/src/base/stringutils.cc" bodystart="293" bodyend="297" declfile="libs/base/src/base/stringutils.h" declline="156" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__string_1ga83c755cb8bef6eba9d1b94389df71e38" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string eu::replace_with_character</definition>
+        <argsstring>(const std::string &amp;string, const std::string &amp;to_find, char to_replace)</argsstring>
+        <name>replace_with_character</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>string</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>to_find</declname>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>to_replace</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/stringutils.cc" line="301" column="1" bodyfile="libs/base/src/base/stringutils.cc" bodystart="301" bodyend="309" declfile="libs/base/src/base/stringutils.h" declline="146" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__string_1ga2d8a389718c684995df67e39cbb9088b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string eu::remove_from_end</definition>
+        <argsstring>(const std::string &amp;str, const std::string &amp;end)</argsstring>
+        <name>remove_from_end</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>str</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>end</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/stringutils.cc" line="313" column="1" bodyfile="libs/base/src/base/stringutils.cc" bodystart="313" bodyend="327" declfile="libs/base/src/base/stringutils.h" declline="159" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__string_1gadbcbe1a13ddabee90d5da53c17cf7b28" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string eu::strip</definition>
+        <argsstring>(const std::string &amp;str, const std::string &amp;ch)</argsstring>
+        <name>strip</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>str</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>ch</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/stringutils.cc" line="331" column="1" bodyfile="libs/base/src/base/stringutils.cc" bodystart="331" bodyend="342" declfile="libs/base/src/base/stringutils.h" declline="221" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__string_1ga32066fcac64a0443ce52bfb31ca147aa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string eu::remove_consecutive</definition>
+        <argsstring>(const std::string &amp;str, const std::string &amp;ch)</argsstring>
+        <name>remove_consecutive</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>str</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>ch</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/stringutils.cc" line="347" column="1" bodyfile="libs/base/src/base/stringutils.cc" bodystart="347" bodyend="368" declfile="libs/base/src/base/stringutils.h" declline="226" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__string_1ga79dc0187564d6183a2839feacfd25f86" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>std::vector&lt; std::string &gt; eu::split</definition>
+        <argsstring>(const std::string &amp;s, char delim)</argsstring>
+        <name>split</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>s</declname>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>delim</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/stringutils.cc" line="431" column="1" bodyfile="libs/base/src/base/stringutils.cc" bodystart="431" bodyend="440" declfile="libs/base/src/base/stringutils.h" declline="230" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__string_1ga42d220783d67f13a83c7569fc65161e3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>std::vector&lt; std::string &gt; eu::split_on_spaces</definition>
+        <argsstring>(const std::string &amp;string)</argsstring>
+        <name>split_on_spaces</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>string</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/stringutils.cc" line="444" column="1" bodyfile="libs/base/src/base/stringutils.cc" bodystart="444" bodyend="453" declfile="libs/base/src/base/stringutils.h" declline="234" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__string_1gac3613554703d6525c3bcd4bf6b8638ab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string eu::get_string_or_empty</definition>
+        <argsstring>(bool b, const std::string &amp;str)</argsstring>
+        <name>get_string_or_empty</name>
+        <param>
+          <type>bool</type>
+          <declname>b</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/stringutils.cc" line="457" column="1" bodyfile="libs/base/src/base/stringutils.cc" bodystart="457" bodyend="467" declfile="libs/base/src/base/stringutils.h" declline="238" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__string_1gac2203845e75e9d4fba81b932ed6f95cd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool eu::is_number</definition>
+        <argsstring>(char b)</argsstring>
+        <name>is_number</name>
+        <param>
+          <type>char</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/stringutils.cc" line="471" column="1" bodyfile="libs/base/src/base/stringutils.cc" bodystart="471" bodyend="474" declfile="libs/base/src/base/stringutils.h" declline="18" declcolumn="4"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1a2bc26a14825311098ec9869e77968304" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int eu::parse_number</definition>
+        <argsstring>(const char **aa)</argsstring>
+        <name>parse_number</name>
+        <param>
+          <type>const char **</type>
+          <declname>aa</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/stringutils.cc" line="478" column="1" bodyfile="libs/base/src/base/stringutils.cc" bodystart="478" bodyend="494"/>
+      </memberdef>
+      <memberdef kind="function" id="group__string_1gac0b21e26003c864786dfcca65af1569d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int eu::compare_string</definition>
+        <argsstring>(const std::string &amp;lhs, const std::string &amp;rhs)</argsstring>
+        <name>compare_string</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/stringutils.cc" line="498" column="1" bodyfile="libs/base/src/base/stringutils.cc" bodystart="498" bodyend="524" declfile="libs/base/src/base/stringutils.h" declline="243" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__string_1ga74ea8437f509e46eb13b30923ffd0b75" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename TKey</type>
+          </param>
+          <param>
+            <type>typename TValue</type>
+          </param>
+        </templateparamlist>
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>std::vector&lt;std::string&gt; eu::to_string_vector</definition>
+        <argsstring>(const std::map&lt; TKey, TValue &gt; &amp;map)</argsstring>
+        <name>to_string_vector</name>
+        <param>
+          <type>const std::map&lt; TKey, TValue &gt; &amp;</type>
+          <declname>map</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/stringutils.h" line="164" column="5" bodyfile="libs/base/src/base/stringutils.h" bodystart="164" bodyend="173"/>
+      </memberdef>
+      <memberdef kind="function" id="group__string_1ga193c6023f77b968bc5d27ac2d687295c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename TKey</type>
+          </param>
+          <param>
+            <type>typename TValue</type>
+          </param>
+        </templateparamlist>
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>std::vector&lt;std::string&gt; eu::from_key_to_string_vector</definition>
+        <argsstring>(const std::map&lt; TKey, TValue &gt; &amp;map)</argsstring>
+        <name>from_key_to_string_vector</name>
+        <param>
+          <type>const std::map&lt; TKey, TValue &gt; &amp;</type>
+          <declname>map</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/stringutils.h" line="178" column="5" bodyfile="libs/base/src/base/stringutils.h" bodystart="178" bodyend="187"/>
+      </memberdef>
+      <memberdef kind="function" id="group__string_1gaeaa12b9d84e57dc98becd039f00b5b7b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>std::vector&lt;std::string&gt; eu::to_string_vector</definition>
+        <argsstring>(const std::vector&lt; T &gt; &amp;data)</argsstring>
+        <name>to_string_vector</name>
+        <param>
+          <type>const std::vector&lt; T &gt; &amp;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/stringutils.h" line="192" column="5" bodyfile="libs/base/src/base/stringutils.h" bodystart="192" bodyend="202"/>
+      </memberdef>
+      <memberdef kind="function" id="group__string_1ga158110f80550e35157a31db9769bd1fe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>typename C</type>
+          </param>
+        </templateparamlist>
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>std::vector&lt;std::string&gt; eu::to_string_vector</definition>
+        <argsstring>(const std::vector&lt; T &gt; &amp;data, C callback)</argsstring>
+        <name>to_string_vector</name>
+        <param>
+          <type>const std::vector&lt; T &gt; &amp;</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>C</type>
+          <declname>callback</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/stringutils.h" line="207" column="5" bodyfile="libs/base/src/base/stringutils.h" bodystart="207" bodyend="216"/>
+      </memberdef>
+      </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

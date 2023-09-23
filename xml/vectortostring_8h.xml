@@ -2,13 +2,13 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="vectortostring_8h" kind="file" language="C++">
     <compoundname>vectortostring.h</compoundname>
-    <includes refid="stringbuilder_8h" local="yes">core/stringbuilder.h</includes>
+    <includes refid="stringbuilder_8h" local="yes">base/stringbuilder.h</includes>
     <includedby refid="stringeq_8cc" local="yes">libs/tests/src/tests/stringeq.cc</includedby>
     <includedby refid="vectorequals_8h" local="yes">libs/tests/src/tests/vectorequals.h</includedby>
     <includedby refid="vectortostring_8cc" local="yes">libs/tests/src/tests/vectortostring.cc</includedby>
     <incdepgraph>
       <node id="2">
-        <label>core/stringbuilder.h</label>
+        <label>base/stringbuilder.h</label>
         <link refid="stringbuilder_8h"/>
       </node>
       <node id="1">

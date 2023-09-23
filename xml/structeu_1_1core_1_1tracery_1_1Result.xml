@@ -116,7 +116,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/tracery.h" line="34" column="9" bodyfile="libs/core/src/core/tracery.cc" bodystart="197" bodyend="197"/>
+        <location file="libs/core/src/core/tracery.h" line="34" column="9" bodyfile="libs/core/src/core/tracery.cc" bodystart="162" bodyend="162"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1tracery_1_1Result_1a9ff32b01ab126cb30f36fccaeb438c54" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -129,7 +129,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/tracery.h" line="36" column="22" bodyfile="libs/core/src/core/tracery.cc" bodystart="215" bodyend="223"/>
+        <location file="libs/core/src/core/tracery.h" line="36" column="22" bodyfile="libs/core/src/core/tracery.cc" bodystart="180" bodyend="188"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1tracery_1_1Result_1a77fbcfc8b1097b643879a2cc33bb8d36" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1core_1_1tracery_1_1Result" kindref="compound">Result</ref> &amp;</type>
@@ -146,7 +146,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/tracery.h" line="39" column="9" bodyfile="libs/core/src/core/tracery.cc" bodystart="201" bodyend="205"/>
+        <location file="libs/core/src/core/tracery.h" line="39" column="9" bodyfile="libs/core/src/core/tracery.cc" bodystart="166" bodyend="170"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1tracery_1_1Result_1ae56e2ff2d8367f5c1ecdffd8081a00d5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -159,7 +159,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/tracery.h" line="40" column="9" bodyfile="libs/core/src/core/tracery.cc" bodystart="208" bodyend="211"/>
+        <location file="libs/core/src/core/tracery.h" line="40" column="9" bodyfile="libs/core/src/core/tracery.cc" bodystart="173" bodyend="176"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

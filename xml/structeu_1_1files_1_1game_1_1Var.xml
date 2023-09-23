@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1files_1_1game_1_1Var" kind="struct" language="C++" prot="public">
+    <compoundname>eu::files::game::Var</compoundname>
+    <includes refid="game_8h" local="no">game.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1files_1_1game_1_1Var_1af113723e082504da2cf195169680cc90" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string eu::files::game::Var::name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/files/src/files/game.h" line="28" column="21" bodyfile="libs/files/src/files/game.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1files_1_1game_1_1Var_1a82c4782e04f22003b850e17c7ab04e81" prot="public" static="no" mutable="no">
+        <type>std::optional&lt; <ref refid="structeu_1_1files_1_1game_1_1VarNumber" kindref="compound">VarNumber</ref> &gt;</type>
+        <definition>std::optional&lt;VarNumber&gt; eu::files::game::Var::number</definition>
+        <argsstring></argsstring>
+        <name>number</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/files/src/files/game.h" line="31" column="23" bodyfile="libs/files/src/files/game.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/files/src/files/game.h" line="26" column="5" bodyfile="libs/files/src/files/game.h" bodystart="27" bodyend="32"/>
+    <listofallmembers>
+      <member refid="structeu_1_1files_1_1game_1_1Var_1af113723e082504da2cf195169680cc90" prot="public" virt="non-virtual"><scope>eu::files::game::Var</scope><name>name</name></member>
+      <member refid="structeu_1_1files_1_1game_1_1Var_1a82c4782e04f22003b850e17c7ab04e81" prot="public" virt="non-virtual"><scope>eu::files::game::Var</scope><name>number</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

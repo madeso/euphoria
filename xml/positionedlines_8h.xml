@@ -30,12 +30,10 @@
       <node id="17">
         <label>cstdint</label>
       </node>
-      <node id="15">
-        <label>core/cint.h</label>
-        <link refid="cint_8h"/>
-        <childnode refid="16" relation="include">
-        </childnode>
-        <childnode refid="18" relation="include">
+      <node id="16">
+        <label>base/ints.h</label>
+        <link refid="ints_8h"/>
+        <childnode refid="17" relation="include">
         </childnode>
       </node>
       <node id="26">
@@ -165,12 +163,6 @@
         <childnode refid="26" relation="include">
         </childnode>
       </node>
-      <node id="16">
-        <label>core/ints.h</label>
-        <link refid="ints_8h"/>
-        <childnode refid="17" relation="include">
-        </childnode>
-      </node>
       <node id="29">
         <label>render/gltypes.h</label>
         <link refid="gltypes_8h"/>
@@ -225,6 +217,14 @@
         <childnode refid="14" relation="include">
         </childnode>
         <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>base/cint.h</label>
+        <link refid="cint_8h"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
         </childnode>
       </node>
       <node id="2">

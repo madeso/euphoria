@@ -18,8 +18,8 @@
     <innerfile refid="debuggl_8h">debuggl.h</innerfile>
     <innerfile refid="defaultfiles_8cc">defaultfiles.cc</innerfile>
     <innerfile refid="defaultfiles_8h">defaultfiles.h</innerfile>
-    <innerfile refid="font_8cc">font.cc</innerfile>
-    <innerfile refid="font_8h">font.h</innerfile>
+    <innerfile refid="render_2src_2render_2font_8cc">font.cc</innerfile>
+    <innerfile refid="render_2src_2render_2font_8h">font.h</innerfile>
     <innerfile refid="fontcache_8cc">fontcache.cc</innerfile>
     <innerfile refid="fontcache_8h">fontcache.h</innerfile>
     <innerfile refid="gl_8cc">gl.cc</innerfile>
@@ -34,8 +34,8 @@
     <innerfile refid="instance_8h">instance.h</innerfile>
     <innerfile refid="light_8cc">light.cc</innerfile>
     <innerfile refid="light_8h">light.h</innerfile>
-    <innerfile refid="materialshader_8cc">materialshader.cc</innerfile>
-    <innerfile refid="materialshader_8h">materialshader.h</innerfile>
+    <innerfile refid="render_2src_2render_2materialshader_8cc">materialshader.cc</innerfile>
+    <innerfile refid="render_2src_2render_2materialshader_8h">materialshader.h</innerfile>
     <innerfile refid="materialshadercache_8cc">materialshadercache.cc</innerfile>
     <innerfile refid="materialshadercache_8h">materialshadercache.h</innerfile>
     <innerfile refid="positionedlines_8cc">positionedlines.cc</innerfile>
@@ -66,8 +66,8 @@
     <innerfile refid="render_2src_2render_2viewport_8h">viewport.h</innerfile>
     <innerfile refid="viewporthandler_8cc">viewporthandler.cc</innerfile>
     <innerfile refid="viewporthandler_8h">viewporthandler.h</innerfile>
-    <innerfile refid="world_8cc">world.cc</innerfile>
-    <innerfile refid="world_8h">world.h</innerfile>
+    <innerfile refid="render_2src_2render_2world_8cc">world.cc</innerfile>
+    <innerfile refid="render_2src_2render_2world_8h">world.h</innerfile>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

@@ -2,23 +2,23 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="ecs_8id_8h" kind="file" language="C++">
     <compoundname>ecs.id.h</compoundname>
-    <includes refid="ints_8h" local="yes">core/ints.h</includes>
+    <includes refid="ints_8h" local="yes">base/ints.h</includes>
     <includedby refid="ecs_8h" local="yes">libs/core/src/core/ecs.h</includedby>
     <includedby refid="ecs_8id_8cc" local="yes">libs/core/src/core/ecs.id.cc</includedby>
     <incdepgraph>
       <node id="3">
         <label>cstdint</label>
       </node>
+      <node id="2">
+        <label>base/ints.h</label>
+        <link refid="ints_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
       <node id="1">
         <label>libs/core/src/core/ecs.id.h</label>
         <link refid="ecs_8id_8h"/>
         <childnode refid="2" relation="include">
-        </childnode>
-      </node>
-      <node id="2">
-        <label>core/ints.h</label>
-        <link refid="ints_8h"/>
-        <childnode refid="3" relation="include">
         </childnode>
       </node>
     </incdepgraph>

@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="window_2src_2window_2log_8h" kind="file" language="C++">
+    <compoundname>log.h</compoundname>
+    <includes refid="log_2src_2log_2log_8h" local="yes">log/log.h</includes>
+    <includedby refid="app_8cc" local="yes">libs/window/src/window/app.cc</includedby>
+    <includedby refid="window_2src_2window_2log_8cc" local="yes">libs/window/src/window/log.cc</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>libs/window/src/window/log.h</label>
+        <link refid="window_2src_2window_2log_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>log/log.h</label>
+        <link refid="log_2src_2log_2log_8h"/>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>libs/window/src/window/log.h</label>
+        <link refid="window_2src_2window_2log_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>libs/window/src/window/app.cc</label>
+        <link refid="app_8cc"/>
+      </node>
+      <node id="3">
+        <label>libs/window/src/window/log.cc</label>
+        <link refid="window_2src_2window_2log_8cc"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structeu_1_1window_1_1SdlLogger" prot="public">eu::window::SdlLogger</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1window">eu::window</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/window/src/window/log.h"/>
+  </compounddef>
+</doxygen>

@@ -2,21 +2,25 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="memorychunk_8cc" kind="file" language="C++">
     <compoundname>memorychunk.cc</compoundname>
-    <includes refid="memorychunk_8h" local="yes">core/memorychunk.h</includes>
+    <includes refid="memorychunk_8h" local="yes">base/memorychunk.h</includes>
     <includes local="no">cstring</includes>
     <includes local="no">utility</includes>
     <includes refid="assert_8h" local="yes">assert/assert.h</includes>
-    <includes refid="cint_8h" local="yes">core/cint.h</includes>
+    <includes refid="cint_8h" local="yes">base/cint.h</includes>
     <incdepgraph>
       <node id="11">
         <label>cstdint</label>
       </node>
-      <node id="9">
-        <label>core/cint.h</label>
-        <link refid="cint_8h"/>
-        <childnode refid="10" relation="include">
+      <node id="10">
+        <label>base/ints.h</label>
+        <link refid="ints_8h"/>
+        <childnode refid="11" relation="include">
         </childnode>
-        <childnode refid="12" relation="include">
+      </node>
+      <node id="2">
+        <label>base/memorychunk.h</label>
+        <link refid="memorychunk_8h"/>
+        <childnode refid="3" relation="include">
         </childnode>
       </node>
       <node id="7">
@@ -36,29 +40,8 @@
       <node id="5">
         <label>utility</label>
       </node>
-      <node id="2">
-        <label>core/memorychunk.h</label>
-        <link refid="memorychunk_8h"/>
-        <childnode refid="3" relation="include">
-        </childnode>
-      </node>
-      <node id="10">
-        <label>core/ints.h</label>
-        <link refid="ints_8h"/>
-        <childnode refid="11" relation="include">
-        </childnode>
-      </node>
-      <node id="12">
-        <label>cstddef</label>
-      </node>
-      <node id="4">
-        <label>cstring</label>
-      </node>
-      <node id="3">
-        <label>memory</label>
-      </node>
       <node id="1">
-        <label>libs/core/src/core/memorychunk.cc</label>
+        <label>libs/base/src/base/memorychunk.cc</label>
         <link refid="memorychunk_8cc"/>
         <childnode refid="2" relation="include">
         </childnode>
@@ -71,13 +54,29 @@
         <childnode refid="9" relation="include">
         </childnode>
       </node>
+      <node id="12">
+        <label>cstddef</label>
+      </node>
+      <node id="9">
+        <label>base/cint.h</label>
+        <link refid="cint_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>cstring</label>
+      </node>
+      <node id="3">
+        <label>memory</label>
+      </node>
     </incdepgraph>
     <innernamespace refid="namespaceeu">eu</innernamespace>
-    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/memorychunk.cc"/>
+    <location file="libs/base/src/base/memorychunk.cc"/>
   </compounddef>
 </doxygen>

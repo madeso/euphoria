@@ -18,7 +18,7 @@
         <location file="libs/core/src/core/hash.string.h" line="12" column="32" bodyfile="libs/core/src/core/hash.string.h" bodystart="12" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1HashedStringView_1af9834ffee083491662f05f4af3ed5a44" prot="public" static="no" mutable="no">
-        <type>const <ref refid="namespaceeu_1_1core_1a490e48e85948bba664c6c503902a2dae" kindref="member">U64</ref></type>
+        <type>const <ref refid="namespaceeu_1ac4791a29620a564f20a57ac1f705d39f" kindref="member">U64</ref></type>
         <definition>const U64 eu::core::HashedStringView::hash</definition>
         <argsstring></argsstring>
         <name>hash</name>

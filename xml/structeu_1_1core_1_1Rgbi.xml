@@ -5,7 +5,7 @@
     <includes refid="rgb_8h" local="no">rgb.h</includes>
       <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structeu_1_1core_1_1Rgbi_1a8c65eda8a17b91df8e98c671d72ec305" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeu_1_1core_1a359b6ab0e11d1d70bf85d3135f625b81" kindref="member">U8</ref></type>
+        <type><ref refid="namespaceeu_1a7bb0af5256676c7db8a48a8ec6da2622" kindref="member">U8</ref></type>
         <definition>U8 eu::core::Rgbi::r</definition>
         <argsstring></argsstring>
         <name>r</name>
@@ -18,7 +18,7 @@
         <location file="libs/core/src/core/rgb.h" line="27" column="12" bodyfile="libs/core/src/core/rgb.h" bodystart="27" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1Rgbi_1a615d4aa42ae0a2cff612f0e19fb9559d" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeu_1_1core_1a359b6ab0e11d1d70bf85d3135f625b81" kindref="member">U8</ref></type>
+        <type><ref refid="namespaceeu_1a7bb0af5256676c7db8a48a8ec6da2622" kindref="member">U8</ref></type>
         <definition>U8 eu::core::Rgbi::g</definition>
         <argsstring></argsstring>
         <name>g</name>
@@ -31,7 +31,7 @@
         <location file="libs/core/src/core/rgb.h" line="28" column="12" bodyfile="libs/core/src/core/rgb.h" bodystart="28" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1Rgbi_1aa5c5641671fd7ca96091959642a48bc6" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeu_1_1core_1a359b6ab0e11d1d70bf85d3135f625b81" kindref="member">U8</ref></type>
+        <type><ref refid="namespaceeu_1a7bb0af5256676c7db8a48a8ec6da2622" kindref="member">U8</ref></type>
         <definition>U8 eu::core::Rgbi::b</definition>
         <argsstring></argsstring>
         <name>b</name>
@@ -51,15 +51,15 @@
         <argsstring>(U8 red, U8 green, U8 blue)</argsstring>
         <name>Rgbi</name>
         <param>
-          <type><ref refid="namespaceeu_1_1core_1a359b6ab0e11d1d70bf85d3135f625b81" kindref="member">U8</ref></type>
+          <type><ref refid="namespaceeu_1a7bb0af5256676c7db8a48a8ec6da2622" kindref="member">U8</ref></type>
           <declname>red</declname>
         </param>
         <param>
-          <type><ref refid="namespaceeu_1_1core_1a359b6ab0e11d1d70bf85d3135f625b81" kindref="member">U8</ref></type>
+          <type><ref refid="namespaceeu_1a7bb0af5256676c7db8a48a8ec6da2622" kindref="member">U8</ref></type>
           <declname>green</declname>
         </param>
         <param>
-          <type><ref refid="namespaceeu_1_1core_1a359b6ab0e11d1d70bf85d3135f625b81" kindref="member">U8</ref></type>
+          <type><ref refid="namespaceeu_1a7bb0af5256676c7db8a48a8ec6da2622" kindref="member">U8</ref></type>
           <declname>blue</declname>
         </param>
         <briefdescription>
@@ -76,7 +76,7 @@
         <argsstring>(U8 gray)</argsstring>
         <name>Rgbi</name>
         <param>
-          <type><ref refid="namespaceeu_1_1core_1a359b6ab0e11d1d70bf85d3135f625b81" kindref="member">U8</ref></type>
+          <type><ref refid="namespaceeu_1a7bb0af5256676c7db8a48a8ec6da2622" kindref="member">U8</ref></type>
           <declname>gray</declname>
         </param>
         <briefdescription>

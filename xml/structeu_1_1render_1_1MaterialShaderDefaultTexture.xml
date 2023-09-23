@@ -2,7 +2,7 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeu_1_1render_1_1MaterialShaderDefaultTexture" kind="struct" language="C++" prot="public">
     <compoundname>eu::render::MaterialShaderDefaultTexture</compoundname>
-    <includes refid="materialshader_8h" local="no">materialshader.h</includes>
+    <includes refid="render_2src_2render_2materialshader_8h" local="no">materialshader.h</includes>
       <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structeu_1_1render_1_1MaterialShaderDefaultTexture_1ada937f0cbb2f426fc0b95508341bae91" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1core_1_1EnumValue" kindref="compound">core::EnumValue</ref></type>
@@ -17,9 +17,9 @@
         </inbodydescription>
         <location file="libs/render/src/render/materialshader.h" line="16" column="25" bodyfile="libs/render/src/render/materialshader.h" bodystart="16" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeu_1_1render_1_1MaterialShaderDefaultTexture_1a0b8a820c4bfda365eccef96fb3edde8a" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1core_1_1vfs_1_1FilePath" kindref="compound">core::vfs::FilePath</ref></type>
-        <definition>core::vfs::FilePath eu::render::MaterialShaderDefaultTexture::path</definition>
+      <memberdef kind="variable" id="structeu_1_1render_1_1MaterialShaderDefaultTexture_1af02389b08f356936391fe2c8ae3f88f5" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1io_1_1FilePath" kindref="compound">io::FilePath</ref></type>
+        <definition>io::FilePath eu::render::MaterialShaderDefaultTexture::path</definition>
         <argsstring></argsstring>
         <name>path</name>
         <briefdescription>
@@ -28,21 +28,21 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/materialshader.h" line="17" column="29" bodyfile="libs/render/src/render/materialshader.h" bodystart="17" bodyend="-1"/>
+        <location file="libs/render/src/render/materialshader.h" line="17" column="22" bodyfile="libs/render/src/render/materialshader.h" bodystart="17" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
-      <memberdef kind="function" id="structeu_1_1render_1_1MaterialShaderDefaultTexture_1a4ad738baefe43209f25896295fbefe76" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1render_1_1MaterialShaderDefaultTexture_1af2f6fa26a9cfa0114bc910ae46182a33" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>eu::render::MaterialShaderDefaultTexture::MaterialShaderDefaultTexture</definition>
-        <argsstring>(const core::EnumValue &amp;a_name, const core::vfs::FilePath &amp;a_path)</argsstring>
+        <argsstring>(const core::EnumValue &amp;a_name, const io::FilePath &amp;a_path)</argsstring>
         <name>MaterialShaderDefaultTexture</name>
         <param>
           <type>const <ref refid="structeu_1_1core_1_1EnumValue" kindref="compound">core::EnumValue</ref> &amp;</type>
           <declname>a_name</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1vfs_1_1FilePath" kindref="compound">core::vfs::FilePath</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1io_1_1FilePath" kindref="compound">io::FilePath</ref> &amp;</type>
           <declname>a_path</declname>
         </param>
         <briefdescription>
@@ -59,6 +59,10 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
+      <node id="2">
+        <label>eu::io::FilePath</label>
+        <link refid="structeu_1_1io_1_1FilePath"/>
+      </node>
       <node id="4">
         <label>eu::core::EnumType</label>
         <link refid="structeu_1_1core_1_1EnumType"/>
@@ -80,16 +84,12 @@
           <edgelabel>type</edgelabel>
         </childnode>
       </node>
-      <node id="2">
-        <label>eu::core::vfs::FilePath</label>
-        <link refid="structeu_1_1core_1_1vfs_1_1FilePath"/>
-      </node>
     </collaborationgraph>
     <location file="libs/render/src/render/materialshader.h" line="14" column="5" bodyfile="libs/render/src/render/materialshader.h" bodystart="15" bodyend="24"/>
     <listofallmembers>
-      <member refid="structeu_1_1render_1_1MaterialShaderDefaultTexture_1a4ad738baefe43209f25896295fbefe76" prot="public" virt="non-virtual"><scope>eu::render::MaterialShaderDefaultTexture</scope><name>MaterialShaderDefaultTexture</name></member>
+      <member refid="structeu_1_1render_1_1MaterialShaderDefaultTexture_1af2f6fa26a9cfa0114bc910ae46182a33" prot="public" virt="non-virtual"><scope>eu::render::MaterialShaderDefaultTexture</scope><name>MaterialShaderDefaultTexture</name></member>
       <member refid="structeu_1_1render_1_1MaterialShaderDefaultTexture_1ada937f0cbb2f426fc0b95508341bae91" prot="public" virt="non-virtual"><scope>eu::render::MaterialShaderDefaultTexture</scope><name>name</name></member>
-      <member refid="structeu_1_1render_1_1MaterialShaderDefaultTexture_1a0b8a820c4bfda365eccef96fb3edde8a" prot="public" virt="non-virtual"><scope>eu::render::MaterialShaderDefaultTexture</scope><name>path</name></member>
+      <member refid="structeu_1_1render_1_1MaterialShaderDefaultTexture_1af02389b08f356936391fe2c8ae3f88f5" prot="public" virt="non-virtual"><scope>eu::render::MaterialShaderDefaultTexture</scope><name>path</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

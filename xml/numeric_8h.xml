@@ -251,7 +251,7 @@
       </node>
       <node id="164">
         <label>libs/core/src/core/mesh.h</label>
-        <link refid="mesh_8h"/>
+        <link refid="core_2src_2core_2mesh_8h"/>
         <childnode refid="165" relation="include">
         </childnode>
         <childnode refid="166" relation="include">
@@ -625,7 +625,7 @@
       </node>
       <node id="166">
         <label>libs/core/src/core/mesh.cc</label>
-        <link refid="mesh_8cc"/>
+        <link refid="core_2src_2core_2mesh_8cc"/>
       </node>
       <node id="65">
         <label>libs/render/src/render/spriterender.h</label>
@@ -677,7 +677,7 @@
       </node>
       <node id="68">
         <label>libs/render/src/render/font.cc</label>
-        <link refid="font_8cc"/>
+        <link refid="render_2src_2render_2font_8cc"/>
       </node>
       <node id="75">
         <label>libs/core/src/core/polarcoord.h</label>
@@ -701,7 +701,7 @@
       </node>
       <node id="58">
         <label>libs/render/src/render/materialshader.h</label>
-        <link refid="materialshader_8h"/>
+        <link refid="render_2src_2render_2materialshader_8h"/>
         <childnode refid="50" relation="include">
         </childnode>
         <childnode refid="28" relation="include">
@@ -919,7 +919,7 @@
       </node>
       <node id="33">
         <label>libs/render/src/render/world.h</label>
-        <link refid="world_8h"/>
+        <link refid="render_2src_2render_2world_8h"/>
         <childnode refid="17" relation="include">
         </childnode>
       </node>
@@ -947,7 +947,7 @@
       </node>
       <node id="119">
         <label>libs/render/src/render/font.h</label>
-        <link refid="font_8h"/>
+        <link refid="render_2src_2render_2font_8h"/>
         <childnode refid="66" relation="include">
         </childnode>
         <childnode refid="120" relation="include">
@@ -1399,7 +1399,7 @@
       </node>
       <node id="17">
         <label>libs/render/src/render/world.cc</label>
-        <link refid="world_8cc"/>
+        <link refid="render_2src_2render_2world_8cc"/>
       </node>
       <node id="19">
         <label>libs/core/src/core/quat.h</label>
@@ -1949,7 +1949,7 @@
       </node>
       <node id="59">
         <label>libs/render/src/render/materialshader.cc</label>
-        <link refid="materialshader_8cc"/>
+        <link refid="render_2src_2render_2materialshader_8cc"/>
       </node>
     </invincdepgraph>
     <innernamespace refid="namespaceeu">eu</innernamespace>

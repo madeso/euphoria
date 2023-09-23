@@ -60,8 +60,8 @@
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="load_8h_source.html">gui/load.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="proto_8h_source.html">core/proto.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="log_8h_source.html">log/log.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="log_2src_2log_2log_8h_source.html">log/log.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="gui_8h_source.html">files/gui.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="texturecache_8h_source.html">render/texturecache.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="scalablesprite_8h_source.html">render/scalablesprite.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="fontcache_8h_source.html">render/fontcache.h</a>&quot;</code><br />
@@ -71,8 +71,6 @@
 <code>#include &quot;<a class="el" href="panelwidget_8h_source.html">gui/panelwidget.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="skin_8h_source.html">gui/skin.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="root_8h_source.html">gui/root.h</a>&quot;</code><br />
-<code>#include &quot;gaf_gui.h&quot;</code><br />
-<code>#include &quot;gaf_rapidjson_gui.h&quot;</code><br />
 <code>#include &lt;iostream&gt;</code><br />
 <code>#include &lt;map&gt;</code><br />
 </div>
@@ -92,31 +90,31 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:ad7b26bc5946d377af0206876da86744f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="load_8cc.html#ad7b26bc5946d377af0206876da86744f">FUN</a>(NAME)&#160;&#160;&#160;    case ::gui::InterpolationType::NAME: return core::easing::Function::NAME;</td></tr>
+<tr class="memitem:ad7b26bc5946d377af0206876da86744f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="load_8cc.html#ad7b26bc5946d377af0206876da86744f">FUN</a>(NAME)&#160;&#160;&#160;    case files::gui::InterpolationType::NAME: return core::easing::Function::NAME;</td></tr>
 <tr class="separator:ad7b26bc5946d377af0206876da86744f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a30cb6ca7b254a70208dcdaeeda0d7440"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; Layout &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1gui.html#a30cb6ca7b254a70208dcdaeeda0d7440">eu::gui::create_layout</a> (const ::gui::Layout &amp;c)</td></tr>
-<tr class="separator:a30cb6ca7b254a70208dcdaeeda0d7440"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a881afffaa435081f11cef552f1c38ac8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1gui.html#a881afffaa435081f11cef552f1c38ac8">eu::gui::build_layout_container</a> (core::vfs::FileSystem *fs, State *<a class="el" href="ui__text_8cc.html#a259fb3f5fba9b7b18fe92f38be37bfa6">state</a>, LayoutContainer *root, const ::gui::LayoutContainer &amp;c, render::TextureCache *cache, const std::map&lt; std::string, Skin * &gt; &amp;skins)</td></tr>
-<tr class="separator:a881afffaa435081f11cef552f1c38ac8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2c4c12b0d3ef87aa4104763abde509c2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1gui.html#a2c4c12b0d3ef87aa4104763abde509c2">eu::gui::setup_layout</a> (LayoutData *data, const ::gui::Widget &amp;src)</td></tr>
-<tr class="separator:a2c4c12b0d3ef87aa4104763abde509c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac560b772596cb8d99133d893f0dde5bf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeu_1_1core_1_1Lrud.html">core::Lrud</a>&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1gui.html#ac560b772596cb8d99133d893f0dde5bf">eu::gui::from_gaf_to_lrud</a> (const ::gui::Lrtb &amp;lrtd)</td></tr>
-<tr class="separator:ac560b772596cb8d99133d893f0dde5bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a48dcc180d030fe8b78c56ddffdb43060"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; Widget &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1gui.html#a48dcc180d030fe8b78c56ddffdb43060">eu::gui::create_widget</a> (core::vfs::FileSystem *fs, State *<a class="el" href="ui__text_8cc.html#a259fb3f5fba9b7b18fe92f38be37bfa6">state</a>, const ::gui::Widget &amp;w, render::TextureCache *cache, const std::map&lt; std::string, Skin * &gt; &amp;skins)</td></tr>
-<tr class="separator:a48dcc180d030fe8b78c56ddffdb43060"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2bc2a27601d2524c47c57fbf7afb63f6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeu_1_1core_1_1Rgb.html">core::Rgb</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1gui.html#a2bc2a27601d2524c47c57fbf7afb63f6">eu::gui::load</a> (const ::gui::Rgb &amp;src)</td></tr>
-<tr class="separator:a2bc2a27601d2524c47c57fbf7afb63f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a169bf43cd2277d2a3c10add450502af3"><td class="memItemLeft" align="right" valign="top">core::easing::Function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1gui.html#a169bf43cd2277d2a3c10add450502af3">eu::gui::load</a> (::gui::InterpolationType t)</td></tr>
-<tr class="separator:a169bf43cd2277d2a3c10add450502af3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b17d31ff3f610943d589b38a2e6b433"><td class="memItemLeft" align="right" valign="top">ButtonState&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1gui.html#a4b17d31ff3f610943d589b38a2e6b433">eu::gui::load_button</a> (const ::gui::ButtonState &amp;src)</td></tr>
-<tr class="separator:a4b17d31ff3f610943d589b38a2e6b433"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2c1d0c044621b5deea882d8f65ba9876"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; Skin &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1gui.html#a2c1d0c044621b5deea882d8f65ba9876">eu::gui::load_skin</a> (const ::gui::Skin &amp;src, render::FontCache *font, const core::vfs::DirPath &amp;folder)</td></tr>
-<tr class="separator:a2c1d0c044621b5deea882d8f65ba9876"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa03fc7a09afa1c296c8830a995a046a2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1gui.html#aa03fc7a09afa1c296c8830a995a046a2">eu::gui::load_gui</a> (Root *root, core::vfs::FileSystem *fs, render::FontCache *font, const core::vfs::FilePath &amp;path, render::TextureCache *cache)</td></tr>
-<tr class="separator:aa03fc7a09afa1c296c8830a995a046a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aedbd15193fd485e6ec483813e721a318"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; Layout &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1gui.html#aedbd15193fd485e6ec483813e721a318">eu::gui::create_layout</a> (const files::gui::Layout &amp;c)</td></tr>
+<tr class="separator:aedbd15193fd485e6ec483813e721a318"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c396987e0ec4b0666f2ecc113d7209d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1gui.html#a5c396987e0ec4b0666f2ecc113d7209d">eu::gui::build_layout_container</a> (io::FileSystem *fs, State *<a class="el" href="ui__text_8cc.html#a259fb3f5fba9b7b18fe92f38be37bfa6">state</a>, LayoutContainer *root, const files::gui::LayoutContainer &amp;c, render::TextureCache *cache, const std::map&lt; std::string, Skin * &gt; &amp;skins)</td></tr>
+<tr class="separator:a5c396987e0ec4b0666f2ecc113d7209d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21a856b328216f450aa6d87dff839289"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1gui.html#a21a856b328216f450aa6d87dff839289">eu::gui::setup_layout</a> (LayoutData *data, const files::gui::Widget &amp;src)</td></tr>
+<tr class="separator:a21a856b328216f450aa6d87dff839289"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec09349978a00629b4b063bf1fefee58"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeu_1_1core_1_1Lrud.html">core::Lrud</a>&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1gui.html#aec09349978a00629b4b063bf1fefee58">eu::gui::from_gaf_to_lrud</a> (const files::gui::Lrtb &amp;lrtd)</td></tr>
+<tr class="separator:aec09349978a00629b4b063bf1fefee58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aefce76d6fdf2fd4083e05a942c21ef59"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; Widget &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1gui.html#aefce76d6fdf2fd4083e05a942c21ef59">eu::gui::create_widget</a> (io::FileSystem *fs, State *<a class="el" href="ui__text_8cc.html#a259fb3f5fba9b7b18fe92f38be37bfa6">state</a>, const files::gui::Widget &amp;w, render::TextureCache *cache, const std::map&lt; std::string, Skin * &gt; &amp;skins)</td></tr>
+<tr class="separator:aefce76d6fdf2fd4083e05a942c21ef59"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1df9090c2fb1d55e1012e9885a6d27e6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeu_1_1core_1_1Rgb.html">core::Rgb</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1gui.html#a1df9090c2fb1d55e1012e9885a6d27e6">eu::gui::load</a> (const files::gui::Rgb &amp;src)</td></tr>
+<tr class="separator:a1df9090c2fb1d55e1012e9885a6d27e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6ba350a5ccbf7ecf9e413fb172df9d1"><td class="memItemLeft" align="right" valign="top">core::easing::Function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1gui.html#af6ba350a5ccbf7ecf9e413fb172df9d1">eu::gui::load</a> (files::gui::InterpolationType t)</td></tr>
+<tr class="separator:af6ba350a5ccbf7ecf9e413fb172df9d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e0afcdca43221c5b95718a79d3e8d80"><td class="memItemLeft" align="right" valign="top">ButtonState&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1gui.html#a7e0afcdca43221c5b95718a79d3e8d80">eu::gui::load_button</a> (const files::gui::ButtonState &amp;src)</td></tr>
+<tr class="separator:a7e0afcdca43221c5b95718a79d3e8d80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a679b7aa9d6f3035f605198773b6a8a2b"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; Skin &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1gui.html#a679b7aa9d6f3035f605198773b6a8a2b">eu::gui::load_skin</a> (const files::gui::Skin &amp;src, render::FontCache *font, const io::DirPath &amp;folder)</td></tr>
+<tr class="separator:a679b7aa9d6f3035f605198773b6a8a2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a474e7f9dea78a9614720c1bdfb6cd7d8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1gui.html#a474e7f9dea78a9614720c1bdfb6cd7d8">eu::gui::load_gui</a> (Root *root, io::FileSystem *fs, render::FontCache *font, const io::FilePath &amp;path, render::TextureCache *cache)</td></tr>
+<tr class="separator:a474e7f9dea78a9614720c1bdfb6cd7d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="ad7b26bc5946d377af0206876da86744f"></a>
@@ -130,7 +128,7 @@ Functions</h2></td></tr>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname">NAME</td><td>)</td>
-          <td>&#160;&#160;&#160;    case ::gui::InterpolationType::NAME: return core::easing::Function::NAME;</td>
+          <td>&#160;&#160;&#160;    case files::gui::InterpolationType::NAME: return core::easing::Function::NAME;</td>
         </tr>
       </table>
 </div><div class="memdoc">

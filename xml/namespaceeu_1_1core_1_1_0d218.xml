@@ -6,6 +6,6 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/rgb_blend.cc" line="12" column="5"/>
+    <location file="libs/core/src/core/rgb.cc" line="515" column="5"/>
   </compounddef>
 </doxygen>

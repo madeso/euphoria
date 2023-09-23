@@ -2,7 +2,7 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeu_1_1render_1_1ListOfTextDrawCommands" kind="struct" language="C++" prot="public">
     <compoundname>eu::render::ListOfTextDrawCommands</compoundname>
-    <includes refid="font_8h" local="no">font.h</includes>
+    <includes refid="render_2src_2render_2font_8h" local="no">font.h</includes>
       <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structeu_1_1render_1_1ListOfTextDrawCommands_1a82efe79230f1d02de632e12a6711058c" prot="public" static="no" mutable="no">
         <type>std::vector&lt; <ref refid="structeu_1_1render_1_1TextDrawCommand" kindref="compound">TextDrawCommand</ref> &gt;</type>
@@ -46,7 +46,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.h" line="88" column="9" bodyfile="libs/render/src/render/font.cc" bodystart="322" bodyend="330"/>
+        <location file="libs/render/src/render/font.h" line="88" column="9" bodyfile="libs/render/src/render/font.cc" bodystart="336" bodyend="344"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1ListOfTextDrawCommands_1a3a081677dd94a769cbcfe695c6f6162a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -75,7 +75,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.h" line="97" column="9" bodyfile="libs/render/src/render/font.cc" bodystart="335" bodyend="355"/>
+        <location file="libs/render/src/render/font.h" line="97" column="9" bodyfile="libs/render/src/render/font.cc" bodystart="349" bodyend="369"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1ListOfTextDrawCommands_1a5c920f3cd647418a1900eb4b242b85bd" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1core_1_1Rectf" kindref="compound">core::Rectf</ref></type>
@@ -88,7 +88,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.h" line="106" column="9" bodyfile="libs/render/src/render/font.cc" bodystart="487" bodyend="495"/>
+        <location file="libs/render/src/render/font.h" line="106" column="9" bodyfile="libs/render/src/render/font.cc" bodystart="501" bodyend="509"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

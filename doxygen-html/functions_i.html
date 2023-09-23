@@ -125,8 +125,12 @@
 , <a class="el" href="structeu_1_1core_1_1textparser_1_1NodeImage.html#af8932cd141168fcee64a5c518a7ff4c3">eu::core::textparser::NodeImage</a>
 </li>
 <li>image_color
-: <a class="el" href="structeu_1_1gui_1_1Button.html#a72433f9a7b139566f24021185d3da340">eu::gui::Button</a>
+: <a class="el" href="structeu_1_1files_1_1gui_1_1ButtonState.html#a8017fde0845a97e6697c0fd5ed0de242">eu::files::gui::ButtonState</a>
+, <a class="el" href="structeu_1_1gui_1_1Button.html#a72433f9a7b139566f24021185d3da340">eu::gui::Button</a>
 , <a class="el" href="structeu_1_1gui_1_1ButtonState.html#a4c82f5d0a91b8d4ea059def656c5426d">eu::gui::ButtonState</a>
+</li>
+<li>images
+: <a class="el" href="structeu_1_1files_1_1font_1_1Root.html#a235952762378e650d87617ba8b6d99a6">eu::files::font::Root</a>
 </li>
 <li>imgui
 : <a class="el" href="structeu_1_1window_1_1Engine.html#aede07ee63e727efbc700368d8527d27d">eu::window::Engine</a>
@@ -159,8 +163,12 @@
 <li>indices
 : <a class="el" href="structeu_1_1core_1_1Lines.html#aadb1bfaa4f64cb0e93ac4f64f03ec342">eu::core::Lines</a>
 </li>
+<li>info()
+: <a class="el" href="structeu_1_1log_1_1Logger.html#ad2b67eb49edc11aab5978f306f8e41b5">eu::log::Logger</a>
+, <a class="el" href="structeu_1_1window_1_1SdlLogger.html#a7f2d467e02d02ed54a1980c5d4910269">eu::window::SdlLogger</a>
+</li>
 <li>Init()
-: <a class="el" href="structeu_1_1render_1_1Init.html#a85ea1d3d06ac8efa440f9643adf001fa">eu::render::Init</a>
+: <a class="el" href="structeu_1_1render_1_1Init.html#af61a309c1bce9284048cdaa1e57f44b6">eu::render::Init</a>
 </li>
 <li>init
 : <a class="el" href="structeu_1_1render_1_1ViewportHandler.html#aff72a853ce2c8438f380eb7591ec8e86">eu::render::ViewportHandler</a>
@@ -178,16 +186,34 @@
 </li>
 <li>inset_copy()
 : <a class="el" href="structeu_1_1core_1_1Rectf.html#a8ea9b27178f365134f96152b6eac8c79">eu::core::Rectf</a>
-, <a class="el" href="structeu_1_1core_1_1Recti.html#ad62e724aec7fae682258e4302c140b27">eu::core::Recti</a>
+, <a class="el" href="structeu_1_1core_1_1Recti.html#a68a84b5214427aa3b80f5297f1e1f845">eu::core::Recti</a>
 </li>
 <li>Instance()
-: <a class="el" href="structeu_1_1render_1_1Instance.html#a157fd9a8006146da8bd41ef08eff9ac4">eu::render::Instance</a>
+: <a class="el" href="structeu_1_1render_1_1Instance.html#a7d4b8c1d8a999492bbd8ce7bcd015e7b">eu::render::Instance</a>
 </li>
 <li>internal_type
 : <a class="el" href="structeu_1_1core_1_1argparse_1_1ParseResult.html#ab16ccb3a2c839dd95025a1696cf30272">eu::core::argparse::ParseResult</a>
 </li>
 <li>Interpolate()
 : <a class="el" href="structeu_1_1core_1_1Interpolate.html#a5a43c73621da01810093201e3f6fa12b">eu::core::Interpolate&lt; T &gt;</a>
+</li>
+<li>interpolate_color
+: <a class="el" href="structeu_1_1files_1_1gui_1_1ButtonState.html#a00207dec4bc4e1d483153c20c85ae391">eu::files::gui::ButtonState</a>
+</li>
+<li>interpolate_color_time
+: <a class="el" href="structeu_1_1files_1_1gui_1_1ButtonState.html#a8bcdfda50e0a893c2c3052ef659f22bb">eu::files::gui::ButtonState</a>
+</li>
+<li>interpolate_position
+: <a class="el" href="structeu_1_1files_1_1gui_1_1ButtonState.html#ab3084ad7fbda6a08c9237609e023d5ba">eu::files::gui::ButtonState</a>
+</li>
+<li>interpolate_position_time
+: <a class="el" href="structeu_1_1files_1_1gui_1_1ButtonState.html#a0936b713f6334635c2b5f4ffe53ffb37">eu::files::gui::ButtonState</a>
+</li>
+<li>interpolate_size
+: <a class="el" href="structeu_1_1files_1_1gui_1_1ButtonState.html#a8fa5435c6218b1de6ca89aead855fd7a">eu::files::gui::ButtonState</a>
+</li>
+<li>interpolate_size_time
+: <a class="el" href="structeu_1_1files_1_1gui_1_1ButtonState.html#a005a4f9ee6becc002648a39f4bb2c316">eu::files::gui::ButtonState</a>
 </li>
 <li>interpolation_color
 : <a class="el" href="structeu_1_1gui_1_1ButtonState.html#a1d4cee52a1f997f62baa895cea7b3122">eu::gui::ButtonState</a>
@@ -233,7 +259,7 @@
 : <a class="el" href="structeu_1_1core_1_1FpsController.html#a15552310a4eae8ba02b8e7e3be4a15fe">eu::core::FpsController</a>
 </li>
 <li>is_builtin
-: <a class="el" href="structeu_1_1core_1_1vfs_1_1ListedFile.html#a122df30e7670e6e4cf301df2b04d7c23">eu::core::vfs::ListedFile</a>
+: <a class="el" href="structeu_1_1io_1_1ListedFile.html#ad4391c8673612277c46206f78468d8cc">eu::io::ListedFile</a>
 </li>
 <li>is_camera_orbit()
 : <a class="el" href="structeu_1_1core_1_1EditorCamera3.html#a8d7fc508eaa52a780287a5deeee97d1d">eu::core::EditorCamera3</a>
@@ -271,7 +297,7 @@
 : <a class="el" href="structeu_1_1core_1_1StepIterator.html#aa0bf479480eb7ebd5baa904b2d8276f5">eu::core::StepIterator&lt; T &gt;</a>
 </li>
 <li>is_file
-: <a class="el" href="structeu_1_1core_1_1vfs_1_1ListedFile.html#a9ac894e426f5f8904b3513d41e7072e3">eu::core::vfs::ListedFile</a>
+: <a class="el" href="structeu_1_1io_1_1ListedFile.html#a5965192a7360604489b3fb16f2bfdaf8">eu::io::ListedFile</a>
 </li>
 <li>is_forward_down
 : <a class="el" href="structeu_1_1core_1_1FpsController.html#ac45338cd70b19f066b2664ebf94112a9">eu::core::FpsController</a>
@@ -304,7 +330,7 @@
 : <a class="el" href="structeu_1_1core_1_1Ray2Ray2Result.html#a9930408cc37cec99ca0392058e1a67d8">eu::core::Ray2Ray2Result</a>
 </li>
 <li>is_relative()
-: <a class="el" href="structeu_1_1core_1_1vfs_1_1DirPath.html#ac4e0a1660cfe7c082e9fe0c44593a2df">eu::core::vfs::DirPath</a>
+: <a class="el" href="structeu_1_1io_1_1DirPath.html#a270a007b1a4973bef7a686239f22dc57">eu::io::DirPath</a>
 </li>
 <li>is_right_down
 : <a class="el" href="structeu_1_1core_1_1FpsController.html#af992281e57622f8c1aaf5d269a209978">eu::core::FpsController</a>

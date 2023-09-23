@@ -2,7 +2,7 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeu_1_1core_1_1Mesh" kind="struct" language="C++" prot="public">
     <compoundname>eu::core::Mesh</compoundname>
-    <includes refid="mesh_8h" local="no">mesh.h</includes>
+    <includes refid="core_2src_2core_2mesh_8h" local="no">mesh.h</includes>
       <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structeu_1_1core_1_1Mesh_1af62187b584810b64a0d437990eb68bde" prot="public" static="no" mutable="no">
         <type>std::vector&lt; <ref refid="structeu_1_1core_1_1Material" kindref="compound">Material</ref> &gt;</type>
@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/mesh.h" line="103" column="21" bodyfile="libs/core/src/core/mesh.h" bodystart="103" bodyend="-1"/>
+        <location file="libs/core/src/core/mesh.h" line="102" column="21" bodyfile="libs/core/src/core/mesh.h" bodystart="102" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1Mesh_1ae06f8013b8ba839932a7b06d273f3e84" prot="public" static="no" mutable="no">
         <type>std::vector&lt; <ref refid="structeu_1_1core_1_1MeshPart" kindref="compound">MeshPart</ref> &gt;</type>
@@ -28,7 +28,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/mesh.h" line="104" column="21" bodyfile="libs/core/src/core/mesh.h" bodystart="104" bodyend="-1"/>
+        <location file="libs/core/src/core/mesh.h" line="103" column="21" bodyfile="libs/core/src/core/mesh.h" bodystart="103" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -43,14 +43,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/mesh.h" line="106" column="15" bodyfile="libs/core/src/core/mesh.cc" bodystart="101" bodyend="111"/>
+        <location file="libs/core/src/core/mesh.h" line="105" column="15" bodyfile="libs/core/src/core/mesh.cc" bodystart="100" bodyend="110"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/mesh.h" line="101" column="5" bodyfile="libs/core/src/core/mesh.h" bodystart="102" bodyend="107"/>
+    <location file="libs/core/src/core/mesh.h" line="100" column="5" bodyfile="libs/core/src/core/mesh.h" bodystart="101" bodyend="106"/>
     <listofallmembers>
       <member refid="structeu_1_1core_1_1Mesh_1a04d7403dc080b1edac04c3e16edfe372" prot="public" virt="non-virtual"><scope>eu::core::Mesh</scope><name>calc_aabb</name></member>
       <member refid="structeu_1_1core_1_1Mesh_1af62187b584810b64a0d437990eb68bde" prot="public" virt="non-virtual"><scope>eu::core::Mesh</scope><name>materials</name></member>

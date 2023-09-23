@@ -2,32 +2,32 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="stringutils_8cc" kind="file" language="C++">
     <compoundname>stringutils.cc</compoundname>
-    <includes refid="stringutils_8h" local="yes">core/stringutils.h</includes>
+    <includes refid="stringutils_8h" local="yes">base/stringutils.h</includes>
     <includes local="no">algorithm</includes>
     <includes local="no">cstring</includes>
     <includes local="no">iterator</includes>
     <includes local="no">type_traits</includes>
     <includes refid="assert_8h" local="yes">assert/assert.h</includes>
-    <includes refid="stringbuilder_8h" local="yes">core/stringbuilder.h</includes>
+    <includes refid="stringbuilder_8h" local="yes">base/stringbuilder.h</includes>
     <incdepgraph>
-      <node id="11">
-        <label>core/stringbuilder.h</label>
-        <link refid="stringbuilder_8h"/>
-      </node>
-      <node id="6">
-        <label>iterator</label>
-      </node>
       <node id="2">
-        <label>core/stringutils.h</label>
+        <label>base/stringutils.h</label>
         <link refid="stringutils_8h"/>
         <childnode refid="3" relation="include">
         </childnode>
+      </node>
+      <node id="6">
+        <label>iterator</label>
       </node>
       <node id="9">
         <label>string</label>
       </node>
       <node id="3">
         <label>map</label>
+      </node>
+      <node id="11">
+        <label>base/stringbuilder.h</label>
+        <link refid="stringbuilder_8h"/>
       </node>
       <node id="8">
         <label>assert/assert.h</label>
@@ -40,11 +40,8 @@
       <node id="10">
         <label>vector</label>
       </node>
-      <node id="7">
-        <label>type_traits</label>
-      </node>
       <node id="1">
-        <label>libs/core/src/core/stringutils.cc</label>
+        <label>libs/base/src/base/stringutils.cc</label>
         <link refid="stringutils_8cc"/>
         <childnode refid="2" relation="include">
         </childnode>
@@ -61,6 +58,9 @@
         <childnode refid="11" relation="include">
         </childnode>
       </node>
+      <node id="7">
+        <label>type_traits</label>
+      </node>
       <node id="4">
         <label>algorithm</label>
       </node>
@@ -69,11 +69,10 @@
       </node>
     </incdepgraph>
     <innernamespace refid="namespaceeu">eu</innernamespace>
-    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/stringutils.cc"/>
+    <location file="libs/base/src/base/stringutils.cc"/>
   </compounddef>
 </doxygen>

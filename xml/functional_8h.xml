@@ -4,37 +4,29 @@
     <compoundname>functional.h</compoundname>
     <includes local="no">utility</includes>
     <includes local="no">map</includes>
+    <includedby refid="functional_8cc" local="yes">libs/base/src/base/functional.cc</includedby>
     <includedby refid="argparse_8cc" local="yes">libs/core/src/core/argparse.cc</includedby>
     <includedby refid="default__parse_8cc" local="yes">libs/core/src/core/default_parse.cc</includedby>
-    <includedby refid="functional_8cc" local="yes">libs/core/src/core/functional.cc</includedby>
-    <includedby refid="proto_8cc" local="yes">libs/core/src/core/proto.cc</includedby>
+    <includedby refid="json_8cc" local="yes">libs/io/src/io/json.cc</includedby>
     <incdepgraph>
-      <node id="3">
-        <label>map</label>
-      </node>
       <node id="1">
-        <label>libs/core/src/core/functional.h</label>
+        <label>libs/base/src/base/functional.h</label>
         <link refid="functional_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
         <childnode refid="3" relation="include">
         </childnode>
       </node>
+      <node id="3">
+        <label>map</label>
+      </node>
       <node id="2">
         <label>utility</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="5">
-        <label>libs/core/src/core/proto.cc</label>
-        <link refid="proto_8cc"/>
-      </node>
-      <node id="2">
-        <label>libs/core/src/core/argparse.cc</label>
-        <link refid="argparse_8cc"/>
-      </node>
       <node id="1">
-        <label>libs/core/src/core/functional.h</label>
+        <label>libs/base/src/base/functional.h</label>
         <link refid="functional_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
@@ -45,21 +37,28 @@
         <childnode refid="5" relation="include">
         </childnode>
       </node>
+      <node id="2">
+        <label>libs/base/src/base/functional.cc</label>
+        <link refid="functional_8cc"/>
+      </node>
       <node id="3">
+        <label>libs/core/src/core/argparse.cc</label>
+        <link refid="argparse_8cc"/>
+      </node>
+      <node id="5">
+        <label>libs/io/src/io/json.cc</label>
+        <link refid="json_8cc"/>
+      </node>
+      <node id="4">
         <label>libs/core/src/core/default_parse.cc</label>
         <link refid="default__parse_8cc"/>
       </node>
-      <node id="4">
-        <label>libs/core/src/core/functional.cc</label>
-        <link refid="functional_8cc"/>
-      </node>
     </invincdepgraph>
     <innernamespace refid="namespaceeu">eu</innernamespace>
-    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/functional.h"/>
+    <location file="libs/base/src/base/functional.h"/>
   </compounddef>
 </doxygen>

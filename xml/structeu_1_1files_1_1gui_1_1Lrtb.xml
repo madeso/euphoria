@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1files_1_1gui_1_1Lrtb" kind="struct" language="C++" prot="public">
+    <compoundname>eu::files::gui::Lrtb</compoundname>
+    <includes refid="gui_8h" local="no">gui.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1files_1_1gui_1_1Lrtb_1a260973d7f085ecccc0691af7ca4f98bf" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float eu::files::gui::Lrtb::left</definition>
+        <argsstring></argsstring>
+        <name>left</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/files/src/files/gui.h" line="48" column="15" bodyfile="libs/files/src/files/gui.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1files_1_1gui_1_1Lrtb_1a15923d1acb0b73d6e2b4d469f54fefe4" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float eu::files::gui::Lrtb::right</definition>
+        <argsstring></argsstring>
+        <name>right</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/files/src/files/gui.h" line="49" column="15" bodyfile="libs/files/src/files/gui.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1files_1_1gui_1_1Lrtb_1a523a0a30b0206773e4b8a55500e40096" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float eu::files::gui::Lrtb::top</definition>
+        <argsstring></argsstring>
+        <name>top</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/files/src/files/gui.h" line="50" column="15" bodyfile="libs/files/src/files/gui.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1files_1_1gui_1_1Lrtb_1adf91478a48fdba2df09d32f543838da8" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float eu::files::gui::Lrtb::bottom</definition>
+        <argsstring></argsstring>
+        <name>bottom</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/files/src/files/gui.h" line="51" column="15" bodyfile="libs/files/src/files/gui.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/files/src/files/gui.h" line="46" column="5" bodyfile="libs/files/src/files/gui.h" bodystart="47" bodyend="52"/>
+    <listofallmembers>
+      <member refid="structeu_1_1files_1_1gui_1_1Lrtb_1adf91478a48fdba2df09d32f543838da8" prot="public" virt="non-virtual"><scope>eu::files::gui::Lrtb</scope><name>bottom</name></member>
+      <member refid="structeu_1_1files_1_1gui_1_1Lrtb_1a260973d7f085ecccc0691af7ca4f98bf" prot="public" virt="non-virtual"><scope>eu::files::gui::Lrtb</scope><name>left</name></member>
+      <member refid="structeu_1_1files_1_1gui_1_1Lrtb_1a15923d1acb0b73d6e2b4d469f54fefe4" prot="public" virt="non-virtual"><scope>eu::files::gui::Lrtb</scope><name>right</name></member>
+      <member refid="structeu_1_1files_1_1gui_1_1Lrtb_1a523a0a30b0206773e4b8a55500e40096" prot="public" virt="non-virtual"><scope>eu::files::gui::Lrtb</scope><name>top</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

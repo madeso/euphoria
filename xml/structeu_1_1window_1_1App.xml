@@ -44,7 +44,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/app.h" line="20" column="9" bodyfile="libs/window/src/window/app.cc" bodystart="20" bodyend="23"/>
+        <location file="libs/window/src/window/app.h" line="20" column="9" bodyfile="libs/window/src/window/app.cc" bodystart="22" bodyend="25"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1window_1_1App_1abe7cebb62c6fc89339b91b58234d6737" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type></type>
@@ -134,7 +134,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/app.h" line="28" column="22" bodyfile="libs/window/src/window/app.cc" bodystart="25" bodyend="28"/>
+        <location file="libs/window/src/window/app.h" line="28" column="22" bodyfile="libs/window/src/window/app.cc" bodystart="27" bodyend="30"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1window_1_1App_1ae026bf2e4444a92725dc9e3676f832c1" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -147,7 +147,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/app.h" line="29" column="22" bodyfile="libs/window/src/window/app.cc" bodystart="31" bodyend="34"/>
+        <location file="libs/window/src/window/app.h" line="29" column="22" bodyfile="libs/window/src/window/app.cc" bodystart="33" bodyend="36"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

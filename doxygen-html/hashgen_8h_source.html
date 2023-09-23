@@ -60,7 +60,7 @@
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="rgb_8h.html">core/rgb.h</a>&quot;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ints_8h.html">core/ints.h</a>&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ints_8h.html">base/ints.h</a>&quot;</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceeu_1_1core.html">eu::core</a></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div>
@@ -70,13 +70,13 @@
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceeu_1_1core.html">eu::core</a></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="namespaceeu_1_1core.html#aae5f183dfcd5147e042264d09f211760">render_retro</a>(Image* image, <a class="code" href="namespaceeu_1_1core.html#a019a836f7e88088fbbb23733e6a3fb69">U32</a> code);</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="namespaceeu_1_1core.html#aae5f183dfcd5147e042264d09f211760">render_retro</a>(Image* image, <a class="code" href="namespaceeu.html#a4906aa2bac1ba15d71b5b473ee9dfcd4">U32</a> code);</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;}</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">// converted to c++ from https://github.com/donpark/identicon/blob/master/identicon-canvas/identicon_canvas.js</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceeu_1_1core.html">eu::core</a></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;{</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="namespaceeu_1_1core.html#a460b92ab693eae67e87a57f204db5613">render_identicon</a>(Image* image, <a class="code" href="namespaceeu_1_1core.html#a019a836f7e88088fbbb23733e6a3fb69">U32</a> code);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="namespaceeu_1_1core.html#a460b92ab693eae67e87a57f204db5613">render_identicon</a>(Image* image, <a class="code" href="namespaceeu.html#a4906aa2bac1ba15d71b5b473ee9dfcd4">U32</a> code);</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;}</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">// based on https://github.com/yurkth/sprator/</span></div>
@@ -86,7 +86,7 @@
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <a class="code" href="namespaceeu_1_1core.html#aa24202f8073c02c5f317e4640d3c0d2d">render_sprator</a></div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    (</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        Image* image,</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <a class="code" href="namespaceeu_1_1core.html#a019a836f7e88088fbbb23733e6a3fb69">U32</a> code,</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <a class="code" href="namespaceeu.html#a4906aa2bac1ba15d71b5b473ee9dfcd4">U32</a> code,</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keyword">const</span> Rgbai&amp; foreground_color = {<a class="code" href="namespaceeu_1_1core.html#acc82ad41a2d08ca1285b4c68238fa544ad508fe45cecaf653904a0e774084bb5c">NamedColor::white</a>},</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        std::optional&lt;Rgbai&gt; border_color_arg = std::nullopt,</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keyword">const</span> Rgbai&amp; background_color = {<a class="code" href="namespaceeu_1_1core.html#acc82ad41a2d08ca1285b4c68238fa544a1ffd9e753c8054cc61456ac7fac1ac89">NamedColor::black</a>, 0}</div>
@@ -96,7 +96,7 @@
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <a class="code" href="namespaceeu_1_1core.html#aa24202f8073c02c5f317e4640d3c0d2d">render_sprator</a></div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    (</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        std::vector&lt;Image&gt;* images,</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <a class="code" href="namespaceeu_1_1core.html#a019a836f7e88088fbbb23733e6a3fb69">U32</a> code,</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <a class="code" href="namespaceeu.html#a4906aa2bac1ba15d71b5b473ee9dfcd4">U32</a> code,</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keyword">const</span> Rgbai&amp; foreground_color = {<a class="code" href="namespaceeu_1_1core.html#acc82ad41a2d08ca1285b4c68238fa544ad508fe45cecaf653904a0e774084bb5c">NamedColor::white</a>},</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        std::optional&lt;Rgbai&gt; border_color_arg = std::nullopt,</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keyword">const</span> Rgbai&amp; background_color = {<a class="code" href="namespaceeu_1_1core.html#acc82ad41a2d08ca1285b4c68238fa544a1ffd9e753c8054cc61456ac7fac1ac89">NamedColor::black</a>, 0}</div>
@@ -104,12 +104,12 @@
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;}</div>
 <div class="ttc" id="aints_8h_html"><div class="ttname"><a href="ints_8h.html">ints.h</a></div></div>
 <div class="ttc" id="anamespaceeu_1_1core_html"><div class="ttname"><a href="namespaceeu_1_1core.html">eu::core</a></div><div class="ttdef"><b>Definition:</b> <a href="aabb_8cc_source.html#l00008">aabb.cc:9</a></div></div>
-<div class="ttc" id="anamespaceeu_1_1core_html_a019a836f7e88088fbbb23733e6a3fb69"><div class="ttname"><a href="namespaceeu_1_1core.html#a019a836f7e88088fbbb23733e6a3fb69">eu::core::U32</a></div><div class="ttdeci">std::uint32_t U32</div><div class="ttdef"><b>Definition:</b> <a href="ints_8h_source.html#l00013">ints.h:13</a></div></div>
 <div class="ttc" id="anamespaceeu_1_1core_html_a460b92ab693eae67e87a57f204db5613"><div class="ttname"><a href="namespaceeu_1_1core.html#a460b92ab693eae67e87a57f204db5613">eu::core::render_identicon</a></div><div class="ttdeci">void render_identicon(Image *image, U32 code)</div><div class="ttdef"><b>Definition:</b> <a href="hashgen_8identicon_8cc_source.html#l00118">hashgen.identicon.cc:118</a></div></div>
 <div class="ttc" id="anamespaceeu_1_1core_html_aa24202f8073c02c5f317e4640d3c0d2d"><div class="ttname"><a href="namespaceeu_1_1core.html#aa24202f8073c02c5f317e4640d3c0d2d">eu::core::render_sprator</a></div><div class="ttdeci">void render_sprator(Image *image, U32 code, const Rgbai &amp;foreground_color={NamedColor::white}, std::optional&lt; Rgbai &gt; border_color_arg=std::nullopt, const Rgbai &amp;background_color={NamedColor::black, 0})</div><div class="ttdef"><b>Definition:</b> <a href="hashgen_8sprator_8cc_source.html#l00283">hashgen.sprator.cc:284</a></div></div>
 <div class="ttc" id="anamespaceeu_1_1core_html_aae5f183dfcd5147e042264d09f211760"><div class="ttname"><a href="namespaceeu_1_1core.html#aae5f183dfcd5147e042264d09f211760">eu::core::render_retro</a></div><div class="ttdeci">void render_retro(Image *image, U32 code)</div><div class="ttdef"><b>Definition:</b> <a href="hashgen_8retro_8cc_source.html#l00080">hashgen.retro.cc:80</a></div></div>
 <div class="ttc" id="anamespaceeu_1_1core_html_acc82ad41a2d08ca1285b4c68238fa544a1ffd9e753c8054cc61456ac7fac1ac89"><div class="ttname"><a href="namespaceeu_1_1core.html#acc82ad41a2d08ca1285b4c68238fa544a1ffd9e753c8054cc61456ac7fac1ac89">eu::core::NamedColor::black</a></div><div class="ttdeci">@ black</div></div>
 <div class="ttc" id="anamespaceeu_1_1core_html_acc82ad41a2d08ca1285b4c68238fa544ad508fe45cecaf653904a0e774084bb5c"><div class="ttname"><a href="namespaceeu_1_1core.html#acc82ad41a2d08ca1285b4c68238fa544ad508fe45cecaf653904a0e774084bb5c">eu::core::NamedColor::white</a></div><div class="ttdeci">@ white</div></div>
+<div class="ttc" id="anamespaceeu_html_a4906aa2bac1ba15d71b5b473ee9dfcd4"><div class="ttname"><a href="namespaceeu.html#a4906aa2bac1ba15d71b5b473ee9dfcd4">eu::U32</a></div><div class="ttdeci">std::uint32_t U32</div><div class="ttdef"><b>Definition:</b> <a href="ints_8h_source.html#l00013">ints.h:13</a></div></div>
 <div class="ttc" id="argb_8h_html"><div class="ttname"><a href="rgb_8h.html">rgb.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.17-->

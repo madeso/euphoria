@@ -6,6 +6,6 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/nlp_sentence.cc" line="15" column="1"/>
+    <location file="libs/core/src/core/mesh.cc" line="113" column="5"/>
   </compounddef>
 </doxygen>

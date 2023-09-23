@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1files_1_1game_1_1vec2f" kind="struct" language="C++" prot="public">
+    <compoundname>eu::files::game::vec2f</compoundname>
+    <includes refid="game_8h" local="no">game.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1files_1_1game_1_1vec2f_1a674d04a3fe99d382b55a62ff77a9140a" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float eu::files::game::vec2f::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/files/src/files/game.h" line="12" column="15" bodyfile="libs/files/src/files/game.h" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1files_1_1game_1_1vec2f_1aec6d19c42463e2091eaabb4a25c4700f" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float eu::files::game::vec2f::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/files/src/files/game.h" line="13" column="15" bodyfile="libs/files/src/files/game.h" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/files/src/files/game.h" line="10" column="5" bodyfile="libs/files/src/files/game.h" bodystart="11" bodyend="14"/>
+    <listofallmembers>
+      <member refid="structeu_1_1files_1_1game_1_1vec2f_1a674d04a3fe99d382b55a62ff77a9140a" prot="public" virt="non-virtual"><scope>eu::files::game::vec2f</scope><name>x</name></member>
+      <member refid="structeu_1_1files_1_1game_1_1vec2f_1aec6d19c42463e2091eaabb4a25c4700f" prot="public" virt="non-virtual"><scope>eu::files::game::vec2f</scope><name>y</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

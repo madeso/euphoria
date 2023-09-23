@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Euphoria: libs/core/src/core/vfs.cc File Reference</title>
+<title>Euphoria: libs/io/src/io/vfs.cc File Reference</title>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <link href="style.css" rel="stylesheet" type="text/css" />
@@ -46,7 +46,7 @@
   </div>
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="dir_6f77a39b07c019ccd7492ea87272f732.html">core</a></li><li class="navelem"><a class="el" href="dir_232ab8dc75117fda122ab855789b1b2c.html">src</a></li><li class="navelem"><a class="el" href="dir_415d9b35eca6c445d7f5977763a796bd.html">core</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="dir_c51a2d8de34ab4670e813bcbe23f07d0.html">io</a></li><li class="navelem"><a class="el" href="dir_ebced8d3ce54dac400d6548e1be9afc7.html">src</a></li><li class="navelem"><a class="el" href="dir_301250345f65580add71507bd6107413.html">io</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -57,15 +57,15 @@
 <div class="title">vfs.cc File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="vfs_8h_source.html">core/vfs.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="vfs_8h_source.html">io/vfs.h</a>&quot;</code><br />
 <code>#include &lt;fstream&gt;</code><br />
 <code>#include &quot;<a class="el" href="assert_8h_source.html">assert/assert.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="os_8h_source.html">core/os.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="stringmerger_8h_source.html">core/stringmerger.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="vfs__path_8h_source.html">core/vfs_path.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="io_8h_source.html">core/io.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="log_8h_source.html">log/log.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="stringutils_8h_source.html">core/stringutils.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="log_2src_2log_2log_8h_source.html">log/log.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="os_8h_source.html">base/os.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="stringmerger_8h_source.html">base/stringmerger.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="stringutils_8h_source.html">base/stringutils.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="io_8h_source.html">io/io.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="vfs__path_8h_source.html">io/vfs_path.h</a>&quot;</code><br />
 </div>
 <p><a href="vfs_8cc_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -73,19 +73,17 @@
 Namespaces</h2></td></tr>
 <tr class="memitem:namespaceeu"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html">eu</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:namespaceeu_1_1core"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html">eu::core</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:namespaceeu_1_1core_1_1vfs"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core_1_1vfs.html">eu::core::vfs</a></td></tr>
+<tr class="memitem:namespaceeu_1_1io"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1io.html">eu::io</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a19813f9c3b5b76e4df5212588ca5c597"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core_1_1vfs.html#a19813f9c3b5b76e4df5212588ca5c597">eu::core::vfs::combine_folder_and_path</a> (const std::string &amp;folder, const FilePath &amp;path)</td></tr>
-<tr class="separator:a19813f9c3b5b76e4df5212588ca5c597"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a774b89be56717abed3d5536fe06ec69d"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core_1_1vfs.html#a774b89be56717abed3d5536fe06ec69d">eu::core::vfs::combine_folder_and_path</a> (const std::string &amp;folder, const DirPath &amp;path)</td></tr>
-<tr class="separator:a774b89be56717abed3d5536fe06ec69d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1bce807569777cc009294231e644e31c"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core_1_1vfs.html#a1bce807569777cc009294231e644e31c">eu::core::vfs::make_sure_folder_ends_with_slash</a> (const std::string &amp;folder)</td></tr>
-<tr class="separator:a1bce807569777cc009294231e644e31c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a545a8da2b905bf7468c9d34bc6d8f73b"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1io.html#a545a8da2b905bf7468c9d34bc6d8f73b">eu::io::combine_folder_and_path</a> (const std::string &amp;folder, const FilePath &amp;path)</td></tr>
+<tr class="separator:a545a8da2b905bf7468c9d34bc6d8f73b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ca1770e2069b7f609b7286eb8fad9ff"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1io.html#a6ca1770e2069b7f609b7286eb8fad9ff">eu::io::combine_folder_and_path</a> (const std::string &amp;folder, const DirPath &amp;path)</td></tr>
+<tr class="separator:a6ca1770e2069b7f609b7286eb8fad9ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a36c4d470688db6d082c79854562b3ab0"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1io.html#a36c4d470688db6d082c79854562b3ab0">eu::io::make_sure_folder_ends_with_slash</a> (const std::string &amp;folder)</td></tr>
+<tr class="separator:a36c4d470688db6d082c79854562b3ab0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.17-->

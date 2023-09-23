@@ -15,7 +15,7 @@
       </node>
       <node id="3">
         <label>core/enum.h</label>
-        <link refid="enum_8h"/>
+        <link refid="core_2src_2core_2enum_8h"/>
         <childnode refid="4" relation="include">
         </childnode>
       </node>

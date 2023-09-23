@@ -90,11 +90,11 @@
       </node>
       <node id="30">
         <label>libs/render/src/render/font.cc</label>
-        <link refid="font_8cc"/>
+        <link refid="render_2src_2render_2font_8cc"/>
       </node>
       <node id="19">
         <label>libs/render/src/render/materialshader.h</label>
-        <link refid="materialshader_8h"/>
+        <link refid="render_2src_2render_2materialshader_8h"/>
         <childnode refid="4" relation="include">
         </childnode>
         <childnode refid="5" relation="include">
@@ -200,7 +200,7 @@
       </node>
       <node id="23">
         <label>libs/render/src/render/world.cc</label>
-        <link refid="world_8cc"/>
+        <link refid="render_2src_2render_2world_8cc"/>
       </node>
       <node id="11">
         <label>libs/render/src/render/spriterender.cc</label>
@@ -264,7 +264,7 @@
       </node>
       <node id="20">
         <label>libs/render/src/render/materialshader.cc</label>
-        <link refid="materialshader_8cc"/>
+        <link refid="render_2src_2render_2materialshader_8cc"/>
       </node>
     </invincdepgraph>
     <innerclass refid="structeu_1_1render_1_1ShaderAttribute" prot="public">eu::render::ShaderAttribute</innerclass>

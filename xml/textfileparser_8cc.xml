@@ -5,12 +5,14 @@
     <includes refid="textfileparser_8h" local="yes">core/textfileparser.h</includes>
     <includes refid="assert_8h" local="yes">assert/assert.h</includes>
     <includes refid="numeric_8h" local="yes">core/numeric.h</includes>
-    <includes refid="stringutils_8h" local="yes">core/stringutils.h</includes>
-    <includes refid="stringbuilder_8h" local="yes">core/stringbuilder.h</includes>
+    <includes refid="stringutils_8h" local="yes">base/stringutils.h</includes>
+    <includes refid="stringbuilder_8h" local="yes">base/stringbuilder.h</includes>
     <incdepgraph>
-      <node id="11">
-        <label>core/stringbuilder.h</label>
-        <link refid="stringbuilder_8h"/>
+      <node id="9">
+        <label>base/stringutils.h</label>
+        <link refid="stringutils_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
       </node>
       <node id="2">
         <label>core/textfileparser.h</label>
@@ -18,17 +20,15 @@
         <childnode refid="3" relation="include">
         </childnode>
       </node>
-      <node id="9">
-        <label>core/stringutils.h</label>
-        <link refid="stringutils_8h"/>
-        <childnode refid="10" relation="include">
-        </childnode>
-      </node>
       <node id="5">
         <label>string</label>
       </node>
       <node id="10">
         <label>map</label>
+      </node>
+      <node id="11">
+        <label>base/stringbuilder.h</label>
+        <link refid="stringbuilder_8h"/>
       </node>
       <node id="4">
         <label>assert/assert.h</label>

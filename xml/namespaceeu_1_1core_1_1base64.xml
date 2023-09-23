@@ -9,7 +9,7 @@
         <argsstring>(std::shared_ptr&lt; MemoryChunk &gt; memory)</argsstring>
         <name>encode</name>
         <param>
-          <type>std::shared_ptr&lt; <ref refid="structeu_1_1core_1_1MemoryChunk" kindref="compound">MemoryChunk</ref> &gt;</type>
+          <type>std::shared_ptr&lt; <ref refid="structeu_1_1MemoryChunk" kindref="compound">MemoryChunk</ref> &gt;</type>
           <declname>memory</declname>
         </param>
         <briefdescription>
@@ -21,7 +21,7 @@
         <location file="libs/core/src/core/base64.cc" line="20" column="5" bodyfile="libs/core/src/core/base64.cc" bodystart="20" bodyend="56" declfile="libs/core/src/core/base64.h" declline="10" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1core_1_1base64_1a6776db65e309ad4de0f8aa6857ec3c95" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>std::shared_ptr&lt; <ref refid="structeu_1_1core_1_1MemoryChunk" kindref="compound">MemoryChunk</ref> &gt;</type>
+        <type>std::shared_ptr&lt; <ref refid="structeu_1_1MemoryChunk" kindref="compound">MemoryChunk</ref> &gt;</type>
         <definition>std::shared_ptr&lt; MemoryChunk &gt; eu::core::base64::decode</definition>
         <argsstring>(const std::string &amp;input)</argsstring>
         <name>decode</name>

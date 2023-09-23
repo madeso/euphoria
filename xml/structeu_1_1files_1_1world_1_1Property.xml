@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1files_1_1world_1_1Property" kind="struct" language="C++" prot="public">
+    <compoundname>eu::files::world::Property</compoundname>
+    <includes refid="files_2src_2files_2world_8h" local="no">world.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1files_1_1world_1_1Property_1a171dccde2d5be3f55b270cce49f2802b" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string eu::files::world::Property::name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/files/src/files/world.h" line="15" column="17" bodyfile="libs/files/src/files/world.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1files_1_1world_1_1Property_1a328764ad44e5ed67a5403ecd5363246e" prot="public" static="no" mutable="no">
+        <type>std::optional&lt; <ref refid="structeu_1_1files_1_1world_1_1vec2f" kindref="compound">vec2f</ref> &gt;</type>
+        <definition>std::optional&lt;vec2f&gt; eu::files::world::Property::vec2f_value</definition>
+        <argsstring></argsstring>
+        <name>vec2f_value</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/files/src/files/world.h" line="18" column="19" bodyfile="libs/files/src/files/world.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/files/src/files/world.h" line="13" column="3" bodyfile="libs/files/src/files/world.h" bodystart="14" bodyend="19"/>
+    <listofallmembers>
+      <member refid="structeu_1_1files_1_1world_1_1Property_1a171dccde2d5be3f55b270cce49f2802b" prot="public" virt="non-virtual"><scope>eu::files::world::Property</scope><name>name</name></member>
+      <member refid="structeu_1_1files_1_1world_1_1Property_1a328764ad44e5ed67a5403ecd5363246e" prot="public" virt="non-virtual"><scope>eu::files::world::Property</scope><name>vec2f_value</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

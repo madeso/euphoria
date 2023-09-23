@@ -3,7 +3,7 @@
   <compounddef id="hash_8string_8h" kind="file" language="C++">
     <compoundname>hash.string.h</compoundname>
     <includes local="no">string_view</includes>
-    <includes refid="ints_8h" local="yes">core/ints.h</includes>
+    <includes refid="ints_8h" local="yes">base/ints.h</includes>
     <includes refid="hash_8h" local="yes">core/hash.h</includes>
     <includedby refid="hash_8string_8cc" local="yes">libs/core/src/core/hash.string.cc</includedby>
     <incdepgraph>
@@ -20,14 +20,14 @@
       <node id="4">
         <label>cstdint</label>
       </node>
-      <node id="2">
-        <label>string_view</label>
-      </node>
       <node id="3">
-        <label>core/ints.h</label>
+        <label>base/ints.h</label>
         <link refid="ints_8h"/>
         <childnode refid="4" relation="include">
         </childnode>
+      </node>
+      <node id="2">
+        <label>string_view</label>
       </node>
       <node id="5">
         <label>core/hash.h</label>

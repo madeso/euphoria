@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1files_1_1game_1_1Game" kind="struct" language="C++" prot="public">
+    <compoundname>eu::files::game::Game</compoundname>
+    <includes refid="game_8h" local="no">game.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1files_1_1game_1_1Game_1af2466e92c2942a978346196d3c00e281" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string eu::files::game::Game::title</definition>
+        <argsstring></argsstring>
+        <name>title</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/files/src/files/game.h" line="84" column="21" bodyfile="libs/files/src/files/game.h" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1files_1_1game_1_1Game_1af895b2c0a442cc22da3e4866210f8d14" prot="public" static="no" mutable="no">
+        <type>std::optional&lt; <ref refid="structeu_1_1files_1_1game_1_1Color" kindref="compound">Color</ref> &gt;</type>
+        <definition>std::optional&lt;Color&gt; eu::files::game::Game::clear_color</definition>
+        <argsstring></argsstring>
+        <name>clear_color</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/files/src/files/game.h" line="85" column="23" bodyfile="libs/files/src/files/game.h" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1files_1_1game_1_1Game_1a1a03713acd6e96680a3062483f609f51" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1files_1_1game_1_1Viewport" kindref="compound">Viewport</ref></type>
+        <definition>Viewport eu::files::game::Game::viewport</definition>
+        <argsstring></argsstring>
+        <name>viewport</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/files/src/files/game.h" line="86" column="18" bodyfile="libs/files/src/files/game.h" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1files_1_1game_1_1Game_1ae6a76ccd3961e2807c3e08dbb40e231c" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structeu_1_1files_1_1game_1_1KeyBind" kindref="compound">KeyBind</ref> &gt;</type>
+        <definition>std::vector&lt;KeyBind&gt; eu::files::game::Game::binds</definition>
+        <argsstring></argsstring>
+        <name>binds</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/files/src/files/game.h" line="87" column="21" bodyfile="libs/files/src/files/game.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1files_1_1game_1_1Game_1ac535ca1ca8b8d395a5f0b32dba921223" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structeu_1_1files_1_1game_1_1Template" kindref="compound">Template</ref> &gt;</type>
+        <definition>std::vector&lt;Template&gt; eu::files::game::Game::templates</definition>
+        <argsstring></argsstring>
+        <name>templates</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/files/src/files/game.h" line="88" column="21" bodyfile="libs/files/src/files/game.h" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>eu::files::game::Viewport</label>
+        <link refid="structeu_1_1files_1_1game_1_1Viewport"/>
+      </node>
+      <node id="1">
+        <label>eu::files::game::Game</label>
+        <link refid="structeu_1_1files_1_1game_1_1Game"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>viewport</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="libs/files/src/files/game.h" line="82" column="5" bodyfile="libs/files/src/files/game.h" bodystart="83" bodyend="89"/>
+    <listofallmembers>
+      <member refid="structeu_1_1files_1_1game_1_1Game_1ae6a76ccd3961e2807c3e08dbb40e231c" prot="public" virt="non-virtual"><scope>eu::files::game::Game</scope><name>binds</name></member>
+      <member refid="structeu_1_1files_1_1game_1_1Game_1af895b2c0a442cc22da3e4866210f8d14" prot="public" virt="non-virtual"><scope>eu::files::game::Game</scope><name>clear_color</name></member>
+      <member refid="structeu_1_1files_1_1game_1_1Game_1ac535ca1ca8b8d395a5f0b32dba921223" prot="public" virt="non-virtual"><scope>eu::files::game::Game</scope><name>templates</name></member>
+      <member refid="structeu_1_1files_1_1game_1_1Game_1af2466e92c2942a978346196d3c00e281" prot="public" virt="non-virtual"><scope>eu::files::game::Game</scope><name>title</name></member>
+      <member refid="structeu_1_1files_1_1game_1_1Game_1a1a03713acd6e96680a3062483f609f51" prot="public" virt="non-virtual"><scope>eu::files::game::Game</scope><name>viewport</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

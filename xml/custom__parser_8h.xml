@@ -2,13 +2,13 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="custom__parser_8h" kind="file" language="C++">
     <compoundname>custom_parser.h</compoundname>
-    <includes refid="result_8h" local="yes">core/result.h</includes>
+    <includes refid="result_8h" local="yes">base/result.h</includes>
     <includedby refid="custom__parser_8cc" local="yes">libs/core/src/core/custom_parser.cc</includedby>
     <includedby refid="default__parse_8h" local="yes">libs/core/src/core/default_parse.h</includedby>
     <includedby refid="fourway_8h" local="yes">libs/core/src/core/fourway.h</includedby>
     <incdepgraph>
       <node id="2">
-        <label>core/result.h</label>
+        <label>base/result.h</label>
         <link refid="result_8h"/>
         <childnode refid="3" relation="include">
         </childnode>
@@ -174,7 +174,7 @@
       </node>
       <node id="69">
         <label>libs/core/src/core/mesh.h</label>
-        <link refid="mesh_8h"/>
+        <link refid="core_2src_2core_2mesh_8h"/>
         <childnode refid="70" relation="include">
         </childnode>
         <childnode refid="71" relation="include">
@@ -358,7 +358,7 @@
       </node>
       <node id="71">
         <label>libs/core/src/core/mesh.cc</label>
-        <link refid="mesh_8cc"/>
+        <link refid="core_2src_2core_2mesh_8cc"/>
       </node>
       <node id="57">
         <label>libs/render/src/render/spriterender.h</label>
@@ -400,7 +400,7 @@
       </node>
       <node id="42">
         <label>libs/render/src/render/font.cc</label>
-        <link refid="font_8cc"/>
+        <link refid="render_2src_2render_2font_8cc"/>
       </node>
       <node id="51">
         <label>libs/core/src/core/raytracer.cc</label>
@@ -414,7 +414,7 @@
       </node>
       <node id="106">
         <label>libs/render/src/render/materialshader.h</label>
-        <link refid="materialshader_8h"/>
+        <link refid="render_2src_2render_2materialshader_8h"/>
         <childnode refid="68" relation="include">
         </childnode>
         <childnode refid="54" relation="include">
@@ -556,7 +556,7 @@
       </node>
       <node id="102">
         <label>libs/render/src/render/world.h</label>
-        <link refid="world_8h"/>
+        <link refid="render_2src_2render_2world_8h"/>
         <childnode refid="103" relation="include">
         </childnode>
       </node>
@@ -584,7 +584,7 @@
       </node>
       <node id="46">
         <label>libs/render/src/render/font.h</label>
-        <link refid="font_8h"/>
+        <link refid="render_2src_2render_2font_8h"/>
         <childnode refid="19" relation="include">
         </childnode>
         <childnode refid="47" relation="include">
@@ -786,7 +786,7 @@
       </node>
       <node id="103">
         <label>libs/render/src/render/world.cc</label>
-        <link refid="world_8cc"/>
+        <link refid="render_2src_2render_2world_8cc"/>
       </node>
       <node id="70">
         <label>libs/core/src/core/collisionmesh.cc</label>
@@ -1118,7 +1118,7 @@
       </node>
       <node id="101">
         <label>libs/render/src/render/materialshader.cc</label>
-        <link refid="materialshader_8cc"/>
+        <link refid="render_2src_2render_2materialshader_8cc"/>
       </node>
     </invincdepgraph>
     <innerclass refid="structeu_1_1core_1_1CustomArgparser" prot="public">eu::core::CustomArgparser</innerclass>

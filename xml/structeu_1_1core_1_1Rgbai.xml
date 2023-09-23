@@ -5,7 +5,7 @@
     <includes refid="rgb_8h" local="no">rgb.h</includes>
       <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structeu_1_1core_1_1Rgbai_1a0fc1c7194c567f30cbed5247627bc06d" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeu_1_1core_1a359b6ab0e11d1d70bf85d3135f625b81" kindref="member">U8</ref></type>
+        <type><ref refid="namespaceeu_1a7bb0af5256676c7db8a48a8ec6da2622" kindref="member">U8</ref></type>
         <definition>U8 eu::core::Rgbai::r</definition>
         <argsstring></argsstring>
         <name>r</name>
@@ -18,7 +18,7 @@
         <location file="libs/core/src/core/rgb.h" line="46" column="12" bodyfile="libs/core/src/core/rgb.h" bodystart="46" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1Rgbai_1a0e17920c7783792eaeb694dd1342666a" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeu_1_1core_1a359b6ab0e11d1d70bf85d3135f625b81" kindref="member">U8</ref></type>
+        <type><ref refid="namespaceeu_1a7bb0af5256676c7db8a48a8ec6da2622" kindref="member">U8</ref></type>
         <definition>U8 eu::core::Rgbai::g</definition>
         <argsstring></argsstring>
         <name>g</name>
@@ -31,7 +31,7 @@
         <location file="libs/core/src/core/rgb.h" line="47" column="12" bodyfile="libs/core/src/core/rgb.h" bodystart="47" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1Rgbai_1a2a4e0d5710dc08fdd5842742e4acf15e" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeu_1_1core_1a359b6ab0e11d1d70bf85d3135f625b81" kindref="member">U8</ref></type>
+        <type><ref refid="namespaceeu_1a7bb0af5256676c7db8a48a8ec6da2622" kindref="member">U8</ref></type>
         <definition>U8 eu::core::Rgbai::b</definition>
         <argsstring></argsstring>
         <name>b</name>
@@ -44,7 +44,7 @@
         <location file="libs/core/src/core/rgb.h" line="48" column="12" bodyfile="libs/core/src/core/rgb.h" bodystart="48" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1Rgbai_1aaca7e1b6754fa61ebf94c1e065d78e16" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeu_1_1core_1a359b6ab0e11d1d70bf85d3135f625b81" kindref="member">U8</ref></type>
+        <type><ref refid="namespaceeu_1a7bb0af5256676c7db8a48a8ec6da2622" kindref="member">U8</ref></type>
         <definition>U8 eu::core::Rgbai::a</definition>
         <argsstring></argsstring>
         <name>a</name>
@@ -68,7 +68,7 @@
           <declname>c</declname>
         </param>
         <param>
-          <type><ref refid="namespaceeu_1_1core_1a359b6ab0e11d1d70bf85d3135f625b81" kindref="member">U8</ref></type>
+          <type><ref refid="namespaceeu_1a7bb0af5256676c7db8a48a8ec6da2622" kindref="member">U8</ref></type>
           <declname>alpha</declname>
           <defval>255</defval>
         </param>
@@ -86,19 +86,19 @@
         <argsstring>(U8 red, U8 green, U8 blue, U8 alpha=255)</argsstring>
         <name>Rgbai</name>
         <param>
-          <type><ref refid="namespaceeu_1_1core_1a359b6ab0e11d1d70bf85d3135f625b81" kindref="member">U8</ref></type>
+          <type><ref refid="namespaceeu_1a7bb0af5256676c7db8a48a8ec6da2622" kindref="member">U8</ref></type>
           <declname>red</declname>
         </param>
         <param>
-          <type><ref refid="namespaceeu_1_1core_1a359b6ab0e11d1d70bf85d3135f625b81" kindref="member">U8</ref></type>
+          <type><ref refid="namespaceeu_1a7bb0af5256676c7db8a48a8ec6da2622" kindref="member">U8</ref></type>
           <declname>green</declname>
         </param>
         <param>
-          <type><ref refid="namespaceeu_1_1core_1a359b6ab0e11d1d70bf85d3135f625b81" kindref="member">U8</ref></type>
+          <type><ref refid="namespaceeu_1a7bb0af5256676c7db8a48a8ec6da2622" kindref="member">U8</ref></type>
           <declname>blue</declname>
         </param>
         <param>
-          <type><ref refid="namespaceeu_1_1core_1a359b6ab0e11d1d70bf85d3135f625b81" kindref="member">U8</ref></type>
+          <type><ref refid="namespaceeu_1a7bb0af5256676c7db8a48a8ec6da2622" kindref="member">U8</ref></type>
           <declname>alpha</declname>
           <defval>255</defval>
         </param>
@@ -116,11 +116,11 @@
         <argsstring>(U8 gray, U8 alpha=255)</argsstring>
         <name>Rgbai</name>
         <param>
-          <type><ref refid="namespaceeu_1_1core_1a359b6ab0e11d1d70bf85d3135f625b81" kindref="member">U8</ref></type>
+          <type><ref refid="namespaceeu_1a7bb0af5256676c7db8a48a8ec6da2622" kindref="member">U8</ref></type>
           <declname>gray</declname>
         </param>
         <param>
-          <type><ref refid="namespaceeu_1_1core_1a359b6ab0e11d1d70bf85d3135f625b81" kindref="member">U8</ref></type>
+          <type><ref refid="namespaceeu_1a7bb0af5256676c7db8a48a8ec6da2622" kindref="member">U8</ref></type>
           <declname>alpha</declname>
           <defval>255</defval>
         </param>

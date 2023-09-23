@@ -6,9 +6,9 @@
     <includes local="no">algorithm</includes>
     <includes refid="assert_8h" local="yes">assert/assert.h</includes>
     <includedby refid="dotoutput_8cc" local="yes">libs/core/src/core/dotoutput.cc</includedby>
-    <includedby refid="mesh_8cc" local="yes">libs/core/src/core/mesh.cc</includedby>
+    <includedby refid="core_2src_2core_2mesh_8cc" local="yes">libs/core/src/core/mesh.cc</includedby>
     <includedby refid="stdutils_8cc" local="yes">libs/core/src/core/stdutils.cc</includedby>
-    <includedby refid="font_8cc" local="yes">libs/render/src/render/font.cc</includedby>
+    <includedby refid="render_2src_2render_2font_8cc" local="yes">libs/render/src/render/font.cc</includedby>
     <incdepgraph>
       <node id="1">
         <label>libs/core/src/core/stdutils.h</label>
@@ -64,11 +64,11 @@
       </node>
       <node id="3">
         <label>libs/core/src/core/mesh.cc</label>
-        <link refid="mesh_8cc"/>
+        <link refid="core_2src_2core_2mesh_8cc"/>
       </node>
       <node id="5">
         <label>libs/render/src/render/font.cc</label>
-        <link refid="font_8cc"/>
+        <link refid="render_2src_2render_2font_8cc"/>
       </node>
     </invincdepgraph>
     <innernamespace refid="namespaceeu">eu</innernamespace>

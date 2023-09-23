@@ -53,8 +53,6 @@
     <innerclass refid="structeu_1_1core_1_1mat2f" prot="public">eu::core::mat2f</innerclass>
     <innerclass refid="structeu_1_1core_1_1mat3f" prot="public">eu::core::mat3f</innerclass>
     <innerclass refid="structeu_1_1core_1_1mat4f" prot="public">eu::core::mat4f</innerclass>
-    <innerclass refid="structeu_1_1core_1_1MemoryChunk" prot="public">eu::core::MemoryChunk</innerclass>
-    <innerclass refid="structeu_1_1core_1_1MemoryChunkFile" prot="public">eu::core::MemoryChunkFile</innerclass>
     <innerclass refid="structeu_1_1core_1_1MeshPoint" prot="public">eu::core::MeshPoint</innerclass>
     <innerclass refid="structeu_1_1core_1_1MeshFace" prot="public">eu::core::MeshFace</innerclass>
     <innerclass refid="structeu_1_1core_1_1MeshPart" prot="public">eu::core::MeshPart</innerclass>
@@ -66,7 +64,6 @@
     <innerclass refid="structeu_1_1core_1_1SortAction" prot="public">eu::core::SortAction</innerclass>
     <innerclass refid="structeu_1_1core_1_1SortBuilder" prot="public">eu::core::SortBuilder</innerclass>
     <innerclass refid="structeu_1_1core_1_1OrbitController" prot="public">eu::core::OrbitController</innerclass>
-    <innerclass refid="structeu_1_1core_1_1DirectoryListing" prot="public">eu::core::DirectoryListing</innerclass>
     <innerclass refid="structeu_1_1core_1_1Palette" prot="public">eu::core::Palette</innerclass>
     <innerclass refid="structeu_1_1core_1_1StaticPalette" prot="public">eu::core::StaticPalette</innerclass>
     <innerclass refid="structeu_1_1core_1_1DynamicPalette" prot="public">eu::core::DynamicPalette</innerclass>
@@ -81,9 +78,6 @@
     <innerclass refid="structeu_1_1core_1_1FloatValue" prot="public">eu::core::FloatValue</innerclass>
     <innerclass refid="structeu_1_1core_1_1Vec3fValue" prot="public">eu::core::Vec3fValue</innerclass>
     <innerclass refid="structeu_1_1core_1_1MapValue" prot="public">eu::core::MapValue</innerclass>
-    <innerclass refid="structeu_1_1core_1_1Location" prot="public">eu::core::Location</innerclass>
-    <innerclass refid="structeu_1_1core_1_1ReadErrorFileMissing" prot="public">eu::core::ReadErrorFileMissing</innerclass>
-    <innerclass refid="structeu_1_1core_1_1ReadErrorFileError" prot="public">eu::core::ReadErrorFileError</innerclass>
     <innerclass refid="structeu_1_1core_1_1quatf" prot="public">eu::core::quatf</innerclass>
     <innerclass refid="structeu_1_1core_1_1BucketBase10" prot="public">eu::core::BucketBase10</innerclass>
     <innerclass refid="structeu_1_1core_1_1BucketBase16" prot="public">eu::core::BucketBase16</innerclass>
@@ -94,7 +88,6 @@
     <innerclass refid="structeu_1_1core_1_1Ray3f" prot="public">eu::core::Ray3f</innerclass>
     <innerclass refid="structeu_1_1core_1_1Rectf" prot="public">eu::core::Rectf</innerclass>
     <innerclass refid="structeu_1_1core_1_1Recti" prot="public">eu::core::Recti</innerclass>
-    <innerclass refid="structeu_1_1core_1_1Result" prot="public">eu::core::Result</innerclass>
     <innerclass refid="structeu_1_1core_1_1Rgbi" prot="public">eu::core::Rgbi</innerclass>
     <innerclass refid="structeu_1_1core_1_1Rgbai" prot="public">eu::core::Rgbai</innerclass>
     <innerclass refid="structeu_1_1core_1_1Rgb" prot="public">eu::core::Rgb</innerclass>
@@ -111,8 +104,6 @@
     <innerclass refid="structeu_1_1core_1_1CustomArgparser_3_01size2i_01_4" prot="public">eu::core::CustomArgparser&lt; size2i &gt;</innerclass>
     <innerclass refid="structeu_1_1core_1_1Sphere" prot="public">eu::core::Sphere</innerclass>
     <innerclass refid="structeu_1_1core_1_1SphereAndPosition" prot="public">eu::core::SphereAndPosition</innerclass>
-    <innerclass refid="structeu_1_1core_1_1StringBuilder" prot="public">eu::core::StringBuilder</innerclass>
-    <innerclass refid="structeu_1_1core_1_1StringMerger" prot="public">eu::core::StringMerger</innerclass>
     <innerclass refid="structeu_1_1core_1_1SubVec" prot="public">eu::core::SubVec</innerclass>
     <innerclass refid="structeu_1_1core_1_1Table" prot="public">eu::core::Table</innerclass>
     <innerclass refid="structeu_1_1core_1_1WallCounter" prot="public">eu::core::WallCounter</innerclass>
@@ -144,6 +135,7 @@
     <innerclass refid="structeu_1_1core_1_1vec3f" prot="public">eu::core::vec3f</innerclass>
     <innerclass refid="structeu_1_1core_1_1unit3f" prot="public">eu::core::unit3f</innerclass>
     <innerclass refid="structeu_1_1core_1_1vec4f" prot="public">eu::core::vec4f</innerclass>
+    <innerclass refid="structeu_1_1core_1_1ReadRootImageGenerator" prot="public">eu::core::ReadRootImageGenerator</innerclass>
     <innerclass refid="structeu_1_1core_1_1Viewport" prot="public">eu::core::Viewport</innerclass>
     <innerclass refid="structeu_1_1core_1_1ViewportDefinition" prot="public">eu::core::ViewportDefinition</innerclass>
     <innernamespace refid="namespaceeu_1_1core_1_1argparse">eu::core::argparse</innernamespace>
@@ -158,16 +150,12 @@
     <innernamespace refid="namespaceeu_1_1core_1_1easing">eu::core::easing</innernamespace>
     <innernamespace refid="namespaceeu_1_1core_1_1ecs">eu::core::ecs</innernamespace>
     <innernamespace refid="namespaceeu_1_1core_1_1generator">eu::core::generator</innernamespace>
-    <innernamespace refid="namespaceeu_1_1core_1_1io">eu::core::io</innernamespace>
     <innernamespace refid="namespaceeu_1_1core_1_1markov">eu::core::markov</innernamespace>
     <innernamespace refid="namespaceeu_1_1core_1_1meshes">eu::core::meshes</innernamespace>
     <innernamespace refid="namespaceeu_1_1core_1_1palettes">eu::core::palettes</innernamespace>
     <innernamespace refid="namespaceeu_1_1core_1_1raytracer">eu::core::raytracer</innernamespace>
-    <innernamespace refid="namespaceeu_1_1core_1_1search">eu::core::search</innernamespace>
-    <innernamespace refid="namespaceeu_1_1core_1_1string__mergers">eu::core::string_mergers</innernamespace>
     <innernamespace refid="namespaceeu_1_1core_1_1textparser">eu::core::textparser</innernamespace>
     <innernamespace refid="namespaceeu_1_1core_1_1tracery">eu::core::tracery</innernamespace>
-    <innernamespace refid="namespaceeu_1_1core_1_1vfs">eu::core::vfs</innernamespace>
       <sectiondef kind="enum">
       <memberdef kind="enum" id="namespaceeu_1_1core_1a290650fd03f15bb093d8d0584be6c047" prot="public" static="no" strong="yes">
         <type></type>
@@ -2582,7 +2570,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/mesh.h" line="24" column="5" bodyfile="libs/core/src/core/mesh.h" bodystart="25" bodyend="29"/>
+        <location file="libs/core/src/core/mesh.h" line="23" column="5" bodyfile="libs/core/src/core/mesh.h" bodystart="24" bodyend="28"/>
       </memberdef>
       <memberdef kind="enum" id="namespaceeu_1_1core_1af4fa494e006059dce5d3f4187bbb80f6" prot="public" static="no" strong="yes">
         <type></type>
@@ -2891,31 +2879,6 @@
         </inbodydescription>
         <location file="libs/core/src/core/rgb_blend.h" line="7" column="5" bodyfile="libs/core/src/core/rgb_blend.h" bodystart="8" bodyend="34"/>
       </memberdef>
-      <memberdef kind="enum" id="group__string_1ga8b87aba464210f2cafbb7fd338494213" prot="public" static="no" strong="yes">
-        <type></type>
-        <name>CharToStringStyle</name>
-        <enumvalue id="group__string_1gga8b87aba464210f2cafbb7fd338494213a8c319f28d81d1527a9428e9a5c2195f5" prot="public">
-          <name>smart</name>
-          <briefdescription>
-          </briefdescription>
-          <detaileddescription>
-          </detaileddescription>
-        </enumvalue>
-        <enumvalue id="group__string_1gga8b87aba464210f2cafbb7fd338494213afa2f1c8dc686b38506663647e5242622" prot="public">
-          <name>include_hex</name>
-          <briefdescription>
-          </briefdescription>
-          <detaileddescription>
-          </detaileddescription>
-        </enumvalue>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/stringutils.h" line="112" column="5" bodyfile="libs/core/src/core/stringutils.h" bodystart="113" bodyend="115"/>
-      </memberdef>
       <memberdef kind="enum" id="namespaceeu_1_1core_1ad816ec64a4ad2c10feb5ed0b227785df" prot="public" static="no" strong="yes">
         <type></type>
         <name>BorderSetupRule</name>
@@ -3120,110 +3083,6 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="typedef">
-      <memberdef kind="typedef" id="namespaceeu_1_1core_1ac8917b29baf2b1ed21a20348763d8dca" prot="public" static="no">
-        <type>std::int64_t</type>
-        <definition>using eu::core::I64 = typedef std::int64_t</definition>
-        <argsstring></argsstring>
-        <name>I64</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/ints.h" line="7" column="5" bodyfile="libs/core/src/core/ints.h" bodystart="7" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="typedef" id="namespaceeu_1_1core_1a98397339b39bb6b2072d911715ce5d06" prot="public" static="no">
-        <type>std::int32_t</type>
-        <definition>using eu::core::I32 = typedef std::int32_t</definition>
-        <argsstring></argsstring>
-        <name>I32</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/ints.h" line="8" column="5" bodyfile="libs/core/src/core/ints.h" bodystart="8" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="typedef" id="namespaceeu_1_1core_1aa0cb7155604918ff5b19f7f8c50903a5" prot="public" static="no">
-        <type>std::int16_t</type>
-        <definition>using eu::core::I16 = typedef std::int16_t</definition>
-        <argsstring></argsstring>
-        <name>I16</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/ints.h" line="9" column="5" bodyfile="libs/core/src/core/ints.h" bodystart="9" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="typedef" id="namespaceeu_1_1core_1a3f93ae4850f9b7859cad9c6cfeef1edb" prot="public" static="no">
-        <type>std::int8_t</type>
-        <definition>using eu::core::I8 = typedef std::int8_t</definition>
-        <argsstring></argsstring>
-        <name>I8</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/ints.h" line="10" column="5" bodyfile="libs/core/src/core/ints.h" bodystart="10" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="typedef" id="namespaceeu_1_1core_1a490e48e85948bba664c6c503902a2dae" prot="public" static="no">
-        <type>std::uint64_t</type>
-        <definition>using eu::core::U64 = typedef std::uint64_t</definition>
-        <argsstring></argsstring>
-        <name>U64</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/ints.h" line="12" column="5" bodyfile="libs/core/src/core/ints.h" bodystart="12" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="typedef" id="namespaceeu_1_1core_1a019a836f7e88088fbbb23733e6a3fb69" prot="public" static="no">
-        <type>std::uint32_t</type>
-        <definition>using eu::core::U32 = typedef std::uint32_t</definition>
-        <argsstring></argsstring>
-        <name>U32</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/ints.h" line="13" column="5" bodyfile="libs/core/src/core/ints.h" bodystart="13" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="typedef" id="namespaceeu_1_1core_1a946bf8a0d8bf383c1fc170f7b65f6c49" prot="public" static="no">
-        <type>std::uint16_t</type>
-        <definition>using eu::core::U16 = typedef std::uint16_t</definition>
-        <argsstring></argsstring>
-        <name>U16</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/ints.h" line="14" column="5" bodyfile="libs/core/src/core/ints.h" bodystart="14" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="typedef" id="namespaceeu_1_1core_1a359b6ab0e11d1d70bf85d3135f625b81" prot="public" static="no">
-        <type>std::uint8_t</type>
-        <definition>using eu::core::U8 = typedef std::uint8_t</definition>
-        <argsstring></argsstring>
-        <name>U8</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/ints.h" line="15" column="5" bodyfile="libs/core/src/core/ints.h" bodystart="15" bodyend="-1"/>
-      </memberdef>
       <memberdef kind="typedef" id="namespaceeu_1_1core_1a6a77bbc36ff85d2391bee78c34b1b2c4" prot="public" static="no">
         <type>std::map&lt; std::pair&lt; int, int &gt;, float &gt;</type>
         <definition>using eu::core::KerningMap = typedef std::map&lt;std::pair&lt;int, int&gt;, float&gt;</definition>
@@ -3294,26 +3153,8 @@
         </inbodydescription>
         <location file="libs/core/src/core/nlp_sentence.h" line="12" column="1" bodyfile="libs/core/src/core/nlp_sentence.h" bodystart="12" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="typedef" id="namespaceeu_1_1core_1a0c6b41e5a7a08bf08e4451e3af45f6cd" prot="public" static="no">
-        <templateparamlist>
-          <param>
-            <type>typename T</type>
-          </param>
-        </templateparamlist>
-        <type>std::variant&lt; T, <ref refid="structeu_1_1core_1_1ReadErrorFileMissing" kindref="compound">ReadErrorFileMissing</ref>, <ref refid="structeu_1_1core_1_1ReadErrorFileError" kindref="compound">ReadErrorFileError</ref> &gt;</type>
-        <definition>using eu::core::ReadResult = typedef std::variant&lt;T, ReadErrorFileMissing, ReadErrorFileError&gt;</definition>
-        <argsstring></argsstring>
-        <name>ReadResult</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/proto.h" line="43" column="5" bodyfile="libs/core/src/core/proto.h" bodystart="43" bodyend="-1"/>
-      </memberdef>
       <memberdef kind="typedef" id="namespaceeu_1_1core_1a707d668e5350c4c7a0617f8e553ea131" prot="public" static="no">
-        <type><ref refid="structeu_1_1core_1_1RandomLcg" kindref="compound">RandomLcg</ref>&lt; <ref refid="namespaceeu_1_1core_1a490e48e85948bba664c6c503902a2dae" kindref="member">U64</ref>, std::numeric_limits&lt; <ref refid="namespaceeu_1_1core_1a490e48e85948bba664c6c503902a2dae" kindref="member">U64</ref> &gt;::<ref refid="namespaceeu_1_1core_1a57038e2fac2e1e15a5dc83511b753769" kindref="member">max</ref>(), 6364136223846793005, 1442695040888963407 &gt;</type>
+        <type><ref refid="structeu_1_1core_1_1RandomLcg" kindref="compound">RandomLcg</ref>&lt; <ref refid="namespaceeu_1ac4791a29620a564f20a57ac1f705d39f" kindref="member">U64</ref>, std::numeric_limits&lt; <ref refid="namespaceeu_1ac4791a29620a564f20a57ac1f705d39f" kindref="member">U64</ref> &gt;::<ref refid="namespaceeu_1_1core_1a57038e2fac2e1e15a5dc83511b753769" kindref="member">max</ref>(), 6364136223846793005, 1442695040888963407 &gt;</type>
         <definition>using eu::core::RandomLnuthLcg = typedef RandomLcg&lt;U64, std::numeric_limits&lt;U64&gt;::max() , 6364136223846793005, 1442695040888963407&gt;</definition>
         <argsstring></argsstring>
         <name>RandomLnuthLcg</name>
@@ -3326,7 +3167,7 @@
         <location file="libs/core/src/core/rng.h" line="31" column="5" bodyfile="libs/core/src/core/rng.h" bodystart="31" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="namespaceeu_1_1core_1a6cab84d4b7eac3385dff8fea4ec5f0fa" prot="public" static="no">
-        <type><ref refid="structeu_1_1core_1_1RandomXorShift" kindref="compound">RandomXorShift</ref>&lt; <ref refid="namespaceeu_1_1core_1a019a836f7e88088fbbb23733e6a3fb69" kindref="member">U32</ref>, 13, 17, 5 &gt;</type>
+        <type><ref refid="structeu_1_1core_1_1RandomXorShift" kindref="compound">RandomXorShift</ref>&lt; <ref refid="namespaceeu_1a4906aa2bac1ba15d71b5b473ee9dfcd4" kindref="member">U32</ref>, 13, 17, 5 &gt;</type>
         <definition>using eu::core::RandomXorShift32 = typedef RandomXorShift&lt;U32, 13, 17, 5&gt;</definition>
         <argsstring></argsstring>
         <name>RandomXorShift32</name>
@@ -3339,7 +3180,7 @@
         <location file="libs/core/src/core/rng.h" line="65" column="5" bodyfile="libs/core/src/core/rng.h" bodystart="65" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="namespaceeu_1_1core_1a80dd156430a7f9e0d3a89c23a483cb50" prot="public" static="no">
-        <type><ref refid="structeu_1_1core_1_1RandomXorShift" kindref="compound">RandomXorShift</ref>&lt; <ref refid="namespaceeu_1_1core_1a490e48e85948bba664c6c503902a2dae" kindref="member">U64</ref>, 13, 17, 7 &gt;</type>
+        <type><ref refid="structeu_1_1core_1_1RandomXorShift" kindref="compound">RandomXorShift</ref>&lt; <ref refid="namespaceeu_1ac4791a29620a564f20a57ac1f705d39f" kindref="member">U64</ref>, 13, 17, 7 &gt;</type>
         <definition>using eu::core::RandomXorShift64 = typedef RandomXorShift&lt;U64, 13, 17, 7&gt;</definition>
         <argsstring></argsstring>
         <name>RandomXorShift64</name>
@@ -3593,20 +3434,6 @@
         </inbodydescription>
         <location file="libs/core/src/core/numeric.h" line="120" column="21" bodyfile="libs/core/src/core/numeric.h" bodystart="120" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="namespaceeu_1_1core_1a473d18fd4aabc63ed8f7f018c0e7ad49" prot="public" static="no" constexpr="yes" mutable="no">
-        <type>constexpr char</type>
-        <definition>constexpr char eu::core::path_separator</definition>
-        <argsstring></argsstring>
-        <name>path_separator</name>
-        <initializer>= &apos;/&apos;</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/os.h" line="23" column="20" bodyfile="libs/core/src/core/os.h" bodystart="23" bodyend="-1"/>
-      </memberdef>
       <memberdef kind="variable" id="namespaceeu_1_1core_1a786aeb7b6cef706ef6d1b30f5d999718" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr auto</type>
         <definition>constexpr auto eu::core::dawnbringer_palette</definition>
@@ -3653,43 +3480,6 @@
         </inbodydescription>
         <location file="libs/core/src/core/palette.h" line="162" column="20" bodyfile="libs/core/src/core/palette.h" bodystart="162" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="namespaceeu_1_1core_1a3abfb38e08392c6ce4c7ee4345ae1fab" prot="public" static="no" constexpr="yes" mutable="no">
-        <type>constexpr unsigned</type>
-        <definition>constexpr unsigned eu::core::rapid_json_flags</definition>
-        <argsstring></argsstring>
-        <name>rapid_json_flags</name>
-        <initializer>= rapidjson::kParseNoFlags
-            | rapidjson::kParseValidateEncodingFlag 
-            | rapidjson::kParseCommentsFlag 
-            | rapidjson::kParseTrailingCommasFlag 
-            | rapidjson::kParseEscapedApostropheFlag</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/proto.cc" line="98" column="24" bodyfile="libs/core/src/core/proto.cc" bodystart="98" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="variable" id="namespaceeu_1_1core_1aa34409cffa936e5ee4824f7068de396d" prot="public" static="no" constexpr="yes" mutable="no">
-        <templateparamlist>
-          <param>
-            <type>typename</type>
-          </param>
-        </templateparamlist>
-        <type>constexpr bool</type>
-        <definition>constexpr bool eu::core::always_false_v</definition>
-        <argsstring></argsstring>
-        <name>always_false_v</name>
-        <initializer>= false</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/proto.h" line="60" column="37" bodyfile="libs/core/src/core/proto.h" bodystart="60" bodyend="-1"/>
-      </memberdef>
       <memberdef kind="variable" id="namespaceeu_1_1core_1a7d88ff54158d086bec2c9cb5513b48d0" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr <ref refid="structeu_1_1core_1_1quatf" kindref="compound">quatf</ref></type>
         <definition>constexpr quatf eu::core::q_identity</definition>
@@ -3731,24 +3521,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="libs/core/src/core/range.h" line="63" column="21" bodyfile="libs/core/src/core/range.h" bodystart="63" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="variable" id="group__string_1gadc802a94c807de2195af39c05fec5e2c" prot="public" static="no" mutable="no">
-        <type>const std::string</type>
-        <definition>const std::string eu::core::space_characters</definition>
-        <argsstring></argsstring>
-        <name>space_characters</name>
-        <initializer>= &quot; \n\r\t&quot;</initializer>
-        <briefdescription>
-<para>Space characters. </para>
-        </briefdescription>
-        <detaileddescription>
-<para><simplesect kind="return"><para>the space characters. </para>
-</simplesect>
-</para>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/stringutils.h" line="24" column="23" bodyfile="libs/core/src/core/stringutils.h" bodystart="24" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespaceeu_1_1core_1ab5eb8647eea22378f25b8ccf3423599c" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr unsigned char</type>
@@ -4495,227 +4267,6 @@
         </inbodydescription>
         <location file="libs/core/src/core/axisangle.cc" line="21" column="5" bodyfile="libs/core/src/core/axisangle.cc" bodystart="21" bodyend="24" declfile="libs/core/src/core/axisangle.h" declline="25" declcolumn="17"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1core_1a9296b74e6debf2d878a8b65c423b41c5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>int</type>
-        <definition>int eu::core::c_sizet_to_int</definition>
-        <argsstring>(size_t t)</argsstring>
-        <name>c_sizet_to_int</name>
-        <param>
-          <type>size_t</type>
-          <declname>t</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/cint.cc" line="11" column="5" bodyfile="libs/core/src/core/cint.cc" bodystart="11" bodyend="15" declfile="libs/core/src/core/cint.h" declline="11" declcolumn="5"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1core_1a7f6c14ced7d0060ce79bdd2b9cee6f0b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>int</type>
-        <definition>int eu::core::c_unsigned_int_to_int</definition>
-        <argsstring>(unsigned int i)</argsstring>
-        <name>c_unsigned_int_to_int</name>
-        <param>
-          <type>unsigned int</type>
-          <declname>i</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/cint.cc" line="19" column="5" bodyfile="libs/core/src/core/cint.cc" bodystart="19" bodyend="23" declfile="libs/core/src/core/cint.h" declline="15" declcolumn="5"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1core_1a45333b677d19b64fa618394ad9b9c872" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>unsigned int</type>
-        <definition>unsigned int eu::core::c_int_to_unsigned_int</definition>
-        <argsstring>(int i)</argsstring>
-        <name>c_int_to_unsigned_int</name>
-        <param>
-          <type>int</type>
-          <declname>i</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/cint.cc" line="27" column="5" bodyfile="libs/core/src/core/cint.cc" bodystart="27" bodyend="31" declfile="libs/core/src/core/cint.h" declline="19" declcolumn="5"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1core_1ae6433575c83ad7c8feb8c92faa3fa0de" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>size_t</type>
-        <definition>size_t eu::core::c_int_to_sizet</definition>
-        <argsstring>(int i)</argsstring>
-        <name>c_int_to_sizet</name>
-        <param>
-          <type>int</type>
-          <declname>i</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/cint.cc" line="35" column="5" bodyfile="libs/core/src/core/cint.cc" bodystart="35" bodyend="39" declfile="libs/core/src/core/cint.h" declline="23" declcolumn="5"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1core_1a26f9715b903e168fcdcef793ad4ece26" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="namespaceeu_1_1core_1a359b6ab0e11d1d70bf85d3135f625b81" kindref="member">U8</ref></type>
-        <definition>U8 eu::core::c_int_to_u8</definition>
-        <argsstring>(unsigned int i)</argsstring>
-        <name>c_int_to_u8</name>
-        <param>
-          <type>unsigned int</type>
-          <declname>i</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/cint.cc" line="42" column="5" bodyfile="libs/core/src/core/cint.cc" bodystart="42" bodyend="46" declfile="libs/core/src/core/cint.h" declline="27" declcolumn="5"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1core_1aeca9341ec32080bab470169123fac977" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>int</type>
-        <definition>int eu::core::c_u64_to_int</definition>
-        <argsstring>(U64 u)</argsstring>
-        <name>c_u64_to_int</name>
-        <param>
-          <type><ref refid="namespaceeu_1_1core_1a490e48e85948bba664c6c503902a2dae" kindref="member">U64</ref></type>
-          <declname>u</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/cint.cc" line="49" column="5" bodyfile="libs/core/src/core/cint.cc" bodystart="49" bodyend="53" declfile="libs/core/src/core/cint.h" declline="31" declcolumn="5"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1core_1affd9c47a2386972f50d68c03e59ab6aa" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>constexpr int</type>
-        <definition>constexpr int eu::core::c_float_to_int</definition>
-        <argsstring>(float f)</argsstring>
-        <name>c_float_to_int</name>
-        <param>
-          <type>float</type>
-          <declname>f</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/cint.h" line="36" column="5" bodyfile="libs/core/src/core/cint.h" bodystart="36" bodyend="39"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1core_1a3e110fb62d3338813a4808c3b781573c" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>constexpr float</type>
-        <definition>constexpr float eu::core::c_sizet_to_float</definition>
-        <argsstring>(std::size_t f)</argsstring>
-        <name>c_sizet_to_float</name>
-        <param>
-          <type>std::size_t</type>
-          <declname>f</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/cint.h" line="43" column="5" bodyfile="libs/core/src/core/cint.h" bodystart="43" bodyend="46"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1core_1a9e9e5d958772b15e2869390186f9c984" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>constexpr float</type>
-        <definition>constexpr float eu::core::c_int_to_float</definition>
-        <argsstring>(int i)</argsstring>
-        <name>c_int_to_float</name>
-        <param>
-          <type>int</type>
-          <declname>i</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/cint.h" line="50" column="5" bodyfile="libs/core/src/core/cint.h" bodystart="50" bodyend="53"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1core_1aae74cfecf30a0ecb8384d3d9aed9aeba" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>constexpr float</type>
-        <definition>constexpr float eu::core::c_u64_to_float</definition>
-        <argsstring>(U64 i)</argsstring>
-        <name>c_u64_to_float</name>
-        <param>
-          <type><ref refid="namespaceeu_1_1core_1a490e48e85948bba664c6c503902a2dae" kindref="member">U64</ref></type>
-          <declname>i</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/cint.h" line="57" column="5" bodyfile="libs/core/src/core/cint.h" bodystart="57" bodyend="60"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1core_1aeb8ff5ea76bca82c4f32264a77be152b" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>constexpr <ref refid="namespaceeu_1_1core_1a019a836f7e88088fbbb23733e6a3fb69" kindref="member">U32</ref></type>
-        <definition>constexpr U32 eu::core::c_bit_signed_to_unsigned</definition>
-        <argsstring>(I32 i)</argsstring>
-        <name>c_bit_signed_to_unsigned</name>
-        <param>
-          <type><ref refid="namespaceeu_1_1core_1a98397339b39bb6b2072d911715ce5d06" kindref="member">I32</ref></type>
-          <declname>i</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/cint.h" line="64" column="5" bodyfile="libs/core/src/core/cint.h" bodystart="64" bodyend="69"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1core_1abd7e9cb4d2a9578d1684e73e1e3ec7c9" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>constexpr double</type>
-        <definition>constexpr double eu::core::c_float_to_double</definition>
-        <argsstring>(float f)</argsstring>
-        <name>c_float_to_double</name>
-        <param>
-          <type>float</type>
-          <declname>f</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/cint.h" line="73" column="5" bodyfile="libs/core/src/core/cint.h" bodystart="73" bodyend="76"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1core_1aec2b6148649a8c8ad4832448d27ed668" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>constexpr float</type>
-        <definition>constexpr float eu::core::c_double_to_float</definition>
-        <argsstring>(double f)</argsstring>
-        <name>c_double_to_float</name>
-        <param>
-          <type>double</type>
-          <declname>f</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/cint.h" line="80" column="5" bodyfile="libs/core/src/core/cint.h" bodystart="80" bodyend="83"/>
-      </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1core_1ab5e46ceffb46afe5560dd407e95fb93c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::vector&lt; <ref refid="structeu_1_1core_1_1size2i" kindref="compound">size2i</ref> &gt;</type>
         <definition>std::vector&lt; size2i &gt; eu::core::collect_sizes</definition>
@@ -4993,7 +4544,7 @@
         <argsstring>(const MemoryChunk &amp;chunk)</argsstring>
         <name>calc_crc32</name>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1MemoryChunk" kindref="compound">MemoryChunk</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1MemoryChunk" kindref="compound">MemoryChunk</ref> &amp;</type>
           <declname>chunk</declname>
         </param>
         <briefdescription>
@@ -5002,7 +4553,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/crc32.cc" line="10" column="5" bodyfile="libs/core/src/core/crc32.cc" bodystart="10" bodyend="13" declfile="libs/core/src/core/crc32.h" declline="8" declcolumn="5"/>
+        <location file="libs/core/src/core/crc32.cc" line="11" column="5" bodyfile="libs/core/src/core/crc32.cc" bodystart="11" bodyend="14" declfile="libs/core/src/core/crc32.h" declline="12" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1core_1a68add9fafef2dc9ac7fe1fe0e22f5d79" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1core_1_1TreeStyle" kindref="compound">TreeStyle</ref></type>
@@ -5108,7 +4659,7 @@
             <type>typename T</type>
           </param>
         </templateparamlist>
-        <type><ref refid="structeu_1_1core_1_1Result" kindref="compound">Result</ref>&lt; T &gt;</type>
+        <type><ref refid="structeu_1_1Result" kindref="compound">Result</ref>&lt; T &gt;</type>
         <definition>Result&lt;T&gt; eu::core::parse_for_custom_argparser</definition>
         <argsstring>(const std::string &amp;value)</argsstring>
         <name>parse_for_custom_argparser</name>
@@ -5213,7 +4764,7 @@
         <location file="libs/core/src/core/datetime.cc" line="26" column="5" bodyfile="libs/core/src/core/datetime.cc" bodystart="26" bodyend="30"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1core_1a993d3a9cc94812f7d2f868389d2feb5e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="namespaceeu_1_1core_1a490e48e85948bba664c6c503902a2dae" kindref="member">U64</ref></type>
+        <type><ref refid="namespaceeu_1ac4791a29620a564f20a57ac1f705d39f" kindref="member">U64</ref></type>
         <definition>uint64_t eu::core::c_date_time_to_int64</definition>
         <argsstring>(const TimetWrapper &amp;dt)</argsstring>
         <name>c_date_time_to_int64</name>
@@ -5235,7 +4786,7 @@
         <argsstring>(U64 total_seconds)</argsstring>
         <name>c_int64_to_date_time</name>
         <param>
-          <type><ref refid="namespaceeu_1_1core_1a490e48e85948bba664c6c503902a2dae" kindref="member">U64</ref></type>
+          <type><ref refid="namespaceeu_1ac4791a29620a564f20a57ac1f705d39f" kindref="member">U64</ref></type>
           <declname>total_seconds</declname>
         </param>
         <briefdescription>
@@ -5295,7 +4846,7 @@
             <defname>total_bytes</defname>
           </param>
         </templateparamlist>
-        <type>std::vector&lt; <ref refid="namespaceeu_1_1core_1a359b6ab0e11d1d70bf85d3135f625b81" kindref="member">U8</ref> &gt;</type>
+        <type>std::vector&lt; <ref refid="namespaceeu_1a7bb0af5256676c7db8a48a8ec6da2622" kindref="member">U8</ref> &gt;</type>
         <definition>std::vector&lt;U8&gt; eu::core::to_bytes_generic</definition>
         <argsstring>(T hash)</argsstring>
         <name>to_bytes_generic</name>
@@ -5312,12 +4863,12 @@
         <location file="libs/core/src/core/drunken_bishop.cc" line="17" column="5" bodyfile="libs/core/src/core/drunken_bishop.cc" bodystart="17" bodyend="29"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1core_1a8b66faf4594990ea732f22ebe9d52bc3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>std::vector&lt; <ref refid="namespaceeu_1_1core_1a359b6ab0e11d1d70bf85d3135f625b81" kindref="member">U8</ref> &gt;</type>
+        <type>std::vector&lt; <ref refid="namespaceeu_1a7bb0af5256676c7db8a48a8ec6da2622" kindref="member">U8</ref> &gt;</type>
         <definition>std::vector&lt; U8 &gt; eu::core::to_bytes</definition>
         <argsstring>(U32 hash)</argsstring>
         <name>to_bytes</name>
         <param>
-          <type><ref refid="namespaceeu_1_1core_1a019a836f7e88088fbbb23733e6a3fb69" kindref="member">U32</ref></type>
+          <type><ref refid="namespaceeu_1a4906aa2bac1ba15d71b5b473ee9dfcd4" kindref="member">U32</ref></type>
           <declname>hash</declname>
         </param>
         <briefdescription>
@@ -5329,12 +4880,12 @@
         <location file="libs/core/src/core/drunken_bishop.cc" line="33" column="5" bodyfile="libs/core/src/core/drunken_bishop.cc" bodystart="33" bodyend="36" declfile="libs/core/src/core/drunken_bishop.h" declline="13" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1core_1ae6c920efb584ab0ac91694d2859b10d5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>std::vector&lt; <ref refid="namespaceeu_1_1core_1a359b6ab0e11d1d70bf85d3135f625b81" kindref="member">U8</ref> &gt;</type>
+        <type>std::vector&lt; <ref refid="namespaceeu_1a7bb0af5256676c7db8a48a8ec6da2622" kindref="member">U8</ref> &gt;</type>
         <definition>std::vector&lt; U8 &gt; eu::core::to_bytes</definition>
         <argsstring>(U64 hash)</argsstring>
         <name>to_bytes</name>
         <param>
-          <type><ref refid="namespaceeu_1_1core_1a490e48e85948bba664c6c503902a2dae" kindref="member">U64</ref></type>
+          <type><ref refid="namespaceeu_1ac4791a29620a564f20a57ac1f705d39f" kindref="member">U64</ref></type>
           <declname>hash</declname>
         </param>
         <briefdescription>
@@ -5351,7 +4902,7 @@
         <argsstring>(U8 byte, bool msb_first)</argsstring>
         <name>to_codes</name>
         <param>
-          <type><ref refid="namespaceeu_1_1core_1a359b6ab0e11d1d70bf85d3135f625b81" kindref="member">U8</ref></type>
+          <type><ref refid="namespaceeu_1a7bb0af5256676c7db8a48a8ec6da2622" kindref="member">U8</ref></type>
           <declname>byte</declname>
         </param>
         <param>
@@ -5372,7 +4923,7 @@
         <argsstring>(const std::vector&lt; U8 &gt; &amp;bytes, bool msb_first)</argsstring>
         <name>to_codes</name>
         <param>
-          <type>const std::vector&lt; <ref refid="namespaceeu_1_1core_1a359b6ab0e11d1d70bf85d3135f625b81" kindref="member">U8</ref> &gt; &amp;</type>
+          <type>const std::vector&lt; <ref refid="namespaceeu_1a7bb0af5256676c7db8a48a8ec6da2622" kindref="member">U8</ref> &gt; &amp;</type>
           <declname>bytes</declname>
         </param>
         <param>
@@ -5393,7 +4944,7 @@
         <argsstring>(U32 hash, int width, int height, bool msb_first, int startx, int starty)</argsstring>
         <name>get_drunken_bishop_result</name>
         <param>
-          <type><ref refid="namespaceeu_1_1core_1a019a836f7e88088fbbb23733e6a3fb69" kindref="member">U32</ref></type>
+          <type><ref refid="namespaceeu_1a4906aa2bac1ba15d71b5b473ee9dfcd4" kindref="member">U32</ref></type>
           <declname>hash</declname>
         </param>
         <param>
@@ -5430,7 +4981,7 @@
         <argsstring>(U64 hash, int width, int height, bool msb_first, int startx, int starty)</argsstring>
         <name>get_drunken_bishop_result</name>
         <param>
-          <type><ref refid="namespaceeu_1_1core_1a490e48e85948bba664c6c503902a2dae" kindref="member">U64</ref></type>
+          <type><ref refid="namespaceeu_1ac4791a29620a564f20a57ac1f705d39f" kindref="member">U64</ref></type>
           <declname>hash</declname>
         </param>
         <param>
@@ -5528,48 +5079,6 @@
         </inbodydescription>
         <location file="libs/core/src/core/drunken_bishop.cc" line="165" column="5" bodyfile="libs/core/src/core/drunken_bishop.cc" bodystart="166" bodyend="193" declfile="libs/core/src/core/drunken_bishop.h" declline="63" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1core_1a586b8f378deadeafb4b14874b054a2ac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>int</type>
-        <definition>int eu::core::calc_edit_distance</definition>
-        <argsstring>(const std::string &amp;source, const std::string &amp;target)</argsstring>
-        <name>calc_edit_distance</name>
-        <param>
-          <type>const std::string &amp;</type>
-          <declname>source</declname>
-        </param>
-        <param>
-          <type>const std::string &amp;</type>
-          <declname>target</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/editdistance.cc" line="14" column="5" bodyfile="libs/core/src/core/editdistance.cc" bodystart="14" bodyend="83" declfile="libs/core/src/core/editdistance.h" declline="12" declcolumn="5"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1core_1aa1eceb38613017966fac2110394b82e0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>int</type>
-        <definition>int eu::core::calc_edit_distance_fast</definition>
-        <argsstring>(const std::string &amp;the_row, const std::string &amp;the_col)</argsstring>
-        <name>calc_edit_distance_fast</name>
-        <param>
-          <type>const std::string &amp;</type>
-          <declname>the_row</declname>
-        </param>
-        <param>
-          <type>const std::string &amp;</type>
-          <declname>the_col</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/editdistance.cc" line="86" column="5" bodyfile="libs/core/src/core/editdistance.cc" bodystart="86" bodyend="130" declfile="libs/core/src/core/editdistance.h" declline="18" declcolumn="5"/>
-      </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1core_1a4e8b777439255d5ec06ecb57bb2dc5a6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
         <definition>std::string eu::core::to_string</definition>
@@ -5585,23 +5094,23 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/enum.cc" line="173" column="17" bodyfile="libs/core/src/core/enum.cc" bodystart="173" bodyend="176" declfile="libs/core/src/core/enum.h" declline="70" declcolumn="17"/>
+        <location file="libs/core/src/core/enum.cc" line="175" column="17" bodyfile="libs/core/src/core/enum.cc" bodystart="175" bodyend="178" declfile="libs/core/src/core/enum.h" declline="71" declcolumn="17"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1core_1a41f454aa186f3aafe25ad0c22fe12289" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeu_1_1core_1abafb8cf74f2c910290a1d52fd238ce3e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void eu::core::load_enum_type</definition>
-        <argsstring>(EnumType *type, vfs::FileSystem *fs, const vfs::FilePath &amp;path)</argsstring>
+        <argsstring>(EnumType *type, io::FileSystem *fs, const io::FilePath &amp;path)</argsstring>
         <name>load_enum_type</name>
         <param>
           <type><ref refid="structeu_1_1core_1_1EnumType" kindref="compound">EnumType</ref> *</type>
           <declname>type</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1core_1_1vfs_1_1FileSystem" kindref="compound">vfs::FileSystem</ref> *</type>
+          <type><ref refid="structeu_1_1io_1_1FileSystem" kindref="compound">io::FileSystem</ref> *</type>
           <declname>fs</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1vfs_1_1FilePath" kindref="compound">vfs::FilePath</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1io_1_1FilePath" kindref="compound">io::FilePath</ref> &amp;</type>
           <declname>path</declname>
         </param>
         <briefdescription>
@@ -5610,7 +5119,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/enum.cc" line="180" column="5" bodyfile="libs/core/src/core/enum.cc" bodystart="181" bodyend="202" declfile="libs/core/src/core/enum.h" declline="74" declcolumn="5"/>
+        <location file="libs/core/src/core/enum.cc" line="182" column="5" bodyfile="libs/core/src/core/enum.cc" bodystart="183" bodyend="208" declfile="libs/core/src/core/enum.h" declline="75" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1core_1a36ad7b54f473c7387d10a52902477502" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -5632,7 +5141,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/enumtostring.h" line="115" column="18" bodyfile="libs/core/src/core/enumtostring.h" bodystart="115" bodyend="118"/>
+        <location file="libs/core/src/core/enumtostring.h" line="116" column="18" bodyfile="libs/core/src/core/enumtostring.h" bodystart="116" bodyend="119"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1core_1a4c482fca5a66bf5df5eb0ff283eca5e9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -5650,7 +5159,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/enumtostring.h" line="122" column="5" bodyfile="libs/core/src/core/enumtostring.h" bodystart="122" bodyend="133"/>
+        <location file="libs/core/src/core/enumtostring.h" line="123" column="5" bodyfile="libs/core/src/core/enumtostring.h" bodystart="123" bodyend="134"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1core_1a63355c7a7c0bd48a1908ae7a4a7c0b63" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -5677,7 +5186,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/enumtostring.h" line="138" column="5" bodyfile="libs/core/src/core/enumtostring.h" bodystart="138" bodyend="141"/>
+        <location file="libs/core/src/core/enumtostring.h" line="139" column="5" bodyfile="libs/core/src/core/enumtostring.h" bodystart="139" bodyend="142"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1core_1a6c0fb01008225ab9978df0e05e118ddb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -5699,7 +5208,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/enumtostring.h" line="146" column="5" bodyfile="libs/core/src/core/enumtostring.h" bodystart="146" bodyend="154"/>
+        <location file="libs/core/src/core/enumtostring.h" line="147" column="5" bodyfile="libs/core/src/core/enumtostring.h" bodystart="147" bodyend="155"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1core_1ae98746b333e3bafb4f49d4355d43c405" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -5717,7 +5226,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/enumtostring.h" line="159" column="5" bodyfile="libs/core/src/core/enumtostring.h" bodystart="159" bodyend="162"/>
+        <location file="libs/core/src/core/enumtostring.h" line="160" column="5" bodyfile="libs/core/src/core/enumtostring.h" bodystart="160" bodyend="163"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1core_1a62c4807e8483ebe17a0504c21a2f8a4f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -5735,7 +5244,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/enumtostring.h" line="166" column="5" bodyfile="libs/core/src/core/enumtostring.h" bodystart="166" bodyend="170"/>
+        <location file="libs/core/src/core/enumtostring.h" line="167" column="5" bodyfile="libs/core/src/core/enumtostring.h" bodystart="167" bodyend="171"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1core_1ad553deac3718b70193c330e3034bcbdb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -5873,268 +5382,8 @@
         </inbodydescription>
         <location file="libs/core/src/core/fourway.h" line="88" column="5" bodyfile="libs/core/src/core/fourway.h" bodystart="88" bodyend="91"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1core_1a0d6254121dd32db94657eb3f4aaaf08f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <templateparamlist>
-          <param>
-            <type>typename A</type>
-          </param>
-          <param>
-            <type>typename B</type>
-          </param>
-        </templateparamlist>
-        <type>std::vector&lt; std::pair&lt; A, B &gt; &gt;</type>
-        <definition>std::vector&lt;std::pair&lt;A, B&gt; &gt; eu::core::zip</definition>
-        <argsstring>(const std::vector&lt; A &gt; &amp;as, const std::vector&lt; B &gt; &amp;bs)</argsstring>
-        <name>zip</name>
-        <param>
-          <type>const std::vector&lt; A &gt; &amp;</type>
-          <declname>as</declname>
-        </param>
-        <param>
-          <type>const std::vector&lt; B &gt; &amp;</type>
-          <declname>bs</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/functional.h" line="19" column="5" bodyfile="libs/core/src/core/functional.h" bodystart="19" bodyend="28"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1core_1ae09e525d51442fb6dc9bc8828690f65a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <templateparamlist>
-          <param>
-            <type>typename A</type>
-          </param>
-          <param>
-            <type>typename B</type>
-          </param>
-        </templateparamlist>
-        <type>std::vector&lt; std::pair&lt; A, B &gt; &gt;</type>
-        <definition>std::vector&lt;std::pair&lt;A, B&gt; &gt; eu::core::zip_longest</definition>
-        <argsstring>(const std::vector&lt; A &gt; &amp;as, const std::vector&lt; B &gt; &amp;bs, A da=A(), B db=B())</argsstring>
-        <name>zip_longest</name>
-        <param>
-          <type>const std::vector&lt; A &gt; &amp;</type>
-          <declname>as</declname>
-        </param>
-        <param>
-          <type>const std::vector&lt; B &gt; &amp;</type>
-          <declname>bs</declname>
-        </param>
-        <param>
-          <type>A</type>
-          <declname>da</declname>
-          <defval>A()</defval>
-        </param>
-        <param>
-          <type>B</type>
-          <declname>db</declname>
-          <defval>B()</defval>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/functional.h" line="33" column="5" bodyfile="libs/core/src/core/functional.h" bodystart="34" bodyend="50"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1core_1a03c104ce82a33db3d1052c58ba7cfc16" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <templateparamlist>
-          <param>
-            <type>typename T</type>
-          </param>
-          <param>
-            <type>typename F</type>
-            <defval>T</defval>
-          </param>
-          <param>
-            <type>typename C</type>
-          </param>
-        </templateparamlist>
-        <type>std::vector&lt; T &gt;</type>
-        <definition>std::vector&lt;T&gt; eu::core::map</definition>
-        <argsstring>(const std::vector&lt; F &gt; &amp;fs, C convert)</argsstring>
-        <name>map</name>
-        <param>
-          <type>const std::vector&lt; F &gt; &amp;</type>
-          <declname>fs</declname>
-        </param>
-        <param>
-          <type>C</type>
-          <declname>convert</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/functional.h" line="56" column="5" bodyfile="libs/core/src/core/functional.h" bodystart="56" bodyend="65"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1core_1a8af0eee0972c2f6a3f5688c8d6f7fa9e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <templateparamlist>
-          <param>
-            <type>typename T</type>
-          </param>
-          <param>
-            <type>typename K</type>
-          </param>
-          <param>
-            <type>typename V</type>
-          </param>
-          <param>
-            <type>typename C</type>
-          </param>
-        </templateparamlist>
-        <type>std::vector&lt; T &gt;</type>
-        <definition>std::vector&lt;T&gt; eu::core::map</definition>
-        <argsstring>(const std::map&lt; K, V &gt; &amp;fs, C convert)</argsstring>
-        <name>map</name>
-        <param>
-          <type>const std::map&lt; K, V &gt; &amp;</type>
-          <declname>fs</declname>
-        </param>
-        <param>
-          <type>C</type>
-          <declname>convert</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/functional.h" line="70" column="5" bodyfile="libs/core/src/core/functional.h" bodystart="70" bodyend="79"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1core_1a4f08f4919fdbc2547ea9ccddba2108a9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <templateparamlist>
-          <param>
-            <type>typename T</type>
-          </param>
-          <param>
-            <type>typename C</type>
-          </param>
-        </templateparamlist>
-        <type>std::vector&lt; T &gt;</type>
-        <definition>std::vector&lt;T&gt; eu::core::filter</definition>
-        <argsstring>(const std::vector&lt; T &gt; &amp;ts, C check)</argsstring>
-        <name>filter</name>
-        <param>
-          <type>const std::vector&lt; T &gt; &amp;</type>
-          <declname>ts</declname>
-        </param>
-        <param>
-          <type>C</type>
-          <declname>check</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/functional.h" line="86" column="5" bodyfile="libs/core/src/core/functional.h" bodystart="86" bodyend="98"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1core_1a590ad698fbe01c302a3bd7bcba28454a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <templateparamlist>
-          <param>
-            <type>typename T</type>
-          </param>
-          <param>
-            <type>typename C</type>
-          </param>
-        </templateparamlist>
-        <type>bool</type>
-        <definition>bool eu::core::all</definition>
-        <argsstring>(const std::vector&lt; T &gt; &amp;ts, C check)</argsstring>
-        <name>all</name>
-        <param>
-          <type>const std::vector&lt; T &gt; &amp;</type>
-          <declname>ts</declname>
-        </param>
-        <param>
-          <type>C</type>
-          <declname>check</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/functional.h" line="105" column="5" bodyfile="libs/core/src/core/functional.h" bodystart="105" bodyend="117"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1core_1af7c40eab8dd2ca9144a2947095447f24" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <templateparamlist>
-          <param>
-            <type>typename T</type>
-          </param>
-          <param>
-            <type>typename C</type>
-          </param>
-        </templateparamlist>
-        <type>bool</type>
-        <definition>bool eu::core::any</definition>
-        <argsstring>(const std::vector&lt; T &gt; &amp;ts, C check)</argsstring>
-        <name>any</name>
-        <param>
-          <type>const std::vector&lt; T &gt; &amp;</type>
-          <declname>ts</declname>
-        </param>
-        <param>
-          <type>C</type>
-          <declname>check</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/functional.h" line="122" column="5" bodyfile="libs/core/src/core/functional.h" bodystart="122" bodyend="134"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1core_1a0ce41046379306e0e7719ded57c06a4c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <templateparamlist>
-          <param>
-            <type>typename T</type>
-          </param>
-          <param>
-            <type>typename R</type>
-            <defval>T</defval>
-          </param>
-          <param>
-            <type>typename C</type>
-          </param>
-        </templateparamlist>
-        <type>R</type>
-        <definition>R eu::core::fold</definition>
-        <argsstring>(const std::vector&lt; T &gt; &amp;ts, C concat, R zero)</argsstring>
-        <name>fold</name>
-        <param>
-          <type>const std::vector&lt; T &gt; &amp;</type>
-          <declname>ts</declname>
-        </param>
-        <param>
-          <type>C</type>
-          <declname>concat</declname>
-        </param>
-        <param>
-          <type>R</type>
-          <declname>zero</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/functional.h" line="147" column="5" bodyfile="libs/core/src/core/functional.h" bodystart="147" bodyend="155"/>
-      </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1core_1af0109b95b44d58753949742f9b95dd26" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>constexpr <ref refid="namespaceeu_1_1core_1a490e48e85948bba664c6c503902a2dae" kindref="member">U64</ref></type>
+        <type>constexpr <ref refid="namespaceeu_1ac4791a29620a564f20a57ac1f705d39f" kindref="member">U64</ref></type>
         <definition>constexpr U64 eu::core::hash64</definition>
         <argsstring>(const std::string_view str, U64 hash=0xcbf29ce484222325)</argsstring>
         <name>hash64</name>
@@ -6143,7 +5392,7 @@
           <declname>str</declname>
         </param>
         <param>
-          <type><ref refid="namespaceeu_1_1core_1a490e48e85948bba664c6c503902a2dae" kindref="member">U64</ref></type>
+          <type><ref refid="namespaceeu_1ac4791a29620a564f20a57ac1f705d39f" kindref="member">U64</ref></type>
           <declname>hash</declname>
           <defval>0xcbf29ce484222325</defval>
         </param>
@@ -6165,7 +5414,7 @@
           <declname>image</declname>
         </param>
         <param>
-          <type><ref refid="namespaceeu_1_1core_1a019a836f7e88088fbbb23733e6a3fb69" kindref="member">U32</ref></type>
+          <type><ref refid="namespaceeu_1a4906aa2bac1ba15d71b5b473ee9dfcd4" kindref="member">U32</ref></type>
           <declname>code</declname>
         </param>
         <briefdescription>
@@ -6186,7 +5435,7 @@
           <declname>image</declname>
         </param>
         <param>
-          <type><ref refid="namespaceeu_1_1core_1a019a836f7e88088fbbb23733e6a3fb69" kindref="member">U32</ref></type>
+          <type><ref refid="namespaceeu_1a4906aa2bac1ba15d71b5b473ee9dfcd4" kindref="member">U32</ref></type>
           <declname>code</declname>
         </param>
         <briefdescription>
@@ -6207,7 +5456,7 @@
           <declname>image</declname>
         </param>
         <param>
-          <type><ref refid="namespaceeu_1_1core_1a019a836f7e88088fbbb23733e6a3fb69" kindref="member">U32</ref></type>
+          <type><ref refid="namespaceeu_1a4906aa2bac1ba15d71b5b473ee9dfcd4" kindref="member">U32</ref></type>
           <declname>code</declname>
         </param>
         <param>
@@ -6243,7 +5492,7 @@
           <declname>images</declname>
         </param>
         <param>
-          <type><ref refid="namespaceeu_1_1core_1a019a836f7e88088fbbb23733e6a3fb69" kindref="member">U32</ref></type>
+          <type><ref refid="namespaceeu_1a4906aa2bac1ba15d71b5b473ee9dfcd4" kindref="member">U32</ref></type>
           <declname>code</declname>
         </param>
         <param>
@@ -6314,17 +5563,17 @@
         </inbodydescription>
         <location file="libs/core/src/core/image.cc" line="203" column="5" bodyfile="libs/core/src/core/image.cc" bodystart="204" bodyend="230"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1core_1a0f41224638c434fe60614f506eec2c3f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeu_1_1core_1acbf94cdc546775a73c6a6bfc70c1fe53" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1core_1_1ImageLoadResult" kindref="compound">ImageLoadResult</ref></type>
         <definition>ImageLoadResult eu::core::load_image</definition>
-        <argsstring>(vfs::FileSystem *fs, const vfs::FilePath &amp;path, AlphaLoad alpha)</argsstring>
+        <argsstring>(io::FileSystem *fs, const io::FilePath &amp;path, AlphaLoad alpha)</argsstring>
         <name>load_image</name>
         <param>
-          <type><ref refid="structeu_1_1core_1_1vfs_1_1FileSystem" kindref="compound">vfs::FileSystem</ref> *</type>
+          <type><ref refid="structeu_1_1io_1_1FileSystem" kindref="compound">io::FileSystem</ref> *</type>
           <declname>fs</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1vfs_1_1FilePath" kindref="compound">vfs::FilePath</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1io_1_1FilePath" kindref="compound">io::FilePath</ref> &amp;</type>
           <declname>path</declname>
         </param>
         <param>
@@ -6345,7 +5594,7 @@
         <argsstring>(std::shared_ptr&lt; MemoryChunk &gt; file_memory, const std::string &amp;path, AlphaLoad alpha)</argsstring>
         <name>load_image</name>
         <param>
-          <type>std::shared_ptr&lt; <ref refid="structeu_1_1core_1_1MemoryChunk" kindref="compound">MemoryChunk</ref> &gt;</type>
+          <type>std::shared_ptr&lt; <ref refid="structeu_1_1MemoryChunk" kindref="compound">MemoryChunk</ref> &gt;</type>
           <declname>file_memory</declname>
         </param>
         <param>
@@ -7874,17 +7123,17 @@
         </inbodydescription>
         <location file="libs/core/src/core/loadedfont.cc" line="285" column="5" bodyfile="libs/core/src/core/loadedfont.cc" bodystart="285" bodyend="294" declfile="libs/core/src/core/loadedfont.h" declline="69" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1core_1a92e49cd05167afaf576289608f952f41" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeu_1_1core_1a7705930bfd0132af5c0bf63e580c9020" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1core_1_1LoadedFont" kindref="compound">LoadedFont</ref></type>
         <definition>LoadedFont eu::core::get_characters_from_font</definition>
-        <argsstring>(vfs::FileSystem *file_system, const vfs::FilePath &amp;font_file, int font_size, const std::string &amp;chars)</argsstring>
+        <argsstring>(io::FileSystem *file_system, const io::FilePath &amp;font_file, int font_size, const std::string &amp;chars)</argsstring>
         <name>get_characters_from_font</name>
         <param>
-          <type><ref refid="structeu_1_1core_1_1vfs_1_1FileSystem" kindref="compound">vfs::FileSystem</ref> *</type>
+          <type><ref refid="structeu_1_1io_1_1FileSystem" kindref="compound">io::FileSystem</ref> *</type>
           <declname>file_system</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1vfs_1_1FilePath" kindref="compound">vfs::FilePath</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1io_1_1FilePath" kindref="compound">io::FilePath</ref> &amp;</type>
           <declname>font_file</declname>
         </param>
         <param>
@@ -7909,7 +7158,7 @@
         <argsstring>(std::shared_ptr&lt; MemoryChunk &gt; file_memory, int font_size, const std::string &amp;chars)</argsstring>
         <name>get_characters_from_font</name>
         <param>
-          <type>std::shared_ptr&lt; <ref refid="structeu_1_1core_1_1MemoryChunk" kindref="compound">MemoryChunk</ref> &gt;</type>
+          <type>std::shared_ptr&lt; <ref refid="structeu_1_1MemoryChunk" kindref="compound">MemoryChunk</ref> &gt;</type>
           <declname>file_memory</declname>
         </param>
         <param>
@@ -7926,19 +7175,19 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/loadedfont.cc" line="324" column="5" bodyfile="libs/core/src/core/loadedfont.cc" bodystart="325" bodyend="393" declfile="libs/core/src/core/loadedfont.h" declline="87" declcolumn="5"/>
+        <location file="libs/core/src/core/loadedfont.cc" line="324" column="5" bodyfile="libs/core/src/core/loadedfont.cc" bodystart="325" bodyend="386" declfile="libs/core/src/core/loadedfont.h" declline="87" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1core_1a8f5dad9c81b09466e24dc1ca5b8b67ac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeu_1_1core_1a474e9b98f6ebad270b2320ce494914c8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1core_1_1LoadedFont" kindref="compound">LoadedFont</ref></type>
         <definition>LoadedFont eu::core::get_characters_from_single_image</definition>
-        <argsstring>(vfs::FileSystem *fs, const vfs::FilePath &amp;image_file, const std::string &amp;image_alias, float image_scale, float image_bearing_x, float image_bearing_y, float image_advance)</argsstring>
+        <argsstring>(io::FileSystem *fs, const io::FilePath &amp;image_file, const std::string &amp;image_alias, float image_scale, float image_bearing_x, float image_bearing_y, float image_advance)</argsstring>
         <name>get_characters_from_single_image</name>
         <param>
-          <type><ref refid="structeu_1_1core_1_1vfs_1_1FileSystem" kindref="compound">vfs::FileSystem</ref> *</type>
+          <type><ref refid="structeu_1_1io_1_1FileSystem" kindref="compound">io::FileSystem</ref> *</type>
           <declname>fs</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1vfs_1_1FilePath" kindref="compound">vfs::FilePath</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1io_1_1FilePath" kindref="compound">io::FilePath</ref> &amp;</type>
           <declname>image_file</declname>
         </param>
         <param>
@@ -7967,7 +7216,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/loadedfont.cc" line="397" column="5" bodyfile="libs/core/src/core/loadedfont.cc" bodystart="398" bodyend="430" declfile="libs/core/src/core/loadedfont.h" declline="95" declcolumn="5"/>
+        <location file="libs/core/src/core/loadedfont.cc" line="390" column="5" bodyfile="libs/core/src/core/loadedfont.cc" bodystart="391" bodyend="423" declfile="libs/core/src/core/loadedfont.h" declline="95" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1core_1a231fd032185cf76f955c5941bcfe0414" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1core_1_1LoadedFont" kindref="compound">LoadedFont</ref></type>
@@ -8004,7 +7253,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/loadedfont.cc" line="434" column="5" bodyfile="libs/core/src/core/loadedfont.cc" bodystart="435" bodyend="458" declfile="libs/core/src/core/loadedfont.h" declline="107" declcolumn="5"/>
+        <location file="libs/core/src/core/loadedfont.cc" line="427" column="5" bodyfile="libs/core/src/core/loadedfont.cc" bodystart="428" bodyend="451" declfile="libs/core/src/core/loadedfont.h" declline="107" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1core_1ad43378243167a9eecf7909a3649e38a7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -8371,44 +7620,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="libs/core/src/core/mat4.cc" line="526" column="11" bodyfile="libs/core/src/core/mat4.cc" bodystart="526" bodyend="534" declfile="libs/core/src/core/mat4.h" declline="126" declcolumn="11"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1core_1a55816b17b07a62a798777f3072a1fc5f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>void</type>
-        <definition>void eu::core::copy_to_memory</definition>
-        <argsstring>(MemoryChunk *memory, const void *src)</argsstring>
-        <name>copy_to_memory</name>
-        <param>
-          <type><ref refid="structeu_1_1core_1_1MemoryChunk" kindref="compound">MemoryChunk</ref> *</type>
-          <declname>memory</declname>
-        </param>
-        <param>
-          <type>const void *</type>
-          <declname>src</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/memorychunk.cc" line="60" column="5" bodyfile="libs/core/src/core/memorychunk.cc" bodystart="60" bodyend="63" declfile="libs/core/src/core/memorychunk.h" declline="28" declcolumn="10"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1core_1a3cbab34585880038c8d699397d60d70e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>std::shared_ptr&lt; <ref refid="structeu_1_1core_1_1MemoryChunk" kindref="compound">MemoryChunk</ref> &gt;</type>
-        <definition>std::shared_ptr&lt; MemoryChunk &gt; eu::core::create_memory_chunk_from_string</definition>
-        <argsstring>(const std::string &amp;content)</argsstring>
-        <name>create_memory_chunk_from_string</name>
-        <param>
-          <type>const std::string &amp;</type>
-          <declname>content</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/memorychunk.cc" line="66" column="5" bodyfile="libs/core/src/core/memorychunk.cc" bodystart="66" bodyend="74" declfile="libs/core/src/core/memorychunk.h" declline="30" declcolumn="22"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1core_1a22ed316258c98abac4cb51c858d03e7a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -9245,129 +8456,6 @@
         </inbodydescription>
         <location file="libs/core/src/core/numparse.h" line="17" column="1" declfile="libs/core/src/core/numparse.h" declline="17" declcolumn="1"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1core_1afbd05837c7376314240f9b607ce7ba88" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>std::string</type>
-        <definition>std::string eu::core::get_current_directory</definition>
-        <argsstring>()</argsstring>
-        <name>get_current_directory</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/os.cc" line="34" column="5" bodyfile="libs/core/src/core/os.cc" bodystart="34" bodyend="49" declfile="libs/core/src/core/os.h" declline="10" declcolumn="5"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1core_1a050ed53065b7a7cc28cbe449ec38204d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1core_1_1DirectoryListing" kindref="compound">DirectoryListing</ref></type>
-        <definition>DirectoryListing eu::core::list_directory</definition>
-        <argsstring>(const std::string &amp;path)</argsstring>
-        <name>list_directory</name>
-        <param>
-          <type>const std::string &amp;</type>
-          <declname>path</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/os.cc" line="94" column="5" bodyfile="libs/core/src/core/os.cc" bodystart="94" bodyend="133" declfile="libs/core/src/core/os.h" declline="21" declcolumn="5"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1core_1ae7f48742d894fcc1e3195dfb739199df" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>bool</type>
-        <definition>bool eu::core::ends_with</definition>
-        <argsstring>(const std::string &amp;str, char c)</argsstring>
-        <name>ends_with</name>
-        <param>
-          <type>const std::string &amp;</type>
-          <declname>str</declname>
-        </param>
-        <param>
-          <type>char</type>
-          <declname>c</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/os.cc" line="138" column="5" bodyfile="libs/core/src/core/os.cc" bodystart="138" bodyend="148" declfile="libs/core/src/core/os.h" declline="26" declcolumn="5"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1core_1a1a11ab5ee66dd3d1339d910e9f9dee62" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>std::string</type>
-        <definition>std::string eu::core::join_path</definition>
-        <argsstring>(const std::string &amp;left, const std::string &amp;right)</argsstring>
-        <name>join_path</name>
-        <param>
-          <type>const std::string &amp;</type>
-          <declname>left</declname>
-        </param>
-        <param>
-          <type>const std::string &amp;</type>
-          <declname>right</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/os.cc" line="151" column="5" bodyfile="libs/core/src/core/os.cc" bodystart="151" bodyend="161" declfile="libs/core/src/core/os.h" declline="29" declcolumn="5"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1core_1ab6a96458711ac69ef48a5d6ec6de7899" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>std::string</type>
-        <definition>std::string eu::core::get_extension</definition>
-        <argsstring>(const std::string &amp;path)</argsstring>
-        <name>get_extension</name>
-        <param>
-          <type>const std::string &amp;</type>
-          <declname>path</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/os.cc" line="164" column="5" bodyfile="libs/core/src/core/os.cc" bodystart="164" bodyend="167" declfile="libs/core/src/core/os.h" declline="32" declcolumn="5"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1core_1afa4fe13be087079e63253a13261a553c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>std::string</type>
-        <definition>std::string eu::core::get_file_name_including_extension</definition>
-        <argsstring>(const std::string &amp;path)</argsstring>
-        <name>get_file_name_including_extension</name>
-        <param>
-          <type>const std::string &amp;</type>
-          <declname>path</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/os.cc" line="170" column="5" bodyfile="libs/core/src/core/os.cc" bodystart="170" bodyend="182" declfile="libs/core/src/core/os.h" declline="35" declcolumn="5"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1core_1a8f149e108342049a9f6cfbd620dc86c7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>std::string</type>
-        <definition>std::string eu::core::get_file_name_without_extension</definition>
-        <argsstring>(const std::string &amp;path)</argsstring>
-        <name>get_file_name_without_extension</name>
-        <param>
-          <type>const std::string &amp;</type>
-          <declname>path</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/os.cc" line="185" column="5" bodyfile="libs/core/src/core/os.cc" bodystart="185" bodyend="188" declfile="libs/core/src/core/os.h" declline="38" declcolumn="5"/>
-      </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1core_1a948c76981b2435fd3245b40f74bb75e4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::vector&lt; std::optional&lt; <ref refid="structeu_1_1core_1_1Recti" kindref="compound">Recti</ref> &gt; &gt;</type>
         <definition>std::vector&lt; std::optional&lt; Recti &gt; &gt; eu::core::pack</definition>
@@ -9516,342 +8604,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="libs/core/src/core/polarcoord.cc" line="42" column="5" bodyfile="libs/core/src/core/polarcoord.cc" bodystart="42" bodyend="45" declfile="libs/core/src/core/polarcoord.h" declline="23" declcolumn="12"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1core_1a0a0aa3e8ea7a6ed0fc4010695840e51d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>std::string</type>
-        <definition>std::string eu::core::get_string_from_path</definition>
-        <argsstring>(const vfs::FilePath &amp;p)</argsstring>
-        <name>get_string_from_path</name>
-        <param>
-          <type>const <ref refid="structeu_1_1core_1_1vfs_1_1FilePath" kindref="compound">vfs::FilePath</ref> &amp;</type>
-          <declname>p</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/proto.cc" line="20" column="5" bodyfile="libs/core/src/core/proto.cc" bodystart="20" bodyend="23" declfile="libs/core/src/core/proto.h" declline="50" declcolumn="17"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1core_1a5310004454a1a147f19e2a4d18b2bd9f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>std::string</type>
-        <definition>std::string eu::core::get_string_from_path_for_debugging</definition>
-        <argsstring>(vfs::FileSystem *fs, const vfs::FilePath &amp;p)</argsstring>
-        <name>get_string_from_path_for_debugging</name>
-        <param>
-          <type><ref refid="structeu_1_1core_1_1vfs_1_1FileSystem" kindref="compound">vfs::FileSystem</ref> *</type>
-          <declname>fs</declname>
-        </param>
-        <param>
-          <type>const <ref refid="structeu_1_1core_1_1vfs_1_1FilePath" kindref="compound">vfs::FilePath</ref> &amp;</type>
-          <declname>p</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/proto.cc" line="26" column="5" bodyfile="libs/core/src/core/proto.cc" bodystart="26" bodyend="59" declfile="libs/core/src/core/proto.h" declline="51" declcolumn="17"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1core_1a6a4a22223bdacf9442bac49437502d5d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>std::optional&lt; std::string &gt;</type>
-        <definition>std::optional&lt; std::string &gt; eu::core::get_file_contents_or_null</definition>
-        <argsstring>(vfs::FileSystem *fs, const vfs::FilePath &amp;file_name)</argsstring>
-        <name>get_file_contents_or_null</name>
-        <param>
-          <type><ref refid="structeu_1_1core_1_1vfs_1_1FileSystem" kindref="compound">vfs::FileSystem</ref> *</type>
-          <declname>fs</declname>
-        </param>
-        <param>
-          <type>const <ref refid="structeu_1_1core_1_1vfs_1_1FilePath" kindref="compound">vfs::FilePath</ref> &amp;</type>
-          <declname>file_name</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/proto.cc" line="62" column="5" bodyfile="libs/core/src/core/proto.cc" bodystart="63" bodyend="70" declfile="libs/core/src/core/proto.h" declline="52" declcolumn="19"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1core_1a1589e73f84ae924caf482f2fcef62efa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1core_1_1Location" kindref="compound">Location</ref></type>
-        <definition>Location eu::core::get_location_from_offset</definition>
-        <argsstring>(const std::string &amp;source, std::size_t offset)</argsstring>
-        <name>get_location_from_offset</name>
-        <param>
-          <type>const std::string &amp;</type>
-          <declname>source</declname>
-        </param>
-        <param>
-          <type>std::size_t</type>
-          <declname>offset</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/proto.cc" line="78" column="14" bodyfile="libs/core/src/core/proto.cc" bodystart="78" bodyend="96"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1core_1a7cfb79381234889d75f2f5234a5fcb99" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>std::optional&lt; std::string &gt;</type>
-        <definition>std::optional&lt; std::string &gt; eu::core::read_source_or_get_error_message</definition>
-        <argsstring>(const std::string &amp;source, rapidjson::Document *doc)</argsstring>
-        <name>read_source_or_get_error_message</name>
-        <param>
-          <type>const std::string &amp;</type>
-          <declname>source</declname>
-        </param>
-        <param>
-          <type>rapidjson::Document *</type>
-          <declname>doc</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/proto.cc" line="106" column="5" bodyfile="libs/core/src/core/proto.cc" bodystart="106" bodyend="130" declfile="libs/core/src/core/proto.h" declline="53" declcolumn="19"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1core_1a134ffec05c6b11c651e16419dc942297" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>std::string</type>
-        <definition>std::string eu::core::could_be_callback</definition>
-        <argsstring>(const std::string &amp;invalid_value, const std::vector&lt; std::string &gt; &amp;possible_values)</argsstring>
-        <name>could_be_callback</name>
-        <param>
-          <type>const std::string &amp;</type>
-          <declname>invalid_value</declname>
-        </param>
-        <param>
-          <type>const std::vector&lt; std::string &gt; &amp;</type>
-          <declname>possible_values</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/proto.cc" line="134" column="5" bodyfile="libs/core/src/core/proto.cc" bodystart="134" bodyend="153" declfile="libs/core/src/core/proto.h" declline="54" declcolumn="17"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1core_1a0f10070edbc8f4ebbec07004e6e2d1ee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>void</type>
-        <definition>void eu::core::log_read_error</definition>
-        <argsstring>(const ReadErrorFileMissing &amp;missing)</argsstring>
-        <name>log_read_error</name>
-        <param>
-          <type>const <ref refid="structeu_1_1core_1_1ReadErrorFileMissing" kindref="compound">ReadErrorFileMissing</ref> &amp;</type>
-          <declname>missing</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/proto.cc" line="172" column="10" bodyfile="libs/core/src/core/proto.cc" bodystart="172" bodyend="175" declfile="libs/core/src/core/proto.h" declline="56" declcolumn="10"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1core_1ae099043ef2a7300e65ac9e6b6ecd5b1e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>void</type>
-        <definition>void eu::core::log_read_error</definition>
-        <argsstring>(const ReadErrorFileError &amp;error)</argsstring>
-        <name>log_read_error</name>
-        <param>
-          <type>const <ref refid="structeu_1_1core_1_1ReadErrorFileError" kindref="compound">ReadErrorFileError</ref> &amp;</type>
-          <declname>error</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/proto.cc" line="177" column="10" bodyfile="libs/core/src/core/proto.cc" bodystart="177" bodyend="184" declfile="libs/core/src/core/proto.h" declline="57" declcolumn="10"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1core_1a3733fb41db8a7d919185c5f47ce9ce47" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <templateparamlist>
-          <param>
-            <type>typename T</type>
-          </param>
-        </templateparamlist>
-        <type>std::optional&lt; T &gt;</type>
-        <definition>std::optional&lt;T&gt; eu::core::get_optional_and_log_errors_impl</definition>
-        <argsstring>(ReadResult&lt; T &gt; &amp;&amp;result, bool log_missing_file)</argsstring>
-        <name>get_optional_and_log_errors_impl</name>
-        <param>
-          <type><ref refid="namespaceeu_1_1core_1a0c6b41e5a7a08bf08e4451e3af45f6cd" kindref="member">ReadResult</ref>&lt; T &gt; &amp;&amp;</type>
-          <declname>result</declname>
-        </param>
-        <param>
-          <type>bool</type>
-          <declname>log_missing_file</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/proto.h" line="63" column="19" bodyfile="libs/core/src/core/proto.h" bodystart="63" bodyend="103"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1core_1a26d01f6954c5ed3021939ab6643e34ae" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <templateparamlist>
-          <param>
-            <type>typename T</type>
-          </param>
-        </templateparamlist>
-        <type>std::optional&lt; T &gt;</type>
-        <definition>std::optional&lt;T&gt; eu::core::get_optional_and_log_errors</definition>
-        <argsstring>(ReadResult&lt; T &gt; &amp;&amp;result)</argsstring>
-        <name>get_optional_and_log_errors</name>
-        <param>
-          <type><ref refid="namespaceeu_1_1core_1a0c6b41e5a7a08bf08e4451e3af45f6cd" kindref="member">ReadResult</ref>&lt; T &gt; &amp;&amp;</type>
-          <declname>result</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/proto.h" line="112" column="19" bodyfile="libs/core/src/core/proto.h" bodystart="112" bodyend="115"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1core_1a298c6da42bf50d8f494fefb7d9d9cbac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <templateparamlist>
-          <param>
-            <type>typename T</type>
-          </param>
-        </templateparamlist>
-        <type>std::optional&lt; T &gt;</type>
-        <definition>std::optional&lt;T&gt; eu::core::get_optional_and_log_errors_allow_missing</definition>
-        <argsstring>(ReadResult&lt; T &gt; &amp;&amp;result)</argsstring>
-        <name>get_optional_and_log_errors_allow_missing</name>
-        <param>
-          <type><ref refid="namespaceeu_1_1core_1a0c6b41e5a7a08bf08e4451e3af45f6cd" kindref="member">ReadResult</ref>&lt; T &gt; &amp;&amp;</type>
-          <declname>result</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/proto.h" line="120" column="19" bodyfile="libs/core/src/core/proto.h" bodystart="120" bodyend="124"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1core_1a8e9a9f1d1d3768c8e4ce61ed7732cb1d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <templateparamlist>
-          <param>
-            <type>typename T</type>
-          </param>
-        </templateparamlist>
-        <type>T</type>
-        <definition>T eu::core::get_default_but_log_errors</definition>
-        <argsstring>(ReadResult&lt; T &gt; &amp;&amp;result)</argsstring>
-        <name>get_default_but_log_errors</name>
-        <param>
-          <type><ref refid="namespaceeu_1_1core_1a0c6b41e5a7a08bf08e4451e3af45f6cd" kindref="member">ReadResult</ref>&lt; T &gt; &amp;&amp;</type>
-          <declname>result</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/proto.h" line="129" column="7" bodyfile="libs/core/src/core/proto.h" bodystart="129" bodyend="140"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1core_1af33f65bdce19dbc96e9a1cfe06fe8a4f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <templateparamlist>
-          <param>
-            <type>typename T</type>
-          </param>
-        </templateparamlist>
-        <type>T</type>
-        <definition>T eu::core::get_default_ignore_missing_but_log_errors</definition>
-        <argsstring>(ReadResult&lt; T &gt; &amp;&amp;result)</argsstring>
-        <name>get_default_ignore_missing_but_log_errors</name>
-        <param>
-          <type><ref refid="namespaceeu_1_1core_1a0c6b41e5a7a08bf08e4451e3af45f6cd" kindref="member">ReadResult</ref>&lt; T &gt; &amp;&amp;</type>
-          <declname>result</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/proto.h" line="143" column="7" bodyfile="libs/core/src/core/proto.h" bodystart="143" bodyend="154"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1core_1aed6b2a15d79e719e0e358a8070cf8b53" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <templateparamlist>
-          <param>
-            <type>typename T</type>
-          </param>
-          <param>
-            <type>typename TReadJsonElementFunc</type>
-          </param>
-        </templateparamlist>
-        <type><ref refid="namespaceeu_1_1core_1a0c6b41e5a7a08bf08e4451e3af45f6cd" kindref="member">ReadResult</ref>&lt; T &gt;</type>
-        <definition>ReadResult&lt;T&gt; eu::core::read_json_source_to_gaf_struct</definition>
-        <argsstring>(const std::string &amp;path_to_file, const std::string &amp;source, TReadJsonElementFunc read_json_element)</argsstring>
-        <name>read_json_source_to_gaf_struct</name>
-        <param>
-          <type>const std::string &amp;</type>
-          <declname>path_to_file</declname>
-        </param>
-        <param>
-          <type>const std::string &amp;</type>
-          <declname>source</declname>
-        </param>
-        <param>
-          <type>TReadJsonElementFunc</type>
-          <declname>read_json_element</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/proto.h" line="160" column="16" bodyfile="libs/core/src/core/proto.h" bodystart="161" bodyend="210"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1core_1a344dcd414114c314bbe5a4ee88df2408" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <templateparamlist>
-          <param>
-            <type>typename T</type>
-          </param>
-          <param>
-            <type>typename TReadJsonElementFunc</type>
-          </param>
-        </templateparamlist>
-        <type><ref refid="namespaceeu_1_1core_1a0c6b41e5a7a08bf08e4451e3af45f6cd" kindref="member">ReadResult</ref>&lt; T &gt;</type>
-        <definition>ReadResult&lt;T&gt; eu::core::read_json_file_to_gaf_struct</definition>
-        <argsstring>(vfs::FileSystem *fs, const vfs::FilePath &amp;file_name, TReadJsonElementFunc read_json_element)</argsstring>
-        <name>read_json_file_to_gaf_struct</name>
-        <param>
-          <type><ref refid="structeu_1_1core_1_1vfs_1_1FileSystem" kindref="compound">vfs::FileSystem</ref> *</type>
-          <declname>fs</declname>
-        </param>
-        <param>
-          <type>const <ref refid="structeu_1_1core_1_1vfs_1_1FilePath" kindref="compound">vfs::FilePath</ref> &amp;</type>
-          <declname>file_name</declname>
-        </param>
-        <param>
-          <type>TReadJsonElementFunc</type>
-          <declname>read_json_element</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/proto.h" line="213" column="16" bodyfile="libs/core/src/core/proto.h" bodystart="214" bodyend="239"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1core_1a08bcecd525a986ac301bd98312b7cf43" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1core_1_1quatf" kindref="compound">quatf</ref></type>
@@ -11819,7 +10571,7 @@
         <location file="libs/core/src/core/rgb.cc" line="502" column="5" bodyfile="libs/core/src/core/rgb.cc" bodystart="502" bodyend="511" declfile="libs/core/src/core/rgb.h" declline="136" declcolumn="9"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1core_1ab81bd95d2c71f07e6ae1e9d383431a65" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1core_1_1Result" kindref="compound">Result</ref>&lt; <ref refid="structeu_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref> &gt;</type>
+        <type><ref refid="structeu_1_1Result" kindref="compound">Result</ref>&lt; <ref refid="structeu_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref> &gt;</type>
         <definition>Result&lt; Rgbi &gt; eu::core::to_rgbi</definition>
         <argsstring>(const std::string &amp;original_value)</argsstring>
         <name>to_rgbi</name>
@@ -12609,906 +11361,6 @@
         </inbodydescription>
         <location file="libs/core/src/core/stdutils.h" line="92" column="5" bodyfile="libs/core/src/core/stdutils.h" bodystart="92" bodyend="95"/>
       </memberdef>
-      <memberdef kind="function" id="group__string_1gaf54c9b7a2e6e15ed702b694271ad803d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>std::pair&lt; std::string, std::string &gt;</type>
-        <definition>std::pair&lt; std::string, std::string &gt; eu::core::get_last_string</definition>
-        <argsstring>(const std::string &amp;str, char sep)</argsstring>
-        <name>get_last_string</name>
-        <param>
-          <type>const std::string &amp;</type>
-          <declname>str</declname>
-        </param>
-        <param>
-          <type>char</type>
-          <declname>sep</declname>
-        </param>
-        <briefdescription>
-<para>for hello.dog gets .dog </para>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/stringutils.cc" line="17" column="1" bodyfile="libs/core/src/core/stringutils.cc" bodystart="17" bodyend="28" declfile="libs/core/src/core/stringutils.h" declline="34" declcolumn="5"/>
-      </memberdef>
-      <memberdef kind="function" id="group__string_1ga5d48a997542d8f5f3b04e0acbf519a4d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>std::string</type>
-        <definition>std::string eu::core::get_first_chars</definition>
-        <argsstring>(const std::string &amp;str, std::size_t count)</argsstring>
-        <name>get_first_chars</name>
-        <param>
-          <type>const std::string &amp;</type>
-          <declname>str</declname>
-        </param>
-        <param>
-          <type>std::size_t</type>
-          <declname>count</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/stringutils.cc" line="32" column="1" bodyfile="libs/core/src/core/stringutils.cc" bodystart="32" bodyend="36" declfile="libs/core/src/core/stringutils.h" declline="38" declcolumn="5"/>
-      </memberdef>
-      <memberdef kind="function" id="group__string_1ga031944de061acb67e9c559667083a06a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>std::string</type>
-        <definition>std::string eu::core::get_first_chars_with_ellipsis</definition>
-        <argsstring>(const std::string &amp;str, unsigned int count)</argsstring>
-        <name>get_first_chars_with_ellipsis</name>
-        <param>
-          <type>const std::string &amp;</type>
-          <declname>str</declname>
-        </param>
-        <param>
-          <type>unsigned int</type>
-          <declname>count</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/stringutils.cc" line="40" column="1" bodyfile="libs/core/src/core/stringutils.cc" bodystart="40" bodyend="48" declfile="libs/core/src/core/stringutils.h" declline="41" declcolumn="5"/>
-      </memberdef>
-      <memberdef kind="function" id="group__string_1ga5f7fce7b8ffa4a24e2638a298a0d3f22" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>std::string</type>
-        <definition>std::string eu::core::strip_last_string</definition>
-        <argsstring>(const std::string &amp;str, char sep)</argsstring>
-        <name>strip_last_string</name>
-        <param>
-          <type>const std::string &amp;</type>
-          <declname>str</declname>
-        </param>
-        <param>
-          <type>char</type>
-          <declname>sep</declname>
-        </param>
-        <briefdescription>
-<para>for hello.dog and . gets hello </para>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/stringutils.cc" line="52" column="1" bodyfile="libs/core/src/core/stringutils.cc" bodystart="52" bodyend="61" declfile="libs/core/src/core/stringutils.h" declline="29" declcolumn="5"/>
-      </memberdef>
-      <memberdef kind="function" id="group__string_1gafc80fb5a9f44235461d5600397ff97ff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>std::string</type>
-        <definition>std::string eu::core::trim_right</definition>
-        <argsstring>(const std::string &amp;string_to_trim, const std::string &amp;trim_characters=space_characters)</argsstring>
-        <name>trim_right</name>
-        <param>
-          <type>const std::string &amp;</type>
-          <declname>string_to_trim</declname>
-        </param>
-        <param>
-          <type>const std::string &amp;</type>
-          <declname>trim_characters</declname>
-          <defval><ref refid="group__string_1gadc802a94c807de2195af39c05fec5e2c" kindref="member">space_characters</ref></defval>
-        </param>
-        <briefdescription>
-<para>Remove characters from the right, stops at a invalid character. </para>
-        </briefdescription>
-        <detaileddescription>
-<para><parameterlist kind="param"><parameteritem>
-<parameternamelist>
-<parametername>string_to_trim</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>the string to remove characters from. </para>
-</parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>trim_characters</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>the characters to remove. </para>
-</parameterdescription>
-</parameteritem>
-</parameterlist>
-<simplesect kind="return"><para>the trimmed string. </para>
-</simplesect>
-</para>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/stringutils.cc" line="65" column="1" bodyfile="libs/core/src/core/stringutils.cc" bodystart="65" bodyend="68" declfile="libs/core/src/core/stringutils.h" declline="50" declcolumn="5"/>
-      </memberdef>
-      <memberdef kind="function" id="group__string_1gade22252d2e003fa150f07d0ce7b62617" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>std::string</type>
-        <definition>std::string eu::core::trim_left</definition>
-        <argsstring>(const std::string &amp;string_to_trim, const std::string &amp;trim_characters=space_characters)</argsstring>
-        <name>trim_left</name>
-        <param>
-          <type>const std::string &amp;</type>
-          <declname>string_to_trim</declname>
-        </param>
-        <param>
-          <type>const std::string &amp;</type>
-          <declname>trim_characters</declname>
-          <defval><ref refid="group__string_1gadc802a94c807de2195af39c05fec5e2c" kindref="member">space_characters</ref></defval>
-        </param>
-        <briefdescription>
-<para>Remove characters from the left, stops at invalid character. </para>
-        </briefdescription>
-        <detaileddescription>
-<para><parameterlist kind="param"><parameteritem>
-<parameternamelist>
-<parametername>string_to_trim</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>the string to remove characters from. </para>
-</parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>trim_characters</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>the characters to remove. </para>
-</parameterdescription>
-</parameteritem>
-</parameterlist>
-<simplesect kind="return"><para>the trimmed string. </para>
-</simplesect>
-</para>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/stringutils.cc" line="72" column="1" bodyfile="libs/core/src/core/stringutils.cc" bodystart="72" bodyend="75" declfile="libs/core/src/core/stringutils.h" declline="59" declcolumn="5"/>
-      </memberdef>
-      <memberdef kind="function" id="group__string_1gad0a53b49bf7e0c33cd1ab2e1a76608e5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>std::string</type>
-        <definition>std::string eu::core::trim</definition>
-        <argsstring>(const std::string &amp;string_to_trim, const std::string &amp;trim_characters=space_characters)</argsstring>
-        <name>trim</name>
-        <param>
-          <type>const std::string &amp;</type>
-          <declname>string_to_trim</declname>
-        </param>
-        <param>
-          <type>const std::string &amp;</type>
-          <declname>trim_characters</declname>
-          <defval><ref refid="group__string_1gadc802a94c807de2195af39c05fec5e2c" kindref="member">space_characters</ref></defval>
-        </param>
-        <briefdescription>
-<para>Remove characters from both the start and the end. </para>
-        </briefdescription>
-        <detaileddescription>
-<para><parameterlist kind="param"><parameteritem>
-<parameternamelist>
-<parametername>string_to_trim</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>the string to remove characters from. </para>
-</parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>trim_characters</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>the characters to remove. </para>
-</parameterdescription>
-</parameteritem>
-</parameterlist>
-<simplesect kind="return"><para>the trimmed string. </para>
-</simplesect>
-</para>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/stringutils.cc" line="79" column="1" bodyfile="libs/core/src/core/stringutils.cc" bodystart="79" bodyend="82" declfile="libs/core/src/core/stringutils.h" declline="68" declcolumn="5"/>
-      </memberdef>
-      <memberdef kind="function" id="group__string_1ga1e9da3cbf1bf730f239e62da6526e631" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>bool</type>
-        <definition>bool eu::core::begins_width</definition>
-        <argsstring>(const std::string &amp;string_to_test, const std::string &amp;start)</argsstring>
-        <name>begins_width</name>
-        <param>
-          <type>const std::string &amp;</type>
-          <declname>string_to_test</declname>
-        </param>
-        <param>
-          <type>const std::string &amp;</type>
-          <declname>start</declname>
-        </param>
-        <briefdescription>
-<para>Tests if a string starts with another string. </para>
-        </briefdescription>
-        <detaileddescription>
-<para><parameterlist kind="param"><parameteritem>
-<parameternamelist>
-<parametername>string_to_test</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>the string to test. </para>
-</parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>start</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>the start of the string. </para>
-</parameterdescription>
-</parameteritem>
-</parameterlist>
-<simplesect kind="return"><para>true if the start match, false if not. </para>
-</simplesect>
-</para>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/stringutils.cc" line="87" column="1" bodyfile="libs/core/src/core/stringutils.cc" bodystart="87" bodyend="97" declfile="libs/core/src/core/stringutils.h" declline="77" declcolumn="5"/>
-      </memberdef>
-      <memberdef kind="function" id="group__string_1ga8c71810c6d4f2c67e6853f58e2bc33d7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>bool</type>
-        <definition>bool eu::core::ends_with</definition>
-        <argsstring>(const std::string &amp;string_to_test, const std::string &amp;end)</argsstring>
-        <name>ends_with</name>
-        <param>
-          <type>const std::string &amp;</type>
-          <declname>string_to_test</declname>
-        </param>
-        <param>
-          <type>const std::string &amp;</type>
-          <declname>end</declname>
-        </param>
-        <briefdescription>
-<para>Tests if a string ends with another string. </para>
-        </briefdescription>
-        <detaileddescription>
-<para><parameterlist kind="param"><parameteritem>
-<parameternamelist>
-<parametername>string_to_test</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>the string to test. </para>
-</parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>end</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>the end of the string. </para>
-</parameterdescription>
-</parameteritem>
-</parameterlist>
-<simplesect kind="return"><para>true if the end match, false if not. </para>
-</simplesect>
-</para>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/stringutils.cc" line="101" column="1" bodyfile="libs/core/src/core/stringutils.cc" bodystart="101" bodyend="112" declfile="libs/core/src/core/stringutils.h" declline="86" declcolumn="5"/>
-      </memberdef>
-      <memberdef kind="function" id="group__string_1gadbb8cf5a4a1865de62cd0e69cd039bfe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>char</type>
-        <definition>char eu::core::to_lower_char</definition>
-        <argsstring>(char b)</argsstring>
-        <name>to_lower_char</name>
-        <param>
-          <type>char</type>
-          <declname>b</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/stringutils.cc" line="116" column="1" bodyfile="libs/core/src/core/stringutils.cc" bodystart="116" bodyend="126" declfile="libs/core/src/core/stringutils.h" declline="90" declcolumn="5"/>
-      </memberdef>
-      <memberdef kind="function" id="group__string_1ga4ecb77c1379beac071e8b4573ff09b3d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>char</type>
-        <definition>char eu::core::to_upper_char</definition>
-        <argsstring>(char b)</argsstring>
-        <name>to_upper_char</name>
-        <param>
-          <type>char</type>
-          <declname>b</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/stringutils.cc" line="129" column="1" bodyfile="libs/core/src/core/stringutils.cc" bodystart="129" bodyend="139" declfile="libs/core/src/core/stringutils.h" declline="93" declcolumn="5"/>
-      </memberdef>
-      <memberdef kind="function" id="group__string_1ga6e9e71c020e91ad3cf38ab945c7a1122" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>std::string</type>
-        <definition>std::string eu::core::to_lower</definition>
-        <argsstring>(const std::string &amp;str)</argsstring>
-        <name>to_lower</name>
-        <param>
-          <type>const std::string &amp;</type>
-          <declname>str</declname>
-        </param>
-        <briefdescription>
-<para>Generate a string containing only lower characters. </para>
-        </briefdescription>
-        <detaileddescription>
-<para><parameterlist kind="param"><parameteritem>
-<parameternamelist>
-<parametername>str</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>the string to lower. </para>
-</parameterdescription>
-</parameteritem>
-</parameterlist>
-<simplesect kind="return"><para>the lowered string. </para>
-</simplesect>
-</para>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/stringutils.cc" line="143" column="1" bodyfile="libs/core/src/core/stringutils.cc" bodystart="143" bodyend="148" declfile="libs/core/src/core/stringutils.h" declline="101" declcolumn="5"/>
-      </memberdef>
-      <memberdef kind="function" id="group__string_1ga0dac28d0a8cb763fa2b6033881b15ee7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>std::vector&lt; std::string &gt;</type>
-        <definition>std::vector&lt; std::string &gt; eu::core::to_lower</definition>
-        <argsstring>(const std::vector&lt; std::string &gt; &amp;str)</argsstring>
-        <name>to_lower</name>
-        <param>
-          <type>const std::vector&lt; std::string &gt; &amp;</type>
-          <declname>str</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/stringutils.cc" line="152" column="1" bodyfile="libs/core/src/core/stringutils.cc" bodystart="152" bodyend="155" declfile="libs/core/src/core/stringutils.h" declline="105" declcolumn="5"/>
-      </memberdef>
-      <memberdef kind="function" id="group__string_1gad46b999006b5feb7c77724ef67d99bcd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>std::string</type>
-        <definition>std::string eu::core::to_upper</definition>
-        <argsstring>(const std::string &amp;str)</argsstring>
-        <name>to_upper</name>
-        <param>
-          <type>const std::string &amp;</type>
-          <declname>str</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/stringutils.cc" line="159" column="1" bodyfile="libs/core/src/core/stringutils.cc" bodystart="159" bodyend="164" declfile="libs/core/src/core/stringutils.h" declline="109" declcolumn="5"/>
-      </memberdef>
-      <memberdef kind="function" id="group__string_1gaa3955e6d801eabddb7dbdcf1f888b78d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>std::string</type>
-        <definition>std::string eu::core::from_char_to_string</definition>
-        <argsstring>(char c, CharToStringStyle style)</argsstring>
-        <name>from_char_to_string</name>
-        <param>
-          <type>char</type>
-          <declname>c</declname>
-        </param>
-        <param>
-          <type><ref refid="group__string_1ga8b87aba464210f2cafbb7fd338494213" kindref="member">CharToStringStyle</ref></type>
-          <declname>style</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/stringutils.cc" line="168" column="1" bodyfile="libs/core/src/core/stringutils.cc" bodystart="168" bodyend="240" declfile="libs/core/src/core/stringutils.h" declline="119" declcolumn="5"/>
-      </memberdef>
-      <memberdef kind="function" id="group__string_1gae0c78dba92b3f6dd9d9062a0e44cb526" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>std::string::size_type</type>
-        <definition>std::string::size_type eu::core::find_first_index_of_mismatch</definition>
-        <argsstring>(const std::string &amp;lhs, const std::string &amp;rhs)</argsstring>
-        <name>find_first_index_of_mismatch</name>
-        <param>
-          <type>const std::string &amp;</type>
-          <declname>lhs</declname>
-        </param>
-        <param>
-          <type>const std::string &amp;</type>
-          <declname>rhs</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/stringutils.cc" line="244" column="1" bodyfile="libs/core/src/core/stringutils.cc" bodystart="244" bodyend="265" declfile="libs/core/src/core/stringutils.h" declline="123" declcolumn="5"/>
-      </memberdef>
-      <memberdef kind="function" id="group__string_1ga7e649c640bc7fc0dd0ec3ee74aa9fcc3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>void</type>
-        <definition>void eu::core::replace_all</definition>
-        <argsstring>(std::string *string, const std::string &amp;to_find, const std::string &amp;to_replace)</argsstring>
-        <name>replace_all</name>
-        <param>
-          <type>std::string *</type>
-          <declname>string</declname>
-        </param>
-        <param>
-          <type>const std::string &amp;</type>
-          <declname>to_find</declname>
-        </param>
-        <param>
-          <type>const std::string &amp;</type>
-          <declname>to_replace</declname>
-        </param>
-        <briefdescription>
-<para>Replace all occurrences in a string. </para>
-        </briefdescription>
-        <detaileddescription>
-<para><parameterlist kind="param"><parameteritem>
-<parameternamelist>
-<parametername>string</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>the source string. </para>
-</parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>to_find</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>the string to find. </para>
-</parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>to_replace</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>the string to replace it. </para>
-</parameterdescription>
-</parameteritem>
-</parameterlist>
-</para>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/stringutils.cc" line="269" column="1" bodyfile="libs/core/src/core/stringutils.cc" bodystart="269" bodyend="280" declfile="libs/core/src/core/stringutils.h" declline="132" declcolumn="5"/>
-      </memberdef>
-      <memberdef kind="function" id="group__string_1ga848c0b2e4d755d12bc93cadc4468d773" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>std::string</type>
-        <definition>std::string eu::core::replace_all</definition>
-        <argsstring>(const std::string &amp;string, const std::string &amp;to_find, const std::string &amp;to_replace)</argsstring>
-        <name>replace_all</name>
-        <param>
-          <type>const std::string &amp;</type>
-          <declname>string</declname>
-        </param>
-        <param>
-          <type>const std::string &amp;</type>
-          <declname>to_find</declname>
-        </param>
-        <param>
-          <type>const std::string &amp;</type>
-          <declname>to_replace</declname>
-        </param>
-        <briefdescription>
-<para>Replace all occurrences in a string. </para>
-        </briefdescription>
-        <detaileddescription>
-<para><parameterlist kind="param"><parameteritem>
-<parameternamelist>
-<parametername>string</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>the source string. </para>
-</parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>to_find</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>the string to find. </para>
-</parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>to_replace</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>the string to replace it. </para>
-</parameterdescription>
-</parameteritem>
-</parameterlist>
-<simplesect kind="return"><para>the modified string. </para>
-</simplesect>
-</para>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/stringutils.cc" line="284" column="1" bodyfile="libs/core/src/core/stringutils.cc" bodystart="284" bodyend="289" declfile="libs/core/src/core/stringutils.h" declline="142" declcolumn="5"/>
-      </memberdef>
-      <memberdef kind="function" id="group__string_1ga8a3fc6543457a6b1bda6bec2258b5b57" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>void</type>
-        <definition>void eu::core::copy</definition>
-        <argsstring>(char *dst, const std::string &amp;src, const std::string::size_type &amp;count)</argsstring>
-        <name>copy</name>
-        <param>
-          <type>char *</type>
-          <declname>dst</declname>
-        </param>
-        <param>
-          <type>const std::string &amp;</type>
-          <declname>src</declname>
-        </param>
-        <param>
-          <type>const std::string::size_type &amp;</type>
-          <declname>count</declname>
-        </param>
-        <briefdescription>
-<para>Copy a string to a character buffer, adding null terminator at the end. </para>
-        </briefdescription>
-        <detaileddescription>
-<para><parameterlist kind="param"><parameteritem>
-<parameternamelist>
-<parametername>dst</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>the destination buffer. </para>
-</parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>src</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>the source string. </para>
-</parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>count</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>the maximum number of characters to copy (including null terminator) </para>
-</parameterdescription>
-</parameteritem>
-</parameterlist>
-</para>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/stringutils.cc" line="293" column="1" bodyfile="libs/core/src/core/stringutils.cc" bodystart="293" bodyend="297" declfile="libs/core/src/core/stringutils.h" declline="156" declcolumn="5"/>
-      </memberdef>
-      <memberdef kind="function" id="group__string_1ga7ccec3814c323739c3e01b749a594499" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>std::string</type>
-        <definition>std::string eu::core::replace_with_character</definition>
-        <argsstring>(const std::string &amp;string, const std::string &amp;to_find, char to_replace)</argsstring>
-        <name>replace_with_character</name>
-        <param>
-          <type>const std::string &amp;</type>
-          <declname>string</declname>
-        </param>
-        <param>
-          <type>const std::string &amp;</type>
-          <declname>to_find</declname>
-        </param>
-        <param>
-          <type>char</type>
-          <declname>to_replace</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/stringutils.cc" line="301" column="1" bodyfile="libs/core/src/core/stringutils.cc" bodystart="301" bodyend="309" declfile="libs/core/src/core/stringutils.h" declline="146" declcolumn="5"/>
-      </memberdef>
-      <memberdef kind="function" id="group__string_1gabe5a3e6ac19b0f07ae6e48af3588efc7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>std::string</type>
-        <definition>std::string eu::core::remove_from_end</definition>
-        <argsstring>(const std::string &amp;str, const std::string &amp;end)</argsstring>
-        <name>remove_from_end</name>
-        <param>
-          <type>const std::string &amp;</type>
-          <declname>str</declname>
-        </param>
-        <param>
-          <type>const std::string &amp;</type>
-          <declname>end</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/stringutils.cc" line="313" column="1" bodyfile="libs/core/src/core/stringutils.cc" bodystart="313" bodyend="327" declfile="libs/core/src/core/stringutils.h" declline="159" declcolumn="5"/>
-      </memberdef>
-      <memberdef kind="function" id="group__string_1gae66ef5efe780bd8afedbf882fdc7015e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>std::string</type>
-        <definition>std::string eu::core::strip</definition>
-        <argsstring>(const std::string &amp;str, const std::string &amp;ch)</argsstring>
-        <name>strip</name>
-        <param>
-          <type>const std::string &amp;</type>
-          <declname>str</declname>
-        </param>
-        <param>
-          <type>const std::string &amp;</type>
-          <declname>ch</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/stringutils.cc" line="331" column="1" bodyfile="libs/core/src/core/stringutils.cc" bodystart="331" bodyend="342" declfile="libs/core/src/core/stringutils.h" declline="221" declcolumn="5"/>
-      </memberdef>
-      <memberdef kind="function" id="group__string_1ga347e1cdeed55ae81dbece80d84485ab9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>std::string</type>
-        <definition>std::string eu::core::remove_consecutive</definition>
-        <argsstring>(const std::string &amp;str, const std::string &amp;ch)</argsstring>
-        <name>remove_consecutive</name>
-        <param>
-          <type>const std::string &amp;</type>
-          <declname>str</declname>
-        </param>
-        <param>
-          <type>const std::string &amp;</type>
-          <declname>ch</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/stringutils.cc" line="347" column="1" bodyfile="libs/core/src/core/stringutils.cc" bodystart="347" bodyend="368" declfile="libs/core/src/core/stringutils.h" declline="226" declcolumn="5"/>
-      </memberdef>
-      <memberdef kind="function" id="group__string_1ga0aebed6b91672f3b8fcdfc14b0c15247" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>std::vector&lt; std::string &gt;</type>
-        <definition>std::vector&lt; std::string &gt; eu::core::split</definition>
-        <argsstring>(const std::string &amp;s, char delim)</argsstring>
-        <name>split</name>
-        <param>
-          <type>const std::string &amp;</type>
-          <declname>s</declname>
-        </param>
-        <param>
-          <type>char</type>
-          <declname>delim</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/stringutils.cc" line="431" column="1" bodyfile="libs/core/src/core/stringutils.cc" bodystart="431" bodyend="440" declfile="libs/core/src/core/stringutils.h" declline="230" declcolumn="5"/>
-      </memberdef>
-      <memberdef kind="function" id="group__string_1ga18c9e62d235fc21ca40ca8f0e76408d0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>std::vector&lt; std::string &gt;</type>
-        <definition>std::vector&lt; std::string &gt; eu::core::split_on_spaces</definition>
-        <argsstring>(const std::string &amp;string)</argsstring>
-        <name>split_on_spaces</name>
-        <param>
-          <type>const std::string &amp;</type>
-          <declname>string</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/stringutils.cc" line="444" column="1" bodyfile="libs/core/src/core/stringutils.cc" bodystart="444" bodyend="453" declfile="libs/core/src/core/stringutils.h" declline="234" declcolumn="5"/>
-      </memberdef>
-      <memberdef kind="function" id="group__string_1gaa7f7e2bcd879ef99afaa73e9ba0d6994" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>std::string</type>
-        <definition>std::string eu::core::get_string_or_empty</definition>
-        <argsstring>(bool b, const std::string &amp;str)</argsstring>
-        <name>get_string_or_empty</name>
-        <param>
-          <type>bool</type>
-          <declname>b</declname>
-        </param>
-        <param>
-          <type>const std::string &amp;</type>
-          <declname>str</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/stringutils.cc" line="457" column="1" bodyfile="libs/core/src/core/stringutils.cc" bodystart="457" bodyend="467" declfile="libs/core/src/core/stringutils.h" declline="238" declcolumn="5"/>
-      </memberdef>
-      <memberdef kind="function" id="group__string_1ga534eda78fc40581ad2d671b30eff16a8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>bool</type>
-        <definition>bool eu::core::is_number</definition>
-        <argsstring>(char b)</argsstring>
-        <name>is_number</name>
-        <param>
-          <type>char</type>
-          <declname>b</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/stringutils.cc" line="471" column="1" bodyfile="libs/core/src/core/stringutils.cc" bodystart="471" bodyend="474" declfile="libs/core/src/core/stringutils.h" declline="18" declcolumn="4"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1core_1a51f351567c4782619866b4b336002a72" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>int</type>
-        <definition>int eu::core::parse_number</definition>
-        <argsstring>(const char **aa)</argsstring>
-        <name>parse_number</name>
-        <param>
-          <type>const char **</type>
-          <declname>aa</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/stringutils.cc" line="478" column="1" bodyfile="libs/core/src/core/stringutils.cc" bodystart="478" bodyend="494"/>
-      </memberdef>
-      <memberdef kind="function" id="group__string_1ga26210f5d35df169d46864ad24ffff246" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>int</type>
-        <definition>int eu::core::compare_string</definition>
-        <argsstring>(const std::string &amp;lhs, const std::string &amp;rhs)</argsstring>
-        <name>compare_string</name>
-        <param>
-          <type>const std::string &amp;</type>
-          <declname>lhs</declname>
-        </param>
-        <param>
-          <type>const std::string &amp;</type>
-          <declname>rhs</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/stringutils.cc" line="498" column="1" bodyfile="libs/core/src/core/stringutils.cc" bodystart="498" bodyend="524" declfile="libs/core/src/core/stringutils.h" declline="243" declcolumn="5"/>
-      </memberdef>
-      <memberdef kind="function" id="group__string_1ga7fa5856f6e4ce85558c5d74d856b5fea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <templateparamlist>
-          <param>
-            <type>typename TKey</type>
-          </param>
-          <param>
-            <type>typename TValue</type>
-          </param>
-        </templateparamlist>
-        <type>std::vector&lt; std::string &gt;</type>
-        <definition>std::vector&lt;std::string&gt; eu::core::to_string_vector</definition>
-        <argsstring>(const std::map&lt; TKey, TValue &gt; &amp;map)</argsstring>
-        <name>to_string_vector</name>
-        <param>
-          <type>const std::map&lt; TKey, TValue &gt; &amp;</type>
-          <declname>map</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/stringutils.h" line="164" column="5" bodyfile="libs/core/src/core/stringutils.h" bodystart="164" bodyend="173"/>
-      </memberdef>
-      <memberdef kind="function" id="group__string_1ga9c48d3ef515ec197f157babfbdd2cabb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <templateparamlist>
-          <param>
-            <type>typename TKey</type>
-          </param>
-          <param>
-            <type>typename TValue</type>
-          </param>
-        </templateparamlist>
-        <type>std::vector&lt; std::string &gt;</type>
-        <definition>std::vector&lt;std::string&gt; eu::core::from_key_to_string_vector</definition>
-        <argsstring>(const std::map&lt; TKey, TValue &gt; &amp;map)</argsstring>
-        <name>from_key_to_string_vector</name>
-        <param>
-          <type>const std::map&lt; TKey, TValue &gt; &amp;</type>
-          <declname>map</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/stringutils.h" line="178" column="5" bodyfile="libs/core/src/core/stringutils.h" bodystart="178" bodyend="187"/>
-      </memberdef>
-      <memberdef kind="function" id="group__string_1ga46db10d73427013e71789b502dc627d5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <templateparamlist>
-          <param>
-            <type>typename T</type>
-          </param>
-        </templateparamlist>
-        <type>std::vector&lt; std::string &gt;</type>
-        <definition>std::vector&lt;std::string&gt; eu::core::to_string_vector</definition>
-        <argsstring>(const std::vector&lt; T &gt; &amp;data)</argsstring>
-        <name>to_string_vector</name>
-        <param>
-          <type>const std::vector&lt; T &gt; &amp;</type>
-          <declname>data</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/stringutils.h" line="192" column="5" bodyfile="libs/core/src/core/stringutils.h" bodystart="192" bodyend="202"/>
-      </memberdef>
-      <memberdef kind="function" id="group__string_1gafdf7075714d3003396877be7f804cfdc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <templateparamlist>
-          <param>
-            <type>typename T</type>
-          </param>
-          <param>
-            <type>typename C</type>
-          </param>
-        </templateparamlist>
-        <type>std::vector&lt; std::string &gt;</type>
-        <definition>std::vector&lt;std::string&gt; eu::core::to_string_vector</definition>
-        <argsstring>(const std::vector&lt; T &gt; &amp;data, C callback)</argsstring>
-        <name>to_string_vector</name>
-        <param>
-          <type>const std::vector&lt; T &gt; &amp;</type>
-          <declname>data</declname>
-        </param>
-        <param>
-          <type>C</type>
-          <declname>callback</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/stringutils.h" line="207" column="5" bodyfile="libs/core/src/core/stringutils.h" bodystart="207" bodyend="216"/>
-      </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1core_1a5172dd43c6fcf734f7ff4ad9111a1e0d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
@@ -14082,10 +11934,10 @@
         </inbodydescription>
         <location file="libs/core/src/core/texttemplate.cc" line="287" column="13" bodyfile="libs/core/src/core/texttemplate.cc" bodystart="287" bodyend="305"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1core_1a8e3a0c7a8977ff65c52ccc038a30c596" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeu_1_1core_1a6f5099636c50ae9ec60a561f53b4127a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::vector&lt; <ref refid="structeu_1_1core_1_1Token" kindref="compound">Token</ref> &gt;</type>
         <definition>std::vector&lt;Token&gt; eu::core::tokenize</definition>
-        <argsstring>(const std::string &amp;content, TemplateErrorList *error, const vfs::FilePath &amp;file)</argsstring>
+        <argsstring>(const std::string &amp;content, TemplateErrorList *error, const io::FilePath &amp;file)</argsstring>
         <name>tokenize</name>
         <param>
           <type>const std::string &amp;</type>
@@ -14096,7 +11948,7 @@
           <declname>error</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1vfs_1_1FilePath" kindref="compound">vfs::FilePath</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1io_1_1FilePath" kindref="compound">io::FilePath</ref> &amp;</type>
           <declname>file</declname>
         </param>
         <briefdescription>
@@ -14107,10 +11959,10 @@
         </inbodydescription>
         <location file="libs/core/src/core/texttemplate.cc" line="331" column="13" bodyfile="libs/core/src/core/texttemplate.cc" bodystart="332" bodyend="450"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1core_1ac1394e08073fded7e54d743cb4ce9fe1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeu_1_1core_1a99a66c8b147cd2fed499b22ecb116973" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void eu::core::parse_template_list</definition>
-        <argsstring>(std::shared_ptr&lt; TemplateNodeList &gt; *nodes, TokenReader *reader, TemplateErrorList *errors, const vfs::FilePath &amp;file, bool expect_end, vfs::FileSystem *fs)</argsstring>
+        <argsstring>(std::shared_ptr&lt; TemplateNodeList &gt; *nodes, TokenReader *reader, TemplateErrorList *errors, const io::FilePath &amp;file, bool expect_end, io::FileSystem *fs)</argsstring>
         <name>parse_template_list</name>
         <param>
           <type>std::shared_ptr&lt; <ref refid="structeu_1_1core_1_1TemplateNodeList" kindref="compound">TemplateNodeList</ref> &gt; *</type>
@@ -14125,7 +11977,7 @@
           <declname>errors</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1vfs_1_1FilePath" kindref="compound">vfs::FilePath</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1io_1_1FilePath" kindref="compound">io::FilePath</ref> &amp;</type>
           <declname>file</declname>
         </param>
         <param>
@@ -14133,7 +11985,7 @@
           <declname>expect_end</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1core_1_1vfs_1_1FileSystem" kindref="compound">vfs::FileSystem</ref> *</type>
+          <type><ref refid="structeu_1_1io_1_1FileSystem" kindref="compound">io::FileSystem</ref> *</type>
           <declname>fs</declname>
         </param>
         <briefdescription>
@@ -14144,17 +11996,17 @@
         </inbodydescription>
         <location file="libs/core/src/core/texttemplate.cc" line="746" column="6" bodyfile="libs/core/src/core/texttemplate.cc" bodystart="747" bodyend="814" declfile="libs/core/src/core/texttemplate.cc" declline="510" declcolumn="6"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1core_1a267b175113cb0eacbcef19e01c480579" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeu_1_1core_1a8c794ee32a02ec2ef2fc3b36095df35b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void eu::core::load_from_filesystem_to_node_list</definition>
-        <argsstring>(vfs::FileSystem *fs, const vfs::FilePath &amp;path, TemplateErrorList *error, std::shared_ptr&lt; TemplateNodeList &gt; *nodes)</argsstring>
+        <argsstring>(io::FileSystem *fs, const io::FilePath &amp;path, TemplateErrorList *error, std::shared_ptr&lt; TemplateNodeList &gt; *nodes)</argsstring>
         <name>load_from_filesystem_to_node_list</name>
         <param>
-          <type><ref refid="structeu_1_1core_1_1vfs_1_1FileSystem" kindref="compound">vfs::FileSystem</ref> *</type>
+          <type><ref refid="structeu_1_1io_1_1FileSystem" kindref="compound">io::FileSystem</ref> *</type>
           <declname>fs</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1vfs_1_1FilePath" kindref="compound">vfs::FilePath</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1io_1_1FilePath" kindref="compound">io::FilePath</ref> &amp;</type>
           <declname>path</declname>
         </param>
         <param>
@@ -14173,10 +12025,10 @@
         </inbodydescription>
         <location file="libs/core/src/core/texttemplate.cc" line="521" column="6" bodyfile="libs/core/src/core/texttemplate.cc" bodystart="522" bodyend="549"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1core_1a5b0d68a17cc18de11a1d0be221aef20f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeu_1_1core_1a91b7a61a62561b5de147f6b8ceae30ff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::shared_ptr&lt; <ref refid="structeu_1_1core_1_1TemplateNodeString" kindref="compound">TemplateNodeString</ref> &gt;</type>
         <definition>std::shared_ptr&lt;TemplateNodeString&gt; eu::core::parse_text</definition>
-        <argsstring>(TokenReader *reader, TemplateErrorList *, const vfs::FilePath &amp;, vfs::FileSystem *)</argsstring>
+        <argsstring>(TokenReader *reader, TemplateErrorList *, const io::FilePath &amp;, io::FileSystem *)</argsstring>
         <name>parse_text</name>
         <param>
           <type><ref refid="structeu_1_1core_1_1TokenReader" kindref="compound">TokenReader</ref> *</type>
@@ -14186,10 +12038,10 @@
           <type><ref refid="structeu_1_1core_1_1TemplateErrorList" kindref="compound">TemplateErrorList</ref> *</type>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1vfs_1_1FilePath" kindref="compound">vfs::FilePath</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1io_1_1FilePath" kindref="compound">io::FilePath</ref> &amp;</type>
         </param>
         <param>
-          <type><ref refid="structeu_1_1core_1_1vfs_1_1FileSystem" kindref="compound">vfs::FileSystem</ref> *</type>
+          <type><ref refid="structeu_1_1io_1_1FileSystem" kindref="compound">io::FileSystem</ref> *</type>
         </param>
         <briefdescription>
         </briefdescription>
@@ -14199,10 +12051,10 @@
         </inbodydescription>
         <location file="libs/core/src/core/texttemplate.cc" line="555" column="17" bodyfile="libs/core/src/core/texttemplate.cc" bodystart="556" bodyend="570"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1core_1ad6b1b22a53d6406c60287740c78bfa33" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeu_1_1core_1a1f2238b0379c3f6797b53693ac655065" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::shared_ptr&lt; <ref refid="structeu_1_1core_1_1TemplateNodeEval" kindref="compound">TemplateNodeEval</ref> &gt;</type>
         <definition>std::shared_ptr&lt;TemplateNodeEval&gt; eu::core::parse_eval</definition>
-        <argsstring>(TokenReader *reader, TemplateErrorList *errors, const vfs::FilePath &amp;file, vfs::FileSystem *)</argsstring>
+        <argsstring>(TokenReader *reader, TemplateErrorList *errors, const io::FilePath &amp;file, io::FileSystem *)</argsstring>
         <name>parse_eval</name>
         <param>
           <type><ref refid="structeu_1_1core_1_1TokenReader" kindref="compound">TokenReader</ref> *</type>
@@ -14213,11 +12065,11 @@
           <declname>errors</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1vfs_1_1FilePath" kindref="compound">vfs::FilePath</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1io_1_1FilePath" kindref="compound">io::FilePath</ref> &amp;</type>
           <declname>file</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1core_1_1vfs_1_1FileSystem" kindref="compound">vfs::FileSystem</ref> *</type>
+          <type><ref refid="structeu_1_1io_1_1FileSystem" kindref="compound">io::FileSystem</ref> *</type>
         </param>
         <briefdescription>
         </briefdescription>
@@ -14227,10 +12079,10 @@
         </inbodydescription>
         <location file="libs/core/src/core/texttemplate.cc" line="573" column="17" bodyfile="libs/core/src/core/texttemplate.cc" bodystart="574" bodyend="599"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1core_1ae20098672be6f385cb66f616a46d95cf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeu_1_1core_1a88a4ad4c88bfe9da2a28f2b898767ffa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::shared_ptr&lt; <ref refid="structeu_1_1core_1_1TemplateNodeSet" kindref="compound">TemplateNodeSet</ref> &gt;</type>
         <definition>std::shared_ptr&lt;TemplateNodeSet&gt; eu::core::parse_set</definition>
-        <argsstring>(TokenReader *reader, TemplateErrorList *errors, const vfs::FilePath &amp;file, vfs::FileSystem *)</argsstring>
+        <argsstring>(TokenReader *reader, TemplateErrorList *errors, const io::FilePath &amp;file, io::FileSystem *)</argsstring>
         <name>parse_set</name>
         <param>
           <type><ref refid="structeu_1_1core_1_1TokenReader" kindref="compound">TokenReader</ref> *</type>
@@ -14241,11 +12093,11 @@
           <declname>errors</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1vfs_1_1FilePath" kindref="compound">vfs::FilePath</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1io_1_1FilePath" kindref="compound">io::FilePath</ref> &amp;</type>
           <declname>file</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1core_1_1vfs_1_1FileSystem" kindref="compound">vfs::FileSystem</ref> *</type>
+          <type><ref refid="structeu_1_1io_1_1FileSystem" kindref="compound">io::FileSystem</ref> *</type>
         </param>
         <briefdescription>
         </briefdescription>
@@ -14255,10 +12107,10 @@
         </inbodydescription>
         <location file="libs/core/src/core/texttemplate.cc" line="602" column="17" bodyfile="libs/core/src/core/texttemplate.cc" bodystart="603" bodyend="643"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1core_1ac057a57944dd806ac7b4aaac2ec24afa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeu_1_1core_1a79a470a9e68497199311cf079a408665" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::shared_ptr&lt; <ref refid="structeu_1_1core_1_1TemplateNodeIfdef" kindref="compound">TemplateNodeIfdef</ref> &gt;</type>
         <definition>std::shared_ptr&lt;TemplateNodeIfdef&gt; eu::core::parse_ifdef</definition>
-        <argsstring>(TokenReader *reader, TemplateErrorList *errors, const vfs::FilePath &amp;file, vfs::FileSystem *fs)</argsstring>
+        <argsstring>(TokenReader *reader, TemplateErrorList *errors, const io::FilePath &amp;file, io::FileSystem *fs)</argsstring>
         <name>parse_ifdef</name>
         <param>
           <type><ref refid="structeu_1_1core_1_1TokenReader" kindref="compound">TokenReader</ref> *</type>
@@ -14269,11 +12121,11 @@
           <declname>errors</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1vfs_1_1FilePath" kindref="compound">vfs::FilePath</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1io_1_1FilePath" kindref="compound">io::FilePath</ref> &amp;</type>
           <declname>file</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1core_1_1vfs_1_1FileSystem" kindref="compound">vfs::FileSystem</ref> *</type>
+          <type><ref refid="structeu_1_1io_1_1FileSystem" kindref="compound">io::FileSystem</ref> *</type>
           <declname>fs</declname>
         </param>
         <briefdescription>
@@ -14284,10 +12136,10 @@
         </inbodydescription>
         <location file="libs/core/src/core/texttemplate.cc" line="646" column="17" bodyfile="libs/core/src/core/texttemplate.cc" bodystart="647" bodyend="674"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1core_1a9a2338c6c70fadf99cd2879dc78c804c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeu_1_1core_1a7b91b20ac3546e2d385740b6325c04f6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::shared_ptr&lt; <ref refid="structeu_1_1core_1_1TemplateNodeList" kindref="compound">TemplateNodeList</ref> &gt;</type>
         <definition>std::shared_ptr&lt;TemplateNodeList&gt; eu::core::parse_include</definition>
-        <argsstring>(TokenReader *reader, TemplateErrorList *errors, const vfs::FilePath &amp;file, vfs::FileSystem *fs)</argsstring>
+        <argsstring>(TokenReader *reader, TemplateErrorList *errors, const io::FilePath &amp;file, io::FileSystem *fs)</argsstring>
         <name>parse_include</name>
         <param>
           <type><ref refid="structeu_1_1core_1_1TokenReader" kindref="compound">TokenReader</ref> *</type>
@@ -14298,11 +12150,11 @@
           <declname>errors</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1vfs_1_1FilePath" kindref="compound">vfs::FilePath</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1io_1_1FilePath" kindref="compound">io::FilePath</ref> &amp;</type>
           <declname>file</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1core_1_1vfs_1_1FileSystem" kindref="compound">vfs::FileSystem</ref> *</type>
+          <type><ref refid="structeu_1_1io_1_1FileSystem" kindref="compound">io::FileSystem</ref> *</type>
           <declname>fs</declname>
         </param>
         <briefdescription>
@@ -15125,6 +12977,27 @@
         <inbodydescription>
         </inbodydescription>
         <location file="libs/core/src/core/vec4.cc" line="80" column="17" bodyfile="libs/core/src/core/vec4.cc" bodystart="80" bodyend="83" declfile="libs/core/src/core/vec4.h" declline="44" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1core_1af9e869fb6dfd0dc31f0e7babc99dbcc9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::add_default_shaders</definition>
+        <argsstring>(io::FileSystem *fs, const io::DirPath &amp;base)</argsstring>
+        <name>add_default_shaders</name>
+        <param>
+          <type><ref refid="structeu_1_1io_1_1FileSystem" kindref="compound">io::FileSystem</ref> *</type>
+          <declname>fs</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1io_1_1DirPath" kindref="compound">io::DirPath</ref> &amp;</type>
+          <declname>base</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vfs_defaultshaders.cc" line="10" column="5" bodyfile="libs/core/src/core/vfs_defaultshaders.cc" bodystart="10" bodyend="19" declfile="libs/core/src/core/vfs_defaultshaders.h" declline="9" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1core_1a272cad22bb040d7238be408d0fc3814a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1core_1_1Ray3f" kindref="compound">core::Ray3f</ref></type>

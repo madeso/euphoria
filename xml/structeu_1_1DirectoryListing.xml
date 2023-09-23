@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1DirectoryListing" kind="struct" language="C++" prot="public">
+    <compoundname>eu::DirectoryListing</compoundname>
+    <includes refid="os_8h" local="no">os.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1DirectoryListing_1a2310f75ef478077143c17fc3bfd8207b" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>std::vector&lt;std::string&gt; eu::DirectoryListing::files</definition>
+        <argsstring></argsstring>
+        <name>files</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/os.h" line="15" column="21" bodyfile="libs/base/src/base/os.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1DirectoryListing_1a662c99d5e9b64218e3acde273a2a9a34" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>std::vector&lt;std::string&gt; eu::DirectoryListing::directories</definition>
+        <argsstring></argsstring>
+        <name>directories</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/os.h" line="16" column="21" bodyfile="libs/base/src/base/os.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1DirectoryListing_1a21bac4f94e9f2c565e710e7a1132fc82" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool eu::DirectoryListing::valid</definition>
+        <argsstring></argsstring>
+        <name>valid</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/os.h" line="17" column="14" bodyfile="libs/base/src/base/os.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/base/src/base/os.h" line="13" column="5" bodyfile="libs/base/src/base/os.h" bodystart="14" bodyend="18"/>
+    <listofallmembers>
+      <member refid="structeu_1_1DirectoryListing_1a662c99d5e9b64218e3acde273a2a9a34" prot="public" virt="non-virtual"><scope>eu::DirectoryListing</scope><name>directories</name></member>
+      <member refid="structeu_1_1DirectoryListing_1a2310f75ef478077143c17fc3bfd8207b" prot="public" virt="non-virtual"><scope>eu::DirectoryListing</scope><name>files</name></member>
+      <member refid="structeu_1_1DirectoryListing_1a21bac4f94e9f2c565e710e7a1132fc82" prot="public" virt="non-virtual"><scope>eu::DirectoryListing</scope><name>valid</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

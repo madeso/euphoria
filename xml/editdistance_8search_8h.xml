@@ -4,20 +4,16 @@
     <compoundname>editdistance.search.h</compoundname>
     <includes local="no">queue</includes>
     <includes local="no">algorithm</includes>
-    <includes refid="editdistance_8h" local="yes">core/editdistance.h</includes>
-    <includedby refid="editdistance_8search_8cc" local="yes">libs/core/src/core/editdistance.search.cc</includedby>
+    <includes refid="editdistance_8h" local="yes">base/editdistance.h</includes>
+    <includedby refid="editdistance_8search_8cc" local="yes">libs/base/src/base/editdistance.search.cc</includedby>
     <includedby refid="enumtostring_8h" local="yes">libs/core/src/core/enumtostring.h</includedby>
-    <includedby refid="proto_8cc" local="yes">libs/core/src/core/proto.cc</includedby>
+    <includedby refid="json_8cc" local="yes">libs/io/src/io/json.cc</includedby>
     <incdepgraph>
-      <node id="4">
-        <label>core/editdistance.h</label>
-        <link refid="editdistance_8h"/>
-      </node>
       <node id="2">
         <label>queue</label>
       </node>
       <node id="1">
-        <label>libs/core/src/core/editdistance.search.h</label>
+        <label>libs/base/src/base/editdistance.search.h</label>
         <link refid="editdistance_8search_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
@@ -25,6 +21,10 @@
         </childnode>
         <childnode refid="4" relation="include">
         </childnode>
+      </node>
+      <node id="4">
+        <label>base/editdistance.h</label>
+        <link refid="editdistance_8h"/>
       </node>
       <node id="3">
         <label>algorithm</label>
@@ -167,20 +167,6 @@
         <label>libs/core/src/core/hashgen.identicon.cc</label>
         <link refid="hashgen_8identicon_8cc"/>
       </node>
-      <node id="1">
-        <label>libs/core/src/core/editdistance.search.h</label>
-        <link refid="editdistance_8search_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="147" relation="include">
-        </childnode>
-      </node>
-      <node id="2">
-        <label>libs/core/src/core/editdistance.search.cc</label>
-        <link refid="editdistance_8search_8cc"/>
-      </node>
       <node id="75">
         <label>libs/render/src/render/actor.cc</label>
         <link refid="actor_8cc"/>
@@ -195,7 +181,7 @@
       </node>
       <node id="70">
         <label>libs/core/src/core/mesh.h</label>
-        <link refid="mesh_8h"/>
+        <link refid="core_2src_2core_2mesh_8h"/>
         <childnode refid="71" relation="include">
         </childnode>
         <childnode refid="72" relation="include">
@@ -246,10 +232,6 @@
       <node id="68">
         <label>libs/core/src/core/lines.cc</label>
         <link refid="lines_8cc"/>
-      </node>
-      <node id="147">
-        <label>libs/core/src/core/proto.cc</label>
-        <link refid="proto_8cc"/>
       </node>
       <node id="24">
         <label>libs/gui/src/gui/panelwidget.h</label>
@@ -383,7 +365,7 @@
       </node>
       <node id="72">
         <label>libs/core/src/core/mesh.cc</label>
-        <link refid="mesh_8cc"/>
+        <link refid="core_2src_2core_2mesh_8cc"/>
       </node>
       <node id="58">
         <label>libs/render/src/render/spriterender.h</label>
@@ -425,7 +407,7 @@
       </node>
       <node id="43">
         <label>libs/render/src/render/font.cc</label>
-        <link refid="font_8cc"/>
+        <link refid="render_2src_2render_2font_8cc"/>
       </node>
       <node id="52">
         <label>libs/core/src/core/raytracer.cc</label>
@@ -439,7 +421,7 @@
       </node>
       <node id="107">
         <label>libs/render/src/render/materialshader.h</label>
-        <link refid="materialshader_8h"/>
+        <link refid="render_2src_2render_2materialshader_8h"/>
         <childnode refid="69" relation="include">
         </childnode>
         <childnode refid="55" relation="include">
@@ -492,6 +474,10 @@
       <node id="6">
         <label>libs/core/src/core/argparse.cc</label>
         <link refid="argparse_8cc"/>
+      </node>
+      <node id="147">
+        <label>libs/io/src/io/json.cc</label>
+        <link refid="json_8cc"/>
       </node>
       <node id="115">
         <label>libs/tests/src/tests/approx_equal.h</label>
@@ -581,7 +567,7 @@
       </node>
       <node id="103">
         <label>libs/render/src/render/world.h</label>
-        <link refid="world_8h"/>
+        <link refid="render_2src_2render_2world_8h"/>
         <childnode refid="104" relation="include">
         </childnode>
       </node>
@@ -609,7 +595,7 @@
       </node>
       <node id="47">
         <label>libs/render/src/render/font.h</label>
-        <link refid="font_8h"/>
+        <link refid="render_2src_2render_2font_8h"/>
         <childnode refid="20" relation="include">
         </childnode>
         <childnode refid="48" relation="include">
@@ -703,6 +689,10 @@
         <childnode refid="52" relation="include">
         </childnode>
       </node>
+      <node id="2">
+        <label>libs/base/src/base/editdistance.search.cc</label>
+        <link refid="editdistance_8search_8cc"/>
+      </node>
       <node id="139">
         <label>libs/gui/src/gui/layout.h</label>
         <link refid="layout_8h"/>
@@ -739,6 +729,16 @@
         <childnode refid="87" relation="include">
         </childnode>
         <childnode refid="89" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>libs/base/src/base/editdistance.search.h</label>
+        <link refid="editdistance_8search_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="147" relation="include">
         </childnode>
       </node>
       <node id="39">
@@ -797,7 +797,7 @@
       </node>
       <node id="104">
         <label>libs/render/src/render/world.cc</label>
-        <link refid="world_8cc"/>
+        <link refid="render_2src_2render_2world_8cc"/>
       </node>
       <node id="71">
         <label>libs/core/src/core/collisionmesh.cc</label>
@@ -1153,18 +1153,17 @@
       </node>
       <node id="102">
         <label>libs/render/src/render/materialshader.cc</label>
-        <link refid="materialshader_8cc"/>
+        <link refid="render_2src_2render_2materialshader_8cc"/>
       </node>
     </invincdepgraph>
-    <innerclass refid="structeu_1_1core_1_1search_1_1Match" prot="public">eu::core::search::Match</innerclass>
-    <innerclass refid="structeu_1_1core_1_1search_1_1Searcher" prot="public">eu::core::search::Searcher</innerclass>
+    <innerclass refid="structeu_1_1search_1_1Match" prot="public">eu::search::Match</innerclass>
+    <innerclass refid="structeu_1_1search_1_1Searcher" prot="public">eu::search::Searcher</innerclass>
     <innernamespace refid="namespaceeu">eu</innernamespace>
-    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
-    <innernamespace refid="namespaceeu_1_1core_1_1search">eu::core::search</innernamespace>
+    <innernamespace refid="namespaceeu_1_1search">eu::search</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/editdistance.search.h"/>
+    <location file="libs/base/src/base/editdistance.search.h"/>
   </compounddef>
 </doxygen>

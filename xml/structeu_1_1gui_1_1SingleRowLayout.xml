@@ -35,7 +35,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/gui/src/gui/layout.h" line="81" column="9" bodyfile="libs/gui/src/gui/layout.cc" bodystart="191" bodyend="194"/>
+        <location file="libs/gui/src/gui/layout.h" line="81" column="9" bodyfile="libs/gui/src/gui/layout.cc" bodystart="162" bodyend="165"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1gui_1_1SingleRowLayout_1a465b375c21d56d0b0b1d744d3dcfe535" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -132,7 +132,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/gui/src/gui/layout.h" line="91" column="9" bodyfile="libs/gui/src/gui/layout.cc" bodystart="199" bodyend="222"/>
+        <location file="libs/gui/src/gui/layout.h" line="91" column="9" bodyfile="libs/gui/src/gui/layout.cc" bodystart="170" bodyend="192"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1gui_1_1SingleRowLayout_1a17fb0102127e46d79cd814bd5df38b98" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -154,7 +154,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/gui/src/gui/layout.h" line="97" column="9" bodyfile="libs/gui/src/gui/layout.cc" bodystart="227" bodyend="249"/>
+        <location file="libs/gui/src/gui/layout.h" line="97" column="9" bodyfile="libs/gui/src/gui/layout.cc" bodystart="197" bodyend="218"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

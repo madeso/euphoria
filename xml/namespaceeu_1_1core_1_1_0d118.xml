@@ -6,6 +6,6 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/intersection.cc" line="12" column="5"/>
+    <location file="libs/core/src/core/image.cc" line="183" column="5"/>
   </compounddef>
 </doxygen>

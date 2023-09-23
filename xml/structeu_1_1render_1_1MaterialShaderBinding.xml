@@ -2,7 +2,7 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeu_1_1render_1_1MaterialShaderBinding" kind="struct" language="C++" prot="public">
     <compoundname>eu::render::MaterialShaderBinding</compoundname>
-    <includes refid="materialshader_8h" local="no">materialshader.h</includes>
+    <includes refid="render_2src_2render_2materialshader_8h" local="no">materialshader.h</includes>
       <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structeu_1_1render_1_1MaterialShaderBinding_1a3a72f7a9fca0526f26040a5476bfb504" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1render_1_1ShaderUniform" kindref="compound">ShaderUniform</ref></type>

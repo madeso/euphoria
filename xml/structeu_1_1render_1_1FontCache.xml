@@ -20,13 +20,13 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
-      <memberdef kind="function" id="structeu_1_1render_1_1FontCache_1adc8dedd669e3aee15ab2c296c2206e35" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1render_1_1FontCache_1a3caca7f55b7a6e1d6581390d362bff0a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>eu::render::FontCache::FontCache</definition>
-        <argsstring>(core::vfs::FileSystem *fs, TextureCache *cache)</argsstring>
+        <argsstring>(io::FileSystem *fs, TextureCache *cache)</argsstring>
         <name>FontCache</name>
         <param>
-          <type><ref refid="structeu_1_1core_1_1vfs_1_1FileSystem" kindref="compound">core::vfs::FileSystem</ref> *</type>
+          <type><ref refid="structeu_1_1io_1_1FileSystem" kindref="compound">io::FileSystem</ref> *</type>
           <declname>fs</declname>
         </param>
         <param>
@@ -118,13 +118,13 @@
         </inbodydescription>
         <location file="libs/render/src/render/fontcache.h" line="29" column="14"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1render_1_1FontCache_1a3b4b1d5b76df2c52f3f8135b70a7163c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1render_1_1FontCache_1a4df942fa5ab49ba5989342ab0f46d702" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>std::shared_ptr&lt; <ref refid="structeu_1_1render_1_1DrawableFont" kindref="compound">DrawableFont</ref> &gt;</type>
         <definition>std::shared_ptr&lt; DrawableFont &gt; eu::render::FontCache::get_font</definition>
-        <argsstring>(const core::vfs::FilePath &amp;path) const</argsstring>
+        <argsstring>(const io::FilePath &amp;path) const</argsstring>
         <name>get_font</name>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1vfs_1_1FilePath" kindref="compound">core::vfs::FilePath</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1io_1_1FilePath" kindref="compound">io::FilePath</ref> &amp;</type>
           <declname>path</declname>
         </param>
         <briefdescription>
@@ -142,10 +142,10 @@
     </detaileddescription>
     <location file="libs/render/src/render/fontcache.h" line="18" column="5" bodyfile="libs/render/src/render/fontcache.h" bodystart="19" bodyend="33"/>
     <listofallmembers>
-      <member refid="structeu_1_1render_1_1FontCache_1adc8dedd669e3aee15ab2c296c2206e35" prot="public" virt="non-virtual"><scope>eu::render::FontCache</scope><name>FontCache</name></member>
+      <member refid="structeu_1_1render_1_1FontCache_1a3caca7f55b7a6e1d6581390d362bff0a" prot="public" virt="non-virtual"><scope>eu::render::FontCache</scope><name>FontCache</name></member>
       <member refid="structeu_1_1render_1_1FontCache_1ab854fe5cacc11edd2f07dd567339a349" prot="public" virt="non-virtual"><scope>eu::render::FontCache</scope><name>FontCache</name></member>
       <member refid="structeu_1_1render_1_1FontCache_1aa95c82c7350b00a0b9523abff3ede388" prot="public" virt="non-virtual"><scope>eu::render::FontCache</scope><name>FontCache</name></member>
-      <member refid="structeu_1_1render_1_1FontCache_1a3b4b1d5b76df2c52f3f8135b70a7163c" prot="public" virt="non-virtual"><scope>eu::render::FontCache</scope><name>get_font</name></member>
+      <member refid="structeu_1_1render_1_1FontCache_1a4df942fa5ab49ba5989342ab0f46d702" prot="public" virt="non-virtual"><scope>eu::render::FontCache</scope><name>get_font</name></member>
       <member refid="structeu_1_1render_1_1FontCache_1a7090e1dd7006acc4c243add3e7973cec" prot="public" virt="non-virtual"><scope>eu::render::FontCache</scope><name>operator=</name></member>
       <member refid="structeu_1_1render_1_1FontCache_1a9948c2e8d6e8dff931ce377101c99e4f" prot="public" virt="non-virtual"><scope>eu::render::FontCache</scope><name>operator=</name></member>
       <member refid="structeu_1_1render_1_1FontCache_1ad2ba3d1262bf08f81d141f466401c62b" prot="public" virt="non-virtual"><scope>eu::render::FontCache</scope><name>pimp</name></member>

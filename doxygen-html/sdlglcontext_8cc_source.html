@@ -56,7 +56,7 @@
 <div class="contents">
 <a href="sdlglcontext_8cc.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="sdlglcontext_8h.html">window/sdlglcontext.h</a>&quot;</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="log_8h.html">log/log.h</a>&quot;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="log_2src_2log_2log_8h.html">log/log.h</a>&quot;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="sdlwindow_8h.html">window/sdlwindow.h</a>&quot;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
@@ -70,7 +70,7 @@
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    {</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <span class="keywordflow">if</span>(<a class="code" href="structeu_1_1window_1_1SdlOpenglContext.html#a6b48318c9c28080bf76f850a2665d5ed">context</a> == <span class="keyword">nullptr</span>)</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        {</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;            <a class="code" href="log_8h.html#ad4a9117ce894e3319e903142347a0f63">LOG_ERROR</a>(<span class="stringliteral">&quot;Failed to create GL context {0}&quot;</span>, SDL_GetError());</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;            <a class="code" href="log_2src_2log_2log_8h.html#ad4a9117ce894e3319e903142347a0f63">LOG_ERROR</a>(<span class="stringliteral">&quot;Failed to create GL context {0}&quot;</span>, SDL_GetError());</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;            <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        }</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    }</div>
@@ -80,9 +80,9 @@
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        SDL_GL_DeleteContext(<a class="code" href="structeu_1_1window_1_1SdlOpenglContext.html#a6b48318c9c28080bf76f850a2665d5ed">context</a>);</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    }</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;}</div>
-<div class="ttc" id="alog_8h_html"><div class="ttname"><a href="log_8h.html">log.h</a></div></div>
-<div class="ttc" id="alog_8h_html_ad4a9117ce894e3319e903142347a0f63"><div class="ttname"><a href="log_8h.html#ad4a9117ce894e3319e903142347a0f63">LOG_ERROR</a></div><div class="ttdeci">#define LOG_ERROR(...)</div><div class="ttdef"><b>Definition:</b> <a href="log_8h_source.html#l00017">log.h:17</a></div></div>
-<div class="ttc" id="anamespaceeu_1_1window_html"><div class="ttname"><a href="namespaceeu_1_1window.html">eu::window</a></div><div class="ttdef"><b>Definition:</b> <a href="app_8cc_source.html#l00018">app.cc:19</a></div></div>
+<div class="ttc" id="alog_2src_2log_2log_8h_html"><div class="ttname"><a href="log_2src_2log_2log_8h.html">log.h</a></div></div>
+<div class="ttc" id="alog_2src_2log_2log_8h_html_ad4a9117ce894e3319e903142347a0f63"><div class="ttname"><a href="log_2src_2log_2log_8h.html#ad4a9117ce894e3319e903142347a0f63">LOG_ERROR</a></div><div class="ttdeci">#define LOG_ERROR(...)</div><div class="ttdef"><b>Definition:</b> <a href="log_2src_2log_2log_8h_source.html#l00009">log.h:9</a></div></div>
+<div class="ttc" id="anamespaceeu_1_1window_html"><div class="ttname"><a href="namespaceeu_1_1window.html">eu::window</a></div><div class="ttdef"><b>Definition:</b> <a href="app_8cc_source.html#l00020">app.cc:21</a></div></div>
 <div class="ttc" id="asdlglcontext_8h_html"><div class="ttname"><a href="sdlglcontext_8h.html">sdlglcontext.h</a></div></div>
 <div class="ttc" id="asdlwindow_8h_html"><div class="ttname"><a href="sdlwindow_8h.html">sdlwindow.h</a></div></div>
 <div class="ttc" id="astructeu_1_1window_1_1SdlOpenglContext_html_a6b48318c9c28080bf76f850a2665d5ed"><div class="ttname"><a href="structeu_1_1window_1_1SdlOpenglContext.html#a6b48318c9c28080bf76f850a2665d5ed">eu::window::SdlOpenglContext::context</a></div><div class="ttdeci">void * context</div><div class="ttdef"><b>Definition:</b> <a href="sdlglcontext_8h_source.html#l00019">sdlglcontext.h:19</a></div></div>

@@ -7,7 +7,7 @@
     <includedby refid="image__draw_8cc" local="yes">libs/core/src/core/image_draw.cc</includedby>
     <includedby refid="loadedfont_8cc" local="yes">libs/core/src/core/loadedfont.cc</includedby>
     <includedby refid="utf8_8cc" local="yes">libs/core/src/core/utf8.cc</includedby>
-    <includedby refid="font_8cc" local="yes">libs/render/src/render/font.cc</includedby>
+    <includedby refid="render_2src_2render_2font_8cc" local="yes">libs/render/src/render/font.cc</includedby>
     <incdepgraph>
       <node id="4">
         <label>string</label>
@@ -46,7 +46,7 @@
       </node>
       <node id="5">
         <label>libs/render/src/render/font.cc</label>
-        <link refid="font_8cc"/>
+        <link refid="render_2src_2render_2font_8cc"/>
       </node>
       <node id="2">
         <label>libs/core/src/core/image_draw.cc</label>

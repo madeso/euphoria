@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="dir_301250345f65580add71507bd6107413" kind="dir">
+    <compoundname>libs/io/src/io</compoundname>
+    <innerfile refid="io_8cc">io.cc</innerfile>
+    <innerfile refid="io_8h">io.h</innerfile>
+    <innerfile refid="json_8cc">json.cc</innerfile>
+    <innerfile refid="json_8h">json.h</innerfile>
+    <innerfile refid="vfs_8cc">vfs.cc</innerfile>
+    <innerfile refid="vfs_8h">vfs.h</innerfile>
+    <innerfile refid="vfs__path_8cc">vfs_path.cc</innerfile>
+    <innerfile refid="vfs__path_8h">vfs_path.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/io/src/io/"/>
+  </compounddef>
+</doxygen>

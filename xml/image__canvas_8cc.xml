@@ -8,9 +8,9 @@
     <includes refid="numeric_8h" local="yes">core/numeric.h</includes>
     <includes refid="mat2_8h" local="yes">core/mat2.h</includes>
     <includes refid="image__draw_8h" local="yes">core/image_draw.h</includes>
-    <includes refid="stringutils_8h" local="yes">core/stringutils.h</includes>
-    <includes refid="stringmerger_8h" local="yes">core/stringmerger.h</includes>
-    <includes refid="log_8h" local="yes">log/log.h</includes>
+    <includes refid="stringutils_8h" local="yes">base/stringutils.h</includes>
+    <includes refid="stringmerger_8h" local="yes">base/stringmerger.h</includes>
+    <includes refid="log_2src_2log_2log_8h" local="yes">log/log.h</includes>
     <incdepgraph>
       <node id="1">
         <label>libs/core/src/core/image_canvas.cc</label>
@@ -34,12 +34,14 @@
         <childnode refid="47" relation="include">
         </childnode>
       </node>
-      <node id="24">
-        <label>core/editdistance.h</label>
-        <link refid="editdistance_8h"/>
-      </node>
       <node id="22">
         <label>queue</label>
+      </node>
+      <node id="20">
+        <label>base/stringutils.h</label>
+        <link refid="stringutils_8h"/>
+        <childnode refid="15" relation="include">
+        </childnode>
       </node>
       <node id="2">
         <label>core/image_canvas.h</label>
@@ -77,31 +79,19 @@
         <childnode refid="13" relation="include">
         </childnode>
       </node>
-      <node id="21">
-        <label>core/editdistance.search.h</label>
-        <link refid="editdistance_8search_8h"/>
-        <childnode refid="22" relation="include">
-        </childnode>
-        <childnode refid="23" relation="include">
-        </childnode>
-        <childnode refid="24" relation="include">
-        </childnode>
-      </node>
       <node id="6">
         <label>cstdint</label>
       </node>
-      <node id="4">
-        <label>core/cint.h</label>
-        <link refid="cint_8h"/>
-        <childnode refid="5" relation="include">
-        </childnode>
-        <childnode refid="7" relation="include">
+      <node id="5">
+        <label>base/ints.h</label>
+        <link refid="ints_8h"/>
+        <childnode refid="6" relation="include">
         </childnode>
       </node>
-      <node id="20">
-        <label>core/stringutils.h</label>
-        <link refid="stringutils_8h"/>
-        <childnode refid="15" relation="include">
+      <node id="39">
+        <label>base/memorychunk.h</label>
+        <link refid="memorychunk_8h"/>
+        <childnode refid="38" relation="include">
         </childnode>
       </node>
       <node id="35">
@@ -110,12 +100,6 @@
         <childnode refid="30" relation="include">
         </childnode>
         <childnode refid="9" relation="include">
-        </childnode>
-      </node>
-      <node id="45">
-        <label>core/stringmerger.h</label>
-        <link refid="stringmerger_8h"/>
-        <childnode refid="46" relation="include">
         </childnode>
       </node>
       <node id="3">
@@ -130,12 +114,6 @@
         <childnode refid="12" relation="include">
         </childnode>
         <childnode refid="13" relation="include">
-        </childnode>
-      </node>
-      <node id="27">
-        <label>core/result.h</label>
-        <link refid="result_8h"/>
-        <childnode refid="28" relation="include">
         </childnode>
       </node>
       <node id="34">
@@ -158,12 +136,6 @@
       <node id="15">
         <label>map</label>
       </node>
-      <node id="50">
-        <label>undef_windows/undef_windows.h</label>
-      </node>
-      <node id="49">
-        <label>spdlog/fmt/ostr.h</label>
-      </node>
       <node id="32">
         <label>core/vec.base.h</label>
         <link refid="vec_8base_8h"/>
@@ -175,9 +147,6 @@
         </childnode>
         <childnode refid="19" relation="include">
         </childnode>
-      </node>
-      <node id="48">
-        <label>spdlog/spdlog.h</label>
       </node>
       <node id="46">
         <label>string_view</label>
@@ -209,6 +178,12 @@
       <node id="31">
         <label>tuple</label>
       </node>
+      <node id="27">
+        <label>base/result.h</label>
+        <link refid="result_8h"/>
+        <childnode refid="28" relation="include">
+        </childnode>
+      </node>
       <node id="28">
         <label>optional</label>
       </node>
@@ -223,6 +198,16 @@
       </node>
       <node id="19">
         <label>vector</label>
+      </node>
+      <node id="21">
+        <label>base/editdistance.search.h</label>
+        <link refid="editdistance_8search_8h"/>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
       </node>
       <node id="26">
         <label>core/custom_parser.h</label>
@@ -246,25 +231,7 @@
       </node>
       <node id="47">
         <label>log/log.h</label>
-        <link refid="log_8h"/>
-        <childnode refid="48" relation="include">
-        </childnode>
-        <childnode refid="49" relation="include">
-        </childnode>
-        <childnode refid="50" relation="include">
-        </childnode>
-      </node>
-      <node id="39">
-        <label>core/memorychunk.h</label>
-        <link refid="memorychunk_8h"/>
-        <childnode refid="38" relation="include">
-        </childnode>
-      </node>
-      <node id="5">
-        <label>core/ints.h</label>
-        <link refid="ints_8h"/>
-        <childnode refid="6" relation="include">
-        </childnode>
+        <link refid="log_2src_2log_2log_8h"/>
       </node>
       <node id="10">
         <label>iostream</label>
@@ -328,6 +295,10 @@
         <childnode refid="42" relation="include">
         </childnode>
       </node>
+      <node id="24">
+        <label>base/editdistance.h</label>
+        <link refid="editdistance_8h"/>
+      </node>
       <node id="9">
         <label>core/angle.h</label>
         <link refid="angle_8h"/>
@@ -336,6 +307,14 @@
         <childnode refid="11" relation="include">
         </childnode>
         <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>base/cint.h</label>
+        <link refid="cint_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
         </childnode>
       </node>
       <node id="13">
@@ -359,6 +338,12 @@
       </node>
       <node id="23">
         <label>algorithm</label>
+      </node>
+      <node id="45">
+        <label>base/stringmerger.h</label>
+        <link refid="stringmerger_8h"/>
+        <childnode refid="46" relation="include">
+        </childnode>
       </node>
       <node id="38">
         <label>memory</label>

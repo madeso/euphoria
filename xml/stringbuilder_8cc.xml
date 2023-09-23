@@ -3,14 +3,14 @@
   <compounddef id="stringbuilder_8cc" kind="file" language="C++">
     <compoundname>stringbuilder.cc</compoundname>
     <includes refid="assert_8h" local="yes">assert/assert.h</includes>
-    <includes refid="stringbuilder_8h" local="yes">core/stringbuilder.h</includes>
+    <includes refid="stringbuilder_8h" local="yes">base/stringbuilder.h</includes>
     <incdepgraph>
-      <node id="5">
-        <label>core/stringbuilder.h</label>
-        <link refid="stringbuilder_8h"/>
-      </node>
       <node id="3">
         <label>string</label>
+      </node>
+      <node id="5">
+        <label>base/stringbuilder.h</label>
+        <link refid="stringbuilder_8h"/>
       </node>
       <node id="2">
         <label>assert/assert.h</label>
@@ -24,7 +24,7 @@
         <label>vector</label>
       </node>
       <node id="1">
-        <label>libs/core/src/core/stringbuilder.cc</label>
+        <label>libs/base/src/base/stringbuilder.cc</label>
         <link refid="stringbuilder_8cc"/>
         <childnode refid="2" relation="include">
         </childnode>
@@ -33,11 +33,10 @@
       </node>
     </incdepgraph>
     <innernamespace refid="namespaceeu">eu</innernamespace>
-    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/stringbuilder.cc"/>
+    <location file="libs/base/src/base/stringbuilder.cc"/>
   </compounddef>
 </doxygen>

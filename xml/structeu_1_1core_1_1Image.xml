@@ -328,7 +328,7 @@
         <location file="libs/core/src/core/image.h" line="118" column="16" bodyfile="libs/core/src/core/image.cc" bodystart="137" bodyend="157"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1Image_1af6c91ff1eff1fddf7cfcd08b9cdd9d43" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type>std::shared_ptr&lt; <ref refid="structeu_1_1core_1_1MemoryChunk" kindref="compound">MemoryChunk</ref> &gt;</type>
+        <type>std::shared_ptr&lt; <ref refid="structeu_1_1MemoryChunk" kindref="compound">MemoryChunk</ref> &gt;</type>
         <definition>std::shared_ptr&lt; MemoryChunk &gt; eu::core::Image::write</definition>
         <argsstring>(ImageWriteFormat format, int jpeg_quality=100) const</argsstring>
         <name>write</name>

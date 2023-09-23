@@ -3,8 +3,8 @@
   <compounddef id="defaultfiles_8cc" kind="file" language="C++">
     <compoundname>defaultfiles.cc</compoundname>
     <includes refid="defaultfiles_8h" local="yes">render/defaultfiles.h</includes>
-    <includes refid="vfs_8h" local="yes">core/vfs.h</includes>
-    <includes refid="vfs__path_8h" local="yes">core/vfs_path.h</includes>
+    <includes refid="vfs_8h" local="yes">io/vfs.h</includes>
+    <includes refid="vfs__path_8h" local="yes">io/vfs_path.h</includes>
     <incdepgraph>
       <node id="1">
         <label>libs/render/src/render/defaultfiles.cc</label>
@@ -16,6 +16,22 @@
         <childnode refid="8" relation="include">
         </childnode>
       </node>
+      <node id="5">
+        <label>base/memorychunk.h</label>
+        <link refid="memorychunk_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>io/vfs_path.h</label>
+        <link refid="vfs__path_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
       <node id="6">
         <label>map</label>
       </node>
@@ -25,14 +41,8 @@
       <node id="7">
         <label>optional</label>
       </node>
-      <node id="5">
-        <label>core/memorychunk.h</label>
-        <link refid="memorychunk_8h"/>
-        <childnode refid="3" relation="include">
-        </childnode>
-      </node>
       <node id="4">
-        <label>core/vfs.h</label>
+        <label>io/vfs.h</label>
         <link refid="vfs_8h"/>
         <childnode refid="5" relation="include">
         </childnode>
@@ -41,16 +51,6 @@
         <childnode refid="3" relation="include">
         </childnode>
         <childnode refid="7" relation="include">
-        </childnode>
-      </node>
-      <node id="8">
-        <label>core/vfs_path.h</label>
-        <link refid="vfs__path_8h"/>
-        <childnode refid="7" relation="include">
-        </childnode>
-        <childnode refid="9" relation="include">
-        </childnode>
-        <childnode refid="10" relation="include">
         </childnode>
       </node>
       <node id="10">

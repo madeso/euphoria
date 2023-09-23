@@ -555,10 +555,10 @@
         </inbodydescription>
         <location file="libs/render/src/render/compiledmesh.cc" line="216" column="9" bodyfile="libs/render/src/render/compiledmesh.cc" bodystart="216" bodyend="227"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1render_1adb56549f08f3a656c5a5a4bb2d465775" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeu_1_1render_1ae6237c2b3d74005bfd07372bec2b5588" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::shared_ptr&lt; <ref refid="structeu_1_1render_1_1CompiledMesh" kindref="compound">CompiledMesh</ref> &gt;</type>
         <definition>std::shared_ptr&lt; CompiledMesh &gt; eu::render::compile_mesh</definition>
-        <argsstring>(const core::Mesh &amp;mesh, MaterialShaderCache *shader_cache, TextureCache *texture_cache, const core::vfs::DirPath &amp;texture_folder, const std::string &amp;debug_name)</argsstring>
+        <argsstring>(const core::Mesh &amp;mesh, MaterialShaderCache *shader_cache, TextureCache *texture_cache, const io::DirPath &amp;texture_folder, const std::string &amp;debug_name)</argsstring>
         <name>compile_mesh</name>
         <param>
           <type>const <ref refid="structeu_1_1core_1_1Mesh" kindref="compound">core::Mesh</ref> &amp;</type>
@@ -573,7 +573,7 @@
           <declname>texture_cache</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1vfs_1_1DirPath" kindref="compound">core::vfs::DirPath</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1io_1_1DirPath" kindref="compound">io::DirPath</ref> &amp;</type>
           <declname>texture_folder</declname>
         </param>
         <param>
@@ -678,13 +678,13 @@
         </inbodydescription>
         <location file="libs/render/src/render/debuggl.cc" line="130" column="5" bodyfile="libs/render/src/render/debuggl.cc" bodystart="130" bodyend="149" declfile="libs/render/src/render/debuggl.h" declline="9" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1render_1a11c320057163b175260f9ebe72bf8c4b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeu_1_1render_1ad607fa709c2286c270bf3e079b59937b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void eu::render::setup_default_files</definition>
-        <argsstring>(std::shared_ptr&lt; core::vfs::ReadRootCatalog &gt; catalog)</argsstring>
+        <argsstring>(std::shared_ptr&lt; io::ReadRootCatalog &gt; catalog)</argsstring>
         <name>setup_default_files</name>
         <param>
-          <type>std::shared_ptr&lt; <ref refid="structeu_1_1core_1_1vfs_1_1ReadRootCatalog" kindref="compound">core::vfs::ReadRootCatalog</ref> &gt;</type>
+          <type>std::shared_ptr&lt; <ref refid="structeu_1_1io_1_1ReadRootCatalog" kindref="compound">io::ReadRootCatalog</ref> &gt;</type>
           <declname>catalog</declname>
         </param>
         <briefdescription>
@@ -695,17 +695,17 @@
         </inbodydescription>
         <location file="libs/render/src/render/defaultfiles.cc" line="9" column="5" bodyfile="libs/render/src/render/defaultfiles.cc" bodystart="9" bodyend="69" declfile="libs/render/src/render/defaultfiles.h" declline="17" declcolumn="9"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1render_1ae03906fd62a60e1d4cdb25f32787f212" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeu_1_1render_1a4915d4a25da7febfd790fef1f15c0149" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1core_1_1LoadedFont" kindref="compound">core::LoadedFont</ref></type>
         <definition>core::LoadedFont eu::render::get_characters_from_single_image</definition>
-        <argsstring>(core::vfs::FileSystem *fs, const font::SingleImage &amp;img)</argsstring>
+        <argsstring>(io::FileSystem *fs, const files::font::SingleImage &amp;img)</argsstring>
         <name>get_characters_from_single_image</name>
         <param>
-          <type><ref refid="structeu_1_1core_1_1vfs_1_1FileSystem" kindref="compound">core::vfs::FileSystem</ref> *</type>
+          <type><ref refid="structeu_1_1io_1_1FileSystem" kindref="compound">io::FileSystem</ref> *</type>
           <declname>fs</declname>
         </param>
         <param>
-          <type>const font::SingleImage &amp;</type>
+          <type>const <ref refid="structeu_1_1files_1_1font_1_1SingleImage" kindref="compound">files::font::SingleImage</ref> &amp;</type>
           <declname>img</declname>
         </param>
         <briefdescription>
@@ -714,7 +714,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.cc" line="50" column="5" bodyfile="libs/render/src/render/font.cc" bodystart="51" bodyend="74"/>
+        <location file="libs/render/src/render/font.cc" line="49" column="5" bodyfile="libs/render/src/render/font.cc" bodystart="50" bodyend="73"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1render_1a141036cb6bec8ed96ca587448a76c409" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::pair&lt; <ref refid="structeu_1_1core_1_1Rectf" kindref="compound">core::Rectf</ref>, <ref refid="structeu_1_1core_1_1Rectf" kindref="compound">core::Rectf</ref> &gt;</type>
@@ -743,7 +743,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.cc" line="78" column="5" bodyfile="libs/render/src/render/font.cc" bodystart="79" bodyend="120"/>
+        <location file="libs/render/src/render/font.cc" line="77" column="5" bodyfile="libs/render/src/render/font.cc" bodystart="78" bodyend="119"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1render_1ac1797891081a8ebb4e40f1d7334463cd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1core_1_1vec2f" kindref="compound">core::vec2f</ref></type>
@@ -764,7 +764,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.cc" line="547" column="5" bodyfile="libs/render/src/render/font.cc" bodystart="547" bodyend="568"/>
+        <location file="libs/render/src/render/font.cc" line="561" column="5" bodyfile="libs/render/src/render/font.cc" bodystart="561" bodyend="582"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1render_1a66f9988f3ff21ca77392557e0d3ab37a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1core_1_1mat4f" kindref="compound">core::mat4f</ref></type>
@@ -787,21 +787,21 @@
         </inbodydescription>
         <location file="libs/render/src/render/instance.cc" line="18" column="5" bodyfile="libs/render/src/render/instance.cc" bodystart="19" bodyend="25" declfile="libs/render/src/render/instance.h" declline="37" declcolumn="18"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1render_1a3d6714555451a6e9a0ef3ac20248a2cd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeu_1_1render_1a465f8c9988ae3a9d9926637dd5062449" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void eu::render::post_build</definition>
-        <argsstring>(MaterialShader *sh, const materialshader::MaterialShader &amp;file, const core::vfs::FilePath &amp;path)</argsstring>
+        <argsstring>(MaterialShader *sh, const files::materialshader::MaterialShader &amp;file, const io::FilePath &amp;path)</argsstring>
         <name>post_build</name>
         <param>
           <type><ref refid="structeu_1_1render_1_1MaterialShader" kindref="compound">MaterialShader</ref> *</type>
           <declname>sh</declname>
         </param>
         <param>
-          <type>const materialshader::MaterialShader &amp;</type>
+          <type>const <ref refid="structeu_1_1files_1_1materialshader_1_1MaterialShader" kindref="compound">files::materialshader::MaterialShader</ref> &amp;</type>
           <declname>file</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1vfs_1_1FilePath" kindref="compound">core::vfs::FilePath</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1io_1_1FilePath" kindref="compound">io::FilePath</ref> &amp;</type>
           <declname>path</declname>
         </param>
         <briefdescription>
@@ -810,7 +810,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/materialshader.cc" line="68" column="5" bodyfile="libs/render/src/render/materialshader.cc" bodystart="69" bodyend="153"/>
+        <location file="libs/render/src/render/materialshader.cc" line="68" column="5" bodyfile="libs/render/src/render/materialshader.cc" bodystart="69" bodyend="146"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1render_1a1199b40575a7c60814405a1151e7aaac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>

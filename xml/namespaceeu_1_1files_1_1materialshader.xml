@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="namespaceeu_1_1files_1_1materialshader" kind="namespace" language="C++">
+    <compoundname>eu::files::materialshader</compoundname>
+    <innerclass refid="structeu_1_1files_1_1materialshader_1_1Binding" prot="public">eu::files::materialshader::Binding</innerclass>
+    <innerclass refid="structeu_1_1files_1_1materialshader_1_1DefaultTexture" prot="public">eu::files::materialshader::DefaultTexture</innerclass>
+    <innerclass refid="structeu_1_1files_1_1materialshader_1_1MaterialShader" prot="public">eu::files::materialshader::MaterialShader</innerclass>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespaceeu_1_1files_1_1materialshader_1a28ede4785cc6b610f6b2ee2f809620bc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::files::materialshader::JSON_PARSE_FUNC</definition>
+        <argsstring>(Binding)</argsstring>
+        <name>JSON_PARSE_FUNC</name>
+        <param>
+          <type><ref refid="structeu_1_1files_1_1materialshader_1_1Binding" kindref="compound">Binding</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/files/src/files/materialshader.cc" line="8" column="5" bodyfile="libs/files/src/files/materialshader.cc" bodystart="8" bodyend="14"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1files_1_1materialshader_1aae2680611b7147b53612fbdbbddde31f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::files::materialshader::JSON_PARSE_FUNC</definition>
+        <argsstring>(DefaultTexture)</argsstring>
+        <name>JSON_PARSE_FUNC</name>
+        <param>
+          <type><ref refid="structeu_1_1files_1_1materialshader_1_1DefaultTexture" kindref="compound">DefaultTexture</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/files/src/files/materialshader.cc" line="17" column="5" bodyfile="libs/files/src/files/materialshader.cc" bodystart="17" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1files_1_1materialshader_1a8a414fc8dd8469713abb0afd34659a39" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::files::materialshader::JSON_PARSE_FUNC</definition>
+        <argsstring>(MaterialShader)</argsstring>
+        <name>JSON_PARSE_FUNC</name>
+        <param>
+          <type><ref refid="structeu_1_1files_1_1materialshader_1_1MaterialShader" kindref="compound">MaterialShader</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/files/src/files/materialshader.cc" line="26" column="5" bodyfile="libs/files/src/files/materialshader.cc" bodystart="26" bodyend="41" declfile="libs/files/src/files/materialshader.h" declline="33" declcolumn="5"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/files/src/files/materialshader.cc" line="6" column="1"/>
+  </compounddef>
+</doxygen>

@@ -4,10 +4,10 @@
     <compoundname>key.cc</compoundname>
     <includes refid="core_2src_2core_2key_8h" local="yes">core/key.h</includes>
     <includes local="no">map</includes>
-    <includes refid="stringutils_8h" local="yes">core/stringutils.h</includes>
+    <includes refid="stringutils_8h" local="yes">base/stringutils.h</includes>
     <incdepgraph>
       <node id="4">
-        <label>core/stringutils.h</label>
+        <label>base/stringutils.h</label>
         <link refid="stringutils_8h"/>
         <childnode refid="3" relation="include">
         </childnode>

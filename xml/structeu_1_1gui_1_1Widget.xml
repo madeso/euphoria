@@ -283,7 +283,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/gui/src/gui/widget.h" line="61" column="9" bodyfile="libs/gui/src/gui/widget.cc" bodystart="56" bodyend="67"/>
+        <location file="libs/gui/src/gui/widget.h" line="61" column="9" bodyfile="libs/gui/src/gui/widget.cc" bodystart="56" bodyend="66"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1gui_1_1Widget_1ac7dfea87136042e49a1d17c1e53bad32" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1core_1_1size2f" kindref="compound">core::size2f</ref></type>
@@ -296,7 +296,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/gui/src/gui/widget.h" line="64" column="9" bodyfile="libs/gui/src/gui/widget.cc" bodystart="71" bodyend="92"/>
+        <location file="libs/gui/src/gui/widget.h" line="64" column="9" bodyfile="libs/gui/src/gui/widget.cc" bodystart="70" bodyend="91"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1gui_1_1Widget_1af683e21b07b077a50e3f1f697f398155" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
         <type><ref refid="structeu_1_1core_1_1size2f" kindref="compound">core::size2f</ref></type>
@@ -362,7 +362,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/gui/src/gui/widget.h" line="79" column="9" bodyfile="libs/gui/src/gui/widget.cc" bodystart="96" bodyend="99"/>
+        <location file="libs/gui/src/gui/widget.h" line="79" column="9" bodyfile="libs/gui/src/gui/widget.cc" bodystart="95" bodyend="98"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1gui_1_1Widget_1ad3910564b1357dc1bc6a587e8fb813d0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1gui_1_1State" kindref="compound">gui::State</ref> *</type>
@@ -375,7 +375,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/gui/src/gui/widget.h" line="82" column="9" bodyfile="libs/gui/src/gui/widget.cc" bodystart="103" bodyend="106"/>
+        <location file="libs/gui/src/gui/widget.h" line="82" column="9" bodyfile="libs/gui/src/gui/widget.cc" bodystart="102" bodyend="105"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

@@ -3,42 +3,24 @@
   <compounddef id="default__parse_8cc" kind="file" language="C++">
     <compoundname>default_parse.cc</compoundname>
     <includes refid="default__parse_8h" local="yes">core/default_parse.h</includes>
-    <includes refid="stringmerger_8h" local="yes">core/stringmerger.h</includes>
-    <includes refid="functional_8h" local="yes">core/functional.h</includes>
+    <includes refid="stringmerger_8h" local="yes">base/stringmerger.h</includes>
+    <includes refid="functional_8h" local="yes">base/functional.h</includes>
     <incdepgraph>
-      <node id="13">
-        <label>core/editdistance.h</label>
-        <link refid="editdistance_8h"/>
-      </node>
       <node id="11">
         <label>queue</label>
       </node>
-      <node id="10">
-        <label>core/editdistance.search.h</label>
-        <link refid="editdistance_8search_8h"/>
-        <childnode refid="11" relation="include">
-        </childnode>
-        <childnode refid="12" relation="include">
-        </childnode>
-        <childnode refid="13" relation="include">
-        </childnode>
-      </node>
       <node id="9">
-        <label>core/stringutils.h</label>
+        <label>base/stringutils.h</label>
         <link refid="stringutils_8h"/>
         <childnode refid="4" relation="include">
         </childnode>
       </node>
-      <node id="19">
-        <label>core/stringmerger.h</label>
-        <link refid="stringmerger_8h"/>
-        <childnode refid="20" relation="include">
+      <node id="21">
+        <label>base/functional.h</label>
+        <link refid="functional_8h"/>
+        <childnode refid="22" relation="include">
         </childnode>
-      </node>
-      <node id="16">
-        <label>core/result.h</label>
-        <link refid="result_8h"/>
-        <childnode refid="17" relation="include">
+        <childnode refid="4" relation="include">
         </childnode>
       </node>
       <node id="7">
@@ -46,14 +28,6 @@
       </node>
       <node id="4">
         <label>map</label>
-      </node>
-      <node id="21">
-        <label>core/functional.h</label>
-        <link refid="functional_8h"/>
-        <childnode refid="22" relation="include">
-        </childnode>
-        <childnode refid="4" relation="include">
-        </childnode>
       </node>
       <node id="6">
         <label>assert/assert.h</label>
@@ -72,6 +46,12 @@
         <childnode refid="17" relation="include">
         </childnode>
       </node>
+      <node id="16">
+        <label>base/result.h</label>
+        <link refid="result_8h"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
       <node id="17">
         <label>optional</label>
       </node>
@@ -80,6 +60,16 @@
       </node>
       <node id="8">
         <label>vector</label>
+      </node>
+      <node id="10">
+        <label>base/editdistance.search.h</label>
+        <link refid="editdistance_8search_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
       </node>
       <node id="15">
         <label>core/custom_parser.h</label>
@@ -116,6 +106,10 @@
         <childnode refid="14" relation="include">
         </childnode>
       </node>
+      <node id="13">
+        <label>base/editdistance.h</label>
+        <link refid="editdistance_8h"/>
+      </node>
       <node id="2">
         <label>core/default_parse.h</label>
         <link refid="default__parse_8h"/>
@@ -131,6 +125,12 @@
       </node>
       <node id="12">
         <label>algorithm</label>
+      </node>
+      <node id="19">
+        <label>base/stringmerger.h</label>
+        <link refid="stringmerger_8h"/>
+        <childnode refid="20" relation="include">
+        </childnode>
       </node>
     </incdepgraph>
     <innernamespace refid="namespaceeu">eu</innernamespace>

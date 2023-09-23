@@ -12,7 +12,7 @@
     <includedby refid="spriterender_8cc" local="yes">libs/render/src/render/spriterender.cc</includedby>
     <includedby refid="texture_8cc" local="yes">libs/render/src/render/texture.cc</includedby>
     <includedby refid="render_2src_2render_2viewport_8cc" local="yes">libs/render/src/render/viewport.cc</includedby>
-    <includedby refid="world_8cc" local="yes">libs/render/src/render/world.cc</includedby>
+    <includedby refid="render_2src_2render_2world_8cc" local="yes">libs/render/src/render/world.cc</includedby>
     <incdepgraph>
       <node id="1">
         <label>libs/render/src/render/gl.h</label>
@@ -71,7 +71,7 @@
       </node>
       <node id="11">
         <label>libs/render/src/render/world.cc</label>
-        <link refid="world_8cc"/>
+        <link refid="render_2src_2render_2world_8cc"/>
       </node>
       <node id="8">
         <label>libs/render/src/render/spriterender.cc</label>

@@ -4,10 +4,10 @@
     <compoundname>ctree.cc</compoundname>
     <includes refid="ctree_8h" local="yes">core/ctree.h</includes>
     <includes local="no">cstdlib</includes>
-    <includes refid="stringutils_8h" local="yes">core/stringutils.h</includes>
+    <includes refid="stringutils_8h" local="yes">base/stringutils.h</includes>
     <incdepgraph>
       <node id="4">
-        <label>core/stringutils.h</label>
+        <label>base/stringutils.h</label>
         <link refid="stringutils_8h"/>
         <childnode refid="5" relation="include">
         </childnode>

@@ -77,6 +77,8 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeu_1_1window_1_1Engine.html">Engine</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeu_1_1window_1_1SdlLogger.html">SdlLogger</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeu_1_1window_1_1SdlOpenglContext.html">SdlOpenglContext</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeu_1_1window_1_1SdlLibrary.html">SdlLibrary</a></td></tr>
@@ -126,6 +128,8 @@ Functions</h2></td></tr>
 <tr class="separator:a492f570387ef15b4cf739ce7192a6bc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9408fc982549c9ee1e653f763924c756"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceeu_1_1core.html#aed290471159c1c537be8afc19208a8ae">core::MouseButton</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1window.html#a9408fc982549c9ee1e653f763924c756">to_key</a> (SDL_MouseButtonEvent mb)</td></tr>
 <tr class="separator:a9408fc982549c9ee1e653f763924c756"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a935c614f122e72d1abc676f55f82b39b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1window.html#a935c614f122e72d1abc676f55f82b39b">generic_log</a> (SDL_LogPriority prio, const std::string &amp;str)</td></tr>
+<tr class="separator:a935c614f122e72d1abc676f55f82b39b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5a9393337176625c0f712cc88b16a8b5"><td class="memItemLeft" align="right" valign="top">constexpr ImU32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1window.html#a5a9393337176625c0f712cc88b16a8b5">from_oc_to_dear_imgui_color</a> (open_color::Hex h)</td></tr>
 <tr class="separator:a5a9393337176625c0f712cc88b16a8b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aedb2afa87ad67b9dc8de518b3746848a"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="namespaceeu_1_1window.html#ab12fc9b94d10fb77a52bc271c11988b7">Colors</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1window.html#aedb2afa87ad67b9dc8de518b3746848a">from_oc_to_dear_imgui_color</a> (open_color::Hexs h)</td></tr>
@@ -350,6 +354,36 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="a935c614f122e72d1abc676f55f82b39b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a935c614f122e72d1abc676f55f82b39b">&#9670;&nbsp;</a></span>generic_log()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void eu::window::generic_log </td>
+          <td>(</td>
+          <td class="paramtype">SDL_LogPriority&#160;</td>
+          <td class="paramname"><em>prio</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>str</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="window_2src_2window_2log_8cc_source.html#l00024">24</a> of file <a class="el" href="window_2src_2window_2log_8cc_source.html">log.cc</a>.</p>
+
+</div>
+</div>
 <a id="a5aded402908584ac45eed13349c4a4ee"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5aded402908584ac45eed13349c4a4ee">&#9670;&nbsp;</a></span>get_base_path()</h2>
 
@@ -476,7 +510,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="app_8cc_source.html#l00038">38</a> of file <a class="el" href="app_8cc_source.html">app.cc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="app_8cc_source.html#l00040">40</a> of file <a class="el" href="app_8cc_source.html">app.cc</a>.</p>
 
 </div>
 </div>

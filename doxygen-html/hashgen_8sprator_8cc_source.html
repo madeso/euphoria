@@ -64,7 +64,7 @@
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="rng_8h.html">core/rng.h</a>&quot;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="numeric_8h.html">core/numeric.h</a>&quot;</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="image__draw_8h.html">core/image_draw.h</a>&quot;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="cint_8h.html">core/cint.h</a>&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="cint_8h.html">base/cint.h</a>&quot;</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="table__bool_8h.html">core/table_bool.h</a>&quot;</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="generator__cell_8h.html">core/generator_cell.h</a>&quot;</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
@@ -339,7 +339,7 @@
 <div class="line"><a name="l00283"></a><span class="lineno"><a class="line" href="namespaceeu_1_1core.html#aa24202f8073c02c5f317e4640d3c0d2d">  283</a></span>&#160;    <a class="code" href="namespaceeu_1_1core.html#aa24202f8073c02c5f317e4640d3c0d2d">render_sprator</a></div>
 <div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;    (</div>
 <div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;        <a class="code" href="structeu_1_1core_1_1Image.html">Image</a>* image,</div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;        <a class="code" href="namespaceeu_1_1core.html#a019a836f7e88088fbbb23733e6a3fb69">U32</a> code,</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;        <a class="code" href="namespaceeu.html#a4906aa2bac1ba15d71b5b473ee9dfcd4">U32</a> code,</div>
 <div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;        <span class="keyword">const</span> <a class="code" href="structeu_1_1core_1_1Rgbai.html">Rgbai</a>&amp; foreground_color,</div>
 <div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;        std::optional&lt;Rgbai&gt; border_color_arg,</div>
 <div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;        <span class="keyword">const</span> <a class="code" href="structeu_1_1core_1_1Rgbai.html">Rgbai</a>&amp; background_color</div>
@@ -360,7 +360,7 @@
 <div class="line"><a name="l00304"></a><span class="lineno"><a class="line" href="namespaceeu_1_1core.html#ad862d7141bda1e5b99d0e9817678e783">  304</a></span>&#160;    <a class="code" href="namespaceeu_1_1core.html#aa24202f8073c02c5f317e4640d3c0d2d">render_sprator</a></div>
 <div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;    (</div>
 <div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;        std::vector&lt;Image&gt;* images,</div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;        <a class="code" href="namespaceeu_1_1core.html#a019a836f7e88088fbbb23733e6a3fb69">U32</a> code,</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;        <a class="code" href="namespaceeu.html#a4906aa2bac1ba15d71b5b473ee9dfcd4">U32</a> code,</div>
 <div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;        <span class="keyword">const</span> <a class="code" href="structeu_1_1core_1_1Rgbai.html">Rgbai</a>&amp; foreground_color,</div>
 <div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;        std::optional&lt;Rgbai&gt; border_color_arg,</div>
 <div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;        <span class="keyword">const</span> <a class="code" href="structeu_1_1core_1_1Rgbai.html">Rgbai</a>&amp; background_color</div>
@@ -386,7 +386,6 @@
 <div class="ttc" id="aimage__draw_8h_html"><div class="ttname"><a href="image__draw_8h.html">image_draw.h</a></div></div>
 <div class="ttc" id="anamespaceeu_1_1core_1_1generator_html_ada4859898c26bcd43edc7bf58a1667d7"><div class="ttname"><a href="namespaceeu_1_1core_1_1generator.html#ada4859898c26bcd43edc7bf58a1667d7">eu::core::generator::add_complex_rules</a></div><div class="ttdeci">void add_complex_rules(Rules *ca, int times, ChangeFunction change)</div><div class="ttdef"><b>Definition:</b> <a href="generator__cell_8cc_source.html#l00253">generator_cell.cc:254</a></div></div>
 <div class="ttc" id="anamespaceeu_1_1core_html"><div class="ttname"><a href="namespaceeu_1_1core.html">eu::core</a></div><div class="ttdef"><b>Definition:</b> <a href="aabb_8cc_source.html#l00008">aabb.cc:9</a></div></div>
-<div class="ttc" id="anamespaceeu_1_1core_html_a019a836f7e88088fbbb23733e6a3fb69"><div class="ttname"><a href="namespaceeu_1_1core.html#a019a836f7e88088fbbb23733e6a3fb69">eu::core::U32</a></div><div class="ttdeci">std::uint32_t U32</div><div class="ttdef"><b>Definition:</b> <a href="ints_8h_source.html#l00013">ints.h:13</a></div></div>
 <div class="ttc" id="anamespaceeu_1_1core_html_a15a7242c8e89bfab8d832ccab7a9ea19"><div class="ttname"><a href="namespaceeu_1_1core.html#a15a7242c8e89bfab8d832ccab7a9ea19">eu::core::clear</a></div><div class="ttdeci">void clear(Image *image, const Rgbai &amp;color)</div><div class="ttdef"><b>Definition:</b> <a href="image__draw_8cc_source.html#l00032">image_draw.cc:32</a></div></div>
 <div class="ttc" id="anamespaceeu_1_1core_html_a1c50537347b75b64ae1b2ebc9f3f82b8aa2e4822a98337283e39f7b60acf85ec9"><div class="ttname"><a href="namespaceeu_1_1core.html#a1c50537347b75b64ae1b2ebc9f3f82b8aa2e4822a98337283e39f7b60acf85ec9">eu::core::OutsideRule::empty</a></div><div class="ttdeci">@ empty</div></div>
 <div class="ttc" id="anamespaceeu_1_1core_html_a1c50537347b75b64ae1b2ebc9f3f82b8afbe322a89bc0ba531c3f0050e3935f28"><div class="ttname"><a href="namespaceeu_1_1core.html#a1c50537347b75b64ae1b2ebc9f3f82b8afbe322a89bc0ba531c3f0050e3935f28">eu::core::OutsideRule::mirror</a></div><div class="ttdeci">@ mirror</div></div>
@@ -406,6 +405,7 @@
 <div class="ttc" id="anamespaceeu_1_1core_html_ad3870359986324d79e00cf2a1c0c4f57"><div class="ttname"><a href="namespaceeu_1_1core.html#ad3870359986324d79e00cf2a1c0c4f57">eu::core::min</a></div><div class="ttdeci">vec3f min(const vec3f &amp;lhs, const vec3f &amp;rhs)</div><div class="ttdef"><b>Definition:</b> <a href="aabb_8cc_source.html#l00031">aabb.cc:31</a></div></div>
 <div class="ttc" id="anamespaceeu_1_1core_html_ad816ec64a4ad2c10feb5ed0b227785dfa7ddf32e17a6ac5ce04a8ecbf782ca509"><div class="ttname"><a href="namespaceeu_1_1core.html#ad816ec64a4ad2c10feb5ed0b227785dfa7ddf32e17a6ac5ce04a8ecbf782ca509">eu::core::BorderSetupRule::random</a></div><div class="ttdeci">@ random</div></div>
 <div class="ttc" id="anamespaceeu_1_1core_html_af1c182943a55e7fe57041f14fdb8ffb5"><div class="ttname"><a href="namespaceeu_1_1core.html#af1c182943a55e7fe57041f14fdb8ffb5">eu::core::paste_image</a></div><div class="ttdeci">void paste_image(Image *dest_image, const vec2i &amp;position, const Image &amp;source_image, BlendMode blend_mode, PixelsOutside clip)</div><div class="ttdef"><b>Definition:</b> <a href="image__draw_8cc_source.html#l00552">image_draw.cc:553</a></div></div>
+<div class="ttc" id="anamespaceeu_html_a4906aa2bac1ba15d71b5b473ee9dfcd4"><div class="ttname"><a href="namespaceeu.html#a4906aa2bac1ba15d71b5b473ee9dfcd4">eu::U32</a></div><div class="ttdeci">std::uint32_t U32</div><div class="ttdef"><b>Definition:</b> <a href="ints_8h_source.html#l00013">ints.h:13</a></div></div>
 <div class="ttc" id="anumeric_8h_html"><div class="ttname"><a href="numeric_8h.html">numeric.h</a></div></div>
 <div class="ttc" id="argb_8h_html"><div class="ttname"><a href="rgb_8h.html">rgb.h</a></div></div>
 <div class="ttc" id="arng_8h_html"><div class="ttname"><a href="rng_8h.html">rng.h</a></div></div>

@@ -5,7 +5,7 @@
     <includes refid="shaderattribute_8h" local="yes">render/shaderattribute.h</includes>
     <includedby refid="compiledlines_8cc" local="yes">libs/render/src/render/compiledlines.cc</includedby>
     <includedby refid="compiledmesh_8cc" local="yes">libs/render/src/render/compiledmesh.cc</includedby>
-    <includedby refid="materialshader_8cc" local="yes">libs/render/src/render/materialshader.cc</includedby>
+    <includedby refid="render_2src_2render_2materialshader_8cc" local="yes">libs/render/src/render/materialshader.cc</includedby>
     <includedby refid="shaderattribute3d_8cc" local="yes">libs/render/src/render/shaderattribute3d.cc</includedby>
     <incdepgraph>
       <node id="2">
@@ -52,7 +52,7 @@
       </node>
       <node id="4">
         <label>libs/render/src/render/materialshader.cc</label>
-        <link refid="materialshader_8cc"/>
+        <link refid="render_2src_2render_2materialshader_8cc"/>
       </node>
     </invincdepgraph>
     <innernamespace refid="namespaceeu">eu</innernamespace>

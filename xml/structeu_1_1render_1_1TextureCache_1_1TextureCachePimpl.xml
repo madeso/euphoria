@@ -2,11 +2,11 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeu_1_1render_1_1TextureCache_1_1TextureCachePimpl" kind="struct" language="C++" prot="public">
     <compoundname>eu::render::TextureCache::TextureCachePimpl</compoundname>
-    <basecompoundref refid="structeu_1_1core_1_1Cache" prot="public" virt="non-virtual">eu::core::Cache&lt; core::vfs::FilePath, Texture2, TextureCache::TextureCachePimpl &gt;</basecompoundref>
+    <basecompoundref refid="structeu_1_1core_1_1Cache" prot="public" virt="non-virtual">eu::core::Cache&lt; io::FilePath, Texture2, TextureCache::TextureCachePimpl &gt;</basecompoundref>
       <sectiondef kind="public-attrib">
-      <memberdef kind="variable" id="structeu_1_1render_1_1TextureCache_1_1TextureCachePimpl_1ac3b656cc26cd721d6956c856f9a87cf4" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1core_1_1vfs_1_1FileSystem" kindref="compound">core::vfs::FileSystem</ref> *</type>
-        <definition>core::vfs::FileSystem* eu::render::TextureCache::TextureCachePimpl::vfs</definition>
+      <memberdef kind="variable" id="structeu_1_1render_1_1TextureCache_1_1TextureCachePimpl_1abe258a09a4f04123d9ee5cf7f2e8daa1" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1io_1_1FileSystem" kindref="compound">io::FileSystem</ref> *</type>
+        <definition>io::FileSystem* eu::render::TextureCache::TextureCachePimpl::vfs</definition>
         <argsstring></argsstring>
         <name>vfs</name>
         <briefdescription>
@@ -15,17 +15,17 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/texturecache.cc" line="33" column="31" bodyfile="libs/render/src/render/texturecache.cc" bodystart="33" bodyend="-1"/>
+        <location file="libs/render/src/render/texturecache.cc" line="33" column="24" bodyfile="libs/render/src/render/texturecache.cc" bodystart="33" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
-      <memberdef kind="function" id="structeu_1_1render_1_1TextureCache_1_1TextureCachePimpl_1a4b74eaee884fa158a0c22e42a4fdea48" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1render_1_1TextureCache_1_1TextureCachePimpl_1a7b26b3a6435356e226e815eef8849e07" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
         <type></type>
         <definition>eu::render::TextureCache::TextureCachePimpl::TextureCachePimpl</definition>
-        <argsstring>(core::vfs::FileSystem *fs)</argsstring>
+        <argsstring>(io::FileSystem *fs)</argsstring>
         <name>TextureCachePimpl</name>
         <param>
-          <type><ref refid="structeu_1_1core_1_1vfs_1_1FileSystem" kindref="compound">core::vfs::FileSystem</ref> *</type>
+          <type><ref refid="structeu_1_1io_1_1FileSystem" kindref="compound">io::FileSystem</ref> *</type>
           <declname>fs</declname>
         </param>
         <briefdescription>
@@ -36,13 +36,13 @@
         </inbodydescription>
         <location file="libs/render/src/render/texturecache.cc" line="14" column="18" bodyfile="libs/render/src/render/texturecache.cc" bodystart="14" bodyend="17"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1render_1_1TextureCache_1_1TextureCachePimpl_1a47dc6ac9ab2a039b0dca4b1e13d46aca" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1render_1_1TextureCache_1_1TextureCachePimpl_1a9e20839172536037ed0839299608d4dd" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>std::shared_ptr&lt; <ref refid="structeu_1_1render_1_1Texture2" kindref="compound">Texture2</ref> &gt;</type>
         <definition>std::shared_ptr&lt;Texture2&gt; eu::render::TextureCache::TextureCachePimpl::create</definition>
-        <argsstring>(const core::vfs::FilePath &amp;file) const</argsstring>
+        <argsstring>(const io::FilePath &amp;file) const</argsstring>
         <name>create</name>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1vfs_1_1FilePath" kindref="compound">core::vfs::FilePath</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1io_1_1FilePath" kindref="compound">io::FilePath</ref> &amp;</type>
           <declname>file</declname>
         </param>
         <briefdescription>
@@ -59,25 +59,21 @@
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-      <node id="2">
-        <label>eu::core::Cache&lt; core::vfs::FilePath, Texture2, TextureCache::TextureCachePimpl &gt;</label>
-        <link refid="structeu_1_1core_1_1Cache"/>
-      </node>
       <node id="1">
         <label>eu::render::TextureCache::TextureCachePimpl</label>
         <link refid="structeu_1_1render_1_1TextureCache_1_1TextureCachePimpl"/>
         <childnode refid="2" relation="public-inheritance">
         </childnode>
       </node>
+      <node id="2">
+        <label>eu::core::Cache&lt; io::FilePath, Texture2, TextureCache::TextureCachePimpl &gt;</label>
+        <link refid="structeu_1_1core_1_1Cache"/>
+      </node>
     </inheritancegraph>
     <collaborationgraph>
       <node id="3">
-        <label>eu::core::vfs::FileSystem</label>
-        <link refid="structeu_1_1core_1_1vfs_1_1FileSystem"/>
-      </node>
-      <node id="2">
-        <label>eu::core::Cache&lt; core::vfs::FilePath, Texture2, TextureCache::TextureCachePimpl &gt;</label>
-        <link refid="structeu_1_1core_1_1Cache"/>
+        <label>eu::io::FileSystem</label>
+        <link refid="structeu_1_1io_1_1FileSystem"/>
       </node>
       <node id="1">
         <label>eu::render::TextureCache::TextureCachePimpl</label>
@@ -88,14 +84,18 @@
           <edgelabel>vfs</edgelabel>
         </childnode>
       </node>
+      <node id="2">
+        <label>eu::core::Cache&lt; io::FilePath, Texture2, TextureCache::TextureCachePimpl &gt;</label>
+        <link refid="structeu_1_1core_1_1Cache"/>
+      </node>
     </collaborationgraph>
     <location file="libs/render/src/render/texturecache.cc" line="11" column="5" bodyfile="libs/render/src/render/texturecache.cc" bodystart="13" bodyend="34"/>
     <listofallmembers>
-      <member refid="structeu_1_1render_1_1TextureCache_1_1TextureCachePimpl_1a47dc6ac9ab2a039b0dca4b1e13d46aca" prot="public" virt="non-virtual"><scope>eu::render::TextureCache::TextureCachePimpl</scope><name>create</name></member>
+      <member refid="structeu_1_1render_1_1TextureCache_1_1TextureCachePimpl_1a9e20839172536037ed0839299608d4dd" prot="public" virt="non-virtual"><scope>eu::render::TextureCache::TextureCachePimpl</scope><name>create</name></member>
       <member refid="structeu_1_1core_1_1Cache_1adb88227ec9d4e11cba555ed61f01da1d" prot="public" virt="non-virtual"><scope>eu::render::TextureCache::TextureCachePimpl</scope><name>get</name></member>
       <member refid="structeu_1_1core_1_1Cache_1ac9106d4936a6d02ed6757cf6d7a4a599" prot="public" virt="non-virtual"><scope>eu::render::TextureCache::TextureCachePimpl</scope><name>store</name></member>
-      <member refid="structeu_1_1render_1_1TextureCache_1_1TextureCachePimpl_1a4b74eaee884fa158a0c22e42a4fdea48" prot="public" virt="non-virtual"><scope>eu::render::TextureCache::TextureCachePimpl</scope><name>TextureCachePimpl</name></member>
-      <member refid="structeu_1_1render_1_1TextureCache_1_1TextureCachePimpl_1ac3b656cc26cd721d6956c856f9a87cf4" prot="public" virt="non-virtual"><scope>eu::render::TextureCache::TextureCachePimpl</scope><name>vfs</name></member>
+      <member refid="structeu_1_1render_1_1TextureCache_1_1TextureCachePimpl_1a7b26b3a6435356e226e815eef8849e07" prot="public" virt="non-virtual"><scope>eu::render::TextureCache::TextureCachePimpl</scope><name>TextureCachePimpl</name></member>
+      <member refid="structeu_1_1render_1_1TextureCache_1_1TextureCachePimpl_1abe258a09a4f04123d9ee5cf7f2e8daa1" prot="public" virt="non-virtual"><scope>eu::render::TextureCache::TextureCachePimpl</scope><name>vfs</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

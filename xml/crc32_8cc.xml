@@ -3,17 +3,17 @@
   <compounddef id="crc32_8cc" kind="file" language="C++">
     <compoundname>crc32.cc</compoundname>
     <includes refid="crc32_8h" local="yes">core/crc32.h</includes>
-    <includes refid="memorychunk_8h" local="yes">core/memorychunk.h</includes>
+    <includes refid="memorychunk_8h" local="yes">base/memorychunk.h</includes>
     <includes local="yes">crc32/crc32.h</includes>
     <incdepgraph>
-      <node id="5">
-        <label>crc32/crc32.h</label>
-      </node>
       <node id="3">
-        <label>core/memorychunk.h</label>
+        <label>base/memorychunk.h</label>
         <link refid="memorychunk_8h"/>
         <childnode refid="4" relation="include">
         </childnode>
+      </node>
+      <node id="5">
+        <label>crc32/crc32.h</label>
       </node>
       <node id="2">
         <label>core/crc32.h</label>

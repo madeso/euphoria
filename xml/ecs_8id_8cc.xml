@@ -7,16 +7,16 @@
       <node id="4">
         <label>cstdint</label>
       </node>
+      <node id="3">
+        <label>base/ints.h</label>
+        <link refid="ints_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
       <node id="2">
         <label>core/ecs.id.h</label>
         <link refid="ecs_8id_8h"/>
         <childnode refid="3" relation="include">
-        </childnode>
-      </node>
-      <node id="3">
-        <label>core/ints.h</label>
-        <link refid="ints_8h"/>
-        <childnode refid="4" relation="include">
         </childnode>
       </node>
       <node id="1">

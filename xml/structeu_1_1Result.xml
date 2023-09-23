@@ -1,0 +1,189 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1Result" kind="struct" language="C++" prot="public">
+    <compoundname>eu::Result</compoundname>
+    <includes refid="result_8h" local="no">result.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename T</type>
+      </param>
+      <param>
+        <type>typename Error</type>
+        <defval>std::string</defval>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="structeu_1_1Result_1a582d18fed93e38d697a71437999aa90e" prot="public" static="no">
+        <type><ref refid="structeu_1_1Result" kindref="compound">Result</ref>&lt; T, Error &gt;</type>
+        <definition>using eu::Result&lt; T, Error &gt;::Self =  Result&lt;T, Error&gt;</definition>
+        <argsstring></argsstring>
+        <name>Self</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/result.h" line="12" column="9" bodyfile="libs/base/src/base/result.h" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="structeu_1_1Result_1aec1b1b831975b0f762afd9932fd606bd" prot="private" static="no" mutable="no">
+        <type>std::optional&lt; T &gt;</type>
+        <definition>std::optional&lt;T&gt; eu::Result&lt; T, Error &gt;::value</definition>
+        <argsstring></argsstring>
+        <name>value</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/result.h" line="53" column="23" bodyfile="libs/base/src/base/result.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1Result_1a9c717f368ce666a3fbcd8d624a38c66f" prot="private" static="no" mutable="no">
+        <type>std::optional&lt; Error &gt;</type>
+        <definition>std::optional&lt;Error&gt; eu::Result&lt; T, Error &gt;::error</definition>
+        <argsstring></argsstring>
+        <name>error</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/result.h" line="54" column="23" bodyfile="libs/base/src/base/result.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="structeu_1_1Result_1a74e531c359c34867ccbc2a0061cb58c7" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeu_1_1Result_1a582d18fed93e38d697a71437999aa90e" kindref="member">Self</ref></type>
+        <definition>static Self eu::Result&lt; T, Error &gt;::create_value</definition>
+        <argsstring>(const T &amp;t)</argsstring>
+        <name>create_value</name>
+        <param>
+          <type>const T &amp;</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/result.h" line="15" column="21" bodyfile="libs/base/src/base/result.h" bodystart="15" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Result_1a02d9b3a1153f9489db2a2593c1dd466b" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeu_1_1Result_1a582d18fed93e38d697a71437999aa90e" kindref="member">Self</ref></type>
+        <definition>static Self eu::Result&lt; T, Error &gt;::create_error</definition>
+        <argsstring>(const Error &amp;error)</argsstring>
+        <name>create_error</name>
+        <param>
+          <type>const Error &amp;</type>
+          <declname>error</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/result.h" line="21" column="21" bodyfile="libs/base/src/base/result.h" bodystart="21" bodyend="27"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1Result_1a9c0797e5d7c8637cc17b9f84878c43af" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const T &amp;</type>
+        <definition>const T&amp; eu::Result&lt; T, Error &gt;::get_value</definition>
+        <argsstring>() const</argsstring>
+        <name>get_value</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/result.h" line="30" column="17" bodyfile="libs/base/src/base/result.h" bodystart="30" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Result_1acc02a3a8a1bf0fb0cde4bb1e90ae935d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const Error &amp;</type>
+        <definition>const Error&amp; eu::Result&lt; T, Error &gt;::get_error</definition>
+        <argsstring>() const</argsstring>
+        <name>get_error</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/result.h" line="36" column="21" bodyfile="libs/base/src/base/result.h" bodystart="36" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Result_1a7bfbd0b96698f609e43cb994f1df5878" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>eu::Result&lt; T, Error &gt;::operator bool</definition>
+        <argsstring>() const</argsstring>
+        <name>operator bool</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/result.h" line="41" column="9" bodyfile="libs/base/src/base/result.h" bodystart="41" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Result_1ae707cfbda8bdd032ca69bbfcafda9282" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const T &amp;</type>
+        <definition>const T&amp; eu::Result&lt; T, Error &gt;::operator*</definition>
+        <argsstring>() const</argsstring>
+        <name>operator*</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/result.h" line="48" column="17" bodyfile="libs/base/src/base/result.h" bodystart="48" bodyend="51"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="structeu_1_1Result_1ad9641e532ead970eac1d95ed7a4ff9b5" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>eu::Result&lt; T, Error &gt;::Result</definition>
+        <argsstring>(const std::optional&lt; T &gt; &amp;v, const std::optional&lt; Error &gt; &amp;e)</argsstring>
+        <name>Result</name>
+        <param>
+          <type>const std::optional&lt; T &gt; &amp;</type>
+          <declname>v</declname>
+        </param>
+        <param>
+          <type>const std::optional&lt; Error &gt; &amp;</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/result.h" line="56" column="9" bodyfile="libs/base/src/base/result.h" bodystart="57" bodyend="64"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/base/src/base/result.h" line="10" column="5" bodyfile="libs/base/src/base/result.h" bodystart="11" bodyend="65"/>
+    <listofallmembers>
+      <member refid="structeu_1_1Result_1a02d9b3a1153f9489db2a2593c1dd466b" prot="public" virt="non-virtual"><scope>eu::Result</scope><name>create_error</name></member>
+      <member refid="structeu_1_1Result_1a74e531c359c34867ccbc2a0061cb58c7" prot="public" virt="non-virtual"><scope>eu::Result</scope><name>create_value</name></member>
+      <member refid="structeu_1_1Result_1a9c717f368ce666a3fbcd8d624a38c66f" prot="private" virt="non-virtual"><scope>eu::Result</scope><name>error</name></member>
+      <member refid="structeu_1_1Result_1acc02a3a8a1bf0fb0cde4bb1e90ae935d" prot="public" virt="non-virtual"><scope>eu::Result</scope><name>get_error</name></member>
+      <member refid="structeu_1_1Result_1a9c0797e5d7c8637cc17b9f84878c43af" prot="public" virt="non-virtual"><scope>eu::Result</scope><name>get_value</name></member>
+      <member refid="structeu_1_1Result_1a7bfbd0b96698f609e43cb994f1df5878" prot="public" virt="non-virtual"><scope>eu::Result</scope><name>operator bool</name></member>
+      <member refid="structeu_1_1Result_1ae707cfbda8bdd032ca69bbfcafda9282" prot="public" virt="non-virtual"><scope>eu::Result</scope><name>operator*</name></member>
+      <member refid="structeu_1_1Result_1ad9641e532ead970eac1d95ed7a4ff9b5" prot="private" virt="non-virtual"><scope>eu::Result</scope><name>Result</name></member>
+      <member refid="structeu_1_1Result_1a582d18fed93e38d697a71437999aa90e" prot="public" virt="non-virtual"><scope>eu::Result</scope><name>Self</name></member>
+      <member refid="structeu_1_1Result_1aec1b1b831975b0f762afd9932fd606bd" prot="private" virt="non-virtual"><scope>eu::Result</scope><name>value</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

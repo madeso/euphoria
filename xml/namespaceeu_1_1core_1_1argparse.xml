@@ -92,7 +92,7 @@
             <type>typename T</type>
           </param>
         </templateparamlist>
-        <type>std::function&lt; <ref refid="structeu_1_1core_1_1Result" kindref="compound">Result</ref>&lt; T &gt;(const std::string &amp;value)&gt;</type>
+        <type>std::function&lt; <ref refid="structeu_1_1Result" kindref="compound">Result</ref>&lt; T &gt;(const std::string &amp;value)&gt;</type>
         <definition>using eu::core::argparse::ParseFunction = typedef std::function&lt;Result&lt;T&gt; (const std::string&amp; value)&gt;</definition>
         <argsstring></argsstring>
         <name>ParseFunction</name>
@@ -352,7 +352,7 @@
             <defval>0</defval>
           </param>
         </templateparamlist>
-        <type><ref refid="structeu_1_1core_1_1Result" kindref="compound">Result</ref>&lt; T &gt;</type>
+        <type><ref refid="structeu_1_1Result" kindref="compound">Result</ref>&lt; T &gt;</type>
         <definition>Result&lt; T &gt; eu::core::argparse::default_parse_function</definition>
         <argsstring>(const std::string &amp;value)</argsstring>
         <name>default_parse_function</name>

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Euphoria: libs/core/src/core/cint.cc File Reference</title>
+<title>Euphoria: libs/base/src/base/cint.cc File Reference</title>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <link href="style.css" rel="stylesheet" type="text/css" />
@@ -46,7 +46,7 @@
   </div>
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="dir_6f77a39b07c019ccd7492ea87272f732.html">core</a></li><li class="navelem"><a class="el" href="dir_232ab8dc75117fda122ab855789b1b2c.html">src</a></li><li class="navelem"><a class="el" href="dir_415d9b35eca6c445d7f5977763a796bd.html">core</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="dir_06498c378442102d76a793fbea770c00.html">base</a></li><li class="navelem"><a class="el" href="dir_1434489f875b8806781a8ab0a150cad2.html">src</a></li><li class="navelem"><a class="el" href="dir_9335635e0e9dc5833ab0cd315fbf7edd.html">base</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -57,7 +57,7 @@
 <div class="title">cint.cc File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="cint_8h_source.html">core/cint.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="cint_8h_source.html">base/cint.h</a>&quot;</code><br />
 <code>#include &lt;limits&gt;</code><br />
 <code>#include &quot;<a class="el" href="assert_8h_source.html">assert/assert.h</a>&quot;</code><br />
 </div>
@@ -67,23 +67,21 @@
 Namespaces</h2></td></tr>
 <tr class="memitem:namespaceeu"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html">eu</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:namespaceeu_1_1core"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html">eu::core</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a9296b74e6debf2d878a8b65c423b41c5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#a9296b74e6debf2d878a8b65c423b41c5">eu::core::c_sizet_to_int</a> (size_t t)</td></tr>
-<tr class="separator:a9296b74e6debf2d878a8b65c423b41c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7f6c14ced7d0060ce79bdd2b9cee6f0b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#a7f6c14ced7d0060ce79bdd2b9cee6f0b">eu::core::c_unsigned_int_to_int</a> (unsigned int i)</td></tr>
-<tr class="separator:a7f6c14ced7d0060ce79bdd2b9cee6f0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a45333b677d19b64fa618394ad9b9c872"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#a45333b677d19b64fa618394ad9b9c872">eu::core::c_int_to_unsigned_int</a> (int i)</td></tr>
-<tr class="separator:a45333b677d19b64fa618394ad9b9c872"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae6433575c83ad7c8feb8c92faa3fa0de"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#ae6433575c83ad7c8feb8c92faa3fa0de">eu::core::c_int_to_sizet</a> (int i)</td></tr>
-<tr class="separator:ae6433575c83ad7c8feb8c92faa3fa0de"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a26f9715b903e168fcdcef793ad4ece26"><td class="memItemLeft" align="right" valign="top">U8&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#a26f9715b903e168fcdcef793ad4ece26">eu::core::c_int_to_u8</a> (unsigned int i)</td></tr>
-<tr class="separator:a26f9715b903e168fcdcef793ad4ece26"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeca9341ec32080bab470169123fac977"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#aeca9341ec32080bab470169123fac977">eu::core::c_u64_to_int</a> (U64 u)</td></tr>
-<tr class="separator:aeca9341ec32080bab470169123fac977"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a175a9253ebea7fa874013257344e2a54"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html#a175a9253ebea7fa874013257344e2a54">eu::c_sizet_to_int</a> (size_t t)</td></tr>
+<tr class="separator:a175a9253ebea7fa874013257344e2a54"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa83f7621e40670af5136fa49e22755b5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html#aa83f7621e40670af5136fa49e22755b5">eu::c_unsigned_int_to_int</a> (unsigned int i)</td></tr>
+<tr class="separator:aa83f7621e40670af5136fa49e22755b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae08d27f1cc9cab262d4c0af72d13c967"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html#ae08d27f1cc9cab262d4c0af72d13c967">eu::c_int_to_unsigned_int</a> (int i)</td></tr>
+<tr class="separator:ae08d27f1cc9cab262d4c0af72d13c967"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a36a24bdd3f414af0c9d8c95ec8815991"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html#a36a24bdd3f414af0c9d8c95ec8815991">eu::c_int_to_sizet</a> (int i)</td></tr>
+<tr class="separator:a36a24bdd3f414af0c9d8c95ec8815991"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62edc421c9c3e061a05866b92a898942"><td class="memItemLeft" align="right" valign="top">U8&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html#a62edc421c9c3e061a05866b92a898942">eu::c_int_to_u8</a> (unsigned int i)</td></tr>
+<tr class="separator:a62edc421c9c3e061a05866b92a898942"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ad26d02cd6cd78b1ed7779d5839931e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html#a1ad26d02cd6cd78b1ed7779d5839931e">eu::c_u64_to_int</a> (U64 u)</td></tr>
+<tr class="separator:a1ad26d02cd6cd78b1ed7779d5839931e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.17-->

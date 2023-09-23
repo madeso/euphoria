@@ -55,26 +55,27 @@
 </div><!--header-->
 <div class="contents">
 <a href="crc32_8cc.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="crc32_8h.html">core/crc32.h</a>&quot;</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="memorychunk_8h.html">core/memorychunk.h</a>&quot;</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;crc32/crc32.h&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="memorychunk_8h.html">base/memorychunk.h</a>&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;crc32/crc32.h&quot;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceeu_1_1core.html">eu::core</a></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="namespaceeu_1_1core.html#a06acd59c494f0397a35c0e6c10d541a5">   10</a></span>&#160;    <a class="code" href="namespaceeu_1_1core.html#a06acd59c494f0397a35c0e6c10d541a5">calc_crc32</a>(<span class="keyword">const</span> <a class="code" href="structeu_1_1core_1_1MemoryChunk.html">MemoryChunk</a>&amp; chunk)</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    {</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        <span class="keywordflow">return</span> Crc32_ComputeBuf(0, chunk.<a class="code" href="structeu_1_1core_1_1MemoryChunk.html#aac5c5ac6f560c2f2050e176a8c7650fa">get_data</a>(), chunk.<a class="code" href="structeu_1_1core_1_1MemoryChunk.html#a076c6e0d30f56a384b07390f019fe9a6">get_size</a>());</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    }</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;}</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceeu_1_1core.html">eu::core</a></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="namespaceeu_1_1core.html#a06acd59c494f0397a35c0e6c10d541a5">   11</a></span>&#160;    <a class="code" href="namespaceeu_1_1core.html#a06acd59c494f0397a35c0e6c10d541a5">calc_crc32</a>(<span class="keyword">const</span> <a class="code" href="structeu_1_1MemoryChunk.html">MemoryChunk</a>&amp; chunk)</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    {</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        <span class="keywordflow">return</span> Crc32_ComputeBuf(0, chunk.<a class="code" href="structeu_1_1MemoryChunk.html#a13a23c878ab2bc9fc45242282e6fbdca">get_data</a>(), chunk.<a class="code" href="structeu_1_1MemoryChunk.html#ad0f84e126c79af580eda89c1d1ce2835">get_size</a>());</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    }</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;}</div>
 <div class="ttc" id="acrc32_8h_html"><div class="ttname"><a href="crc32_8h.html">crc32.h</a></div></div>
 <div class="ttc" id="amemorychunk_8h_html"><div class="ttname"><a href="memorychunk_8h.html">memorychunk.h</a></div></div>
 <div class="ttc" id="anamespaceeu_1_1core_html"><div class="ttname"><a href="namespaceeu_1_1core.html">eu::core</a></div><div class="ttdef"><b>Definition:</b> <a href="aabb_8cc_source.html#l00008">aabb.cc:9</a></div></div>
-<div class="ttc" id="anamespaceeu_1_1core_html_a06acd59c494f0397a35c0e6c10d541a5"><div class="ttname"><a href="namespaceeu_1_1core.html#a06acd59c494f0397a35c0e6c10d541a5">eu::core::calc_crc32</a></div><div class="ttdeci">unsigned long calc_crc32(const MemoryChunk &amp;chunk)</div><div class="ttdef"><b>Definition:</b> <a href="crc32_8cc_source.html#l00010">crc32.cc:10</a></div></div>
-<div class="ttc" id="astructeu_1_1core_1_1MemoryChunk_html"><div class="ttname"><a href="structeu_1_1core_1_1MemoryChunk.html">eu::core::MemoryChunk</a></div><div class="ttdef"><b>Definition:</b> <a href="memorychunk_8h_source.html#l00008">memorychunk.h:9</a></div></div>
-<div class="ttc" id="astructeu_1_1core_1_1MemoryChunk_html_a076c6e0d30f56a384b07390f019fe9a6"><div class="ttname"><a href="structeu_1_1core_1_1MemoryChunk.html#a076c6e0d30f56a384b07390f019fe9a6">eu::core::MemoryChunk::get_size</a></div><div class="ttdeci">int get_size() const</div><div class="ttdef"><b>Definition:</b> <a href="memorychunk_8cc_source.html#l00024">memorychunk.cc:24</a></div></div>
-<div class="ttc" id="astructeu_1_1core_1_1MemoryChunk_html_aac5c5ac6f560c2f2050e176a8c7650fa"><div class="ttname"><a href="structeu_1_1core_1_1MemoryChunk.html#aac5c5ac6f560c2f2050e176a8c7650fa">eu::core::MemoryChunk::get_data</a></div><div class="ttdeci">char * get_data()</div><div class="ttdef"><b>Definition:</b> <a href="memorychunk_8cc_source.html#l00012">memorychunk.cc:12</a></div></div>
+<div class="ttc" id="anamespaceeu_1_1core_html_a06acd59c494f0397a35c0e6c10d541a5"><div class="ttname"><a href="namespaceeu_1_1core.html#a06acd59c494f0397a35c0e6c10d541a5">eu::core::calc_crc32</a></div><div class="ttdeci">unsigned long calc_crc32(const MemoryChunk &amp;chunk)</div><div class="ttdef"><b>Definition:</b> <a href="crc32_8cc_source.html#l00011">crc32.cc:11</a></div></div>
+<div class="ttc" id="astructeu_1_1MemoryChunk_html"><div class="ttname"><a href="structeu_1_1MemoryChunk.html">eu::MemoryChunk</a></div><div class="ttdef"><b>Definition:</b> <a href="memorychunk_8h_source.html#l00008">memorychunk.h:9</a></div></div>
+<div class="ttc" id="astructeu_1_1MemoryChunk_html_a13a23c878ab2bc9fc45242282e6fbdca"><div class="ttname"><a href="structeu_1_1MemoryChunk.html#a13a23c878ab2bc9fc45242282e6fbdca">eu::MemoryChunk::get_data</a></div><div class="ttdeci">char * get_data()</div><div class="ttdef"><b>Definition:</b> <a href="memorychunk_8cc_source.html#l00012">memorychunk.cc:12</a></div></div>
+<div class="ttc" id="astructeu_1_1MemoryChunk_html_ad0f84e126c79af580eda89c1d1ce2835"><div class="ttname"><a href="structeu_1_1MemoryChunk.html#ad0f84e126c79af580eda89c1d1ce2835">eu::MemoryChunk::get_size</a></div><div class="ttdeci">int get_size() const</div><div class="ttdef"><b>Definition:</b> <a href="memorychunk_8cc_source.html#l00024">memorychunk.cc:24</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.17-->
 <!-- start footer part -->

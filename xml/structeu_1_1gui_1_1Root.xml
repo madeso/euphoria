@@ -180,13 +180,13 @@
         </inbodydescription>
         <location file="libs/gui/src/gui/root.h" line="43" column="14"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1gui_1_1Root_1a355c4e4fbf626b45f0d29fd4ec234646" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1gui_1_1Root_1ad034a3ead4991dc04b2ef8344ae5bb72" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
         <definition>bool eu::gui::Root::load</definition>
-        <argsstring>(core::vfs::FileSystem *fs, render::FontCache *font, const ::eu::core::vfs::FilePath &amp;path, render::TextureCache *cache)</argsstring>
+        <argsstring>(io::FileSystem *fs, render::FontCache *font, const ::eu::io::FilePath &amp;path, render::TextureCache *cache)</argsstring>
         <name>load</name>
         <param>
-          <type><ref refid="structeu_1_1core_1_1vfs_1_1FileSystem" kindref="compound">core::vfs::FileSystem</ref> *</type>
+          <type><ref refid="structeu_1_1io_1_1FileSystem" kindref="compound">io::FileSystem</ref> *</type>
           <declname>fs</declname>
         </param>
         <param>
@@ -194,7 +194,7 @@
           <declname>font</declname>
         </param>
         <param>
-          <type>const ::<ref refid="structeu_1_1core_1_1vfs_1_1FilePath" kindref="compound">eu::core::vfs::FilePath</ref> &amp;</type>
+          <type>const ::<ref refid="structeu_1_1io_1_1FilePath" kindref="compound">eu::io::FilePath</ref> &amp;</type>
           <declname>path</declname>
         </param>
         <param>
@@ -364,7 +364,7 @@
       <member refid="structeu_1_1gui_1_1Root_1a917932dfae3570c661e23d38cb98f309" prot="public" virt="non-virtual"><scope>eu::gui::Root</scope><name>container</name></member>
       <member refid="structeu_1_1gui_1_1Root_1acd10b847e5bec33a30e2c88e2fe3c056" prot="public" virt="non-virtual"><scope>eu::gui::Root</scope><name>cursor_image</name></member>
       <member refid="structeu_1_1gui_1_1Root_1a20f7697d31ecea4a2e64aa7e0e8e81cf" prot="public" virt="non-virtual"><scope>eu::gui::Root</scope><name>hover_image</name></member>
-      <member refid="structeu_1_1gui_1_1Root_1a355c4e4fbf626b45f0d29fd4ec234646" prot="public" virt="non-virtual"><scope>eu::gui::Root</scope><name>load</name></member>
+      <member refid="structeu_1_1gui_1_1Root_1ad034a3ead4991dc04b2ef8344ae5bb72" prot="public" virt="non-virtual"><scope>eu::gui::Root</scope><name>load</name></member>
       <member refid="structeu_1_1gui_1_1Root_1a61dcd4da3b4ebb57e89a2a818b8facd3" prot="public" virt="non-virtual"><scope>eu::gui::Root</scope><name>operator=</name></member>
       <member refid="structeu_1_1gui_1_1Root_1ab73b4c584c5807dae3169baf884f7b5d" prot="public" virt="non-virtual"><scope>eu::gui::Root</scope><name>operator=</name></member>
       <member refid="structeu_1_1gui_1_1Root_1aa319db9d619039e931cddc098484469d" prot="public" virt="non-virtual"><scope>eu::gui::Root</scope><name>render</name></member>

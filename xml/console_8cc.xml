@@ -3,15 +3,17 @@
   <compounddef id="console_8cc" kind="file" language="C++">
     <compoundname>console.cc</compoundname>
     <includes refid="console_8h" local="yes">core/console.h</includes>
-    <includes refid="stringutils_8h" local="yes">core/stringutils.h</includes>
-    <includes refid="stringbuilder_8h" local="yes">core/stringbuilder.h</includes>
+    <includes refid="stringutils_8h" local="yes">base/stringutils.h</includes>
+    <includes refid="stringbuilder_8h" local="yes">base/stringbuilder.h</includes>
     <incdepgraph>
       <node id="3">
         <label>functional</label>
       </node>
-      <node id="7">
-        <label>core/stringbuilder.h</label>
-        <link refid="stringbuilder_8h"/>
+      <node id="6">
+        <label>base/stringutils.h</label>
+        <link refid="stringutils_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
       </node>
       <node id="1">
         <label>libs/core/src/core/console.cc</label>
@@ -23,14 +25,12 @@
         <childnode refid="7" relation="include">
         </childnode>
       </node>
-      <node id="6">
-        <label>core/stringutils.h</label>
-        <link refid="stringutils_8h"/>
-        <childnode refid="5" relation="include">
-        </childnode>
-      </node>
       <node id="5">
         <label>map</label>
+      </node>
+      <node id="7">
+        <label>base/stringbuilder.h</label>
+        <link refid="stringbuilder_8h"/>
       </node>
       <node id="4">
         <label>iostream</label>

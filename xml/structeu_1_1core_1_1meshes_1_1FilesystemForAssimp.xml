@@ -4,9 +4,9 @@
     <compoundname>eu::core::meshes::FilesystemForAssimp</compoundname>
     <basecompoundref prot="public" virt="non-virtual">Assimp::IOSystem</basecompoundref>
       <sectiondef kind="public-attrib">
-      <memberdef kind="variable" id="structeu_1_1core_1_1meshes_1_1FilesystemForAssimp_1a431a9b61131c9b23a1bd89e9dfabbc0a" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1core_1_1vfs_1_1FileSystem" kindref="compound">vfs::FileSystem</ref> *</type>
-        <definition>vfs::FileSystem* eu::core::meshes::FilesystemForAssimp::file_system</definition>
+      <memberdef kind="variable" id="structeu_1_1core_1_1meshes_1_1FilesystemForAssimp_1a62053311dc120eef05dcfd2250d21c40" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1io_1_1FileSystem" kindref="compound">io::FileSystem</ref> *</type>
+        <definition>io::FileSystem* eu::core::meshes::FilesystemForAssimp::file_system</definition>
         <argsstring></argsstring>
         <name>file_system</name>
         <briefdescription>
@@ -15,17 +15,17 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/mesh.cc" line="594" column="29" bodyfile="libs/core/src/core/mesh.cc" bodystart="594" bodyend="-1"/>
+        <location file="libs/core/src/core/mesh.cc" line="618" column="28" bodyfile="libs/core/src/core/mesh.cc" bodystart="618" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
-      <memberdef kind="function" id="structeu_1_1core_1_1meshes_1_1FilesystemForAssimp_1a33ec9b9b28ff60f921d032dd890281ee" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1core_1_1meshes_1_1FilesystemForAssimp_1a0920bb0e573d9e71621a016d12c3b7b4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
         <definition>eu::core::meshes::FilesystemForAssimp::FilesystemForAssimp</definition>
-        <argsstring>(vfs::FileSystem *fs)</argsstring>
+        <argsstring>(io::FileSystem *fs)</argsstring>
         <name>FilesystemForAssimp</name>
         <param>
-          <type><ref refid="structeu_1_1core_1_1vfs_1_1FileSystem" kindref="compound">vfs::FileSystem</ref> *</type>
+          <type><ref refid="structeu_1_1io_1_1FileSystem" kindref="compound">io::FileSystem</ref> *</type>
           <declname>fs</declname>
         </param>
         <briefdescription>
@@ -34,7 +34,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/mesh.cc" line="596" column="13" bodyfile="libs/core/src/core/mesh.cc" bodystart="596" bodyend="599"/>
+        <location file="libs/core/src/core/mesh.cc" line="620" column="13" bodyfile="libs/core/src/core/mesh.cc" bodystart="620" bodyend="623"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1meshes_1_1FilesystemForAssimp_1a3110439a4f2400bce8391ef78bed19f2" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -51,7 +51,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/mesh.cc" line="601" column="18" bodyfile="libs/core/src/core/mesh.cc" bodystart="601" bodyend="605"/>
+        <location file="libs/core/src/core/mesh.cc" line="625" column="18" bodyfile="libs/core/src/core/mesh.cc" bodystart="625" bodyend="629"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1meshes_1_1FilesystemForAssimp_1a455a772a3f8cd293f782a37c49ef7f6f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>char</type>
@@ -64,7 +64,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/mesh.cc" line="607" column="19" bodyfile="libs/core/src/core/mesh.cc" bodystart="607" bodyend="610"/>
+        <location file="libs/core/src/core/mesh.cc" line="631" column="19" bodyfile="libs/core/src/core/mesh.cc" bodystart="631" bodyend="634"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1meshes_1_1FilesystemForAssimp_1a1b2e02fbd470b2f4b745ec57269ab921" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>Assimp::IOStream *</type>
@@ -85,7 +85,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/mesh.cc" line="612" column="30" bodyfile="libs/core/src/core/mesh.cc" bodystart="612" bodyend="625"/>
+        <location file="libs/core/src/core/mesh.cc" line="636" column="30" bodyfile="libs/core/src/core/mesh.cc" bodystart="636" bodyend="649"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1meshes_1_1FilesystemForAssimp_1a355813fbeb9e7478aeafdffb305eeb9d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -102,7 +102,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/mesh.cc" line="627" column="18" bodyfile="libs/core/src/core/mesh.cc" bodystart="627" bodyend="630"/>
+        <location file="libs/core/src/core/mesh.cc" line="651" column="18" bodyfile="libs/core/src/core/mesh.cc" bodystart="651" bodyend="654"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1meshes_1_1FilesystemForAssimp_1a9cd37bb61e32e1ab410a3e1e8ac7ddc4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -118,7 +118,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/mesh.cc" line="632" column="18" bodyfile="libs/core/src/core/mesh.cc" bodystart="632" bodyend="635"/>
+        <location file="libs/core/src/core/mesh.cc" line="656" column="18" bodyfile="libs/core/src/core/mesh.cc" bodystart="656" bodyend="659"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -147,20 +147,20 @@
         </childnode>
       </node>
       <node id="3">
-        <label>eu::core::vfs::FileSystem</label>
-        <link refid="structeu_1_1core_1_1vfs_1_1FileSystem"/>
+        <label>eu::io::FileSystem</label>
+        <link refid="structeu_1_1io_1_1FileSystem"/>
       </node>
       <node id="2">
         <label>Assimp::IOSystem</label>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/mesh.cc" line="592" column="9" bodyfile="libs/core/src/core/mesh.cc" bodystart="593" bodyend="636"/>
+    <location file="libs/core/src/core/mesh.cc" line="616" column="9" bodyfile="libs/core/src/core/mesh.cc" bodystart="617" bodyend="660"/>
     <listofallmembers>
       <member refid="structeu_1_1core_1_1meshes_1_1FilesystemForAssimp_1a355813fbeb9e7478aeafdffb305eeb9d" prot="public" virt="non-virtual"><scope>eu::core::meshes::FilesystemForAssimp</scope><name>Close</name></member>
       <member refid="structeu_1_1core_1_1meshes_1_1FilesystemForAssimp_1a9cd37bb61e32e1ab410a3e1e8ac7ddc4" prot="public" virt="non-virtual"><scope>eu::core::meshes::FilesystemForAssimp</scope><name>DeleteFile</name></member>
       <member refid="structeu_1_1core_1_1meshes_1_1FilesystemForAssimp_1a3110439a4f2400bce8391ef78bed19f2" prot="public" virt="non-virtual"><scope>eu::core::meshes::FilesystemForAssimp</scope><name>Exists</name></member>
-      <member refid="structeu_1_1core_1_1meshes_1_1FilesystemForAssimp_1a431a9b61131c9b23a1bd89e9dfabbc0a" prot="public" virt="non-virtual"><scope>eu::core::meshes::FilesystemForAssimp</scope><name>file_system</name></member>
-      <member refid="structeu_1_1core_1_1meshes_1_1FilesystemForAssimp_1a33ec9b9b28ff60f921d032dd890281ee" prot="public" virt="non-virtual"><scope>eu::core::meshes::FilesystemForAssimp</scope><name>FilesystemForAssimp</name></member>
+      <member refid="structeu_1_1core_1_1meshes_1_1FilesystemForAssimp_1a62053311dc120eef05dcfd2250d21c40" prot="public" virt="non-virtual"><scope>eu::core::meshes::FilesystemForAssimp</scope><name>file_system</name></member>
+      <member refid="structeu_1_1core_1_1meshes_1_1FilesystemForAssimp_1a0920bb0e573d9e71621a016d12c3b7b4" prot="public" virt="non-virtual"><scope>eu::core::meshes::FilesystemForAssimp</scope><name>FilesystemForAssimp</name></member>
       <member refid="structeu_1_1core_1_1meshes_1_1FilesystemForAssimp_1a455a772a3f8cd293f782a37c49ef7f6f" prot="public" virt="non-virtual"><scope>eu::core::meshes::FilesystemForAssimp</scope><name>getOsSeparator</name></member>
       <member refid="structeu_1_1core_1_1meshes_1_1FilesystemForAssimp_1a1b2e02fbd470b2f4b745ec57269ab921" prot="public" virt="non-virtual"><scope>eu::core::meshes::FilesystemForAssimp</scope><name>Open</name></member>
     </listofallmembers>

@@ -2,7 +2,7 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeu_1_1core_1_1EnumValue" kind="struct" language="C++" prot="public">
     <compoundname>eu::core::EnumValue</compoundname>
-    <includes refid="enum_8h" local="no">enum.h</includes>
+    <includes refid="core_2src_2core_2enum_8h" local="no">enum.h</includes>
       <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structeu_1_1core_1_1EnumValue_1a0570fcfd833df4046058df8886aecc23" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1core_1_1EnumType" kindref="compound">EnumType</ref> *</type>
@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/enum.h" line="55" column="18" bodyfile="libs/core/src/core/enum.h" bodystart="55" bodyend="-1"/>
+        <location file="libs/core/src/core/enum.h" line="56" column="18" bodyfile="libs/core/src/core/enum.h" bodystart="56" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1EnumValue_1adf269368257839fa3ea0167bfcdcbc70" prot="public" static="no" mutable="no">
         <type>size_t</type>
@@ -28,7 +28,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/enum.h" line="56" column="16" bodyfile="libs/core/src/core/enum.h" bodystart="56" bodyend="-1"/>
+        <location file="libs/core/src/core/enum.h" line="57" column="16" bodyfile="libs/core/src/core/enum.h" bodystart="57" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -51,7 +51,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/enum.h" line="58" column="9" bodyfile="libs/core/src/core/enum.cc" bodystart="129" bodyend="133"/>
+        <location file="libs/core/src/core/enum.h" line="59" column="9" bodyfile="libs/core/src/core/enum.cc" bodystart="131" bodyend="135"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1EnumValue_1ad4930d66c7a4f733df64d7f520e3e269" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -64,7 +64,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/enum.h" line="61" column="22" bodyfile="libs/core/src/core/enum.cc" bodystart="137" bodyend="140"/>
+        <location file="libs/core/src/core/enum.h" line="62" column="22" bodyfile="libs/core/src/core/enum.cc" bodystart="139" bodyend="142"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1EnumValue_1a2938dc50fc75e0ed347c0dbb4bff5303" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>size_t</type>
@@ -77,7 +77,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/enum.h" line="62" column="17" bodyfile="libs/core/src/core/enum.cc" bodystart="144" bodyend="147"/>
+        <location file="libs/core/src/core/enum.h" line="63" column="17" bodyfile="libs/core/src/core/enum.cc" bodystart="146" bodyend="149"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1EnumValue_1a77f540b23298d807cdaaf6384eed4133" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -94,7 +94,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/enum.h" line="64" column="14" bodyfile="libs/core/src/core/enum.cc" bodystart="151" bodyend="155"/>
+        <location file="libs/core/src/core/enum.h" line="65" column="14" bodyfile="libs/core/src/core/enum.cc" bodystart="153" bodyend="157"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1EnumValue_1a8d390fab3c238584772e984a424f02cf" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -111,7 +111,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/enum.h" line="65" column="14" bodyfile="libs/core/src/core/enum.cc" bodystart="159" bodyend="162"/>
+        <location file="libs/core/src/core/enum.h" line="66" column="14" bodyfile="libs/core/src/core/enum.cc" bodystart="161" bodyend="164"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1EnumValue_1a653bbc99d7b0a73416985b763835d495" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -128,7 +128,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/enum.h" line="66" column="9" bodyfile="libs/core/src/core/enum.cc" bodystart="166" bodyend="170"/>
+        <location file="libs/core/src/core/enum.h" line="67" column="9" bodyfile="libs/core/src/core/enum.cc" bodystart="168" bodyend="172"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -148,7 +148,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/enum.h" line="52" column="5" bodyfile="libs/core/src/core/enum.h" bodystart="53" bodyend="67"/>
+    <location file="libs/core/src/core/enum.h" line="53" column="5" bodyfile="libs/core/src/core/enum.h" bodystart="54" bodyend="68"/>
     <listofallmembers>
       <member refid="structeu_1_1core_1_1EnumValue_1a9d957381426541a650fc8ef1c44c5595" prot="public" virt="non-virtual"><scope>eu::core::EnumValue</scope><name>EnumValue</name></member>
       <member refid="structeu_1_1core_1_1EnumValue_1a8d390fab3c238584772e984a424f02cf" prot="public" virt="non-virtual"><scope>eu::core::EnumValue</scope><name>operator!=</name></member>

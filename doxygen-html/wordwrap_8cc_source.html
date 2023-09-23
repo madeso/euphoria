@@ -59,7 +59,7 @@
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;optional&gt;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="assert_8h.html">assert/assert.h</a>&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="stringutils_8h.html">core/stringutils.h</a>&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="stringutils_8h.html">base/stringutils.h</a>&quot;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceeu_1_1core.html">eu::core</a></div>
@@ -73,10 +73,10 @@
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordtype">bool</span></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    is_whitespace(<span class="keywordtype">char</span> c)</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    {</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="group__string.html#gadc802a94c807de2195af39c05fec5e2c">space_characters</a>.find(c) != std::string::npos;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="group__string.html#ga15da2155ca42b256f31ead0dcf4f212d">space_characters</a>.find(c) != std::string::npos;</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    }</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">const</span> std::string split_chars = <a class="code" href="group__string.html#gadc802a94c807de2195af39c05fec5e2c">space_characters</a>;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">const</span> std::string split_chars = <a class="code" href="group__string.html#ga15da2155ca42b256f31ead0dcf4f212d">space_characters</a>;</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    std::vector&lt;std::string&gt;</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    explode(<span class="keyword">const</span> std::string&amp; str)</div>
@@ -129,10 +129,10 @@
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    {</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keywordflow">if</span>(current_line)</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        {</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span> <a class="code" href="namespaceeu_1_1core.html#a6fca7b841e42734cd5c01e04fc9e6511ae358efa489f58062f10dd7316b65649e">t</a> = <a class="code" href="group__string.html#gad0a53b49bf7e0c33cd1ab2e1a76608e5">trim</a>(*current_line, <span class="stringliteral">&quot; \t&quot;</span>);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span> <a class="code" href="namespaceeu_1_1core.html#a6fca7b841e42734cd5c01e04fc9e6511ae358efa489f58062f10dd7316b65649e">t</a> = <a class="code" href="group__string.html#gaba5dbc7e97fd23465bfb415e8d222087">trim</a>(*current_line, <span class="stringliteral">&quot; \t&quot;</span>);</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            <span class="keywordflow">if</span>(<a class="code" href="namespaceeu_1_1core.html#a6fca7b841e42734cd5c01e04fc9e6511ae358efa489f58062f10dd7316b65649e">t</a>.empty() == <span class="keyword">false</span>)</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            {</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                lines.emplace_back(<a class="code" href="group__string.html#gad0a53b49bf7e0c33cd1ab2e1a76608e5">trim</a>(<a class="code" href="namespaceeu_1_1core.html#a6fca7b841e42734cd5c01e04fc9e6511ae358efa489f58062f10dd7316b65649e">t</a>));</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                lines.emplace_back(<a class="code" href="group__string.html#gaba5dbc7e97fd23465bfb415e8d222087">trim</a>(<a class="code" href="namespaceeu_1_1core.html#a6fca7b841e42734cd5c01e04fc9e6511ae358efa489f58062f10dd7316b65649e">t</a>));</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            }</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            current_line = {};</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        }</div>
@@ -159,8 +159,8 @@
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
 <div class="ttc" id="aassert_8h_html"><div class="ttname"><a href="assert_8h.html">assert.h</a></div></div>
 <div class="ttc" id="aassert_8h_html_a20d93230446fc0009184336e984ab6b2"><div class="ttname"><a href="assert_8h.html#a20d93230446fc0009184336e984ab6b2">ASSERTX</a></div><div class="ttdeci">#define ASSERTX(x,...)</div><div class="ttdef"><b>Definition:</b> <a href="assert_8h_source.html#l00048">assert.h:48</a></div></div>
-<div class="ttc" id="agroup__string_html_gad0a53b49bf7e0c33cd1ab2e1a76608e5"><div class="ttname"><a href="group__string.html#gad0a53b49bf7e0c33cd1ab2e1a76608e5">eu::core::trim</a></div><div class="ttdeci">std::string trim(const std::string &amp;string_to_trim, const std::string &amp;trim_characters)</div><div class="ttdoc">Remove characters from both the start and the end.</div><div class="ttdef"><b>Definition:</b> <a href="stringutils_8cc_source.html#l00079">stringutils.cc:79</a></div></div>
-<div class="ttc" id="agroup__string_html_gadc802a94c807de2195af39c05fec5e2c"><div class="ttname"><a href="group__string.html#gadc802a94c807de2195af39c05fec5e2c">eu::core::space_characters</a></div><div class="ttdeci">const std::string space_characters</div><div class="ttdoc">Space characters.</div><div class="ttdef"><b>Definition:</b> <a href="stringutils_8h_source.html#l00024">stringutils.h:24</a></div></div>
+<div class="ttc" id="agroup__string_html_ga15da2155ca42b256f31ead0dcf4f212d"><div class="ttname"><a href="group__string.html#ga15da2155ca42b256f31ead0dcf4f212d">eu::space_characters</a></div><div class="ttdeci">const std::string space_characters</div><div class="ttdoc">Space characters.</div><div class="ttdef"><b>Definition:</b> <a href="stringutils_8h_source.html#l00024">stringutils.h:24</a></div></div>
+<div class="ttc" id="agroup__string_html_gaba5dbc7e97fd23465bfb415e8d222087"><div class="ttname"><a href="group__string.html#gaba5dbc7e97fd23465bfb415e8d222087">eu::trim</a></div><div class="ttdeci">std::string trim(const std::string &amp;string_to_trim, const std::string &amp;trim_characters)</div><div class="ttdoc">Remove characters from both the start and the end.</div><div class="ttdef"><b>Definition:</b> <a href="stringutils_8cc_source.html#l00079">stringutils.cc:79</a></div></div>
 <div class="ttc" id="anamespaceeu_1_1core_html"><div class="ttname"><a href="namespaceeu_1_1core.html">eu::core</a></div><div class="ttdef"><b>Definition:</b> <a href="aabb_8cc_source.html#l00008">aabb.cc:9</a></div></div>
 <div class="ttc" id="anamespaceeu_1_1core_html_a6fca7b841e42734cd5c01e04fc9e6511ae358efa489f58062f10dd7316b65649e"><div class="ttname"><a href="namespaceeu_1_1core.html#a6fca7b841e42734cd5c01e04fc9e6511ae358efa489f58062f10dd7316b65649e">eu::core::Key::t</a></div><div class="ttdeci">@ t</div></div>
 <div class="ttc" id="anamespaceeu_1_1core_html_aff525d1ed0afca5c9e3c3b64d8f0540e"><div class="ttname"><a href="namespaceeu_1_1core.html#aff525d1ed0afca5c9e3c3b64d8f0540e">eu::core::get_word_wrapped</a></div><div class="ttdeci">std::vector&lt; std::string &gt; get_word_wrapped(const std::string &amp;str, std::function&lt; bool(const std::string &amp;)&gt; fit)</div><div class="ttdef"><b>Definition:</b> <a href="wordwrap_8cc_source.html#l00061">wordwrap.cc:62</a></div></div>

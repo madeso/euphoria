@@ -20,13 +20,13 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
-      <memberdef kind="function" id="structeu_1_1render_1_1TextureCache_1aa31e0eafd4c6aadbfa44aca05ccdf69d" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1render_1_1TextureCache_1ac0242c42c93885f461061e1bb07224e3" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
         <type></type>
         <definition>eu::render::TextureCache::TextureCache</definition>
-        <argsstring>(core::vfs::FileSystem *fs)</argsstring>
+        <argsstring>(io::FileSystem *fs)</argsstring>
         <name>TextureCache</name>
         <param>
-          <type><ref refid="structeu_1_1core_1_1vfs_1_1FileSystem" kindref="compound">core::vfs::FileSystem</ref> *</type>
+          <type><ref refid="structeu_1_1io_1_1FileSystem" kindref="compound">io::FileSystem</ref> *</type>
           <declname>fs</declname>
         </param>
         <briefdescription>
@@ -116,13 +116,13 @@
         </inbodydescription>
         <location file="libs/render/src/render/texturecache.h" line="25" column="14"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1render_1_1TextureCache_1a5c182e28d030ecd7702a8a84815d08b2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1render_1_1TextureCache_1aa8cff8695cd15b007e585210238ca836" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>std::shared_ptr&lt; <ref refid="structeu_1_1render_1_1Texture2" kindref="compound">Texture2</ref> &gt;</type>
         <definition>std::shared_ptr&lt; Texture2 &gt; eu::render::TextureCache::get_texture</definition>
-        <argsstring>(const core::vfs::FilePath &amp;path) const</argsstring>
+        <argsstring>(const io::FilePath &amp;path) const</argsstring>
         <name>get_texture</name>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1vfs_1_1FilePath" kindref="compound">core::vfs::FilePath</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1io_1_1FilePath" kindref="compound">io::FilePath</ref> &amp;</type>
           <declname>path</declname>
         </param>
         <briefdescription>
@@ -133,13 +133,13 @@
         </inbodydescription>
         <location file="libs/render/src/render/texturecache.h" line="28" column="9" bodyfile="libs/render/src/render/texturecache.cc" bodystart="47" bodyend="50"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1render_1_1TextureCache_1aed5612bc31d69c734aaf03c763a6f66e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1render_1_1TextureCache_1ac7e63444f509ba3a3d95b2433a945561" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>std::shared_ptr&lt; <ref refid="structeu_1_1render_1_1Texture2" kindref="compound">Texture2</ref> &gt;</type>
         <definition>std::shared_ptr&lt; Texture2 &gt; eu::render::TextureCache::get_texture</definition>
-        <argsstring>(const std::optional&lt; core::vfs::FilePath &gt; &amp;path) const</argsstring>
+        <argsstring>(const std::optional&lt; io::FilePath &gt; &amp;path) const</argsstring>
         <name>get_texture</name>
         <param>
-          <type>const std::optional&lt; <ref refid="structeu_1_1core_1_1vfs_1_1FilePath" kindref="compound">core::vfs::FilePath</ref> &gt; &amp;</type>
+          <type>const std::optional&lt; <ref refid="structeu_1_1io_1_1FilePath" kindref="compound">io::FilePath</ref> &gt; &amp;</type>
           <declname>path</declname>
         </param>
         <briefdescription>
@@ -157,12 +157,12 @@
     </detaileddescription>
     <location file="libs/render/src/render/texturecache.h" line="17" column="5" bodyfile="libs/render/src/render/texturecache.h" bodystart="18" bodyend="35"/>
     <listofallmembers>
-      <member refid="structeu_1_1render_1_1TextureCache_1a5c182e28d030ecd7702a8a84815d08b2" prot="public" virt="non-virtual"><scope>eu::render::TextureCache</scope><name>get_texture</name></member>
-      <member refid="structeu_1_1render_1_1TextureCache_1aed5612bc31d69c734aaf03c763a6f66e" prot="public" virt="non-virtual"><scope>eu::render::TextureCache</scope><name>get_texture</name></member>
+      <member refid="structeu_1_1render_1_1TextureCache_1aa8cff8695cd15b007e585210238ca836" prot="public" virt="non-virtual"><scope>eu::render::TextureCache</scope><name>get_texture</name></member>
+      <member refid="structeu_1_1render_1_1TextureCache_1ac7e63444f509ba3a3d95b2433a945561" prot="public" virt="non-virtual"><scope>eu::render::TextureCache</scope><name>get_texture</name></member>
       <member refid="structeu_1_1render_1_1TextureCache_1ad38722fcf845bcc58c439ce4920fd5bd" prot="public" virt="non-virtual"><scope>eu::render::TextureCache</scope><name>operator=</name></member>
       <member refid="structeu_1_1render_1_1TextureCache_1a58928b8e3db8ca21037d773973401864" prot="public" virt="non-virtual"><scope>eu::render::TextureCache</scope><name>operator=</name></member>
       <member refid="structeu_1_1render_1_1TextureCache_1a4ddb6e90ff06634cbc652d75d402d94d" prot="public" virt="non-virtual"><scope>eu::render::TextureCache</scope><name>pimpl</name></member>
-      <member refid="structeu_1_1render_1_1TextureCache_1aa31e0eafd4c6aadbfa44aca05ccdf69d" prot="public" virt="non-virtual"><scope>eu::render::TextureCache</scope><name>TextureCache</name></member>
+      <member refid="structeu_1_1render_1_1TextureCache_1ac0242c42c93885f461061e1bb07224e3" prot="public" virt="non-virtual"><scope>eu::render::TextureCache</scope><name>TextureCache</name></member>
       <member refid="structeu_1_1render_1_1TextureCache_1a20b2dd46f98b2c54dbb6b6981886b6cd" prot="public" virt="non-virtual"><scope>eu::render::TextureCache</scope><name>TextureCache</name></member>
       <member refid="structeu_1_1render_1_1TextureCache_1ad95a4e640a018a8203e504fb55d1353c" prot="public" virt="non-virtual"><scope>eu::render::TextureCache</scope><name>TextureCache</name></member>
       <member refid="structeu_1_1render_1_1TextureCache_1ae26008d9f4d80a3119c359d2d6302a15" prot="public" virt="non-virtual"><scope>eu::render::TextureCache</scope><name>~TextureCache</name></member>

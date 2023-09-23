@@ -424,7 +424,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/tests/src/tests/stringeq.cc" line="24" column="5" bodyfile="libs/tests/src/tests/stringeq.cc" bodystart="24" bodyend="47" declfile="libs/tests/src/tests/stringeq.h" declline="25" declcolumn="5"/>
+        <location file="libs/tests/src/tests/stringeq.cc" line="24" column="5" bodyfile="libs/tests/src/tests/stringeq.cc" bodystart="24" bodyend="47" declfile="libs/tests/src/tests/stringeq.h" declline="26" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1tests_1ad7e978e859cd47730b3c654f073cd5c4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1tests_1_1FalseString" kindref="compound">FalseString</ref></type>
@@ -445,7 +445,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/tests/src/tests/stringeq.cc" line="51" column="5" bodyfile="libs/tests/src/tests/stringeq.cc" bodystart="51" bodyend="101" declfile="libs/tests/src/tests/stringeq.h" declline="22" declcolumn="5"/>
+        <location file="libs/tests/src/tests/stringeq.cc" line="51" column="5" bodyfile="libs/tests/src/tests/stringeq.cc" bodystart="51" bodyend="101" declfile="libs/tests/src/tests/stringeq.h" declline="23" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1tests_1a1ec620443f8af47cdc278fffe8d1a3f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>

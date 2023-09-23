@@ -25,12 +25,10 @@
       <node id="13">
         <label>cstdint</label>
       </node>
-      <node id="11">
-        <label>core/cint.h</label>
-        <link refid="cint_8h"/>
-        <childnode refid="12" relation="include">
-        </childnode>
-        <childnode refid="14" relation="include">
+      <node id="12">
+        <label>base/ints.h</label>
+        <link refid="ints_8h"/>
+        <childnode refid="13" relation="include">
         </childnode>
       </node>
       <node id="17">
@@ -100,12 +98,6 @@
       <node id="6">
         <label>vector</label>
       </node>
-      <node id="12">
-        <label>core/ints.h</label>
-        <link refid="ints_8h"/>
-        <childnode refid="13" relation="include">
-        </childnode>
-      </node>
       <node id="9">
         <label>iostream</label>
       </node>
@@ -124,6 +116,14 @@
         <childnode refid="10" relation="include">
         </childnode>
         <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>base/cint.h</label>
+        <link refid="cint_8h"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
         </childnode>
       </node>
       <node id="1">
@@ -272,7 +272,7 @@
       </node>
       <node id="62">
         <label>libs/render/src/render/font.cc</label>
-        <link refid="font_8cc"/>
+        <link refid="render_2src_2render_2font_8cc"/>
       </node>
       <node id="38">
         <label>libs/core/src/core/raytracer.cc</label>
@@ -280,7 +280,7 @@
       </node>
       <node id="52">
         <label>libs/render/src/render/materialshader.h</label>
-        <link refid="materialshader_8h"/>
+        <link refid="render_2src_2render_2materialshader_8h"/>
         <childnode refid="44" relation="include">
         </childnode>
         <childnode refid="22" relation="include">
@@ -378,7 +378,7 @@
       </node>
       <node id="27">
         <label>libs/render/src/render/world.h</label>
-        <link refid="world_8h"/>
+        <link refid="render_2src_2render_2world_8h"/>
         <childnode refid="11" relation="include">
         </childnode>
       </node>
@@ -440,7 +440,7 @@
       </node>
       <node id="11">
         <label>libs/render/src/render/world.cc</label>
-        <link refid="world_8cc"/>
+        <link refid="render_2src_2render_2world_8cc"/>
       </node>
       <node id="13">
         <label>libs/core/src/core/quat.h</label>
@@ -574,7 +574,7 @@
       </node>
       <node id="53">
         <label>libs/render/src/render/materialshader.cc</label>
-        <link refid="materialshader_8cc"/>
+        <link refid="render_2src_2render_2materialshader_8cc"/>
       </node>
     </invincdepgraph>
     <innerclass refid="structeu_1_1core_1_1mat3f" prot="public">eu::core::mat3f</innerclass>

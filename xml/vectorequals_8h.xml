@@ -11,12 +11,12 @@
       <node id="2">
         <label>functional</label>
       </node>
-      <node id="7">
-        <label>core/stringbuilder.h</label>
-        <link refid="stringbuilder_8h"/>
-      </node>
       <node id="5">
         <label>ostream</label>
+      </node>
+      <node id="7">
+        <label>base/stringbuilder.h</label>
+        <link refid="stringbuilder_8h"/>
       </node>
       <node id="1">
         <label>libs/tests/src/tests/vectorequals.h</label>

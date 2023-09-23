@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1log_1_1Logger" kind="struct" language="C++" prot="public" abstract="yes">
+    <compoundname>eu::log::Logger</compoundname>
+    <derivedcompoundref refid="structeu_1_1window_1_1SdlLogger" prot="public" virt="non-virtual">eu::window::SdlLogger</derivedcompoundref>
+    <includes refid="log_2src_2log_2log_8h" local="no">log.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1log_1_1Logger_1a567e35f85f815f99041930e7c998010f" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual eu::log::Logger::~Logger</definition>
+        <argsstring>()=default</argsstring>
+        <name>~Logger</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/log/src/log/log.h" line="17" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1log_1_1Logger_1ad2b67eb49edc11aab5978f306f8e41b5" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void eu::log::Logger::info</definition>
+        <argsstring>(const std::string &amp;str)=0</argsstring>
+        <name>info</name>
+        <reimplementedby refid="structeu_1_1window_1_1SdlLogger_1a7f2d467e02d02ed54a1980c5d4910269">info</reimplementedby>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/log/src/log/log.h" line="18" column="22"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1log_1_1Logger_1a06423e395456c121ee759d7569df5907" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void eu::log::Logger::warn</definition>
+        <argsstring>(const std::string &amp;str)=0</argsstring>
+        <name>warn</name>
+        <reimplementedby refid="structeu_1_1window_1_1SdlLogger_1abad2d46f6a719f7e979cf4074ac478cb">warn</reimplementedby>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/log/src/log/log.h" line="19" column="22"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1log_1_1Logger_1afaf5e8f95546857df1e95d8bae6775ef" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void eu::log::Logger::error</definition>
+        <argsstring>(const std::string &amp;str)=0</argsstring>
+        <name>error</name>
+        <reimplementedby refid="structeu_1_1window_1_1SdlLogger_1a7da52259fc713ad71d0a307f95bb3d50">error</reimplementedby>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/log/src/log/log.h" line="20" column="22"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>eu::window::SdlLogger</label>
+        <link refid="structeu_1_1window_1_1SdlLogger"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>eu::log::Logger</label>
+        <link refid="structeu_1_1log_1_1Logger"/>
+      </node>
+    </inheritancegraph>
+    <location file="libs/log/src/log/log.h" line="15" column="5" bodyfile="libs/log/src/log/log.h" bodystart="16" bodyend="21"/>
+    <listofallmembers>
+      <member refid="structeu_1_1log_1_1Logger_1afaf5e8f95546857df1e95d8bae6775ef" prot="public" virt="pure-virtual"><scope>eu::log::Logger</scope><name>error</name></member>
+      <member refid="structeu_1_1log_1_1Logger_1ad2b67eb49edc11aab5978f306f8e41b5" prot="public" virt="pure-virtual"><scope>eu::log::Logger</scope><name>info</name></member>
+      <member refid="structeu_1_1log_1_1Logger_1a06423e395456c121ee759d7569df5907" prot="public" virt="pure-virtual"><scope>eu::log::Logger</scope><name>warn</name></member>
+      <member refid="structeu_1_1log_1_1Logger_1a567e35f85f815f99041930e7c998010f" prot="public" virt="virtual"><scope>eu::log::Logger</scope><name>~Logger</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

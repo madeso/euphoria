@@ -44,9 +44,9 @@
         </inbodydescription>
         <location file="libs/gui/src/gui/skin.h" line="53" column="15" bodyfile="libs/gui/src/gui/skin.h" bodystart="53" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeu_1_1gui_1_1Skin_1a645a7371a6bc50656bcac12a3dd90ea1" prot="public" static="no" mutable="no">
-        <type>std::optional&lt; <ref refid="structeu_1_1core_1_1vfs_1_1FilePath" kindref="compound">core::vfs::FilePath</ref> &gt;</type>
-        <definition>std::optional&lt;core::vfs::FilePath&gt; eu::gui::Skin::button_image</definition>
+      <memberdef kind="variable" id="structeu_1_1gui_1_1Skin_1af5b4b2a4b89b0a9adfad4eb0a782badf" prot="public" static="no" mutable="no">
+        <type>std::optional&lt; <ref refid="structeu_1_1io_1_1FilePath" kindref="compound">io::FilePath</ref> &gt;</type>
+        <definition>std::optional&lt;io::FilePath&gt; eu::gui::Skin::button_image</definition>
         <argsstring></argsstring>
         <name>button_image</name>
         <briefdescription>
@@ -232,7 +232,7 @@
       <member refid="structeu_1_1gui_1_1Skin_1a891cddf20340e261ad22e0b0744c7643" prot="public" virt="non-virtual"><scope>eu::gui::Skin</scope><name>button_active_hot</name></member>
       <member refid="structeu_1_1gui_1_1Skin_1ab221bab82f8e1dde9e42a7a8af87e17a" prot="public" virt="non-virtual"><scope>eu::gui::Skin</scope><name>button_hot</name></member>
       <member refid="structeu_1_1gui_1_1Skin_1a1b09cb78a498efd74b0758f48a626a84" prot="public" virt="non-virtual"><scope>eu::gui::Skin</scope><name>button_idle</name></member>
-      <member refid="structeu_1_1gui_1_1Skin_1a645a7371a6bc50656bcac12a3dd90ea1" prot="public" virt="non-virtual"><scope>eu::gui::Skin</scope><name>button_image</name></member>
+      <member refid="structeu_1_1gui_1_1Skin_1af5b4b2a4b89b0a9adfad4eb0a782badf" prot="public" virt="non-virtual"><scope>eu::gui::Skin</scope><name>button_image</name></member>
       <member refid="structeu_1_1gui_1_1Skin_1a879c3536599d2dce5a07e72fd89b8b35" prot="public" virt="non-virtual"><scope>eu::gui::Skin</scope><name>font</name></member>
       <member refid="structeu_1_1gui_1_1Skin_1afc946cef8e17cfa5d9cbd397a64759c9" prot="public" virt="non-virtual"><scope>eu::gui::Skin</scope><name>name</name></member>
       <member refid="structeu_1_1gui_1_1Skin_1a6b90628b10b3f14780c9bd9aa0a995aa" prot="public" virt="non-virtual"><scope>eu::gui::Skin</scope><name>operator=</name></member>

@@ -6,7 +6,7 @@
     <includes refid="ui__text_8h" local="no">ui_text.h</includes>
       <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structeu_1_1core_1_1textparser_1_1VisitorDebugString_1a6c58cc9408b6a6d6293639fbd159968b" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1core_1_1StringBuilder" kindref="compound">StringBuilder</ref></type>
+        <type><ref refid="structeu_1_1StringBuilder" kindref="compound">StringBuilder</ref></type>
         <definition>StringBuilder eu::core::textparser::VisitorDebugString::ss</definition>
         <argsstring></argsstring>
         <name>ss</name>
@@ -126,8 +126,8 @@
         <link refid="structeu_1_1core_1_1textparser_1_1Visitor"/>
       </node>
       <node id="3">
-        <label>eu::core::StringBuilder</label>
-        <link refid="structeu_1_1core_1_1StringBuilder"/>
+        <label>eu::StringBuilder</label>
+        <link refid="structeu_1_1StringBuilder"/>
       </node>
       <node id="1">
         <label>eu::core::textparser::VisitorDebugString</label>

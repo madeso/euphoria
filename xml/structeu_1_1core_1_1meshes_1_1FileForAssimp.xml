@@ -16,10 +16,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/mesh.cc" line="539" column="20" bodyfile="libs/core/src/core/mesh.cc" bodystart="539" bodyend="-1"/>
+        <location file="libs/core/src/core/mesh.cc" line="563" column="20" bodyfile="libs/core/src/core/mesh.cc" bodystart="563" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1meshes_1_1FileForAssimp_1a51ce192572fb4c6536d9df5a1efa25f6" prot="public" static="no" mutable="no">
-        <type>std::shared_ptr&lt; <ref refid="structeu_1_1core_1_1MemoryChunk" kindref="compound">MemoryChunk</ref> &gt;</type>
+        <type>std::shared_ptr&lt; <ref refid="structeu_1_1MemoryChunk" kindref="compound">MemoryChunk</ref> &gt;</type>
         <definition>std::shared_ptr&lt;MemoryChunk&gt; eu::core::meshes::FileForAssimp::content</definition>
         <argsstring></argsstring>
         <name>content</name>
@@ -29,7 +29,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/mesh.cc" line="540" column="29" bodyfile="libs/core/src/core/mesh.cc" bodystart="540" bodyend="-1"/>
+        <location file="libs/core/src/core/mesh.cc" line="564" column="29" bodyfile="libs/core/src/core/mesh.cc" bodystart="564" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -56,7 +56,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/mesh.cc" line="542" column="20" bodyfile="libs/core/src/core/mesh.cc" bodystart="542" bodyend="558"/>
+        <location file="libs/core/src/core/mesh.cc" line="566" column="20" bodyfile="libs/core/src/core/mesh.cc" bodystart="566" bodyend="582"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1meshes_1_1FileForAssimp_1aa7780cbad1a84481f4145efe8397c2a4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>size_t</type>
@@ -78,7 +78,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/mesh.cc" line="560" column="20" bodyfile="libs/core/src/core/mesh.cc" bodystart="560" bodyend="563"/>
+        <location file="libs/core/src/core/mesh.cc" line="584" column="20" bodyfile="libs/core/src/core/mesh.cc" bodystart="584" bodyend="587"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1meshes_1_1FileForAssimp_1a97dbb10dde321b9ffdf5888b406a5528" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>aiReturn</type>
@@ -99,7 +99,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/mesh.cc" line="565" column="22" bodyfile="libs/core/src/core/mesh.cc" bodystart="565" bodyend="574"/>
+        <location file="libs/core/src/core/mesh.cc" line="589" column="22" bodyfile="libs/core/src/core/mesh.cc" bodystart="589" bodyend="598"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1meshes_1_1FileForAssimp_1a60ec2e08c5ac9d93fd37e0f780ead234" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>size_t</type>
@@ -112,7 +112,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/mesh.cc" line="576" column="21" bodyfile="libs/core/src/core/mesh.cc" bodystart="576" bodyend="579"/>
+        <location file="libs/core/src/core/mesh.cc" line="600" column="21" bodyfile="libs/core/src/core/mesh.cc" bodystart="600" bodyend="603"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1meshes_1_1FileForAssimp_1a931d5d1e2f356193c1d5f0f462b7c60f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>size_t</type>
@@ -125,7 +125,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/mesh.cc" line="581" column="21" bodyfile="libs/core/src/core/mesh.cc" bodystart="581" bodyend="584"/>
+        <location file="libs/core/src/core/mesh.cc" line="605" column="21" bodyfile="libs/core/src/core/mesh.cc" bodystart="605" bodyend="608"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1meshes_1_1FileForAssimp_1aa54f23246e7eaf61ecdff2b9091f5220" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -138,7 +138,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/mesh.cc" line="586" column="18" bodyfile="libs/core/src/core/mesh.cc" bodystart="586" bodyend="588"/>
+        <location file="libs/core/src/core/mesh.cc" line="610" column="18" bodyfile="libs/core/src/core/mesh.cc" bodystart="610" bodyend="612"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -167,7 +167,7 @@
         <label>Assimp::IOStream</label>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/mesh.cc" line="537" column="9" bodyfile="libs/core/src/core/mesh.cc" bodystart="538" bodyend="589"/>
+    <location file="libs/core/src/core/mesh.cc" line="561" column="9" bodyfile="libs/core/src/core/mesh.cc" bodystart="562" bodyend="613"/>
     <listofallmembers>
       <member refid="structeu_1_1core_1_1meshes_1_1FileForAssimp_1a51ce192572fb4c6536d9df5a1efa25f6" prot="public" virt="non-virtual"><scope>eu::core::meshes::FileForAssimp</scope><name>content</name></member>
       <member refid="structeu_1_1core_1_1meshes_1_1FileForAssimp_1a931d5d1e2f356193c1d5f0f462b7c60f" prot="public" virt="non-virtual"><scope>eu::core::meshes::FileForAssimp</scope><name>FileSize</name></member>

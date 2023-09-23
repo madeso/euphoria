@@ -2,29 +2,27 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="namespaceeu_1_1log" kind="namespace" language="C++">
     <compoundname>eu::log</compoundname>
+    <innerclass refid="structeu_1_1log_1_1Logger" prot="public">eu::log::Logger</innerclass>
+    <innerclass refid="structeu_1_1log_1_1ScopedLogger" prot="public">eu::log::ScopedLogger</innerclass>
       <sectiondef kind="func">
-      <memberdef kind="function" id="namespaceeu_1_1log_1af229837389867f8991d406a1a0018ebc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>void</type>
-        <definition>void eu::log::setup_logging</definition>
-        <argsstring>(bool force_console)</argsstring>
-        <name>setup_logging</name>
-        <param>
-          <type>bool</type>
-          <declname>force_console</declname>
-        </param>
+      <memberdef kind="function" id="namespaceeu_1_1log_1a643960e2f05465dc8fbdf5229e4e934d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1log_1_1Logger" kindref="compound">Logger</ref> *</type>
+        <definition>Logger * eu::log::get_global_logger</definition>
+        <argsstring>()</argsstring>
+        <name>get_global_logger</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/log/src/log/log.cc" line="52" column="5" bodyfile="libs/log/src/log/log.cc" bodystart="52" bodyend="57" declfile="libs/log/src/log/log.h" declline="20" declcolumn="10"/>
+        <location file="libs/log/src/log/log.cc" line="38" column="5" bodyfile="libs/log/src/log/log.cc" bodystart="38" bodyend="45" declfile="libs/log/src/log/log.h" declline="34" declcolumn="12"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/log/src/log/log.cc" line="49" column="1"/>
+    <location file="libs/log/src/log/log.cc" line="35" column="1"/>
   </compounddef>
 </doxygen>

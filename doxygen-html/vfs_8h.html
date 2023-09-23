@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Euphoria: libs/core/src/core/vfs.h File Reference</title>
+<title>Euphoria: libs/io/src/io/vfs.h File Reference</title>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <link href="style.css" rel="stylesheet" type="text/css" />
@@ -46,7 +46,7 @@
   </div>
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="dir_6f77a39b07c019ccd7492ea87272f732.html">core</a></li><li class="navelem"><a class="el" href="dir_232ab8dc75117fda122ab855789b1b2c.html">src</a></li><li class="navelem"><a class="el" href="dir_415d9b35eca6c445d7f5977763a796bd.html">core</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="dir_c51a2d8de34ab4670e813bcbe23f07d0.html">io</a></li><li class="navelem"><a class="el" href="dir_ebced8d3ce54dac400d6548e1be9afc7.html">src</a></li><li class="navelem"><a class="el" href="dir_301250345f65580add71507bd6107413.html">io</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -57,7 +57,7 @@
 <div class="title">vfs.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="memorychunk_8h_source.html">core/memorychunk.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="memorychunk_8h_source.html">base/memorychunk.h</a>&quot;</code><br />
 <code>#include &lt;map&gt;</code><br />
 <code>#include &lt;memory&gt;</code><br />
 <code>#include &lt;optional&gt;</code><br />
@@ -66,30 +66,28 @@
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeu_1_1core_1_1vfs_1_1ListedFile.html">eu::core::vfs::ListedFile</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeu_1_1io_1_1ListedFile.html">eu::io::ListedFile</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeu_1_1core_1_1vfs_1_1FileList.html">eu::core::vfs::FileList</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeu_1_1io_1_1FileList.html">eu::io::FileList</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeu_1_1core_1_1vfs_1_1ReadRoot.html">eu::core::vfs::ReadRoot</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeu_1_1io_1_1ReadRoot.html">eu::io::ReadRoot</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeu_1_1core_1_1vfs_1_1WriteRoot.html">eu::core::vfs::WriteRoot</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeu_1_1io_1_1WriteRoot.html">eu::io::WriteRoot</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeu_1_1core_1_1vfs_1_1FileSystem.html">eu::core::vfs::FileSystem</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeu_1_1io_1_1FileSystem.html">eu::io::FileSystem</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeu_1_1core_1_1vfs_1_1ReadRootCatalog.html">eu::core::vfs::ReadRootCatalog</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeu_1_1io_1_1ReadRootCatalog.html">eu::io::ReadRootCatalog</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeu_1_1core_1_1vfs_1_1ReadRootPhysicalFolder.html">eu::core::vfs::ReadRootPhysicalFolder</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeu_1_1io_1_1ReadRootPhysicalFolder.html">eu::io::ReadRootPhysicalFolder</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeu_1_1core_1_1vfs_1_1WriteRootPhysicalFolder.html">eu::core::vfs::WriteRootPhysicalFolder</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeu_1_1io_1_1WriteRootPhysicalFolder.html">eu::io::WriteRootPhysicalFolder</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:namespaceeu"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html">eu</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:namespaceeu_1_1core"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html">eu::core</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:namespaceeu_1_1core_1_1vfs"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core_1_1vfs.html">eu::core::vfs</a></td></tr>
+<tr class="memitem:namespaceeu_1_1io"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1io.html">eu::io</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->

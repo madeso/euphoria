@@ -2,8 +2,8 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="os_8cc" kind="file" language="C++">
     <compoundname>os.cc</compoundname>
-    <includes refid="os_8h" local="yes">core/os.h</includes>
-    <includes refid="stringutils_8h" local="yes">core/stringutils.h</includes>
+    <includes refid="os_8h" local="yes">base/os.h</includes>
+    <includes refid="stringutils_8h" local="yes">base/stringutils.h</includes>
     <includes local="no">iostream</includes>
     <includes local="no">cstdio</includes>
     <includes local="no">utility</includes>
@@ -11,7 +11,7 @@
     <includes local="no">unistd.h</includes>
     <incdepgraph>
       <node id="3">
-        <label>core/stringutils.h</label>
+        <label>base/stringutils.h</label>
         <link refid="stringutils_8h"/>
         <childnode refid="4" relation="include">
         </childnode>
@@ -28,11 +28,15 @@
       <node id="7">
         <label>utility</label>
       </node>
+      <node id="2">
+        <label>base/os.h</label>
+        <link refid="os_8h"/>
+      </node>
       <node id="5">
         <label>iostream</label>
       </node>
       <node id="1">
-        <label>libs/core/src/core/os.cc</label>
+        <label>libs/base/src/base/os.cc</label>
         <link refid="os_8cc"/>
         <childnode refid="2" relation="include">
         </childnode>
@@ -52,13 +56,8 @@
       <node id="8">
         <label>dirent.h</label>
       </node>
-      <node id="2">
-        <label>core/os.h</label>
-        <link refid="os_8h"/>
-      </node>
     </incdepgraph>
     <innernamespace refid="namespaceeu">eu</innernamespace>
-    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
       <sectiondef kind="define">
       <memberdef kind="define" id="os_8cc_1a7da49cee97dfd7405e8595862fd266de" prot="public" static="no">
         <name>GET_CURRENT_DIR</name>
@@ -69,13 +68,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/os.cc" line="28" column="9" bodyfile="libs/core/src/core/os.cc" bodystart="28" bodyend="-1"/>
+        <location file="libs/base/src/base/os.cc" line="29" column="9" bodyfile="libs/base/src/base/os.cc" bodystart="29" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/os.cc"/>
+    <location file="libs/base/src/base/os.cc"/>
   </compounddef>
 </doxygen>

@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1search_1_1Match" kind="struct" language="C++" prot="public">
+    <compoundname>eu::search::Match</compoundname>
+    <includes refid="editdistance_8search_8h" local="no">editdistance.search.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1search_1_1Match_1aaea6c78c2bb4602d1bb866351ff102f7" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string eu::search::Match::name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/editdistance.search.h" line="15" column="21" bodyfile="libs/base/src/base/editdistance.search.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1search_1_1Match_1a8dcd9b7617cb7d89cc7e12b5b04927e6" prot="public" static="no" mutable="no">
+        <type>unsigned long</type>
+        <definition>unsigned long eu::search::Match::changes</definition>
+        <argsstring></argsstring>
+        <name>changes</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/editdistance.search.h" line="16" column="23" bodyfile="libs/base/src/base/editdistance.search.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1search_1_1Match_1ab3cb9003b0548cefecd0bd1735acf04d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>eu::search::Match::Match</definition>
+        <argsstring>(const std::string &amp;str, const std::string &amp;input)</argsstring>
+        <name>Match</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>str</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>input</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/editdistance.search.h" line="18" column="9" bodyfile="libs/base/src/base/editdistance.search.h" bodystart="18" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1search_1_1Match_1ac9f684f2ec74576afd2264e86863478e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool eu::search::Match::operator&lt;</definition>
+        <argsstring>(const Match &amp;rhs) const</argsstring>
+        <name>operator&lt;</name>
+        <param>
+          <type>const <ref refid="structeu_1_1search_1_1Match" kindref="compound">Match</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/editdistance.search.h" line="24" column="9" bodyfile="libs/base/src/base/editdistance.search.h" bodystart="25" bodyend="28"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/base/src/base/editdistance.search.h" line="13" column="5" bodyfile="libs/base/src/base/editdistance.search.h" bodystart="14" bodyend="29"/>
+    <listofallmembers>
+      <member refid="structeu_1_1search_1_1Match_1a8dcd9b7617cb7d89cc7e12b5b04927e6" prot="public" virt="non-virtual"><scope>eu::search::Match</scope><name>changes</name></member>
+      <member refid="structeu_1_1search_1_1Match_1ab3cb9003b0548cefecd0bd1735acf04d" prot="public" virt="non-virtual"><scope>eu::search::Match</scope><name>Match</name></member>
+      <member refid="structeu_1_1search_1_1Match_1aaea6c78c2bb4602d1bb866351ff102f7" prot="public" virt="non-virtual"><scope>eu::search::Match</scope><name>name</name></member>
+      <member refid="structeu_1_1search_1_1Match_1ac9f684f2ec74576afd2264e86863478e" prot="public" virt="non-virtual"><scope>eu::search::Match</scope><name>operator&lt;</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

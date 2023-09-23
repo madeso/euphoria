@@ -6,6 +6,7 @@
     <innerclass refid="structeu_1_1window_1_1CanvasConfig" prot="public">eu::window::CanvasConfig</innerclass>
     <innerclass refid="structeu_1_1window_1_1Canvas" prot="public">eu::window::Canvas</innerclass>
     <innerclass refid="structeu_1_1window_1_1Engine" prot="public">eu::window::Engine</innerclass>
+    <innerclass refid="structeu_1_1window_1_1SdlLogger" prot="public">eu::window::SdlLogger</innerclass>
     <innerclass refid="structeu_1_1window_1_1SdlOpenglContext" prot="public">eu::window::SdlOpenglContext</innerclass>
     <innerclass refid="structeu_1_1window_1_1SdlLibrary" prot="public">eu::window::SdlLibrary</innerclass>
     <innerclass refid="structeu_1_1window_1_1SdlWindow" prot="public">eu::window::SdlWindow</innerclass>
@@ -332,7 +333,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/app.cc" line="38" column="5" bodyfile="libs/window/src/window/app.cc" bodystart="38" bodyend="95" declfile="libs/window/src/window/app.h" declline="40" declcolumn="9"/>
+        <location file="libs/window/src/window/app.cc" line="40" column="5" bodyfile="libs/window/src/window/app.cc" bodystart="40" bodyend="99" declfile="libs/window/src/window/app.h" declline="40" declcolumn="9"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1window_1a78c3c5660a02f40bba5e472f5949d86a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -466,6 +467,27 @@
         </inbodydescription>
         <location file="libs/window/src/window/key.cc" line="255" column="5" bodyfile="libs/window/src/window/key.cc" bodystart="255" bodyend="268" declfile="libs/window/src/window/key.h" declline="14" declcolumn="5"/>
       </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1window_1a935c614f122e72d1abc676f55f82b39b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::window::generic_log</definition>
+        <argsstring>(SDL_LogPriority prio, const std::string &amp;str)</argsstring>
+        <name>generic_log</name>
+        <param>
+          <type>SDL_LogPriority</type>
+          <declname>prio</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/window/src/window/log.cc" line="24" column="6" bodyfile="libs/window/src/window/log.cc" bodystart="24" bodyend="27"/>
+      </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1window_1a5a9393337176625c0f712cc88b16a8b5" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>constexpr ImU32</type>
         <definition>constexpr ImU32 eu::window::from_oc_to_dear_imgui_color</definition>
@@ -535,6 +557,6 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/window/src/window/app.cc" line="18" column="1"/>
+    <location file="libs/window/src/window/app.cc" line="20" column="1"/>
   </compounddef>
 </doxygen>

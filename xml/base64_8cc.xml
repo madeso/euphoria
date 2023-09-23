@@ -4,28 +4,32 @@
     <compoundname>base64.cc</compoundname>
     <includes refid="base64_8h" local="yes">core/base64.h</includes>
     <includes refid="assert_8h" local="yes">assert/assert.h</includes>
-    <includes refid="cint_8h" local="yes">core/cint.h</includes>
-    <includes refid="stringbuilder_8h" local="yes">core/stringbuilder.h</includes>
+    <includes refid="cint_8h" local="yes">base/cint.h</includes>
+    <includes refid="stringbuilder_8h" local="yes">base/stringbuilder.h</includes>
     <includes local="no">string_view</includes>
     <includes local="no">array</includes>
     <incdepgraph>
-      <node id="12">
-        <label>core/stringbuilder.h</label>
-        <link refid="stringbuilder_8h"/>
-      </node>
       <node id="10">
         <label>cstdint</label>
       </node>
-      <node id="8">
-        <label>core/cint.h</label>
-        <link refid="cint_8h"/>
-        <childnode refid="9" relation="include">
+      <node id="9">
+        <label>base/ints.h</label>
+        <link refid="ints_8h"/>
+        <childnode refid="10" relation="include">
         </childnode>
-        <childnode refid="11" relation="include">
+      </node>
+      <node id="3">
+        <label>base/memorychunk.h</label>
+        <link refid="memorychunk_8h"/>
+        <childnode refid="4" relation="include">
         </childnode>
       </node>
       <node id="6">
         <label>string</label>
+      </node>
+      <node id="12">
+        <label>base/stringbuilder.h</label>
+        <link refid="stringbuilder_8h"/>
       </node>
       <node id="5">
         <label>assert/assert.h</label>
@@ -50,18 +54,6 @@
       <node id="14">
         <label>array</label>
       </node>
-      <node id="3">
-        <label>core/memorychunk.h</label>
-        <link refid="memorychunk_8h"/>
-        <childnode refid="4" relation="include">
-        </childnode>
-      </node>
-      <node id="9">
-        <label>core/ints.h</label>
-        <link refid="ints_8h"/>
-        <childnode refid="10" relation="include">
-        </childnode>
-      </node>
       <node id="1">
         <label>libs/core/src/core/base64.cc</label>
         <link refid="base64_8cc"/>
@@ -80,6 +72,14 @@
       </node>
       <node id="11">
         <label>cstddef</label>
+      </node>
+      <node id="8">
+        <label>base/cint.h</label>
+        <link refid="cint_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
       </node>
       <node id="4">
         <label>memory</label>

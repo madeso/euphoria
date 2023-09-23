@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Euphoria: libs/core/src/core/functional.h File Reference</title>
+<title>Euphoria: libs/base/src/base/functional.h File Reference</title>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <link href="style.css" rel="stylesheet" type="text/css" />
@@ -46,7 +46,7 @@
   </div>
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="dir_6f77a39b07c019ccd7492ea87272f732.html">core</a></li><li class="navelem"><a class="el" href="dir_232ab8dc75117fda122ab855789b1b2c.html">src</a></li><li class="navelem"><a class="el" href="dir_415d9b35eca6c445d7f5977763a796bd.html">core</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="dir_06498c378442102d76a793fbea770c00.html">base</a></li><li class="navelem"><a class="el" href="dir_1434489f875b8806781a8ab0a150cad2.html">src</a></li><li class="navelem"><a class="el" href="dir_9335635e0e9dc5833ab0cd315fbf7edd.html">base</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -66,35 +66,33 @@
 Namespaces</h2></td></tr>
 <tr class="memitem:namespaceeu"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html">eu</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:namespaceeu_1_1core"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html">eu::core</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a0d6254121dd32db94657eb3f4aaaf08f"><td class="memTemplParams" colspan="2">template&lt;typename A , typename B &gt; </td></tr>
-<tr class="memitem:a0d6254121dd32db94657eb3f4aaaf08f"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; std::pair&lt; A, B &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#a0d6254121dd32db94657eb3f4aaaf08f">eu::core::zip</a> (const std::vector&lt; A &gt; &amp;as, const std::vector&lt; B &gt; &amp;bs)</td></tr>
-<tr class="separator:a0d6254121dd32db94657eb3f4aaaf08f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae09e525d51442fb6dc9bc8828690f65a"><td class="memTemplParams" colspan="2">template&lt;typename A , typename B &gt; </td></tr>
-<tr class="memitem:ae09e525d51442fb6dc9bc8828690f65a"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; std::pair&lt; A, B &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#ae09e525d51442fb6dc9bc8828690f65a">eu::core::zip_longest</a> (const std::vector&lt; A &gt; &amp;as, const std::vector&lt; B &gt; &amp;bs, A da=A(), B db=B())</td></tr>
-<tr class="separator:ae09e525d51442fb6dc9bc8828690f65a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a03c104ce82a33db3d1052c58ba7cfc16"><td class="memTemplParams" colspan="2">template&lt;typename T , typename F  = T, typename C &gt; </td></tr>
-<tr class="memitem:a03c104ce82a33db3d1052c58ba7cfc16"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#a03c104ce82a33db3d1052c58ba7cfc16">eu::core::map</a> (const std::vector&lt; F &gt; &amp;fs, C convert)</td></tr>
-<tr class="separator:a03c104ce82a33db3d1052c58ba7cfc16"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8af0eee0972c2f6a3f5688c8d6f7fa9e"><td class="memTemplParams" colspan="2">template&lt;typename T , typename K , typename V , typename C &gt; </td></tr>
-<tr class="memitem:a8af0eee0972c2f6a3f5688c8d6f7fa9e"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#a8af0eee0972c2f6a3f5688c8d6f7fa9e">eu::core::map</a> (const std::map&lt; K, V &gt; &amp;fs, C convert)</td></tr>
-<tr class="separator:a8af0eee0972c2f6a3f5688c8d6f7fa9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4f08f4919fdbc2547ea9ccddba2108a9"><td class="memTemplParams" colspan="2">template&lt;typename T , typename C &gt; </td></tr>
-<tr class="memitem:a4f08f4919fdbc2547ea9ccddba2108a9"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#a4f08f4919fdbc2547ea9ccddba2108a9">eu::core::filter</a> (const std::vector&lt; T &gt; &amp;ts, C check)</td></tr>
-<tr class="separator:a4f08f4919fdbc2547ea9ccddba2108a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a590ad698fbe01c302a3bd7bcba28454a"><td class="memTemplParams" colspan="2">template&lt;typename T , typename C &gt; </td></tr>
-<tr class="memitem:a590ad698fbe01c302a3bd7bcba28454a"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#a590ad698fbe01c302a3bd7bcba28454a">eu::core::all</a> (const std::vector&lt; T &gt; &amp;ts, C check)</td></tr>
-<tr class="separator:a590ad698fbe01c302a3bd7bcba28454a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af7c40eab8dd2ca9144a2947095447f24"><td class="memTemplParams" colspan="2">template&lt;typename T , typename C &gt; </td></tr>
-<tr class="memitem:af7c40eab8dd2ca9144a2947095447f24"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#af7c40eab8dd2ca9144a2947095447f24">eu::core::any</a> (const std::vector&lt; T &gt; &amp;ts, C check)</td></tr>
-<tr class="separator:af7c40eab8dd2ca9144a2947095447f24"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0ce41046379306e0e7719ded57c06a4c"><td class="memTemplParams" colspan="2">template&lt;typename T , typename R  = T, typename C &gt; </td></tr>
-<tr class="memitem:a0ce41046379306e0e7719ded57c06a4c"><td class="memTemplItemLeft" align="right" valign="top">R&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#a0ce41046379306e0e7719ded57c06a4c">eu::core::fold</a> (const std::vector&lt; T &gt; &amp;ts, C concat, R zero)</td></tr>
-<tr class="separator:a0ce41046379306e0e7719ded57c06a4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70bdf9fe42beb00691f28215741f29be"><td class="memTemplParams" colspan="2">template&lt;typename A , typename B &gt; </td></tr>
+<tr class="memitem:a70bdf9fe42beb00691f28215741f29be"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; std::pair&lt; A, B &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceeu.html#a70bdf9fe42beb00691f28215741f29be">eu::zip</a> (const std::vector&lt; A &gt; &amp;as, const std::vector&lt; B &gt; &amp;bs)</td></tr>
+<tr class="separator:a70bdf9fe42beb00691f28215741f29be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a175501e62b5378f378e409236ed056ac"><td class="memTemplParams" colspan="2">template&lt;typename A , typename B &gt; </td></tr>
+<tr class="memitem:a175501e62b5378f378e409236ed056ac"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; std::pair&lt; A, B &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceeu.html#a175501e62b5378f378e409236ed056ac">eu::zip_longest</a> (const std::vector&lt; A &gt; &amp;as, const std::vector&lt; B &gt; &amp;bs, A da=A(), B db=B())</td></tr>
+<tr class="separator:a175501e62b5378f378e409236ed056ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6507a8ec64647f0a38e1bd35499f073b"><td class="memTemplParams" colspan="2">template&lt;typename T , typename F  = T, typename C &gt; </td></tr>
+<tr class="memitem:a6507a8ec64647f0a38e1bd35499f073b"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceeu.html#a6507a8ec64647f0a38e1bd35499f073b">eu::map</a> (const std::vector&lt; F &gt; &amp;fs, C convert)</td></tr>
+<tr class="separator:a6507a8ec64647f0a38e1bd35499f073b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d77d46b5904b314de84290ac4a15bc0"><td class="memTemplParams" colspan="2">template&lt;typename T , typename K , typename V , typename C &gt; </td></tr>
+<tr class="memitem:a9d77d46b5904b314de84290ac4a15bc0"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceeu.html#a9d77d46b5904b314de84290ac4a15bc0">eu::map</a> (const std::map&lt; K, V &gt; &amp;fs, C convert)</td></tr>
+<tr class="separator:a9d77d46b5904b314de84290ac4a15bc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9f1c4e8fcbe15f6db7c7576868d0493"><td class="memTemplParams" colspan="2">template&lt;typename T , typename C &gt; </td></tr>
+<tr class="memitem:ad9f1c4e8fcbe15f6db7c7576868d0493"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceeu.html#ad9f1c4e8fcbe15f6db7c7576868d0493">eu::filter</a> (const std::vector&lt; T &gt; &amp;ts, C check)</td></tr>
+<tr class="separator:ad9f1c4e8fcbe15f6db7c7576868d0493"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1956c93ce39188f20c4f35d097c619f4"><td class="memTemplParams" colspan="2">template&lt;typename T , typename C &gt; </td></tr>
+<tr class="memitem:a1956c93ce39188f20c4f35d097c619f4"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceeu.html#a1956c93ce39188f20c4f35d097c619f4">eu::all</a> (const std::vector&lt; T &gt; &amp;ts, C check)</td></tr>
+<tr class="separator:a1956c93ce39188f20c4f35d097c619f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9b77a383d49915450bfd82b3a8e0a4f"><td class="memTemplParams" colspan="2">template&lt;typename T , typename C &gt; </td></tr>
+<tr class="memitem:ad9b77a383d49915450bfd82b3a8e0a4f"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceeu.html#ad9b77a383d49915450bfd82b3a8e0a4f">eu::any</a> (const std::vector&lt; T &gt; &amp;ts, C check)</td></tr>
+<tr class="separator:ad9b77a383d49915450bfd82b3a8e0a4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0885bc2c8931deca30b7a0df512954c4"><td class="memTemplParams" colspan="2">template&lt;typename T , typename R  = T, typename C &gt; </td></tr>
+<tr class="memitem:a0885bc2c8931deca30b7a0df512954c4"><td class="memTemplItemLeft" align="right" valign="top">R&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceeu.html#a0885bc2c8931deca30b7a0df512954c4">eu::fold</a> (const std::vector&lt; T &gt; &amp;ts, C concat, R zero)</td></tr>
+<tr class="separator:a0885bc2c8931deca30b7a0df512954c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.17-->

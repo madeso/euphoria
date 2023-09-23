@@ -166,7 +166,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/gui/src/gui/layout.h" line="62" column="9" bodyfile="libs/gui/src/gui/layout.cc" bodystart="49" bodyend="73"/>
+        <location file="libs/gui/src/gui/layout.h" line="62" column="9" bodyfile="libs/gui/src/gui/layout.cc" bodystart="49" bodyend="72"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1gui_1_1TableLayout_1a7b3ddd9c470ffa0560267f6d96da9da6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -188,7 +188,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/gui/src/gui/layout.h" line="68" column="9" bodyfile="libs/gui/src/gui/layout.cc" bodystart="91" bodyend="188"/>
+        <location file="libs/gui/src/gui/layout.h" line="68" column="9" bodyfile="libs/gui/src/gui/layout.cc" bodystart="77" bodyend="159"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

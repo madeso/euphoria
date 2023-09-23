@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Euphoria: libs/core/src/core/stringutils.h File Reference</title>
+<title>Euphoria: libs/base/src/base/stringutils.h File Reference</title>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <link href="style.css" rel="stylesheet" type="text/css" />
@@ -46,7 +46,7 @@
   </div>
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="dir_6f77a39b07c019ccd7492ea87272f732.html">core</a></li><li class="navelem"><a class="el" href="dir_232ab8dc75117fda122ab855789b1b2c.html">src</a></li><li class="navelem"><a class="el" href="dir_415d9b35eca6c445d7f5977763a796bd.html">core</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="dir_06498c378442102d76a793fbea770c00.html">base</a></li><li class="navelem"><a class="el" href="dir_1434489f875b8806781a8ab0a150cad2.html">src</a></li><li class="navelem"><a class="el" href="dir_9335635e0e9dc5833ab0cd315fbf7edd.html">base</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -70,103 +70,101 @@
 Namespaces</h2></td></tr>
 <tr class="memitem:namespaceeu"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html">eu</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:namespaceeu_1_1core"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html">eu::core</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:ga8b87aba464210f2cafbb7fd338494213"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__string.html#ga8b87aba464210f2cafbb7fd338494213">eu::core::CharToStringStyle</a> { <a class="el" href="group__string.html#gga8b87aba464210f2cafbb7fd338494213a8c319f28d81d1527a9428e9a5c2195f5">eu::core::smart</a>
-, <a class="el" href="group__string.html#gga8b87aba464210f2cafbb7fd338494213afa2f1c8dc686b38506663647e5242622">eu::core::include_hex</a>
+<tr class="memitem:ga20491245288871dc76aabddb7437225f"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__string.html#ga20491245288871dc76aabddb7437225f">eu::CharToStringStyle</a> { <a class="el" href="group__string.html#gga20491245288871dc76aabddb7437225fa8c319f28d81d1527a9428e9a5c2195f5">eu::smart</a>
+, <a class="el" href="group__string.html#gga20491245288871dc76aabddb7437225fafa2f1c8dc686b38506663647e5242622">eu::include_hex</a>
  }</td></tr>
-<tr class="separator:ga8b87aba464210f2cafbb7fd338494213"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:ga20491245288871dc76aabddb7437225f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga534eda78fc40581ad2d671b30eff16a8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__string.html#ga534eda78fc40581ad2d671b30eff16a8">eu::core::is_number</a> (char b)</td></tr>
-<tr class="separator:ga534eda78fc40581ad2d671b30eff16a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga5f7fce7b8ffa4a24e2638a298a0d3f22"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__string.html#ga5f7fce7b8ffa4a24e2638a298a0d3f22">eu::core::strip_last_string</a> (const std::string &amp;str, char sep)</td></tr>
-<tr class="memdesc:ga5f7fce7b8ffa4a24e2638a298a0d3f22"><td class="mdescLeft">&#160;</td><td class="mdescRight">for hello.dog and . gets hello  <a href="group__string.html#ga5f7fce7b8ffa4a24e2638a298a0d3f22">More...</a><br /></td></tr>
-<tr class="separator:ga5f7fce7b8ffa4a24e2638a298a0d3f22"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaf54c9b7a2e6e15ed702b694271ad803d"><td class="memItemLeft" align="right" valign="top">std::pair&lt; std::string, std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__string.html#gaf54c9b7a2e6e15ed702b694271ad803d">eu::core::get_last_string</a> (const std::string &amp;str, char sep)</td></tr>
-<tr class="memdesc:gaf54c9b7a2e6e15ed702b694271ad803d"><td class="mdescLeft">&#160;</td><td class="mdescRight">for hello.dog gets .dog  <a href="group__string.html#gaf54c9b7a2e6e15ed702b694271ad803d">More...</a><br /></td></tr>
-<tr class="separator:gaf54c9b7a2e6e15ed702b694271ad803d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga5d48a997542d8f5f3b04e0acbf519a4d"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__string.html#ga5d48a997542d8f5f3b04e0acbf519a4d">eu::core::get_first_chars</a> (const std::string &amp;str, std::size_t count)</td></tr>
-<tr class="separator:ga5d48a997542d8f5f3b04e0acbf519a4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga031944de061acb67e9c559667083a06a"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__string.html#ga031944de061acb67e9c559667083a06a">eu::core::get_first_chars_with_ellipsis</a> (const std::string &amp;str, unsigned int count)</td></tr>
-<tr class="separator:ga031944de061acb67e9c559667083a06a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gafc80fb5a9f44235461d5600397ff97ff"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__string.html#gafc80fb5a9f44235461d5600397ff97ff">eu::core::trim_right</a> (const std::string &amp;string_to_trim, const std::string &amp;trim_characters=space_characters)</td></tr>
-<tr class="memdesc:gafc80fb5a9f44235461d5600397ff97ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove characters from the right, stops at a invalid character.  <a href="group__string.html#gafc80fb5a9f44235461d5600397ff97ff">More...</a><br /></td></tr>
-<tr class="separator:gafc80fb5a9f44235461d5600397ff97ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gade22252d2e003fa150f07d0ce7b62617"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__string.html#gade22252d2e003fa150f07d0ce7b62617">eu::core::trim_left</a> (const std::string &amp;string_to_trim, const std::string &amp;trim_characters=space_characters)</td></tr>
-<tr class="memdesc:gade22252d2e003fa150f07d0ce7b62617"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove characters from the left, stops at invalid character.  <a href="group__string.html#gade22252d2e003fa150f07d0ce7b62617">More...</a><br /></td></tr>
-<tr class="separator:gade22252d2e003fa150f07d0ce7b62617"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad0a53b49bf7e0c33cd1ab2e1a76608e5"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__string.html#gad0a53b49bf7e0c33cd1ab2e1a76608e5">eu::core::trim</a> (const std::string &amp;string_to_trim, const std::string &amp;trim_characters=space_characters)</td></tr>
-<tr class="memdesc:gad0a53b49bf7e0c33cd1ab2e1a76608e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove characters from both the start and the end.  <a href="group__string.html#gad0a53b49bf7e0c33cd1ab2e1a76608e5">More...</a><br /></td></tr>
-<tr class="separator:gad0a53b49bf7e0c33cd1ab2e1a76608e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga1e9da3cbf1bf730f239e62da6526e631"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__string.html#ga1e9da3cbf1bf730f239e62da6526e631">eu::core::begins_width</a> (const std::string &amp;string_to_test, const std::string &amp;start)</td></tr>
-<tr class="memdesc:ga1e9da3cbf1bf730f239e62da6526e631"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tests if a string starts with another string.  <a href="group__string.html#ga1e9da3cbf1bf730f239e62da6526e631">More...</a><br /></td></tr>
-<tr class="separator:ga1e9da3cbf1bf730f239e62da6526e631"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga8c71810c6d4f2c67e6853f58e2bc33d7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__string.html#ga8c71810c6d4f2c67e6853f58e2bc33d7">eu::core::ends_with</a> (const std::string &amp;string_to_test, const std::string &amp;end)</td></tr>
-<tr class="memdesc:ga8c71810c6d4f2c67e6853f58e2bc33d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tests if a string ends with another string.  <a href="group__string.html#ga8c71810c6d4f2c67e6853f58e2bc33d7">More...</a><br /></td></tr>
-<tr class="separator:ga8c71810c6d4f2c67e6853f58e2bc33d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gadbb8cf5a4a1865de62cd0e69cd039bfe"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__string.html#gadbb8cf5a4a1865de62cd0e69cd039bfe">eu::core::to_lower_char</a> (char b)</td></tr>
-<tr class="separator:gadbb8cf5a4a1865de62cd0e69cd039bfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga4ecb77c1379beac071e8b4573ff09b3d"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__string.html#ga4ecb77c1379beac071e8b4573ff09b3d">eu::core::to_upper_char</a> (char b)</td></tr>
-<tr class="separator:ga4ecb77c1379beac071e8b4573ff09b3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga6e9e71c020e91ad3cf38ab945c7a1122"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__string.html#ga6e9e71c020e91ad3cf38ab945c7a1122">eu::core::to_lower</a> (const std::string &amp;str)</td></tr>
-<tr class="memdesc:ga6e9e71c020e91ad3cf38ab945c7a1122"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a string containing only lower characters.  <a href="group__string.html#ga6e9e71c020e91ad3cf38ab945c7a1122">More...</a><br /></td></tr>
-<tr class="separator:ga6e9e71c020e91ad3cf38ab945c7a1122"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga0dac28d0a8cb763fa2b6033881b15ee7"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__string.html#ga0dac28d0a8cb763fa2b6033881b15ee7">eu::core::to_lower</a> (const std::vector&lt; std::string &gt; &amp;str)</td></tr>
-<tr class="separator:ga0dac28d0a8cb763fa2b6033881b15ee7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad46b999006b5feb7c77724ef67d99bcd"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__string.html#gad46b999006b5feb7c77724ef67d99bcd">eu::core::to_upper</a> (const std::string &amp;str)</td></tr>
-<tr class="separator:gad46b999006b5feb7c77724ef67d99bcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaa3955e6d801eabddb7dbdcf1f888b78d"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__string.html#gaa3955e6d801eabddb7dbdcf1f888b78d">eu::core::from_char_to_string</a> (char c, CharToStringStyle style)</td></tr>
-<tr class="separator:gaa3955e6d801eabddb7dbdcf1f888b78d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gae0c78dba92b3f6dd9d9062a0e44cb526"><td class="memItemLeft" align="right" valign="top">std::string::size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__string.html#gae0c78dba92b3f6dd9d9062a0e44cb526">eu::core::find_first_index_of_mismatch</a> (const std::string &amp;lhs, const std::string &amp;rhs)</td></tr>
-<tr class="separator:gae0c78dba92b3f6dd9d9062a0e44cb526"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga7e649c640bc7fc0dd0ec3ee74aa9fcc3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__string.html#ga7e649c640bc7fc0dd0ec3ee74aa9fcc3">eu::core::replace_all</a> (std::string *string, const std::string &amp;to_find, const std::string &amp;to_replace)</td></tr>
-<tr class="memdesc:ga7e649c640bc7fc0dd0ec3ee74aa9fcc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Replace all occurrences in a string.  <a href="group__string.html#ga7e649c640bc7fc0dd0ec3ee74aa9fcc3">More...</a><br /></td></tr>
-<tr class="separator:ga7e649c640bc7fc0dd0ec3ee74aa9fcc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga848c0b2e4d755d12bc93cadc4468d773"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__string.html#ga848c0b2e4d755d12bc93cadc4468d773">eu::core::replace_all</a> (const std::string &amp;string, const std::string &amp;to_find, const std::string &amp;to_replace)</td></tr>
-<tr class="memdesc:ga848c0b2e4d755d12bc93cadc4468d773"><td class="mdescLeft">&#160;</td><td class="mdescRight">Replace all occurrences in a string.  <a href="group__string.html#ga848c0b2e4d755d12bc93cadc4468d773">More...</a><br /></td></tr>
-<tr class="separator:ga848c0b2e4d755d12bc93cadc4468d773"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga7ccec3814c323739c3e01b749a594499"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__string.html#ga7ccec3814c323739c3e01b749a594499">eu::core::replace_with_character</a> (const std::string &amp;string, const std::string &amp;to_find, char to_replace)</td></tr>
-<tr class="separator:ga7ccec3814c323739c3e01b749a594499"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga8a3fc6543457a6b1bda6bec2258b5b57"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__string.html#ga8a3fc6543457a6b1bda6bec2258b5b57">eu::core::copy</a> (char *dst, const std::string &amp;src, const std::string::size_type &amp;count)</td></tr>
-<tr class="memdesc:ga8a3fc6543457a6b1bda6bec2258b5b57"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy a string to a character buffer, adding null terminator at the end.  <a href="group__string.html#ga8a3fc6543457a6b1bda6bec2258b5b57">More...</a><br /></td></tr>
-<tr class="separator:ga8a3fc6543457a6b1bda6bec2258b5b57"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gabe5a3e6ac19b0f07ae6e48af3588efc7"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__string.html#gabe5a3e6ac19b0f07ae6e48af3588efc7">eu::core::remove_from_end</a> (const std::string &amp;str, const std::string &amp;end)</td></tr>
-<tr class="separator:gabe5a3e6ac19b0f07ae6e48af3588efc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga7fa5856f6e4ce85558c5d74d856b5fea"><td class="memTemplParams" colspan="2">template&lt;typename TKey , typename TValue &gt; </td></tr>
-<tr class="memitem:ga7fa5856f6e4ce85558c5d74d856b5fea"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__string.html#ga7fa5856f6e4ce85558c5d74d856b5fea">eu::core::to_string_vector</a> (const std::map&lt; TKey, TValue &gt; &amp;map)</td></tr>
-<tr class="separator:ga7fa5856f6e4ce85558c5d74d856b5fea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga9c48d3ef515ec197f157babfbdd2cabb"><td class="memTemplParams" colspan="2">template&lt;typename TKey , typename TValue &gt; </td></tr>
-<tr class="memitem:ga9c48d3ef515ec197f157babfbdd2cabb"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__string.html#ga9c48d3ef515ec197f157babfbdd2cabb">eu::core::from_key_to_string_vector</a> (const std::map&lt; TKey, TValue &gt; &amp;map)</td></tr>
-<tr class="separator:ga9c48d3ef515ec197f157babfbdd2cabb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga46db10d73427013e71789b502dc627d5"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:ga46db10d73427013e71789b502dc627d5"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__string.html#ga46db10d73427013e71789b502dc627d5">eu::core::to_string_vector</a> (const std::vector&lt; T &gt; &amp;data)</td></tr>
-<tr class="separator:ga46db10d73427013e71789b502dc627d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gafdf7075714d3003396877be7f804cfdc"><td class="memTemplParams" colspan="2">template&lt;typename T , typename C &gt; </td></tr>
-<tr class="memitem:gafdf7075714d3003396877be7f804cfdc"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__string.html#gafdf7075714d3003396877be7f804cfdc">eu::core::to_string_vector</a> (const std::vector&lt; T &gt; &amp;data, C callback)</td></tr>
-<tr class="separator:gafdf7075714d3003396877be7f804cfdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gae66ef5efe780bd8afedbf882fdc7015e"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__string.html#gae66ef5efe780bd8afedbf882fdc7015e">eu::core::strip</a> (const std::string &amp;str, const std::string &amp;<a class="el" href="nlp__sentence_8cc.html#a30df446d01f80e4211b2fcef8f754436">ch</a>)</td></tr>
-<tr class="separator:gae66ef5efe780bd8afedbf882fdc7015e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga347e1cdeed55ae81dbece80d84485ab9"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__string.html#ga347e1cdeed55ae81dbece80d84485ab9">eu::core::remove_consecutive</a> (const std::string &amp;str, const std::string &amp;<a class="el" href="nlp__sentence_8cc.html#a30df446d01f80e4211b2fcef8f754436">ch</a>)</td></tr>
-<tr class="separator:ga347e1cdeed55ae81dbece80d84485ab9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga0aebed6b91672f3b8fcdfc14b0c15247"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__string.html#ga0aebed6b91672f3b8fcdfc14b0c15247">eu::core::split</a> (const std::string &amp;s, char delim)</td></tr>
-<tr class="separator:ga0aebed6b91672f3b8fcdfc14b0c15247"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga18c9e62d235fc21ca40ca8f0e76408d0"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__string.html#ga18c9e62d235fc21ca40ca8f0e76408d0">eu::core::split_on_spaces</a> (const std::string &amp;string)</td></tr>
-<tr class="separator:ga18c9e62d235fc21ca40ca8f0e76408d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaa7f7e2bcd879ef99afaa73e9ba0d6994"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__string.html#gaa7f7e2bcd879ef99afaa73e9ba0d6994">eu::core::get_string_or_empty</a> (bool b, const std::string &amp;str)</td></tr>
-<tr class="separator:gaa7f7e2bcd879ef99afaa73e9ba0d6994"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga26210f5d35df169d46864ad24ffff246"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__string.html#ga26210f5d35df169d46864ad24ffff246">eu::core::compare_string</a> (const std::string &amp;lhs, const std::string &amp;rhs)</td></tr>
-<tr class="separator:ga26210f5d35df169d46864ad24ffff246"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac2203845e75e9d4fba81b932ed6f95cd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__string.html#gac2203845e75e9d4fba81b932ed6f95cd">eu::is_number</a> (char b)</td></tr>
+<tr class="separator:gac2203845e75e9d4fba81b932ed6f95cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf34bd10282008511adeee9b34ed68de1"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__string.html#gaf34bd10282008511adeee9b34ed68de1">eu::strip_last_string</a> (const std::string &amp;str, char sep)</td></tr>
+<tr class="memdesc:gaf34bd10282008511adeee9b34ed68de1"><td class="mdescLeft">&#160;</td><td class="mdescRight">for hello.dog and . gets hello  <a href="group__string.html#gaf34bd10282008511adeee9b34ed68de1">More...</a><br /></td></tr>
+<tr class="separator:gaf34bd10282008511adeee9b34ed68de1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad9066d3055457c57ae5375b238a22a93"><td class="memItemLeft" align="right" valign="top">std::pair&lt; std::string, std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__string.html#gad9066d3055457c57ae5375b238a22a93">eu::get_last_string</a> (const std::string &amp;str, char sep)</td></tr>
+<tr class="memdesc:gad9066d3055457c57ae5375b238a22a93"><td class="mdescLeft">&#160;</td><td class="mdescRight">for hello.dog gets .dog  <a href="group__string.html#gad9066d3055457c57ae5375b238a22a93">More...</a><br /></td></tr>
+<tr class="separator:gad9066d3055457c57ae5375b238a22a93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2ae1e3ca3167ed8f8138a4b275de664c"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__string.html#ga2ae1e3ca3167ed8f8138a4b275de664c">eu::get_first_chars</a> (const std::string &amp;str, std::size_t count)</td></tr>
+<tr class="separator:ga2ae1e3ca3167ed8f8138a4b275de664c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga562092e6d5cdff99bb2002135520d43a"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__string.html#ga562092e6d5cdff99bb2002135520d43a">eu::get_first_chars_with_ellipsis</a> (const std::string &amp;str, unsigned int count)</td></tr>
+<tr class="separator:ga562092e6d5cdff99bb2002135520d43a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6835c61b16a0e91db39e1759f3ccf07f"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__string.html#ga6835c61b16a0e91db39e1759f3ccf07f">eu::trim_right</a> (const std::string &amp;string_to_trim, const std::string &amp;trim_characters=space_characters)</td></tr>
+<tr class="memdesc:ga6835c61b16a0e91db39e1759f3ccf07f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove characters from the right, stops at a invalid character.  <a href="group__string.html#ga6835c61b16a0e91db39e1759f3ccf07f">More...</a><br /></td></tr>
+<tr class="separator:ga6835c61b16a0e91db39e1759f3ccf07f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4189207e12bfff75ed562aac7fc68bd9"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__string.html#ga4189207e12bfff75ed562aac7fc68bd9">eu::trim_left</a> (const std::string &amp;string_to_trim, const std::string &amp;trim_characters=space_characters)</td></tr>
+<tr class="memdesc:ga4189207e12bfff75ed562aac7fc68bd9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove characters from the left, stops at invalid character.  <a href="group__string.html#ga4189207e12bfff75ed562aac7fc68bd9">More...</a><br /></td></tr>
+<tr class="separator:ga4189207e12bfff75ed562aac7fc68bd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaba5dbc7e97fd23465bfb415e8d222087"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__string.html#gaba5dbc7e97fd23465bfb415e8d222087">eu::trim</a> (const std::string &amp;string_to_trim, const std::string &amp;trim_characters=space_characters)</td></tr>
+<tr class="memdesc:gaba5dbc7e97fd23465bfb415e8d222087"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove characters from both the start and the end.  <a href="group__string.html#gaba5dbc7e97fd23465bfb415e8d222087">More...</a><br /></td></tr>
+<tr class="separator:gaba5dbc7e97fd23465bfb415e8d222087"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf84b447fd234f94fb8dd8edf185f58bf"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__string.html#gaf84b447fd234f94fb8dd8edf185f58bf">eu::begins_with</a> (const std::string &amp;string_to_test, const std::string &amp;start)</td></tr>
+<tr class="memdesc:gaf84b447fd234f94fb8dd8edf185f58bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tests if a string starts with another string.  <a href="group__string.html#gaf84b447fd234f94fb8dd8edf185f58bf">More...</a><br /></td></tr>
+<tr class="separator:gaf84b447fd234f94fb8dd8edf185f58bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0769382ce3f4a117a18b8adf61298297"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__string.html#ga0769382ce3f4a117a18b8adf61298297">eu::ends_with</a> (const std::string &amp;string_to_test, const std::string &amp;end)</td></tr>
+<tr class="memdesc:ga0769382ce3f4a117a18b8adf61298297"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tests if a string ends with another string.  <a href="group__string.html#ga0769382ce3f4a117a18b8adf61298297">More...</a><br /></td></tr>
+<tr class="separator:ga0769382ce3f4a117a18b8adf61298297"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae2f29a648243ade3cadfacad13ce419d"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__string.html#gae2f29a648243ade3cadfacad13ce419d">eu::to_lower_char</a> (char b)</td></tr>
+<tr class="separator:gae2f29a648243ade3cadfacad13ce419d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaaccdb9e1d319324e3ceb237b5cfd8545"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__string.html#gaaccdb9e1d319324e3ceb237b5cfd8545">eu::to_upper_char</a> (char b)</td></tr>
+<tr class="separator:gaaccdb9e1d319324e3ceb237b5cfd8545"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3490fea5c2e06de7db10f26fd799ebcf"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__string.html#ga3490fea5c2e06de7db10f26fd799ebcf">eu::to_lower</a> (const std::string &amp;str)</td></tr>
+<tr class="memdesc:ga3490fea5c2e06de7db10f26fd799ebcf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a string containing only lower characters.  <a href="group__string.html#ga3490fea5c2e06de7db10f26fd799ebcf">More...</a><br /></td></tr>
+<tr class="separator:ga3490fea5c2e06de7db10f26fd799ebcf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac5b13077cd22cdd2639ed0e78343dc96"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__string.html#gac5b13077cd22cdd2639ed0e78343dc96">eu::to_lower</a> (const std::vector&lt; std::string &gt; &amp;str)</td></tr>
+<tr class="separator:gac5b13077cd22cdd2639ed0e78343dc96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac1da104b0fb3bb262e6b0b239d4e6b6d"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__string.html#gac1da104b0fb3bb262e6b0b239d4e6b6d">eu::to_upper</a> (const std::string &amp;str)</td></tr>
+<tr class="separator:gac1da104b0fb3bb262e6b0b239d4e6b6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga718ab12abe2887f18e26d30ee2da17a0"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__string.html#ga718ab12abe2887f18e26d30ee2da17a0">eu::from_char_to_string</a> (char c, CharToStringStyle style)</td></tr>
+<tr class="separator:ga718ab12abe2887f18e26d30ee2da17a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacf20f68a47700651f5d80f922a7f7755"><td class="memItemLeft" align="right" valign="top">std::string::size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__string.html#gacf20f68a47700651f5d80f922a7f7755">eu::find_first_index_of_mismatch</a> (const std::string &amp;lhs, const std::string &amp;rhs)</td></tr>
+<tr class="separator:gacf20f68a47700651f5d80f922a7f7755"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8bc5963164a5020bcb0eea52227390f6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__string.html#ga8bc5963164a5020bcb0eea52227390f6">eu::replace_all</a> (std::string *string, const std::string &amp;to_find, const std::string &amp;to_replace)</td></tr>
+<tr class="memdesc:ga8bc5963164a5020bcb0eea52227390f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Replace all occurrences in a string.  <a href="group__string.html#ga8bc5963164a5020bcb0eea52227390f6">More...</a><br /></td></tr>
+<tr class="separator:ga8bc5963164a5020bcb0eea52227390f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4d4c1fb3db56599eff70f89fa2de5cd7"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__string.html#ga4d4c1fb3db56599eff70f89fa2de5cd7">eu::replace_all</a> (const std::string &amp;string, const std::string &amp;to_find, const std::string &amp;to_replace)</td></tr>
+<tr class="memdesc:ga4d4c1fb3db56599eff70f89fa2de5cd7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Replace all occurrences in a string.  <a href="group__string.html#ga4d4c1fb3db56599eff70f89fa2de5cd7">More...</a><br /></td></tr>
+<tr class="separator:ga4d4c1fb3db56599eff70f89fa2de5cd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga83c755cb8bef6eba9d1b94389df71e38"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__string.html#ga83c755cb8bef6eba9d1b94389df71e38">eu::replace_with_character</a> (const std::string &amp;string, const std::string &amp;to_find, char to_replace)</td></tr>
+<tr class="separator:ga83c755cb8bef6eba9d1b94389df71e38"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3638c6b55c2dcc81648800da6de164ad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__string.html#ga3638c6b55c2dcc81648800da6de164ad">eu::copy</a> (char *dst, const std::string &amp;src, const std::string::size_type &amp;count)</td></tr>
+<tr class="memdesc:ga3638c6b55c2dcc81648800da6de164ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy a string to a character buffer, adding null terminator at the end.  <a href="group__string.html#ga3638c6b55c2dcc81648800da6de164ad">More...</a><br /></td></tr>
+<tr class="separator:ga3638c6b55c2dcc81648800da6de164ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2d8a389718c684995df67e39cbb9088b"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__string.html#ga2d8a389718c684995df67e39cbb9088b">eu::remove_from_end</a> (const std::string &amp;str, const std::string &amp;end)</td></tr>
+<tr class="separator:ga2d8a389718c684995df67e39cbb9088b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga74ea8437f509e46eb13b30923ffd0b75"><td class="memTemplParams" colspan="2">template&lt;typename TKey , typename TValue &gt; </td></tr>
+<tr class="memitem:ga74ea8437f509e46eb13b30923ffd0b75"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__string.html#ga74ea8437f509e46eb13b30923ffd0b75">eu::to_string_vector</a> (const std::map&lt; TKey, TValue &gt; &amp;map)</td></tr>
+<tr class="separator:ga74ea8437f509e46eb13b30923ffd0b75"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga193c6023f77b968bc5d27ac2d687295c"><td class="memTemplParams" colspan="2">template&lt;typename TKey , typename TValue &gt; </td></tr>
+<tr class="memitem:ga193c6023f77b968bc5d27ac2d687295c"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__string.html#ga193c6023f77b968bc5d27ac2d687295c">eu::from_key_to_string_vector</a> (const std::map&lt; TKey, TValue &gt; &amp;map)</td></tr>
+<tr class="separator:ga193c6023f77b968bc5d27ac2d687295c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaeaa12b9d84e57dc98becd039f00b5b7b"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:gaeaa12b9d84e57dc98becd039f00b5b7b"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__string.html#gaeaa12b9d84e57dc98becd039f00b5b7b">eu::to_string_vector</a> (const std::vector&lt; T &gt; &amp;data)</td></tr>
+<tr class="separator:gaeaa12b9d84e57dc98becd039f00b5b7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga158110f80550e35157a31db9769bd1fe"><td class="memTemplParams" colspan="2">template&lt;typename T , typename C &gt; </td></tr>
+<tr class="memitem:ga158110f80550e35157a31db9769bd1fe"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__string.html#ga158110f80550e35157a31db9769bd1fe">eu::to_string_vector</a> (const std::vector&lt; T &gt; &amp;data, C callback)</td></tr>
+<tr class="separator:ga158110f80550e35157a31db9769bd1fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadbcbe1a13ddabee90d5da53c17cf7b28"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__string.html#gadbcbe1a13ddabee90d5da53c17cf7b28">eu::strip</a> (const std::string &amp;str, const std::string &amp;<a class="el" href="nlp__sentence_8cc.html#a30df446d01f80e4211b2fcef8f754436">ch</a>)</td></tr>
+<tr class="separator:gadbcbe1a13ddabee90d5da53c17cf7b28"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga32066fcac64a0443ce52bfb31ca147aa"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__string.html#ga32066fcac64a0443ce52bfb31ca147aa">eu::remove_consecutive</a> (const std::string &amp;str, const std::string &amp;<a class="el" href="nlp__sentence_8cc.html#a30df446d01f80e4211b2fcef8f754436">ch</a>)</td></tr>
+<tr class="separator:ga32066fcac64a0443ce52bfb31ca147aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga79dc0187564d6183a2839feacfd25f86"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__string.html#ga79dc0187564d6183a2839feacfd25f86">eu::split</a> (const std::string &amp;s, char delim)</td></tr>
+<tr class="separator:ga79dc0187564d6183a2839feacfd25f86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga42d220783d67f13a83c7569fc65161e3"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__string.html#ga42d220783d67f13a83c7569fc65161e3">eu::split_on_spaces</a> (const std::string &amp;string)</td></tr>
+<tr class="separator:ga42d220783d67f13a83c7569fc65161e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac3613554703d6525c3bcd4bf6b8638ab"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__string.html#gac3613554703d6525c3bcd4bf6b8638ab">eu::get_string_or_empty</a> (bool b, const std::string &amp;str)</td></tr>
+<tr class="separator:gac3613554703d6525c3bcd4bf6b8638ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac0b21e26003c864786dfcca65af1569d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__string.html#gac0b21e26003c864786dfcca65af1569d">eu::compare_string</a> (const std::string &amp;lhs, const std::string &amp;rhs)</td></tr>
+<tr class="separator:gac0b21e26003c864786dfcca65af1569d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:gadc802a94c807de2195af39c05fec5e2c"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__string.html#gadc802a94c807de2195af39c05fec5e2c">eu::core::space_characters</a> = &quot; \n\r\t&quot;</td></tr>
-<tr class="memdesc:gadc802a94c807de2195af39c05fec5e2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Space characters.  <a href="group__string.html#gadc802a94c807de2195af39c05fec5e2c">More...</a><br /></td></tr>
-<tr class="separator:gadc802a94c807de2195af39c05fec5e2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga15da2155ca42b256f31ead0dcf4f212d"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__string.html#ga15da2155ca42b256f31ead0dcf4f212d">eu::space_characters</a> = &quot; \n\r\t&quot;</td></tr>
+<tr class="memdesc:ga15da2155ca42b256f31ead0dcf4f212d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Space characters.  <a href="group__string.html#ga15da2155ca42b256f31ead0dcf4f212d">More...</a><br /></td></tr>
+<tr class="separator:ga15da2155ca42b256f31ead0dcf4f212d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>String utility functions. </p>

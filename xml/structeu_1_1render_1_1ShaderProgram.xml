@@ -31,9 +31,9 @@
         </inbodydescription>
         <location file="libs/render/src/render/shader.h" line="103" column="21" bodyfile="libs/render/src/render/shader.h" bodystart="103" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeu_1_1render_1_1ShaderProgram_1a91b5e86ed5ff102b01cc47da85fed4e2" prot="private" static="no" mutable="no">
-        <type><ref refid="structeu_1_1core_1_1vfs_1_1FilePath" kindref="compound">core::vfs::FilePath</ref></type>
-        <definition>core::vfs::FilePath eu::render::ShaderProgram::shader_name</definition>
+      <memberdef kind="variable" id="structeu_1_1render_1_1ShaderProgram_1ae68b6f20f6a022ae41820f83228fe9b3" prot="private" static="no" mutable="no">
+        <type><ref refid="structeu_1_1io_1_1FilePath" kindref="compound">io::FilePath</ref></type>
+        <definition>io::FilePath eu::render::ShaderProgram::shader_name</definition>
         <argsstring></argsstring>
         <name>shader_name</name>
         <briefdescription>
@@ -42,7 +42,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/shader.h" line="104" column="29" bodyfile="libs/render/src/render/shader.h" bodystart="104" bodyend="-1"/>
+        <location file="libs/render/src/render/shader.h" line="104" column="22" bodyfile="libs/render/src/render/shader.h" bodystart="104" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -155,17 +155,17 @@
         </inbodydescription>
         <location file="libs/render/src/render/shader.h" line="61" column="14" bodyfile="libs/render/src/render/shader.cc" bodystart="184" bodyend="189"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1render_1_1ShaderProgram_1af0598b88d681012c9e3c8fec71da5c3c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1render_1_1ShaderProgram_1a6ba3dad9bda4da681c4ddf114bd62e26" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
         <definition>bool eu::render::ShaderProgram::load</definition>
-        <argsstring>(core::vfs::FileSystem *fs, const core::vfs::FilePath &amp;file_path)</argsstring>
+        <argsstring>(io::FileSystem *fs, const io::FilePath &amp;file_path)</argsstring>
         <name>load</name>
         <param>
-          <type><ref refid="structeu_1_1core_1_1vfs_1_1FileSystem" kindref="compound">core::vfs::FileSystem</ref> *</type>
+          <type><ref refid="structeu_1_1io_1_1FileSystem" kindref="compound">io::FileSystem</ref> *</type>
           <declname>fs</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1vfs_1_1FilePath" kindref="compound">core::vfs::FilePath</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1io_1_1FilePath" kindref="compound">io::FilePath</ref> &amp;</type>
           <declname>file_path</declname>
         </param>
         <briefdescription>
@@ -421,9 +421,9 @@
         </inbodydescription>
         <location file="libs/render/src/render/shader.h" line="90" column="9" bodyfile="libs/render/src/render/shader.cc" bodystart="452" bodyend="455"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1render_1_1ShaderProgram_1a7d30115aa46be294aa7c8c05caf79cca" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type>const <ref refid="structeu_1_1core_1_1vfs_1_1FilePath" kindref="compound">core::vfs::FilePath</ref> &amp;</type>
-        <definition>const core::vfs::FilePath &amp; eu::render::ShaderProgram::get_name</definition>
+      <memberdef kind="function" id="structeu_1_1render_1_1ShaderProgram_1a85751ed5bd1ab3330f42a36079386843" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="structeu_1_1io_1_1FilePath" kindref="compound">io::FilePath</ref> &amp;</type>
+        <definition>const io::FilePath &amp; eu::render::ShaderProgram::get_name</definition>
         <argsstring>() const</argsstring>
         <name>get_name</name>
         <briefdescription>
@@ -523,12 +523,12 @@
       <member refid="structeu_1_1render_1_1ShaderProgram_1af0a46b7cd8fadbd4b3489c3a85b09ad9" prot="public" virt="non-virtual"><scope>eu::render::ShaderProgram</scope><name>get_attributes</name></member>
       <member refid="structeu_1_1render_1_1ShaderProgram_1ae7e592fa304f379ba1ec865771ee3bc1" prot="public" virt="non-virtual"><scope>eu::render::ShaderProgram</scope><name>get_current_bound_for_debug</name></member>
       <member refid="structeu_1_1render_1_1ShaderId_1afc2a825bb741ab322712ece328cc475c" prot="public" virt="non-virtual"><scope>eu::render::ShaderProgram</scope><name>get_id</name></member>
-      <member refid="structeu_1_1render_1_1ShaderProgram_1a7d30115aa46be294aa7c8c05caf79cca" prot="public" virt="non-virtual"><scope>eu::render::ShaderProgram</scope><name>get_name</name></member>
+      <member refid="structeu_1_1render_1_1ShaderProgram_1a85751ed5bd1ab3330f42a36079386843" prot="public" virt="non-virtual"><scope>eu::render::ShaderProgram</scope><name>get_name</name></member>
       <member refid="structeu_1_1render_1_1ShaderProgram_1ab2ed8e7eedc5cb4763b1097b7f28455f" prot="public" virt="non-virtual"><scope>eu::render::ShaderProgram</scope><name>get_uniform</name></member>
       <member refid="structeu_1_1render_1_1ShaderProgram_1a5917aa2521a1821c0f7385addba86fbf" prot="private" virt="non-virtual"><scope>eu::render::ShaderProgram</scope><name>has_bound_attribute</name></member>
       <member refid="structeu_1_1render_1_1ShaderProgram_1a4ee3a35ee257712c3af9ce100e1b352f" prot="private" virt="non-virtual"><scope>eu::render::ShaderProgram</scope><name>has_bound_uniform</name></member>
       <member refid="structeu_1_1render_1_1ShaderId_1a0234905c8e2a07cb28dd3f8aa29cd854" prot="public" virt="non-virtual"><scope>eu::render::ShaderProgram</scope><name>is_currently_bound</name></member>
-      <member refid="structeu_1_1render_1_1ShaderProgram_1af0598b88d681012c9e3c8fec71da5c3c" prot="public" virt="non-virtual"><scope>eu::render::ShaderProgram</scope><name>load</name></member>
+      <member refid="structeu_1_1render_1_1ShaderProgram_1a6ba3dad9bda4da681c4ddf114bd62e26" prot="public" virt="non-virtual"><scope>eu::render::ShaderProgram</scope><name>load</name></member>
       <member refid="structeu_1_1render_1_1ShaderProgram_1af51d53d47ad66306d9d46c44497fcc1c" prot="public" virt="non-virtual"><scope>eu::render::ShaderProgram</scope><name>operator=</name></member>
       <member refid="structeu_1_1render_1_1ShaderProgram_1a81455fe1f4f057eac8438453e9010794" prot="public" virt="non-virtual"><scope>eu::render::ShaderProgram</scope><name>operator=</name></member>
       <member refid="structeu_1_1render_1_1ShaderId_1a6d79cabd6e46f6607719536691527566" prot="public" virt="non-virtual" ambiguityscope="eu::render::ShaderId::"><scope>eu::render::ShaderProgram</scope><name>operator=</name></member>
@@ -542,7 +542,7 @@
       <member refid="structeu_1_1render_1_1ShaderProgram_1a178429eb672040befb847624bcfe5942" prot="public" virt="non-virtual"><scope>eu::render::ShaderProgram</scope><name>set_uniform</name></member>
       <member refid="structeu_1_1render_1_1ShaderProgram_1a395e92ad21598b8fb9b71afd2c566c00" prot="public" virt="non-virtual"><scope>eu::render::ShaderProgram</scope><name>set_uniform</name></member>
       <member refid="structeu_1_1render_1_1ShaderProgram_1a2e54df2823bf1a949761a888ab04fb47" prot="public" virt="non-virtual"><scope>eu::render::ShaderProgram</scope><name>set_uniform</name></member>
-      <member refid="structeu_1_1render_1_1ShaderProgram_1a91b5e86ed5ff102b01cc47da85fed4e2" prot="private" virt="non-virtual"><scope>eu::render::ShaderProgram</scope><name>shader_name</name></member>
+      <member refid="structeu_1_1render_1_1ShaderProgram_1ae68b6f20f6a022ae41820f83228fe9b3" prot="private" virt="non-virtual"><scope>eu::render::ShaderProgram</scope><name>shader_name</name></member>
       <member refid="structeu_1_1render_1_1ShaderId_1a7614d55f0ae4dc035a05ec4d29d741fc" prot="public" virt="non-virtual"><scope>eu::render::ShaderProgram</scope><name>ShaderId</name></member>
       <member refid="structeu_1_1render_1_1ShaderId_1a7e29c7bf43af96744a7c21c1cd40bafd" prot="public" virt="non-virtual"><scope>eu::render::ShaderProgram</scope><name>ShaderId</name></member>
       <member refid="structeu_1_1render_1_1ShaderId_1af96a5d6155647f82d50bbecfd1c7aa14" prot="public" virt="non-virtual"><scope>eu::render::ShaderProgram</scope><name>ShaderId</name></member>

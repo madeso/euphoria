@@ -2,12 +2,12 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeu_1_1render_1_1MaterialShaderCache" kind="struct" language="C++" prot="public">
     <compoundname>eu::render::MaterialShaderCache</compoundname>
-    <basecompoundref refid="structeu_1_1core_1_1Cache" prot="public" virt="non-virtual">eu::core::Cache&lt; core::vfs::FilePath, MaterialShader, MaterialShaderCache &gt;</basecompoundref>
+    <basecompoundref refid="structeu_1_1core_1_1Cache" prot="public" virt="non-virtual">eu::core::Cache&lt; io::FilePath, MaterialShader, MaterialShaderCache &gt;</basecompoundref>
     <includes refid="materialshadercache_8h" local="no">materialshadercache.h</includes>
       <sectiondef kind="public-attrib">
-      <memberdef kind="variable" id="structeu_1_1render_1_1MaterialShaderCache_1afba2b6b6203ec5ce66eabe66b4188e4f" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1core_1_1vfs_1_1FileSystem" kindref="compound">core::vfs::FileSystem</ref> *</type>
-        <definition>core::vfs::FileSystem* eu::render::MaterialShaderCache::file_system</definition>
+      <memberdef kind="variable" id="structeu_1_1render_1_1MaterialShaderCache_1a276eedd432640cc6f0705ab871e7cb6e" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1io_1_1FileSystem" kindref="compound">io::FileSystem</ref> *</type>
+        <definition>io::FileSystem* eu::render::MaterialShaderCache::file_system</definition>
         <argsstring></argsstring>
         <name>file_system</name>
         <briefdescription>
@@ -16,17 +16,17 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/materialshadercache.h" line="13" column="31" bodyfile="libs/render/src/render/materialshadercache.h" bodystart="13" bodyend="-1"/>
+        <location file="libs/render/src/render/materialshadercache.h" line="13" column="24" bodyfile="libs/render/src/render/materialshadercache.h" bodystart="13" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
-      <memberdef kind="function" id="structeu_1_1render_1_1MaterialShaderCache_1a9ec9ac5a3a87074d1473c9fe765edb87" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1render_1_1MaterialShaderCache_1afeaf28128736a19e4eeb5275947741e7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
         <definition>eu::render::MaterialShaderCache::MaterialShaderCache</definition>
-        <argsstring>(core::vfs::FileSystem *fs)</argsstring>
+        <argsstring>(io::FileSystem *fs)</argsstring>
         <name>MaterialShaderCache</name>
         <param>
-          <type><ref refid="structeu_1_1core_1_1vfs_1_1FileSystem" kindref="compound">core::vfs::FileSystem</ref> *</type>
+          <type><ref refid="structeu_1_1io_1_1FileSystem" kindref="compound">io::FileSystem</ref> *</type>
           <declname>fs</declname>
         </param>
         <briefdescription>
@@ -37,13 +37,13 @@
         </inbodydescription>
         <location file="libs/render/src/render/materialshadercache.h" line="15" column="9" bodyfile="libs/render/src/render/materialshadercache.h" bodystart="15" bodyend="18"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1render_1_1MaterialShaderCache_1abeeba7fcd1cf8ab3f501c920f7473aac" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1render_1_1MaterialShaderCache_1aacd1fcbf43ef509a6e8df1669d5bfaad" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>std::shared_ptr&lt; <ref refid="structeu_1_1render_1_1MaterialShader" kindref="compound">MaterialShader</ref> &gt;</type>
         <definition>std::shared_ptr&lt;MaterialShader&gt; eu::render::MaterialShaderCache::create</definition>
-        <argsstring>(const core::vfs::FilePath &amp;path) const</argsstring>
+        <argsstring>(const io::FilePath &amp;path) const</argsstring>
         <name>create</name>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1vfs_1_1FilePath" kindref="compound">core::vfs::FilePath</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1io_1_1FilePath" kindref="compound">io::FilePath</ref> &amp;</type>
           <declname>path</declname>
         </param>
         <briefdescription>
@@ -67,7 +67,7 @@
         </childnode>
       </node>
       <node id="2">
-        <label>eu::core::Cache&lt; core::vfs::FilePath, MaterialShader, MaterialShaderCache &gt;</label>
+        <label>eu::core::Cache&lt; io::FilePath, MaterialShader, MaterialShaderCache &gt;</label>
         <link refid="structeu_1_1core_1_1Cache"/>
       </node>
     </inheritancegraph>
@@ -81,21 +81,21 @@
           <edgelabel>file_system</edgelabel>
         </childnode>
       </node>
-      <node id="3">
-        <label>eu::core::vfs::FileSystem</label>
-        <link refid="structeu_1_1core_1_1vfs_1_1FileSystem"/>
-      </node>
       <node id="2">
-        <label>eu::core::Cache&lt; core::vfs::FilePath, MaterialShader, MaterialShaderCache &gt;</label>
+        <label>eu::core::Cache&lt; io::FilePath, MaterialShader, MaterialShaderCache &gt;</label>
         <link refid="structeu_1_1core_1_1Cache"/>
+      </node>
+      <node id="3">
+        <label>eu::io::FileSystem</label>
+        <link refid="structeu_1_1io_1_1FileSystem"/>
       </node>
     </collaborationgraph>
     <location file="libs/render/src/render/materialshadercache.h" line="10" column="5" bodyfile="libs/render/src/render/materialshadercache.h" bodystart="12" bodyend="27"/>
     <listofallmembers>
-      <member refid="structeu_1_1render_1_1MaterialShaderCache_1abeeba7fcd1cf8ab3f501c920f7473aac" prot="public" virt="non-virtual"><scope>eu::render::MaterialShaderCache</scope><name>create</name></member>
-      <member refid="structeu_1_1render_1_1MaterialShaderCache_1afba2b6b6203ec5ce66eabe66b4188e4f" prot="public" virt="non-virtual"><scope>eu::render::MaterialShaderCache</scope><name>file_system</name></member>
+      <member refid="structeu_1_1render_1_1MaterialShaderCache_1aacd1fcbf43ef509a6e8df1669d5bfaad" prot="public" virt="non-virtual"><scope>eu::render::MaterialShaderCache</scope><name>create</name></member>
+      <member refid="structeu_1_1render_1_1MaterialShaderCache_1a276eedd432640cc6f0705ab871e7cb6e" prot="public" virt="non-virtual"><scope>eu::render::MaterialShaderCache</scope><name>file_system</name></member>
       <member refid="structeu_1_1core_1_1Cache_1adb88227ec9d4e11cba555ed61f01da1d" prot="public" virt="non-virtual"><scope>eu::render::MaterialShaderCache</scope><name>get</name></member>
-      <member refid="structeu_1_1render_1_1MaterialShaderCache_1a9ec9ac5a3a87074d1473c9fe765edb87" prot="public" virt="non-virtual"><scope>eu::render::MaterialShaderCache</scope><name>MaterialShaderCache</name></member>
+      <member refid="structeu_1_1render_1_1MaterialShaderCache_1afeaf28128736a19e4eeb5275947741e7" prot="public" virt="non-virtual"><scope>eu::render::MaterialShaderCache</scope><name>MaterialShaderCache</name></member>
       <member refid="structeu_1_1core_1_1Cache_1ac9106d4936a6d02ed6757cf6d7a4a599" prot="public" virt="non-virtual"><scope>eu::render::MaterialShaderCache</scope><name>store</name></member>
     </listofallmembers>
   </compounddef>

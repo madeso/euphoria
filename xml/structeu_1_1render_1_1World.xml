@@ -2,7 +2,7 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeu_1_1render_1_1World" kind="struct" language="C++" prot="public">
     <compoundname>eu::render::World</compoundname>
-    <includes refid="world_8h" local="no">world.h</includes>
+    <includes refid="render_2src_2render_2world_8h" local="no">world.h</includes>
       <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structeu_1_1render_1_1World_1afba32510311b6f4c66d28ddb16293c70" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1render_1_1Light" kindref="compound">render::Light</ref></type>

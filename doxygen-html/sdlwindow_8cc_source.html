@@ -56,7 +56,7 @@
 <div class="contents">
 <a href="sdlwindow_8cc.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="sdlwindow_8h.html">window/sdlwindow.h</a>&quot;</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="log_8h.html">log/log.h</a>&quot;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="log_2src_2log_2log_8h.html">log/log.h</a>&quot;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;SDL.h&quot;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
@@ -82,7 +82,7 @@
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keywordflow">if</span>(<a class="code" href="structeu_1_1window_1_1SdlWindow.html#a998d243929f26f8c8a2bfd790ad9612d">window</a> == <span class="keyword">nullptr</span>)</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        {</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            <a class="code" href="log_8h.html#ad4a9117ce894e3319e903142347a0f63">LOG_ERROR</a>(<span class="stringliteral">&quot;Failed to create window {0}&quot;</span>, SDL_GetError());</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            <a class="code" href="log_2src_2log_2log_8h.html#ad4a9117ce894e3319e903142347a0f63">LOG_ERROR</a>(<span class="stringliteral">&quot;Failed to create window {0}&quot;</span>, SDL_GetError());</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        }</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    }</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
@@ -139,13 +139,13 @@
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    }</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;}</div>
 <div class="ttc" id="aassert_8h_html_ae9328389a3cf2705a8a3f35a4a9ceca2"><div class="ttname"><a href="assert_8h.html#ae9328389a3cf2705a8a3f35a4a9ceca2">DIE</a></div><div class="ttdeci">#define DIE(message)</div><div class="ttdef"><b>Definition:</b> <a href="assert_8h_source.html#l00067">assert.h:67</a></div></div>
-<div class="ttc" id="alog_8h_html"><div class="ttname"><a href="log_8h.html">log.h</a></div></div>
-<div class="ttc" id="alog_8h_html_ad4a9117ce894e3319e903142347a0f63"><div class="ttname"><a href="log_8h.html#ad4a9117ce894e3319e903142347a0f63">LOG_ERROR</a></div><div class="ttdeci">#define LOG_ERROR(...)</div><div class="ttdef"><b>Definition:</b> <a href="log_8h_source.html#l00017">log.h:17</a></div></div>
+<div class="ttc" id="alog_2src_2log_2log_8h_html"><div class="ttname"><a href="log_2src_2log_2log_8h.html">log.h</a></div></div>
+<div class="ttc" id="alog_2src_2log_2log_8h_html_ad4a9117ce894e3319e903142347a0f63"><div class="ttname"><a href="log_2src_2log_2log_8h.html#ad4a9117ce894e3319e903142347a0f63">LOG_ERROR</a></div><div class="ttdeci">#define LOG_ERROR(...)</div><div class="ttdef"><b>Definition:</b> <a href="log_2src_2log_2log_8h_source.html#l00009">log.h:9</a></div></div>
 <div class="ttc" id="anamespaceeu_1_1core_html_af4fa494e006059dce5d3f4187bbb80f6"><div class="ttname"><a href="namespaceeu_1_1core.html#af4fa494e006059dce5d3f4187bbb80f6">eu::core::MouseBehaviour</a></div><div class="ttdeci">MouseBehaviour</div><div class="ttdef"><b>Definition:</b> <a href="mousebehaviour_8h_source.html#l00006">mousebehaviour.h:7</a></div></div>
 <div class="ttc" id="anamespaceeu_1_1core_html_af4fa494e006059dce5d3f4187bbb80f6a197a55dab3fecbc7d994f2ba66a92222"><div class="ttname"><a href="namespaceeu_1_1core.html#af4fa494e006059dce5d3f4187bbb80f6a197a55dab3fecbc7d994f2ba66a92222">eu::core::MouseBehaviour::wrap_within_window</a></div><div class="ttdeci">@ wrap_within_window</div></div>
 <div class="ttc" id="anamespaceeu_1_1core_html_af4fa494e006059dce5d3f4187bbb80f6ab94e97963431fdc1086c18b725454d99"><div class="ttname"><a href="namespaceeu_1_1core.html#af4fa494e006059dce5d3f4187bbb80f6ab94e97963431fdc1086c18b725454d99">eu::core::MouseBehaviour::relative_only</a></div><div class="ttdeci">@ relative_only</div></div>
 <div class="ttc" id="anamespaceeu_1_1core_html_af4fa494e006059dce5d3f4187bbb80f6afea087517c26fadd409bd4b9dc642555"><div class="ttname"><a href="namespaceeu_1_1core.html#af4fa494e006059dce5d3f4187bbb80f6afea087517c26fadd409bd4b9dc642555">eu::core::MouseBehaviour::normal</a></div><div class="ttdeci">@ normal</div></div>
-<div class="ttc" id="anamespaceeu_1_1window_html"><div class="ttname"><a href="namespaceeu_1_1window.html">eu::window</a></div><div class="ttdef"><b>Definition:</b> <a href="app_8cc_source.html#l00018">app.cc:19</a></div></div>
+<div class="ttc" id="anamespaceeu_1_1window_html"><div class="ttname"><a href="namespaceeu_1_1window.html">eu::window</a></div><div class="ttdef"><b>Definition:</b> <a href="app_8cc_source.html#l00020">app.cc:21</a></div></div>
 <div class="ttc" id="anamespaceeu_1_1window_html_ab9571e7ba34f49db7c967ed630274a63"><div class="ttname"><a href="namespaceeu_1_1window.html#ab9571e7ba34f49db7c967ed630274a63">eu::window::enable_char_event</a></div><div class="ttdeci">void enable_char_event(bool enable)</div><div class="ttdef"><b>Definition:</b> <a href="sdlwindow_8cc_source.html#l00061">sdlwindow.cc:61</a></div></div>
 <div class="ttc" id="asdlwindow_8h_html"><div class="ttname"><a href="sdlwindow_8h.html">sdlwindow.h</a></div></div>
 <div class="ttc" id="astructeu_1_1core_1_1vec2i_html"><div class="ttname"><a href="structeu_1_1core_1_1vec2i.html">eu::core::vec2i</a></div><div class="ttdef"><b>Definition:</b> <a href="vec2_8h_source.html#l00071">vec2.h:72</a></div></div>

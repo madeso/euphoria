@@ -2,8 +2,8 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="editdistance_8h" kind="file" language="C++">
     <compoundname>editdistance.h</compoundname>
-    <includedby refid="editdistance_8cc" local="yes">libs/core/src/core/editdistance.cc</includedby>
-    <includedby refid="editdistance_8search_8h" local="yes">libs/core/src/core/editdistance.search.h</includedby>
+    <includedby refid="editdistance_8cc" local="yes">libs/base/src/base/editdistance.cc</includedby>
+    <includedby refid="editdistance_8search_8h" local="yes">libs/base/src/base/editdistance.search.h</includedby>
     <includedby refid="stringeq_8cc" local="yes">libs/tests/src/tests/stringeq.cc</includedby>
     <invincdepgraph>
       <node id="40">
@@ -29,16 +29,6 @@
       <node id="14">
         <label>libs/core/src/core/fourway.cc</label>
         <link refid="fourway_8cc"/>
-      </node>
-      <node id="1">
-        <label>libs/core/src/core/editdistance.h</label>
-        <link refid="editdistance_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="150" relation="include">
-        </childnode>
       </node>
       <node id="142">
         <label>libs/gui/src/gui/layoutcontainer.cc</label>
@@ -85,6 +75,10 @@
         </childnode>
         <childnode refid="11" relation="include">
         </childnode>
+      </node>
+      <node id="2">
+        <label>libs/base/src/base/editdistance.cc</label>
+        <link refid="editdistance_8cc"/>
       </node>
       <node id="82">
         <label>libs/core/src/core/palette_all.cc</label>
@@ -152,20 +146,6 @@
         <label>libs/core/src/core/hashgen.identicon.cc</label>
         <link refid="hashgen_8identicon_8cc"/>
       </node>
-      <node id="3">
-        <label>libs/core/src/core/editdistance.search.h</label>
-        <link refid="editdistance_8search_8h"/>
-        <childnode refid="4" relation="include">
-        </childnode>
-        <childnode refid="5" relation="include">
-        </childnode>
-        <childnode refid="149" relation="include">
-        </childnode>
-      </node>
-      <node id="4">
-        <label>libs/core/src/core/editdistance.search.cc</label>
-        <link refid="editdistance_8search_8cc"/>
-      </node>
       <node id="77">
         <label>libs/render/src/render/actor.cc</label>
         <link refid="actor_8cc"/>
@@ -180,7 +160,7 @@
       </node>
       <node id="72">
         <label>libs/core/src/core/mesh.h</label>
-        <link refid="mesh_8h"/>
+        <link refid="core_2src_2core_2mesh_8h"/>
         <childnode refid="73" relation="include">
         </childnode>
         <childnode refid="74" relation="include">
@@ -232,10 +212,6 @@
         <label>libs/core/src/core/lines.cc</label>
         <link refid="lines_8cc"/>
       </node>
-      <node id="149">
-        <label>libs/core/src/core/proto.cc</label>
-        <link refid="proto_8cc"/>
-      </node>
       <node id="26">
         <label>libs/gui/src/gui/panelwidget.h</label>
         <link refid="panelwidget_8h"/>
@@ -261,10 +237,6 @@
         </childnode>
         <childnode refid="47" relation="include">
         </childnode>
-      </node>
-      <node id="2">
-        <label>libs/core/src/core/editdistance.cc</label>
-        <link refid="editdistance_8cc"/>
       </node>
       <node id="17">
         <label>libs/core/src/core/hashgen.sprator.cc</label>
@@ -376,7 +348,7 @@
       </node>
       <node id="74">
         <label>libs/core/src/core/mesh.cc</label>
-        <link refid="mesh_8cc"/>
+        <link refid="core_2src_2core_2mesh_8cc"/>
       </node>
       <node id="60">
         <label>libs/render/src/render/spriterender.h</label>
@@ -418,7 +390,7 @@
       </node>
       <node id="45">
         <label>libs/render/src/render/font.cc</label>
-        <link refid="font_8cc"/>
+        <link refid="render_2src_2render_2font_8cc"/>
       </node>
       <node id="54">
         <label>libs/core/src/core/raytracer.cc</label>
@@ -432,7 +404,7 @@
       </node>
       <node id="109">
         <label>libs/render/src/render/materialshader.h</label>
-        <link refid="materialshader_8h"/>
+        <link refid="render_2src_2render_2materialshader_8h"/>
         <childnode refid="71" relation="include">
         </childnode>
         <childnode refid="57" relation="include">
@@ -485,6 +457,10 @@
       <node id="8">
         <label>libs/core/src/core/argparse.cc</label>
         <link refid="argparse_8cc"/>
+      </node>
+      <node id="149">
+        <label>libs/io/src/io/json.cc</label>
+        <link refid="json_8cc"/>
       </node>
       <node id="117">
         <label>libs/tests/src/tests/approx_equal.h</label>
@@ -574,7 +550,7 @@
       </node>
       <node id="105">
         <label>libs/render/src/render/world.h</label>
-        <link refid="world_8h"/>
+        <link refid="render_2src_2render_2world_8h"/>
         <childnode refid="106" relation="include">
         </childnode>
       </node>
@@ -602,7 +578,7 @@
       </node>
       <node id="49">
         <label>libs/render/src/render/font.h</label>
-        <link refid="font_8h"/>
+        <link refid="render_2src_2render_2font_8h"/>
         <childnode refid="22" relation="include">
         </childnode>
         <childnode refid="50" relation="include">
@@ -696,6 +672,10 @@
         <childnode refid="54" relation="include">
         </childnode>
       </node>
+      <node id="4">
+        <label>libs/base/src/base/editdistance.search.cc</label>
+        <link refid="editdistance_8search_8cc"/>
+      </node>
       <node id="141">
         <label>libs/gui/src/gui/layout.h</label>
         <link refid="layout_8h"/>
@@ -732,6 +712,16 @@
         <childnode refid="89" relation="include">
         </childnode>
         <childnode refid="91" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>libs/base/src/base/editdistance.search.h</label>
+        <link refid="editdistance_8search_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="149" relation="include">
         </childnode>
       </node>
       <node id="41">
@@ -790,7 +780,7 @@
       </node>
       <node id="106">
         <label>libs/render/src/render/world.cc</label>
-        <link refid="world_8cc"/>
+        <link refid="render_2src_2render_2world_8cc"/>
       </node>
       <node id="73">
         <label>libs/core/src/core/collisionmesh.cc</label>
@@ -990,6 +980,16 @@
         <childnode refid="138" relation="include">
         </childnode>
       </node>
+      <node id="1">
+        <label>libs/base/src/base/editdistance.h</label>
+        <link refid="editdistance_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="150" relation="include">
+        </childnode>
+      </node>
       <node id="83">
         <label>libs/core/src/core/palette_cubehelix.cc</label>
         <link refid="palette__cubehelix_8cc"/>
@@ -1146,15 +1146,14 @@
       </node>
       <node id="104">
         <label>libs/render/src/render/materialshader.cc</label>
-        <link refid="materialshader_8cc"/>
+        <link refid="render_2src_2render_2materialshader_8cc"/>
       </node>
     </invincdepgraph>
     <innernamespace refid="namespaceeu">eu</innernamespace>
-    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/editdistance.h"/>
+    <location file="libs/base/src/base/editdistance.h"/>
   </compounddef>
 </doxygen>

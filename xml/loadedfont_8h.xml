@@ -6,14 +6,16 @@
     <includes refid="image_8h" local="yes">core/image.h</includes>
     <includedby refid="image__draw_8cc" local="yes">libs/core/src/core/image_draw.cc</includedby>
     <includedby refid="loadedfont_8cc" local="yes">libs/core/src/core/loadedfont.cc</includedby>
-    <includedby refid="font_8h" local="yes">libs/render/src/render/font.h</includedby>
+    <includedby refid="render_2src_2render_2font_8h" local="yes">libs/render/src/render/font.h</includedby>
     <incdepgraph>
-      <node id="25">
-        <label>core/editdistance.h</label>
-        <link refid="editdistance_8h"/>
-      </node>
       <node id="23">
         <label>queue</label>
+      </node>
+      <node id="21">
+        <label>base/stringutils.h</label>
+        <link refid="stringutils_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
       </node>
       <node id="1">
         <label>libs/core/src/core/loadedfont.h</label>
@@ -39,31 +41,19 @@
         <childnode refid="15" relation="include">
         </childnode>
       </node>
-      <node id="22">
-        <label>core/editdistance.search.h</label>
-        <link refid="editdistance_8search_8h"/>
-        <childnode refid="23" relation="include">
-        </childnode>
-        <childnode refid="24" relation="include">
-        </childnode>
-        <childnode refid="25" relation="include">
-        </childnode>
-      </node>
       <node id="8">
         <label>cstdint</label>
       </node>
-      <node id="6">
-        <label>core/cint.h</label>
-        <link refid="cint_8h"/>
-        <childnode refid="7" relation="include">
-        </childnode>
-        <childnode refid="9" relation="include">
+      <node id="7">
+        <label>base/ints.h</label>
+        <link refid="ints_8h"/>
+        <childnode refid="8" relation="include">
         </childnode>
       </node>
-      <node id="21">
-        <label>core/stringutils.h</label>
-        <link refid="stringutils_8h"/>
-        <childnode refid="2" relation="include">
+      <node id="31">
+        <label>base/memorychunk.h</label>
+        <link refid="memorychunk_8h"/>
+        <childnode refid="4" relation="include">
         </childnode>
       </node>
       <node id="5">
@@ -78,12 +68,6 @@
         <childnode refid="14" relation="include">
         </childnode>
         <childnode refid="15" relation="include">
-        </childnode>
-      </node>
-      <node id="28">
-        <label>core/result.h</label>
-        <link refid="result_8h"/>
-        <childnode refid="29" relation="include">
         </childnode>
       </node>
       <node id="19">
@@ -131,6 +115,12 @@
       <node id="34">
         <label>tuple</label>
       </node>
+      <node id="28">
+        <label>base/result.h</label>
+        <link refid="result_8h"/>
+        <childnode refid="29" relation="include">
+        </childnode>
+      </node>
       <node id="29">
         <label>optional</label>
       </node>
@@ -146,22 +136,20 @@
       <node id="20">
         <label>vector</label>
       </node>
+      <node id="22">
+        <label>base/editdistance.search.h</label>
+        <link refid="editdistance_8search_8h"/>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+      </node>
       <node id="27">
         <label>core/custom_parser.h</label>
         <link refid="custom__parser_8h"/>
         <childnode refid="28" relation="include">
-        </childnode>
-      </node>
-      <node id="31">
-        <label>core/memorychunk.h</label>
-        <link refid="memorychunk_8h"/>
-        <childnode refid="4" relation="include">
-        </childnode>
-      </node>
-      <node id="7">
-        <label>core/ints.h</label>
-        <link refid="ints_8h"/>
-        <childnode refid="8" relation="include">
         </childnode>
       </node>
       <node id="12">
@@ -226,6 +214,10 @@
         <childnode refid="37" relation="include">
         </childnode>
       </node>
+      <node id="25">
+        <label>base/editdistance.h</label>
+        <link refid="editdistance_8h"/>
+      </node>
       <node id="11">
         <label>core/angle.h</label>
         <link refid="angle_8h"/>
@@ -234,6 +226,14 @@
         <childnode refid="13" relation="include">
         </childnode>
         <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>base/cint.h</label>
+        <link refid="cint_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
         </childnode>
       </node>
       <node id="15">
@@ -285,7 +285,7 @@
       </node>
       <node id="8">
         <label>libs/render/src/render/font.cc</label>
-        <link refid="font_8cc"/>
+        <link refid="render_2src_2render_2font_8cc"/>
       </node>
       <node id="7">
         <label>libs/gui/src/gui/textdata.cc</label>
@@ -297,7 +297,7 @@
       </node>
       <node id="4">
         <label>libs/render/src/render/font.h</label>
-        <link refid="font_8h"/>
+        <link refid="render_2src_2render_2font_8h"/>
         <childnode refid="5" relation="include">
         </childnode>
         <childnode refid="6" relation="include">
@@ -313,8 +313,8 @@
     <innerclass refid="structeu_1_1core_1_1LoadedGlyph" prot="public">eu::core::LoadedGlyph</innerclass>
     <innerclass refid="structeu_1_1core_1_1LoadedFont" prot="public">eu::core::LoadedFont</innerclass>
     <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1io">eu::io</innernamespace>
     <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
-    <innernamespace refid="namespaceeu_1_1core_1_1vfs">eu::core::vfs</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

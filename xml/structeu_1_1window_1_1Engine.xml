@@ -17,9 +17,9 @@
         </inbodydescription>
         <location file="libs/window/src/window/engine.h" line="34" column="25" bodyfile="libs/window/src/window/engine.h" bodystart="34" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeu_1_1window_1_1Engine_1ac5fe1a11bedf338f3bc1c434dfae32f5" prot="public" static="no" mutable="no">
-        <type>std::unique_ptr&lt; <ref refid="structeu_1_1core_1_1vfs_1_1FileSystem" kindref="compound">core::vfs::FileSystem</ref> &gt;</type>
-        <definition>std::unique_ptr&lt;core::vfs::FileSystem&gt; eu::window::Engine::file_system</definition>
+      <memberdef kind="variable" id="structeu_1_1window_1_1Engine_1ad09e697e1c4aa7744c918ae87fdf4323" prot="public" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="structeu_1_1io_1_1FileSystem" kindref="compound">io::FileSystem</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;io::FileSystem&gt; eu::window::Engine::file_system</definition>
         <argsstring></argsstring>
         <name>file_system</name>
         <briefdescription>
@@ -30,9 +30,9 @@
         </inbodydescription>
         <location file="libs/window/src/window/engine.h" line="35" column="25" bodyfile="libs/window/src/window/engine.h" bodystart="35" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeu_1_1window_1_1Engine_1afbe9ab994c3b104df481e114b3d1c7b8" prot="public" static="no" mutable="no">
-        <type>std::shared_ptr&lt; <ref refid="structeu_1_1core_1_1vfs_1_1ReadRootCatalog" kindref="compound">core::vfs::ReadRootCatalog</ref> &gt;</type>
-        <definition>std::shared_ptr&lt;core::vfs::ReadRootCatalog&gt; eu::window::Engine::catalog</definition>
+      <memberdef kind="variable" id="structeu_1_1window_1_1Engine_1af3d26d510d77d4f4d067c359c5f57071" prot="public" static="no" mutable="no">
+        <type>std::shared_ptr&lt; <ref refid="structeu_1_1io_1_1ReadRootCatalog" kindref="compound">io::ReadRootCatalog</ref> &gt;</type>
+        <definition>std::shared_ptr&lt;io::ReadRootCatalog&gt; eu::window::Engine::catalog</definition>
         <argsstring></argsstring>
         <name>catalog</name>
         <briefdescription>
@@ -279,13 +279,13 @@
     </detaileddescription>
     <location file="libs/window/src/window/engine.h" line="32" column="5" bodyfile="libs/window/src/window/engine.h" bodystart="33" bodyend="62"/>
     <listofallmembers>
-      <member refid="structeu_1_1window_1_1Engine_1afbe9ab994c3b104df481e114b3d1c7b8" prot="public" virt="non-virtual"><scope>eu::window::Engine</scope><name>catalog</name></member>
+      <member refid="structeu_1_1window_1_1Engine_1af3d26d510d77d4f4d067c359c5f57071" prot="public" virt="non-virtual"><scope>eu::window::Engine</scope><name>catalog</name></member>
       <member refid="structeu_1_1window_1_1Engine_1a319d5fd1e5b7d564714b331e3f5c62ec" prot="public" virt="non-virtual"><scope>eu::window::Engine</scope><name>context</name></member>
       <member refid="structeu_1_1window_1_1Engine_1a94d52c1cca5b41585ee4a3faee5bd97d" prot="public" virt="non-virtual"><scope>eu::window::Engine</scope><name>create_window</name></member>
       <member refid="structeu_1_1window_1_1Engine_1a0f12252a119a9778a3855a71d520174d" prot="public" virt="non-virtual"><scope>eu::window::Engine</scope><name>Engine</name></member>
       <member refid="structeu_1_1window_1_1Engine_1aea9e56a0462be807b249b78a3cd225d2" prot="public" virt="non-virtual"><scope>eu::window::Engine</scope><name>Engine</name></member>
       <member refid="structeu_1_1window_1_1Engine_1a916159ae4950065f305b4d43276a4f77" prot="public" virt="non-virtual"><scope>eu::window::Engine</scope><name>Engine</name></member>
-      <member refid="structeu_1_1window_1_1Engine_1ac5fe1a11bedf338f3bc1c434dfae32f5" prot="public" virt="non-virtual"><scope>eu::window::Engine</scope><name>file_system</name></member>
+      <member refid="structeu_1_1window_1_1Engine_1ad09e697e1c4aa7744c918ae87fdf4323" prot="public" virt="non-virtual"><scope>eu::window::Engine</scope><name>file_system</name></member>
       <member refid="structeu_1_1window_1_1Engine_1aede07ee63e727efbc700368d8527d27d" prot="public" virt="non-virtual"><scope>eu::window::Engine</scope><name>imgui</name></member>
       <member refid="structeu_1_1window_1_1Engine_1ab26ff44b9cd788b9eb27032b45e02bd2" prot="public" virt="non-virtual"><scope>eu::window::Engine</scope><name>init</name></member>
       <member refid="structeu_1_1window_1_1Engine_1aa215d13b641cc34535d05f4209d36ad5" prot="public" virt="non-virtual"><scope>eu::window::Engine</scope><name>on_resize</name></member>

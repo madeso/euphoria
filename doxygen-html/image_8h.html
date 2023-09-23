@@ -61,7 +61,7 @@
 <div class="contents">
 <div class="textblock"><code>#include &lt;memory&gt;</code><br />
 <code>#include &quot;<a class="el" href="rgb_8h_source.html">core/rgb.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="memorychunk_8h_source.html">core/memorychunk.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="memorychunk_8h_source.html">base/memorychunk.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="rect_8h_source.html">core/rect.h</a>&quot;</code><br />
 </div>
 <p><a href="image_8h_source.html">Go to the source code of this file.</a></p>
@@ -77,9 +77,9 @@ Classes</h2></td></tr>
 Namespaces</h2></td></tr>
 <tr class="memitem:namespaceeu"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html">eu</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:namespaceeu_1_1core"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html">eu::core</a></td></tr>
+<tr class="memitem:namespaceeu_1_1io"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1io.html">eu::io</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:namespaceeu_1_1core_1_1vfs"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core_1_1vfs.html">eu::core::vfs</a></td></tr>
+<tr class="memitem:namespaceeu_1_1core"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html">eu::core</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
@@ -97,8 +97,8 @@ Enumerations</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a0f41224638c434fe60614f506eec2c3f"><td class="memItemLeft" align="right" valign="top">ImageLoadResult&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#a0f41224638c434fe60614f506eec2c3f">eu::core::load_image</a> (vfs::FileSystem *fs, const vfs::FilePath &amp;path, AlphaLoad alpha)</td></tr>
-<tr class="separator:a0f41224638c434fe60614f506eec2c3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acbf94cdc546775a73c6a6bfc70c1fe53"><td class="memItemLeft" align="right" valign="top">ImageLoadResult&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#acbf94cdc546775a73c6a6bfc70c1fe53">eu::core::load_image</a> (io::FileSystem *fs, const io::FilePath &amp;path, AlphaLoad alpha)</td></tr>
+<tr class="separator:acbf94cdc546775a73c6a6bfc70c1fe53"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad4f15012367a31dcd14f1bb579b8071c"><td class="memItemLeft" align="right" valign="top">ImageLoadResult&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#ad4f15012367a31dcd14f1bb579b8071c">eu::core::load_image</a> (std::shared_ptr&lt; MemoryChunk &gt; file_memory, const std::string &amp;path, AlphaLoad alpha)</td></tr>
 <tr class="separator:ad4f15012367a31dcd14f1bb579b8071c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad899df9512218b54958e396173912a14"><td class="memItemLeft" align="right" valign="top">ImageLoadResult&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#ad899df9512218b54958e396173912a14">eu::core::load_image</a> (void *compressed_data, int compressed_size, const std::string &amp;path, AlphaLoad alpha)</td></tr>

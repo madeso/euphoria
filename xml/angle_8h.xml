@@ -254,7 +254,7 @@
       </node>
       <node id="163">
         <label>libs/core/src/core/mesh.h</label>
-        <link refid="mesh_8h"/>
+        <link refid="core_2src_2core_2mesh_8h"/>
         <childnode refid="164" relation="include">
         </childnode>
         <childnode refid="165" relation="include">
@@ -628,7 +628,7 @@
       </node>
       <node id="165">
         <label>libs/core/src/core/mesh.cc</label>
-        <link refid="mesh_8cc"/>
+        <link refid="core_2src_2core_2mesh_8cc"/>
       </node>
       <node id="63">
         <label>libs/render/src/render/spriterender.h</label>
@@ -680,7 +680,7 @@
       </node>
       <node id="66">
         <label>libs/render/src/render/font.cc</label>
-        <link refid="font_8cc"/>
+        <link refid="render_2src_2render_2font_8cc"/>
       </node>
       <node id="73">
         <label>libs/core/src/core/polarcoord.h</label>
@@ -704,7 +704,7 @@
       </node>
       <node id="56">
         <label>libs/render/src/render/materialshader.h</label>
-        <link refid="materialshader_8h"/>
+        <link refid="render_2src_2render_2materialshader_8h"/>
         <childnode refid="48" relation="include">
         </childnode>
         <childnode refid="26" relation="include">
@@ -918,7 +918,7 @@
       </node>
       <node id="31">
         <label>libs/render/src/render/world.h</label>
-        <link refid="world_8h"/>
+        <link refid="render_2src_2render_2world_8h"/>
         <childnode refid="15" relation="include">
         </childnode>
       </node>
@@ -946,7 +946,7 @@
       </node>
       <node id="118">
         <label>libs/render/src/render/font.h</label>
-        <link refid="font_8h"/>
+        <link refid="render_2src_2render_2font_8h"/>
         <childnode refid="64" relation="include">
         </childnode>
         <childnode refid="119" relation="include">
@@ -1312,7 +1312,7 @@
       </node>
       <node id="15">
         <label>libs/render/src/render/world.cc</label>
-        <link refid="world_8cc"/>
+        <link refid="render_2src_2render_2world_8cc"/>
       </node>
       <node id="17">
         <label>libs/core/src/core/quat.h</label>
@@ -1858,7 +1858,7 @@
       </node>
       <node id="57">
         <label>libs/render/src/render/materialshader.cc</label>
-        <link refid="materialshader_8cc"/>
+        <link refid="render_2src_2render_2materialshader_8cc"/>
       </node>
     </invincdepgraph>
     <innerclass refid="structeu_1_1core_1_1Angle" prot="public">eu::core::Angle</innerclass>

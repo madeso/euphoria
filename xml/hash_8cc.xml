@@ -7,6 +7,12 @@
       <node id="5">
         <label>cstdint</label>
       </node>
+      <node id="4">
+        <label>base/ints.h</label>
+        <link refid="ints_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
       <node id="3">
         <label>string_view</label>
       </node>
@@ -14,12 +20,6 @@
         <label>libs/core/src/core/hash.cc</label>
         <link refid="hash_8cc"/>
         <childnode refid="2" relation="include">
-        </childnode>
-      </node>
-      <node id="4">
-        <label>core/ints.h</label>
-        <link refid="ints_8h"/>
-        <childnode refid="5" relation="include">
         </childnode>
       </node>
       <node id="2">

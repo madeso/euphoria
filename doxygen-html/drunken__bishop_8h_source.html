@@ -59,22 +59,22 @@
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="table_8h.html">core/table.h</a>&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ints_8h.html">core/ints.h</a>&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ints_8h.html">base/ints.h</a>&quot;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceeu_1_1core.html">eu::core</a></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="comment">// split hash to a msb-&gt;lsb array</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    std::vector&lt;U8&gt;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <a class="code" href="namespaceeu_1_1core.html#a8b66faf4594990ea732f22ebe9d52bc3">to_bytes</a>(<a class="code" href="namespaceeu_1_1core.html#a019a836f7e88088fbbb23733e6a3fb69">U32</a> hash);</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <a class="code" href="namespaceeu_1_1core.html#a8b66faf4594990ea732f22ebe9d52bc3">to_bytes</a>(<a class="code" href="namespaceeu.html#a4906aa2bac1ba15d71b5b473ee9dfcd4">U32</a> hash);</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="comment">// split hash to a msb-&gt;lsb array</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    std::vector&lt;U8&gt;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="namespaceeu_1_1core.html#a8b66faf4594990ea732f22ebe9d52bc3">to_bytes</a>(<a class="code" href="namespaceeu_1_1core.html#a490e48e85948bba664c6c503902a2dae">U64</a> hash);</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="namespaceeu_1_1core.html#a8b66faf4594990ea732f22ebe9d52bc3">to_bytes</a>(<a class="code" href="namespaceeu.html#ac4791a29620a564f20a57ac1f705d39f">U64</a> hash);</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="comment">// split to 2-bit ints</span></div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    std::vector&lt;int&gt;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <a class="code" href="namespaceeu_1_1core.html#a88323581906ba66b5757f69c310b6a4b">to_codes</a>(<a class="code" href="namespaceeu_1_1core.html#a359b6ab0e11d1d70bf85d3135f625b81">U8</a> <span class="keywordtype">byte</span>, <span class="keywordtype">bool</span> msb_first);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <a class="code" href="namespaceeu_1_1core.html#a88323581906ba66b5757f69c310b6a4b">to_codes</a>(<a class="code" href="namespaceeu.html#a7bb0af5256676c7db8a48a8ec6da2622">U8</a> <span class="keywordtype">byte</span>, <span class="keywordtype">bool</span> msb_first);</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    std::vector&lt;int&gt;</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <a class="code" href="namespaceeu_1_1core.html#a88323581906ba66b5757f69c310b6a4b">to_codes</a>(<span class="keyword">const</span> std::vector&lt;U8&gt;&amp; bytes, <span class="keywordtype">bool</span> msb_first);</div>
@@ -82,7 +82,7 @@
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    Table&lt;int&gt;</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="namespaceeu_1_1core.html#a7ed7012cd5dc84583d6c75936d21d858">get_drunken_bishop_result</a></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    (</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <a class="code" href="namespaceeu_1_1core.html#a019a836f7e88088fbbb23733e6a3fb69">U32</a> hash,</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <a class="code" href="namespaceeu.html#a4906aa2bac1ba15d71b5b473ee9dfcd4">U32</a> hash,</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keywordtype">int</span> width,</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keywordtype">int</span> height,</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keywordtype">bool</span> msb_first = <span class="keyword">true</span>,</div>
@@ -93,7 +93,7 @@
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    Table&lt;int&gt;</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <a class="code" href="namespaceeu_1_1core.html#a7ed7012cd5dc84583d6c75936d21d858">get_drunken_bishop_result</a></div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    (</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <a class="code" href="namespaceeu_1_1core.html#a490e48e85948bba664c6c503902a2dae">U64</a> hash,</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <a class="code" href="namespaceeu.html#ac4791a29620a564f20a57ac1f705d39f">U64</a> hash,</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keywordtype">int</span> width,</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keywordtype">int</span> height,</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordtype">bool</span> msb_first = <span class="keyword">true</span>,</div>
@@ -126,14 +126,14 @@
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;}</div>
 <div class="ttc" id="aints_8h_html"><div class="ttname"><a href="ints_8h.html">ints.h</a></div></div>
 <div class="ttc" id="anamespaceeu_1_1core_html"><div class="ttname"><a href="namespaceeu_1_1core.html">eu::core</a></div><div class="ttdef"><b>Definition:</b> <a href="aabb_8cc_source.html#l00008">aabb.cc:9</a></div></div>
-<div class="ttc" id="anamespaceeu_1_1core_html_a019a836f7e88088fbbb23733e6a3fb69"><div class="ttname"><a href="namespaceeu_1_1core.html#a019a836f7e88088fbbb23733e6a3fb69">eu::core::U32</a></div><div class="ttdeci">std::uint32_t U32</div><div class="ttdef"><b>Definition:</b> <a href="ints_8h_source.html#l00013">ints.h:13</a></div></div>
 <div class="ttc" id="anamespaceeu_1_1core_html_a161ca7c3c0a782446961fed71f3c0daa"><div class="ttname"><a href="namespaceeu_1_1core.html#a161ca7c3c0a782446961fed71f3c0daa">eu::core::render_table</a></div><div class="ttdeci">std::vector&lt; std::string &gt; render_table(const Table&lt; int &gt; &amp;table, const std::vector&lt; std::string &gt; &amp;characters)</div><div class="ttdef"><b>Definition:</b> <a href="drunken__bishop_8cc_source.html#l00165">drunken_bishop.cc:166</a></div></div>
-<div class="ttc" id="anamespaceeu_1_1core_html_a359b6ab0e11d1d70bf85d3135f625b81"><div class="ttname"><a href="namespaceeu_1_1core.html#a359b6ab0e11d1d70bf85d3135f625b81">eu::core::U8</a></div><div class="ttdeci">std::uint8_t U8</div><div class="ttdef"><b>Definition:</b> <a href="ints_8h_source.html#l00015">ints.h:15</a></div></div>
-<div class="ttc" id="anamespaceeu_1_1core_html_a490e48e85948bba664c6c503902a2dae"><div class="ttname"><a href="namespaceeu_1_1core.html#a490e48e85948bba664c6c503902a2dae">eu::core::U64</a></div><div class="ttdeci">std::uint64_t U64</div><div class="ttdef"><b>Definition:</b> <a href="ints_8h_source.html#l00012">ints.h:12</a></div></div>
 <div class="ttc" id="anamespaceeu_1_1core_html_a7ed7012cd5dc84583d6c75936d21d858"><div class="ttname"><a href="namespaceeu_1_1core.html#a7ed7012cd5dc84583d6c75936d21d858">eu::core::get_drunken_bishop_result</a></div><div class="ttdeci">Table&lt; int &gt; get_drunken_bishop_result(U32 hash, int width, int height, bool msb_first, int startx, int starty)</div><div class="ttdef"><b>Definition:</b> <a href="drunken__bishop_8cc_source.html#l00079">drunken_bishop.cc:80</a></div></div>
 <div class="ttc" id="anamespaceeu_1_1core_html_a88323581906ba66b5757f69c310b6a4b"><div class="ttname"><a href="namespaceeu_1_1core.html#a88323581906ba66b5757f69c310b6a4b">eu::core::to_codes</a></div><div class="ttdeci">std::vector&lt; int &gt; to_codes(U8 byte, bool msb_first)</div><div class="ttdef"><b>Definition:</b> <a href="drunken__bishop_8cc_source.html#l00047">drunken_bishop.cc:47</a></div></div>
 <div class="ttc" id="anamespaceeu_1_1core_html_a8b66faf4594990ea732f22ebe9d52bc3"><div class="ttname"><a href="namespaceeu_1_1core.html#a8b66faf4594990ea732f22ebe9d52bc3">eu::core::to_bytes</a></div><div class="ttdeci">std::vector&lt; U8 &gt; to_bytes(U32 hash)</div><div class="ttdef"><b>Definition:</b> <a href="drunken__bishop_8cc_source.html#l00033">drunken_bishop.cc:33</a></div></div>
 <div class="ttc" id="anamespaceeu_1_1core_html_ac0587320be077c7f96b4b10b3a1d3676"><div class="ttname"><a href="namespaceeu_1_1core.html#ac0587320be077c7f96b4b10b3a1d3676">eu::core::get_ssh_characters</a></div><div class="ttdeci">std::vector&lt; std::string &gt; get_ssh_characters()</div><div class="ttdef"><b>Definition:</b> <a href="drunken__bishop_8cc_source.html#l00153">drunken_bishop.cc:153</a></div></div>
+<div class="ttc" id="anamespaceeu_html_a4906aa2bac1ba15d71b5b473ee9dfcd4"><div class="ttname"><a href="namespaceeu.html#a4906aa2bac1ba15d71b5b473ee9dfcd4">eu::U32</a></div><div class="ttdeci">std::uint32_t U32</div><div class="ttdef"><b>Definition:</b> <a href="ints_8h_source.html#l00013">ints.h:13</a></div></div>
+<div class="ttc" id="anamespaceeu_html_a7bb0af5256676c7db8a48a8ec6da2622"><div class="ttname"><a href="namespaceeu.html#a7bb0af5256676c7db8a48a8ec6da2622">eu::U8</a></div><div class="ttdeci">std::uint8_t U8</div><div class="ttdef"><b>Definition:</b> <a href="ints_8h_source.html#l00015">ints.h:15</a></div></div>
+<div class="ttc" id="anamespaceeu_html_ac4791a29620a564f20a57ac1f705d39f"><div class="ttname"><a href="namespaceeu.html#ac4791a29620a564f20a57ac1f705d39f">eu::U64</a></div><div class="ttdeci">std::uint64_t U64</div><div class="ttdef"><b>Definition:</b> <a href="ints_8h_source.html#l00012">ints.h:12</a></div></div>
 <div class="ttc" id="atable_8h_html"><div class="ttname"><a href="table_8h.html">table.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.17-->

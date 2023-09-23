@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="files_2src_2files_2world_8cc" kind="file" language="C++">
+    <compoundname>world.cc</compoundname>
+    <includes refid="files_2src_2files_2world_8h" local="yes">files/world.h</includes>
+    <incdepgraph>
+      <node id="9">
+        <label>string</label>
+      </node>
+      <node id="6">
+        <label>jsonh/jsonh.h</label>
+      </node>
+      <node id="8">
+        <label>assert/assert.h</label>
+        <link refid="assert_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>libs/files/src/files/world.cc</label>
+        <link refid="files_2src_2files_2world_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>base/result.h</label>
+        <link refid="result_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>optional</label>
+      </node>
+      <node id="10">
+        <label>vector</label>
+      </node>
+      <node id="7">
+        <label>log/log.h</label>
+        <link refid="log_2src_2log_2log_8h"/>
+      </node>
+      <node id="2">
+        <label>files/world.h</label>
+        <link refid="files_2src_2files_2world_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>io/json.h</label>
+        <link refid="json_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>set</label>
+      </node>
+    </incdepgraph>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1files">eu::files</innernamespace>
+    <innernamespace refid="namespaceeu_1_1files_1_1world">eu::files::world</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/files/src/files/world.cc"/>
+  </compounddef>
+</doxygen>

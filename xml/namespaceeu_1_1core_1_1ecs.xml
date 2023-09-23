@@ -12,7 +12,7 @@
     <innerclass refid="structeu_1_1core_1_1ecs_1_1Registry" prot="public">eu::core::ecs::Registry</innerclass>
       <sectiondef kind="enum">
       <memberdef kind="enum" id="namespaceeu_1_1core_1_1ecs_1a6bc928b478aa35fd3e9e98d901552f38" prot="public" static="no" strong="no">
-        <type><ref refid="namespaceeu_1_1core_1a490e48e85948bba664c6c503902a2dae" kindref="member">U64</ref></type>
+        <type><ref refid="namespaceeu_1ac4791a29620a564f20a57ac1f705d39f" kindref="member">U64</ref></type>
         <name>EntityHandle</name>
         <briefdescription>
         </briefdescription>
@@ -23,7 +23,7 @@
         <location file="libs/core/src/core/ecs.id.h" line="12" column="5" bodyfile="libs/core/src/core/ecs.id.h" bodystart="12" bodyend="12"/>
       </memberdef>
       <memberdef kind="enum" id="namespaceeu_1_1core_1_1ecs_1a6be7e1ab08b2e3baa2712ecd23d9b1a6" prot="public" static="no" strong="no">
-        <type><ref refid="namespaceeu_1_1core_1a359b6ab0e11d1d70bf85d3135f625b81" kindref="member">U8</ref></type>
+        <type><ref refid="namespaceeu_1a7bb0af5256676c7db8a48a8ec6da2622" kindref="member">U8</ref></type>
         <name>ComponentIndex</name>
         <briefdescription>
         </briefdescription>

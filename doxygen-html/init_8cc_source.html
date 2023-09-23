@@ -58,7 +58,7 @@
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="log_8h.html">log/log.h</a>&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="log_2src_2log_2log_8h.html">log/log.h</a>&quot;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="assert_8h.html">assert/assert.h</a>&quot;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="gl_8h.html">render/gl.h</a>&quot;</span></div>
@@ -72,7 +72,7 @@
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">int</span> glad_result = gladLoadGLLoader(loader);</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <span class="keywordflow">if</span>(glad_result == 0)</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        {</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;            <a class="code" href="log_8h.html#ad4a9117ce894e3319e903142347a0f63">LOG_ERROR</a>(<span class="stringliteral">&quot;Failed to init glad, error: {0}&quot;</span>, glad_result);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;            <a class="code" href="log_2src_2log_2log_8h.html#ad4a9117ce894e3319e903142347a0f63">LOG_ERROR</a>(<span class="stringliteral">&quot;Failed to init glad, error: {0}&quot;</span>, glad_result);</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;            <a class="code" href="structeu_1_1render_1_1Init.html#afd74c77c8d2f83cca432c2a04bc68bab">is_ok</a> = <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        }</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
@@ -82,15 +82,15 @@
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;            <span class="keyword">const</span> std::string gl_version = <span class="keyword">reinterpret_cast&lt;</span><span class="keyword">const </span><span class="keywordtype">char</span>*<span class="keyword">&gt;</span>(glGetString(GL_VERSION));</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;            <span class="keyword">const</span> std::string gl_shading_language_version = <span class="keyword">reinterpret_cast&lt;</span><span class="keyword">const </span><span class="keywordtype">char</span>*<span class="keyword">&gt;</span>(glGetString(GL_SHADING_LANGUAGE_VERSION));</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            <a class="code" href="log_8h.html#a378e28bfcb78d17285210d6bbb70a083">LOG_INFO</a>(<span class="stringliteral">&quot;Vendor:         {0}&quot;</span>, gl_vendor);</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            <a class="code" href="log_8h.html#a378e28bfcb78d17285210d6bbb70a083">LOG_INFO</a>(<span class="stringliteral">&quot;Renderer:       {0}&quot;</span>, gl_renderer);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            <a class="code" href="log_8h.html#a378e28bfcb78d17285210d6bbb70a083">LOG_INFO</a>(<span class="stringliteral">&quot;Version OpenGL: {0}&quot;</span>, gl_version);</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            <a class="code" href="log_8h.html#a378e28bfcb78d17285210d6bbb70a083">LOG_INFO</a>(<span class="stringliteral">&quot;Version GLSL:   {0}&quot;</span>, gl_shading_language_version);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            <a class="code" href="log_2src_2log_2log_8h.html#a378e28bfcb78d17285210d6bbb70a083">LOG_INFO</a>(<span class="stringliteral">&quot;Vendor:         {0}&quot;</span>, gl_vendor);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            <a class="code" href="log_2src_2log_2log_8h.html#a378e28bfcb78d17285210d6bbb70a083">LOG_INFO</a>(<span class="stringliteral">&quot;Renderer:       {0}&quot;</span>, gl_renderer);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            <a class="code" href="log_2src_2log_2log_8h.html#a378e28bfcb78d17285210d6bbb70a083">LOG_INFO</a>(<span class="stringliteral">&quot;Version OpenGL: {0}&quot;</span>, gl_version);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            <a class="code" href="log_2src_2log_2log_8h.html#a378e28bfcb78d17285210d6bbb70a083">LOG_INFO</a>(<span class="stringliteral">&quot;Version GLSL:   {0}&quot;</span>, gl_shading_language_version);</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        }</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keywordtype">int</span> attribute_count = 0;</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        glGetIntegerv(GL_MAX_VERTEX_ATTRIBS, &amp;attribute_count);</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <a class="code" href="log_8h.html#a378e28bfcb78d17285210d6bbb70a083">LOG_INFO</a>(<span class="stringliteral">&quot;Max shader attribute count: {0}&quot;</span>, attribute_count);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <a class="code" href="log_2src_2log_2log_8h.html#a378e28bfcb78d17285210d6bbb70a083">LOG_INFO</a>(<span class="stringliteral">&quot;Max shader attribute count: {0}&quot;</span>, attribute_count);</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="comment">// todo(Gustav): move this to a better place</span></div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        glEnable(GL_DEPTH_TEST);</div>
@@ -99,7 +99,7 @@
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keywordflow">if</span>(blend_hack == <a class="code" href="structeu_1_1render_1_1Init.html#ac5912d10e13a21e39de7195b22ba0312a813e54a86d8a2e0dd19e2892499f2937">Init::BlendHack::enable_hack</a>)</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        {</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            <a class="code" href="log_8h.html#a378e28bfcb78d17285210d6bbb70a083">LOG_INFO</a>(<span class="stringliteral">&quot;Enabled blend hack&quot;</span>);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            <a class="code" href="log_2src_2log_2log_8h.html#a378e28bfcb78d17285210d6bbb70a083">LOG_INFO</a>(<span class="stringliteral">&quot;Enabled blend hack&quot;</span>);</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            <span class="comment">// need to be enabled for shitty 2d rendering to work</span></div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            <span class="comment">// todo(Gustav): fix a proper blending/backface culling render stack</span></div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            glDisable(GL_CULL_FACE);</div>
@@ -143,9 +143,9 @@
 <div class="ttc" id="aassert_8h_html_aca68c0d4ac8df0838e209fb5300f7be3"><div class="ttname"><a href="assert_8h.html#aca68c0d4ac8df0838e209fb5300f7be3">ASSERT</a></div><div class="ttdeci">#define ASSERT(x)</div><div class="ttdef"><b>Definition:</b> <a href="assert_8h_source.html#l00029">assert.h:29</a></div></div>
 <div class="ttc" id="agl_8h_html"><div class="ttname"><a href="gl_8h.html">gl.h</a></div></div>
 <div class="ttc" id="ainit_8h_html"><div class="ttname"><a href="init_8h.html">init.h</a></div></div>
-<div class="ttc" id="alog_8h_html"><div class="ttname"><a href="log_8h.html">log.h</a></div></div>
-<div class="ttc" id="alog_8h_html_a378e28bfcb78d17285210d6bbb70a083"><div class="ttname"><a href="log_8h.html#a378e28bfcb78d17285210d6bbb70a083">LOG_INFO</a></div><div class="ttdeci">#define LOG_INFO(...)</div><div class="ttdef"><b>Definition:</b> <a href="log_8h_source.html#l00015">log.h:15</a></div></div>
-<div class="ttc" id="alog_8h_html_ad4a9117ce894e3319e903142347a0f63"><div class="ttname"><a href="log_8h.html#ad4a9117ce894e3319e903142347a0f63">LOG_ERROR</a></div><div class="ttdeci">#define LOG_ERROR(...)</div><div class="ttdef"><b>Definition:</b> <a href="log_8h_source.html#l00017">log.h:17</a></div></div>
+<div class="ttc" id="alog_2src_2log_2log_8h_html"><div class="ttname"><a href="log_2src_2log_2log_8h.html">log.h</a></div></div>
+<div class="ttc" id="alog_2src_2log_2log_8h_html_a378e28bfcb78d17285210d6bbb70a083"><div class="ttname"><a href="log_2src_2log_2log_8h.html#a378e28bfcb78d17285210d6bbb70a083">LOG_INFO</a></div><div class="ttdeci">#define LOG_INFO(...)</div><div class="ttdef"><b>Definition:</b> <a href="log_2src_2log_2log_8h_source.html#l00007">log.h:7</a></div></div>
+<div class="ttc" id="alog_2src_2log_2log_8h_html_ad4a9117ce894e3319e903142347a0f63"><div class="ttname"><a href="log_2src_2log_2log_8h.html#ad4a9117ce894e3319e903142347a0f63">LOG_ERROR</a></div><div class="ttdeci">#define LOG_ERROR(...)</div><div class="ttdef"><b>Definition:</b> <a href="log_2src_2log_2log_8h_source.html#l00009">log.h:9</a></div></div>
 <div class="ttc" id="anamespaceeu_1_1render_html"><div class="ttname"><a href="namespaceeu_1_1render.html">eu::render</a></div><div class="ttdef"><b>Definition:</b> <a href="button_8h_source.html#l00014">button.h:15</a></div></div>
 <div class="ttc" id="anamespaceeu_1_1render_html_a2f7070e070656538549c1df462b5a9be"><div class="ttname"><a href="namespaceeu_1_1render.html#a2f7070e070656538549c1df462b5a9be">eu::render::LoaderFunction</a></div><div class="ttdeci">void *(*)(const char *name) LoaderFunction</div><div class="ttdef"><b>Definition:</b> <a href="init_8h_source.html#l00009">init.h:9</a></div></div>
 <div class="ttc" id="astructeu_1_1core_1_1Rgb_html"><div class="ttname"><a href="structeu_1_1core_1_1Rgb.html">eu::core::Rgb</a></div><div class="ttdef"><b>Definition:</b> <a href="rgb_8h_source.html#l00061">rgb.h:62</a></div></div>

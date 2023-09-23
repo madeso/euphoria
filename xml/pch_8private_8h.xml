@@ -6,6 +6,6 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/pch.private.h"/>
+    <location file="libs/base/src/base/pch.private.h"/>
   </compounddef>
 </doxygen>

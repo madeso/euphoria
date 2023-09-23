@@ -20,7 +20,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/tracery.cc" line="584" column="19" bodyfile="libs/core/src/core/tracery.cc" bodystart="584" bodyend="-1"/>
+        <location file="libs/core/src/core/tracery.cc" line="549" column="19" bodyfile="libs/core/src/core/tracery.cc" bodystart="549" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -39,7 +39,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/tracery.cc" line="585" column="13" bodyfile="libs/core/src/core/tracery.cc" bodystart="585" bodyend="585"/>
+        <location file="libs/core/src/core/tracery.cc" line="550" column="13" bodyfile="libs/core/src/core/tracery.cc" bodystart="550" bodyend="550"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1tracery_1_1english_1_1FunctionModifier_1afbca69bb9cf1d92a8a1243ff4d81a2e6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
         <type><ref refid="structeu_1_1core_1_1tracery_1_1Result" kindref="compound">Result</ref></type>
@@ -57,7 +57,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/tracery.cc" line="587" column="20" bodyfile="libs/core/src/core/tracery.cc" bodystart="587" bodyend="591"/>
+        <location file="libs/core/src/core/tracery.cc" line="552" column="20" bodyfile="libs/core/src/core/tracery.cc" bodystart="552" bodyend="556"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -88,7 +88,7 @@
         <link refid="structeu_1_1core_1_1tracery_1_1Modifier"/>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/tracery.cc" line="582" column="9" bodyfile="libs/core/src/core/tracery.cc" bodystart="583" bodyend="592"/>
+    <location file="libs/core/src/core/tracery.cc" line="547" column="9" bodyfile="libs/core/src/core/tracery.cc" bodystart="548" bodyend="557"/>
     <listofallmembers>
       <member refid="structeu_1_1core_1_1tracery_1_1english_1_1FunctionModifier_1afbca69bb9cf1d92a8a1243ff4d81a2e6" prot="public" virt="virtual"><scope>eu::core::tracery::english::FunctionModifier</scope><name>apply_modifier</name></member>
       <member refid="structeu_1_1core_1_1tracery_1_1english_1_1FunctionModifier_1a9046df1d517759b0c3dffaef4a20ec33" prot="public" virt="non-virtual"><scope>eu::core::tracery::english::FunctionModifier</scope><name>func</name></member>

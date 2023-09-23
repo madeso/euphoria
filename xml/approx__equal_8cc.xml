@@ -14,10 +14,6 @@
         <childnode refid="12" relation="include">
         </childnode>
       </node>
-      <node id="35">
-        <label>core/editdistance.h</label>
-        <link refid="editdistance_8h"/>
-      </node>
       <node id="44">
         <label>catch.hpp</label>
       </node>
@@ -26,6 +22,12 @@
       </node>
       <node id="43">
         <label>limits</label>
+      </node>
+      <node id="31">
+        <label>base/stringutils.h</label>
+        <link refid="stringutils_8h"/>
+        <childnode refid="29" relation="include">
+        </childnode>
       </node>
       <node id="26">
         <label>core/colors.h</label>
@@ -41,31 +43,13 @@
         <childnode refid="10" relation="include">
         </childnode>
       </node>
-      <node id="32">
-        <label>core/editdistance.search.h</label>
-        <link refid="editdistance_8search_8h"/>
-        <childnode refid="33" relation="include">
-        </childnode>
-        <childnode refid="34" relation="include">
-        </childnode>
-        <childnode refid="35" relation="include">
-        </childnode>
-      </node>
       <node id="15">
         <label>cstdint</label>
       </node>
-      <node id="13">
-        <label>core/cint.h</label>
-        <link refid="cint_8h"/>
-        <childnode refid="14" relation="include">
-        </childnode>
-        <childnode refid="16" relation="include">
-        </childnode>
-      </node>
-      <node id="31">
-        <label>core/stringutils.h</label>
-        <link refid="stringutils_8h"/>
-        <childnode refid="29" relation="include">
+      <node id="14">
+        <label>base/ints.h</label>
+        <link refid="ints_8h"/>
+        <childnode refid="15" relation="include">
         </childnode>
       </node>
       <node id="42">
@@ -91,12 +75,6 @@
         <childnode refid="9" relation="include">
         </childnode>
         <childnode refid="27" relation="include">
-        </childnode>
-      </node>
-      <node id="38">
-        <label>core/result.h</label>
-        <link refid="result_8h"/>
-        <childnode refid="39" relation="include">
         </childnode>
       </node>
       <node id="3">
@@ -190,6 +168,12 @@
       <node id="4">
         <label>tuple</label>
       </node>
+      <node id="38">
+        <label>base/result.h</label>
+        <link refid="result_8h"/>
+        <childnode refid="39" relation="include">
+        </childnode>
+      </node>
       <node id="39">
         <label>optional</label>
       </node>
@@ -205,16 +189,20 @@
       <node id="8">
         <label>vector</label>
       </node>
+      <node id="32">
+        <label>base/editdistance.search.h</label>
+        <link refid="editdistance_8search_8h"/>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+      </node>
       <node id="37">
         <label>core/custom_parser.h</label>
         <link refid="custom__parser_8h"/>
         <childnode refid="38" relation="include">
-        </childnode>
-      </node>
-      <node id="14">
-        <label>core/ints.h</label>
-        <link refid="ints_8h"/>
-        <childnode refid="15" relation="include">
         </childnode>
       </node>
       <node id="19">
@@ -281,6 +269,10 @@
         <childnode refid="36" relation="include">
         </childnode>
       </node>
+      <node id="35">
+        <label>base/editdistance.h</label>
+        <link refid="editdistance_8h"/>
+      </node>
       <node id="10">
         <label>core/angle.h</label>
         <link refid="angle_8h"/>
@@ -289,6 +281,14 @@
         <childnode refid="12" relation="include">
         </childnode>
         <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>base/cint.h</label>
+        <link refid="cint_8h"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
         </childnode>
       </node>
       <node id="27">

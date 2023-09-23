@@ -2,7 +2,7 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structeu_1_1core_1_1EnumType" kind="struct" language="C++" prot="public">
     <compoundname>eu::core::EnumType</compoundname>
-    <includes refid="enum_8h" local="no">enum.h</includes>
+    <includes refid="core_2src_2core_2enum_8h" local="no">enum.h</includes>
       <sectiondef kind="public-type">
       <memberdef kind="typedef" id="structeu_1_1core_1_1EnumType_1a4753d5bf29bd05ba622b66cb09019dd3" prot="public" static="no">
         <type>std::map&lt; size_t, std::string &gt;</type>
@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/enum.h" line="28" column="9" bodyfile="libs/core/src/core/enum.h" bodystart="28" bodyend="-1"/>
+        <location file="libs/core/src/core/enum.h" line="29" column="9" bodyfile="libs/core/src/core/enum.h" bodystart="29" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="structeu_1_1core_1_1EnumType_1a853c2247bf582edf4c70c3d3362084bb" prot="public" static="no">
         <type>std::map&lt; std::string, size_t &gt;</type>
@@ -28,7 +28,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/enum.h" line="29" column="9" bodyfile="libs/core/src/core/enum.h" bodystart="29" bodyend="-1"/>
+        <location file="libs/core/src/core/enum.h" line="30" column="9" bodyfile="libs/core/src/core/enum.h" bodystart="30" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-attrib">
@@ -43,7 +43,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/enum.h" line="31" column="21" bodyfile="libs/core/src/core/enum.h" bodystart="31" bodyend="-1"/>
+        <location file="libs/core/src/core/enum.h" line="32" column="21" bodyfile="libs/core/src/core/enum.h" bodystart="32" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1EnumType_1ae345601e7addb6894cdbf175e319e4c0" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1core_1_1EnumType_1a4753d5bf29bd05ba622b66cb09019dd3" kindref="member">ValueToNameMap</ref></type>
@@ -56,7 +56,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/enum.h" line="32" column="24" bodyfile="libs/core/src/core/enum.h" bodystart="32" bodyend="-1"/>
+        <location file="libs/core/src/core/enum.h" line="33" column="24" bodyfile="libs/core/src/core/enum.h" bodystart="33" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1EnumType_1a50bac99739e51be7a65091a40148f669" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1core_1_1EnumType_1a853c2247bf582edf4c70c3d3362084bb" kindref="member">NameToValueMap</ref></type>
@@ -69,7 +69,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/enum.h" line="33" column="24" bodyfile="libs/core/src/core/enum.h" bodystart="33" bodyend="-1"/>
+        <location file="libs/core/src/core/enum.h" line="34" column="24" bodyfile="libs/core/src/core/enum.h" bodystart="34" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1EnumType_1ad22d9a68bb813f9888bc38cd498e4529" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -82,7 +82,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/enum.h" line="34" column="14" bodyfile="libs/core/src/core/enum.h" bodystart="34" bodyend="-1"/>
+        <location file="libs/core/src/core/enum.h" line="35" column="14" bodyfile="libs/core/src/core/enum.h" bodystart="35" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1EnumType_1af5e4cbbcd413c20dcdb2cd7dec83bf84" prot="public" static="no" mutable="no">
         <type>size_t</type>
@@ -95,7 +95,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/enum.h" line="35" column="16" bodyfile="libs/core/src/core/enum.h" bodystart="35" bodyend="-1"/>
+        <location file="libs/core/src/core/enum.h" line="36" column="16" bodyfile="libs/core/src/core/enum.h" bodystart="36" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -114,7 +114,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/enum.h" line="37" column="9" bodyfile="libs/core/src/core/enum.cc" bodystart="24" bodyend="29"/>
+        <location file="libs/core/src/core/enum.h" line="38" column="9" bodyfile="libs/core/src/core/enum.cc" bodystart="26" bodyend="31"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1EnumType_1ad22a6670e981e4db8818d73e88b0f2c1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -127,7 +127,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/enum.h" line="38" column="9" bodyfile="libs/core/src/core/enum.cc" bodystart="32" bodyend="35"/>
+        <location file="libs/core/src/core/enum.h" line="39" column="9" bodyfile="libs/core/src/core/enum.cc" bodystart="34" bodyend="37"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1EnumType_1a51fbf58f2e5e26f1f686b6e61862d67b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -143,7 +143,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/enum.h" line="40" column="9"/>
+        <location file="libs/core/src/core/enum.h" line="41" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1EnumType_1a1ecdcdcfa9adfe1dc1b543430d35a5eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -159,7 +159,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/enum.h" line="41" column="9"/>
+        <location file="libs/core/src/core/enum.h" line="42" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1EnumType_1a7ef375222afe7fe89d51413c3fceb527" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -175,7 +175,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/enum.h" line="42" column="14"/>
+        <location file="libs/core/src/core/enum.h" line="43" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1EnumType_1a903714d6de2cacfa262462fa77900ad2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -191,7 +191,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/enum.h" line="43" column="14"/>
+        <location file="libs/core/src/core/enum.h" line="44" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1EnumType_1a5ee0ce9e9d0ad2af99c0451badcfbd5d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1core_1_1EnumValue" kindref="compound">EnumValue</ref></type>
@@ -208,7 +208,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/enum.h" line="45" column="20" bodyfile="libs/core/src/core/enum.cc" bodystart="59" bodyend="75"/>
+        <location file="libs/core/src/core/enum.h" line="46" column="20" bodyfile="libs/core/src/core/enum.cc" bodystart="61" bodyend="77"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1EnumType_1a77690be32a96f6d9b68a448cdb1f8581" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -225,7 +225,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/enum.h" line="46" column="14" bodyfile="libs/core/src/core/enum.cc" bodystart="79" bodyend="106"/>
+        <location file="libs/core/src/core/enum.h" line="47" column="14" bodyfile="libs/core/src/core/enum.cc" bodystart="81" bodyend="108"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1EnumType_1a70fb0444e972955c02505f6dd5833e63" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -242,7 +242,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/enum.h" line="47" column="14" bodyfile="libs/core/src/core/enum.cc" bodystart="110" bodyend="122"/>
+        <location file="libs/core/src/core/enum.h" line="48" column="14" bodyfile="libs/core/src/core/enum.cc" bodystart="112" bodyend="124"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1EnumType_1ad4a2aa52dee863c025c0a002e7fe15aa" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -259,7 +259,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/enum.h" line="49" column="22" bodyfile="libs/core/src/core/enum.cc" bodystart="39" bodyend="55"/>
+        <location file="libs/core/src/core/enum.h" line="50" column="22" bodyfile="libs/core/src/core/enum.cc" bodystart="41" bodyend="57"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -268,7 +268,7 @@
     <detaileddescription>
 <para>Declare globally grab specific enums before or after load, and load adds new, verifies created and asserts misspelled values. Advantages over hashes: type safety, catches bad spelling, no collisions and perhaps faster to generate? </para>
     </detaileddescription>
-    <location file="libs/core/src/core/enum.h" line="26" column="5" bodyfile="libs/core/src/core/enum.h" bodystart="27" bodyend="50"/>
+    <location file="libs/core/src/core/enum.h" line="27" column="5" bodyfile="libs/core/src/core/enum.h" bodystart="28" bodyend="51"/>
     <listofallmembers>
       <member refid="structeu_1_1core_1_1EnumType_1a70fb0444e972955c02505f6dd5833e63" prot="public" virt="non-virtual"><scope>eu::core::EnumType</scope><name>add_enum</name></member>
       <member refid="structeu_1_1core_1_1EnumType_1a77690be32a96f6d9b68a448cdb1f8581" prot="public" virt="non-virtual"><scope>eu::core::EnumType</scope><name>add_enums</name></member>

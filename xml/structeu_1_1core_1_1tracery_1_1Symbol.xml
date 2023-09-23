@@ -47,7 +47,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/tracery.h" line="96" column="18" bodyfile="libs/core/src/core/tracery.cc" bodystart="424" bodyend="424"/>
+        <location file="libs/core/src/core/tracery.h" line="96" column="18" bodyfile="libs/core/src/core/tracery.cc" bodystart="389" bodyend="389"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1tracery_1_1Symbol_1a34aeb64983bd401fbbb220029ec9270c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1core_1_1tracery_1_1Result" kindref="compound">Result</ref></type>
@@ -64,7 +64,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/tracery.h" line="98" column="16" bodyfile="libs/core/src/core/tracery.cc" bodystart="428" bodyend="437"/>
+        <location file="libs/core/src/core/tracery.h" line="98" column="16" bodyfile="libs/core/src/core/tracery.cc" bodystart="393" bodyend="402"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1tracery_1_1Symbol_1a401c454ab49171f73c05a50632a0e080" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1core_1_1tracery_1_1Result" kindref="compound">Result</ref></type>
@@ -81,7 +81,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/tracery.h" line="99" column="16" bodyfile="libs/core/src/core/tracery.cc" bodystart="441" bodyend="447"/>
+        <location file="libs/core/src/core/tracery.h" line="99" column="16" bodyfile="libs/core/src/core/tracery.cc" bodystart="406" bodyend="412"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

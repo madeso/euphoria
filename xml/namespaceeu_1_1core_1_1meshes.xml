@@ -5,17 +5,17 @@
     <innerclass refid="structeu_1_1core_1_1meshes_1_1FileForAssimp" prot="public">eu::core::meshes::FileForAssimp</innerclass>
     <innerclass refid="structeu_1_1core_1_1meshes_1_1FilesystemForAssimp" prot="public">eu::core::meshes::FilesystemForAssimp</innerclass>
       <sectiondef kind="func">
-      <memberdef kind="function" id="namespaceeu_1_1core_1_1meshes_1abbefe150018ffb2c3cc96c3ccee01917" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeu_1_1core_1_1meshes_1aac00754a10dee4e91112b16cd59858a2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1core_1_1LoadedMeshOrError" kindref="compound">LoadedMeshOrError</ref></type>
         <definition>LoadedMeshOrError eu::core::meshes::load_mesh</definition>
-        <argsstring>(vfs::FileSystem *fs, const vfs::FilePath &amp;path)</argsstring>
+        <argsstring>(io::FileSystem *fs, const io::FilePath &amp;path)</argsstring>
         <name>load_mesh</name>
         <param>
-          <type><ref refid="structeu_1_1core_1_1vfs_1_1FileSystem" kindref="compound">vfs::FileSystem</ref> *</type>
+          <type><ref refid="structeu_1_1io_1_1FileSystem" kindref="compound">io::FileSystem</ref> *</type>
           <declname>fs</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1vfs_1_1FilePath" kindref="compound">vfs::FilePath</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1io_1_1FilePath" kindref="compound">io::FilePath</ref> &amp;</type>
           <declname>path</declname>
         </param>
         <briefdescription>
@@ -24,7 +24,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/mesh.cc" line="640" column="9" bodyfile="libs/core/src/core/mesh.cc" bodystart="640" bodyend="668" declfile="libs/core/src/core/mesh.h" declline="119" declcolumn="27"/>
+        <location file="libs/core/src/core/mesh.cc" line="664" column="9" bodyfile="libs/core/src/core/mesh.cc" bodystart="664" bodyend="692" declfile="libs/core/src/core/mesh.h" declline="118" declcolumn="27"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1core_1_1meshes_1abf83605c141f89b0b3cc258ad19b935f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1core_1_1Mesh" kindref="compound">Mesh</ref></type>
@@ -41,7 +41,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/mesh.cc" line="672" column="9" bodyfile="libs/core/src/core/mesh.cc" bodystart="672" bodyend="675" declfile="libs/core/src/core/mesh.h" declline="121" declcolumn="14"/>
+        <location file="libs/core/src/core/mesh.cc" line="696" column="9" bodyfile="libs/core/src/core/mesh.cc" bodystart="696" bodyend="699" declfile="libs/core/src/core/mesh.h" declline="120" declcolumn="14"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1core_1_1meshes_1aad28b37ae49d49a15b3fa750d4edab7a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1core_1_1Mesh" kindref="compound">Mesh</ref></type>
@@ -62,7 +62,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/mesh.cc" line="679" column="9" bodyfile="libs/core/src/core/mesh.cc" bodystart="679" bodyend="688" declfile="libs/core/src/core/mesh.h" declline="122" declcolumn="14"/>
+        <location file="libs/core/src/core/mesh.cc" line="703" column="9" bodyfile="libs/core/src/core/mesh.cc" bodystart="703" bodyend="712" declfile="libs/core/src/core/mesh.h" declline="121" declcolumn="14"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1core_1_1meshes_1a7903b29fd2da4ca429921b34392664fe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1core_1_1Mesh" kindref="compound">Mesh</ref></type>
@@ -87,13 +87,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/mesh.cc" line="692" column="9" bodyfile="libs/core/src/core/mesh.cc" bodystart="692" bodyend="724" declfile="libs/core/src/core/mesh.h" declline="123" declcolumn="14"/>
+        <location file="libs/core/src/core/mesh.cc" line="716" column="9" bodyfile="libs/core/src/core/mesh.cc" bodystart="716" bodyend="748" declfile="libs/core/src/core/mesh.h" declline="122" declcolumn="14"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/mesh.cc" line="535" column="5"/>
+    <location file="libs/core/src/core/mesh.cc" line="559" column="5"/>
   </compounddef>
 </doxygen>

@@ -7,15 +7,11 @@
     <includes refid="image__draw_8h" local="yes">core/image_draw.h</includes>
     <includes refid="colors_8h" local="yes">core/colors.h</includes>
     <includes refid="image_8h" local="yes">core/image.h</includes>
-    <includes refid="cint_8h" local="yes">core/cint.h</includes>
+    <includes refid="cint_8h" local="yes">base/cint.h</includes>
     <includes refid="table__bool_8h" local="yes">core/table_bool.h</includes>
     <includes local="no">functional</includes>
     <includes local="no">optional</includes>
     <incdepgraph>
-      <node id="18">
-        <label>core/editdistance.h</label>
-        <link refid="editdistance_8h"/>
-      </node>
       <node id="22">
         <label>core/table.h</label>
         <link refid="table_8h"/>
@@ -36,6 +32,12 @@
       <node id="16">
         <label>queue</label>
       </node>
+      <node id="7">
+        <label>base/stringutils.h</label>
+        <link refid="stringutils_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
       <node id="38">
         <label>core/colors.h</label>
         <link refid="colors_8h"/>
@@ -52,31 +54,19 @@
         <childnode refid="9" relation="include">
         </childnode>
       </node>
-      <node id="15">
-        <label>core/editdistance.search.h</label>
-        <link refid="editdistance_8search_8h"/>
-        <childnode refid="16" relation="include">
-        </childnode>
-        <childnode refid="17" relation="include">
-        </childnode>
-        <childnode refid="18" relation="include">
-        </childnode>
-      </node>
       <node id="32">
         <label>cstdint</label>
       </node>
-      <node id="30">
-        <label>core/cint.h</label>
-        <link refid="cint_8h"/>
-        <childnode refid="31" relation="include">
-        </childnode>
-        <childnode refid="33" relation="include">
+      <node id="31">
+        <label>base/ints.h</label>
+        <link refid="ints_8h"/>
+        <childnode refid="32" relation="include">
         </childnode>
       </node>
-      <node id="7">
-        <label>core/stringutils.h</label>
-        <link refid="stringutils_8h"/>
-        <childnode refid="8" relation="include">
+      <node id="41">
+        <label>base/memorychunk.h</label>
+        <link refid="memorychunk_8h"/>
+        <childnode refid="40" relation="include">
         </childnode>
       </node>
       <node id="37">
@@ -91,12 +81,6 @@
         <childnode refid="24" relation="include">
         </childnode>
         <childnode refid="9" relation="include">
-        </childnode>
-      </node>
-      <node id="6">
-        <label>core/result.h</label>
-        <link refid="result_8h"/>
-        <childnode refid="4" relation="include">
         </childnode>
       </node>
       <node id="13">
@@ -161,6 +145,12 @@
       <node id="27">
         <label>tuple</label>
       </node>
+      <node id="6">
+        <label>base/result.h</label>
+        <link refid="result_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
       <node id="4">
         <label>optional</label>
       </node>
@@ -175,6 +165,16 @@
       </node>
       <node id="14">
         <label>vector</label>
+      </node>
+      <node id="15">
+        <label>base/editdistance.search.h</label>
+        <link refid="editdistance_8search_8h"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
       </node>
       <node id="5">
         <label>core/custom_parser.h</label>
@@ -194,18 +194,6 @@
         <childnode refid="26" relation="include">
         </childnode>
         <childnode refid="46" relation="include">
-        </childnode>
-      </node>
-      <node id="41">
-        <label>core/memorychunk.h</label>
-        <link refid="memorychunk_8h"/>
-        <childnode refid="40" relation="include">
-        </childnode>
-      </node>
-      <node id="31">
-        <label>core/ints.h</label>
-        <link refid="ints_8h"/>
-        <childnode refid="32" relation="include">
         </childnode>
       </node>
       <node id="29">
@@ -318,6 +306,10 @@
         <childnode refid="36" relation="include">
         </childnode>
       </node>
+      <node id="18">
+        <label>base/editdistance.h</label>
+        <link refid="editdistance_8h"/>
+      </node>
       <node id="28">
         <label>core/angle.h</label>
         <link refid="angle_8h"/>
@@ -326,6 +318,14 @@
         <childnode refid="23" relation="include">
         </childnode>
         <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>base/cint.h</label>
+        <link refid="cint_8h"/>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
         </childnode>
       </node>
       <node id="9">

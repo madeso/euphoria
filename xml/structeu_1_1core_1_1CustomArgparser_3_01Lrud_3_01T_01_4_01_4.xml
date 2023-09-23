@@ -64,7 +64,7 @@
         <location file="libs/core/src/core/fourway.h" line="106" column="9" bodyfile="libs/core/src/core/fourway.h" bodystart="106" bodyend="117"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1CustomArgparser_3_01Lrud_3_01T_01_4_01_4_1aec4b5bf6a552f14493a85b289e60d8fb" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type><ref refid="structeu_1_1core_1_1Result" kindref="compound">Result</ref>&lt; <ref refid="structeu_1_1core_1_1Lrud" kindref="compound">Lrud</ref>&lt; T &gt; &gt;</type>
+        <type><ref refid="structeu_1_1Result" kindref="compound">Result</ref>&lt; <ref refid="structeu_1_1core_1_1Lrud" kindref="compound">Lrud</ref>&lt; T &gt; &gt;</type>
         <definition>static Result&lt;Lrud&lt;T&gt; &gt; eu::core::CustomArgparser&lt; Lrud&lt; T &gt; &gt;::parse</definition>
         <argsstring>(const std::string &amp;value)</argsstring>
         <name>parse</name>

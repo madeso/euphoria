@@ -2,26 +2,36 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="vfs_8cc" kind="file" language="C++">
     <compoundname>vfs.cc</compoundname>
-    <includes refid="vfs_8h" local="yes">core/vfs.h</includes>
+    <includes refid="vfs_8h" local="yes">io/vfs.h</includes>
     <includes local="no">fstream</includes>
     <includes refid="assert_8h" local="yes">assert/assert.h</includes>
-    <includes refid="os_8h" local="yes">core/os.h</includes>
-    <includes refid="stringmerger_8h" local="yes">core/stringmerger.h</includes>
-    <includes refid="vfs__path_8h" local="yes">core/vfs_path.h</includes>
-    <includes refid="io_8h" local="yes">core/io.h</includes>
-    <includes refid="log_8h" local="yes">log/log.h</includes>
-    <includes refid="stringutils_8h" local="yes">core/stringutils.h</includes>
+    <includes refid="log_2src_2log_2log_8h" local="yes">log/log.h</includes>
+    <includes refid="os_8h" local="yes">base/os.h</includes>
+    <includes refid="stringmerger_8h" local="yes">base/stringmerger.h</includes>
+    <includes refid="stringutils_8h" local="yes">base/stringutils.h</includes>
+    <includes refid="io_8h" local="yes">io/io.h</includes>
+    <includes refid="vfs__path_8h" local="yes">io/vfs_path.h</includes>
     <incdepgraph>
-      <node id="22">
-        <label>core/stringutils.h</label>
+      <node id="15">
+        <label>base/stringutils.h</label>
         <link refid="stringutils_8h"/>
         <childnode refid="5" relation="include">
         </childnode>
       </node>
-      <node id="12">
-        <label>core/stringmerger.h</label>
-        <link refid="stringmerger_8h"/>
-        <childnode refid="13" relation="include">
+      <node id="3">
+        <label>base/memorychunk.h</label>
+        <link refid="memorychunk_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>io/vfs_path.h</label>
+        <link refid="vfs__path_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
         </childnode>
       </node>
       <node id="9">
@@ -30,88 +40,8 @@
       <node id="5">
         <label>map</label>
       </node>
-      <node id="21">
-        <label>undef_windows/undef_windows.h</label>
-      </node>
-      <node id="7">
-        <label>fstream</label>
-      </node>
-      <node id="20">
-        <label>spdlog/fmt/ostr.h</label>
-      </node>
-      <node id="8">
-        <label>assert/assert.h</label>
-        <link refid="assert_8h"/>
-        <childnode refid="9" relation="include">
-        </childnode>
-        <childnode refid="10" relation="include">
-        </childnode>
-      </node>
-      <node id="19">
-        <label>spdlog/spdlog.h</label>
-      </node>
-      <node id="13">
-        <label>string_view</label>
-      </node>
-      <node id="17">
-        <label>core/io.h</label>
-        <link refid="io_8h"/>
-        <childnode refid="4" relation="include">
-        </childnode>
-        <childnode refid="6" relation="include">
-        </childnode>
-        <childnode refid="3" relation="include">
-        </childnode>
-      </node>
-      <node id="15">
-        <label>tuple</label>
-      </node>
-      <node id="6">
-        <label>optional</label>
-      </node>
-      <node id="10">
-        <label>vector</label>
-      </node>
-      <node id="18">
-        <label>log/log.h</label>
-        <link refid="log_8h"/>
-        <childnode refid="19" relation="include">
-        </childnode>
-        <childnode refid="20" relation="include">
-        </childnode>
-        <childnode refid="21" relation="include">
-        </childnode>
-      </node>
-      <node id="3">
-        <label>core/memorychunk.h</label>
-        <link refid="memorychunk_8h"/>
-        <childnode refid="4" relation="include">
-        </childnode>
-      </node>
-      <node id="2">
-        <label>core/vfs.h</label>
-        <link refid="vfs_8h"/>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="5" relation="include">
-        </childnode>
-        <childnode refid="4" relation="include">
-        </childnode>
-        <childnode refid="6" relation="include">
-        </childnode>
-      </node>
-      <node id="14">
-        <label>core/vfs_path.h</label>
-        <link refid="vfs__path_8h"/>
-        <childnode refid="6" relation="include">
-        </childnode>
-        <childnode refid="15" relation="include">
-        </childnode>
-        <childnode refid="16" relation="include">
-        </childnode>
-      </node>
       <node id="1">
-        <label>libs/core/src/core/vfs.cc</label>
+        <label>libs/io/src/io/vfs.cc</label>
         <link refid="vfs_8cc"/>
         <childnode refid="2" relation="include">
         </childnode>
@@ -123,33 +53,87 @@
         </childnode>
         <childnode refid="12" relation="include">
         </childnode>
-        <childnode refid="14" relation="include">
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
         </childnode>
         <childnode refid="17" relation="include">
         </childnode>
-        <childnode refid="18" relation="include">
+      </node>
+      <node id="7">
+        <label>fstream</label>
+      </node>
+      <node id="8">
+        <label>assert/assert.h</label>
+        <link refid="assert_8h"/>
+        <childnode refid="9" relation="include">
         </childnode>
-        <childnode refid="22" relation="include">
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>string_view</label>
+      </node>
+      <node id="18">
+        <label>tuple</label>
+      </node>
+      <node id="6">
+        <label>optional</label>
+      </node>
+      <node id="2">
+        <label>io/vfs.h</label>
+        <link refid="vfs_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
         </childnode>
       </node>
       <node id="16">
+        <label>io/io.h</label>
+        <link refid="io_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>vector</label>
+      </node>
+      <node id="11">
+        <label>log/log.h</label>
+        <link refid="log_2src_2log_2log_8h"/>
+      </node>
+      <node id="12">
+        <label>base/os.h</label>
+        <link refid="os_8h"/>
+      </node>
+      <node id="19">
         <label>type_traits</label>
+      </node>
+      <node id="13">
+        <label>base/stringmerger.h</label>
+        <link refid="stringmerger_8h"/>
+        <childnode refid="14" relation="include">
+        </childnode>
       </node>
       <node id="4">
         <label>memory</label>
       </node>
-      <node id="11">
-        <label>core/os.h</label>
-        <link refid="os_8h"/>
-      </node>
     </incdepgraph>
     <innernamespace refid="namespaceeu">eu</innernamespace>
-    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
-    <innernamespace refid="namespaceeu_1_1core_1_1vfs">eu::core::vfs</innernamespace>
+    <innernamespace refid="namespaceeu_1_1io">eu::io</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/vfs.cc"/>
+    <location file="libs/io/src/io/vfs.cc"/>
   </compounddef>
 </doxygen>

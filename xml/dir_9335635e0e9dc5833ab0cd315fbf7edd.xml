@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="dir_9335635e0e9dc5833ab0cd315fbf7edd" kind="dir">
+    <compoundname>libs/base/src/base</compoundname>
+    <innerfile refid="cint_8cc">cint.cc</innerfile>
+    <innerfile refid="cint_8h">cint.h</innerfile>
+    <innerfile refid="editdistance_8cc">editdistance.cc</innerfile>
+    <innerfile refid="editdistance_8h">editdistance.h</innerfile>
+    <innerfile refid="editdistance_8search_8cc">editdistance.search.cc</innerfile>
+    <innerfile refid="editdistance_8search_8h">editdistance.search.h</innerfile>
+    <innerfile refid="functional_8cc">functional.cc</innerfile>
+    <innerfile refid="functional_8h">functional.h</innerfile>
+    <innerfile refid="ints_8cc">ints.cc</innerfile>
+    <innerfile refid="ints_8h">ints.h</innerfile>
+    <innerfile refid="memorychunk_8cc">memorychunk.cc</innerfile>
+    <innerfile refid="memorychunk_8h">memorychunk.h</innerfile>
+    <innerfile refid="os_8cc">os.cc</innerfile>
+    <innerfile refid="os_8h">os.h</innerfile>
+    <innerfile refid="pch_8private_8h">pch.private.h</innerfile>
+    <innerfile refid="base_2src_2base_2pch_8public_8h">pch.public.h</innerfile>
+    <innerfile refid="result_8cc">result.cc</innerfile>
+    <innerfile refid="result_8h">result.h</innerfile>
+    <innerfile refid="stringbuilder_8cc">stringbuilder.cc</innerfile>
+    <innerfile refid="stringbuilder_8h">stringbuilder.h</innerfile>
+    <innerfile refid="stringmerger_8cc">stringmerger.cc</innerfile>
+    <innerfile refid="stringmerger_8h">stringmerger.h</innerfile>
+    <innerfile refid="stringutils_8cc">stringutils.cc</innerfile>
+    <innerfile refid="stringutils_8h">stringutils.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/base/src/base/"/>
+  </compounddef>
+</doxygen>

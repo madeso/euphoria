@@ -60,15 +60,13 @@
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="tracery_8h_source.html">core/tracery.h</a>&quot;</code><br />
-<code>#include &quot;rapidjson/document.h&quot;</code><br />
+<code>#include &quot;jsonh/jsonh.h&quot;</code><br />
 <code>#include &quot;<a class="el" href="assert_8h_source.html">assert/assert.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="stringutils_8h_source.html">base/stringutils.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="stringbuilder_8h_source.html">base/stringbuilder.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="json_8h_source.html">io/json.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="random_8h_source.html">core/random.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="textfileparser_8h_source.html">core/textfileparser.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="proto_8h_source.html">core/proto.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="stringutils_8h_source.html">core/stringutils.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="stringbuilder_8h_source.html">core/stringbuilder.h</a>&quot;</code><br />
-<code>#include &quot;gaf_tracery.h&quot;</code><br />
-<code>#include &quot;gaf_rapidjson_tracery.h&quot;</code><br />
 </div>
 <p><a href="tracery_8cc_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -105,14 +103,8 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:af5009165fb254b14dc6cd94bef109865"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core_1_1tracery.html#af5009165fb254b14dc6cd94bef109865">eu::core::tracery::parse_json</a> (Symbol *rule, const ::tracery::Rule &amp;value)</td></tr>
-<tr class="separator:af5009165fb254b14dc6cd94bef109865"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a957a15c62ecb9e61b561ea2b8130b44a"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core_1_1tracery.html#a957a15c62ecb9e61b561ea2b8130b44a">eu::core::tracery::from_json</a> (Symbol *rule, const ::tracery::Rule &amp;value)</td></tr>
-<tr class="separator:a957a15c62ecb9e61b561ea2b8130b44a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0e6e4580c7602188da7d420e08d35839"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core_1_1tracery.html#a0e6e4580c7602188da7d420e08d35839">eu::core::tracery::parse_json</a> (Symbol *rule, const rapidjson::Value &amp;value)</td></tr>
-<tr class="separator:a0e6e4580c7602188da7d420e08d35839"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae7a66db1bcbf324da583b266b9bb1d48"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core_1_1tracery.html#ae7a66db1bcbf324da583b266b9bb1d48">eu::core::tracery::from_json</a> (Symbol *rule, const rapidjson::Value &amp;value)</td></tr>
-<tr class="separator:ae7a66db1bcbf324da583b266b9bb1d48"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeaeca9434fa9045af71e3562b27b817a"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core_1_1tracery.html#aeaeca9434fa9045af71e3562b27b817a">eu::core::tracery::from_json</a> (Symbol *rule, const jsonh::Value &amp;value, const jsonh::Document *doc)</td></tr>
+<tr class="separator:aeaeca9434fa9045af71e3562b27b817a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac4782b44cae3dca092b6c10666ec9185"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core_1_1tracery.html#ac4782b44cae3dca092b6c10666ec9185">eu::core::tracery::to_string</a> (const Result &amp;r)</td></tr>
 <tr class="separator:ac4782b44cae3dca092b6c10666ec9185"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a289f2f429fcdd425473b7fa16e86ca36"><td class="memItemLeft" align="right" valign="top">Result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core_1_1tracery.html#a289f2f429fcdd425473b7fa16e86ca36">eu::core::tracery::parse_error</a> (TextfileParser *parser)</td></tr>
@@ -173,7 +165,7 @@ Functions</h2></td></tr>
 <div class="line">            return <a class="code" href="namespaceeu_1_1core_1_1tracery.html#a289f2f429fcdd425473b7fa16e86ca36">parse_error</a>(&amp;parser) &lt;&lt; err; \</div>
 <div class="line">        } \</div>
 <div class="line">    } <span class="keywordflow">while</span>(<span class="keyword">false</span>)</div>
-<div class="ttc" id="anamespaceeu_1_1core_1_1tracery_html_a289f2f429fcdd425473b7fa16e86ca36"><div class="ttname"><a href="namespaceeu_1_1core_1_1tracery.html#a289f2f429fcdd425473b7fa16e86ca36">eu::core::tracery::parse_error</a></div><div class="ttdeci">Result parse_error(TextfileParser *parser)</div><div class="ttdef"><b>Definition:</b> <a href="tracery_8cc_source.html#l00258">tracery.cc:258</a></div></div>
+<div class="ttc" id="anamespaceeu_1_1core_1_1tracery_html_a289f2f429fcdd425473b7fa16e86ca36"><div class="ttname"><a href="namespaceeu_1_1core_1_1tracery.html#a289f2f429fcdd425473b7fa16e86ca36">eu::core::tracery::parse_error</a></div><div class="ttdeci">Result parse_error(TextfileParser *parser)</div><div class="ttdef"><b>Definition:</b> <a href="tracery_8cc_source.html#l00223">tracery.cc:223</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>

@@ -4,17 +4,17 @@
     <compoundname>string</compoundname>
     <title>String utility functions.</title>
       <sectiondef kind="enum">
-      <memberdef kind="enum" id="group__string_1ga8b87aba464210f2cafbb7fd338494213" prot="public" static="no" strong="yes">
+      <memberdef kind="enum" id="group__string_1ga20491245288871dc76aabddb7437225f" prot="public" static="no" strong="yes">
         <type></type>
         <name>CharToStringStyle</name>
-        <enumvalue id="group__string_1gga8b87aba464210f2cafbb7fd338494213a8c319f28d81d1527a9428e9a5c2195f5" prot="public">
+        <enumvalue id="group__string_1gga20491245288871dc76aabddb7437225fa8c319f28d81d1527a9428e9a5c2195f5" prot="public">
           <name>smart</name>
           <briefdescription>
           </briefdescription>
           <detaileddescription>
           </detaileddescription>
         </enumvalue>
-        <enumvalue id="group__string_1gga8b87aba464210f2cafbb7fd338494213afa2f1c8dc686b38506663647e5242622" prot="public">
+        <enumvalue id="group__string_1gga20491245288871dc76aabddb7437225fafa2f1c8dc686b38506663647e5242622" prot="public">
           <name>include_hex</name>
           <briefdescription>
           </briefdescription>
@@ -27,13 +27,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stringutils.h" line="112" column="5" bodyfile="libs/core/src/core/stringutils.h" bodystart="113" bodyend="115"/>
+        <location file="libs/base/src/base/stringutils.h" line="112" column="5" bodyfile="libs/base/src/base/stringutils.h" bodystart="113" bodyend="115"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="var">
-      <memberdef kind="variable" id="group__string_1gadc802a94c807de2195af39c05fec5e2c" prot="public" static="no" mutable="no">
+      <memberdef kind="variable" id="group__string_1ga15da2155ca42b256f31ead0dcf4f212d" prot="public" static="no" mutable="no">
         <type>const std::string</type>
-        <definition>const std::string eu::core::space_characters</definition>
+        <definition>const std::string eu::space_characters</definition>
         <argsstring></argsstring>
         <name>space_characters</name>
         <initializer>= &quot; \n\r\t&quot;</initializer>
@@ -47,13 +47,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stringutils.h" line="24" column="23" bodyfile="libs/core/src/core/stringutils.h" bodystart="24" bodyend="-1"/>
+        <location file="libs/base/src/base/stringutils.h" line="24" column="23" bodyfile="libs/base/src/base/stringutils.h" bodystart="24" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="func">
-      <memberdef kind="function" id="group__string_1ga534eda78fc40581ad2d671b30eff16a8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="group__string_1gac2203845e75e9d4fba81b932ed6f95cd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
-        <definition>bool eu::core::is_number</definition>
+        <definition>bool eu::is_number</definition>
         <argsstring>(char b)</argsstring>
         <name>is_number</name>
         <param>
@@ -66,11 +66,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stringutils.cc" line="471" column="1" bodyfile="libs/core/src/core/stringutils.cc" bodystart="471" bodyend="474" declfile="libs/core/src/core/stringutils.h" declline="18" declcolumn="4"/>
+        <location file="libs/base/src/base/stringutils.cc" line="471" column="1" bodyfile="libs/base/src/base/stringutils.cc" bodystart="471" bodyend="474" declfile="libs/base/src/base/stringutils.h" declline="18" declcolumn="4"/>
       </memberdef>
-      <memberdef kind="function" id="group__string_1ga5f7fce7b8ffa4a24e2638a298a0d3f22" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="group__string_1gaf34bd10282008511adeee9b34ed68de1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
-        <definition>std::string eu::core::strip_last_string</definition>
+        <definition>std::string eu::strip_last_string</definition>
         <argsstring>(const std::string &amp;str, char sep)</argsstring>
         <name>strip_last_string</name>
         <param>
@@ -88,11 +88,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stringutils.cc" line="52" column="1" bodyfile="libs/core/src/core/stringutils.cc" bodystart="52" bodyend="61" declfile="libs/core/src/core/stringutils.h" declline="29" declcolumn="5"/>
+        <location file="libs/base/src/base/stringutils.cc" line="52" column="1" bodyfile="libs/base/src/base/stringutils.cc" bodystart="52" bodyend="61" declfile="libs/base/src/base/stringutils.h" declline="29" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="group__string_1gaf54c9b7a2e6e15ed702b694271ad803d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="group__string_1gad9066d3055457c57ae5375b238a22a93" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::pair&lt; std::string, std::string &gt;</type>
-        <definition>std::pair&lt; std::string, std::string &gt; eu::core::get_last_string</definition>
+        <definition>std::pair&lt; std::string, std::string &gt; eu::get_last_string</definition>
         <argsstring>(const std::string &amp;str, char sep)</argsstring>
         <name>get_last_string</name>
         <param>
@@ -110,11 +110,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stringutils.cc" line="17" column="1" bodyfile="libs/core/src/core/stringutils.cc" bodystart="17" bodyend="28" declfile="libs/core/src/core/stringutils.h" declline="34" declcolumn="5"/>
+        <location file="libs/base/src/base/stringutils.cc" line="17" column="1" bodyfile="libs/base/src/base/stringutils.cc" bodystart="17" bodyend="28" declfile="libs/base/src/base/stringutils.h" declline="34" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="group__string_1ga5d48a997542d8f5f3b04e0acbf519a4d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="group__string_1ga2ae1e3ca3167ed8f8138a4b275de664c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
-        <definition>std::string eu::core::get_first_chars</definition>
+        <definition>std::string eu::get_first_chars</definition>
         <argsstring>(const std::string &amp;str, std::size_t count)</argsstring>
         <name>get_first_chars</name>
         <param>
@@ -131,11 +131,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stringutils.cc" line="32" column="1" bodyfile="libs/core/src/core/stringutils.cc" bodystart="32" bodyend="36" declfile="libs/core/src/core/stringutils.h" declline="38" declcolumn="5"/>
+        <location file="libs/base/src/base/stringutils.cc" line="32" column="1" bodyfile="libs/base/src/base/stringutils.cc" bodystart="32" bodyend="36" declfile="libs/base/src/base/stringutils.h" declline="38" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="group__string_1ga031944de061acb67e9c559667083a06a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="group__string_1ga562092e6d5cdff99bb2002135520d43a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
-        <definition>std::string eu::core::get_first_chars_with_ellipsis</definition>
+        <definition>std::string eu::get_first_chars_with_ellipsis</definition>
         <argsstring>(const std::string &amp;str, unsigned int count)</argsstring>
         <name>get_first_chars_with_ellipsis</name>
         <param>
@@ -152,11 +152,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stringutils.cc" line="40" column="1" bodyfile="libs/core/src/core/stringutils.cc" bodystart="40" bodyend="48" declfile="libs/core/src/core/stringutils.h" declline="41" declcolumn="5"/>
+        <location file="libs/base/src/base/stringutils.cc" line="40" column="1" bodyfile="libs/base/src/base/stringutils.cc" bodystart="40" bodyend="48" declfile="libs/base/src/base/stringutils.h" declline="41" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="group__string_1gafc80fb5a9f44235461d5600397ff97ff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="group__string_1ga6835c61b16a0e91db39e1759f3ccf07f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
-        <definition>std::string eu::core::trim_right</definition>
+        <definition>std::string eu::trim_right</definition>
         <argsstring>(const std::string &amp;string_to_trim, const std::string &amp;trim_characters=space_characters)</argsstring>
         <name>trim_right</name>
         <param>
@@ -195,11 +195,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stringutils.cc" line="65" column="1" bodyfile="libs/core/src/core/stringutils.cc" bodystart="65" bodyend="68" declfile="libs/core/src/core/stringutils.h" declline="50" declcolumn="5"/>
+        <location file="libs/base/src/base/stringutils.cc" line="65" column="1" bodyfile="libs/base/src/base/stringutils.cc" bodystart="65" bodyend="68" declfile="libs/base/src/base/stringutils.h" declline="50" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="group__string_1gade22252d2e003fa150f07d0ce7b62617" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="group__string_1ga4189207e12bfff75ed562aac7fc68bd9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
-        <definition>std::string eu::core::trim_left</definition>
+        <definition>std::string eu::trim_left</definition>
         <argsstring>(const std::string &amp;string_to_trim, const std::string &amp;trim_characters=space_characters)</argsstring>
         <name>trim_left</name>
         <param>
@@ -238,11 +238,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stringutils.cc" line="72" column="1" bodyfile="libs/core/src/core/stringutils.cc" bodystart="72" bodyend="75" declfile="libs/core/src/core/stringutils.h" declline="59" declcolumn="5"/>
+        <location file="libs/base/src/base/stringutils.cc" line="72" column="1" bodyfile="libs/base/src/base/stringutils.cc" bodystart="72" bodyend="75" declfile="libs/base/src/base/stringutils.h" declline="59" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="group__string_1gad0a53b49bf7e0c33cd1ab2e1a76608e5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="group__string_1gaba5dbc7e97fd23465bfb415e8d222087" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
-        <definition>std::string eu::core::trim</definition>
+        <definition>std::string eu::trim</definition>
         <argsstring>(const std::string &amp;string_to_trim, const std::string &amp;trim_characters=space_characters)</argsstring>
         <name>trim</name>
         <param>
@@ -281,13 +281,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stringutils.cc" line="79" column="1" bodyfile="libs/core/src/core/stringutils.cc" bodystart="79" bodyend="82" declfile="libs/core/src/core/stringutils.h" declline="68" declcolumn="5"/>
+        <location file="libs/base/src/base/stringutils.cc" line="79" column="1" bodyfile="libs/base/src/base/stringutils.cc" bodystart="79" bodyend="82" declfile="libs/base/src/base/stringutils.h" declline="68" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="group__string_1ga1e9da3cbf1bf730f239e62da6526e631" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="group__string_1gaf84b447fd234f94fb8dd8edf185f58bf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
-        <definition>bool eu::core::begins_width</definition>
+        <definition>bool eu::begins_with</definition>
         <argsstring>(const std::string &amp;string_to_test, const std::string &amp;start)</argsstring>
-        <name>begins_width</name>
+        <name>begins_with</name>
         <param>
           <type>const std::string &amp;</type>
           <declname>string_to_test</declname>
@@ -323,11 +323,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stringutils.cc" line="87" column="1" bodyfile="libs/core/src/core/stringutils.cc" bodystart="87" bodyend="97" declfile="libs/core/src/core/stringutils.h" declline="77" declcolumn="5"/>
+        <location file="libs/base/src/base/stringutils.cc" line="87" column="1" bodyfile="libs/base/src/base/stringutils.cc" bodystart="87" bodyend="97" declfile="libs/base/src/base/stringutils.h" declline="77" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="group__string_1ga8c71810c6d4f2c67e6853f58e2bc33d7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="group__string_1ga0769382ce3f4a117a18b8adf61298297" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
-        <definition>bool eu::core::ends_with</definition>
+        <definition>bool eu::ends_with</definition>
         <argsstring>(const std::string &amp;string_to_test, const std::string &amp;end)</argsstring>
         <name>ends_with</name>
         <param>
@@ -365,11 +365,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stringutils.cc" line="101" column="1" bodyfile="libs/core/src/core/stringutils.cc" bodystart="101" bodyend="112" declfile="libs/core/src/core/stringutils.h" declline="86" declcolumn="5"/>
+        <location file="libs/base/src/base/stringutils.cc" line="101" column="1" bodyfile="libs/base/src/base/stringutils.cc" bodystart="101" bodyend="112" declfile="libs/base/src/base/stringutils.h" declline="86" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="group__string_1gadbb8cf5a4a1865de62cd0e69cd039bfe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="group__string_1gae2f29a648243ade3cadfacad13ce419d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>char</type>
-        <definition>char eu::core::to_lower_char</definition>
+        <definition>char eu::to_lower_char</definition>
         <argsstring>(char b)</argsstring>
         <name>to_lower_char</name>
         <param>
@@ -382,11 +382,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stringutils.cc" line="116" column="1" bodyfile="libs/core/src/core/stringutils.cc" bodystart="116" bodyend="126" declfile="libs/core/src/core/stringutils.h" declline="90" declcolumn="5"/>
+        <location file="libs/base/src/base/stringutils.cc" line="116" column="1" bodyfile="libs/base/src/base/stringutils.cc" bodystart="116" bodyend="126" declfile="libs/base/src/base/stringutils.h" declline="90" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="group__string_1ga4ecb77c1379beac071e8b4573ff09b3d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="group__string_1gaaccdb9e1d319324e3ceb237b5cfd8545" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>char</type>
-        <definition>char eu::core::to_upper_char</definition>
+        <definition>char eu::to_upper_char</definition>
         <argsstring>(char b)</argsstring>
         <name>to_upper_char</name>
         <param>
@@ -399,11 +399,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stringutils.cc" line="129" column="1" bodyfile="libs/core/src/core/stringutils.cc" bodystart="129" bodyend="139" declfile="libs/core/src/core/stringutils.h" declline="93" declcolumn="5"/>
+        <location file="libs/base/src/base/stringutils.cc" line="129" column="1" bodyfile="libs/base/src/base/stringutils.cc" bodystart="129" bodyend="139" declfile="libs/base/src/base/stringutils.h" declline="93" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="group__string_1ga6e9e71c020e91ad3cf38ab945c7a1122" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="group__string_1ga3490fea5c2e06de7db10f26fd799ebcf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
-        <definition>std::string eu::core::to_lower</definition>
+        <definition>std::string eu::to_lower</definition>
         <argsstring>(const std::string &amp;str)</argsstring>
         <name>to_lower</name>
         <param>
@@ -429,11 +429,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stringutils.cc" line="143" column="1" bodyfile="libs/core/src/core/stringutils.cc" bodystart="143" bodyend="148" declfile="libs/core/src/core/stringutils.h" declline="101" declcolumn="5"/>
+        <location file="libs/base/src/base/stringutils.cc" line="143" column="1" bodyfile="libs/base/src/base/stringutils.cc" bodystart="143" bodyend="148" declfile="libs/base/src/base/stringutils.h" declline="101" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="group__string_1ga0dac28d0a8cb763fa2b6033881b15ee7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="group__string_1gac5b13077cd22cdd2639ed0e78343dc96" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::vector&lt; std::string &gt;</type>
-        <definition>std::vector&lt; std::string &gt; eu::core::to_lower</definition>
+        <definition>std::vector&lt; std::string &gt; eu::to_lower</definition>
         <argsstring>(const std::vector&lt; std::string &gt; &amp;str)</argsstring>
         <name>to_lower</name>
         <param>
@@ -446,11 +446,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stringutils.cc" line="152" column="1" bodyfile="libs/core/src/core/stringutils.cc" bodystart="152" bodyend="155" declfile="libs/core/src/core/stringutils.h" declline="105" declcolumn="5"/>
+        <location file="libs/base/src/base/stringutils.cc" line="152" column="1" bodyfile="libs/base/src/base/stringutils.cc" bodystart="152" bodyend="155" declfile="libs/base/src/base/stringutils.h" declline="105" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="group__string_1gad46b999006b5feb7c77724ef67d99bcd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="group__string_1gac1da104b0fb3bb262e6b0b239d4e6b6d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
-        <definition>std::string eu::core::to_upper</definition>
+        <definition>std::string eu::to_upper</definition>
         <argsstring>(const std::string &amp;str)</argsstring>
         <name>to_upper</name>
         <param>
@@ -463,11 +463,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stringutils.cc" line="159" column="1" bodyfile="libs/core/src/core/stringutils.cc" bodystart="159" bodyend="164" declfile="libs/core/src/core/stringutils.h" declline="109" declcolumn="5"/>
+        <location file="libs/base/src/base/stringutils.cc" line="159" column="1" bodyfile="libs/base/src/base/stringutils.cc" bodystart="159" bodyend="164" declfile="libs/base/src/base/stringutils.h" declline="109" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="group__string_1gaa3955e6d801eabddb7dbdcf1f888b78d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="group__string_1ga718ab12abe2887f18e26d30ee2da17a0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
-        <definition>std::string eu::core::from_char_to_string</definition>
+        <definition>std::string eu::from_char_to_string</definition>
         <argsstring>(char c, CharToStringStyle style)</argsstring>
         <name>from_char_to_string</name>
         <param>
@@ -484,11 +484,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stringutils.cc" line="168" column="1" bodyfile="libs/core/src/core/stringutils.cc" bodystart="168" bodyend="240" declfile="libs/core/src/core/stringutils.h" declline="119" declcolumn="5"/>
+        <location file="libs/base/src/base/stringutils.cc" line="168" column="1" bodyfile="libs/base/src/base/stringutils.cc" bodystart="168" bodyend="240" declfile="libs/base/src/base/stringutils.h" declline="119" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="group__string_1gae0c78dba92b3f6dd9d9062a0e44cb526" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="group__string_1gacf20f68a47700651f5d80f922a7f7755" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string::size_type</type>
-        <definition>std::string::size_type eu::core::find_first_index_of_mismatch</definition>
+        <definition>std::string::size_type eu::find_first_index_of_mismatch</definition>
         <argsstring>(const std::string &amp;lhs, const std::string &amp;rhs)</argsstring>
         <name>find_first_index_of_mismatch</name>
         <param>
@@ -505,11 +505,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stringutils.cc" line="244" column="1" bodyfile="libs/core/src/core/stringutils.cc" bodystart="244" bodyend="265" declfile="libs/core/src/core/stringutils.h" declline="123" declcolumn="5"/>
+        <location file="libs/base/src/base/stringutils.cc" line="244" column="1" bodyfile="libs/base/src/base/stringutils.cc" bodystart="244" bodyend="265" declfile="libs/base/src/base/stringutils.h" declline="123" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="group__string_1ga7e649c640bc7fc0dd0ec3ee74aa9fcc3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="group__string_1ga8bc5963164a5020bcb0eea52227390f6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>void eu::core::replace_all</definition>
+        <definition>void eu::replace_all</definition>
         <argsstring>(std::string *string, const std::string &amp;to_find, const std::string &amp;to_replace)</argsstring>
         <name>replace_all</name>
         <param>
@@ -557,11 +557,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stringutils.cc" line="269" column="1" bodyfile="libs/core/src/core/stringutils.cc" bodystart="269" bodyend="280" declfile="libs/core/src/core/stringutils.h" declline="132" declcolumn="5"/>
+        <location file="libs/base/src/base/stringutils.cc" line="269" column="1" bodyfile="libs/base/src/base/stringutils.cc" bodystart="269" bodyend="280" declfile="libs/base/src/base/stringutils.h" declline="132" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="group__string_1ga848c0b2e4d755d12bc93cadc4468d773" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="group__string_1ga4d4c1fb3db56599eff70f89fa2de5cd7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
-        <definition>std::string eu::core::replace_all</definition>
+        <definition>std::string eu::replace_all</definition>
         <argsstring>(const std::string &amp;string, const std::string &amp;to_find, const std::string &amp;to_replace)</argsstring>
         <name>replace_all</name>
         <param>
@@ -611,11 +611,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stringutils.cc" line="284" column="1" bodyfile="libs/core/src/core/stringutils.cc" bodystart="284" bodyend="289" declfile="libs/core/src/core/stringutils.h" declline="142" declcolumn="5"/>
+        <location file="libs/base/src/base/stringutils.cc" line="284" column="1" bodyfile="libs/base/src/base/stringutils.cc" bodystart="284" bodyend="289" declfile="libs/base/src/base/stringutils.h" declline="142" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="group__string_1ga7ccec3814c323739c3e01b749a594499" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="group__string_1ga83c755cb8bef6eba9d1b94389df71e38" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
-        <definition>std::string eu::core::replace_with_character</definition>
+        <definition>std::string eu::replace_with_character</definition>
         <argsstring>(const std::string &amp;string, const std::string &amp;to_find, char to_replace)</argsstring>
         <name>replace_with_character</name>
         <param>
@@ -636,11 +636,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stringutils.cc" line="301" column="1" bodyfile="libs/core/src/core/stringutils.cc" bodystart="301" bodyend="309" declfile="libs/core/src/core/stringutils.h" declline="146" declcolumn="5"/>
+        <location file="libs/base/src/base/stringutils.cc" line="301" column="1" bodyfile="libs/base/src/base/stringutils.cc" bodystart="301" bodyend="309" declfile="libs/base/src/base/stringutils.h" declline="146" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="group__string_1ga8a3fc6543457a6b1bda6bec2258b5b57" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="group__string_1ga3638c6b55c2dcc81648800da6de164ad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>void eu::core::copy</definition>
+        <definition>void eu::copy</definition>
         <argsstring>(char *dst, const std::string &amp;src, const std::string::size_type &amp;count)</argsstring>
         <name>copy</name>
         <param>
@@ -688,11 +688,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stringutils.cc" line="293" column="1" bodyfile="libs/core/src/core/stringutils.cc" bodystart="293" bodyend="297" declfile="libs/core/src/core/stringutils.h" declline="156" declcolumn="5"/>
+        <location file="libs/base/src/base/stringutils.cc" line="293" column="1" bodyfile="libs/base/src/base/stringutils.cc" bodystart="293" bodyend="297" declfile="libs/base/src/base/stringutils.h" declline="156" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="group__string_1gabe5a3e6ac19b0f07ae6e48af3588efc7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="group__string_1ga2d8a389718c684995df67e39cbb9088b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
-        <definition>std::string eu::core::remove_from_end</definition>
+        <definition>std::string eu::remove_from_end</definition>
         <argsstring>(const std::string &amp;str, const std::string &amp;end)</argsstring>
         <name>remove_from_end</name>
         <param>
@@ -709,9 +709,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stringutils.cc" line="313" column="1" bodyfile="libs/core/src/core/stringutils.cc" bodystart="313" bodyend="327" declfile="libs/core/src/core/stringutils.h" declline="159" declcolumn="5"/>
+        <location file="libs/base/src/base/stringutils.cc" line="313" column="1" bodyfile="libs/base/src/base/stringutils.cc" bodystart="313" bodyend="327" declfile="libs/base/src/base/stringutils.h" declline="159" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="group__string_1ga7fa5856f6e4ce85558c5d74d856b5fea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="group__string_1ga74ea8437f509e46eb13b30923ffd0b75" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename TKey</type>
@@ -721,7 +721,7 @@
           </param>
         </templateparamlist>
         <type>std::vector&lt; std::string &gt;</type>
-        <definition>std::vector&lt;std::string&gt; eu::core::to_string_vector</definition>
+        <definition>std::vector&lt;std::string&gt; eu::to_string_vector</definition>
         <argsstring>(const std::map&lt; TKey, TValue &gt; &amp;map)</argsstring>
         <name>to_string_vector</name>
         <param>
@@ -734,9 +734,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stringutils.h" line="164" column="5" bodyfile="libs/core/src/core/stringutils.h" bodystart="164" bodyend="173"/>
+        <location file="libs/base/src/base/stringutils.h" line="164" column="5" bodyfile="libs/base/src/base/stringutils.h" bodystart="164" bodyend="173"/>
       </memberdef>
-      <memberdef kind="function" id="group__string_1ga9c48d3ef515ec197f157babfbdd2cabb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="group__string_1ga193c6023f77b968bc5d27ac2d687295c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename TKey</type>
@@ -746,7 +746,7 @@
           </param>
         </templateparamlist>
         <type>std::vector&lt; std::string &gt;</type>
-        <definition>std::vector&lt;std::string&gt; eu::core::from_key_to_string_vector</definition>
+        <definition>std::vector&lt;std::string&gt; eu::from_key_to_string_vector</definition>
         <argsstring>(const std::map&lt; TKey, TValue &gt; &amp;map)</argsstring>
         <name>from_key_to_string_vector</name>
         <param>
@@ -759,16 +759,16 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stringutils.h" line="178" column="5" bodyfile="libs/core/src/core/stringutils.h" bodystart="178" bodyend="187"/>
+        <location file="libs/base/src/base/stringutils.h" line="178" column="5" bodyfile="libs/base/src/base/stringutils.h" bodystart="178" bodyend="187"/>
       </memberdef>
-      <memberdef kind="function" id="group__string_1ga46db10d73427013e71789b502dc627d5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="group__string_1gaeaa12b9d84e57dc98becd039f00b5b7b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename T</type>
           </param>
         </templateparamlist>
         <type>std::vector&lt; std::string &gt;</type>
-        <definition>std::vector&lt;std::string&gt; eu::core::to_string_vector</definition>
+        <definition>std::vector&lt;std::string&gt; eu::to_string_vector</definition>
         <argsstring>(const std::vector&lt; T &gt; &amp;data)</argsstring>
         <name>to_string_vector</name>
         <param>
@@ -781,9 +781,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stringutils.h" line="192" column="5" bodyfile="libs/core/src/core/stringutils.h" bodystart="192" bodyend="202"/>
+        <location file="libs/base/src/base/stringutils.h" line="192" column="5" bodyfile="libs/base/src/base/stringutils.h" bodystart="192" bodyend="202"/>
       </memberdef>
-      <memberdef kind="function" id="group__string_1gafdf7075714d3003396877be7f804cfdc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="group__string_1ga158110f80550e35157a31db9769bd1fe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename T</type>
@@ -793,7 +793,7 @@
           </param>
         </templateparamlist>
         <type>std::vector&lt; std::string &gt;</type>
-        <definition>std::vector&lt;std::string&gt; eu::core::to_string_vector</definition>
+        <definition>std::vector&lt;std::string&gt; eu::to_string_vector</definition>
         <argsstring>(const std::vector&lt; T &gt; &amp;data, C callback)</argsstring>
         <name>to_string_vector</name>
         <param>
@@ -810,11 +810,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stringutils.h" line="207" column="5" bodyfile="libs/core/src/core/stringutils.h" bodystart="207" bodyend="216"/>
+        <location file="libs/base/src/base/stringutils.h" line="207" column="5" bodyfile="libs/base/src/base/stringutils.h" bodystart="207" bodyend="216"/>
       </memberdef>
-      <memberdef kind="function" id="group__string_1gae66ef5efe780bd8afedbf882fdc7015e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="group__string_1gadbcbe1a13ddabee90d5da53c17cf7b28" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
-        <definition>std::string eu::core::strip</definition>
+        <definition>std::string eu::strip</definition>
         <argsstring>(const std::string &amp;str, const std::string &amp;ch)</argsstring>
         <name>strip</name>
         <param>
@@ -831,11 +831,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stringutils.cc" line="331" column="1" bodyfile="libs/core/src/core/stringutils.cc" bodystart="331" bodyend="342" declfile="libs/core/src/core/stringutils.h" declline="221" declcolumn="5"/>
+        <location file="libs/base/src/base/stringutils.cc" line="331" column="1" bodyfile="libs/base/src/base/stringutils.cc" bodystart="331" bodyend="342" declfile="libs/base/src/base/stringutils.h" declline="221" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="group__string_1ga347e1cdeed55ae81dbece80d84485ab9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="group__string_1ga32066fcac64a0443ce52bfb31ca147aa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
-        <definition>std::string eu::core::remove_consecutive</definition>
+        <definition>std::string eu::remove_consecutive</definition>
         <argsstring>(const std::string &amp;str, const std::string &amp;ch)</argsstring>
         <name>remove_consecutive</name>
         <param>
@@ -852,11 +852,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stringutils.cc" line="347" column="1" bodyfile="libs/core/src/core/stringutils.cc" bodystart="347" bodyend="368" declfile="libs/core/src/core/stringutils.h" declline="226" declcolumn="5"/>
+        <location file="libs/base/src/base/stringutils.cc" line="347" column="1" bodyfile="libs/base/src/base/stringutils.cc" bodystart="347" bodyend="368" declfile="libs/base/src/base/stringutils.h" declline="226" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="group__string_1ga0aebed6b91672f3b8fcdfc14b0c15247" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="group__string_1ga79dc0187564d6183a2839feacfd25f86" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::vector&lt; std::string &gt;</type>
-        <definition>std::vector&lt; std::string &gt; eu::core::split</definition>
+        <definition>std::vector&lt; std::string &gt; eu::split</definition>
         <argsstring>(const std::string &amp;s, char delim)</argsstring>
         <name>split</name>
         <param>
@@ -873,11 +873,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stringutils.cc" line="431" column="1" bodyfile="libs/core/src/core/stringutils.cc" bodystart="431" bodyend="440" declfile="libs/core/src/core/stringutils.h" declline="230" declcolumn="5"/>
+        <location file="libs/base/src/base/stringutils.cc" line="431" column="1" bodyfile="libs/base/src/base/stringutils.cc" bodystart="431" bodyend="440" declfile="libs/base/src/base/stringutils.h" declline="230" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="group__string_1ga18c9e62d235fc21ca40ca8f0e76408d0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="group__string_1ga42d220783d67f13a83c7569fc65161e3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::vector&lt; std::string &gt;</type>
-        <definition>std::vector&lt; std::string &gt; eu::core::split_on_spaces</definition>
+        <definition>std::vector&lt; std::string &gt; eu::split_on_spaces</definition>
         <argsstring>(const std::string &amp;string)</argsstring>
         <name>split_on_spaces</name>
         <param>
@@ -890,11 +890,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stringutils.cc" line="444" column="1" bodyfile="libs/core/src/core/stringutils.cc" bodystart="444" bodyend="453" declfile="libs/core/src/core/stringutils.h" declline="234" declcolumn="5"/>
+        <location file="libs/base/src/base/stringutils.cc" line="444" column="1" bodyfile="libs/base/src/base/stringutils.cc" bodystart="444" bodyend="453" declfile="libs/base/src/base/stringutils.h" declline="234" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="group__string_1gaa7f7e2bcd879ef99afaa73e9ba0d6994" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="group__string_1gac3613554703d6525c3bcd4bf6b8638ab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
-        <definition>std::string eu::core::get_string_or_empty</definition>
+        <definition>std::string eu::get_string_or_empty</definition>
         <argsstring>(bool b, const std::string &amp;str)</argsstring>
         <name>get_string_or_empty</name>
         <param>
@@ -911,11 +911,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stringutils.cc" line="457" column="1" bodyfile="libs/core/src/core/stringutils.cc" bodystart="457" bodyend="467" declfile="libs/core/src/core/stringutils.h" declline="238" declcolumn="5"/>
+        <location file="libs/base/src/base/stringutils.cc" line="457" column="1" bodyfile="libs/base/src/base/stringutils.cc" bodystart="457" bodyend="467" declfile="libs/base/src/base/stringutils.h" declline="238" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="group__string_1ga26210f5d35df169d46864ad24ffff246" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="group__string_1gac0b21e26003c864786dfcca65af1569d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
-        <definition>int eu::core::compare_string</definition>
+        <definition>int eu::compare_string</definition>
         <argsstring>(const std::string &amp;lhs, const std::string &amp;rhs)</argsstring>
         <name>compare_string</name>
         <param>
@@ -932,7 +932,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stringutils.cc" line="498" column="1" bodyfile="libs/core/src/core/stringutils.cc" bodystart="498" bodyend="524" declfile="libs/core/src/core/stringutils.h" declline="243" declcolumn="5"/>
+        <location file="libs/base/src/base/stringutils.cc" line="498" column="1" bodyfile="libs/base/src/base/stringutils.cc" bodystart="498" bodyend="524" declfile="libs/base/src/base/stringutils.h" declline="243" declcolumn="5"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

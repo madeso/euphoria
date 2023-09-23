@@ -6,7 +6,7 @@
     <includes local="no">optional</includes>
     <includedby refid="load_8cc" local="yes">libs/gui/src/gui/load.cc</includedby>
     <includedby refid="compiledmesh_8cc" local="yes">libs/render/src/render/compiledmesh.cc</includedby>
-    <includedby refid="font_8cc" local="yes">libs/render/src/render/font.cc</includedby>
+    <includedby refid="render_2src_2render_2font_8cc" local="yes">libs/render/src/render/font.cc</includedby>
     <includedby refid="scalablesprite_8cc" local="yes">libs/render/src/render/scalablesprite.cc</includedby>
     <includedby refid="texturecache_8cc" local="yes">libs/render/src/render/texturecache.cc</includedby>
     <incdepgraph>
@@ -32,7 +32,7 @@
       </node>
       <node id="4">
         <label>libs/render/src/render/font.cc</label>
-        <link refid="font_8cc"/>
+        <link refid="render_2src_2render_2font_8cc"/>
       </node>
       <node id="6">
         <label>libs/render/src/render/texturecache.cc</label>
@@ -63,8 +63,7 @@
     </invincdepgraph>
     <innerclass refid="structeu_1_1render_1_1TextureCache" prot="public">eu::render::TextureCache</innerclass>
     <innernamespace refid="namespaceeu">eu</innernamespace>
-    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
-    <innernamespace refid="namespaceeu_1_1core_1_1vfs">eu::core::vfs</innernamespace>
+    <innernamespace refid="namespaceeu_1_1io">eu::io</innernamespace>
     <innernamespace refid="namespaceeu_1_1render">eu::render</innernamespace>
     <briefdescription>
     </briefdescription>

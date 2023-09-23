@@ -4,11 +4,17 @@
     <compoundname>datetime.h</compoundname>
     <includes local="no">ctime</includes>
     <includes local="no">cstdint</includes>
-    <includes refid="ints_8h" local="yes">core/ints.h</includes>
+    <includes refid="ints_8h" local="yes">base/ints.h</includes>
     <includedby refid="datetime_8cc" local="yes">libs/core/src/core/datetime.cc</includedby>
     <incdepgraph>
       <node id="3">
         <label>cstdint</label>
+      </node>
+      <node id="4">
+        <label>base/ints.h</label>
+        <link refid="ints_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
       </node>
       <node id="1">
         <label>libs/core/src/core/datetime.h</label>
@@ -22,12 +28,6 @@
       </node>
       <node id="2">
         <label>ctime</label>
-      </node>
-      <node id="4">
-        <label>core/ints.h</label>
-        <link refid="ints_8h"/>
-        <childnode refid="3" relation="include">
-        </childnode>
       </node>
     </incdepgraph>
     <invincdepgraph>

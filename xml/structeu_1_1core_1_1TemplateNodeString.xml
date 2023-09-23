@@ -46,7 +46,7 @@
           <type><ref refid="structeu_1_1core_1_1Defines" kindref="compound">Defines</ref> *</type>
         </param>
         <param>
-          <type><ref refid="structeu_1_1core_1_1StringBuilder" kindref="compound">StringBuilder</ref> *</type>
+          <type><ref refid="structeu_1_1StringBuilder" kindref="compound">StringBuilder</ref> *</type>
           <declname>out</declname>
         </param>
         <param>

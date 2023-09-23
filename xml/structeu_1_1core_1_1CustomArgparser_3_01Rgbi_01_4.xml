@@ -45,7 +45,7 @@
         <location file="libs/core/src/core/rgb.h" line="219" column="28" bodyfile="libs/core/src/core/rgb.h" bodystart="219" bodyend="222"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1CustomArgparser_3_01Rgbi_01_4_1af6f38ec94253babdaf42102b264e03c0" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type><ref refid="structeu_1_1core_1_1Result" kindref="compound">Result</ref>&lt; <ref refid="structeu_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref> &gt;</type>
+        <type><ref refid="structeu_1_1Result" kindref="compound">Result</ref>&lt; <ref refid="structeu_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref> &gt;</type>
         <definition>static Result&lt;Rgbi&gt; eu::core::CustomArgparser&lt; Rgbi &gt;::parse</definition>
         <argsstring>(const std::string &amp;value)</argsstring>
         <name>parse</name>

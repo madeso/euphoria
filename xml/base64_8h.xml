@@ -2,19 +2,19 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="base64_8h" kind="file" language="C++">
     <compoundname>base64.h</compoundname>
-    <includes refid="memorychunk_8h" local="yes">core/memorychunk.h</includes>
+    <includes refid="memorychunk_8h" local="yes">base/memorychunk.h</includes>
     <includedby refid="base64_8cc" local="yes">libs/core/src/core/base64.cc</includedby>
     <incdepgraph>
+      <node id="2">
+        <label>base/memorychunk.h</label>
+        <link refid="memorychunk_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
       <node id="1">
         <label>libs/core/src/core/base64.h</label>
         <link refid="base64_8h"/>
         <childnode refid="2" relation="include">
-        </childnode>
-      </node>
-      <node id="2">
-        <label>core/memorychunk.h</label>
-        <link refid="memorychunk_8h"/>
-        <childnode refid="3" relation="include">
         </childnode>
       </node>
       <node id="3">

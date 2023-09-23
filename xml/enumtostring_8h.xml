@@ -5,8 +5,8 @@
     <includes local="no">map</includes>
     <includes local="no">type_traits</includes>
     <includes refid="assert_8h" local="yes">assert/assert.h</includes>
-    <includes refid="stringutils_8h" local="yes">core/stringutils.h</includes>
-    <includes refid="editdistance_8search_8h" local="yes">core/editdistance.search.h</includes>
+    <includes refid="stringutils_8h" local="yes">base/stringutils.h</includes>
+    <includes refid="editdistance_8search_8h" local="yes">base/editdistance.search.h</includes>
     <includes local="yes">magic_enum/magic_enum.hpp</includes>
     <includedby refid="default__parse_8h" local="yes">libs/core/src/core/default_parse.h</includedby>
     <includedby refid="enumtostring_8cc" local="yes">libs/core/src/core/enumtostring.cc</includedby>
@@ -14,25 +14,11 @@
     <includedby refid="palette__all_8h" local="yes">libs/core/src/core/palette_all.h</includedby>
     <includedby refid="table__bool_8h" local="yes">libs/core/src/core/table_bool.h</includedby>
     <incdepgraph>
-      <node id="11">
-        <label>core/editdistance.h</label>
-        <link refid="editdistance_8h"/>
-      </node>
       <node id="9">
         <label>queue</label>
       </node>
-      <node id="8">
-        <label>core/editdistance.search.h</label>
-        <link refid="editdistance_8search_8h"/>
-        <childnode refid="9" relation="include">
-        </childnode>
-        <childnode refid="10" relation="include">
-        </childnode>
-        <childnode refid="11" relation="include">
-        </childnode>
-      </node>
       <node id="7">
-        <label>core/stringutils.h</label>
+        <label>base/stringutils.h</label>
         <link refid="stringutils_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
@@ -57,6 +43,16 @@
       <node id="6">
         <label>vector</label>
       </node>
+      <node id="8">
+        <label>base/editdistance.search.h</label>
+        <link refid="editdistance_8search_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
       <node id="1">
         <label>libs/core/src/core/enumtostring.h</label>
         <link refid="enumtostring_8h"/>
@@ -72,6 +68,10 @@
         </childnode>
         <childnode refid="12" relation="include">
         </childnode>
+      </node>
+      <node id="11">
+        <label>base/editdistance.h</label>
+        <link refid="editdistance_8h"/>
       </node>
       <node id="3">
         <label>type_traits</label>
@@ -231,7 +231,7 @@
       </node>
       <node id="68">
         <label>libs/core/src/core/mesh.h</label>
-        <link refid="mesh_8h"/>
+        <link refid="core_2src_2core_2mesh_8h"/>
         <childnode refid="69" relation="include">
         </childnode>
         <childnode refid="70" relation="include">
@@ -415,7 +415,7 @@
       </node>
       <node id="70">
         <label>libs/core/src/core/mesh.cc</label>
-        <link refid="mesh_8cc"/>
+        <link refid="core_2src_2core_2mesh_8cc"/>
       </node>
       <node id="56">
         <label>libs/render/src/render/spriterender.h</label>
@@ -457,7 +457,7 @@
       </node>
       <node id="41">
         <label>libs/render/src/render/font.cc</label>
-        <link refid="font_8cc"/>
+        <link refid="render_2src_2render_2font_8cc"/>
       </node>
       <node id="50">
         <label>libs/core/src/core/raytracer.cc</label>
@@ -471,7 +471,7 @@
       </node>
       <node id="105">
         <label>libs/render/src/render/materialshader.h</label>
-        <link refid="materialshader_8h"/>
+        <link refid="render_2src_2render_2materialshader_8h"/>
         <childnode refid="67" relation="include">
         </childnode>
         <childnode refid="53" relation="include">
@@ -613,7 +613,7 @@
       </node>
       <node id="101">
         <label>libs/render/src/render/world.h</label>
-        <link refid="world_8h"/>
+        <link refid="render_2src_2render_2world_8h"/>
         <childnode refid="102" relation="include">
         </childnode>
       </node>
@@ -641,7 +641,7 @@
       </node>
       <node id="45">
         <label>libs/render/src/render/font.h</label>
-        <link refid="font_8h"/>
+        <link refid="render_2src_2render_2font_8h"/>
         <childnode refid="18" relation="include">
         </childnode>
         <childnode refid="46" relation="include">
@@ -829,7 +829,7 @@
       </node>
       <node id="102">
         <label>libs/render/src/render/world.cc</label>
-        <link refid="world_8cc"/>
+        <link refid="render_2src_2render_2world_8cc"/>
       </node>
       <node id="69">
         <label>libs/core/src/core/collisionmesh.cc</label>
@@ -1185,7 +1185,7 @@
       </node>
       <node id="100">
         <label>libs/render/src/render/materialshader.cc</label>
-        <link refid="materialshader_8cc"/>
+        <link refid="render_2src_2render_2materialshader_8cc"/>
       </node>
     </invincdepgraph>
     <innerclass refid="structeu_1_1core_1_1MatchedEnum" prot="public">eu::core::MatchedEnum</innerclass>

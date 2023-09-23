@@ -1,0 +1,316 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="namespaceeu_1_1files_1_1gui" kind="namespace" language="C++">
+    <compoundname>eu::files::gui</compoundname>
+    <innerclass refid="structeu_1_1files_1_1gui_1_1Button" prot="public">eu::files::gui::Button</innerclass>
+    <innerclass refid="structeu_1_1files_1_1gui_1_1Lrtb" prot="public">eu::files::gui::Lrtb</innerclass>
+    <innerclass refid="structeu_1_1files_1_1gui_1_1Widget" prot="public">eu::files::gui::Widget</innerclass>
+    <innerclass refid="structeu_1_1files_1_1gui_1_1TableLayout" prot="public">eu::files::gui::TableLayout</innerclass>
+    <innerclass refid="structeu_1_1files_1_1gui_1_1SingleRowLayout" prot="public">eu::files::gui::SingleRowLayout</innerclass>
+    <innerclass refid="structeu_1_1files_1_1gui_1_1Layout" prot="public">eu::files::gui::Layout</innerclass>
+    <innerclass refid="structeu_1_1files_1_1gui_1_1LayoutContainer" prot="public">eu::files::gui::LayoutContainer</innerclass>
+    <innerclass refid="structeu_1_1files_1_1gui_1_1Panel" prot="public">eu::files::gui::Panel</innerclass>
+    <innerclass refid="structeu_1_1files_1_1gui_1_1Rgb" prot="public">eu::files::gui::Rgb</innerclass>
+    <innerclass refid="structeu_1_1files_1_1gui_1_1ButtonState" prot="public">eu::files::gui::ButtonState</innerclass>
+    <innerclass refid="structeu_1_1files_1_1gui_1_1Skin" prot="public">eu::files::gui::Skin</innerclass>
+    <innerclass refid="structeu_1_1files_1_1gui_1_1File" prot="public">eu::files::gui::File</innerclass>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="namespaceeu_1_1files_1_1gui_1a1f77f3a22fcbaf735539b9af7a0f7045" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>InterpolationType</name>
+        <enumvalue id="namespaceeu_1_1files_1_1gui_1a1f77f3a22fcbaf735539b9af7a0f7045a9a932b3cb396238423eb2f33ec17d6aa" prot="public">
+          <name>linear</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeu_1_1files_1_1gui_1a1f77f3a22fcbaf735539b9af7a0f7045afa895a26331f387347b5ad505ec83bb8" prot="public">
+          <name>smooth_start2</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeu_1_1files_1_1gui_1a1f77f3a22fcbaf735539b9af7a0f7045a9e3b4124b585e9fb8d2b1f598010b0ae" prot="public">
+          <name>smooth_start3</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeu_1_1files_1_1gui_1a1f77f3a22fcbaf735539b9af7a0f7045a8ed3a1e147d6e9abbbe97b3bb07edeb7" prot="public">
+          <name>smooth_start4</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeu_1_1files_1_1gui_1a1f77f3a22fcbaf735539b9af7a0f7045a131d22c112595c7a958f2f77638dfb18" prot="public">
+          <name>smooth_stop2</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeu_1_1files_1_1gui_1a1f77f3a22fcbaf735539b9af7a0f7045a4f96aff0d5ee8c8140da2971ea9a6eef" prot="public">
+          <name>smooth_stop3</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeu_1_1files_1_1gui_1a1f77f3a22fcbaf735539b9af7a0f7045aa66d7e7356e156553d0b3e99688fb707" prot="public">
+          <name>smooth_stop4</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeu_1_1files_1_1gui_1a1f77f3a22fcbaf735539b9af7a0f7045acdad0d86bb4ae1d67976350e38439f95" prot="public">
+          <name>smooth_step2</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeu_1_1files_1_1gui_1a1f77f3a22fcbaf735539b9af7a0f7045af51029e10a78023657a20f6749b160f7" prot="public">
+          <name>smooth_step3</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeu_1_1files_1_1gui_1a1f77f3a22fcbaf735539b9af7a0f7045a269a0f89ecdda0788a1acde512c01ff4" prot="public">
+          <name>smooth_step4</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/files/src/files/gui.h" line="8" column="5" bodyfile="libs/files/src/files/gui.h" bodystart="8" bodyend="22"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespaceeu_1_1files_1_1gui_1a2cea83c79796c9cad177f1503e1b3f9d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::files::gui::JSON_PARSE_FUNC</definition>
+        <argsstring>(Button)</argsstring>
+        <name>JSON_PARSE_FUNC</name>
+        <param>
+          <type><ref refid="structeu_1_1files_1_1gui_1_1Button" kindref="compound">Button</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/files/src/files/gui.cc" line="35" column="5" bodyfile="libs/files/src/files/gui.cc" bodystart="35" bodyend="44" declfile="libs/files/src/files/gui.cc" declline="8" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1files_1_1gui_1a3ddbbc5a2b37f6a8a1e0e113b49d0c11" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::files::gui::JSON_PARSE_FUNC</definition>
+        <argsstring>(Lrtb)</argsstring>
+        <name>JSON_PARSE_FUNC</name>
+        <param>
+          <type><ref refid="structeu_1_1files_1_1gui_1_1Lrtb" kindref="compound">Lrtb</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/files/src/files/gui.cc" line="47" column="5" bodyfile="libs/files/src/files/gui.cc" bodystart="47" bodyend="57" declfile="libs/files/src/files/gui.cc" declline="9" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1files_1_1gui_1a367a7331b2351b86041872ec14bf6822" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::files::gui::JSON_PARSE_FUNC</definition>
+        <argsstring>(Widget)</argsstring>
+        <name>JSON_PARSE_FUNC</name>
+        <param>
+          <type><ref refid="structeu_1_1files_1_1gui_1_1Widget" kindref="compound">Widget</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/files/src/files/gui.cc" line="104" column="5" bodyfile="libs/files/src/files/gui.cc" bodystart="104" bodyend="120" declfile="libs/files/src/files/gui.cc" declline="10" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1files_1_1gui_1aef24f801719f62ef7df88cc6f1a7769a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::files::gui::JSON_PARSE_FUNC</definition>
+        <argsstring>(TableLayout)</argsstring>
+        <name>JSON_PARSE_FUNC</name>
+        <param>
+          <type><ref refid="structeu_1_1files_1_1gui_1_1TableLayout" kindref="compound">TableLayout</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/files/src/files/gui.cc" line="60" column="5" bodyfile="libs/files/src/files/gui.cc" bodystart="60" bodyend="69" declfile="libs/files/src/files/gui.cc" declline="11" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1files_1_1gui_1a9cf8c378108e759ddcb456165f621772" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::files::gui::JSON_PARSE_FUNC</definition>
+        <argsstring>(SingleRowLayout)</argsstring>
+        <name>JSON_PARSE_FUNC</name>
+        <param>
+          <type><ref refid="structeu_1_1files_1_1gui_1_1SingleRowLayout" kindref="compound">SingleRowLayout</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/files/src/files/gui.cc" line="72" column="5" bodyfile="libs/files/src/files/gui.cc" bodystart="72" bodyend="79" declfile="libs/files/src/files/gui.cc" declline="12" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1files_1_1gui_1ac3b8f1eaa849cf91d96c989b056a160b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::files::gui::JSON_PARSE_FUNC</definition>
+        <argsstring>(Layout)</argsstring>
+        <name>JSON_PARSE_FUNC</name>
+        <param>
+          <type><ref refid="structeu_1_1files_1_1gui_1_1Layout" kindref="compound">Layout</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/files/src/files/gui.cc" line="82" column="5" bodyfile="libs/files/src/files/gui.cc" bodystart="82" bodyend="90" declfile="libs/files/src/files/gui.cc" declline="13" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1files_1_1gui_1a516dc1ad22c97aabc670e8b25df94c7d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::files::gui::JSON_PARSE_FUNC</definition>
+        <argsstring>(LayoutContainer)</argsstring>
+        <name>JSON_PARSE_FUNC</name>
+        <param>
+          <type><ref refid="structeu_1_1files_1_1gui_1_1LayoutContainer" kindref="compound">LayoutContainer</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/files/src/files/gui.cc" line="93" column="5" bodyfile="libs/files/src/files/gui.cc" bodystart="93" bodyend="101" declfile="libs/files/src/files/gui.cc" declline="14" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1files_1_1gui_1af6bc57ada12b1aee771e0e88c5b8737a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::files::gui::JSON_PARSE_FUNC</definition>
+        <argsstring>(Panel)</argsstring>
+        <name>JSON_PARSE_FUNC</name>
+        <param>
+          <type><ref refid="structeu_1_1files_1_1gui_1_1Panel" kindref="compound">Panel</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/files/src/files/gui.cc" line="123" column="5" bodyfile="libs/files/src/files/gui.cc" bodystart="123" bodyend="130" declfile="libs/files/src/files/gui.cc" declline="15" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1files_1_1gui_1a37f2edbf4851a5835746569a9f1f416a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::files::gui::JSON_PARSE_FUNC</definition>
+        <argsstring>(Rgb)</argsstring>
+        <name>JSON_PARSE_FUNC</name>
+        <param>
+          <type><ref refid="structeu_1_1files_1_1gui_1_1Rgb" kindref="compound">Rgb</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/files/src/files/gui.cc" line="133" column="5" bodyfile="libs/files/src/files/gui.cc" bodystart="133" bodyend="142" declfile="libs/files/src/files/gui.cc" declline="16" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1files_1_1gui_1a2a9bfd02610d730a6912adc7509d7992" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::files::gui::JSON_PARSE_FUNC</definition>
+        <argsstring>(ButtonState)</argsstring>
+        <name>JSON_PARSE_FUNC</name>
+        <param>
+          <type><ref refid="structeu_1_1files_1_1gui_1_1ButtonState" kindref="compound">ButtonState</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/files/src/files/gui.cc" line="145" column="5" bodyfile="libs/files/src/files/gui.cc" bodystart="145" bodyend="165" declfile="libs/files/src/files/gui.cc" declline="17" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1files_1_1gui_1a0c53832c210363f6e39339dd63cc7ee2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::files::gui::JSON_PARSE_FUNC</definition>
+        <argsstring>(Skin)</argsstring>
+        <name>JSON_PARSE_FUNC</name>
+        <param>
+          <type><ref refid="structeu_1_1files_1_1gui_1_1Skin" kindref="compound">Skin</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/files/src/files/gui.cc" line="168" column="5" bodyfile="libs/files/src/files/gui.cc" bodystart="168" bodyend="182" declfile="libs/files/src/files/gui.cc" declline="18" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1files_1_1gui_1a9fe0d3ad9d41648e5a95cf492f6e5b0d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::files::gui::JSON_PARSE_FUNC</definition>
+        <argsstring>(File)</argsstring>
+        <name>JSON_PARSE_FUNC</name>
+        <param>
+          <type><ref refid="structeu_1_1files_1_1gui_1_1File" kindref="compound">File</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/files/src/files/gui.cc" line="185" column="5" bodyfile="libs/files/src/files/gui.cc" bodystart="185" bodyend="195" declfile="libs/files/src/files/gui.h" declline="149" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1files_1_1gui_1a52257af60e9759aecb8dea49441285ce" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::files::gui::JSON_PARSE_FUNC</definition>
+        <argsstring>(InterpolationType)</argsstring>
+        <name>JSON_PARSE_FUNC</name>
+        <param>
+          <type><ref refid="namespaceeu_1_1files_1_1gui_1a1f77f3a22fcbaf735539b9af7a0f7045" kindref="member">InterpolationType</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/files/src/files/gui.cc" line="22" column="5" bodyfile="libs/files/src/files/gui.cc" bodystart="22" bodyend="32"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/files/src/files/gui.cc" line="6" column="1"/>
+  </compounddef>
+</doxygen>

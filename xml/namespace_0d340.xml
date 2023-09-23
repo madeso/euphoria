@@ -6,6 +6,6 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/render/src/render/debuggl.cc" line="8" column="1"/>
+    <location file="libs/log/src/log/log.cc" line="7" column="1"/>
   </compounddef>
 </doxygen>

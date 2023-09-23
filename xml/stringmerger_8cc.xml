@@ -2,25 +2,19 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="stringmerger_8cc" kind="file" language="C++">
     <compoundname>stringmerger.cc</compoundname>
-    <includes refid="stringmerger_8h" local="yes">core/stringmerger.h</includes>
+    <includes refid="stringmerger_8h" local="yes">base/stringmerger.h</includes>
     <includes local="no">string_view</includes>
-    <includes refid="stringbuilder_8h" local="yes">core/stringbuilder.h</includes>
+    <includes refid="stringbuilder_8h" local="yes">base/stringbuilder.h</includes>
     <incdepgraph>
       <node id="4">
-        <label>core/stringbuilder.h</label>
+        <label>base/stringbuilder.h</label>
         <link refid="stringbuilder_8h"/>
-      </node>
-      <node id="2">
-        <label>core/stringmerger.h</label>
-        <link refid="stringmerger_8h"/>
-        <childnode refid="3" relation="include">
-        </childnode>
       </node>
       <node id="3">
         <label>string_view</label>
       </node>
       <node id="1">
-        <label>libs/core/src/core/stringmerger.cc</label>
+        <label>libs/base/src/base/stringmerger.cc</label>
         <link refid="stringmerger_8cc"/>
         <childnode refid="2" relation="include">
         </childnode>
@@ -29,13 +23,18 @@
         <childnode refid="4" relation="include">
         </childnode>
       </node>
+      <node id="2">
+        <label>base/stringmerger.h</label>
+        <link refid="stringmerger_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
     </incdepgraph>
     <innernamespace refid="namespaceeu">eu</innernamespace>
-    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/stringmerger.cc"/>
+    <location file="libs/base/src/base/stringmerger.cc"/>
   </compounddef>
 </doxygen>

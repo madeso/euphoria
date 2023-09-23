@@ -3,19 +3,13 @@
   <compounddef id="nlp__line_8cc" kind="file" language="C++">
     <compoundname>nlp_line.cc</compoundname>
     <includes refid="nlp__line_8h" local="yes">core/nlp_line.h</includes>
-    <includes refid="stringutils_8h" local="yes">core/stringutils.h</includes>
-    <includes refid="stringmerger_8h" local="yes">core/stringmerger.h</includes>
+    <includes refid="stringutils_8h" local="yes">base/stringutils.h</includes>
+    <includes refid="stringmerger_8h" local="yes">base/stringmerger.h</includes>
     <incdepgraph>
       <node id="4">
-        <label>core/stringutils.h</label>
+        <label>base/stringutils.h</label>
         <link refid="stringutils_8h"/>
         <childnode refid="5" relation="include">
-        </childnode>
-      </node>
-      <node id="6">
-        <label>core/stringmerger.h</label>
-        <link refid="stringmerger_8h"/>
-        <childnode refid="7" relation="include">
         </childnode>
       </node>
       <node id="1">
@@ -41,6 +35,12 @@
         <label>core/nlp_line.h</label>
         <link refid="nlp__line_8h"/>
         <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>base/stringmerger.h</label>
+        <link refid="stringmerger_8h"/>
+        <childnode refid="7" relation="include">
         </childnode>
       </node>
     </incdepgraph>

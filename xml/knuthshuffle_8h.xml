@@ -3,18 +3,16 @@
   <compounddef id="knuthshuffle_8h" kind="file" language="C++">
     <compoundname>knuthshuffle.h</compoundname>
     <includes refid="random_8h" local="yes">core/random.h</includes>
-    <includes refid="cint_8h" local="yes">core/cint.h</includes>
+    <includes refid="cint_8h" local="yes">base/cint.h</includes>
     <includedby refid="knuthshuffle_8cc" local="yes">libs/core/src/core/knuthshuffle.cc</includedby>
     <incdepgraph>
       <node id="8">
         <label>cstdint</label>
       </node>
-      <node id="15">
-        <label>core/cint.h</label>
-        <link refid="cint_8h"/>
-        <childnode refid="7" relation="include">
-        </childnode>
-        <childnode refid="16" relation="include">
+      <node id="7">
+        <label>base/ints.h</label>
+        <link refid="ints_8h"/>
+        <childnode refid="8" relation="include">
         </childnode>
       </node>
       <node id="5">
@@ -79,12 +77,6 @@
       <node id="6">
         <label>vector</label>
       </node>
-      <node id="7">
-        <label>core/ints.h</label>
-        <link refid="ints_8h"/>
-        <childnode refid="8" relation="include">
-        </childnode>
-      </node>
       <node id="13">
         <label>iostream</label>
       </node>
@@ -123,6 +115,14 @@
         <childnode refid="14" relation="include">
         </childnode>
         <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>base/cint.h</label>
+        <link refid="cint_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
         </childnode>
       </node>
       <node id="19">

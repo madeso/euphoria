@@ -14,12 +14,10 @@
       <node id="8">
         <label>cstdint</label>
       </node>
-      <node id="15">
-        <label>core/cint.h</label>
-        <link refid="cint_8h"/>
-        <childnode refid="7" relation="include">
-        </childnode>
-        <childnode refid="16" relation="include">
+      <node id="7">
+        <label>base/ints.h</label>
+        <link refid="ints_8h"/>
+        <childnode refid="8" relation="include">
         </childnode>
       </node>
       <node id="1">
@@ -101,12 +99,6 @@
       <node id="6">
         <label>vector</label>
       </node>
-      <node id="7">
-        <label>core/ints.h</label>
-        <link refid="ints_8h"/>
-        <childnode refid="8" relation="include">
-        </childnode>
-      </node>
       <node id="13">
         <label>iostream</label>
       </node>
@@ -137,6 +129,14 @@
         <childnode refid="14" relation="include">
         </childnode>
         <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>base/cint.h</label>
+        <link refid="cint_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
         </childnode>
       </node>
       <node id="19">

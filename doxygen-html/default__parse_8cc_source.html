@@ -56,8 +56,8 @@
 <div class="contents">
 <a href="default__parse_8cc.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="default__parse_8h.html">core/default_parse.h</a>&quot;</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="stringmerger_8h.html">core/stringmerger.h</a>&quot;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="functional_8h.html">core/functional.h</a>&quot;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="stringmerger_8h.html">base/stringmerger.h</a>&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="functional_8h.html">base/functional.h</a>&quot;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceeu_1_1core_1_1argparse.html">eu::core::argparse</a></div>
@@ -72,7 +72,7 @@
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;                <span class="keywordflow">return</span> fmt::format(<span class="stringliteral">&quot;&#39;{}&#39;&quot;</span>, <a class="code" href="namespaceeu_1_1core.html#a6fca7b841e42734cd5c01e04fc9e6511a03c7c0ace395d80182db07ae2c30f034">s</a>);</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;            });</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespaceeu_1_1core_1_1string__mergers.html#aac2b67f851a386ad5aa1c170d60ed3bb">string_mergers::english_or</a>.<a class="code" href="structeu_1_1core_1_1StringMerger.html#a38f7189b8edde4c6ccde10ee6dac9d31">merge</a>(quoted_names);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespaceeu_1_1string__mergers.html#a1bf8d1ea04ec8c6e4a074bc329c21f9d">string_mergers::english_or</a>.<a class="code" href="structeu_1_1StringMerger.html#a5c696718cb6b6dde84015231092f4439">merge</a>(quoted_names);</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    }</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;}</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
@@ -80,10 +80,10 @@
 <div class="ttc" id="afunctional_8h_html"><div class="ttname"><a href="functional_8h.html">functional.h</a></div></div>
 <div class="ttc" id="anamespaceeu_1_1core_1_1argparse_html"><div class="ttname"><a href="namespaceeu_1_1core_1_1argparse.html">eu::core::argparse</a></div><div class="ttdef"><b>Definition:</b> <a href="argparse_8cc_source.html#l00044">argparse.cc:45</a></div></div>
 <div class="ttc" id="anamespaceeu_1_1core_1_1argparse_html_a604a71dea552b0763cbbeca1b31e6d4b"><div class="ttname"><a href="namespaceeu_1_1core_1_1argparse.html#a604a71dea552b0763cbbeca1b31e6d4b">eu::core::argparse::add_quotes_and_combine_with_english_or</a></div><div class="ttdeci">std::string add_quotes_and_combine_with_english_or(const std::vector&lt; std::string &gt; &amp;matches)</div><div class="ttdef"><b>Definition:</b> <a href="default__parse_8cc_source.html#l00010">default_parse.cc:10</a></div></div>
-<div class="ttc" id="anamespaceeu_1_1core_1_1string__mergers_html_aac2b67f851a386ad5aa1c170d60ed3bb"><div class="ttname"><a href="namespaceeu_1_1core_1_1string__mergers.html#aac2b67f851a386ad5aa1c170d60ed3bb">eu::core::string_mergers::english_or</a></div><div class="ttdeci">constexpr StringMerger english_or</div><div class="ttdef"><b>Definition:</b> <a href="stringmerger_8h_source.html#l00090">stringmerger.h:90</a></div></div>
 <div class="ttc" id="anamespaceeu_1_1core_html_a6fca7b841e42734cd5c01e04fc9e6511a03c7c0ace395d80182db07ae2c30f034"><div class="ttname"><a href="namespaceeu_1_1core.html#a6fca7b841e42734cd5c01e04fc9e6511a03c7c0ace395d80182db07ae2c30f034">eu::core::Key::s</a></div><div class="ttdeci">@ s</div></div>
+<div class="ttc" id="anamespaceeu_1_1string__mergers_html_a1bf8d1ea04ec8c6e4a074bc329c21f9d"><div class="ttname"><a href="namespaceeu_1_1string__mergers.html#a1bf8d1ea04ec8c6e4a074bc329c21f9d">eu::string_mergers::english_or</a></div><div class="ttdeci">constexpr StringMerger english_or</div><div class="ttdef"><b>Definition:</b> <a href="stringmerger_8h_source.html#l00090">stringmerger.h:90</a></div></div>
 <div class="ttc" id="astringmerger_8h_html"><div class="ttname"><a href="stringmerger_8h.html">stringmerger.h</a></div></div>
-<div class="ttc" id="astructeu_1_1core_1_1StringMerger_html_a38f7189b8edde4c6ccde10ee6dac9d31"><div class="ttname"><a href="structeu_1_1core_1_1StringMerger.html#a38f7189b8edde4c6ccde10ee6dac9d31">eu::core::StringMerger::merge</a></div><div class="ttdeci">std::string merge(const std::vector&lt; std::string &gt; &amp;strings) const</div><div class="ttdef"><b>Definition:</b> <a href="stringmerger_8cc_source.html#l00011">stringmerger.cc:11</a></div></div>
+<div class="ttc" id="astructeu_1_1StringMerger_html_a5c696718cb6b6dde84015231092f4439"><div class="ttname"><a href="structeu_1_1StringMerger.html#a5c696718cb6b6dde84015231092f4439">eu::StringMerger::merge</a></div><div class="ttdeci">std::string merge(const std::vector&lt; std::string &gt; &amp;strings) const</div><div class="ttdef"><b>Definition:</b> <a href="stringmerger_8cc_source.html#l00011">stringmerger.cc:11</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.17-->
 <!-- start footer part -->

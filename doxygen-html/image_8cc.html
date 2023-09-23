@@ -63,11 +63,11 @@
 <code>#include &quot;stb_image_write.h&quot;</code><br />
 <code>#include &quot;<a class="el" href="assert_8h_source.html">assert/assert.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="numeric_8h_source.html">core/numeric.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="log_8h_source.html">log/log.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="cint_8h_source.html">core/cint.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="log_2src_2log_2log_8h_source.html">log/log.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="cint_8h_source.html">base/cint.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="decompress_8h_source.html">core/decompress.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="vfs_8h_source.html">core/vfs.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="vfs__path_8h_source.html">core/vfs_path.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="vfs_8h_source.html">io/vfs.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="vfs__path_8h_source.html">io/vfs_path.h</a>&quot;</code><br />
 </div>
 <p><a href="image_8cc_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -82,8 +82,8 @@ Namespaces</h2></td></tr>
 Functions</h2></td></tr>
 <tr class="memitem:a3a8b37ed29acacc877cc241f2b4f7e76"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#a3a8b37ed29acacc877cc241f2b4f7e76">eu::core::write_image_data</a> (stbi_write_func *func, void *context, int w, int h, int comp, const void *data, ImageWriteFormat format, int jpeg_quality)</td></tr>
 <tr class="separator:a3a8b37ed29acacc877cc241f2b4f7e76"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0f41224638c434fe60614f506eec2c3f"><td class="memItemLeft" align="right" valign="top">ImageLoadResult&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#a0f41224638c434fe60614f506eec2c3f">eu::core::load_image</a> (vfs::FileSystem *fs, const vfs::FilePath &amp;path, AlphaLoad alpha)</td></tr>
-<tr class="separator:a0f41224638c434fe60614f506eec2c3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acbf94cdc546775a73c6a6bfc70c1fe53"><td class="memItemLeft" align="right" valign="top">ImageLoadResult&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#acbf94cdc546775a73c6a6bfc70c1fe53">eu::core::load_image</a> (io::FileSystem *fs, const io::FilePath &amp;path, AlphaLoad alpha)</td></tr>
+<tr class="separator:acbf94cdc546775a73c6a6bfc70c1fe53"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad4f15012367a31dcd14f1bb579b8071c"><td class="memItemLeft" align="right" valign="top">ImageLoadResult&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#ad4f15012367a31dcd14f1bb579b8071c">eu::core::load_image</a> (std::shared_ptr&lt; MemoryChunk &gt; file_memory, const std::string &amp;path, AlphaLoad alpha)</td></tr>
 <tr class="separator:ad4f15012367a31dcd14f1bb579b8071c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad899df9512218b54958e396173912a14"><td class="memItemLeft" align="right" valign="top">ImageLoadResult&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#ad899df9512218b54958e396173912a14">eu::core::load_image</a> (void *compressed_data, int compressed_size, const std::string &amp;path, AlphaLoad alpha)</td></tr>

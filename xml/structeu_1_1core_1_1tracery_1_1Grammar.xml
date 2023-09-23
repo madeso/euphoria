@@ -56,7 +56,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/tracery.h" line="111" column="14" bodyfile="libs/core/src/core/tracery.cc" bodystart="619" bodyend="622"/>
+        <location file="libs/core/src/core/tracery.h" line="111" column="14" bodyfile="libs/core/src/core/tracery.cc" bodystart="584" bodyend="587"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1tracery_1_1Grammar_1ab1f43960e2c28b88f7221b5e9e2788fc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1core_1_1tracery_1_1Result" kindref="compound">Result</ref></type>
@@ -77,28 +77,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/tracery.h" line="113" column="17" bodyfile="libs/core/src/core/tracery.cc" bodystart="655" bodyend="679"/>
-      </memberdef>
-      <memberdef kind="function" id="structeu_1_1core_1_1tracery_1_1Grammar_1acc24a68db6578200a4d8b05e7b073935" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1core_1_1tracery_1_1Result" kindref="compound">Result</ref></type>
-        <definition>Result eu::core::tracery::Grammar::load_from_gaf_string</definition>
-        <argsstring>(const std::string &amp;filename, const std::string &amp;data)</argsstring>
-        <name>load_from_gaf_string</name>
-        <param>
-          <type>const std::string &amp;</type>
-          <declname>filename</declname>
-        </param>
-        <param>
-          <type>const std::string &amp;</type>
-          <declname>data</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/tracery.h" line="114" column="17" bodyfile="libs/core/src/core/tracery.cc" bodystart="626" bodyend="651"/>
+        <location file="libs/core/src/core/tracery.h" line="113" column="17" bodyfile="libs/core/src/core/tracery.cc" bodystart="591" bodyend="624"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1tracery_1_1Grammar_1a76ca89be9fd2c29c48324698901d5e71" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1core_1_1tracery_1_1Grammar" kindref="compound">Grammar</ref> &amp;</type>
@@ -119,7 +98,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/tracery.h" line="116" column="17" bodyfile="libs/core/src/core/tracery.cc" bodystart="702" bodyend="706"/>
+        <location file="libs/core/src/core/tracery.h" line="115" column="17" bodyfile="libs/core/src/core/tracery.cc" bodystart="647" bodyend="651"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1tracery_1_1Grammar_1aa479a47b2779670fbc0bdc759a604f23" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1core_1_1tracery_1_1Result" kindref="compound">Result</ref></type>
@@ -140,7 +119,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/tracery.h" line="118" column="17" bodyfile="libs/core/src/core/tracery.cc" bodystart="683" bodyend="698"/>
+        <location file="libs/core/src/core/tracery.h" line="117" column="17" bodyfile="libs/core/src/core/tracery.cc" bodystart="628" bodyend="643"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1tracery_1_1Grammar_1ad6e145b2ad27219fa3919c9e60c3783d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1core_1_1tracery_1_1Result" kindref="compound">Result</ref></type>
@@ -161,7 +140,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/tracery.h" line="119" column="17" bodyfile="libs/core/src/core/tracery.cc" bodystart="710" bodyend="718"/>
+        <location file="libs/core/src/core/tracery.h" line="118" column="17" bodyfile="libs/core/src/core/tracery.cc" bodystart="655" bodyend="663"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1tracery_1_1Grammar_1a866125563502d5de2a91832d2b420653" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1core_1_1tracery_1_1Result" kindref="compound">Result</ref></type>
@@ -182,20 +161,19 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/tracery.h" line="120" column="17" bodyfile="libs/core/src/core/tracery.cc" bodystart="722" bodyend="730"/>
+        <location file="libs/core/src/core/tracery.h" line="119" column="17" bodyfile="libs/core/src/core/tracery.cc" bodystart="667" bodyend="675"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/tracery.h" line="103" column="5" bodyfile="libs/core/src/core/tracery.h" bodystart="104" bodyend="121"/>
+    <location file="libs/core/src/core/tracery.h" line="103" column="5" bodyfile="libs/core/src/core/tracery.h" bodystart="104" bodyend="120"/>
     <listofallmembers>
       <member refid="structeu_1_1core_1_1tracery_1_1Grammar_1ad6e145b2ad27219fa3919c9e60c3783d" prot="public" virt="non-virtual"><scope>eu::core::tracery::Grammar</scope><name>apply_modifier</name></member>
       <member refid="structeu_1_1core_1_1tracery_1_1Grammar_1a866125563502d5de2a91832d2b420653" prot="public" virt="non-virtual"><scope>eu::core::tracery::Grammar</scope><name>flatten</name></member>
       <member refid="structeu_1_1core_1_1tracery_1_1Grammar_1aa479a47b2779670fbc0bdc759a604f23" prot="public" virt="non-virtual"><scope>eu::core::tracery::Grammar</scope><name>get_string_from_symbol</name></member>
       <member refid="structeu_1_1core_1_1tracery_1_1Grammar_1aa7c46387f92a32cc27b9807f85e1ac6e" prot="public" virt="non-virtual"><scope>eu::core::tracery::Grammar</scope><name>Grammar</name></member>
-      <member refid="structeu_1_1core_1_1tracery_1_1Grammar_1acc24a68db6578200a4d8b05e7b073935" prot="public" virt="non-virtual"><scope>eu::core::tracery::Grammar</scope><name>load_from_gaf_string</name></member>
       <member refid="structeu_1_1core_1_1tracery_1_1Grammar_1ab1f43960e2c28b88f7221b5e9e2788fc" prot="public" virt="non-virtual"><scope>eu::core::tracery::Grammar</scope><name>load_from_string</name></member>
       <member refid="structeu_1_1core_1_1tracery_1_1Grammar_1a9130a322b73ab534866b2fa8e4e1336c" prot="public" virt="non-virtual"><scope>eu::core::tracery::Grammar</scope><name>modifiers</name></member>
       <member refid="structeu_1_1core_1_1tracery_1_1Grammar_1a9bc67f9259ea883dc842d0b711679da0" prot="public" virt="non-virtual"><scope>eu::core::tracery::Grammar</scope><name>register_english</name></member>

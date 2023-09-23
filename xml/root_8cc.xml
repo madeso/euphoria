@@ -3,7 +3,7 @@
   <compounddef id="root_8cc" kind="file" language="C++">
     <compoundname>root.cc</compoundname>
     <includes refid="root_8h" local="yes">gui/root.h</includes>
-    <includes refid="cint_8h" local="yes">core/cint.h</includes>
+    <includes refid="cint_8h" local="yes">base/cint.h</includes>
     <includes refid="spriterender_8h" local="yes">render/spriterender.h</includes>
     <includes refid="load_8h" local="yes">gui/load.h</includes>
     <includes refid="skin_8h" local="yes">gui/skin.h</includes>
@@ -18,12 +18,14 @@
         <childnode refid="11" relation="include">
         </childnode>
       </node>
-      <node id="30">
-        <label>core/editdistance.h</label>
-        <link refid="editdistance_8h"/>
-      </node>
       <node id="28">
         <label>queue</label>
+      </node>
+      <node id="22">
+        <label>base/stringutils.h</label>
+        <link refid="stringutils_8h"/>
+        <childnode refid="23" relation="include">
+        </childnode>
       </node>
       <node id="2">
         <label>gui/root.h</label>
@@ -63,16 +65,6 @@
         <childnode refid="24" relation="include">
         </childnode>
       </node>
-      <node id="27">
-        <label>core/editdistance.search.h</label>
-        <link refid="editdistance_8search_8h"/>
-        <childnode refid="28" relation="include">
-        </childnode>
-        <childnode refid="29" relation="include">
-        </childnode>
-        <childnode refid="30" relation="include">
-        </childnode>
-      </node>
       <node id="14">
         <label>cstdint</label>
       </node>
@@ -80,14 +72,6 @@
         <label>render/shaderuniform.h</label>
         <link refid="shaderuniform_8h"/>
         <childnode refid="42" relation="include">
-        </childnode>
-      </node>
-      <node id="12">
-        <label>core/cint.h</label>
-        <link refid="cint_8h"/>
-        <childnode refid="13" relation="include">
-        </childnode>
-        <childnode refid="15" relation="include">
         </childnode>
       </node>
       <node id="1">
@@ -104,10 +88,16 @@
         <childnode refid="57" relation="include">
         </childnode>
       </node>
-      <node id="22">
-        <label>core/stringutils.h</label>
-        <link refid="stringutils_8h"/>
-        <childnode refid="23" relation="include">
+      <node id="13">
+        <label>base/ints.h</label>
+        <link refid="ints_8h"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="54">
+        <label>base/memorychunk.h</label>
+        <link refid="memorychunk_8h"/>
+        <childnode refid="19" relation="include">
         </childnode>
       </node>
       <node id="49">
@@ -132,12 +122,6 @@
         <childnode refid="24" relation="include">
         </childnode>
       </node>
-      <node id="33">
-        <label>core/result.h</label>
-        <link refid="result_8h"/>
-        <childnode refid="34" relation="include">
-        </childnode>
-      </node>
       <node id="44">
         <label>core/vec3.h</label>
         <link refid="vec3_8h"/>
@@ -150,6 +134,16 @@
         <childnode refid="5" relation="include">
         </childnode>
         <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="50">
+        <label>io/vfs_path.h</label>
+        <link refid="vfs__path_8h"/>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
         </childnode>
       </node>
       <node id="6">
@@ -273,8 +267,26 @@
       <node id="4">
         <label>tuple</label>
       </node>
+      <node id="33">
+        <label>base/result.h</label>
+        <link refid="result_8h"/>
+        <childnode refid="34" relation="include">
+        </childnode>
+      </node>
       <node id="34">
         <label>optional</label>
+      </node>
+      <node id="55">
+        <label>io/vfs.h</label>
+        <link refid="vfs_8h"/>
+        <childnode refid="54" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
       </node>
       <node id="11">
         <label>core/numeric.h</label>
@@ -294,22 +306,20 @@
         <childnode refid="3" relation="include">
         </childnode>
       </node>
+      <node id="27">
+        <label>base/editdistance.search.h</label>
+        <link refid="editdistance_8search_8h"/>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+      </node>
       <node id="32">
         <label>core/custom_parser.h</label>
         <link refid="custom__parser_8h"/>
         <childnode refid="33" relation="include">
-        </childnode>
-      </node>
-      <node id="54">
-        <label>core/memorychunk.h</label>
-        <link refid="memorychunk_8h"/>
-        <childnode refid="19" relation="include">
-        </childnode>
-      </node>
-      <node id="13">
-        <label>core/ints.h</label>
-        <link refid="ints_8h"/>
-        <childnode refid="14" relation="include">
         </childnode>
       </node>
       <node id="42">
@@ -340,18 +350,6 @@
         <label>core/interpolate.default.h</label>
         <link refid="interpolate_8default_8h"/>
       </node>
-      <node id="55">
-        <label>core/vfs.h</label>
-        <link refid="vfs_8h"/>
-        <childnode refid="54" relation="include">
-        </childnode>
-        <childnode refid="23" relation="include">
-        </childnode>
-        <childnode refid="19" relation="include">
-        </childnode>
-        <childnode refid="34" relation="include">
-        </childnode>
-      </node>
       <node id="36">
         <label>core/range.h</label>
         <link refid="range_8h"/>
@@ -362,16 +360,6 @@
         <childnode refid="5" relation="include">
         </childnode>
         <childnode refid="12" relation="include">
-        </childnode>
-      </node>
-      <node id="50">
-        <label>core/vfs_path.h</label>
-        <link refid="vfs__path_8h"/>
-        <childnode refid="34" relation="include">
-        </childnode>
-        <childnode refid="4" relation="include">
-        </childnode>
-        <childnode refid="26" relation="include">
         </childnode>
       </node>
       <node id="53">
@@ -402,6 +390,10 @@
         <childnode refid="31" relation="include">
         </childnode>
       </node>
+      <node id="30">
+        <label>base/editdistance.h</label>
+        <link refid="editdistance_8h"/>
+      </node>
       <node id="20">
         <label>core/rect.h</label>
         <link refid="rect_8h"/>
@@ -422,6 +414,14 @@
         <childnode refid="11" relation="include">
         </childnode>
         <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>base/cint.h</label>
+        <link refid="cint_8h"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
         </childnode>
       </node>
       <node id="24">

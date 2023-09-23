@@ -8,15 +8,17 @@
     <includedby refid="app_8cc" local="yes">libs/window/src/window/app.cc</includedby>
     <includedby refid="engine_8cc" local="yes">libs/window/src/window/engine.cc</includedby>
     <incdepgraph>
-      <node id="17">
-        <label>core/editdistance.h</label>
-        <link refid="editdistance_8h"/>
-      </node>
       <node id="6">
         <label>functional</label>
       </node>
       <node id="15">
         <label>queue</label>
+      </node>
+      <node id="13">
+        <label>base/stringutils.h</label>
+        <link refid="stringutils_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
       </node>
       <node id="1">
         <label>libs/window/src/window/engine.h</label>
@@ -26,34 +28,6 @@
         <childnode refid="3" relation="include">
         </childnode>
         <childnode refid="24" relation="include">
-        </childnode>
-      </node>
-      <node id="14">
-        <label>core/editdistance.search.h</label>
-        <link refid="editdistance_8search_8h"/>
-        <childnode refid="15" relation="include">
-        </childnode>
-        <childnode refid="16" relation="include">
-        </childnode>
-        <childnode refid="17" relation="include">
-        </childnode>
-      </node>
-      <node id="13">
-        <label>core/stringutils.h</label>
-        <link refid="stringutils_8h"/>
-        <childnode refid="4" relation="include">
-        </childnode>
-      </node>
-      <node id="22">
-        <label>core/stringmerger.h</label>
-        <link refid="stringmerger_8h"/>
-        <childnode refid="23" relation="include">
-        </childnode>
-      </node>
-      <node id="20">
-        <label>core/result.h</label>
-        <link refid="result_8h"/>
-        <childnode refid="5" relation="include">
         </childnode>
       </node>
       <node id="11">
@@ -99,6 +73,12 @@
         <childnode refid="5" relation="include">
         </childnode>
       </node>
+      <node id="20">
+        <label>base/result.h</label>
+        <link refid="result_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
       <node id="5">
         <label>optional</label>
       </node>
@@ -107,6 +87,16 @@
       </node>
       <node id="12">
         <label>vector</label>
+      </node>
+      <node id="14">
+        <label>base/editdistance.search.h</label>
+        <link refid="editdistance_8search_8h"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
       </node>
       <node id="19">
         <label>core/custom_parser.h</label>
@@ -134,6 +124,10 @@
         <childnode refid="18" relation="include">
         </childnode>
       </node>
+      <node id="17">
+        <label>base/editdistance.h</label>
+        <link refid="editdistance_8h"/>
+      </node>
       <node id="8">
         <label>core/default_parse.h</label>
         <link refid="default__parse_8h"/>
@@ -149,6 +143,12 @@
       </node>
       <node id="16">
         <label>algorithm</label>
+      </node>
+      <node id="22">
+        <label>base/stringmerger.h</label>
+        <link refid="stringmerger_8h"/>
+        <childnode refid="23" relation="include">
+        </childnode>
       </node>
       <node id="2">
         <label>memory</label>
@@ -174,8 +174,7 @@
     </invincdepgraph>
     <innerclass refid="structeu_1_1window_1_1Engine" prot="public">eu::window::Engine</innerclass>
     <innernamespace refid="namespaceeu">eu</innernamespace>
-    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
-    <innernamespace refid="namespaceeu_1_1core_1_1vfs">eu::core::vfs</innernamespace>
+    <innernamespace refid="namespaceeu_1_1io">eu::io</innernamespace>
     <innernamespace refid="namespaceeu_1_1render">eu::render</innernamespace>
     <innernamespace refid="namespaceeu_1_1window">eu::window</innernamespace>
     <innernamespace refid="namespaceeu_1_1window_1_1imgui">eu::window::imgui</innernamespace>

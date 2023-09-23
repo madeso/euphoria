@@ -2,11 +2,11 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="texturetypes_8h" kind="file" language="C++">
     <compoundname>texturetypes.h</compoundname>
-    <includes refid="enum_8h" local="yes">core/enum.h</includes>
-    <includedby refid="mesh_8cc" local="yes">libs/core/src/core/mesh.cc</includedby>
+    <includes refid="core_2src_2core_2enum_8h" local="yes">core/enum.h</includes>
+    <includedby refid="core_2src_2core_2mesh_8cc" local="yes">libs/core/src/core/mesh.cc</includedby>
     <includedby refid="texturetypes_8cc" local="yes">libs/core/src/core/texturetypes.cc</includedby>
     <includedby refid="compiledmesh_8cc" local="yes">libs/render/src/render/compiledmesh.cc</includedby>
-    <includedby refid="materialshader_8cc" local="yes">libs/render/src/render/materialshader.cc</includedby>
+    <includedby refid="render_2src_2render_2materialshader_8cc" local="yes">libs/render/src/render/materialshader.cc</includedby>
     <incdepgraph>
       <node id="1">
         <label>libs/core/src/core/texturetypes.h</label>
@@ -19,7 +19,7 @@
       </node>
       <node id="2">
         <label>core/enum.h</label>
-        <link refid="enum_8h"/>
+        <link refid="core_2src_2core_2enum_8h"/>
         <childnode refid="3" relation="include">
         </childnode>
       </node>
@@ -43,7 +43,7 @@
       </node>
       <node id="2">
         <label>libs/core/src/core/mesh.cc</label>
-        <link refid="mesh_8cc"/>
+        <link refid="core_2src_2core_2mesh_8cc"/>
       </node>
       <node id="3">
         <label>libs/core/src/core/texturetypes.cc</label>
@@ -51,7 +51,7 @@
       </node>
       <node id="5">
         <label>libs/render/src/render/materialshader.cc</label>
-        <link refid="materialshader_8cc"/>
+        <link refid="render_2src_2render_2materialshader_8cc"/>
       </node>
     </invincdepgraph>
     <innernamespace refid="namespaceeu">eu</innernamespace>

@@ -1,0 +1,191 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1files_1_1gui_1_1ButtonState" kind="struct" language="C++" prot="public">
+    <compoundname>eu::files::gui::ButtonState</compoundname>
+    <includes refid="gui_8h" local="no">gui.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1files_1_1gui_1_1ButtonState_1aef92e9a243654efa8567cd5c9c7286c4" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float eu::files::gui::ButtonState::scale</definition>
+        <argsstring></argsstring>
+        <name>scale</name>
+        <initializer>= 1.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/files/src/files/gui.h" line="111" column="15" bodyfile="libs/files/src/files/gui.h" bodystart="111" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1files_1_1gui_1_1ButtonState_1a8017fde0845a97e6697c0fd5ed0de242" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1files_1_1gui_1_1Rgb" kindref="compound">Rgb</ref></type>
+        <definition>Rgb eu::files::gui::ButtonState::image_color</definition>
+        <argsstring></argsstring>
+        <name>image_color</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/files/src/files/gui.h" line="112" column="13" bodyfile="libs/files/src/files/gui.h" bodystart="112" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1files_1_1gui_1_1ButtonState_1a44c0cdcb0937a5240544ed113ba174ca" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1files_1_1gui_1_1Rgb" kindref="compound">Rgb</ref></type>
+        <definition>Rgb eu::files::gui::ButtonState::text_color</definition>
+        <argsstring></argsstring>
+        <name>text_color</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/files/src/files/gui.h" line="113" column="13" bodyfile="libs/files/src/files/gui.h" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1files_1_1gui_1_1ButtonState_1abb2f47999d5d3888182dc9e429c87594" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float eu::files::gui::ButtonState::dx</definition>
+        <argsstring></argsstring>
+        <name>dx</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/files/src/files/gui.h" line="114" column="15" bodyfile="libs/files/src/files/gui.h" bodystart="114" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1files_1_1gui_1_1ButtonState_1a1ed4b1c9d7ef269a12fb40c911950a9a" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float eu::files::gui::ButtonState::dy</definition>
+        <argsstring></argsstring>
+        <name>dy</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/files/src/files/gui.h" line="115" column="15" bodyfile="libs/files/src/files/gui.h" bodystart="115" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1files_1_1gui_1_1ButtonState_1ab3084ad7fbda6a08c9237609e023d5ba" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeu_1_1files_1_1gui_1a1f77f3a22fcbaf735539b9af7a0f7045" kindref="member">InterpolationType</ref></type>
+        <definition>InterpolationType eu::files::gui::ButtonState::interpolate_position</definition>
+        <argsstring></argsstring>
+        <name>interpolate_position</name>
+        <initializer>= <ref refid="namespaceeu_1_1files_1_1gui_1a1f77f3a22fcbaf735539b9af7a0f7045a9a932b3cb396238423eb2f33ec17d6aa" kindref="member">InterpolationType::linear</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/files/src/files/gui.h" line="117" column="27" bodyfile="libs/files/src/files/gui.h" bodystart="117" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1files_1_1gui_1_1ButtonState_1a0936b713f6334635c2b5f4ffe53ffb37" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float eu::files::gui::ButtonState::interpolate_position_time</definition>
+        <argsstring></argsstring>
+        <name>interpolate_position_time</name>
+        <initializer>= 0.1f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/files/src/files/gui.h" line="118" column="15" bodyfile="libs/files/src/files/gui.h" bodystart="118" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1files_1_1gui_1_1ButtonState_1a00207dec4bc4e1d483153c20c85ae391" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeu_1_1files_1_1gui_1a1f77f3a22fcbaf735539b9af7a0f7045" kindref="member">InterpolationType</ref></type>
+        <definition>InterpolationType eu::files::gui::ButtonState::interpolate_color</definition>
+        <argsstring></argsstring>
+        <name>interpolate_color</name>
+        <initializer>= <ref refid="namespaceeu_1_1files_1_1gui_1a1f77f3a22fcbaf735539b9af7a0f7045a9a932b3cb396238423eb2f33ec17d6aa" kindref="member">InterpolationType::linear</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/files/src/files/gui.h" line="120" column="27" bodyfile="libs/files/src/files/gui.h" bodystart="120" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1files_1_1gui_1_1ButtonState_1a8bcdfda50e0a893c2c3052ef659f22bb" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float eu::files::gui::ButtonState::interpolate_color_time</definition>
+        <argsstring></argsstring>
+        <name>interpolate_color_time</name>
+        <initializer>= 0.1f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/files/src/files/gui.h" line="121" column="15" bodyfile="libs/files/src/files/gui.h" bodystart="121" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1files_1_1gui_1_1ButtonState_1a8fa5435c6218b1de6ca89aead855fd7a" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeu_1_1files_1_1gui_1a1f77f3a22fcbaf735539b9af7a0f7045" kindref="member">InterpolationType</ref></type>
+        <definition>InterpolationType eu::files::gui::ButtonState::interpolate_size</definition>
+        <argsstring></argsstring>
+        <name>interpolate_size</name>
+        <initializer>= <ref refid="namespaceeu_1_1files_1_1gui_1a1f77f3a22fcbaf735539b9af7a0f7045a9a932b3cb396238423eb2f33ec17d6aa" kindref="member">InterpolationType::linear</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/files/src/files/gui.h" line="123" column="27" bodyfile="libs/files/src/files/gui.h" bodystart="123" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1files_1_1gui_1_1ButtonState_1a005a4f9ee6becc002648a39f4bb2c316" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float eu::files::gui::ButtonState::interpolate_size_time</definition>
+        <argsstring></argsstring>
+        <name>interpolate_size_time</name>
+        <initializer>= 0.1f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/files/src/files/gui.h" line="124" column="15" bodyfile="libs/files/src/files/gui.h" bodystart="124" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>eu::files::gui::ButtonState</label>
+        <link refid="structeu_1_1files_1_1gui_1_1ButtonState"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>image_color</edgelabel>
+          <edgelabel>text_color</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>eu::files::gui::Rgb</label>
+        <link refid="structeu_1_1files_1_1gui_1_1Rgb"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/files/src/files/gui.h" line="108" column="5" bodyfile="libs/files/src/files/gui.h" bodystart="109" bodyend="125"/>
+    <listofallmembers>
+      <member refid="structeu_1_1files_1_1gui_1_1ButtonState_1abb2f47999d5d3888182dc9e429c87594" prot="public" virt="non-virtual"><scope>eu::files::gui::ButtonState</scope><name>dx</name></member>
+      <member refid="structeu_1_1files_1_1gui_1_1ButtonState_1a1ed4b1c9d7ef269a12fb40c911950a9a" prot="public" virt="non-virtual"><scope>eu::files::gui::ButtonState</scope><name>dy</name></member>
+      <member refid="structeu_1_1files_1_1gui_1_1ButtonState_1a8017fde0845a97e6697c0fd5ed0de242" prot="public" virt="non-virtual"><scope>eu::files::gui::ButtonState</scope><name>image_color</name></member>
+      <member refid="structeu_1_1files_1_1gui_1_1ButtonState_1a00207dec4bc4e1d483153c20c85ae391" prot="public" virt="non-virtual"><scope>eu::files::gui::ButtonState</scope><name>interpolate_color</name></member>
+      <member refid="structeu_1_1files_1_1gui_1_1ButtonState_1a8bcdfda50e0a893c2c3052ef659f22bb" prot="public" virt="non-virtual"><scope>eu::files::gui::ButtonState</scope><name>interpolate_color_time</name></member>
+      <member refid="structeu_1_1files_1_1gui_1_1ButtonState_1ab3084ad7fbda6a08c9237609e023d5ba" prot="public" virt="non-virtual"><scope>eu::files::gui::ButtonState</scope><name>interpolate_position</name></member>
+      <member refid="structeu_1_1files_1_1gui_1_1ButtonState_1a0936b713f6334635c2b5f4ffe53ffb37" prot="public" virt="non-virtual"><scope>eu::files::gui::ButtonState</scope><name>interpolate_position_time</name></member>
+      <member refid="structeu_1_1files_1_1gui_1_1ButtonState_1a8fa5435c6218b1de6ca89aead855fd7a" prot="public" virt="non-virtual"><scope>eu::files::gui::ButtonState</scope><name>interpolate_size</name></member>
+      <member refid="structeu_1_1files_1_1gui_1_1ButtonState_1a005a4f9ee6becc002648a39f4bb2c316" prot="public" virt="non-virtual"><scope>eu::files::gui::ButtonState</scope><name>interpolate_size_time</name></member>
+      <member refid="structeu_1_1files_1_1gui_1_1ButtonState_1aef92e9a243654efa8567cd5c9c7286c4" prot="public" virt="non-virtual"><scope>eu::files::gui::ButtonState</scope><name>scale</name></member>
+      <member refid="structeu_1_1files_1_1gui_1_1ButtonState_1a44c0cdcb0937a5240544ed113ba174ca" prot="public" virt="non-virtual"><scope>eu::files::gui::ButtonState</scope><name>text_color</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

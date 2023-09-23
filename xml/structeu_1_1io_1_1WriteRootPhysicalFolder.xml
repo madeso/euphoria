@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1io_1_1WriteRootPhysicalFolder" kind="struct" language="C++" prot="public">
+    <compoundname>eu::io::WriteRootPhysicalFolder</compoundname>
+    <basecompoundref refid="structeu_1_1io_1_1WriteRoot" prot="public" virt="non-virtual">eu::io::WriteRoot</basecompoundref>
+    <includes refid="vfs_8h" local="no">vfs.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1io_1_1WriteRootPhysicalFolder_1a49044376120c1b6974137b6f962ff55e" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string eu::io::WriteRootPhysicalFolder::folder</definition>
+        <argsstring></argsstring>
+        <name>folder</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/io/src/io/vfs.h" line="170" column="21" bodyfile="libs/io/src/io/vfs.h" bodystart="170" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1io_1_1WriteRootPhysicalFolder_1a0dea5bc81124264652123665d3f655a6" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::io::WriteRootPhysicalFolder::WriteRootPhysicalFolder</definition>
+        <argsstring>(const std::string &amp;f)</argsstring>
+        <name>WriteRootPhysicalFolder</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>f</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/io/src/io/vfs.h" line="161" column="18" bodyfile="libs/io/src/io/vfs.cc" bodystart="368" bodyend="371"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1io_1_1WriteRootPhysicalFolder_1a226e6e9b74f1c370d3aac6b070396949" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void eu::io::WriteRootPhysicalFolder::write_file</definition>
+        <argsstring>(const FilePath &amp;path, std::shared_ptr&lt; MemoryChunk &gt; data) override</argsstring>
+        <name>write_file</name>
+        <reimplements refid="structeu_1_1io_1_1WriteRoot_1aec4674423ccb045735a827b8f2fd81c0">write_file</reimplements>
+        <param>
+          <type>const <ref refid="structeu_1_1io_1_1FilePath" kindref="compound">FilePath</ref> &amp;</type>
+          <declname>path</declname>
+        </param>
+        <param>
+          <type>std::shared_ptr&lt; <ref refid="structeu_1_1MemoryChunk" kindref="compound">MemoryChunk</ref> &gt;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/io/src/io/vfs.h" line="164" column="9" bodyfile="libs/io/src/io/vfs.cc" bodystart="376" bodyend="383"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>eu::io::WriteRoot</label>
+        <link refid="structeu_1_1io_1_1WriteRoot"/>
+      </node>
+      <node id="1">
+        <label>eu::io::WriteRootPhysicalFolder</label>
+        <link refid="structeu_1_1io_1_1WriteRootPhysicalFolder"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>eu::io::WriteRoot</label>
+        <link refid="structeu_1_1io_1_1WriteRoot"/>
+      </node>
+      <node id="1">
+        <label>eu::io::WriteRootPhysicalFolder</label>
+        <link refid="structeu_1_1io_1_1WriteRootPhysicalFolder"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="libs/io/src/io/vfs.h" line="159" column="5" bodyfile="libs/io/src/io/vfs.h" bodystart="160" bodyend="171"/>
+    <listofallmembers>
+      <member refid="structeu_1_1io_1_1WriteRootPhysicalFolder_1a49044376120c1b6974137b6f962ff55e" prot="public" virt="non-virtual"><scope>eu::io::WriteRootPhysicalFolder</scope><name>folder</name></member>
+      <member refid="structeu_1_1io_1_1WriteRoot_1a0f1c18a6b085af26fb17faa5644db743" prot="public" virt="non-virtual"><scope>eu::io::WriteRootPhysicalFolder</scope><name>operator=</name></member>
+      <member refid="structeu_1_1io_1_1WriteRoot_1a3f3f97547141f416cd8c680987c836ac" prot="public" virt="non-virtual"><scope>eu::io::WriteRootPhysicalFolder</scope><name>operator=</name></member>
+      <member refid="structeu_1_1io_1_1WriteRootPhysicalFolder_1a226e6e9b74f1c370d3aac6b070396949" prot="public" virt="virtual"><scope>eu::io::WriteRootPhysicalFolder</scope><name>write_file</name></member>
+      <member refid="structeu_1_1io_1_1WriteRoot_1ac61ba6934d72d78228fcada4dc20b133" prot="public" virt="non-virtual"><scope>eu::io::WriteRootPhysicalFolder</scope><name>WriteRoot</name></member>
+      <member refid="structeu_1_1io_1_1WriteRoot_1a05a035fbf09660df5c4be02c4c92d639" prot="public" virt="non-virtual"><scope>eu::io::WriteRootPhysicalFolder</scope><name>WriteRoot</name></member>
+      <member refid="structeu_1_1io_1_1WriteRoot_1aaf9e9bcf0b6e425115364e82806b6d50" prot="public" virt="non-virtual"><scope>eu::io::WriteRootPhysicalFolder</scope><name>WriteRoot</name></member>
+      <member refid="structeu_1_1io_1_1WriteRootPhysicalFolder_1a0dea5bc81124264652123665d3f655a6" prot="public" virt="non-virtual"><scope>eu::io::WriteRootPhysicalFolder</scope><name>WriteRootPhysicalFolder</name></member>
+      <member refid="structeu_1_1io_1_1WriteRoot_1a9cdd9c556e7b17ea59066b2f2041153e" prot="public" virt="virtual"><scope>eu::io::WriteRootPhysicalFolder</scope><name>~WriteRoot</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

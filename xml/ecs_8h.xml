@@ -14,6 +14,12 @@
       <node id="12">
         <label>cstdint</label>
       </node>
+      <node id="11">
+        <label>base/ints.h</label>
+        <link refid="ints_8h"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
       <node id="8">
         <label>string</label>
       </node>
@@ -45,12 +51,6 @@
       </node>
       <node id="5">
         <label>utility</label>
-      </node>
-      <node id="11">
-        <label>core/ints.h</label>
-        <link refid="ints_8h"/>
-        <childnode refid="12" relation="include">
-        </childnode>
       </node>
       <node id="1">
         <label>libs/core/src/core/ecs.h</label>

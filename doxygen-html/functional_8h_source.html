@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Euphoria: libs/core/src/core/functional.h Source File</title>
+<title>Euphoria: libs/base/src/base/functional.h Source File</title>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <link href="style.css" rel="stylesheet" type="text/css" />
@@ -46,7 +46,7 @@
   </div>
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="dir_6f77a39b07c019ccd7492ea87272f732.html">core</a></li><li class="navelem"><a class="el" href="dir_232ab8dc75117fda122ab855789b1b2c.html">src</a></li><li class="navelem"><a class="el" href="dir_415d9b35eca6c445d7f5977763a796bd.html">core</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="dir_06498c378442102d76a793fbea770c00.html">base</a></li><li class="navelem"><a class="el" href="dir_1434489f875b8806781a8ab0a150cad2.html">src</a></li><li class="navelem"><a class="el" href="dir_9335635e0e9dc5833ab0cd315fbf7edd.html">base</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -61,7 +61,7 @@
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceeu_1_1core.html">eu::core</a></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceeu.html">eu</a></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="comment">//</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="comment">// Common polymorphic higher order functions</span></div>
@@ -72,11 +72,11 @@
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="comment">// combine 2 list into a list of pair</span></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> A, <span class="keyword">typename</span> B&gt;</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    std::vector&lt;std::pair&lt;A, B&gt;&gt;</div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="namespaceeu_1_1core.html#a0d6254121dd32db94657eb3f4aaaf08f">   19</a></span>&#160;    <a class="code" href="namespaceeu_1_1core.html#a0d6254121dd32db94657eb3f4aaaf08f">zip</a>(<span class="keyword">const</span> std::vector&lt;A&gt;&amp; as, <span class="keyword">const</span> std::vector&lt;B&gt;&amp; bs)</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="namespaceeu.html#a70bdf9fe42beb00691f28215741f29be">   19</a></span>&#160;    <a class="code" href="namespaceeu.html#a70bdf9fe42beb00691f28215741f29be">zip</a>(<span class="keyword">const</span> std::vector&lt;A&gt;&amp; as, <span class="keyword">const</span> std::vector&lt;B&gt;&amp; bs)</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    {</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        std::vector&lt;std::pair&lt;A, B&gt;&gt; ret;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> <a class="code" href="namespaceeu_1_1core.html#a6fca7b841e42734cd5c01e04fc9e6511a03c7c0ace395d80182db07ae2c30f034">s</a> = <a class="code" href="namespaceeu_1_1core.html#ad3870359986324d79e00cf2a1c0c4f57">std::min</a>(as.size(), bs.size());</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keywordflow">for</span>(std::size_t index = 0; index &lt; <a class="code" href="namespaceeu_1_1core.html#a6fca7b841e42734cd5c01e04fc9e6511a03c7c0ace395d80182db07ae2c30f034">s</a>; index += 1)</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> s = <a class="code" href="namespaceeu_1_1core.html#ad3870359986324d79e00cf2a1c0c4f57">std::min</a>(as.size(), bs.size());</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keywordflow">for</span>(std::size_t index = 0; index &lt; s; index += 1)</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        {</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;            ret.emplace_back(std::make_pair&lt;A, B&gt;(as[index], bs[index]));</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        }</div>
@@ -86,7 +86,7 @@
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> A, <span class="keyword">typename</span> B&gt;</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    std::vector&lt;std::pair&lt;A, B&gt;&gt;</div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="namespaceeu_1_1core.html#ae09e525d51442fb6dc9bc8828690f65a">   33</a></span>&#160;    <a class="code" href="namespaceeu_1_1core.html#ae09e525d51442fb6dc9bc8828690f65a">zip_longest</a></div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="namespaceeu.html#a175501e62b5378f378e409236ed056ac">   33</a></span>&#160;    <a class="code" href="namespaceeu.html#a175501e62b5378f378e409236ed056ac">zip_longest</a></div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    (</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keyword">const</span> std::vector&lt;A&gt;&amp; as,</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keyword">const</span> std::vector&lt;B&gt;&amp; bs,</div>
@@ -95,12 +95,12 @@
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    )</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    {</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        std::vector&lt;std::pair&lt;A, B&gt;&gt; ret;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> <a class="code" href="namespaceeu_1_1core.html#a6fca7b841e42734cd5c01e04fc9e6511a03c7c0ace395d80182db07ae2c30f034">s</a> = <a class="code" href="namespaceeu_1_1core.html#a57038e2fac2e1e15a5dc83511b753769">std::max</a>(as.size(), bs.size());</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordflow">for</span>(std::size_t index = 0; index &lt; <a class="code" href="namespaceeu_1_1core.html#a6fca7b841e42734cd5c01e04fc9e6511a03c7c0ace395d80182db07ae2c30f034">s</a>; index += 1)</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> s = <a class="code" href="namespaceeu_1_1core.html#a57038e2fac2e1e15a5dc83511b753769">std::max</a>(as.size(), bs.size());</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordflow">for</span>(std::size_t index = 0; index &lt; s; index += 1)</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        {</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            <span class="keyword">const</span> A <a class="code" href="namespaceeu_1_1core.html#aa1676f6b793bf695a9a6fdb9c6e0833aa0cc175b9c0f1b6a831c399e269772661">a</a> = index &lt; as.size() ? as[index] : da;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            <span class="keyword">const</span> B <a class="code" href="namespaceeu_1_1core.html#aa1676f6b793bf695a9a6fdb9c6e0833aa92eb5ffee6ae2fec3ad71c777531578f">b</a> = index &lt; bs.size() ? bs[index] : db;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            ret.emplace_back(<a class="code" href="namespaceeu_1_1core.html#aa1676f6b793bf695a9a6fdb9c6e0833aa0cc175b9c0f1b6a831c399e269772661">a</a>, <a class="code" href="namespaceeu_1_1core.html#aa1676f6b793bf695a9a6fdb9c6e0833aa92eb5ffee6ae2fec3ad71c777531578f">b</a>);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            <span class="keyword">const</span> A a = index &lt; as.size() ? as[index] : da;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            <span class="keyword">const</span> B b = index &lt; bs.size() ? bs[index] : db;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            ret.emplace_back(a, b);</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        }</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keywordflow">return</span> ret;</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    }</div>
@@ -109,29 +109,29 @@
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="comment">// map: A-&gt;B for a list, Select in c#</span></div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> F = T, <span class="keyword">typename</span> C&gt;</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    std::vector&lt;T&gt;</div>
-<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="namespaceeu_1_1core.html#a03c104ce82a33db3d1052c58ba7cfc16">   56</a></span>&#160;    <a class="code" href="namespaceeu_1_1core.html#a03c104ce82a33db3d1052c58ba7cfc16">map</a>(<span class="keyword">const</span> std::vector&lt;F&gt;&amp; fs, C convert)</div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="namespaceeu.html#a6507a8ec64647f0a38e1bd35499f073b">   56</a></span>&#160;    <a class="code" href="namespaceeu.html#a6507a8ec64647f0a38e1bd35499f073b">map</a>(<span class="keyword">const</span> std::vector&lt;F&gt;&amp; fs, C convert)</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    {</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        std::vector&lt;T&gt; <a class="code" href="namespaceeu_1_1core.html#aa1676f6b793bf695a9a6fdb9c6e0833aa4b43b0aee35624cd95b910189b3dc231">r</a>;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <a class="code" href="namespaceeu_1_1core.html#aa1676f6b793bf695a9a6fdb9c6e0833aa4b43b0aee35624cd95b910189b3dc231">r</a>.reserve(fs.size());</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">const</span> <span class="keyword">auto</span>&amp; <a class="code" href="namespaceeu_1_1core.html#a6fca7b841e42734cd5c01e04fc9e6511a8fa14cdd754f91cc6554c9e71929cce7">f</a>: fs)</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        std::vector&lt;T&gt; r;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        r.reserve(fs.size());</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">const</span> <span class="keyword">auto</span>&amp; f: fs)</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        {</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            <a class="code" href="namespaceeu_1_1core.html#aa1676f6b793bf695a9a6fdb9c6e0833aa4b43b0aee35624cd95b910189b3dc231">r</a>.emplace_back(convert(<a class="code" href="namespaceeu_1_1core.html#a6fca7b841e42734cd5c01e04fc9e6511a8fa14cdd754f91cc6554c9e71929cce7">f</a>));</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            r.emplace_back(convert(f));</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        }</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespaceeu_1_1core.html#aa1676f6b793bf695a9a6fdb9c6e0833aa4b43b0aee35624cd95b910189b3dc231">r</a>;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordflow">return</span> r;</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    }</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> K, <span class="keyword">typename</span> V, <span class="keyword">typename</span> C&gt;</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    std::vector&lt;T&gt;</div>
-<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="namespaceeu_1_1core.html#a8af0eee0972c2f6a3f5688c8d6f7fa9e">   70</a></span>&#160;    <a class="code" href="namespaceeu_1_1core.html#a03c104ce82a33db3d1052c58ba7cfc16">map</a>(<span class="keyword">const</span> std::map&lt;K, V&gt;&amp; fs, C convert)</div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="namespaceeu.html#a9d77d46b5904b314de84290ac4a15bc0">   70</a></span>&#160;    <a class="code" href="namespaceeu.html#a6507a8ec64647f0a38e1bd35499f073b">map</a>(<span class="keyword">const</span> std::map&lt;K, V&gt;&amp; fs, C convert)</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    {</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        std::vector&lt;T&gt; <a class="code" href="namespaceeu_1_1core.html#aa1676f6b793bf695a9a6fdb9c6e0833aa4b43b0aee35624cd95b910189b3dc231">r</a>;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <a class="code" href="namespaceeu_1_1core.html#aa1676f6b793bf695a9a6fdb9c6e0833aa4b43b0aee35624cd95b910189b3dc231">r</a>.reserve(fs.size());</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">const</span> <span class="keyword">auto</span> <a class="code" href="namespaceeu_1_1core.html#a6fca7b841e42734cd5c01e04fc9e6511a8fa14cdd754f91cc6554c9e71929cce7">f</a>: fs)</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        std::vector&lt;T&gt; r;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        r.reserve(fs.size());</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">const</span> <span class="keyword">auto</span> f: fs)</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        {</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            <a class="code" href="namespaceeu_1_1core.html#aa1676f6b793bf695a9a6fdb9c6e0833aa4b43b0aee35624cd95b910189b3dc231">r</a>.emplace_back(convert(<a class="code" href="namespaceeu_1_1core.html#a6fca7b841e42734cd5c01e04fc9e6511a8fa14cdd754f91cc6554c9e71929cce7">f</a>.first, <a class="code" href="namespaceeu_1_1core.html#a6fca7b841e42734cd5c01e04fc9e6511a8fa14cdd754f91cc6554c9e71929cce7">f</a>.second));</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            r.emplace_back(convert(f.first, f.second));</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        }</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespaceeu_1_1core.html#aa1676f6b793bf695a9a6fdb9c6e0833aa4b43b0aee35624cd95b910189b3dc231">r</a>;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="keywordflow">return</span> r;</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    }</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="comment">// concat map, SelectMany</span></div>
@@ -139,18 +139,18 @@
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="comment">// filter - all values that satisfies a condition</span></div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> C&gt;</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    std::vector&lt;T&gt;</div>
-<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="namespaceeu_1_1core.html#a4f08f4919fdbc2547ea9ccddba2108a9">   86</a></span>&#160;    <a class="code" href="namespaceeu_1_1core.html#a4f08f4919fdbc2547ea9ccddba2108a9">filter</a>(<span class="keyword">const</span> std::vector&lt;T&gt;&amp; ts, C check)</div>
+<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="namespaceeu.html#ad9f1c4e8fcbe15f6db7c7576868d0493">   86</a></span>&#160;    <a class="code" href="namespaceeu.html#ad9f1c4e8fcbe15f6db7c7576868d0493">filter</a>(<span class="keyword">const</span> std::vector&lt;T&gt;&amp; ts, C check)</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    {</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        std::vector&lt;T&gt; <a class="code" href="namespaceeu_1_1core.html#aa1676f6b793bf695a9a6fdb9c6e0833aa4b43b0aee35624cd95b910189b3dc231">r</a>;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <a class="code" href="namespaceeu_1_1core.html#aa1676f6b793bf695a9a6fdb9c6e0833aa4b43b0aee35624cd95b910189b3dc231">r</a>.reserve(ts.size());</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">const</span> <span class="keyword">auto</span> <a class="code" href="namespaceeu_1_1core.html#a6fca7b841e42734cd5c01e04fc9e6511ae358efa489f58062f10dd7316b65649e">t</a>: ts)</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        std::vector&lt;T&gt; r;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        r.reserve(ts.size());</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">const</span> <span class="keyword">auto</span> t: ts)</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        {</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            <span class="keywordflow">if</span>(check(<a class="code" href="namespaceeu_1_1core.html#a6fca7b841e42734cd5c01e04fc9e6511ae358efa489f58062f10dd7316b65649e">t</a>))</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            <span class="keywordflow">if</span>(check(t))</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            {</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                <a class="code" href="namespaceeu_1_1core.html#aa1676f6b793bf695a9a6fdb9c6e0833aa4b43b0aee35624cd95b910189b3dc231">r</a>.emplace_back(<a class="code" href="namespaceeu_1_1core.html#a6fca7b841e42734cd5c01e04fc9e6511ae358efa489f58062f10dd7316b65649e">t</a>);</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                r.emplace_back(t);</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            }</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        }</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespaceeu_1_1core.html#aa1676f6b793bf695a9a6fdb9c6e0833aa4b43b0aee35624cd95b910189b3dc231">r</a>;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        <span class="keywordflow">return</span> r;</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    }</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="comment">// takewhile</span></div>
@@ -158,13 +158,13 @@
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="comment">// return true if all matches</span></div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> C&gt;</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keywordtype">bool</span></div>
-<div class="line"><a name="l00105"></a><span class="lineno"><a class="line" href="namespaceeu_1_1core.html#a590ad698fbe01c302a3bd7bcba28454a">  105</a></span>&#160;    <a class="code" href="namespaceeu_1_1core.html#a590ad698fbe01c302a3bd7bcba28454a">all</a>(<span class="keyword">const</span> std::vector&lt;T&gt;&amp; ts, C check)</div>
+<div class="line"><a name="l00105"></a><span class="lineno"><a class="line" href="namespaceeu.html#a1956c93ce39188f20c4f35d097c619f4">  105</a></span>&#160;    <a class="code" href="namespaceeu.html#a1956c93ce39188f20c4f35d097c619f4">all</a>(<span class="keyword">const</span> std::vector&lt;T&gt;&amp; ts, C check)</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    {</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        std::vector&lt;T&gt; <a class="code" href="namespaceeu_1_1core.html#aa1676f6b793bf695a9a6fdb9c6e0833aa4b43b0aee35624cd95b910189b3dc231">r</a>;</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <a class="code" href="namespaceeu_1_1core.html#aa1676f6b793bf695a9a6fdb9c6e0833aa4b43b0aee35624cd95b910189b3dc231">r</a>.reserve(ts.size());</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">const</span> <span class="keyword">auto</span> <a class="code" href="namespaceeu_1_1core.html#a6fca7b841e42734cd5c01e04fc9e6511ae358efa489f58062f10dd7316b65649e">t</a>: ts)</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        std::vector&lt;T&gt; r;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        r.reserve(ts.size());</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">const</span> <span class="keyword">auto</span> t: ts)</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        {</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;            <span class="keywordflow">if</span>(!check(<a class="code" href="namespaceeu_1_1core.html#a6fca7b841e42734cd5c01e04fc9e6511ae358efa489f58062f10dd7316b65649e">t</a>))</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;            <span class="keywordflow">if</span>(!check(t))</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;            {</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;            }</div>
@@ -175,13 +175,13 @@
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="comment">// return true if any mathes</span></div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> C&gt;</div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keywordtype">bool</span></div>
-<div class="line"><a name="l00122"></a><span class="lineno"><a class="line" href="namespaceeu_1_1core.html#af7c40eab8dd2ca9144a2947095447f24">  122</a></span>&#160;    <a class="code" href="namespaceeu_1_1core.html#af7c40eab8dd2ca9144a2947095447f24">any</a>(<span class="keyword">const</span> std::vector&lt;T&gt;&amp; ts, C check)</div>
+<div class="line"><a name="l00122"></a><span class="lineno"><a class="line" href="namespaceeu.html#ad9b77a383d49915450bfd82b3a8e0a4f">  122</a></span>&#160;    <a class="code" href="namespaceeu.html#ad9b77a383d49915450bfd82b3a8e0a4f">any</a>(<span class="keyword">const</span> std::vector&lt;T&gt;&amp; ts, C check)</div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    {</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        std::vector&lt;T&gt; <a class="code" href="namespaceeu_1_1core.html#aa1676f6b793bf695a9a6fdb9c6e0833aa4b43b0aee35624cd95b910189b3dc231">r</a>;</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        <a class="code" href="namespaceeu_1_1core.html#aa1676f6b793bf695a9a6fdb9c6e0833aa4b43b0aee35624cd95b910189b3dc231">r</a>.reserve(ts.size());</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">const</span> <span class="keyword">auto</span> <a class="code" href="namespaceeu_1_1core.html#a6fca7b841e42734cd5c01e04fc9e6511ae358efa489f58062f10dd7316b65649e">t</a>: ts)</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        std::vector&lt;T&gt; r;</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        r.reserve(ts.size());</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">const</span> <span class="keyword">auto</span> t: ts)</div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        {</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;            <span class="keywordflow">if</span>(check(<a class="code" href="namespaceeu_1_1core.html#a6fca7b841e42734cd5c01e04fc9e6511ae358efa489f58062f10dd7316b65649e">t</a>))</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;            <span class="keywordflow">if</span>(check(t))</div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;            {</div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;            }</div>
@@ -200,33 +200,27 @@
 <div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    <span class="comment">// combine list into single value</span></div>
 <div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> R = T, <span class="keyword">typename</span> C&gt;</div>
 <div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    R</div>
-<div class="line"><a name="l00147"></a><span class="lineno"><a class="line" href="namespaceeu_1_1core.html#a0ce41046379306e0e7719ded57c06a4c">  147</a></span>&#160;    <a class="code" href="namespaceeu_1_1core.html#a0ce41046379306e0e7719ded57c06a4c">fold</a>(<span class="keyword">const</span> std::vector&lt;T&gt;&amp; ts, C concat, R zero)</div>
+<div class="line"><a name="l00147"></a><span class="lineno"><a class="line" href="namespaceeu.html#a0885bc2c8931deca30b7a0df512954c4">  147</a></span>&#160;    <a class="code" href="namespaceeu.html#a0885bc2c8931deca30b7a0df512954c4">fold</a>(<span class="keyword">const</span> std::vector&lt;T&gt;&amp; ts, C concat, R zero)</div>
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    {</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;        R <a class="code" href="namespaceeu_1_1core.html#aa1676f6b793bf695a9a6fdb9c6e0833aa4b43b0aee35624cd95b910189b3dc231">r</a> = zero;</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">const</span> <span class="keyword">auto</span>&amp; <a class="code" href="namespaceeu_1_1core.html#a6fca7b841e42734cd5c01e04fc9e6511ae358efa489f58062f10dd7316b65649e">t</a>: ts)</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;        R r = zero;</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">const</span> <span class="keyword">auto</span>&amp; t: ts)</div>
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;        {</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;            <a class="code" href="namespaceeu_1_1core.html#aa1676f6b793bf695a9a6fdb9c6e0833aa4b43b0aee35624cd95b910189b3dc231">r</a> = concat(<a class="code" href="namespaceeu_1_1core.html#aa1676f6b793bf695a9a6fdb9c6e0833aa4b43b0aee35624cd95b910189b3dc231">r</a>, <a class="code" href="namespaceeu_1_1core.html#a6fca7b841e42734cd5c01e04fc9e6511ae358efa489f58062f10dd7316b65649e">t</a>);</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;            r = concat(r, t);</div>
 <div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;        }</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespaceeu_1_1core.html#aa1676f6b793bf695a9a6fdb9c6e0833aa4b43b0aee35624cd95b910189b3dc231">r</a>;</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;        <span class="keywordflow">return</span> r;</div>
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    }</div>
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;}</div>
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160; </div>
-<div class="ttc" id="anamespaceeu_1_1core_html"><div class="ttname"><a href="namespaceeu_1_1core.html">eu::core</a></div><div class="ttdef"><b>Definition:</b> <a href="aabb_8cc_source.html#l00008">aabb.cc:9</a></div></div>
-<div class="ttc" id="anamespaceeu_1_1core_html_a03c104ce82a33db3d1052c58ba7cfc16"><div class="ttname"><a href="namespaceeu_1_1core.html#a03c104ce82a33db3d1052c58ba7cfc16">eu::core::map</a></div><div class="ttdeci">std::vector&lt; T &gt; map(const std::vector&lt; F &gt; &amp;fs, C convert)</div><div class="ttdef"><b>Definition:</b> <a href="functional_8h_source.html#l00056">functional.h:56</a></div></div>
-<div class="ttc" id="anamespaceeu_1_1core_html_a0ce41046379306e0e7719ded57c06a4c"><div class="ttname"><a href="namespaceeu_1_1core.html#a0ce41046379306e0e7719ded57c06a4c">eu::core::fold</a></div><div class="ttdeci">R fold(const std::vector&lt; T &gt; &amp;ts, C concat, R zero)</div><div class="ttdef"><b>Definition:</b> <a href="functional_8h_source.html#l00147">functional.h:147</a></div></div>
-<div class="ttc" id="anamespaceeu_1_1core_html_a0d6254121dd32db94657eb3f4aaaf08f"><div class="ttname"><a href="namespaceeu_1_1core.html#a0d6254121dd32db94657eb3f4aaaf08f">eu::core::zip</a></div><div class="ttdeci">std::vector&lt; std::pair&lt; A, B &gt; &gt; zip(const std::vector&lt; A &gt; &amp;as, const std::vector&lt; B &gt; &amp;bs)</div><div class="ttdef"><b>Definition:</b> <a href="functional_8h_source.html#l00019">functional.h:19</a></div></div>
-<div class="ttc" id="anamespaceeu_1_1core_html_a4f08f4919fdbc2547ea9ccddba2108a9"><div class="ttname"><a href="namespaceeu_1_1core.html#a4f08f4919fdbc2547ea9ccddba2108a9">eu::core::filter</a></div><div class="ttdeci">std::vector&lt; T &gt; filter(const std::vector&lt; T &gt; &amp;ts, C check)</div><div class="ttdef"><b>Definition:</b> <a href="functional_8h_source.html#l00086">functional.h:86</a></div></div>
 <div class="ttc" id="anamespaceeu_1_1core_html_a57038e2fac2e1e15a5dc83511b753769"><div class="ttname"><a href="namespaceeu_1_1core.html#a57038e2fac2e1e15a5dc83511b753769">eu::core::max</a></div><div class="ttdeci">vec3f max(const vec3f &amp;lhs, const vec3f &amp;rhs)</div><div class="ttdef"><b>Definition:</b> <a href="aabb_8cc_source.html#l00040">aabb.cc:40</a></div></div>
-<div class="ttc" id="anamespaceeu_1_1core_html_a590ad698fbe01c302a3bd7bcba28454a"><div class="ttname"><a href="namespaceeu_1_1core.html#a590ad698fbe01c302a3bd7bcba28454a">eu::core::all</a></div><div class="ttdeci">bool all(const std::vector&lt; T &gt; &amp;ts, C check)</div><div class="ttdef"><b>Definition:</b> <a href="functional_8h_source.html#l00105">functional.h:105</a></div></div>
-<div class="ttc" id="anamespaceeu_1_1core_html_a6fca7b841e42734cd5c01e04fc9e6511a03c7c0ace395d80182db07ae2c30f034"><div class="ttname"><a href="namespaceeu_1_1core.html#a6fca7b841e42734cd5c01e04fc9e6511a03c7c0ace395d80182db07ae2c30f034">eu::core::Key::s</a></div><div class="ttdeci">@ s</div></div>
-<div class="ttc" id="anamespaceeu_1_1core_html_a6fca7b841e42734cd5c01e04fc9e6511a8fa14cdd754f91cc6554c9e71929cce7"><div class="ttname"><a href="namespaceeu_1_1core.html#a6fca7b841e42734cd5c01e04fc9e6511a8fa14cdd754f91cc6554c9e71929cce7">eu::core::Key::f</a></div><div class="ttdeci">@ f</div></div>
-<div class="ttc" id="anamespaceeu_1_1core_html_a6fca7b841e42734cd5c01e04fc9e6511ae358efa489f58062f10dd7316b65649e"><div class="ttname"><a href="namespaceeu_1_1core.html#a6fca7b841e42734cd5c01e04fc9e6511ae358efa489f58062f10dd7316b65649e">eu::core::Key::t</a></div><div class="ttdeci">@ t</div></div>
-<div class="ttc" id="anamespaceeu_1_1core_html_aa1676f6b793bf695a9a6fdb9c6e0833aa0cc175b9c0f1b6a831c399e269772661"><div class="ttname"><a href="namespaceeu_1_1core.html#aa1676f6b793bf695a9a6fdb9c6e0833aa0cc175b9c0f1b6a831c399e269772661">eu::core::Grayscale::a</a></div><div class="ttdeci">@ a</div></div>
-<div class="ttc" id="anamespaceeu_1_1core_html_aa1676f6b793bf695a9a6fdb9c6e0833aa4b43b0aee35624cd95b910189b3dc231"><div class="ttname"><a href="namespaceeu_1_1core.html#aa1676f6b793bf695a9a6fdb9c6e0833aa4b43b0aee35624cd95b910189b3dc231">eu::core::Grayscale::r</a></div><div class="ttdeci">@ r</div></div>
-<div class="ttc" id="anamespaceeu_1_1core_html_aa1676f6b793bf695a9a6fdb9c6e0833aa92eb5ffee6ae2fec3ad71c777531578f"><div class="ttname"><a href="namespaceeu_1_1core.html#aa1676f6b793bf695a9a6fdb9c6e0833aa92eb5ffee6ae2fec3ad71c777531578f">eu::core::Grayscale::b</a></div><div class="ttdeci">@ b</div></div>
 <div class="ttc" id="anamespaceeu_1_1core_html_ad3870359986324d79e00cf2a1c0c4f57"><div class="ttname"><a href="namespaceeu_1_1core.html#ad3870359986324d79e00cf2a1c0c4f57">eu::core::min</a></div><div class="ttdeci">vec3f min(const vec3f &amp;lhs, const vec3f &amp;rhs)</div><div class="ttdef"><b>Definition:</b> <a href="aabb_8cc_source.html#l00031">aabb.cc:31</a></div></div>
-<div class="ttc" id="anamespaceeu_1_1core_html_ae09e525d51442fb6dc9bc8828690f65a"><div class="ttname"><a href="namespaceeu_1_1core.html#ae09e525d51442fb6dc9bc8828690f65a">eu::core::zip_longest</a></div><div class="ttdeci">std::vector&lt; std::pair&lt; A, B &gt; &gt; zip_longest(const std::vector&lt; A &gt; &amp;as, const std::vector&lt; B &gt; &amp;bs, A da=A(), B db=B())</div><div class="ttdef"><b>Definition:</b> <a href="functional_8h_source.html#l00033">functional.h:34</a></div></div>
-<div class="ttc" id="anamespaceeu_1_1core_html_af7c40eab8dd2ca9144a2947095447f24"><div class="ttname"><a href="namespaceeu_1_1core.html#af7c40eab8dd2ca9144a2947095447f24">eu::core::any</a></div><div class="ttdeci">bool any(const std::vector&lt; T &gt; &amp;ts, C check)</div><div class="ttdef"><b>Definition:</b> <a href="functional_8h_source.html#l00122">functional.h:122</a></div></div>
+<div class="ttc" id="anamespaceeu_html"><div class="ttname"><a href="namespaceeu.html">eu</a></div><div class="ttdef"><b>Definition:</b> <a href="assert_8h_source.html#l00089">assert.h:90</a></div></div>
+<div class="ttc" id="anamespaceeu_html_a0885bc2c8931deca30b7a0df512954c4"><div class="ttname"><a href="namespaceeu.html#a0885bc2c8931deca30b7a0df512954c4">eu::fold</a></div><div class="ttdeci">R fold(const std::vector&lt; T &gt; &amp;ts, C concat, R zero)</div><div class="ttdef"><b>Definition:</b> <a href="functional_8h_source.html#l00147">functional.h:147</a></div></div>
+<div class="ttc" id="anamespaceeu_html_a175501e62b5378f378e409236ed056ac"><div class="ttname"><a href="namespaceeu.html#a175501e62b5378f378e409236ed056ac">eu::zip_longest</a></div><div class="ttdeci">std::vector&lt; std::pair&lt; A, B &gt; &gt; zip_longest(const std::vector&lt; A &gt; &amp;as, const std::vector&lt; B &gt; &amp;bs, A da=A(), B db=B())</div><div class="ttdef"><b>Definition:</b> <a href="functional_8h_source.html#l00033">functional.h:34</a></div></div>
+<div class="ttc" id="anamespaceeu_html_a1956c93ce39188f20c4f35d097c619f4"><div class="ttname"><a href="namespaceeu.html#a1956c93ce39188f20c4f35d097c619f4">eu::all</a></div><div class="ttdeci">bool all(const std::vector&lt; T &gt; &amp;ts, C check)</div><div class="ttdef"><b>Definition:</b> <a href="functional_8h_source.html#l00105">functional.h:105</a></div></div>
+<div class="ttc" id="anamespaceeu_html_a6507a8ec64647f0a38e1bd35499f073b"><div class="ttname"><a href="namespaceeu.html#a6507a8ec64647f0a38e1bd35499f073b">eu::map</a></div><div class="ttdeci">std::vector&lt; T &gt; map(const std::vector&lt; F &gt; &amp;fs, C convert)</div><div class="ttdef"><b>Definition:</b> <a href="functional_8h_source.html#l00056">functional.h:56</a></div></div>
+<div class="ttc" id="anamespaceeu_html_a70bdf9fe42beb00691f28215741f29be"><div class="ttname"><a href="namespaceeu.html#a70bdf9fe42beb00691f28215741f29be">eu::zip</a></div><div class="ttdeci">std::vector&lt; std::pair&lt; A, B &gt; &gt; zip(const std::vector&lt; A &gt; &amp;as, const std::vector&lt; B &gt; &amp;bs)</div><div class="ttdef"><b>Definition:</b> <a href="functional_8h_source.html#l00019">functional.h:19</a></div></div>
+<div class="ttc" id="anamespaceeu_html_ad9b77a383d49915450bfd82b3a8e0a4f"><div class="ttname"><a href="namespaceeu.html#ad9b77a383d49915450bfd82b3a8e0a4f">eu::any</a></div><div class="ttdeci">bool any(const std::vector&lt; T &gt; &amp;ts, C check)</div><div class="ttdef"><b>Definition:</b> <a href="functional_8h_source.html#l00122">functional.h:122</a></div></div>
+<div class="ttc" id="anamespaceeu_html_ad9f1c4e8fcbe15f6db7c7576868d0493"><div class="ttname"><a href="namespaceeu.html#ad9f1c4e8fcbe15f6db7c7576868d0493">eu::filter</a></div><div class="ttdeci">std::vector&lt; T &gt; filter(const std::vector&lt; T &gt; &amp;ts, C check)</div><div class="ttdef"><b>Definition:</b> <a href="functional_8h_source.html#l00086">functional.h:86</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.17-->
 <!-- start footer part -->

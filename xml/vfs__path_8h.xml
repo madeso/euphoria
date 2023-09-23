@@ -5,36 +5,30 @@
     <includes local="no">optional</includes>
     <includes local="no">tuple</includes>
     <includes local="no">type_traits</includes>
-    <includedby refid="enum_8cc" local="yes">libs/core/src/core/enum.cc</includedby>
+    <includedby refid="core_2src_2core_2enum_8cc" local="yes">libs/core/src/core/enum.cc</includedby>
     <includedby refid="image_8cc" local="yes">libs/core/src/core/image.cc</includedby>
     <includedby refid="loadedfont_8cc" local="yes">libs/core/src/core/loadedfont.cc</includedby>
-    <includedby refid="mesh_8h" local="yes">libs/core/src/core/mesh.h</includedby>
-    <includedby refid="proto_8cc" local="yes">libs/core/src/core/proto.cc</includedby>
+    <includedby refid="core_2src_2core_2mesh_8h" local="yes">libs/core/src/core/mesh.h</includedby>
     <includedby refid="texttemplate_8cc" local="yes">libs/core/src/core/texttemplate.cc</includedby>
-    <includedby refid="vfs_8cc" local="yes">libs/core/src/core/vfs.cc</includedby>
     <includedby refid="vfs__defaultshaders_8cc" local="yes">libs/core/src/core/vfs_defaultshaders.cc</includedby>
     <includedby refid="vfs__imagegenerator_8cc" local="yes">libs/core/src/core/vfs_imagegenerator.cc</includedby>
     <includedby refid="vfs__imagegenerator_8h" local="yes">libs/core/src/core/vfs_imagegenerator.h</includedby>
-    <includedby refid="vfs__path_8cc" local="yes">libs/core/src/core/vfs_path.cc</includedby>
     <includedby refid="skin_8h" local="yes">libs/gui/src/gui/skin.h</includedby>
+    <includedby refid="json_8cc" local="yes">libs/io/src/io/json.cc</includedby>
+    <includedby refid="vfs_8cc" local="yes">libs/io/src/io/vfs.cc</includedby>
+    <includedby refid="vfs__path_8cc" local="yes">libs/io/src/io/vfs_path.cc</includedby>
     <includedby refid="compiledmesh_8cc" local="yes">libs/render/src/render/compiledmesh.cc</includedby>
     <includedby refid="defaultfiles_8cc" local="yes">libs/render/src/render/defaultfiles.cc</includedby>
-    <includedby refid="font_8cc" local="yes">libs/render/src/render/font.cc</includedby>
+    <includedby refid="render_2src_2render_2font_8cc" local="yes">libs/render/src/render/font.cc</includedby>
     <includedby refid="fontcache_8cc" local="yes">libs/render/src/render/fontcache.cc</includedby>
-    <includedby refid="materialshader_8h" local="yes">libs/render/src/render/materialshader.h</includedby>
+    <includedby refid="render_2src_2render_2materialshader_8h" local="yes">libs/render/src/render/materialshader.h</includedby>
     <includedby refid="materialshadercache_8h" local="yes">libs/render/src/render/materialshadercache.h</includedby>
     <includedby refid="shader_8h" local="yes">libs/render/src/render/shader.h</includedby>
     <includedby refid="texture_8cc" local="yes">libs/render/src/render/texture.cc</includedby>
     <includedby refid="texturecache_8cc" local="yes">libs/render/src/render/texturecache.cc</includedby>
     <incdepgraph>
-      <node id="3">
-        <label>tuple</label>
-      </node>
-      <node id="2">
-        <label>optional</label>
-      </node>
       <node id="1">
-        <label>libs/core/src/core/vfs_path.h</label>
+        <label>libs/io/src/io/vfs_path.h</label>
         <link refid="vfs__path_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
@@ -43,12 +37,18 @@
         <childnode refid="4" relation="include">
         </childnode>
       </node>
+      <node id="3">
+        <label>tuple</label>
+      </node>
+      <node id="2">
+        <label>optional</label>
+      </node>
       <node id="4">
         <label>type_traits</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="18">
+      <node id="16">
         <label>libs/window/src/window/engine.cc</label>
         <link refid="engine_8cc"/>
       </node>
@@ -68,13 +68,17 @@
         <label>libs/render/src/render/sprite.cc</label>
         <link refid="sprite_8cc"/>
       </node>
+      <node id="24">
+        <label>libs/io/src/io/vfs_path.cc</label>
+        <link refid="vfs__path_8cc"/>
+      </node>
       <node id="10">
         <label>libs/render/src/render/actor.cc</label>
         <link refid="actor_8cc"/>
       </node>
       <node id="5">
         <label>libs/core/src/core/mesh.h</label>
-        <link refid="mesh_8h"/>
+        <link refid="core_2src_2core_2mesh_8h"/>
         <childnode refid="6" relation="include">
         </childnode>
         <childnode refid="7" relation="include">
@@ -90,28 +94,70 @@
         <label>libs/core/src/core/loadedfont.cc</label>
         <link refid="loadedfont_8cc"/>
       </node>
-      <node id="23">
+      <node id="20">
         <label>libs/gui/src/gui/root.cc</label>
         <link refid="root_8cc"/>
       </node>
-      <node id="21">
+      <node id="18">
         <label>libs/gui/src/gui/button.cc</label>
         <link refid="button_8cc"/>
       </node>
-      <node id="12">
-        <label>libs/core/src/core/proto.cc</label>
-        <link refid="proto_8cc"/>
-      </node>
-      <node id="24">
+      <node id="21">
         <label>libs/gui/src/gui/skin.cc</label>
         <link refid="skin_8cc"/>
+      </node>
+      <node id="1">
+        <label>libs/io/src/io/vfs_path.h</label>
+        <link refid="vfs__path_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
       </node>
       <node id="39">
         <label>libs/render/src/render/spriterender.h</label>
         <link refid="spriterender_8h"/>
-        <childnode refid="21" relation="include">
+        <childnode refid="18" relation="include">
         </childnode>
-        <childnode refid="23" relation="include">
+        <childnode refid="20" relation="include">
         </childnode>
         <childnode refid="26" relation="include">
         </childnode>
@@ -124,15 +170,15 @@
       </node>
       <node id="7">
         <label>libs/core/src/core/mesh.cc</label>
-        <link refid="mesh_8cc"/>
+        <link refid="core_2src_2core_2mesh_8cc"/>
       </node>
       <node id="26">
         <label>libs/render/src/render/font.cc</label>
-        <link refid="font_8cc"/>
+        <link refid="render_2src_2render_2font_8cc"/>
       </node>
       <node id="28">
         <label>libs/render/src/render/materialshader.h</label>
-        <link refid="materialshader_8h"/>
+        <link refid="render_2src_2render_2materialshader_8h"/>
         <childnode refid="29" relation="include">
         </childnode>
         <childnode refid="11" relation="include">
@@ -157,6 +203,14 @@
         </childnode>
         <childnode refid="32" relation="include">
         </childnode>
+      </node>
+      <node id="23">
+        <label>libs/io/src/io/vfs.cc</label>
+        <link refid="vfs_8cc"/>
+      </node>
+      <node id="22">
+        <label>libs/io/src/io/json.cc</label>
+        <link refid="json_8cc"/>
       </node>
       <node id="34">
         <label>libs/render/src/render/shader.h</label>
@@ -184,11 +238,11 @@
         <label>libs/render/src/render/texture.cc</label>
         <link refid="texture_8cc"/>
       </node>
-      <node id="13">
+      <node id="12">
         <label>libs/core/src/core/texttemplate.cc</label>
         <link refid="texttemplate_8cc"/>
       </node>
-      <node id="16">
+      <node id="14">
         <label>libs/core/src/core/vfs_imagegenerator.cc</label>
         <link refid="vfs__imagegenerator_8cc"/>
       </node>
@@ -212,15 +266,11 @@
         <label>libs/render/src/render/viewporthandler.cc</label>
         <link refid="viewporthandler_8cc"/>
       </node>
-      <node id="19">
-        <label>libs/core/src/core/vfs_path.cc</label>
-        <link refid="vfs__path_8cc"/>
-      </node>
       <node id="33">
         <label>libs/render/src/render/world.cc</label>
-        <link refid="world_8cc"/>
+        <link refid="render_2src_2render_2world_8cc"/>
       </node>
-      <node id="15">
+      <node id="13">
         <label>libs/core/src/core/vfs_defaultshaders.cc</label>
         <link refid="vfs__defaultshaders_8cc"/>
       </node>
@@ -234,53 +284,7 @@
       </node>
       <node id="2">
         <label>libs/core/src/core/enum.cc</label>
-        <link refid="enum_8cc"/>
-      </node>
-      <node id="1">
-        <label>libs/core/src/core/vfs_path.h</label>
-        <link refid="vfs__path_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="4" relation="include">
-        </childnode>
-        <childnode refid="5" relation="include">
-        </childnode>
-        <childnode refid="12" relation="include">
-        </childnode>
-        <childnode refid="13" relation="include">
-        </childnode>
-        <childnode refid="14" relation="include">
-        </childnode>
-        <childnode refid="15" relation="include">
-        </childnode>
-        <childnode refid="16" relation="include">
-        </childnode>
-        <childnode refid="17" relation="include">
-        </childnode>
-        <childnode refid="19" relation="include">
-        </childnode>
-        <childnode refid="20" relation="include">
-        </childnode>
-        <childnode refid="11" relation="include">
-        </childnode>
-        <childnode refid="25" relation="include">
-        </childnode>
-        <childnode refid="26" relation="include">
-        </childnode>
-        <childnode refid="27" relation="include">
-        </childnode>
-        <childnode refid="28" relation="include">
-        </childnode>
-        <childnode refid="31" relation="include">
-        </childnode>
-        <childnode refid="34" relation="include">
-        </childnode>
-        <childnode refid="44" relation="include">
-        </childnode>
-        <childnode refid="45" relation="include">
-        </childnode>
+        <link refid="core_2src_2core_2enum_8cc"/>
       </node>
       <node id="9">
         <label>libs/render/src/render/actor.h</label>
@@ -290,10 +294,6 @@
         <childnode refid="11" relation="include">
         </childnode>
       </node>
-      <node id="14">
-        <label>libs/core/src/core/vfs.cc</label>
-        <link refid="vfs_8cc"/>
-      </node>
       <node id="40">
         <label>libs/render/src/render/scalablesprite.cc</label>
         <link refid="scalablesprite_8cc"/>
@@ -302,16 +302,16 @@
         <label>libs/render/src/render/shader.cc</label>
         <link refid="shader_8cc"/>
       </node>
-      <node id="20">
+      <node id="17">
         <label>libs/gui/src/gui/skin.h</label>
         <link refid="skin_8h"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
         <childnode refid="21" relation="include">
-        </childnode>
-        <childnode refid="22" relation="include">
-        </childnode>
-        <childnode refid="23" relation="include">
-        </childnode>
-        <childnode refid="24" relation="include">
         </childnode>
       </node>
       <node id="8">
@@ -322,42 +322,41 @@
         <childnode refid="11" relation="include">
         </childnode>
       </node>
-      <node id="17">
+      <node id="15">
         <label>libs/core/src/core/vfs_imagegenerator.h</label>
         <link refid="vfs__imagegenerator_8h"/>
+        <childnode refid="14" relation="include">
+        </childnode>
         <childnode refid="16" relation="include">
         </childnode>
-        <childnode refid="18" relation="include">
-        </childnode>
       </node>
-      <node id="22">
+      <node id="19">
         <label>libs/gui/src/gui/load.cc</label>
         <link refid="load_8cc"/>
       </node>
       <node id="30">
         <label>libs/render/src/render/materialshader.cc</label>
-        <link refid="materialshader_8cc"/>
+        <link refid="render_2src_2render_2materialshader_8cc"/>
       </node>
     </invincdepgraph>
-    <innerclass refid="structeu_1_1core_1_1vfs_1_1FilePath" prot="public">eu::core::vfs::FilePath</innerclass>
-    <innerclass refid="structeu_1_1core_1_1vfs_1_1DirPath" prot="public">eu::core::vfs::DirPath</innerclass>
+    <innerclass refid="structeu_1_1io_1_1FilePath" prot="public">eu::io::FilePath</innerclass>
+    <innerclass refid="structeu_1_1io_1_1DirPath" prot="public">eu::io::DirPath</innerclass>
     <innernamespace refid="namespaceeu">eu</innernamespace>
-    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
-    <innernamespace refid="namespaceeu_1_1core_1_1vfs">eu::core::vfs</innernamespace>
+    <innernamespace refid="namespaceeu_1_1io">eu::io</innernamespace>
       <sectiondef kind="func">
-      <memberdef kind="function" id="vfs__path_8h_1a74081ab06cce7a73f1878ecde88543c0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="vfs__path_8h_1aeda8efef7f3043e95f35b22e52f7d49c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>ADD_DEFAULT_FORMATTER</definition>
-        <argsstring>(eu::core::vfs::FilePath, std::string, eu::core::vfs::to_string)</argsstring>
+        <argsstring>(eu::io::FilePath, std::string, eu::io::to_string)</argsstring>
         <name>ADD_DEFAULT_FORMATTER</name>
         <param>
-          <type><ref refid="structeu_1_1core_1_1vfs_1_1FilePath" kindref="compound">eu::core::vfs::FilePath</ref></type>
+          <type><ref refid="structeu_1_1io_1_1FilePath" kindref="compound">eu::io::FilePath</ref></type>
         </param>
         <param>
           <type>std::string</type>
         </param>
         <param>
-          <type><ref refid="namespaceeu_1_1core_1_1vfs_1a759c0a0c3c32b10320ea76bc7b38d7c9" kindref="member">eu::core::vfs::to_string</ref></type>
+          <type><ref refid="namespaceeu_1_1io_1a39a919e7a4fa3d468e1268fe1a75d0fd" kindref="member">eu::io::to_string</ref></type>
         </param>
         <briefdescription>
         </briefdescription>
@@ -365,21 +364,21 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vfs_path.h" line="138" column="1" declfile="libs/core/src/core/vfs_path.h" declline="138" declcolumn="1"/>
+        <location file="libs/io/src/io/vfs_path.h" line="138" column="1" declfile="libs/io/src/io/vfs_path.h" declline="138" declcolumn="1"/>
       </memberdef>
-      <memberdef kind="function" id="vfs__path_8h_1ac653c753c7abf2ad0849b8543f366917" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="vfs__path_8h_1aef84ef3478ca594b88009ebb7321fee8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>ADD_DEFAULT_FORMATTER</definition>
-        <argsstring>(eu::core::vfs::DirPath, std::string, eu::core::vfs::to_string)</argsstring>
+        <argsstring>(eu::io::DirPath, std::string, eu::io::to_string)</argsstring>
         <name>ADD_DEFAULT_FORMATTER</name>
         <param>
-          <type><ref refid="structeu_1_1core_1_1vfs_1_1DirPath" kindref="compound">eu::core::vfs::DirPath</ref></type>
+          <type><ref refid="structeu_1_1io_1_1DirPath" kindref="compound">eu::io::DirPath</ref></type>
         </param>
         <param>
           <type>std::string</type>
         </param>
         <param>
-          <type><ref refid="namespaceeu_1_1core_1_1vfs_1a759c0a0c3c32b10320ea76bc7b38d7c9" kindref="member">eu::core::vfs::to_string</ref></type>
+          <type><ref refid="namespaceeu_1_1io_1a39a919e7a4fa3d468e1268fe1a75d0fd" kindref="member">eu::io::to_string</ref></type>
         </param>
         <briefdescription>
         </briefdescription>
@@ -387,13 +386,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vfs_path.h" line="139" column="1" declfile="libs/core/src/core/vfs_path.h" declline="139" declcolumn="1"/>
+        <location file="libs/io/src/io/vfs_path.h" line="139" column="1" declfile="libs/io/src/io/vfs_path.h" declline="139" declcolumn="1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/vfs_path.h"/>
+    <location file="libs/io/src/io/vfs_path.h"/>
   </compounddef>
 </doxygen>

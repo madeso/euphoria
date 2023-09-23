@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Euphoria: libs/core/src/core/stringmerger.h File Reference</title>
+<title>Euphoria: libs/base/src/base/stringmerger.h File Reference</title>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <link href="style.css" rel="stylesheet" type="text/css" />
@@ -46,7 +46,7 @@
   </div>
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="dir_6f77a39b07c019ccd7492ea87272f732.html">core</a></li><li class="navelem"><a class="el" href="dir_232ab8dc75117fda122ab855789b1b2c.html">src</a></li><li class="navelem"><a class="el" href="dir_415d9b35eca6c445d7f5977763a796bd.html">core</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="dir_06498c378442102d76a793fbea770c00.html">base</a></li><li class="navelem"><a class="el" href="dir_1434489f875b8806781a8ab0a150cad2.html">src</a></li><li class="navelem"><a class="el" href="dir_9335635e0e9dc5833ab0cd315fbf7edd.html">base</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -64,32 +64,30 @@
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeu_1_1core_1_1StringMerger.html">eu::core::StringMerger</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeu_1_1StringMerger.html">eu::StringMerger</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:namespaceeu"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html">eu</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:namespaceeu_1_1core"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html">eu::core</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:namespaceeu_1_1core_1_1string__mergers"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core_1_1string__mergers.html">eu::core::string_mergers</a></td></tr>
+<tr class="memitem:namespaceeu_1_1string__mergers"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1string__mergers.html">eu::string_mergers</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a91d3218e5f3811b53fc181c34afb2293"><td class="memItemLeft" align="right" valign="top">constexpr StringMerger&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core_1_1string__mergers.html#a91d3218e5f3811b53fc181c34afb2293">eu::core::string_mergers::english_and</a> = StringMerger{}.set_separator(&quot;, &quot;, &quot; and &quot;).set_empty(&quot;&lt;none&gt;&quot;)</td></tr>
-<tr class="separator:a91d3218e5f3811b53fc181c34afb2293"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aac2b67f851a386ad5aa1c170d60ed3bb"><td class="memItemLeft" align="right" valign="top">constexpr StringMerger&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core_1_1string__mergers.html#aac2b67f851a386ad5aa1c170d60ed3bb">eu::core::string_mergers::english_or</a> = StringMerger{}.set_separator(&quot;, &quot;, &quot; or &quot;).set_empty(&quot;&lt;none&gt;&quot;)</td></tr>
-<tr class="separator:aac2b67f851a386ad5aa1c170d60ed3bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0ba5365784bb0543fdd613deb56b9f29"><td class="memItemLeft" align="right" valign="top">constexpr StringMerger&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core_1_1string__mergers.html#a0ba5365784bb0543fdd613deb56b9f29">eu::core::string_mergers::array</a> = StringMerger{}.set_separator(&quot;, &quot;).set_start_and_end(&quot;[&quot;, &quot;]&quot;)</td></tr>
-<tr class="separator:a0ba5365784bb0543fdd613deb56b9f29"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8fb0af42bcfac0cfe7081ad5324f23b5"><td class="memItemLeft" align="right" valign="top">constexpr StringMerger&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core_1_1string__mergers.html#a8fb0af42bcfac0cfe7081ad5324f23b5">eu::core::string_mergers::function_call</a> = StringMerger{}.set_separator(&quot;, &quot;).set_start_and_end(&quot;(&quot;, &quot;)&quot;)</td></tr>
-<tr class="separator:a8fb0af42bcfac0cfe7081ad5324f23b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a39eaf040e284770cfc81604695b6c5da"><td class="memItemLeft" align="right" valign="top">constexpr StringMerger&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core_1_1string__mergers.html#a39eaf040e284770cfc81604695b6c5da">eu::core::string_mergers::space</a> = StringMerger{}.set_separator(&quot; &quot;)</td></tr>
-<tr class="separator:a39eaf040e284770cfc81604695b6c5da"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab0e474c0a39a01078f8c8a1331e784aa"><td class="memItemLeft" align="right" valign="top">constexpr StringMerger&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core_1_1string__mergers.html#ab0e474c0a39a01078f8c8a1331e784aa">eu::core::string_mergers::comma</a> = StringMerger{}.set_separator(&quot;, &quot;)</td></tr>
-<tr class="separator:ab0e474c0a39a01078f8c8a1331e784aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15bddf15fdda9287d613d7d2f0a77876"><td class="memItemLeft" align="right" valign="top">constexpr StringMerger&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1string__mergers.html#a15bddf15fdda9287d613d7d2f0a77876">eu::string_mergers::english_and</a> = StringMerger{}.set_separator(&quot;, &quot;, &quot; and &quot;).set_empty(&quot;&lt;none&gt;&quot;)</td></tr>
+<tr class="separator:a15bddf15fdda9287d613d7d2f0a77876"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1bf8d1ea04ec8c6e4a074bc329c21f9d"><td class="memItemLeft" align="right" valign="top">constexpr StringMerger&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1string__mergers.html#a1bf8d1ea04ec8c6e4a074bc329c21f9d">eu::string_mergers::english_or</a> = StringMerger{}.set_separator(&quot;, &quot;, &quot; or &quot;).set_empty(&quot;&lt;none&gt;&quot;)</td></tr>
+<tr class="separator:a1bf8d1ea04ec8c6e4a074bc329c21f9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2f609ed6b692c14eba4c5ef45b93e59"><td class="memItemLeft" align="right" valign="top">constexpr StringMerger&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1string__mergers.html#ab2f609ed6b692c14eba4c5ef45b93e59">eu::string_mergers::array</a> = StringMerger{}.set_separator(&quot;, &quot;).set_start_and_end(&quot;[&quot;, &quot;]&quot;)</td></tr>
+<tr class="separator:ab2f609ed6b692c14eba4c5ef45b93e59"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b3124f925bb2d5edf82b805c36ba08f"><td class="memItemLeft" align="right" valign="top">constexpr StringMerger&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1string__mergers.html#a3b3124f925bb2d5edf82b805c36ba08f">eu::string_mergers::function_call</a> = StringMerger{}.set_separator(&quot;, &quot;).set_start_and_end(&quot;(&quot;, &quot;)&quot;)</td></tr>
+<tr class="separator:a3b3124f925bb2d5edf82b805c36ba08f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1a3de51cbad9f2693838b0ad734bd88"><td class="memItemLeft" align="right" valign="top">constexpr StringMerger&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1string__mergers.html#ac1a3de51cbad9f2693838b0ad734bd88">eu::string_mergers::space</a> = StringMerger{}.set_separator(&quot; &quot;)</td></tr>
+<tr class="separator:ac1a3de51cbad9f2693838b0ad734bd88"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83c3897883134f9cf2f2f2c3d4a9ba65"><td class="memItemLeft" align="right" valign="top">constexpr StringMerger&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1string__mergers.html#a83c3897883134f9cf2f2f2c3d4a9ba65">eu::string_mergers::comma</a> = StringMerger{}.set_separator(&quot;, &quot;)</td></tr>
+<tr class="separator:a83c3897883134f9cf2f2f2c3d4a9ba65"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.17-->

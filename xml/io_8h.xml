@@ -4,12 +4,21 @@
     <compoundname>io.h</compoundname>
     <includes local="no">memory</includes>
     <includes local="no">optional</includes>
-    <includes refid="memorychunk_8h" local="yes">core/memorychunk.h</includes>
-    <includedby refid="io_8cc" local="yes">libs/core/src/core/io.cc</includedby>
-    <includedby refid="vfs_8cc" local="yes">libs/core/src/core/vfs.cc</includedby>
+    <includes refid="memorychunk_8h" local="yes">base/memorychunk.h</includes>
+    <includedby refid="io_8cc" local="yes">libs/io/src/io/io.cc</includedby>
+    <includedby refid="vfs_8cc" local="yes">libs/io/src/io/vfs.cc</includedby>
     <incdepgraph>
+      <node id="4">
+        <label>base/memorychunk.h</label>
+        <link refid="memorychunk_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>optional</label>
+      </node>
       <node id="1">
-        <label>libs/core/src/core/io.h</label>
+        <label>libs/io/src/io/io.h</label>
         <link refid="io_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
@@ -18,44 +27,34 @@
         <childnode refid="4" relation="include">
         </childnode>
       </node>
-      <node id="3">
-        <label>optional</label>
-      </node>
-      <node id="4">
-        <label>core/memorychunk.h</label>
-        <link refid="memorychunk_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-      </node>
       <node id="2">
         <label>memory</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
+      <node id="2">
+        <label>libs/io/src/io/io.cc</label>
+        <link refid="io_8cc"/>
+      </node>
+      <node id="3">
+        <label>libs/io/src/io/vfs.cc</label>
+        <link refid="vfs_8cc"/>
+      </node>
       <node id="1">
-        <label>libs/core/src/core/io.h</label>
+        <label>libs/io/src/io/io.h</label>
         <link refid="io_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
         <childnode refid="3" relation="include">
         </childnode>
       </node>
-      <node id="3">
-        <label>libs/core/src/core/vfs.cc</label>
-        <link refid="vfs_8cc"/>
-      </node>
-      <node id="2">
-        <label>libs/core/src/core/io.cc</label>
-        <link refid="io_8cc"/>
-      </node>
     </invincdepgraph>
     <innernamespace refid="namespaceeu">eu</innernamespace>
-    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
-    <innernamespace refid="namespaceeu_1_1core_1_1io">eu::core::io</innernamespace>
+    <innernamespace refid="namespaceeu_1_1io">eu::io</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/io.h"/>
+    <location file="libs/io/src/io/io.h"/>
   </compounddef>
 </doxygen>

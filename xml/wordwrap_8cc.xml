@@ -5,13 +5,13 @@
     <includes refid="wordwrap_8h" local="yes">core/wordwrap.h</includes>
     <includes local="no">optional</includes>
     <includes refid="assert_8h" local="yes">assert/assert.h</includes>
-    <includes refid="stringutils_8h" local="yes">core/stringutils.h</includes>
+    <includes refid="stringutils_8h" local="yes">base/stringutils.h</includes>
     <incdepgraph>
       <node id="3">
         <label>functional</label>
       </node>
       <node id="8">
-        <label>core/stringutils.h</label>
+        <label>base/stringutils.h</label>
         <link refid="stringutils_8h"/>
         <childnode refid="9" relation="include">
         </childnode>

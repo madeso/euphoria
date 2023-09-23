@@ -56,7 +56,7 @@
 <div class="contents">
 <a href="pack_8cc.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="pack_8h.html">core/pack.h</a>&quot;</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="cint_8h.html">core/cint.h</a>&quot;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="cint_8h.html">base/cint.h</a>&quot;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;stb_rect_pack.h&quot;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
@@ -75,7 +75,7 @@
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    )</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    {</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="comment">//init data</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">int</span> num_rects = <a class="code" href="namespaceeu_1_1core.html#a9296b74e6debf2d878a8b65c423b41c5">c_sizet_to_int</a>(to_pack.size());</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">int</span> num_rects = <a class="code" href="namespaceeu.html#a175a9253ebea7fa874013257344e2a54">c_sizet_to_int</a>(to_pack.size());</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keyword">auto</span> packed_rects = std::vector&lt;stbrp_rect&gt;(num_rects);</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        {</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;            <span class="keywordtype">int</span> index = 0;</div>
@@ -131,9 +131,9 @@
 <div class="ttc" id="acint_8h_html"><div class="ttname"><a href="cint_8h.html">cint.h</a></div></div>
 <div class="ttc" id="anamespaceeu_1_1core_html"><div class="ttname"><a href="namespaceeu_1_1core.html">eu::core</a></div><div class="ttdef"><b>Definition:</b> <a href="aabb_8cc_source.html#l00008">aabb.cc:9</a></div></div>
 <div class="ttc" id="anamespaceeu_1_1core_html_a6fca7b841e42734cd5c01e04fc9e6511a03c7c0ace395d80182db07ae2c30f034"><div class="ttname"><a href="namespaceeu_1_1core.html#a6fca7b841e42734cd5c01e04fc9e6511a03c7c0ace395d80182db07ae2c30f034">eu::core::Key::s</a></div><div class="ttdeci">@ s</div></div>
-<div class="ttc" id="anamespaceeu_1_1core_html_a9296b74e6debf2d878a8b65c423b41c5"><div class="ttname"><a href="namespaceeu_1_1core.html#a9296b74e6debf2d878a8b65c423b41c5">eu::core::c_sizet_to_int</a></div><div class="ttdeci">int c_sizet_to_int(size_t t)</div><div class="ttdef"><b>Definition:</b> <a href="cint_8cc_source.html#l00011">cint.cc:11</a></div></div>
 <div class="ttc" id="anamespaceeu_1_1core_html_a948c76981b2435fd3245b40f74bb75e4"><div class="ttname"><a href="namespaceeu_1_1core.html#a948c76981b2435fd3245b40f74bb75e4">eu::core::pack</a></div><div class="ttdeci">std::vector&lt; std::optional&lt; Recti &gt; &gt; pack(const size2i &amp;container, const std::vector&lt; size2i &gt; &amp;to_pack)</div><div class="ttdef"><b>Definition:</b> <a href="pack_8cc_source.html#l00015">pack.cc:16</a></div></div>
 <div class="ttc" id="anamespaceeu_1_1core_html_aa1676f6b793bf695a9a6fdb9c6e0833aa4b43b0aee35624cd95b910189b3dc231"><div class="ttname"><a href="namespaceeu_1_1core.html#aa1676f6b793bf695a9a6fdb9c6e0833aa4b43b0aee35624cd95b910189b3dc231">eu::core::Grayscale::r</a></div><div class="ttdeci">@ r</div></div>
+<div class="ttc" id="anamespaceeu_html_a175a9253ebea7fa874013257344e2a54"><div class="ttname"><a href="namespaceeu.html#a175a9253ebea7fa874013257344e2a54">eu::c_sizet_to_int</a></div><div class="ttdeci">int c_sizet_to_int(size_t t)</div><div class="ttdef"><b>Definition:</b> <a href="cint_8cc_source.html#l00011">cint.cc:11</a></div></div>
 <div class="ttc" id="apack_8h_html"><div class="ttname"><a href="pack_8h.html">pack.h</a></div></div>
 <div class="ttc" id="astructeu_1_1core_1_1Recti_html_ab5692dc33e63962f52528309283e7c02"><div class="ttname"><a href="structeu_1_1core_1_1Recti.html#ab5692dc33e63962f52528309283e7c02">eu::core::Recti::from_top_left_width_height</a></div><div class="ttdeci">static Recti from_top_left_width_height(const vec2i &amp;topleft, int width, int height)</div><div class="ttdef"><b>Definition:</b> <a href="rect_8cc_source.html#l00561">rect.cc:561</a></div></div>
 <div class="ttc" id="astructeu_1_1core_1_1size2i_html"><div class="ttname"><a href="structeu_1_1core_1_1size2i.html">eu::core::size2i</a></div><div class="ttdef"><b>Definition:</b> <a href="size2_8h_source.html#l00034">size2.h:35</a></div></div>

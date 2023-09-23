@@ -1,0 +1,139 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1files_1_1gui_1_1Skin" kind="struct" language="C++" prot="public">
+    <compoundname>eu::files::gui::Skin</compoundname>
+    <includes refid="gui_8h" local="no">gui.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1files_1_1gui_1_1Skin_1abf9ae2b06b728a80a4587d99250601a5" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string eu::files::gui::Skin::name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <initializer>= &quot;default&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/files/src/files/gui.h" line="129" column="21" bodyfile="libs/files/src/files/gui.h" bodystart="129" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1files_1_1gui_1_1Skin_1a28eda17e7550391b0c895d5f30e3102d" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string eu::files::gui::Skin::font</definition>
+        <argsstring></argsstring>
+        <name>font</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/files/src/files/gui.h" line="130" column="21" bodyfile="libs/files/src/files/gui.h" bodystart="130" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1files_1_1gui_1_1Skin_1a0f584c93e58da5da009d32e5c184726c" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float eu::files::gui::Skin::text_size</definition>
+        <argsstring></argsstring>
+        <name>text_size</name>
+        <initializer>= 12.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/files/src/files/gui.h" line="131" column="15" bodyfile="libs/files/src/files/gui.h" bodystart="131" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1files_1_1gui_1_1Skin_1a1517c2cd8d352aaf443df288d1c2820e" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string eu::files::gui::Skin::button_image</definition>
+        <argsstring></argsstring>
+        <name>button_image</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/files/src/files/gui.h" line="132" column="21" bodyfile="libs/files/src/files/gui.h" bodystart="132" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1files_1_1gui_1_1Skin_1a1d6b2292fccd1d33670e9781339aa141" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1files_1_1gui_1_1ButtonState" kindref="compound">ButtonState</ref></type>
+        <definition>ButtonState eu::files::gui::Skin::button_idle</definition>
+        <argsstring></argsstring>
+        <name>button_idle</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/files/src/files/gui.h" line="134" column="21" bodyfile="libs/files/src/files/gui.h" bodystart="134" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1files_1_1gui_1_1Skin_1ae085cf674b6bdfdf4a2fbe5683b0efa1" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1files_1_1gui_1_1ButtonState" kindref="compound">ButtonState</ref></type>
+        <definition>ButtonState eu::files::gui::Skin::button_hot</definition>
+        <argsstring></argsstring>
+        <name>button_hot</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/files/src/files/gui.h" line="135" column="21" bodyfile="libs/files/src/files/gui.h" bodystart="135" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1files_1_1gui_1_1Skin_1a96a10ed55d8885256776e51b8f50a23e" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1files_1_1gui_1_1ButtonState" kindref="compound">ButtonState</ref></type>
+        <definition>ButtonState eu::files::gui::Skin::button_active_hot</definition>
+        <argsstring></argsstring>
+        <name>button_active_hot</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/files/src/files/gui.h" line="136" column="21" bodyfile="libs/files/src/files/gui.h" bodystart="136" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>eu::files::gui::ButtonState</label>
+        <link refid="structeu_1_1files_1_1gui_1_1ButtonState"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>image_color</edgelabel>
+          <edgelabel>text_color</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>eu::files::gui::Skin</label>
+        <link refid="structeu_1_1files_1_1gui_1_1Skin"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>button_active_hot</edgelabel>
+          <edgelabel>button_hot</edgelabel>
+          <edgelabel>button_idle</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>eu::files::gui::Rgb</label>
+        <link refid="structeu_1_1files_1_1gui_1_1Rgb"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/files/src/files/gui.h" line="127" column="5" bodyfile="libs/files/src/files/gui.h" bodystart="128" bodyend="137"/>
+    <listofallmembers>
+      <member refid="structeu_1_1files_1_1gui_1_1Skin_1a96a10ed55d8885256776e51b8f50a23e" prot="public" virt="non-virtual"><scope>eu::files::gui::Skin</scope><name>button_active_hot</name></member>
+      <member refid="structeu_1_1files_1_1gui_1_1Skin_1ae085cf674b6bdfdf4a2fbe5683b0efa1" prot="public" virt="non-virtual"><scope>eu::files::gui::Skin</scope><name>button_hot</name></member>
+      <member refid="structeu_1_1files_1_1gui_1_1Skin_1a1d6b2292fccd1d33670e9781339aa141" prot="public" virt="non-virtual"><scope>eu::files::gui::Skin</scope><name>button_idle</name></member>
+      <member refid="structeu_1_1files_1_1gui_1_1Skin_1a1517c2cd8d352aaf443df288d1c2820e" prot="public" virt="non-virtual"><scope>eu::files::gui::Skin</scope><name>button_image</name></member>
+      <member refid="structeu_1_1files_1_1gui_1_1Skin_1a28eda17e7550391b0c895d5f30e3102d" prot="public" virt="non-virtual"><scope>eu::files::gui::Skin</scope><name>font</name></member>
+      <member refid="structeu_1_1files_1_1gui_1_1Skin_1abf9ae2b06b728a80a4587d99250601a5" prot="public" virt="non-virtual"><scope>eu::files::gui::Skin</scope><name>name</name></member>
+      <member refid="structeu_1_1files_1_1gui_1_1Skin_1a0f584c93e58da5da009d32e5c184726c" prot="public" virt="non-virtual"><scope>eu::files::gui::Skin</scope><name>text_size</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

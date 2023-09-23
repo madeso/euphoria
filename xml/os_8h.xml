@@ -2,24 +2,20 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="os_8h" kind="file" language="C++">
     <compoundname>os.h</compoundname>
-    <includedby refid="os_8cc" local="yes">libs/core/src/core/os.cc</includedby>
-    <includedby refid="vfs_8cc" local="yes">libs/core/src/core/vfs.cc</includedby>
+    <includedby refid="os_8cc" local="yes">libs/base/src/base/os.cc</includedby>
+    <includedby refid="vfs_8cc" local="yes">libs/io/src/io/vfs.cc</includedby>
     <includedby refid="engine_8cc" local="yes">libs/window/src/window/engine.cc</includedby>
     <invincdepgraph>
       <node id="4">
         <label>libs/window/src/window/engine.cc</label>
         <link refid="engine_8cc"/>
       </node>
-      <node id="2">
-        <label>libs/core/src/core/os.cc</label>
-        <link refid="os_8cc"/>
-      </node>
       <node id="3">
-        <label>libs/core/src/core/vfs.cc</label>
+        <label>libs/io/src/io/vfs.cc</label>
         <link refid="vfs_8cc"/>
       </node>
       <node id="1">
-        <label>libs/core/src/core/os.h</label>
+        <label>libs/base/src/base/os.h</label>
         <link refid="os_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
@@ -28,14 +24,17 @@
         <childnode refid="4" relation="include">
         </childnode>
       </node>
+      <node id="2">
+        <label>libs/base/src/base/os.cc</label>
+        <link refid="os_8cc"/>
+      </node>
     </invincdepgraph>
-    <innerclass refid="structeu_1_1core_1_1DirectoryListing" prot="public">eu::core::DirectoryListing</innerclass>
+    <innerclass refid="structeu_1_1DirectoryListing" prot="public">eu::DirectoryListing</innerclass>
     <innernamespace refid="namespaceeu">eu</innernamespace>
-    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/os.h"/>
+    <location file="libs/base/src/base/os.h"/>
   </compounddef>
 </doxygen>

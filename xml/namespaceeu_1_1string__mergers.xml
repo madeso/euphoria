@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="namespaceeu_1_1string__mergers" kind="namespace" language="C++">
+    <compoundname>eu::string_mergers</compoundname>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="namespaceeu_1_1string__mergers_1a15bddf15fdda9287d613d7d2f0a77876" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr <ref refid="structeu_1_1StringMerger" kindref="compound">StringMerger</ref></type>
+        <definition>constexpr StringMerger eu::string_mergers::english_and</definition>
+        <argsstring></argsstring>
+        <name>english_and</name>
+        <initializer>= <ref refid="structeu_1_1StringMerger" kindref="compound">StringMerger</ref>{}.set_separator(&quot;, &quot;, &quot; and &quot;).set_empty(&quot;&lt;none&gt;&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/stringmerger.h" line="89" column="32" bodyfile="libs/base/src/base/stringmerger.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceeu_1_1string__mergers_1a1bf8d1ea04ec8c6e4a074bc329c21f9d" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr <ref refid="structeu_1_1StringMerger" kindref="compound">StringMerger</ref></type>
+        <definition>constexpr StringMerger eu::string_mergers::english_or</definition>
+        <argsstring></argsstring>
+        <name>english_or</name>
+        <initializer>= <ref refid="structeu_1_1StringMerger" kindref="compound">StringMerger</ref>{}.set_separator(&quot;, &quot;, &quot; or &quot;).set_empty(&quot;&lt;none&gt;&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/stringmerger.h" line="90" column="32" bodyfile="libs/base/src/base/stringmerger.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceeu_1_1string__mergers_1ab2f609ed6b692c14eba4c5ef45b93e59" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr <ref refid="structeu_1_1StringMerger" kindref="compound">StringMerger</ref></type>
+        <definition>constexpr StringMerger eu::string_mergers::array</definition>
+        <argsstring></argsstring>
+        <name>array</name>
+        <initializer>= <ref refid="structeu_1_1StringMerger" kindref="compound">StringMerger</ref>{}.set_separator(&quot;, &quot;).set_start_and_end(&quot;[&quot;, &quot;]&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/stringmerger.h" line="91" column="32" bodyfile="libs/base/src/base/stringmerger.h" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceeu_1_1string__mergers_1a3b3124f925bb2d5edf82b805c36ba08f" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr <ref refid="structeu_1_1StringMerger" kindref="compound">StringMerger</ref></type>
+        <definition>constexpr StringMerger eu::string_mergers::function_call</definition>
+        <argsstring></argsstring>
+        <name>function_call</name>
+        <initializer>= <ref refid="structeu_1_1StringMerger" kindref="compound">StringMerger</ref>{}.set_separator(&quot;, &quot;).set_start_and_end(&quot;(&quot;, &quot;)&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/stringmerger.h" line="92" column="32" bodyfile="libs/base/src/base/stringmerger.h" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceeu_1_1string__mergers_1ac1a3de51cbad9f2693838b0ad734bd88" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr <ref refid="structeu_1_1StringMerger" kindref="compound">StringMerger</ref></type>
+        <definition>constexpr StringMerger eu::string_mergers::space</definition>
+        <argsstring></argsstring>
+        <name>space</name>
+        <initializer>= <ref refid="structeu_1_1StringMerger" kindref="compound">StringMerger</ref>{}.set_separator(&quot; &quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/stringmerger.h" line="93" column="32" bodyfile="libs/base/src/base/stringmerger.h" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceeu_1_1string__mergers_1a83c3897883134f9cf2f2f2c3d4a9ba65" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr <ref refid="structeu_1_1StringMerger" kindref="compound">StringMerger</ref></type>
+        <definition>constexpr StringMerger eu::string_mergers::comma</definition>
+        <argsstring></argsstring>
+        <name>comma</name>
+        <initializer>= <ref refid="structeu_1_1StringMerger" kindref="compound">StringMerger</ref>{}.set_separator(&quot;, &quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/stringmerger.h" line="94" column="32" bodyfile="libs/base/src/base/stringmerger.h" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/base/src/base/stringmerger.h" line="87" column="5"/>
+  </compounddef>
+</doxygen>

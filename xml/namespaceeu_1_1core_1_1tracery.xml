@@ -14,39 +14,22 @@
     <innerclass refid="structeu_1_1core_1_1tracery_1_1Grammar" prot="public">eu::core::tracery::Grammar</innerclass>
     <innernamespace refid="namespaceeu_1_1core_1_1tracery_1_1english">eu::core::tracery::english</innernamespace>
       <sectiondef kind="func">
-      <memberdef kind="function" id="namespaceeu_1_1core_1_1tracery_1af5009165fb254b14dc6cd94bef109865" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1core_1_1tracery_1_1Result" kindref="compound">Result</ref></type>
-        <definition>Result eu::core::tracery::parse_json</definition>
-        <argsstring>(Symbol *rule, const ::tracery::Rule &amp;value)</argsstring>
-        <name>parse_json</name>
-        <param>
-          <type><ref refid="structeu_1_1core_1_1tracery_1_1Symbol" kindref="compound">Symbol</ref> *</type>
-          <declname>rule</declname>
-        </param>
-        <param>
-          <type>const ::<ref refid="structeu_1_1core_1_1tracery_1_1Rule" kindref="compound">tracery::Rule</ref> &amp;</type>
-          <declname>value</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/tracery.cc" line="31" column="5" bodyfile="libs/core/src/core/tracery.cc" bodystart="31" bodyend="43"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1core_1_1tracery_1a957a15c62ecb9e61b561ea2b8130b44a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeu_1_1core_1_1tracery_1aeaeca9434fa9045af71e3562b27b817a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1core_1_1tracery_1_1Result" kindref="compound">Result</ref></type>
         <definition>Result eu::core::tracery::from_json</definition>
-        <argsstring>(Symbol *rule, const ::tracery::Rule &amp;value)</argsstring>
+        <argsstring>(Symbol *rule, const jsonh::Value &amp;value, const jsonh::Document *doc)</argsstring>
         <name>from_json</name>
         <param>
           <type><ref refid="structeu_1_1core_1_1tracery_1_1Symbol" kindref="compound">Symbol</ref> *</type>
           <declname>rule</declname>
         </param>
         <param>
-          <type>const ::<ref refid="structeu_1_1core_1_1tracery_1_1Rule" kindref="compound">tracery::Rule</ref> &amp;</type>
+          <type>const jsonh::Value &amp;</type>
           <declname>value</declname>
+        </param>
+        <param>
+          <type>const jsonh::Document *</type>
+          <declname>doc</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -54,49 +37,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/tracery.cc" line="47" column="5" bodyfile="libs/core/src/core/tracery.cc" bodystart="47" bodyend="57"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1core_1_1tracery_1a0e6e4580c7602188da7d420e08d35839" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1core_1_1tracery_1_1Result" kindref="compound">Result</ref></type>
-        <definition>Result eu::core::tracery::parse_json</definition>
-        <argsstring>(Symbol *rule, const rapidjson::Value &amp;value)</argsstring>
-        <name>parse_json</name>
-        <param>
-          <type><ref refid="structeu_1_1core_1_1tracery_1_1Symbol" kindref="compound">Symbol</ref> *</type>
-          <declname>rule</declname>
-        </param>
-        <param>
-          <type>const rapidjson::Value &amp;</type>
-          <declname>value</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/tracery.cc" line="63" column="5" bodyfile="libs/core/src/core/tracery.cc" bodystart="63" bodyend="93"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1core_1_1tracery_1ae7a66db1bcbf324da583b266b9bb1d48" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1core_1_1tracery_1_1Result" kindref="compound">Result</ref></type>
-        <definition>Result eu::core::tracery::from_json</definition>
-        <argsstring>(Symbol *rule, const rapidjson::Value &amp;value)</argsstring>
-        <name>from_json</name>
-        <param>
-          <type><ref refid="structeu_1_1core_1_1tracery_1_1Symbol" kindref="compound">Symbol</ref> *</type>
-          <declname>rule</declname>
-        </param>
-        <param>
-          <type>const rapidjson::Value &amp;</type>
-          <declname>value</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/tracery.cc" line="97" column="5" bodyfile="libs/core/src/core/tracery.cc" bodystart="97" bodyend="107"/>
+        <location file="libs/core/src/core/tracery.cc" line="32" column="5" bodyfile="libs/core/src/core/tracery.cc" bodystart="32" bodyend="72"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1core_1_1tracery_1ac4782b44cae3dca092b6c10666ec9185" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -113,7 +54,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/tracery.cc" line="226" column="17" bodyfile="libs/core/src/core/tracery.cc" bodystart="226" bodyend="249" declfile="libs/core/src/core/tracery.h" declline="44" declcolumn="17"/>
+        <location file="libs/core/src/core/tracery.cc" line="191" column="17" bodyfile="libs/core/src/core/tracery.cc" bodystart="191" bodyend="214" declfile="libs/core/src/core/tracery.h" declline="44" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1core_1_1tracery_1a289f2f429fcdd425473b7fa16e86ca36" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1core_1_1tracery_1_1Result" kindref="compound">Result</ref></type>
@@ -130,7 +71,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/tracery.cc" line="258" column="12" bodyfile="libs/core/src/core/tracery.cc" bodystart="258" bodyend="262"/>
+        <location file="libs/core/src/core/tracery.cc" line="223" column="12" bodyfile="libs/core/src/core/tracery.cc" bodystart="223" bodyend="227"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1core_1_1tracery_1adbae1fbe306941175dbc17a4301af861" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -147,13 +88,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/tracery.cc" line="265" column="17" bodyfile="libs/core/src/core/tracery.cc" bodystart="265" bodyend="279"/>
+        <location file="libs/core/src/core/tracery.cc" line="230" column="17" bodyfile="libs/core/src/core/tracery.cc" bodystart="230" bodyend="244"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/tracery.cc" line="18" column="1"/>
+    <location file="libs/core/src/core/tracery.cc" line="17" column="1"/>
   </compounddef>
 </doxygen>
