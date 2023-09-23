@@ -2,7 +2,7 @@
 
 #include "SDL_timer.h"
 
-#include "core/cint.h"
+#include "base/cint.h"
 
 namespace eu::window
 {
@@ -18,7 +18,7 @@ namespace eu::window
         last_time = current_time;
         current_time = SDL_GetPerformanceCounter();
 
-        const float dt = core::c_u64_to_float(current_time - last_time) / core::c_u64_to_float(SDL_GetPerformanceFrequency());
+        const float dt = c_u64_to_float(current_time - last_time) / c_u64_to_float(SDL_GetPerformanceFrequency());
         return dt;
     }
 }

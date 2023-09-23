@@ -7,13 +7,15 @@
 #include "core/shufflebag.h"
 #include "core/plane.h"
 #include "core/ray.h"
-#include "core/os.h"
+#include "base/os.h"
 #include "core/argparse.h"
 
 #include "core/aabb.h"
 
+using namespace eu;
 using namespace eu::core;
 using namespace eu::core::dump3d;
+
 
 void add_spiral(Dumper* dump, int number_of_steps, float number_of_spins, float height, float size, const Rgbi& color)
 {

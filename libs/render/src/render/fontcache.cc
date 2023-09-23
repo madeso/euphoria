@@ -2,7 +2,7 @@
 
 #include "assert/assert.h"
 #include "core/cache.h"
-#include "core/vfs_path.h"
+#include "io/vfs_path.h"
 
 #include "render/font.h"
 
@@ -10,9 +10,9 @@
 namespace eu::render
 {
     struct FontCache::FontCachePimpl
-        : core::Cache<core::vfs::FilePath, DrawableFont, FontCache::FontCachePimpl>
+        : core::Cache<io::FilePath, DrawableFont, FontCache::FontCachePimpl>
     {
-        explicit FontCachePimpl(core::vfs::FileSystem* fs, TextureCache* c)
+        explicit FontCachePimpl(io::FileSystem* fs, TextureCache* c)
             : vfs(fs)
             , cache(c)
         {
@@ -20,17 +20,17 @@ namespace eu::render
         }
 
         std::shared_ptr<DrawableFont>
-        create(const core::vfs::FilePath& file)
+        create(const io::FilePath& file)
         {
             auto ret = std::make_shared<DrawableFont>(vfs, cache, file);
             return ret;
         }
 
-        core::vfs::FileSystem* vfs;
+        io::FileSystem* vfs;
         TextureCache* cache;
     };
 
-    FontCache::FontCache(core::vfs::FileSystem* fs, TextureCache* cache)
+    FontCache::FontCache(io::FileSystem* fs, TextureCache* cache)
     {
         pimp = std::make_unique<FontCache::FontCachePimpl>(fs, cache);
     }
@@ -38,7 +38,7 @@ namespace eu::render
     FontCache::~FontCache() = default;
 
     std::shared_ptr<DrawableFont>
-    FontCache::get_font(const core::vfs::FilePath& path) const
+    FontCache::get_font(const io::FilePath& path) const
     {
         return pimp->get(path);
     }

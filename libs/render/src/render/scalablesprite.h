@@ -5,7 +5,7 @@
 #include "core/rect.h"
 
 
-namespace eu::core::vfs
+namespace eu::io
 {
     struct FileSystem;
     struct FilePath;
@@ -28,8 +28,8 @@ namespace eu::render
     {
         ScalableSprite
         (
-                core::vfs::FileSystem* fs,
-                const core::vfs::FilePath& path,
+                io::FileSystem* fs,
+                const io::FilePath& path,
                 TextureCache* cache
         );
         ~ScalableSprite();

@@ -1,12 +1,14 @@
 #include <array>
 
 #include "core/image.h"
-#include "core/io.h"
+#include "io/io.h"
 #include "core/raytracer.h"
 #include "core/argparse.h"
 #include "core/timepoint.h"
 
 using namespace eu::core;
+using namespace eu::io;
+
 
 int
 main(int argc, char* argv[])
@@ -86,7 +88,7 @@ main(int argc, char* argv[])
     const auto end = get_current_timepoint();
     const auto seconds = get_seconds_between(start, end);
     std::cout << "Rendering took " << seconds << " seconds.\n";
-    io::write_chunk_to_file(image.write(ImageWriteFormat::png), "raytracer.png");
+    write_chunk_to_file(image.write(ImageWriteFormat::png), "raytracer.png");
 
     return 0;
 }

@@ -3,7 +3,7 @@
 #include <optional>
 
 #include "assert/assert.h"
-#include "core/stringutils.h"
+#include "base/stringutils.h"
 
 
 namespace eu::core

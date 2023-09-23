@@ -4,12 +4,12 @@
 #include <iomanip>
 #include <algorithm>
 
-#include "core/cint.h"
-#include "core/stringutils.h"
-#include "core/stringmerger.h"
+#include "base/cint.h"
+#include "base/stringutils.h"
+#include "base/stringmerger.h"
 #include "core/table.h"
 #include "core/wordwrap.h"
-#include "core/functional.h"
+#include "base/functional.h"
 
 
 /*

@@ -2,7 +2,7 @@
 
 #include "core/image.h"
 #include "render/gltypes.h"
-#include "core/vfs.h"
+#include "io/vfs.h"
 
 
 namespace eu::core
@@ -107,8 +107,8 @@ namespace eu::render
         void
         load_from_file
         (
-            core::vfs::FileSystem* fs,
-            const core::vfs::FilePath& path,
+            io::FileSystem* fs,
+            const io::FilePath& path,
             core::AlphaLoad alpha,
             const Texture2dLoadData& data
         );

@@ -14,10 +14,10 @@
 #include "assert/assert.h"
 #include "core/image_draw.h"
 #include "core/utf8.h"
-#include "core/vfs.h"
-#include "core/cint.h"
-#include "core/memorychunk.h"
-#include "core/vfs_path.h"
+#include "io/vfs.h"
+#include "base/cint.h"
+#include "base/memorychunk.h"
+#include "io/vfs_path.h"
 
 
 namespace eu::core
@@ -297,8 +297,8 @@ namespace eu::core
     LoadedFont
     get_characters_from_font
     (
-        vfs::FileSystem* file_system,
-        const vfs::FilePath& font_file,
+        io::FileSystem* file_system,
+        const io::FilePath& font_file,
         int font_size,
         const std::string& chars
     )
@@ -389,8 +389,8 @@ namespace eu::core
     LoadedFont
     get_characters_from_single_image
     (
-        vfs::FileSystem* fs,
-        const vfs::FilePath& image_file,
+        io::FileSystem* fs,
+        const io::FilePath& image_file,
         const std::string& image_alias,
         float image_scale,
         float image_bearing_x,

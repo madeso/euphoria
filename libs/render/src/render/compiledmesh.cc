@@ -4,13 +4,13 @@
 #include <utility>
 #include <numeric>
 
-#include "core/cint.h"
+#include "base/cint.h"
 #include "core/rgb.h"
 #include "assert/assert.h"
 #include "core/enum.h"
 #include "core/texturetypes.h"
 #include "log/log.h"
-#include "core/vfs_path.h"
+#include "io/vfs_path.h"
 
 #include "render/materialshader.h"
 #include "render/shaderattribute3d.h"
@@ -219,9 +219,9 @@ namespace eu::render
         data.reserve(faces.size() * 3);
         for(const auto& f: faces)
         {
-            data.emplace_back(core::c_int_to_unsigned_int(f.a));
-            data.emplace_back(core::c_int_to_unsigned_int(f.b));
-            data.emplace_back(core::c_int_to_unsigned_int(f.c));
+            data.emplace_back(c_int_to_unsigned_int(f.a));
+            data.emplace_back(c_int_to_unsigned_int(f.b));
+            data.emplace_back(c_int_to_unsigned_int(f.c));
         }
         b->set_data(data);
     }
@@ -232,7 +232,7 @@ namespace eu::render
             const core::Mesh& mesh,
             MaterialShaderCache* shader_cache,
             TextureCache* texture_cache,
-            const core::vfs::DirPath& texture_folder,
+            const io::DirPath& texture_folder,
             const std::string& debug_name
     )
     {
@@ -256,14 +256,14 @@ namespace eu::render
             // we try to match a shader to the object
             const auto shader_name = material_src.shader.value_or
             (
-                core::vfs::FilePath("~/default_shader")
+                io::FilePath("~/default_shader")
             );
             mat.shader = shader_cache->get(shader_name);
             for(const auto& texture_src: material_src.textures)
             {
-                const auto texture_path = core::vfs::resolve_relative
+                const auto texture_path = io::resolve_relative
                 (
-                    core::vfs::FilePath{texture_src.path},
+                    io::FilePath{texture_src.path},
                     texture_folder
                 );
                 if(texture_path.has_value() == false)
@@ -333,7 +333,7 @@ namespace eu::render
             bind_attributes(attributes, &part->config);
 
             convert_tris_to_index_buffer(part_src.faces, &part->tris);
-            part->tri_count = core::c_sizet_to_int(part_src.faces.size());
+            part->tri_count = c_sizet_to_int(part_src.faces.size());
 
             IndexBuffer::bind(nullptr);
             VertexBuffer::bind(nullptr);

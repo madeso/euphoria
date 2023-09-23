@@ -8,27 +8,7 @@ set(src
 )
 source_group("" FILES ${src})
 
-# file_types is only plain gaf
-# when gaf suppors several outputs, link with a file_types_imgui library instead
-include_directories(SYSTEM ${CMAKE_CURRENT_BINARY_DIR})
-GAF_GENERATE_CPP(
-    IMGUI
-    SOURCES generated_sources
-    HEADERS generated_headers
-    FILES
-        ${file_types_folder}/scalingsprite.gaf
-        ${file_types_folder}/game.gaf
-        ${file_types_folder}/world.gaf
-        ${file_types_folder}/enum.gaf
-)
-
-source_group("generated" FILES ${generated_sources} ${generated_headers})
-
-set(src ${src} ${generated_sources} ${generated_headers})
-
-
 add_executable(editor WIN32 MACOSX_BUNDLE ${src})
-set_win32_defines(editor)
 set_target_properties(editor PROPERTIES FOLDER "Applications")
 target_include_directories(editor
     PUBLIC
@@ -41,7 +21,6 @@ target_link_libraries(editor
         euph::core
         euph::render
         euph::window
-        euph::file_types
         external::sdl2
         external::imgui
 )

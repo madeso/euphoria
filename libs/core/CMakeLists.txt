@@ -90,7 +90,6 @@ set(app_src
     src/core/camera3.cc src/core/camera3.h
     src/core/camera3.editor.cc src/core/camera3.editor.h
     src/core/canvaslogic.cc src/core/canvaslogic.h
-    src/core/cint.cc src/core/cint.h
     src/core/closestpoint.cc src/core/closestpoint.h
     src/core/collisionmesh.cc src/core/collisionmesh.h
     src/core/compiler_warning.cc src/core/compiler_warning.h
@@ -105,27 +104,21 @@ set(app_src
     src/core/dump.cc src/core/dump.h
     src/core/ecs.cc src/core/ecs.h
     src/core/ecs.id.cc src/core/ecs.id.h
-    src/core/editdistance.cc src/core/editdistance.h
-    src/core/editdistance.search.cc src/core/editdistance.search.h
     src/core/enum.cc src/core/enum.h
     src/core/enumtostring.cc src/core/enumtostring.h
     src/core/findstring.cc src/core/findstring.h
     src/core/fpscontroller.cc src/core/fpscontroller.h
-    src/core/functional.cc src/core/functional.h
     src/core/guid.cc src/core/guid.h
     src/core/helptexthover.cc src/core/helptexthover.h
     src/core/insertionsort.cc src/core/insertionsort.h
     src/core/interpolate.cc src/core/interpolate.h
     src/core/interpolate.default.cc src/core/interpolate.default.h
     src/core/intersection.cc src/core/intersection.h
-    src/core/ints.cc src/core/ints.h
-    src/core/io.cc src/core/io.h
     src/core/iterate.cc src/core/iterate.h
     src/core/key.cc src/core/key.h
     src/core/knuthshuffle.cc src/core/knuthshuffle.h
     src/core/last_n.cc src/core/last_n.h
     src/core/loadedfont.cc src/core/loadedfont.h
-    src/core/memorychunk.cc src/core/memorychunk.h
     src/core/mesh.cc src/core/mesh.h
     src/core/minmax.cc src/core/minmax.h
     src/core/mousebehaviour.cc src/core/mousebehaviour.h
@@ -135,24 +128,18 @@ set(app_src
     src/core/numeric.cc src/core/numeric.h
     src/core/numparse.cc src/core/numparse.h
     src/core/orbitcontroller.cc src/core/orbitcontroller.h
-    src/core/os.cc src/core/os.h
     src/core/propertytree.cc src/core/propertytree.h
-    src/core/proto.cc src/core/proto.h
     src/core/quicksort.cc src/core/quicksort.h
     src/core/radix_sort.cc src/core/radix_sort.h
     src/core/random.cc src/core/random.h
     src/core/range.cc src/core/range.h
     src/core/raytracer.cc src/core/raytracer.h
-    src/core/result.cc src/core/result.h
     src/core/rng.cc src/core/rng.h
     src/core/sensitivity.cc src/core/sensitivity.h
     src/core/shufflebag.cc src/core/shufflebag.h
     src/core/sol_forward.cc src/core/sol_forward.h
     src/core/sol.cc src/core/sol.h
     src/core/stdutils.cc src/core/stdutils.h
-    src/core/stringbuilder.cc src/core/stringbuilder.h
-    src/core/stringmerger.cc src/core/stringmerger.h
-    src/core/stringutils.cc src/core/stringutils.h
     src/core/subvec.cc src/core/subvec.h
     src/core/tablelayout.cc src/core/tablelayout.h
     src/core/textfileparser.cc src/core/textfileparser.h
@@ -163,14 +150,9 @@ set(app_src
     src/core/utf8.cc src/core/utf8.h
     src/core/vfs_defaultshaders.cc src/core/vfs_defaultshaders.h
     src/core/vfs_imagegenerator.cc src/core/vfs_imagegenerator.h
-    src/core/vfs_path.cc src/core/vfs_path.h
-    src/core/vfs.cc src/core/vfs.h
     src/core/viewport.cc src/core/viewport.h
     src/core/viewportdef.cc src/core/viewportdef.h
     src/core/wordwrap.cc src/core/wordwrap.h
-
-    src/core/pch.private.h
-    src/core/pch.public.h
 )
 
 source_group("" FILES ${app_src})
@@ -198,25 +180,20 @@ target_include_directories(core
     PUBLIC
         ${CMAKE_CURRENT_SOURCE_DIR}/src
 )
-target_precompile_headers(core
-    PUBLIC src/core/pch.public.h
-    PRIVATE src/core/pch.private.h
-)
 target_link_libraries(core
     PUBLIC
         euph::log
         euph::assert
         euph::fmt
-        libgaf::xml
         external::range
         external::magic_enum
         external::lua
-        external::rapidjson
         undef_windows::undef_windows
+        euph::files
+        euph::base
     PRIVATE
         euph::project_options
         euph::project_warnings
-        euph::file_types
         external::crc32
         external::assimp
         external::stb_image
@@ -253,7 +230,6 @@ set(test_src
     src/core/date.test.cc
     src/core/drunken_bishop.test.cc
     src/core/ecs.test.cc
-    src/core/editdistance.test.cc
     src/core/enumtostring.test.cc
     src/core/findstring.test.cc
     src/core/guid.test.cc
@@ -278,10 +254,7 @@ set(test_src
     src/core/rect.test.cc
     src/core/rgb_blend.test.cc
     src/core/rgb.test.cc
-    src/core/stringbuilder.test.cc
-    src/core/stringmerger.test.cc
     src/core/stringtable.test.cc
-    src/core/stringutils.test.cc
     src/core/subvec.test.cc
     src/core/table.test.cc
     src/core/tablelayout.test.cc
@@ -295,17 +268,19 @@ set(test_src
     src/core/vec2.test.cc
     src/core/vec3.test.cc
     src/core/vec4.test.cc
-    src/core/vfs.test.cc
-    src/core/vfspath.test.cc
     src/core/viewportdef.test.cc
     src/core/wordwrap.test.cc
 )
-set(test_main_src test/main.cc)
 source_group("" FILES ${test_src})
-source_group("main" FILES ${test_main_src})
-add_executable(core_test ${test_src} ${test_main_src})
+add_executable(core_test ${test_src})
 set_target_properties(core_test PROPERTIES FOLDER "Tests")
-target_link_libraries(core_test PRIVATE euph::project_options euph::project_warnings euph::core euph::tests)
+target_link_libraries(core_test
+    PRIVATE
+        euph::project_options
+        euph::project_warnings
+        euph::core
+        euph::tests
+)
 catch_discover_tests(core_test)
 
 ###############################################################################

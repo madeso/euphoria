@@ -3,7 +3,7 @@
 #include <memory>
 
 
-namespace eu::core::vfs
+namespace eu::io
 {
     struct FileSystem;
     struct FilePath;
@@ -20,7 +20,7 @@ namespace eu::render
         struct FontCachePimpl;
         std::unique_ptr<FontCachePimpl> pimp;
 
-        FontCache(core::vfs::FileSystem* fs, TextureCache* cache);
+        FontCache(io::FileSystem* fs, TextureCache* cache);
         ~FontCache();
 
         FontCache(const FontCache&) = delete;
@@ -29,6 +29,6 @@ namespace eu::render
         void operator=(FontCache&&) = delete;
 
         [[nodiscard]] std::shared_ptr<DrawableFont> get_font
-            (const core::vfs::FilePath& path) const;
+            (const io::FilePath& path) const;
     };
 }

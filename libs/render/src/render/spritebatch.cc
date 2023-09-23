@@ -2,7 +2,7 @@
 #include "render/gl.h"
 
 #include "assert/assert.h"
-#include "core/cint.h"
+#include "base/cint.h"
 
 namespace eu::render
 {
@@ -13,8 +13,8 @@ namespace eu::render
 
     SpriteBatch::SpriteBatch() : is_inside(false), current_quad_count(0), number_of_render_calls(0)
     {
-        vertex_data.reserve(core::c_int_to_sizet(stride * quad_cont));
-        quad_indices.reserve(core::c_int_to_sizet(6 * quad_cont));
+        vertex_data.reserve(c_int_to_sizet(stride * quad_cont));
+        quad_indices.reserve(c_int_to_sizet(6 * quad_cont));
     }
 
 

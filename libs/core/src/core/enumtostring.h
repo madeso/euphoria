@@ -6,8 +6,9 @@
 
 
 #include "assert/assert.h"
-#include "core/stringutils.h"
-#include "core/editdistance.search.h"
+
+#include "base/stringutils.h"
+#include "base/editdistance.search.h"
 
 #include "magic_enum/magic_enum.hpp"
 

@@ -4,7 +4,7 @@
 
 #include "core/ecs.h"
 #include "core/vec2.h"
-#include "core/cint.h"
+#include "base/cint.h"
 
 #include "render/texture.h"
 #include "render/spriterender.h"
@@ -35,8 +35,8 @@ namespace eu::runner
         (
             position,
             core::Scale2f {0.5f, 0.5f},
-            core::c_int_to_float(texture.width),
-            core::c_int_to_float(texture.height)
+            c_int_to_float(texture.width),
+            c_int_to_float(texture.height)
         );
     }
 }

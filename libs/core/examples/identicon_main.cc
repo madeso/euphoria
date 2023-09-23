@@ -2,7 +2,7 @@
 
 #include "core/image.h"
 #include "core/image_draw.h"
-#include "core/io.h"
+#include "io/io.h"
 #include "core/hashgen.h"
 #include "core/argparse.h"
 #include "core/random.h"
@@ -11,6 +11,7 @@
 
 using namespace eu;
 using namespace eu::core;
+using namespace eu::io;
 
 
 enum class HashType
@@ -97,7 +98,7 @@ void run_main
                 std::cout << "Writing " << file_name << "\n";
             }
 
-            io::write_chunk_to_file(image.write(ImageWriteFormat::png), file_name);
+            write_chunk_to_file(image.write(ImageWriteFormat::png), file_name);
         }
     }
 
@@ -107,7 +108,7 @@ void run_main
         int padding = 20;
         auto collage_image = lay_out_in_a_grid(images, padding, NamedColor::gray, true);
         std::string file_name = "identicon.png";
-        io::write_chunk_to_file(collage_image.write(ImageWriteFormat::png), file_name);
+        write_chunk_to_file(collage_image.write(ImageWriteFormat::png), file_name);
     }
 }
 
@@ -160,7 +161,7 @@ void run_sprator_collage
         {
             file_name = fmt::format("identicon_{}.png", anim_index);
         }
-        io::write_chunk_to_file(collage_image.write(ImageWriteFormat::png), file_name);
+        write_chunk_to_file(collage_image.write(ImageWriteFormat::png), file_name);
     }
 }
 

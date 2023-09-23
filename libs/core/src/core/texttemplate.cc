@@ -5,10 +5,10 @@
 #include "assert/assert.h"
 
 #include "core/textfileparser.h"
-#include "core/vfs.h"
-#include "core/vfs_path.h"
-#include "core/stringutils.h"
-#include "core/stringbuilder.h"
+#include "io/vfs.h"
+#include "io/vfs_path.h"
+#include "base/stringutils.h"
+#include "base/stringbuilder.h"
 
 
 namespace eu::core
@@ -72,7 +72,7 @@ TemplateErrorList::has_errors() const
 void
 TemplateErrorList::add_error
 (
-    const std::optional<vfs::FilePath>& file,
+    const std::optional<io::FilePath>& file,
     int line,
     int /*unused*/,
     const std::string& error
@@ -332,7 +332,7 @@ std::vector<Token> tokenize
 (
     const std::string& content,
     TemplateErrorList* error,
-    const vfs::FilePath& file
+    const io::FilePath& file
 )
 {
     ASSERT(error);
@@ -512,16 +512,16 @@ void parse_template_list
     std::shared_ptr<TemplateNodeList>* nodes,
     TokenReader* reader,
     TemplateErrorList* errors,
-    const vfs::FilePath& file,
+    const io::FilePath& file,
     bool expect_end,
-    vfs::FileSystem* fs
+    io::FileSystem* fs
 );
 
 
 void load_from_filesystem_to_node_list
 (
-    vfs::FileSystem* fs,
-    const vfs::FilePath& path,
+    io::FileSystem* fs,
+    const io::FilePath& path,
     TemplateErrorList* error,
     std::shared_ptr<TemplateNodeList>* nodes
 )
@@ -556,8 +556,8 @@ std::shared_ptr<TemplateNodeString> parse_text
 (
     TokenReader* reader,
     TemplateErrorList* /*unused*/,
-    const vfs::FilePath& /*unused*/,
-    vfs::FileSystem* /*unused*/
+    const io::FilePath& /*unused*/,
+    io::FileSystem* /*unused*/
 )
 {
     ASSERT(reader);
@@ -574,8 +574,8 @@ std::shared_ptr<TemplateNodeEval> parse_eval
 (
     TokenReader* reader,
     TemplateErrorList* errors,
-    const vfs::FilePath& file,
-    vfs::FileSystem* /*unused*/
+    const io::FilePath& file,
+    io::FileSystem* /*unused*/
 )
 {
     ASSERT(reader);
@@ -603,8 +603,8 @@ std::shared_ptr<TemplateNodeSet> parse_set
 (
     TokenReader* reader,
     TemplateErrorList* errors,
-    const vfs::FilePath& file,
-    vfs::FileSystem* /*unused*/
+    const io::FilePath& file,
+    io::FileSystem* /*unused*/
 )
 {
     ASSERT(reader);
@@ -647,8 +647,8 @@ std::shared_ptr<TemplateNodeIfdef> parse_ifdef
 (
     TokenReader* reader,
     TemplateErrorList* errors,
-    const vfs::FilePath& file,
-    vfs::FileSystem* fs
+    const io::FilePath& file,
+    io::FileSystem* fs
 )
 {
     ASSERT(reader);
@@ -678,8 +678,8 @@ std::shared_ptr<TemplateNodeList> parse_include
 (
     TokenReader* reader,
     TemplateErrorList* errors,
-    const vfs::FilePath& file,
-    vfs::FileSystem* fs
+    const io::FilePath& file,
+    io::FileSystem* fs
 )
 {
     ASSERT(reader);
@@ -691,7 +691,7 @@ std::shared_ptr<TemplateNodeList> parse_include
         {
             new TemplateNodeScopedList {}
         };
-        const auto file_argument = vfs::FilePath::from_script(lex.value);
+        const auto file_argument = io::FilePath::from_script(lex.value);
         if(file_argument.has_value() == false)
         {
             errors->add_error
@@ -703,7 +703,7 @@ std::shared_ptr<TemplateNodeList> parse_include
             );
             return ret;
         }
-        const auto resolved_file = vfs::resolve_relative
+        const auto resolved_file = io::resolve_relative
         (
             file_argument.value(),
             file.get_directory()
@@ -748,9 +748,9 @@ void parse_template_list
     std::shared_ptr<TemplateNodeList>* nodes,
     TokenReader* reader,
     TemplateErrorList* errors,
-    const vfs::FilePath& file,
+    const io::FilePath& file,
     bool expect_end,
-    vfs::FileSystem* fs
+    io::FileSystem* fs
 )
 {
     ASSERT(nodes);
@@ -820,13 +820,13 @@ void parse_template_list
 CompiledTextTemplate::CompiledTextTemplate(const std::string& text)
     : nodes(new TemplateNodeList {})
 {
-    const auto file = vfs::FilePath{"~/from_string"};
+    const auto file = io::FilePath{"~/from_string"};
     auto reader = TokenReader{tokenize(text, &errors, file)};
     parse_template_list(&nodes, &reader, &errors, file, false, nullptr);
 }
 
 
-CompiledTextTemplate::CompiledTextTemplate(vfs::FileSystem* fs, const vfs::FilePath& path)
+CompiledTextTemplate::CompiledTextTemplate(io::FileSystem* fs, const io::FilePath& path)
     : nodes(new TemplateNodeList {})
 {
     ASSERT(fs);

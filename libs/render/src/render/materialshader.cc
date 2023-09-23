@@ -2,22 +2,22 @@
 
 #include <utility>
 
-#include "core/proto.h"
 #include "log/log.h"
 #include "core/texturetypes.h"
 
 #include "render/shaderattribute3d.h"
 #include "render/light.h"
 
-#include "gaf_materialshader.h"
-#include "gaf_rapidjson_materialshader.h"
+#include "files/materialshader.h"
+
+
 
 namespace eu::render
 {
     MaterialShaderDefaultTexture::MaterialShaderDefaultTexture
     (
         const core::EnumValue& a_name,
-        const core::vfs::FilePath& a_path
+        const io::FilePath& a_path
     )
         : name(a_name)
         , path(a_path)
@@ -68,8 +68,8 @@ namespace eu::render
     post_build
     (
         MaterialShader* sh,
-        const materialshader::MaterialShader& file,
-        const core::vfs::FilePath& path
+        const files::materialshader::MaterialShader& file,
+        const io::FilePath& path
     )
     {
         sh->has_light = file.has_light;
@@ -83,7 +83,7 @@ namespace eu::render
 
         for(const auto& texture: file.default_textures)
         {
-            const auto texture_path = core::vfs::FilePath::from_script(texture.path);
+            const auto texture_path = io::FilePath::from_script(texture.path);
             if(texture_path.has_value() == false)
             {
                 LOG_WARN
@@ -108,21 +108,21 @@ namespace eu::render
         sh->view = sh->shader.get_uniform("uView");
         sh->model = sh->shader.get_uniform("uModel");
 
-        if(!file.ambient.empty())
+        if(file.ambient)
         {
-            sh->ambient = sh->shader.get_uniform(file.ambient);
+            sh->ambient = sh->shader.get_uniform(*file.ambient);
         }
-        if(!file.diffuse.empty())
+        if(file.diffuse)
         {
-            sh->diffuse = sh->shader.get_uniform(file.diffuse);
+            sh->diffuse = sh->shader.get_uniform(*file.diffuse);
         }
-        if(!file.specular.empty())
+        if(file.specular)
         {
-            sh->specular = sh->shader.get_uniform(file.specular);
+            sh->specular = sh->shader.get_uniform(*file.specular);
         }
-        if(!file.shininess.empty())
+        if(file.shininess)
         {
-            sh->shininess = sh->shader.get_uniform(file.shininess);
+            sh->shininess = sh->shader.get_uniform(*file.shininess);
         }
 
         if(sh->has_light)
@@ -148,8 +148,8 @@ namespace eu::render
     bool
     MaterialShader::load
     (
-        core::vfs::FileSystem* file_system,
-        const core::vfs::FilePath& path
+        io::FileSystem* file_system,
+        const io::FilePath& path
     )
     {
         attributes3d::add_attributes_to_shader(&shader);
@@ -157,11 +157,24 @@ namespace eu::render
         // if (!shader_compile) { return false; }
 
         const auto proto_path = path.set_extension_copy("json");
-        const auto file = core::get_default_but_log_errors
-        (
-            core::read_json_file_to_gaf_struct<materialshader::MaterialShader>(file_system, proto_path, materialshader::ReadJsonMaterialShader)
-        );
-        // todo(Gustav): set default shader names if file failed to
+        
+        files::materialshader::MaterialShader file;
+        if (const auto loaded = io::read_json_file(file_system, proto_path); loaded == false)
+        {
+            LOG_ERROR("Failed to load {}: {}", proto_path, loaded.get_error().display);
+            return false;
+        }
+        else
+        {
+            const auto& json = loaded.get_value();
+            const auto parsed = files::materialshader::parse(log::get_global_logger(), &file, json.root, &json.doc);
+            if (!parsed)
+            {
+                return false;
+            }
+        }
+
+        // todo(Gustav): set default shader names if file failed to load
 
         post_build(this, file, path);
 

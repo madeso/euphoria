@@ -7,7 +7,7 @@
 #include "core/interpolate.default.h"
 #include "core/angle.h"
 #include "core/numeric.h"
-#include "core/cint.h"
+#include "base/cint.h"
 #include "core/vec.base.h"
 
 

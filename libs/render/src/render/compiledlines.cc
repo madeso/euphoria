@@ -3,7 +3,7 @@
 #include <numeric>
 
 #include "core/lines.h"
-#include "core/cint.h"
+#include "base/cint.h"
 
 #include "render/shaderattribute3d.h"
 #include "render/attributebinder.h"
@@ -116,7 +116,7 @@ namespace eu::render
     {
         std::shared_ptr<CompiledLines> ret {new CompiledLines {}};
 
-        ret->shader = shader_cache->get(core::vfs::FilePath{"~/default_line_shader"});
+        ret->shader = shader_cache->get(io::FilePath{"~/default_line_shader"});
 
         PointLayout::bind(&ret->config);
         VertexBuffer::bind(&ret->data);
@@ -132,7 +132,7 @@ namespace eu::render
         bind_attributes(attributes, &ret->config);
 
         convert_lines_to_index_buffer(lines.indices, &ret->lines);
-        ret->line_count = core::c_sizet_to_int(lines.indices.size());
+        ret->line_count = c_sizet_to_int(lines.indices.size());
 
         IndexBuffer::bind(nullptr);
         VertexBuffer::bind(nullptr);

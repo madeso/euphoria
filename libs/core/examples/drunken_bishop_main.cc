@@ -10,7 +10,7 @@
 #include "core/image.h"
 #include "core/image_draw.h"
 
-#include "core/io.h"
+#include "io/io.h"
 
 #include <iostream>
 
@@ -19,6 +19,7 @@
 
 using namespace eu;
 using namespace eu::core;
+using namespace eu::io;
 
 
 struct CommonArguments
@@ -132,7 +133,7 @@ main(int argc, char* argv[])
                         ? std::string("bishop.png")
                         : fmt::format("bishop_{}.png", turn_index+1)
                         ;
-                    io::write_chunk_to_file(image.write(ImageWriteFormat::png), file_name);
+                    write_chunk_to_file(image.write(ImageWriteFormat::png), file_name);
                 }
 
                 return argparse::ok;

@@ -17,7 +17,6 @@ set(src
 source_group("" FILES ${src})
 
 add_executable(t3d WIN32 MACOSX_BUNDLE ${src})
-set_win32_defines(t3d)
 set_target_properties(t3d PROPERTIES FOLDER "Applications")
 target_include_directories(t3d
     PUBLIC

@@ -2,11 +2,12 @@
 
 #include "core/image.h"
 #include "core/image_draw.h"
-#include "core/io.h"
+#include "io/io.h"
 #include "core/image_canvas.h"
 
 
 using namespace eu::core;
+using namespace eu::io;
 
 
 int
@@ -43,7 +44,7 @@ main(int, char*[])
     ctx.close_path();
     ctx.fill();
 
-    io::write_chunk_to_file(image.write(ImageWriteFormat::png), "house.png");
+    write_chunk_to_file(image.write(ImageWriteFormat::png), "house.png");
     return 0;
 }
 

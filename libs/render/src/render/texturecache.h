@@ -4,7 +4,7 @@
 #include <optional>
 
 
-namespace eu::core::vfs
+namespace eu::io
 {
     struct FileSystem;
     struct FilePath;
@@ -16,7 +16,7 @@ namespace eu::render
 
     struct TextureCache
     {
-        explicit TextureCache(core::vfs::FileSystem* fs);
+        explicit TextureCache(io::FileSystem* fs);
         ~TextureCache();
 
         TextureCache(const TextureCache& other) = delete;
@@ -25,10 +25,10 @@ namespace eu::render
         void operator=(TextureCache&&) = delete;
 
         [[nodiscard]] std::shared_ptr<Texture2>
-        get_texture(const core::vfs::FilePath& path) const;
+        get_texture(const io::FilePath& path) const;
 
         [[nodiscard]] std::shared_ptr<Texture2>
-        get_texture(const std::optional<core::vfs::FilePath>& path) const;
+        get_texture(const std::optional<io::FilePath>& path) const;
 
         struct TextureCachePimpl;
         std::unique_ptr<TextureCachePimpl> pimpl;

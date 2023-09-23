@@ -5,10 +5,10 @@
 #include <memory>
 
 #include "core/rgb.h"
-#include "core/memorychunk.h"
+#include "base/memorychunk.h"
 #include "core/rect.h"
 
-namespace eu::core::vfs
+namespace eu::io
 {
     struct FileSystem;
     struct FilePath;
@@ -144,7 +144,7 @@ namespace eu::core
 
     // todo(Gustav): move image loading to a io library instead
     ImageLoadResult
-    load_image(vfs::FileSystem* fs, const vfs::FilePath& path, AlphaLoad alpha);
+    load_image(io::FileSystem* fs, const io::FilePath& path, AlphaLoad alpha);
 
 
     ImageLoadResult

@@ -4,7 +4,7 @@
 #include <unordered_map>
 #include <algorithm>
 
-#include "core/cint.h"
+#include "base/cint.h"
 
 
 namespace eu::core::ecs

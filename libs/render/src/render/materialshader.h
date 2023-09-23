@@ -3,7 +3,7 @@
 
 
 #include "core/enum.h"
-#include "core/vfs_path.h"
+#include "io/vfs_path.h"
 
 #include "render/shader.h"
 
@@ -14,12 +14,12 @@ namespace eu::render
     struct MaterialShaderDefaultTexture
     {
         core::EnumValue name;
-        core::vfs::FilePath path;
+        io::FilePath path;
 
         MaterialShaderDefaultTexture
         (
             const core::EnumValue& a_name,
-            const core::vfs::FilePath& a_path
+            const io::FilePath& a_path
         );
     };
 
@@ -74,8 +74,8 @@ namespace eu::render
 
         bool load
         (
-            core::vfs::FileSystem* file_system,
-            const core::vfs::FilePath& path
+            io::FileSystem* file_system,
+            const io::FilePath& path
         );
 
         void use_shader();

@@ -6,7 +6,7 @@
 
 #include "window/canvas.h"
 
-#include "gaf_scalingsprite.h"
+#include "files/scalingsprite.h"
 
 
 namespace eu::render
@@ -36,7 +36,7 @@ namespace eu::editor
     // SCalable IMage EDitor
     struct Scimed
     {
-        std::shared_ptr<scalingsprite::ScalingSprite> scaling;
+        std::shared_ptr<files::scalingsprite::ScalingSprite> scaling;
 
         std::shared_ptr<render::Texture2> texture;
         window::Canvas canvas;

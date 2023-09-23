@@ -6,7 +6,7 @@
 #include "core/minmax.h"
 #include "core/subvec.h"
 #include "core/image.h"
-#include "core/cint.h"
+#include "base/cint.h"
 
 
 namespace
@@ -18,7 +18,7 @@ namespace
     extract_all_colors(const Image& image)
     {
         auto ret = std::vector<Rgbi>{};
-        ret.reserve(ret.size() + c_int_to_sizet(image.height) * c_int_to_sizet(image.width));
+        ret.reserve(ret.size() + eu::c_int_to_sizet(image.height) * eu::c_int_to_sizet(image.width));
 
         for(int y=0; y<image.height; y+=1)
         {
@@ -124,7 +124,7 @@ namespace
         // todo(Gustav): make non-linear
         for(size_t index = 0; index<colors.size()-1; index+=1)
         {
-            if(get_value(sort, colors[c_sizet_to_int(index + 1)]) >= median)
+            if(get_value(sort, colors[eu::c_sizet_to_int(index + 1)]) >= median)
             {
                 return index;
             }

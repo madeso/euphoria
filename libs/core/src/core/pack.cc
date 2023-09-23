@@ -1,6 +1,6 @@
 #include "core/pack.h"
 
-#include "core/cint.h"
+#include "base/cint.h"
 
 #include "stb_rect_pack.h"
 

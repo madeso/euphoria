@@ -2,7 +2,7 @@
 
 #include "assert/assert.h"
 
-#include "core/cint.h"
+#include "base/cint.h"
 #include "core/numeric.h"
 
 
@@ -20,7 +20,7 @@ namespace eu::core
             center += p;
         }
 
-        return center / core::c_sizet_to_float(positions.size());
+        return center / c_sizet_to_float(positions.size());
     }
     
     SphereAndPosition

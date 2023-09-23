@@ -8,7 +8,7 @@
 #include "core/rng.h"
 #include "core/numeric.h"
 #include "core/image_draw.h"
-#include "core/cint.h"
+#include "base/cint.h"
 
 
 namespace

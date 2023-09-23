@@ -7,7 +7,7 @@
 #include "core/image.h"
 
 
-namespace eu::core::vfs
+namespace eu::io
 {
     struct FileSystem;
     struct FilePath;
@@ -76,8 +76,8 @@ namespace eu::core
     LoadedFont
     get_characters_from_font
     (
-        vfs::FileSystem* file_system,
-        const vfs::FilePath& font_file,
+        io::FileSystem* file_system,
+        const io::FilePath& font_file,
         int font_size,
         const std::string& chars
     );
@@ -94,8 +94,8 @@ namespace eu::core
     LoadedFont
     get_characters_from_single_image
     (
-        vfs::FileSystem* fs,
-        const vfs::FilePath& image_file,
+        io::FileSystem* fs,
+        const io::FilePath& image_file,
         const std::string& image_alias,
         float image_scale,
         float image_bearing_x,

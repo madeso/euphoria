@@ -2,14 +2,14 @@
 
 #include "assert/assert.h"
 #include "core/bufferbuilder2d.h"
-#include "core/cint.h"
+#include "base/cint.h"
 
 #include "render/shaderattribute2d.h"
 
 namespace eu::render
 {
     Buffer2d::Buffer2d(const core::BufferBuilder2& bb)
-        : index_count(core::c_sizet_to_int(bb.tris.size()))
+        : index_count(c_sizet_to_int(bb.tris.size()))
     {
         PointLayout::bind(&vao);
         VertexBuffer::bind(&vbo);

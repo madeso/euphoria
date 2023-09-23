@@ -51,7 +51,6 @@ target_link_libraries(render
         euph::project_options
         euph::project_warnings
         euph::core
-        euph::file_types
         external::glad
         external::opengl
         external::stb_rect_pack

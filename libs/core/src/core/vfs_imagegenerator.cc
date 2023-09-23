@@ -2,18 +2,18 @@
 
 #include "core/image.h"
 #include "core/image_draw.h"
-#include "core/stringutils.h"
-#include "core/stringmerger.h"
+#include "base/stringutils.h"
+#include "base/stringmerger.h"
 #include "log/log.h"
-#include "core/vfs_path.h"
+#include "io/vfs_path.h"
 
-namespace eu::core::vfs
+namespace eu::core
 {
     void
     ReadRootImageGenerator::add
     (
-        FileSystem* fs,
-        const DirPath& base
+        io::FileSystem* fs,
+        const io::DirPath& base
     )
     {
         auto root = std::make_shared<ReadRootImageGenerator>(base);
@@ -22,7 +22,7 @@ namespace eu::core::vfs
 
 
     std::shared_ptr<MemoryChunk>
-    ReadRootImageGenerator::read_file(const FilePath& path)
+    ReadRootImageGenerator::read_file(const io::FilePath& path)
     {
         const auto [dir, command] = path.split_directories_and_file();
         if(dir != base)
@@ -62,21 +62,21 @@ namespace eu::core::vfs
     }
 
 
-    ReadRootImageGenerator::ReadRootImageGenerator(const DirPath& b)
+    ReadRootImageGenerator::ReadRootImageGenerator(const io::DirPath& b)
         : base(b)
     {
         ASSERT(!base.contains_relative());
     }
 
 
-    FileList
-    ReadRootImageGenerator::list_files(const DirPath& path)
+    io::FileList
+    ReadRootImageGenerator::list_files(const io::DirPath& path)
     {
         ASSERT(!path.contains_relative());
 
-        FileList ret;
+        io::FileList ret;
 
-        if(base != DirPath::from_root())
+        if(base != io::DirPath::from_root())
         {
             if(path == base.get_parent_directory())
             {

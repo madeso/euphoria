@@ -15,7 +15,7 @@
 #include "render/texture.h"
 
 
-namespace eu::core::vfs
+namespace eu::io
 {
     struct FileSystem;
     struct FilePath;
@@ -182,9 +182,9 @@ namespace eu::render
 
         DrawableFont
         (
-            core::vfs::FileSystem* fs,
+            io::FileSystem* fs,
             TextureCache* cache,
-            const core::vfs::FilePath& font_file
+            const io::FilePath& font_file
         );
 
         // todo(Gustav): expose background property and move this away from font

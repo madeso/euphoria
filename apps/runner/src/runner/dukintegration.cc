@@ -6,7 +6,7 @@
 #include "core/random.h"
 #include "log/log.h"
 #include "core/sol.h"
-#include "core/cint.h"
+#include "base/cint.h"
 #include "core/ecs.h"
 
 #include "runner/ecs.systems.h"
@@ -72,7 +72,7 @@ namespace eu::runner
         void
         update(core::ecs::Registry*, float dt) const override
         {
-            auto result = func(core::c_float_to_double(dt));
+            auto result = func(c_float_to_double(dt));
             report_first_error(result, duk, "update", name);
         }
 
@@ -239,7 +239,7 @@ namespace eu::runner
                     }
                     else
                     {
-                        return core::c_float_to_double(f->second);
+                        return c_float_to_double(f->second);
                     }
                 }
             );
@@ -342,17 +342,17 @@ namespace eu::runner
                 },
                 [](const core::Rectf& r, double x, double y) -> bool
                 {
-                    return r.contains_exclusive(core::c_double_to_float(x), core::c_double_to_float(y));
+                    return r.contains_exclusive(c_double_to_float(x), c_double_to_float(y));
                 }
             );
-            rect_type["get_height"] = [](const core::Rectf& r) -> double { return core::c_float_to_double(r.get_height()); };
-            rect_type["get_width"] = [](const core::Rectf& r) -> double { return core::c_float_to_double(r.get_width()); };
+            rect_type["get_height"] = [](const core::Rectf& r) -> double { return c_float_to_double(r.get_height()); };
+            rect_type["get_width"] = [](const core::Rectf& r) -> double { return c_float_to_double(r.get_width()); };
 
             auto random_type = duk->state.new_usertype<core::Random>("random");
-            random_type["next_float01"] = [](core::Random& r) -> double { return core::c_float_to_double(r.get_next_float01()); };
+            random_type["next_float01"] = [](core::Random& r) -> double { return c_float_to_double(r.get_next_float01()); };
             random_type["next_range_float"] = [](core::Random& r, double f) -> double
             {
-                return core::c_float_to_double(get_random_in_range(&r, core::c_double_to_float(f)));
+                return c_float_to_double(get_random_in_range(&r, c_double_to_float(f)));
             };
             random_type["next_bool"] = &core::Random::get_next_bool;
             random_type["next_point2"] = [](core::Random& r, core::Rectf& rect) -> core::vec2f

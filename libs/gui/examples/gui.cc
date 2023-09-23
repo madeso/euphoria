@@ -2,11 +2,10 @@
 
 #include "log/log.h"
 
-#include "core/cint.h"
-#include "core/os.h"
+#include "base/cint.h"
+#include "base/os.h"
 #include "core/vfs_imagegenerator.h"
 #include "core/vfs_defaultshaders.h"
-#include "core/proto.h"
 #include "core/viewportdef.h"
 #include "core/fourway.h"
 #include "core/viewport.h"
@@ -42,6 +41,7 @@
 #include "imgui/imgui_internal.h"
 #include "imgui_stdlib.h"
 
+using namespace eu;
 using namespace eu::core;
 using namespace eu::gui;
 using namespace eu::render;
@@ -324,7 +324,7 @@ main(int argc, char* argv[])
 
     engine.file_system->set_write_root
     (
-        std::make_shared<vfs::WriteRootPhysicalFolder>(get_current_directory())
+        std::make_shared<io::WriteRootPhysicalFolder>(get_current_directory())
     );
 
     TextureCache cache {engine.file_system.get()};
@@ -351,7 +351,7 @@ main(int argc, char* argv[])
 
     ShaderProgram shader;
     attributes2d::add_attributes_to_shader(&shader);
-    shader.load(engine.file_system.get(), vfs::FilePath{"~/shaders/sprite"});
+    shader.load(engine.file_system.get(), io::FilePath{"~/shaders/sprite"});
     SpriteRenderer renderer(&shader);
     FontCache font_cache {engine.file_system.get(), &cache};
 
@@ -370,7 +370,7 @@ main(int argc, char* argv[])
     (
         engine.file_system.get(),
         &font_cache,
-        vfs::FilePath{"~/gui.json"},
+        io::FilePath{"~/gui.json"},
         &cache
     );
 

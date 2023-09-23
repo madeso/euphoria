@@ -5,7 +5,7 @@
 
 #include "core/rgb.h"
 #include "core/easing.h"
-#include "core/vfs_path.h"
+#include "io/vfs_path.h"
 
 
 namespace eu::render
@@ -52,7 +52,7 @@ namespace eu::gui
 
         float text_size = 30.0f;
 
-        std::optional<core::vfs::FilePath> button_image;
+        std::optional<io::FilePath> button_image;
 
         ButtonState button_idle;
         ButtonState button_hot;

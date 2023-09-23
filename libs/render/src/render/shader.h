@@ -7,14 +7,14 @@
 #include "core/rgb.h"
 #include "core/mat4.h"
 #include "core/rect.h"
-#include "core/vfs_path.h"
+#include "io/vfs_path.h"
 
 #include "render/gltypes.h"
 #include "render/shaderattribute.h"
 #include "render/shaderuniform.h"
 
 
-namespace eu::core::vfs
+namespace eu::io
 {
     struct FileSystem;
 }
@@ -60,7 +60,7 @@ namespace eu::render
 
         void add_attribute(const ShaderAttribute& attribute);
 
-        bool load(core::vfs::FileSystem* fs, const core::vfs::FilePath& file_path);
+        bool load(io::FileSystem* fs, const io::FilePath& file_path);
 
         bool compile
         (
@@ -89,7 +89,7 @@ namespace eu::render
         [[nodiscard]] const std::vector<ShaderAttribute>&
         get_attributes() const;
 
-        [[nodiscard]] const core::vfs::FilePath&
+        [[nodiscard]] const io::FilePath&
         get_name() const;
 
     private:
@@ -101,7 +101,7 @@ namespace eu::render
 
         std::vector<ShaderAttribute> bound_attributes;
         std::vector<ShaderUniform> bound_uniforms;
-        core::vfs::FilePath shader_name;
+        io::FilePath shader_name;
     };
 
     void

@@ -1,8 +1,10 @@
 #include "core/table_string.h"
 #include "core/argparse.h"
-#include "core/io.h"
+#include "io/io.h"
 
 using namespace eu::core;
+using namespace eu::io;
+
 
 enum class Type
 {
@@ -36,7 +38,7 @@ main(int argc, char* argv[])
     
     Table<std::string> table;
     {
-        const auto contents = io::read_file_to_string(file);
+        const auto contents = read_file_to_string(file);
         if(!contents)
         {
             std::cerr << "Failed to load " << file << "\n";

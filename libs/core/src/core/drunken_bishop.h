@@ -3,7 +3,7 @@
 
 
 #include "core/table.h"
-#include "core/ints.h"
+#include "base/ints.h"
 
 
 namespace eu::core

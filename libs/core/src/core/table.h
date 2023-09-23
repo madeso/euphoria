@@ -4,7 +4,7 @@
 #include "assert/assert.h"
 #include "core/numeric.h"
 #include "core/rect.h"
-#include "core/cint.h"
+#include "base/cint.h"
 #include "core/vec2.h"
 
 namespace eu::core

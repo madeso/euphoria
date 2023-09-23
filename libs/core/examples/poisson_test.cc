@@ -5,10 +5,11 @@
 #include "core/rect.h"
 #include "core/image.h"
 #include "core/image_draw.h"
-#include "core/io.h"
+#include "io/io.h"
 
 using namespace eu;
 using namespace eu::core;
+using namespace eu::io;
 using namespace eu::core::dump2d;
 
 void
@@ -94,7 +95,7 @@ png_dump(int extra_images)
                 2
             );
         }
-        io::write_chunk_to_file(result.write(ImageWriteFormat::png), frames.get_next_file());
+        write_chunk_to_file(result.write(ImageWriteFormat::png), frames.get_next_file());
     };
 
     if(!frames.single)

@@ -9,16 +9,15 @@
 #include "assimp/scene.h"
 #include "assimp/postprocess.h"
 
-#include "core/cint.h"
+#include "base/cint.h"
 #include "core/texturetypes.h"
 #include "core/stdutils.h"
-#include "core/proto.h"
+#include "io/json.h"
 #include "log/log.h"
-#include "core/stringmerger.h"
-#include "core/vfs.h"
+#include "base/stringmerger.h"
+#include "io/vfs.h"
 
-#include "gaf_mesh.h"
-#include "gaf_rapidjson_mesh.h"
+#include "files/mesh.h"
 
 
 namespace eu::core
@@ -64,7 +63,7 @@ namespace eu::core
     }
 
 
-    MaterialTexture::MaterialTexture(const vfs::FilePath& p, EnumValue t)
+    MaterialTexture::MaterialTexture(const io::FilePath& p, EnumValue t)
         : path(p)
         , type(t)
     {
@@ -89,7 +88,7 @@ namespace eu::core
     Material::set_texture
     (
         const std::string& texture_name,
-        const vfs::FilePath& texture_path
+        const io::FilePath& texture_path
     )
     {
         DEFINE_ENUM_VALUE(texture_type, texture_type, texture_name);
@@ -181,7 +180,7 @@ namespace eu::core
                 {
                     aiString texture;
                     mat->GetTexture(aiTextureType_DIFFUSE, 0, &texture);
-                    auto path = core::vfs::FilePath::from_dirty_source(texture.C_Str());
+                    auto path = io::FilePath::from_dirty_source(texture.C_Str());
                     if(path.has_value() == false)
                     {
                         LOG_WARN
@@ -193,7 +192,7 @@ namespace eu::core
                     }
                     material.textures.emplace_back
                     (
-                        path.value_or(core::vfs::FilePath{"~/image-plain/blue"}),
+                        path.value_or(io::FilePath{"~/image-plain/blue"}),
                         DiffuseType
                     );
                 }
@@ -367,8 +366,8 @@ namespace eu::core
         decorate_mesh_materials
         (
             Mesh* mesh,
-            const vfs::FilePath& json_path,
-            const ::mesh::Mesh& json
+            const io::FilePath& json_path,
+            const files::mesh::Mesh& json
         )
         {
             std::map<std::string, Material*> mesh_materials;
@@ -395,7 +394,7 @@ namespace eu::core
                 auto* other = found->second;
                 for(const auto& src_texture: material.textures)
                 {
-                    auto path = core::vfs::FilePath::from_script
+                    auto path = io::FilePath::from_script
                     (
                         src_texture.path
                     );
@@ -430,7 +429,7 @@ namespace eu::core
 
 
         void
-        fix_extension(vfs::FilePath* path, const ::mesh::Folder& folder)
+        fix_extension(io::FilePath* path, const files::mesh::Folder& folder)
         {
             const auto ext = path->get_extension();
             for(auto c: folder.change_extensions)
@@ -446,7 +445,7 @@ namespace eu::core
 
 
         void
-        fix_filename(vfs::FilePath* path, const ::mesh::Folder& folder)
+        fix_filename(io::FilePath* path, const files::mesh::Folder& folder)
         {
             const auto [dir, file] = path->split_directories_and_file();
             for(auto c: folder.change_filenames)
@@ -464,70 +463,95 @@ namespace eu::core
         void
         decorate_mesh
         (
-            vfs::FileSystem* fs,
+            io::FileSystem* fs,
             Mesh* mesh,
-            const vfs::FilePath& json_path
+            const io::FilePath& json_path
         )
         {
-            const auto json = get_default_ignore_missing_but_log_errors
-            (
-                read_json_file_to_gaf_struct<::mesh::Mesh>(fs, json_path, ::mesh::ReadJsonMesh)
-            );
-
-            if(json.diffuse_and_ambient_are_same)
+            // ------------------------------------------------------------------------------------------------
+            // file decoration
             {
-                decorate_mesh_materials_ignore_ambient(mesh);
-            }
-
-            if(!json.materials.empty())
-            {
-                decorate_mesh_materials(mesh, json_path, json);
-            }
-
-            const auto json_dir = json_path.get_directory();
-            const auto folder_path = json_dir.get_file("folder.json");
-
-            auto folder_loaded = get_optional_and_log_errors_allow_missing
-            (
-                read_json_file_to_gaf_struct<::mesh::Folder>
-                (
-                    fs,
-                    folder_path,
-                    ::mesh::ReadJsonFolder
-                )
-            );
-            if(folder_loaded.has_value() == false)
-            {
-                return;
-            }
-            const auto& folder = *folder_loaded;
-
-            for (auto& p : mesh->parts)
-            {
-                for (auto& v : p.points)
+                files::mesh::Mesh json_file;
+                
+                if (const auto loaded = read_json_file(fs, json_path); loaded == false && loaded.get_error().error == io::JsonErrorType::parse_error)
                 {
-                    v.vertex = v.vertex * folder.scale;
+                    LOG_ERROR("Failed to load {}: {}", json_path, loaded.get_error().display);
+                }
+                else if (loaded)
+                {
+                    const auto& json = loaded.get_value();
+                    const auto parsed = files::mesh::parse(log::get_global_logger(), & json_file, json.root, &json.doc);
+                    if (!parsed)
+                    {
+                        json_file = {};
+                    }
+                }
+
+                if (json_file.diffuse_and_ambient_are_same)
+                {
+                    decorate_mesh_materials_ignore_ambient(mesh);
+                }
+
+                if (!json_file.materials.empty())
+                {
+                    decorate_mesh_materials(mesh, json_path, json_file);
                 }
             }
 
-            if(folder.texture_override.empty())
-            {
-                return;
-            }
-            auto dir = vfs::DirPath{folder.texture_override};
-            if(dir.is_relative()) { dir = vfs::join(json_dir, dir); }
 
-            for(auto& m: mesh->materials)
+            // ------------------------------------------------------------------------------------------------
+            // folder decoration
             {
-                for(auto& t: m.textures)
+                const auto json_dir = json_path.get_directory();
+                const auto folder_path = json_dir.get_file("folder.json");
+
+                files::mesh::Folder folder;
+
+                if (const auto loaded = read_json_file(fs, json_path); loaded == false && loaded.get_error().error == io::JsonErrorType::file_error)
                 {
-                    const auto new_file = dir.get_file(t.path.get_file_with_extension());
-                    t.path = new_file;
-                    fix_extension(&t.path, folder);
-                    fix_filename(&t.path, folder);
+                    return;
+                }
+                else if (loaded == false)
+                {
+                    LOG_ERROR("Failed to load {}: {}", json_path, loaded.get_error().display);
+                    return;
+                }
+                else if (loaded)
+                {
+                    const auto& json = loaded.get_value();
+                    const auto parsed = files::mesh::parse(log::get_global_logger(), &folder, json.root, &json.doc);
+                    if (!parsed)
+                    {
+                        return;
+                    }
+                }
+
+                for (auto& p : mesh->parts)
+                {
+                    for (auto& v : p.points)
+                    {
+                        v.vertex = v.vertex * folder.scale;
+                    }
+                }
+
+                if (folder.texture_override.empty())
+                {
+                    return;
+                }
+                auto dir = io::DirPath{ folder.texture_override };
+                if (dir.is_relative()) { dir = io::join(json_dir, dir); }
+
+                for (auto& m : mesh->materials)
+                {
+                    for (auto& t : m.textures)
+                    {
+                        const auto new_file = dir.get_file(t.path.get_file_with_extension());
+                        t.path = new_file;
+                        fix_extension(&t.path, folder);
+                        fix_filename(&t.path, folder);
+                    }
                 }
             }
-
         }
     }
 
@@ -591,16 +615,16 @@ namespace eu::core
 
         struct FilesystemForAssimp : public Assimp::IOSystem
         {
-            vfs::FileSystem* file_system;
+            io::FileSystem* file_system;
 
-            FilesystemForAssimp(vfs::FileSystem* fs)
+            FilesystemForAssimp(io::FileSystem* fs)
                 : file_system(fs)
             {
             }
 
             bool Exists(const char* file) const override
             {
-                auto content = file_system->read_file(vfs::FilePath{file});
+                auto content = file_system->read_file(io::FilePath{file});
                 return content != nullptr;
             }
 
@@ -614,7 +638,7 @@ namespace eu::core
                 const std::string mode = mode_cstr;
                 ASSERT(mode.find('w') == std::string::npos);
                 ASSERT(mode.find('r') != std::string::npos);
-                auto content = file_system->read_file(vfs::FilePath{file});
+                auto content = file_system->read_file(io::FilePath{file});
                 if(content == nullptr)
                 {
                     return nullptr;
@@ -637,7 +661,7 @@ namespace eu::core
 
 
         LoadedMeshOrError
-        load_mesh(vfs::FileSystem* fs, const vfs::FilePath& path)
+        load_mesh(io::FileSystem* fs, const io::FilePath& path)
         {
             Assimp::Importer importer;
             importer.SetIOHandler(new FilesystemForAssimp{fs}); // NOLINT

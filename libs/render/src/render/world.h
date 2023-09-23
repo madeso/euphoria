@@ -13,7 +13,7 @@ namespace eu::core
     struct Viewport;
 }
 
-namespace eu::core::vfs
+namespace eu::io
 {
     struct FileSystem;
 }

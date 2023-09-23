@@ -6,16 +6,17 @@
 #include <optional>
 
 #include "core/argparse.h"
-#include "core/io.h"
+#include "io/io.h"
 #include "core/image.h"
-#include "core/stringutils.h"
+#include "base/stringutils.h"
 #include "core/collage.h"
 
 
 // todo(Gustav): move all logic to collage.cc/collage.h
 
-
+using namespace eu;
 using namespace eu::core;
+using namespace eu::io;
 
 
 std::vector<Image>
@@ -25,7 +26,7 @@ load_images(const std::vector<std::string>& files)
 
     for(const auto& f: files)
     {
-        auto chunk = io::read_file_to_chunk(f);
+        auto chunk = read_file_to_chunk(f);
         if(chunk == nullptr)
         {
             std::cerr << "failed to read " << f << "\n";
@@ -90,7 +91,7 @@ handle_grid
 
     // save image to out
     auto saved_chunk = composed_image.write(ImageWriteFormat::png);
-    io::write_chunk_to_file(saved_chunk, output_file);
+    write_chunk_to_file(saved_chunk, output_file);
 
     return true;
 }
@@ -148,7 +149,7 @@ handle_pack
 
     // save image to out
     auto saved_chunk = composed_image.write(ImageWriteFormat::png);
-    io::write_chunk_to_file(saved_chunk, output_file);
+    write_chunk_to_file(saved_chunk, output_file);
 
     return true;
 }

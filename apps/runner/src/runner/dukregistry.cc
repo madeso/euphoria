@@ -43,7 +43,7 @@ namespace eu::runner
         return id;
     }
 
-    core::Result<core::ecs::ComponentIndex>
+    Result<core::ecs::ComponentIndex>
     ScriptRegistry::get_custom_component_by_name
     (
         const std::string& name
@@ -53,11 +53,11 @@ namespace eu::runner
         auto found = name_to_id.find(name);
         if(found != name_to_id.end())
         {
-            return core::Result<core::ecs::ComponentIndex>::create_value(found->second);
+            return Result<core::ecs::ComponentIndex>::create_value(found->second);
         }
         else
         {
-            return core::Result<core::ecs::ComponentIndex>::create_error
+            return Result<core::ecs::ComponentIndex>::create_error
             (
                 fmt::format("Unable to find {}", name)
             );

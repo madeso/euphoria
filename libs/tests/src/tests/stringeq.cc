@@ -3,9 +3,9 @@
 #include "catch.hpp"
 #include <algorithm>
 
-#include "core/editdistance.h"
+#include "base/editdistance.h"
 #include "assert/assert.h"
-#include "core/stringutils.h"
+#include "base/stringutils.h"
 
 #include "tests/vectortostring.h"
 
@@ -23,7 +23,7 @@ namespace eu::tests
     FalseString
     is_string_equal(const std::string& lhs, const std::string& rhs)
     {
-        const auto s = core::find_first_index_of_mismatch(lhs, rhs);
+        const auto s = find_first_index_of_mismatch(lhs, rhs);
         ASSERTX((s==std::string::npos && lhs == rhs) || (s != std::string::npos && lhs != rhs), s, lhs, rhs);
         if(s != std::string::npos )
         {
@@ -36,9 +36,9 @@ namespace eu::tests
                     escape_string(lhs), escape_string(rhs),
                     lhs.size(), rhs.size(),
                     s,
-                    core::from_char_to_string(lhs[s]),
-                    core::from_char_to_string(rhs[s]),
-                    core::calc_edit_distance(lhs, rhs)
+                    from_char_to_string(lhs[s]),
+                    from_char_to_string(rhs[s]),
+                    calc_edit_distance(lhs, rhs)
                 )
             );
         }

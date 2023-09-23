@@ -10,8 +10,8 @@
 #include <type_traits>
 
 #include "core/default_parse.h"
-#include "core/stringmerger.h"
-#include "core/result.h"
+#include "base/stringmerger.h"
+#include "base/result.h"
 
 
 namespace eu::core::argparse

@@ -3,7 +3,7 @@
 #include <utility>
 
 #include "assert/assert.h"
-#include "core/cint.h"
+#include "base/cint.h"
 
 
 namespace eu::render
@@ -35,7 +35,7 @@ namespace eu::render
         case ShaderAttributeType::float4:
         case ShaderAttributeType::float33:
         case ShaderAttributeType::float44:
-            return core::c_sizet_to_int(sizeof(float)) * get_element_count();
+            return c_sizet_to_int(sizeof(float)) * get_element_count();
         default:
             DIE("Unhandled shader type"); return 0;
         }

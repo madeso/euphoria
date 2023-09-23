@@ -1,10 +1,10 @@
 #pragma once
 
-#include "core/vfs.h"
+#include "io/vfs.h"
 
 
-namespace eu::core::vfs
+namespace eu::core
 {
     void
-    add_default_shaders(FileSystem* fs, const DirPath& base);
+    add_default_shaders(io::FileSystem* fs, const io::DirPath& base);
 }

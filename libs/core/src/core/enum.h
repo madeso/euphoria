@@ -4,14 +4,15 @@
 #include <map>
 
 
+namespace eu::io
+{
+    struct FileSystem;
+    struct FilePath;
+}
+
+
 namespace eu::core
 {
-    namespace vfs
-    {
-        struct FileSystem;
-        struct FilePath;
-    }
-
     struct EnumValue;
 
     // todo(Gustav): as a compile option, use a hash instead of the string enum
@@ -74,8 +75,8 @@ namespace eu::core
     load_enum_type
     (
         EnumType* type,
-        vfs::FileSystem* fs,
-        const vfs::FilePath& path
+        io::FileSystem* fs,
+        const io::FilePath& path
     );
 
 

@@ -5,7 +5,7 @@
 #include "core/sol_forward.h"
 
 
-namespace eu::core::vfs
+namespace eu::io
 {
     struct FileSystem;
     struct FilePath;
@@ -21,10 +21,10 @@ namespace eu::runner
     void
     load_world
     (
-        core::vfs::FileSystem* fs,
+        io::FileSystem* fs,
         World* world,
         ScriptRegistry* reg,
-        const core::vfs::FilePath& path,
+        const io::FilePath& path,
         ObjectCreator* creator,
         LuaState* ctx
     );

@@ -7,12 +7,13 @@
 #include "core/image.h"
 #include "core/imagefilters.h"
 #include "core/palette_all.h"
-#include "core/io.h"
+#include "io/io.h"
 #include "core/palette.h"
 #include "core/palette_extract.h"
 
 
 using namespace eu::core;
+using namespace eu::io;
 
 
 int
@@ -36,7 +37,7 @@ main(int argc, char* argv[])
             (
                 [&]
                 {
-                    auto file = io::read_file_to_chunk(input);
+                    auto file = read_file_to_chunk(input);
                     if(file == nullptr)
                     {
                         std::cerr
@@ -75,7 +76,7 @@ main(int argc, char* argv[])
             (
                 [&]
                 {
-                    io::write_chunk_to_file
+                    write_chunk_to_file
                     (
                         image.write(ImageWriteFormat::png),
                         output

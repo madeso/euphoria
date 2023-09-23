@@ -8,8 +8,8 @@
 
 #include "assert/assert.h"
 #include "log/log.h"
-#include "core/stringutils.h"
-#include "core/vfs.h"
+#include "base/stringutils.h"
+#include "io/vfs.h"
 
 #include "render/gl.h"
 #include "render/texture.h"
@@ -141,7 +141,7 @@ namespace eu::render
             "{1}\n"
             "---------------------------------------------------------",
             type,
-            core::trim(log)
+            trim(log)
         );
     }
 
@@ -395,11 +395,11 @@ namespace eu::render
 
 
     bool
-    ShaderProgram::load(core::vfs::FileSystem* fs, const core::vfs::FilePath& file_path)
+    ShaderProgram::load(io::FileSystem* fs, const io::FilePath& file_path)
     {
         shader_name = file_path;
 
-        const auto load_path = [](core::vfs::FileSystem* afs, const core::vfs::FilePath& path) -> std::string
+        const auto load_path = [](io::FileSystem* afs, const io::FilePath& path) -> std::string
         {
             // todo(Gustav): replace with a template instead of basic string
             auto content = afs->read_file_to_string(path);
@@ -455,7 +455,7 @@ namespace eu::render
     }
 
 
-    const core::vfs::FilePath&
+    const io::FilePath&
     ShaderProgram::get_name() const
     {
         return shader_name;

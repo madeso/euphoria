@@ -2,11 +2,10 @@
 
 #include "core/mat4.h"
 #include "core/random.h"
-#include "core/vfs.h"
+#include "io/vfs.h"
 #include "core/vfs_imagegenerator.h"
-#include "core/stringutils.h"
+#include "base/stringutils.h"
 #include "core/stdutils.h"
-#include "core/proto.h"
 #include "core/viewport.h"
 
 #include "render/init.h"
@@ -24,6 +23,7 @@
 #include "window/sdlglcontext.h"
 #include "window/filesystem.h"
 #include "window/engine.h"
+#include "window/log.h"
 
 #include "editor/browser.h"
 #include "editor/scimed.h"
@@ -33,30 +33,45 @@
 
 #include "imgui_stdlib.h"
 
-#include "gaf_game.h"
-#include "gaf_world.h"
-#include "gaf_enum.h"
-
-#include "gaf_imgui_game.h"
-#include "gaf_imgui_world.h"
-#include "gaf_imgui_enum.h"
-#include "gaf_imgui_scalingsprite.h"
-
-#include "gaf_rapidjson_game.h"
-#include "gaf_rapidjson_world.h"
-#include "gaf_rapidjson_enum.h"
+#include "files/game.h"
+#include "files/world.h"
+#include "files/enum.h"
 
 
+using namespace eu;
 using namespace eu::core;
+using namespace eu::io;
 using namespace eu::render;
 using namespace eu::window;
 using namespace eu::editor;
+
 
 ImVec2
 operator+(const ImVec2& lhs, const ImVec2& rhs)
 {
     return ImVec2 {lhs.x + rhs.x, lhs.y + rhs.y};
 }
+
+void run_imgui(files::scalingsprite::ScalingSprite*)
+{
+    // todo(Gustav): implement this
+}
+
+void run_imgui(files::game::Game*)
+{
+    // todo(Gustav): implement this
+}
+
+void run_imgui(files::world::World*)
+{
+    // todo(Gustav): implement this
+}
+
+void run_imgui(files::enums::Root*)
+{
+    // todo(Gustav): implement this
+}
+
 
 struct StyleData
 {
@@ -223,8 +238,8 @@ void
 open_or_focus_text_file
 (
     Windows* windows,
-    const vfs::FilePath& path,
-    vfs::FileSystem* fs
+    const FilePath& path,
+    FileSystem* fs
 )
 {
     open_or_focus_window
@@ -246,16 +261,16 @@ open_or_focus_text_file
 struct ScalingSpriteCache
     : Cache
     <
-        vfs::FilePath,
-        scalingsprite::ScalingSprite,
+        FilePath,
+        files::scalingsprite::ScalingSprite,
         ScalingSpriteCache
     >
 {
-    std::shared_ptr<scalingsprite::ScalingSprite>
-    create(const vfs::FilePath&) // NOLINT load from filename
+    std::shared_ptr<files::scalingsprite::ScalingSprite>
+    create(const FilePath&) // NOLINT load from filename
     {
         // todo(Gustav): load from filename
-        auto ss = std::make_shared<scalingsprite::ScalingSprite>();
+        auto ss = std::make_shared<files::scalingsprite::ScalingSprite>();
         return ss;
     }
 };
@@ -266,7 +281,7 @@ load_file
     Scimed* scimed,
     TextureCache* cache,
     ScalingSpriteCache* shader_cache,
-    const vfs::FilePath& path
+    const FilePath& path
 )
 {
     scimed->texture = cache->get_texture(path);
@@ -290,7 +305,7 @@ void
 open_or_focus_scimed
 (
     Windows* windows,
-    const vfs::FilePath& file,
+    const FilePath& file,
     TextureCache* texture_cache,
     ScalingSpriteCache* sprite_cache
 )
@@ -312,7 +327,7 @@ void
 open_or_focus_scimed_editor
 (
     Windows* windows,
-    const vfs::FilePath& path,
+    const FilePath& path,
     ScalingSpriteCache* sprite_cache
 )
 {
@@ -330,7 +345,7 @@ open_or_focus_scimed_editor
             auto sprite = sprite_cache->get(file);
             return create_generic_window(sprite, [](auto sp)
             {
-                scalingsprite::RunImgui(sp.get());
+                run_imgui(sp.get());
             });
         }
     );
@@ -341,8 +356,8 @@ void
 open_or_focus_on_generic_window
 (
     Windows* windows,
-    const vfs::FilePath& path,
-    vfs::FileSystem* fs,
+    const FilePath& path,
+    FileSystem* fs,
     const std::string& title,
     TReadJsonFunction read_json,
     TRun run_function
@@ -362,11 +377,26 @@ open_or_focus_on_generic_window
                     run_function(&t);
                 }
             );
+
             // todo(Gustav): don't open window if loading failed...
-            window->data = eu::core::get_default_but_log_errors
-            (
-                eu::core::read_json_file_to_gaf_struct<T>(fs, path, read_json)
-            );
+
+            const auto loaded = read_json_file(fs, path);
+            if (!loaded)
+            {
+                LOG_ERROR("failed to read {}: {}", path, loaded.get_error().display);
+                return window;
+            }
+
+            T root;
+            const auto& json = loaded.get_value();
+
+            if (false == read_json(log::get_global_logger(), &root, json.root, &json.doc))
+            {
+                return window;
+            }
+
+
+            window->data = std::move(root);
             return window;
         }
     );
@@ -390,10 +420,10 @@ struct FileHandler
     virtual ~FileHandler() = default;
 
     virtual bool
-    matches(const vfs::FilePath& path) = 0;
+    matches(const FilePath& path) = 0;
 
     virtual void
-    open(Windows* windows, const vfs::FilePath& path) = 0;
+    open(Windows* windows, const FilePath& path) = 0;
 };
 
 template <typename TMatchFunction, typename TOpenFunction>
@@ -414,13 +444,13 @@ struct GenericFileHandler : public FileHandler
     }
 
     bool
-    matches(const vfs::FilePath& path) override
+    matches(const FilePath& path) override
     {
         return match_function(path);
     }
 
     void
-    open(Windows* windows, const vfs::FilePath& path) override
+    open(Windows* windows, const FilePath& path) override
     {
         return open_function(windows, path);
     }
@@ -450,7 +480,7 @@ struct FileHandlerList
     }
 
     bool
-    open(Windows* windows, const vfs::FilePath& path)
+    open(Windows* windows, const FilePath& path)
     {
         // todo(Gustav): replace with find and action instead
         for(auto& handler: handlers) // NOLINT
@@ -466,7 +496,7 @@ struct FileHandlerList
     }
 
     void
-    run_imgui_selectable(Windows* windows, const std::optional<vfs::FilePath>& path)
+    run_imgui_selectable(Windows* windows, const std::optional<FilePath>& path)
     {
         // todo(Gustav): come up with a better name for this function
         for(auto& handler: handlers)
@@ -490,7 +520,9 @@ struct FileHandlerList
 int
 main(int argc, char** argv)
 {
-    EU_INIT_LOGGING();
+    SdlLogger sdl_logger;
+    const auto use_sdl_logger = log::ScopedLogger{ &sdl_logger };
+    
     Engine engine;
 
     if (const auto r = engine.setup(argparse::NameAndArguments::extract(argc, argv)); r != 0)
@@ -533,21 +565,21 @@ main(int argc, char** argv)
         create_handler
         (
             "Open with Game Data",
-            [](const vfs::FilePath &file) -> bool
+            [](const FilePath &file) -> bool
             {
                 return file.path == "~/gamedata.json";
             },
-            [&](Windows* wins, const vfs::FilePath &file)
+            [&](Windows* wins, const FilePath &file)
             {
-                open_or_focus_on_generic_window<game::Game>
+                open_or_focus_on_generic_window<files::game::Game>
                 (
                     wins,
                     file,
                     engine.file_system.get(),
                     "Game",
-                    game::ReadJsonGame,
+                    files::game::parse,
                     [](auto *s)
-                    { game::RunImgui(s); }
+                    { run_imgui(s); }
                 );
             }
         )
@@ -558,22 +590,22 @@ main(int argc, char** argv)
         create_handler
         (
             "Open with World Editor",
-            [](const vfs::FilePath &file) -> bool
+            [](const FilePath &file) -> bool
             {
                 return file.path == "~/world.json";
             },
-            [&](Windows* wins, const vfs::FilePath &file)
+            [&](Windows* wins, const FilePath &file)
             {
-                open_or_focus_on_generic_window<::world::World>
+                open_or_focus_on_generic_window<files::world::World>
                 (
                     wins,
                     file,
                     engine.file_system.get(),
                     "World",
-                    world::ReadJsonWorld,
+                    files::world::parse,
                     [](auto *s)
                     {
-                        ::world::RunImgui(s);
+                        run_imgui(s);
                     }
                 );
             }
@@ -584,20 +616,20 @@ main(int argc, char** argv)
         create_handler
         (
             "Open with Enum Editor",
-            [](const vfs::FilePath &) -> bool
+            [](const FilePath &) -> bool
             { return false; },
-            [&](Windows* wins, const vfs::FilePath &file)
+            [&](Windows* wins, const FilePath &file)
             {
-                open_or_focus_on_generic_window<enumlist::Enumroot>
+                open_or_focus_on_generic_window<files::enums::Root>
                 (
                     wins,
                     file,
                     engine.file_system.get(),
                     "Enums",
-                    enumlist::ReadJsonEnumroot,
+                    files::enums::parse,
                     [](auto* s)
                     {
-                        enumlist::RunImgui(s);
+                        run_imgui(s);
                     }
                 );
             }
@@ -609,11 +641,11 @@ main(int argc, char** argv)
         create_handler
         (
             "Open with text editor",
-            [](const vfs::FilePath &file) -> bool
+            [](const FilePath &file) -> bool
             {
                 return ends_with(file.path, ".json") || ends_with(file.path, ".js");
             },
-            [&](Windows* wins, const vfs::FilePath &file)
+            [&](Windows* wins, const FilePath &file)
             {
                 open_or_focus_text_file(wins, file, engine.file_system.get());
             }
@@ -625,11 +657,11 @@ main(int argc, char** argv)
         create_handler
         (
             "Open with scimed editor",
-            [](const vfs::FilePath &file) -> bool
+            [](const FilePath &file) -> bool
             {
                 return file.get_extension() == "png";
             },
-            [&](Windows* wins, const vfs::FilePath &file)
+            [&](Windows* wins, const FilePath &file)
             {
                 open_or_focus_scimed(wins, file, &texture_cache, &sprite_cache);
             }
@@ -641,9 +673,9 @@ main(int argc, char** argv)
         create_handler
         (
             "Open with auto scimed editor",
-            [](const vfs::FilePath &) -> bool
+            [](const FilePath &) -> bool
             { return false; },
-            [&](Windows* wins, const vfs::FilePath &file)
+            [&](Windows* wins, const FilePath &file)
             {
                 open_or_focus_scimed_editor(wins, file, &sprite_cache);
             }

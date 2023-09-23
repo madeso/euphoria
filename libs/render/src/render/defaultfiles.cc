@@ -1,16 +1,16 @@
 #include "render/defaultfiles.h"
 
-#include "core/vfs.h"
-#include "core/vfs_path.h"
+#include "io/vfs.h"
+#include "io/vfs_path.h"
 
 namespace eu::render
 {
     void
-    setup_default_files(std::shared_ptr<core::vfs::ReadRootCatalog> catalog)
+    setup_default_files(std::shared_ptr<io::ReadRootCatalog> catalog)
     {
         catalog->register_file_string
         (
-            core::vfs::FilePath{"~/texture_types.json"},
+            io::FilePath{"~/texture_types.json"},
             R"json(
                 {
                     "name":
@@ -24,7 +24,7 @@ namespace eu::render
 
         catalog->register_file_string
         (
-            core::vfs::FilePath{"~/default_shader.json"},
+            io::FilePath{"~/default_shader.json"},
             R"json(
                 {
                     "has_light": true,
@@ -59,7 +59,7 @@ namespace eu::render
         );
         catalog->register_file_string
         (
-            core::vfs::FilePath{"~/default_shader.vert"},
+            io::FilePath{"~/default_shader.vert"},
             R"glsl(
                 #version 330 core
                 in vec3 aPosition;
@@ -86,7 +86,7 @@ namespace eu::render
         );
         catalog->register_file_string
         (
-            core::vfs::FilePath{"~/default_shader.frag"},
+            io::FilePath{"~/default_shader.frag"},
             R"glsl(
                 #version 330 core
                 struct Material
@@ -184,7 +184,7 @@ namespace eu::render
         // basic_shader
         catalog->register_file_string
         (
-            core::vfs::FilePath{"~/basic_shader.json"},
+            io::FilePath{"~/basic_shader.json"},
             R"json(
                 {
                     "diffuse": "uDiffuse",
@@ -196,7 +196,7 @@ namespace eu::render
         );
         catalog->register_file_string
         (
-            core::vfs::FilePath{"~/basic_shader.vert"},
+            io::FilePath{"~/basic_shader.vert"},
             R"glsl(
                 #version 330 core
                 in vec3 aPosition;
@@ -213,7 +213,7 @@ namespace eu::render
         );
         catalog->register_file_string
         (
-            core::vfs::FilePath{"~/basic_shader.frag"},
+            io::FilePath{"~/basic_shader.frag"},
             R"glsl(
                 #version 330 core
 
@@ -232,7 +232,7 @@ namespace eu::render
         // default_line_shader
         catalog->register_file_string
         (
-            core::vfs::FilePath{"~/default_line_shader.json"},
+            io::FilePath{"~/default_line_shader.json"},
             R"json(
                 {
                     "has_light": false,
@@ -243,7 +243,7 @@ namespace eu::render
         );
         catalog->register_file_string
         (
-            core::vfs::FilePath{"~/default_line_shader.vert"},
+            io::FilePath{"~/default_line_shader.vert"},
             R"glsl(
                 #version 330 core
                 in vec3 aPosition;
@@ -264,7 +264,7 @@ namespace eu::render
         );
         catalog->register_file_string
         (
-            core::vfs::FilePath{"~/default_line_shader.frag"},
+            io::FilePath{"~/default_line_shader.frag"},
             R"glsl(
                 #version 330 core
 

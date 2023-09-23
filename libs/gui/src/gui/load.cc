@@ -1,7 +1,8 @@
 #include "gui/load.h"
 
-#include "core/proto.h"
 #include "log/log.h"
+
+#include "files/gui.h"
 
 #include "render/texturecache.h"
 #include "render/scalablesprite.h"
@@ -14,16 +15,15 @@
 #include "gui/skin.h"
 #include "gui/root.h"
 
-#include "gaf_gui.h"
-#include "gaf_rapidjson_gui.h"
-
 #include <iostream>
 #include <map>
+
+
 
 namespace eu::gui
 {
     std::shared_ptr<Layout>
-    create_layout(const ::gui::Layout& c)
+    create_layout(const files::gui::Layout& c)
     {
         if(c.table)
         {
@@ -67,17 +67,17 @@ namespace eu::gui
     void
     build_layout_container
     (
-        core::vfs::FileSystem* fs,
+        io::FileSystem* fs,
         State* state,
         LayoutContainer* root,
-        const ::gui::LayoutContainer& c,
+        const files::gui::LayoutContainer& c,
         render::TextureCache* cache,
         const std::map<std::string, Skin*>& skins
     );
 
 
     void
-    setup_layout(LayoutData* data, const ::gui::Widget& src)
+    setup_layout(LayoutData* data, const files::gui::Widget& src)
     {
         data->column = src.column;
         data->row = src.row;
@@ -87,7 +87,7 @@ namespace eu::gui
 
 
     core::Lrud<float>
-    from_gaf_to_lrud(const ::gui::Lrtb& lrtd)
+    from_gaf_to_lrud(const files::gui::Lrtb& lrtd)
     {
         return core::Lrud<float>::from_lrud
         (
@@ -102,9 +102,9 @@ namespace eu::gui
     std::shared_ptr<Widget>
     create_widget
     (
-        core::vfs::FileSystem* fs,
+        io::FileSystem* fs,
         State* state,
-        const ::gui::Widget& w,
+        const files::gui::Widget& w,
         render::TextureCache* cache,
         const std::map<std::string, Skin*>& skins
     )
@@ -186,10 +186,10 @@ namespace eu::gui
     void
     build_layout_container
     (
-        core::vfs::FileSystem* fs,
+        io::FileSystem* fs,
         State* state,
         LayoutContainer* root,
-        const ::gui::LayoutContainer& c,
+        const files::gui::LayoutContainer& c,
         render::TextureCache* cache,
         const std::map<std::string, Skin*>& skins
     )
@@ -202,18 +202,18 @@ namespace eu::gui
     }
 
     core::Rgb
-    load(const ::gui::Rgb& src)
+    load(const files::gui::Rgb& src)
     {
         return {src.r, src.g, src.b};
     }
 
     core::easing::Function
-    load(::gui::InterpolationType t)
+    load(files::gui::InterpolationType t)
     {
         switch(t)
         {
 #define FUN(NAME) \
-    case ::gui::InterpolationType::NAME: return core::easing::Function::NAME;
+    case files::gui::InterpolationType::NAME: return core::easing::Function::NAME;
             FUN(linear)
             FUN(smooth_start2)
             FUN(smooth_start3)
@@ -231,7 +231,7 @@ namespace eu::gui
 
 
     ButtonState
-    load_button(const ::gui::ButtonState& src)
+    load_button(const files::gui::ButtonState& src)
     {
         ButtonState ret;
         // ret.image = src.image();
@@ -260,16 +260,16 @@ namespace eu::gui
 
 
     std::shared_ptr<Skin>
-    load_skin(const ::gui::Skin& src, render::FontCache* font, const core::vfs::DirPath& folder)
+    load_skin(const files::gui::Skin& src, render::FontCache* font, const io::DirPath& folder)
     {
         std::shared_ptr<Skin> skin(new gui::Skin());
         skin->name = src.name;
         
-        const auto relative_font_file = core::vfs::FilePath::from_script(src.font).value_or
+        const auto relative_font_file = io::FilePath::from_script(src.font).value_or
         (
-            core::vfs::FilePath{ "~/invalid_font_file" }
+            io::FilePath{ "~/invalid_font_file" }
         );
-        const auto resolved_font_file = core::vfs::resolve_relative(relative_font_file, folder);
+        const auto resolved_font_file = io::resolve_relative(relative_font_file, folder);
         if(resolved_font_file)
         {
             skin->font = font->get_font
@@ -282,9 +282,9 @@ namespace eu::gui
             LOG_ERROR("Unable to resolve font file {} for skin {}", relative_font_file, src.name);
         }
 
-        if (const auto relative_image_file = core::vfs::FilePath::from_script_or_empty(src.button_image); relative_image_file)
+        if (const auto relative_image_file = io::FilePath::from_script_or_empty(src.button_image); relative_image_file)
         {
-            const auto resolved_file = core::vfs::resolve_relative(*relative_image_file, folder);
+            const auto resolved_file = io::resolve_relative(*relative_image_file, folder);
             if (resolved_file)
             {
                 skin->button_image = *resolved_file;
@@ -307,29 +307,34 @@ namespace eu::gui
     load_gui
     (
         Root* root,
-        core::vfs::FileSystem* fs,
+        io::FileSystem* fs,
         render::FontCache* font,
-        const core::vfs::FilePath& path,
+        const io::FilePath& path,
         render::TextureCache* cache
     )
     {
-        const auto folder = path.get_directory();
+        files::gui::File f;
 
-        const auto loaded = core::get_optional_and_log_errors
-        (
-            core::read_json_file_to_gaf_struct<::gui::File>(fs, path, ::gui::ReadJsonFile)
-        );
-        
-        if(loaded.has_value() == false)
+        if (const auto loaded = io::read_json_file(fs, path); loaded == false)
         {
+            LOG_ERROR("Failed to load {}: {}", path, loaded.get_error().display);
             return false;
         }
-
-        const auto& f = *loaded;
-
-        if(auto relative = core::vfs::FilePath::from_script_or_empty(f.cursor_image); relative)
+        else
         {
-            const auto resolved = core::vfs::resolve_relative(*relative, folder);
+            const auto& json = loaded.get_value();
+            const auto parsed = files::gui::parse(log::get_global_logger(), &f, json.root, &json.doc);
+            if (!parsed)
+            {
+                return false;
+            }
+        }
+
+        const auto folder = path.get_directory();
+
+        if(auto relative = io::FilePath::from_script_or_empty(f.cursor_image); relative)
+        {
+            const auto resolved = io::resolve_relative(*relative, folder);
             if (resolved)
             {
                 root->cursor_image = cache->get_texture(*resolved);
@@ -340,9 +345,9 @@ namespace eu::gui
             }
         }
         
-        if (auto relative = core::vfs::FilePath::from_script_or_empty(f.hover_image); relative)
+        if (auto relative = io::FilePath::from_script_or_empty(f.hover_image); relative)
         {
-            const auto resolved = core::vfs::resolve_relative(*relative, folder);
+            const auto resolved = io::resolve_relative(*relative, folder);
             if (resolved)
             {
                 root->hover_image = cache->get_texture(*resolved);

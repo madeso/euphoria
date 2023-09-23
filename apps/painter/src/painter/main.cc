@@ -161,7 +161,7 @@ handle_bezier_tweak(const PolyTheme& theme, CanvasWithControls& canvas, PolyBezi
         auto r = canvas.handle
         (
             con(path.points[point_index]),
-            eu::core::c_sizet_to_int(point_index),
+            eu::c_sizet_to_int(point_index),
             is_anchor_point ? theme.anchor_point_hover   : theme.control_point_hover,
             is_anchor_point ? theme.anchor_point_default : theme.control_point_default
         );
@@ -173,7 +173,7 @@ handle_bezier_tweak(const PolyTheme& theme, CanvasWithControls& canvas, PolyBezi
             }
             else
             {
-                path.move_point(eu::core::c_sizet_to_int(point_index), r.second);
+                path.move_point(eu::c_sizet_to_int(point_index), r.second);
             }
         }
     }

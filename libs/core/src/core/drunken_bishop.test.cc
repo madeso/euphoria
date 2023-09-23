@@ -8,7 +8,7 @@
 #include "tests/vectorequals.h"
 #include "tests/stringeq.h"
 
-
+using namespace eu;
 using namespace eu::core;
 using namespace eu::tests;
 

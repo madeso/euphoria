@@ -4,18 +4,20 @@
 #include "core/argparse.h"
 #include "core/image.h"
 #include "core/random.h"
-#include "core/io.h"
+#include "io/io.h"
 #include "core/vec2.h"
 #include "core/palette.h"
 #include "core/closestpoint.h"
 #include "core/rect.h"
-#include "core/cint.h"
+#include "base/cint.h"
 
 #include "core/palette_tableu.h"
 #include "core/poisson.h"
 
+using namespace eu;
 using namespace eu::core;
-namespace euco = eu::core;
+using namespace eu::io;
+
 
 float
 i2f(int i)
@@ -23,7 +25,7 @@ i2f(int i)
     return static_cast<float>(i);
 }
 
-std::vector<vec2f> generate_random_points(int count, const Rectf& size, euco::Random* random)
+std::vector<vec2f> generate_random_points(int count, const Rectf& size, Random* random)
 {
     std::vector<vec2f> r;
     for(int point_index=0; point_index<count; point_index+=1)
@@ -119,15 +121,15 @@ main(int argc, char* argv[])
         return *r;
     }
 
-    euco::Random rand;
+    Random rand;
 
-    const auto area = Rectf::from_width_height(c_sizet_to_float(size), c_sizet_to_float(size));
+    const auto area = Rectf::from_width_height(eu::c_sizet_to_float(size), eu::c_sizet_to_float(size));
     const auto random_points =
         point_generation == PointGeneration::random
         ? generate_random_points(number_of_points, area, &rand)
         : calc_poisson_samples(area, &rand, poisson_radius*2, poisson_radius);
 
-    const auto rainbow = DynamicPalette::create_rainbow(c_sizet_to_int(random_points.size()));
+    const auto rainbow = DynamicPalette::create_rainbow(eu::c_sizet_to_int(random_points.size()));
     auto pal = use_colorblind
         ? *palettes::tableau::color_blind_10
         : rainbow.to_palette();
@@ -165,7 +167,7 @@ main(int argc, char* argv[])
     });
 
 
-    io::write_chunk_to_file(image.write(ImageWriteFormat::png), output_path);
+    write_chunk_to_file(image.write(ImageWriteFormat::png), output_path);
 
     return 0;
 }

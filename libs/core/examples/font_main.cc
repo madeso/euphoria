@@ -5,10 +5,11 @@
 #include "core/textbox.h"
 #include "core/image_to_text.h"
 #include "core/utf8.h"
-#include "core/io.h"
+#include "io/io.h"
 #include "log/log.h"
 
 using namespace eu::core;
+using namespace eu::io;
 
 
 bool print_char
@@ -121,7 +122,7 @@ get_font
     // todo(gustav): check file name
     if(font_file.empty() == false)
     {
-        auto file = io::read_file_to_chunk(font_file);
+        auto file = read_file_to_chunk(font_file);
         if(file == nullptr)
         {
             std::cerr << "Failed to open file: '" << font_file << "'\n";

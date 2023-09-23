@@ -2,7 +2,7 @@
 
 #include <cstdlib>
 
-#include "core/stringutils.h"
+#include "base/stringutils.h"
 
 namespace
 {
@@ -13,8 +13,8 @@ namespace
         if(clang != nullptr)
         {
             const auto lang = std::string(clang);
-            const auto lower = eu::core::to_lower(lang);
-            const auto ends = eu::core::ends_with(lower, "utf-8");
+            const auto lower = eu::to_lower(lang);
+            const auto ends = eu::ends_with(lower, "utf-8");
             return ends;
         }
 

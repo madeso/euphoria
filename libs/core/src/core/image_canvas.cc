@@ -6,8 +6,8 @@
 #include "core/mat2.h"
 #include "core/image_draw.h"
 
-#include "core/stringutils.h"
-#include "core/stringmerger.h"
+#include "base/stringutils.h"
+#include "base/stringmerger.h"
 
 #include "log/log.h"
 

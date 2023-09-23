@@ -6,9 +6,9 @@
 
 #include "core/markov.h"
 #include "core/argparse.h"
-#include "core/stringmerger.h"
-#include "core/stringutils.h"
-#include "core/editdistance.h"
+#include "base/stringmerger.h"
+#include "base/stringutils.h"
+#include "base/editdistance.h"
 #include "core/nlp_sentence.h"
 #include "core/nlp_line.h"
 
@@ -161,8 +161,8 @@ struct SimilarEditDistance : public Similar
             existing_lines.begin(), existing_lines.end(),
             [&](const auto& line)
             {
-                const auto shortened = core::get_first_chars(line, count);
-                const int edits = core::calc_edit_distance_fast(shortened, generated);
+                const auto shortened = eu::get_first_chars(line, count);
+                const int edits = eu::calc_edit_distance_fast(shortened, generated);
                 if(edits < 10)
                 {
                     rejected.emplace(generated);
@@ -206,7 +206,7 @@ markov_line(const std::string& file, int memory, int count, bool also_existing, 
 
             if(!also_existing)
             {
-                existing_lines->add(core::to_lower(line));
+                existing_lines->add(eu::to_lower(line));
             }
             m.add(*p);
         }
@@ -220,7 +220,7 @@ markov_line(const std::string& file, int memory, int count, bool also_existing, 
     for(int index = 0; index < count+skipped; index += 1)
     {
         const auto generated = core::from_sentence_to_string(b.generate(&rnd));
-        if(!also_existing && existing_lines->is_same(core::to_lower(generated)))
+        if(!also_existing && existing_lines->is_same(eu::to_lower(generated)))
         {
             skipped += 1;
 

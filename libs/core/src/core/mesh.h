@@ -1,26 +1,25 @@
 #pragma once
 
-
-
-
 #include <optional>
+
+#include "io/vfs_path.h"
 
 #include "core/vec2.h"
 #include "core/vec3.h"
 #include "core/rgb.h"
 #include "core/enum.h"
 #include "core/aabb.h"
-#include "core/vfs_path.h"
+
+
+namespace eu::io
+{
+    struct FileSystem;
+    struct FilePath;
+}
+
 
 namespace eu::core
 {
-    namespace vfs
-    {
-        struct FileSystem;
-        struct FilePath;
-    }
-
-
     enum class WrapMode
     {
         repeat,
@@ -68,17 +67,17 @@ namespace eu::core
 
     struct MaterialTexture
     {
-        vfs::FilePath path;
+        io::FilePath path;
         EnumValue type;
 
-        MaterialTexture(const vfs::FilePath& p, EnumValue t);
+        MaterialTexture(const io::FilePath& p, EnumValue t);
     };
 
 
     struct Material
     {
         std::string name;
-        std::optional<core::vfs::FilePath> shader;
+        std::optional<io::FilePath> shader;
         Rgb ambient;
         Rgb diffuse;
         Rgb specular;
@@ -93,7 +92,7 @@ namespace eu::core
         void set_texture
         (
             const std::string& texture_name,
-            const vfs::FilePath& texture_path
+            const io::FilePath& texture_path
         );
     };
 
@@ -116,7 +115,7 @@ namespace eu::core
 
     namespace meshes
     {
-        LoadedMeshOrError load_mesh(vfs::FileSystem* fs, const vfs::FilePath& path);
+        LoadedMeshOrError load_mesh(io::FileSystem* fs, const io::FilePath& path);
 
         Mesh create_cube(float size);
         Mesh create_sphere(float size, const std::string& texture);

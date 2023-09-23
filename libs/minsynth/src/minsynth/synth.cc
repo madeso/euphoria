@@ -10,7 +10,7 @@
 #include "log/log.h"
 #include "assert/assert.h"
 #include "core/numeric.h"
-#include "core/cint.h"
+#include "base/cint.h"
 #include "core/angle.h"
 
 
@@ -529,7 +529,7 @@ namespace eu::minsynth
             current_time_in_interval -= update_time;
             if(!tones.empty())
             {
-                const int size = core::c_sizet_to_int(tones.size());
+                const int size = c_sizet_to_int(tones.size());
 
                 if(mode == ArpMode::random || mode == ArpMode::random_no_repeat)
                 {
@@ -617,7 +617,7 @@ namespace eu::minsynth
                 tones.insert(tones.begin(), tt.begin(), tt.end());
                 break;
             }
-            index = index % core::c_sizet_to_int(tones.size());
+            index = index % c_sizet_to_int(tones.size());
         }
     }
 
@@ -687,19 +687,19 @@ namespace eu::minsynth
     int
     OscilatorNode::get_total_tones() const
     {
-        return core::c_sizet_to_int(live.size() + dead.size());
+        return c_sizet_to_int(live.size() + dead.size());
     }
 
     int
     OscilatorNode::get_alive_tones() const
     {
-        return core::c_sizet_to_int(live.size());
+        return c_sizet_to_int(live.size());
     }
 
     int
     OscilatorNode::get_dead_tones() const
     {
-        return core::c_sizet_to_int(dead.size());
+        return c_sizet_to_int(dead.size());
     }
 
     void
@@ -891,13 +891,13 @@ namespace eu::minsynth
         const auto key = [&](int x, int y) -> core::Key
         {
             const auto wy = start_row - y + 1;
-            if(wy < 0 || wy > core::c_sizet_to_int(k.size()))
+            if(wy < 0 || wy > c_sizet_to_int(k.size()))
             {
                 return core::Key::unbound;
             }
             const auto& r = k[wy];
             const auto wx = start_col + x;
-            if(wx < 0 || wx > core::c_sizet_to_int(r.size()))
+            if(wx < 0 || wx > c_sizet_to_int(r.size()))
             {
                 return core::Key::unbound;
             }

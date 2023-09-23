@@ -4,7 +4,7 @@
 
 #include <memory>
 
-namespace eu::core::vfs
+namespace eu::io
 {
     struct FileSystem;
     struct FilePath;
@@ -28,9 +28,9 @@ namespace eu::gui
     load_gui
     (
             Root* root,
-            core::vfs::FileSystem* fs,
+            io::FileSystem* fs,
             render::FontCache* font,
-            const core::vfs::FilePath& path,
+            const io::FilePath& path,
             render::TextureCache* cache
     );
 }

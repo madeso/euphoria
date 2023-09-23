@@ -1,6 +1,6 @@
 #include "gui/root.h"
 
-#include "core/cint.h"
+#include "base/cint.h"
 
 #include "render/spriterender.h"
 
@@ -22,9 +22,9 @@ namespace eu::gui
     bool
     Root::load
     (
-        core::vfs::FileSystem* fs,
+        io::FileSystem* fs,
         render::FontCache* font,
-        const core::vfs::FilePath& path,
+        const io::FilePath& path,
         render::TextureCache* cache
     )
     {
@@ -80,8 +80,8 @@ namespace eu::gui
                 (
                     state.mouse,
                     core::Scale2f{0, 1},
-                    core::c_int_to_float(image->width),
-                    core::c_int_to_float(image->height)
+                    c_int_to_float(image->width),
+                    c_int_to_float(image->height)
                 )
             );
         }

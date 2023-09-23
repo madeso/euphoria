@@ -1,6 +1,6 @@
 #pragma once
 
-#include "core/ints.h"
+#include "base/ints.h"
 
 namespace eu::core::ecs
 {

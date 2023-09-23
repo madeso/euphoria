@@ -8,10 +8,10 @@
 #include "assert/assert.h"
 #include "core/numeric.h"
 #include "log/log.h"
-#include "core/cint.h"
+#include "base/cint.h"
 #include "core/decompress.h"
-#include "core/vfs.h"
-#include "core/vfs_path.h"
+#include "io/vfs.h"
+#include "io/vfs_path.h"
 
 
 namespace eu::core
@@ -292,7 +292,7 @@ namespace eu::core
 
 
     ImageLoadResult
-    load_image(vfs::FileSystem* fs, const vfs::FilePath& path, AlphaLoad alpha)
+    load_image(io::FileSystem* fs, const io::FilePath& path, AlphaLoad alpha)
     {
         auto file_memory = fs->read_file(path);
         if(file_memory == nullptr)

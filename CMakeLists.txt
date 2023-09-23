@@ -6,7 +6,6 @@ project(euphoria C CXX)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/tools/cmake/modules")
 include(tools/cmake/standard_project_settings.cmake)
 include(tools/cmake/compiler_warnings.cmake)
-include(tools/cmake/win32define.cmake)
 
 if(WIN32)
     # Error C1128	number of sections exceeded object file format limit: compile with /bigobj

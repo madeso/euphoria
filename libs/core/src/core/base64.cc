@@ -1,8 +1,8 @@
 #include "core/base64.h"
 
 #include "assert/assert.h"
-#include "core/cint.h"
-#include "core/stringbuilder.h"
+#include "base/cint.h"
+#include "base/stringbuilder.h"
 
 #include <string_view>
 #include <array>

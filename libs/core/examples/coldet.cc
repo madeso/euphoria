@@ -6,13 +6,13 @@
 #include "core/plane.h"
 #include "core/sphere.h"
 #include "core/argparse.h"
-#include "core/os.h"
+#include "base/os.h"
 
 
 
 #include <iostream>
 
-
+using namespace eu;
 using namespace eu::core;
 using namespace eu::core::dump3d;
 

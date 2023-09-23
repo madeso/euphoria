@@ -6,15 +6,11 @@ set_target_properties(undef_windows PROPERTIES FOLDER "Dependencies")
 
 
 
+
 ###################################################################################################
-## gaf
-add_subdirectory(gaf)
-set_target_properties(gaf         PROPERTIES FOLDER "Dependencies/gaf")
-set_target_properties(gaf_fmt     PROPERTIES FOLDER "Dependencies/gaf")
-set_target_properties(gaf_pugixml PROPERTIES FOLDER "Dependencies/gaf")
-set_target_properties(libgaf_gaf  PROPERTIES FOLDER "Dependencies/gaf")
-set_target_properties(libgaf_json PROPERTIES FOLDER "Dependencies/gaf")
-set_target_properties(libgaf_xml  PROPERTIES FOLDER "Dependencies/gaf")
+## json
+add_subdirectory(json)
+# set_target_properties(undef_windows PROPERTIES FOLDER "Dependencies")
 
 
 
@@ -158,29 +154,24 @@ target_link_libraries(catch INTERFACE ${CMAKE_THREAD_LIBS_INIT})
 add_library(external::catch ALIAS catch)
 
 
-
-###################################################################################################
-## spdlog
-add_library(spdlog INTERFACE)
-target_include_directories(spdlog SYSTEM
-    INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/spdlog/include
+add_library(catch_main STATIC
+    catch_main/main.cc
 )
-add_library(external::spdlog ALIAS spdlog)
-
-
-
-###################################################################################################
-## rapidjson
-add_library(rapidjson INTERFACE)
-target_link_libraries(rapidjson INTERFACE libgaf::json)
-add_library(external::rapidjson ALIAS rapidjson)
-
+set_target_properties(catch_main PROPERTIES FOLDER "Dependencies")
+target_link_libraries(catch_main
+    PUBLIC
+        external::catch
+        euph::assert
+        euph::project_options
+)
+add_library(external::catch_main ALIAS catch_main)
 
 
 ###################################################################################################
 ## fmt
+add_subdirectory(fmt-10.1.1)
 add_library(fmt_dep INTERFACE)
-target_link_libraries(fmt_dep INTERFACE libgaf::fmt)
+target_link_libraries(fmt_dep INTERFACE fmt::fmt)
 add_library(external::fmt ALIAS fmt_dep)
 
 

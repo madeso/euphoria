@@ -7,7 +7,7 @@
 #include "core/sol_forward.h"
 
 
-namespace game
+namespace eu::files::game
 {
     struct Game;
 }
@@ -70,12 +70,12 @@ namespace eu::runner
     };
 
     void
-    load_templates_but_only_names(const game::Game& json, ObjectCreator* temp);
+    load_templates_but_only_names(const files::game::Game& json, ObjectCreator* temp);
 
     void
     load_templates
     (
-        const game::Game& json,
+        const files::game::Game& json,
         ObjectCreator* temp,
         ScriptRegistry* reg,
         render::TextureCache* cache,

@@ -1,8 +1,8 @@
 #include "t3d/filelist.h"
 
 #include "assert/assert.h"
-#include "core/os.h"
-#include "core/vfs.h"
+#include "base/os.h"
+#include "io/vfs.h"
 
 #include <algorithm>
 
@@ -12,8 +12,8 @@ namespace eu::t3d
     void
     FileList::add_directory
     (
-        const core::vfs::DirPath& directory,
-        core::vfs::FileSystem* file_system
+        const io::DirPath& directory,
+        io::FileSystem* file_system
     )
     {
         auto listed_files = file_system->list_files(directory);
@@ -44,7 +44,7 @@ namespace eu::t3d
     }
 
 
-    core::vfs::FilePath
+    io::FilePath
     FileList::get_next_file()
     {
         ASSERT(!files.empty());

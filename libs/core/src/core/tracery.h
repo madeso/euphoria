@@ -111,7 +111,6 @@ namespace eu::core::tracery
         void register_english();
 
         [[nodiscard]] Result load_from_string(const std::string& filename, const std::string& data);
-        [[nodiscard]] Result load_from_gaf_string(const std::string& filename, const std::string& data);
 
         Grammar& register_modifier(const std::string& name, std::shared_ptr<Modifier> m);
 

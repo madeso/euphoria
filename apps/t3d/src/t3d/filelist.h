@@ -1,12 +1,12 @@
 #pragma once
 
-#include "core/vfs_path.h"
+#include "io/vfs_path.h"
 
 
 
 
 
-namespace eu::core::vfs
+namespace eu::io
 {
     struct FileSystem;
 }
@@ -19,8 +19,8 @@ namespace eu::t3d
         void
         add_directory
         (
-            const core::vfs::DirPath& path,
-            core::vfs::FileSystem* file_system
+            const io::DirPath& path,
+            io::FileSystem* file_system
         );
 
 
@@ -28,12 +28,12 @@ namespace eu::t3d
         has_more_files() const;
 
 
-        core::vfs::FilePath
+        io::FilePath
         get_next_file();
 
 
         std::vector<std::string> extensions;
-        std::vector<core::vfs::FilePath> files;
+        std::vector<io::FilePath> files;
         std::size_t index = 0;
     };
 }

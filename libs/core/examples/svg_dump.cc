@@ -9,7 +9,7 @@
 #include "core/palette.h"
 #include "core/palette_tableu.h"
 #include "core/shufflebag.h"
-#include "core/os.h"
+#include "base/os.h"
 #include "core/argparse.h"
 
 
@@ -44,7 +44,7 @@ main(int argc, char* argv[])
 {
     auto parser = argparse::Parser("svg dump");
 
-    auto current_directory = core::get_current_directory();
+    auto current_directory = get_current_directory();
     parser
         .add("-w", &current_directory)
         .set_help("Sets the working direction if it's different from the current folder")

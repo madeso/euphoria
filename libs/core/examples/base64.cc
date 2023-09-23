@@ -2,12 +2,12 @@
 
 #include <iostream>
 
+#include "io/vfs.h"
+#include "io/vfs_path.h"
 
-#include "core/vfs.h"
-#include "core/vfs_path.h"
 
-
-namespace vfs = eu::core::vfs;
+using namespace eu::core;
+using namespace eu::io;
 
 
 void
@@ -22,18 +22,18 @@ print_usage(char** argv)
 int
 run_encode(const std::string& data)
 {
-    vfs::FileSystem file_system;
-    auto catalog = vfs::ReadRootCatalog::create_and_add(&file_system);
-    vfs::ReadRootPhysicalFolder::add_current_directory(&file_system);
+    FileSystem file_system;
+    auto catalog = ReadRootCatalog::create_and_add(&file_system);
+    ReadRootPhysicalFolder::add_current_directory(&file_system);
 
     auto memory = file_system.read_file
     (
-        vfs::FilePath::from_script(data).value_or
+        FilePath::from_script(data).value_or
         (
-            vfs::FilePath{"~/invalid_input"}
+            FilePath{"~/invalid_input"}
         )
     );
-    auto encoded = eu::core::base64::encode(memory);
+    auto encoded = base64::encode(memory);
     std::cout << "Encoded:\n" << encoded << "\n";
     return 0;
 }

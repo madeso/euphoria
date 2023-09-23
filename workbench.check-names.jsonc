@@ -51,7 +51,7 @@
     // theese files follow existing conventiosna and are excluded from specific name rules
     "ignored_files": [
         "libs/core/src/core/easing.cc",
-        "libs/core/src/core/functional.h",
+        "libs/core/src/base/functional.h",
         "libs/core/src/core/last_n.h",
         "libs/core/src/core/subvec.h"
     ],

@@ -2,9 +2,9 @@
 
 #include "core/numeric.h"
 #include "log/log.h"
-#include "core/stringmerger.h"
-#include "core/stringutils.h"
-#include "core/cint.h"
+#include "base/stringmerger.h"
+#include "base/stringutils.h"
+#include "base/cint.h"
 
 #include "gui/widget.h"
 
@@ -77,11 +77,11 @@ namespace eu::gui
         std::string
         from_vector_to_string(const std::vector<float>& float_vector)
         {
-            const auto string_vector = core::to_string_vector
+            const auto string_vector = to_string_vector
             (
                 float_vector
             );
-            return core::string_mergers::array.merge(string_vector);
+            return string_mergers::array.merge(string_vector);
         }
     }
 
@@ -110,18 +110,18 @@ namespace eu::gui
         const float leftover_width = area.get_width() - total_width;
         const float leftover_height = area.get_height() - total_height;
 
-        const int expandable_rows_count = core::c_sizet_to_int
+        const int expandable_rows_count = c_sizet_to_int
         (
             std::count(expandable_rows.begin(), expandable_rows.end(), true)
         );
-        const int expandable_cols_count = core::c_sizet_to_int
+        const int expandable_cols_count = c_sizet_to_int
         (
             std::count(expandable_cols.begin(), expandable_cols.end(), true)
         );
 
         if(expandable_rows_count != 0)
         {
-            const float extra = leftover_height / core::c_int_to_float(expandable_rows_count);
+            const float extra = leftover_height / c_int_to_float(expandable_rows_count);
             for(unsigned int row_index = 0; row_index < expandable_rows.size(); ++row_index)
             {
                 if(expandable_rows[row_index])
@@ -133,7 +133,7 @@ namespace eu::gui
 
         if(expandable_cols_count != 0)
         {
-            const float extra = leftover_width / core::c_int_to_float(expandable_cols_count);
+            const float extra = leftover_width / c_int_to_float(expandable_cols_count);
             for(unsigned int column_index = 0; column_index < expandable_cols.size(); ++column_index)
             {
                 if(expandable_cols[column_index])

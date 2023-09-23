@@ -5,7 +5,7 @@
 
 #include "assert/assert.h"
 
-#include "core/ints.h"
+#include "base/ints.h"
 #include "core/vec2.h"
 #include "core/range.h"
 

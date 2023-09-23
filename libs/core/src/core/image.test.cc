@@ -1,7 +1,7 @@
 #include "core/image.h"
 
-#include "core/vfs.h"
-#include "core/vfs_path.h"
+#include "io/vfs.h"
+#include "io/vfs_path.h"
 #include "core/base64.h"
 #include "core/rgb.h"
 #include "core/image_draw.h"
@@ -13,7 +13,6 @@
 
 #include "catch.hpp"
 
-namespace vfs = eu::core::vfs;
 namespace euco = eu::core;
 
 using namespace eu::tests;
@@ -31,18 +30,18 @@ const char* const base64_encoded_test_image
 
 TEST_CASE("image-load", "[img]")
 {
-    vfs::FileSystem fs;
-    auto catalog = vfs::ReadRootCatalog::create_and_add(&fs);
+    eu::io::FileSystem fs;
+    auto catalog = eu::io::ReadRootCatalog::create_and_add(&fs);
     catalog->register_file_data
     (
-        vfs::FilePath{"~/white"},
+        eu::io::FilePath{"~/white"},
         euco::base64::decode(base64_encoded_test_image)
     );
 
     auto loaded = euco::load_image
     (
         &fs,
-        vfs::FilePath{"~/white"},
+        eu::io::FilePath{"~/white"},
         euco::AlphaLoad::remove
     );
     REQUIRE(loaded.error.empty());

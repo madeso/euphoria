@@ -4,8 +4,8 @@
 #include <iostream>
 #include <string_view>
 
-#include "core/stringutils.h"
-#include "core/stringbuilder.h"
+#include "base/stringutils.h"
+#include "base/stringbuilder.h"
 
 
 namespace eu::core

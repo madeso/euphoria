@@ -18,7 +18,6 @@ source_group("rtmidi" FILES ${rtmidi_src})
 
 
 add_executable(musikmaskin WIN32 MACOSX_BUNDLE ${src})
-set_win32_defines(musikmaskin)
 set_target_properties(musikmaskin PROPERTIES FOLDER "Applications")
 target_include_directories(musikmaskin
     PUBLIC

@@ -1,17 +1,16 @@
 #include "core/tracery.h"
 
-#include "rapidjson/document.h"
+#include "jsonh/jsonh.h"
 
 #include "assert/assert.h"
 
+#include "base/stringutils.h"
+#include "base/stringbuilder.h"
+
+#include "io/json.h"
+
 #include "core/random.h"
 #include "core/textfileparser.h"
-#include "core/proto.h"
-#include "core/stringutils.h"
-#include "core/stringbuilder.h"
-
-#include "gaf_tracery.h"
-#include "gaf_rapidjson_tracery.h"
 
 
 
@@ -27,76 +26,42 @@ namespace eu::core::tracery
         std::map<std::string, std::string> overridden_rules;
     };
 
-    Result
-    parse_json(Symbol* rule, const ::tracery::Rule& value)
-    {
-        for(const auto& v: value.text)
-        {
-            Result r = rule->add_rule(v);
-            if(r == false)
-            {
-                return r;
-            }
-        }
-
-        return Result::no_error;
-    }
-
-
-    Result
-    from_json(Symbol* rule, const ::tracery::Rule& value)
-    {
-        auto r = parse_json(rule, value);
-        if(r == false)
-        {
-            // todo(Gustav): add json error information
-            r << "for symbol " << rule->key;
-        }
-
-        return r;
-    }
-
     // ----------------------------------------------------------------
 
-
     Result
-    parse_json(Symbol* rule, const rapidjson::Value& value)
+    from_json(Symbol* rule, const jsonh::Value& value, const jsonh::Document* doc)
     {
-        if(value.IsString())
-        {
-            return rule->add_rule(value.GetString());
-        }
-        else if(value.IsArray())
-        {
-            for(const auto& v: value.GetArray())
+        auto r = [&]() -> Result {
+            if (auto* str = value.AsString(doc); str != nullptr)
             {
-                if(v.IsString())
+                return rule->add_rule(str->value);
+            }
+            else if (auto* arr = value.AsArray(doc); arr != nullptr)
+            {
+                for (const auto& v : arr->array)
                 {
-                    Result r = rule->add_rule(v.GetString());
-                    if(r == false)
+                    if (auto* vstr = v.AsString(doc); vstr != nullptr)
                     {
-                        return r;
+                        Result r = rule->add_rule(vstr->value);
+                        if (r == false)
+                        {
+                            return r;
+                        }
+                    }
+                    else
+                    {
+                        return { Result::invalid_json };
                     }
                 }
-                else
-                {
-                    return {Result::invalid_json};
-                }
+
+                return { Result::no_error };
             }
+            else
+            {
+                return { Result::invalid_json };
+            }
+        }();
 
-            return {Result::no_error};
-        }
-        else
-        {
-            return {Result::invalid_json};
-        }
-    }
-
-
-    Result
-    from_json(Symbol* rule, const rapidjson::Value& value)
-    {
-        auto r = parse_json(rule, value);
         if(r == false)
         {
             // todo(Gustav): add json error information
@@ -623,51 +588,31 @@ namespace eu::core::tracery
 
 
     Result
-    Grammar::load_from_gaf_string(const std::string& filename, const std::string& data)
-    {
-        const auto loaded = get_optional_and_log_errors
-        (
-            read_json_source_to_gaf_struct<::tracery::Tracery>(filename, data, ::tracery::ReadJsonTracery)
-        );
-        if(loaded.has_value() == false)
-        {
-            // todo(Gustav): handle logging error better...
-            return Result{Result::json_parse} << "unable to load file";
-        }
-        const auto& message = *loaded;
-
-        for(const auto& json_rule: message.rule)
-        {
-            auto rule = Symbol{json_rule.name};
-            const auto rule_loaded = from_json(&rule, json_rule);
-            if(rule_loaded == false)
-            {
-                return rule_loaded;
-            }
-            rules.insert(std::make_pair(json_rule.name, rule));
-        }
-
-        return {Result::no_error};
-    }
-
-
-    Result
     Grammar::load_from_string(const std::string& filename, const std::string& data)
     {
-        rapidjson::Document doc;
-        const auto parse_error = read_source_or_get_error_message(data, &doc);
-        if(parse_error.has_value())
+        const auto result = jsonh::Parse(data, jsonh::parse_flags::Json);
+        if(result.HasError())
         {
-            return Result{Result::json_parse} << "Error in " << filename << ": "<< *parse_error;
+            auto ret = Result{ Result::json_parse };
+            for(const auto& e: result.errors)
+            {
+                ret << fmt::format("{}({}:{}): {}", filename, e.location.line, e.location.column, e.message);
+            }
+            return ret;
         }
 
-        for(rapidjson::Value::ConstMemberIterator itr = doc.MemberBegin();
-            itr != doc.MemberEnd();
-            ++itr)
+        auto root = result.root->AsObject(&result.doc);
+
+        if (root == nullptr)
         {
-            const std::string name_of_rule = itr->name.GetString();
+            return Result{ Result::json_parse } << "root was not a object";
+        }
+
+        for(const auto& mem: root->object)
+        {
+            const auto& name_of_rule = mem.first;
             Symbol rule {name_of_rule};
-            Result r = from_json(&rule, itr->value);
+            Result r = from_json(&rule, mem.second, &result.doc);
             if(r == false)
             {
                 return r;

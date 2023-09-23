@@ -2,22 +2,22 @@
 
 #include "assert/assert.h"
 #include "core/cache.h"
-#include "core/vfs_path.h"
+#include "io/vfs_path.h"
 
 #include "render/texture.h"
 
 namespace eu::render
 {
     struct TextureCache::TextureCachePimpl
-        : core::Cache<core::vfs::FilePath, Texture2, TextureCache::TextureCachePimpl>
+        : core::Cache<io::FilePath, Texture2, TextureCache::TextureCachePimpl>
     {
-        explicit TextureCachePimpl(core::vfs::FileSystem* fs) : vfs(fs)
+        explicit TextureCachePimpl(io::FileSystem* fs) : vfs(fs)
         {
             ASSERT(fs);
         }
 
         [[nodiscard]] std::shared_ptr<Texture2>
-        create(const core::vfs::FilePath& file) const
+        create(const io::FilePath& file) const
         {
             auto ret = std::make_shared<Texture2>();
             ret->load_from_file
@@ -30,11 +30,11 @@ namespace eu::render
             return ret;
         }
 
-        core::vfs::FileSystem* vfs;
+        io::FileSystem* vfs;
     };
 
 
-    TextureCache::TextureCache(core::vfs::FileSystem* fs)
+    TextureCache::TextureCache(io::FileSystem* fs)
     {
         pimpl = std::make_unique<TextureCache::TextureCachePimpl>(fs);
     }
@@ -44,14 +44,14 @@ namespace eu::render
 
 
     std::shared_ptr<Texture2>
-    TextureCache::get_texture(const core::vfs::FilePath& path) const
+    TextureCache::get_texture(const io::FilePath& path) const
     {
         return pimpl->get(path);
     }
 
 
     std::shared_ptr<Texture2>
-    TextureCache::get_texture(const std::optional<core::vfs::FilePath>& path) const
+    TextureCache::get_texture(const std::optional<io::FilePath>& path) const
     {
         if(path.has_value())
         {

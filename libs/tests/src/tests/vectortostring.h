@@ -1,6 +1,6 @@
 #pragma once
 
-#include "core/stringbuilder.h"
+#include "base/stringbuilder.h"
 
 
 namespace eu::tests
@@ -18,7 +18,7 @@ namespace eu::tests
         TConverter converter
     )
     {
-        auto ss = core::StringBuilder{};
+        auto ss = StringBuilder{};
         bool first = true;
 
         const std::string_view newline = one_line ? "" : "\n";

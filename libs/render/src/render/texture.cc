@@ -4,7 +4,7 @@
 #include "core/image.h"
 #include "assert/assert.h"
 #include "log/log.h"
-#include "core/vfs_path.h"
+#include "io/vfs_path.h"
 
 #include "render/gl.h"
 #include "render/texture.h"
@@ -187,8 +187,8 @@ namespace eu::render
     void
     Texture2::load_from_file
     (
-        core::vfs::FileSystem* fs,
-        const core::vfs::FilePath& path,
+        io::FileSystem* fs,
+        const io::FilePath& path,
         core::AlphaLoad alpha,
         const Texture2dLoadData& data
     )

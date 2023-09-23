@@ -1,5 +1,6 @@
 #include "core/crc32.h"
-#include "core/memorychunk.h"
+
+#include "base/memorychunk.h"
 
 #include "crc32/crc32.h"
 

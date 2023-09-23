@@ -1,7 +1,7 @@
 #include "core/nlp_line.h"
 
-#include "core/stringutils.h"
-#include "core/stringmerger.h"
+#include "base/stringutils.h"
+#include "base/stringmerger.h"
 
 namespace eu::core
 {

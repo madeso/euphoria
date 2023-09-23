@@ -5,15 +5,15 @@
 #include "core/axisangle.h"
 #include "core/aabb.h"
 #include "core/texturetypes.h"
-#include "core/vfs.h"
+#include "io/vfs.h"
 #include "core/vfs_imagegenerator.h"
-#include "core/vfs_path.h"
-#include "core/os.h"
+#include "io/vfs_path.h"
+#include "base/os.h"
 #include "core/range.h"
 #include "core/camera3.h"
-#include "core/stringutils.h"
+#include "base/stringutils.h"
 #include "core/stdutils.h"
-#include "core/cint.h"
+#include "base/cint.h"
 
 #include "render/init.h"
 #include "render/debuggl.h"
@@ -38,7 +38,7 @@
 #include "window/engine.h"
 #include "window/canvas.h"
 #include "window/key.h"
-
+#include "window/log.h"
 
 #include "SDL.h"
 #include <iostream>
@@ -63,6 +63,7 @@
 
 #include "RtMidi.h"
 
+using namespace eu;
 using namespace eu::core;
 using namespace eu::window;
 using namespace eu::minsynth;
@@ -533,7 +534,9 @@ public:
 int
 main(int argc, char** argv)
 {
-    EU_INIT_LOGGING();
+    SdlLogger sdl_logger;
+    const auto use_sdl_logger = eu::log::ScopedLogger{ &sdl_logger };
+    
     Engine engine;
 
     if (const auto r = engine.setup(argparse::NameAndArguments::extract(argc, argv)); r != 0)
@@ -566,7 +569,7 @@ main(int argc, char** argv)
         last_time = current_time;
         current_time = SDL_GetPerformanceCounter();
 
-        const float dt = eu::core::c_u64_to_float(current_time - last_time) / eu::core::c_u64_to_float(SDL_GetPerformanceFrequency());
+        const float dt = c_u64_to_float(current_time - last_time) / c_u64_to_float(SDL_GetPerformanceFrequency());
 
         time += dt;
         app.current_time = time;

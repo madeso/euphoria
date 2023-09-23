@@ -1,7 +1,7 @@
 #include "core/default_parse.h"
 
-#include "core/stringmerger.h"
-#include "core/functional.h"
+#include "base/stringmerger.h"
+#include "base/functional.h"
 
 
 namespace eu::core::argparse

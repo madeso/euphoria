@@ -9,22 +9,21 @@
 #include "stb_rect_pack.h"
 
 #include "log/log.h"
-#include "core/proto.h"
 #include "core/image_draw.h"
 #include "core/ui_text.h"
 #include "core/utf8.h"
 #include "assert/assert.h"
 #include "core/image.h"
-#include "core/vfs_path.h"
+#include "io/vfs_path.h"
 #include "core/stdutils.h"
-#include "core/stringmerger.h"
+#include "base/stringmerger.h"
+
+#include "files/font.h"
 
 #include "render/texture.h"
 #include "render/spriterender.h"
 #include "render/texturecache.h"
 
-#include "gaf_font.h"
-#include "gaf_rapidjson_font.h"
 
 using namespace eu::convert;
 
@@ -49,11 +48,11 @@ namespace eu::render
     core::LoadedFont
     get_characters_from_single_image
     (
-        core::vfs::FileSystem* fs,
-        const font::SingleImage& img
+        io::FileSystem* fs,
+        const files::font::SingleImage& img
     )
     {
-        const auto image_file = core::vfs::FilePath::from_script(img.file);
+        const auto image_file = io::FilePath::from_script(img.file);
 
         if(image_file.has_value() == false)
         {
@@ -67,9 +66,9 @@ namespace eu::render
             image_file.value(),
             img.alias,
             img.scale,
-            core::c_int_to_float(img.bearing_x),
-            core::c_int_to_float(img.bearing_y),
-            core::c_int_to_float(img.advance)
+            c_int_to_float(img.bearing_x),
+            c_int_to_float(img.bearing_y),
+            c_int_to_float(img.advance)
         );
     }
 
@@ -125,9 +124,9 @@ namespace eu::render
 
     DrawableFont::DrawableFont
     (
-        core::vfs::FileSystem* fs,
+        io::FileSystem* fs,
         TextureCache* cache,
-        const core::vfs::FilePath& font_file
+        const io::FilePath& font_file
     )
     {
         // todo(Gustav): too long, break up
@@ -136,63 +135,78 @@ namespace eu::render
 
         background = cache->get_texture
         (
-            core::vfs::FilePath{"~/img-plain/white"}
+            io::FilePath{"~/img-plain/white"}
         );
+
+        files::font::Root font_root;
+        if (const auto loaded = io::read_json_file(fs, font_file); loaded == false)
+        {
+            LOG_ERROR("Failed to load {}: {}", font_file, loaded.get_error().display);
+            return;
+        }
+        else
+        {
+            const auto& json = loaded.get_value();
+            const auto parsed = files::font::parse(log::get_global_logger(), &font_root, json.root, &json.doc);
+            if (!parsed)
+            {
+                return;
+            }
+        }
 
         core::LoadedFont fontchars;
+        
+        int sources = 0;
 
-        const auto font_root = core::get_default_but_log_errors
-        (
-            core::read_json_file_to_gaf_struct<font::Root>(fs, font_file, font::ReadJsonRoot)
-        );
+        for(const auto& font: font_root.fonts)
+        {
+            sources += 1;
 
-        // todo(Gustav): handle error better
-        if (font_root.sources.empty())
+            const auto p = io::FilePath::from_script(font.file);
+            if(p.has_value() == false)
+            {
+                LOG_ERROR("Invalid path {0}", font.file);
+                return;
+            }
+
+            fontchars.combine_with
+            (
+                core::get_characters_from_font
+                (
+                    fs,
+                    *p,
+                    font_root.size,
+                    font.characters
+                )
+            );
+        }
+        
+        for(const auto& image: font_root.images)
+        {
+            sources += 1;
+            const auto image_font = get_characters_from_single_image(fs, image);
+            fontchars.combine_with(image_font);
+        }
+
+        if(font_root.builtin8)
+        {
+            sources += 1;
+            fontchars.combine_with(core::load_characters_from_builtin8());
+        }
+
+        if(font_root.builtin13)
+        {
+            sources += 1;
+            fontchars.combine_with(core::load_characters_from_builtin13());
+        }
+
+        if (sources == 0)
         {
             LOG_ERROR("Missing sources in {}", font_file);
             return;
         }
-        
-        for(const auto& source: font_root.sources)
-        {
-            if(source.font)
-            {
-                const font::FontFile& font = *source.font;
 
-                const auto p = core::vfs::FilePath::from_script(font.file);
-                if(p.has_value() == false)
-                {
-                    LOG_ERROR("Invalid path {0}", font.file);
-                    return;
-                }
-
-                fontchars.combine_with
-                (
-                    core::get_characters_from_font
-                    (
-                        fs,
-                        *p,
-                        font_root.size,
-                        font.characters
-                    )
-                );
-            }
-            if(source.image)
-            {
-                const font::SingleImage& image = *source.image;
-                const auto image_font = get_characters_from_single_image(fs, image);
-                fontchars.combine_with(image_font);
-            }
-            if(source.builtin8)
-            {
-                fontchars.combine_with(core::load_characters_from_builtin8());
-            }
-            if(source.builtin13)
-            {
-                fontchars.combine_with(core::load_characters_from_builtin13());
-            }
-            // todo(Gustav): add more sources, built in image font or images
-        }
+        // todo(Gustav): add more sources, built in image font or images
 
         // the half margin between glyphs in the final texture
         const int half_margin = 1;
@@ -200,7 +214,7 @@ namespace eu::render
         // todo(Gustav): use core/pack.h instead
 
         // pack char textures to a single texture
-        const int num_rects = core::c_sizet_to_int(fontchars.codepoint_to_glyph.size());
+        const int num_rects = c_sizet_to_int(fontchars.codepoint_to_glyph.size());
         std::vector<stbrp_rect> packed_rects(num_rects);
         std::map<int, int> id_to_codepoint;
         {
@@ -404,7 +418,7 @@ namespace eu::render
                 (
                     "Unable to find image {0}, could be {1}",
                     image,
-                    core::string_mergers::english_or.merge(core::get_keys(font.private_use_aliases))
+                    string_mergers::english_or.merge(core::get_keys(font.private_use_aliases))
                 );
                 return;
             }

@@ -1,7 +1,7 @@
 #include "render/viewporthandler.h"
 
 #include "core/viewportdef.h"
-#include "core/cint.h"
+#include "base/cint.h"
 #include "core/viewport.h"
 
 #include "render/viewport.h"

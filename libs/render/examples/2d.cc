@@ -1,10 +1,9 @@
 #include "SDL.h"
 
 #include "log/log.h"
-#include "core/os.h"
+#include "base/os.h"
 #include "core/vfs_imagegenerator.h"
 #include "core/vfs_defaultshaders.h"
-#include "core/proto.h"
 #include "core/viewportdef.h"
 #include "core/image_draw.h"
 
@@ -32,7 +31,7 @@
 #include "imgui/imgui.h"
 #include "imgui/imgui_internal.h"
 
-
+using namespace eu;
 using namespace eu::core;
 using namespace eu::render;
 using namespace eu::window;
@@ -49,7 +48,7 @@ main(int argc, char* argv[])
 
     engine.file_system->set_write_root
     (
-        std::make_shared<vfs::WriteRootPhysicalFolder>(get_current_directory())
+        std::make_shared<io::WriteRootPhysicalFolder>(get_current_directory())
     );
 
     TextureCache cache {engine.file_system.get()};
@@ -76,7 +75,7 @@ main(int argc, char* argv[])
 
     ShaderProgram shader;
     attributes2d::add_attributes_to_shader(&shader);
-    shader.load(engine.file_system.get(), vfs::FilePath{"~/shaders/sprite"});
+    shader.load(engine.file_system.get(), io::FilePath{"~/shaders/sprite"});
     SpriteRenderer renderer(&shader);
     FontCache font_cache {engine.file_system.get(), &cache};
 
@@ -112,11 +111,11 @@ main(int argc, char* argv[])
 
         engine.catalog->register_file_data
         (
-            vfs::FilePath{"~/image"},
+            io::FilePath{"~/image"},
             image.write(ImageWriteFormat::png)
         );
     }
-    auto arrows = cache.get_texture(vfs::FilePath{"~/image"});
+    auto arrows = cache.get_texture(io::FilePath{"~/image"});
 
     engine.init->use_2d();
 

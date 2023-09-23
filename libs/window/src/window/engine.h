@@ -7,7 +7,7 @@
 #include "window/fakesdlevent.h"
 
 
-namespace eu::core::vfs
+namespace eu::io
 {
     struct FileSystem;
     struct ReadRootCatalog;
@@ -32,8 +32,8 @@ namespace eu::window
     struct Engine
     {
         std::unique_ptr<SdlLibrary> sdl;
-        std::unique_ptr<core::vfs::FileSystem> file_system;
-        std::shared_ptr<core::vfs::ReadRootCatalog> catalog;
+        std::unique_ptr<io::FileSystem> file_system;
+        std::shared_ptr<io::ReadRootCatalog> catalog;
         std::unique_ptr<SdlWindow> window;
         unsigned int window_id;
         std::unique_ptr<SdlOpenglContext> context;

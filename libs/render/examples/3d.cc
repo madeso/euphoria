@@ -2,13 +2,13 @@
 #include "core/image_draw.h"
 #include "core/random.h"
 #include "core/shufflebag.h"
-#include "core/vfs.h"
+#include "io/vfs.h"
 #include "core/axisangle.h"
 #include "core/aabb.h"
 #include "core/texturetypes.h"
 #include "core/vfs_imagegenerator.h"
-#include "core/vfs_path.h"
-#include "core/os.h"
+#include "io/vfs_path.h"
+#include "base/os.h"
 #include "core/range.h"
 #include "core/camera3.h"
 #include "core/palette.h"
@@ -88,7 +88,7 @@ main(int argc, char** argv)
     SET_ENUM_FROM_FILE
     (
         engine.file_system.get(),
-        vfs::FilePath{"~/texture_types.json"},
+        io::FilePath{"~/texture_types.json"},
         texture_type
     );
 
@@ -118,7 +118,7 @@ main(int argc, char** argv)
     // DrawText(&image, vec2i(0, 0), "Hello world", Color::Black, 2);
     engine.catalog->register_file_data
     (
-        vfs::FilePath{"~/image"},
+        io::FilePath{"~/image"},
         image.write(ImageWriteFormat::png)
     );
 
@@ -131,8 +131,8 @@ main(int argc, char** argv)
     auto world = eu::render::World {};
 
     auto box_mesh1 = meshes::create_cube(0.5f);
-    box_mesh1.materials[0].set_texture("Diffuse", vfs::FilePath{"./container2.png"});
-    box_mesh1.materials[0].set_texture("Specular", vfs::FilePath{"./container2_specular.png"});
+    box_mesh1.materials[0].set_texture("Diffuse", io::FilePath{"./container2.png"});
+    box_mesh1.materials[0].set_texture("Specular", io::FilePath{"./container2_specular.png"});
     box_mesh1.materials[0].ambient = NamedColor::white; // fix ambient color on material
     box_mesh1.materials[0].specular = NamedColor::white;
     box_mesh1.materials[0].shininess = 120.0f;
@@ -141,12 +141,12 @@ main(int argc, char** argv)
         box_mesh1,
         &material_shader_cache,
         &texture_cache,
-        vfs::DirPath::from_root(),
+        io::DirPath::from_root(),
         "box1"
     );
 
     auto box_mesh2 = meshes::create_sphere(0.5f, "image");
-    box_mesh2.materials[0].set_texture("Specular", vfs::FilePath{"./img-plain/white"});
+    box_mesh2.materials[0].set_texture("Specular", io::FilePath{"./img-plain/white"});
     box_mesh2.materials[0].ambient = NamedColor::white; // fix ambient color on material
     box_mesh2.materials[0].specular = NamedColor::white;
     box_mesh2.materials[0].shininess = 10.0f;
@@ -155,20 +155,20 @@ main(int argc, char** argv)
         box_mesh2,
         &material_shader_cache,
         &texture_cache,
-        vfs::DirPath::from_root(),
+        io::DirPath::from_root(),
         "box2"
     );
 
-    auto debug_texture = texture_cache.get_texture(vfs::FilePath{"~/image"});
+    auto debug_texture = texture_cache.get_texture(io::FilePath{"~/image"});
 
     auto light_mesh = meshes::create_cube(0.2f);
-    light_mesh.materials[0].shader = vfs::FilePath{"~/basic_shader"};
+    light_mesh.materials[0].shader = io::FilePath{"~/basic_shader"};
     auto light = compile_mesh
     (
         light_mesh,
         &material_shader_cache,
         &texture_cache,
-        vfs::DirPath::from_root(),
+        io::DirPath::from_root(),
         "light"
     );
     float light_position = 0.0f;
@@ -229,7 +229,7 @@ main(int argc, char** argv)
   }
   auto dude_mesh =
       CompileMesh(loaded_dude.mesh, &material_shader_cache, &texture_cache,
-                  vfs::Path::FromDirectory("nanosuit"), "dude");
+                  io::Path::FromDirectory("nanosuit"), "dude");
   auto dude_actor = std::make_shared<Actor>(dude_mesh);
   world.AddActor(dude_actor);
 #endif

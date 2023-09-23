@@ -1,27 +1,27 @@
 #pragma once
 
-#include "core/vfs.h"
-#include "core/vfs_path.h"
+#include "io/vfs.h"
+#include "io/vfs_path.h"
 
-namespace eu::core::vfs
+namespace eu::core
 {
-    struct ReadRootImageGenerator : ReadRoot
+    struct ReadRootImageGenerator : io::ReadRoot
     {
         static void
-        add(FileSystem* fs, const DirPath& base);
+        add(io::FileSystem* fs, const io::DirPath& base);
 
         std::shared_ptr<MemoryChunk>
-        read_file(const FilePath& path) override;
+        read_file(const io::FilePath& path) override;
 
         void
         add_description(std::vector<std::string>* strings) override;
 
-        explicit ReadRootImageGenerator(const DirPath& base);
+        explicit ReadRootImageGenerator(const io::DirPath& base);
 
-        FileList
-        list_files(const DirPath& path) override;
+        io::FileList
+        list_files(const io::DirPath& path) override;
 
-        DirPath base;
+        io::DirPath base;
     };
 
 }

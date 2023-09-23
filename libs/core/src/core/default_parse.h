@@ -66,7 +66,7 @@ namespace eu::core::argparse
         }
         else
         {
-            return Result<T>::create_error();
+            return Result<T>::create_error("");
         }
     }
 

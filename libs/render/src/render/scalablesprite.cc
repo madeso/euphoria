@@ -5,21 +5,20 @@
 
 #include "assert/assert.h"
 #include "core/rect.h"
-#include "core/proto.h"
 #include "core/tablelayout.h"
-// #include "core/bufferbuilder2d.h"
+
+#include "files/scalingsprite.h"
 
 #include "render/buffer2d.h"
 #include "render/texture.h"
 #include "render/texturecache.h"
 #include "render/spriterender.h"
 
-#include "gaf_scalingsprite.h"
-#include "gaf_rapidjson_scalingsprite.h"
 
 using namespace eu::convert;
 
 ////////////////////////////////////////////////////////////////////////////////
+
 
 namespace
 {
@@ -31,13 +30,13 @@ namespace
         for(const int s: src)
         {
             const auto f = static_cast<float>(s);
-            dest->push_back(f);
+            dest->emplace_back(f);
             size += eu::core::abs(f);
         }
 
         if(dest->empty())
         {
-            dest->push_back(-100.0f);
+            dest->emplace_back(-100.0f);
             return 100.0f;
         }
 
@@ -65,17 +64,29 @@ namespace eu::render
 {
     ScalableSprite::ScalableSprite
     (
-        core::vfs::FileSystem* fs,
-        const core::vfs::FilePath& path,
+        io::FileSystem* fs,
+        const io::FilePath& path,
         TextureCache* cache
     )
         : texture(cache->get_texture(path))
     {
         const auto json_path = path.set_extension_copy(path.get_extension()+ ".json");
-        const auto sprite = core::get_default_but_log_errors
-        (
-            core::read_json_file_to_gaf_struct<scalingsprite::ScalingSprite>(fs, json_path, scalingsprite::ReadJsonScalingSprite)
-        );
+
+        files::scalingsprite::ScalingSprite sprite;
+        if (const auto loaded = io::read_json_file(fs, json_path); loaded == false
+            && loaded.get_error().error == io::JsonErrorType::parse_error)
+        {
+            LOG_ERROR("Failed to load {}: {}", json_path, loaded.get_error().display);
+        }
+        else if (loaded)
+        {
+            const auto& json = loaded.get_value();
+            const auto parsed = files::scalingsprite::parse(log::get_global_logger(), &sprite, json.root, &json.doc);
+            if (!parsed)
+            {
+                sprite = {};
+            }
+        }
 
         calculated_texture_size_rows = copy_data(&rows, sprite.rows);
         calculated_texture_size_columns = copy_data(&columns, sprite.cols);

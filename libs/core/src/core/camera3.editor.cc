@@ -246,8 +246,8 @@ namespace eu::core
 
                 if(orbit.has_value() && orbit->valid)
                 {
-                    const auto x = core::c_int_to_float(dx);
-                    const auto y = core::c_int_to_float(dy);
+                    const auto x = c_int_to_float(dx);
+                    const auto y = c_int_to_float(dy);
                     orbit->rotation_angle += Angle::from_degrees(-x * owner->fps.look_sensitivity.get_multiplier_with_sign());
                     orbit->look_angle += Angle::from_degrees(-y * owner->fps.look_sensitivity.get_multiplier_with_sign());
 
@@ -351,7 +351,7 @@ namespace eu::core
             {
                 if(owner->style == EditorCameraStyle3::fps)
                 {
-                    owner->fps.look(core::c_int_to_float(dx), core::c_int_to_float(dy));
+                    owner->fps.look(c_int_to_float(dx), c_int_to_float(dy));
                 }
             }
 

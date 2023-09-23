@@ -7,15 +7,16 @@
 #include <map>
 
 #include "core/argparse.h"
-#include "core/io.h"
+#include "io/io.h"
 #include "core/image.h"
-#include "core/cint.h"
+#include "base/cint.h"
 #include "core/image_draw.h"
 #include "core/timepoint.h"
 #include "core/palette_extract.h"
 
 
 using namespace eu::core;
+using namespace eu::io;
 
 
 struct ImageAndFile
@@ -39,7 +40,7 @@ load_images(const std::vector<std::string>& files)
 
     for(const auto& f: files)
     {
-        auto chunk = io::read_file_to_chunk(f);
+        auto chunk = read_file_to_chunk(f);
         if(chunk == nullptr)
         {
             std::cerr << "failed to read image file " << f << "\n";
@@ -78,7 +79,7 @@ find(std::vector<ExtractedColor>* psource, const Rgbi& color, float length)
 {
     auto& source = *psource;
 
-    for(int index=0; index < c_sizet_to_int(source.size()); index += 1)
+    for(int index=0; index < eu::c_sizet_to_int(source.size()); index += 1)
     {
         if((to_rgb(source[index].color) - to_rgb(color)).get_length()*255 < length)
         {
@@ -87,7 +88,7 @@ find(std::vector<ExtractedColor>* psource, const Rgbi& color, float length)
     }
 
     source.emplace_back(color, 0);
-    return c_sizet_to_int(source.size()) - 1;
+    return eu::c_sizet_to_int(source.size()) - 1;
 }
 
 std::vector<ExtractedColor>
@@ -172,11 +173,11 @@ handle_image
     }
 
     Image image;
-    image.setup_no_alpha_support(image_size * c_sizet_to_int(colors.size()), image_size);
+    image.setup_no_alpha_support(image_size * eu::c_sizet_to_int(colors.size()), image_size);
     for
     (
         int color_index = 0;
-        color_index < c_sizet_to_int(colors.size());
+        color_index < eu::c_sizet_to_int(colors.size());
         color_index += 1
     )
     {
@@ -190,7 +191,7 @@ handle_image
         );
     }
 
-    io::write_chunk_to_file(image.write(ImageWriteFormat::png), file);
+    write_chunk_to_file(image.write(ImageWriteFormat::png), file);
     return true;
 }
 

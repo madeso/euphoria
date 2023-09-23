@@ -80,7 +80,7 @@ namespace eu::editor
         }
         else
         {
-            const auto p = (core::c_int_to_float(-data_value) * 100.0f) / core::c_int_to_float(total_percentage);
+            const auto p = (c_int_to_float(-data_value) * 100.0f) / c_int_to_float(total_percentage);
             return fmt::format("{:.3f}%", p);
         }
     }
@@ -107,7 +107,7 @@ namespace eu::editor
         std::vector<SpaceData> ret;
         int x = 0;
 
-        for(int index = 0; index < core::c_sizet_to_int(data.size()); index+=1)
+        for(int index = 0; index < c_sizet_to_int(data.size()); index+=1)
         {
             const int value = data[index];
             const int step = abs(value);
@@ -299,7 +299,7 @@ namespace eu::editor
         std::shared_ptr<render::Texture2> image,
         const Scimed& sc,
         const ScimedConfig& scc,
-        scalingsprite::ScalingSprite* sprite
+        files::scalingsprite::ScalingSprite* sprite
     )
     {
         int sized_id = 0;
@@ -380,7 +380,7 @@ namespace eu::editor
 
 
     LineHoverData
-    draw_splits(scalingsprite::ScalingSprite* sprite, Canvas* canvas, const ScimedConfig& scc)
+    draw_splits(files::scalingsprite::ScalingSprite* sprite, Canvas* canvas, const ScimedConfig& scc)
     {
         const auto mouse = ImGui::GetMousePos();
         LineHoverData ret;
@@ -392,7 +392,7 @@ namespace eu::editor
             canvas,
             [&](int position)
             {
-                canvas->draw_vertical_line(core::c_int_to_float(position), scc.split_color);
+                canvas->draw_vertical_line(c_int_to_float(position), scc.split_color);
             },
             [](const ImVec2 &p) -> float
             {
@@ -406,7 +406,7 @@ namespace eu::editor
             canvas,
             [&](int position)
             {
-                canvas->draw_horizontal_line(core::c_int_to_float(position), scc.split_color);
+                canvas->draw_horizontal_line(c_int_to_float(position), scc.split_color);
             },
             [](const ImVec2 &p) -> float
             {

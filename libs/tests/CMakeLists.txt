@@ -22,10 +22,12 @@ target_include_directories(tests
 target_link_libraries(tests
     PUBLIC
         external::catch
+        external::catch_main
     PRIVATE
         euph::project_options
         euph::project_warnings
         euph::core
+        euph::base
 )
 
 

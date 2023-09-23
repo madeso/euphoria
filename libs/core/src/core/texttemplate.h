@@ -5,7 +5,7 @@
 #include <optional>
 
 
-namespace eu::core::vfs
+namespace eu::io
 {
     struct FileSystem;
     struct FilePath;
@@ -35,7 +35,7 @@ namespace eu::core
 
         void add_error
         (
-            const std::optional<vfs::FilePath>& file,
+            const std::optional<io::FilePath>& file,
             int line,
             int column,
             const std::string& error
@@ -55,7 +55,7 @@ namespace eu::core
 
         // todo(Gustav): move to a named constructor
         explicit CompiledTextTemplate(const std::string& text);
-        CompiledTextTemplate(vfs::FileSystem* fs, const vfs::FilePath& path);
+        CompiledTextTemplate(io::FileSystem* fs, const io::FilePath& path);
         ~CompiledTextTemplate();
 
         CompiledTextTemplate(const CompiledTextTemplate&) = delete;

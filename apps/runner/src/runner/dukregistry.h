@@ -1,7 +1,7 @@
 #pragma once
 
 #include "core/ecs.h"
-#include "core/result.h"
+#include "base/result.h"
 #include "core/sol.h"
 
 #include "runner/components.h"
@@ -31,7 +31,7 @@ namespace eu::runner
         [[nodiscard]] core::ecs::ComponentIndex
         create_new_id(const std::string& name);
 
-        [[nodiscard]] core::Result<core::ecs::ComponentIndex>
+        [[nodiscard]] Result<core::ecs::ComponentIndex>
         get_custom_component_by_name(const std::string& name) const;
 
         [[nodiscard]] std::vector<core::ecs::EntityHandle>

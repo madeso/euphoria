@@ -4,11 +4,10 @@
 
 #include "log/log.h"
 
-#include "core/os.h"
-#include "core/cint.h"
+#include "base/os.h"
+#include "base/cint.h"
 #include "core/vfs_imagegenerator.h"
 #include "core/vfs_defaultshaders.h"
-#include "core/proto.h"
 #include "core/viewportdef.h"
 #include "core/sol.h"
 #include "core/viewport.h"
@@ -33,6 +32,7 @@
 #include "window/sdlwindow.h"
 #include "window/sdlglcontext.h"
 #include "window/engine.h"
+#include "window/log.h"
 
 #include "runner/ecs.systems.h"
 #include "runner/loadworld.h"
@@ -47,27 +47,42 @@
 
 #include "imgui/imgui.h"
 
-#include "gaf_game.h"
-#include "gaf_rapidjson_game.h"
+#include "files/game.h"
 
+using namespace eu;
+using namespace eu::log;
+using namespace eu::io;
 using namespace eu::core;
 using namespace eu::render;
 using namespace eu::window;
 using namespace eu::runner;
 
-
-std::optional<game::Game>
-load_game_data(vfs::FileSystem* fs)
+namespace eu::runner
 {
-    return get_optional_and_log_errors
-    (
-        read_json_file_to_gaf_struct<::game::Game>
-        (
-            fs,
-            vfs::FilePath{"~/gamedata.json"},
-            ::game::ReadJsonGame
-        )
-    );
+
+std::optional<files::game::Game>
+load_game_data(FileSystem* fs)
+{
+    files::game::Game game;
+
+    const auto path = io::FilePath{ "~/gamedata.json" };
+
+    const auto loaded = io::read_json_file(fs, path);
+
+    if (loaded == false)
+    {
+        LOG_ERROR("Failed to load {}: {}", path, loaded.get_error().display);
+        return std::nullopt;
+    }
+
+    const auto& json = loaded.get_value();
+    const auto parsed = files::game::parse(log::get_global_logger(), &game, json.root, &json.doc);
+    if (!parsed)
+    {
+        return std::nullopt;
+    }
+        
+    return game;
 }
 
 
@@ -97,7 +112,7 @@ private:
 };
 
 RunResult
-run_main_script_file(LuaState* duk, vfs::FileSystem* fs, const vfs::FilePath& path)
+run_main_script_file(LuaState* duk, FileSystem* fs, const FilePath& path)
 {
     auto content = fs->read_file_to_string(path);
     if(!content)
@@ -124,15 +139,15 @@ run_main_script_file(LuaState* duk, vfs::FileSystem* fs, const vfs::FilePath& pa
 
 
 ViewportType
-con(game::ViewportType type)
+con(files::game::ViewportType type)
 {
     switch(type)
     {
-    case game::ViewportType::FitWithBlackBars:
+    case files::game::ViewportType::FitWithBlackBars:
         return ViewportType::fit_with_black_bars;
-    case game::ViewportType::ScreenPixel:
+    case files::game::ViewportType::ScreenPixel:
         return ViewportType::screen_pixel;
-    case game::ViewportType::Extend:
+    case files::game::ViewportType::Extend:
         return ViewportType::extend;
     default:
         DIE("Unhandled viewport case");
@@ -142,14 +157,14 @@ con(game::ViewportType type)
 
 
 Rgb
-get_color(std::shared_ptr<game::Color> c)
+get_color(std::optional<files::game::Color> c)
 {
-    if(c == nullptr)
+    if(c == std::nullopt)
     {
         return NamedColor::gray;
     }
 
-    if (c->hex != nullptr)
+    if (c->hex != std::nullopt)
     {
         const auto parsed = to_rgbi(*c->hex);
         if (parsed)
@@ -182,10 +197,14 @@ int custom_lua_exception_handler
 	return sol::stack::push(lua_state, description);
 }
 
+}
+
+
 int
 main(int argc, char* argv[])
 {
-    EU_INIT_LOGGING();
+    eu::window::SdlLogger sdl_logger;
+    const auto use_sdl_logger = eu::log::ScopedLogger{ &sdl_logger };
     
     Engine engine;
     if(const auto ret = engine.setup(argparse::NameAndArguments::extract(argc, argv)); ret != 0)
@@ -195,7 +214,7 @@ main(int argc, char* argv[])
 
     engine.file_system->set_write_root
     (
-        std::make_shared<vfs::WriteRootPhysicalFolder>(get_current_directory())
+        std::make_shared<WriteRootPhysicalFolder>(get_current_directory())
     );
 
     TextureCache cache {engine.file_system.get()};
@@ -205,7 +224,7 @@ main(int argc, char* argv[])
     {
         return -1;
     }
-    game::Game gamedata = *loaded_gamedata;
+    files::game::Game gamedata = *loaded_gamedata;
     const auto clear_color = get_color(gamedata.clear_color);
 
     int window_width = 800;
@@ -241,7 +260,7 @@ main(int argc, char* argv[])
 
     ShaderProgram shader;
     attributes2d::add_attributes_to_shader(&shader);
-    shader.load(engine.file_system.get(), vfs::FilePath{"~/shaders/sprite"});
+    shader.load(engine.file_system.get(), FilePath{"~/shaders/sprite"});
     SpriteRenderer renderer(&shader);
     FontCache font_cache {engine.file_system.get(), &cache};
 
@@ -282,7 +301,7 @@ main(int argc, char* argv[])
         &camera_data
     };
     const auto error_run_main
-            = run_main_script_file(&duk, engine.file_system.get(), vfs::FilePath{"~/main.lua"});
+            = run_main_script_file(&duk, engine.file_system.get(), FilePath{"~/main.lua"});
     if(!error_run_main.ok)
     {
         has_crashed = true;
@@ -319,7 +338,7 @@ main(int argc, char* argv[])
             engine.file_system.get(),
             &world,
             &integration.get_registry(),
-            vfs::FilePath{"~/world.json"},
+            FilePath{"~/world.json"},
             &templates,
             &duk
         );
@@ -407,7 +426,7 @@ main(int argc, char* argv[])
     {
         last = now;
         now = SDL_GetPerformanceCounter();
-        const float dt = eu::core::c_u64_to_float(now - last) / eu::core::c_u64_to_float(SDL_GetPerformanceFrequency());
+        const float dt = c_u64_to_float(now - last) / c_u64_to_float(SDL_GetPerformanceFrequency());
 
         handle_events();
         imgui::begin_new_frame();

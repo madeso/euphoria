@@ -6,9 +6,9 @@
 
 #include "core/interpolate.default.h"
 #include "core/numeric.h"
-#include "core/stringutils.h"
+#include "base/stringutils.h"
 #include "core/range.h"
-#include "core/stringmerger.h"
+#include "base/stringmerger.h"
 
 
 namespace eu::core

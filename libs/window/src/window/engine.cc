@@ -3,9 +3,9 @@
 #include "SDL.h"
 #include "imgui/imgui.h"
 
-#include "core/os.h"
+#include "base/os.h"
 #include "log/log.h"
-#include "core/vfs.h"
+#include "io/vfs.h"
 #include "core/vfs_defaultshaders.h"
 #include "core/vfs_imagegenerator.h"
 
@@ -51,7 +51,7 @@ namespace eu::window
 
         auto parser = core::argparse::Parser("euphoria engine");
 
-        auto current_directory = core::get_current_directory();
+        auto current_directory = get_current_directory();
         parser
             .add("-w", &current_directory)
             .set_help("Sets the working direction if it's different from the current folder")
@@ -64,22 +64,22 @@ namespace eu::window
 
         LOG_INFO("Current directory: {0}", current_directory);
 
-        file_system = std::make_unique<core::vfs::FileSystem>();
-        catalog = core::vfs::ReadRootCatalog::create_and_add(file_system.get());
-        core::vfs::ReadRootPhysicalFolder::add
+        file_system = std::make_unique<io::FileSystem>();
+        catalog = io::ReadRootCatalog::create_and_add(file_system.get());
+        io::ReadRootPhysicalFolder::add
         (
             file_system.get(),
             current_directory
         );
-        core::vfs::ReadRootImageGenerator::add
+        core::ReadRootImageGenerator::add
         (
             file_system.get(),
-            core::vfs::DirPath{"~/img-plain/"}
+            io::DirPath{"~/img-plain/"}
         );
-        core::vfs::add_default_shaders
+        core::add_default_shaders
         (
             file_system.get(),
-            core::vfs::DirPath{"~/shaders/"}
+            io::DirPath{"~/shaders/"}
         );
 
         render::setup_default_files(catalog);

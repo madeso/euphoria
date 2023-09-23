@@ -1,6 +1,0 @@
-package enumlist;
-
-struct Enumroot
-{
-  string name[];
-}

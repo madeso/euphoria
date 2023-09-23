@@ -9,16 +9,16 @@
 #include "core/generator_cell.h"
 #include "core/random.h"
 #include "core/image_to_text.h"
-#include "core/stringutils.h"
-#include "core/io.h"
+#include "base/stringutils.h"
+#include "io/io.h"
 #include "core/knuthshuffle.h"
 
 // later when doing floodfill
 // #include "core/colorbrewer.h"
 
-
 using namespace eu;
 using namespace eu::core;
+using namespace eu::io;
 
 
 struct Difference
@@ -134,7 +134,7 @@ handle_maze_command
         if(!output.single)
         {
             drawer.draw();
-            io::write_chunk_to_file
+            write_chunk_to_file
             (
                 drawer.image.write(ImageWriteFormat::png),
                 output.get_next_file()
@@ -160,7 +160,7 @@ handle_maze_command
     {
         if(output.single)
         {
-            io::write_chunk_to_file
+            write_chunk_to_file
             (
                 drawer.image.write(ImageWriteFormat::png),
                 output.file
@@ -170,7 +170,7 @@ handle_maze_command
         {
             for(int index = 0; index < 5; index += 1)
             {
-                io::write_chunk_to_file
+                write_chunk_to_file
                 (
                     drawer.image.write(ImageWriteFormat::png),
                     output.get_next_file()
@@ -225,7 +225,7 @@ struct CellWriter
         if(!output.single)
         {
             auto img = generate_world_image(*world);
-            io::write_chunk_to_file(img.write(ImageWriteFormat::png), output.get_next_file());
+            write_chunk_to_file(img.write(ImageWriteFormat::png), output.get_next_file());
         }
 
         world_copy = *world;
@@ -238,7 +238,7 @@ struct CellWriter
         if(output.single)
         {
             auto img = generate_world_image(*world);
-            io::write_chunk_to_file(img.write(ImageWriteFormat::png), output.file);
+            write_chunk_to_file(img.write(ImageWriteFormat::png), output.file);
         }
         else
         {
@@ -253,7 +253,7 @@ struct CellWriter
         if (debug)
         {
             const auto img = generate_world_image(*world);
-            io::write_chunk_to_file
+            write_chunk_to_file
             (
                 img.write(ImageWriteFormat::png),
                 output.get_next_file()
@@ -282,7 +282,7 @@ struct CellWriter
             if ((write_index % diffs_per_write) == 0)
             {
                 const auto img = generate_world_image(world_copy);
-                io::write_chunk_to_file
+                write_chunk_to_file
                 (
                     img.write(ImageWriteFormat::png),
                     output.get_next_file()
@@ -294,7 +294,7 @@ struct CellWriter
         for (int index = 0; index < 5; index += 1)
         {
             const auto img = generate_world_image(world_copy);
-            io::write_chunk_to_file
+            write_chunk_to_file
             (
                 img.write(ImageWriteFormat::png),
                 output.get_next_file()

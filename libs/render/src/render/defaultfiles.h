@@ -5,7 +5,7 @@
 
 namespace eu
 {
-    namespace core::vfs
+    namespace io
     {
         struct ReadRootCatalog;
     }
@@ -14,6 +14,6 @@ namespace eu
     namespace render
     {
         void
-        setup_default_files(std::shared_ptr<core::vfs::ReadRootCatalog> catalog);
+        setup_default_files(std::shared_ptr<io::ReadRootCatalog> catalog);
     }
 }

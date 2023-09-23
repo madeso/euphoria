@@ -2,9 +2,9 @@
 
 #include <algorithm>
 
-#include "core/stringutils.h"
-#include "core/cint.h"
-#include "core/stringbuilder.h"
+#include "base/stringutils.h"
+#include "base/cint.h"
+#include "base/stringbuilder.h"
 
 
 namespace eu::core

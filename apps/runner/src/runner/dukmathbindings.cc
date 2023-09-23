@@ -2,7 +2,7 @@
 
 
 
-#include "core/cint.h"
+#include "base/cint.h"
 #include "core/vec2.h"
 #include "core/sol.h"
 
@@ -24,11 +24,11 @@ namespace eu::runner
         (
             [](const V& v) -> double
             {
-                return core::c_float_to_double(v.x);
+                return c_float_to_double(v.x);
             },
             [](V& v, double x)
             {
-                v.x = core::c_double_to_float(x);
+                v.x = c_double_to_float(x);
             }
         );
 
@@ -36,11 +36,11 @@ namespace eu::runner
         (
             [](const V& v) -> double
             {
-                return core::c_float_to_double(v.y);
+                return c_float_to_double(v.y);
             },
             [](V& v, double y)
             {
-                v.y = core::c_double_to_float(y);
+                v.y = c_double_to_float(y);
             }
         );
     }

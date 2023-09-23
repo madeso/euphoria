@@ -2,19 +2,20 @@
 
 #include "core/image.h"
 #include "core/image_draw.h"
-#include "core/io.h"
-#include "core/cint.h"
+#include "io/io.h"
+#include "base/cint.h"
 #include "core/argparse.h"
 #include "core/palette_all.h"
 #include "core/palette.h"
 #include "core/dump.h"
-#include "core/os.h"
-
+#include "base/os.h"
 
 #include <fstream>
 
 
+using namespace eu;
 using namespace eu::core;
+using namespace eu::io;
 
 
 void
@@ -57,7 +58,7 @@ write_palettes_to_files(int image_size)
 
         const std::string file = fmt::format("palette_{}.png", pal.name);
         
-        io::write_chunk_to_file(image.write(ImageWriteFormat::png), file);
+        write_chunk_to_file(image.write(ImageWriteFormat::png), file);
     }
 }
 
@@ -183,7 +184,7 @@ write_palettes_to_single_svg(const std::string& path, float height, bool border)
         )
         {
             const auto s = border ? ss : size-spacing*2;
-            const auto box_position = vec2f{x + s * eu::core::c_int_to_float(color_index), y};
+            const auto box_position = vec2f{x + s * eu::c_int_to_float(color_index), y};
             d << create_box(box_position, size, height, pal.colors[color_index], border);
         }
 

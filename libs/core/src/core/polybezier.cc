@@ -4,7 +4,7 @@
 
 #include "core/range.h"
 #include "log/log.h"
-#include "core/cint.h"
+#include "base/cint.h"
 
 namespace eu::core { namespace
 {

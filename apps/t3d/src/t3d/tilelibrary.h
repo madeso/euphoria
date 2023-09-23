@@ -1,13 +1,13 @@
 #pragma once
 
 #include "core/aabb.h"
-#include "core/vfs_path.h"
+#include "io/vfs_path.h"
 #include "core/collisionmesh.h"
 
 #include "render/compiledmesh.h"
 
 
-namespace eu::core::vfs
+namespace eu::io
 {
     struct FileSystem;
 }
@@ -24,7 +24,7 @@ namespace eu::t3d
         Tile(Tile&& other) = delete;
         void operator=(Tile&&) = delete;
 
-        core::vfs::FilePath path;
+        io::FilePath path;
         core::Aabb aabb;
         std::string name;
 
@@ -35,7 +35,7 @@ namespace eu::t3d
 
     struct TileLibrary
     {
-        TileLibrary(core::vfs::FileSystem* fs);
+        TileLibrary(io::FileSystem* fs);
 
 
         std::shared_ptr<Tile>
@@ -49,13 +49,13 @@ namespace eu::t3d
         void
         add_file
         (
-            const core::vfs::FilePath& path,
+            const io::FilePath& path,
             render::MaterialShaderCache* shader_cache,
             render::TextureCache* texture_cache
         );
 
 
-        core::vfs::FileSystem* file_system;
+        io::FileSystem* file_system;
         std::vector<std::shared_ptr<Tile>> tiles;
     };
 

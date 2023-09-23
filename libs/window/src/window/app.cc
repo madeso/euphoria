@@ -14,6 +14,8 @@
 #include "window/imgui_extra.h"
 #include "window/imguilibrary.h"
 #include "window/sdlwindow.h"
+#include "window/log.h"
+
 
 namespace eu::window
 {
@@ -37,7 +39,9 @@ namespace eu::window
     int
     run_app(int argc, char** argv, const std::string& window_title, CreateAppFunction create_app)
     {
-        EU_INIT_LOGGING();
+        SdlLogger sdl_logger;
+        const auto use_sdl_logger = log::ScopedLogger{ &sdl_logger };
+        
         Engine engine;
 
         if (const auto r = engine.setup(core::argparse::NameAndArguments::extract(argc, argv)); r != 0)

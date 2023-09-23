@@ -9,9 +9,6 @@ assert library, uses log
 ### core
 contains core functionality like math and other things that doesn't require external libraries that can't be embedded
 
-### file_types
-file definitions(gaf), for sharing between projects
-
 ### gui
 a system for rendering gui with the rendering library
 

@@ -69,7 +69,6 @@ namespace eu::t3d
     Application::Application()
     {
         editor_camera.parent = this;
-        EU_INIT_LOGGING();
 
         editor_camera.fps.position.y = 5.0f;
         editor_camera.fps.position.z = 10.0f;
@@ -112,7 +111,7 @@ namespace eu::t3d
         SET_ENUM_FROM_FILE
         (
             engine->file_system.get(),
-            core::vfs::FilePath{"~/texture_types.json"},
+            io::FilePath{"~/texture_types.json"},
             core::texture_type
         );
 
@@ -143,7 +142,7 @@ namespace eu::t3d
 
 
     void
-    Application::add_library(const core::vfs::DirPath& path)
+    Application::add_library(const io::DirPath& path)
     {
         pending_files.add_directory(path, engine->file_system.get());
     }
@@ -187,7 +186,7 @@ namespace eu::t3d
         }
 
         const auto small_step = core::max(smallest_step, grid_data.small_step);
-        const auto size = core::abs(core::c_int_to_float(grid_data.size) * grid_data.small_step);
+        const auto size = core::abs(c_int_to_float(grid_data.size) * grid_data.small_step);
         const auto normal = grid_data.normal;
 
         auto def = core::Lines{};
@@ -199,7 +198,7 @@ namespace eu::t3d
 
         for(int index = 0; index < grid_data.size; index += 1)
         {
-            float x = small_step * core::c_int_to_float(index+1);
+            float x = small_step * c_int_to_float(index+1);
 
             auto color = big_color;
             if(grid_data.big_step_interval > 1)
@@ -545,7 +544,7 @@ namespace eu::t3d
         if(pending_files.has_more_files())
         {
             window::imgui::begin_fixed_overlay(window::Corner::bottom_left, "pending files");
-            const auto frac = core::c_sizet_to_float(pending_files.index) / core::c_sizet_to_float(pending_files.files.size());
+            const auto frac = c_sizet_to_float(pending_files.index) / c_sizet_to_float(pending_files.files.size());
             window::imgui::imgui_label("Loading tiles...");
             ImGui::ProgressBar(frac, ImVec2{120, 0});
             ImGui::End();

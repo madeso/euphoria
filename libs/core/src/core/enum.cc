@@ -5,19 +5,21 @@
 #include <utility>
 
 #include "assert/assert.h"
-#include "core/stringmerger.h"
-#include "core/stringutils.h"
-#include "core/proto.h"
+
 #include "log/log.h"
-#include "core/vfs_path.h"
+
+#include "base/stringmerger.h"
+#include "base/stringutils.h"
+
+#include "files/enum.h"
+#include "io/vfs_path.h"
+
 
 #ifdef assert
 #undef assert
 #endif
-#include <cassert>
 
-#include "gaf_enum.h"
-#include "gaf_rapidjson_enum.h"
+
 
 namespace eu::core
 {
@@ -180,25 +182,29 @@ namespace eu::core
     load_enum_type
     (
         EnumType* type,
-        vfs::FileSystem* fs,
-        const vfs::FilePath& path
+        io::FileSystem* fs,
+        const io::FilePath& path
     )
     {
         ASSERT(type);
 
-        const auto root = get_default_but_log_errors
-        (
-            read_json_file_to_gaf_struct<enumlist::Enumroot>(fs, path, enumlist::ReadJsonEnumroot)
-        );
-
-        // todo(Gustav): handle enum errors better...
-
-        std::vector<std::string> names;
-        for(const auto& name: root.name)
+        const auto loaded = read_json_file(fs, path);
+        if (!loaded)
         {
-            names.push_back(name);
+            // todo(Gustav): handle enum errors better...
+            LOG_ERROR("failed to read {}: {}", path, loaded.get_error().display);
+            return;
         }
-        type->add_enums(names);
+
+        files::enums::Root root;
+        const auto& json = loaded.get_value();
+
+        if (false == files::enums::parse(log::get_global_logger(), &root, json.root, &json.doc))
+        {
+            return;
+        }
+
+        type->add_enums(root.names);
     }
 
 }

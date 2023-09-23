@@ -5,7 +5,7 @@
 
 #include <map>
 
-#include "core/stringutils.h"
+#include "base/stringutils.h"
 
 namespace eu::core
 {

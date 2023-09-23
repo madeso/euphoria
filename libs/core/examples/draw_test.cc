@@ -1,8 +1,9 @@
 #include "core/image.h"
 #include "core/image_draw.h"
-#include "core/io.h"
+#include "io/io.h"
 
 using namespace eu::core;
+using namespace eu::io;
 
 
 int
@@ -60,7 +61,7 @@ main(int, char*[])
         paste_image(&composite, p, images[image_index]);
     }
 
-    io::write_chunk_to_file(composite.write(ImageWriteFormat::png), "draw.png");
+    write_chunk_to_file(composite.write(ImageWriteFormat::png), "draw.png");
 
     return 0;
 }

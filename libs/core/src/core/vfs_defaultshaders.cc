@@ -1,15 +1,15 @@
 #include "core/vfs_defaultshaders.h"
 
-#include "core/stringutils.h"
+#include "base/stringutils.h"
 #include "log/log.h"
-#include "core/vfs_path.h"
+#include "io/vfs_path.h"
 
-namespace eu::core::vfs
+namespace eu::core
 {
     void
-    add_default_shaders(FileSystem* fs, const DirPath& base)
+    add_default_shaders(io::FileSystem* fs, const io::DirPath& base)
     {
-        auto cat = ReadRootCatalog::create_and_add(fs);
+        auto cat = io::ReadRootCatalog::create_and_add(fs);
         cat->register_file_string(
                 base.get_file("sprite.vert"),
                 R"STRING(

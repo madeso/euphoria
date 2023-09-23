@@ -4,7 +4,7 @@
 #include "core/image_draw.h"
 #include "core/colors.h"
 #include "core/image.h"
-#include "core/cint.h"
+#include "base/cint.h"
 #include "core/table_bool.h"
 
 #include <functional>

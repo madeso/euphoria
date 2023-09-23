@@ -4,7 +4,7 @@
 
 
 #include "core/rgb.h"
-#include "core/ints.h"
+#include "base/ints.h"
 
 namespace eu::core
 {

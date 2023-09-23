@@ -1,6 +1,6 @@
 #include "core/viewport.h"
 
-#include "core/cint.h"
+#include "base/cint.h"
 #include "core/camera3.h"
 
 namespace eu::core

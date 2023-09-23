@@ -2,7 +2,7 @@
 
 #include "core/vec2.h"
 #include "core/numeric.h"
-#include "core/stringutils.h"
+#include "base/stringutils.h"
 #include "core/default_parse.h"
 
 

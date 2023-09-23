@@ -6,7 +6,7 @@
 #include "core/rgb.h"
 #include "core/image_draw.h"
 #include "core/pack.h"
-#include "core/cint.h"
+#include "base/cint.h"
 #include "core/numeric.h"
 
 

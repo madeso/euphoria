@@ -18,7 +18,6 @@ set(src
 source_group("" FILES ${src})
 
 add_executable(runner MACOSX_BUNDLE ${src})
-set_win32_defines(runner)
 set_target_properties(runner PROPERTIES FOLDER "Applications")
 target_include_directories(runner
     PUBLIC
@@ -31,7 +30,6 @@ target_link_libraries(runner
         euph::core
         euph::render
         euph::window
-        euph::file_types
         external::lua
         external::imgui
         external::sdl2

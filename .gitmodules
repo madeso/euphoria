@@ -2,12 +2,6 @@
 	path = external/imgui/imgui
 	url = git@github.com:ocornut/imgui.git
 	branch = origin/v1.51
-[submodule "external/gaf"]
-	path = external/gaf
-	url = git@github.com:madeso/gaf.git
-[submodule "external/rapidjson"]
-	path = external/rapidjson
-	url = git@github.com:Tencent/rapidjson.git
 [submodule "external/IconFontCppHeaders"]
 	path = external/IconFontCppHeaders
 	url = git@github.com:juliettef/IconFontCppHeaders.git
@@ -26,3 +20,6 @@
 [submodule "external/imguizmo/imguizmo"]
 	path = external/imguizmo/imguizmo
 	url = git@github.com:madeso/ImGuizmo.git
+[submodule "external/json"]
+	path = external/json
+	url = git@github.com:madeso/json.git

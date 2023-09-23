@@ -12,7 +12,7 @@
 #include "core/mat3.h"
 #include "core/image_draw.h"
 #include "core/image_canvas.h"
-#include "core/cint.h"
+#include "base/cint.h"
 #include "log/log.h"
 
 
@@ -68,7 +68,7 @@ namespace
         const Rgbi& foreground_color,
         const Rgbi& background_color
     ) {
-        const auto patch = overflowing_patch_type % c_sizet_to_int(patch_types.size());
+        const auto patch = overflowing_patch_type % eu::c_sizet_to_int(patch_types.size());
         turn %= 4;
         if (patch == 15)
         {

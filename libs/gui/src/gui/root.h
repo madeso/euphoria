@@ -10,7 +10,7 @@
 #include <memory>
 
 
-namespace eu::core::vfs
+namespace eu::io
 {
     struct FileSystem;
     struct FilePath;
@@ -45,9 +45,9 @@ namespace eu::gui
         [[nodiscard]] bool
         load
         (
-            core::vfs::FileSystem* fs,
+            io::FileSystem* fs,
             render::FontCache* font,
-            const ::eu::core::vfs::FilePath& path,
+            const ::eu::io::FilePath& path,
             render::TextureCache* cache
         );
 

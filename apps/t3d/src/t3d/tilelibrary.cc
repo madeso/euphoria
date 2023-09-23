@@ -3,11 +3,11 @@
 
 #include "imgui/imgui.h"
 
-#include "core/os.h"
+#include "base/os.h"
 #include "core/mesh.h"
-#include "core/vfs.h"
+#include "io/vfs.h"
 #include "log/log.h"
-#include "core/vfs_path.h"
+#include "io/vfs_path.h"
 
 
 namespace eu::t3d
@@ -22,7 +22,7 @@ namespace eu::t3d
     Tile::~Tile() = default;
 
 
-    TileLibrary::TileLibrary(core::vfs::FileSystem* fs)
+    TileLibrary::TileLibrary(io::FileSystem* fs)
         : file_system(fs)
     {
     }
@@ -68,7 +68,7 @@ namespace eu::t3d
     void
     TileLibrary::add_file
     (
-        const core::vfs::FilePath& path,
+        const io::FilePath& path,
         render::MaterialShaderCache* shader_cache,
         render::TextureCache* texture_cache
     )
@@ -91,7 +91,7 @@ namespace eu::t3d
             shader_cache,
             texture_cache,
             // todo(Gustav): test with mesh directory instead of root?
-            core::vfs::DirPath::from_root(),
+            io::DirPath::from_root(),
             path.path
         );
         tiles.push_back(tile);

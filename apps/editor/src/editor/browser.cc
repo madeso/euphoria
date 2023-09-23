@@ -3,10 +3,10 @@
 #include "imgui/imgui.h"
 #include "imgui_stdlib.h"
 
-#include "core/os.h"
-#include "core/vfs_path.h"
-#include "core/stringutils.h"
-#include "core/cint.h"
+#include "base/os.h"
+#include "io/vfs_path.h"
+#include "base/stringutils.h"
+#include "base/cint.h"
 #include "log/log.h"
 
 #include "window/imgui_extra.h"
@@ -36,13 +36,13 @@ namespace eu::editor
         return -1;
     }
 
-    FileBrowser::FileBrowser(vfs::FileSystem* a_file_system)
-        : current_folder(core::vfs::DirPath::from_root())
+    FileBrowser::FileBrowser(io::FileSystem* a_file_system)
+        : current_folder(io::DirPath::from_root())
         , file_system(a_file_system)
     {
     }
 
-    std::optional<core::vfs::FilePath>
+    std::optional<io::FilePath>
     FileBrowser::get_selected_file()
     {
         if(selected_file >= 0 && selected_file < c_sizet_to_int(files.size()))
@@ -60,19 +60,19 @@ namespace eu::editor
     FileBrowser::refresh()
     {
         files = file_system->list_files(current_folder);
-        if(current_folder != core::vfs::DirPath::from_root())
+        if(current_folder != io::DirPath::from_root())
         {
-            files.insert(files.begin(), vfs::ListedFile {"../", true, false});
+            files.insert(files.begin(), io::ListedFile {"../", true, false});
         }
         selected_file = -1;
     }
 
     std::string
-    determine_icon_string(const core::vfs::ListedFile& file)
+    determine_icon_string(const io::ListedFile& file)
     {
         if(file.is_file)
         {
-            const auto x = vfs::FilePath{"./" + file.name}.get_extension();
+            const auto x = io::FilePath{"./" + file.name}.get_extension();
             if(x == "png")
             {
                 return ICON_MD_IMAGE;
@@ -176,7 +176,7 @@ namespace eu::editor
                         }
                         else
                         {
-                            const auto sub_directory = core::vfs::DirPath{"./" + item.name};
+                            const auto sub_directory = io::DirPath{"./" + item.name};
                             const auto resolved = resolve_relative(sub_directory, current_folder);
                             ASSERTX(resolved.has_value(), sub_directory, current_folder);
                             current_folder = resolved.value();

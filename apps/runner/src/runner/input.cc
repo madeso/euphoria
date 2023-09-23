@@ -1,7 +1,7 @@
 #include "runner/input.h"
 
 #include "assert/assert.h"
-#include "core/cint.h"
+#include "base/cint.h"
 #include "core/sol.h"
 
 namespace eu::runner
@@ -20,12 +20,12 @@ namespace eu::runner
             "state",
             sol::property
             (
-                [](const BoundVar& v) -> double { return core::c_float_to_double(v.state); }
+                [](const BoundVar& v) -> double { return c_float_to_double(v.state); }
             ),
             "last_state",
             sol::property
             (
-                [](const BoundVar& v) -> double { return core::c_float_to_double(v.last_state); }
+                [](const BoundVar& v) -> double { return c_float_to_double(v.last_state); }
             )
         );
     }

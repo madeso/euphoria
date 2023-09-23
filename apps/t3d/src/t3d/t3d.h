@@ -10,7 +10,7 @@
 #include "core/vec2.h"
 #include "core/camera3.h"
 #include "core/camera3.editor.h"
-#include "core/vfs_path.h"
+#include "io/vfs_path.h"
 #include "core/mousebehaviour.h"
 #include "core/helptexthover.h"
 
@@ -126,7 +126,7 @@ namespace eu::t3d
 
 
         void
-        add_library(const core::vfs::DirPath& path);
+        add_library(const io::DirPath& path);
 
         void
         update_grid();

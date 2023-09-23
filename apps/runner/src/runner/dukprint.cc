@@ -17,7 +17,7 @@ namespace eu::runner
             "print",
             [](const std::string& str)
             {
-                LOG_INFO(str);
+                LOG_INFOS(str);
             }
         );
     }

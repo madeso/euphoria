@@ -3,8 +3,8 @@
 #include "assert/assert.h"
 
 #include "core/numeric.h"
-#include "core/stringutils.h"
-#include "core/stringbuilder.h"
+#include "base/stringutils.h"
+#include "base/stringbuilder.h"
 
 
 namespace eu::core

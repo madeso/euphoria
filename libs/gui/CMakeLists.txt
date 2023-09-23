@@ -31,7 +31,6 @@ target_link_libraries(gui
         euph::project_warnings
         euph::core
         euph::render
-        euph::file_types
 )
 
 

@@ -6,7 +6,7 @@
 #include "core/palette_lospec.h"
 #include "core/palette.h"
 #include "core/image.h"
-#include "core/cint.h"
+#include "base/cint.h"
 
 #include "render/init.h"
 
@@ -239,7 +239,7 @@ struct PixelApp : App
                 image.run_for_all_top_bottom([&](int x, int y, const Rgbai& c)
                 {
                     const auto pixel_size = 5;
-                    const auto p = ImVec2(core::c_int_to_float(x * pixel_size), core::c_int_to_float(y*pixel_size));
+                    const auto p = ImVec2(c_int_to_float(x * pixel_size), c_int_to_float(y*pixel_size));
                     const auto s = ImVec2(pixel_size, pixel_size);
                     const auto ps = canvas.from_world_to_screen(p);
                     const auto pss = canvas.from_world_to_screen(p + s);

@@ -2,9 +2,9 @@
 
 #include "assert/assert.h"
 
-#include "core/stringutils.h"
+#include "base/stringutils.h"
 #include "core/range.h"
-#include "core/stringbuilder.h"
+#include "base/stringbuilder.h"
 
 
 

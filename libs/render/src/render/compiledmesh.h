@@ -8,7 +8,7 @@
 #include "render/buffer.h"
 
 
-namespace eu::core::vfs
+namespace eu::io
 {
     struct DirPath;
 }
@@ -103,7 +103,7 @@ namespace eu::render
             const core::Mesh& mesh,
             MaterialShaderCache* shader_cache,
             TextureCache* texture_cache,
-            const core::vfs::DirPath& texture_folder,
+            const io::DirPath& texture_folder,
             const std::string& debug_name
     );
 }

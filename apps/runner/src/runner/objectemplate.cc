@@ -3,16 +3,15 @@
 #include "log/log.h"
 
 #include "core/stdutils.h"
-#include "core/stringmerger.h"
-#include "core/vfs_path.h"
-#include "core/proto.h"
+#include "base/stringmerger.h"
+#include "io/vfs_path.h"
 #include "core/vec2.h"
 
 #include "runner/components.h"
 #include "runner/dukregistry.h"
 #include "runner/ecs.systems.h"
 
-#include "gaf_game.h"
+#include "files/game.h"
 
 
 namespace eu::runner
@@ -49,7 +48,7 @@ namespace eu::runner
         [[nodiscard]]
         static
         std::shared_ptr<PositionComponentCreator>
-        create(const game::vec2f& p, runner::Components* components)
+        create(const files::game::vec2f& p, runner::Components* components)
         {
             return std::make_shared<PositionComponentCreator>(core::vec2f {p.x, p.y}, components);
         }
@@ -74,13 +73,13 @@ namespace eu::runner
         std::shared_ptr<SpriteComponentCreator>
         create
         (
-            const game::Sprite& sprite,
+            const files::game::Sprite& sprite,
             render::TextureCache* cache,
             runner::Components* components
         )
         {
             auto ptr = std::make_shared<SpriteComponentCreator>(components);
-            ptr->texture = cache->get_texture(core::vfs::FilePath::from_script(sprite.path));
+            ptr->texture = cache->get_texture(io::FilePath::from_script(sprite.path));
             return ptr;
         }
 
@@ -110,13 +109,13 @@ namespace eu::runner
         (
             const std::string& name,
             core::ecs::ComponentIndex id,
-            const std::vector<game::Var>& arguments
+            const std::vector<files::game::Var>& arguments
         )
         {
             auto ptr = std::make_shared<CustomComponentCreator>(id);
             for(const auto& a: arguments)
             {
-                if(a.number != nullptr)
+                if(a.number != std::nullopt)
                 {
                     ptr->arguments.numbers[a.name] = a.number->value;
                 }
@@ -148,7 +147,7 @@ namespace eu::runner
     std::shared_ptr<ComponentCreator>
     create_creator
     (
-        const game::Component& comp,
+        const files::game::Component& comp,
         ScriptRegistry* reg,
         render::TextureCache* cache,
         Components* components
@@ -195,7 +194,7 @@ namespace eu::runner
     load_object_template
     (
         ObjectTemplate* ot,
-        const game::Template& ct,
+        const files::game::Template& ct,
         ScriptRegistry* reg,
         render::TextureCache* cache,
         Components* components
@@ -231,7 +230,7 @@ namespace eu::runner
 
 
     void
-    load_templates_but_only_names(const game::Game& json, ObjectCreator* temp)
+    load_templates_but_only_names(const files::game::Game& json, ObjectCreator* temp)
     {
         for(const auto& t: json.templates)
         {
@@ -244,7 +243,7 @@ namespace eu::runner
     void
     load_templates
     (
-        const game::Game& json,
+        const files::game::Game& json,
         ObjectCreator* temp,
         ScriptRegistry* reg,
         render::TextureCache* cache,
@@ -280,7 +279,7 @@ namespace eu::runner
             (
                 "Failed to find template named {0}, could be {1}.",
                 name,
-                core::string_mergers::english_or.merge(core::get_keys(templates))
+                string_mergers::english_or.merge(core::get_keys(templates))
             );
             return nullptr;
         }

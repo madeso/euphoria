@@ -2,6 +2,7 @@
 # window project
 
 set(app_src
+    src/window/app.cc src/window/app.h
     src/window/canvas.cc src/window/canvas.h
     src/window/engine.cc src/window/engine.h
     src/window/fakesdlevent.h src/window/fakesdlevent.cc
@@ -11,12 +12,12 @@ set(app_src
     src/window/imguilibrary.cc src/window/imguilibrary.h
     src/window/imguizmo.cc src/window/imguizmo.h
     src/window/key.cc src/window/key.h
+    src/window/log.cc src/window/log.h
     src/window/open_color.imgui.cc src/window/open_color.imgui.h
     src/window/sdlglcontext.cc src/window/sdlglcontext.h
     src/window/sdllibrary.cc src/window/sdllibrary.h
     src/window/sdlwindow.cc src/window/sdlwindow.h
     src/window/timer.cc src/window/timer.h
-    src/window/app.cc src/window/app.h
 )
 set(src ${app_src})
 source_group("" FILES ${app_src})
@@ -69,5 +70,3 @@ target_link_libraries(window
         external::glad
         external::imguizmo
 )
-
-set_win32_defines(window)

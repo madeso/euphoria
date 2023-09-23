@@ -7,7 +7,7 @@
 
 #include "core/angle.h"
 #include "assert/assert.h"
-#include "core/cint.h"
+#include "base/cint.h"
 
 namespace eu::core
 {

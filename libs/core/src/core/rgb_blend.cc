@@ -3,7 +3,7 @@
 #include <cstdint>
 
 #include "assert/assert.h"
-#include "core/cint.h"
+#include "base/cint.h"
 
 // reference: https://stackoverflow.com/questions/5919663/how-does-photoshop-blend-two-images-together
 
