@@ -767,7 +767,7 @@
 <div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160;            (</div>
 <div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160;                <a class="code" href="structeu_1_1minsynth_1_1OscilatorNode.html#a80ce6ca31a35b62599d00813f9494db4">dead</a>.begin(),</div>
 <div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;                <a class="code" href="structeu_1_1minsynth_1_1OscilatorNode.html#a80ce6ca31a35b62599d00813f9494db4">dead</a>.end(),</div>
-<div class="line"><a name="l00714"></a><span class="lineno">  714</span>&#160;                [=](<span class="keyword">const</span> <a class="code" href="structeu_1_1minsynth_1_1DeadFrequency.html">DeadFrequency</a>&amp; df) -&gt; <span class="keywordtype">bool</span></div>
+<div class="line"><a name="l00714"></a><span class="lineno">  714</span>&#160;                [=, <span class="keyword">this</span>](<span class="keyword">const</span> <a class="code" href="structeu_1_1minsynth_1_1DeadFrequency.html">DeadFrequency</a>&amp; df) -&gt; <span class="keywordtype">bool</span></div>
 <div class="line"><a name="l00715"></a><span class="lineno">  715</span>&#160;                {</div>
 <div class="line"><a name="l00716"></a><span class="lineno">  716</span>&#160;                    return df.time_end + envelope.time_to_end &lt; current_time;</div>
 <div class="line"><a name="l00717"></a><span class="lineno">  717</span>&#160;                }</div>

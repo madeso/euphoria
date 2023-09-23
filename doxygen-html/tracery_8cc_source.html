@@ -98,10 +98,10 @@
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                {</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                    <span class="keywordflow">if</span> (<span class="keyword">auto</span>* vstr = <a class="code" href="namespaceeu_1_1core.html#a6fca7b841e42734cd5c01e04fc9e6511a9e3669d19b675bd57058fd4664205d2a">v</a>.AsString(doc); vstr != <span class="keyword">nullptr</span>)</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                    {</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                        <a class="code" href="structeu_1_1core_1_1tracery_1_1Result.html">Result</a> <a class="code" href="namespaceeu_1_1core.html#aa1676f6b793bf695a9a6fdb9c6e0833aa4b43b0aee35624cd95b910189b3dc231">r</a> = rule-&gt;<a class="code" href="structeu_1_1core_1_1tracery_1_1Symbol.html#a34aeb64983bd401fbbb220029ec9270c">add_rule</a>(vstr-&gt;value);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                        <span class="keywordflow">if</span> (<a class="code" href="namespaceeu_1_1core.html#aa1676f6b793bf695a9a6fdb9c6e0833aa4b43b0aee35624cd95b910189b3dc231">r</a> == <span class="keyword">false</span>)</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                        <a class="code" href="structeu_1_1core_1_1tracery_1_1Result.html">Result</a> res = rule-&gt;<a class="code" href="structeu_1_1core_1_1tracery_1_1Symbol.html#a34aeb64983bd401fbbb220029ec9270c">add_rule</a>(vstr-&gt;value);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                        <span class="keywordflow">if</span> (res == <span class="keyword">false</span>)</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                        {</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                            <span class="keywordflow">return</span> <a class="code" href="namespaceeu_1_1core.html#aa1676f6b793bf695a9a6fdb9c6e0833aa4b43b0aee35624cd95b910189b3dc231">r</a>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                            <span class="keywordflow">return</span> res;</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                        }</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                    }</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                    <span class="keywordflow">else</span></div>
