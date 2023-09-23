@@ -478,7 +478,7 @@ namespace eu::window::imgui
             {
                 const auto c = (style & knob_style_vis_off_marker_hidden) != 0
                       ? peg_color_off
-                      : angle <= angle ? peg_color_on : peg_color_off
+                      : angle <= current_angle ? peg_color_on : peg_color_off
                       ;
                 draw_list->AddLine(calculate_position(angle, peg_start), calculate_position(angle, peg_end), c, 1.0f);
             }

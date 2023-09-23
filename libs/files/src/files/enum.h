@@ -1,3 +1,5 @@
+#pragma once
+
 #include "io/json.h"
 
 namespace eu::files::enums

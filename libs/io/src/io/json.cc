@@ -133,7 +133,7 @@ namespace eu::io
 
         const auto miss = std::vector<std::string>(missing.begin(), missing.end());
 
-        for (const auto x : object->object)
+        for (const auto& x : object->object)
         {
             const auto& key = x.first;
             if (found.find(key) != found.end()) continue;
