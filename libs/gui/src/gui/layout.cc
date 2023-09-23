@@ -72,19 +72,6 @@ namespace eu::gui
     }
 
 
-    namespace
-    {
-        std::string
-        from_vector_to_string(const std::vector<float>& float_vector)
-        {
-            const auto string_vector = to_string_vector
-            (
-                float_vector
-            );
-            return string_mergers::array.merge(string_vector);
-        }
-    }
-
     void
     TableLayout::lay_out
     (

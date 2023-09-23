@@ -125,6 +125,10 @@ namespace eu::io
         }
     }
 
+    ObjectQuery::ObjectQuery(const jsonh::Object* o)
+        : object(o)
+    {
+    }
 
     std::optional<std::string>
     ObjectQuery::get_missing_errors_message()
@@ -153,3 +157,4 @@ namespace eu::io
         else return string_mergers::english_and.merge(errors);
     }
 }
+

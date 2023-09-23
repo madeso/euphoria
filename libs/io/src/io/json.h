@@ -36,6 +36,8 @@ namespace eu::io
 
     struct ObjectQuery
     {
+        explicit ObjectQuery(const jsonh::Object* o);
+
         const jsonh::Object* object;
 
         std::set<std::string> found; // all found props
@@ -66,7 +68,7 @@ namespace eu::io
     const std::string dnu_enum_name = #TYPE; \
     using dnu_enum_type = TYPE; \
     std::vector<std::string> dnu_values
-    
+
 #define JSON_ENUM_VAL(VAL) \
     if(dnu_val->value == #VAL) {\
         *owner = dnu_enum_type::VAL;\
