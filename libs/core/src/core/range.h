@@ -17,7 +17,7 @@ namespace eu::core
         T lower_bound;
         T upper_bound;
 
-        Range(T min, T max) : lower_bound(min), upper_bound(max)
+        constexpr Range(T min, T max) : lower_bound(min), upper_bound(max)
         {
             ASSERTX(lower_bound <= upper_bound, upper_bound, lower_bound);
         }
@@ -25,11 +25,6 @@ namespace eu::core
         explicit Range(T max) : lower_bound(0), upper_bound(max)
         {
             ASSERTX(lower_bound <= upper_bound, upper_bound, lower_bound);
-        }
-
-        // the yes, Im sure variant
-        constexpr Range(T min, T max, int*) : lower_bound(min), upper_bound(max)
-        {
         }
 
         [[nodiscard]] T
@@ -59,8 +54,8 @@ namespace eu::core
         return make_range<int>(c_sizet_to_int(v.size()) - 1);
     }
 
-    constexpr Range<float> r01 = { 0.0f, 1.0f, nullptr};
-    constexpr Range<float> r11 = { -1.0f, 1.0f, nullptr};
+    constexpr Range<float> r01 = { 0.0f, 1.0f};
+    constexpr Range<float> r11 = { -1.0f, 1.0};
 
     float from_01f(float lower_bound, float upper_bound, float value);
 
