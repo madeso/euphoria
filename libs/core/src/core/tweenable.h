@@ -3,14 +3,14 @@
 #include "assert/assert.h"
 
 #include "core/easing.h"
-#include "core/interpolate.default.h"
+#include "core/default_interpolate.h"
 
 namespace eu::core
 {
     template <typename T>
-    struct Interpolate
+    struct Tweenable
     {
-        using Self = Interpolate<T>;
+        using Self = Tweenable<T>;
 
         static constexpr float transition_ended = 2.0f;
 
@@ -22,7 +22,7 @@ namespace eu::core
         float speed = 1.0f;
         easing::Function easing_function = easing::Function::linear;
 
-        explicit Interpolate(T v)
+        explicit Tweenable(T v)
             : from(v)
             , to(v)
             , value(v)

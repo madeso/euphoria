@@ -4,7 +4,7 @@
 #include <map>
 #include <iomanip>
 
-#include "core/interpolate.default.h"
+#include "core/default_interpolate.h"
 #include "core/numeric.h"
 #include "base/stringutils.h"
 #include "core/range.h"

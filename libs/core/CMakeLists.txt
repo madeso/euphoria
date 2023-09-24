@@ -111,8 +111,8 @@ set(app_src
     src/core/guid.cc src/core/guid.h
     src/core/helptexthover.cc src/core/helptexthover.h
     src/core/insertionsort.cc src/core/insertionsort.h
-    src/core/interpolate.cc src/core/interpolate.h
-    src/core/interpolate.default.cc src/core/interpolate.default.h
+    src/core/tweenable.cc src/core/tweenable.h
+    src/core/default_interpolate.cc src/core/default_interpolate.h
     src/core/intersection.cc src/core/intersection.h
     src/core/iterate.cc src/core/iterate.h
     src/core/key.cc src/core/key.h
@@ -236,7 +236,7 @@ set(test_src
     src/core/hash.test.cc
     src/core/image.test.cc
     src/core/insertionsort.test.cc
-    src/core/interpolate.test.cc
+    src/core/tweenable.test.cc
     src/core/intersection.test.cc
     src/core/iterate.test.cc
     src/core/loadedfont.test.cc

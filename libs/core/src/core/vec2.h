@@ -4,7 +4,7 @@
 
 #include "assert/assert.h"
 
-#include "core/interpolate.default.h"
+#include "core/default_interpolate.h"
 #include "core/angle.h"
 #include "core/numeric.h"
 #include "base/cint.h"

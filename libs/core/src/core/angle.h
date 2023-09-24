@@ -3,7 +3,7 @@
 #include <iostream>
 
 #include "core/numeric.h"
-#include "core/interpolate.default.h"
+#include "core/default_interpolate.h"
 
 
 namespace eu::core

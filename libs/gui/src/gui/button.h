@@ -3,7 +3,7 @@
 #include "core/rect.h"
 #include "core/rgb.h"
 #include "core/vec2.h"
-#include "core/interpolate.h"
+#include "core/tweenable.h"
 
 #include "gui/widget.h"
 #include "gui/textdata.h"
@@ -29,10 +29,10 @@ namespace eu::gui
         TextData text;
         Skin* skin;
 
-        core::Interpolate<float> scale;
-        core::Interpolate<core::Rgb> image_color;
-        core::Interpolate<core::Rgb> text_color;
-        core::Interpolate<core::vec2f> position_displacement;
+        core::Tweenable<float> scale;
+        core::Tweenable<core::Rgb> image_color;
+        core::Tweenable<core::Rgb> text_color;
+        core::Tweenable<core::vec2f> position_displacement;
 
         Button(gui::State* state);
         ~Button() override;

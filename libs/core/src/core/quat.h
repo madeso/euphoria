@@ -6,7 +6,7 @@
 #include "core/angle.h"
 #include "core/mat4.h"
 #include "core/polarcoord.h"
-#include "core/interpolate.default.h"
+#include "core/default_interpolate.h"
 
 
 namespace eu::core
