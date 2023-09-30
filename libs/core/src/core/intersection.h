@@ -2,8 +2,8 @@
 
 #include <optional>
 
-#include "core/vec2.h"
-#include "core/vec3.h"
+#include "base/vec2.h"
+#include "base/vec3.h"
 
 
 namespace eu::core

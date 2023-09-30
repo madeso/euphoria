@@ -21,33 +21,21 @@ set(app_src_color
 
 set(app_src_math
     src/core/aabb.cc src/core/aabb.h
-    src/core/angle.cc src/core/angle.h
-    src/core/axisangle.cc src/core/axisangle.h
     src/core/collage.cc src/core/collage.h
     src/core/easing.cc src/core/easing.h
     src/core/lines.cc src/core/lines.h
-    src/core/mat2.cc src/core/mat2.h
-    src/core/mat3.cc src/core/mat3.h
-    src/core/mat4.cc src/core/mat4.h
     src/core/pack.cc src/core/pack.h
     src/core/plane.cc src/core/plane.h
     src/core/poisson.cc src/core/poisson.h
-    src/core/polarcoord.cc src/core/polarcoord.h
     src/core/polybezier.cc src/core/polybezier.h
-    src/core/quat.cc src/core/quat.h
     src/core/ray.cc src/core/ray.h
     src/core/rect.cc src/core/rect.h
     src/core/rgb_blend.cc src/core/rgb_blend.h
     src/core/rgb.cc src/core/rgb.h
-    src/core/size2.cc src/core/size2.h
     src/core/sphere.builder.cc src/core/sphere.builder.h
     src/core/sphere.cc src/core/sphere.h
     src/core/sphere.position.cc src/core/sphere.position.h
     src/core/torcurve.cc src/core/torcurve.h
-    src/core/vec.base.cc src/core/vec.base.h
-    src/core/vec2.cc src/core/vec2.h
-    src/core/vec3.cc src/core/vec3.h
-    src/core/vec4.cc src/core/vec4.h
 )
 
 set(app_src_cli
@@ -95,7 +83,6 @@ set(app_src
     src/core/compiler_warning.cc src/core/compiler_warning.h
     src/core/console.cc src/core/console.h
     src/core/crc32.cc src/core/crc32.h
-    src/core/custom_parser.cc src/core/custom_parser.h
     src/core/cypher.cc src/core/cypher.h
     src/core/datetime.cc src/core/datetime.h
     src/core/decompress.cc src/core/decompress.h
@@ -112,7 +99,6 @@ set(app_src
     src/core/helptexthover.cc src/core/helptexthover.h
     src/core/insertionsort.cc src/core/insertionsort.h
     src/core/tweenable.cc src/core/tweenable.h
-    src/core/default_interpolate.cc src/core/default_interpolate.h
     src/core/intersection.cc src/core/intersection.h
     src/core/iterate.cc src/core/iterate.h
     src/core/key.cc src/core/key.h
@@ -125,14 +111,10 @@ set(app_src
     src/core/multisort.cc src/core/multisort.h
     src/core/nlp_line.cc src/core/nlp_line.h
     src/core/nlp_sentence.cc src/core/nlp_sentence.h
-    src/core/numeric.cc src/core/numeric.h
-    src/core/numparse.cc src/core/numparse.h
     src/core/orbitcontroller.cc src/core/orbitcontroller.h
     src/core/propertytree.cc src/core/propertytree.h
     src/core/quicksort.cc src/core/quicksort.h
     src/core/radix_sort.cc src/core/radix_sort.h
-    src/core/random.cc src/core/random.h
-    src/core/range.cc src/core/range.h
     src/core/raytracer.cc src/core/raytracer.h
     src/core/rng.cc src/core/rng.h
     src/core/sensitivity.cc src/core/sensitivity.h
@@ -185,7 +167,6 @@ target_link_libraries(core
         euph::log
         euph::assert
         euph::fmt
-        external::range
         external::magic_enum
         external::lua
         undef_windows::undef_windows
@@ -218,9 +199,7 @@ set_target_properties(core PROPERTIES FOLDER "Libraries")
 
 set(test_src
     data/test/test_image.png
-    src/core/angle.test.cc
     src/core/argparse.test.cc
-    src/core/axisangle.test.cc
     src/core/base64.test.cc
     src/core/bitfield.test.cc
     src/core/bufferbuilder2d.test.cc
@@ -240,17 +219,12 @@ set(test_src
     src/core/intersection.test.cc
     src/core/iterate.test.cc
     src/core/loadedfont.test.cc
-    src/core/mat4.test.cc
     src/core/multisort.test.cc
     src/core/nlp_line.test.cc
     src/core/nlp_sentence.test.cc
-    src/core/numeric.test.cc
-    src/core/numparse.test.cc
     src/core/pack.test.cc
-    src/core/quat.test.cc
     src/core/quicksort.test.cc
     src/core/radix_sort.test.cc
-    src/core/range.test.cc
     src/core/rect.test.cc
     src/core/rgb_blend.test.cc
     src/core/rgb.test.cc
@@ -265,9 +239,6 @@ set(test_src
     src/core/tracery.test.cc
     src/core/ui_text.test.cc
     src/core/utf8.test.cc
-    src/core/vec2.test.cc
-    src/core/vec3.test.cc
-    src/core/vec4.test.cc
     src/core/viewportdef.test.cc
     src/core/wordwrap.test.cc
 )

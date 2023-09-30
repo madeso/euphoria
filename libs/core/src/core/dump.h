@@ -6,8 +6,8 @@
 #include <memory>
 #include <fstream>
 
-#include "core/vec2.h"
-#include "core/vec3.h"
+#include "base/vec2.h"
+#include "base/vec3.h"
 #include "core/rgb.h"
 #include "core/colors.h"
 

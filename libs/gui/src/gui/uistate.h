@@ -1,6 +1,6 @@
 #pragma once
 
-#include "core/vec2.h"
+#include "base/vec2.h"
 
 namespace eu::gui
 {
@@ -13,7 +13,7 @@ namespace eu::gui
     {
         State() = default;
 
-        core::vec2f mouse = core::vec2f(0.0f, 0.0f);
+        vec2f mouse = vec2f(0.0f, 0.0f);
         bool mouse_down = false;
 
         Widget* hot = nullptr;

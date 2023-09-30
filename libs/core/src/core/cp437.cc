@@ -3,8 +3,8 @@
 #include <array>
 
 #include "assert/assert.h"
-#include "core/random.h"
-#include "core/range.h"
+#include "base/random.h"
+#include "base/range.h"
 
 namespace
 {

@@ -2,7 +2,7 @@
 
 
 
-#include "core/vec2.h"
+#include "base/vec2.h"
 #include "core/iterate.h"
 
 namespace eu::core

@@ -7,10 +7,14 @@
 
 #include "core/rgb.h"
 
-namespace eu::core
+
+namespace eu
 {
     struct Random;
+}
 
+namespace eu::core
+{
     struct Palette
     {
         // todo(Gustav): what is name used for? can we remove it and use a tostring on the palette_all enum?

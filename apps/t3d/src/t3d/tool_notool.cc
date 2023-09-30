@@ -76,7 +76,7 @@ namespace eu::t3d
 
 
     void
-    ToolNoTool::on_scroll(Editor*, const core::vec2i&)
+    ToolNoTool::on_scroll(Editor*, const vec2i&)
     {
     }
 

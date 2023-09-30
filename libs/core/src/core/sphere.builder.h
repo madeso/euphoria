@@ -2,7 +2,7 @@
 
 
 
-#include "core/vec3.h"
+#include "base/vec3.h"
 #include "core/sphere.position.h"
 
 

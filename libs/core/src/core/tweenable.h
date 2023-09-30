@@ -3,7 +3,7 @@
 #include "assert/assert.h"
 
 #include "core/easing.h"
-#include "core/default_interpolate.h"
+#include "base/default_interpolate.h"
 
 namespace eu::core
 {

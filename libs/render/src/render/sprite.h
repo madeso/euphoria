@@ -4,8 +4,8 @@
 #include <map>
 #include <memory>
 
-#include "core/vec2.h"
-#include "core/vec3.h"
+#include "base/vec2.h"
+#include "base/vec3.h"
 #include "core/rgb.h"
 
 namespace eu::render
@@ -16,16 +16,16 @@ namespace eu::render
     struct Sprite
     {
         std::shared_ptr<Texture2> texture;
-        core::vec2f position;
-        core::Angle rotation;
-        core::Scale2f scale = core::Scale2f(1, 1);
+        vec2f position;
+        Angle rotation;
+        Scale2f scale = Scale2f(1, 1);
         core::Rgb color = core::Rgb(1.0f);
         float alpha = 1.0f;
 
         explicit Sprite
         (
             std::shared_ptr<Texture2> texture,
-            const core::vec2f& position = core::zero2f
+            const vec2f& position = zero2f
         );
 
         void render(SpriteRenderer* render) const;

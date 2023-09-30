@@ -1,8 +1,8 @@
 #pragma once
 
 #include "core/enumtostring.h"
-#include "core/custom_parser.h"
-#include "core/numparse.h"
+#include "base/string_io.h"
+#include "base/numparse.h"
 
 
 namespace eu::core::argparse
@@ -14,7 +14,7 @@ namespace eu::core::argparse
     template
     <
         typename T,
-        std::enable_if_t<CustomArgparser<T>::value != 0, int> = 0
+        std::enable_if_t<StringParser<T>::value != 0, int> = 0
     >
     Result<T>
     default_parse_function
@@ -49,7 +49,7 @@ namespace eu::core::argparse
         typename T,
         std::enable_if_t
         <
-            std::is_enum<T>::value == false && CustomArgparser<T>::value == 0 && std::is_same<T, std::string>::value == false,
+            std::is_enum<T>::value == false && StringParser<T>::value == 0 && std::is_same<T, std::string>::value == false,
             int
         > = 0
     >
@@ -76,7 +76,7 @@ namespace eu::core::argparse
         typename T,
         std::enable_if_t
         <
-            std::is_enum<T>::value == true && CustomArgparser<T>::value == 0,
+            std::is_enum<T>::value == true && StringParser<T>::value == 0,
             int
         > = 0
     >
@@ -131,7 +131,7 @@ namespace eu::core::argparse
     template
     <
         typename T,
-        std::enable_if_t<CustomArgparser<T>::value != 0, int> = 0
+        std::enable_if_t<StringParser<T>::value != 0, int> = 0
     >
     std::string
     from_default_value_to_string(const T& t)
@@ -146,7 +146,7 @@ namespace eu::core::argparse
         typename T,
         std::enable_if_t
         <
-            std::is_enum<T>::value == false && CustomArgparser<T>::value == 0,
+            std::is_enum<T>::value == false && StringParser<T>::value == 0,
             int
         > = 0
     >
@@ -162,7 +162,7 @@ namespace eu::core::argparse
         typename T,
         std::enable_if_t
         <
-            std::is_enum<T>::value == true && CustomArgparser<T>::value == 0,
+            std::is_enum<T>::value == true && StringParser<T>::value == 0,
             int
         > = 0
     >

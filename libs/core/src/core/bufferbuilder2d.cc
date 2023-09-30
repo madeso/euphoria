@@ -2,7 +2,7 @@
 
 #include <fstream>
 
-#include "core/vec3.h"
+#include "base/vec3.h"
 #include "base/cint.h"
 
 namespace eu::core

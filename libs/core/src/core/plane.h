@@ -1,6 +1,6 @@
 #pragma once
 
-#include "core/vec3.h"
+#include "base/vec3.h"
 
 namespace eu::core
 {

@@ -2,11 +2,11 @@
 
 #include "catch.hpp"
 
-namespace euco = eu::core;
+namespace core = eu::core;
 
 TEST_CASE("quick_sort-empty", "[get_quick_sorted]")
 {
-    const auto sorted = euco::get_quick_sorted(std::vector<int> {});
+    const auto sorted = core::get_quick_sorted(std::vector<int> {});
     const auto expected = std::vector<int> {};
     CHECK(sorted == expected);
 }
@@ -24,21 +24,21 @@ TEST_CASE("quick_sort-four-custom0", "[get_quick_sorted]")
 
 TEST_CASE("quick_sort-four", "[get_quick_sorted]")
 {
-    const auto sorted = euco::get_quick_sorted(std::vector<int> {5, 3, 6, 1});
+    const auto sorted = core::get_quick_sorted(std::vector<int> {5, 3, 6, 1});
     const auto expected = std::vector<int> {1, 3, 5, 6};
     CHECK(sorted == expected);
 }
 
 TEST_CASE("quick_sort-two", "[get_quick_sorted]")
 {
-    const auto sorted = euco::get_quick_sorted(std::vector<int> {8, 7});
+    const auto sorted = core::get_quick_sorted(std::vector<int> {8, 7});
     const auto expected = std::vector<int> {7, 8};
     CHECK(sorted == expected);
 }
 
 TEST_CASE("quick_sort-five", "[get_quick_sorted]")
 {
-    const auto sorted = euco::get_quick_sorted(std::vector<int> {5, 0, 1, 8, 7});
+    const auto sorted = core::get_quick_sorted(std::vector<int> {5, 0, 1, 8, 7});
     const auto expected = std::vector<int> {0, 1, 5, 7, 8};
     CHECK(sorted == expected);
 }
@@ -46,13 +46,13 @@ TEST_CASE("quick_sort-five", "[get_quick_sorted]")
 TEST_CASE("quick_sort-sorted", "[get_quick_sorted]")
 {
     const auto expected = std::vector<int> {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
-    const auto sorted = euco::get_quick_sorted(expected);
+    const auto sorted = core::get_quick_sorted(expected);
     CHECK(sorted == expected);
 }
 
 TEST_CASE("quick_sort-100", "[get_quick_sorted]")
 {
-    const auto sorted = euco::get_quick_sorted(std::vector<int> {
+    const auto sorted = core::get_quick_sorted(std::vector<int> {
             95, 14, 6, 6, 90, 25, 42, 4, 12, 12, 97, 4, 1, 32, 55, 52, 48,
             19, 61, 85, 61, 42, 47, 34, 57, 47, 14, 70, 47, 14, 47, 97, 92, 6,
             20, 74, 4,  84, 30, 94, 16, 95, 73, 5,  90, 19, 2,  97, 73, 17, 27,
@@ -104,7 +104,7 @@ TEST_CASE("quick_sort-default_sort", "[get_quick_sorted]")
 
     const auto cat = TestData {"cat", 42};
     const auto human = TestData {"human", 1};
-    const auto sorted = euco::get_quick_sorted(std::vector<TestData> {dog, cat, human});
+    const auto sorted = core::get_quick_sorted(std::vector<TestData> {dog, cat, human});
     const auto expected = std::vector<TestData> {cat, dog, human};
     CHECK(sorted == expected);
 }
@@ -114,9 +114,9 @@ TEST_CASE("quick_sort-custom_sort", "[get_quick_sorted]")
     const auto dog = TestData {"dog", 3};
     const auto cat = TestData {"cat", 42};
     const auto human = TestData {"human", 1};
-    const auto sorted = euco::get_quick_sorted(
+    const auto sorted = core::get_quick_sorted(
             std::vector<TestData> {dog, cat, human}, [](const TestData& lhs, const TestData& rhs) {
-                return euco::default_compare_for_quicksort(lhs.i, rhs.i);
+                return core::default_compare_for_quicksort(lhs.i, rhs.i);
             });
     const auto expected = std::vector<TestData> {human, dog, cat};
     CHECK(sorted == expected);

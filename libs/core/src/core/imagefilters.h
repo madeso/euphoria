@@ -2,13 +2,16 @@
 
 #include "core/rgb.h"
 
+namespace eu
+{
+    struct Angle;
+}
 
 namespace eu::core
 {
     struct Image;
     struct Rgb;
     struct Palette;
-    struct Angle;
 
     enum class Grayscale
     {

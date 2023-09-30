@@ -57,11 +57,11 @@ namespace eu::render
     Init::~Init() = default;
 
 
-    core::mat4f
+    mat4f
     Init::get_ortho_projection(float width, float height) const
     {
         ASSERT(is_ok);
-        return core::mat4f::create_ortho(0.0f, width, 0.0f, height, -1.0f, 1.0f);
+        return mat4f::create_ortho(0.0f, width, 0.0f, height, -1.0f, 1.0f);
     }
 
 

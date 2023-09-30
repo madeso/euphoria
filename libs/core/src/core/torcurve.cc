@@ -2,7 +2,7 @@
 
 #include <cmath>
 
-#include "core/numeric.h"
+#include "base/numeric.h"
 
 
 namespace eu::core

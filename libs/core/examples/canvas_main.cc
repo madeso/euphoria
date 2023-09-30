@@ -6,6 +6,7 @@
 #include "core/image_canvas.h"
 
 
+using namespace eu;
 using namespace eu::core;
 using namespace eu::io;
 

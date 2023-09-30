@@ -2,10 +2,10 @@
 
 #include <iomanip>
 
-#include "core/numeric.h"
-#include "core/angle.h"
-#include "core/random.h"
-#include "core/range.h"
+#include "base/numeric.h"
+#include "base/angle.h"
+#include "base/random.h"
+#include "base/range.h"
 #include "core/palette.h"
 #include "core/palette_tableu.h"
 #include "core/shufflebag.h"
@@ -55,7 +55,7 @@ main(int argc, char* argv[])
         return parse_result.return_value;
     }
 
-    core::Random rand;
+    Random rand;
 
     auto pal = create_shuffle_bag(palettes::tableau::color_blind_10->colors, 2);
 

@@ -1,8 +1,8 @@
 #include "core/image_draw.h"
 
-#include "core/numeric.h"
+#include "base/numeric.h"
 #include "assert/assert.h"
-#include "core/range.h"
+#include "base/range.h"
 #include "core/loadedfont.h"
 #include "core/utf8.h"
 #include "core/rgb_blend.h"
@@ -182,14 +182,14 @@ namespace eu::core
     )
     {
         ASSERT(image);
-        const int left = max(0, center.x - floor_to_int(radius - softness));
-        const int right = min
+        const int left = eu::max(0, center.x - floor_to_int(radius - softness));
+        const int right = eu::min
         (
             image->width,
             ceil_to_int(c_int_to_float(center.x) + radius + softness)
         );
-        const int top = max(0, floor_to_int(c_int_to_float(center.y) - radius - softness));
-        const int bottom = min
+        const int top = eu::max(0, floor_to_int(c_int_to_float(center.y) - radius - softness));
+        const int bottom = eu::min
         (
             image->height,
             center.y + ceil_to_int(radius + softness)

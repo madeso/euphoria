@@ -1,8 +1,8 @@
 #pragma once
 
-#include "core/vec3.h"
+#include "base/vec3.h"
 #include "core/ray.h"
-#include "core/range.h"
+#include "base/range.h"
 #include "core/sphere.h"
 #include "core/rgb.h"
 

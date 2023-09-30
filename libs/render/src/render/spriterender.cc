@@ -17,14 +17,14 @@ namespace eu::render
 
     DrawData::DrawData()
         : rotation(0.0_rad)
-        , scale(core::Scale2f(1, 1))
+        , scale(Scale2f(1, 1))
         , tint(core::Rgba(core::NamedColor::white))
     {
     }
 
 
     DrawData&
-    DrawData::set_rotation(const core::Angle& r)
+    DrawData::set_rotation(const Angle& r)
     {
         rotation = r;
         return *this;
@@ -32,7 +32,7 @@ namespace eu::render
 
 
     DrawData&
-    DrawData::set_scale(const core::Scale2f& s)
+    DrawData::set_scale(const Scale2f& s)
     {
         scale = s;
         return *this;
@@ -72,36 +72,36 @@ namespace eu::render
         const Texture2& texture,
         const core::Rectf& sprite_area,
         const core::Rectf& texture_region,
-        const core::Angle& rotation_angle,
-        const core::Scale2f& rotation_anchor,
+        const Angle& rotation_angle,
+        const Scale2f& rotation_anchor,
         const core::Rgba& tint_color
     )
     {
         use(sprite_shader);
 
-        core::vec3f rotation_anchor_displacement
+        vec3f rotation_anchor_displacement
         {
             -rotation_anchor.x * sprite_area.get_width(),
             (rotation_anchor.y - 1) * sprite_area.get_height(),
             0.0f
         };
 
-        const core::mat4f model = core::m4_identity
-            .get_translated(core::vec3f(sprite_area.get_bottom_left(), 0.0f))
+        const mat4f model = m4_identity
+            .get_translated(vec3f(sprite_area.get_bottom_left(), 0.0f))
             .get_translated(-rotation_anchor_displacement)
             // rotate around center
             .get_rotated
             (
-                core::AxisAngle::from_right_hand_around
+                AxisAngle::from_right_hand_around
                 (
-                    core::common::z_axis, 
+                    common::z_axis, 
                     rotation_angle
                 )
             )
             .get_translated(rotation_anchor_displacement)
             .get_scaled
             (
-                core::Scale3f
+                Scale3f
                 {
                     sprite_area.get_width(),
                     sprite_area.get_height(),
@@ -132,9 +132,9 @@ namespace eu::render
         (
             texture,
             position,
-            core::Rectf::from_top_left_width_height(core::vec2f{0, 1}, 1, 1),
+            core::Rectf::from_top_left_width_height(vec2f{0, 1}, 1, 1),
             data.rotation,
-            core::Scale2f{0.5f, 0.5f},
+            Scale2f{0.5f, 0.5f},
             data.tint
         );
     }

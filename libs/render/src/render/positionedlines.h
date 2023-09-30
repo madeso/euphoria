@@ -14,9 +14,9 @@ namespace eu::render
         void
         render
         (
-            const core::mat4f& projection_matrix,
-            const core::mat4f& view_matrix,
-            const core::vec3f& camera,
+            const mat4f& projection_matrix,
+            const mat4f& view_matrix,
+            const vec3f& camera,
             const render::Light& light
         ) override;
 

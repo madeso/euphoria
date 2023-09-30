@@ -4,10 +4,10 @@
 
 #include "core/intersection.h"
 #include "core/sphere.h"
-#include "core/random.h"
-#include "core/polarcoord.h"
-#include "core/numeric.h"
-#include "core/angle.h"
+#include "base/random.h"
+#include "base/polarcoord.h"
+#include "base/numeric.h"
+#include "base/angle.h"
 
 #include <limits>
 #include <cmath>
@@ -467,7 +467,7 @@ namespace eu::core::raytracer
     {
         Image& img = *aimage;
 
-        auto rand = core::Random{};
+        auto rand = Random{};
         const auto aspect_ratio = static_cast<float>(img.width) / static_cast<float>(img.height);
         const auto camera = Camera::create(Angle::from_degrees(90), aspect_ratio);
 

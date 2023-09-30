@@ -5,7 +5,7 @@
 
 
 
-#include "core/custom_parser.h"
+#include "base/string_io.h"
 #include "base/stringutils.h"
 #include "core/default_parse.h"
 
@@ -89,41 +89,46 @@ namespace eu::core
     {
         return !(lhs == rhs);
     }
+}
 
+namespace eu
+{
 
     /** Parses a Lrud according to the CSS spec.
       Either all, ver/hor or up/right/down/left
     */
     template<typename T>
-    struct CustomArgparser<Lrud<T>>
+    struct StringParser<core::Lrud<T>>
     {
         enum { value = 1 };
+
+        using Lrud = core::Lrud<T>;
 
         static constexpr char separator = '/';
 
         static
         std::string
-        to_string(const Lrud<T>& fw)
+        to_string(const Lrud& fw)
         {
             return fmt::format
             (
                 "{1}{0}{2}{0}{3}{0}{4}",
                 separator,
-                argparse::from_default_value_to_string(fw.up),
-                argparse::from_default_value_to_string(fw.right),
-                argparse::from_default_value_to_string(fw.down),
-                argparse::from_default_value_to_string(fw.left)
+                core::argparse::from_default_value_to_string(fw.up),
+                core::argparse::from_default_value_to_string(fw.right),
+                core::argparse::from_default_value_to_string(fw.down),
+                core::argparse::from_default_value_to_string(fw.left)
             );
         }
 
         static
-        Result<Lrud<T>>
+        Result<Lrud>
         parse(const std::string& value)
         {
-            using R = Result<Lrud<T>>;
+            using R = Result<Lrud>;
             auto parse = [](const std::string& v)
             {
-                return argparse::default_parse_function<T>(v);
+                return core::argparse::default_parse_function<T>(v);
             };
             const auto values = split(value, separator);
             switch(values.size())
@@ -134,7 +139,7 @@ namespace eu::core
 
                     if(!val) { return R::create_error(val.get_error()); }
 
-                    return R::create_value(Lrud<T>{*val});
+                    return R::create_value(Lrud{*val});
                 }
                 case 2:
                 {
@@ -147,7 +152,7 @@ namespace eu::core
                     if(!hor) { return R::create_error(fmt::format("invalid hor({}): {}", vhor, hor.get_error())); }
                     if(!vert) { return R::create_error(fmt::format("invalid vert({}): {}", vvert, vert.get_error())); }
 
-                    return R::create_value(Lrud<T>::from_lrud(*hor, *vert));
+                    return R::create_value(Lrud::from_lrud(*hor, *vert));
                 }
                 case 4:
                 {
@@ -166,7 +171,7 @@ namespace eu::core
                     if(!up) { return R::create_error(fmt::format("invalid up({}): {}", vup, up.get_error())); }
                     if(!down) { return R::create_error(fmt::format("invalid down({}): {}", vdown, down.get_error())); }
 
-                    return R::create_value(Lrud<T>::from_lrud
+                    return R::create_value(Lrud::from_lrud
                     (
                         *left,
                         *right,

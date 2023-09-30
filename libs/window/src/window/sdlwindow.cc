@@ -70,10 +70,10 @@ namespace eu::window
         }
     }
 
-    [[nodiscard]] core::vec2i
+    [[nodiscard]] vec2i
     SdlWindow::get_mouse_position() const
     {
-        core::vec2i ret {0, 0};
+        vec2i ret {0, 0};
         int width = 0;
         int height = 0;
         SDL_GetWindowSize(window, &width, &height);

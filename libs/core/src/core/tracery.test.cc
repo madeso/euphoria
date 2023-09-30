@@ -1,6 +1,6 @@
 #include "core/tracery.h"
 
-#include "core/random.h"
+#include "base/random.h"
 
 #include "catch.hpp"
 
@@ -9,7 +9,7 @@ namespace tr = eu::core::tracery;
 TEST_CASE("tracery-all", "[tracery]")
 {
     const std::string test_file = "test-file";
-    auto random = eu::core::Random{0};
+    auto random = eu::Random{0};
     tr::Grammar g;
     g.register_english();
 

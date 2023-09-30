@@ -2,13 +2,15 @@
 
 
 
-#include "core/vec3.h"
+#include "base/vec3.h"
 
+namespace eu
+{
+    struct Random;
+}
 
 namespace eu::core
 {
-    struct Random;
-
     struct Aabb
     {
         vec3f min;

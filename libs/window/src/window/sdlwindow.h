@@ -1,7 +1,7 @@
 #pragma once
 
 #include "core/mousebehaviour.h"
-#include "core/vec2.h"
+#include "base/vec2.h"
 
 
 extern "C"
@@ -33,7 +33,7 @@ namespace eu::window
         void operator=(SdlWindow&&) = delete;
 
         // 0-(size-1)
-        [[nodiscard]] core::vec2i
+        [[nodiscard]] vec2i
         get_mouse_position() const;
 
         SDL_Window* window;

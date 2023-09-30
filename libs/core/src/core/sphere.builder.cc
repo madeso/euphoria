@@ -3,7 +3,7 @@
 #include "assert/assert.h"
 
 #include "base/cint.h"
-#include "core/numeric.h"
+#include "base/numeric.h"
 
 
 namespace eu::core
@@ -42,7 +42,7 @@ namespace eu::core
 
         return
         {
-            Sphere{core::sqrt(radius_squared)},
+            Sphere{sqrt(radius_squared)},
             center
         };
     }

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "core/random.h"
+#include "base/random.h"
 #include "assert/assert.h"
 
 
@@ -36,7 +36,7 @@ namespace eu::core::markov
         std::map<T, float> data;
 
         T
-        get(core::Random* rnd) const
+        get(Random* rnd) const
         {
             float value = rnd->get_next_float01();
             for(auto it: data)
@@ -93,7 +93,7 @@ namespace eu::core::markov
         size_t order;
 
         std::vector<T>
-        generate(core::Random* rnd) const
+        generate(Random* rnd) const
         {
             std::vector<T> r;
             Some<T> memory {order};

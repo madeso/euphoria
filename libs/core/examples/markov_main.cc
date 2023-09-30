@@ -59,7 +59,7 @@ markov_sentence(const std::string& file, int memory, int count)
         return;
     }
 
-    core::Random rnd;
+    eu::Random rnd;
     auto b = m.build();
 
     for(int turn = 0; turn < count; turn += 1)
@@ -73,7 +73,7 @@ markov_sentence(const std::string& file, int memory, int count)
 void
 markov_word(const std::string& file, int memory, int count)
 {
-    core::Random rnd;
+    eu::Random rnd;
     markov::ChainBuilder<char> m {memory};
 
     std::ifstream data;
@@ -183,7 +183,7 @@ struct SimilarEditDistance : public Similar
 void
 markov_line(const std::string& file, int memory, int count, bool also_existing, bool simple)
 {
-    core::Random rnd;
+    eu::Random rnd;
     markov::ChainBuilder<std::string> m {memory};
 
     std::ifstream data;

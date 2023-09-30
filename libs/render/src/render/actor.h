@@ -2,9 +2,9 @@
 
 #include <memory>
 
-#include "core/mat4.h"
-#include "core/vec3.h"
-#include "core/quat.h"
+#include "base/mat4.h"
+#include "base/vec3.h"
+#include "base/quat.h"
 #include "core/rgb.h"
 
 #include "render/instance.h"
@@ -30,9 +30,9 @@ namespace eu::render
         void
         render
         (
-            const core::mat4f& projection_matrix,
-            const core::mat4f& view_matrix,
-            const core::vec3f& camera,
+            const mat4f& projection_matrix,
+            const mat4f& view_matrix,
+            const vec3f& camera,
             const Light& light
         ) override;
     };

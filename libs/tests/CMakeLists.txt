@@ -23,11 +23,11 @@ target_link_libraries(tests
     PUBLIC
         external::catch
         external::catch_main
+        euph::core
+        euph::base
     PRIVATE
         euph::project_options
         euph::project_warnings
-        euph::core
-        euph::base
 )
 
 

@@ -2,11 +2,11 @@
 
 #include "catch.hpp"
 
-namespace euco = eu::core;
+namespace core = eu::core;
 
 TEST_CASE("textfileparser-test_basic_ident", "[textfileparser]")
 {
-    auto test = euco::TextfileParser::from_string("Hello");
+    auto test = core::TextfileParser::from_string("Hello");
 
     REQUIRE(test.has_more());
     REQUIRE(test.read_ident() == "Hello");
@@ -17,7 +17,7 @@ TEST_CASE("textfileparser-test_basic_ident", "[textfileparser]")
 
 TEST_CASE("textfileparser-test_two_idents", "[textfileparser]")
 {
-    auto test = euco::TextfileParser::from_string("Hello world");
+    auto test = core::TextfileParser::from_string("Hello world");
 
     REQUIRE(test.has_more());
     REQUIRE(test.read_ident() == "Hello");
@@ -32,7 +32,7 @@ TEST_CASE("textfileparser-test_two_idents", "[textfileparser]")
 
 TEST_CASE("textfileparser-read_string_fail", "[textfileparser]")
 {
-    auto test = euco::TextfileParser::from_string("Hello");
+    auto test = core::TextfileParser::from_string("Hello");
 
     REQUIRE(test.has_more());
     REQUIRE(test.read_string().empty());
@@ -42,7 +42,7 @@ TEST_CASE("textfileparser-read_string_fail", "[textfileparser]")
 
 TEST_CASE("textfileparser-read_string", "[textfileparser]")
 {
-    auto test = euco::TextfileParser::from_string("\"Hello\"");
+    auto test = core::TextfileParser::from_string("\"Hello\"");
 
     REQUIRE(test.has_more());
     REQUIRE(test.read_string() == "Hello");
@@ -52,7 +52,7 @@ TEST_CASE("textfileparser-read_string", "[textfileparser]")
 
 TEST_CASE("textfileparser-read_to_eol", "[textfileparser]")
 {
-    auto test = euco::TextfileParser::from_string("hello world\nhello dog");
+    auto test = core::TextfileParser::from_string("hello world\nhello dog");
 
     REQUIRE(test.has_more());
     REQUIRE(test.read_to_end_of_line() == "hello world");
@@ -63,7 +63,7 @@ TEST_CASE("textfileparser-read_to_eol", "[textfileparser]")
 
 TEST_CASE("textfileparser-peek_char", "[textfileparser]")
 {
-    auto test = euco::TextfileParser::from_string("abc");
+    auto test = core::TextfileParser::from_string("abc");
 
     REQUIRE(test.has_more());
     REQUIRE(test.peek_char() == 'a');

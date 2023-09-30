@@ -1,12 +1,12 @@
 #include "core/ui_text.h"
 #include "catch.hpp"
 
-namespace euco = eu::core;
+namespace core = eu::core;
 namespace textparser = eu::core::textparser;
 
 TEST_CASE("textfileparser-test", "[textparser]")
 {
-    euco::UiText parser;
+    core::UiText parser;
 
     SECTION("text")
     {

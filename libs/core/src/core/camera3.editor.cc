@@ -6,7 +6,7 @@
 #include "core/viewport.h"
 #include "core/intersection.h"
 #include "core/plane.h"
-#include "core/numeric.h"
+#include "base/numeric.h"
 #include "core/sphere.position.h"
 
 
@@ -112,9 +112,9 @@ namespace eu::core
             if (change == 0) { return std::nullopt; }
 
             const auto suggested_move = c_int_to_float(change) * length * owner->zoom_percent;
-            const auto sign = core::get_sign(change > 0);
-            const auto val = core::min(core::square(suggested_move), length);
-            return sign * core::min(val, owner->max_zoom_change);
+            const auto sign = get_sign(change > 0);
+            const auto val = eu::min(square(suggested_move), length);
+            return sign * eu::min(val, owner->max_zoom_change);
         }
                 
 
@@ -676,7 +676,7 @@ namespace eu::core
 
         // algorithm: https://stackoverflow.com/a/32836605
         fps.look_in_direction(vec3f::from_to(fps.position, s.center).get_normalized());
-        const auto distance = (s.sphere.radius * 2.0f) / core::tan(cam.fov / 2.0f);
+        const auto distance = (s.sphere.radius * 2.0f) / tan(cam.fov / 2.0f);
         fps.position = s.center  + fps.get_rotation().get_out() * distance;
         
         

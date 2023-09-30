@@ -3,7 +3,7 @@
 #include <memory>
 
 #include "core/ecs.h"
-#include "core/vec2.h"
+#include "base/vec2.h"
 #include "base/cint.h"
 
 #include "render/texture.h"
@@ -17,7 +17,7 @@ namespace eu::runner
     {
     }
 
-    ComponentPosition2::ComponentPosition2(const core::vec2f& p)
+    ComponentPosition2::ComponentPosition2(const vec2f& p)
         : pos(p)
     {
     }
@@ -29,12 +29,12 @@ namespace eu::runner
     }
 
     core::Rectf
-    get_sprite_rect(const core::vec2f& position, const render::Texture2& texture)
+    get_sprite_rect(const vec2f& position, const render::Texture2& texture)
     {
         return core::Rectf::from_position_anchor_width_and_height
         (
             position,
-            core::Scale2f {0.5f, 0.5f},
+            Scale2f{0.5f, 0.5f},
             c_int_to_float(texture.width),
             c_int_to_float(texture.height)
         );

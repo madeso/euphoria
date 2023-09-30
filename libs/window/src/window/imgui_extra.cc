@@ -2,9 +2,9 @@
 
 #include "assert/assert.h"
 
-#include "core/angle.h"
+#include "base/angle.h"
 #include "core/rgb.h"
-#include "core/numeric.h"
+#include "base/numeric.h"
 
 #include "render/texture.h"
 
@@ -24,13 +24,13 @@
 namespace eu::window
 {
     ImVec2
-    con(const core::vec2f& v)
+    con(const vec2f& v)
     {
         return {v.x, v.y};
     }
 
 
-    core::vec2f
+    vec2f
     con(const ImVec2& v)
     {
         return {v.x, v.y};
@@ -74,9 +74,9 @@ namespace eu::window::imgui
     imgui_angle_slider
     (
         const char* name,
-        core::Angle* angle,
-        const core::Angle& mindeg,
-        const core::Angle& maxdeg
+        Angle* angle,
+        const Angle& mindeg,
+        const Angle& maxdeg
     )
     {
         ASSERT(angle);
@@ -92,7 +92,7 @@ namespace eu::window::imgui
 
         if(value_was_changed)
         {
-            *angle = core::Angle::from_degrees(degrees);
+            *angle = Angle::from_degrees(degrees);
         }
 
         return value_was_changed;
@@ -103,7 +103,7 @@ namespace eu::window::imgui
     imgui_angle_slider
     (
         const char* name,
-        core::Angle* angle
+        Angle* angle
     )
     {
         ASSERT(angle);
@@ -117,7 +117,7 @@ namespace eu::window::imgui
 
         if(value_was_changed)
         {
-            *angle = core::Angle::from_degrees(degrees);
+            *angle = Angle::from_degrees(degrees);
             angle->wrap();
         }
 
@@ -363,7 +363,6 @@ namespace eu::window::imgui
         KnobStyle style
     )
     {
-        constexpr auto pi = core::pi;
         // constexpr auto rad2deg = 180 / pi;
         constexpr auto pi2 = pi * 2;
         constexpr float angle_min = pi * 0.75f;

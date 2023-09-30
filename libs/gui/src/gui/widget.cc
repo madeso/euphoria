@@ -66,7 +66,7 @@ namespace eu::gui
     }
 
 
-    core::size2f
+    size2f
     Widget::get_preferred_size() const
     {
         const auto min = calc_minimum_size();
@@ -75,14 +75,14 @@ namespace eu::gui
         const auto margin_width = margin.left + margin.right;
         const auto margin_height = margin.up + margin.down;
 
-        return core::size2f::create_from_width_height
+        return size2f::create_from_width_height
         (
-            core::max
+            max
             (
                 min.width + padding_width + margin_width,
                 layout.preferred_width
             ),
-            core::max
+            max
             (
                 min.height + padding_height + margin_height,
                 layout.preferred_height

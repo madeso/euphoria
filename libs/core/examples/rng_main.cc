@@ -1,6 +1,6 @@
 #include "core/rng.h"
 
-#include "core/random.h"
+#include "base/random.h"
 
 #include <algorithm>
 #include <iostream>
@@ -18,7 +18,7 @@ void
 print_random_numbers
 (
     const std::string& name,
-    core::Random* random,
+    Random* random,
     int count,
     int small_count
 )
@@ -51,7 +51,7 @@ struct Runner
 {
     int count = 1000;
     int small_count = 10;
-    core::Random rand = core::Random{};
+    Random rand = Random{};
 
     template<typename TGenerator>
     void
@@ -88,8 +88,8 @@ struct Runner
         print<RandomXorShift64>("xorshift64");
 
         const int int_count = 10;
-        print_ints<32>("u32", int_count, [](core::Random* r) { return r->get_next_u32();});
-        print_ints<64>("u64", int_count, [](core::Random* r) { return r->get_next_u64();});
+        print_ints<32>("u32", int_count, [](Random* r) { return r->get_next_u32();});
+        print_ints<64>("u64", int_count, [](Random* r) { return r->get_next_u64();});
     }
 };
 

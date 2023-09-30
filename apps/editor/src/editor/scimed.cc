@@ -1,8 +1,8 @@
 #include "editor/scimed.h"
 
-#include "core/range.h"
+#include "base/range.h"
 #include "core/canvaslogic.h"
-#include "core/numeric.h"
+#include "base/numeric.h"
 
 #include "render/texture.h"
 #include "render/texturecache.h"
@@ -14,6 +14,7 @@
 #include <algorithm>
 #include <optional>
 
+using namespace eu;
 using namespace eu::core;
 using namespace eu::window;
 
@@ -22,7 +23,7 @@ namespace eu::editor
     bool
     is_close_to(float a, float b, float c = 3)
     {
-        return core::abs(a - b) < c;
+        return abs(a - b) < c;
     }
 
     bool

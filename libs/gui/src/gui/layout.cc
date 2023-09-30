@@ -1,6 +1,6 @@
 #include "gui/layout.h"
 
-#include "core/numeric.h"
+#include "base/numeric.h"
 #include "log/log.h"
 #include "base/stringmerger.h"
 #include "base/stringutils.h"
@@ -39,12 +39,12 @@ namespace eu::gui
         void
         update_max(T* t, T value)
         {
-            *t = core::max(*t, value);
+            *t = max(*t, value);
         }
     }
 
 
-    core::size2f
+    size2f
     TableLayout::calc_minimum_area
     (
         const std::vector<std::shared_ptr<Widget>>& widgets
@@ -62,7 +62,7 @@ namespace eu::gui
             update_max(&height[d.row], s.height);
         }
 
-        const auto s = core::size2f::create_from_width_height
+        const auto s = size2f::create_from_width_height
         (
             std::accumulate(width.begin(), width.end(), 0.0f),
             std::accumulate(height.begin(), height.end(), 0.0f)
@@ -150,7 +150,7 @@ namespace eu::gui
             (
                 core::Rectf::from_top_left_width_height
                 (
-                    core::vec2f{x, y},
+                    vec2f{x, y},
                     width[d.column],
                     height[d.row]
                 )
@@ -165,7 +165,7 @@ namespace eu::gui
     }
 
 
-    core::size2f
+    size2f
     SingleRowLayout::calc_minimum_area
     (
         const std::vector<std::shared_ptr<Widget>>& widgets
@@ -187,7 +187,7 @@ namespace eu::gui
             update_max(&height, s.height);
         }
 
-        const auto s = core::size2f::create_from_width_height(width, height);
+        const auto s = size2f::create_from_width_height(width, height);
         return s;
     }
 
@@ -208,7 +208,7 @@ namespace eu::gui
             (
                 core::Rectf::from_top_left_width_height
                 (
-                    core::vec2f{x, tl.y},
+                    vec2f{x, tl.y},
                     s.width,
                     s.height
                 )

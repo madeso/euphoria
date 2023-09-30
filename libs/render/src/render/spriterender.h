@@ -2,9 +2,9 @@
 
 #include <memory>
 
-#include "core/vec2.h"
+#include "base/vec2.h"
 #include "core/rgb.h"
-#include "core/angle.h"
+#include "base/angle.h"
 #include "core/rect.h"
 
 #include "render/shaderuniform.h"
@@ -19,14 +19,14 @@ namespace eu::render
 
     struct DrawData
     {
-        core::Angle rotation;
-        core::Scale2f scale;
+        Angle rotation;
+        Scale2f scale;
         core::Rgba tint;
 
         DrawData();
 
-        DrawData& set_rotation(const core::Angle& r);
-        DrawData& set_scale(const core::Scale2f& s);
+        DrawData& set_rotation(const Angle& r);
+        DrawData& set_scale(const Scale2f& s);
         DrawData& set_tint(const core::Rgba& t);
     };
 
@@ -47,8 +47,8 @@ namespace eu::render
             const Texture2& texture,
             const core::Rectf& sprite_area,
             const core::Rectf& texture_region,
-            const core::Angle& rotation_angle,
-            const core::Scale2f& rotation_anchor,
+            const Angle& rotation_angle,
+            const Scale2f& rotation_anchor,
             const core::Rgba& tint_color
         );
 

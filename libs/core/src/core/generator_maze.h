@@ -1,13 +1,13 @@
 #pragma once
 
 #include "core/table.h"
-#include "core/vec2.h"
+#include "base/vec2.h"
 #include "core/image.h"
 #include "core/enumtostring.h"
 
 #include <stack>
 
-namespace eu::core
+namespace eu
 {
     struct Random;
 }
@@ -62,7 +62,7 @@ namespace eu::core::generator
     struct RecursiveBacktracker : public Algorithm
     {
         generator::Maze* maze = nullptr;
-        core::Random* random = nullptr;
+        Random* random = nullptr;
 
         std::stack<vec2i> stack;
         int visited_cells = 0;
@@ -75,7 +75,7 @@ namespace eu::core::generator
     struct RandomTraversal : public Algorithm
     {
         generator::Maze* maze = nullptr;
-        core::Random* random = nullptr;
+        Random* random = nullptr;
 
         struct Entry
         {

@@ -20,7 +20,7 @@ namespace eu::core
         ASSERTX(window_height >= 0, window_height);
         const float w = static_cast<float>(window_width) / width;
         const float h = static_cast<float>(window_height) / height;
-        const float s = min(w, h);
+        const float s = eu::min(w, h);
         ASSERTX(s > 0, s, w, h);
         const float new_width = width * s;
         const float new_height = height * s;

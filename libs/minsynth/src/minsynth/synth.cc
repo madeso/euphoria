@@ -9,9 +9,9 @@
 
 #include "log/log.h"
 #include "assert/assert.h"
-#include "core/numeric.h"
+#include "base/numeric.h"
 #include "base/cint.h"
-#include "core/angle.h"
+#include "base/angle.h"
 
 
 using namespace fmt::literals;
@@ -26,10 +26,6 @@ using namespace fmt::literals;
 
 namespace eu::minsynth
 {
-    // todo(Gustav): get a better number here
-    constexpr float pi = core::pi;
-
-
     std::string
     to_string(Tuning t)
     {
@@ -625,12 +621,12 @@ namespace eu::minsynth
     float
     run_oscilator(float frequency, float time, OscilatorType osc)
     {
-        const float sine = core::sin( core::Angle::from_percent_of_360(frequency) * time);
+        const float sine = sin( Angle::from_percent_of_360(frequency) * time);
         switch(osc)
         {
         case OscilatorType::sine: return sine;
         case OscilatorType::square: return sine > 0.0f ? 1.0f : -1.0f;
-        case OscilatorType::triangle: return core::asin(sine).as_radians() * (2.0f / pi);
+        case OscilatorType::triangle: return asin(sine).as_radians() * (2.0f / pi);
         case OscilatorType::sawtooth:
             return (2 / pi) * (frequency * pi * fmodf(time, 1 / frequency) - pi / 2);
         case OscilatorType::noise:
@@ -812,7 +808,7 @@ namespace eu::minsynth
     float
     ScalerEffect::on_wave(float wave)
     {
-        float w = core::abs(wave);
+        float w = abs(wave);
         const auto negative = wave < 0;
         for(int time_counter = 0; time_counter < times; time_counter += 1)
         {

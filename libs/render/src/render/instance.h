@@ -1,8 +1,8 @@
 #pragma once
 
-#include "core/mat4.h"
-#include "core/vec3.h"
-#include "core/quat.h"
+#include "base/mat4.h"
+#include "base/vec3.h"
+#include "base/quat.h"
 
 
 namespace eu::render
@@ -12,8 +12,8 @@ namespace eu::render
     struct Instance
     {
         bool remove_this = false;
-        core::vec3f position;
-        core::quatf rotation;
+        vec3f position;
+        quatf rotation;
 
         Instance();
         virtual ~Instance() = default;
@@ -23,20 +23,20 @@ namespace eu::render
         void operator=(const Instance&) = delete;
         void operator=(Instance&&) = delete;
 
-        [[nodiscard]] core::mat4f calc_model_matrix() const;
+        [[nodiscard]] mat4f calc_model_matrix() const;
 
         virtual void render
         (
-            const core::mat4f& projection_matrix,
-            const core::mat4f& view_matrix,
-            const core::vec3f& camera,
+            const mat4f& projection_matrix,
+            const mat4f& view_matrix,
+            const vec3f& camera,
             const Light& light
         ) = 0;
     };
 
-    [[nodiscard]] core::mat4f calc_model_matrix
+    [[nodiscard]] mat4f calc_model_matrix
     (
-        const core::vec3f& position,
-        const core::quatf& rotation
+        const vec3f& position,
+        const quatf& rotation
     );
 }

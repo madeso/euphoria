@@ -4,15 +4,18 @@
 #include <utility>
 #include <functional>
 
-#include "core/vec2.h"
-#include "core/vec3.h"
+#include "base/vec2.h"
+#include "base/vec3.h"
 
 #include "imgui/imgui.h"
 
+namespace eu
+{
+    struct Angle;
+}
 
 namespace eu::core
 {
-    struct Angle;
     struct Rgb;
     struct Rgba;
     struct Rgbai;
@@ -39,9 +42,9 @@ namespace eu::window
     };
 
     ImVec2
-    con(const core::vec2f &v);
+    con(const vec2f &v);
 
-    core::vec2f
+    vec2f
     con(const ImVec2 &v);
 }
 
@@ -89,16 +92,16 @@ namespace eu::window::imgui
     imgui_angle_slider
     (
         const char* name,
-        core::Angle* angle,
-        const core::Angle& min_deg,
-        const core::Angle& max_deg
+        Angle* angle,
+        const Angle& min_deg,
+        const Angle& max_deg
     );
 
     bool
     imgui_angle_slider
     (
         const char* name,
-        core::Angle* angle
+        Angle* angle
     );
 
     bool

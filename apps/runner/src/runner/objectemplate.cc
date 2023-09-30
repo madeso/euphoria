@@ -5,7 +5,7 @@
 #include "core/stdutils.h"
 #include "base/stringmerger.h"
 #include "io/vfs_path.h"
-#include "core/vec2.h"
+#include "base/vec2.h"
 
 #include "runner/components.h"
 #include "runner/dukregistry.h"
@@ -36,10 +36,10 @@ namespace eu::runner
 
     struct PositionComponentCreator : ComponentCreator
     {
-        core::vec2f p;
+        vec2f p;
         runner::Components* components;
 
-        PositionComponentCreator(const core::vec2f& pp, runner::Components* cs)
+        PositionComponentCreator(const vec2f& pp, runner::Components* cs)
             : p(pp)
             , components(cs)
         {
@@ -50,7 +50,7 @@ namespace eu::runner
         std::shared_ptr<PositionComponentCreator>
         create(const files::game::vec2f& p, runner::Components* components)
         {
-            return std::make_shared<PositionComponentCreator>(core::vec2f {p.x, p.y}, components);
+            return std::make_shared<PositionComponentCreator>(vec2f{p.x, p.y}, components);
         }
 
         void

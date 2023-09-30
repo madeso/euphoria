@@ -3,7 +3,7 @@
 #include "core/image.h"
 #include "core/palette.h"
 #include "core/table.h"
-#include "core/vec3.h"
+#include "base/vec3.h"
 
 
 namespace eu::core
@@ -28,7 +28,7 @@ namespace eu::core
         case Grayscale::g: return make_gray(c.g, c.a);
         case Grayscale::b: return make_gray(c.b, c.a);
         case Grayscale::a: return make_gray(c.a, c.a);
-        case Grayscale::max: return make_gray(max(c.r, max(c.g, c.b)), c.a);
+        case Grayscale::max: return make_gray(std::max(c.r, std::max(c.g, c.b)), c.a);
         case Grayscale::gamma:
             {
                 const auto d = dot(to_rgb(c), Rgb(0.22f, 0.707f, 0.071f));

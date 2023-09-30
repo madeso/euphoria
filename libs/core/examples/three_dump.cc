@@ -1,8 +1,8 @@
 #include "core/dump.h"
 
-#include "core/random.h"
+#include "base/random.h"
 #include "core/palette.h"
-#include "core/angle.h"
+#include "base/angle.h"
 #include "core/palette_tableu.h"
 #include "core/shufflebag.h"
 #include "core/plane.h"
@@ -46,7 +46,7 @@ main(int argc, char* argv[])
         return parse_result.return_value;
     }
 
-    eu::core::Random rand;
+    Random rand;
 
     auto pal = create_shuffle_bag(palettes::tableau::color_blind_10->colors, 2);
 

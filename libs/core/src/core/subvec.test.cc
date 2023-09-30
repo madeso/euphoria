@@ -3,6 +3,7 @@
 #include "tests/utils.h"
 #include "tests/vectorequals.h"
 
+using namespace eu;
 using namespace eu::core;
 using namespace eu::tests;
 

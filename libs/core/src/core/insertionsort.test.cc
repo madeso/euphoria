@@ -2,11 +2,11 @@
 
 #include "catch.hpp"
 
-namespace euco = eu::core;
+namespace core = eu::core;
 
 TEST_CASE("insertionsort-empty", "[insertionsort]")
 {
-    const auto sorted = euco::get_insertion_sorted(std::vector<int> {});
+    const auto sorted = core::get_insertion_sorted(std::vector<int> {});
     const auto expected = std::vector<int> {};
     CHECK(sorted == expected);
 }
@@ -15,28 +15,28 @@ TEST_CASE("insertionsort-empty", "[insertionsort]")
 TEST_CASE("insertionsort-four-custom0", "[insertionsort]")
 {
     const auto values = std::vector<int> {5, 3, 6, 1};
-    const auto sorted = euco::get_insertion_sorted(values, [](int, int) { return 0; });
+    const auto sorted = core::get_insertion_sorted(values, [](int, int) { return 0; });
     const auto expected = values;
     CHECK(sorted == expected);
 }
 
 TEST_CASE("insertionsort-four", "[insertionsort]")
 {
-    const auto sorted = euco::get_insertion_sorted(std::vector<int> {5, 3, 6, 1});
+    const auto sorted = core::get_insertion_sorted(std::vector<int> {5, 3, 6, 1});
     const auto expected = std::vector<int> {1, 3, 5, 6};
     CHECK(sorted == expected);
 }
 
 TEST_CASE("insertionsort-two", "[insertionsort]")
 {
-    const auto sorted = euco::get_insertion_sorted(std::vector<int> {8, 7});
+    const auto sorted = core::get_insertion_sorted(std::vector<int> {8, 7});
     const auto expected = std::vector<int> {7, 8};
     CHECK(sorted == expected);
 }
 
 TEST_CASE("insertionsort-five", "[insertionsort]")
 {
-    const auto sorted = euco::get_insertion_sorted(std::vector<int> {5, 0, 1, 8, 7});
+    const auto sorted = core::get_insertion_sorted(std::vector<int> {5, 0, 1, 8, 7});
     const auto expected = std::vector<int> {0, 1, 5, 7, 8};
     CHECK(sorted == expected);
 }
@@ -44,13 +44,13 @@ TEST_CASE("insertionsort-five", "[insertionsort]")
 TEST_CASE("insertionsort-sorted", "[insertionsort]")
 {
     const auto expected = std::vector<int> {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
-    const auto sorted = euco::get_insertion_sorted(expected);
+    const auto sorted = core::get_insertion_sorted(expected);
     CHECK(sorted == expected);
 }
 
 TEST_CASE("insertionsort-100", "[insertionsort]")
 {
-    const auto sorted = euco::get_insertion_sorted(std::vector<int> {
+    const auto sorted = core::get_insertion_sorted(std::vector<int> {
             95, 14, 6,  6,  90, 25, 42, 4,  12, 12, 97, 4,  1,  32, 55, 52, 48,
             19, 61, 85, 61, 42, 47, 34, 57, 47, 14, 70, 47, 14, 47, 97, 92, 6,
             20, 74, 4,  84, 30, 94, 16, 95, 73, 5,  90, 19, 2,  97, 73, 17, 27,
@@ -101,7 +101,7 @@ TEST_CASE("insertionsort-default_sort", "[insertionsort]")
 
     const auto cat = TestData {"cat", 42};
     const auto human = TestData {"human", 1};
-    const auto sorted = euco::get_insertion_sorted(std::vector<TestData> {dog, cat, human});
+    const auto sorted = core::get_insertion_sorted(std::vector<TestData> {dog, cat, human});
     const auto expected = std::vector<TestData> {cat, dog, human};
     CHECK(sorted == expected);
 }
@@ -111,12 +111,12 @@ TEST_CASE("insertionsort-custom_sort", "[insertionsort]")
     const auto dog = TestData {"dog", 3};
     const auto cat = TestData {"cat", 42};
     const auto human = TestData {"human", 1};
-    const auto sorted = euco::get_insertion_sorted
+    const auto sorted = core::get_insertion_sorted
     (
         std::vector<TestData> {dog, cat, human},
         [](const TestData& lhs, const TestData& rhs)
         {
-            return euco::default_compare_for_insertion_sort(lhs.i, rhs.i);
+            return core::default_compare_for_insertion_sort(lhs.i, rhs.i);
         }
     );
     const auto expected = std::vector<TestData> {human, dog, cat};

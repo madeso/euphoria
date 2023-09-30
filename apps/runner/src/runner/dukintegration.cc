@@ -3,7 +3,7 @@
 #include <map>
 #include <functional>
 
-#include "core/random.h"
+#include "base/random.h"
 #include "log/log.h"
 #include "core/sol.h"
 #include "base/cint.h"
@@ -210,7 +210,7 @@ namespace eu::runner
             };
 
             auto math_table = duk->state["math"].get_or_create<sol::table>();
-            math_table["new_random"] = [&]() { return std::make_shared<core::Random>(); };
+            math_table["new_random"] = [&]() { return std::make_shared<Random>(); };
 
             auto templates_table = duk->state["templates"].get_or_create<sol::table>();
             templates_table["find"] = [&](const std::string& name)
@@ -313,7 +313,7 @@ namespace eu::runner
                     {
                         return p.pos;
                     },
-                    [](ComponentPosition2& p, const core::vec2f& np)
+                    [](ComponentPosition2& p, const vec2f& np)
                     {
                         p.pos = np;
                     }
@@ -336,7 +336,7 @@ namespace eu::runner
                 {
                     return r.contains_exclusive(rr);
                 },
-                [](const core::Rectf& r, const core::vec2f& p) -> bool
+                [](const core::Rectf& r, const vec2f& p) -> bool
                 {
                     return r.contains_exclusive(p);
                 },
@@ -348,14 +348,14 @@ namespace eu::runner
             rect_type["get_height"] = [](const core::Rectf& r) -> double { return c_float_to_double(r.get_height()); };
             rect_type["get_width"] = [](const core::Rectf& r) -> double { return c_float_to_double(r.get_width()); };
 
-            auto random_type = duk->state.new_usertype<core::Random>("random");
-            random_type["next_float01"] = [](core::Random& r) -> double { return c_float_to_double(r.get_next_float01()); };
-            random_type["next_range_float"] = [](core::Random& r, double f) -> double
+            auto random_type = duk->state.new_usertype<Random>("random");
+            random_type["next_float01"] = [](Random& r) -> double { return c_float_to_double(r.get_next_float01()); };
+            random_type["next_range_float"] = [](Random& r, double f) -> double
             {
                 return c_float_to_double(get_random_in_range(&r, c_double_to_float(f)));
             };
-            random_type["next_bool"] = &core::Random::get_next_bool;
-            random_type["next_point2"] = [](core::Random& r, core::Rectf& rect) -> core::vec2f
+            random_type["next_bool"] = &Random::get_next_bool;
+            random_type["next_point2"] = [](Random& r, core::Rectf& rect) -> vec2f
             {
                 return get_random_point(&r, rect);
             };

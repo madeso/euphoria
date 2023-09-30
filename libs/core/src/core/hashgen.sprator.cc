@@ -6,7 +6,7 @@
 #include "core/rgb.h"
 #include "assert/assert.h"
 #include "core/rng.h"
-#include "core/numeric.h"
+#include "base/numeric.h"
 #include "core/image_draw.h"
 #include "base/cint.h"
 #include "core/table_bool.h"
@@ -15,6 +15,7 @@
 
 namespace
 {
+    using namespace eu;
     using namespace eu::core;
 
 

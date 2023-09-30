@@ -151,8 +151,8 @@ namespace eu::core
     void
     FpsController::look_in_direction(const unit3f& direction)
     {
-        look_angle = core::asin(direction.y);
-        rotation_angle = core::atan2(direction.x, direction.z) + Angle::from_degrees(180.0f);
+        look_angle = asin(direction.y);
+        rotation_angle = atan2(direction.x, direction.z) + Angle::from_degrees(180.0f);
     }
 
 }

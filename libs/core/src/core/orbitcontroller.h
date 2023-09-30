@@ -1,8 +1,8 @@
 #pragma once
 
 
-#include "core/vec3.h"
-#include "core/quat.h"
+#include "base/vec3.h"
+#include "base/quat.h"
 #include "core/sensitivity.h"
 
 namespace eu::core

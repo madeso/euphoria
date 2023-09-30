@@ -1,11 +1,11 @@
 #pragma once
 
 
-#include "core/vec2.h"
-#include "core/vec3.h"
-#include "core/vec4.h"
+#include "base/vec2.h"
+#include "base/vec3.h"
+#include "base/vec4.h"
 #include "core/rgb.h"
-#include "core/mat4.h"
+#include "base/mat4.h"
 #include "core/rect.h"
 #include "io/vfs_path.h"
 
@@ -76,10 +76,10 @@ namespace eu::render
         void set_uniform(const ShaderUniform& attribute, float val);
         void set_uniform(const ShaderUniform& attribute, const core::Rgb& val);
         void set_uniform(const ShaderUniform& attribute, const core::Rgba& val);
-        void set_uniform(const ShaderUniform& attribute, const core::vec3f& val);
-        void set_uniform(const ShaderUniform& attribute, const core::vec4f& val);
-        void set_uniform(const ShaderUniform& attribute, const core::mat3f& val);
-        void set_uniform(const ShaderUniform& attribute, const core::mat4f& val);
+        void set_uniform(const ShaderUniform& attribute, const vec3f& val);
+        void set_uniform(const ShaderUniform& attribute, const vec4f& val);
+        void set_uniform(const ShaderUniform& attribute, const mat3f& val);
+        void set_uniform(const ShaderUniform& attribute, const mat4f& val);
         void set_uniform(const ShaderUniform& attribute, const core::Rectf& val);
 
         // debug

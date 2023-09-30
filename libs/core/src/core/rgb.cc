@@ -4,10 +4,10 @@
 #include <map>
 #include <iomanip>
 
-#include "core/default_interpolate.h"
-#include "core/numeric.h"
+#include "base/default_interpolate.h"
+#include "base/numeric.h"
 #include "base/stringutils.h"
-#include "core/range.h"
+#include "base/range.h"
 #include "base/stringmerger.h"
 
 
@@ -290,9 +290,10 @@ namespace eu::core
     Hsl
     to_hsl(const Rgb& c)
     {
+        // todo(Gustav): max/min are terrible names for local variables...
         // based on https://gist.github.com/mjackson/5311256
-        const auto max = core::max(c.r, core::max(c.g, c.b));
-        const auto min = core::min(c.r, core::min(c.g, c.b));
+        const auto max = eu::max(c.r, eu::max(c.g, c.b));
+        const auto min = eu::min(c.r, eu::min(c.g, c.b));
         const auto l = (max + min) / 2;
         // var h, s;
 

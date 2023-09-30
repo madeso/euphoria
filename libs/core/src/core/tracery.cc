@@ -9,7 +9,7 @@
 
 #include "io/json.h"
 
-#include "core/random.h"
+#include "base/random.h"
 #include "core/textfileparser.h"
 
 
@@ -21,7 +21,7 @@ namespace eu::core::tracery
 
     struct GeneratorArgument
     {
-        core::Random* generator = nullptr;
+        Random* generator = nullptr;
         const tracery::Grammar* grammar = nullptr;
         std::map<std::string, std::string> overridden_rules;
     };
@@ -664,7 +664,7 @@ namespace eu::core::tracery
 
 
     Result
-    Grammar::flatten(core::Random* random, const std::string& rule_code) const
+    Grammar::flatten(Random* random, const std::string& rule_code) const
     {
         GeneratorArgument generator;
         generator.grammar = this;

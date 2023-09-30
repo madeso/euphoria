@@ -1,6 +1,6 @@
 #pragma once
 
-#include "core/angle.h"
+#include "base/angle.h"
 
 namespace eu::t3d
 {
@@ -12,7 +12,7 @@ namespace eu::t3d
         float normal = 1.0f;
         int size = 10;
 
-        core::Angle angle_snap = core::Angle::from_percent_of_360(5.0f / 60.0f);
+        Angle angle_snap = Angle::from_percent_of_360(5.0f / 60.0f);
 
         bool snap_enabled = true;
     };

@@ -32,11 +32,11 @@ namespace eu::render
     void
     SpriteBatch::render_quad
     (
-        const core::vec2f& pos,
-        const core::size2f& quad,
+        const vec2f& pos,
+        const size2f& quad,
         const core::Rectf& uv,
-        const core::Scale2f& center,
-        const core::Angle& rotation,
+        const Scale2f& center,
+        const Angle& rotation,
         const core::Rgba& color
     )
     {
@@ -55,10 +55,10 @@ namespace eu::render
         const float right = pos.x + (-center.x * w + w) * sy;
         const float top = pos.y + (-center.y * h) * sy;
         const float bottom = pos.y + (-center.y * h + h) * sy;
-        const auto upper_left = core::vec2f(left, top);
-        const auto upper_right = core::vec2f(right, top);
-        const auto lower_left = core::vec2f(left, bottom);
-        const auto lower_right = core::vec2f(right, bottom);
+        const auto upper_left = vec2f(left, top);
+        const auto upper_right = vec2f(right, top);
+        const auto lower_left = vec2f(left, bottom);
+        const auto lower_right = vec2f(right, bottom);
 
         vertex_data.push_back(upper_left.x);
         vertex_data.push_back(upper_left.y);

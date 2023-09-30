@@ -7,7 +7,7 @@
 #include "core/image_draw.h"
 #include "core/pack.h"
 #include "base/cint.h"
-#include "core/numeric.h"
+#include "base/numeric.h"
 
 
 namespace eu::core

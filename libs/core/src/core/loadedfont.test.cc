@@ -6,6 +6,7 @@
 #include "catch.hpp"
 
 
+using namespace eu;
 using namespace eu::tests;
 using namespace eu::core;
 

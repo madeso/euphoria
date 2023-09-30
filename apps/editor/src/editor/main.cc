@@ -1,7 +1,7 @@
 #include "log/log.h"
 
-#include "core/mat4.h"
-#include "core/random.h"
+#include "base/mat4.h"
+#include "base/random.h"
 #include "io/vfs.h"
 #include "core/vfs_imagegenerator.h"
 #include "base/stringutils.h"

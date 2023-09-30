@@ -1,7 +1,7 @@
 #pragma once
 
 #include "core/rect.h"
-#include "core/mat4.h"
+#include "base/mat4.h"
 #include "core/rgb.h"
 
 namespace eu::render
@@ -27,7 +27,7 @@ namespace eu::render
         void operator=(const Init&) = delete;
         void operator=(Init&&) = delete;
 
-        [[nodiscard]] core::mat4f get_ortho_projection
+        [[nodiscard]] mat4f get_ortho_projection
             (float width, float height) const;
 
         // todo(Gustav): move to some place better

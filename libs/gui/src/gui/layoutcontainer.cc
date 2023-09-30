@@ -48,7 +48,7 @@ namespace eu::gui
     }
 
 
-    core::size2f
+    size2f
     LayoutContainer::calc_minimum_area() const
     {
         ASSERT(layout);

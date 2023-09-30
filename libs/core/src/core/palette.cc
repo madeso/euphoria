@@ -1,8 +1,8 @@
 #include "core/palette.h"
 
 #include "assert/assert.h"
-#include "core/numeric.h"
-#include "core/random.h"
+#include "base/numeric.h"
+#include "base/random.h"
 #include "core/colors.h"
 
 

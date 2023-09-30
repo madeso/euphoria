@@ -4,7 +4,7 @@
 #include "core/aabb.h"
 #include "core/sphere.h"
 #include "core/plane.h"
-#include "core/numeric.h"
+#include "base/numeric.h"
 
 
 namespace eu::core

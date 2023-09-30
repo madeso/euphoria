@@ -2,7 +2,7 @@
 
 
 
-#include "core/random.h"
+#include "base/random.h"
 #include "base/cint.h"
 
 namespace eu::core

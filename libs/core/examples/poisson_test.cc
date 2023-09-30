@@ -1,7 +1,7 @@
 #include "core/argparse.h"
 #include "core/dump.h"
 #include "core/poisson.h"
-#include "core/random.h"
+#include "base/random.h"
 #include "core/rect.h"
 #include "core/image.h"
 #include "core/image_draw.h"
@@ -15,7 +15,7 @@ using namespace eu::core::dump2d;
 void
 svg_dump()
 {
-    core::Random random;
+    Random random;
 
     const auto area = Rectf::from_width_height(100, 100);
     const auto radius = 5.0f;
@@ -36,7 +36,7 @@ svg_dump()
 void
 png_dump(int extra_images)
 {
-    core::Random random;
+    Random random;
 
     const auto image_size = 512;
     const float world_size = 100;

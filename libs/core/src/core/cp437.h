@@ -4,10 +4,13 @@
 
 // Code page 437 is the character set of the original IBM PC (personal computer)
 
-namespace eu::core
+namespace eu
 {
     struct Random;
+}
 
+namespace eu::core
+{
     std::string_view
     get_cp437(int c);
 

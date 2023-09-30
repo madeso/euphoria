@@ -1,6 +1,6 @@
 #pragma once
 
-#include "core/vec2.h"
+#include "base/vec2.h"
 
 #include "gui/uistate.h"
 #include "gui/layoutcontainer.h"
@@ -34,7 +34,7 @@ namespace eu::gui
 
     struct Root
     {
-        explicit Root(const core::size2f& s);
+        explicit Root(const size2f& s);
         ~Root();
 
         Root(const Root& other) = delete;
@@ -52,19 +52,19 @@ namespace eu::gui
         );
 
         void
-        set_input_mouse(const core::vec2f& pos, bool down);
+        set_input_mouse(const vec2f& pos, bool down);
 
         void
         update(float dt);
 
         void
-        set_size(const core::size2f& new_size);
+        set_size(const size2f& new_size);
 
         void
         render(render::SpriteRenderer* sp) const;
 
         std::vector<std::shared_ptr<Skin>> skins;
-        core::size2f size;
+        size2f size;
         State state;
         LayoutContainer container;
         std::shared_ptr<render::Texture2> cursor_image;

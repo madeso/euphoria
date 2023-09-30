@@ -1,7 +1,7 @@
 #pragma once
 
-#include "core/vec2.h"
-#include "core/range.h"
+#include "base/vec2.h"
+#include "base/range.h"
 
 namespace eu::core
 {

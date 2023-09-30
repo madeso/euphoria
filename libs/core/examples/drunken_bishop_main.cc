@@ -2,7 +2,7 @@
 
 #include "core/drunken_bishop.h"
 
-#include "core/random.h"
+#include "base/random.h"
 #include "core/image_to_text.h"
 #include "core/palette.h"
 #include "core/palette_tableu.h"
@@ -39,7 +39,7 @@ struct CommonArguments
 
 
 Table<int>
-generate_drunken_bishop_table(core::Random* random, const ::CommonArguments& common)
+generate_drunken_bishop_table(Random* random, const ::CommonArguments& common)
 {
     auto hash = std::vector<int>{};
     const int times = common.big ? 8 : 4;
@@ -119,7 +119,7 @@ main(int argc, char* argv[])
             sub->add("--count", &count).set_help("The number of images");
             sub->add("--scale", &scale).set_help("The scale of the image");
             return sub->on_complete([&]{
-                auto rand = core::Random{};
+                auto rand = Random{};
                 for(int turn_index=0; turn_index<count; turn_index+=1)
                 {
                     const auto table = generate_drunken_bishop_table(&rand, common);
@@ -150,7 +150,7 @@ main(int argc, char* argv[])
             auto common = ::CommonArguments{};
             common.add(sub);
             return sub->on_complete([&]{
-                auto rand = core::Random{};
+                auto rand = Random{};
                 const auto table = generate_drunken_bishop_table(&rand, common);
                 const auto strs = render_table(table, get_ssh_characters());
                 for(const auto& str: strs)

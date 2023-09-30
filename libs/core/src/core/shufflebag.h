@@ -5,7 +5,7 @@
 #include "range/v3/view/span.hpp"
 
 #include "assert/assert.h"
-#include "core/random.h"
+#include "base/random.h"
 #include "base/cint.h"
 
 namespace eu::core

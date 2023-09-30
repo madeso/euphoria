@@ -3,7 +3,7 @@
 #include <memory>
 
 #include "core/rect.h"
-#include "core/size2.h"
+#include "base/size2.h"
 
 #include "gui/container.h"
 
@@ -37,6 +37,6 @@ namespace eu::gui
 
         void lay_out(core::Rectf area);
 
-        [[nodiscard]] core::size2f calc_minimum_area() const;
+        [[nodiscard]] size2f calc_minimum_area() const;
     };
 }

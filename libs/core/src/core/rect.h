@@ -1,18 +1,23 @@
 #pragma once
 
 #include "assert/assert.h"
-#include "core/vec2.h"
-#include "core/size2.h"
-#include "core/range.h"
+#include "base/vec2.h"
+#include "base/size2.h"
+#include "base/range.h"
 
 // Bottom, Left of screen is (0,0)
 // X-axis is positive right, Y-axis is positive up
+
+
+namespace eu
+{
+    struct Random;
+}
 
 // todo(Gustav): look into better names/easier discoverability for functions
 
 namespace eu::core
 {
-    struct Random;
 
     struct Rectf;
     struct Recti;

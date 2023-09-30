@@ -4,8 +4,8 @@
 
 #include "base/cint.h"
 #include "core/colors.h"
-#include "core/angle.h"
-#include "core/default_interpolate.h"
+#include "base/angle.h"
+#include "base/default_interpolate.h"
 #include "core/default_parse.h"
 
 
@@ -81,7 +81,7 @@ namespace eu::core
         // memberwise multiplication
         void operator*=(const Rgb& rhs);
 
-        
+
     };
 
 
@@ -198,9 +198,6 @@ namespace eu::core
 
     Rgb lerp_rgb(const Rgb& from, float v, const Rgb& to);
 
-    DEFAULT_INTERPOLATE(Rgb, lerp_rgb);
-
-
     //////////////////////////////////////////////////////////////////////////
     // Printing/Exporting
     std::string to_js_hex_color(const Rgbi& c);
@@ -210,22 +207,6 @@ namespace eu::core
     //////////////////////////////////////////////////////////////////////////
     // Parsing
     [[nodiscard]] Result<Rgbi> to_rgbi(const std::string& value);
-
-    template<>
-    struct CustomArgparser<Rgbi>
-    {
-        enum { value = 1 };
-
-        static std::string to_string(const Rgbi& c)
-        {
-            return eu::core::to_string(c);
-        }
-
-        static Result<Rgbi> parse(const std::string& value)
-        {
-            return to_rgbi(value);
-        }
-    };
 
 
     //////////////////////////////////////////////////////////////////////////
@@ -420,6 +401,28 @@ namespace eu::core
     {
     }
 
+}
+
+namespace eu
+{
+
+    template<>
+    struct StringParser<core::Rgbi>
+    {
+        enum { value = 1 };
+
+        static std::string to_string(const core::Rgbi& c)
+        {
+            return core::to_string(c);
+        }
+
+        static Result<core::Rgbi> parse(const std::string& value)
+        {
+            return core::to_rgbi(value);
+        }
+    };
+
+    DEFAULT_INTERPOLATE(core::Rgb, core::lerp_rgb);
 }
 
 ADD_DEFAULT_FORMATTER(eu::core::Rgbi, std::string, eu::core::to_string);

@@ -5,7 +5,7 @@
 
 
 
-namespace eu::core
+namespace eu
 {
     struct Random;
 }

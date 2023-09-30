@@ -5,11 +5,11 @@
 #include "core/image.h"
 #include "core/rgb.h"
 #include "assert/assert.h"
-#include "core/numeric.h"
-#include "core/range.h"
-#include "core/vec2.h"
-#include "core/mat2.h"
-#include "core/mat3.h"
+#include "base/numeric.h"
+#include "base/range.h"
+#include "base/vec2.h"
+#include "base/mat2.h"
+#include "base/mat3.h"
 #include "core/image_draw.h"
 #include "core/image_canvas.h"
 #include "base/cint.h"
@@ -87,7 +87,7 @@ namespace
 
         // build patch path
         ctx.translate(static_cast<float>(x) + offset, static_cast<float>(y) + offset);
-        ctx.rotate(static_cast<float>(turn) * pi / 2);
+        ctx.rotate(static_cast<float>(turn) * eu::pi / 2);
         ctx.begin_path();
         ctx.move_to
         (

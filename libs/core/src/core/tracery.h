@@ -6,7 +6,7 @@
 #include <map>
 
 
-namespace eu::core
+namespace eu
 {
     struct Random;
 }
@@ -116,7 +116,7 @@ namespace eu::core::tracery
 
         [[nodiscard]] Result get_string_from_symbol(const std::string& rule, GeneratorArgument* generator) const;
         [[nodiscard]] Result apply_modifier(const std::string& name, const std::string& data) const;
-        [[nodiscard]] Result flatten(core::Random* random, const std::string& rule) const;
+        [[nodiscard]] Result flatten(Random* random, const std::string& rule) const;
     };
 
 }

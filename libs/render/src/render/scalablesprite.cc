@@ -31,7 +31,7 @@ namespace
         {
             const auto f = static_cast<float>(s);
             dest->emplace_back(f);
-            size += eu::core::abs(f);
+            size += eu::abs(f);
         }
 
         if(dest->empty())
@@ -96,10 +96,10 @@ namespace eu::render
     ScalableSprite::~ScalableSprite() = default;
 
 
-    core::size2f
+    size2f
     ScalableSprite::get_minimum_size() const
     {
-        return core::size2f::create_from_width_height
+        return size2f::create_from_width_height
         (
             get_constant_size(columns),
             get_constant_size(rows)
@@ -129,12 +129,12 @@ namespace eu::render
             float uv_current_row = 1;
 
             const auto position_next_col = position_current_col + position_cols[column_index];
-            const auto uv_next_col = uv_current_col + core::abs(columns[column_index]) / calculated_texture_size_columns;
+            const auto uv_next_col = uv_current_col + abs(columns[column_index]) / calculated_texture_size_columns;
 
             for(unsigned int row_index = 0; row_index < rows_size; ++row_index)
             {
                 const auto position_next_row = position_current_row - position_rows[row_index];
-                const auto uv_next_row = uv_current_row - core::abs(rows[row_index]) / calculated_texture_size_rows;
+                const auto uv_next_row = uv_current_row - abs(rows[row_index]) / calculated_texture_size_rows;
 
                 ASSERTX
                 (
@@ -169,7 +169,7 @@ namespace eu::render
                     position_rect.translate_copy(pos),
                     uv_rect,
                     0.0_rad,
-                    core::Scale2f{0, 0},
+                    Scale2f{0, 0},
                     tint
                 );
 

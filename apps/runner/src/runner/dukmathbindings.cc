@@ -3,7 +3,7 @@
 
 
 #include "base/cint.h"
-#include "core/vec2.h"
+#include "base/vec2.h"
 #include "core/sol.h"
 
 namespace eu::runner
@@ -12,7 +12,7 @@ namespace eu::runner
     void
     bind_vec2(LuaState* sol, const std::string& name)
     {
-        using V = core::vec2f;
+        using V = vec2f;
 
         sol::usertype<V> t = sol->state.new_usertype<V>
         (

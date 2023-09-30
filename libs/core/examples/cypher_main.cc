@@ -5,6 +5,7 @@
 #include "core/argparse.h"
 
 
+using namespace eu;
 using namespace eu::core;
 namespace core = eu::core;
 

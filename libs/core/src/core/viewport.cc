@@ -31,7 +31,7 @@ namespace eu::core
     (
         const core::CompiledCamera3& camera,
         const core::Viewport& viewport,
-        const core::vec2i& position
+        const vec2i& position
     )
     {
         return camera.from_clip_to_world_ray
@@ -48,7 +48,7 @@ namespace eu::core
     (
         const core::CompiledCamera3& camera,
         const core::Viewport& viewport,
-        const core::vec2i& position
+        const vec2i& position
     )
     {
         const auto ray = from_mouse_to_ray(camera, viewport, position);

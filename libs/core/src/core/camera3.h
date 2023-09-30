@@ -1,11 +1,11 @@
 #pragma once
 
-#include "core/mat4.h"
-#include "core/vec2.h"
-#include "core/vec3.h"
-#include "core/quat.h"
+#include "base/mat4.h"
+#include "base/vec2.h"
+#include "base/vec3.h"
+#include "base/quat.h"
 #include "core/ray.h"
-#include "core/angle.h"
+#include "base/angle.h"
 
 
 namespace eu::core

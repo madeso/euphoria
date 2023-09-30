@@ -188,24 +188,24 @@ namespace eu::render
     }
 
     void
-    MaterialShader::set_projection(const core::mat4f& projection_data)
+    MaterialShader::set_projection(const mat4f& projection_data)
     {
         shader.set_uniform(projection, projection_data);
     }
 
     void
-    MaterialShader::set_view(const core::mat4f& view_data)
+    MaterialShader::set_view(const mat4f& view_data)
     {
         shader.set_uniform(view, view_data);
     }
 
     void
-    MaterialShader::set_model(const core::mat4f& model_data)
+    MaterialShader::set_model(const mat4f& model_data)
     {
         shader.set_uniform(model, model_data);
         if(has_light)
         {
-            core::mat4f normal = model_data;
+            mat4f normal = model_data;
             const bool inverted = normal.invert();
             ASSERT(inverted);
             normal = normal.get_transposed();
@@ -214,7 +214,7 @@ namespace eu::render
     }
 
     void
-    MaterialShader::setup_light(const Light& light, const core::vec3f& camera)
+    MaterialShader::setup_light(const Light& light, const vec3f& camera)
     {
         if(!has_light)
         {

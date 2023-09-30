@@ -1,7 +1,7 @@
 #include "core/tracery.h"
 
 #include "core/argparse.h"
-#include "core/random.h"
+#include "base/random.h"
 
 #include <iostream>
 #include <fstream>
@@ -43,7 +43,7 @@ main(int argc, char* argv[])
     parser.on_complete([&]
     {
         tracery::Grammar grammar;
-        auto random = eu::core::Random{};
+        auto random = eu::Random{};
 
         grammar.register_english();
 

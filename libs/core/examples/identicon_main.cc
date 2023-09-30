@@ -5,7 +5,7 @@
 #include "io/io.h"
 #include "core/hashgen.h"
 #include "core/argparse.h"
-#include "core/random.h"
+#include "base/random.h"
 #include "core/collage.h"
 #include "core/palette.h"
 
@@ -53,7 +53,7 @@ void run_main
         number_of_images = 1;
     }
 
-    core::Random random;
+    Random random;
 
     auto images = std::vector<Image>{};
     Image image;
@@ -121,7 +121,7 @@ void run_sprator_collage
     const eu::core::Palette& palette
 )
 {
-    core::Random random;
+    Random random;
     auto sprites = std::vector<std::vector<Image>>{};
 
     for(int image_index = 0; image_index < number_of_images; image_index += 1)

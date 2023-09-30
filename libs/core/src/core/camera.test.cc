@@ -3,13 +3,12 @@
 #include "catch.hpp"
 #include "tests/approx.h"
 
-namespace euco = eu::core;
-
+using namespace eu;
 using namespace eu::tests;
 
 TEST_CASE("camera-clip2world", "[camera]")
 {
-    euco::Camera3 camera;
+    core::Camera3 camera;
 
     const std::vector<float> aspects {1.0f, 2.0f, 0.5f};
 
@@ -26,7 +25,7 @@ TEST_CASE("camera-clip2world", "[camera]")
             {
                 for(float z: values)
                 {
-                    const auto start = euco::vec3f {x, y, z};
+                    const auto start = vec3f{x, y, z};
                     const auto world = cc.from_clip_to_world(start);
                     const auto clip = cc.from_world_to_clip(world);
                     REQUIRE(approx(start) == clip);

@@ -4,7 +4,7 @@
 #include <map>
 
 #include "core/mesh.h"
-#include "core/mat4.h"
+#include "base/mat4.h"
 #include "render/buffer.h"
 
 
@@ -62,10 +62,10 @@ namespace eu::render
 
         void apply
         (
-            const core::mat4f& model_matrix,
-            const core::mat4f& projection_matrix,
-            const core::mat4f& view_matrix,
-            const core::vec3f& camera,
+            const mat4f& model_matrix,
+            const mat4f& projection_matrix,
+            const mat4f& view_matrix,
+            const vec3f& camera,
             const Light& light
         ) const;
 
@@ -87,10 +87,10 @@ namespace eu::render
         void
         render
         (
-            const core::mat4f& model_matrix,
-            const core::mat4f& projection_matrix,
-            const core::mat4f& view_matrix,
-            const core::vec3f& camera,
+            const mat4f& model_matrix,
+            const mat4f& projection_matrix,
+            const mat4f& view_matrix,
+            const vec3f& camera,
             const Light& light,
             const std::shared_ptr<MaterialOverride>& overridden_materials
         );

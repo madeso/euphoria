@@ -3,7 +3,7 @@
 #include "core/image.h"
 #include "core/rgb.h"
 #include "core/rect.h"
-#include "core/vec2.h"
+#include "base/vec2.h"
 #include "core/rgb_blend.h"
 
 

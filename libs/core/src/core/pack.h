@@ -4,7 +4,7 @@
 #include <optional>
 
 #include "core/rect.h"
-#include "core/size2.h"
+#include "base/size2.h"
 
 
 namespace eu::core

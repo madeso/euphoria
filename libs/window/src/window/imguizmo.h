@@ -1,9 +1,9 @@
 #pragma once
 
-#include "core/mat4.h"
-#include "core/vec3.h"
-#include "core/quat.h"
-#include "core/angle.h"
+#include "base/mat4.h"
+#include "base/vec3.h"
+#include "base/quat.h"
+#include "base/angle.h"
 
 #include <optional>
 
@@ -17,23 +17,23 @@ namespace eu::window::imgui::guizmo
     translate
     (
         bool is_local,
-        const std::optional<core::vec3f>& snap,
-        const core::mat4f& camera_view,
-        const core::mat4f& camera_projection,
-        const core::mat4f& model,
+        const std::optional<vec3f>& snap,
+        const mat4f& camera_view,
+        const mat4f& camera_projection,
+        const mat4f& model,
         bool x, bool y, bool z,
-        core::vec3f* new_position
+        vec3f* new_position
     );
 
     bool
     rotate
     (
         bool is_local,
-        const std::optional<core::Angle>& snap,
-        const core::mat4f& camera_view,
-        const core::mat4f& camera_projection,
-        const core::mat4f& model,
+        const std::optional<Angle>& snap,
+        const mat4f& camera_view,
+        const mat4f& camera_projection,
+        const mat4f& model,
         bool y, bool p, bool r,
-        core::quatf* new_rotation
+        quatf* new_rotation
     );
 }

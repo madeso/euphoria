@@ -3,6 +3,8 @@
 #include "tests/stringeq.h"
 #include "catch.hpp"
 
+
+using namespace eu;
 using namespace eu::core;
 using namespace eu::tests;
 

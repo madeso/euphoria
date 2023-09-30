@@ -324,7 +324,7 @@ namespace eu::render
 
 
     void
-    ShaderProgram::set_uniform(const ShaderUniform& attribute, const core::vec3f& val)
+    ShaderProgram::set_uniform(const ShaderUniform& attribute, const vec3f& val)
     {
         ASSERT(is_currently_bound());
         ASSERT(has_bound_uniform(attribute));
@@ -337,7 +337,7 @@ namespace eu::render
 
 
     void
-    ShaderProgram::set_uniform(const ShaderUniform& attribute, const core::vec4f& val)
+    ShaderProgram::set_uniform(const ShaderUniform& attribute, const vec4f& val)
     {
         ASSERT(is_currently_bound());
         ASSERT(has_bound_uniform(attribute));
@@ -350,7 +350,7 @@ namespace eu::render
 
 
     void
-    ShaderProgram::set_uniform(const ShaderUniform& attribute, const core::mat3f& val)
+    ShaderProgram::set_uniform(const ShaderUniform& attribute, const mat3f& val)
     {
         ASSERT(is_currently_bound());
         ASSERT(has_bound_uniform(attribute));
@@ -363,7 +363,7 @@ namespace eu::render
 
 
     void
-    ShaderProgram::set_uniform(const ShaderUniform& attribute, const core::mat4f& val)
+    ShaderProgram::set_uniform(const ShaderUniform& attribute, const mat4f& val)
     {
         ASSERT(is_currently_bound());
         ASSERT(has_bound_uniform(attribute));

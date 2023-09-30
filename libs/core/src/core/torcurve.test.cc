@@ -5,7 +5,7 @@
 #include "catch.hpp"
 
 
-namespace euco = eu::core;
+namespace core = eu::core;
 using namespace eu::tests;
 using namespace eu::convert;
 
@@ -27,5 +27,5 @@ TEST_CASE("torcurve-test", "[torcurve]")
         P{0.9f, 0.9000019999600009f},
         P{1.0f, 1.0f}
     );
-    CHECK(sample.second == euco::calc_tor_curve(sample.first, 0.0f, 0.5f, 0.0f));
+    CHECK(sample.second == core::calc_tor_curve(sample.first, 0.0f, 0.5f, 0.0f));
 }

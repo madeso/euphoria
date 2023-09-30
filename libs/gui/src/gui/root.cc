@@ -10,7 +10,7 @@
 
 namespace eu::gui
 {
-    Root::Root(const core::size2f& s)
+    Root::Root(const size2f& s)
         : size(s)
     {
     }
@@ -40,7 +40,7 @@ namespace eu::gui
 
 
     void
-    Root::set_input_mouse(const core::vec2f& pos, bool down)
+    Root::set_input_mouse(const vec2f& pos, bool down)
     {
         state.mouse = pos;
         state.mouse_down = down;
@@ -57,7 +57,7 @@ namespace eu::gui
 
 
     void
-    Root::set_size(const core::size2f& new_size)
+    Root::set_size(const size2f& new_size)
     {
         size = new_size;
         container.lay_out(core::Rectf::from_width_height(size));
@@ -79,7 +79,7 @@ namespace eu::gui
                 core::Rectf::from_position_anchor_width_and_height
                 (
                     state.mouse,
-                    core::Scale2f{0, 1},
+                    Scale2f{0, 1},
                     c_int_to_float(image->width),
                     c_int_to_float(image->height)
                 )

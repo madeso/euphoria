@@ -1,15 +1,15 @@
-#include "core/mat4.h"
+#include "base/mat4.h"
 #include "core/image_draw.h"
-#include "core/random.h"
+#include "base/random.h"
 #include "core/shufflebag.h"
 #include "io/vfs.h"
-#include "core/axisangle.h"
+#include "base/axisangle.h"
 #include "core/aabb.h"
 #include "core/texturetypes.h"
 #include "core/vfs_imagegenerator.h"
 #include "io/vfs_path.h"
 #include "base/os.h"
-#include "core/range.h"
+#include "base/range.h"
 #include "core/camera3.h"
 #include "core/palette.h"
 #include "core/fpscontroller.h"
@@ -96,7 +96,7 @@ main(int argc, char** argv)
     image.setup_no_alpha_support(256, 256);
     const auto wi = on_whole_image(image);
     clear(&image, {NamedColor::red});
-    auto rand = core::Random{42};
+    auto rand = Random{42};
 
     for(int circle_counter = 0; circle_counter < 20; circle_counter += 1)
     {

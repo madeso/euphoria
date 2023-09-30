@@ -3,9 +3,9 @@
 
 #include "core/argparse.h"
 #include "core/image.h"
-#include "core/random.h"
+#include "base/random.h"
 #include "io/io.h"
-#include "core/vec2.h"
+#include "base/vec2.h"
 #include "core/palette.h"
 #include "core/closestpoint.h"
 #include "core/rect.h"
@@ -47,7 +47,7 @@ enum class PointGeneration
 
 vec2f abs(const vec2f& a)
 {
-    return {eu::core::abs(a.x), eu::core::abs(a.y)};
+    return {eu::abs(a.x), eu::abs(a.y)};
 }
 
 float euclidian_distance(const vec2f& lhs, const vec2f& rhs)
@@ -147,7 +147,7 @@ main(int argc, char* argv[])
                 }
                 else
                 {
-                    return eu::core::abs(crazy_distance - dist);
+                    return eu::abs(crazy_distance - dist);
                 }
             }
         }

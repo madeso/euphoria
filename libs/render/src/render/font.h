@@ -5,8 +5,8 @@
 #include <memory>
 
 #include "core/loadedfont.h"
-#include "core/vec2.h"
-#include "core/vec3.h"
+#include "base/vec2.h"
+#include "base/vec3.h"
 #include "core/rgb.h"
 #include "core/rect.h"
 
@@ -97,7 +97,7 @@ namespace eu::render
         draw
         (
                 SpriteRenderer* renderer,
-                const core::vec2f& start_position,
+                const vec2f& start_position,
                 const core::Rgb& base_color,
                 const core::Rgb& hi_color
         );
@@ -134,7 +134,7 @@ namespace eu::render
         draw
         (
             SpriteRenderer* renderer,
-            const core::vec2f& p,
+            const vec2f& p,
             const core::Rgb& base_hi_color
         ) const;
 
@@ -142,7 +142,7 @@ namespace eu::render
         draw
         (
             SpriteRenderer* renderer,
-            const core::vec2f& p,
+            const vec2f& p,
             const core::Rgb& base_color,
             const core::Rgb& hi_color
         ) const;

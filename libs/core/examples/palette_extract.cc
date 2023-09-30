@@ -15,6 +15,7 @@
 #include "core/palette_extract.h"
 
 
+using namespace eu;
 using namespace eu::core;
 using namespace eu::io;
 

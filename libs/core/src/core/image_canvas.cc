@@ -2,8 +2,8 @@
 
 #include "core/image.h"
 #include "assert/assert.h"
-#include "core/numeric.h"
-#include "core/mat2.h"
+#include "base/numeric.h"
+#include "base/mat2.h"
 #include "core/image_draw.h"
 
 #include "base/stringutils.h"

@@ -2,7 +2,7 @@
 
 #include "core/rect.h"
 #include "core/rgb.h"
-#include "core/vec2.h"
+#include "base/vec2.h"
 #include "core/tweenable.h"
 
 #include "gui/widget.h"
@@ -32,7 +32,7 @@ namespace eu::gui
         core::Tweenable<float> scale;
         core::Tweenable<core::Rgb> image_color;
         core::Tweenable<core::Rgb> text_color;
-        core::Tweenable<core::vec2f> position_displacement;
+        core::Tweenable<vec2f> position_displacement;
 
         Button(gui::State* state);
         ~Button() override;
@@ -45,7 +45,7 @@ namespace eu::gui
         void set_skin(Skin* new_skin);
 
         void update(float dt) override;
-        [[nodiscard]] core::size2f calc_minimum_size() const override;
+        [[nodiscard]] size2f calc_minimum_size() const override;
         void render(render::SpriteRenderer* renderer) const override;
         void visit(Visitor* visitor) override;
         void on_size_changed() override;

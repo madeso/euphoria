@@ -39,7 +39,7 @@ namespace eu::render
         ScalableSprite(ScalableSprite&& other) = delete;
         void operator=(ScalableSprite&&) = delete;
 
-        [[nodiscard]] core::size2f
+        [[nodiscard]] size2f
         get_minimum_size() const;
 
         void

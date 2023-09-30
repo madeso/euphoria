@@ -183,8 +183,8 @@ main(int argc, char* argv[])
         (
             vec2f{sprite_x, sprite_y},
             Scale2f{0.5f, 0.5f},
-            eu::core::max(0.0f, sprite_width),
-            eu::core::max(0.0f, sprite_height)
+            eu::max(0.0f, sprite_width),
+            eu::max(0.0f, sprite_height)
         );
         renderer.draw_sprite
         (

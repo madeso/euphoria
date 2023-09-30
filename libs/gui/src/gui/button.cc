@@ -18,7 +18,7 @@ namespace eu::gui
         , scale(1.0f)
         , image_color(core::Rgb(1.0f))
         , text_color(core::Rgb(1.0f))
-        , position_displacement(core::zero2f)
+        , position_displacement(zero2f)
     {
     }
 
@@ -78,7 +78,7 @@ namespace eu::gui
                 position_displacement.set
                 (
                     state->interpolation_position.type,
-                    core::vec2f(state->dx, state->dy),
+                    vec2f(state->dx, state->dy),
                     state->interpolation_position.time
                 );
             }
@@ -92,10 +92,10 @@ namespace eu::gui
     }
 
 
-    core::size2f
+    size2f
     Button::calc_minimum_size() const
     {
-        auto size = core::size2f::create_from_width_height(0, 0);
+        auto size = size2f::create_from_width_height(0, 0);
         if(sprite != nullptr)
         {
             const auto ms = sprite->get_minimum_size();
@@ -106,7 +106,7 @@ namespace eu::gui
         if(text.has_text())
         {
             const auto extents = text.get_text().get_extents();
-            const auto ms = core::size2f::create_from_width_height
+            const auto ms = size2f::create_from_width_height
             (
                 extents.get_width(),
                 extents.get_height()

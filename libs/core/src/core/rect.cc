@@ -1,6 +1,6 @@
 #include "core/rect.h"
 
-#include "core/random.h"
+#include "base/random.h"
 
 
 namespace eu::core

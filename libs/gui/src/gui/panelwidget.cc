@@ -18,7 +18,7 @@ namespace eu::gui
     }
 
 
-    core::size2f
+    size2f
     PanelWidget::calc_minimum_size() const
     {
         return container.calc_minimum_area();

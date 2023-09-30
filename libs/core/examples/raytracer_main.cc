@@ -6,6 +6,7 @@
 #include "core/argparse.h"
 #include "core/timepoint.h"
 
+using namespace eu;
 using namespace eu::core;
 using namespace eu::io;
 

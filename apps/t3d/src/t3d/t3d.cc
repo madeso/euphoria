@@ -40,7 +40,7 @@
 
 namespace eu::t3d
 {
-    std::optional<core::vec3f>
+    std::optional<vec3f>
     EditorCamera3::raycast
     (
         const core::UnitRay3f& ray
@@ -53,7 +53,7 @@ namespace eu::t3d
 
         const auto ground = core::Plane::from_normal_and_point
         (
-            core::common::y_axis, core::zero3f
+            common::y_axis, zero3f
         );
 
         const auto where = core::get_intersection(ray, ground);
@@ -157,10 +157,10 @@ namespace eu::t3d
         const core::Rgb& color
     )
     {
-        def->add_line(core::vec3f {x, 0, -size}, core::vec3f {x, 0, size}, color);
-        def->add_line(core::vec3f {-size, 0, x}, core::vec3f {size, 0, x}, color);
-        def->add_line(core::vec3f {-x, 0, -size}, core::vec3f {-x, 0, size}, color);
-        def->add_line(core::vec3f {-size, 0, -x}, core::vec3f {size, 0, -x}, color);
+        def->add_line(vec3f {x, 0, -size}, vec3f {x, 0, size}, color);
+        def->add_line(vec3f {-size, 0, x}, vec3f {size, 0, x}, color);
+        def->add_line(vec3f {-x, 0, -size}, vec3f {-x, 0, size}, color);
+        def->add_line(vec3f {-size, 0, -x}, vec3f {size, 0, -x}, color);
     }
 
 
@@ -185,15 +185,15 @@ namespace eu::t3d
             return;
         }
 
-        const auto small_step = core::max(smallest_step, grid_data.small_step);
-        const auto size = core::abs(c_int_to_float(grid_data.size) * grid_data.small_step);
+        const auto small_step = max(smallest_step, grid_data.small_step);
+        const auto size = abs(c_int_to_float(grid_data.size) * grid_data.small_step);
         const auto normal = grid_data.normal;
 
         auto def = core::Lines{};
 
         if(normal > 0)
         {
-            def.add_line(core::vec3f {0, 0, 0}, core::vec3f {0, normal, 0}, y_color);
+            def.add_line(vec3f {0, 0, 0}, vec3f {0, normal, 0}, y_color);
         }
 
         for(int index = 0; index < grid_data.size; index += 1)
@@ -211,8 +211,8 @@ namespace eu::t3d
             add_single_grid_line(&def, size, x, color);
         }
 
-        def.add_line(core::vec3f{-size, 0, 0}, core::vec3f{size, 0, 0}, x_color);
-        def.add_line(core::vec3f{0, 0, -size}, core::vec3f{0, 0, size}, z_color);
+        def.add_line(vec3f{-size, 0, 0}, vec3f{size, 0, 0}, x_color);
+        def.add_line(vec3f{0, 0, -size}, vec3f{0, 0, size}, z_color);
 
         auto compiled = compile(material_shader_cache.get(), def);
         grid = std::make_shared<render::PositionedLines>(compiled);
@@ -256,12 +256,12 @@ namespace eu::t3d
 
         case SDL_MOUSEMOTION:
             {
-                const auto mouse_position = core::vec2i
+                const auto mouse_position = vec2i
                 (
                     e.motion.x,
                     viewport_handler->window_height - e.motion.y
                 );
-                const auto mouse_movement = core::vec2i
+                const auto mouse_movement = vec2i
                 (
                     e.motion.xrel,
                     e.motion.yrel
@@ -311,7 +311,7 @@ namespace eu::t3d
 
 
     void
-    Application::on_mouse_movement(const core::vec2i& position, const core::vec2i& movement, bool forward_mouse)
+    Application::on_mouse_movement(const vec2i& position, const vec2i& movement, bool forward_mouse)
     {
         if(forward_mouse)
         {
@@ -457,7 +457,7 @@ namespace eu::t3d
     {
         if(forward_mouse)
         {
-            editor->on_scroll(core::vec2i(e.wheel.x, e.wheel.y));
+            editor->on_scroll(vec2i(e.wheel.x, e.wheel.y));
             editor_camera.on_scroll(e.wheel.x, e.wheel.y);
         }
     }
@@ -739,8 +739,8 @@ namespace eu::t3d
             (
                 "angle snap",
                 &grid_data.angle_snap,
-                core::no_rotation,
-                core::one_turn
+                no_rotation,
+                one_turn
             ) || dirty;
 
             dirty = ImGui::DragInt("lines on grid", &grid_data.size) || dirty;
@@ -797,8 +797,8 @@ namespace eu::t3d
         (
             "Look (up/down)",
             &editor_camera.fps.look_angle,
-            -core::quarter_turn,
-            core::quarter_turn
+            -quarter_turn,
+            quarter_turn
         );
         ImGui::DragFloat3("Position", editor_camera.fps.position.get_data_ptr());
         ImGui::Spacing();

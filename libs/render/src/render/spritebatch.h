@@ -1,9 +1,9 @@
 #pragma once
 
 #include "core/rect.h"
-#include "core/size2.h"
-#include "core/vec2.h"
-#include "core/angle.h"
+#include "base/size2.h"
+#include "base/vec2.h"
+#include "base/angle.h"
 #include "core/rgb.h"
 
 
@@ -27,11 +27,11 @@ namespace eu::render
         void
         render_quad
         (
-            const core::vec2f& pos,
-            const core::size2f& quad,
+            const vec2f& pos,
+            const size2f& quad,
             const core::Rectf& uv,
-            const core::Scale2f& center,
-            const core::Angle& rotation,
+            const Scale2f& center,
+            const Angle& rotation,
             const core::Rgba& color
         );
 

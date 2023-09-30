@@ -2,7 +2,7 @@
 
 #include <memory>
 
-#include "core/vec2.h"
+#include "base/vec2.h"
 
 #include "window/canvas.h"
 
@@ -40,7 +40,7 @@ namespace eu::editor
 
         std::shared_ptr<render::Texture2> texture;
         window::Canvas canvas;
-        core::vec2i mouse_popup = core::vec2i {0, 0};
+        vec2i mouse_popup = vec2i{0, 0};
         LineHoverData hover;
 
         bool

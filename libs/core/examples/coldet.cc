@@ -1,6 +1,6 @@
 #include "core/intersection.h"
 #include "core/dump.h"
-#include "core/numeric.h"
+#include "base/numeric.h"
 #include "core/colors.h"
 #include "core/ray.h"
 #include "core/plane.h"
@@ -8,9 +8,8 @@
 #include "core/argparse.h"
 #include "base/os.h"
 
-
-
 #include <iostream>
+
 
 using namespace eu;
 using namespace eu::core;
@@ -45,7 +44,7 @@ struct PlaneDemo
         for (const auto& p : points)
         {
             const auto dist = get_distance_between(plane, p);
-            d.add_sphere(p, 0.1f, eu::core::abs(dist) < 0.01f ? NamedColor::yellow : (dist < 0 ? NamedColor::black : NamedColor::white));
+            d.add_sphere(p, 0.1f, eu::abs(dist) < 0.01f ? NamedColor::yellow : (dist < 0 ? NamedColor::black : NamedColor::white));
         }
     }
 
@@ -59,7 +58,7 @@ struct PlaneDemo
         for (const auto& p : points)
         {
             const auto dist = get_distance_between(plane, p);
-            if (eu::core::abs(dist) < 0.01f) { continue; }
+            if (eu::abs(dist) < 0.01f) { continue; }
 
             const auto pp = get_closest_point(plane, p);
             d.add_arrow(Ray3f::from_to(p, pp), NamedColor::black);

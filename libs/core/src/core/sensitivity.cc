@@ -1,6 +1,6 @@
 #include "core/sensitivity.h"
 
-#include "core/numeric.h"
+#include "base/numeric.h"
 
 
 namespace eu::core

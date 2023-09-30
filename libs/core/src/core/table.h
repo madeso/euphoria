@@ -2,10 +2,10 @@
 
 
 #include "assert/assert.h"
-#include "core/numeric.h"
+#include "base/numeric.h"
 #include "core/rect.h"
 #include "base/cint.h"
-#include "core/vec2.h"
+#include "base/vec2.h"
 
 namespace eu::core
 {

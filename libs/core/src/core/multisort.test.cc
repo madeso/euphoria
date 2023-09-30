@@ -2,10 +2,10 @@
 
 #include "catch.hpp"
 
-namespace euco = eu::core;
+namespace core = eu::core;
 
 template <typename T>
-struct SortBuilderCore : public euco::SortBuilder<T, SortBuilderCore<T>>
+struct SortBuilderCore : public core::SortBuilder<T, SortBuilderCore<T>>
 {};
 
 
@@ -22,7 +22,7 @@ namespace
 TEST_CASE("multisort-verify", "[multisort]")
 {
     auto o = SortBuilderCore<SortData> {}
-                     .sort(&SortData::i, euco::SortStyle::ascending)
+                     .sort(&SortData::i, core::SortStyle::ascending)
                      .sort_order;
 
     const auto same = o[0]->sort(SortData {0, 0}, SortData {0, 0});
@@ -48,7 +48,7 @@ TEST_CASE("multisort-test", "[multisort]")
     {
         auto si = get_sorted_indices(
                 data,
-                SortBuilderCore<SortData> {}.sort(&SortData::i, euco::SortStyle::ascending));
+                SortBuilderCore<SortData> {}.sort(&SortData::i, core::SortStyle::ascending));
         const auto sorted = std::vector<size_t> {0, 2, 1};
         CHECK(si == sorted);
     }
@@ -57,7 +57,7 @@ TEST_CASE("multisort-test", "[multisort]")
     {
         auto si = get_sorted_indices(
                 data,
-                SortBuilderCore<SortData> {}.sort(&SortData::i, euco::SortStyle::descending));
+                SortBuilderCore<SortData> {}.sort(&SortData::i, core::SortStyle::descending));
         const auto sorted = std::vector<size_t> {1, 2, 0};
         CHECK(si == sorted);
     }
@@ -67,8 +67,8 @@ TEST_CASE("multisort-test", "[multisort]")
         auto si = get_sorted_indices(
                 data,
                 SortBuilderCore<SortData> {}
-                        .sort(&SortData::j, euco::SortStyle::ascending)
-                        .sort(&SortData::i, euco::SortStyle::descending));
+                        .sort(&SortData::j, core::SortStyle::ascending)
+                        .sort(&SortData::i, core::SortStyle::descending));
         const auto sorted = std::vector<size_t> {0, 1, 2};
         CHECK(si == sorted);
     }

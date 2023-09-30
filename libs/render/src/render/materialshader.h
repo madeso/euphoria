@@ -79,10 +79,10 @@ namespace eu::render
         );
 
         void use_shader();
-        void set_projection(const core::mat4f& projection_data);
-        void set_view(const core::mat4f& view_data);
-        void set_model(const core::mat4f& model_data);
-        void setup_light(const Light& light, const core::vec3f& camera);
+        void set_projection(const mat4f& projection_data);
+        void set_view(const mat4f& view_data);
+        void set_model(const mat4f& model_data);
+        void setup_light(const Light& light, const vec3f& camera);
 
         void set_colors
         (

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "core/vec2.h"
+#include "base/vec2.h"
 #include "core/key.h"
 
 
@@ -36,7 +36,7 @@ namespace eu::t3d
         
         
         virtual void
-        on_scroll(t3d::Editor* editor, const core::vec2i& scroll) = 0;
+        on_scroll(t3d::Editor* editor, const vec2i& scroll) = 0;
         
         
         virtual void

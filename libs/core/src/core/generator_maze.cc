@@ -1,6 +1,6 @@
 #include "core/generator_maze.h"
 
-#include "core/random.h"
+#include "base/random.h"
 #include "core/image_draw.h"
 #include "core/colors.h"
 

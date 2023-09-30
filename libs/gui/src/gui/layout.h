@@ -1,7 +1,7 @@
 #pragma once
 
 #include "core/rect.h"
-#include "core/size2.h"
+#include "base/size2.h"
 
 
 #include <memory>
@@ -27,7 +27,7 @@ namespace eu::gui
         Layout(Layout&& other) = delete;
         void operator=(Layout&&) = delete;
 
-        [[nodiscard]] virtual core::size2f
+        [[nodiscard]] virtual size2f
         calc_minimum_area
         (
             const std::vector<std::shared_ptr<Widget>>& widgets
@@ -58,7 +58,7 @@ namespace eu::gui
         TableLayout(TableLayout&& other) = delete;
         void operator=(TableLayout&&) = delete;
 
-        [[nodiscard]] core::size2f
+        [[nodiscard]] size2f
         calc_minimum_area
         (
             const std::vector<std::shared_ptr<Widget>>& widgets
@@ -87,7 +87,7 @@ namespace eu::gui
         SingleRowLayout(SingleRowLayout&& other) = delete;
         void operator=(SingleRowLayout&&) = delete;
 
-        [[nodiscard]] core::size2f
+        [[nodiscard]] size2f
         calc_minimum_area
         (
             const std::vector<std::shared_ptr<Widget>>& widgets

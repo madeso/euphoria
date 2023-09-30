@@ -16,9 +16,9 @@ namespace eu::render
     void
     PositionedLines::render
     (
-        const core::mat4f& projection_matrix,
-        const core::mat4f& view_matrix,
-        const core::vec3f&,
+        const mat4f& projection_matrix,
+        const mat4f& view_matrix,
+        const vec3f&,
         const Light&
     )
     {

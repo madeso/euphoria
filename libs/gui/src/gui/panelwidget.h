@@ -22,7 +22,7 @@ namespace eu::gui
         void render(render::SpriteRenderer* renderer) const override;
         void visit(Visitor* visitor) override;
         void on_size_changed() override;
-        [[nodiscard]] core::size2f calc_minimum_size() const override;
+        [[nodiscard]] size2f calc_minimum_size() const override;
         void update(float dt) override;
     };
 }

@@ -3,8 +3,8 @@
 
 #include <optional>
 
-#include "core/vec2.h"
-#include "core/size2.h"
+#include "base/vec2.h"
+#include "base/size2.h"
 
 
 namespace eu::core

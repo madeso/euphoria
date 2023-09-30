@@ -3,8 +3,8 @@
 
 
 #include "core/rgb.h"
-#include "core/vec2.h"
-#include "core/mat3.h"
+#include "base/vec2.h"
+#include "base/mat3.h"
 
 namespace eu::core
 {

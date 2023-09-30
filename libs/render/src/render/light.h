@@ -1,8 +1,8 @@
 #pragma once
 
-#include "core/vec3.h"
+#include "base/vec3.h"
 #include "core/rgb.h"
-#include "core/angle.h"
+#include "base/angle.h"
 
 namespace eu::render
 {
@@ -26,13 +26,13 @@ namespace eu::render
         // todo(Gustav): move this to a light def file and let it be specified in a editor
 
         Type light_type;
-        core::vec3f position;
-        core::unit3f direction;
+        vec3f position;
+        unit3f direction;
         core::Rgb ambient;
         core::Rgb diffuse;
         core::Rgb specular;
-        core::Angle cutoff_angle_outer;
-        core::Angle cutoff_angle_inner;
+        Angle cutoff_angle_outer;
+        Angle cutoff_angle_inner;
 
         LightAttenuation attenuation;
 

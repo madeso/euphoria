@@ -7,7 +7,7 @@
 
 #include "core/rgb.h"
 #include "core/key.h"
-#include "core/vec2.h"
+#include "base/vec2.h"
 #include "core/camera3.h"
 #include "core/camera3.editor.h"
 #include "io/vfs_path.h"
@@ -59,7 +59,7 @@ namespace eu::t3d
     {
         Application* parent = nullptr;
 
-        std::optional<core::vec3f>
+        std::optional<vec3f>
         raycast
         (
             const core::UnitRay3f& ray
@@ -145,7 +145,7 @@ namespace eu::t3d
 
 
         void
-        on_mouse_movement(const core::vec2i& position, const core::vec2i& movement, bool forward_mouse);
+        on_mouse_movement(const vec2i& position, const vec2i& movement, bool forward_mouse);
 
 
         void

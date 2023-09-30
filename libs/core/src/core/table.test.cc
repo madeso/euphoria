@@ -2,23 +2,23 @@
 
 #include "catch.hpp"
 
-namespace euco = eu::core;
+namespace core = eu::core;
 
 TEST_CASE("table-empty", "[table]")
 {
-    const auto t1 = euco::Table<int>::from_width_height(0, 0);
+    const auto t1 = core::Table<int>::from_width_height(0, 0);
     CHECK(t1.get_width() == 0);
     CHECK(t1.get_height() == 0);
 
-    const auto t2 = euco::Table<int> {};
+    const auto t2 = core::Table<int> {};
     CHECK(t2.get_width() == 0);
     CHECK(t2.get_height() == 0);
 }
 
 TEST_CASE("table-size", "[table]")
 {
-    const auto t = euco::Table<int>::from_width_height(3, 2, 0);
-    const auto same = euco::Table<int>::from_height_width(2, 3, 0);
+    const auto t = core::Table<int>::from_width_height(3, 2, 0);
+    const auto same = core::Table<int>::from_height_width(2, 3, 0);
 
     SECTION("test sizes")
     {
@@ -43,7 +43,7 @@ TEST_CASE("table-size", "[table]")
 
 TEST_CASE("table-section_and_rows", "[table]")
 {
-    using T = euco::Table<std::string>;
+    using T = core::Table<std::string>;
     auto t = T::from_width_height(3, 2, "");
     for(T::Idx y = 0; y < t.get_height(); ++y)
     {
@@ -66,28 +66,28 @@ TEST_CASE("table-section_and_rows", "[table]")
     SECTION("test column getter")
     {
         const auto c0 = std::vector<std::string> {"0,0", "0,1"};
-        CHECK(euco::calc_column_as_vector(t, 0) == c0);
+        CHECK(core::calc_column_as_vector(t, 0) == c0);
 
         const auto c1 = std::vector<std::string> {"1,0", "1,1"};
-        CHECK(euco::calc_column_as_vector(t, 1) == c1);
+        CHECK(core::calc_column_as_vector(t, 1) == c1);
 
         const auto c2 = std::vector<std::string> {"2,0", "2,1"};
-        CHECK(euco::calc_column_as_vector(t, 2) == c2);
+        CHECK(core::calc_column_as_vector(t, 2) == c2);
     }
 
     SECTION("test row getter")
     {
         const auto r0 = std::vector<std::string> {"0,0", "1,0", "2,0"};
-        CHECK(euco::calc_row_as_vector(t, 0) == r0);
+        CHECK(core::calc_row_as_vector(t, 0) == r0);
 
         const auto r1 = std::vector<std::string> {"0,1", "1,1", "2,1"};
-        CHECK(euco::calc_row_as_vector(t, 1) == r1);
+        CHECK(core::calc_row_as_vector(t, 1) == r1);
     }
 }
 
 TEST_CASE("table-test_add", "[table]")
 {
-    auto t = euco::Table<int>();
+    auto t = core::Table<int>();
 
     REQUIRE(0 == t.get_width());
     REQUIRE(0 == t.get_height());
@@ -110,13 +110,13 @@ TEST_CASE("table-test_add", "[table]")
         t.add_row(std::vector<int> {7, 8, 9});
 
         const auto r0 = std::vector<int> {1, 2, 3};
-        CHECK(euco::calc_row_as_vector(t, 0) == r0);
+        CHECK(core::calc_row_as_vector(t, 0) == r0);
 
         const auto r1 = std::vector<int> {4, 5, 6};
-        CHECK(euco::calc_row_as_vector(t, 1) == r1);
+        CHECK(core::calc_row_as_vector(t, 1) == r1);
 
         const auto r2 = std::vector<int> {7, 8, 9};
-        CHECK(euco::calc_row_as_vector(t, 2) == r2);
+        CHECK(core::calc_row_as_vector(t, 2) == r2);
     }
 
     SECTION("different array sizes")
@@ -132,8 +132,8 @@ TEST_CASE("table-test_add", "[table]")
             t.add_row(r12, d);
             REQUIRE(2 == t.get_width());
             REQUIRE(2 == t.get_height());
-            CHECK(euco::calc_row_as_vector(t, 0) == r10);
-            CHECK(euco::calc_row_as_vector(t, 1) == r12);
+            CHECK(core::calc_row_as_vector(t, 0) == r10);
+            CHECK(core::calc_row_as_vector(t, 1) == r12);
         }
 
         SECTION("2 then 1")
@@ -142,8 +142,8 @@ TEST_CASE("table-test_add", "[table]")
             t.add_row(r1d, d);
             REQUIRE(2 == t.get_width());
             REQUIRE(2 == t.get_height());
-            CHECK(euco::calc_row_as_vector(t, 0) == r12);
-            CHECK(euco::calc_row_as_vector(t, 1) == r10);
+            CHECK(core::calc_row_as_vector(t, 0) == r12);
+            CHECK(core::calc_row_as_vector(t, 1) == r10);
         }
     }
 }

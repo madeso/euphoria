@@ -62,7 +62,7 @@ namespace eu::core
             }
             ret[rect_index] = Recti::from_top_left_width_height
             (
-                core::vec2i{rect.x, container.height - rect.y - 1},
+                vec2i{rect.x, container.height - rect.y - 1},
                 rect.w,
                 rect.h
             );

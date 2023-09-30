@@ -4,14 +4,19 @@
 #include <tuple>
 #include <optional>
 
-#include "core/vec2.h"
+#include "base/vec2.h"
 #include "core/rect.h"
 #include "core/table.h"
 
-namespace eu::core
+
+namespace eu
 {
     struct Random;
+}
+    
 
+namespace eu::core
+{
     struct PoissonWorker
     {
         Rectf area;

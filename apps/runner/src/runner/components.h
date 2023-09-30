@@ -2,7 +2,7 @@
 
 #include <memory>
 
-#include "core/vec2.h"
+#include "base/vec2.h"
 #include "core/rect.h"
 #include "core/ecs.id.h"
 
@@ -19,8 +19,8 @@ namespace eu::runner
     struct ComponentPosition2
     {
         ComponentPosition2();
-        explicit ComponentPosition2(const core::vec2f& p);
-        core::vec2f pos;
+        explicit ComponentPosition2(const vec2f& p);
+        vec2f pos;
     };
 
     struct ComponentSprite
@@ -39,7 +39,7 @@ namespace eu::runner
     core::Rectf
     get_sprite_rect
     (
-        const core::vec2f& position,
+        const vec2f& position,
         const render::Texture2& texture
     );
 }

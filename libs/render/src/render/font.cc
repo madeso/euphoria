@@ -250,7 +250,7 @@ namespace eu::render
             core::paste_image
             (
                 &image,
-                core::vec2i
+                vec2i
                 {
                     src_rect.x + half_margin,
                     src_rect.y + half_margin
@@ -310,7 +310,7 @@ namespace eu::render
             where,
             core::Rectf::from_width_height(1, 1),
             0.0_rad,
-            core::Scale2f{0, 0},
+            Scale2f{0, 0},
             core::Rgba{core::NamedColor::black, alpha}
         );
     }
@@ -348,7 +348,7 @@ namespace eu::render
     ListOfTextDrawCommands::draw
     (
         SpriteRenderer* renderer,
-        const core::vec2f& start_position,
+        const vec2f& start_position,
         const core::Rgb& base_color,
         const core::Rgb& hi_color
     )
@@ -362,7 +362,7 @@ namespace eu::render
                 cmd.sprite_rect.translate_copy(start_position),
                 cmd.texture_rect,
                 0.0_rad,
-                core::Scale2f{0.5f, 0.5f},
+                Scale2f{0.5f, 0.5f},
                 core::Rgba{tint}
             );
         }
@@ -374,7 +374,7 @@ namespace eu::render
         const DrawableFont& font;
         float size;
         bool apply_highlight = false;
-        core::vec2f position = core::vec2f{0, 0}; // todo(Gustav): rename to offset
+        vec2f position = vec2f{0, 0}; // todo(Gustav): rename to offset
         int last_char_index = 0;
 
         // return value
@@ -557,7 +557,7 @@ namespace eu::render
     }
 
 
-    core::vec2f
+    vec2f
     get_offset(Align alignment, const core::Rectf& extent)
     {
         // todo(Gustav): test this more
@@ -586,7 +586,7 @@ namespace eu::render
     DrawableText::draw
     (
         SpriteRenderer* renderer,
-        const core::vec2f& p,
+        const vec2f& p,
         const core::Rgb& base_hi_color
     ) const
     {
@@ -598,7 +598,7 @@ namespace eu::render
     DrawableText::draw
     (
         SpriteRenderer* renderer,
-        const core::vec2f& p,
+        const vec2f& p,
         const core::Rgb& base_color,
         const core::Rgb& hi_color
     ) const

@@ -7,7 +7,7 @@
 
 #include "core/generator_maze.h"
 #include "core/generator_cell.h"
-#include "core/random.h"
+#include "base/random.h"
 #include "core/image_to_text.h"
 #include "base/stringutils.h"
 #include "io/io.h"
@@ -92,7 +92,7 @@ handle_maze_command
 )
 {
     auto output = argparse::FileOutput {f};
-    auto rand = core::Random{};
+    auto rand = Random{};
     auto maze = generator::Maze::from_width_height(world_width, world_height);
 
     auto drawer = generator::Drawer {};
@@ -189,7 +189,7 @@ struct CellWriter
     generator::World* world;
     int world_scale;
 
-    core::Random shuffle_random;
+    Random shuffle_random;
     generator::World world_copy;
 
     explicit CellWriter
@@ -402,7 +402,7 @@ main(int argc, char* argv[])
             bool debug = false;
             size2i size = size2i::create_from_width_height(100, 70);
             std::string output = "cell.png";
-            auto rand = core::Random{};
+            auto rand = Random{};
             auto rules = generator::Rules{};
 
             sub->add("--size", &size).set_help("set the size");

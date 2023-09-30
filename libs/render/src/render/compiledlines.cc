@@ -39,7 +39,7 @@ namespace eu::render
         VertexBuffer* vb
     )
     {
-        constexpr auto add_float3 = [](std::vector<float>* dst, const core::vec3f& src)
+        constexpr auto add_float3 = [](std::vector<float>* dst, const vec3f& src)
         {
             dst->emplace_back(src.x);
             dst->emplace_back(src.y);
@@ -71,7 +71,7 @@ namespace eu::render
                     ASSERT(att.type == ShaderAttributeType::float3);
                     add_float3
                     (
-                        &data, core::vec3f
+                        &data, vec3f
                         {
                             point.color.r,
                             point.color.g,
@@ -91,9 +91,9 @@ namespace eu::render
     void
     CompiledLines::render
     (
-        const core::mat4f& model_matrix,
-        const core::mat4f& projection_matrix,
-        const core::mat4f& view_matrix
+        const mat4f& model_matrix,
+        const mat4f& projection_matrix,
+        const mat4f& view_matrix
     )
     {
         shader->use_shader();

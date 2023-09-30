@@ -1,7 +1,7 @@
 #pragma once
 
 #include "core/rect.h"
-#include "core/size2.h"
+#include "base/size2.h"
 #include "core/fourway.h"
 
 #include "gui/layoutdata.h"
@@ -60,11 +60,11 @@ namespace eu::gui
         void
         set_rect(const core::Rectf& r);
 
-        [[nodiscard]] core::size2f
+        [[nodiscard]] size2f
         get_preferred_size() const;
 
         [[nodiscard]] virtual
-        core::size2f
+        size2f
         calc_minimum_size() const = 0;
 
         virtual

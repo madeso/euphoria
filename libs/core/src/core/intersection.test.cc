@@ -3,12 +3,13 @@
 #include "catch.hpp"
 #include "core/ray.h"
 
+using namespace eu;
 using namespace eu::core;
 
 
 #if 0
 
-#include "core/random.h"
+#include "base/random.h"
 #include "fmt/core.h"
 
 vec3f random_on_sphere(Random* r)

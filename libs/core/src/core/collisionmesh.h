@@ -3,7 +3,7 @@
 
 #include <optional>
 
-#include "core/vec3.h"
+#include "base/vec3.h"
 
 
 namespace eu::core
@@ -24,7 +24,7 @@ struct CollisionFace
 
 struct CollisionMesh
 {
-    std::vector<core::vec3f> points;
+    std::vector<vec3f> points;
     std::vector<CollisionFace> faces;
 
     void add(const Mesh& mesh);

@@ -2,7 +2,7 @@
 
 #include <algorithm>
 
-#include "core/vec4.h"
+#include "base/vec4.h"
 
 #include "render/spriterender.h"
 
@@ -13,7 +13,7 @@ namespace eu::render
     Sprite::Sprite
     (
         std::shared_ptr<Texture2> t,
-        const core::vec2f& p
+        const vec2f& p
     )
         : texture(t)
         , position(p)
@@ -45,7 +45,7 @@ namespace eu::render
             core::Rectf::from_position_anchor_width_and_height
             (
                 position,
-                core::Scale2f{0, 0},
+                Scale2f{0, 0},
                 static_cast<float>(texture->width),
                 static_cast<float>(texture->height)
             ),

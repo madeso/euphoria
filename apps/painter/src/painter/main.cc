@@ -7,6 +7,7 @@
 #include "window/imgui_extra.h"
 
 
+using namespace eu;
 using namespace eu::core;
 using namespace eu::window;
 

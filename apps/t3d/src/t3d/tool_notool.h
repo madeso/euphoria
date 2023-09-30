@@ -52,7 +52,7 @@ namespace eu::t3d
 
 
         void
-        on_scroll(Editor*, const core::vec2i&) override;
+        on_scroll(Editor*, const vec2i&) override;
 
 
         void

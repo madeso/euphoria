@@ -4,6 +4,7 @@
 
 #include "catch.hpp"
 
+using namespace eu;
 using namespace eu::core;
 
 

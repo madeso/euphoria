@@ -6,7 +6,7 @@
 #include "stb_image_write.h"
 
 #include "assert/assert.h"
-#include "core/numeric.h"
+#include "base/numeric.h"
 #include "log/log.h"
 #include "base/cint.h"
 #include "core/decompress.h"

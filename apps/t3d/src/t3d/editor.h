@@ -3,7 +3,7 @@
 #include <optional>
 
 #include "core/key.h"
-#include "core/vec2.h"
+#include "base/vec2.h"
 #include "core/camera3.h"
 #include "core/sphere.position.h"
 
@@ -50,7 +50,7 @@ namespace eu::t3d
         core::CompiledCamera3 camera;
         core::Viewport viewport;
 
-        core::vec2i mouse;
+        vec2i mouse;
         ToolStack tools;
 
         std::vector<std::shared_ptr<PlacedMesh>> placed_meshes;
@@ -78,7 +78,7 @@ namespace eu::t3d
         std::vector<std::shared_ptr<PlacedMesh>>
         raycast(const core::UnitRay3f& ray);
 
-        std::optional<core::vec3f>
+        std::optional<vec3f>
         raycast_closest_point(const core::UnitRay3f& ray);
 
 
@@ -100,7 +100,7 @@ namespace eu::t3d
 
 
         void
-        on_scroll(const core::vec2i& scroll);
+        on_scroll(const vec2i& scroll);
 
 
         void

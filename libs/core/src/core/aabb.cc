@@ -1,9 +1,9 @@
 #include "core/aabb.h"
 
 #include "assert/assert.h"
-#include "core/numeric.h"
-#include "core/range.h"
-#include "core/random.h"
+#include "base/numeric.h"
+#include "base/range.h"
+#include "base/random.h"
 
 namespace eu::core
 {
@@ -18,7 +18,7 @@ namespace eu::core
     {
         ASSERT(is_valid());
 #define COMP(C) \
-    const auto C = ::eu::core::wrap(make_range(min.C, max.C), vec.C)
+    const auto C = ::eu::wrap(make_range(min.C, max.C), vec.C)
         COMP(x);
         COMP(y);
         COMP(z);
@@ -27,30 +27,12 @@ namespace eu::core
     }
 
 
-    vec3f
-    min(const vec3f& lhs, const vec3f& rhs)
-    {
-#define M(var) core::min(lhs.var, rhs.var)
-        return vec3f {M(x), M(y), M(z)};
-#undef M
-    }
-
-
-    vec3f
-    max(const vec3f& lhs, const vec3f& rhs)
-    {
-#define M(var) core::max(lhs.var, rhs.var)
-        return vec3f {M(x), M(y), M(z)};
-#undef M
-    }
-
-
     void
     Aabb::extend(const vec3f& vec)
     {
         ASSERT(is_valid());
-        min = core::min(min, vec);
-        max = core::max(max, vec);
+        min = eu::min(min, vec);
+        max = eu::max(max, vec);
     }
 
 
@@ -58,8 +40,8 @@ namespace eu::core
     Aabb::extend(const Aabb& aabb)
     {
         ASSERT(is_valid());
-        min = core::min(min, aabb.min);
-        max = core::max(max, aabb.max);
+        min = eu::min(min, aabb.min);
+        max = eu::max(max, aabb.max);
     }
 
 

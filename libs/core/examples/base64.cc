@@ -6,6 +6,7 @@
 #include "io/vfs_path.h"
 
 
+using namespace eu;
 using namespace eu::core;
 using namespace eu::io;
 

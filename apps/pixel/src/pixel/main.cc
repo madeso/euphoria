@@ -1,6 +1,6 @@
 #include "log/log.h"
 
-#include "core/random.h"
+#include "base/random.h"
 #include "core/rgb.h"
 #include "core/colors.h"
 #include "core/palette_lospec.h"
@@ -77,7 +77,7 @@ struct PixelApp : App
     CanvasConfig cc;
     Canvas canvas;
     Image image;
-    core::Random random;
+    Random random;
     Tool current_tool = Tool::pen;
     Palette palette = *palettes::lospec::endesga_64;
     int foreground = 0;
