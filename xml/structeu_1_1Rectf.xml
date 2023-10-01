@@ -1,0 +1,1164 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1Rectf" kind="struct" language="C++" prot="public">
+    <compoundname>eu::Rectf</compoundname>
+    <includes refid="rect_8h" local="no">rect.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1Rectf_1aedb3ffe8ca0533aefd7448dae44f7f9b" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float eu::Rectf::left</definition>
+        <argsstring></argsstring>
+        <name>left</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="28" column="15" bodyfile="libs/base/src/base/rect.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1Rectf_1a7fff277fe6ee9a8f9983e509ab8bf7e9" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float eu::Rectf::right</definition>
+        <argsstring></argsstring>
+        <name>right</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="29" column="15" bodyfile="libs/base/src/base/rect.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1Rectf_1a3af9c77de1d76e3c7167c73d0ccea919" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float eu::Rectf::top</definition>
+        <argsstring></argsstring>
+        <name>top</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="30" column="15" bodyfile="libs/base/src/base/rect.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1Rectf_1af9df2b14dbbcafe7b83fb8fbf20e1df4" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float eu::Rectf::bottom</definition>
+        <argsstring></argsstring>
+        <name>bottom</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="31" column="15" bodyfile="libs/base/src/base/rect.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1Rectf_1a94e729da19861be83245097cfabf8852" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::Rectf::Rectf</definition>
+        <argsstring>()</argsstring>
+        <name>Rectf</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="33" column="9" bodyfile="libs/base/src/base/rect.cc" bodystart="9" bodyend="15"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rectf_1a453d6e9830a1cd1d0c45d7f5850c826a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool eu::Rectf::operator==</definition>
+        <argsstring>(const Rectf &amp;rhs)=delete</argsstring>
+        <name>operator==</name>
+        <param>
+          <type>const <ref refid="structeu_1_1Rectf" kindref="compound">Rectf</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="35" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rectf_1ac7bbc9ea8345107dddabaadc49c3f406" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::Rectf::translate</definition>
+        <argsstring>(float dx, float dy)</argsstring>
+        <name>translate</name>
+        <param>
+          <type>float</type>
+          <declname>dx</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>dy</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="54" column="14" bodyfile="libs/base/src/base/rect.cc" bodystart="344" bodyend="350"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rectf_1a01f2e135a5c98c58fd98e188753a7a1a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::Rectf::inset</definition>
+        <argsstring>(float dx, float dy)</argsstring>
+        <name>inset</name>
+        <param>
+          <type>float</type>
+          <declname>dx</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>dy</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="55" column="14" bodyfile="libs/base/src/base/rect.cc" bodystart="263" bodyend="269"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rectf_1aac97bac3ea37390730bdfe06f98967f4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::Rectf::inset</definition>
+        <argsstring>(float l, float r, float t, float b)</argsstring>
+        <name>inset</name>
+        <param>
+          <type>float</type>
+          <declname>l</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>r</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>t</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="56" column="14" bodyfile="libs/base/src/base/rect.cc" bodystart="273" bodyend="279"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rectf_1ae271ec9d6d52546c182bf5fe2d4164d9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::Rectf::extend</definition>
+        <argsstring>(float dx, float dy)</argsstring>
+        <name>extend</name>
+        <param>
+          <type>float</type>
+          <declname>dx</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>dy</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="57" column="14" bodyfile="libs/base/src/base/rect.cc" bodystart="298" bodyend="301"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rectf_1ae63d7b9a51ada60908b8d5810a390b55" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::Rectf::include</definition>
+        <argsstring>(const Rectf &amp;o)</argsstring>
+        <name>include</name>
+        <param>
+          <type>const <ref refid="structeu_1_1Rectf" kindref="compound">Rectf</ref> &amp;</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="58" column="14" bodyfile="libs/base/src/base/rect.cc" bodystart="320" bodyend="326"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rectf_1af65b89fca106db5d464b6e96ca3b76ad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::Rectf::expand</definition>
+        <argsstring>(float expand)</argsstring>
+        <name>expand</name>
+        <param>
+          <type>float</type>
+          <declname>expand</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="59" column="14" bodyfile="libs/base/src/base/rect.cc" bodystart="354" bodyend="360"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rectf_1adaa5cb1127cb8b0ed6b7907e076ba493" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::Rectf::scale</definition>
+        <argsstring>(float dx, float dy)</argsstring>
+        <name>scale</name>
+        <param>
+          <type>float</type>
+          <declname>dx</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>dy</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="60" column="14" bodyfile="libs/base/src/base/rect.cc" bodystart="244" bodyend="250"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rectf_1af8ef53fba491a1295f5c9877d6a048d1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::Rectf::set_empty</definition>
+        <argsstring>()</argsstring>
+        <name>set_empty</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="61" column="14" bodyfile="libs/base/src/base/rect.cc" bodystart="423" bodyend="426"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rectf_1a9972d4d43568f09a3779ec17ee3398f7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1Rectf" kindref="compound">Rectf</ref></type>
+        <definition>Rectf eu::Rectf::center_inside_other</definition>
+        <argsstring>(const Rectf &amp;other) const</argsstring>
+        <name>center_inside_other</name>
+        <param>
+          <type>const <ref refid="structeu_1_1Rectf" kindref="compound">Rectf</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="66" column="16" bodyfile="libs/base/src/base/rect.cc" bodystart="124" bodyend="133"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rectf_1af9adb85b822acac95e414191a5d5b9ff" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1vec2f" kindref="compound">vec2f</ref></type>
+        <definition>vec2f eu::Rectf::get_position_from_bottom_left</definition>
+        <argsstring>(const vec2f &amp;v) const</argsstring>
+        <name>get_position_from_bottom_left</name>
+        <param>
+          <type>const <ref refid="structeu_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="67" column="16" bodyfile="libs/base/src/base/rect.cc" bodystart="136" bodyend="139"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rectf_1a3b29b57f0dde0ba3a92e7d2382b108f0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool eu::Rectf::contains_exclusive</definition>
+        <argsstring>(const Rectf &amp;r) const</argsstring>
+        <name>contains_exclusive</name>
+        <param>
+          <type>const <ref refid="structeu_1_1Rectf" kindref="compound">Rectf</ref> &amp;</type>
+          <declname>r</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="69" column="15" bodyfile="libs/base/src/base/rect.cc" bodystart="182" bodyend="192"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rectf_1aac2cb20c1bcd9fc4038ff0fde552104d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool eu::Rectf::contains_exclusive</definition>
+        <argsstring>(const vec2f &amp;p) const</argsstring>
+        <name>contains_exclusive</name>
+        <param>
+          <type>const <ref refid="structeu_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="72" column="15" bodyfile="libs/base/src/base/rect.cc" bodystart="195" bodyend="199"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rectf_1ab36e073201da1b7aa8c25a007d6ac6c7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool eu::Rectf::contains_exclusive</definition>
+        <argsstring>(float x, float y) const</argsstring>
+        <name>contains_exclusive</name>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="73" column="15" bodyfile="libs/base/src/base/rect.cc" bodystart="202" bodyend="210"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rectf_1a0bef4e0c9953c5b2e8daee2e0b2a1895" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool eu::Rectf::contains_inclusive</definition>
+        <argsstring>(const vec2f &amp;p) const</argsstring>
+        <name>contains_inclusive</name>
+        <param>
+          <type>const <ref refid="structeu_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="76" column="15" bodyfile="libs/base/src/base/rect.cc" bodystart="214" bodyend="217"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rectf_1aecae73ca97146bbd0bf0289761454687" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool eu::Rectf::contains_inclusive</definition>
+        <argsstring>(float x, float y) const</argsstring>
+        <name>contains_inclusive</name>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="77" column="15" bodyfile="libs/base/src/base/rect.cc" bodystart="221" bodyend="229"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rectf_1a6627e4f3dd0440b86ced938af57f175b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1Rectf" kindref="compound">Rectf</ref></type>
+        <definition>Rectf eu::Rectf::get_scaled_around_center_copy</definition>
+        <argsstring>(float scale) const</argsstring>
+        <name>get_scaled_around_center_copy</name>
+        <param>
+          <type>float</type>
+          <declname>scale</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="78" column="16" bodyfile="libs/base/src/base/rect.cc" bodystart="232" bodyend="241"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rectf_1afdb0ff371452f1af3fe0defe719270cf" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1Rectf" kindref="compound">Rectf</ref></type>
+        <definition>Rectf eu::Rectf::scale_copy</definition>
+        <argsstring>(float dx, float dy) const</argsstring>
+        <name>scale_copy</name>
+        <param>
+          <type>float</type>
+          <declname>dx</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>dy</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="79" column="16" bodyfile="libs/base/src/base/rect.cc" bodystart="254" bodyend="259"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rectf_1ac6efb9edde1feb22f3f602fd7efb890e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1Rectf" kindref="compound">Rectf</ref></type>
+        <definition>Rectf eu::Rectf::inset_copy</definition>
+        <argsstring>(float dx, float dy) const</argsstring>
+        <name>inset_copy</name>
+        <param>
+          <type>float</type>
+          <declname>dx</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>dy</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="80" column="16" bodyfile="libs/base/src/base/rect.cc" bodystart="282" bodyend="287"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rectf_1aecd2bca1e08c402872b2232d807ac47e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1Rectf" kindref="compound">Rectf</ref></type>
+        <definition>Rectf eu::Rectf::inset_copy</definition>
+        <argsstring>(float l, float r, float t, float b) const</argsstring>
+        <name>inset_copy</name>
+        <param>
+          <type>float</type>
+          <declname>l</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>r</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>t</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="81" column="16" bodyfile="libs/base/src/base/rect.cc" bodystart="290" bodyend="295"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rectf_1ae8eaf1638c37385f79ebbf87f452e576" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1Rectf" kindref="compound">Rectf</ref></type>
+        <definition>Rectf eu::Rectf::extend_copy</definition>
+        <argsstring>(float dx, float dy) const</argsstring>
+        <name>extend_copy</name>
+        <param>
+          <type>float</type>
+          <declname>dx</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>dy</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="82" column="16" bodyfile="libs/base/src/base/rect.cc" bodystart="305" bodyend="310"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rectf_1a994f9082de49bc15fed0c08129681f7c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1Rectf" kindref="compound">Rectf</ref></type>
+        <definition>Rectf eu::Rectf::extend_copy</definition>
+        <argsstring>(float d) const</argsstring>
+        <name>extend_copy</name>
+        <param>
+          <type>float</type>
+          <declname>d</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="83" column="16" bodyfile="libs/base/src/base/rect.cc" bodystart="314" bodyend="317"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rectf_1aacfd84d7f5181941a1794f53dc37fb52" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1Rectf" kindref="compound">Rectf</ref></type>
+        <definition>Rectf eu::Rectf::expand_copy</definition>
+        <argsstring>(float expand) const</argsstring>
+        <name>expand_copy</name>
+        <param>
+          <type>float</type>
+          <declname>expand</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="84" column="16" bodyfile="libs/base/src/base/rect.cc" bodystart="364" bodyend="369"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rectf_1a2afae7c10863e94dec3729e90f6ada09" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1Rectf" kindref="compound">Rectf</ref></type>
+        <definition>Rectf eu::Rectf::translate_copy</definition>
+        <argsstring>(float dx, float dy) const</argsstring>
+        <name>translate_copy</name>
+        <param>
+          <type>float</type>
+          <declname>dx</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>dy</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="85" column="16" bodyfile="libs/base/src/base/rect.cc" bodystart="372" bodyend="377"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rectf_1a42aa40d49563710dab4d6f05b7e17f91" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1Rectf" kindref="compound">Rectf</ref></type>
+        <definition>Rectf eu::Rectf::translate_copy</definition>
+        <argsstring>(const vec2f &amp;d) const</argsstring>
+        <name>translate_copy</name>
+        <param>
+          <type>const <ref refid="structeu_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
+          <declname>d</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="86" column="16" bodyfile="libs/base/src/base/rect.cc" bodystart="380" bodyend="383"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rectf_1afb7613b7e18ed412e9cb815a5146cb67" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1Rectf" kindref="compound">Rectf</ref></type>
+        <definition>Rectf eu::Rectf::set_top_left_to_copy</definition>
+        <argsstring>(float new_left, float new_top) const</argsstring>
+        <name>set_top_left_to_copy</name>
+        <param>
+          <type>float</type>
+          <declname>new_left</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>new_top</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="87" column="16" bodyfile="libs/base/src/base/rect.cc" bodystart="387" bodyend="395"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rectf_1a239a55c383f9deea1acca9a7cd1d1d9e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1Rectf" kindref="compound">Rectf</ref></type>
+        <definition>Rectf eu::Rectf::set_top_left_to_copy</definition>
+        <argsstring>(const vec2f &amp;v) const</argsstring>
+        <name>set_top_left_to_copy</name>
+        <param>
+          <type>const <ref refid="structeu_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="88" column="16" bodyfile="libs/base/src/base/rect.cc" bodystart="398" bodyend="401"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rectf_1a2a35b606064a6c0cc771ed3aaed51025" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1Rectf" kindref="compound">Rectf</ref></type>
+        <definition>Rectf eu::Rectf::set_bottom_left_to_copy</definition>
+        <argsstring>(float new_left, float new_bottom) const</argsstring>
+        <name>set_bottom_left_to_copy</name>
+        <param>
+          <type>float</type>
+          <declname>new_left</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>new_bottom</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="89" column="16" bodyfile="libs/base/src/base/rect.cc" bodystart="404" bodyend="412"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rectf_1a7c2d6203c639be5a9bf0f4d628daeee8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1Rectf" kindref="compound">Rectf</ref></type>
+        <definition>Rectf eu::Rectf::set_bottom_left_to_copy</definition>
+        <argsstring>(const vec2f &amp;v) const</argsstring>
+        <name>set_bottom_left_to_copy</name>
+        <param>
+          <type>const <ref refid="structeu_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="90" column="16" bodyfile="libs/base/src/base/rect.cc" bodystart="416" bodyend="419"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rectf_1ab48a627d9e4fd295c84755ab1ebe1687" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1Recti" kindref="compound">Recti</ref></type>
+        <definition>Recti eu::Rectf::to_i</definition>
+        <argsstring>() const</argsstring>
+        <name>to_i</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="93" column="16" bodyfile="libs/base/src/base/rect.cc" bodystart="27" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rectf_1acec7701410fe073337dbf65d8909bc41" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1vec2f" kindref="compound">vec2f</ref></type>
+        <definition>vec2f eu::Rectf::get_bottom_left</definition>
+        <argsstring>() const</argsstring>
+        <name>get_bottom_left</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="94" column="16" bodyfile="libs/base/src/base/rect.cc" bodystart="118" bodyend="121"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rectf_1a0f2b5c163148a1a38bad29a3f11459b7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float eu::Rectf::get_relative_center_x_from_bottom_left</definition>
+        <argsstring>() const</argsstring>
+        <name>get_relative_center_x_from_bottom_left</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="95" column="16" bodyfile="libs/base/src/base/rect.cc" bodystart="142" bodyend="145"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rectf_1a9a5f9b125797274c940d134fb8f0059f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float eu::Rectf::get_relative_center_y_from_bottom_left</definition>
+        <argsstring>() const</argsstring>
+        <name>get_relative_center_y_from_bottom_left</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="96" column="16" bodyfile="libs/base/src/base/rect.cc" bodystart="148" bodyend="151"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rectf_1a02003925c0988246a8d2d2701fa2e61d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1vec2f" kindref="compound">vec2f</ref></type>
+        <definition>vec2f eu::Rectf::get_relative_center_pos_from_bottom_left</definition>
+        <argsstring>() const</argsstring>
+        <name>get_relative_center_pos_from_bottom_left</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="97" column="16" bodyfile="libs/base/src/base/rect.cc" bodystart="154" bodyend="161"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rectf_1ae8165fa88e1b6cff9861be6dab4afd54" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float eu::Rectf::get_absolute_center_x</definition>
+        <argsstring>() const</argsstring>
+        <name>get_absolute_center_x</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="98" column="16" bodyfile="libs/base/src/base/rect.cc" bodystart="164" bodyend="167"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rectf_1ac03843b0f0ccf779b5d9cdca16d973ef" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float eu::Rectf::get_absolute_center_y</definition>
+        <argsstring>() const</argsstring>
+        <name>get_absolute_center_y</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="99" column="16" bodyfile="libs/base/src/base/rect.cc" bodystart="170" bodyend="173"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rectf_1ad045330f8108cad833aa1e30946c270f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1vec2f" kindref="compound">vec2f</ref></type>
+        <definition>vec2f eu::Rectf::get_absolute_center_pos</definition>
+        <argsstring>() const</argsstring>
+        <name>get_absolute_center_pos</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="100" column="16" bodyfile="libs/base/src/base/rect.cc" bodystart="176" bodyend="179"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rectf_1aea91b3682edbcac76bff99d5a42c4b06" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool eu::Rectf::is_empty</definition>
+        <argsstring>() const</argsstring>
+        <name>is_empty</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="102" column="15" bodyfile="libs/base/src/base/rect.cc" bodystart="330" bodyend="333"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rectf_1a463135c7ede9664daf27bbb3fc9a0d69" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool eu::Rectf::is_valid</definition>
+        <argsstring>() const</argsstring>
+        <name>is_valid</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="105" column="15" bodyfile="libs/base/src/base/rect.cc" bodystart="337" bodyend="340"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rectf_1a87b7e5acdef083510ec89d5a7a4ec968" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float eu::Rectf::get_height</definition>
+        <argsstring>() const</argsstring>
+        <name>get_height</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="107" column="16" bodyfile="libs/base/src/base/rect.cc" bodystart="430" bodyend="433"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rectf_1a1cad27ea3f136189b01f583ebb1ef910" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float eu::Rectf::get_width</definition>
+        <argsstring>() const</argsstring>
+        <name>get_width</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="108" column="16" bodyfile="libs/base/src/base/rect.cc" bodystart="436" bodyend="439"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rectf_1a4332e51ecc7a80d2c39e981ec7a45039" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1Range" kindref="compound">Range</ref>&lt; float &gt;</type>
+        <definition>Range&lt; float &gt; eu::Rectf::get_range_y</definition>
+        <argsstring>() const</argsstring>
+        <name>get_range_y</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="110" column="16" bodyfile="libs/base/src/base/rect.cc" bodystart="443" bodyend="446"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rectf_1a533efd236bfdce95f20485ddae2d19a6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1Range" kindref="compound">Range</ref>&lt; float &gt;</type>
+        <definition>Range&lt; float &gt; eu::Rectf::get_range_x</definition>
+        <argsstring>() const</argsstring>
+        <name>get_range_x</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="111" column="16" bodyfile="libs/base/src/base/rect.cc" bodystart="449" bodyend="452"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rectf_1a285f775017eea3d0ef3d939c50b198f9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1size2f" kindref="compound">size2f</ref></type>
+        <definition>size2f eu::Rectf::get_size</definition>
+        <argsstring>() const</argsstring>
+        <name>get_size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="112" column="17" bodyfile="libs/base/src/base/rect.cc" bodystart="455" bodyend="458"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rectf_1a8d45c9feb0b3e6c354e3b195f03bd9c6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1vec2f" kindref="compound">vec2f</ref></type>
+        <definition>vec2f eu::Rectf::get_top_left</definition>
+        <argsstring>() const</argsstring>
+        <name>get_top_left</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="113" column="16" bodyfile="libs/base/src/base/rect.cc" bodystart="461" bodyend="464"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rectf_1ac725ed4f485c0e65280ef9bbd695766d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1vec2f" kindref="compound">vec2f</ref></type>
+        <definition>vec2f eu::Rectf::get_top_right</definition>
+        <argsstring>() const</argsstring>
+        <name>get_top_right</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="114" column="16" bodyfile="libs/base/src/base/rect.cc" bodystart="467" bodyend="470"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rectf_1ad6071ec9870f3f732d5c7760d1c98f75" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1vec2f" kindref="compound">vec2f</ref></type>
+        <definition>vec2f eu::Rectf::get_bottom_right</definition>
+        <argsstring>() const</argsstring>
+        <name>get_bottom_right</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="115" column="16" bodyfile="libs/base/src/base/rect.cc" bodystart="473" bodyend="476"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="structeu_1_1Rectf_1a91bc73bbff55e4b6de4d785a8c9739c3" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1Rectf" kindref="compound">Rectf</ref></type>
+        <definition>Rectf eu::Rectf::from_left_right_bottom_top</definition>
+        <argsstring>(float left_side, float right_side, float bottom_side, float top_side)</argsstring>
+        <name>from_left_right_bottom_top</name>
+        <param>
+          <type>float</type>
+          <declname>left_side</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>right_side</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>bottom_side</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>top_side</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="38" column="23" bodyfile="libs/base/src/base/rect.cc" bodystart="39" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rectf_1a8a8cd9c6fc2a5ba27ae15b341d0b000b" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1Rectf" kindref="compound">Rectf</ref></type>
+        <definition>Rectf eu::Rectf::from_left_right_top_bottom</definition>
+        <argsstring>(float left_side, float right_side, float top_side, float bottom_side)</argsstring>
+        <name>from_left_right_top_bottom</name>
+        <param>
+          <type>float</type>
+          <declname>left_side</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>right_side</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>top_side</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>bottom_side</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="39" column="23" bodyfile="libs/base/src/base/rect.cc" bodystart="47" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rectf_1a12a89ec0c36fb595e078ce6ab43862b4" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1Rectf" kindref="compound">Rectf</ref></type>
+        <definition>Rectf eu::Rectf::from_position_anchor_width_and_height</definition>
+        <argsstring>(const vec2f &amp;pos, const Scale2f &amp;anchor, float width, float height)</argsstring>
+        <name>from_position_anchor_width_and_height</name>
+        <param>
+          <type>const <ref refid="structeu_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
+          <declname>pos</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1Scale2f" kindref="compound">Scale2f</ref> &amp;</type>
+          <declname>anchor</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>width</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>height</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="40" column="23" bodyfile="libs/base/src/base/rect.cc" bodystart="56" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rectf_1a3dbf987450049e93f56f0a1cdd3e3415" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1Rectf" kindref="compound">Rectf</ref></type>
+        <definition>Rectf eu::Rectf::from_bottom_left_width_height</definition>
+        <argsstring>(const vec2f &amp;bl, float width, float height)</argsstring>
+        <name>from_bottom_left_width_height</name>
+        <param>
+          <type>const <ref refid="structeu_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
+          <declname>bl</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>width</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>height</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="47" column="23" bodyfile="libs/base/src/base/rect.cc" bodystart="74" bodyend="83"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rectf_1ab75254423a37d1b6f229e5aef05e1b3c" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1Rectf" kindref="compound">Rectf</ref></type>
+        <definition>Rectf eu::Rectf::from_top_left_width_height</definition>
+        <argsstring>(const vec2f &amp;topleft, float width, float height)</argsstring>
+        <name>from_top_left_width_height</name>
+        <param>
+          <type>const <ref refid="structeu_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
+          <declname>topleft</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>width</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>height</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="48" column="23" bodyfile="libs/base/src/base/rect.cc" bodystart="86" bodyend="95"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rectf_1ad93abf47a779a13db1d36b008b065483" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1Rectf" kindref="compound">Rectf</ref></type>
+        <definition>Rectf eu::Rectf::from_width_height</definition>
+        <argsstring>(float width, float height)</argsstring>
+        <name>from_width_height</name>
+        <param>
+          <type>float</type>
+          <declname>width</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>height</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="49" column="23" bodyfile="libs/base/src/base/rect.cc" bodystart="98" bodyend="103"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rectf_1aad59d105889ccb4ba37a40c5fb68ba5d" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1Rectf" kindref="compound">Rectf</ref></type>
+        <definition>Rectf eu::Rectf::from_width_height</definition>
+        <argsstring>(const size2f &amp;s)</argsstring>
+        <name>from_width_height</name>
+        <param>
+          <type>const <ref refid="structeu_1_1size2f" kindref="compound">size2f</ref> &amp;</type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="50" column="23" bodyfile="libs/base/src/base/rect.cc" bodystart="106" bodyend="109"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rectf_1a1911e5d2ce334713cb7e005383e86997" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1Rectf" kindref="compound">Rectf</ref></type>
+        <definition>Rectf eu::Rectf::from_point</definition>
+        <argsstring>(const vec2f &amp;point)</argsstring>
+        <name>from_point</name>
+        <param>
+          <type>const <ref refid="structeu_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
+          <declname>point</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="51" column="23" bodyfile="libs/base/src/base/rect.cc" bodystart="112" bodyend="115"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="structeu_1_1Rectf_1a6c52dfcf9ddb3e48effeebf24b0f5747" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::Rectf::Rectf</definition>
+        <argsstring>(float left_side, float right_side, float top_side, float bottom_side)</argsstring>
+        <name>Rectf</name>
+        <param>
+          <type>float</type>
+          <declname>left_side</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>right_side</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>top_side</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>bottom_side</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="118" column="9" bodyfile="libs/base/src/base/rect.cc" bodystart="18" bodyend="24"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/base/src/base/rect.h" line="26" column="5" bodyfile="libs/base/src/base/rect.h" bodystart="27" bodyend="119"/>
+    <listofallmembers>
+      <member refid="structeu_1_1Rectf_1af9df2b14dbbcafe7b83fb8fbf20e1df4" prot="public" virt="non-virtual"><scope>eu::Rectf</scope><name>bottom</name></member>
+      <member refid="structeu_1_1Rectf_1a9972d4d43568f09a3779ec17ee3398f7" prot="public" virt="non-virtual"><scope>eu::Rectf</scope><name>center_inside_other</name></member>
+      <member refid="structeu_1_1Rectf_1a3b29b57f0dde0ba3a92e7d2382b108f0" prot="public" virt="non-virtual"><scope>eu::Rectf</scope><name>contains_exclusive</name></member>
+      <member refid="structeu_1_1Rectf_1aac2cb20c1bcd9fc4038ff0fde552104d" prot="public" virt="non-virtual"><scope>eu::Rectf</scope><name>contains_exclusive</name></member>
+      <member refid="structeu_1_1Rectf_1ab36e073201da1b7aa8c25a007d6ac6c7" prot="public" virt="non-virtual"><scope>eu::Rectf</scope><name>contains_exclusive</name></member>
+      <member refid="structeu_1_1Rectf_1a0bef4e0c9953c5b2e8daee2e0b2a1895" prot="public" virt="non-virtual"><scope>eu::Rectf</scope><name>contains_inclusive</name></member>
+      <member refid="structeu_1_1Rectf_1aecae73ca97146bbd0bf0289761454687" prot="public" virt="non-virtual"><scope>eu::Rectf</scope><name>contains_inclusive</name></member>
+      <member refid="structeu_1_1Rectf_1af65b89fca106db5d464b6e96ca3b76ad" prot="public" virt="non-virtual"><scope>eu::Rectf</scope><name>expand</name></member>
+      <member refid="structeu_1_1Rectf_1aacfd84d7f5181941a1794f53dc37fb52" prot="public" virt="non-virtual"><scope>eu::Rectf</scope><name>expand_copy</name></member>
+      <member refid="structeu_1_1Rectf_1ae271ec9d6d52546c182bf5fe2d4164d9" prot="public" virt="non-virtual"><scope>eu::Rectf</scope><name>extend</name></member>
+      <member refid="structeu_1_1Rectf_1ae8eaf1638c37385f79ebbf87f452e576" prot="public" virt="non-virtual"><scope>eu::Rectf</scope><name>extend_copy</name></member>
+      <member refid="structeu_1_1Rectf_1a994f9082de49bc15fed0c08129681f7c" prot="public" virt="non-virtual"><scope>eu::Rectf</scope><name>extend_copy</name></member>
+      <member refid="structeu_1_1Rectf_1a3dbf987450049e93f56f0a1cdd3e3415" prot="public" virt="non-virtual"><scope>eu::Rectf</scope><name>from_bottom_left_width_height</name></member>
+      <member refid="structeu_1_1Rectf_1a91bc73bbff55e4b6de4d785a8c9739c3" prot="public" virt="non-virtual"><scope>eu::Rectf</scope><name>from_left_right_bottom_top</name></member>
+      <member refid="structeu_1_1Rectf_1a8a8cd9c6fc2a5ba27ae15b341d0b000b" prot="public" virt="non-virtual"><scope>eu::Rectf</scope><name>from_left_right_top_bottom</name></member>
+      <member refid="structeu_1_1Rectf_1a1911e5d2ce334713cb7e005383e86997" prot="public" virt="non-virtual"><scope>eu::Rectf</scope><name>from_point</name></member>
+      <member refid="structeu_1_1Rectf_1a12a89ec0c36fb595e078ce6ab43862b4" prot="public" virt="non-virtual"><scope>eu::Rectf</scope><name>from_position_anchor_width_and_height</name></member>
+      <member refid="structeu_1_1Rectf_1ab75254423a37d1b6f229e5aef05e1b3c" prot="public" virt="non-virtual"><scope>eu::Rectf</scope><name>from_top_left_width_height</name></member>
+      <member refid="structeu_1_1Rectf_1ad93abf47a779a13db1d36b008b065483" prot="public" virt="non-virtual"><scope>eu::Rectf</scope><name>from_width_height</name></member>
+      <member refid="structeu_1_1Rectf_1aad59d105889ccb4ba37a40c5fb68ba5d" prot="public" virt="non-virtual"><scope>eu::Rectf</scope><name>from_width_height</name></member>
+      <member refid="structeu_1_1Rectf_1ad045330f8108cad833aa1e30946c270f" prot="public" virt="non-virtual"><scope>eu::Rectf</scope><name>get_absolute_center_pos</name></member>
+      <member refid="structeu_1_1Rectf_1ae8165fa88e1b6cff9861be6dab4afd54" prot="public" virt="non-virtual"><scope>eu::Rectf</scope><name>get_absolute_center_x</name></member>
+      <member refid="structeu_1_1Rectf_1ac03843b0f0ccf779b5d9cdca16d973ef" prot="public" virt="non-virtual"><scope>eu::Rectf</scope><name>get_absolute_center_y</name></member>
+      <member refid="structeu_1_1Rectf_1acec7701410fe073337dbf65d8909bc41" prot="public" virt="non-virtual"><scope>eu::Rectf</scope><name>get_bottom_left</name></member>
+      <member refid="structeu_1_1Rectf_1ad6071ec9870f3f732d5c7760d1c98f75" prot="public" virt="non-virtual"><scope>eu::Rectf</scope><name>get_bottom_right</name></member>
+      <member refid="structeu_1_1Rectf_1a87b7e5acdef083510ec89d5a7a4ec968" prot="public" virt="non-virtual"><scope>eu::Rectf</scope><name>get_height</name></member>
+      <member refid="structeu_1_1Rectf_1af9adb85b822acac95e414191a5d5b9ff" prot="public" virt="non-virtual"><scope>eu::Rectf</scope><name>get_position_from_bottom_left</name></member>
+      <member refid="structeu_1_1Rectf_1a533efd236bfdce95f20485ddae2d19a6" prot="public" virt="non-virtual"><scope>eu::Rectf</scope><name>get_range_x</name></member>
+      <member refid="structeu_1_1Rectf_1a4332e51ecc7a80d2c39e981ec7a45039" prot="public" virt="non-virtual"><scope>eu::Rectf</scope><name>get_range_y</name></member>
+      <member refid="structeu_1_1Rectf_1a02003925c0988246a8d2d2701fa2e61d" prot="public" virt="non-virtual"><scope>eu::Rectf</scope><name>get_relative_center_pos_from_bottom_left</name></member>
+      <member refid="structeu_1_1Rectf_1a0f2b5c163148a1a38bad29a3f11459b7" prot="public" virt="non-virtual"><scope>eu::Rectf</scope><name>get_relative_center_x_from_bottom_left</name></member>
+      <member refid="structeu_1_1Rectf_1a9a5f9b125797274c940d134fb8f0059f" prot="public" virt="non-virtual"><scope>eu::Rectf</scope><name>get_relative_center_y_from_bottom_left</name></member>
+      <member refid="structeu_1_1Rectf_1a6627e4f3dd0440b86ced938af57f175b" prot="public" virt="non-virtual"><scope>eu::Rectf</scope><name>get_scaled_around_center_copy</name></member>
+      <member refid="structeu_1_1Rectf_1a285f775017eea3d0ef3d939c50b198f9" prot="public" virt="non-virtual"><scope>eu::Rectf</scope><name>get_size</name></member>
+      <member refid="structeu_1_1Rectf_1a8d45c9feb0b3e6c354e3b195f03bd9c6" prot="public" virt="non-virtual"><scope>eu::Rectf</scope><name>get_top_left</name></member>
+      <member refid="structeu_1_1Rectf_1ac725ed4f485c0e65280ef9bbd695766d" prot="public" virt="non-virtual"><scope>eu::Rectf</scope><name>get_top_right</name></member>
+      <member refid="structeu_1_1Rectf_1a1cad27ea3f136189b01f583ebb1ef910" prot="public" virt="non-virtual"><scope>eu::Rectf</scope><name>get_width</name></member>
+      <member refid="structeu_1_1Rectf_1ae63d7b9a51ada60908b8d5810a390b55" prot="public" virt="non-virtual"><scope>eu::Rectf</scope><name>include</name></member>
+      <member refid="structeu_1_1Rectf_1a01f2e135a5c98c58fd98e188753a7a1a" prot="public" virt="non-virtual"><scope>eu::Rectf</scope><name>inset</name></member>
+      <member refid="structeu_1_1Rectf_1aac97bac3ea37390730bdfe06f98967f4" prot="public" virt="non-virtual"><scope>eu::Rectf</scope><name>inset</name></member>
+      <member refid="structeu_1_1Rectf_1ac6efb9edde1feb22f3f602fd7efb890e" prot="public" virt="non-virtual"><scope>eu::Rectf</scope><name>inset_copy</name></member>
+      <member refid="structeu_1_1Rectf_1aecd2bca1e08c402872b2232d807ac47e" prot="public" virt="non-virtual"><scope>eu::Rectf</scope><name>inset_copy</name></member>
+      <member refid="structeu_1_1Rectf_1aea91b3682edbcac76bff99d5a42c4b06" prot="public" virt="non-virtual"><scope>eu::Rectf</scope><name>is_empty</name></member>
+      <member refid="structeu_1_1Rectf_1a463135c7ede9664daf27bbb3fc9a0d69" prot="public" virt="non-virtual"><scope>eu::Rectf</scope><name>is_valid</name></member>
+      <member refid="structeu_1_1Rectf_1aedb3ffe8ca0533aefd7448dae44f7f9b" prot="public" virt="non-virtual"><scope>eu::Rectf</scope><name>left</name></member>
+      <member refid="structeu_1_1Rectf_1a453d6e9830a1cd1d0c45d7f5850c826a" prot="public" virt="non-virtual"><scope>eu::Rectf</scope><name>operator==</name></member>
+      <member refid="structeu_1_1Rectf_1a94e729da19861be83245097cfabf8852" prot="public" virt="non-virtual"><scope>eu::Rectf</scope><name>Rectf</name></member>
+      <member refid="structeu_1_1Rectf_1a6c52dfcf9ddb3e48effeebf24b0f5747" prot="private" virt="non-virtual"><scope>eu::Rectf</scope><name>Rectf</name></member>
+      <member refid="structeu_1_1Rectf_1a7fff277fe6ee9a8f9983e509ab8bf7e9" prot="public" virt="non-virtual"><scope>eu::Rectf</scope><name>right</name></member>
+      <member refid="structeu_1_1Rectf_1adaa5cb1127cb8b0ed6b7907e076ba493" prot="public" virt="non-virtual"><scope>eu::Rectf</scope><name>scale</name></member>
+      <member refid="structeu_1_1Rectf_1afdb0ff371452f1af3fe0defe719270cf" prot="public" virt="non-virtual"><scope>eu::Rectf</scope><name>scale_copy</name></member>
+      <member refid="structeu_1_1Rectf_1a2a35b606064a6c0cc771ed3aaed51025" prot="public" virt="non-virtual"><scope>eu::Rectf</scope><name>set_bottom_left_to_copy</name></member>
+      <member refid="structeu_1_1Rectf_1a7c2d6203c639be5a9bf0f4d628daeee8" prot="public" virt="non-virtual"><scope>eu::Rectf</scope><name>set_bottom_left_to_copy</name></member>
+      <member refid="structeu_1_1Rectf_1af8ef53fba491a1295f5c9877d6a048d1" prot="public" virt="non-virtual"><scope>eu::Rectf</scope><name>set_empty</name></member>
+      <member refid="structeu_1_1Rectf_1afb7613b7e18ed412e9cb815a5146cb67" prot="public" virt="non-virtual"><scope>eu::Rectf</scope><name>set_top_left_to_copy</name></member>
+      <member refid="structeu_1_1Rectf_1a239a55c383f9deea1acca9a7cd1d1d9e" prot="public" virt="non-virtual"><scope>eu::Rectf</scope><name>set_top_left_to_copy</name></member>
+      <member refid="structeu_1_1Rectf_1ab48a627d9e4fd295c84755ab1ebe1687" prot="public" virt="non-virtual"><scope>eu::Rectf</scope><name>to_i</name></member>
+      <member refid="structeu_1_1Rectf_1a3af9c77de1d76e3c7167c73d0ccea919" prot="public" virt="non-virtual"><scope>eu::Rectf</scope><name>top</name></member>
+      <member refid="structeu_1_1Rectf_1ac7bbc9ea8345107dddabaadc49c3f406" prot="public" virt="non-virtual"><scope>eu::Rectf</scope><name>translate</name></member>
+      <member refid="structeu_1_1Rectf_1a2afae7c10863e94dec3729e90f6ada09" prot="public" virt="non-virtual"><scope>eu::Rectf</scope><name>translate_copy</name></member>
+      <member refid="structeu_1_1Rectf_1a42aa40d49563710dab4d6f05b7e17f91" prot="public" virt="non-virtual"><scope>eu::Rectf</scope><name>translate_copy</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

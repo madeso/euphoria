@@ -73,7 +73,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="306" column="14" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="688" bodyend="691"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="306" column="14" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="684" bodyend="687"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1minsynth_1_1OscilatorNode_1a78aa0648f6626e18ebfcd8b6b9eeaf9b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -86,7 +86,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="307" column="14" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="694" bodyend="697"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="307" column="14" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="690" bodyend="693"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1minsynth_1_1OscilatorNode_1a2652de231c3903087eaf048600974ba1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -99,7 +99,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="308" column="14" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="700" bodyend="703"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="308" column="14" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="696" bodyend="699"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1minsynth_1_1OscilatorNode_1a9826d72ab30f343daeb54439e5387b3a" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -121,7 +121,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="310" column="14" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="706" bodyend="721"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="310" column="14" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="702" bodyend="717"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1minsynth_1_1OscilatorNode_1ad9b7e8eac4d20442c4632acfb8c77b9d" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -147,7 +147,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="311" column="14" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="724" bodyend="727"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="311" column="14" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="720" bodyend="723"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1minsynth_1_1OscilatorNode_1aedd41037ce70bc5687801e0ae135113a" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -173,7 +173,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="312" column="14" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="730" bodyend="735"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="312" column="14" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="726" bodyend="731"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1minsynth_1_1OscilatorNode_1aa521fa4d95d361518fc555fbd89e5e20" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>float</type>
@@ -191,7 +191,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="313" column="15" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="738" bodyend="776"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="313" column="15" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="734" bodyend="772"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

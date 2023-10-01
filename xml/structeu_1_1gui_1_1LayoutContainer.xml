@@ -110,13 +110,13 @@
         </inbodydescription>
         <location file="libs/gui/src/gui/layoutcontainer.h" line="36" column="14"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1gui_1_1LayoutContainer_1ad244b3d46bda9c36568a6c329fd1f11c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1gui_1_1LayoutContainer_1aba288c704cf4335e7f09bd3b0ac72ac2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void eu::gui::LayoutContainer::lay_out</definition>
-        <argsstring>(core::Rectf area)</argsstring>
+        <argsstring>(Rectf area)</argsstring>
         <name>lay_out</name>
         <param>
-          <type><ref refid="structeu_1_1core_1_1Rectf" kindref="compound">core::Rectf</ref></type>
+          <type><ref refid="structeu_1_1Rectf" kindref="compound">Rectf</ref></type>
           <declname>area</declname>
         </param>
         <briefdescription>
@@ -127,9 +127,9 @@
         </inbodydescription>
         <location file="libs/gui/src/gui/layoutcontainer.h" line="38" column="14" bodyfile="libs/gui/src/gui/layoutcontainer.cc" bodystart="44" bodyend="48"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1gui_1_1LayoutContainer_1ab87d89db7002e341ab075bb9647df15c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1core_1_1size2f" kindref="compound">core::size2f</ref></type>
-        <definition>core::size2f eu::gui::LayoutContainer::calc_minimum_area</definition>
+      <memberdef kind="function" id="structeu_1_1gui_1_1LayoutContainer_1ad8d686ff77abf1a40fe8fa29439832f6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1size2f" kindref="compound">size2f</ref></type>
+        <definition>size2f eu::gui::LayoutContainer::calc_minimum_area</definition>
         <argsstring>() const</argsstring>
         <name>calc_minimum_area</name>
         <briefdescription>
@@ -138,7 +138,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/gui/src/gui/layoutcontainer.h" line="40" column="23" bodyfile="libs/gui/src/gui/layoutcontainer.cc" bodystart="52" bodyend="56"/>
+        <location file="libs/gui/src/gui/layoutcontainer.h" line="40" column="17" bodyfile="libs/gui/src/gui/layoutcontainer.cc" bodystart="52" bodyend="56"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -172,12 +172,12 @@
     <location file="libs/gui/src/gui/layoutcontainer.h" line="26" column="5" bodyfile="libs/gui/src/gui/layoutcontainer.h" bodystart="27" bodyend="41"/>
     <listofallmembers>
       <member refid="structeu_1_1gui_1_1Container_1a18f96528470ddafdf148ffbafd91e323" prot="public" virt="non-virtual"><scope>eu::gui::LayoutContainer</scope><name>add</name></member>
-      <member refid="structeu_1_1gui_1_1LayoutContainer_1ab87d89db7002e341ab075bb9647df15c" prot="public" virt="non-virtual"><scope>eu::gui::LayoutContainer</scope><name>calc_minimum_area</name></member>
+      <member refid="structeu_1_1gui_1_1LayoutContainer_1ad8d686ff77abf1a40fe8fa29439832f6" prot="public" virt="non-virtual"><scope>eu::gui::LayoutContainer</scope><name>calc_minimum_area</name></member>
       <member refid="structeu_1_1gui_1_1Container_1a3b2018b06a56b94cf9a3b00430285cff" prot="public" virt="non-virtual"><scope>eu::gui::LayoutContainer</scope><name>Container</name></member>
       <member refid="structeu_1_1gui_1_1Container_1ac3fce95f0fe7675472c328361f92852c" prot="public" virt="non-virtual"><scope>eu::gui::LayoutContainer</scope><name>Container</name></member>
       <member refid="structeu_1_1gui_1_1Container_1a7d6baeebbbe0c3194795a0d0a87d9e76" prot="public" virt="non-virtual"><scope>eu::gui::LayoutContainer</scope><name>Container</name></member>
       <member refid="structeu_1_1gui_1_1Container_1a0f416a7ab57e418b9e6716aef554daa5" prot="public" virt="non-virtual"><scope>eu::gui::LayoutContainer</scope><name>has_any_widgets</name></member>
-      <member refid="structeu_1_1gui_1_1LayoutContainer_1ad244b3d46bda9c36568a6c329fd1f11c" prot="public" virt="non-virtual"><scope>eu::gui::LayoutContainer</scope><name>lay_out</name></member>
+      <member refid="structeu_1_1gui_1_1LayoutContainer_1aba288c704cf4335e7f09bd3b0ac72ac2" prot="public" virt="non-virtual"><scope>eu::gui::LayoutContainer</scope><name>lay_out</name></member>
       <member refid="structeu_1_1gui_1_1LayoutContainer_1aa7e93ea2b4b99f8829581791a1a79593" prot="public" virt="non-virtual"><scope>eu::gui::LayoutContainer</scope><name>layout</name></member>
       <member refid="structeu_1_1gui_1_1LayoutContainer_1a23876d86d048568eb98f22aadeee84a9" prot="public" virt="non-virtual"><scope>eu::gui::LayoutContainer</scope><name>LayoutContainer</name></member>
       <member refid="structeu_1_1gui_1_1LayoutContainer_1a38d9c974753ff591104711ab43ad229c" prot="public" virt="non-virtual"><scope>eu::gui::LayoutContainer</scope><name>LayoutContainer</name></member>

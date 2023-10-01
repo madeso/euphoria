@@ -16,10 +16,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/palette.h" line="19" column="26" bodyfile="libs/core/src/core/palette.h" bodystart="19" bodyend="-1"/>
+        <location file="libs/core/src/core/palette.h" line="23" column="26" bodyfile="libs/core/src/core/palette.h" bodystart="23" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1Palette_1a25a64986cda1765f45a6ef0bdcc979da" prot="public" static="no" mutable="no">
-        <type>ranges::span&lt; const <ref refid="structeu_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref> &gt;</type>
+        <type>ranges::span&lt; const <ref refid="structeu_1_1Rgbi" kindref="compound">Rgbi</ref> &gt;</type>
         <definition>ranges::span&lt;const Rgbi&gt; eu::core::Palette::colors</definition>
         <argsstring></argsstring>
         <name>colors</name>
@@ -29,7 +29,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/palette.h" line="21" column="22" bodyfile="libs/core/src/core/palette.h" bodystart="21" bodyend="-1"/>
+        <location file="libs/core/src/core/palette.h" line="25" column="22" bodyfile="libs/core/src/core/palette.h" bodystart="25" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -43,7 +43,7 @@
           <declname>n</declname>
         </param>
         <param>
-          <type>const ranges::span&lt; const <ref refid="structeu_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref> &gt; &amp;</type>
+          <type>const ranges::span&lt; const <ref refid="structeu_1_1Rgbi" kindref="compound">Rgbi</ref> &gt; &amp;</type>
           <declname>c</declname>
         </param>
         <briefdescription>
@@ -52,15 +52,15 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/palette.h" line="23" column="19" bodyfile="libs/core/src/core/palette.h" bodystart="23" bodyend="27"/>
+        <location file="libs/core/src/core/palette.h" line="27" column="19" bodyfile="libs/core/src/core/palette.h" bodystart="27" bodyend="31"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1Palette_1a05bb71a9e58f03e32014ded8d8c05634" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type>const <ref refid="structeu_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref> &amp;</type>
+        <type>const <ref refid="structeu_1_1Rgbi" kindref="compound">Rgbi</ref> &amp;</type>
         <definition>const Rgbi &amp; eu::core::Palette::get_random_color</definition>
         <argsstring>(Random *r) const</argsstring>
         <name>get_random_color</name>
         <param>
-          <type><ref refid="structeu_1_1core_1_1Random" kindref="compound">Random</ref> *</type>
+          <type><ref refid="structeu_1_1Random" kindref="compound">Random</ref> *</type>
           <declname>r</declname>
         </param>
         <briefdescription>
@@ -82,10 +82,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/palette.h" line="34" column="9" bodyfile="libs/core/src/core/palette.cc" bodystart="25" bodyend="28"/>
+        <location file="libs/core/src/core/palette.h" line="38" column="9" bodyfile="libs/core/src/core/palette.cc" bodystart="25" bodyend="28"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1Palette_1a2b162e4908c8587dd027d859b57ef169" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type>const <ref refid="structeu_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref> &amp;</type>
+        <type>const <ref refid="structeu_1_1Rgbi" kindref="compound">Rgbi</ref> &amp;</type>
         <definition>const Rgbi &amp; eu::core::Palette::get_safe_index</definition>
         <argsstring>(unsigned int i) const</argsstring>
         <name>get_safe_index</name>
@@ -112,15 +112,15 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/palette.h" line="42" column="9" bodyfile="libs/core/src/core/palette.cc" bodystart="32" bodyend="35"/>
+        <location file="libs/core/src/core/palette.h" line="46" column="9" bodyfile="libs/core/src/core/palette.cc" bodystart="32" bodyend="35"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1Palette_1ac0265b153b0217a89790713af8b465d4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type>const <ref refid="structeu_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref> &amp;</type>
+        <type>const <ref refid="structeu_1_1Rgbi" kindref="compound">Rgbi</ref> &amp;</type>
         <definition>const Rgbi &amp; eu::core::Palette::get_closest_color</definition>
         <argsstring>(const Rgbi &amp;c) const</argsstring>
         <name>get_closest_color</name>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1Rgbi" kindref="compound">Rgbi</ref> &amp;</type>
           <declname>c</declname>
         </param>
         <briefdescription>
@@ -129,7 +129,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/palette.h" line="45" column="9" bodyfile="libs/core/src/core/palette.cc" bodystart="39" bodyend="42"/>
+        <location file="libs/core/src/core/palette.h" line="49" column="9" bodyfile="libs/core/src/core/palette.cc" bodystart="39" bodyend="42"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1Palette_1a9b5537b713df1102f2cb10f4db48f2cc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -137,7 +137,7 @@
         <argsstring>(const Rgbi &amp;c) const</argsstring>
         <name>get_index_closest</name>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1Rgbi" kindref="compound">Rgbi</ref> &amp;</type>
           <declname>c</declname>
         </param>
         <briefdescription>
@@ -146,14 +146,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/palette.h" line="48" column="9" bodyfile="libs/core/src/core/palette.cc" bodystart="46" bodyend="64"/>
+        <location file="libs/core/src/core/palette.h" line="52" column="9" bodyfile="libs/core/src/core/palette.cc" bodystart="46" bodyend="64"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/palette.h" line="14" column="5" bodyfile="libs/core/src/core/palette.h" bodystart="15" bodyend="54"/>
+    <location file="libs/core/src/core/palette.h" line="18" column="5" bodyfile="libs/core/src/core/palette.h" bodystart="19" bodyend="58"/>
     <listofallmembers>
       <member refid="structeu_1_1core_1_1Palette_1a25a64986cda1765f45a6ef0bdcc979da" prot="public" virt="non-virtual"><scope>eu::core::Palette</scope><name>colors</name></member>
       <member refid="structeu_1_1core_1_1Palette_1ac0265b153b0217a89790713af8b465d4" prot="public" virt="non-virtual"><scope>eu::core::Palette</scope><name>get_closest_color</name></member>

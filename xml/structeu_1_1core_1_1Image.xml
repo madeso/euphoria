@@ -170,7 +170,7 @@
           <declname>y</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1Rgbai" kindref="compound">Rgbai</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1Rgbai" kindref="compound">Rgbai</ref> &amp;</type>
           <declname>color</declname>
         </param>
         <briefdescription>
@@ -307,7 +307,7 @@
         <location file="libs/core/src/core/image.h" line="107" column="14" bodyfile="libs/core/src/core/image.h" bodystart="107" bodyend="116"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1Image_1a7c110626f09155bdc8b9d0c496a88bf8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1core_1_1Rgbai" kindref="compound">Rgbai</ref></type>
+        <type><ref refid="structeu_1_1Rgbai" kindref="compound">Rgbai</ref></type>
         <definition>Rgbai eu::core::Image::get_pixel</definition>
         <argsstring>(int x, int y) const</argsstring>
         <name>get_pixel</name>
@@ -384,7 +384,7 @@
         <location file="libs/core/src/core/image.h" line="122" column="15" bodyfile="libs/core/src/core/image.cc" bodystart="161" bodyend="164"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1Image_1a1ede22b67cddbe2c0714935bb4191578" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1core_1_1Recti" kindref="compound">Recti</ref></type>
+        <type><ref refid="structeu_1_1Recti" kindref="compound">Recti</ref></type>
         <definition>Recti eu::core::Image::get_indices</definition>
         <argsstring>() const</argsstring>
         <name>get_indices</name>

@@ -5,7 +5,7 @@
     <includes refid="camera3_8h" local="no">camera3.h</includes>
       <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structeu_1_1core_1_1CompiledCamera3_1ae4f301d02721c3e4ded818e34f7e514d" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1core_1_1mat4f" kindref="compound">mat4f</ref></type>
+        <type><ref refid="structeu_1_1mat4f" kindref="compound">mat4f</ref></type>
         <definition>mat4f eu::core::CompiledCamera3::view</definition>
         <argsstring></argsstring>
         <name>view</name>
@@ -18,7 +18,7 @@
         <location file="libs/core/src/core/camera3.h" line="15" column="15" bodyfile="libs/core/src/core/camera3.h" bodystart="15" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1CompiledCamera3_1a7c2c636eb9bc573c35684ca9990eef6d" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1core_1_1mat4f" kindref="compound">mat4f</ref></type>
+        <type><ref refid="structeu_1_1mat4f" kindref="compound">mat4f</ref></type>
         <definition>mat4f eu::core::CompiledCamera3::projection</definition>
         <argsstring></argsstring>
         <name>projection</name>
@@ -31,7 +31,7 @@
         <location file="libs/core/src/core/camera3.h" line="16" column="15" bodyfile="libs/core/src/core/camera3.h" bodystart="16" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1CompiledCamera3_1ae8e19d6489aed79477e0e8c3592ddfc3" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1core_1_1mat4f" kindref="compound">mat4f</ref></type>
+        <type><ref refid="structeu_1_1mat4f" kindref="compound">mat4f</ref></type>
         <definition>mat4f eu::core::CompiledCamera3::combined</definition>
         <argsstring></argsstring>
         <name>combined</name>
@@ -44,7 +44,7 @@
         <location file="libs/core/src/core/camera3.h" line="17" column="15" bodyfile="libs/core/src/core/camera3.h" bodystart="17" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1CompiledCamera3_1a41a8ebedd19b03361be3fb0079161acb" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1core_1_1mat4f" kindref="compound">mat4f</ref></type>
+        <type><ref refid="structeu_1_1mat4f" kindref="compound">mat4f</ref></type>
         <definition>mat4f eu::core::CompiledCamera3::combined_inverted</definition>
         <argsstring></argsstring>
         <name>combined_inverted</name>
@@ -64,11 +64,11 @@
         <argsstring>(const mat4f &amp;v, const mat4f &amp;p)</argsstring>
         <name>CompiledCamera3</name>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1mat4f" kindref="compound">mat4f</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1mat4f" kindref="compound">mat4f</ref> &amp;</type>
           <declname>v</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1mat4f" kindref="compound">mat4f</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1mat4f" kindref="compound">mat4f</ref> &amp;</type>
           <declname>p</declname>
         </param>
         <briefdescription>
@@ -80,12 +80,12 @@
         <location file="libs/core/src/core/camera3.h" line="20" column="9" bodyfile="libs/core/src/core/camera3.cc" bodystart="7" bodyend="13"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1CompiledCamera3_1ac214f6ed304b699c2f26bbbda1d40010" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
+        <type><ref refid="structeu_1_1vec3f" kindref="compound">vec3f</ref></type>
         <definition>vec3f eu::core::CompiledCamera3::from_world_to_clip</definition>
         <argsstring>(const vec3f &amp;in_world) const</argsstring>
         <name>from_world_to_clip</name>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
           <declname>in_world</declname>
         </param>
         <briefdescription>
@@ -97,12 +97,12 @@
         <location file="libs/core/src/core/camera3.h" line="22" column="16" bodyfile="libs/core/src/core/camera3.cc" bodystart="16" bodyend="22"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1CompiledCamera3_1aa72a9b982569468240dc53c9169cc970" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
+        <type><ref refid="structeu_1_1vec3f" kindref="compound">vec3f</ref></type>
         <definition>vec3f eu::core::CompiledCamera3::from_clip_to_world</definition>
         <argsstring>(const vec3f &amp;in_clip) const</argsstring>
         <name>from_clip_to_world</name>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
           <declname>in_clip</declname>
         </param>
         <briefdescription>
@@ -114,12 +114,12 @@
         <location file="libs/core/src/core/camera3.h" line="23" column="16" bodyfile="libs/core/src/core/camera3.cc" bodystart="25" bodyend="31"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1CompiledCamera3_1a6a0604cef2a96d78b89c508340f3a85d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1core_1_1Ray3f" kindref="compound">Ray3f</ref></type>
+        <type><ref refid="structeu_1_1Ray3f" kindref="compound">Ray3f</ref></type>
         <definition>Ray3f eu::core::CompiledCamera3::from_clip_to_world_ray</definition>
         <argsstring>(const vec2f &amp;p) const</argsstring>
         <name>from_clip_to_world_ray</name>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
           <declname>p</declname>
         </param>
         <briefdescription>
@@ -137,8 +137,8 @@
     </detaileddescription>
     <collaborationgraph>
       <node id="2">
-        <label>eu::core::mat4f</label>
-        <link refid="structeu_1_1core_1_1mat4f"/>
+        <label>eu::mat4f</label>
+        <link refid="structeu_1_1mat4f"/>
       </node>
       <node id="1">
         <label>eu::core::CompiledCamera3</label>

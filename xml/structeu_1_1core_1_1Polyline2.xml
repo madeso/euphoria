@@ -5,7 +5,7 @@
     <includes refid="polybezier_8h" local="no">polybezier.h</includes>
       <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structeu_1_1core_1_1Polyline2_1a5b0d1ec35a853e2f41d9306f4bffad70" prot="public" static="no" mutable="no">
-        <type>std::vector&lt; <ref refid="structeu_1_1core_1_1vec2f" kindref="compound">vec2f</ref> &gt;</type>
+        <type>std::vector&lt; <ref refid="structeu_1_1vec2f" kindref="compound">vec2f</ref> &gt;</type>
         <definition>std::vector&lt;vec2f&gt; eu::core::Polyline2::points</definition>
         <argsstring></argsstring>
         <name>points</name>

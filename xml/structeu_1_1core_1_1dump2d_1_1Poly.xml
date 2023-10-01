@@ -5,11 +5,11 @@
     <includes refid="dump_8h" local="no">dump.h</includes>
       <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structeu_1_1core_1_1dump2d_1_1Poly_1a722876ff1c32426abeea99c0fa15190e" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref></type>
+        <type><ref refid="structeu_1_1Rgbi" kindref="compound">Rgbi</ref></type>
         <definition>Rgbi eu::core::dump2d::Poly::stroke_color</definition>
         <argsstring></argsstring>
         <name>stroke_color</name>
-        <initializer>= <ref refid="namespaceeu_1_1core_1acc82ad41a2d08ca1285b4c68238fa544a1ffd9e753c8054cc61456ac7fac1ac89" kindref="member">NamedColor::black</ref></initializer>
+        <initializer>= <ref refid="namespaceeu_1a63a55e8bfd2f95d74e0007d5200f7e58a1ffd9e753c8054cc61456ac7fac1ac89" kindref="member">NamedColor::black</ref></initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -19,7 +19,7 @@
         <location file="libs/core/src/core/dump.h" line="29" column="14" bodyfile="libs/core/src/core/dump.h" bodystart="29" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1dump2d_1_1Poly_1a328774a250dc0d30ebb33336e2d5bc78" prot="public" static="no" mutable="no">
-        <type>std::optional&lt; <ref refid="structeu_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref> &gt;</type>
+        <type>std::optional&lt; <ref refid="structeu_1_1Rgbi" kindref="compound">Rgbi</ref> &gt;</type>
         <definition>std::optional&lt;Rgbi&gt; eu::core::dump2d::Poly::fill_color</definition>
         <argsstring></argsstring>
         <name>fill_color</name>
@@ -73,7 +73,7 @@
         <location file="libs/core/src/core/dump.h" line="34" column="21" bodyfile="libs/core/src/core/dump.h" bodystart="34" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1dump2d_1_1Poly_1a36202222045266e0eec71fd1494df181" prot="public" static="no" mutable="no">
-        <type>std::vector&lt; <ref refid="structeu_1_1core_1_1vec2f" kindref="compound">vec2f</ref> &gt;</type>
+        <type>std::vector&lt; <ref refid="structeu_1_1vec2f" kindref="compound">vec2f</ref> &gt;</type>
         <definition>std::vector&lt;vec2f&gt; eu::core::dump2d::Poly::points</definition>
         <argsstring></argsstring>
         <name>points</name>
@@ -123,7 +123,7 @@
         <argsstring>(const Rgbi &amp;fill_color)</argsstring>
         <name>fill</name>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1Rgbi" kindref="compound">Rgbi</ref> &amp;</type>
           <declname>fill_color</declname>
         </param>
         <briefdescription>
@@ -141,8 +141,8 @@
     </detaileddescription>
     <collaborationgraph>
       <node id="2">
-        <label>eu::core::Rgbi</label>
-        <link refid="structeu_1_1core_1_1Rgbi"/>
+        <label>eu::Rgbi</label>
+        <link refid="structeu_1_1Rgbi"/>
       </node>
       <node id="1">
         <label>eu::core::dump2d::Poly</label>

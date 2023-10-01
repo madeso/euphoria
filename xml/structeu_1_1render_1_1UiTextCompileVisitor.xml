@@ -44,19 +44,19 @@
         </inbodydescription>
         <location file="libs/render/src/render/font.cc" line="376" column="14" bodyfile="libs/render/src/render/font.cc" bodystart="376" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeu_1_1render_1_1UiTextCompileVisitor_1a0af498d34a7bbc7b40a11225d4beacbc" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1core_1_1vec2f" kindref="compound">core::vec2f</ref></type>
-        <definition>core::vec2f eu::render::UiTextCompileVisitor::position</definition>
+      <memberdef kind="variable" id="structeu_1_1render_1_1UiTextCompileVisitor_1a09473634042107ead90969681dc47678" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1vec2f" kindref="compound">vec2f</ref></type>
+        <definition>vec2f eu::render::UiTextCompileVisitor::position</definition>
         <argsstring></argsstring>
         <name>position</name>
-        <initializer>= <ref refid="structeu_1_1core_1_1vec2f" kindref="compound">core::vec2f</ref>{0, 0}</initializer>
+        <initializer>= <ref refid="structeu_1_1vec2f" kindref="compound">vec2f</ref>{0, 0}</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.cc" line="377" column="21" bodyfile="libs/render/src/render/font.cc" bodystart="377" bodyend="-1"/>
+        <location file="libs/render/src/render/font.cc" line="377" column="15" bodyfile="libs/render/src/render/font.cc" bodystart="377" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1UiTextCompileVisitor_1abf6c60b9252e1c6539613b160e33b55b" prot="public" static="no" mutable="no">
         <type>int</type>
@@ -211,7 +211,7 @@
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="4">
+      <node id="5">
         <label>eu::render::DrawableFont</label>
         <link refid="structeu_1_1render_1_1DrawableFont"/>
       </node>
@@ -225,22 +225,22 @@
         <childnode refid="2" relation="public-inheritance">
         </childnode>
         <childnode refid="3" relation="usage">
-          <edgelabel>list</edgelabel>
-        </childnode>
-        <childnode refid="4" relation="usage">
-          <edgelabel>font</edgelabel>
-        </childnode>
-        <childnode refid="5" relation="usage">
           <edgelabel>position</edgelabel>
         </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>list</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>font</edgelabel>
+        </childnode>
       </node>
-      <node id="5">
-        <label>eu::core::vec2f</label>
-        <link refid="structeu_1_1core_1_1vec2f"/>
-      </node>
-      <node id="3">
+      <node id="4">
         <label>eu::render::ListOfTextDrawCommands</label>
         <link refid="structeu_1_1render_1_1ListOfTextDrawCommands"/>
+      </node>
+      <node id="3">
+        <label>eu::vec2f</label>
+        <link refid="structeu_1_1vec2f"/>
       </node>
     </collaborationgraph>
     <location file="libs/render/src/render/font.cc" line="372" column="5" bodyfile="libs/render/src/render/font.cc" bodystart="373" bodyend="485"/>
@@ -256,7 +256,7 @@
       <member refid="structeu_1_1render_1_1UiTextCompileVisitor_1abc98d828b96e91f6989010f34dcfb691" prot="public" virt="virtual"><scope>eu::render::UiTextCompileVisitor</scope><name>on_text</name></member>
       <member refid="structeu_1_1core_1_1textparser_1_1Visitor_1a5acf87d8aecb4456278d2a8cf958baf3" prot="public" virt="non-virtual"><scope>eu::render::UiTextCompileVisitor</scope><name>operator=</name></member>
       <member refid="structeu_1_1core_1_1textparser_1_1Visitor_1a4b8edd9d97bd2ce8bc01aaaffac75b2f" prot="public" virt="non-virtual"><scope>eu::render::UiTextCompileVisitor</scope><name>operator=</name></member>
-      <member refid="structeu_1_1render_1_1UiTextCompileVisitor_1a0af498d34a7bbc7b40a11225d4beacbc" prot="public" virt="non-virtual"><scope>eu::render::UiTextCompileVisitor</scope><name>position</name></member>
+      <member refid="structeu_1_1render_1_1UiTextCompileVisitor_1a09473634042107ead90969681dc47678" prot="public" virt="non-virtual"><scope>eu::render::UiTextCompileVisitor</scope><name>position</name></member>
       <member refid="structeu_1_1render_1_1UiTextCompileVisitor_1a05aa2022d0f9c968c4a689e60f89b157" prot="public" virt="non-virtual"><scope>eu::render::UiTextCompileVisitor</scope><name>size</name></member>
       <member refid="structeu_1_1render_1_1UiTextCompileVisitor_1a665a7816ae59e6d584e60651f9ce147c" prot="public" virt="non-virtual"><scope>eu::render::UiTextCompileVisitor</scope><name>UiTextCompileVisitor</name></member>
       <member refid="structeu_1_1core_1_1textparser_1_1Visitor_1a3d4b74f12f18c14927559a0f1cb1020e" prot="public" virt="non-virtual"><scope>eu::render::UiTextCompileVisitor</scope><name>Visitor</name></member>

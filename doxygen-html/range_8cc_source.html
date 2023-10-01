@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Euphoria: libs/core/src/core/range.cc Source File</title>
+<title>Euphoria: libs/base/src/base/range.cc Source File</title>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <link href="style.css" rel="stylesheet" type="text/css" />
@@ -46,7 +46,7 @@
   </div>
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="dir_6f77a39b07c019ccd7492ea87272f732.html">core</a></li><li class="navelem"><a class="el" href="dir_232ab8dc75117fda122ab855789b1b2c.html">src</a></li><li class="navelem"><a class="el" href="dir_415d9b35eca6c445d7f5977763a796bd.html">core</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="dir_06498c378442102d76a793fbea770c00.html">base</a></li><li class="navelem"><a class="el" href="dir_1434489f875b8806781a8ab0a150cad2.html">src</a></li><li class="navelem"><a class="el" href="dir_9335635e0e9dc5833ab0cd315fbf7edd.html">base</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -54,36 +54,36 @@
 <div class="title">range.cc</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="range_8cc.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="range_8h.html">core/range.h</a>&quot;</span></div>
+<a href="range_8cc.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="range_8h.html">base/range.h</a>&quot;</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceeu_1_1core.html">eu::core</a></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceeu.html">eu</a></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;{</div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;    <span class="keywordtype">float</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="namespaceeu_1_1core.html#a746a16b846bb8d33167779122652a056">    6</a></span>&#160;    <a class="code" href="namespaceeu_1_1core.html#a746a16b846bb8d33167779122652a056">from_01f</a>(<span class="keywordtype">float</span> lower_bound, <span class="keywordtype">float</span> upper_bound, <span class="keywordtype">float</span> value)</div>
+<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="namespaceeu.html#a1d52a91adaa565513eb90b8d2dce2df5">    6</a></span>&#160;    <a class="code" href="namespaceeu.html#a1d52a91adaa565513eb90b8d2dce2df5">from_01f</a>(<span class="keywordtype">float</span> lower_bound, <span class="keywordtype">float</span> upper_bound, <span class="keywordtype">float</span> value)</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    {</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;        <span class="keywordflow">return</span> value * (upper_bound - lower_bound) + lower_bound;</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    }</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keyword">template</span> &lt;&gt;</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keywordtype">float</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="namespaceeu_1_1core.html#a6a1c2ba5793159a28db025836c9b698c">   13</a></span>&#160;    <a class="code" href="namespaceeu_1_1core.html#a6a1c2ba5793159a28db025836c9b698c">from_01</a>(<span class="keyword">const</span> <a class="code" href="structeu_1_1core_1_1Range.html">Range&lt;float&gt;</a>&amp; range, <span class="keywordtype">float</span> value)</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="namespaceeu.html#a9a3978efa912b6fa277d7a04d86343b0">   13</a></span>&#160;    <a class="code" href="namespaceeu.html#a9a3978efa912b6fa277d7a04d86343b0">from_01</a>(<span class="keyword">const</span> <a class="code" href="structeu_1_1Range.html">Range&lt;float&gt;</a>&amp; range, <span class="keywordtype">float</span> value)</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    {</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespaceeu_1_1core.html#a746a16b846bb8d33167779122652a056">from_01f</a></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespaceeu.html#a1d52a91adaa565513eb90b8d2dce2df5">from_01f</a></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        (</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;            range.<a class="code" href="structeu_1_1core_1_1Range.html#a0534fe06448fce36620d6370cb0c6a79">lower_bound</a>,</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;            range.<a class="code" href="structeu_1_1core_1_1Range.html#a5a5a69c31b8d7d216489acb2d9bc92d6">upper_bound</a>,</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;            range.<a class="code" href="structeu_1_1Range.html#a3e6212775d1328d977dd909a401fb607">lower_bound</a>,</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;            range.<a class="code" href="structeu_1_1Range.html#a2f652a8e29760ba91755fbdca65f498b">upper_bound</a>,</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;            value</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        );</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    }</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;}</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="ttc" id="anamespaceeu_1_1core_html"><div class="ttname"><a href="namespaceeu_1_1core.html">eu::core</a></div><div class="ttdef"><b>Definition:</b> <a href="aabb_8cc_source.html#l00008">aabb.cc:9</a></div></div>
-<div class="ttc" id="anamespaceeu_1_1core_html_a6a1c2ba5793159a28db025836c9b698c"><div class="ttname"><a href="namespaceeu_1_1core.html#a6a1c2ba5793159a28db025836c9b698c">eu::core::from_01</a></div><div class="ttdeci">float from_01(const Range&lt; float &gt; &amp;range, float value)</div><div class="ttdef"><b>Definition:</b> <a href="range_8cc_source.html#l00013">range.cc:13</a></div></div>
-<div class="ttc" id="anamespaceeu_1_1core_html_a746a16b846bb8d33167779122652a056"><div class="ttname"><a href="namespaceeu_1_1core.html#a746a16b846bb8d33167779122652a056">eu::core::from_01f</a></div><div class="ttdeci">float from_01f(float lower_bound, float upper_bound, float value)</div><div class="ttdef"><b>Definition:</b> <a href="range_8cc_source.html#l00006">range.cc:6</a></div></div>
+<div class="ttc" id="anamespaceeu_html"><div class="ttname"><a href="namespaceeu.html">eu</a></div><div class="ttdef"><b>Definition:</b> <a href="assert_8h_source.html#l00089">assert.h:90</a></div></div>
+<div class="ttc" id="anamespaceeu_html_a1d52a91adaa565513eb90b8d2dce2df5"><div class="ttname"><a href="namespaceeu.html#a1d52a91adaa565513eb90b8d2dce2df5">eu::from_01f</a></div><div class="ttdeci">float from_01f(float lower_bound, float upper_bound, float value)</div><div class="ttdef"><b>Definition:</b> <a href="range_8cc_source.html#l00006">range.cc:6</a></div></div>
+<div class="ttc" id="anamespaceeu_html_a9a3978efa912b6fa277d7a04d86343b0"><div class="ttname"><a href="namespaceeu.html#a9a3978efa912b6fa277d7a04d86343b0">eu::from_01</a></div><div class="ttdeci">float from_01(const Range&lt; float &gt; &amp;range, float value)</div><div class="ttdef"><b>Definition:</b> <a href="range_8cc_source.html#l00013">range.cc:13</a></div></div>
 <div class="ttc" id="arange_8h_html"><div class="ttname"><a href="range_8h.html">range.h</a></div></div>
-<div class="ttc" id="astructeu_1_1core_1_1Range_html"><div class="ttname"><a href="structeu_1_1core_1_1Range.html">eu::core::Range&lt; float &gt;</a></div></div>
-<div class="ttc" id="astructeu_1_1core_1_1Range_html_a0534fe06448fce36620d6370cb0c6a79"><div class="ttname"><a href="structeu_1_1core_1_1Range.html#a0534fe06448fce36620d6370cb0c6a79">eu::core::Range::lower_bound</a></div><div class="ttdeci">T lower_bound</div><div class="ttdef"><b>Definition:</b> <a href="range_8h_source.html#l00017">range.h:17</a></div></div>
-<div class="ttc" id="astructeu_1_1core_1_1Range_html_a5a5a69c31b8d7d216489acb2d9bc92d6"><div class="ttname"><a href="structeu_1_1core_1_1Range.html#a5a5a69c31b8d7d216489acb2d9bc92d6">eu::core::Range::upper_bound</a></div><div class="ttdeci">T upper_bound</div><div class="ttdef"><b>Definition:</b> <a href="range_8h_source.html#l00018">range.h:18</a></div></div>
+<div class="ttc" id="astructeu_1_1Range_html"><div class="ttname"><a href="structeu_1_1Range.html">eu::Range&lt; float &gt;</a></div></div>
+<div class="ttc" id="astructeu_1_1Range_html_a2f652a8e29760ba91755fbdca65f498b"><div class="ttname"><a href="structeu_1_1Range.html#a2f652a8e29760ba91755fbdca65f498b">eu::Range::upper_bound</a></div><div class="ttdeci">T upper_bound</div><div class="ttdef"><b>Definition:</b> <a href="range_8h_source.html#l00018">range.h:18</a></div></div>
+<div class="ttc" id="astructeu_1_1Range_html_a3e6212775d1328d977dd909a401fb607"><div class="ttname"><a href="structeu_1_1Range.html#a3e6212775d1328d977dd909a401fb607">eu::Range::lower_bound</a></div><div class="ttdeci">T lower_bound</div><div class="ttdef"><b>Definition:</b> <a href="range_8h_source.html#l00017">range.h:17</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.17-->
 <!-- start footer part -->

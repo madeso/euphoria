@@ -63,22 +63,22 @@
         </inbodydescription>
         <location file="libs/render/src/render/actor.h" line="28" column="9" bodyfile="libs/render/src/render/actor.cc" bodystart="15" bodyend="25"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1render_1_1Actor_1a46dd1c189024d198b24c65e1719c6ecc" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+      <memberdef kind="function" id="structeu_1_1render_1_1Actor_1a76f90a6453b976192d91714ef90be562" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
         <definition>void eu::render::Actor::render</definition>
-        <argsstring>(const core::mat4f &amp;projection_matrix, const core::mat4f &amp;view_matrix, const core::vec3f &amp;camera, const Light &amp;light) override</argsstring>
+        <argsstring>(const mat4f &amp;projection_matrix, const mat4f &amp;view_matrix, const vec3f &amp;camera, const Light &amp;light) override</argsstring>
         <name>render</name>
-        <reimplements refid="structeu_1_1render_1_1Instance_1a1c652df1886f046c11df6f351fcdc474">render</reimplements>
+        <reimplements refid="structeu_1_1render_1_1Instance_1a891c1e64bf86aa2a8c8c13efcb65bab6">render</reimplements>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1mat4f" kindref="compound">core::mat4f</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1mat4f" kindref="compound">mat4f</ref> &amp;</type>
           <declname>projection_matrix</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1mat4f" kindref="compound">core::mat4f</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1mat4f" kindref="compound">mat4f</ref> &amp;</type>
           <declname>view_matrix</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1vec3f" kindref="compound">core::vec3f</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
           <declname>camera</declname>
         </param>
         <param>
@@ -111,23 +111,19 @@
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="3">
-        <label>eu::core::quatf</label>
-        <link refid="structeu_1_1core_1_1quatf"/>
-      </node>
       <node id="2">
         <label>eu::render::Instance</label>
         <link refid="structeu_1_1render_1_1Instance"/>
         <childnode refid="3" relation="usage">
-          <edgelabel>rotation</edgelabel>
+          <edgelabel>position</edgelabel>
         </childnode>
         <childnode refid="4" relation="usage">
-          <edgelabel>position</edgelabel>
+          <edgelabel>rotation</edgelabel>
         </childnode>
       </node>
       <node id="4">
-        <label>eu::core::vec3f</label>
-        <link refid="structeu_1_1core_1_1vec3f"/>
+        <label>eu::quatf</label>
+        <link refid="structeu_1_1quatf"/>
       </node>
       <node id="1">
         <label>eu::render::Actor</label>
@@ -135,11 +131,15 @@
         <childnode refid="2" relation="public-inheritance">
         </childnode>
       </node>
+      <node id="3">
+        <label>eu::vec3f</label>
+        <link refid="structeu_1_1vec3f"/>
+      </node>
     </collaborationgraph>
     <location file="libs/render/src/render/actor.h" line="20" column="5" bodyfile="libs/render/src/render/actor.h" bodystart="21" bodyend="38"/>
     <listofallmembers>
       <member refid="structeu_1_1render_1_1Actor_1a6b269c2ea233583ed7e962e6bf91fb37" prot="public" virt="non-virtual"><scope>eu::render::Actor</scope><name>Actor</name></member>
-      <member refid="structeu_1_1render_1_1Instance_1a3aff8f0109d0366c1fa6e3d4f21cfba2" prot="public" virt="non-virtual"><scope>eu::render::Actor</scope><name>calc_model_matrix</name></member>
+      <member refid="structeu_1_1render_1_1Instance_1ad7ec33df0b08c19df1d8362c1033af11" prot="public" virt="non-virtual"><scope>eu::render::Actor</scope><name>calc_model_matrix</name></member>
       <member refid="structeu_1_1render_1_1Actor_1aba26551a64b241405989c417bbf64370" prot="public" virt="non-virtual"><scope>eu::render::Actor</scope><name>create_override</name></member>
       <member refid="structeu_1_1render_1_1Instance_1a7d4b8c1d8a999492bbd8ce7bcd015e7b" prot="public" virt="non-virtual"><scope>eu::render::Actor</scope><name>Instance</name></member>
       <member refid="structeu_1_1render_1_1Instance_1a157fd9a8006146da8bd41ef08eff9ac4" prot="public" virt="non-virtual"><scope>eu::render::Actor</scope><name>Instance</name></member>
@@ -148,10 +148,10 @@
       <member refid="structeu_1_1render_1_1Instance_1afa61c41b025df6775f483aaa4a77e1b4" prot="public" virt="non-virtual"><scope>eu::render::Actor</scope><name>operator=</name></member>
       <member refid="structeu_1_1render_1_1Instance_1a27ca8b1f49de66f681555b8a69c372a1" prot="public" virt="non-virtual"><scope>eu::render::Actor</scope><name>operator=</name></member>
       <member refid="structeu_1_1render_1_1Actor_1ab69704a7704955b740602648a039f37c" prot="public" virt="non-virtual"><scope>eu::render::Actor</scope><name>overriden_materials</name></member>
-      <member refid="structeu_1_1render_1_1Instance_1ac8c1a3943a832e735cc230a0a0ec1105" prot="public" virt="non-virtual"><scope>eu::render::Actor</scope><name>position</name></member>
+      <member refid="structeu_1_1render_1_1Instance_1a39d1c3a185fb4e7e187b0793419c812a" prot="public" virt="non-virtual"><scope>eu::render::Actor</scope><name>position</name></member>
       <member refid="structeu_1_1render_1_1Instance_1ad68aa24c7baaf6b1ea0009105198860a" prot="public" virt="non-virtual"><scope>eu::render::Actor</scope><name>remove_this</name></member>
-      <member refid="structeu_1_1render_1_1Actor_1a46dd1c189024d198b24c65e1719c6ecc" prot="public" virt="virtual"><scope>eu::render::Actor</scope><name>render</name></member>
-      <member refid="structeu_1_1render_1_1Instance_1ab7038a64df17d999694f846235cbc21a" prot="public" virt="non-virtual"><scope>eu::render::Actor</scope><name>rotation</name></member>
+      <member refid="structeu_1_1render_1_1Actor_1a76f90a6453b976192d91714ef90be562" prot="public" virt="virtual"><scope>eu::render::Actor</scope><name>render</name></member>
+      <member refid="structeu_1_1render_1_1Instance_1a90af400e2fa1cdc64fe42752a504bdb8" prot="public" virt="non-virtual"><scope>eu::render::Actor</scope><name>rotation</name></member>
       <member refid="structeu_1_1render_1_1Instance_1a10320da7995e89a0ed412e432dcc1f75" prot="public" virt="virtual"><scope>eu::render::Actor</scope><name>~Instance</name></member>
     </listofallmembers>
   </compounddef>

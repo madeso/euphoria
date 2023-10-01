@@ -110,7 +110,11 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-      <node id="6">
+      <node id="3">
+        <label>eu::Rgb</label>
+        <link refid="structeu_1_1Rgb"/>
+      </node>
+      <node id="5">
         <label>eu::render::LightAttenuation</label>
         <link refid="structeu_1_1render_1_1LightAttenuation"/>
       </node>
@@ -123,26 +127,24 @@
           <edgelabel>specular</edgelabel>
         </childnode>
         <childnode refid="4" relation="usage">
-          <edgelabel>direction</edgelabel>
-        </childnode>
-        <childnode refid="6" relation="usage">
-          <edgelabel>attenuation</edgelabel>
-        </childnode>
-        <childnode refid="7" relation="usage">
           <edgelabel>cutoff_angle_inner</edgelabel>
           <edgelabel>cutoff_angle_outer</edgelabel>
         </childnode>
         <childnode refid="5" relation="usage">
+          <edgelabel>attenuation</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
           <edgelabel>position</edgelabel>
         </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>direction</edgelabel>
+        </childnode>
       </node>
-      <node id="5">
-        <label>eu::core::vec3f</label>
-        <link refid="structeu_1_1core_1_1vec3f"/>
-      </node>
-      <node id="3">
-        <label>eu::core::Rgb</label>
-        <link refid="structeu_1_1core_1_1Rgb"/>
+      <node id="7">
+        <label>eu::unit3f</label>
+        <link refid="structeu_1_1unit3f"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
       </node>
       <node id="1">
         <label>eu::render::World</label>
@@ -151,15 +153,13 @@
           <edgelabel>light</edgelabel>
         </childnode>
       </node>
-      <node id="7">
-        <label>eu::core::Angle</label>
-        <link refid="structeu_1_1core_1_1Angle"/>
-      </node>
       <node id="4">
-        <label>eu::core::unit3f</label>
-        <link refid="structeu_1_1core_1_1unit3f"/>
-        <childnode refid="5" relation="public-inheritance">
-        </childnode>
+        <label>eu::Angle</label>
+        <link refid="structeu_1_1Angle"/>
+      </node>
+      <node id="6">
+        <label>eu::vec3f</label>
+        <link refid="structeu_1_1vec3f"/>
       </node>
     </collaborationgraph>
     <location file="libs/render/src/render/world.h" line="29" column="5" bodyfile="libs/render/src/render/world.h" bodystart="30" bodyend="51"/>

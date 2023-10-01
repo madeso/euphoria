@@ -5,7 +5,7 @@
     <includes refid="lines_8h" local="no">lines.h</includes>
       <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structeu_1_1core_1_1LinePoint_1aee012150cd66be2017c4967425175eb2" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
+        <type><ref refid="structeu_1_1vec3f" kindref="compound">vec3f</ref></type>
         <definition>vec3f eu::core::LinePoint::point</definition>
         <argsstring></argsstring>
         <name>point</name>
@@ -18,7 +18,7 @@
         <location file="libs/core/src/core/lines.h" line="13" column="15" bodyfile="libs/core/src/core/lines.h" bodystart="13" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1LinePoint_1af5c8f596b6a875e1a35438a534b50fd8" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1core_1_1Rgb" kindref="compound">Rgb</ref></type>
+        <type><ref refid="structeu_1_1Rgb" kindref="compound">Rgb</ref></type>
         <definition>Rgb eu::core::LinePoint::color</definition>
         <argsstring></argsstring>
         <name>color</name>
@@ -38,11 +38,11 @@
         <argsstring>(const vec3f &amp;p, const Rgb &amp;c)</argsstring>
         <name>LinePoint</name>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
           <declname>p</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1Rgb" kindref="compound">Rgb</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1Rgb" kindref="compound">Rgb</ref> &amp;</type>
           <declname>c</declname>
         </param>
         <briefdescription>
@@ -59,6 +59,10 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
+      <node id="2">
+        <label>eu::Rgb</label>
+        <link refid="structeu_1_1Rgb"/>
+      </node>
       <node id="1">
         <label>eu::core::LinePoint</label>
         <link refid="structeu_1_1core_1_1LinePoint"/>
@@ -70,12 +74,8 @@
         </childnode>
       </node>
       <node id="3">
-        <label>eu::core::vec3f</label>
-        <link refid="structeu_1_1core_1_1vec3f"/>
-      </node>
-      <node id="2">
-        <label>eu::core::Rgb</label>
-        <link refid="structeu_1_1core_1_1Rgb"/>
+        <label>eu::vec3f</label>
+        <link refid="structeu_1_1vec3f"/>
       </node>
     </collaborationgraph>
     <location file="libs/core/src/core/lines.h" line="11" column="5" bodyfile="libs/core/src/core/lines.h" bodystart="12" bodyend="17"/>

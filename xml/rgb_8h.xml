@@ -3,10 +3,11 @@
   <compounddef id="rgb_8h" kind="file" language="C++">
     <compoundname>rgb.h</compoundname>
     <includes refid="cint_8h" local="yes">base/cint.h</includes>
-    <includes refid="colors_8h" local="yes">core/colors.h</includes>
-    <includes refid="angle_8h" local="yes">core/angle.h</includes>
-    <includes refid="interpolate_8default_8h" local="yes">core/interpolate.default.h</includes>
-    <includes refid="default__parse_8h" local="yes">core/default_parse.h</includes>
+    <includes refid="colors_8h" local="yes">base/colors.h</includes>
+    <includes refid="angle_8h" local="yes">base/angle.h</includes>
+    <includes refid="default__interpolate_8h" local="yes">base/default_interpolate.h</includes>
+    <includes refid="default__parse_8h" local="yes">base/default_parse.h</includes>
+    <includedby refid="rgb_8cc" local="yes">libs/base/src/base/rgb.cc</includedby>
     <includedby refid="collage_8cc" local="yes">libs/core/src/core/collage.cc</includedby>
     <includedby refid="dump_8h" local="yes">libs/core/src/core/dump.h</includedby>
     <includedby refid="hashgen_8h" local="yes">libs/core/src/core/hashgen.h</includedby>
@@ -23,7 +24,6 @@
     <includedby refid="palette_8h" local="yes">libs/core/src/core/palette.h</includedby>
     <includedby refid="palette__extract_8h" local="yes">libs/core/src/core/palette_extract.h</includedby>
     <includedby refid="raytracer_8h" local="yes">libs/core/src/core/raytracer.h</includedby>
-    <includedby refid="rgb_8cc" local="yes">libs/core/src/core/rgb.cc</includedby>
     <includedby refid="rgb__blend_8h" local="yes">libs/core/src/core/rgb_blend.h</includedby>
     <includedby refid="table__bool_8h" local="yes">libs/core/src/core/table_bool.h</includedby>
     <includedby refid="button_8h" local="yes">libs/gui/src/gui/button.h</includedby>
@@ -41,6 +41,10 @@
     <includedby refid="app_8h" local="yes">libs/window/src/window/app.h</includedby>
     <includedby refid="imgui__extra_8cc" local="yes">libs/window/src/window/imgui_extra.cc</includedby>
     <incdepgraph>
+      <node id="10">
+        <label>base/default_interpolate.h</label>
+        <link refid="default__interpolate_8h"/>
+      </node>
       <node id="20">
         <label>queue</label>
       </node>
@@ -49,10 +53,6 @@
         <link refid="stringutils_8h"/>
         <childnode refid="13" relation="include">
         </childnode>
-      </node>
-      <node id="6">
-        <label>core/colors.h</label>
-        <link refid="colors_8h"/>
       </node>
       <node id="4">
         <label>cstdint</label>
@@ -63,8 +63,11 @@
         <childnode refid="4" relation="include">
         </childnode>
       </node>
+      <node id="16">
+        <label>string</label>
+      </node>
       <node id="1">
-        <label>libs/core/src/core/rgb.h</label>
+        <label>libs/base/src/base/rgb.h</label>
         <link refid="rgb_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
@@ -77,11 +80,24 @@
         <childnode refid="11" relation="include">
         </childnode>
       </node>
-      <node id="16">
-        <label>string</label>
-      </node>
       <node id="13">
         <label>map</label>
+      </node>
+      <node id="24">
+        <label>base/string_io.h</label>
+        <link refid="string__io_8h"/>
+        <childnode refid="25" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>base/angle.h</label>
+        <link refid="angle_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
       </node>
       <node id="15">
         <label>assert/assert.h</label>
@@ -91,10 +107,12 @@
         <childnode refid="17" relation="include">
         </childnode>
       </node>
-      <node id="27">
-        <label>core/numparse.h</label>
-        <link refid="numparse_8h"/>
-        <childnode refid="26" relation="include">
+      <node id="9">
+        <label>base/numeric.h</label>
+        <link refid="numeric_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
         </childnode>
       </node>
       <node id="25">
@@ -103,14 +121,18 @@
         <childnode refid="26" relation="include">
         </childnode>
       </node>
+      <node id="11">
+        <label>base/default_parse.h</label>
+        <link refid="default__parse_8h"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+      </node>
       <node id="26">
         <label>optional</label>
-      </node>
-      <node id="9">
-        <label>core/numeric.h</label>
-        <link refid="numeric_8h"/>
-        <childnode refid="10" relation="include">
-        </childnode>
       </node>
       <node id="23">
         <label>magic_enum/magic_enum.hpp</label>
@@ -128,24 +150,8 @@
         <childnode refid="22" relation="include">
         </childnode>
       </node>
-      <node id="24">
-        <label>core/custom_parser.h</label>
-        <link refid="custom__parser_8h"/>
-        <childnode refid="25" relation="include">
-        </childnode>
-      </node>
-      <node id="8">
-        <label>iostream</label>
-      </node>
-      <node id="5">
-        <label>cstddef</label>
-      </node>
-      <node id="10">
-        <label>core/interpolate.default.h</label>
-        <link refid="interpolate_8default_8h"/>
-      </node>
       <node id="12">
-        <label>core/enumtostring.h</label>
+        <label>base/enumtostring.h</label>
         <link refid="enumtostring_8h"/>
         <childnode refid="13" relation="include">
         </childnode>
@@ -160,19 +166,15 @@
         <childnode refid="23" relation="include">
         </childnode>
       </node>
+      <node id="8">
+        <label>iostream</label>
+      </node>
+      <node id="5">
+        <label>cstddef</label>
+      </node>
       <node id="22">
         <label>base/editdistance.h</label>
         <link refid="editdistance_8h"/>
-      </node>
-      <node id="7">
-        <label>core/angle.h</label>
-        <link refid="angle_8h"/>
-        <childnode refid="8" relation="include">
-        </childnode>
-        <childnode refid="9" relation="include">
-        </childnode>
-        <childnode refid="10" relation="include">
-        </childnode>
       </node>
       <node id="2">
         <label>base/cint.h</label>
@@ -182,14 +184,10 @@
         <childnode refid="5" relation="include">
         </childnode>
       </node>
-      <node id="11">
-        <label>core/default_parse.h</label>
-        <link refid="default__parse_8h"/>
-        <childnode refid="12" relation="include">
-        </childnode>
-        <childnode refid="24" relation="include">
-        </childnode>
-        <childnode refid="27" relation="include">
+      <node id="27">
+        <label>base/numparse.h</label>
+        <link refid="numparse_8h"/>
+        <childnode refid="26" relation="include">
         </childnode>
       </node>
       <node id="14">
@@ -198,121 +196,121 @@
       <node id="21">
         <label>algorithm</label>
       </node>
+      <node id="6">
+        <label>base/colors.h</label>
+        <link refid="colors_8h"/>
+      </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="14">
+      <node id="15">
         <label>libs/core/src/core/image_canvas.cc</label>
         <link refid="image__canvas_8cc"/>
-      </node>
-      <node id="73">
-        <label>libs/core/src/core/rgb.cc</label>
-        <link refid="rgb_8cc"/>
       </node>
       <node id="83">
         <label>libs/window/src/window/engine.cc</label>
         <link refid="engine_8cc"/>
       </node>
-      <node id="60">
+      <node id="61">
         <label>libs/core/src/core/palette_all.cc</label>
         <link refid="palette__all_8cc"/>
       </node>
-      <node id="23">
+      <node id="24">
         <label>libs/core/src/core/loadedfont.h</label>
         <link refid="loadedfont_8h"/>
-        <childnode refid="16" relation="include">
-        </childnode>
         <childnode refid="17" relation="include">
         </childnode>
-        <childnode refid="24" relation="include">
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
         </childnode>
       </node>
-      <node id="13">
+      <node id="14">
         <label>libs/core/src/core/image.cc</label>
         <link refid="image_8cc"/>
       </node>
-      <node id="44">
+      <node id="45">
         <label>libs/core/src/core/image_canvas.h</label>
         <link refid="image__canvas_8h"/>
-        <childnode refid="6" relation="include">
+        <childnode refid="7" relation="include">
         </childnode>
-        <childnode refid="14" relation="include">
+        <childnode refid="15" relation="include">
         </childnode>
       </node>
-      <node id="35">
+      <node id="36">
         <label>libs/render/src/render/compiledmesh.cc</label>
         <link refid="compiledmesh_8cc"/>
       </node>
-      <node id="40">
+      <node id="41">
         <label>libs/render/src/render/sprite.cc</label>
         <link refid="sprite_8cc"/>
       </node>
-      <node id="6">
+      <node id="7">
         <label>libs/core/src/core/hashgen.identicon.cc</label>
         <link refid="hashgen_8identicon_8cc"/>
       </node>
-      <node id="55">
+      <node id="56">
         <label>libs/render/src/render/actor.cc</label>
         <link refid="actor_8cc"/>
       </node>
-      <node id="65">
+      <node id="66">
         <label>libs/core/src/core/palette_matplot.h</label>
         <link refid="palette__matplot_8h"/>
-        <childnode refid="60" relation="include">
+        <childnode refid="61" relation="include">
         </childnode>
-        <childnode refid="66" relation="include">
+        <childnode refid="67" relation="include">
         </childnode>
       </node>
-      <node id="50">
+      <node id="51">
         <label>libs/core/src/core/mesh.h</label>
         <link refid="core_2src_2core_2mesh_8h"/>
-        <childnode refid="51" relation="include">
-        </childnode>
         <childnode refid="52" relation="include">
         </childnode>
         <childnode refid="53" relation="include">
         </childnode>
+        <childnode refid="54" relation="include">
+        </childnode>
       </node>
-      <node id="66">
+      <node id="67">
         <label>libs/core/src/core/palette_matplot.cc</label>
         <link refid="palette__matplot_8cc"/>
       </node>
-      <node id="28">
+      <node id="29">
         <label>libs/render/src/render/fontcache.cc</label>
         <link refid="fontcache_8cc"/>
       </node>
-      <node id="17">
+      <node id="18">
         <label>libs/core/src/core/loadedfont.cc</label>
         <link refid="loadedfont_8cc"/>
       </node>
-      <node id="4">
+      <node id="5">
         <label>libs/core/src/core/dump.cc</label>
         <link refid="dump_8cc"/>
       </node>
-      <node id="39">
+      <node id="40">
         <label>libs/gui/src/gui/root.cc</label>
         <link refid="root_8cc"/>
       </node>
-      <node id="25">
+      <node id="26">
         <label>libs/gui/src/gui/button.cc</label>
         <link refid="button_8cc"/>
       </node>
-      <node id="48">
+      <node id="49">
         <label>libs/core/src/core/lines.cc</label>
         <link refid="lines_8cc"/>
       </node>
-      <node id="2">
+      <node id="3">
         <label>libs/core/src/core/collage.cc</label>
         <link refid="collage_8cc"/>
       </node>
-      <node id="46">
+      <node id="47">
         <label>libs/core/src/core/imagefilters.h</label>
         <link refid="imagefilters_8h"/>
-        <childnode refid="45" relation="include">
+        <childnode refid="46" relation="include">
         </childnode>
-        <childnode refid="22" relation="include">
+        <childnode refid="23" relation="include">
         </childnode>
       </node>
-      <node id="8">
+      <node id="9">
         <label>libs/core/src/core/hashgen.sprator.cc</label>
         <link refid="hashgen_8sprator_8cc"/>
       </node>
@@ -320,18 +318,18 @@
         <label>libs/core/src/core/rgb_blend.cc</label>
         <link refid="rgb__blend_8cc"/>
       </node>
-      <node id="26">
+      <node id="27">
         <label>libs/gui/src/gui/skin.cc</label>
         <link refid="skin_8cc"/>
       </node>
       <node id="1">
-        <label>libs/core/src/core/rgb.h</label>
+        <label>libs/base/src/base/rgb.h</label>
         <link refid="rgb_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
         <childnode refid="3" relation="include">
         </childnode>
-        <childnode refid="5" relation="include">
+        <childnode refid="4" relation="include">
         </childnode>
         <childnode refid="6" relation="include">
         </childnode>
@@ -341,21 +339,21 @@
         </childnode>
         <childnode refid="9" relation="include">
         </childnode>
-        <childnode refid="44" relation="include">
-        </childnode>
-        <childnode refid="15" relation="include">
+        <childnode refid="10" relation="include">
         </childnode>
         <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
         </childnode>
         <childnode refid="46" relation="include">
         </childnode>
         <childnode refid="47" relation="include">
         </childnode>
-        <childnode refid="50" relation="include">
+        <childnode refid="48" relation="include">
         </childnode>
-        <childnode refid="56" relation="include">
+        <childnode refid="51" relation="include">
         </childnode>
-        <childnode refid="71" relation="include">
+        <childnode refid="57" relation="include">
         </childnode>
         <childnode refid="72" relation="include">
         </childnode>
@@ -363,17 +361,17 @@
         </childnode>
         <childnode refid="74" relation="include">
         </childnode>
-        <childnode refid="31" relation="include">
+        <childnode refid="32" relation="include">
         </childnode>
         <childnode refid="76" relation="include">
         </childnode>
         <childnode refid="78" relation="include">
         </childnode>
-        <childnode refid="54" relation="include">
+        <childnode refid="55" relation="include">
         </childnode>
-        <childnode refid="35" relation="include">
+        <childnode refid="36" relation="include">
         </childnode>
-        <childnode refid="24" relation="include">
+        <childnode refid="25" relation="include">
         </childnode>
         <childnode refid="79" relation="include">
         </childnode>
@@ -385,43 +383,43 @@
         </childnode>
         <childnode refid="97" relation="include">
         </childnode>
-        <childnode refid="38" relation="include">
+        <childnode refid="39" relation="include">
         </childnode>
         <childnode refid="99" relation="include">
         </childnode>
         <childnode refid="101" relation="include">
         </childnode>
-        <childnode refid="43" relation="include">
+        <childnode refid="44" relation="include">
         </childnode>
       </node>
-      <node id="58">
+      <node id="59">
         <label>libs/core/src/core/colorbrewer.h</label>
         <link refid="colorbrewer_8h"/>
-        <childnode refid="57" relation="include">
+        <childnode refid="58" relation="include">
         </childnode>
       </node>
-      <node id="12">
+      <node id="13">
         <label>libs/core/src/core/generator_maze.cc</label>
         <link refid="generator__maze_8cc"/>
       </node>
-      <node id="52">
+      <node id="53">
         <label>libs/core/src/core/mesh.cc</label>
         <link refid="core_2src_2core_2mesh_8cc"/>
       </node>
-      <node id="38">
+      <node id="39">
         <label>libs/render/src/render/spriterender.h</label>
         <link refid="spriterender_8h"/>
-        <childnode refid="25" relation="include">
-        </childnode>
-        <childnode refid="39" relation="include">
-        </childnode>
-        <childnode refid="20" relation="include">
-        </childnode>
-        <childnode refid="36" relation="include">
+        <childnode refid="26" relation="include">
         </childnode>
         <childnode refid="40" relation="include">
         </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
         <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
         </childnode>
       </node>
       <node id="84">
@@ -434,7 +432,7 @@
         <childnode refid="87" relation="include">
         </childnode>
       </node>
-      <node id="43">
+      <node id="44">
         <label>libs/window/src/window/imgui_extra.cc</label>
         <link refid="imgui__extra_8cc"/>
       </node>
@@ -442,11 +440,11 @@
         <label>libs/window/src/window/app.cc</label>
         <link refid="app_8cc"/>
       </node>
-      <node id="20">
+      <node id="21">
         <label>libs/render/src/render/font.cc</label>
         <link refid="render_2src_2render_2font_8cc"/>
       </node>
-      <node id="30">
+      <node id="31">
         <label>libs/core/src/core/raytracer.cc</label>
         <link refid="raytracer_8cc"/>
       </node>
@@ -459,9 +457,9 @@
       <node id="91">
         <label>libs/render/src/render/materialshader.h</label>
         <link refid="render_2src_2render_2materialshader_8h"/>
-        <childnode refid="49" relation="include">
+        <childnode refid="50" relation="include">
         </childnode>
-        <childnode refid="35" relation="include">
+        <childnode refid="36" relation="include">
         </childnode>
         <childnode refid="86" relation="include">
         </childnode>
@@ -470,31 +468,31 @@
         <childnode refid="88" relation="include">
         </childnode>
       </node>
-      <node id="42">
+      <node id="43">
         <label>libs/render/src/render/texturecache.cc</label>
         <link refid="texturecache_8cc"/>
       </node>
       <node id="92">
         <label>libs/render/src/render/materialshadercache.h</label>
         <link refid="materialshadercache_8h"/>
-        <childnode refid="49" relation="include">
+        <childnode refid="50" relation="include">
         </childnode>
-        <childnode refid="35" relation="include">
+        <childnode refid="36" relation="include">
         </childnode>
         <childnode refid="93" relation="include">
         </childnode>
       </node>
-      <node id="5">
+      <node id="6">
         <label>libs/core/src/core/hashgen.h</label>
         <link refid="hashgen_8h"/>
-        <childnode refid="6" relation="include">
-        </childnode>
         <childnode refid="7" relation="include">
         </childnode>
         <childnode refid="8" relation="include">
         </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
       </node>
-      <node id="27">
+      <node id="28">
         <label>libs/gui/src/gui/textdata.cc</label>
         <link refid="textdata_8cc"/>
       </node>
@@ -511,38 +509,38 @@
         </childnode>
         <childnode refid="91" relation="include">
         </childnode>
-        <childnode refid="37" relation="include">
+        <childnode refid="38" relation="include">
         </childnode>
         <childnode refid="94" relation="include">
         </childnode>
         <childnode refid="95" relation="include">
         </childnode>
-        <childnode refid="38" relation="include">
+        <childnode refid="39" relation="include">
         </childnode>
         <childnode refid="81" relation="include">
         </childnode>
       </node>
-      <node id="57">
+      <node id="58">
         <label>libs/core/src/core/colorbrewer.cc</label>
         <link refid="colorbrewer_8cc"/>
       </node>
-      <node id="67">
+      <node id="68">
         <label>libs/core/src/core/palette_mycarta.h</label>
         <link refid="palette__mycarta_8h"/>
-        <childnode refid="60" relation="include">
+        <childnode refid="61" relation="include">
         </childnode>
-        <childnode refid="68" relation="include">
+        <childnode refid="69" relation="include">
         </childnode>
       </node>
       <node id="90">
         <label>libs/render/src/render/buffer.cc</label>
         <link refid="buffer_8cc"/>
       </node>
-      <node id="16">
+      <node id="17">
         <label>libs/core/src/core/image_draw.cc</label>
         <link refid="image__draw_8cc"/>
       </node>
-      <node id="59">
+      <node id="60">
         <label>libs/core/src/core/palette.cc</label>
         <link refid="palette_8cc"/>
       </node>
@@ -558,7 +556,7 @@
         <childnode refid="83" relation="include">
         </childnode>
       </node>
-      <node id="33">
+      <node id="34">
         <label>libs/render/src/render/texture.cc</label>
         <link refid="texture_8cc"/>
       </node>
@@ -568,23 +566,27 @@
         <childnode refid="88" relation="include">
         </childnode>
       </node>
-      <node id="24">
+      <node id="25">
         <label>libs/render/src/render/font.h</label>
         <link refid="render_2src_2render_2font_8h"/>
-        <childnode refid="25" relation="include">
-        </childnode>
         <childnode refid="26" relation="include">
         </childnode>
         <childnode refid="27" relation="include">
         </childnode>
-        <childnode refid="20" relation="include">
-        </childnode>
         <childnode refid="28" relation="include">
         </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
       </node>
-      <node id="19">
+      <node id="20">
         <label>libs/core/src/core/vfs_imagegenerator.cc</label>
         <link refid="vfs__imagegenerator_8cc"/>
+      </node>
+      <node id="2">
+        <label>libs/base/src/base/rgb.cc</label>
+        <link refid="rgb_8cc"/>
       </node>
       <node id="97">
         <label>libs/render/src/render/spritebatch.h</label>
@@ -592,26 +594,26 @@
         <childnode refid="98" relation="include">
         </childnode>
       </node>
-      <node id="34">
+      <node id="35">
         <label>libs/render/src/render/texture.h</label>
         <link refid="texture_8h"/>
-        <childnode refid="35" relation="include">
-        </childnode>
-        <childnode refid="20" relation="include">
-        </childnode>
-        <childnode refid="24" relation="include">
-        </childnode>
         <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
         </childnode>
         <childnode refid="37" relation="include">
         </childnode>
         <childnode refid="38" relation="include">
         </childnode>
-        <childnode refid="33" relation="include">
+        <childnode refid="39" relation="include">
         </childnode>
-        <childnode refid="42" relation="include">
+        <childnode refid="34" relation="include">
         </childnode>
         <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
         </childnode>
       </node>
       <node id="94">
@@ -621,10 +623,10 @@
       <node id="96">
         <label>libs/render/src/render/sprite.h</label>
         <link refid="sprite_8h"/>
-        <childnode refid="40" relation="include">
+        <childnode refid="41" relation="include">
         </childnode>
       </node>
-      <node id="49">
+      <node id="50">
         <label>libs/render/src/render/compiledlines.cc</label>
         <link refid="compiledlines_8cc"/>
       </node>
@@ -632,7 +634,7 @@
         <label>libs/render/src/render/shaderattribute3d.cc</label>
         <link refid="shaderattribute3d_8cc"/>
       </node>
-      <node id="68">
+      <node id="69">
         <label>libs/core/src/core/palette_mycarta.cc</label>
         <link refid="palette__mycarta_8cc"/>
       </node>
@@ -644,38 +646,36 @@
         <label>libs/render/src/render/viewporthandler.cc</label>
         <link refid="viewporthandler_8cc"/>
       </node>
-      <node id="47">
+      <node id="48">
         <label>libs/core/src/core/lines.h</label>
         <link refid="lines_8h"/>
-        <childnode refid="48" relation="include">
-        </childnode>
         <childnode refid="49" relation="include">
         </childnode>
+        <childnode refid="50" relation="include">
+        </childnode>
       </node>
-      <node id="11">
+      <node id="12">
         <label>libs/core/src/core/generator_maze.h</label>
         <link refid="generator__maze_8h"/>
-        <childnode refid="12" relation="include">
+        <childnode refid="13" relation="include">
         </childnode>
       </node>
-      <node id="72">
+      <node id="73">
         <label>libs/core/src/core/raytracer.h</label>
         <link refid="raytracer_8h"/>
-        <childnode refid="30" relation="include">
+        <childnode refid="31" relation="include">
         </childnode>
       </node>
-      <node id="56">
+      <node id="57">
         <label>libs/core/src/core/palette.h</label>
         <link refid="palette_8h"/>
-        <childnode refid="57" relation="include">
-        </childnode>
         <childnode refid="58" relation="include">
         </childnode>
-        <childnode refid="21" relation="include">
+        <childnode refid="59" relation="include">
         </childnode>
         <childnode refid="22" relation="include">
         </childnode>
-        <childnode refid="59" relation="include">
+        <childnode refid="23" relation="include">
         </childnode>
         <childnode refid="60" relation="include">
         </childnode>
@@ -685,31 +685,31 @@
         </childnode>
         <childnode refid="63" relation="include">
         </childnode>
-        <childnode refid="65" relation="include">
+        <childnode refid="64" relation="include">
         </childnode>
-        <childnode refid="67" relation="include">
+        <childnode refid="66" relation="include">
         </childnode>
-        <childnode refid="69" relation="include">
+        <childnode refid="68" relation="include">
+        </childnode>
+        <childnode refid="70" relation="include">
         </childnode>
       </node>
-      <node id="15">
+      <node id="16">
         <label>libs/core/src/core/image_draw.h</label>
         <link refid="image__draw_8h"/>
-        <childnode refid="2" relation="include">
+        <childnode refid="3" relation="include">
         </childnode>
-        <childnode refid="10" relation="include">
+        <childnode refid="11" relation="include">
         </childnode>
-        <childnode refid="12" relation="include">
-        </childnode>
-        <childnode refid="6" relation="include">
+        <childnode refid="13" relation="include">
         </childnode>
         <childnode refid="7" relation="include">
         </childnode>
         <childnode refid="8" relation="include">
         </childnode>
-        <childnode refid="14" relation="include">
+        <childnode refid="9" relation="include">
         </childnode>
-        <childnode refid="16" relation="include">
+        <childnode refid="15" relation="include">
         </childnode>
         <childnode refid="17" relation="include">
         </childnode>
@@ -719,11 +719,13 @@
         </childnode>
         <childnode refid="20" relation="include">
         </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
       </node>
       <node id="76">
         <label>libs/gui/src/gui/button.h</label>
         <link refid="button_8h"/>
-        <childnode refid="25" relation="include">
+        <childnode refid="26" relation="include">
         </childnode>
         <childnode refid="77" relation="include">
         </childnode>
@@ -732,7 +734,7 @@
         <label>libs/render/src/render/world.cc</label>
         <link refid="render_2src_2render_2world_8cc"/>
       </node>
-      <node id="51">
+      <node id="52">
         <label>libs/core/src/core/collisionmesh.cc</label>
         <link refid="collisionmesh_8cc"/>
       </node>
@@ -740,141 +742,141 @@
         <label>libs/tests/src/tests/approx_equal.cc</label>
         <link refid="approx__equal_8cc"/>
       </node>
-      <node id="22">
+      <node id="23">
         <label>libs/core/src/core/imagefilters.cc</label>
         <link refid="imagefilters_8cc"/>
       </node>
-      <node id="62">
+      <node id="63">
         <label>libs/core/src/core/palette_cubehelix.h</label>
         <link refid="palette__cubehelix_8h"/>
-        <childnode refid="60" relation="include">
-        </childnode>
         <childnode refid="61" relation="include">
         </childnode>
+        <childnode refid="62" relation="include">
+        </childnode>
       </node>
-      <node id="41">
+      <node id="42">
         <label>libs/render/src/render/spriterender.cc</label>
         <link refid="spriterender_8cc"/>
       </node>
-      <node id="18">
+      <node id="19">
         <label>libs/core/src/core/table_bool.cc</label>
         <link refid="table__bool_8cc"/>
       </node>
-      <node id="10">
+      <node id="11">
         <label>libs/core/src/core/generator_cell.cc</label>
         <link refid="generator__cell_8cc"/>
       </node>
-      <node id="64">
+      <node id="65">
         <label>libs/core/src/core/palette_lospec.cc</label>
         <link refid="palette__lospec_8cc"/>
       </node>
-      <node id="31">
+      <node id="32">
         <label>libs/core/src/core/table_bool.h</label>
         <link refid="table__bool_8h"/>
-        <childnode refid="10" relation="include">
+        <childnode refid="11" relation="include">
         </childnode>
-        <childnode refid="32" relation="include">
+        <childnode refid="33" relation="include">
         </childnode>
-        <childnode refid="8" relation="include">
+        <childnode refid="9" relation="include">
         </childnode>
-        <childnode refid="18" relation="include">
+        <childnode refid="19" relation="include">
         </childnode>
       </node>
-      <node id="63">
+      <node id="64">
         <label>libs/core/src/core/palette_lospec.h</label>
         <link refid="palette__lospec_8h"/>
-        <childnode refid="60" relation="include">
+        <childnode refid="61" relation="include">
         </childnode>
-        <childnode refid="64" relation="include">
+        <childnode refid="65" relation="include">
         </childnode>
       </node>
-      <node id="32">
+      <node id="33">
         <label>libs/core/src/core/generator_cell.h</label>
         <link refid="generator__cell_8h"/>
-        <childnode refid="10" relation="include">
+        <childnode refid="11" relation="include">
         </childnode>
-        <childnode refid="8" relation="include">
+        <childnode refid="9" relation="include">
         </childnode>
       </node>
       <node id="85">
         <label>libs/render/src/render/light.cc</label>
         <link refid="light_8cc"/>
       </node>
-      <node id="45">
+      <node id="46">
         <label>libs/core/src/core/image_to_text.h</label>
         <link refid="image__to__text_8h"/>
-        <childnode refid="21" relation="include">
+        <childnode refid="22" relation="include">
         </childnode>
       </node>
-      <node id="9">
+      <node id="10">
         <label>libs/core/src/core/image.h</label>
         <link refid="image_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="10" relation="include">
+        <childnode refid="3" relation="include">
         </childnode>
         <childnode refid="11" relation="include">
         </childnode>
-        <childnode refid="6" relation="include">
+        <childnode refid="12" relation="include">
         </childnode>
         <childnode refid="7" relation="include">
         </childnode>
         <childnode refid="8" relation="include">
         </childnode>
-        <childnode refid="13" relation="include">
+        <childnode refid="9" relation="include">
         </childnode>
         <childnode refid="14" relation="include">
         </childnode>
         <childnode refid="15" relation="include">
         </childnode>
-        <childnode refid="21" relation="include">
+        <childnode refid="16" relation="include">
         </childnode>
         <childnode refid="22" relation="include">
         </childnode>
         <childnode refid="23" relation="include">
         </childnode>
-        <childnode refid="29" relation="include">
+        <childnode refid="24" relation="include">
         </childnode>
         <childnode refid="30" relation="include">
         </childnode>
         <childnode refid="31" relation="include">
         </childnode>
-        <childnode refid="19" relation="include">
+        <childnode refid="32" relation="include">
         </childnode>
         <childnode refid="20" relation="include">
         </childnode>
-        <childnode refid="33" relation="include">
+        <childnode refid="21" relation="include">
         </childnode>
         <childnode refid="34" relation="include">
-        </childnode>
-      </node>
-      <node id="61">
-        <label>libs/core/src/core/palette_cubehelix.cc</label>
-        <link refid="palette__cubehelix_8cc"/>
-      </node>
-      <node id="54">
-        <label>libs/render/src/render/actor.h</label>
-        <link refid="actor_8h"/>
-        <childnode refid="55" relation="include">
         </childnode>
         <childnode refid="35" relation="include">
         </childnode>
       </node>
-      <node id="70">
+      <node id="62">
+        <label>libs/core/src/core/palette_cubehelix.cc</label>
+        <link refid="palette__cubehelix_8cc"/>
+      </node>
+      <node id="55">
+        <label>libs/render/src/render/actor.h</label>
+        <link refid="actor_8h"/>
+        <childnode refid="56" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+      </node>
+      <node id="71">
         <label>libs/core/src/core/palette_tableu.cc</label>
         <link refid="palette__tableu_8cc"/>
       </node>
-      <node id="36">
+      <node id="37">
         <label>libs/render/src/render/scalablesprite.cc</label>
         <link refid="scalablesprite_8cc"/>
       </node>
-      <node id="71">
+      <node id="72">
         <label>libs/core/src/core/palette_extract.h</label>
         <link refid="palette__extract_8h"/>
-        <childnode refid="29" relation="include">
+        <childnode refid="30" relation="include">
         </childnode>
       </node>
-      <node id="37">
+      <node id="38">
         <label>libs/render/src/render/shader.cc</label>
         <link refid="shader_8cc"/>
       </node>
@@ -885,9 +887,9 @@
       <node id="74">
         <label>libs/core/src/core/rgb_blend.h</label>
         <link refid="rgb__blend_8h"/>
-        <childnode refid="16" relation="include">
+        <childnode refid="17" relation="include">
         </childnode>
-        <childnode refid="15" relation="include">
+        <childnode refid="16" relation="include">
         </childnode>
         <childnode refid="75" relation="include">
         </childnode>
@@ -895,50 +897,50 @@
       <node id="78">
         <label>libs/gui/src/gui/skin.h</label>
         <link refid="skin_8h"/>
-        <childnode refid="25" relation="include">
+        <childnode refid="26" relation="include">
         </childnode>
         <childnode refid="77" relation="include">
         </childnode>
-        <childnode refid="39" relation="include">
+        <childnode refid="40" relation="include">
         </childnode>
-        <childnode refid="26" relation="include">
+        <childnode refid="27" relation="include">
         </childnode>
       </node>
       <node id="80">
         <label>libs/render/src/render/init.cc</label>
         <link refid="init_8cc"/>
       </node>
-      <node id="7">
+      <node id="8">
         <label>libs/core/src/core/hashgen.retro.cc</label>
         <link refid="hashgen_8retro_8cc"/>
       </node>
-      <node id="53">
+      <node id="54">
         <label>libs/render/src/render/compiledmesh.h</label>
         <link refid="compiledmesh_8h"/>
-        <childnode refid="54" relation="include">
+        <childnode refid="55" relation="include">
         </childnode>
-        <childnode refid="35" relation="include">
+        <childnode refid="36" relation="include">
         </childnode>
       </node>
-      <node id="29">
+      <node id="30">
         <label>libs/core/src/core/palette_extract.cc</label>
         <link refid="palette__extract_8cc"/>
       </node>
-      <node id="3">
+      <node id="4">
         <label>libs/core/src/core/dump.h</label>
         <link refid="dump_8h"/>
-        <childnode refid="4" relation="include">
+        <childnode refid="5" relation="include">
         </childnode>
       </node>
-      <node id="69">
+      <node id="70">
         <label>libs/core/src/core/palette_tableu.h</label>
         <link refid="palette__tableu_8h"/>
-        <childnode refid="60" relation="include">
+        <childnode refid="61" relation="include">
         </childnode>
-        <childnode refid="70" relation="include">
+        <childnode refid="71" relation="include">
         </childnode>
       </node>
-      <node id="21">
+      <node id="22">
         <label>libs/core/src/core/image_to_text.cc</label>
         <link refid="image__to__text_8cc"/>
       </node>
@@ -951,29 +953,28 @@
         <link refid="render_2src_2render_2materialshader_8cc"/>
       </node>
     </invincdepgraph>
-    <innerclass refid="structeu_1_1core_1_1Rgbi" prot="public">eu::core::Rgbi</innerclass>
-    <innerclass refid="structeu_1_1core_1_1Rgbai" prot="public">eu::core::Rgbai</innerclass>
-    <innerclass refid="structeu_1_1core_1_1Rgb" prot="public">eu::core::Rgb</innerclass>
-    <innerclass refid="structeu_1_1core_1_1Hsl" prot="public">eu::core::Hsl</innerclass>
-    <innerclass refid="structeu_1_1core_1_1Rgba" prot="public">eu::core::Rgba</innerclass>
-    <innerclass refid="structeu_1_1core_1_1CustomArgparser_3_01Rgbi_01_4" prot="public">eu::core::CustomArgparser&lt; Rgbi &gt;</innerclass>
+    <innerclass refid="structeu_1_1Rgbi" prot="public">eu::Rgbi</innerclass>
+    <innerclass refid="structeu_1_1Rgbai" prot="public">eu::Rgbai</innerclass>
+    <innerclass refid="structeu_1_1Rgb" prot="public">eu::Rgb</innerclass>
+    <innerclass refid="structeu_1_1Hsl" prot="public">eu::Hsl</innerclass>
+    <innerclass refid="structeu_1_1Rgba" prot="public">eu::Rgba</innerclass>
+    <innerclass refid="structeu_1_1StringParser_3_01Rgbi_01_4" prot="public">eu::StringParser&lt; Rgbi &gt;</innerclass>
     <innernamespace refid="namespaceeu">eu</innernamespace>
-    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
-    <innernamespace refid="namespaceeu_1_1core_1_1colorutil">eu::core::colorutil</innernamespace>
+    <innernamespace refid="namespaceeu_1_1colorutil">eu::colorutil</innernamespace>
       <sectiondef kind="func">
-      <memberdef kind="function" id="rgb_8h_1a645a7a4c51d04eb20b3bfb4214fb19b8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="rgb_8h_1a13c761a3fe1b1b08a049b03e10a44e7f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>ADD_DEFAULT_FORMATTER</definition>
-        <argsstring>(eu::core::Rgbi, std::string, eu::core::to_string)</argsstring>
+        <argsstring>(eu::Rgbi, std::string, eu::to_string)</argsstring>
         <name>ADD_DEFAULT_FORMATTER</name>
         <param>
-          <type><ref refid="structeu_1_1core_1_1Rgbi" kindref="compound">eu::core::Rgbi</ref></type>
+          <type><ref refid="structeu_1_1Rgbi" kindref="compound">eu::Rgbi</ref></type>
         </param>
         <param>
           <type>std::string</type>
         </param>
         <param>
-          <type><ref refid="namespaceeu_1_1core_1abb347a6e512d991e31badda3ce5fef91" kindref="member">eu::core::to_string</ref></type>
+          <type><ref refid="namespaceeu_1a8028946918a3de84eb06dbee446c0316" kindref="member">eu::to_string</ref></type>
         </param>
         <briefdescription>
         </briefdescription>
@@ -981,21 +982,21 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rgb.h" line="425" column="1" declfile="libs/core/src/core/rgb.h" declline="425" declcolumn="1"/>
+        <location file="libs/base/src/base/rgb.h" line="428" column="1" declfile="libs/base/src/base/rgb.h" declline="428" declcolumn="1"/>
       </memberdef>
-      <memberdef kind="function" id="rgb_8h_1a3df19dfc25bfdb0215a4b4d3b574f6bd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="rgb_8h_1a349d5c1757dcaf3f6dd2ae9a69b36f46" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>ADD_DEFAULT_FORMATTER</definition>
-        <argsstring>(eu::core::Rgbai, std::string, eu::core::to_string)</argsstring>
+        <argsstring>(eu::Rgbai, std::string, eu::to_string)</argsstring>
         <name>ADD_DEFAULT_FORMATTER</name>
         <param>
-          <type><ref refid="structeu_1_1core_1_1Rgbai" kindref="compound">eu::core::Rgbai</ref></type>
+          <type><ref refid="structeu_1_1Rgbai" kindref="compound">eu::Rgbai</ref></type>
         </param>
         <param>
           <type>std::string</type>
         </param>
         <param>
-          <type><ref refid="namespaceeu_1_1core_1abb347a6e512d991e31badda3ce5fef91" kindref="member">eu::core::to_string</ref></type>
+          <type><ref refid="namespaceeu_1a8028946918a3de84eb06dbee446c0316" kindref="member">eu::to_string</ref></type>
         </param>
         <briefdescription>
         </briefdescription>
@@ -1003,21 +1004,21 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rgb.h" line="426" column="1" declfile="libs/core/src/core/rgb.h" declline="426" declcolumn="1"/>
+        <location file="libs/base/src/base/rgb.h" line="429" column="1" declfile="libs/base/src/base/rgb.h" declline="429" declcolumn="1"/>
       </memberdef>
-      <memberdef kind="function" id="rgb_8h_1a1c065bd95cd66e9dc0c978bdf33e5621" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="rgb_8h_1ab451196cd3fd916467d1619bc180304b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>ADD_DEFAULT_FORMATTER</definition>
-        <argsstring>(eu::core::Rgb, std::string, eu::core::to_string)</argsstring>
+        <argsstring>(eu::Rgb, std::string, eu::to_string)</argsstring>
         <name>ADD_DEFAULT_FORMATTER</name>
         <param>
-          <type><ref refid="structeu_1_1core_1_1Rgb" kindref="compound">eu::core::Rgb</ref></type>
+          <type><ref refid="structeu_1_1Rgb" kindref="compound">eu::Rgb</ref></type>
         </param>
         <param>
           <type>std::string</type>
         </param>
         <param>
-          <type><ref refid="namespaceeu_1_1core_1abb347a6e512d991e31badda3ce5fef91" kindref="member">eu::core::to_string</ref></type>
+          <type><ref refid="namespaceeu_1a8028946918a3de84eb06dbee446c0316" kindref="member">eu::to_string</ref></type>
         </param>
         <briefdescription>
         </briefdescription>
@@ -1025,21 +1026,21 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rgb.h" line="427" column="1" declfile="libs/core/src/core/rgb.h" declline="427" declcolumn="1"/>
+        <location file="libs/base/src/base/rgb.h" line="430" column="1" declfile="libs/base/src/base/rgb.h" declline="430" declcolumn="1"/>
       </memberdef>
-      <memberdef kind="function" id="rgb_8h_1a63393eed7e29a60b6d833daa40e1945c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="rgb_8h_1a802c7fdc9aeb39abe9a953294753679f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>ADD_DEFAULT_FORMATTER</definition>
-        <argsstring>(eu::core::Rgba, std::string, eu::core::to_string)</argsstring>
+        <argsstring>(eu::Rgba, std::string, eu::to_string)</argsstring>
         <name>ADD_DEFAULT_FORMATTER</name>
         <param>
-          <type><ref refid="structeu_1_1core_1_1Rgba" kindref="compound">eu::core::Rgba</ref></type>
+          <type><ref refid="structeu_1_1Rgba" kindref="compound">eu::Rgba</ref></type>
         </param>
         <param>
           <type>std::string</type>
         </param>
         <param>
-          <type><ref refid="namespaceeu_1_1core_1abb347a6e512d991e31badda3ce5fef91" kindref="member">eu::core::to_string</ref></type>
+          <type><ref refid="namespaceeu_1a8028946918a3de84eb06dbee446c0316" kindref="member">eu::to_string</ref></type>
         </param>
         <briefdescription>
         </briefdescription>
@@ -1047,21 +1048,21 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rgb.h" line="428" column="1" declfile="libs/core/src/core/rgb.h" declline="428" declcolumn="1"/>
+        <location file="libs/base/src/base/rgb.h" line="431" column="1" declfile="libs/base/src/base/rgb.h" declline="431" declcolumn="1"/>
       </memberdef>
-      <memberdef kind="function" id="rgb_8h_1a21e96d26d8e9753a8ed983b95c58a3ad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="rgb_8h_1a900ae0bb13b1fc4cc7b9a59b7101591f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>ADD_DEFAULT_FORMATTER</definition>
-        <argsstring>(eu::core::Hsl, std::string, eu::core::to_string)</argsstring>
+        <argsstring>(eu::Hsl, std::string, eu::to_string)</argsstring>
         <name>ADD_DEFAULT_FORMATTER</name>
         <param>
-          <type><ref refid="structeu_1_1core_1_1Hsl" kindref="compound">eu::core::Hsl</ref></type>
+          <type><ref refid="structeu_1_1Hsl" kindref="compound">eu::Hsl</ref></type>
         </param>
         <param>
           <type>std::string</type>
         </param>
         <param>
-          <type><ref refid="namespaceeu_1_1core_1abb347a6e512d991e31badda3ce5fef91" kindref="member">eu::core::to_string</ref></type>
+          <type><ref refid="namespaceeu_1a8028946918a3de84eb06dbee446c0316" kindref="member">eu::to_string</ref></type>
         </param>
         <briefdescription>
         </briefdescription>
@@ -1069,13 +1070,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rgb.h" line="429" column="1" declfile="libs/core/src/core/rgb.h" declline="429" declcolumn="1"/>
+        <location file="libs/base/src/base/rgb.h" line="432" column="1" declfile="libs/base/src/base/rgb.h" declline="432" declcolumn="1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/rgb.h"/>
+    <location file="libs/base/src/base/rgb.h"/>
   </compounddef>
 </doxygen>

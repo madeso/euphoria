@@ -56,7 +56,7 @@
 <div class="contents">
 <a href="layout_8cc.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="layout_8h.html">gui/layout.h</a>&quot;</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="numeric_8h.html">core/numeric.h</a>&quot;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="numeric_8h.html">base/numeric.h</a>&quot;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="log_2src_2log_2log_8h.html">log/log.h</a>&quot;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="stringmerger_8h.html">base/stringmerger.h</a>&quot;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="stringutils_8h.html">base/stringutils.h</a>&quot;</span></div>
@@ -95,13 +95,13 @@
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keywordtype">void</span></div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        update_max(T* t, T value)</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        {</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            *t = <a class="code" href="namespaceeu_1_1core.html#a57038e2fac2e1e15a5dc83511b753769">core::max</a>(*t, value);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            *t = <a class="code" href="namespaceeu.html#ad137346d069927fe29916ab42905f177">max</a>(*t, value);</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        }</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    }</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <a class="code" href="structeu_1_1core_1_1size2f.html">core::size2f</a></div>
-<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="structeu_1_1gui_1_1TableLayout.html#a23b7fc9d87c095a6881094305cfa9b3c">   48</a></span>&#160;    <a class="code" href="structeu_1_1gui_1_1TableLayout.html#a23b7fc9d87c095a6881094305cfa9b3c">TableLayout::calc_minimum_area</a></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    size2f</div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="structeu_1_1gui_1_1TableLayout.html#a012439592c68dd37238e6d31e1a83efd">   48</a></span>&#160;    <a class="code" href="structeu_1_1gui_1_1TableLayout.html#a012439592c68dd37238e6d31e1a83efd">TableLayout::calc_minimum_area</a></div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    (</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keyword">const</span> std::vector&lt;std::shared_ptr&lt;Widget&gt;&gt;&amp; widgets</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    )<span class="keyword"> const</span></div>
@@ -118,7 +118,7 @@
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            update_max(&amp;height[d.row], s.height);</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        }</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> s = <a class="code" href="structeu_1_1core_1_1size2f.html#a2ba332380064743cd35524346064e5f5">core::size2f::create_from_width_height</a></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> s = <a class="code" href="structeu_1_1size2f.html#a7b1f4dd49ad63f76481c45c11cb5cfb2">size2f::create_from_width_height</a></div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        (</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            std::accumulate(width.begin(), width.end(), 0.0f),</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            std::accumulate(height.begin(), height.end(), 0.0f)</div>
@@ -129,10 +129,10 @@
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="structeu_1_1gui_1_1TableLayout.html#a7b3ddd9c470ffa0560267f6d96da9da6">   76</a></span>&#160;    <a class="code" href="structeu_1_1gui_1_1TableLayout.html#a7b3ddd9c470ffa0560267f6d96da9da6">TableLayout::lay_out</a></div>
+<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="structeu_1_1gui_1_1TableLayout.html#a6410be359776f3b5269f3be367a2af36">   76</a></span>&#160;    <a class="code" href="structeu_1_1gui_1_1TableLayout.html#a6410be359776f3b5269f3be367a2af36">TableLayout::lay_out</a></div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    (</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        std::vector&lt;std::shared_ptr&lt;Widget&gt;&gt;* widgets,</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keyword">const</span> <a class="code" href="structeu_1_1core_1_1Rectf.html">core::Rectf</a>&amp; area</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keyword">const</span> <a class="code" href="structeu_1_1Rectf.html">Rectf</a>&amp; area</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    )<span class="keyword"> const</span></div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="keyword">    </span>{</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <span class="comment">// todo(Gustav): include padding</span></div>
@@ -150,8 +150,8 @@
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">float</span> total_width = std::accumulate(width.begin(), width.end(), 0.0f);</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">float</span> total_height = std::accumulate(height.begin(), height.end(), 0.0f);</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">float</span> leftover_width = area.<a class="code" href="structeu_1_1core_1_1Rectf.html#a31fcddd4582e87b2b46bdebd71a48ed0">get_width</a>() - total_width;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">float</span> leftover_height = area.<a class="code" href="structeu_1_1core_1_1Rectf.html#aa8fead3b2be8221ec922e3a4c1dfb8fe">get_height</a>() - total_height;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">float</span> leftover_width = area.<a class="code" href="structeu_1_1Rectf.html#a1cad27ea3f136189b01f583ebb1ef910">get_width</a>() - total_width;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">float</span> leftover_height = area.<a class="code" href="structeu_1_1Rectf.html#a87b7e5acdef083510ec89d5a7a4ec968">get_height</a>() - total_height;</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">int</span> expandable_rows_count = <a class="code" href="namespaceeu.html#a175a9253ebea7fa874013257344e2a54">c_sizet_to_int</a></div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        (</div>
@@ -189,7 +189,7 @@
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">const</span> <span class="keyword">auto</span>&amp; w: *widgets)</div>
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        {</div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;            <span class="keyword">const</span> <a class="code" href="structeu_1_1gui_1_1LayoutData.html">LayoutData</a>&amp; d = w-&gt;layout;</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span> topleft = area.<a class="code" href="structeu_1_1core_1_1Rectf.html#a864b389025f3671c20a4407ff5e72f4b">get_top_left</a>();</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span> topleft = area.<a class="code" href="structeu_1_1Rectf.html#a8d45c9feb0b3e6c354e3b195f03bd9c6">get_top_left</a>();</div>
 <div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;            <span class="keywordtype">float</span> x = topleft.x;</div>
 <div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;            <span class="keywordtype">float</span> y = topleft.y;</div>
 <div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160; </div>
@@ -204,9 +204,9 @@
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160; </div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;            w-&gt;set_rect</div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;            (</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;                <a class="code" href="structeu_1_1core_1_1Rectf.html#a7b0776d3d758c93ca680999c0a7c5c0f">core::Rectf::from_top_left_width_height</a></div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;                <a class="code" href="structeu_1_1Rectf.html#ab75254423a37d1b6f229e5aef05e1b3c">Rectf::from_top_left_width_height</a></div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;                (</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;                    <a class="code" href="structeu_1_1core_1_1vec2f.html">core::vec2f</a>{x, y},</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;                    <a class="code" href="structeu_1_1vec2f.html">vec2f</a>{x, y},</div>
 <div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;                    width[d.column],</div>
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;                    height[d.row]</div>
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;                )</div>
@@ -221,8 +221,8 @@
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    }</div>
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160; </div>
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160; </div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    <a class="code" href="structeu_1_1core_1_1size2f.html">core::size2f</a></div>
-<div class="line"><a name="l00169"></a><span class="lineno"><a class="line" href="structeu_1_1gui_1_1SingleRowLayout.html#a56f0bf2fb4aa58e09d494dd4eb375d80">  169</a></span>&#160;    <a class="code" href="structeu_1_1gui_1_1SingleRowLayout.html#a56f0bf2fb4aa58e09d494dd4eb375d80">SingleRowLayout::calc_minimum_area</a></div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    <a class="code" href="structeu_1_1size2f.html">size2f</a></div>
+<div class="line"><a name="l00169"></a><span class="lineno"><a class="line" href="structeu_1_1gui_1_1SingleRowLayout.html#aa2e25216518c6aab77714db1cf503efe">  169</a></span>&#160;    <a class="code" href="structeu_1_1gui_1_1SingleRowLayout.html#aa2e25216518c6aab77714db1cf503efe">SingleRowLayout::calc_minimum_area</a></div>
 <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    (</div>
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        <span class="keyword">const</span> std::vector&lt;std::shared_ptr&lt;Widget&gt;&gt;&amp; widgets</div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    )<span class="keyword"> const</span></div>
@@ -243,28 +243,28 @@
 <div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;            update_max(&amp;height, s.height);</div>
 <div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;        }</div>
 <div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160; </div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> s = <a class="code" href="structeu_1_1core_1_1size2f.html#a2ba332380064743cd35524346064e5f5">core::size2f::create_from_width_height</a>(width, height);</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> s = <a class="code" href="structeu_1_1size2f.html#a7b1f4dd49ad63f76481c45c11cb5cfb2">size2f::create_from_width_height</a>(width, height);</div>
 <div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;        <span class="keywordflow">return</span> s;</div>
 <div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    }</div>
 <div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160; </div>
 <div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160; </div>
 <div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00196"></a><span class="lineno"><a class="line" href="structeu_1_1gui_1_1SingleRowLayout.html#a17fb0102127e46d79cd814bd5df38b98">  196</a></span>&#160;    <a class="code" href="structeu_1_1gui_1_1SingleRowLayout.html#a17fb0102127e46d79cd814bd5df38b98">SingleRowLayout::lay_out</a></div>
+<div class="line"><a name="l00196"></a><span class="lineno"><a class="line" href="structeu_1_1gui_1_1SingleRowLayout.html#ab8771cc27a0813f388e4b4cbef6272eb">  196</a></span>&#160;    <a class="code" href="structeu_1_1gui_1_1SingleRowLayout.html#ab8771cc27a0813f388e4b4cbef6272eb">SingleRowLayout::lay_out</a></div>
 <div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    (</div>
 <div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;        std::vector&lt;std::shared_ptr&lt;Widget&gt;&gt;* widgets,</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;        <span class="keyword">const</span> <a class="code" href="structeu_1_1core_1_1Rectf.html">core::Rectf</a>&amp; area</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;        <span class="keyword">const</span> <a class="code" href="structeu_1_1Rectf.html">Rectf</a>&amp; area</div>
 <div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    )<span class="keyword"> const</span></div>
 <div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> tl = area.<a class="code" href="structeu_1_1core_1_1Rectf.html#a864b389025f3671c20a4407ff5e72f4b">get_top_left</a>();</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> tl = area.<a class="code" href="structeu_1_1Rectf.html#a8d45c9feb0b3e6c354e3b195f03bd9c6">get_top_left</a>();</div>
 <div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;        <span class="keywordtype">float</span> x = tl.x;</div>
 <div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">const</span> <span class="keyword">auto</span>&amp; w: *widgets)</div>
 <div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;        {</div>
 <div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span>&amp; s = w-&gt;get_preferred_size();</div>
 <div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;            w-&gt;set_rect</div>
 <div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;            (</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;                <a class="code" href="structeu_1_1core_1_1Rectf.html#a7b0776d3d758c93ca680999c0a7c5c0f">core::Rectf::from_top_left_width_height</a></div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;                <a class="code" href="structeu_1_1Rectf.html#ab75254423a37d1b6f229e5aef05e1b3c">Rectf::from_top_left_width_height</a></div>
 <div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;                (</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;                    <a class="code" href="structeu_1_1core_1_1vec2f.html">core::vec2f</a>{x, tl.y},</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;                    <a class="code" href="structeu_1_1vec2f.html">vec2f</a>{x, tl.y},</div>
 <div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;                    s.width,</div>
 <div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;                    s.height</div>
 <div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;                )</div>
@@ -277,33 +277,33 @@
 <div class="ttc" id="acint_8h_html"><div class="ttname"><a href="cint_8h.html">cint.h</a></div></div>
 <div class="ttc" id="alayout_8h_html"><div class="ttname"><a href="layout_8h.html">layout.h</a></div></div>
 <div class="ttc" id="alog_2src_2log_2log_8h_html"><div class="ttname"><a href="log_2src_2log_2log_8h.html">log.h</a></div></div>
-<div class="ttc" id="anamespaceeu_1_1core_html_a57038e2fac2e1e15a5dc83511b753769"><div class="ttname"><a href="namespaceeu_1_1core.html#a57038e2fac2e1e15a5dc83511b753769">eu::core::max</a></div><div class="ttdeci">vec3f max(const vec3f &amp;lhs, const vec3f &amp;rhs)</div><div class="ttdef"><b>Definition:</b> <a href="aabb_8cc_source.html#l00040">aabb.cc:40</a></div></div>
 <div class="ttc" id="anamespaceeu_1_1gui_html"><div class="ttname"><a href="namespaceeu_1_1gui.html">eu::gui</a></div><div class="ttdef"><b>Definition:</b> <a href="button_8cc_source.html#l00012">button.cc:13</a></div></div>
 <div class="ttc" id="anamespaceeu_html_a175a9253ebea7fa874013257344e2a54"><div class="ttname"><a href="namespaceeu.html#a175a9253ebea7fa874013257344e2a54">eu::c_sizet_to_int</a></div><div class="ttdeci">int c_sizet_to_int(size_t t)</div><div class="ttdef"><b>Definition:</b> <a href="cint_8cc_source.html#l00011">cint.cc:11</a></div></div>
 <div class="ttc" id="anamespaceeu_html_a818c2206be78d8ee004918bc5fae777e"><div class="ttname"><a href="namespaceeu.html#a818c2206be78d8ee004918bc5fae777e">eu::c_int_to_float</a></div><div class="ttdeci">constexpr float c_int_to_float(int i)</div><div class="ttdef"><b>Definition:</b> <a href="cint_8h_source.html#l00050">cint.h:50</a></div></div>
+<div class="ttc" id="anamespaceeu_html_ad137346d069927fe29916ab42905f177"><div class="ttname"><a href="namespaceeu.html#ad137346d069927fe29916ab42905f177">eu::max</a></div><div class="ttdeci">size2f max(const size2f lhs, const size2f rhs)</div><div class="ttdef"><b>Definition:</b> <a href="size2_8cc_source.html#l00149">size2.cc:149</a></div></div>
 <div class="ttc" id="anumeric_8h_html"><div class="ttname"><a href="numeric_8h.html">numeric.h</a></div></div>
 <div class="ttc" id="astringmerger_8h_html"><div class="ttname"><a href="stringmerger_8h.html">stringmerger.h</a></div></div>
 <div class="ttc" id="astringutils_8h_html"><div class="ttname"><a href="stringutils_8h.html">stringutils.h</a></div><div class="ttdoc">String utility functions.</div></div>
-<div class="ttc" id="astructeu_1_1core_1_1Rectf_html"><div class="ttname"><a href="structeu_1_1core_1_1Rectf.html">eu::core::Rectf</a></div><div class="ttdef"><b>Definition:</b> <a href="rect_8h_source.html#l00021">rect.h:22</a></div></div>
-<div class="ttc" id="astructeu_1_1core_1_1Rectf_html_a31fcddd4582e87b2b46bdebd71a48ed0"><div class="ttname"><a href="structeu_1_1core_1_1Rectf.html#a31fcddd4582e87b2b46bdebd71a48ed0">eu::core::Rectf::get_width</a></div><div class="ttdeci">float get_width() const</div><div class="ttdef"><b>Definition:</b> <a href="rect_8cc_source.html#l00436">rect.cc:436</a></div></div>
-<div class="ttc" id="astructeu_1_1core_1_1Rectf_html_a7b0776d3d758c93ca680999c0a7c5c0f"><div class="ttname"><a href="structeu_1_1core_1_1Rectf.html#a7b0776d3d758c93ca680999c0a7c5c0f">eu::core::Rectf::from_top_left_width_height</a></div><div class="ttdeci">static Rectf from_top_left_width_height(const vec2f &amp;topleft, float width, float height)</div><div class="ttdef"><b>Definition:</b> <a href="rect_8cc_source.html#l00086">rect.cc:86</a></div></div>
-<div class="ttc" id="astructeu_1_1core_1_1Rectf_html_a864b389025f3671c20a4407ff5e72f4b"><div class="ttname"><a href="structeu_1_1core_1_1Rectf.html#a864b389025f3671c20a4407ff5e72f4b">eu::core::Rectf::get_top_left</a></div><div class="ttdeci">vec2f get_top_left() const</div><div class="ttdef"><b>Definition:</b> <a href="rect_8cc_source.html#l00461">rect.cc:461</a></div></div>
-<div class="ttc" id="astructeu_1_1core_1_1Rectf_html_aa8fead3b2be8221ec922e3a4c1dfb8fe"><div class="ttname"><a href="structeu_1_1core_1_1Rectf.html#aa8fead3b2be8221ec922e3a4c1dfb8fe">eu::core::Rectf::get_height</a></div><div class="ttdeci">float get_height() const</div><div class="ttdef"><b>Definition:</b> <a href="rect_8cc_source.html#l00430">rect.cc:430</a></div></div>
-<div class="ttc" id="astructeu_1_1core_1_1size2f_html"><div class="ttname"><a href="structeu_1_1core_1_1size2f.html">eu::core::size2f</a></div><div class="ttdef"><b>Definition:</b> <a href="size2_8h_source.html#l00011">size2.h:12</a></div></div>
-<div class="ttc" id="astructeu_1_1core_1_1size2f_html_a2ba332380064743cd35524346064e5f5"><div class="ttname"><a href="structeu_1_1core_1_1size2f.html#a2ba332380064743cd35524346064e5f5">eu::core::size2f::create_from_width_height</a></div><div class="ttdeci">static size2f create_from_width_height(float w, float h)</div><div class="ttdef"><b>Definition:</b> <a href="size2_8cc_source.html#l00014">size2.cc:14</a></div></div>
-<div class="ttc" id="astructeu_1_1core_1_1vec2f_html"><div class="ttname"><a href="structeu_1_1core_1_1vec2f.html">eu::core::vec2f</a></div><div class="ttdef"><b>Definition:</b> <a href="vec2_8h_source.html#l00032">vec2.h:33</a></div></div>
+<div class="ttc" id="astructeu_1_1Rectf_html"><div class="ttname"><a href="structeu_1_1Rectf.html">eu::Rectf</a></div><div class="ttdef"><b>Definition:</b> <a href="rect_8h_source.html#l00026">rect.h:27</a></div></div>
+<div class="ttc" id="astructeu_1_1Rectf_html_a1cad27ea3f136189b01f583ebb1ef910"><div class="ttname"><a href="structeu_1_1Rectf.html#a1cad27ea3f136189b01f583ebb1ef910">eu::Rectf::get_width</a></div><div class="ttdeci">float get_width() const</div><div class="ttdef"><b>Definition:</b> <a href="rect_8cc_source.html#l00436">rect.cc:436</a></div></div>
+<div class="ttc" id="astructeu_1_1Rectf_html_a87b7e5acdef083510ec89d5a7a4ec968"><div class="ttname"><a href="structeu_1_1Rectf.html#a87b7e5acdef083510ec89d5a7a4ec968">eu::Rectf::get_height</a></div><div class="ttdeci">float get_height() const</div><div class="ttdef"><b>Definition:</b> <a href="rect_8cc_source.html#l00430">rect.cc:430</a></div></div>
+<div class="ttc" id="astructeu_1_1Rectf_html_a8d45c9feb0b3e6c354e3b195f03bd9c6"><div class="ttname"><a href="structeu_1_1Rectf.html#a8d45c9feb0b3e6c354e3b195f03bd9c6">eu::Rectf::get_top_left</a></div><div class="ttdeci">vec2f get_top_left() const</div><div class="ttdef"><b>Definition:</b> <a href="rect_8cc_source.html#l00461">rect.cc:461</a></div></div>
+<div class="ttc" id="astructeu_1_1Rectf_html_ab75254423a37d1b6f229e5aef05e1b3c"><div class="ttname"><a href="structeu_1_1Rectf.html#ab75254423a37d1b6f229e5aef05e1b3c">eu::Rectf::from_top_left_width_height</a></div><div class="ttdeci">static Rectf from_top_left_width_height(const vec2f &amp;topleft, float width, float height)</div><div class="ttdef"><b>Definition:</b> <a href="rect_8cc_source.html#l00086">rect.cc:86</a></div></div>
 <div class="ttc" id="astructeu_1_1gui_1_1LayoutData_html"><div class="ttname"><a href="structeu_1_1gui_1_1LayoutData.html">eu::gui::LayoutData</a></div><div class="ttdef"><b>Definition:</b> <a href="layoutdata_8h_source.html#l00005">layoutdata.h:6</a></div></div>
 <div class="ttc" id="astructeu_1_1gui_1_1Layout_html_a29ec6c45a944c357f8f96af307ba0b17"><div class="ttname"><a href="structeu_1_1gui_1_1Layout.html#a29ec6c45a944c357f8f96af307ba0b17">eu::gui::Layout::~Layout</a></div><div class="ttdeci">virtual ~Layout()</div></div>
 <div class="ttc" id="astructeu_1_1gui_1_1Layout_html_ab68c8b834471a9347bb16968a73c3d85"><div class="ttname"><a href="structeu_1_1gui_1_1Layout.html#ab68c8b834471a9347bb16968a73c3d85">eu::gui::Layout::Layout</a></div><div class="ttdeci">Layout()</div></div>
-<div class="ttc" id="astructeu_1_1gui_1_1SingleRowLayout_html_a17fb0102127e46d79cd814bd5df38b98"><div class="ttname"><a href="structeu_1_1gui_1_1SingleRowLayout.html#a17fb0102127e46d79cd814bd5df38b98">eu::gui::SingleRowLayout::lay_out</a></div><div class="ttdeci">void lay_out(std::vector&lt; std::shared_ptr&lt; Widget &gt;&gt; *widgets, const core::Rectf &amp;area) const override</div><div class="ttdef"><b>Definition:</b> <a href="layout_8cc_source.html#l00196">layout.cc:197</a></div></div>
-<div class="ttc" id="astructeu_1_1gui_1_1SingleRowLayout_html_a56f0bf2fb4aa58e09d494dd4eb375d80"><div class="ttname"><a href="structeu_1_1gui_1_1SingleRowLayout.html#a56f0bf2fb4aa58e09d494dd4eb375d80">eu::gui::SingleRowLayout::calc_minimum_area</a></div><div class="ttdeci">core::size2f calc_minimum_area(const std::vector&lt; std::shared_ptr&lt; Widget &gt;&gt; &amp;widgets) const override</div><div class="ttdef"><b>Definition:</b> <a href="layout_8cc_source.html#l00169">layout.cc:170</a></div></div>
+<div class="ttc" id="astructeu_1_1gui_1_1SingleRowLayout_html_aa2e25216518c6aab77714db1cf503efe"><div class="ttname"><a href="structeu_1_1gui_1_1SingleRowLayout.html#aa2e25216518c6aab77714db1cf503efe">eu::gui::SingleRowLayout::calc_minimum_area</a></div><div class="ttdeci">size2f calc_minimum_area(const std::vector&lt; std::shared_ptr&lt; Widget &gt;&gt; &amp;widgets) const override</div><div class="ttdef"><b>Definition:</b> <a href="layout_8cc_source.html#l00169">layout.cc:170</a></div></div>
+<div class="ttc" id="astructeu_1_1gui_1_1SingleRowLayout_html_ab8771cc27a0813f388e4b4cbef6272eb"><div class="ttname"><a href="structeu_1_1gui_1_1SingleRowLayout.html#ab8771cc27a0813f388e4b4cbef6272eb">eu::gui::SingleRowLayout::lay_out</a></div><div class="ttdeci">void lay_out(std::vector&lt; std::shared_ptr&lt; Widget &gt;&gt; *widgets, const Rectf &amp;area) const override</div><div class="ttdef"><b>Definition:</b> <a href="layout_8cc_source.html#l00196">layout.cc:197</a></div></div>
 <div class="ttc" id="astructeu_1_1gui_1_1SingleRowLayout_html_af256653bd63802bd12a06b9e8a4646a2"><div class="ttname"><a href="structeu_1_1gui_1_1SingleRowLayout.html#af256653bd63802bd12a06b9e8a4646a2">eu::gui::SingleRowLayout::SingleRowLayout</a></div><div class="ttdeci">SingleRowLayout(float padding)</div><div class="ttdef"><b>Definition:</b> <a href="layout_8cc_source.html#l00162">layout.cc:162</a></div></div>
 <div class="ttc" id="astructeu_1_1gui_1_1SingleRowLayout_html_afbcb67d66703810e76e477aa669bda6e"><div class="ttname"><a href="structeu_1_1gui_1_1SingleRowLayout.html#afbcb67d66703810e76e477aa669bda6e">eu::gui::SingleRowLayout::padding</a></div><div class="ttdeci">float padding</div><div class="ttdef"><b>Definition:</b> <a href="layout_8h_source.html#l00103">layout.h:103</a></div></div>
-<div class="ttc" id="astructeu_1_1gui_1_1TableLayout_html_a23b7fc9d87c095a6881094305cfa9b3c"><div class="ttname"><a href="structeu_1_1gui_1_1TableLayout.html#a23b7fc9d87c095a6881094305cfa9b3c">eu::gui::TableLayout::calc_minimum_area</a></div><div class="ttdeci">core::size2f calc_minimum_area(const std::vector&lt; std::shared_ptr&lt; Widget &gt;&gt; &amp;widgets) const override</div><div class="ttdef"><b>Definition:</b> <a href="layout_8cc_source.html#l00048">layout.cc:49</a></div></div>
+<div class="ttc" id="astructeu_1_1gui_1_1TableLayout_html_a012439592c68dd37238e6d31e1a83efd"><div class="ttname"><a href="structeu_1_1gui_1_1TableLayout.html#a012439592c68dd37238e6d31e1a83efd">eu::gui::TableLayout::calc_minimum_area</a></div><div class="ttdeci">size2f calc_minimum_area(const std::vector&lt; std::shared_ptr&lt; Widget &gt;&gt; &amp;widgets) const override</div><div class="ttdef"><b>Definition:</b> <a href="layout_8cc_source.html#l00048">layout.cc:49</a></div></div>
 <div class="ttc" id="astructeu_1_1gui_1_1TableLayout_html_a37831547dc7fa3514534ab08d37509f7"><div class="ttname"><a href="structeu_1_1gui_1_1TableLayout.html#a37831547dc7fa3514534ab08d37509f7">eu::gui::TableLayout::expandable_rows</a></div><div class="ttdeci">std::vector&lt; bool &gt; expandable_rows</div><div class="ttdef"><b>Definition:</b> <a href="layout_8h_source.html#l00074">layout.h:74</a></div></div>
 <div class="ttc" id="astructeu_1_1gui_1_1TableLayout_html_a4ce1bca40688a4a51624e05cba9808ba"><div class="ttname"><a href="structeu_1_1gui_1_1TableLayout.html#a4ce1bca40688a4a51624e05cba9808ba">eu::gui::TableLayout::TableLayout</a></div><div class="ttdeci">TableLayout(const std::vector&lt; bool &gt; &amp;er, const std::vector&lt; bool &gt; &amp;ec, float cp)</div><div class="ttdef"><b>Definition:</b> <a href="layout_8cc_source.html#l00023">layout.cc:24</a></div></div>
-<div class="ttc" id="astructeu_1_1gui_1_1TableLayout_html_a7b3ddd9c470ffa0560267f6d96da9da6"><div class="ttname"><a href="structeu_1_1gui_1_1TableLayout.html#a7b3ddd9c470ffa0560267f6d96da9da6">eu::gui::TableLayout::lay_out</a></div><div class="ttdeci">void lay_out(std::vector&lt; std::shared_ptr&lt; Widget &gt;&gt; *widgets, const core::Rectf &amp;area) const override</div><div class="ttdef"><b>Definition:</b> <a href="layout_8cc_source.html#l00076">layout.cc:77</a></div></div>
+<div class="ttc" id="astructeu_1_1gui_1_1TableLayout_html_a6410be359776f3b5269f3be367a2af36"><div class="ttname"><a href="structeu_1_1gui_1_1TableLayout.html#a6410be359776f3b5269f3be367a2af36">eu::gui::TableLayout::lay_out</a></div><div class="ttdeci">void lay_out(std::vector&lt; std::shared_ptr&lt; Widget &gt;&gt; *widgets, const Rectf &amp;area) const override</div><div class="ttdef"><b>Definition:</b> <a href="layout_8cc_source.html#l00076">layout.cc:77</a></div></div>
 <div class="ttc" id="astructeu_1_1gui_1_1TableLayout_html_ab62a30c90931e5f20b63cd01c5c6dfe7"><div class="ttname"><a href="structeu_1_1gui_1_1TableLayout.html#ab62a30c90931e5f20b63cd01c5c6dfe7">eu::gui::TableLayout::expandable_cols</a></div><div class="ttdeci">std::vector&lt; bool &gt; expandable_cols</div><div class="ttdef"><b>Definition:</b> <a href="layout_8h_source.html#l00075">layout.h:75</a></div></div>
+<div class="ttc" id="astructeu_1_1size2f_html"><div class="ttname"><a href="structeu_1_1size2f.html">eu::size2f</a></div><div class="ttdef"><b>Definition:</b> <a href="size2_8h_source.html#l00011">size2.h:12</a></div></div>
+<div class="ttc" id="astructeu_1_1size2f_html_a7b1f4dd49ad63f76481c45c11cb5cfb2"><div class="ttname"><a href="structeu_1_1size2f.html#a7b1f4dd49ad63f76481c45c11cb5cfb2">eu::size2f::create_from_width_height</a></div><div class="ttdeci">static size2f create_from_width_height(float w, float h)</div><div class="ttdef"><b>Definition:</b> <a href="size2_8cc_source.html#l00015">size2.cc:15</a></div></div>
+<div class="ttc" id="astructeu_1_1vec2f_html"><div class="ttname"><a href="structeu_1_1vec2f.html">eu::vec2f</a></div><div class="ttdef"><b>Definition:</b> <a href="vec2_8h_source.html#l00032">vec2.h:33</a></div></div>
 <div class="ttc" id="awidget_8h_html"><div class="ttname"><a href="widget_8h.html">widget.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.17-->

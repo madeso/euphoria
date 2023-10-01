@@ -4,9 +4,9 @@
     <compoundname>eu::render::CompiledMeshMaterial</compoundname>
     <includes refid="compiledmesh_8h" local="no">compiledmesh.h</includes>
       <sectiondef kind="public-attrib">
-      <memberdef kind="variable" id="structeu_1_1render_1_1CompiledMeshMaterial_1ae05a33c3789bfd3ff19a31a43da4c0d3" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1core_1_1Rgb" kindref="compound">core::Rgb</ref></type>
-        <definition>core::Rgb eu::render::CompiledMeshMaterial::ambient</definition>
+      <memberdef kind="variable" id="structeu_1_1render_1_1CompiledMeshMaterial_1a5ba9726f9da04e30dc3f59eaeff9c783" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1Rgb" kindref="compound">Rgb</ref></type>
+        <definition>Rgb eu::render::CompiledMeshMaterial::ambient</definition>
         <argsstring></argsstring>
         <name>ambient</name>
         <briefdescription>
@@ -15,11 +15,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/compiledmesh.h" line="43" column="19" bodyfile="libs/render/src/render/compiledmesh.h" bodystart="43" bodyend="-1"/>
+        <location file="libs/render/src/render/compiledmesh.h" line="43" column="13" bodyfile="libs/render/src/render/compiledmesh.h" bodystart="43" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeu_1_1render_1_1CompiledMeshMaterial_1aabb751f549d705f554f2d6220ba915e7" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1core_1_1Rgb" kindref="compound">core::Rgb</ref></type>
-        <definition>core::Rgb eu::render::CompiledMeshMaterial::diffuse</definition>
+      <memberdef kind="variable" id="structeu_1_1render_1_1CompiledMeshMaterial_1a9437746afca4922985e5f570ad4ba566" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1Rgb" kindref="compound">Rgb</ref></type>
+        <definition>Rgb eu::render::CompiledMeshMaterial::diffuse</definition>
         <argsstring></argsstring>
         <name>diffuse</name>
         <briefdescription>
@@ -28,11 +28,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/compiledmesh.h" line="44" column="19" bodyfile="libs/render/src/render/compiledmesh.h" bodystart="44" bodyend="-1"/>
+        <location file="libs/render/src/render/compiledmesh.h" line="44" column="13" bodyfile="libs/render/src/render/compiledmesh.h" bodystart="44" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeu_1_1render_1_1CompiledMeshMaterial_1a87d3fc9516ee13c4e5b370d9386fa8cc" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1core_1_1Rgb" kindref="compound">core::Rgb</ref></type>
-        <definition>core::Rgb eu::render::CompiledMeshMaterial::specular</definition>
+      <memberdef kind="variable" id="structeu_1_1render_1_1CompiledMeshMaterial_1aeb9671a0213047e75fa1f3fd410e4322" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1Rgb" kindref="compound">Rgb</ref></type>
+        <definition>Rgb eu::render::CompiledMeshMaterial::specular</definition>
         <argsstring></argsstring>
         <name>specular</name>
         <briefdescription>
@@ -41,7 +41,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/compiledmesh.h" line="45" column="19" bodyfile="libs/render/src/render/compiledmesh.h" bodystart="45" bodyend="-1"/>
+        <location file="libs/render/src/render/compiledmesh.h" line="45" column="13" bodyfile="libs/render/src/render/compiledmesh.h" bodystart="45" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1CompiledMeshMaterial_1aa3130656cc44ef34899e86fa9f1cea6f" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -136,25 +136,25 @@
         </inbodydescription>
         <location file="libs/render/src/render/compiledmesh.h" line="61" column="14" bodyfile="libs/render/src/render/compiledmesh.cc" bodystart="93" bodyend="105"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1render_1_1CompiledMeshMaterial_1a5c4ae6fc2cd23d32e7b1ecba3d326d69" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1render_1_1CompiledMeshMaterial_1a62ac77f74d3b73b83510fa507485b100" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void eu::render::CompiledMeshMaterial::apply</definition>
-        <argsstring>(const core::mat4f &amp;model_matrix, const core::mat4f &amp;projection_matrix, const core::mat4f &amp;view_matrix, const core::vec3f &amp;camera, const Light &amp;light) const</argsstring>
+        <argsstring>(const mat4f &amp;model_matrix, const mat4f &amp;projection_matrix, const mat4f &amp;view_matrix, const vec3f &amp;camera, const Light &amp;light) const</argsstring>
         <name>apply</name>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1mat4f" kindref="compound">core::mat4f</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1mat4f" kindref="compound">mat4f</ref> &amp;</type>
           <declname>model_matrix</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1mat4f" kindref="compound">core::mat4f</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1mat4f" kindref="compound">mat4f</ref> &amp;</type>
           <declname>projection_matrix</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1mat4f" kindref="compound">core::mat4f</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1mat4f" kindref="compound">mat4f</ref> &amp;</type>
           <declname>view_matrix</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1vec3f" kindref="compound">core::vec3f</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
           <declname>camera</declname>
         </param>
         <param>
@@ -189,6 +189,10 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
+      <node id="2">
+        <label>eu::Rgb</label>
+        <link refid="structeu_1_1Rgb"/>
+      </node>
       <node id="1">
         <label>eu::render::CompiledMeshMaterial</label>
         <link refid="structeu_1_1render_1_1CompiledMeshMaterial"/>
@@ -198,22 +202,18 @@
           <edgelabel>specular</edgelabel>
         </childnode>
       </node>
-      <node id="2">
-        <label>eu::core::Rgb</label>
-        <link refid="structeu_1_1core_1_1Rgb"/>
-      </node>
     </collaborationgraph>
     <location file="libs/render/src/render/compiledmesh.h" line="41" column="5" bodyfile="libs/render/src/render/compiledmesh.h" bodystart="42" bodyend="76"/>
     <listofallmembers>
-      <member refid="structeu_1_1render_1_1CompiledMeshMaterial_1ae05a33c3789bfd3ff19a31a43da4c0d3" prot="public" virt="non-virtual"><scope>eu::render::CompiledMeshMaterial</scope><name>ambient</name></member>
-      <member refid="structeu_1_1render_1_1CompiledMeshMaterial_1a5c4ae6fc2cd23d32e7b1ecba3d326d69" prot="public" virt="non-virtual"><scope>eu::render::CompiledMeshMaterial</scope><name>apply</name></member>
+      <member refid="structeu_1_1render_1_1CompiledMeshMaterial_1a5ba9726f9da04e30dc3f59eaeff9c783" prot="public" virt="non-virtual"><scope>eu::render::CompiledMeshMaterial</scope><name>ambient</name></member>
+      <member refid="structeu_1_1render_1_1CompiledMeshMaterial_1a62ac77f74d3b73b83510fa507485b100" prot="public" virt="non-virtual"><scope>eu::render::CompiledMeshMaterial</scope><name>apply</name></member>
       <member refid="structeu_1_1render_1_1CompiledMeshMaterial_1ae1980de5347740d22a8fc4a96fac01f9" prot="public" virt="non-virtual"><scope>eu::render::CompiledMeshMaterial</scope><name>CompiledMeshMaterial</name></member>
-      <member refid="structeu_1_1render_1_1CompiledMeshMaterial_1aabb751f549d705f554f2d6220ba915e7" prot="public" virt="non-virtual"><scope>eu::render::CompiledMeshMaterial</scope><name>diffuse</name></member>
+      <member refid="structeu_1_1render_1_1CompiledMeshMaterial_1a9437746afca4922985e5f570ad4ba566" prot="public" virt="non-virtual"><scope>eu::render::CompiledMeshMaterial</scope><name>diffuse</name></member>
       <member refid="structeu_1_1render_1_1CompiledMeshMaterial_1a91b760307030efa142e54ce3b85366e6" prot="public" virt="non-virtual"><scope>eu::render::CompiledMeshMaterial</scope><name>load_default_materials_from_shader</name></member>
       <member refid="structeu_1_1render_1_1CompiledMeshMaterial_1afac3eca67e30e97e318dacc307b4e6c3" prot="public" virt="non-virtual"><scope>eu::render::CompiledMeshMaterial</scope><name>set_texture</name></member>
       <member refid="structeu_1_1render_1_1CompiledMeshMaterial_1adbcf4b6027a1b55fe0f99b298c447f00" prot="public" virt="non-virtual"><scope>eu::render::CompiledMeshMaterial</scope><name>shader</name></member>
       <member refid="structeu_1_1render_1_1CompiledMeshMaterial_1aa3130656cc44ef34899e86fa9f1cea6f" prot="public" virt="non-virtual"><scope>eu::render::CompiledMeshMaterial</scope><name>shininess</name></member>
-      <member refid="structeu_1_1render_1_1CompiledMeshMaterial_1a87d3fc9516ee13c4e5b370d9386fa8cc" prot="public" virt="non-virtual"><scope>eu::render::CompiledMeshMaterial</scope><name>specular</name></member>
+      <member refid="structeu_1_1render_1_1CompiledMeshMaterial_1aeb9671a0213047e75fa1f3fd410e4322" prot="public" virt="non-virtual"><scope>eu::render::CompiledMeshMaterial</scope><name>specular</name></member>
       <member refid="structeu_1_1render_1_1CompiledMeshMaterial_1aa5f26caace2d905cd818d585d0216460" prot="public" virt="non-virtual"><scope>eu::render::CompiledMeshMaterial</scope><name>textures</name></member>
       <member refid="structeu_1_1render_1_1CompiledMeshMaterial_1a4e6e23a9bb0e562b9376306307f98cd4" prot="public" virt="non-virtual"><scope>eu::render::CompiledMeshMaterial</scope><name>validate</name></member>
     </listofallmembers>

@@ -102,11 +102,11 @@
         <name>get_collision</name>
         <reimplementedby refid="structeu_1_1core_1_1raytracer_1_1SphereObject_1a64074920fbad3794c0e6e3da1f879f0a">get_collision</reimplementedby>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1UnitRay3f" kindref="compound">UnitRay3f</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1UnitRay3f" kindref="compound">UnitRay3f</ref> &amp;</type>
           <declname>ray</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1Range" kindref="compound">Range</ref>&lt; float &gt; &amp;</type>
+          <type>const <ref refid="structeu_1_1Range" kindref="compound">Range</ref>&lt; float &gt; &amp;</type>
           <declname>range</declname>
         </param>
         <briefdescription>

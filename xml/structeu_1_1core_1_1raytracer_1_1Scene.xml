@@ -25,11 +25,11 @@
         <argsstring>(const UnitRay3f &amp;ray, const Range&lt; float &gt; &amp;range) const</argsstring>
         <name>get_collision</name>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1UnitRay3f" kindref="compound">UnitRay3f</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1UnitRay3f" kindref="compound">UnitRay3f</ref> &amp;</type>
           <declname>ray</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1Range" kindref="compound">Range</ref>&lt; float &gt; &amp;</type>
+          <type>const <ref refid="structeu_1_1Range" kindref="compound">Range</ref>&lt; float &gt; &amp;</type>
           <declname>range</declname>
         </param>
         <briefdescription>

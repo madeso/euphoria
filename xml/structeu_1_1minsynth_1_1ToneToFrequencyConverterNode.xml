@@ -60,7 +60,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="173" column="14" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="208" bodyend="223"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="173" column="14" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="204" bodyend="219"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1minsynth_1_1ToneToFrequencyConverterNode_1a92c23199d948381605279f8061a80e1e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
@@ -77,7 +77,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="175" column="16" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="226" bodyend="234"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="175" column="16" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="222" bodyend="230"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

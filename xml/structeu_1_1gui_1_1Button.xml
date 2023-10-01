@@ -58,9 +58,9 @@
         </inbodydescription>
         <location file="libs/gui/src/gui/button.h" line="30" column="14" bodyfile="libs/gui/src/gui/button.h" bodystart="30" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeu_1_1gui_1_1Button_1a2e02e2274475cfcf8d9330835c0b1882" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1core_1_1Interpolate" kindref="compound">core::Interpolate</ref>&lt; float &gt;</type>
-        <definition>core::Interpolate&lt;float&gt; eu::gui::Button::scale</definition>
+      <memberdef kind="variable" id="structeu_1_1gui_1_1Button_1adfe1421d7d08fa39c37eccdcbe28e4f5" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1core_1_1Tweenable" kindref="compound">core::Tweenable</ref>&lt; float &gt;</type>
+        <definition>core::Tweenable&lt;float&gt; eu::gui::Button::scale</definition>
         <argsstring></argsstring>
         <name>scale</name>
         <briefdescription>
@@ -69,11 +69,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/gui/src/gui/button.h" line="32" column="27" bodyfile="libs/gui/src/gui/button.h" bodystart="32" bodyend="-1"/>
+        <location file="libs/gui/src/gui/button.h" line="32" column="25" bodyfile="libs/gui/src/gui/button.h" bodystart="32" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeu_1_1gui_1_1Button_1a72433f9a7b139566f24021185d3da340" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1core_1_1Interpolate" kindref="compound">core::Interpolate</ref>&lt; <ref refid="structeu_1_1core_1_1Rgb" kindref="compound">core::Rgb</ref> &gt;</type>
-        <definition>core::Interpolate&lt;core::Rgb&gt; eu::gui::Button::image_color</definition>
+      <memberdef kind="variable" id="structeu_1_1gui_1_1Button_1a8b2414f73587823e75be7eadca68b7f2" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1core_1_1Tweenable" kindref="compound">core::Tweenable</ref>&lt; <ref refid="structeu_1_1Rgb" kindref="compound">Rgb</ref> &gt;</type>
+        <definition>core::Tweenable&lt;Rgb&gt; eu::gui::Button::image_color</definition>
         <argsstring></argsstring>
         <name>image_color</name>
         <briefdescription>
@@ -82,11 +82,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/gui/src/gui/button.h" line="33" column="27" bodyfile="libs/gui/src/gui/button.h" bodystart="33" bodyend="-1"/>
+        <location file="libs/gui/src/gui/button.h" line="33" column="25" bodyfile="libs/gui/src/gui/button.h" bodystart="33" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeu_1_1gui_1_1Button_1a9a7ae2e8dea029e650c4fb553058a15e" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1core_1_1Interpolate" kindref="compound">core::Interpolate</ref>&lt; <ref refid="structeu_1_1core_1_1Rgb" kindref="compound">core::Rgb</ref> &gt;</type>
-        <definition>core::Interpolate&lt;core::Rgb&gt; eu::gui::Button::text_color</definition>
+      <memberdef kind="variable" id="structeu_1_1gui_1_1Button_1ad270d12d628659dc29e3d5f97cada749" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1core_1_1Tweenable" kindref="compound">core::Tweenable</ref>&lt; <ref refid="structeu_1_1Rgb" kindref="compound">Rgb</ref> &gt;</type>
+        <definition>core::Tweenable&lt;Rgb&gt; eu::gui::Button::text_color</definition>
         <argsstring></argsstring>
         <name>text_color</name>
         <briefdescription>
@@ -95,11 +95,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/gui/src/gui/button.h" line="34" column="27" bodyfile="libs/gui/src/gui/button.h" bodystart="34" bodyend="-1"/>
+        <location file="libs/gui/src/gui/button.h" line="34" column="25" bodyfile="libs/gui/src/gui/button.h" bodystart="34" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeu_1_1gui_1_1Button_1aa9c0b328e515cab7e7258c36bed89796" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1core_1_1Interpolate" kindref="compound">core::Interpolate</ref>&lt; <ref refid="structeu_1_1core_1_1vec2f" kindref="compound">core::vec2f</ref> &gt;</type>
-        <definition>core::Interpolate&lt;core::vec2f&gt; eu::gui::Button::position_displacement</definition>
+      <memberdef kind="variable" id="structeu_1_1gui_1_1Button_1a52827d46e0936b9031fa50f71198960b" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1core_1_1Tweenable" kindref="compound">core::Tweenable</ref>&lt; <ref refid="structeu_1_1vec2f" kindref="compound">vec2f</ref> &gt;</type>
+        <definition>core::Tweenable&lt;vec2f&gt; eu::gui::Button::position_displacement</definition>
         <argsstring></argsstring>
         <name>position_displacement</name>
         <briefdescription>
@@ -108,7 +108,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/gui/src/gui/button.h" line="35" column="27" bodyfile="libs/gui/src/gui/button.h" bodystart="35" bodyend="-1"/>
+        <location file="libs/gui/src/gui/button.h" line="35" column="25" bodyfile="libs/gui/src/gui/button.h" bodystart="35" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -241,19 +241,19 @@
         </inbodydescription>
         <location file="libs/gui/src/gui/button.h" line="47" column="14" bodyfile="libs/gui/src/gui/button.cc" bodystart="30" bodyend="92"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1gui_1_1Button_1a00a9b34c1c48c68c4a80aa8d944695e4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
-        <type><ref refid="structeu_1_1core_1_1size2f" kindref="compound">core::size2f</ref></type>
-        <definition>core::size2f eu::gui::Button::calc_minimum_size</definition>
+      <memberdef kind="function" id="structeu_1_1gui_1_1Button_1a6af87091e9f5f0eefd364cab93c5068d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="structeu_1_1size2f" kindref="compound">size2f</ref></type>
+        <definition>size2f eu::gui::Button::calc_minimum_size</definition>
         <argsstring>() const override</argsstring>
         <name>calc_minimum_size</name>
-        <reimplements refid="structeu_1_1gui_1_1Widget_1af683e21b07b077a50e3f1f697f398155">calc_minimum_size</reimplements>
+        <reimplements refid="structeu_1_1gui_1_1Widget_1ab77f29f1c6db5a7ce9bcafafc32488a1">calc_minimum_size</reimplements>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/gui/src/gui/button.h" line="48" column="23" bodyfile="libs/gui/src/gui/button.cc" bodystart="96" bodyend="119"/>
+        <location file="libs/gui/src/gui/button.h" line="48" column="17" bodyfile="libs/gui/src/gui/button.cc" bodystart="96" bodyend="119"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1gui_1_1Button_1a1b56450618e00bb09a3929aa7039fc19" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -343,6 +343,10 @@
       </node>
     </inheritancegraph>
     <collaborationgraph>
+      <node id="12">
+        <label>eu::Rgb</label>
+        <link refid="structeu_1_1Rgb"/>
+      </node>
       <node id="1">
         <label>eu::gui::Button</label>
         <link refid="structeu_1_1gui_1_1Button"/>
@@ -352,42 +356,42 @@
           <edgelabel>text</edgelabel>
         </childnode>
         <childnode refid="9" relation="usage">
-          <edgelabel>image_color</edgelabel>
-          <edgelabel>text_color</edgelabel>
-        </childnode>
-        <childnode refid="10" relation="usage">
-          <edgelabel>position_displacement</edgelabel>
-        </childnode>
-        <childnode refid="11" relation="usage">
           <edgelabel>scale</edgelabel>
         </childnode>
-        <childnode refid="12" relation="usage">
-          <edgelabel>last_state</edgelabel>
-        </childnode>
-        <childnode refid="15" relation="usage">
-          <edgelabel>skin</edgelabel>
-        </childnode>
-      </node>
-      <node id="12">
-        <label>eu::gui::ButtonState</label>
-        <link refid="structeu_1_1gui_1_1ButtonState"/>
-        <childnode refid="13" relation="usage">
+        <childnode refid="10" relation="usage">
           <edgelabel>image_color</edgelabel>
           <edgelabel>text_color</edgelabel>
         </childnode>
+        <childnode refid="11" relation="usage">
+          <edgelabel>last_state</edgelabel>
+        </childnode>
         <childnode refid="14" relation="usage">
+          <edgelabel>skin</edgelabel>
+        </childnode>
+        <childnode refid="15" relation="usage">
+          <edgelabel>position_displacement</edgelabel>
+        </childnode>
+      </node>
+      <node id="11">
+        <label>eu::gui::ButtonState</label>
+        <link refid="structeu_1_1gui_1_1ButtonState"/>
+        <childnode refid="12" relation="usage">
+          <edgelabel>image_color</edgelabel>
+          <edgelabel>text_color</edgelabel>
+        </childnode>
+        <childnode refid="13" relation="usage">
           <edgelabel>interpolation_color</edgelabel>
           <edgelabel>interpolation_position</edgelabel>
           <edgelabel>interpolation_size</edgelabel>
         </childnode>
       </node>
-      <node id="4">
+      <node id="5">
         <label>eu::gui::LayoutData</label>
         <link refid="structeu_1_1gui_1_1LayoutData"/>
       </node>
       <node id="10">
-        <label>eu::core::Interpolate&lt; eu::core::vec2f &gt;</label>
-        <link refid="structeu_1_1core_1_1Interpolate"/>
+        <label>eu::core::Tweenable&lt; eu::Rgb &gt;</label>
+        <link refid="structeu_1_1core_1_1Tweenable"/>
       </node>
       <node id="6">
         <label>eu::gui::State</label>
@@ -400,7 +404,7 @@
           <edgelabel>mouse</edgelabel>
         </childnode>
       </node>
-      <node id="14">
+      <node id="13">
         <label>eu::gui::Interpolation</label>
         <link refid="structeu_1_1gui_1_1Interpolation"/>
       </node>
@@ -412,51 +416,47 @@
           <edgelabel>padding</edgelabel>
         </childnode>
         <childnode refid="4" relation="usage">
-          <edgelabel>layout</edgelabel>
+          <edgelabel>rect</edgelabel>
         </childnode>
         <childnode refid="5" relation="usage">
-          <edgelabel>rect</edgelabel>
+          <edgelabel>layout</edgelabel>
         </childnode>
         <childnode refid="6" relation="usage">
           <edgelabel>ui_state</edgelabel>
         </childnode>
       </node>
-      <node id="5">
-        <label>eu::core::Rectf</label>
-        <link refid="structeu_1_1core_1_1Rectf"/>
+      <node id="9">
+        <label>eu::core::Tweenable&lt; float &gt;</label>
+        <link refid="structeu_1_1core_1_1Tweenable"/>
       </node>
       <node id="8">
         <label>eu::gui::TextData</label>
         <link refid="structeu_1_1gui_1_1TextData"/>
       </node>
-      <node id="3">
-        <label>eu::core::Lrud&lt; float &gt;</label>
-        <link refid="structeu_1_1core_1_1Lrud"/>
-      </node>
-      <node id="7">
-        <label>eu::core::vec2f</label>
-        <link refid="structeu_1_1core_1_1vec2f"/>
-      </node>
-      <node id="15">
+      <node id="14">
         <label>eu::gui::Skin</label>
         <link refid="structeu_1_1gui_1_1Skin"/>
-        <childnode refid="12" relation="usage">
+        <childnode refid="11" relation="usage">
           <edgelabel>button_active_hot</edgelabel>
           <edgelabel>button_hot</edgelabel>
           <edgelabel>button_idle</edgelabel>
         </childnode>
       </node>
-      <node id="9">
-        <label>eu::core::Interpolate&lt; eu::core::Rgb &gt;</label>
-        <link refid="structeu_1_1core_1_1Interpolate"/>
+      <node id="15">
+        <label>eu::core::Tweenable&lt; eu::vec2f &gt;</label>
+        <link refid="structeu_1_1core_1_1Tweenable"/>
       </node>
-      <node id="11">
-        <label>eu::core::Interpolate&lt; float &gt;</label>
-        <link refid="structeu_1_1core_1_1Interpolate"/>
+      <node id="4">
+        <label>eu::Rectf</label>
+        <link refid="structeu_1_1Rectf"/>
       </node>
-      <node id="13">
-        <label>eu::core::Rgb</label>
-        <link refid="structeu_1_1core_1_1Rgb"/>
+      <node id="3">
+        <label>eu::Lrud&lt; float &gt;</label>
+        <link refid="structeu_1_1Lrud"/>
+      </node>
+      <node id="7">
+        <label>eu::vec2f</label>
+        <link refid="structeu_1_1vec2f"/>
       </node>
     </collaborationgraph>
     <location file="libs/gui/src/gui/button.h" line="25" column="5" bodyfile="libs/gui/src/gui/button.h" bodystart="26" bodyend="54"/>
@@ -464,18 +464,18 @@
       <member refid="structeu_1_1gui_1_1Button_1a10aa83fcea1a9c34ad0700221194a4fb" prot="public" virt="non-virtual"><scope>eu::gui::Button</scope><name>Button</name></member>
       <member refid="structeu_1_1gui_1_1Button_1a96595d9f0a4c549f2ddd7d061063456e" prot="public" virt="non-virtual"><scope>eu::gui::Button</scope><name>Button</name></member>
       <member refid="structeu_1_1gui_1_1Button_1a8c359ceca12a75ff027b98119cae7de5" prot="public" virt="non-virtual"><scope>eu::gui::Button</scope><name>Button</name></member>
-      <member refid="structeu_1_1gui_1_1Button_1a00a9b34c1c48c68c4a80aa8d944695e4" prot="public" virt="virtual"><scope>eu::gui::Button</scope><name>calc_minimum_size</name></member>
-      <member refid="structeu_1_1gui_1_1Widget_1ace63dd0d2edff1ab3b37eac212045469" prot="public" virt="non-virtual"><scope>eu::gui::Button</scope><name>get_background_rect</name></member>
-      <member refid="structeu_1_1gui_1_1Widget_1ae56a00329498c528f30d05d656dd03bc" prot="public" virt="non-virtual"><scope>eu::gui::Button</scope><name>get_client_rect</name></member>
-      <member refid="structeu_1_1gui_1_1Widget_1ac7dfea87136042e49a1d17c1e53bad32" prot="public" virt="non-virtual"><scope>eu::gui::Button</scope><name>get_preferred_size</name></member>
+      <member refid="structeu_1_1gui_1_1Button_1a6af87091e9f5f0eefd364cab93c5068d" prot="public" virt="virtual"><scope>eu::gui::Button</scope><name>calc_minimum_size</name></member>
+      <member refid="structeu_1_1gui_1_1Widget_1acf608a323121e428590bc6de7e54dd99" prot="public" virt="non-virtual"><scope>eu::gui::Button</scope><name>get_background_rect</name></member>
+      <member refid="structeu_1_1gui_1_1Widget_1a52fedb88ff5aa8132516b1488bd27758" prot="public" virt="non-virtual"><scope>eu::gui::Button</scope><name>get_client_rect</name></member>
+      <member refid="structeu_1_1gui_1_1Widget_1acee00616d902bf026b793bcf7d017f41" prot="public" virt="non-virtual"><scope>eu::gui::Button</scope><name>get_preferred_size</name></member>
       <member refid="structeu_1_1gui_1_1Widget_1aa08520c479054f5f99ff7624e25f272e" prot="public" virt="non-virtual"><scope>eu::gui::Button</scope><name>get_state</name></member>
       <member refid="structeu_1_1gui_1_1Widget_1ad3910564b1357dc1bc6a587e8fb813d0" prot="public" virt="non-virtual"><scope>eu::gui::Button</scope><name>get_state_ptr</name></member>
-      <member refid="structeu_1_1gui_1_1Button_1a72433f9a7b139566f24021185d3da340" prot="public" virt="non-virtual"><scope>eu::gui::Button</scope><name>image_color</name></member>
+      <member refid="structeu_1_1gui_1_1Button_1a8b2414f73587823e75be7eadca68b7f2" prot="public" virt="non-virtual"><scope>eu::gui::Button</scope><name>image_color</name></member>
       <member refid="structeu_1_1gui_1_1Widget_1ae58c6d8b3ce887c1f64bc750dcc95772" prot="public" virt="non-virtual"><scope>eu::gui::Button</scope><name>is_active</name></member>
       <member refid="structeu_1_1gui_1_1Widget_1aad17ccf02f65c793ed3e03dd5046b2f8" prot="public" virt="non-virtual"><scope>eu::gui::Button</scope><name>is_hot</name></member>
       <member refid="structeu_1_1gui_1_1Button_1a356ff478557f41aac6743a0456d08a78" prot="public" virt="non-virtual"><scope>eu::gui::Button</scope><name>last_state</name></member>
       <member refid="structeu_1_1gui_1_1Widget_1a157692c253b368287807e547ccc325dd" prot="public" virt="non-virtual"><scope>eu::gui::Button</scope><name>layout</name></member>
-      <member refid="structeu_1_1gui_1_1Widget_1a0a6df16e9fde456098ec1b2fc9ba54b6" prot="public" virt="non-virtual"><scope>eu::gui::Button</scope><name>margin</name></member>
+      <member refid="structeu_1_1gui_1_1Widget_1a5e691dbcb6efc73cb6c538608275508b" prot="public" virt="non-virtual"><scope>eu::gui::Button</scope><name>margin</name></member>
       <member refid="structeu_1_1gui_1_1Widget_1a3a49e8762bc6f81eb4cd2b5c8baf7327" prot="public" virt="non-virtual"><scope>eu::gui::Button</scope><name>name</name></member>
       <member refid="structeu_1_1gui_1_1Button_1a18d0ca940268532c9874ddc2035bf503" prot="public" virt="pure-virtual"><scope>eu::gui::Button</scope><name>on_clicked</name></member>
       <member refid="structeu_1_1gui_1_1Button_1afddceb5614ce10bb553d6a80ef633a48" prot="public" virt="virtual"><scope>eu::gui::Button</scope><name>on_size_changed</name></member>
@@ -483,17 +483,17 @@
       <member refid="structeu_1_1gui_1_1Button_1a8ffd0158323c2e9adefa74ac6f894132" prot="public" virt="non-virtual"><scope>eu::gui::Button</scope><name>operator=</name></member>
       <member refid="structeu_1_1gui_1_1Widget_1af343985d829d1762489fc919de8c8eee" prot="public" virt="non-virtual" ambiguityscope="eu::gui::Widget::"><scope>eu::gui::Button</scope><name>operator=</name></member>
       <member refid="structeu_1_1gui_1_1Widget_1a38ac4c4a62294a9e62e6810f1526b272" prot="public" virt="non-virtual" ambiguityscope="eu::gui::Widget::"><scope>eu::gui::Button</scope><name>operator=</name></member>
-      <member refid="structeu_1_1gui_1_1Widget_1a003d621488b80afaf7175a6893304ddb" prot="public" virt="non-virtual"><scope>eu::gui::Button</scope><name>padding</name></member>
-      <member refid="structeu_1_1gui_1_1Button_1aa9c0b328e515cab7e7258c36bed89796" prot="public" virt="non-virtual"><scope>eu::gui::Button</scope><name>position_displacement</name></member>
-      <member refid="structeu_1_1gui_1_1Widget_1afae177ba97123035fa398d845a9a5a44" prot="public" virt="non-virtual"><scope>eu::gui::Button</scope><name>rect</name></member>
+      <member refid="structeu_1_1gui_1_1Widget_1a3dea516ff64897f4ab0fa09d1e95a9e3" prot="public" virt="non-virtual"><scope>eu::gui::Button</scope><name>padding</name></member>
+      <member refid="structeu_1_1gui_1_1Button_1a52827d46e0936b9031fa50f71198960b" prot="public" virt="non-virtual"><scope>eu::gui::Button</scope><name>position_displacement</name></member>
+      <member refid="structeu_1_1gui_1_1Widget_1a342366c3a421c5f7b07316176da201c6" prot="public" virt="non-virtual"><scope>eu::gui::Button</scope><name>rect</name></member>
       <member refid="structeu_1_1gui_1_1Button_1a1b56450618e00bb09a3929aa7039fc19" prot="public" virt="virtual"><scope>eu::gui::Button</scope><name>render</name></member>
-      <member refid="structeu_1_1gui_1_1Button_1a2e02e2274475cfcf8d9330835c0b1882" prot="public" virt="non-virtual"><scope>eu::gui::Button</scope><name>scale</name></member>
-      <member refid="structeu_1_1gui_1_1Widget_1a2b0adbde0b17b6cef0ba96d2461b684e" prot="public" virt="non-virtual"><scope>eu::gui::Button</scope><name>set_rect</name></member>
+      <member refid="structeu_1_1gui_1_1Button_1adfe1421d7d08fa39c37eccdcbe28e4f5" prot="public" virt="non-virtual"><scope>eu::gui::Button</scope><name>scale</name></member>
+      <member refid="structeu_1_1gui_1_1Widget_1a9d175871f3bc5ea38d2464eea1fbe3cf" prot="public" virt="non-virtual"><scope>eu::gui::Button</scope><name>set_rect</name></member>
       <member refid="structeu_1_1gui_1_1Button_1a833725130d82f2ec024d809b8a05dc29" prot="public" virt="non-virtual"><scope>eu::gui::Button</scope><name>set_skin</name></member>
       <member refid="structeu_1_1gui_1_1Button_1a91ebdc39aff399515c52abf42e097851" prot="public" virt="non-virtual"><scope>eu::gui::Button</scope><name>skin</name></member>
       <member refid="structeu_1_1gui_1_1Button_1a36e465610b6b9da77ea1af4748b3c455" prot="public" virt="non-virtual"><scope>eu::gui::Button</scope><name>sprite</name></member>
       <member refid="structeu_1_1gui_1_1Button_1a0ae42a9a9aaef877206ca81088bc67ef" prot="public" virt="non-virtual"><scope>eu::gui::Button</scope><name>text</name></member>
-      <member refid="structeu_1_1gui_1_1Button_1a9a7ae2e8dea029e650c4fb553058a15e" prot="public" virt="non-virtual"><scope>eu::gui::Button</scope><name>text_color</name></member>
+      <member refid="structeu_1_1gui_1_1Button_1ad270d12d628659dc29e3d5f97cada749" prot="public" virt="non-virtual"><scope>eu::gui::Button</scope><name>text_color</name></member>
       <member refid="structeu_1_1gui_1_1Widget_1ac87b45827270598e7af4798b9f9112c7" prot="public" virt="non-virtual"><scope>eu::gui::Button</scope><name>ui_state</name></member>
       <member refid="structeu_1_1gui_1_1Button_1a695eb538d3ef1cd4f149ca64e1952270" prot="public" virt="virtual"><scope>eu::gui::Button</scope><name>update</name></member>
       <member refid="structeu_1_1gui_1_1Button_1a2c913e7e9be6fc349ce7d944ac979e31" prot="public" virt="virtual"><scope>eu::gui::Button</scope><name>visit</name></member>

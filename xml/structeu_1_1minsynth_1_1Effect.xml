@@ -39,7 +39,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="321" column="15" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="794" bodyend="802"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="321" column="15" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="790" bodyend="798"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1minsynth_1_1Effect_1a6f734d54a303e6082c308bb1308cca09" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
         <type>float</type>

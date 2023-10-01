@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1NormalizedAndLength" kind="struct" language="C++" prot="public">
+    <compoundname>eu::NormalizedAndLength</compoundname>
+    <includes refid="vec_8base_8h" local="no">vec.base.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename TNormalized</type>
+      </param>
+      <param>
+        <type>typename TLength</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1NormalizedAndLength_1a06c2bc376de8475db8b1a2b1d03a2e97" prot="public" static="no" mutable="no">
+        <type>TNormalized</type>
+        <definition>TNormalized eu::NormalizedAndLength&lt; TNormalized, TLength &gt;::normalized</definition>
+        <argsstring></argsstring>
+        <name>normalized</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/vec.base.h" line="8" column="21" bodyfile="libs/base/src/base/vec.base.h" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1NormalizedAndLength_1ab7f39eacc179826bc9a4adf24344780f" prot="public" static="no" mutable="no">
+        <type>TLength</type>
+        <definition>TLength eu::NormalizedAndLength&lt; TNormalized, TLength &gt;::length</definition>
+        <argsstring></argsstring>
+        <name>length</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/vec.base.h" line="9" column="17" bodyfile="libs/base/src/base/vec.base.h" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/base/src/base/vec.base.h" line="6" column="5" bodyfile="libs/base/src/base/vec.base.h" bodystart="7" bodyend="10"/>
+    <listofallmembers>
+      <member refid="structeu_1_1NormalizedAndLength_1ab7f39eacc179826bc9a4adf24344780f" prot="public" virt="non-virtual"><scope>eu::NormalizedAndLength</scope><name>length</name></member>
+      <member refid="structeu_1_1NormalizedAndLength_1a06c2bc376de8475db8b1a2b1d03a2e97" prot="public" virt="non-virtual"><scope>eu::NormalizedAndLength</scope><name>normalized</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

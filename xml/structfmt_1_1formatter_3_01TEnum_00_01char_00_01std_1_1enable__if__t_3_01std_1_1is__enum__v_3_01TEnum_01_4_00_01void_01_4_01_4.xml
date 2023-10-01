@@ -34,7 +34,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/enumtostring.h" line="187" column="10" bodyfile="libs/core/src/core/enumtostring.h" bodystart="187" bodyend="191"/>
+        <location file="libs/base/src/base/enumtostring.h" line="187" column="10" bodyfile="libs/base/src/base/enumtostring.h" bodystart="187" bodyend="191"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -63,7 +63,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/enumtostring.h" line="178" column="1" bodyfile="libs/core/src/core/enumtostring.h" bodystart="185" bodyend="192"/>
+    <location file="libs/base/src/base/enumtostring.h" line="178" column="1" bodyfile="libs/base/src/base/enumtostring.h" bodystart="185" bodyend="192"/>
     <listofallmembers>
       <member refid="structfmt_1_1formatter_3_01TEnum_00_01char_00_01std_1_1enable__if__t_3_01std_1_1is__enum__v_3_01TEnum_01_4_00_01void_01_4_01_4_1afb1bc2a6bd9a2ce191b3acc705c3419c" prot="public" virt="non-virtual"><scope>fmt::formatter&lt; TEnum, char, std::enable_if_t&lt; std::is_enum_v&lt; TEnum &gt;, void &gt; &gt;</scope><name>format</name></member>
     </listofallmembers>

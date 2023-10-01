@@ -143,8 +143,8 @@
         </childnode>
       </node>
       <node id="3">
-        <label>eu::core::EnumToStringImplementation&lt; std::shared_ptr&lt; eu::core::argparse::SubParserContainer &gt; &gt;</label>
-        <link refid="structeu_1_1core_1_1EnumToStringImplementation"/>
+        <label>eu::EnumToStringImplementation&lt; std::shared_ptr&lt; eu::core::argparse::SubParserContainer &gt; &gt;</label>
+        <link refid="structeu_1_1EnumToStringImplementation"/>
       </node>
     </collaborationgraph>
     <location file="libs/core/src/core/argparse.h" line="574" column="5" bodyfile="libs/core/src/core/argparse.h" bodystart="575" bodyend="588"/>

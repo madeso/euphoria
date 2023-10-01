@@ -46,7 +46,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="239" column="14" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="458" bodyend="490"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="239" column="14" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="454" bodyend="486"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1minsynth_1_1SingleToneNode_1ab19fb1e9ff9dea57bf8c426ac563d019" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -59,7 +59,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="241" column="14" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="493" bodyend="518"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="241" column="14" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="489" bodyend="514"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

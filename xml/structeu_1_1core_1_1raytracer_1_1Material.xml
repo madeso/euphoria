@@ -108,7 +108,7 @@
         <reimplementedby refid="structeu_1_1core_1_1raytracer_1_1MetalMaterial_1a6ab24cd757f88743a89107824619df73">get_scattered</reimplementedby>
         <reimplementedby refid="structeu_1_1core_1_1raytracer_1_1DielectricMaterial_1a44d0abc219b724181923655bf717f319">get_scattered</reimplementedby>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1UnitRay3f" kindref="compound">UnitRay3f</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1UnitRay3f" kindref="compound">UnitRay3f</ref> &amp;</type>
           <declname>ray</declname>
         </param>
         <param>
@@ -116,7 +116,7 @@
           <declname>hit</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1core_1_1Random" kindref="compound">Random</ref> *</type>
+          <type><ref refid="structeu_1_1Random" kindref="compound">Random</ref> *</type>
           <declname>random</declname>
         </param>
         <briefdescription>

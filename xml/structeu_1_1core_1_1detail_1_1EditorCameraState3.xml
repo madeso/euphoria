@@ -18,7 +18,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/camera3.editor.h" line="36" column="13"/>
+        <location file="libs/core/src/core/camera3.editor.h" line="40" column="13"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1detail_1_1EditorCameraState3_1adb93490c2420e2b2d9708fd0f224c737" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type></type>
@@ -31,7 +31,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/camera3.editor.h" line="37" column="21"/>
+        <location file="libs/core/src/core/camera3.editor.h" line="41" column="21"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1detail_1_1EditorCameraState3_1aa69c648faa09ee696f0db6ae5a71137a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -47,7 +47,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/camera3.editor.h" line="39" column="13"/>
+        <location file="libs/core/src/core/camera3.editor.h" line="43" column="13"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1detail_1_1EditorCameraState3_1a97df306bb8bae15aa213d3b2ad75f23e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -63,7 +63,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/camera3.editor.h" line="40" column="13"/>
+        <location file="libs/core/src/core/camera3.editor.h" line="44" column="13"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1detail_1_1EditorCameraState3_1a0af181369fe6d34cad667b0295e0fa69" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -79,7 +79,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/camera3.editor.h" line="41" column="18"/>
+        <location file="libs/core/src/core/camera3.editor.h" line="45" column="18"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1detail_1_1EditorCameraState3_1a8c7d80d03225e8595974c86eb9d8ec13" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -95,7 +95,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/camera3.editor.h" line="42" column="18"/>
+        <location file="libs/core/src/core/camera3.editor.h" line="46" column="18"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1detail_1_1EditorCameraState3_1a9c43534e0ce8a1ade49284fe73c6f78a" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
         <type>void</type>
@@ -123,7 +123,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/camera3.editor.h" line="44" column="26"/>
+        <location file="libs/core/src/core/camera3.editor.h" line="48" column="26"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1detail_1_1EditorCameraState3_1a6b87aa81f6c4b06288a8229bc3a68ddf" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
         <type>void</type>
@@ -151,7 +151,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/camera3.editor.h" line="45" column="26"/>
+        <location file="libs/core/src/core/camera3.editor.h" line="49" column="26"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1detail_1_1EditorCameraState3_1aa3c5f50c2bce30a9acd56fd94bcb23a3" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
         <type>void</type>
@@ -170,7 +170,7 @@
           <declname>shift_state</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1vec2i" kindref="compound">vec2i</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1vec2i" kindref="compound">vec2i</ref> &amp;</type>
           <declname>mouse</declname>
         </param>
         <param>
@@ -191,7 +191,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/camera3.editor.h" line="46" column="26"/>
+        <location file="libs/core/src/core/camera3.editor.h" line="50" column="26"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1detail_1_1EditorCameraState3_1a2f00e246f8f65a884c36e6c32acfd8d1" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
         <type>void</type>
@@ -219,7 +219,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/camera3.editor.h" line="57" column="13"/>
+        <location file="libs/core/src/core/camera3.editor.h" line="61" column="13"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1detail_1_1EditorCameraState3_1a3d5d2860958296c058897288f43b5670" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
         <type>void</type>
@@ -239,7 +239,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/camera3.editor.h" line="59" column="26"/>
+        <location file="libs/core/src/core/camera3.editor.h" line="63" column="26"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1detail_1_1EditorCameraState3_1a2e0961235674a72fc05b58462d18dad6" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
         <type>void</type>
@@ -259,7 +259,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/camera3.editor.h" line="60" column="26"/>
+        <location file="libs/core/src/core/camera3.editor.h" line="64" column="26"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1detail_1_1EditorCameraState3_1ab48aaabd1a0fec06f6320375293e7db7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
         <type><ref refid="namespaceeu_1_1core_1af4fa494e006059dce5d3f4187bbb80f6" kindref="member">MouseBehaviour</ref></type>
@@ -279,7 +279,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/camera3.editor.h" line="62" column="36"/>
+        <location file="libs/core/src/core/camera3.editor.h" line="66" column="36"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -310,7 +310,7 @@
         </childnode>
       </node>
     </inheritancegraph>
-    <location file="libs/core/src/core/camera3.editor.h" line="34" column="9" bodyfile="libs/core/src/core/camera3.editor.h" bodystart="35" bodyend="63"/>
+    <location file="libs/core/src/core/camera3.editor.h" line="38" column="9" bodyfile="libs/core/src/core/camera3.editor.h" bodystart="39" bodyend="67"/>
     <listofallmembers>
       <member refid="structeu_1_1core_1_1detail_1_1EditorCameraState3_1a751725de1ac75a9cacf6b069192508bc" prot="public" virt="non-virtual"><scope>eu::core::detail::EditorCameraState3</scope><name>EditorCameraState3</name></member>
       <member refid="structeu_1_1core_1_1detail_1_1EditorCameraState3_1aa69c648faa09ee696f0db6ae5a71137a" prot="public" virt="non-virtual"><scope>eu::core::detail::EditorCameraState3</scope><name>EditorCameraState3</name></member>

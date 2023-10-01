@@ -51,9 +51,9 @@
         </inbodydescription>
         <location file="libs/render/src/render/light.h" line="28" column="14" bodyfile="libs/render/src/render/light.h" bodystart="28" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeu_1_1render_1_1Light_1ad2e9f7f7c00a631c24e38b8bd3dd7d66" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1core_1_1vec3f" kindref="compound">core::vec3f</ref></type>
-        <definition>core::vec3f eu::render::Light::position</definition>
+      <memberdef kind="variable" id="structeu_1_1render_1_1Light_1a5a64ea00a46a6e2221bb81baad23fc1f" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1vec3f" kindref="compound">vec3f</ref></type>
+        <definition>vec3f eu::render::Light::position</definition>
         <argsstring></argsstring>
         <name>position</name>
         <briefdescription>
@@ -62,11 +62,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/light.h" line="29" column="21" bodyfile="libs/render/src/render/light.h" bodystart="29" bodyend="-1"/>
+        <location file="libs/render/src/render/light.h" line="29" column="15" bodyfile="libs/render/src/render/light.h" bodystart="29" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeu_1_1render_1_1Light_1a26cde4881f864dd691cd74a9260a1eb2" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1core_1_1unit3f" kindref="compound">core::unit3f</ref></type>
-        <definition>core::unit3f eu::render::Light::direction</definition>
+      <memberdef kind="variable" id="structeu_1_1render_1_1Light_1adf056cfd6f1b41b7a2217ab8d8f7ab1f" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1unit3f" kindref="compound">unit3f</ref></type>
+        <definition>unit3f eu::render::Light::direction</definition>
         <argsstring></argsstring>
         <name>direction</name>
         <briefdescription>
@@ -75,11 +75,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/light.h" line="30" column="22" bodyfile="libs/render/src/render/light.h" bodystart="30" bodyend="-1"/>
+        <location file="libs/render/src/render/light.h" line="30" column="16" bodyfile="libs/render/src/render/light.h" bodystart="30" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeu_1_1render_1_1Light_1a6c8a6434f22b6044ff8f75b486b685df" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1core_1_1Rgb" kindref="compound">core::Rgb</ref></type>
-        <definition>core::Rgb eu::render::Light::ambient</definition>
+      <memberdef kind="variable" id="structeu_1_1render_1_1Light_1a954bb8338188b2549692ba5b0cfdc105" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1Rgb" kindref="compound">Rgb</ref></type>
+        <definition>Rgb eu::render::Light::ambient</definition>
         <argsstring></argsstring>
         <name>ambient</name>
         <briefdescription>
@@ -88,11 +88,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/light.h" line="31" column="19" bodyfile="libs/render/src/render/light.h" bodystart="31" bodyend="-1"/>
+        <location file="libs/render/src/render/light.h" line="31" column="13" bodyfile="libs/render/src/render/light.h" bodystart="31" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeu_1_1render_1_1Light_1a8c7ed19754e2627be9f14511f2d76f91" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1core_1_1Rgb" kindref="compound">core::Rgb</ref></type>
-        <definition>core::Rgb eu::render::Light::diffuse</definition>
+      <memberdef kind="variable" id="structeu_1_1render_1_1Light_1ab1d6b6edac37d1cfa2a328359bbb9836" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1Rgb" kindref="compound">Rgb</ref></type>
+        <definition>Rgb eu::render::Light::diffuse</definition>
         <argsstring></argsstring>
         <name>diffuse</name>
         <briefdescription>
@@ -101,11 +101,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/light.h" line="32" column="19" bodyfile="libs/render/src/render/light.h" bodystart="32" bodyend="-1"/>
+        <location file="libs/render/src/render/light.h" line="32" column="13" bodyfile="libs/render/src/render/light.h" bodystart="32" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeu_1_1render_1_1Light_1a1e882f94bc86b516955a9fd4dbfb078b" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1core_1_1Rgb" kindref="compound">core::Rgb</ref></type>
-        <definition>core::Rgb eu::render::Light::specular</definition>
+      <memberdef kind="variable" id="structeu_1_1render_1_1Light_1a9f50bb9f7c10d213487eab4b9c374ac8" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1Rgb" kindref="compound">Rgb</ref></type>
+        <definition>Rgb eu::render::Light::specular</definition>
         <argsstring></argsstring>
         <name>specular</name>
         <briefdescription>
@@ -114,11 +114,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/light.h" line="33" column="19" bodyfile="libs/render/src/render/light.h" bodystart="33" bodyend="-1"/>
+        <location file="libs/render/src/render/light.h" line="33" column="13" bodyfile="libs/render/src/render/light.h" bodystart="33" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeu_1_1render_1_1Light_1a0275606fd9155fbf62413d08eaa5f98b" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1core_1_1Angle" kindref="compound">core::Angle</ref></type>
-        <definition>core::Angle eu::render::Light::cutoff_angle_outer</definition>
+      <memberdef kind="variable" id="structeu_1_1render_1_1Light_1a56daefd2606625c40de2a3982e21f891" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1Angle" kindref="compound">Angle</ref></type>
+        <definition>Angle eu::render::Light::cutoff_angle_outer</definition>
         <argsstring></argsstring>
         <name>cutoff_angle_outer</name>
         <briefdescription>
@@ -127,11 +127,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/light.h" line="34" column="21" bodyfile="libs/render/src/render/light.h" bodystart="34" bodyend="-1"/>
+        <location file="libs/render/src/render/light.h" line="34" column="15" bodyfile="libs/render/src/render/light.h" bodystart="34" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeu_1_1render_1_1Light_1ae7ada595e034b4c9bf53571e51a34abb" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1core_1_1Angle" kindref="compound">core::Angle</ref></type>
-        <definition>core::Angle eu::render::Light::cutoff_angle_inner</definition>
+      <memberdef kind="variable" id="structeu_1_1render_1_1Light_1afe083e7860aa5afd21854be3c2b07833" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1Angle" kindref="compound">Angle</ref></type>
+        <definition>Angle eu::render::Light::cutoff_angle_inner</definition>
         <argsstring></argsstring>
         <name>cutoff_angle_inner</name>
         <briefdescription>
@@ -140,7 +140,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/light.h" line="35" column="21" bodyfile="libs/render/src/render/light.h" bodystart="35" bodyend="-1"/>
+        <location file="libs/render/src/render/light.h" line="35" column="15" bodyfile="libs/render/src/render/light.h" bodystart="35" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1Light_1a0ccbb9c4259b43c6401af55b3ceefdef" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1render_1_1LightAttenuation" kindref="compound">LightAttenuation</ref></type>
@@ -176,7 +176,11 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-      <node id="5">
+      <node id="2">
+        <label>eu::Rgb</label>
+        <link refid="structeu_1_1Rgb"/>
+      </node>
+      <node id="4">
         <label>eu::render::LightAttenuation</label>
         <link refid="structeu_1_1render_1_1LightAttenuation"/>
       </node>
@@ -189,50 +193,46 @@
           <edgelabel>specular</edgelabel>
         </childnode>
         <childnode refid="3" relation="usage">
-          <edgelabel>direction</edgelabel>
-        </childnode>
-        <childnode refid="5" relation="usage">
-          <edgelabel>attenuation</edgelabel>
-        </childnode>
-        <childnode refid="6" relation="usage">
           <edgelabel>cutoff_angle_inner</edgelabel>
           <edgelabel>cutoff_angle_outer</edgelabel>
         </childnode>
         <childnode refid="4" relation="usage">
+          <edgelabel>attenuation</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
           <edgelabel>position</edgelabel>
         </childnode>
-      </node>
-      <node id="4">
-        <label>eu::core::vec3f</label>
-        <link refid="structeu_1_1core_1_1vec3f"/>
-      </node>
-      <node id="2">
-        <label>eu::core::Rgb</label>
-        <link refid="structeu_1_1core_1_1Rgb"/>
+        <childnode refid="6" relation="usage">
+          <edgelabel>direction</edgelabel>
+        </childnode>
       </node>
       <node id="6">
-        <label>eu::core::Angle</label>
-        <link refid="structeu_1_1core_1_1Angle"/>
+        <label>eu::unit3f</label>
+        <link refid="structeu_1_1unit3f"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
       </node>
       <node id="3">
-        <label>eu::core::unit3f</label>
-        <link refid="structeu_1_1core_1_1unit3f"/>
-        <childnode refid="4" relation="public-inheritance">
-        </childnode>
+        <label>eu::Angle</label>
+        <link refid="structeu_1_1Angle"/>
+      </node>
+      <node id="5">
+        <label>eu::vec3f</label>
+        <link refid="structeu_1_1vec3f"/>
       </node>
     </collaborationgraph>
     <location file="libs/render/src/render/light.h" line="17" column="5" bodyfile="libs/render/src/render/light.h" bodystart="18" bodyend="40"/>
     <listofallmembers>
-      <member refid="structeu_1_1render_1_1Light_1a6c8a6434f22b6044ff8f75b486b685df" prot="public" virt="non-virtual"><scope>eu::render::Light</scope><name>ambient</name></member>
+      <member refid="structeu_1_1render_1_1Light_1a954bb8338188b2549692ba5b0cfdc105" prot="public" virt="non-virtual"><scope>eu::render::Light</scope><name>ambient</name></member>
       <member refid="structeu_1_1render_1_1Light_1a0ccbb9c4259b43c6401af55b3ceefdef" prot="public" virt="non-virtual"><scope>eu::render::Light</scope><name>attenuation</name></member>
-      <member refid="structeu_1_1render_1_1Light_1ae7ada595e034b4c9bf53571e51a34abb" prot="public" virt="non-virtual"><scope>eu::render::Light</scope><name>cutoff_angle_inner</name></member>
-      <member refid="structeu_1_1render_1_1Light_1a0275606fd9155fbf62413d08eaa5f98b" prot="public" virt="non-virtual"><scope>eu::render::Light</scope><name>cutoff_angle_outer</name></member>
-      <member refid="structeu_1_1render_1_1Light_1a8c7ed19754e2627be9f14511f2d76f91" prot="public" virt="non-virtual"><scope>eu::render::Light</scope><name>diffuse</name></member>
-      <member refid="structeu_1_1render_1_1Light_1a26cde4881f864dd691cd74a9260a1eb2" prot="public" virt="non-virtual"><scope>eu::render::Light</scope><name>direction</name></member>
+      <member refid="structeu_1_1render_1_1Light_1afe083e7860aa5afd21854be3c2b07833" prot="public" virt="non-virtual"><scope>eu::render::Light</scope><name>cutoff_angle_inner</name></member>
+      <member refid="structeu_1_1render_1_1Light_1a56daefd2606625c40de2a3982e21f891" prot="public" virt="non-virtual"><scope>eu::render::Light</scope><name>cutoff_angle_outer</name></member>
+      <member refid="structeu_1_1render_1_1Light_1ab1d6b6edac37d1cfa2a328359bbb9836" prot="public" virt="non-virtual"><scope>eu::render::Light</scope><name>diffuse</name></member>
+      <member refid="structeu_1_1render_1_1Light_1adf056cfd6f1b41b7a2217ab8d8f7ab1f" prot="public" virt="non-virtual"><scope>eu::render::Light</scope><name>direction</name></member>
       <member refid="structeu_1_1render_1_1Light_1a82d093fbbb51ddfbebd753d2ca44897e" prot="public" virt="non-virtual"><scope>eu::render::Light</scope><name>Light</name></member>
       <member refid="structeu_1_1render_1_1Light_1a5ac660b0e0795759b21b856966e88bc1" prot="public" virt="non-virtual"><scope>eu::render::Light</scope><name>light_type</name></member>
-      <member refid="structeu_1_1render_1_1Light_1ad2e9f7f7c00a631c24e38b8bd3dd7d66" prot="public" virt="non-virtual"><scope>eu::render::Light</scope><name>position</name></member>
-      <member refid="structeu_1_1render_1_1Light_1a1e882f94bc86b516955a9fd4dbfb078b" prot="public" virt="non-virtual"><scope>eu::render::Light</scope><name>specular</name></member>
+      <member refid="structeu_1_1render_1_1Light_1a5a64ea00a46a6e2221bb81baad23fc1f" prot="public" virt="non-virtual"><scope>eu::render::Light</scope><name>position</name></member>
+      <member refid="structeu_1_1render_1_1Light_1a9f50bb9f7c10d213487eab4b9c374ac8" prot="public" virt="non-virtual"><scope>eu::render::Light</scope><name>specular</name></member>
       <member refid="structeu_1_1render_1_1Light_1a863f979e09fb27beb53d119be0a30a3f" prot="public" virt="non-virtual"><scope>eu::render::Light</scope><name>Type</name></member>
     </listofallmembers>
   </compounddef>

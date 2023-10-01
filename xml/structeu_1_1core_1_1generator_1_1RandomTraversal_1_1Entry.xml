@@ -5,7 +5,7 @@
     <includes refid="generator__maze_8h" local="no">generator_maze.h</includes>
       <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structeu_1_1core_1_1generator_1_1RandomTraversal_1_1Entry_1a2946aed740a6b62deafa1fe58c9db454" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1core_1_1vec2i" kindref="compound">vec2i</ref></type>
+        <type><ref refid="structeu_1_1vec2i" kindref="compound">vec2i</ref></type>
         <definition>vec2i eu::core::generator::RandomTraversal::Entry::position</definition>
         <argsstring></argsstring>
         <name>position</name>
@@ -37,8 +37,8 @@
     </detaileddescription>
     <collaborationgraph>
       <node id="2">
-        <label>eu::core::vec2i</label>
-        <link refid="structeu_1_1core_1_1vec2i"/>
+        <label>eu::vec2i</label>
+        <link refid="structeu_1_1vec2i"/>
       </node>
       <node id="1">
         <label>eu::core::generator::RandomTraversal::Entry</label>

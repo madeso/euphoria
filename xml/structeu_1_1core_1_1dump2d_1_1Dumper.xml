@@ -6,11 +6,11 @@
     <includes refid="dump_8h" local="no">dump.h</includes>
       <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structeu_1_1core_1_1dump2d_1_1Dumper_1a6226a66fae9b601574d0434f48d8765e" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref></type>
+        <type><ref refid="structeu_1_1Rgbi" kindref="compound">Rgbi</ref></type>
         <definition>Rgbi eu::core::dump2d::Dumper::canvas_color</definition>
         <argsstring></argsstring>
         <name>canvas_color</name>
-        <initializer>= <ref refid="namespaceeu_1_1core_1acc82ad41a2d08ca1285b4c68238fa544ad508fe45cecaf653904a0e774084bb5c" kindref="member">NamedColor::white</ref></initializer>
+        <initializer>= <ref refid="namespaceeu_1a63a55e8bfd2f95d74e0007d5200f7e58ad508fe45cecaf653904a0e774084bb5c" kindref="member">NamedColor::white</ref></initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -202,7 +202,7 @@
         <location file="libs/core/src/core/dump.h" line="117" column="14" bodyfile="libs/core/src/core/dump.cc" bodystart="300" bodyend="415"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1dump2d_1_1Dumper_1aef4162fc1adfed263e5f57da207f4f79" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type>std::pair&lt; <ref refid="structeu_1_1core_1_1vec2f" kindref="compound">vec2f</ref>, <ref refid="structeu_1_1core_1_1vec2f" kindref="compound">vec2f</ref> &gt;</type>
+        <type>std::pair&lt; <ref refid="structeu_1_1vec2f" kindref="compound">vec2f</ref>, <ref refid="structeu_1_1vec2f" kindref="compound">vec2f</ref> &gt;</type>
         <definition>std::pair&lt; vec2f, vec2f &gt; eu::core::dump2d::Dumper::calc_size_and_offset</definition>
         <argsstring>() const</argsstring>
         <name>calc_size_and_offset</name>
@@ -233,13 +233,13 @@
       </node>
     </inheritancegraph>
     <collaborationgraph>
+      <node id="3">
+        <label>eu::Rgbi</label>
+        <link refid="structeu_1_1Rgbi"/>
+      </node>
       <node id="2">
         <label>eu::core::dump2d::AddWrapper&lt; Dumper &gt;</label>
         <link refid="structeu_1_1core_1_1dump2d_1_1AddWrapper"/>
-      </node>
-      <node id="3">
-        <label>eu::core::Rgbi</label>
-        <link refid="structeu_1_1core_1_1Rgbi"/>
       </node>
       <node id="1">
         <label>eu::core::dump2d::Dumper</label>

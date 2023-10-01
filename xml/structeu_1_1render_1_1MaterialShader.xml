@@ -365,13 +365,13 @@
         </inbodydescription>
         <location file="libs/render/src/render/materialshader.h" line="81" column="14" bodyfile="libs/render/src/render/materialshader.cc" bodystart="185" bodyend="188"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1render_1_1MaterialShader_1ad61cb2f43486e53087c6456bfaf8f3b7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1render_1_1MaterialShader_1a16c4f20ebf8f6ad0dba7e49ea3a4bbbe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void eu::render::MaterialShader::set_projection</definition>
-        <argsstring>(const core::mat4f &amp;projection_data)</argsstring>
+        <argsstring>(const mat4f &amp;projection_data)</argsstring>
         <name>set_projection</name>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1mat4f" kindref="compound">core::mat4f</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1mat4f" kindref="compound">mat4f</ref> &amp;</type>
           <declname>projection_data</declname>
         </param>
         <briefdescription>
@@ -382,13 +382,13 @@
         </inbodydescription>
         <location file="libs/render/src/render/materialshader.h" line="82" column="14" bodyfile="libs/render/src/render/materialshader.cc" bodystart="191" bodyend="194"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1render_1_1MaterialShader_1afdc9caeb54bf561e5a779b392a3170dc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1render_1_1MaterialShader_1aad26da00d1bdfe1e668d7eb7567e88c8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void eu::render::MaterialShader::set_view</definition>
-        <argsstring>(const core::mat4f &amp;view_data)</argsstring>
+        <argsstring>(const mat4f &amp;view_data)</argsstring>
         <name>set_view</name>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1mat4f" kindref="compound">core::mat4f</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1mat4f" kindref="compound">mat4f</ref> &amp;</type>
           <declname>view_data</declname>
         </param>
         <briefdescription>
@@ -399,13 +399,13 @@
         </inbodydescription>
         <location file="libs/render/src/render/materialshader.h" line="83" column="14" bodyfile="libs/render/src/render/materialshader.cc" bodystart="197" bodyend="200"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1render_1_1MaterialShader_1a30c40cc31966d03dfb65391f1e97579f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1render_1_1MaterialShader_1a80f7eb96b980136bd1ecea947e3799a6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void eu::render::MaterialShader::set_model</definition>
-        <argsstring>(const core::mat4f &amp;model_data)</argsstring>
+        <argsstring>(const mat4f &amp;model_data)</argsstring>
         <name>set_model</name>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1mat4f" kindref="compound">core::mat4f</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1mat4f" kindref="compound">mat4f</ref> &amp;</type>
           <declname>model_data</declname>
         </param>
         <briefdescription>
@@ -416,17 +416,17 @@
         </inbodydescription>
         <location file="libs/render/src/render/materialshader.h" line="84" column="14" bodyfile="libs/render/src/render/materialshader.cc" bodystart="203" bodyend="214"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1render_1_1MaterialShader_1a7a4d71887a44139e82a4405094a25e09" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1render_1_1MaterialShader_1a07c428265f2b19d97b0b9e1fdb8b26f7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void eu::render::MaterialShader::setup_light</definition>
-        <argsstring>(const Light &amp;light, const core::vec3f &amp;camera)</argsstring>
+        <argsstring>(const Light &amp;light, const vec3f &amp;camera)</argsstring>
         <name>setup_light</name>
         <param>
           <type>const <ref refid="structeu_1_1render_1_1Light" kindref="compound">Light</ref> &amp;</type>
           <declname>light</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1vec3f" kindref="compound">core::vec3f</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
           <declname>camera</declname>
         </param>
         <briefdescription>
@@ -437,21 +437,21 @@
         </inbodydescription>
         <location file="libs/render/src/render/materialshader.h" line="85" column="14" bodyfile="libs/render/src/render/materialshader.cc" bodystart="217" bodyend="239"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1render_1_1MaterialShader_1a35677adf2ed43fdb70279619322243ae" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1render_1_1MaterialShader_1a65c3876afd429eb58e09967628b12de4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void eu::render::MaterialShader::set_colors</definition>
-        <argsstring>(const core::Rgb &amp;ambient_data, const core::Rgb &amp;diffuse_data, const core::Rgb &amp;specular_data, float shininess_data)</argsstring>
+        <argsstring>(const Rgb &amp;ambient_data, const Rgb &amp;diffuse_data, const Rgb &amp;specular_data, float shininess_data)</argsstring>
         <name>set_colors</name>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1Rgb" kindref="compound">core::Rgb</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1Rgb" kindref="compound">Rgb</ref> &amp;</type>
           <declname>ambient_data</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1Rgb" kindref="compound">core::Rgb</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1Rgb" kindref="compound">Rgb</ref> &amp;</type>
           <declname>diffuse_data</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1Rgb" kindref="compound">core::Rgb</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1Rgb" kindref="compound">Rgb</ref> &amp;</type>
           <declname>specular_data</declname>
         </param>
         <param>
@@ -534,11 +534,11 @@
       <member refid="structeu_1_1render_1_1MaterialShader_1a15db0424e887b15e5a2683529092d9bb" prot="public" virt="non-virtual"><scope>eu::render::MaterialShader</scope><name>model</name></member>
       <member refid="structeu_1_1render_1_1MaterialShader_1a2ddf899014ad883406d8d76b2bff2294" prot="public" virt="non-virtual"><scope>eu::render::MaterialShader</scope><name>normal_matrix</name></member>
       <member refid="structeu_1_1render_1_1MaterialShader_1a1ad05138da760b97fec5f29100b34c4d" prot="public" virt="non-virtual"><scope>eu::render::MaterialShader</scope><name>projection</name></member>
-      <member refid="structeu_1_1render_1_1MaterialShader_1a35677adf2ed43fdb70279619322243ae" prot="public" virt="non-virtual"><scope>eu::render::MaterialShader</scope><name>set_colors</name></member>
-      <member refid="structeu_1_1render_1_1MaterialShader_1a30c40cc31966d03dfb65391f1e97579f" prot="public" virt="non-virtual"><scope>eu::render::MaterialShader</scope><name>set_model</name></member>
-      <member refid="structeu_1_1render_1_1MaterialShader_1ad61cb2f43486e53087c6456bfaf8f3b7" prot="public" virt="non-virtual"><scope>eu::render::MaterialShader</scope><name>set_projection</name></member>
-      <member refid="structeu_1_1render_1_1MaterialShader_1afdc9caeb54bf561e5a779b392a3170dc" prot="public" virt="non-virtual"><scope>eu::render::MaterialShader</scope><name>set_view</name></member>
-      <member refid="structeu_1_1render_1_1MaterialShader_1a7a4d71887a44139e82a4405094a25e09" prot="public" virt="non-virtual"><scope>eu::render::MaterialShader</scope><name>setup_light</name></member>
+      <member refid="structeu_1_1render_1_1MaterialShader_1a65c3876afd429eb58e09967628b12de4" prot="public" virt="non-virtual"><scope>eu::render::MaterialShader</scope><name>set_colors</name></member>
+      <member refid="structeu_1_1render_1_1MaterialShader_1a80f7eb96b980136bd1ecea947e3799a6" prot="public" virt="non-virtual"><scope>eu::render::MaterialShader</scope><name>set_model</name></member>
+      <member refid="structeu_1_1render_1_1MaterialShader_1a16c4f20ebf8f6ad0dba7e49ea3a4bbbe" prot="public" virt="non-virtual"><scope>eu::render::MaterialShader</scope><name>set_projection</name></member>
+      <member refid="structeu_1_1render_1_1MaterialShader_1aad26da00d1bdfe1e668d7eb7567e88c8" prot="public" virt="non-virtual"><scope>eu::render::MaterialShader</scope><name>set_view</name></member>
+      <member refid="structeu_1_1render_1_1MaterialShader_1a07c428265f2b19d97b0b9e1fdb8b26f7" prot="public" virt="non-virtual"><scope>eu::render::MaterialShader</scope><name>setup_light</name></member>
       <member refid="structeu_1_1render_1_1MaterialShader_1ac0b6e3b62f1c462028073236c8feed52" prot="public" virt="non-virtual"><scope>eu::render::MaterialShader</scope><name>shader</name></member>
       <member refid="structeu_1_1render_1_1MaterialShader_1aab30dab6c7ef9d008a8477583abac039" prot="public" virt="non-virtual"><scope>eu::render::MaterialShader</scope><name>shininess</name></member>
       <member refid="structeu_1_1render_1_1MaterialShader_1ae163a3aa69b9302e16be2b72309d491e" prot="public" virt="non-virtual"><scope>eu::render::MaterialShader</scope><name>specular</name></member>

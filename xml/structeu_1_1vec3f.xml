@@ -1,0 +1,437 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1vec3f" kind="struct" language="C++" prot="public">
+    <compoundname>eu::vec3f</compoundname>
+    <derivedcompoundref refid="structeu_1_1unit3f" prot="public" virt="non-virtual">eu::unit3f</derivedcompoundref>
+    <includes refid="vec3_8h" local="no">vec3.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1vec3f_1a327d65a4d3c02886e8db2ebfe98729e2" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float eu::vec3f::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/vec3.h" line="49" column="15" bodyfile="libs/base/src/base/vec3.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1vec3f_1a36716bc781b3cea50ec1467be72f437e" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float eu::vec3f::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/vec3.h" line="50" column="15" bodyfile="libs/base/src/base/vec3.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1vec3f_1aaa1239701014732a644906f7fd6edbce" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float eu::vec3f::z</definition>
+        <argsstring></argsstring>
+        <name>z</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/vec3.h" line="51" column="15" bodyfile="libs/base/src/base/vec3.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1vec3f_1a9b051fee57b8e02168682112b577cb32" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::vec3f::vec3f</definition>
+        <argsstring>(float a)</argsstring>
+        <name>vec3f</name>
+        <param>
+          <type>float</type>
+          <declname>a</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/vec3.h" line="53" column="18" bodyfile="libs/base/src/base/vec3.cc" bodystart="69" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1vec3f_1aa9ba766993dcf201410c3ce9df3b6ac9" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::vec3f::vec3f</definition>
+        <argsstring>(const std::tuple&lt; float, float, float &gt; &amp;a)</argsstring>
+        <name>vec3f</name>
+        <param>
+          <type>const std::tuple&lt; float, float, float &gt; &amp;</type>
+          <declname>a</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/vec3.h" line="54" column="18" bodyfile="libs/base/src/base/vec3.cc" bodystart="77" bodyend="82"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1vec3f_1a17c615024dcd934105cd926772ab8c18" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>constexpr</type>
+        <definition>constexpr eu::vec3f::vec3f</definition>
+        <argsstring>(float ax, float ay, float az)</argsstring>
+        <name>vec3f</name>
+        <param>
+          <type>float</type>
+          <declname>ax</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>ay</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>az</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/vec3.h" line="55" column="19" bodyfile="libs/base/src/base/vec3.h" bodystart="55" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1vec3f_1a94f8669e41e701b1f664d9d511a8f6e0" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::vec3f::vec3f</definition>
+        <argsstring>(const float *a)</argsstring>
+        <name>vec3f</name>
+        <param>
+          <type>const float *</type>
+          <declname>a</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/vec3.h" line="62" column="18" bodyfile="libs/base/src/base/vec3.cc" bodystart="85" bodyend="90"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1vec3f_1a4b7f9b644a7dd6f6c43c2b5159556251" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::vec3f::vec3f</definition>
+        <argsstring>(const vec2f &amp;a, float az)</argsstring>
+        <name>vec3f</name>
+        <param>
+          <type>const <ref refid="structeu_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>az</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/vec3.h" line="63" column="9" bodyfile="libs/base/src/base/vec3.cc" bodystart="93" bodyend="98"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1vec3f_1adbe232e627cc94bce222dca707a5dbf9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float eu::vec3f::dot</definition>
+        <argsstring>(const vec3f &amp;rhs) const</argsstring>
+        <name>dot</name>
+        <param>
+          <type>const <ref refid="structeu_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/vec3.h" line="67" column="16" bodyfile="libs/base/src/base/vec3.cc" bodystart="276" bodyend="279"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1vec3f_1a916eab24fb3ba199effcbd2f06304c18" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1vec3f" kindref="compound">vec3f</ref></type>
+        <definition>vec3f eu::vec3f::cross</definition>
+        <argsstring>(const vec3f &amp;u) const</argsstring>
+        <name>cross</name>
+        <param>
+          <type>const <ref refid="structeu_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
+          <declname>u</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/vec3.h" line="68" column="16" bodyfile="libs/base/src/base/vec3.cc" bodystart="283" bodyend="291"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1vec3f_1acf3191ff7e6984e950b08bf3b79e32e1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::vec3f::operator+=</definition>
+        <argsstring>(const vec3f &amp;rhs)</argsstring>
+        <name>operator+=</name>
+        <param>
+          <type>const <ref refid="structeu_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/vec3.h" line="70" column="14" bodyfile="libs/base/src/base/vec3.cc" bodystart="102" bodyend="107"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1vec3f_1a27cf1c6fc483e433a1d5ab26a5f996e5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::vec3f::operator-=</definition>
+        <argsstring>(const vec3f &amp;rhs)</argsstring>
+        <name>operator-=</name>
+        <param>
+          <type>const <ref refid="structeu_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/vec3.h" line="71" column="14" bodyfile="libs/base/src/base/vec3.cc" bodystart="111" bodyend="116"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1vec3f_1afd9f3b6630c445a521123efd847da325" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::vec3f::operator/=</definition>
+        <argsstring>(float rhs)</argsstring>
+        <name>operator/=</name>
+        <param>
+          <type>float</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/vec3.h" line="72" column="14" bodyfile="libs/base/src/base/vec3.cc" bodystart="134" bodyend="139"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1vec3f_1a4d15b039025433613e8a028cf8c0d82a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::vec3f::operator*=</definition>
+        <argsstring>(float rhs)</argsstring>
+        <name>operator*=</name>
+        <param>
+          <type>float</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/vec3.h" line="73" column="14" bodyfile="libs/base/src/base/vec3.cc" bodystart="143" bodyend="148"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1vec3f_1a4e0d3a9e27a3f1ec4c93238ff5710d20" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1vec3f" kindref="compound">vec3f</ref></type>
+        <definition>vec3f eu::vec3f::operator-</definition>
+        <argsstring>() const</argsstring>
+        <name>operator-</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/vec3.h" line="74" column="15" bodyfile="libs/base/src/base/vec3.cc" bodystart="120" bodyend="123"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1vec3f_1a478b0949c6f1c7760958d67a54765ff1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float *</type>
+        <definition>float * eu::vec3f::get_data_ptr</definition>
+        <argsstring>()</argsstring>
+        <name>get_data_ptr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/vec3.h" line="76" column="15" bodyfile="libs/base/src/base/vec3.cc" bodystart="56" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1vec3f_1a3fb5afa3d6073edf3a20ef9ac09d19e0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const float *</type>
+        <definition>const float * eu::vec3f::get_data_ptr</definition>
+        <argsstring>() const</argsstring>
+        <name>get_data_ptr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/vec3.h" line="77" column="22" bodyfile="libs/base/src/base/vec3.cc" bodystart="63" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1vec3f_1a8f8e8449807ee098dd7a7246b02ba4b8" prot="public" static="no" constexpr="yes" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>constexpr float</type>
+        <definition>constexpr float eu::vec3f::get_length_squared</definition>
+        <argsstring>() const</argsstring>
+        <name>get_length_squared</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/vec3.h" line="79" column="26" bodyfile="libs/base/src/base/vec3.h" bodystart="79" bodyend="82"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1vec3f_1a5e7f28d0638966fbf6e18bd8c31063a7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float eu::vec3f::get_length</definition>
+        <argsstring>() const</argsstring>
+        <name>get_length</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/vec3.h" line="84" column="16" bodyfile="libs/base/src/base/vec3.cc" bodystart="152" bodyend="155"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1vec3f_1a705d8a63e9408893a8a82c387f039173" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::vec3f::normalize</definition>
+        <argsstring>()</argsstring>
+        <name>normalize</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/vec3.h" line="86" column="14" bodyfile="libs/base/src/base/vec3.cc" bodystart="159" bodyend="170"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1vec3f_1a36bb7a690ceb7497b6622797a51e833e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1unit3f" kindref="compound">unit3f</ref></type>
+        <definition>unit3f eu::vec3f::get_normalized</definition>
+        <argsstring>() const</argsstring>
+        <name>get_normalized</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/vec3.h" line="87" column="17" bodyfile="libs/base/src/base/vec3.cc" bodystart="174" bodyend="179"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1vec3f_1a5a5c32555148db281d99bd7779eaccf9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1unit3f" kindref="compound">unit3f</ref></type>
+        <definition>unit3f eu::vec3f::as_normalized</definition>
+        <argsstring>() const</argsstring>
+        <name>as_normalized</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/vec3.h" line="90" column="17" bodyfile="libs/base/src/base/vec3.cc" bodystart="182" bodyend="185"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1vec3f_1ab40278149cdedcbc42bc940f47dc5f79" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool eu::vec3f::operator==</definition>
+        <argsstring>(const vec3f &amp;rhs)=delete</argsstring>
+        <name>operator==</name>
+        <param>
+          <type>const <ref refid="structeu_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/vec3.h" line="92" column="14"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="structeu_1_1vec3f_1aa1cd9394a9ea6afc8e17e3b816bdd957" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1vec3f" kindref="compound">vec3f</ref></type>
+        <definition>vec3f eu::vec3f::from_to</definition>
+        <argsstring>(const vec3f &amp;from, const vec3f &amp;to)</argsstring>
+        <name>from_to</name>
+        <param>
+          <type>const <ref refid="structeu_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
+          <declname>from</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
+          <declname>to</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/vec3.h" line="65" column="22" bodyfile="libs/base/src/base/vec3.cc" bodystart="127" bodyend="130"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>eu::unit3f</label>
+        <link refid="structeu_1_1unit3f"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>eu::vec3f</label>
+        <link refid="structeu_1_1vec3f"/>
+      </node>
+    </inheritancegraph>
+    <location file="libs/base/src/base/vec3.h" line="47" column="5" bodyfile="libs/base/src/base/vec3.h" bodystart="48" bodyend="93"/>
+    <listofallmembers>
+      <member refid="structeu_1_1vec3f_1a5a5c32555148db281d99bd7779eaccf9" prot="public" virt="non-virtual"><scope>eu::vec3f</scope><name>as_normalized</name></member>
+      <member refid="structeu_1_1vec3f_1a916eab24fb3ba199effcbd2f06304c18" prot="public" virt="non-virtual"><scope>eu::vec3f</scope><name>cross</name></member>
+      <member refid="structeu_1_1vec3f_1adbe232e627cc94bce222dca707a5dbf9" prot="public" virt="non-virtual"><scope>eu::vec3f</scope><name>dot</name></member>
+      <member refid="structeu_1_1vec3f_1aa1cd9394a9ea6afc8e17e3b816bdd957" prot="public" virt="non-virtual"><scope>eu::vec3f</scope><name>from_to</name></member>
+      <member refid="structeu_1_1vec3f_1a478b0949c6f1c7760958d67a54765ff1" prot="public" virt="non-virtual"><scope>eu::vec3f</scope><name>get_data_ptr</name></member>
+      <member refid="structeu_1_1vec3f_1a3fb5afa3d6073edf3a20ef9ac09d19e0" prot="public" virt="non-virtual"><scope>eu::vec3f</scope><name>get_data_ptr</name></member>
+      <member refid="structeu_1_1vec3f_1a5e7f28d0638966fbf6e18bd8c31063a7" prot="public" virt="non-virtual"><scope>eu::vec3f</scope><name>get_length</name></member>
+      <member refid="structeu_1_1vec3f_1a8f8e8449807ee098dd7a7246b02ba4b8" prot="public" virt="non-virtual"><scope>eu::vec3f</scope><name>get_length_squared</name></member>
+      <member refid="structeu_1_1vec3f_1a36bb7a690ceb7497b6622797a51e833e" prot="public" virt="non-virtual"><scope>eu::vec3f</scope><name>get_normalized</name></member>
+      <member refid="structeu_1_1vec3f_1a705d8a63e9408893a8a82c387f039173" prot="public" virt="non-virtual"><scope>eu::vec3f</scope><name>normalize</name></member>
+      <member refid="structeu_1_1vec3f_1a4d15b039025433613e8a028cf8c0d82a" prot="public" virt="non-virtual"><scope>eu::vec3f</scope><name>operator*=</name></member>
+      <member refid="structeu_1_1vec3f_1acf3191ff7e6984e950b08bf3b79e32e1" prot="public" virt="non-virtual"><scope>eu::vec3f</scope><name>operator+=</name></member>
+      <member refid="structeu_1_1vec3f_1a4e0d3a9e27a3f1ec4c93238ff5710d20" prot="public" virt="non-virtual"><scope>eu::vec3f</scope><name>operator-</name></member>
+      <member refid="structeu_1_1vec3f_1a27cf1c6fc483e433a1d5ab26a5f996e5" prot="public" virt="non-virtual"><scope>eu::vec3f</scope><name>operator-=</name></member>
+      <member refid="structeu_1_1vec3f_1afd9f3b6630c445a521123efd847da325" prot="public" virt="non-virtual"><scope>eu::vec3f</scope><name>operator/=</name></member>
+      <member refid="structeu_1_1vec3f_1ab40278149cdedcbc42bc940f47dc5f79" prot="public" virt="non-virtual"><scope>eu::vec3f</scope><name>operator==</name></member>
+      <member refid="structeu_1_1vec3f_1a9b051fee57b8e02168682112b577cb32" prot="public" virt="non-virtual"><scope>eu::vec3f</scope><name>vec3f</name></member>
+      <member refid="structeu_1_1vec3f_1aa9ba766993dcf201410c3ce9df3b6ac9" prot="public" virt="non-virtual"><scope>eu::vec3f</scope><name>vec3f</name></member>
+      <member refid="structeu_1_1vec3f_1a17c615024dcd934105cd926772ab8c18" prot="public" virt="non-virtual"><scope>eu::vec3f</scope><name>vec3f</name></member>
+      <member refid="structeu_1_1vec3f_1a94f8669e41e701b1f664d9d511a8f6e0" prot="public" virt="non-virtual"><scope>eu::vec3f</scope><name>vec3f</name></member>
+      <member refid="structeu_1_1vec3f_1a4b7f9b644a7dd6f6c43c2b5159556251" prot="public" virt="non-virtual"><scope>eu::vec3f</scope><name>vec3f</name></member>
+      <member refid="structeu_1_1vec3f_1a327d65a4d3c02886e8db2ebfe98729e2" prot="public" virt="non-virtual"><scope>eu::vec3f</scope><name>x</name></member>
+      <member refid="structeu_1_1vec3f_1a36716bc781b3cea50ec1467be72f437e" prot="public" virt="non-virtual"><scope>eu::vec3f</scope><name>y</name></member>
+      <member refid="structeu_1_1vec3f_1aaa1239701014732a644906f7fd6edbce" prot="public" virt="non-virtual"><scope>eu::vec3f</scope><name>z</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -75,7 +75,7 @@
         <location file="libs/core/src/core/generator_maze.h" line="100" column="25" bodyfile="libs/core/src/core/generator_maze.h" bodystart="100" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1generator_1_1Drawer_1aa44ad173407fd09c9bc78fda2ad8b984" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref></type>
+        <type><ref refid="structeu_1_1Rgbi" kindref="compound">Rgbi</ref></type>
         <definition>Rgbi eu::core::generator::Drawer::wall_color</definition>
         <argsstring></argsstring>
         <name>wall_color</name>
@@ -88,7 +88,7 @@
         <location file="libs/core/src/core/generator_maze.h" line="102" column="14" bodyfile="libs/core/src/core/generator_maze.h" bodystart="102" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1generator_1_1Drawer_1a96bee55eae169a5d9b6aee8400aa325a" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref></type>
+        <type><ref refid="structeu_1_1Rgbi" kindref="compound">Rgbi</ref></type>
         <definition>Rgbi eu::core::generator::Drawer::cell_color</definition>
         <argsstring></argsstring>
         <name>cell_color</name>
@@ -101,7 +101,7 @@
         <location file="libs/core/src/core/generator_maze.h" line="103" column="14" bodyfile="libs/core/src/core/generator_maze.h" bodystart="103" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1generator_1_1Drawer_1adfc179f545d34da51dedd40971946a14" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref></type>
+        <type><ref refid="structeu_1_1Rgbi" kindref="compound">Rgbi</ref></type>
         <definition>Rgbi eu::core::generator::Drawer::cell_visited_color</definition>
         <argsstring></argsstring>
         <name>cell_visited_color</name>
@@ -114,7 +114,7 @@
         <location file="libs/core/src/core/generator_maze.h" line="104" column="14" bodyfile="libs/core/src/core/generator_maze.h" bodystart="104" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1generator_1_1Drawer_1a6c1a2b3822f665dc699ad6a99eed8c66" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref></type>
+        <type><ref refid="structeu_1_1Rgbi" kindref="compound">Rgbi</ref></type>
         <definition>Rgbi eu::core::generator::Drawer::unit_color</definition>
         <argsstring></argsstring>
         <name>unit_color</name>
@@ -127,7 +127,7 @@
         <location file="libs/core/src/core/generator_maze.h" line="105" column="14" bodyfile="libs/core/src/core/generator_maze.h" bodystart="105" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1generator_1_1Drawer_1a28a2238e745129ff11e29ca358a531bd" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref></type>
+        <type><ref refid="structeu_1_1Rgbi" kindref="compound">Rgbi</ref></type>
         <definition>Rgbi eu::core::generator::Drawer::corridor_color</definition>
         <argsstring></argsstring>
         <name>corridor_color</name>
@@ -181,7 +181,7 @@
         <location file="libs/core/src/core/generator_maze.h" line="112" column="14" bodyfile="libs/core/src/core/generator_maze.cc" bodystart="277" bodyend="332"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1generator_1_1Drawer_1ac0737fec8933afcfeb992913821fd949" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref></type>
+        <type><ref refid="structeu_1_1Rgbi" kindref="compound">Rgbi</ref></type>
         <definition>Rgbi eu::core::generator::Drawer::calc_cell_color</definition>
         <argsstring>(int x, int y) const</argsstring>
         <name>calc_cell_color</name>
@@ -207,6 +207,10 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
+      <node id="2">
+        <label>eu::Rgbi</label>
+        <link refid="structeu_1_1Rgbi"/>
+      </node>
       <node id="3">
         <label>eu::core::Table&lt; int &gt;</label>
         <link refid="structeu_1_1core_1_1Table"/>
@@ -235,17 +239,13 @@
           <edgelabel>random</edgelabel>
         </childnode>
       </node>
-      <node id="7">
-        <label>eu::core::Random</label>
-        <link refid="structeu_1_1core_1_1Random"/>
-      </node>
       <node id="6">
         <label>eu::core::generator::Algorithm</label>
         <link refid="structeu_1_1core_1_1generator_1_1Algorithm"/>
       </node>
-      <node id="2">
-        <label>eu::core::Rgbi</label>
-        <link refid="structeu_1_1core_1_1Rgbi"/>
+      <node id="7">
+        <label>eu::Random</label>
+        <link refid="structeu_1_1Random"/>
       </node>
       <node id="4">
         <label>eu::core::Image</label>

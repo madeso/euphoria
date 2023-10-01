@@ -60,7 +60,7 @@
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="vec3_8h.html">core/vec3.h</a>&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="vec3_8h.html">base/vec3.h</a>&quot;</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceeu_1_1core.html">eu::core</a></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div>
@@ -105,11 +105,11 @@
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
 <div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="structeu_1_1core_1_1Vec3fValue.html">   50</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structeu_1_1core_1_1Vec3fValue.html">Vec3fValue</a> : <span class="keyword">public</span> <a class="code" href="structeu_1_1core_1_1Value.html">Value</a></div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    {</div>
-<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="structeu_1_1core_1_1Vec3fValue.html#a5d0da60bc6dc458fae4751fcd49d487a">   52</a></span>&#160;        <a class="code" href="structeu_1_1core_1_1vec3f.html">vec3f</a> <a class="code" href="structeu_1_1core_1_1Vec3fValue.html#a5d0da60bc6dc458fae4751fcd49d487a">value</a>;</div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="structeu_1_1core_1_1Vec3fValue.html#a5d0da60bc6dc458fae4751fcd49d487a">   52</a></span>&#160;        <a class="code" href="structeu_1_1vec3f.html">vec3f</a> <a class="code" href="structeu_1_1core_1_1Vec3fValue.html#a5d0da60bc6dc458fae4751fcd49d487a">value</a>;</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keyword">explicit</span> <a class="code" href="structeu_1_1core_1_1Vec3fValue.html#a01df96034bc752f4f0216623f016a6f1">Vec3fValue</a>(<span class="keyword">const</span> <a class="code" href="structeu_1_1core_1_1vec3f.html">vec3f</a>&amp; v);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keyword">explicit</span> <a class="code" href="structeu_1_1core_1_1Vec3fValue.html#a01df96034bc752f4f0216623f016a6f1">Vec3fValue</a>(<span class="keyword">const</span> <a class="code" href="structeu_1_1vec3f.html">vec3f</a>&amp; v);</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        [[nodiscard]] <span class="keyword">static</span> <a class="code" href="structeu_1_1core_1_1vec3f.html">vec3f</a>&amp; <a class="code" href="structeu_1_1core_1_1Vec3fValue.html#a820f2afb6719c825d2dfd4f7e8778e0b">get</a>(<a class="code" href="structeu_1_1core_1_1Value.html">core::Value</a>* <a class="code" href="structeu_1_1core_1_1Vec3fValue.html#a5d0da60bc6dc458fae4751fcd49d487a">value</a>);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        [[nodiscard]] <span class="keyword">static</span> <a class="code" href="structeu_1_1vec3f.html">vec3f</a>&amp; <a class="code" href="structeu_1_1core_1_1Vec3fValue.html#a820f2afb6719c825d2dfd4f7e8778e0b">get</a>(<a class="code" href="structeu_1_1core_1_1Value.html">core::Value</a>* <a class="code" href="structeu_1_1core_1_1Vec3fValue.html#a5d0da60bc6dc458fae4751fcd49d487a">value</a>);</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    };</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
 <div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="structeu_1_1core_1_1MapValue.html">   59</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structeu_1_1core_1_1MapValue.html">MapValue</a> : <span class="keyword">public</span> <a class="code" href="structeu_1_1core_1_1Value.html">Value</a></div>
@@ -123,7 +123,7 @@
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    };</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;}</div>
-<div class="ttc" id="anamespaceeu_1_1core_html"><div class="ttname"><a href="namespaceeu_1_1core.html">eu::core</a></div><div class="ttdef"><b>Definition:</b> <a href="aabb_8cc_source.html#l00008">aabb.cc:9</a></div></div>
+<div class="ttc" id="anamespaceeu_1_1core_html"><div class="ttname"><a href="namespaceeu_1_1core.html">eu::core</a></div><div class="ttdef"><b>Definition:</b> <a href="argparse_8cc_source.html#l00044">argparse.cc:45</a></div></div>
 <div class="ttc" id="anamespaceeu_1_1core_html_abcdd2bd7606ecbe4d64fe39aaea2be80"><div class="ttname"><a href="namespaceeu_1_1core.html#abcdd2bd7606ecbe4d64fe39aaea2be80">eu::core::ValueType</a></div><div class="ttdeci">ValueType</div><div class="ttdef"><b>Definition:</b> <a href="propertytree_8h_source.html#l00011">propertytree.h:12</a></div></div>
 <div class="ttc" id="anamespaceeu_1_1core_html_abcdd2bd7606ecbe4d64fe39aaea2be80a06d324fffd90570dc177e7d1aabcb4dd"><div class="ttname"><a href="namespaceeu_1_1core.html#abcdd2bd7606ecbe4d64fe39aaea2be80a06d324fffd90570dc177e7d1aabcb4dd">eu::core::ValueType::int_type</a></div><div class="ttdeci">@ int_type</div></div>
 <div class="ttc" id="anamespaceeu_1_1core_html_abcdd2bd7606ecbe4d64fe39aaea2be80a4aea6729d47bac89dd13a327cf2b3efb"><div class="ttname"><a href="namespaceeu_1_1core.html#abcdd2bd7606ecbe4d64fe39aaea2be80a4aea6729d47bac89dd13a327cf2b3efb">eu::core::ValueType::map_type</a></div><div class="ttdeci">@ map_type</div></div>
@@ -154,7 +154,7 @@
 <div class="ttc" id="astructeu_1_1core_1_1Vec3fValue_html_a01df96034bc752f4f0216623f016a6f1"><div class="ttname"><a href="structeu_1_1core_1_1Vec3fValue.html#a01df96034bc752f4f0216623f016a6f1">eu::core::Vec3fValue::Vec3fValue</a></div><div class="ttdeci">Vec3fValue(const vec3f &amp;v)</div><div class="ttdef"><b>Definition:</b> <a href="propertytree_8cc_source.html#l00034">propertytree.cc:34</a></div></div>
 <div class="ttc" id="astructeu_1_1core_1_1Vec3fValue_html_a5d0da60bc6dc458fae4751fcd49d487a"><div class="ttname"><a href="structeu_1_1core_1_1Vec3fValue.html#a5d0da60bc6dc458fae4751fcd49d487a">eu::core::Vec3fValue::value</a></div><div class="ttdeci">vec3f value</div><div class="ttdef"><b>Definition:</b> <a href="propertytree_8h_source.html#l00052">propertytree.h:52</a></div></div>
 <div class="ttc" id="astructeu_1_1core_1_1Vec3fValue_html_a820f2afb6719c825d2dfd4f7e8778e0b"><div class="ttname"><a href="structeu_1_1core_1_1Vec3fValue.html#a820f2afb6719c825d2dfd4f7e8778e0b">eu::core::Vec3fValue::get</a></div><div class="ttdeci">static vec3f &amp; get(core::Value *value)</div><div class="ttdef"><b>Definition:</b> <a href="propertytree_8cc_source.html#l00038">propertytree.cc:38</a></div></div>
-<div class="ttc" id="astructeu_1_1core_1_1vec3f_html"><div class="ttname"><a href="structeu_1_1core_1_1vec3f.html">eu::core::vec3f</a></div><div class="ttdef"><b>Definition:</b> <a href="vec3_8h_source.html#l00047">vec3.h:48</a></div></div>
+<div class="ttc" id="astructeu_1_1vec3f_html"><div class="ttname"><a href="structeu_1_1vec3f.html">eu::vec3f</a></div><div class="ttdef"><b>Definition:</b> <a href="vec3_8h_source.html#l00047">vec3.h:48</a></div></div>
 <div class="ttc" id="avec3_8h_html"><div class="ttname"><a href="vec3_8h.html">vec3.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.17-->

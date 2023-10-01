@@ -282,7 +282,7 @@
 <div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160; </div>
 <div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">const</span> <span class="keyword">auto</span>&amp; <a class="code" href="namespaceeu_1_1core.html#a6fca7b841e42734cd5c01e04fc9e6511a03c7c0ace395d80182db07ae2c30f034">s</a>: data)</div>
 <div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;        {</div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;            result = <a class="code" href="namespaceeu_1_1core.html#a57038e2fac2e1e15a5dc83511b753769">std::max</a>(result, <a class="code" href="namespaceeu.html#a175a9253ebea7fa874013257344e2a54">c_sizet_to_int</a>(<a class="code" href="namespaceeu_1_1core.html#a6fca7b841e42734cd5c01e04fc9e6511a03c7c0ace395d80182db07ae2c30f034">s</a>.size()));</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;            result = <a class="code" href="namespaceeu.html#ad137346d069927fe29916ab42905f177">std::max</a>(result, <a class="code" href="namespaceeu.html#a175a9253ebea7fa874013257344e2a54">c_sizet_to_int</a>(<a class="code" href="namespaceeu_1_1core.html#a6fca7b841e42734cd5c01e04fc9e6511a03c7c0ace395d80182db07ae2c30f034">s</a>.size()));</div>
 <div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;        }</div>
 <div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160; </div>
 <div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;        <span class="keywordflow">return</span> result;</div>
@@ -370,7 +370,7 @@
 <div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;        <span class="keywordtype">int</span> reduce = my_width;</div>
 <div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> line_index=0; line_index&lt;<a class="code" href="namespaceeu_1_1core.html#a38c38f1f1ce985747a7a898760d18251a34be958a921e43d813a2075297d8e862">box</a>.get_height(); line_index+=1)</div>
 <div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;        {</div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;            reduce = <a class="code" href="namespaceeu_1_1core.html#ad3870359986324d79e00cf2a1c0c4f57">std::min</a>(reduce, find_right_padding(<a class="code" href="namespaceeu_1_1core.html#a6fca7b841e42734cd5c01e04fc9e6511a415290769594460e2e485922904f345d">y</a>+line_index) + <a class="code" href="namespaceeu_1_1core.html#a38c38f1f1ce985747a7a898760d18251a34be958a921e43d813a2075297d8e862">box</a>.find_left_padding(line_index));</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;            reduce = <a class="code" href="namespaceeu.html#aaf1a3950938da15ce8c4835ab92ee46a">std::min</a>(reduce, find_right_padding(<a class="code" href="namespaceeu_1_1core.html#a6fca7b841e42734cd5c01e04fc9e6511a415290769594460e2e485922904f345d">y</a>+line_index) + <a class="code" href="namespaceeu_1_1core.html#a38c38f1f1ce985747a7a898760d18251a34be958a921e43d813a2075297d8e862">box</a>.find_left_padding(line_index));</div>
 <div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;        }</div>
 <div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160; </div>
 <div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;        <span class="keywordflow">return</span> my_width - reduce;</div>
@@ -389,7 +389,7 @@
 <div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;        <span class="keywordtype">int</span> reduce = my_height;</div>
 <div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> box_x=0; box_x&lt;<a class="code" href="namespaceeu_1_1core.html#a38c38f1f1ce985747a7a898760d18251a34be958a921e43d813a2075297d8e862">box</a>.get_width(); box_x+=1)</div>
 <div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;        {</div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;            reduce = <a class="code" href="namespaceeu_1_1core.html#ad3870359986324d79e00cf2a1c0c4f57">std::min</a>(reduce, find_bottom_padding(<a class="code" href="namespaceeu_1_1core.html#a6fca7b841e42734cd5c01e04fc9e6511a9dd4e461268c8034f5c8564e155c67a6">x</a>+box_x) + <a class="code" href="namespaceeu_1_1core.html#a38c38f1f1ce985747a7a898760d18251a34be958a921e43d813a2075297d8e862">box</a>.find_top_padding(box_x));</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;            reduce = <a class="code" href="namespaceeu.html#aaf1a3950938da15ce8c4835ab92ee46a">std::min</a>(reduce, find_bottom_padding(<a class="code" href="namespaceeu_1_1core.html#a6fca7b841e42734cd5c01e04fc9e6511a9dd4e461268c8034f5c8564e155c67a6">x</a>+box_x) + <a class="code" href="namespaceeu_1_1core.html#a38c38f1f1ce985747a7a898760d18251a34be958a921e43d813a2075297d8e862">box</a>.find_top_padding(box_x));</div>
 <div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;        }</div>
 <div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160; </div>
 <div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;        <span class="keywordflow">return</span> my_height - reduce;</div>
@@ -458,11 +458,11 @@
 <div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;    <span class="keywordtype">int</span></div>
 <div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;    TextBox::find_left_padding(<span class="keywordtype">int</span> y)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="namespaceeu_1_1core.html#a57038e2fac2e1e15a5dc83511b753769">max</a> = <a class="code" href="structeu_1_1core_1_1TextBox.html#a5fc00c4be55b87ff81153a1e546c8d9e">get_width</a>();</div>
+<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="namespaceeu.html#ad137346d069927fe29916ab42905f177">max</a> = <a class="code" href="structeu_1_1core_1_1TextBox.html#a5fc00c4be55b87ff81153a1e546c8d9e">get_width</a>();</div>
 <div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160; </div>
 <div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;        <span class="keywordflow">if</span>(y &gt;= <a class="code" href="namespaceeu.html#a175a9253ebea7fa874013257344e2a54">c_sizet_to_int</a>(data.size()))</div>
 <div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;        {</div>
-<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="namespaceeu_1_1core.html#a57038e2fac2e1e15a5dc83511b753769">max</a>;</div>
+<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="namespaceeu.html#ad137346d069927fe29916ab42905f177">max</a>;</div>
 <div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;        }</div>
 <div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160; </div>
 <div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;        <span class="keyword">const</span> std::string&amp; <a class="code" href="nlp__sentence_8cc.html#a41ebd28ef1d7c6ade45642cb6acc1039">line</a> = data[y];</div>
@@ -480,15 +480,15 @@
 <div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;    <span class="keywordtype">int</span></div>
 <div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;    TextBox::find_right_padding(<span class="keywordtype">int</span> y)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="namespaceeu_1_1core.html#a57038e2fac2e1e15a5dc83511b753769">max</a> = <a class="code" href="structeu_1_1core_1_1TextBox.html#a5fc00c4be55b87ff81153a1e546c8d9e">get_width</a>();</div>
+<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="namespaceeu.html#ad137346d069927fe29916ab42905f177">max</a> = <a class="code" href="structeu_1_1core_1_1TextBox.html#a5fc00c4be55b87ff81153a1e546c8d9e">get_width</a>();</div>
 <div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160; </div>
 <div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;        <span class="keywordflow">if</span>(y &gt;= <a class="code" href="namespaceeu.html#a175a9253ebea7fa874013257344e2a54">c_sizet_to_int</a>(data.size()))</div>
 <div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;        {</div>
-<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="namespaceeu_1_1core.html#a57038e2fac2e1e15a5dc83511b753769">max</a>;</div>
+<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="namespaceeu.html#ad137346d069927fe29916ab42905f177">max</a>;</div>
 <div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;        }</div>
 <div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160; </div>
 <div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;        <span class="keyword">const</span> std::string&amp; <a class="code" href="nlp__sentence_8cc.html#a41ebd28ef1d7c6ade45642cb6acc1039">line</a> = data[<a class="code" href="namespaceeu_1_1core.html#a6fca7b841e42734cd5c01e04fc9e6511a415290769594460e2e485922904f345d">y</a>];</div>
-<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;        <span class="keywordtype">int</span> position = <a class="code" href="namespaceeu_1_1core.html#a57038e2fac2e1e15a5dc83511b753769">max</a>;</div>
+<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;        <span class="keywordtype">int</span> position = <a class="code" href="namespaceeu.html#ad137346d069927fe29916ab42905f177">max</a>;</div>
 <div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;        <span class="keywordtype">int</span> result = 0;</div>
 <div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;        <span class="keywordflow">while</span></div>
 <div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;        (</div>
@@ -507,10 +507,10 @@
 <div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;    <span class="keywordtype">int</span></div>
 <div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;    TextBox::find_bottom_padding(<span class="keywordtype">int</span> x)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="namespaceeu_1_1core.html#a57038e2fac2e1e15a5dc83511b753769">max</a> = <a class="code" href="namespaceeu.html#a175a9253ebea7fa874013257344e2a54">c_sizet_to_int</a>(data.size());</div>
+<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="namespaceeu.html#ad137346d069927fe29916ab42905f177">max</a> = <a class="code" href="namespaceeu.html#a175a9253ebea7fa874013257344e2a54">c_sizet_to_int</a>(data.size());</div>
 <div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160; </div>
 <div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;        <span class="keywordtype">int</span> result = 0;</div>
-<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;        <span class="keywordtype">int</span> position = <a class="code" href="namespaceeu_1_1core.html#a57038e2fac2e1e15a5dc83511b753769">max</a>;</div>
+<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;        <span class="keywordtype">int</span> position = <a class="code" href="namespaceeu.html#ad137346d069927fe29916ab42905f177">max</a>;</div>
 <div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160; </div>
 <div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;        <span class="keywordflow">while</span></div>
 <div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;        (</div>
@@ -529,12 +529,12 @@
 <div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;    <span class="keywordtype">int</span></div>
 <div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;    TextBox::find_top_padding(<span class="keywordtype">int</span> x)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="namespaceeu_1_1core.html#a57038e2fac2e1e15a5dc83511b753769">max</a> = <a class="code" href="namespaceeu.html#a175a9253ebea7fa874013257344e2a54">c_sizet_to_int</a>(data.size());</div>
+<div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="namespaceeu.html#ad137346d069927fe29916ab42905f177">max</a> = <a class="code" href="namespaceeu.html#a175a9253ebea7fa874013257344e2a54">c_sizet_to_int</a>(data.size());</div>
 <div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;        <span class="keywordtype">int</span> result = 0;</div>
 <div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160; </div>
 <div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;        <span class="keywordflow">while</span></div>
 <div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;        (</div>
-<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;            result &lt; <a class="code" href="namespaceeu_1_1core.html#a57038e2fac2e1e15a5dc83511b753769">max</a> &amp;&amp;</div>
+<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;            result &lt; max &amp;&amp;</div>
 <div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;            (x &gt;= <a class="code" href="namespaceeu.html#a175a9253ebea7fa874013257344e2a54">c_sizet_to_int</a>(data[result].size()) || is_emtpy(data[result][x]))</div>
 <div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;        )</div>
 <div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;        {</div>
@@ -624,7 +624,7 @@
 <div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160;                        0,</div>
 <div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;                        next_box</div>
 <div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160;                    );</div>
-<div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160;                    <a class="code" href="namespaceeu_1_1core.html#a6fca7b841e42734cd5c01e04fc9e6511a415290769594460e2e485922904f345d">y</a> = <a class="code" href="namespaceeu_1_1core.html#a57038e2fac2e1e15a5dc83511b753769">std::max</a></div>
+<div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160;                    <a class="code" href="namespaceeu_1_1core.html#a6fca7b841e42734cd5c01e04fc9e6511a415290769594460e2e485922904f345d">y</a> = <a class="code" href="namespaceeu.html#ad137346d069927fe29916ab42905f177">std::max</a></div>
 <div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160;                    (</div>
 <div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;                        result-&gt;get_vertical_append_position(x, combined),</div>
 <div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160;                        1</div>
@@ -637,7 +637,7 @@
 <div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160;            }</div>
 <div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160;            <span class="keywordflow">if</span>(!horizontal)</div>
 <div class="line"><a name="l00583"></a><span class="lineno">  583</span>&#160;            {</div>
-<div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;                <a class="code" href="namespaceeu_1_1core.html#a6fca7b841e42734cd5c01e04fc9e6511a415290769594460e2e485922904f345d">y</a> = <a class="code" href="namespaceeu_1_1core.html#a57038e2fac2e1e15a5dc83511b753769">std::max</a></div>
+<div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;                <a class="code" href="namespaceeu_1_1core.html#a6fca7b841e42734cd5c01e04fc9e6511a415290769594460e2e485922904f345d">y</a> = <a class="code" href="namespaceeu.html#ad137346d069927fe29916ab42905f177">std::max</a></div>
 <div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;                (</div>
 <div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160;                    result-&gt;get_vertical_append_position(x, current_box),</div>
 <div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160;                    1</div>
@@ -661,7 +661,7 @@
 <div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;                    {</div>
 <div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;                        <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160;                    }</div>
-<div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160;                    <a class="code" href="namespaceeu_1_1core.html#a6fca7b841e42734cd5c01e04fc9e6511a415290769594460e2e485922904f345d">y</a> = <a class="code" href="namespaceeu_1_1core.html#a57038e2fac2e1e15a5dc83511b753769">std::max</a></div>
+<div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160;                    <a class="code" href="namespaceeu_1_1core.html#a6fca7b841e42734cd5c01e04fc9e6511a415290769594460e2e485922904f345d">y</a> = <a class="code" href="namespaceeu.html#ad137346d069927fe29916ab42905f177">std::max</a></div>
 <div class="line"><a name="l00609"></a><span class="lineno">  609</span>&#160;                    (</div>
 <div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160;                        result-&gt;get_vertical_append_position(x, current_box),</div>
 <div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160;                        y</div>
@@ -674,7 +674,7 @@
 <div class="line"><a name="l00618"></a><span class="lineno">  618</span>&#160;            }</div>
 <div class="line"><a name="l00619"></a><span class="lineno">  619</span>&#160;            <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00620"></a><span class="lineno">  620</span>&#160;            {</div>
-<div class="line"><a name="l00621"></a><span class="lineno">  621</span>&#160;                <a class="code" href="namespaceeu_1_1core.html#a6fca7b841e42734cd5c01e04fc9e6511a415290769594460e2e485922904f345d">y</a> = <a class="code" href="namespaceeu_1_1core.html#a57038e2fac2e1e15a5dc83511b753769">std::max</a>(y, min_y);</div>
+<div class="line"><a name="l00621"></a><span class="lineno">  621</span>&#160;                <a class="code" href="namespaceeu_1_1core.html#a6fca7b841e42734cd5c01e04fc9e6511a415290769594460e2e485922904f345d">y</a> = <a class="code" href="namespaceeu.html#ad137346d069927fe29916ab42905f177">std::max</a>(y, min_y);</div>
 <div class="line"><a name="l00622"></a><span class="lineno">  622</span>&#160;            }</div>
 <div class="line"><a name="l00623"></a><span class="lineno">  623</span>&#160; </div>
 <div class="line"><a name="l00624"></a><span class="lineno">  624</span>&#160;            <span class="keywordflow">if</span>(simple)</div>
@@ -739,9 +739,8 @@
 <div class="ttc" id="agroup__string_html_ga3490fea5c2e06de7db10f26fd799ebcf"><div class="ttname"><a href="group__string.html#ga3490fea5c2e06de7db10f26fd799ebcf">eu::to_lower</a></div><div class="ttdeci">std::string to_lower(const std::string &amp;str)</div><div class="ttdoc">Generate a string containing only lower characters.</div><div class="ttdef"><b>Definition:</b> <a href="stringutils_8cc_source.html#l00143">stringutils.cc:143</a></div></div>
 <div class="ttc" id="agroup__string_html_ga718ab12abe2887f18e26d30ee2da17a0"><div class="ttname"><a href="group__string.html#ga718ab12abe2887f18e26d30ee2da17a0">eu::from_char_to_string</a></div><div class="ttdeci">std::string from_char_to_string(char c, CharToStringStyle style)</div><div class="ttdef"><b>Definition:</b> <a href="stringutils_8cc_source.html#l00168">stringutils.cc:168</a></div></div>
 <div class="ttc" id="agroup__string_html_gga20491245288871dc76aabddb7437225fafa2f1c8dc686b38506663647e5242622"><div class="ttname"><a href="group__string.html#gga20491245288871dc76aabddb7437225fafa2f1c8dc686b38506663647e5242622">eu::CharToStringStyle::include_hex</a></div><div class="ttdeci">@ include_hex</div></div>
-<div class="ttc" id="anamespaceeu_1_1core_html"><div class="ttname"><a href="namespaceeu_1_1core.html">eu::core</a></div><div class="ttdef"><b>Definition:</b> <a href="aabb_8cc_source.html#l00008">aabb.cc:9</a></div></div>
+<div class="ttc" id="anamespaceeu_1_1core_html"><div class="ttname"><a href="namespaceeu_1_1core.html">eu::core</a></div><div class="ttdef"><b>Definition:</b> <a href="argparse_8cc_source.html#l00044">argparse.cc:45</a></div></div>
 <div class="ttc" id="anamespaceeu_1_1core_html_a38c38f1f1ce985747a7a898760d18251a34be958a921e43d813a2075297d8e862"><div class="ttname"><a href="namespaceeu_1_1core.html#a38c38f1f1ce985747a7a898760d18251a34be958a921e43d813a2075297d8e862">eu::core::NeighborhoodAlgorithm::box</a></div><div class="ttdeci">@ box</div></div>
-<div class="ttc" id="anamespaceeu_1_1core_html_a57038e2fac2e1e15a5dc83511b753769"><div class="ttname"><a href="namespaceeu_1_1core.html#a57038e2fac2e1e15a5dc83511b753769">eu::core::max</a></div><div class="ttdeci">vec3f max(const vec3f &amp;lhs, const vec3f &amp;rhs)</div><div class="ttdef"><b>Definition:</b> <a href="aabb_8cc_source.html#l00040">aabb.cc:40</a></div></div>
 <div class="ttc" id="anamespaceeu_1_1core_html_a5e5b38e6550fb7a67527c38daed96ce6"><div class="ttname"><a href="namespaceeu_1_1core.html#a5e5b38e6550fb7a67527c38daed96ce6">eu::core::ascii_style</a></div><div class="ttdeci">constexpr TextBoxStyle ascii_style</div><div class="ttdef"><b>Definition:</b> <a href="textbox_8h_source.html#l00112">textbox.h:112</a></div></div>
 <div class="ttc" id="anamespaceeu_1_1core_html_a6481bce162e123468cb093f7b20725aa"><div class="ttname"><a href="namespaceeu_1_1core.html#a6481bce162e123468cb093f7b20725aa">eu::core::utf8_rounded_style</a></div><div class="ttdeci">constexpr TextBoxStyle utf8_rounded_style</div><div class="ttdef"><b>Definition:</b> <a href="textbox_8h_source.html#l00064">textbox.h:64</a></div></div>
 <div class="ttc" id="anamespaceeu_1_1core_html_a6fca7b841e42734cd5c01e04fc9e6511a03c7c0ace395d80182db07ae2c30f034"><div class="ttname"><a href="namespaceeu_1_1core.html#a6fca7b841e42734cd5c01e04fc9e6511a03c7c0ace395d80182db07ae2c30f034">eu::core::Key::s</a></div><div class="ttdeci">@ s</div></div>
@@ -755,10 +754,11 @@
 <div class="ttc" id="anamespaceeu_1_1core_html_ab5eb8647eea22378f25b8ccf3423599c"><div class="ttname"><a href="namespaceeu_1_1core.html#ab5eb8647eea22378f25b8ccf3423599c">eu::core::bit_up</a></div><div class="ttdeci">constexpr unsigned char bit_up</div><div class="ttdef"><b>Definition:</b> <a href="textbox_8h_source.html#l00013">textbox.h:13</a></div></div>
 <div class="ttc" id="anamespaceeu_1_1core_html_abcaaa59ed36aeb9132eb8a65fd9a70f2"><div class="ttname"><a href="namespaceeu_1_1core.html#abcaaa59ed36aeb9132eb8a65fd9a70f2">eu::core::get_terminal_style</a></div><div class="ttdeci">TextBoxStyle get_terminal_style()</div><div class="ttdef"><b>Definition:</b> <a href="textbox_8cc_source.html#l00061">textbox.cc:61</a></div></div>
 <div class="ttc" id="anamespaceeu_1_1core_html_ac11f34da67cc9775c57093a4e5041503"><div class="ttname"><a href="namespaceeu_1_1core.html#ac11f34da67cc9775c57093a4e5041503">eu::core::bit_right</a></div><div class="ttdeci">constexpr unsigned char bit_right</div><div class="ttdef"><b>Definition:</b> <a href="textbox_8h_source.html#l00016">textbox.h:16</a></div></div>
-<div class="ttc" id="anamespaceeu_1_1core_html_ad3870359986324d79e00cf2a1c0c4f57"><div class="ttname"><a href="namespaceeu_1_1core.html#ad3870359986324d79e00cf2a1c0c4f57">eu::core::min</a></div><div class="ttdeci">vec3f min(const vec3f &amp;lhs, const vec3f &amp;rhs)</div><div class="ttdef"><b>Definition:</b> <a href="aabb_8cc_source.html#l00031">aabb.cc:31</a></div></div>
 <div class="ttc" id="anamespaceeu_1_1core_html_afb7bda5fc971a4bc67e2f0d00d10848e"><div class="ttname"><a href="namespaceeu_1_1core.html#afb7bda5fc971a4bc67e2f0d00d10848e">eu::core::bit_left</a></div><div class="ttdeci">constexpr unsigned char bit_left</div><div class="ttdef"><b>Definition:</b> <a href="textbox_8h_source.html#l00015">textbox.h:15</a></div></div>
 <div class="ttc" id="anamespaceeu_html_a175a9253ebea7fa874013257344e2a54"><div class="ttname"><a href="namespaceeu.html#a175a9253ebea7fa874013257344e2a54">eu::c_sizet_to_int</a></div><div class="ttdeci">int c_sizet_to_int(size_t t)</div><div class="ttdef"><b>Definition:</b> <a href="cint_8cc_source.html#l00011">cint.cc:11</a></div></div>
 <div class="ttc" id="anamespaceeu_html_a5c6d0f6da6365a54b442d80a1fc93e7b"><div class="ttname"><a href="namespaceeu.html#a5c6d0f6da6365a54b442d80a1fc93e7b">eu::ends_with</a></div><div class="ttdeci">bool ends_with(const std::string &amp;str, char c)</div><div class="ttdef"><b>Definition:</b> <a href="os_8cc_source.html#l00139">os.cc:139</a></div></div>
+<div class="ttc" id="anamespaceeu_html_aaf1a3950938da15ce8c4835ab92ee46a"><div class="ttname"><a href="namespaceeu.html#aaf1a3950938da15ce8c4835ab92ee46a">eu::min</a></div><div class="ttdeci">size2f min(const size2f lhs, const size2f rhs)</div><div class="ttdef"><b>Definition:</b> <a href="size2_8cc_source.html#l00140">size2.cc:140</a></div></div>
+<div class="ttc" id="anamespaceeu_html_ad137346d069927fe29916ab42905f177"><div class="ttname"><a href="namespaceeu.html#ad137346d069927fe29916ab42905f177">eu::max</a></div><div class="ttdeci">size2f max(const size2f lhs, const size2f rhs)</div><div class="ttdef"><b>Definition:</b> <a href="size2_8cc_source.html#l00149">size2.cc:149</a></div></div>
 <div class="ttc" id="anlp__sentence_8cc_html_a41ebd28ef1d7c6ade45642cb6acc1039"><div class="ttname"><a href="nlp__sentence_8cc.html#a41ebd28ef1d7c6ade45642cb6acc1039">line</a></div><div class="ttdeci">int line</div><div class="ttdef"><b>Definition:</b> <a href="nlp__sentence_8cc_source.html#l00091">nlp_sentence.cc:91</a></div></div>
 <div class="ttc" id="astringutils_8h_html"><div class="ttname"><a href="stringutils_8h.html">stringutils.h</a></div><div class="ttdoc">String utility functions.</div></div>
 <div class="ttc" id="astructeu_1_1core_1_1TextBoxStyle_html"><div class="ttname"><a href="structeu_1_1core_1_1TextBoxStyle.html">eu::core::TextBoxStyle</a></div><div class="ttdef"><b>Definition:</b> <a href="textbox_8h_source.html#l00019">textbox.h:20</a></div></div>

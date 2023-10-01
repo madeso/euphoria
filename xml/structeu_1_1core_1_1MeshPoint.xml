@@ -5,7 +5,7 @@
     <includes refid="core_2src_2core_2mesh_8h" local="no">mesh.h</includes>
       <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structeu_1_1core_1_1MeshPoint_1a58798de7d2d296bdc92ffa12a8c42892" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
+        <type><ref refid="structeu_1_1vec3f" kindref="compound">vec3f</ref></type>
         <definition>vec3f eu::core::MeshPoint::vertex</definition>
         <argsstring></argsstring>
         <name>vertex</name>
@@ -18,7 +18,7 @@
         <location file="libs/core/src/core/mesh.h" line="33" column="15" bodyfile="libs/core/src/core/mesh.h" bodystart="33" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1MeshPoint_1a32fadecf845d1b6961dafcc61c018fce" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
+        <type><ref refid="structeu_1_1vec3f" kindref="compound">vec3f</ref></type>
         <definition>vec3f eu::core::MeshPoint::normal</definition>
         <argsstring></argsstring>
         <name>normal</name>
@@ -31,7 +31,7 @@
         <location file="libs/core/src/core/mesh.h" line="34" column="15" bodyfile="libs/core/src/core/mesh.h" bodystart="34" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1MeshPoint_1a71e03ad66073de70a79571bea842339f" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1core_1_1vec2f" kindref="compound">vec2f</ref></type>
+        <type><ref refid="structeu_1_1vec2f" kindref="compound">vec2f</ref></type>
         <definition>vec2f eu::core::MeshPoint::uv</definition>
         <argsstring></argsstring>
         <name>uv</name>
@@ -51,15 +51,15 @@
         <argsstring>(const vec3f &amp;a_vertex, const vec3f &amp;a_normal, const vec2f &amp;a_uv)</argsstring>
         <name>MeshPoint</name>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
           <declname>a_vertex</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
           <declname>a_normal</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
           <declname>a_uv</declname>
         </param>
         <briefdescription>
@@ -76,10 +76,6 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-      <node id="3">
-        <label>eu::core::vec2f</label>
-        <link refid="structeu_1_1core_1_1vec2f"/>
-      </node>
       <node id="1">
         <label>eu::core::MeshPoint</label>
         <link refid="structeu_1_1core_1_1MeshPoint"/>
@@ -91,9 +87,13 @@
           <edgelabel>uv</edgelabel>
         </childnode>
       </node>
+      <node id="3">
+        <label>eu::vec2f</label>
+        <link refid="structeu_1_1vec2f"/>
+      </node>
       <node id="2">
-        <label>eu::core::vec3f</label>
-        <link refid="structeu_1_1core_1_1vec3f"/>
+        <label>eu::vec3f</label>
+        <link refid="structeu_1_1vec3f"/>
       </node>
     </collaborationgraph>
     <location file="libs/core/src/core/mesh.h" line="31" column="5" bodyfile="libs/core/src/core/mesh.h" bodystart="32" bodyend="43"/>

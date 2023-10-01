@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Euphoria: libs/core/src/core/plane.cc Source File</title>
+<title>Euphoria: libs/base/src/base/plane.cc Source File</title>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <link href="style.css" rel="stylesheet" type="text/css" />
@@ -46,7 +46,7 @@
   </div>
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="dir_6f77a39b07c019ccd7492ea87272f732.html">core</a></li><li class="navelem"><a class="el" href="dir_232ab8dc75117fda122ab855789b1b2c.html">src</a></li><li class="navelem"><a class="el" href="dir_415d9b35eca6c445d7f5977763a796bd.html">core</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="dir_06498c378442102d76a793fbea770c00.html">base</a></li><li class="navelem"><a class="el" href="dir_1434489f875b8806781a8ab0a150cad2.html">src</a></li><li class="navelem"><a class="el" href="dir_9335635e0e9dc5833ab0cd315fbf7edd.html">base</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -54,41 +54,39 @@
 <div class="title">plane.cc</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="plane_8cc.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="plane_8h.html">core/plane.h</a>&quot;</span></div>
+<a href="plane_8cc.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="plane_8h.html">base/plane.h</a>&quot;</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceeu_1_1core.html">eu::core</a></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceeu.html">eu</a></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;{</div>
-<div class="line"><a name="l00005"></a><span class="lineno"><a class="line" href="structeu_1_1core_1_1Plane.html#a1fc9c40b213cb5d156261a03e41c1fad">    5</a></span>&#160;    <a class="code" href="structeu_1_1core_1_1Plane.html#a1fc9c40b213cb5d156261a03e41c1fad">Plane::Plane</a>(<span class="keyword">const</span> <a class="code" href="structeu_1_1core_1_1unit3f.html">unit3f</a>&amp; n, <span class="keywordtype">float</span> d)</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;        : normal(<a class="code" href="namespaceeu_1_1core.html#a6fca7b841e42734cd5c01e04fc9e6511a7b8b965ad4bca0e41ab51de7b31363a1">n</a>)</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;        , distance(<a class="code" href="namespaceeu_1_1core.html#a6fca7b841e42734cd5c01e04fc9e6511a8277e0910d750195b448797616e091ad">d</a>)</div>
+<div class="line"><a name="l00005"></a><span class="lineno"><a class="line" href="structeu_1_1Plane.html#ab6d3927c097abecc71abcd5e8c00dd0c">    5</a></span>&#160;    <a class="code" href="structeu_1_1Plane.html#ab6d3927c097abecc71abcd5e8c00dd0c">Plane::Plane</a>(<span class="keyword">const</span> <a class="code" href="structeu_1_1unit3f.html">unit3f</a>&amp; n, <span class="keywordtype">float</span> d)</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;        : normal(n)</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;        , distance(d)</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    {}</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <a class="code" href="structeu_1_1core_1_1Plane.html">Plane</a></div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="structeu_1_1core_1_1Plane.html#adebe25714f47d41a68ff5280aa79dafb">   12</a></span>&#160;    <a class="code" href="structeu_1_1core_1_1Plane.html#adebe25714f47d41a68ff5280aa79dafb">Plane::from_normal_and_point</a>(<span class="keyword">const</span> <a class="code" href="structeu_1_1core_1_1unit3f.html">unit3f</a>&amp; normal, <span class="keyword">const</span> <a class="code" href="structeu_1_1core_1_1vec3f.html">vec3f</a>&amp; point)</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <a class="code" href="structeu_1_1Plane.html">Plane</a></div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="structeu_1_1Plane.html#abf06fbc339f1009e3823f17974b7cc8d">   12</a></span>&#160;    <a class="code" href="structeu_1_1Plane.html#abf06fbc339f1009e3823f17974b7cc8d">Plane::from_normal_and_point</a>(<span class="keyword">const</span> <a class="code" href="structeu_1_1unit3f.html">unit3f</a>&amp; normal, <span class="keyword">const</span> <a class="code" href="structeu_1_1vec3f.html">vec3f</a>&amp; point)</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    {</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <span class="keywordflow">return</span> {<a class="code" href="structeu_1_1core_1_1Plane.html#aaabfa5ed56e4edf536593df29e046b28">normal</a>, -<a class="code" href="structeu_1_1core_1_1Plane.html#aaabfa5ed56e4edf536593df29e046b28">normal</a>.<a class="code" href="structeu_1_1core_1_1vec3f.html#ad98cfd4590454eed6feeaba47f2e6e8d">dot</a>(point)};</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <span class="keywordflow">return</span> {<a class="code" href="structeu_1_1Plane.html#a96b4eb28d0a93fd43c8c407da2f15a1a">normal</a>, -<a class="code" href="structeu_1_1Plane.html#a96b4eb28d0a93fd43c8c407da2f15a1a">normal</a>.<a class="code" href="structeu_1_1vec3f.html#adbe232e627cc94bce222dca707a5dbf9">dot</a>(point)};</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    }</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    </div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <a class="code" href="structeu_1_1core_1_1Plane.html">Plane</a></div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="structeu_1_1core_1_1Plane.html#a6953973eed05f3bd1b838f389555ebd5">   19</a></span>&#160;    <a class="code" href="structeu_1_1core_1_1Plane.html#a6953973eed05f3bd1b838f389555ebd5">Plane::from_points</a>(<span class="keyword">const</span> <a class="code" href="structeu_1_1core_1_1vec3f.html">vec3f</a>&amp; p0, <span class="keyword">const</span> <a class="code" href="structeu_1_1core_1_1vec3f.html">vec3f</a>&amp; p1, <span class="keyword">const</span> <a class="code" href="structeu_1_1core_1_1vec3f.html">vec3f</a>&amp; p2)</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <a class="code" href="structeu_1_1Plane.html">Plane</a></div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="structeu_1_1Plane.html#a4ca4d0043feff498fcc01640652d8864">   19</a></span>&#160;    <a class="code" href="structeu_1_1Plane.html#a4ca4d0043feff498fcc01640652d8864">Plane::from_points</a>(<span class="keyword">const</span> <a class="code" href="structeu_1_1vec3f.html">vec3f</a>&amp; p0, <span class="keyword">const</span> <a class="code" href="structeu_1_1vec3f.html">vec3f</a>&amp; p1, <span class="keyword">const</span> <a class="code" href="structeu_1_1vec3f.html">vec3f</a>&amp; p2)</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    {</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="structeu_1_1core_1_1Plane.html#adebe25714f47d41a68ff5280aa79dafb">from_normal_and_point</a>((p1-p0).cross(p2-p0).get_normalized(), p0);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="structeu_1_1Plane.html#abf06fbc339f1009e3823f17974b7cc8d">from_normal_and_point</a>((p1-p0).cross(p2-p0).get_normalized(), p0);</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    }</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;}</div>
-<div class="ttc" id="anamespaceeu_1_1core_html"><div class="ttname"><a href="namespaceeu_1_1core.html">eu::core</a></div><div class="ttdef"><b>Definition:</b> <a href="aabb_8cc_source.html#l00008">aabb.cc:9</a></div></div>
-<div class="ttc" id="anamespaceeu_1_1core_html_a6fca7b841e42734cd5c01e04fc9e6511a7b8b965ad4bca0e41ab51de7b31363a1"><div class="ttname"><a href="namespaceeu_1_1core.html#a6fca7b841e42734cd5c01e04fc9e6511a7b8b965ad4bca0e41ab51de7b31363a1">eu::core::Key::n</a></div><div class="ttdeci">@ n</div></div>
-<div class="ttc" id="anamespaceeu_1_1core_html_a6fca7b841e42734cd5c01e04fc9e6511a8277e0910d750195b448797616e091ad"><div class="ttname"><a href="namespaceeu_1_1core.html#a6fca7b841e42734cd5c01e04fc9e6511a8277e0910d750195b448797616e091ad">eu::core::Key::d</a></div><div class="ttdeci">@ d</div></div>
+<div class="ttc" id="anamespaceeu_html"><div class="ttname"><a href="namespaceeu.html">eu</a></div><div class="ttdef"><b>Definition:</b> <a href="assert_8h_source.html#l00089">assert.h:90</a></div></div>
 <div class="ttc" id="aplane_8h_html"><div class="ttname"><a href="plane_8h.html">plane.h</a></div></div>
-<div class="ttc" id="astructeu_1_1core_1_1Plane_html"><div class="ttname"><a href="structeu_1_1core_1_1Plane.html">eu::core::Plane</a></div><div class="ttdef"><b>Definition:</b> <a href="plane_8h_source.html#l00007">plane.h:8</a></div></div>
-<div class="ttc" id="astructeu_1_1core_1_1Plane_html_a1fc9c40b213cb5d156261a03e41c1fad"><div class="ttname"><a href="structeu_1_1core_1_1Plane.html#a1fc9c40b213cb5d156261a03e41c1fad">eu::core::Plane::Plane</a></div><div class="ttdeci">Plane(const unit3f &amp;n, float d)</div><div class="ttdef"><b>Definition:</b> <a href="plane_8cc_source.html#l00005">plane.cc:5</a></div></div>
-<div class="ttc" id="astructeu_1_1core_1_1Plane_html_a6953973eed05f3bd1b838f389555ebd5"><div class="ttname"><a href="structeu_1_1core_1_1Plane.html#a6953973eed05f3bd1b838f389555ebd5">eu::core::Plane::from_points</a></div><div class="ttdeci">static Plane from_points(const vec3f &amp;p0, const vec3f &amp;p1, const vec3f &amp;p2)</div><div class="ttdef"><b>Definition:</b> <a href="plane_8cc_source.html#l00019">plane.cc:19</a></div></div>
-<div class="ttc" id="astructeu_1_1core_1_1Plane_html_aaabfa5ed56e4edf536593df29e046b28"><div class="ttname"><a href="structeu_1_1core_1_1Plane.html#aaabfa5ed56e4edf536593df29e046b28">eu::core::Plane::normal</a></div><div class="ttdeci">unit3f normal</div><div class="ttdef"><b>Definition:</b> <a href="plane_8h_source.html#l00009">plane.h:9</a></div></div>
-<div class="ttc" id="astructeu_1_1core_1_1Plane_html_adebe25714f47d41a68ff5280aa79dafb"><div class="ttname"><a href="structeu_1_1core_1_1Plane.html#adebe25714f47d41a68ff5280aa79dafb">eu::core::Plane::from_normal_and_point</a></div><div class="ttdeci">static Plane from_normal_and_point(const unit3f &amp;normal, const vec3f &amp;point)</div><div class="ttdef"><b>Definition:</b> <a href="plane_8cc_source.html#l00012">plane.cc:12</a></div></div>
-<div class="ttc" id="astructeu_1_1core_1_1unit3f_html"><div class="ttname"><a href="structeu_1_1core_1_1unit3f.html">eu::core::unit3f</a></div><div class="ttdef"><b>Definition:</b> <a href="vec3_8h_source.html#l00101">vec3.h:102</a></div></div>
-<div class="ttc" id="astructeu_1_1core_1_1vec3f_html"><div class="ttname"><a href="structeu_1_1core_1_1vec3f.html">eu::core::vec3f</a></div><div class="ttdef"><b>Definition:</b> <a href="vec3_8h_source.html#l00047">vec3.h:48</a></div></div>
-<div class="ttc" id="astructeu_1_1core_1_1vec3f_html_ad98cfd4590454eed6feeaba47f2e6e8d"><div class="ttname"><a href="structeu_1_1core_1_1vec3f.html#ad98cfd4590454eed6feeaba47f2e6e8d">eu::core::vec3f::dot</a></div><div class="ttdeci">float dot(const vec3f &amp;rhs) const</div><div class="ttdef"><b>Definition:</b> <a href="vec3_8cc_source.html#l00276">vec3.cc:276</a></div></div>
+<div class="ttc" id="astructeu_1_1Plane_html"><div class="ttname"><a href="structeu_1_1Plane.html">eu::Plane</a></div><div class="ttdef"><b>Definition:</b> <a href="plane_8h_source.html#l00007">plane.h:8</a></div></div>
+<div class="ttc" id="astructeu_1_1Plane_html_a4ca4d0043feff498fcc01640652d8864"><div class="ttname"><a href="structeu_1_1Plane.html#a4ca4d0043feff498fcc01640652d8864">eu::Plane::from_points</a></div><div class="ttdeci">static Plane from_points(const vec3f &amp;p0, const vec3f &amp;p1, const vec3f &amp;p2)</div><div class="ttdef"><b>Definition:</b> <a href="plane_8cc_source.html#l00019">plane.cc:19</a></div></div>
+<div class="ttc" id="astructeu_1_1Plane_html_a96b4eb28d0a93fd43c8c407da2f15a1a"><div class="ttname"><a href="structeu_1_1Plane.html#a96b4eb28d0a93fd43c8c407da2f15a1a">eu::Plane::normal</a></div><div class="ttdeci">unit3f normal</div><div class="ttdef"><b>Definition:</b> <a href="plane_8h_source.html#l00009">plane.h:9</a></div></div>
+<div class="ttc" id="astructeu_1_1Plane_html_ab6d3927c097abecc71abcd5e8c00dd0c"><div class="ttname"><a href="structeu_1_1Plane.html#ab6d3927c097abecc71abcd5e8c00dd0c">eu::Plane::Plane</a></div><div class="ttdeci">Plane(const unit3f &amp;n, float d)</div><div class="ttdef"><b>Definition:</b> <a href="plane_8cc_source.html#l00005">plane.cc:5</a></div></div>
+<div class="ttc" id="astructeu_1_1Plane_html_abf06fbc339f1009e3823f17974b7cc8d"><div class="ttname"><a href="structeu_1_1Plane.html#abf06fbc339f1009e3823f17974b7cc8d">eu::Plane::from_normal_and_point</a></div><div class="ttdeci">static Plane from_normal_and_point(const unit3f &amp;normal, const vec3f &amp;point)</div><div class="ttdef"><b>Definition:</b> <a href="plane_8cc_source.html#l00012">plane.cc:12</a></div></div>
+<div class="ttc" id="astructeu_1_1unit3f_html"><div class="ttname"><a href="structeu_1_1unit3f.html">eu::unit3f</a></div><div class="ttdef"><b>Definition:</b> <a href="vec3_8h_source.html#l00101">vec3.h:102</a></div></div>
+<div class="ttc" id="astructeu_1_1vec3f_html"><div class="ttname"><a href="structeu_1_1vec3f.html">eu::vec3f</a></div><div class="ttdef"><b>Definition:</b> <a href="vec3_8h_source.html#l00047">vec3.h:48</a></div></div>
+<div class="ttc" id="astructeu_1_1vec3f_html_adbe232e627cc94bce222dca707a5dbf9"><div class="ttname"><a href="structeu_1_1vec3f.html#adbe232e627cc94bce222dca707a5dbf9">eu::vec3f::dot</a></div><div class="ttdeci">float dot(const vec3f &amp;rhs) const</div><div class="ttdef"><b>Definition:</b> <a href="vec3_8cc_source.html#l00276">vec3.cc:276</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.17-->
 <!-- start footer part -->

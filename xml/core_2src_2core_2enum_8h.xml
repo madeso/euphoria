@@ -213,7 +213,7 @@
           <type>std::string</type>
         </param>
         <param>
-          <type><ref refid="namespaceeu_1_1core_1abb347a6e512d991e31badda3ce5fef91" kindref="member">eu::core::to_string</ref></type>
+          <type><ref refid="namespaceeu_1_1core_1a4e8b777439255d5ec06ecb57bb2dc5a6" kindref="member">eu::core::to_string</ref></type>
         </param>
         <briefdescription>
         </briefdescription>

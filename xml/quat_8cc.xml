@@ -2,47 +2,14 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="quat_8cc" kind="file" language="C++">
     <compoundname>quat.cc</compoundname>
-    <includes refid="quat_8h" local="yes">core/quat.h</includes>
+    <includes refid="quat_8h" local="yes">base/quat.h</includes>
     <incdepgraph>
-      <node id="20">
-        <label>core/vec4.h</label>
-        <link refid="vec4_8h"/>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="6" relation="include">
-        </childnode>
-        <childnode refid="12" relation="include">
-        </childnode>
-      </node>
-      <node id="18">
-        <label>core/axisangle.h</label>
-        <link refid="axisangle_8h"/>
-        <childnode refid="11" relation="include">
-        </childnode>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="10" relation="include">
-        </childnode>
-      </node>
-      <node id="15">
-        <label>cstdint</label>
-      </node>
-      <node id="14">
-        <label>base/ints.h</label>
-        <link refid="ints_8h"/>
-        <childnode refid="15" relation="include">
-        </childnode>
-      </node>
-      <node id="22">
-        <label>core/mat2.h</label>
-        <link refid="mat2_8h"/>
-        <childnode refid="5" relation="include">
-        </childnode>
-        <childnode refid="10" relation="include">
-        </childnode>
+      <node id="9">
+        <label>base/default_interpolate.h</label>
+        <link refid="default__interpolate_8h"/>
       </node>
       <node id="3">
-        <label>core/vec3.h</label>
+        <label>base/vec3.h</label>
         <link refid="vec3_8h"/>
         <childnode refid="4" relation="include">
         </childnode>
@@ -52,29 +19,84 @@
         </childnode>
         <childnode refid="6" relation="include">
         </childnode>
-        <childnode refid="13" relation="include">
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>base/mat3.h</label>
+        <link refid="mat3_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>cstdint</label>
+      </node>
+      <node id="18">
+        <label>base/axisangle.h</label>
+        <link refid="axisangle_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>libs/base/src/base/quat.cc</label>
+        <link refid="quat_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>base/ints.h</label>
+        <link refid="ints_8h"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>base/vec4.h</label>
+        <link refid="vec4_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
         </childnode>
       </node>
       <node id="7">
         <label>string</label>
       </node>
-      <node id="1">
-        <label>libs/core/src/core/quat.cc</label>
-        <link refid="quat_8cc"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-      </node>
-      <node id="23">
-        <label>core/polarcoord.h</label>
-        <link refid="polarcoord_8h"/>
-        <childnode refid="10" relation="include">
-        </childnode>
+      <node id="19">
+        <label>base/mat4.h</label>
+        <link refid="mat4_8h"/>
         <childnode refid="3" relation="include">
         </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
       </node>
-      <node id="17">
-        <label>core/vec.base.h</label>
-        <link refid="vec_8base_8h"/>
+      <node id="10">
+        <label>base/angle.h</label>
+        <link refid="angle_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
       </node>
       <node id="6">
         <label>assert/assert.h</label>
@@ -84,8 +106,36 @@
         <childnode refid="8" relation="include">
         </childnode>
       </node>
+      <node id="12">
+        <label>base/numeric.h</label>
+        <link refid="numeric_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>tuple</label>
+      </node>
+      <node id="8">
+        <label>vector</label>
+      </node>
+      <node id="23">
+        <label>base/polarcoord.h</label>
+        <link refid="polarcoord_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>iostream</label>
+      </node>
+      <node id="16">
+        <label>cstddef</label>
+      </node>
       <node id="5">
-        <label>core/vec2.h</label>
+        <label>base/vec2.h</label>
         <link refid="vec2_8h"/>
         <childnode refid="4" relation="include">
         </childnode>
@@ -97,25 +147,13 @@
         </childnode>
         <childnode refid="12" relation="include">
         </childnode>
-        <childnode refid="13" relation="include">
+        <childnode refid="15" relation="include">
         </childnode>
         <childnode refid="17" relation="include">
         </childnode>
       </node>
-      <node id="4">
-        <label>tuple</label>
-      </node>
-      <node id="12">
-        <label>core/numeric.h</label>
-        <link refid="numeric_8h"/>
-        <childnode refid="9" relation="include">
-        </childnode>
-      </node>
-      <node id="8">
-        <label>vector</label>
-      </node>
       <node id="2">
-        <label>core/quat.h</label>
+        <label>base/quat.h</label>
         <link refid="quat_8h"/>
         <childnode refid="3" relation="include">
         </childnode>
@@ -132,65 +170,28 @@
         <childnode refid="9" relation="include">
         </childnode>
       </node>
-      <node id="19">
-        <label>core/mat4.h</label>
-        <link refid="mat4_8h"/>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="20" relation="include">
-        </childnode>
-        <childnode refid="10" relation="include">
-        </childnode>
-        <childnode refid="18" relation="include">
-        </childnode>
-        <childnode refid="21" relation="include">
-        </childnode>
-      </node>
-      <node id="11">
-        <label>iostream</label>
-      </node>
-      <node id="16">
-        <label>cstddef</label>
-      </node>
-      <node id="9">
-        <label>core/interpolate.default.h</label>
-        <link refid="interpolate_8default_8h"/>
-      </node>
-      <node id="10">
-        <label>core/angle.h</label>
-        <link refid="angle_8h"/>
-        <childnode refid="11" relation="include">
-        </childnode>
-        <childnode refid="12" relation="include">
-        </childnode>
-        <childnode refid="9" relation="include">
-        </childnode>
-      </node>
-      <node id="13">
+      <node id="15">
         <label>base/cint.h</label>
         <link refid="cint_8h"/>
-        <childnode refid="14" relation="include">
+        <childnode refid="13" relation="include">
         </childnode>
         <childnode refid="16" relation="include">
         </childnode>
       </node>
-      <node id="21">
-        <label>core/mat3.h</label>
-        <link refid="mat3_8h"/>
+      <node id="22">
+        <label>base/mat2.h</label>
+        <link refid="mat2_8h"/>
         <childnode refid="5" relation="include">
-        </childnode>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="22" relation="include">
         </childnode>
         <childnode refid="10" relation="include">
         </childnode>
-        <childnode refid="18" relation="include">
-        </childnode>
+      </node>
+      <node id="17">
+        <label>base/vec.base.h</label>
+        <link refid="vec_8base_8h"/>
       </node>
     </incdepgraph>
     <innernamespace refid="namespaceeu">eu</innernamespace>
-    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
       <sectiondef kind="define">
       <memberdef kind="define" id="quat_8cc_1a8d0db73225fbc80f01b8366f19dbb884" prot="public" static="no">
         <name>VAR</name>
@@ -203,13 +204,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/quat.cc" line="304" column="9"/>
+        <location file="libs/base/src/base/quat.cc" line="304" column="9"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/quat.cc"/>
+    <location file="libs/base/src/base/quat.cc"/>
   </compounddef>
 </doxygen>

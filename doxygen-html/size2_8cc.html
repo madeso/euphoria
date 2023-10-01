@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Euphoria: libs/core/src/core/size2.cc File Reference</title>
+<title>Euphoria: libs/base/src/base/size2.cc File Reference</title>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <link href="style.css" rel="stylesheet" type="text/css" />
@@ -46,7 +46,7 @@
   </div>
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="dir_6f77a39b07c019ccd7492ea87272f732.html">core</a></li><li class="navelem"><a class="el" href="dir_232ab8dc75117fda122ab855789b1b2c.html">src</a></li><li class="navelem"><a class="el" href="dir_415d9b35eca6c445d7f5977763a796bd.html">core</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="dir_06498c378442102d76a793fbea770c00.html">base</a></li><li class="navelem"><a class="el" href="dir_1434489f875b8806781a8ab0a150cad2.html">src</a></li><li class="navelem"><a class="el" href="dir_9335635e0e9dc5833ab0cd315fbf7edd.html">base</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -57,7 +57,8 @@
 <div class="title">size2.cc File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="size2_8h_source.html">core/size2.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="size2_8h_source.html">base/size2.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="numparse_8h_source.html">base/numparse.h</a>&quot;</code><br />
 </div>
 <p><a href="size2_8cc_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -65,41 +66,39 @@
 Namespaces</h2></td></tr>
 <tr class="memitem:namespaceeu"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html">eu</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:namespaceeu_1_1core"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html">eu::core</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a0552dc9a5b694bf17c4c0dbfb22f8feb"><td class="memItemLeft" align="right" valign="top">size2f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#a0552dc9a5b694bf17c4c0dbfb22f8feb">eu::core::min</a> (const size2f lhs, const size2f rhs)</td></tr>
-<tr class="separator:a0552dc9a5b694bf17c4c0dbfb22f8feb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeb1b6bd2a4f5fabe13b1bd8e9505564e"><td class="memItemLeft" align="right" valign="top">size2f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#aeb1b6bd2a4f5fabe13b1bd8e9505564e">eu::core::max</a> (const size2f lhs, const size2f rhs)</td></tr>
-<tr class="separator:aeb1b6bd2a4f5fabe13b1bd8e9505564e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae52356061aab691f6c95e7e452772257"><td class="memItemLeft" align="right" valign="top">size2f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#ae52356061aab691f6c95e7e452772257">eu::core::operator+</a> (const size2f &amp;lhs, const size2f &amp;rhs)</td></tr>
-<tr class="separator:ae52356061aab691f6c95e7e452772257"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6fa6e685aebd72ebef8cf50e4894d7b4"><td class="memItemLeft" align="right" valign="top">size2f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#a6fa6e685aebd72ebef8cf50e4894d7b4">eu::core::operator-</a> (const size2f &amp;lhs, const size2f &amp;rhs)</td></tr>
-<tr class="separator:a6fa6e685aebd72ebef8cf50e4894d7b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af4ad9d1c0607c06b0fa107e07229547c"><td class="memItemLeft" align="right" valign="top">size2f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#af4ad9d1c0607c06b0fa107e07229547c">eu::core::operator*</a> (const size2f &amp;lhs, float rhs)</td></tr>
-<tr class="separator:af4ad9d1c0607c06b0fa107e07229547c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a47103e7e404dfce418c608e1db4f57c4"><td class="memItemLeft" align="right" valign="top">size2f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#a47103e7e404dfce418c608e1db4f57c4">eu::core::operator*</a> (float lhs, const size2f &amp;rhs)</td></tr>
-<tr class="separator:a47103e7e404dfce418c608e1db4f57c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa770a65f23675485ca542138e3bb6ace"><td class="memItemLeft" align="right" valign="top">size2f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#aa770a65f23675485ca542138e3bb6ace">eu::core::operator/</a> (const size2f &amp;lhs, float rhs)</td></tr>
-<tr class="separator:aa770a65f23675485ca542138e3bb6ace"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0dd129e0e47006bc33702b7b44e2db70"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#a0dd129e0e47006bc33702b7b44e2db70">eu::core::to_string</a> (const size2f &amp;r)</td></tr>
-<tr class="separator:a0dd129e0e47006bc33702b7b44e2db70"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1e06976cee7de689e573f84a8a693888"><td class="memItemLeft" align="right" valign="top">size2i&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#a1e06976cee7de689e573f84a8a693888">eu::core::min</a> (const size2i lhs, const size2i rhs)</td></tr>
-<tr class="separator:a1e06976cee7de689e573f84a8a693888"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac1922cd5fcc0b0d3a058def6d91095cb"><td class="memItemLeft" align="right" valign="top">size2i&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#ac1922cd5fcc0b0d3a058def6d91095cb">eu::core::max</a> (const size2i lhs, const size2i rhs)</td></tr>
-<tr class="separator:ac1922cd5fcc0b0d3a058def6d91095cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab85e4379d77d7ac197ab9fe7805ae104"><td class="memItemLeft" align="right" valign="top">size2i&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#ab85e4379d77d7ac197ab9fe7805ae104">eu::core::operator+</a> (const size2i &amp;lhs, const size2i &amp;rhs)</td></tr>
-<tr class="separator:ab85e4379d77d7ac197ab9fe7805ae104"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae24871a7de1380f04b73c1c1703e57e0"><td class="memItemLeft" align="right" valign="top">size2i&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#ae24871a7de1380f04b73c1c1703e57e0">eu::core::operator-</a> (const size2i &amp;lhs, const size2i &amp;rhs)</td></tr>
-<tr class="separator:ae24871a7de1380f04b73c1c1703e57e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa554ed4dc8fae4ea842fa0e2082492f5"><td class="memItemLeft" align="right" valign="top">size2i&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#aa554ed4dc8fae4ea842fa0e2082492f5">eu::core::operator*</a> (const size2i &amp;lhs, int rhs)</td></tr>
-<tr class="separator:aa554ed4dc8fae4ea842fa0e2082492f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a318a01f5b43abadf691784b9feece943"><td class="memItemLeft" align="right" valign="top">size2i&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#a318a01f5b43abadf691784b9feece943">eu::core::operator*</a> (int lhs, const size2i &amp;rhs)</td></tr>
-<tr class="separator:a318a01f5b43abadf691784b9feece943"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a664051ec0ab54d344fc76f81b264b3f2"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#a664051ec0ab54d344fc76f81b264b3f2">eu::core::to_string</a> (const size2i &amp;r)</td></tr>
-<tr class="separator:a664051ec0ab54d344fc76f81b264b3f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf1a3950938da15ce8c4835ab92ee46a"><td class="memItemLeft" align="right" valign="top">size2f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html#aaf1a3950938da15ce8c4835ab92ee46a">eu::min</a> (const size2f lhs, const size2f rhs)</td></tr>
+<tr class="separator:aaf1a3950938da15ce8c4835ab92ee46a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad137346d069927fe29916ab42905f177"><td class="memItemLeft" align="right" valign="top">size2f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html#ad137346d069927fe29916ab42905f177">eu::max</a> (const size2f lhs, const size2f rhs)</td></tr>
+<tr class="separator:ad137346d069927fe29916ab42905f177"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1cf981ed687f71578469315ae45498a"><td class="memItemLeft" align="right" valign="top">size2f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html#ad1cf981ed687f71578469315ae45498a">eu::operator+</a> (const size2f &amp;lhs, const size2f &amp;rhs)</td></tr>
+<tr class="separator:ad1cf981ed687f71578469315ae45498a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69fd26cccb6e9ffc339b9c924fcc2768"><td class="memItemLeft" align="right" valign="top">size2f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html#a69fd26cccb6e9ffc339b9c924fcc2768">eu::operator-</a> (const size2f &amp;lhs, const size2f &amp;rhs)</td></tr>
+<tr class="separator:a69fd26cccb6e9ffc339b9c924fcc2768"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a82b3f23cfe59a2df417ff87eb5ee1790"><td class="memItemLeft" align="right" valign="top">size2f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html#a82b3f23cfe59a2df417ff87eb5ee1790">eu::operator*</a> (const size2f &amp;lhs, float rhs)</td></tr>
+<tr class="separator:a82b3f23cfe59a2df417ff87eb5ee1790"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada225ae5296210a4b7e3d4c5b18867ea"><td class="memItemLeft" align="right" valign="top">size2f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html#ada225ae5296210a4b7e3d4c5b18867ea">eu::operator*</a> (float lhs, const size2f &amp;rhs)</td></tr>
+<tr class="separator:ada225ae5296210a4b7e3d4c5b18867ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f274ef437473d7ec1b02b7f9e12a872"><td class="memItemLeft" align="right" valign="top">size2f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html#a2f274ef437473d7ec1b02b7f9e12a872">eu::operator/</a> (const size2f &amp;lhs, float rhs)</td></tr>
+<tr class="separator:a2f274ef437473d7ec1b02b7f9e12a872"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc21015d1c4d7dc2144250e4d42e678e"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html#adc21015d1c4d7dc2144250e4d42e678e">eu::to_string</a> (const size2f &amp;r)</td></tr>
+<tr class="separator:adc21015d1c4d7dc2144250e4d42e678e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa16217083c29edbfba50968a35b41c53"><td class="memItemLeft" align="right" valign="top">size2i&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html#aa16217083c29edbfba50968a35b41c53">eu::min</a> (const size2i lhs, const size2i rhs)</td></tr>
+<tr class="separator:aa16217083c29edbfba50968a35b41c53"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c4998ac6f22f4a335f3c2c1e651dd45"><td class="memItemLeft" align="right" valign="top">size2i&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html#a2c4998ac6f22f4a335f3c2c1e651dd45">eu::max</a> (const size2i lhs, const size2i rhs)</td></tr>
+<tr class="separator:a2c4998ac6f22f4a335f3c2c1e651dd45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d7f84a44cd6df67c715824cd9b3f54e"><td class="memItemLeft" align="right" valign="top">size2i&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html#a3d7f84a44cd6df67c715824cd9b3f54e">eu::operator+</a> (const size2i &amp;lhs, const size2i &amp;rhs)</td></tr>
+<tr class="separator:a3d7f84a44cd6df67c715824cd9b3f54e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33fd6bc18516eee210c77ae166ba5796"><td class="memItemLeft" align="right" valign="top">size2i&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html#a33fd6bc18516eee210c77ae166ba5796">eu::operator-</a> (const size2i &amp;lhs, const size2i &amp;rhs)</td></tr>
+<tr class="separator:a33fd6bc18516eee210c77ae166ba5796"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81822271eb212499bd9287750d258eca"><td class="memItemLeft" align="right" valign="top">size2i&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html#a81822271eb212499bd9287750d258eca">eu::operator*</a> (const size2i &amp;lhs, int rhs)</td></tr>
+<tr class="separator:a81822271eb212499bd9287750d258eca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34fa872b2847a24522ef1cf188e2d88d"><td class="memItemLeft" align="right" valign="top">size2i&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html#a34fa872b2847a24522ef1cf188e2d88d">eu::operator*</a> (int lhs, const size2i &amp;rhs)</td></tr>
+<tr class="separator:a34fa872b2847a24522ef1cf188e2d88d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5cd1c0162d56faee9abc25863eaa302"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html#aa5cd1c0162d56faee9abc25863eaa302">eu::to_string</a> (const size2i &amp;r)</td></tr>
+<tr class="separator:aa5cd1c0162d56faee9abc25863eaa302"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.17-->

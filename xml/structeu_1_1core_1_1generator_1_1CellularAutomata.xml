@@ -31,7 +31,7 @@
         <location file="libs/core/src/core/generator_cell.h" line="46" column="26" bodyfile="libs/core/src/core/generator_cell.h" bodystart="46" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1generator_1_1CellularAutomata_1ac113a4c4a35bc98b825d008210973503" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1core_1_1Lrud" kindref="compound">Lrud</ref>&lt; <ref refid="namespaceeu_1_1core_1a1c50537347b75b64ae1b2ebc9f3f82b8" kindref="member">core::OutsideRule</ref> &gt;</type>
+        <type><ref refid="structeu_1_1Lrud" kindref="compound">Lrud</ref>&lt; <ref refid="namespaceeu_1_1core_1a1c50537347b75b64ae1b2ebc9f3f82b8" kindref="member">core::OutsideRule</ref> &gt;</type>
         <definition>Lrud&lt;core::OutsideRule&gt; eu::core::generator::CellularAutomata::outside_rule</definition>
         <argsstring></argsstring>
         <name>outside_rule</name>
@@ -72,7 +72,7 @@
           <declname>w</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1Lrud" kindref="compound">Lrud</ref>&lt; <ref refid="namespaceeu_1_1core_1a1c50537347b75b64ae1b2ebc9f3f82b8" kindref="member">core::OutsideRule</ref> &gt; &amp;</type>
+          <type>const <ref refid="structeu_1_1Lrud" kindref="compound">Lrud</ref>&lt; <ref refid="namespaceeu_1_1core_1a1c50537347b75b64ae1b2ebc9f3f82b8" kindref="member">core::OutsideRule</ref> &gt; &amp;</type>
           <declname>fw</declname>
         </param>
         <briefdescription>
@@ -115,13 +115,13 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
+      <node id="4">
+        <label>eu::Lrud&lt; core::OutsideRule &gt;</label>
+        <link refid="structeu_1_1Lrud"/>
+      </node>
       <node id="3">
         <label>eu::core::Table&lt; T &gt;</label>
         <link refid="structeu_1_1core_1_1Table"/>
-      </node>
-      <node id="4">
-        <label>eu::core::Lrud&lt; core::OutsideRule &gt;</label>
-        <link refid="structeu_1_1core_1_1Lrud"/>
       </node>
       <node id="1">
         <label>eu::core::generator::CellularAutomata</label>

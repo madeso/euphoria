@@ -5,7 +5,7 @@
     <includes refid="dump_8h" local="no">dump.h</includes>
       <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structeu_1_1core_1_1dump2d_1_1Circle_1a0c0dca453e488094416665dfc6bd0969" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1core_1_1vec2f" kindref="compound">vec2f</ref></type>
+        <type><ref refid="structeu_1_1vec2f" kindref="compound">vec2f</ref></type>
         <definition>vec2f eu::core::dump2d::Circle::point</definition>
         <argsstring></argsstring>
         <name>point</name>
@@ -31,7 +31,7 @@
         <location file="libs/core/src/core/dump.h" line="55" column="15" bodyfile="libs/core/src/core/dump.h" bodystart="55" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1dump2d_1_1Circle_1acf9f5feb9e2668b9c670e5c6cbc121ed" prot="public" static="no" mutable="no">
-        <type>std::optional&lt; <ref refid="structeu_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref> &gt;</type>
+        <type>std::optional&lt; <ref refid="structeu_1_1Rgbi" kindref="compound">Rgbi</ref> &gt;</type>
         <definition>std::optional&lt;Rgbi&gt; eu::core::dump2d::Circle::line_color</definition>
         <argsstring></argsstring>
         <name>line_color</name>
@@ -44,7 +44,7 @@
         <location file="libs/core/src/core/dump.h" line="56" column="23" bodyfile="libs/core/src/core/dump.h" bodystart="56" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1dump2d_1_1Circle_1af15465302cc920e64a95096ecac03dba" prot="public" static="no" mutable="no">
-        <type>std::optional&lt; <ref refid="structeu_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref> &gt;</type>
+        <type>std::optional&lt; <ref refid="structeu_1_1Rgbi" kindref="compound">Rgbi</ref> &gt;</type>
         <definition>std::optional&lt;Rgbi&gt; eu::core::dump2d::Circle::fill_color</definition>
         <argsstring></argsstring>
         <name>fill_color</name>
@@ -64,7 +64,7 @@
         <argsstring>(const vec2f &amp;p, float r, std::optional&lt; Rgbi &gt; fill=std::nullopt)</argsstring>
         <name>Circle</name>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
           <declname>p</declname>
         </param>
         <param>
@@ -72,7 +72,7 @@
           <declname>r</declname>
         </param>
         <param>
-          <type>std::optional&lt; <ref refid="structeu_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref> &gt;</type>
+          <type>std::optional&lt; <ref refid="structeu_1_1Rgbi" kindref="compound">Rgbi</ref> &gt;</type>
           <declname>fill</declname>
           <defval>std::nullopt</defval>
         </param>
@@ -90,7 +90,7 @@
         <argsstring>(const Rgbi &amp;lc)</argsstring>
         <name>set_line_color</name>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1Rgbi" kindref="compound">Rgbi</ref> &amp;</type>
           <declname>lc</declname>
         </param>
         <briefdescription>
@@ -115,8 +115,8 @@
         </childnode>
       </node>
       <node id="2">
-        <label>eu::core::vec2f</label>
-        <link refid="structeu_1_1core_1_1vec2f"/>
+        <label>eu::vec2f</label>
+        <link refid="structeu_1_1vec2f"/>
       </node>
     </collaborationgraph>
     <location file="libs/core/src/core/dump.h" line="52" column="5" bodyfile="libs/core/src/core/dump.h" bodystart="53" bodyend="62"/>

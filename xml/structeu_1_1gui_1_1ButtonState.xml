@@ -18,9 +18,9 @@
         </inbodydescription>
         <location file="libs/gui/src/gui/skin.h" line="27" column="15" bodyfile="libs/gui/src/gui/skin.h" bodystart="27" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeu_1_1gui_1_1ButtonState_1a4c82f5d0a91b8d4ea059def656c5426d" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1core_1_1Rgb" kindref="compound">core::Rgb</ref></type>
-        <definition>core::Rgb eu::gui::ButtonState::image_color</definition>
+      <memberdef kind="variable" id="structeu_1_1gui_1_1ButtonState_1ada193b94f1bceefcb7f33a7056b5dd31" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1Rgb" kindref="compound">Rgb</ref></type>
+        <definition>Rgb eu::gui::ButtonState::image_color</definition>
         <argsstring></argsstring>
         <name>image_color</name>
         <initializer>{0.0f}</initializer>
@@ -30,11 +30,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/gui/src/gui/skin.h" line="28" column="19" bodyfile="libs/gui/src/gui/skin.h" bodystart="28" bodyend="-1"/>
+        <location file="libs/gui/src/gui/skin.h" line="28" column="13" bodyfile="libs/gui/src/gui/skin.h" bodystart="28" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeu_1_1gui_1_1ButtonState_1a843c8cb2668700f7738de4fc168ca28b" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1core_1_1Rgb" kindref="compound">core::Rgb</ref></type>
-        <definition>core::Rgb eu::gui::ButtonState::text_color</definition>
+      <memberdef kind="variable" id="structeu_1_1gui_1_1ButtonState_1a07a9bfe10239b951bb28e2b7ed341c9d" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1Rgb" kindref="compound">Rgb</ref></type>
+        <definition>Rgb eu::gui::ButtonState::text_color</definition>
         <argsstring></argsstring>
         <name>text_color</name>
         <initializer>{1.0f}</initializer>
@@ -44,7 +44,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/gui/src/gui/skin.h" line="29" column="19" bodyfile="libs/gui/src/gui/skin.h" bodystart="29" bodyend="-1"/>
+        <location file="libs/gui/src/gui/skin.h" line="29" column="13" bodyfile="libs/gui/src/gui/skin.h" bodystart="29" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1gui_1_1ButtonState_1acb687c1be7f0133f25b38fc0ced68f4c" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -119,6 +119,10 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
+      <node id="2">
+        <label>eu::Rgb</label>
+        <link refid="structeu_1_1Rgb"/>
+      </node>
       <node id="1">
         <label>eu::gui::ButtonState</label>
         <link refid="structeu_1_1gui_1_1ButtonState"/>
@@ -136,21 +140,17 @@
         <label>eu::gui::Interpolation</label>
         <link refid="structeu_1_1gui_1_1Interpolation"/>
       </node>
-      <node id="2">
-        <label>eu::core::Rgb</label>
-        <link refid="structeu_1_1core_1_1Rgb"/>
-      </node>
     </collaborationgraph>
     <location file="libs/gui/src/gui/skin.h" line="24" column="5" bodyfile="libs/gui/src/gui/skin.h" bodystart="25" bodyend="36"/>
     <listofallmembers>
       <member refid="structeu_1_1gui_1_1ButtonState_1acb687c1be7f0133f25b38fc0ced68f4c" prot="public" virt="non-virtual"><scope>eu::gui::ButtonState</scope><name>dx</name></member>
       <member refid="structeu_1_1gui_1_1ButtonState_1a294d85efdb86a318db6aa3a7337e17be" prot="public" virt="non-virtual"><scope>eu::gui::ButtonState</scope><name>dy</name></member>
-      <member refid="structeu_1_1gui_1_1ButtonState_1a4c82f5d0a91b8d4ea059def656c5426d" prot="public" virt="non-virtual"><scope>eu::gui::ButtonState</scope><name>image_color</name></member>
+      <member refid="structeu_1_1gui_1_1ButtonState_1ada193b94f1bceefcb7f33a7056b5dd31" prot="public" virt="non-virtual"><scope>eu::gui::ButtonState</scope><name>image_color</name></member>
       <member refid="structeu_1_1gui_1_1ButtonState_1a1d4cee52a1f997f62baa895cea7b3122" prot="public" virt="non-virtual"><scope>eu::gui::ButtonState</scope><name>interpolation_color</name></member>
       <member refid="structeu_1_1gui_1_1ButtonState_1a35acf78aa081b367f9aabe0eed850794" prot="public" virt="non-virtual"><scope>eu::gui::ButtonState</scope><name>interpolation_position</name></member>
       <member refid="structeu_1_1gui_1_1ButtonState_1a2259c401ca150811a28f72001210b827" prot="public" virt="non-virtual"><scope>eu::gui::ButtonState</scope><name>interpolation_size</name></member>
       <member refid="structeu_1_1gui_1_1ButtonState_1a1f14d90c7b4e8d0ff05e1021280d4fcb" prot="public" virt="non-virtual"><scope>eu::gui::ButtonState</scope><name>scale</name></member>
-      <member refid="structeu_1_1gui_1_1ButtonState_1a843c8cb2668700f7738de4fc168ca28b" prot="public" virt="non-virtual"><scope>eu::gui::ButtonState</scope><name>text_color</name></member>
+      <member refid="structeu_1_1gui_1_1ButtonState_1a07a9bfe10239b951bb28e2b7ed341c9d" prot="public" virt="non-virtual"><scope>eu::gui::ButtonState</scope><name>text_color</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

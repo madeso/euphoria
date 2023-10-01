@@ -1,0 +1,626 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1mat3f" kind="struct" language="C++" prot="public">
+    <compoundname>eu::mat3f</compoundname>
+    <includes refid="mat3_8h" local="no">mat3.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="structeu_1_1mat3f_1af678cfaa1f2f9804210097da49f97d15" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float eu::mat3f::data[9]</definition>
+        <argsstring>[9]</argsstring>
+        <name>data</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/mat3.h" line="77" column="15" bodyfile="libs/base/src/base/mat3.h" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1mat3f_1af07948efa4de2e7951d5a721d3155564" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::mat3f::mat3f</definition>
+        <argsstring>(const mat2f &amp;mat)</argsstring>
+        <name>mat3f</name>
+        <param>
+          <type>const <ref refid="structeu_1_1mat2f" kindref="compound">mat2f</ref> &amp;</type>
+          <declname>mat</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/mat3.h" line="13" column="18" bodyfile="libs/base/src/base/mat3.cc" bodystart="7" bodyend="15"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1mat3f_1aed76c192af789a0b3b18d368ac494c7b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool eu::mat3f::operator==</definition>
+        <argsstring>(const mat3f &amp;rhs)=delete</argsstring>
+        <name>operator==</name>
+        <param>
+          <type>const <ref refid="structeu_1_1mat3f" kindref="compound">mat3f</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/mat3.h" line="15" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1mat3f_1acc256bfad0a3c9e2bf49afd9d6a39ac6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float *</type>
+        <definition>float * eu::mat3f::get_data_ptr</definition>
+        <argsstring>()</argsstring>
+        <name>get_data_ptr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/mat3.h" line="57" column="15" bodyfile="libs/base/src/base/mat3.cc" bodystart="230" bodyend="233"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1mat3f_1a2de0d368d842d0e08e6e753b5db287e4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float eu::mat3f::get</definition>
+        <argsstring>(int row, int col) const</argsstring>
+        <name>get</name>
+        <param>
+          <type>int</type>
+          <declname>row</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>col</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/mat3.h" line="59" column="16" bodyfile="libs/base/src/base/mat3.cc" bodystart="237" bodyend="240"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1mat3f_1a40df02f5b7bb47c78d72cbfea03766cf" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1vec3f" kindref="compound">vec3f</ref></type>
+        <definition>vec3f eu::mat3f::get_axis</definition>
+        <argsstring>(int col) const</argsstring>
+        <name>get_axis</name>
+        <param>
+          <type>int</type>
+          <declname>col</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/mat3.h" line="60" column="16" bodyfile="libs/base/src/base/mat3.cc" bodystart="147" bodyend="150"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1mat3f_1a22f8ecfa11212597a2435837df818c59" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1mat3f" kindref="compound">mat3f</ref></type>
+        <definition>mat3f eu::mat3f::get_rotated</definition>
+        <argsstring>(const AxisAngle &amp;aa) const</argsstring>
+        <name>get_rotated</name>
+        <param>
+          <type>const <ref refid="structeu_1_1AxisAngle" kindref="compound">AxisAngle</ref> &amp;</type>
+          <declname>aa</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/mat3.h" line="61" column="16" bodyfile="libs/base/src/base/mat3.cc" bodystart="209" bodyend="212"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1mat3f_1ae07ad1f25a6ff0c4f2bd3cde7d4ce635" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1mat3f" kindref="compound">mat3f</ref></type>
+        <definition>mat3f eu::mat3f::get_scaled</definition>
+        <argsstring>(const Scale3f &amp;scale) const</argsstring>
+        <name>get_scaled</name>
+        <param>
+          <type>const <ref refid="structeu_1_1Scale3f" kindref="compound">Scale3f</ref> &amp;</type>
+          <declname>scale</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/mat3.h" line="62" column="16" bodyfile="libs/base/src/base/mat3.cc" bodystart="216" bodyend="219"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1mat3f_1ab1d3ab035b7db93232ce0949dd20e7ea" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1vec3f" kindref="compound">vec3f</ref></type>
+        <definition>vec3f eu::mat3f::get_column</definition>
+        <argsstring>(int c) const</argsstring>
+        <name>get_column</name>
+        <param>
+          <type>int</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/mat3.h" line="63" column="16" bodyfile="libs/base/src/base/mat3.cc" bodystart="244" bodyend="247"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1mat3f_1a9c1e8795209dd96d5412fa25115efcb8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1vec3f" kindref="compound">vec3f</ref></type>
+        <definition>vec3f eu::mat3f::get_row</definition>
+        <argsstring>(int r) const</argsstring>
+        <name>get_row</name>
+        <param>
+          <type>int</type>
+          <declname>r</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/mat3.h" line="64" column="16" bodyfile="libs/base/src/base/mat3.cc" bodystart="251" bodyend="254"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1mat3f_1a3768dd07dbeacbd2e825427c1acabbc8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1vec3f" kindref="compound">vec3f</ref></type>
+        <definition>vec3f eu::mat3f::get_major</definition>
+        <argsstring>() const</argsstring>
+        <name>get_major</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/mat3.h" line="66" column="16" bodyfile="libs/base/src/base/mat3.cc" bodystart="140" bodyend="143"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1mat3f_1afa0e9fb470182848c49c4ba9f5eea5aa" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1vec3f" kindref="compound">vec3f</ref></type>
+        <definition>vec3f eu::mat3f::get_x_axis</definition>
+        <argsstring>() const</argsstring>
+        <name>get_x_axis</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/mat3.h" line="67" column="16" bodyfile="libs/base/src/base/mat3.cc" bodystart="154" bodyend="157"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1mat3f_1a54f860a2e8bea92edfb89dc6de90698d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1vec3f" kindref="compound">vec3f</ref></type>
+        <definition>vec3f eu::mat3f::get_y_axis</definition>
+        <argsstring>() const</argsstring>
+        <name>get_y_axis</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/mat3.h" line="68" column="16" bodyfile="libs/base/src/base/mat3.cc" bodystart="161" bodyend="164"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1mat3f_1ae92b64936b4256670611bd4137f402a7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1vec3f" kindref="compound">vec3f</ref></type>
+        <definition>vec3f eu::mat3f::get_z_axis</definition>
+        <argsstring>() const</argsstring>
+        <name>get_z_axis</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/mat3.h" line="69" column="16" bodyfile="libs/base/src/base/mat3.cc" bodystart="168" bodyend="171"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1mat3f_1ac27c4159ee05b46804e6470b8d8baf6e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1mat3f" kindref="compound">mat3f</ref></type>
+        <definition>mat3f eu::mat3f::get_transposed</definition>
+        <argsstring>() const</argsstring>
+        <name>get_transposed</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/mat3.h" line="70" column="16" bodyfile="libs/base/src/base/mat3.cc" bodystart="175" bodyend="183"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1mat3f_1ae47b51e3363ff32f1bb1728431986272" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const float *</type>
+        <definition>const float * eu::mat3f::get_data_ptr</definition>
+        <argsstring>() const</argsstring>
+        <name>get_data_ptr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/mat3.h" line="71" column="22" bodyfile="libs/base/src/base/mat3.cc" bodystart="223" bodyend="226"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1mat3f_1ad3b5f4c86fb1e85cfd2f8137609c08e6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::mat3f::operator+=</definition>
+        <argsstring>(const mat3f &amp;rhs)</argsstring>
+        <name>operator+=</name>
+        <param>
+          <type>const <ref refid="structeu_1_1mat3f" kindref="compound">mat3f</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/mat3.h" line="73" column="14" bodyfile="libs/base/src/base/mat3.cc" bodystart="187" bodyend="194"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1mat3f_1a4316b6cdd0e87ca3d8c48b141544060f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::mat3f::operator-=</definition>
+        <argsstring>(const mat3f &amp;rhs)</argsstring>
+        <name>operator-=</name>
+        <param>
+          <type>const <ref refid="structeu_1_1mat3f" kindref="compound">mat3f</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/mat3.h" line="74" column="14" bodyfile="libs/base/src/base/mat3.cc" bodystart="198" bodyend="205"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="structeu_1_1mat3f_1a8d5ee4aeb773f6624823d19374b3cfb9" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1mat3f" kindref="compound">mat3f</ref></type>
+        <definition>mat3f eu::mat3f::from_major</definition>
+        <argsstring>(const Scale3f &amp;major)</argsstring>
+        <name>from_major</name>
+        <param>
+          <type>const <ref refid="structeu_1_1Scale3f" kindref="compound">Scale3f</ref> &amp;</type>
+          <declname>major</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/mat3.h" line="17" column="23" bodyfile="libs/base/src/base/mat3.cc" bodystart="38" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1mat3f_1a8eff69794145edce552545fa17fc2b2d" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1mat3f" kindref="compound">mat3f</ref></type>
+        <definition>mat3f eu::mat3f::from_scale</definition>
+        <argsstring>(const Scale3f &amp;scale)</argsstring>
+        <name>from_scale</name>
+        <param>
+          <type>const <ref refid="structeu_1_1Scale3f" kindref="compound">Scale3f</ref> &amp;</type>
+          <declname>scale</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/mat3.h" line="18" column="23" bodyfile="libs/base/src/base/mat3.cc" bodystart="52" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1mat3f_1a669d31e93c2dc94041a96266d63b0a48" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1mat3f" kindref="compound">mat3f</ref></type>
+        <definition>mat3f eu::mat3f::from_translation2d</definition>
+        <argsstring>(const vec2f &amp;t)</argsstring>
+        <name>from_translation2d</name>
+        <param>
+          <type>const <ref refid="structeu_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/mat3.h" line="19" column="23" bodyfile="libs/base/src/base/mat3.cc" bodystart="60" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1mat3f_1a57ec3defb89219aef3fc99b3290aae58" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1mat3f" kindref="compound">mat3f</ref></type>
+        <definition>mat3f eu::mat3f::from_rot_x</definition>
+        <argsstring>(const Angle &amp;a)</argsstring>
+        <name>from_rot_x</name>
+        <param>
+          <type>const <ref refid="structeu_1_1Angle" kindref="compound">Angle</ref> &amp;</type>
+          <declname>a</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/mat3.h" line="20" column="23" bodyfile="libs/base/src/base/mat3.cc" bodystart="73" bodyend="83"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1mat3f_1acc9340089ed63874f0cf9a2c0e31133a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1mat3f" kindref="compound">mat3f</ref></type>
+        <definition>mat3f eu::mat3f::from_rot_y</definition>
+        <argsstring>(const Angle &amp;a)</argsstring>
+        <name>from_rot_y</name>
+        <param>
+          <type>const <ref refid="structeu_1_1Angle" kindref="compound">Angle</ref> &amp;</type>
+          <declname>a</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/mat3.h" line="21" column="23" bodyfile="libs/base/src/base/mat3.cc" bodystart="88" bodyend="98"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1mat3f_1a0442edb1050bb3ff71ed75bd2542ad24" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1mat3f" kindref="compound">mat3f</ref></type>
+        <definition>mat3f eu::mat3f::from_rot_z</definition>
+        <argsstring>(const Angle &amp;a)</argsstring>
+        <name>from_rot_z</name>
+        <param>
+          <type>const <ref refid="structeu_1_1Angle" kindref="compound">Angle</ref> &amp;</type>
+          <declname>a</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/mat3.h" line="22" column="23" bodyfile="libs/base/src/base/mat3.cc" bodystart="103" bodyend="108"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1mat3f_1a31eba31575b36536068e62ab83f0831b" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1mat3f" kindref="compound">mat3f</ref></type>
+        <definition>mat3f eu::mat3f::from_axis_angle</definition>
+        <argsstring>(const AxisAngle &amp;aa)</argsstring>
+        <name>from_axis_angle</name>
+        <param>
+          <type>const <ref refid="structeu_1_1AxisAngle" kindref="compound">AxisAngle</ref> &amp;</type>
+          <declname>aa</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/mat3.h" line="23" column="23" bodyfile="libs/base/src/base/mat3.cc" bodystart="113" bodyend="136"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1mat3f_1a82862debbef9b9a8173f698f9a65e1b0" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>constexpr static <ref refid="structeu_1_1mat3f" kindref="compound">mat3f</ref></type>
+        <definition>constexpr static mat3f eu::mat3f::from_scalar</definition>
+        <argsstring>(float scalar)</argsstring>
+        <name>from_scalar</name>
+        <param>
+          <type>float</type>
+          <declname>scalar</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/mat3.h" line="24" column="33" bodyfile="libs/base/src/base/mat3.h" bodystart="24" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1mat3f_1a480e0ad99abc466818db6cd33fa05419" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1mat3f" kindref="compound">mat3f</ref></type>
+        <definition>mat3f eu::mat3f::from_col_major</definition>
+        <argsstring>(float t00, float t01, float t02, float t10, float t11, float t12, float t20, float t21, float t22)</argsstring>
+        <name>from_col_major</name>
+        <param>
+          <type>float</type>
+          <declname>t00</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>t01</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>t02</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>t10</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>t11</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>t12</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>t20</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>t21</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>t22</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/mat3.h" line="35" column="23" bodyfile="libs/base/src/base/mat3.cc" bodystart="21" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1mat3f_1a6d0756e49e02ce556cbabd8312b63d46" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>constexpr static <ref refid="structeu_1_1mat3f" kindref="compound">mat3f</ref></type>
+        <definition>constexpr static mat3f eu::mat3f::from_row_major</definition>
+        <argsstring>(float t00, float t10, float t20, float t01, float t11, float t21, float t02, float t12, float t22)</argsstring>
+        <name>from_row_major</name>
+        <param>
+          <type>float</type>
+          <declname>t00</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>t10</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>t20</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>t01</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>t11</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>t21</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>t02</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>t12</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>t22</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/mat3.h" line="42" column="33" bodyfile="libs/base/src/base/mat3.h" bodystart="43" bodyend="55"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="structeu_1_1mat3f_1a77f4d9bdd8b3209334d3765be50264a5" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::mat3f::mat3f</definition>
+        <argsstring>()=default</argsstring>
+        <name>mat3f</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/mat3.h" line="79" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1mat3f_1a0846d2a4fb4d6dee59d0db878b5cbe1c" prot="private" static="no" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>constexpr</type>
+        <definition>constexpr eu::mat3f::mat3f</definition>
+        <argsstring>(float t00, float t01, float t02, float t10, float t11, float t12, float t20, float t21, float t22)</argsstring>
+        <name>mat3f</name>
+        <param>
+          <type>float</type>
+          <declname>t00</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>t01</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>t02</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>t10</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>t11</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>t12</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>t20</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>t21</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>t22</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/mat3.h" line="81" column="19" bodyfile="libs/base/src/base/mat3.h" bodystart="82" bodyend="94"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/base/src/base/mat3.h" line="11" column="5" bodyfile="libs/base/src/base/mat3.h" bodystart="12" bodyend="95"/>
+    <listofallmembers>
+      <member refid="structeu_1_1mat3f_1af678cfaa1f2f9804210097da49f97d15" prot="private" virt="non-virtual"><scope>eu::mat3f</scope><name>data</name></member>
+      <member refid="structeu_1_1mat3f_1a31eba31575b36536068e62ab83f0831b" prot="public" virt="non-virtual"><scope>eu::mat3f</scope><name>from_axis_angle</name></member>
+      <member refid="structeu_1_1mat3f_1a480e0ad99abc466818db6cd33fa05419" prot="public" virt="non-virtual"><scope>eu::mat3f</scope><name>from_col_major</name></member>
+      <member refid="structeu_1_1mat3f_1a8d5ee4aeb773f6624823d19374b3cfb9" prot="public" virt="non-virtual"><scope>eu::mat3f</scope><name>from_major</name></member>
+      <member refid="structeu_1_1mat3f_1a57ec3defb89219aef3fc99b3290aae58" prot="public" virt="non-virtual"><scope>eu::mat3f</scope><name>from_rot_x</name></member>
+      <member refid="structeu_1_1mat3f_1acc9340089ed63874f0cf9a2c0e31133a" prot="public" virt="non-virtual"><scope>eu::mat3f</scope><name>from_rot_y</name></member>
+      <member refid="structeu_1_1mat3f_1a0442edb1050bb3ff71ed75bd2542ad24" prot="public" virt="non-virtual"><scope>eu::mat3f</scope><name>from_rot_z</name></member>
+      <member refid="structeu_1_1mat3f_1a6d0756e49e02ce556cbabd8312b63d46" prot="public" virt="non-virtual"><scope>eu::mat3f</scope><name>from_row_major</name></member>
+      <member refid="structeu_1_1mat3f_1a82862debbef9b9a8173f698f9a65e1b0" prot="public" virt="non-virtual"><scope>eu::mat3f</scope><name>from_scalar</name></member>
+      <member refid="structeu_1_1mat3f_1a8eff69794145edce552545fa17fc2b2d" prot="public" virt="non-virtual"><scope>eu::mat3f</scope><name>from_scale</name></member>
+      <member refid="structeu_1_1mat3f_1a669d31e93c2dc94041a96266d63b0a48" prot="public" virt="non-virtual"><scope>eu::mat3f</scope><name>from_translation2d</name></member>
+      <member refid="structeu_1_1mat3f_1a2de0d368d842d0e08e6e753b5db287e4" prot="public" virt="non-virtual"><scope>eu::mat3f</scope><name>get</name></member>
+      <member refid="structeu_1_1mat3f_1a40df02f5b7bb47c78d72cbfea03766cf" prot="public" virt="non-virtual"><scope>eu::mat3f</scope><name>get_axis</name></member>
+      <member refid="structeu_1_1mat3f_1ab1d3ab035b7db93232ce0949dd20e7ea" prot="public" virt="non-virtual"><scope>eu::mat3f</scope><name>get_column</name></member>
+      <member refid="structeu_1_1mat3f_1acc256bfad0a3c9e2bf49afd9d6a39ac6" prot="public" virt="non-virtual"><scope>eu::mat3f</scope><name>get_data_ptr</name></member>
+      <member refid="structeu_1_1mat3f_1ae47b51e3363ff32f1bb1728431986272" prot="public" virt="non-virtual"><scope>eu::mat3f</scope><name>get_data_ptr</name></member>
+      <member refid="structeu_1_1mat3f_1a3768dd07dbeacbd2e825427c1acabbc8" prot="public" virt="non-virtual"><scope>eu::mat3f</scope><name>get_major</name></member>
+      <member refid="structeu_1_1mat3f_1a22f8ecfa11212597a2435837df818c59" prot="public" virt="non-virtual"><scope>eu::mat3f</scope><name>get_rotated</name></member>
+      <member refid="structeu_1_1mat3f_1a9c1e8795209dd96d5412fa25115efcb8" prot="public" virt="non-virtual"><scope>eu::mat3f</scope><name>get_row</name></member>
+      <member refid="structeu_1_1mat3f_1ae07ad1f25a6ff0c4f2bd3cde7d4ce635" prot="public" virt="non-virtual"><scope>eu::mat3f</scope><name>get_scaled</name></member>
+      <member refid="structeu_1_1mat3f_1ac27c4159ee05b46804e6470b8d8baf6e" prot="public" virt="non-virtual"><scope>eu::mat3f</scope><name>get_transposed</name></member>
+      <member refid="structeu_1_1mat3f_1afa0e9fb470182848c49c4ba9f5eea5aa" prot="public" virt="non-virtual"><scope>eu::mat3f</scope><name>get_x_axis</name></member>
+      <member refid="structeu_1_1mat3f_1a54f860a2e8bea92edfb89dc6de90698d" prot="public" virt="non-virtual"><scope>eu::mat3f</scope><name>get_y_axis</name></member>
+      <member refid="structeu_1_1mat3f_1ae92b64936b4256670611bd4137f402a7" prot="public" virt="non-virtual"><scope>eu::mat3f</scope><name>get_z_axis</name></member>
+      <member refid="structeu_1_1mat3f_1af07948efa4de2e7951d5a721d3155564" prot="public" virt="non-virtual"><scope>eu::mat3f</scope><name>mat3f</name></member>
+      <member refid="structeu_1_1mat3f_1a77f4d9bdd8b3209334d3765be50264a5" prot="private" virt="non-virtual"><scope>eu::mat3f</scope><name>mat3f</name></member>
+      <member refid="structeu_1_1mat3f_1a0846d2a4fb4d6dee59d0db878b5cbe1c" prot="private" virt="non-virtual"><scope>eu::mat3f</scope><name>mat3f</name></member>
+      <member refid="structeu_1_1mat3f_1ad3b5f4c86fb1e85cfd2f8137609c08e6" prot="public" virt="non-virtual"><scope>eu::mat3f</scope><name>operator+=</name></member>
+      <member refid="structeu_1_1mat3f_1a4316b6cdd0e87ca3d8c48b141544060f" prot="public" virt="non-virtual"><scope>eu::mat3f</scope><name>operator-=</name></member>
+      <member refid="structeu_1_1mat3f_1aed76c192af789a0b3b18d368ac494c7b" prot="public" virt="non-virtual"><scope>eu::mat3f</scope><name>operator==</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

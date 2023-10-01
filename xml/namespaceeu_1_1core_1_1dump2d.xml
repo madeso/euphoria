@@ -18,7 +18,7 @@
         <argsstring>(const std::optional&lt; Rgbi &gt; &amp;c)</argsstring>
         <name>to_html_or_none_string</name>
         <param>
-          <type>const std::optional&lt; <ref refid="structeu_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref> &gt; &amp;</type>
+          <type>const std::optional&lt; <ref refid="structeu_1_1Rgbi" kindref="compound">Rgbi</ref> &gt; &amp;</type>
           <declname>c</declname>
         </param>
         <briefdescription>

@@ -2,16 +2,16 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="vec_8base_8cc" kind="file" language="C++">
     <compoundname>vec.base.cc</compoundname>
-    <includes refid="vec_8base_8h" local="yes">core/vec.base.h</includes>
+    <includes refid="vec_8base_8h" local="yes">base/vec.base.h</includes>
     <incdepgraph>
       <node id="1">
-        <label>libs/core/src/core/vec.base.cc</label>
+        <label>libs/base/src/base/vec.base.cc</label>
         <link refid="vec_8base_8cc"/>
         <childnode refid="2" relation="include">
         </childnode>
       </node>
       <node id="2">
-        <label>core/vec.base.h</label>
+        <label>base/vec.base.h</label>
         <link refid="vec_8base_8h"/>
       </node>
     </incdepgraph>
@@ -19,6 +19,6 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/vec.base.cc"/>
+    <location file="libs/base/src/base/vec.base.cc"/>
   </compounddef>
 </doxygen>

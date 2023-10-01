@@ -3,7 +3,7 @@
   <compounddef id="palette__all_8h" kind="file" language="C++">
     <compoundname>palette_all.h</compoundname>
     <includes local="no">array</includes>
-    <includes refid="enumtostring_8h" local="yes">core/enumtostring.h</includes>
+    <includes refid="enumtostring_8h" local="yes">base/enumtostring.h</includes>
     <includes refid="compiler__warning_8h" local="yes">core/compiler_warning.h</includes>
     <includedby refid="palette__all_8cc" local="yes">libs/core/src/core/palette_all.cc</includedby>
     <incdepgraph>
@@ -53,18 +53,8 @@
         <label>core/compiler_warning.h</label>
         <link refid="compiler__warning_8h"/>
       </node>
-      <node id="1">
-        <label>libs/core/src/core/palette_all.h</label>
-        <link refid="palette__all_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="15" relation="include">
-        </childnode>
-      </node>
       <node id="3">
-        <label>core/enumtostring.h</label>
+        <label>base/enumtostring.h</label>
         <link refid="enumtostring_8h"/>
         <childnode refid="4" relation="include">
         </childnode>
@@ -77,6 +67,16 @@
         <childnode refid="10" relation="include">
         </childnode>
         <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>libs/core/src/core/palette_all.h</label>
+        <link refid="palette__all_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
         </childnode>
       </node>
       <node id="13">

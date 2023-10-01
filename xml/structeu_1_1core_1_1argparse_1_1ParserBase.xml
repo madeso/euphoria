@@ -59,7 +59,7 @@
         <location file="libs/core/src/core/argparse.h" line="416" column="21" bodyfile="libs/core/src/core/argparse.h" bodystart="416" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1argparse_1_1ParserBase_1affb7df6c679e76cb4bbe5181d6291272" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1core_1_1EnumToStringImplementation" kindref="compound">EnumToStringImplementation</ref>&lt; std::shared_ptr&lt; <ref refid="structeu_1_1core_1_1argparse_1_1SubParserContainer" kindref="compound">SubParserContainer</ref> &gt; &gt;</type>
+        <type><ref refid="structeu_1_1EnumToStringImplementation" kindref="compound">EnumToStringImplementation</ref>&lt; std::shared_ptr&lt; <ref refid="structeu_1_1core_1_1argparse_1_1SubParserContainer" kindref="compound">SubParserContainer</ref> &gt; &gt;</type>
         <definition>EnumToStringImplementation&lt;std::shared_ptr&lt;SubParserContainer&gt; &gt; eu::core::argparse::ParserBase::subparsers</definition>
         <argsstring></argsstring>
         <name>subparsers</name>
@@ -446,7 +446,7 @@
         <param>
           <type><ref refid="namespaceeu_1_1core_1_1argparse_1a96e0cef7cdd04c4ea96db0dda0adba30" kindref="member">ParseFunction</ref>&lt; T &gt;</type>
           <declname>parse_function</declname>
-          <defval><ref refid="namespaceeu_1_1core_1_1argparse_1ac1384467d92e234b3184b8fc48f91baa" kindref="member">default_parse_function</ref>&lt; T &gt;</defval>
+          <defval><ref refid="namespaceeu_1a7f62f918a255d51da88a2a3605fda424" kindref="member">default_parse_function</ref>&lt; T &gt;</defval>
         </param>
         <briefdescription>
         </briefdescription>
@@ -477,7 +477,7 @@
         <param>
           <type><ref refid="namespaceeu_1_1core_1_1argparse_1a96e0cef7cdd04c4ea96db0dda0adba30" kindref="member">ParseFunction</ref>&lt; T &gt;</type>
           <declname>parse_function</declname>
-          <defval><ref refid="namespaceeu_1_1core_1_1argparse_1ac1384467d92e234b3184b8fc48f91baa" kindref="member">default_parse_function</ref>&lt; T &gt;</defval>
+          <defval><ref refid="namespaceeu_1a7f62f918a255d51da88a2a3605fda424" kindref="member">default_parse_function</ref>&lt; T &gt;</defval>
         </param>
         <briefdescription>
 <para>add greedy argument, currently also accepts zero </para>
@@ -572,8 +572,8 @@
         </childnode>
       </node>
       <node id="2">
-        <label>eu::core::EnumToStringImplementation&lt; std::shared_ptr&lt; eu::core::argparse::SubParserContainer &gt; &gt;</label>
-        <link refid="structeu_1_1core_1_1EnumToStringImplementation"/>
+        <label>eu::EnumToStringImplementation&lt; std::shared_ptr&lt; eu::core::argparse::SubParserContainer &gt; &gt;</label>
+        <link refid="structeu_1_1EnumToStringImplementation"/>
       </node>
     </collaborationgraph>
     <location file="libs/core/src/core/argparse.h" line="411" column="5" bodyfile="libs/core/src/core/argparse.h" bodystart="412" bodyend="549"/>

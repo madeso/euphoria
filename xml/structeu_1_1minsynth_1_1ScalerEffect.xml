@@ -38,7 +38,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="341" column="15" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="813" bodyend="822"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="341" column="15" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="809" bodyend="818"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

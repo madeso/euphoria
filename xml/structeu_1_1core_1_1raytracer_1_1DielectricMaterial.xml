@@ -5,7 +5,7 @@
     <basecompoundref refid="structeu_1_1core_1_1raytracer_1_1Material" prot="public" virt="non-virtual">eu::core::raytracer::Material</basecompoundref>
       <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structeu_1_1core_1_1raytracer_1_1DielectricMaterial_1a8aacd76d6bfe6c9fcab556a468c2fe18" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1core_1_1Rgb" kindref="compound">Rgb</ref></type>
+        <type><ref refid="structeu_1_1Rgb" kindref="compound">Rgb</ref></type>
         <definition>Rgb eu::core::raytracer::DielectricMaterial::albedo</definition>
         <argsstring></argsstring>
         <name>albedo</name>
@@ -38,7 +38,7 @@
         <argsstring>(const Rgb &amp;aalbedo, float arefractive_index)</argsstring>
         <name>DielectricMaterial</name>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1Rgb" kindref="compound">Rgb</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1Rgb" kindref="compound">Rgb</ref> &amp;</type>
           <declname>aalbedo</declname>
         </param>
         <param>
@@ -60,7 +60,7 @@
         <name>get_scattered</name>
         <reimplements refid="structeu_1_1core_1_1raytracer_1_1Material_1a014206af0bc86f6e30bd5fa58272cd43">get_scattered</reimplements>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1UnitRay3f" kindref="compound">UnitRay3f</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1UnitRay3f" kindref="compound">UnitRay3f</ref> &amp;</type>
           <declname>ray</declname>
         </param>
         <param>
@@ -68,7 +68,7 @@
           <declname>hit</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1core_1_1Random" kindref="compound">Random</ref> *</type>
+          <type><ref refid="structeu_1_1Random" kindref="compound">Random</ref> *</type>
           <declname>random</declname>
         </param>
         <briefdescription>
@@ -97,6 +97,10 @@
       </node>
     </inheritancegraph>
     <collaborationgraph>
+      <node id="3">
+        <label>eu::Rgb</label>
+        <link refid="structeu_1_1Rgb"/>
+      </node>
       <node id="1">
         <label>eu::core::raytracer::DielectricMaterial</label>
         <link refid="structeu_1_1core_1_1raytracer_1_1DielectricMaterial"/>
@@ -109,10 +113,6 @@
       <node id="2">
         <label>eu::core::raytracer::Material</label>
         <link refid="structeu_1_1core_1_1raytracer_1_1Material"/>
-      </node>
-      <node id="3">
-        <label>eu::core::Rgb</label>
-        <link refid="structeu_1_1core_1_1Rgb"/>
       </node>
     </collaborationgraph>
     <location file="libs/core/src/core/raytracer.cc" line="258" column="5" bodyfile="libs/core/src/core/raytracer.cc" bodystart="259" bodyend="324"/>

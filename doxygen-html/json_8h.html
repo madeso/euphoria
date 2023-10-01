@@ -178,14 +178,13 @@ Functions</h2></td></tr>
 <div class="line">        for (<span class="keyword">const</span> <span class="keyword">auto</span> dnu_json : dnu_array-&gt;array)\</div>
 <div class="line">        {\</div>
 <div class="line">            TYPE dnu_prop;\</div>
-<div class="line">            if (<span class="keyword">false</span> == parse(<a class="code" href="namespaceeu_1_1core.html#ad13a163ac84875e28c80aa2916ac382a">log</a>, &amp;dnu_prop, dnu_json, doc))\</div>
+<div class="line">            if (<span class="keyword">false</span> == parse(log, &amp;dnu_prop, dnu_json, doc))\</div>
 <div class="line">            {\</div>
 <div class="line">                return <span class="keyword">false</span>;\</div>
 <div class="line">            }\</div>
 <div class="line">            owner-&gt;PROP.emplace_back(std::move(dnu_prop));\</div>
 <div class="line">        }\</div>
 <div class="line">    } <span class="keywordflow">while</span>(<span class="keyword">false</span>)</div>
-<div class="ttc" id="anamespaceeu_1_1core_html_ad13a163ac84875e28c80aa2916ac382a"><div class="ttname"><a href="namespaceeu_1_1core.html#ad13a163ac84875e28c80aa2916ac382a">eu::core::log</a></div><div class="ttdeci">float log(float r)</div><div class="ttdef"><b>Definition:</b> <a href="numeric_8cc_source.html#l00109">numeric.cc:109</a></div></div>
 </div><!-- fragment -->
 <p class="definition">Definition at line <a class="el" href="json_8h_source.html#l00132">132</a> of file <a class="el" href="json_8h_source.html">json.h</a>.</p>
 
@@ -331,7 +330,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">    <a class="code" href="namespaceeu_1_1core.html#ad13a163ac84875e28c80aa2916ac382a">log</a>-&gt;error(fmt::format(<span class="stringliteral">&quot;{} was invalid for {}, could be {}&quot;</span>,\</div>
+<b>Value:</b><div class="fragment"><div class="line">    log-&gt;error(fmt::format(<span class="stringliteral">&quot;{} was invalid for {}, could be {}&quot;</span>,\</div>
 <div class="line">        dnu_val-&gt;value, dnu_enum_name,\</div>
 <div class="line">        <a class="code" href="namespaceeu_1_1io.html#a3e3f0d49ed392f6041e6f7016ee29665">eu::io::could_be</a>(dnu_val-&gt;value, dnu_values)));\</div>
 <div class="line">    return <span class="keyword">false</span></div>
@@ -583,7 +582,7 @@ Functions</h2></td></tr>
 <div class="line">        if (dnu_json)\</div>
 <div class="line">        {\</div>
 <div class="line">            TYPE dnu_prop;\</div>
-<div class="line">            if (<span class="keyword">false</span> == parse(<a class="code" href="namespaceeu_1_1core.html#ad13a163ac84875e28c80aa2916ac382a">log</a>, &amp;dnu_prop, *dnu_json, doc))\</div>
+<div class="line">            if (<span class="keyword">false</span> == parse(log, &amp;dnu_prop, *dnu_json, doc))\</div>
 <div class="line">            {\</div>
 <div class="line">                return <span class="keyword">false</span>;\</div>
 <div class="line">            }\</div>

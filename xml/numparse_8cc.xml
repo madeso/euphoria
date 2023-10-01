@@ -2,15 +2,21 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="numparse_8cc" kind="file" language="C++">
     <compoundname>numparse.cc</compoundname>
-    <includes refid="numparse_8h" local="yes">core/numparse.h</includes>
+    <includes refid="numparse_8h" local="yes">base/numparse.h</includes>
     <includes local="no">cstdlib</includes>
     <includes local="no">limits</includes>
     <incdepgraph>
       <node id="5">
         <label>limits</label>
       </node>
+      <node id="3">
+        <label>optional</label>
+      </node>
+      <node id="4">
+        <label>cstdlib</label>
+      </node>
       <node id="1">
-        <label>libs/core/src/core/numparse.cc</label>
+        <label>libs/base/src/base/numparse.cc</label>
         <link refid="numparse_8cc"/>
         <childnode refid="2" relation="include">
         </childnode>
@@ -20,20 +26,13 @@
         </childnode>
       </node>
       <node id="2">
-        <label>core/numparse.h</label>
+        <label>base/numparse.h</label>
         <link refid="numparse_8h"/>
         <childnode refid="3" relation="include">
         </childnode>
       </node>
-      <node id="3">
-        <label>optional</label>
-      </node>
-      <node id="4">
-        <label>cstdlib</label>
-      </node>
     </incdepgraph>
     <innernamespace refid="namespaceeu">eu</innernamespace>
-    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
       <sectiondef kind="define">
       <memberdef kind="define" id="numparse_8cc_1a07254478368edb4c4074b5d3b0a512d5" prot="public" static="no">
         <name>SPECIALIZE</name>
@@ -47,13 +46,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/numparse.cc" line="47" column="9" bodyfile="libs/core/src/core/numparse.cc" bodystart="47" bodyend="-1"/>
+        <location file="libs/base/src/base/numparse.cc" line="47" column="9" bodyfile="libs/base/src/base/numparse.cc" bodystart="47" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/numparse.cc"/>
+    <location file="libs/base/src/base/numparse.cc"/>
   </compounddef>
 </doxygen>

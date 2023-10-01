@@ -5,7 +5,7 @@
     <includes refid="viewportdef_8h" local="no">viewportdef.h</includes>
       <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structeu_1_1core_1_1ViewportDefinition_1aeb78071bd39543333497a30d09ea6249" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1core_1_1Recti" kindref="compound">Recti</ref></type>
+        <type><ref refid="structeu_1_1Recti" kindref="compound">Recti</ref></type>
         <definition>Recti eu::core::ViewportDefinition::screen_rect</definition>
         <argsstring></argsstring>
         <name>screen_rect</name>
@@ -137,7 +137,7 @@
         <argsstring>(const Recti &amp;screen, float w, float h)</argsstring>
         <name>ViewportDefinition</name>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1Recti" kindref="compound">Recti</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1Recti" kindref="compound">Recti</ref> &amp;</type>
           <declname>screen</declname>
         </param>
         <param>
@@ -163,8 +163,8 @@
     </detaileddescription>
     <collaborationgraph>
       <node id="2">
-        <label>eu::core::Recti</label>
-        <link refid="structeu_1_1core_1_1Recti"/>
+        <label>eu::Recti</label>
+        <link refid="structeu_1_1Recti"/>
       </node>
       <node id="1">
         <label>eu::core::ViewportDefinition</label>

@@ -18,7 +18,7 @@
         <location file="libs/core/src/core/image_to_text.h" line="19" column="14" bodyfile="libs/core/src/core/image_to_text.h" bodystart="19" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1ImageMapAction_1aa3ad64a7372797b33f1c9dc3143b7029" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref></type>
+        <type><ref refid="structeu_1_1Rgbi" kindref="compound">Rgbi</ref></type>
         <definition>Rgbi eu::core::ImageMapAction::from_color</definition>
         <argsstring></argsstring>
         <name>from_color</name>
@@ -36,16 +36,16 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
+      <node id="2">
+        <label>eu::Rgbi</label>
+        <link refid="structeu_1_1Rgbi"/>
+      </node>
       <node id="1">
         <label>eu::core::ImageMapAction</label>
         <link refid="structeu_1_1core_1_1ImageMapAction"/>
         <childnode refid="2" relation="usage">
           <edgelabel>from_color</edgelabel>
         </childnode>
-      </node>
-      <node id="2">
-        <label>eu::core::Rgbi</label>
-        <link refid="structeu_1_1core_1_1Rgbi"/>
       </node>
     </collaborationgraph>
     <location file="libs/core/src/core/image_to_text.h" line="17" column="5" bodyfile="libs/core/src/core/image_to_text.h" bodystart="18" bodyend="21"/>

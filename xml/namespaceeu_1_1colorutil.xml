@@ -1,0 +1,195 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="namespaceeu_1_1colorutil" kind="namespace" language="C++">
+    <compoundname>eu::colorutil</compoundname>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespaceeu_1_1colorutil_1a395fa5f8a2e0f19aba5718630e8f5e3c" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>constexpr <ref refid="namespaceeu_1a7bb0af5256676c7db8a48a8ec6da2622" kindref="member">U8</ref></type>
+        <definition>constexpr U8 eu::colorutil::get_component</definition>
+        <argsstring>(unsigned int i, unsigned int steps)</argsstring>
+        <name>get_component</name>
+        <param>
+          <type>unsigned int</type>
+          <declname>i</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>steps</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rgb.h" line="218" column="22" bodyfile="libs/base/src/base/rgb.h" bodystart="218" bodyend="223"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1colorutil_1a6f1e7cad53ef600a03d62e47ec41c724" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>constexpr <ref refid="namespaceeu_1a7bb0af5256676c7db8a48a8ec6da2622" kindref="member">U8</ref></type>
+        <definition>constexpr U8 eu::colorutil::get_red</definition>
+        <argsstring>(unsigned int c)</argsstring>
+        <name>get_red</name>
+        <param>
+          <type>unsigned int</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rgb.h" line="225" column="22" bodyfile="libs/base/src/base/rgb.h" bodystart="225" bodyend="228"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1colorutil_1a1434270cfc2c1d819d49ce5ef4e95f45" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>constexpr <ref refid="namespaceeu_1a7bb0af5256676c7db8a48a8ec6da2622" kindref="member">U8</ref></type>
+        <definition>constexpr U8 eu::colorutil::get_green</definition>
+        <argsstring>(unsigned int c)</argsstring>
+        <name>get_green</name>
+        <param>
+          <type>unsigned int</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rgb.h" line="230" column="22" bodyfile="libs/base/src/base/rgb.h" bodystart="230" bodyend="233"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1colorutil_1acc97575edf40a09684ca6df88461e1ee" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>constexpr <ref refid="namespaceeu_1a7bb0af5256676c7db8a48a8ec6da2622" kindref="member">U8</ref></type>
+        <definition>constexpr U8 eu::colorutil::get_blue</definition>
+        <argsstring>(unsigned int c)</argsstring>
+        <name>get_blue</name>
+        <param>
+          <type>unsigned int</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rgb.h" line="235" column="22" bodyfile="libs/base/src/base/rgb.h" bodystart="235" bodyend="238"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1colorutil_1a3c942d04d0e81910e093c389a49acb13" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>constexpr float</type>
+        <definition>constexpr float eu::colorutil::to_float</definition>
+        <argsstring>(U8 c)</argsstring>
+        <name>to_float</name>
+        <param>
+          <type><ref refid="namespaceeu_1a7bb0af5256676c7db8a48a8ec6da2622" kindref="member">U8</ref></type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rgb.h" line="240" column="25" bodyfile="libs/base/src/base/rgb.h" bodystart="240" bodyend="243"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1colorutil_1a6e329743393a1fd9acfbd0d9b4972672" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>constexpr <ref refid="namespaceeu_1a7bb0af5256676c7db8a48a8ec6da2622" kindref="member">U8</ref></type>
+        <definition>constexpr U8 eu::colorutil::to_unsigned_char</definition>
+        <argsstring>(float f)</argsstring>
+        <name>to_unsigned_char</name>
+        <param>
+          <type>float</type>
+          <declname>f</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rgb.h" line="245" column="22" bodyfile="libs/base/src/base/rgb.h" bodystart="245" bodyend="248"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1colorutil_1a0e81842048e15f3b26af01c8c97b6ac5" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>constexpr unsigned int</type>
+        <definition>constexpr unsigned int eu::colorutil::to_color_hex</definition>
+        <argsstring>(unsigned int r, unsigned int g, unsigned int b)</argsstring>
+        <name>to_color_hex</name>
+        <param>
+          <type>unsigned int</type>
+          <declname>r</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>g</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rgb.h" line="250" column="32" bodyfile="libs/base/src/base/rgb.h" bodystart="251" bodyend="254"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1colorutil_1a68e7e30cef1ff6560089d5dc0ed4c186" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>constexpr unsigned int</type>
+        <definition>constexpr unsigned int eu::colorutil::to_color_hex</definition>
+        <argsstring>(NamedColor color)</argsstring>
+        <name>to_color_hex</name>
+        <param>
+          <type><ref refid="namespaceeu_1a63a55e8bfd2f95d74e0007d5200f7e58" kindref="member">NamedColor</ref></type>
+          <declname>color</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rgb.h" line="258" column="9" bodyfile="libs/base/src/base/rgb.h" bodystart="258" bodyend="295"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1colorutil_1a19b2d0edc2a6e5eca558d6f3924d2516" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>constexpr unsigned int</type>
+        <definition>constexpr unsigned int eu::colorutil::to_color_hex</definition>
+        <argsstring>(BangWongPalette color)</argsstring>
+        <name>to_color_hex</name>
+        <param>
+          <type><ref refid="namespaceeu_1a26400b8eec39edffdab76655a42e1dd0" kindref="member">BangWongPalette</ref></type>
+          <declname>color</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rgb.h" line="300" column="9" bodyfile="libs/base/src/base/rgb.h" bodystart="300" bodyend="314"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1colorutil_1af5392f58aba62d2126af00a775de4758" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>unsigned int</type>
+        <definition>unsigned int eu::colorutil::from_string_to_hex</definition>
+        <argsstring>(const std::string &amp;str)</argsstring>
+        <name>from_string_to_hex</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rgb.h" line="317" column="9" declfile="libs/base/src/base/rgb.h" declline="317" declcolumn="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/base/src/base/rgb.h" line="215" column="5"/>
+  </compounddef>
+</doxygen>

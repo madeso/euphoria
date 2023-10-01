@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Euphoria: libs/core/src/core/quat.cc File Reference</title>
+<title>Euphoria: libs/base/src/base/quat.cc File Reference</title>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <link href="style.css" rel="stylesheet" type="text/css" />
@@ -46,7 +46,7 @@
   </div>
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="dir_6f77a39b07c019ccd7492ea87272f732.html">core</a></li><li class="navelem"><a class="el" href="dir_232ab8dc75117fda122ab855789b1b2c.html">src</a></li><li class="navelem"><a class="el" href="dir_415d9b35eca6c445d7f5977763a796bd.html">core</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="dir_06498c378442102d76a793fbea770c00.html">base</a></li><li class="navelem"><a class="el" href="dir_1434489f875b8806781a8ab0a150cad2.html">src</a></li><li class="navelem"><a class="el" href="dir_9335635e0e9dc5833ab0cd315fbf7edd.html">base</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -58,15 +58,13 @@
 <div class="title">quat.cc File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="quat_8h_source.html">core/quat.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="quat_8h_source.html">base/quat.h</a>&quot;</code><br />
 </div>
 <p><a href="quat_8cc_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:namespaceeu"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html">eu</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:namespaceeu_1_1core"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html">eu::core</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
@@ -76,26 +74,26 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a08bcecd525a986ac301bd98312b7cf43"><td class="memItemLeft" align="right" valign="top">quatf&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#a08bcecd525a986ac301bd98312b7cf43">eu::core::lerp_quatf</a> (const quatf &amp;f, const float scale, const quatf &amp;t)</td></tr>
-<tr class="separator:a08bcecd525a986ac301bd98312b7cf43"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a437ed4697a3eb2c1b209b339a8674758"><td class="memItemLeft" align="right" valign="top">quatf&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#a437ed4697a3eb2c1b209b339a8674758">eu::core::slerp_fast</a> (const quatf &amp;qa, const float t, const quatf &amp;qb)</td></tr>
-<tr class="separator:a437ed4697a3eb2c1b209b339a8674758"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afbfd76b316ac988ff106ad01057829b5"><td class="memItemLeft" align="right" valign="top">quatf&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#afbfd76b316ac988ff106ad01057829b5">eu::core::slerp_shortway</a> (const quatf &amp;from, const float scale, const quatf &amp;to)</td></tr>
-<tr class="separator:afbfd76b316ac988ff106ad01057829b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2e277fa2b5b203f3da190e9d8300562e"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#a2e277fa2b5b203f3da190e9d8300562e">eu::core::to_string</a> (const quatf &amp;v)</td></tr>
-<tr class="separator:a2e277fa2b5b203f3da190e9d8300562e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afe9762c26bbbb047a9a95a6113633eac"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#afe9762c26bbbb047a9a95a6113633eac">eu::core::dot</a> (const quatf &amp;lhs, const quatf &amp;rhs)</td></tr>
-<tr class="separator:afe9762c26bbbb047a9a95a6113633eac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0f473f5216aeec3918e99e648d9ba96e"><td class="memItemLeft" align="right" valign="top">quatf&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#a0f473f5216aeec3918e99e648d9ba96e">eu::core::operator*</a> (const quatf &amp;lhs, const quatf &amp;rhs)</td></tr>
-<tr class="separator:a0f473f5216aeec3918e99e648d9ba96e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a332a36c5a0fab440b47dc55997b0466d"><td class="memItemLeft" align="right" valign="top">quatf&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#a332a36c5a0fab440b47dc55997b0466d">eu::core::operator*</a> (float scale, const quatf &amp;q)</td></tr>
-<tr class="separator:a332a36c5a0fab440b47dc55997b0466d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0476321830936400befebe54b81e7c33"><td class="memItemLeft" align="right" valign="top">quatf&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#a0476321830936400befebe54b81e7c33">eu::core::operator*</a> (const quatf &amp;q, float scale)</td></tr>
-<tr class="separator:a0476321830936400befebe54b81e7c33"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0b86745f51fef41a17c0e1c688c364a5"><td class="memItemLeft" align="right" valign="top">quatf&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#a0b86745f51fef41a17c0e1c688c364a5">eu::core::operator+</a> (const quatf &amp;lhs, const quatf &amp;rhs)</td></tr>
-<tr class="separator:a0b86745f51fef41a17c0e1c688c364a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aca33a9db80400efaf6899d5a356b5ae9"><td class="memItemLeft" align="right" valign="top">quatf&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#aca33a9db80400efaf6899d5a356b5ae9">eu::core::operator-</a> (const quatf &amp;lhs, const quatf &amp;rhs)</td></tr>
-<tr class="separator:aca33a9db80400efaf6899d5a356b5ae9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66eb0c3eaa651f8be9b3403b3522af1b"><td class="memItemLeft" align="right" valign="top">quatf&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html#a66eb0c3eaa651f8be9b3403b3522af1b">eu::lerp_quatf</a> (const quatf &amp;f, const float scale, const quatf &amp;t)</td></tr>
+<tr class="separator:a66eb0c3eaa651f8be9b3403b3522af1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38937a718ee289d51ad5972e883d4f7a"><td class="memItemLeft" align="right" valign="top">quatf&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html#a38937a718ee289d51ad5972e883d4f7a">eu::slerp_fast</a> (const quatf &amp;qa, const float t, const quatf &amp;qb)</td></tr>
+<tr class="separator:a38937a718ee289d51ad5972e883d4f7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaca0d00791a888537fd17406e6c7ae88"><td class="memItemLeft" align="right" valign="top">quatf&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html#aaca0d00791a888537fd17406e6c7ae88">eu::slerp_shortway</a> (const quatf &amp;from, const float scale, const quatf &amp;to)</td></tr>
+<tr class="separator:aaca0d00791a888537fd17406e6c7ae88"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d52baa17f1e27e830d1facb23c27d2b"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html#a7d52baa17f1e27e830d1facb23c27d2b">eu::to_string</a> (const quatf &amp;v)</td></tr>
+<tr class="separator:a7d52baa17f1e27e830d1facb23c27d2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc7077ea64fcc6ba21fa0cf7fee70d43"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html#adc7077ea64fcc6ba21fa0cf7fee70d43">eu::dot</a> (const quatf &amp;lhs, const quatf &amp;rhs)</td></tr>
+<tr class="separator:adc7077ea64fcc6ba21fa0cf7fee70d43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29457947467faa1477cee1829fc89846"><td class="memItemLeft" align="right" valign="top">quatf&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html#a29457947467faa1477cee1829fc89846">eu::operator*</a> (const quatf &amp;lhs, const quatf &amp;rhs)</td></tr>
+<tr class="separator:a29457947467faa1477cee1829fc89846"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c89a91c7d3c6b5848365f3c1a364ca0"><td class="memItemLeft" align="right" valign="top">quatf&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html#a7c89a91c7d3c6b5848365f3c1a364ca0">eu::operator*</a> (float scale, const quatf &amp;q)</td></tr>
+<tr class="separator:a7c89a91c7d3c6b5848365f3c1a364ca0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c83902bcc56340a823090158fa69133"><td class="memItemLeft" align="right" valign="top">quatf&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html#a1c83902bcc56340a823090158fa69133">eu::operator*</a> (const quatf &amp;q, float scale)</td></tr>
+<tr class="separator:a1c83902bcc56340a823090158fa69133"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc680621d9b15ffd418f75f85d47551b"><td class="memItemLeft" align="right" valign="top">quatf&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html#abc680621d9b15ffd418f75f85d47551b">eu::operator+</a> (const quatf &amp;lhs, const quatf &amp;rhs)</td></tr>
+<tr class="separator:abc680621d9b15ffd418f75f85d47551b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a699ab486c5e231d4f19f3bdde7ed8ec3"><td class="memItemLeft" align="right" valign="top">quatf&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html#a699ab486c5e231d4f19f3bdde7ed8ec3">eu::operator-</a> (const quatf &amp;lhs, const quatf &amp;rhs)</td></tr>
+<tr class="separator:a699ab486c5e231d4f19f3bdde7ed8ec3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="a8d0db73225fbc80f01b8366f19dbb884"></a>

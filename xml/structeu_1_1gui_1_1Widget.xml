@@ -19,9 +19,9 @@
         </inbodydescription>
         <location file="libs/gui/src/gui/widget.h" line="25" column="21" bodyfile="libs/gui/src/gui/widget.h" bodystart="25" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeu_1_1gui_1_1Widget_1a0a6df16e9fde456098ec1b2fc9ba54b6" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1core_1_1Lrud" kindref="compound">core::Lrud</ref>&lt; float &gt;</type>
-        <definition>core::Lrud&lt;float&gt; eu::gui::Widget::margin</definition>
+      <memberdef kind="variable" id="structeu_1_1gui_1_1Widget_1a5e691dbcb6efc73cb6c538608275508b" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1Lrud" kindref="compound">Lrud</ref>&lt; float &gt;</type>
+        <definition>Lrud&lt;float&gt; eu::gui::Widget::margin</definition>
         <argsstring></argsstring>
         <name>margin</name>
         <briefdescription>
@@ -30,11 +30,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/gui/src/gui/widget.h" line="26" column="20" bodyfile="libs/gui/src/gui/widget.h" bodystart="26" bodyend="-1"/>
+        <location file="libs/gui/src/gui/widget.h" line="26" column="14" bodyfile="libs/gui/src/gui/widget.h" bodystart="26" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeu_1_1gui_1_1Widget_1a003d621488b80afaf7175a6893304ddb" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1core_1_1Lrud" kindref="compound">core::Lrud</ref>&lt; float &gt;</type>
-        <definition>core::Lrud&lt;float&gt; eu::gui::Widget::padding</definition>
+      <memberdef kind="variable" id="structeu_1_1gui_1_1Widget_1a3dea516ff64897f4ab0fa09d1e95a9e3" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1Lrud" kindref="compound">Lrud</ref>&lt; float &gt;</type>
+        <definition>Lrud&lt;float&gt; eu::gui::Widget::padding</definition>
         <argsstring></argsstring>
         <name>padding</name>
         <briefdescription>
@@ -43,7 +43,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/gui/src/gui/widget.h" line="27" column="20" bodyfile="libs/gui/src/gui/widget.h" bodystart="27" bodyend="-1"/>
+        <location file="libs/gui/src/gui/widget.h" line="27" column="14" bodyfile="libs/gui/src/gui/widget.h" bodystart="27" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1gui_1_1Widget_1ac87b45827270598e7af4798b9f9112c7" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1gui_1_1State" kindref="compound">gui::State</ref> *</type>
@@ -71,9 +71,9 @@
         </inbodydescription>
         <location file="libs/gui/src/gui/widget.h" line="86" column="20" bodyfile="libs/gui/src/gui/widget.h" bodystart="86" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeu_1_1gui_1_1Widget_1afae177ba97123035fa398d845a9a5a44" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1core_1_1Rectf" kindref="compound">core::Rectf</ref></type>
-        <definition>core::Rectf eu::gui::Widget::rect</definition>
+      <memberdef kind="variable" id="structeu_1_1gui_1_1Widget_1a342366c3a421c5f7b07316176da201c6" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1Rectf" kindref="compound">Rectf</ref></type>
+        <definition>Rectf eu::gui::Widget::rect</definition>
         <argsstring></argsstring>
         <name>rect</name>
         <briefdescription>
@@ -82,7 +82,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/gui/src/gui/widget.h" line="87" column="21" bodyfile="libs/gui/src/gui/widget.h" bodystart="87" bodyend="-1"/>
+        <location file="libs/gui/src/gui/widget.h" line="87" column="15" bodyfile="libs/gui/src/gui/widget.h" bodystart="87" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -242,9 +242,9 @@
         </inbodydescription>
         <location file="libs/gui/src/gui/widget.h" line="52" column="9" bodyfile="libs/gui/src/gui/widget.cc" bodystart="36" bodyend="38"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1gui_1_1Widget_1ae56a00329498c528f30d05d656dd03bc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1core_1_1Rectf" kindref="compound">core::Rectf</ref></type>
-        <definition>core::Rectf eu::gui::Widget::get_client_rect</definition>
+      <memberdef kind="function" id="structeu_1_1gui_1_1Widget_1a52fedb88ff5aa8132516b1488bd27758" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1Rectf" kindref="compound">Rectf</ref></type>
+        <definition>Rectf eu::gui::Widget::get_client_rect</definition>
         <argsstring>() const</argsstring>
         <name>get_client_rect</name>
         <briefdescription>
@@ -255,9 +255,9 @@
         </inbodydescription>
         <location file="libs/gui/src/gui/widget.h" line="55" column="9" bodyfile="libs/gui/src/gui/widget.cc" bodystart="42" bodyend="45"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1gui_1_1Widget_1ace63dd0d2edff1ab3b37eac212045469" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1core_1_1Rectf" kindref="compound">core::Rectf</ref></type>
-        <definition>core::Rectf eu::gui::Widget::get_background_rect</definition>
+      <memberdef kind="function" id="structeu_1_1gui_1_1Widget_1acf608a323121e428590bc6de7e54dd99" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1Rectf" kindref="compound">Rectf</ref></type>
+        <definition>Rectf eu::gui::Widget::get_background_rect</definition>
         <argsstring>() const</argsstring>
         <name>get_background_rect</name>
         <briefdescription>
@@ -268,13 +268,13 @@
         </inbodydescription>
         <location file="libs/gui/src/gui/widget.h" line="58" column="9" bodyfile="libs/gui/src/gui/widget.cc" bodystart="49" bodyend="52"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1gui_1_1Widget_1a2b0adbde0b17b6cef0ba96d2461b684e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1gui_1_1Widget_1a9d175871f3bc5ea38d2464eea1fbe3cf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void eu::gui::Widget::set_rect</definition>
-        <argsstring>(const core::Rectf &amp;r)</argsstring>
+        <argsstring>(const Rectf &amp;r)</argsstring>
         <name>set_rect</name>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1Rectf" kindref="compound">core::Rectf</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1Rectf" kindref="compound">Rectf</ref> &amp;</type>
           <declname>r</declname>
         </param>
         <briefdescription>
@@ -285,9 +285,9 @@
         </inbodydescription>
         <location file="libs/gui/src/gui/widget.h" line="61" column="9" bodyfile="libs/gui/src/gui/widget.cc" bodystart="56" bodyend="66"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1gui_1_1Widget_1ac7dfea87136042e49a1d17c1e53bad32" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1core_1_1size2f" kindref="compound">core::size2f</ref></type>
-        <definition>core::size2f eu::gui::Widget::get_preferred_size</definition>
+      <memberdef kind="function" id="structeu_1_1gui_1_1Widget_1acee00616d902bf026b793bcf7d017f41" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1size2f" kindref="compound">size2f</ref></type>
+        <definition>size2f eu::gui::Widget::get_preferred_size</definition>
         <argsstring>() const</argsstring>
         <name>get_preferred_size</name>
         <briefdescription>
@@ -298,13 +298,13 @@
         </inbodydescription>
         <location file="libs/gui/src/gui/widget.h" line="64" column="9" bodyfile="libs/gui/src/gui/widget.cc" bodystart="70" bodyend="91"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1gui_1_1Widget_1af683e21b07b077a50e3f1f697f398155" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
-        <type><ref refid="structeu_1_1core_1_1size2f" kindref="compound">core::size2f</ref></type>
-        <definition>virtual core::size2f eu::gui::Widget::calc_minimum_size</definition>
+      <memberdef kind="function" id="structeu_1_1gui_1_1Widget_1ab77f29f1c6db5a7ce9bcafafc32488a1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="structeu_1_1size2f" kindref="compound">size2f</ref></type>
+        <definition>virtual size2f eu::gui::Widget::calc_minimum_size</definition>
         <argsstring>() const =0</argsstring>
         <name>calc_minimum_size</name>
-        <reimplementedby refid="structeu_1_1gui_1_1Button_1a00a9b34c1c48c68c4a80aa8d944695e4">calc_minimum_size</reimplementedby>
-        <reimplementedby refid="structeu_1_1gui_1_1PanelWidget_1a4019ea197013fea41e967e2676012de0">calc_minimum_size</reimplementedby>
+        <reimplementedby refid="structeu_1_1gui_1_1Button_1a6af87091e9f5f0eefd364cab93c5068d">calc_minimum_size</reimplementedby>
+        <reimplementedby refid="structeu_1_1gui_1_1PanelWidget_1a984d612df5417e23e557298859622819">calc_minimum_size</reimplementedby>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -407,7 +407,7 @@
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="3">
+      <node id="4">
         <label>eu::gui::LayoutData</label>
         <link refid="structeu_1_1gui_1_1LayoutData"/>
       </node>
@@ -430,48 +430,48 @@
           <edgelabel>padding</edgelabel>
         </childnode>
         <childnode refid="3" relation="usage">
-          <edgelabel>layout</edgelabel>
+          <edgelabel>rect</edgelabel>
         </childnode>
         <childnode refid="4" relation="usage">
-          <edgelabel>rect</edgelabel>
+          <edgelabel>layout</edgelabel>
         </childnode>
         <childnode refid="5" relation="usage">
           <edgelabel>ui_state</edgelabel>
         </childnode>
       </node>
-      <node id="4">
-        <label>eu::core::Rectf</label>
-        <link refid="structeu_1_1core_1_1Rectf"/>
+      <node id="3">
+        <label>eu::Rectf</label>
+        <link refid="structeu_1_1Rectf"/>
       </node>
       <node id="2">
-        <label>eu::core::Lrud&lt; float &gt;</label>
-        <link refid="structeu_1_1core_1_1Lrud"/>
+        <label>eu::Lrud&lt; float &gt;</label>
+        <link refid="structeu_1_1Lrud"/>
       </node>
       <node id="6">
-        <label>eu::core::vec2f</label>
-        <link refid="structeu_1_1core_1_1vec2f"/>
+        <label>eu::vec2f</label>
+        <link refid="structeu_1_1vec2f"/>
       </node>
     </collaborationgraph>
     <location file="libs/gui/src/gui/widget.h" line="23" column="5" bodyfile="libs/gui/src/gui/widget.h" bodystart="24" bodyend="88"/>
     <listofallmembers>
-      <member refid="structeu_1_1gui_1_1Widget_1af683e21b07b077a50e3f1f697f398155" prot="public" virt="pure-virtual"><scope>eu::gui::Widget</scope><name>calc_minimum_size</name></member>
-      <member refid="structeu_1_1gui_1_1Widget_1ace63dd0d2edff1ab3b37eac212045469" prot="public" virt="non-virtual"><scope>eu::gui::Widget</scope><name>get_background_rect</name></member>
-      <member refid="structeu_1_1gui_1_1Widget_1ae56a00329498c528f30d05d656dd03bc" prot="public" virt="non-virtual"><scope>eu::gui::Widget</scope><name>get_client_rect</name></member>
-      <member refid="structeu_1_1gui_1_1Widget_1ac7dfea87136042e49a1d17c1e53bad32" prot="public" virt="non-virtual"><scope>eu::gui::Widget</scope><name>get_preferred_size</name></member>
+      <member refid="structeu_1_1gui_1_1Widget_1ab77f29f1c6db5a7ce9bcafafc32488a1" prot="public" virt="pure-virtual"><scope>eu::gui::Widget</scope><name>calc_minimum_size</name></member>
+      <member refid="structeu_1_1gui_1_1Widget_1acf608a323121e428590bc6de7e54dd99" prot="public" virt="non-virtual"><scope>eu::gui::Widget</scope><name>get_background_rect</name></member>
+      <member refid="structeu_1_1gui_1_1Widget_1a52fedb88ff5aa8132516b1488bd27758" prot="public" virt="non-virtual"><scope>eu::gui::Widget</scope><name>get_client_rect</name></member>
+      <member refid="structeu_1_1gui_1_1Widget_1acee00616d902bf026b793bcf7d017f41" prot="public" virt="non-virtual"><scope>eu::gui::Widget</scope><name>get_preferred_size</name></member>
       <member refid="structeu_1_1gui_1_1Widget_1aa08520c479054f5f99ff7624e25f272e" prot="public" virt="non-virtual"><scope>eu::gui::Widget</scope><name>get_state</name></member>
       <member refid="structeu_1_1gui_1_1Widget_1ad3910564b1357dc1bc6a587e8fb813d0" prot="public" virt="non-virtual"><scope>eu::gui::Widget</scope><name>get_state_ptr</name></member>
       <member refid="structeu_1_1gui_1_1Widget_1ae58c6d8b3ce887c1f64bc750dcc95772" prot="public" virt="non-virtual"><scope>eu::gui::Widget</scope><name>is_active</name></member>
       <member refid="structeu_1_1gui_1_1Widget_1aad17ccf02f65c793ed3e03dd5046b2f8" prot="public" virt="non-virtual"><scope>eu::gui::Widget</scope><name>is_hot</name></member>
       <member refid="structeu_1_1gui_1_1Widget_1a157692c253b368287807e547ccc325dd" prot="public" virt="non-virtual"><scope>eu::gui::Widget</scope><name>layout</name></member>
-      <member refid="structeu_1_1gui_1_1Widget_1a0a6df16e9fde456098ec1b2fc9ba54b6" prot="public" virt="non-virtual"><scope>eu::gui::Widget</scope><name>margin</name></member>
+      <member refid="structeu_1_1gui_1_1Widget_1a5e691dbcb6efc73cb6c538608275508b" prot="public" virt="non-virtual"><scope>eu::gui::Widget</scope><name>margin</name></member>
       <member refid="structeu_1_1gui_1_1Widget_1a3a49e8762bc6f81eb4cd2b5c8baf7327" prot="public" virt="non-virtual"><scope>eu::gui::Widget</scope><name>name</name></member>
       <member refid="structeu_1_1gui_1_1Widget_1acd0a5b4afacdf38aaa944fb329ab4df5" prot="public" virt="virtual"><scope>eu::gui::Widget</scope><name>on_size_changed</name></member>
       <member refid="structeu_1_1gui_1_1Widget_1af343985d829d1762489fc919de8c8eee" prot="public" virt="non-virtual"><scope>eu::gui::Widget</scope><name>operator=</name></member>
       <member refid="structeu_1_1gui_1_1Widget_1a38ac4c4a62294a9e62e6810f1526b272" prot="public" virt="non-virtual"><scope>eu::gui::Widget</scope><name>operator=</name></member>
-      <member refid="structeu_1_1gui_1_1Widget_1a003d621488b80afaf7175a6893304ddb" prot="public" virt="non-virtual"><scope>eu::gui::Widget</scope><name>padding</name></member>
-      <member refid="structeu_1_1gui_1_1Widget_1afae177ba97123035fa398d845a9a5a44" prot="public" virt="non-virtual"><scope>eu::gui::Widget</scope><name>rect</name></member>
+      <member refid="structeu_1_1gui_1_1Widget_1a3dea516ff64897f4ab0fa09d1e95a9e3" prot="public" virt="non-virtual"><scope>eu::gui::Widget</scope><name>padding</name></member>
+      <member refid="structeu_1_1gui_1_1Widget_1a342366c3a421c5f7b07316176da201c6" prot="public" virt="non-virtual"><scope>eu::gui::Widget</scope><name>rect</name></member>
       <member refid="structeu_1_1gui_1_1Widget_1adefa3f3c16bd6341b3c3988e21980f1d" prot="public" virt="pure-virtual"><scope>eu::gui::Widget</scope><name>render</name></member>
-      <member refid="structeu_1_1gui_1_1Widget_1a2b0adbde0b17b6cef0ba96d2461b684e" prot="public" virt="non-virtual"><scope>eu::gui::Widget</scope><name>set_rect</name></member>
+      <member refid="structeu_1_1gui_1_1Widget_1a9d175871f3bc5ea38d2464eea1fbe3cf" prot="public" virt="non-virtual"><scope>eu::gui::Widget</scope><name>set_rect</name></member>
       <member refid="structeu_1_1gui_1_1Widget_1ac87b45827270598e7af4798b9f9112c7" prot="public" virt="non-virtual"><scope>eu::gui::Widget</scope><name>ui_state</name></member>
       <member refid="structeu_1_1gui_1_1Widget_1a0acd30f407d722cd7b16343e66cd92de" prot="public" virt="pure-virtual"><scope>eu::gui::Widget</scope><name>update</name></member>
       <member refid="structeu_1_1gui_1_1Widget_1a56c06919f88833f66297b96da80ca27e" prot="public" virt="pure-virtual"><scope>eu::gui::Widget</scope><name>visit</name></member>

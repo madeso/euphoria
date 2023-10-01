@@ -137,9 +137,9 @@
         </inbodydescription>
         <location file="libs/gui/src/gui/load.cc" line="80" column="5" bodyfile="libs/gui/src/gui/load.cc" bodystart="80" bodyend="86"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1gui_1aec09349978a00629b4b063bf1fefee58" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1core_1_1Lrud" kindref="compound">core::Lrud</ref>&lt; float &gt;</type>
-        <definition>core::Lrud&lt;float&gt; eu::gui::from_gaf_to_lrud</definition>
+      <memberdef kind="function" id="namespaceeu_1_1gui_1af0d1327ce3e3532565dc8b4a1496c2a2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1Lrud" kindref="compound">Lrud</ref>&lt; float &gt;</type>
+        <definition>Lrud&lt;float&gt; eu::gui::from_gaf_to_lrud</definition>
         <argsstring>(const files::gui::Lrtb &amp;lrtd)</argsstring>
         <name>from_gaf_to_lrud</name>
         <param>
@@ -187,9 +187,9 @@
         </inbodydescription>
         <location file="libs/gui/src/gui/load.cc" line="103" column="5" bodyfile="libs/gui/src/gui/load.cc" bodystart="104" bodyend="184"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1gui_1a1df9090c2fb1d55e1012e9885a6d27e6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1core_1_1Rgb" kindref="compound">core::Rgb</ref></type>
-        <definition>core::Rgb eu::gui::load</definition>
+      <memberdef kind="function" id="namespaceeu_1_1gui_1abf5dece9d39b6210517c277dd54e5c8f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1Rgb" kindref="compound">Rgb</ref></type>
+        <definition>Rgb eu::gui::load</definition>
         <argsstring>(const files::gui::Rgb &amp;src)</argsstring>
         <name>load</name>
         <param>

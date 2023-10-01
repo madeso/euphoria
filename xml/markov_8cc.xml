@@ -4,6 +4,10 @@
     <compoundname>markov.cc</compoundname>
     <includes refid="markov_8h" local="yes">core/markov.h</includes>
     <incdepgraph>
+      <node id="12">
+        <label>base/default_interpolate.h</label>
+        <link refid="default__interpolate_8h"/>
+      </node>
       <node id="9">
         <label>cstdint</label>
       </node>
@@ -22,23 +26,15 @@
       <node id="4">
         <label>range/v3/view/span.hpp</label>
       </node>
-      <node id="3">
-        <label>core/random.h</label>
-        <link refid="random_8h"/>
-        <childnode refid="4" relation="include">
+      <node id="13">
+        <label>base/angle.h</label>
+        <link refid="angle_8h"/>
+        <childnode refid="14" relation="include">
         </childnode>
-        <childnode refid="5" relation="include">
+        <childnode refid="15" relation="include">
         </childnode>
-        <childnode refid="8" relation="include">
+        <childnode refid="12" relation="include">
         </childnode>
-        <childnode refid="10" relation="include">
-        </childnode>
-        <childnode refid="19" relation="include">
-        </childnode>
-      </node>
-      <node id="18">
-        <label>core/vec.base.h</label>
-        <link refid="vec_8base_8h"/>
       </node>
       <node id="5">
         <label>assert/assert.h</label>
@@ -46,6 +42,14 @@
         <childnode refid="6" relation="include">
         </childnode>
         <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>base/numeric.h</label>
+        <link refid="numeric_8h"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
         </childnode>
       </node>
       <node id="2">
@@ -62,8 +66,32 @@
         <childnode refid="23" relation="include">
         </childnode>
       </node>
+      <node id="11">
+        <label>tuple</label>
+      </node>
+      <node id="7">
+        <label>vector</label>
+      </node>
+      <node id="19">
+        <label>base/range.h</label>
+        <link refid="range_8h"/>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>iostream</label>
+      </node>
+      <node id="17">
+        <label>cstddef</label>
+      </node>
       <node id="10">
-        <label>core/vec2.h</label>
+        <label>base/vec2.h</label>
         <link refid="vec2_8h"/>
         <childnode refid="11" relation="include">
         </childnode>
@@ -80,57 +108,13 @@
         <childnode refid="18" relation="include">
         </childnode>
       </node>
-      <node id="11">
-        <label>tuple</label>
-      </node>
-      <node id="15">
-        <label>core/numeric.h</label>
-        <link refid="numeric_8h"/>
-        <childnode refid="12" relation="include">
-        </childnode>
-      </node>
-      <node id="7">
-        <label>vector</label>
-      </node>
-      <node id="14">
-        <label>iostream</label>
-      </node>
-      <node id="17">
-        <label>cstddef</label>
-      </node>
       <node id="22">
         <label>deque</label>
-      </node>
-      <node id="12">
-        <label>core/interpolate.default.h</label>
-        <link refid="interpolate_8default_8h"/>
-      </node>
-      <node id="19">
-        <label>core/range.h</label>
-        <link refid="range_8h"/>
-        <childnode refid="20" relation="include">
-        </childnode>
-        <childnode refid="13" relation="include">
-        </childnode>
-        <childnode refid="5" relation="include">
-        </childnode>
-        <childnode refid="16" relation="include">
-        </childnode>
       </node>
       <node id="1">
         <label>libs/core/src/core/markov.cc</label>
         <link refid="markov_8cc"/>
         <childnode refid="2" relation="include">
-        </childnode>
-      </node>
-      <node id="13">
-        <label>core/angle.h</label>
-        <link refid="angle_8h"/>
-        <childnode refid="14" relation="include">
-        </childnode>
-        <childnode refid="15" relation="include">
-        </childnode>
-        <childnode refid="12" relation="include">
         </childnode>
       </node>
       <node id="16">
@@ -144,8 +128,26 @@
       <node id="20">
         <label>type_traits</label>
       </node>
+      <node id="18">
+        <label>base/vec.base.h</label>
+        <link refid="vec_8base_8h"/>
+      </node>
       <node id="23">
         <label>memory</label>
+      </node>
+      <node id="3">
+        <label>base/random.h</label>
+        <link refid="random_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
       </node>
     </incdepgraph>
     <briefdescription>

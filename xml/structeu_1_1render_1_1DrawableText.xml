@@ -279,21 +279,21 @@
         </inbodydescription>
         <location file="libs/render/src/render/font.h" line="131" column="9" bodyfile="libs/render/src/render/font.cc" bodystart="550" bodyend="557"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1render_1_1DrawableText_1ae8101184fe8eb5a263fa8d850e04b6c9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1render_1_1DrawableText_1ace17f4af486e2bdc8434f31c53d0fda1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void eu::render::DrawableText::draw</definition>
-        <argsstring>(SpriteRenderer *renderer, const core::vec2f &amp;p, const core::Rgb &amp;base_hi_color) const</argsstring>
+        <argsstring>(SpriteRenderer *renderer, const vec2f &amp;p, const Rgb &amp;base_hi_color) const</argsstring>
         <name>draw</name>
         <param>
           <type><ref refid="structeu_1_1render_1_1SpriteRenderer" kindref="compound">SpriteRenderer</ref> *</type>
           <declname>renderer</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1vec2f" kindref="compound">core::vec2f</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
           <declname>p</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1Rgb" kindref="compound">core::Rgb</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1Rgb" kindref="compound">Rgb</ref> &amp;</type>
           <declname>base_hi_color</declname>
         </param>
         <briefdescription>
@@ -304,25 +304,25 @@
         </inbodydescription>
         <location file="libs/render/src/render/font.h" line="134" column="9" bodyfile="libs/render/src/render/font.cc" bodystart="587" bodyend="594"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1render_1_1DrawableText_1ad2b60d2e6dcc440bf06e5baa297b6e12" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1render_1_1DrawableText_1a1f04ae4cfd308f801cab79424d101bd2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void eu::render::DrawableText::draw</definition>
-        <argsstring>(SpriteRenderer *renderer, const core::vec2f &amp;p, const core::Rgb &amp;base_color, const core::Rgb &amp;hi_color) const</argsstring>
+        <argsstring>(SpriteRenderer *renderer, const vec2f &amp;p, const Rgb &amp;base_color, const Rgb &amp;hi_color) const</argsstring>
         <name>draw</name>
         <param>
           <type><ref refid="structeu_1_1render_1_1SpriteRenderer" kindref="compound">SpriteRenderer</ref> *</type>
           <declname>renderer</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1vec2f" kindref="compound">core::vec2f</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
           <declname>p</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1Rgb" kindref="compound">core::Rgb</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1Rgb" kindref="compound">Rgb</ref> &amp;</type>
           <declname>base_color</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1Rgb" kindref="compound">core::Rgb</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1Rgb" kindref="compound">Rgb</ref> &amp;</type>
           <declname>hi_color</declname>
         </param>
         <briefdescription>
@@ -333,9 +333,9 @@
         </inbodydescription>
         <location file="libs/render/src/render/font.h" line="142" column="9" bodyfile="libs/render/src/render/font.cc" bodystart="599" bodyend="626"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1render_1_1DrawableText_1af616e5d783018ff401f58075fe193f27" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1core_1_1Rectf" kindref="compound">core::Rectf</ref></type>
-        <definition>core::Rectf eu::render::DrawableText::get_extents</definition>
+      <memberdef kind="function" id="structeu_1_1render_1_1DrawableText_1a504f53550ac6472d2ef15a9a46394357" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1Rectf" kindref="compound">Rectf</ref></type>
+        <definition>Rectf eu::render::DrawableText::get_extents</definition>
         <argsstring>() const</argsstring>
         <name>get_extents</name>
         <briefdescription>
@@ -370,13 +370,13 @@
       <member refid="structeu_1_1render_1_1DrawableText_1a5900c9f2d47c0bf83e4d9906884fca1e" prot="private" virt="non-virtual"><scope>eu::render::DrawableText</scope><name>background_alpha</name></member>
       <member refid="structeu_1_1render_1_1DrawableText_1acc50196572375142164922848c8b0928" prot="private" virt="non-virtual"><scope>eu::render::DrawableText</scope><name>commands</name></member>
       <member refid="structeu_1_1render_1_1DrawableText_1af79f4bad6a049db2e0acb5f23df1ddb0" prot="public" virt="non-virtual"><scope>eu::render::DrawableText</scope><name>compile</name></member>
-      <member refid="structeu_1_1render_1_1DrawableText_1ae8101184fe8eb5a263fa8d850e04b6c9" prot="public" virt="non-virtual"><scope>eu::render::DrawableText</scope><name>draw</name></member>
-      <member refid="structeu_1_1render_1_1DrawableText_1ad2b60d2e6dcc440bf06e5baa297b6e12" prot="public" virt="non-virtual"><scope>eu::render::DrawableText</scope><name>draw</name></member>
+      <member refid="structeu_1_1render_1_1DrawableText_1ace17f4af486e2bdc8434f31c53d0fda1" prot="public" virt="non-virtual"><scope>eu::render::DrawableText</scope><name>draw</name></member>
+      <member refid="structeu_1_1render_1_1DrawableText_1a1f04ae4cfd308f801cab79424d101bd2" prot="public" virt="non-virtual"><scope>eu::render::DrawableText</scope><name>draw</name></member>
       <member refid="structeu_1_1render_1_1DrawableText_1a3fe856a2b4c16653edfde5cfec347e75" prot="public" virt="non-virtual"><scope>eu::render::DrawableText</scope><name>DrawableText</name></member>
       <member refid="structeu_1_1render_1_1DrawableText_1ad489d856cdb04103796b1a20fc7de2bf" prot="public" virt="non-virtual"><scope>eu::render::DrawableText</scope><name>DrawableText</name></member>
       <member refid="structeu_1_1render_1_1DrawableText_1a6b638d48eb0a725b8e44334a787ef861" prot="public" virt="non-virtual"><scope>eu::render::DrawableText</scope><name>DrawableText</name></member>
       <member refid="structeu_1_1render_1_1DrawableText_1a84749c81913cf87f0a55590e53808a6f" prot="private" virt="non-virtual"><scope>eu::render::DrawableText</scope><name>font</name></member>
-      <member refid="structeu_1_1render_1_1DrawableText_1af616e5d783018ff401f58075fe193f27" prot="public" virt="non-virtual"><scope>eu::render::DrawableText</scope><name>get_extents</name></member>
+      <member refid="structeu_1_1render_1_1DrawableText_1a504f53550ac6472d2ef15a9a46394357" prot="public" virt="non-virtual"><scope>eu::render::DrawableText</scope><name>get_extents</name></member>
       <member refid="structeu_1_1render_1_1DrawableText_1ad648eb3b3b5f4948c5ed692d37b76d98" prot="private" virt="non-virtual"><scope>eu::render::DrawableText</scope><name>is_dirty</name></member>
       <member refid="structeu_1_1render_1_1DrawableText_1ab01b5d824d781eff0b671e3806fd3cd7" prot="public" virt="non-virtual"><scope>eu::render::DrawableText</scope><name>operator=</name></member>
       <member refid="structeu_1_1render_1_1DrawableText_1a44178d9ca89d53e98e69bab8d16f0ae1" prot="public" virt="non-virtual"><scope>eu::render::DrawableText</scope><name>operator=</name></member>

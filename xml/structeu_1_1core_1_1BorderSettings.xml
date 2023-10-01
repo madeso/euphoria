@@ -5,7 +5,7 @@
     <includes refid="table__bool_8h" local="no">table_bool.h</includes>
       <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structeu_1_1core_1_1BorderSettings_1a3fdf0cfd89601f5a9bffa799d9aef656" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1core_1_1Rgbai" kindref="compound">Rgbai</ref></type>
+        <type><ref refid="structeu_1_1Rgbai" kindref="compound">Rgbai</ref></type>
         <definition>Rgbai eu::core::BorderSettings::color</definition>
         <argsstring></argsstring>
         <name>color</name>
@@ -25,7 +25,7 @@
         <argsstring>(const Rgbai &amp;c)</argsstring>
         <name>BorderSettings</name>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1Rgbai" kindref="compound">Rgbai</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1Rgbai" kindref="compound">Rgbai</ref> &amp;</type>
           <declname>c</declname>
         </param>
         <briefdescription>
@@ -42,16 +42,16 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
+      <node id="2">
+        <label>eu::Rgbai</label>
+        <link refid="structeu_1_1Rgbai"/>
+      </node>
       <node id="1">
         <label>eu::core::BorderSettings</label>
         <link refid="structeu_1_1core_1_1BorderSettings"/>
         <childnode refid="2" relation="usage">
           <edgelabel>color</edgelabel>
         </childnode>
-      </node>
-      <node id="2">
-        <label>eu::core::Rgbai</label>
-        <link refid="structeu_1_1core_1_1Rgbai"/>
       </node>
     </collaborationgraph>
     <location file="libs/core/src/core/table_bool.h" line="147" column="5" bodyfile="libs/core/src/core/table_bool.h" bodystart="148" bodyend="152"/>

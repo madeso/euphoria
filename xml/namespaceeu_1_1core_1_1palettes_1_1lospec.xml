@@ -506,7 +506,7 @@
       </sectiondef>
       <sectiondef kind="func">
       <memberdef kind="function" id="namespaceeu_1_1core_1_1palettes_1_1lospec_1a37c6bfb6073f79afc18af67333e77380" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>constexpr <ref refid="structeu_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref></type>
+        <type>constexpr <ref refid="structeu_1_1Rgbi" kindref="compound">Rgbi</ref></type>
         <definition>constexpr Rgbi eu::core::palettes::lospec::con</definition>
         <argsstring>(unsigned int hex)</argsstring>
         <name>con</name>

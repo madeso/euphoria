@@ -5,7 +5,7 @@
     <includes refid="image__canvas_8h" local="no">image_canvas.h</includes>
       <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structeu_1_1core_1_1Canvas_1a2f60a99fefe071c9634f5a51f610c4a1" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref></type>
+        <type><ref refid="structeu_1_1Rgbi" kindref="compound">Rgbi</ref></type>
         <definition>Rgbi eu::core::Canvas::fill_style</definition>
         <argsstring></argsstring>
         <name>fill_style</name>
@@ -31,7 +31,7 @@
         <location file="libs/core/src/core/image_canvas.h" line="18" column="15" bodyfile="libs/core/src/core/image_canvas.h" bodystart="18" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1Canvas_1a011ff6d352f4fe1f0e6b1641482bd33a" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1core_1_1mat3f" kindref="compound">mat3f</ref></type>
+        <type><ref refid="structeu_1_1mat3f" kindref="compound">mat3f</ref></type>
         <definition>mat3f eu::core::Canvas::transform</definition>
         <argsstring></argsstring>
         <name>transform</name>
@@ -57,7 +57,7 @@
         <location file="libs/core/src/core/image_canvas.h" line="20" column="14" bodyfile="libs/core/src/core/image_canvas.h" bodystart="20" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1Canvas_1a1d1c97c59a33d5f8daca58a2c5039b8d" prot="public" static="no" mutable="no">
-        <type>std::vector&lt; <ref refid="structeu_1_1core_1_1vec2f" kindref="compound">vec2f</ref> &gt;</type>
+        <type>std::vector&lt; <ref refid="structeu_1_1vec2f" kindref="compound">vec2f</ref> &gt;</type>
         <definition>std::vector&lt;vec2f&gt; eu::core::Canvas::path</definition>
         <argsstring></argsstring>
         <name>path</name>
@@ -196,12 +196,12 @@
         <location file="libs/core/src/core/image_canvas.h" line="32" column="14" bodyfile="libs/core/src/core/image_canvas.cc" bodystart="90" bodyend="98"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1Canvas_1a2a044ac11e195c45df6b4fd8ee7c8c2f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1core_1_1vec2f" kindref="compound">vec2f</ref></type>
+        <type><ref refid="structeu_1_1vec2f" kindref="compound">vec2f</ref></type>
         <definition>vec2f eu::core::Canvas::transform_position</definition>
         <argsstring>(const vec2f &amp;v) const</argsstring>
         <name>transform_position</name>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
           <declname>v</declname>
         </param>
         <briefdescription>
@@ -262,25 +262,25 @@
     </detaileddescription>
     <collaborationgraph>
       <node id="3">
-        <label>eu::core::mat3f</label>
-        <link refid="structeu_1_1core_1_1mat3f"/>
+        <label>eu::Rgbi</label>
+        <link refid="structeu_1_1Rgbi"/>
       </node>
       <node id="1">
         <label>eu::core::Canvas</label>
         <link refid="structeu_1_1core_1_1Canvas"/>
         <childnode refid="2" relation="usage">
-          <edgelabel>fill_style</edgelabel>
+          <edgelabel>transform</edgelabel>
         </childnode>
         <childnode refid="3" relation="usage">
-          <edgelabel>transform</edgelabel>
+          <edgelabel>fill_style</edgelabel>
         </childnode>
         <childnode refid="4" relation="usage">
           <edgelabel>target_image</edgelabel>
         </childnode>
       </node>
       <node id="2">
-        <label>eu::core::Rgbi</label>
-        <link refid="structeu_1_1core_1_1Rgbi"/>
+        <label>eu::mat3f</label>
+        <link refid="structeu_1_1mat3f"/>
       </node>
       <node id="4">
         <label>eu::core::Image</label>

@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/intersection.h" line="135" column="14" bodyfile="libs/core/src/core/intersection.h" bodystart="135" bodyend="-1"/>
+        <location file="libs/core/src/core/intersection.h" line="139" column="14" bodyfile="libs/core/src/core/intersection.h" bodystart="139" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1Ray2Ray2Result_1a9930408cc37cec99ca0392058e1a67d8" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -28,10 +28,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/intersection.h" line="136" column="14" bodyfile="libs/core/src/core/intersection.h" bodystart="136" bodyend="-1"/>
+        <location file="libs/core/src/core/intersection.h" line="140" column="14" bodyfile="libs/core/src/core/intersection.h" bodystart="140" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1Ray2Ray2Result_1a49ff579a577ab1f2d5cd1d1a2cec48e6" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1core_1_1vec2f" kindref="compound">vec2f</ref></type>
+        <type><ref refid="structeu_1_1vec2f" kindref="compound">vec2f</ref></type>
         <definition>vec2f eu::core::Ray2Ray2Result::point</definition>
         <argsstring></argsstring>
         <name>point</name>
@@ -41,7 +41,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/intersection.h" line="138" column="15" bodyfile="libs/core/src/core/intersection.h" bodystart="138" bodyend="-1"/>
+        <location file="libs/core/src/core/intersection.h" line="142" column="15" bodyfile="libs/core/src/core/intersection.h" bodystart="142" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1Ray2Ray2Result_1a79eb9dc38f0aa391c9a7bf051a5553d5" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -54,7 +54,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/intersection.h" line="139" column="15" bodyfile="libs/core/src/core/intersection.h" bodystart="139" bodyend="-1"/>
+        <location file="libs/core/src/core/intersection.h" line="143" column="15" bodyfile="libs/core/src/core/intersection.h" bodystart="143" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1Ray2Ray2Result_1ac5179c2acaa4b8035eeed89d9209a890" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -67,7 +67,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/intersection.h" line="140" column="15" bodyfile="libs/core/src/core/intersection.h" bodystart="140" bodyend="-1"/>
+        <location file="libs/core/src/core/intersection.h" line="144" column="15" bodyfile="libs/core/src/core/intersection.h" bodystart="144" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -75,10 +75,6 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-      <node id="2">
-        <label>eu::core::vec2f</label>
-        <link refid="structeu_1_1core_1_1vec2f"/>
-      </node>
       <node id="1">
         <label>eu::core::Ray2Ray2Result</label>
         <link refid="structeu_1_1core_1_1Ray2Ray2Result"/>
@@ -86,8 +82,12 @@
           <edgelabel>point</edgelabel>
         </childnode>
       </node>
+      <node id="2">
+        <label>eu::vec2f</label>
+        <link refid="structeu_1_1vec2f"/>
+      </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/intersection.h" line="133" column="5" bodyfile="libs/core/src/core/intersection.h" bodystart="134" bodyend="141"/>
+    <location file="libs/core/src/core/intersection.h" line="137" column="5" bodyfile="libs/core/src/core/intersection.h" bodystart="138" bodyend="145"/>
     <listofallmembers>
       <member refid="structeu_1_1core_1_1Ray2Ray2Result_1abd44d65465a57f53bd9c01cee0435d61" prot="public" virt="non-virtual"><scope>eu::core::Ray2Ray2Result</scope><name>collision</name></member>
       <member refid="structeu_1_1core_1_1Ray2Ray2Result_1a9930408cc37cec99ca0392058e1a67d8" prot="public" virt="non-virtual"><scope>eu::core::Ray2Ray2Result</scope><name>is_parallel</name></member>

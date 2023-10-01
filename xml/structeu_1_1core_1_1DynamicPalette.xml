@@ -15,10 +15,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/palette.h" line="98" column="21" bodyfile="libs/core/src/core/palette.h" bodystart="98" bodyend="-1"/>
+        <location file="libs/core/src/core/palette.h" line="102" column="21" bodyfile="libs/core/src/core/palette.h" bodystart="102" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1DynamicPalette_1a96a48ed03b7d889b72eee837f648a27a" prot="public" static="no" mutable="no">
-        <type>std::vector&lt; <ref refid="structeu_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref> &gt;</type>
+        <type>std::vector&lt; <ref refid="structeu_1_1Rgbi" kindref="compound">Rgbi</ref> &gt;</type>
         <definition>std::vector&lt;Rgbi&gt; eu::core::DynamicPalette::colors</definition>
         <argsstring></argsstring>
         <name>colors</name>
@@ -29,7 +29,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/palette.h" line="101" column="21" bodyfile="libs/core/src/core/palette.h" bodystart="101" bodyend="-1"/>
+        <location file="libs/core/src/core/palette.h" line="105" column="21" bodyfile="libs/core/src/core/palette.h" bodystart="105" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -50,7 +50,7 @@
           <declname>n</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1Rgbi" kindref="compound">Rgbi</ref> &amp;</type>
           <declname>c0</declname>
         </param>
         <param>
@@ -63,7 +63,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/palette.h" line="104" column="9" bodyfile="libs/core/src/core/palette.h" bodystart="104" bodyend="108"/>
+        <location file="libs/core/src/core/palette.h" line="108" column="9" bodyfile="libs/core/src/core/palette.h" bodystart="108" bodyend="112"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1DynamicPalette_1aa69103cec0d6807f1e090dc2613383e7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -75,7 +75,7 @@
           <declname>n</declname>
         </param>
         <param>
-          <type>const std::vector&lt; <ref refid="structeu_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref> &gt; &amp;</type>
+          <type>const std::vector&lt; <ref refid="structeu_1_1Rgbi" kindref="compound">Rgbi</ref> &gt; &amp;</type>
           <declname>c</declname>
         </param>
         <briefdescription>
@@ -84,7 +84,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/palette.h" line="110" column="9" bodyfile="libs/core/src/core/palette.cc" bodystart="75" bodyend="79"/>
+        <location file="libs/core/src/core/palette.h" line="114" column="9" bodyfile="libs/core/src/core/palette.cc" bodystart="75" bodyend="79"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1DynamicPalette_1a8c1d26f7059b31f3873014c94e6bfcae" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1core_1_1Palette" kindref="compound">Palette</ref></type>
@@ -97,7 +97,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/palette.h" line="133" column="18" bodyfile="libs/core/src/core/palette.cc" bodystart="69" bodyend="72"/>
+        <location file="libs/core/src/core/palette.h" line="137" column="18" bodyfile="libs/core/src/core/palette.cc" bodystart="69" bodyend="72"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
@@ -129,7 +129,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/palette.h" line="117" column="9" bodyfile="libs/core/src/core/palette.cc" bodystart="83" bodyend="86"/>
+        <location file="libs/core/src/core/palette.h" line="121" column="9" bodyfile="libs/core/src/core/palette.cc" bodystart="83" bodyend="86"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1DynamicPalette_1a2dc0c925846a56bda495a14b7f93ba9a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1core_1_1DynamicPalette" kindref="compound">DynamicPalette</ref></type>
@@ -157,7 +157,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/palette.h" line="121" column="9" bodyfile="libs/core/src/core/palette.cc" bodystart="90" bodyend="103"/>
+        <location file="libs/core/src/core/palette.h" line="125" column="9" bodyfile="libs/core/src/core/palette.cc" bodystart="90" bodyend="103"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1DynamicPalette_1aa441e8ee3302f63db4faf9c3d62cf223" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1core_1_1DynamicPalette" kindref="compound">DynamicPalette</ref></type>
@@ -169,11 +169,11 @@
           <declname>count</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1Angle" kindref="compound">Angle</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1Angle" kindref="compound">Angle</ref> &amp;</type>
           <declname>from</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1Angle" kindref="compound">Angle</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1Angle" kindref="compound">Angle</ref> &amp;</type>
           <declname>to</declname>
         </param>
         <param>
@@ -191,7 +191,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/palette.h" line="124" column="32" bodyfile="libs/core/src/core/palette.cc" bodystart="108" bodyend="136"/>
+        <location file="libs/core/src/core/palette.h" line="128" column="32" bodyfile="libs/core/src/core/palette.cc" bodystart="108" bodyend="136"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -210,14 +210,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/palette.h" line="136" column="18" bodyfile="libs/core/src/core/palette.cc" bodystart="139" bodyend="142"/>
+        <location file="libs/core/src/core/palette.h" line="140" column="18" bodyfile="libs/core/src/core/palette.cc" bodystart="139" bodyend="142"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/palette.h" line="96" column="5" bodyfile="libs/core/src/core/palette.h" bodystart="97" bodyend="137"/>
+    <location file="libs/core/src/core/palette.h" line="100" column="5" bodyfile="libs/core/src/core/palette.h" bodystart="101" bodyend="141"/>
     <listofallmembers>
       <member refid="structeu_1_1core_1_1DynamicPalette_1a96a48ed03b7d889b72eee837f648a27a" prot="public" virt="non-virtual"><scope>eu::core::DynamicPalette</scope><name>colors</name></member>
       <member refid="structeu_1_1core_1_1DynamicPalette_1aa581d694880a4f349981f07568a7c186" prot="public" virt="non-virtual"><scope>eu::core::DynamicPalette</scope><name>create_empty</name></member>

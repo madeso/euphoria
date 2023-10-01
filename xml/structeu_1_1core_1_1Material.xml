@@ -31,7 +31,7 @@
         <location file="libs/core/src/core/mesh.h" line="80" column="23" bodyfile="libs/core/src/core/mesh.h" bodystart="80" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1Material_1a72b5204abdeddbb9b3b1114827b7f38e" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1core_1_1Rgb" kindref="compound">Rgb</ref></type>
+        <type><ref refid="structeu_1_1Rgb" kindref="compound">Rgb</ref></type>
         <definition>Rgb eu::core::Material::ambient</definition>
         <argsstring></argsstring>
         <name>ambient</name>
@@ -44,7 +44,7 @@
         <location file="libs/core/src/core/mesh.h" line="81" column="13" bodyfile="libs/core/src/core/mesh.h" bodystart="81" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1Material_1ab73b8913b51b6c5a2fd2eab239b559bd" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1core_1_1Rgb" kindref="compound">Rgb</ref></type>
+        <type><ref refid="structeu_1_1Rgb" kindref="compound">Rgb</ref></type>
         <definition>Rgb eu::core::Material::diffuse</definition>
         <argsstring></argsstring>
         <name>diffuse</name>
@@ -57,7 +57,7 @@
         <location file="libs/core/src/core/mesh.h" line="82" column="13" bodyfile="libs/core/src/core/mesh.h" bodystart="82" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1Material_1a3c6df145654d2c25919fb2347d6347b2" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1core_1_1Rgb" kindref="compound">Rgb</ref></type>
+        <type><ref refid="structeu_1_1Rgb" kindref="compound">Rgb</ref></type>
         <definition>Rgb eu::core::Material::specular</definition>
         <argsstring></argsstring>
         <name>specular</name>
@@ -177,8 +177,8 @@
     </detaileddescription>
     <collaborationgraph>
       <node id="2">
-        <label>eu::core::Rgb</label>
-        <link refid="structeu_1_1core_1_1Rgb"/>
+        <label>eu::Rgb</label>
+        <link refid="structeu_1_1Rgb"/>
       </node>
       <node id="1">
         <label>eu::core::Material</label>

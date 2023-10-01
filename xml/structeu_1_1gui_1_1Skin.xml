@@ -196,6 +196,10 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
+      <node id="3">
+        <label>eu::Rgb</label>
+        <link refid="structeu_1_1Rgb"/>
+      </node>
       <node id="2">
         <label>eu::gui::ButtonState</label>
         <link refid="structeu_1_1gui_1_1ButtonState"/>
@@ -221,10 +225,6 @@
           <edgelabel>button_hot</edgelabel>
           <edgelabel>button_idle</edgelabel>
         </childnode>
-      </node>
-      <node id="3">
-        <label>eu::core::Rgb</label>
-        <link refid="structeu_1_1core_1_1Rgb"/>
       </node>
     </collaborationgraph>
     <location file="libs/gui/src/gui/skin.h" line="39" column="5" bodyfile="libs/gui/src/gui/skin.h" bodystart="40" bodyend="60"/>

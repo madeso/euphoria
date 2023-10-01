@@ -150,12 +150,12 @@
         </inbodydescription>
         <location file="libs/gui/src/gui/layout.h" line="59" column="14"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1gui_1_1TableLayout_1a23b7fc9d87c095a6881094305cfa9b3c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
-        <type><ref refid="structeu_1_1core_1_1size2f" kindref="compound">core::size2f</ref></type>
-        <definition>core::size2f eu::gui::TableLayout::calc_minimum_area</definition>
+      <memberdef kind="function" id="structeu_1_1gui_1_1TableLayout_1a012439592c68dd37238e6d31e1a83efd" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="structeu_1_1size2f" kindref="compound">size2f</ref></type>
+        <definition>size2f eu::gui::TableLayout::calc_minimum_area</definition>
         <argsstring>(const std::vector&lt; std::shared_ptr&lt; Widget &gt;&gt; &amp;widgets) const override</argsstring>
         <name>calc_minimum_area</name>
-        <reimplements refid="structeu_1_1gui_1_1Layout_1a4ff0daf6a2c735c40f06926fdea3bf25">calc_minimum_area</reimplements>
+        <reimplements refid="structeu_1_1gui_1_1Layout_1a87ca2d8c4b638fe690bbbcecb3ecc64a">calc_minimum_area</reimplements>
         <param>
           <type>const std::vector&lt; std::shared_ptr&lt; <ref refid="structeu_1_1gui_1_1Widget" kindref="compound">Widget</ref> &gt;&gt; &amp;</type>
           <declname>widgets</declname>
@@ -168,18 +168,18 @@
         </inbodydescription>
         <location file="libs/gui/src/gui/layout.h" line="62" column="9" bodyfile="libs/gui/src/gui/layout.cc" bodystart="49" bodyend="72"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1gui_1_1TableLayout_1a7b3ddd9c470ffa0560267f6d96da9da6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+      <memberdef kind="function" id="structeu_1_1gui_1_1TableLayout_1a6410be359776f3b5269f3be367a2af36" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
         <type>void</type>
         <definition>void eu::gui::TableLayout::lay_out</definition>
-        <argsstring>(std::vector&lt; std::shared_ptr&lt; Widget &gt;&gt; *widgets, const core::Rectf &amp;area) const override</argsstring>
+        <argsstring>(std::vector&lt; std::shared_ptr&lt; Widget &gt;&gt; *widgets, const Rectf &amp;area) const override</argsstring>
         <name>lay_out</name>
-        <reimplements refid="structeu_1_1gui_1_1Layout_1a8da97e4aab05f8d4d8d55902838023bb">lay_out</reimplements>
+        <reimplements refid="structeu_1_1gui_1_1Layout_1a7bb3a2f576b619c0ae81dec3ee818e51">lay_out</reimplements>
         <param>
           <type>std::vector&lt; std::shared_ptr&lt; <ref refid="structeu_1_1gui_1_1Widget" kindref="compound">Widget</ref> &gt;&gt; *</type>
           <declname>widgets</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1Rectf" kindref="compound">core::Rectf</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1Rectf" kindref="compound">Rectf</ref> &amp;</type>
           <declname>area</declname>
         </param>
         <briefdescription>
@@ -221,11 +221,11 @@
     </collaborationgraph>
     <location file="libs/gui/src/gui/layout.h" line="45" column="5" bodyfile="libs/gui/src/gui/layout.h" bodystart="46" bodyend="77"/>
     <listofallmembers>
-      <member refid="structeu_1_1gui_1_1TableLayout_1a23b7fc9d87c095a6881094305cfa9b3c" prot="public" virt="virtual"><scope>eu::gui::TableLayout</scope><name>calc_minimum_area</name></member>
+      <member refid="structeu_1_1gui_1_1TableLayout_1a012439592c68dd37238e6d31e1a83efd" prot="public" virt="virtual"><scope>eu::gui::TableLayout</scope><name>calc_minimum_area</name></member>
       <member refid="structeu_1_1gui_1_1TableLayout_1ac297747a49b5cf32ef999f25772b20f6" prot="public" virt="non-virtual"><scope>eu::gui::TableLayout</scope><name>combined_padding</name></member>
       <member refid="structeu_1_1gui_1_1TableLayout_1ab62a30c90931e5f20b63cd01c5c6dfe7" prot="public" virt="non-virtual"><scope>eu::gui::TableLayout</scope><name>expandable_cols</name></member>
       <member refid="structeu_1_1gui_1_1TableLayout_1a37831547dc7fa3514534ab08d37509f7" prot="public" virt="non-virtual"><scope>eu::gui::TableLayout</scope><name>expandable_rows</name></member>
-      <member refid="structeu_1_1gui_1_1TableLayout_1a7b3ddd9c470ffa0560267f6d96da9da6" prot="public" virt="virtual"><scope>eu::gui::TableLayout</scope><name>lay_out</name></member>
+      <member refid="structeu_1_1gui_1_1TableLayout_1a6410be359776f3b5269f3be367a2af36" prot="public" virt="virtual"><scope>eu::gui::TableLayout</scope><name>lay_out</name></member>
       <member refid="structeu_1_1gui_1_1Layout_1ab68c8b834471a9347bb16968a73c3d85" prot="public" virt="non-virtual"><scope>eu::gui::TableLayout</scope><name>Layout</name></member>
       <member refid="structeu_1_1gui_1_1Layout_1a2a21cfe46697cbec7b2a87e13b269804" prot="public" virt="non-virtual"><scope>eu::gui::TableLayout</scope><name>Layout</name></member>
       <member refid="structeu_1_1gui_1_1Layout_1a8b95922a157c88e378231b4eeed8007a" prot="public" virt="non-virtual"><scope>eu::gui::TableLayout</scope><name>Layout</name></member>

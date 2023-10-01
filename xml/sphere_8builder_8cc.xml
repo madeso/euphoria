@@ -5,31 +5,14 @@
     <includes refid="sphere_8builder_8h" local="yes">core/sphere.builder.h</includes>
     <includes refid="assert_8h" local="yes">assert/assert.h</includes>
     <includes refid="cint_8h" local="yes">base/cint.h</includes>
-    <includes refid="numeric_8h" local="yes">core/numeric.h</includes>
+    <includes refid="numeric_8h" local="yes">base/numeric.h</includes>
     <incdepgraph>
-      <node id="15">
-        <label>cstdint</label>
-      </node>
-      <node id="1">
-        <label>libs/core/src/core/sphere.builder.cc</label>
-        <link refid="sphere_8builder_8cc"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="6" relation="include">
-        </childnode>
-        <childnode refid="13" relation="include">
-        </childnode>
-        <childnode refid="12" relation="include">
-        </childnode>
-      </node>
-      <node id="14">
-        <label>base/ints.h</label>
-        <link refid="ints_8h"/>
-        <childnode refid="15" relation="include">
-        </childnode>
+      <node id="9">
+        <label>base/default_interpolate.h</label>
+        <link refid="default__interpolate_8h"/>
       </node>
       <node id="3">
-        <label>core/vec3.h</label>
+        <label>base/vec3.h</label>
         <link refid="vec3_8h"/>
         <childnode refid="4" relation="include">
         </childnode>
@@ -39,7 +22,28 @@
         </childnode>
         <childnode refid="6" relation="include">
         </childnode>
-        <childnode refid="13" relation="include">
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>cstdint</label>
+      </node>
+      <node id="1">
+        <label>libs/core/src/core/sphere.builder.cc</label>
+        <link refid="sphere_8builder_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>base/ints.h</label>
+        <link refid="ints_8h"/>
+        <childnode refid="14" relation="include">
         </childnode>
       </node>
       <node id="7">
@@ -61,9 +65,15 @@
         <childnode refid="19" relation="include">
         </childnode>
       </node>
-      <node id="17">
-        <label>core/vec.base.h</label>
-        <link refid="vec_8base_8h"/>
+      <node id="10">
+        <label>base/angle.h</label>
+        <link refid="angle_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
       </node>
       <node id="6">
         <label>assert/assert.h</label>
@@ -73,32 +83,16 @@
         <childnode refid="8" relation="include">
         </childnode>
       </node>
-      <node id="5">
-        <label>core/vec2.h</label>
-        <link refid="vec2_8h"/>
-        <childnode refid="4" relation="include">
-        </childnode>
-        <childnode refid="6" relation="include">
-        </childnode>
+      <node id="12">
+        <label>base/numeric.h</label>
+        <link refid="numeric_8h"/>
         <childnode refid="9" relation="include">
         </childnode>
-        <childnode refid="10" relation="include">
-        </childnode>
-        <childnode refid="12" relation="include">
-        </childnode>
         <childnode refid="13" relation="include">
-        </childnode>
-        <childnode refid="17" relation="include">
         </childnode>
       </node>
       <node id="4">
         <label>tuple</label>
-      </node>
-      <node id="12">
-        <label>core/numeric.h</label>
-        <link refid="numeric_8h"/>
-        <childnode refid="9" relation="include">
-        </childnode>
       </node>
       <node id="8">
         <label>vector</label>
@@ -113,27 +107,35 @@
       <node id="16">
         <label>cstddef</label>
       </node>
-      <node id="9">
-        <label>core/interpolate.default.h</label>
-        <link refid="interpolate_8default_8h"/>
-      </node>
-      <node id="10">
-        <label>core/angle.h</label>
-        <link refid="angle_8h"/>
-        <childnode refid="11" relation="include">
+      <node id="5">
+        <label>base/vec2.h</label>
+        <link refid="vec2_8h"/>
+        <childnode refid="4" relation="include">
         </childnode>
-        <childnode refid="12" relation="include">
+        <childnode refid="6" relation="include">
         </childnode>
         <childnode refid="9" relation="include">
         </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
       </node>
-      <node id="13">
+      <node id="15">
         <label>base/cint.h</label>
         <link refid="cint_8h"/>
-        <childnode refid="14" relation="include">
+        <childnode refid="13" relation="include">
         </childnode>
         <childnode refid="16" relation="include">
         </childnode>
+      </node>
+      <node id="17">
+        <label>base/vec.base.h</label>
+        <link refid="vec_8base_8h"/>
       </node>
     </incdepgraph>
     <innernamespace refid="namespaceeu">eu</innernamespace>

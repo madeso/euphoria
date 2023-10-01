@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Euphoria: libs/core/src/core/numeric.cc File Reference</title>
+<title>Euphoria: libs/base/src/base/numeric.cc File Reference</title>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <link href="style.css" rel="stylesheet" type="text/css" />
@@ -46,7 +46,7 @@
   </div>
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="dir_6f77a39b07c019ccd7492ea87272f732.html">core</a></li><li class="navelem"><a class="el" href="dir_232ab8dc75117fda122ab855789b1b2c.html">src</a></li><li class="navelem"><a class="el" href="dir_415d9b35eca6c445d7f5977763a796bd.html">core</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="dir_06498c378442102d76a793fbea770c00.html">base</a></li><li class="navelem"><a class="el" href="dir_1434489f875b8806781a8ab0a150cad2.html">src</a></li><li class="navelem"><a class="el" href="dir_9335635e0e9dc5833ab0cd315fbf7edd.html">base</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -57,10 +57,10 @@
 <div class="title">numeric.cc File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="numeric_8h_source.html">core/numeric.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="numeric_8h_source.html">base/numeric.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="assert_8h_source.html">assert/assert.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="angle_8h_source.html">core/angle.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="range_8h_source.html">core/range.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="angle_8h_source.html">base/angle.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="range_8h_source.html">base/range.h</a>&quot;</code><br />
 <code>#include &lt;cmath&gt;</code><br />
 </div>
 <p><a href="numeric_8cc_source.html">Go to the source code of this file.</a></p>
@@ -69,48 +69,44 @@
 Namespaces</h2></td></tr>
 <tr class="memitem:namespaceeu"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html">eu</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:namespaceeu_1_1core"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html">eu::core</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a8daa4a24172514a122e69f9cb421797a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#a8daa4a24172514a122e69f9cb421797a">eu::core::is_equal</a> (int lhs, int rhs)</td></tr>
-<tr class="separator:a8daa4a24172514a122e69f9cb421797a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9c576f0365e45534565bf0c1023b3bee"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#a9c576f0365e45534565bf0c1023b3bee">eu::core::is_zero</a> (int r)</td></tr>
-<tr class="separator:a9c576f0365e45534565bf0c1023b3bee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac0d403a9faec08e7bebe86216a255c2c"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#ac0d403a9faec08e7bebe86216a255c2c">eu::core::clamp_zero</a> (float r)</td></tr>
-<tr class="separator:ac0d403a9faec08e7bebe86216a255c2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6f7ced640ae5e6c5fcdab9691c39b0ad"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#a6f7ced640ae5e6c5fcdab9691c39b0ad">eu::core::floor</a> (float v)</td></tr>
-<tr class="separator:a6f7ced640ae5e6c5fcdab9691c39b0ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7c0d116c6461f8914143f25cd58e28a3"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#a7c0d116c6461f8914143f25cd58e28a3">eu::core::ceil</a> (float v)</td></tr>
-<tr class="separator:a7c0d116c6461f8914143f25cd58e28a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d11901b63dacff3657e4eb36c882734"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#a5d11901b63dacff3657e4eb36c882734">eu::core::floor_to_int</a> (float v)</td></tr>
-<tr class="separator:a5d11901b63dacff3657e4eb36c882734"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a32649178d8af85f62bd10935ba943d20"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#a32649178d8af85f62bd10935ba943d20">eu::core::ceil_to_int</a> (float v)</td></tr>
-<tr class="separator:a32649178d8af85f62bd10935ba943d20"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae8e507d9f980f82835d83135a6775e9f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#ae8e507d9f980f82835d83135a6775e9f">eu::core::get_sign</a> (float r)</td></tr>
-<tr class="memdesc:ae8e507d9f980f82835d83135a6775e9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the sign as a positive or a negative int.  <a href="namespaceeu_1_1core.html#ae8e507d9f980f82835d83135a6775e9f">More...</a><br /></td></tr>
-<tr class="separator:ae8e507d9f980f82835d83135a6775e9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a948a6a1f610e8f558a829c02436f4326"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#a948a6a1f610e8f558a829c02436f4326">eu::core::get_sign</a> (int r)</td></tr>
-<tr class="separator:a948a6a1f610e8f558a829c02436f4326"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa9de3f3ef0fa341dfea6ad504d835eda"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#aa9de3f3ef0fa341dfea6ad504d835eda">eu::core::get_sign</a> (bool b)</td></tr>
-<tr class="memdesc:aa9de3f3ef0fa341dfea6ad504d835eda"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns either 1 or -1.  <a href="namespaceeu_1_1core.html#aa9de3f3ef0fa341dfea6ad504d835eda">More...</a><br /></td></tr>
-<tr class="separator:aa9de3f3ef0fa341dfea6ad504d835eda"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af8920a3efebb1863a969f7e698e8e829"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#af8920a3efebb1863a969f7e698e8e829">eu::core::lerp_float</a> (float f, float scale, float t)</td></tr>
-<tr class="separator:af8920a3efebb1863a969f7e698e8e829"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a278f7c15e69df86f874018d119293519"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#a278f7c15e69df86f874018d119293519">eu::core::square</a> (float r)</td></tr>
-<tr class="separator:a278f7c15e69df86f874018d119293519"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a660a28e5c7dd5a7d20deb9736ecf5537"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#a660a28e5c7dd5a7d20deb9736ecf5537">eu::core::sqrt</a> (float r)</td></tr>
-<tr class="separator:a660a28e5c7dd5a7d20deb9736ecf5537"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad13a163ac84875e28c80aa2916ac382a"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#ad13a163ac84875e28c80aa2916ac382a">eu::core::log</a> (float r)</td></tr>
-<tr class="separator:ad13a163ac84875e28c80aa2916ac382a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8214e442b6a1d3ae9fa81efaa85ac44d"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#a8214e442b6a1d3ae9fa81efaa85ac44d">eu::core::mod</a> (float numer, float denumer)</td></tr>
-<tr class="separator:a8214e442b6a1d3ae9fa81efaa85ac44d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8baf67305f09b74951ea9675c792bc0f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#a8baf67305f09b74951ea9675c792bc0f">eu::core::is_within_inclusive_as_int</a> (int min, int c, int max)</td></tr>
-<tr class="separator:a8baf67305f09b74951ea9675c792bc0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af89639df6b0e361c9d2b12bbc9d2d96b"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#af89639df6b0e361c9d2b12bbc9d2d96b">eu::core::round</a> (float num, float gran)</td></tr>
-<tr class="memdesc:af89639df6b0e361c9d2b12bbc9d2d96b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rounds a value to the nearest nice value.  <a href="namespaceeu_1_1core.html#af89639df6b0e361c9d2b12bbc9d2d96b">More...</a><br /></td></tr>
-<tr class="separator:af89639df6b0e361c9d2b12bbc9d2d96b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84234ac42f340bb5b38c0a34f4cd0e3f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html#a84234ac42f340bb5b38c0a34f4cd0e3f">eu::is_equal</a> (int lhs, int rhs)</td></tr>
+<tr class="separator:a84234ac42f340bb5b38c0a34f4cd0e3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4cd8cf9bbadd516833a572bfd4abc3b0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html#a4cd8cf9bbadd516833a572bfd4abc3b0">eu::is_zero</a> (int r)</td></tr>
+<tr class="separator:a4cd8cf9bbadd516833a572bfd4abc3b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18b5929af6c64c2b319d0f5709430afc"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html#a18b5929af6c64c2b319d0f5709430afc">eu::clamp_zero</a> (float r)</td></tr>
+<tr class="separator:a18b5929af6c64c2b319d0f5709430afc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac953ee0edbaff0e5063d4d697c66f627"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html#ac953ee0edbaff0e5063d4d697c66f627">eu::floor</a> (float v)</td></tr>
+<tr class="separator:ac953ee0edbaff0e5063d4d697c66f627"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a82a16bae768ee6881fb591fddd27c507"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html#a82a16bae768ee6881fb591fddd27c507">eu::ceil</a> (float v)</td></tr>
+<tr class="separator:a82a16bae768ee6881fb591fddd27c507"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2fbc53ac0f3d3a135f913bf0e55abde"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html#af2fbc53ac0f3d3a135f913bf0e55abde">eu::floor_to_int</a> (float v)</td></tr>
+<tr class="separator:af2fbc53ac0f3d3a135f913bf0e55abde"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3fafe9e7e4edf309c645464e089d0b0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html#ae3fafe9e7e4edf309c645464e089d0b0">eu::ceil_to_int</a> (float v)</td></tr>
+<tr class="separator:ae3fafe9e7e4edf309c645464e089d0b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f52df7e071a1911e8ccdfe482a4558f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html#a8f52df7e071a1911e8ccdfe482a4558f">eu::get_sign</a> (float r)</td></tr>
+<tr class="memdesc:a8f52df7e071a1911e8ccdfe482a4558f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the sign as a positive or a negative int.  <a href="namespaceeu.html#a8f52df7e071a1911e8ccdfe482a4558f">More...</a><br /></td></tr>
+<tr class="separator:a8f52df7e071a1911e8ccdfe482a4558f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad04118a0cac718a871b8917afbd44450"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html#ad04118a0cac718a871b8917afbd44450">eu::get_sign</a> (int r)</td></tr>
+<tr class="separator:ad04118a0cac718a871b8917afbd44450"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1df61f8b3dbd8de93e41fb60b93db4a4"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html#a1df61f8b3dbd8de93e41fb60b93db4a4">eu::get_sign</a> (bool b)</td></tr>
+<tr class="memdesc:a1df61f8b3dbd8de93e41fb60b93db4a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns either 1 or -1.  <a href="namespaceeu.html#a1df61f8b3dbd8de93e41fb60b93db4a4">More...</a><br /></td></tr>
+<tr class="separator:a1df61f8b3dbd8de93e41fb60b93db4a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3bd12ab44428ae8a36fd69bd74afef85"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html#a3bd12ab44428ae8a36fd69bd74afef85">eu::lerp_float</a> (float f, float scale, float t)</td></tr>
+<tr class="separator:a3bd12ab44428ae8a36fd69bd74afef85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a692b7283c3a58ab27de56366b3fadbd4"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html#a692b7283c3a58ab27de56366b3fadbd4">eu::square</a> (float r)</td></tr>
+<tr class="separator:a692b7283c3a58ab27de56366b3fadbd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a066452fba287c9fcb6a0188ea8424760"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html#a066452fba287c9fcb6a0188ea8424760">eu::sqrt</a> (float r)</td></tr>
+<tr class="separator:a066452fba287c9fcb6a0188ea8424760"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d43cf27d1afca3da4e04b3b8451c9f1"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html#a7d43cf27d1afca3da4e04b3b8451c9f1">eu::mod</a> (float numer, float denumer)</td></tr>
+<tr class="separator:a7d43cf27d1afca3da4e04b3b8451c9f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a502ba547bcbe1c6035ed180e732cd80b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html#a502ba547bcbe1c6035ed180e732cd80b">eu::is_within_inclusive_as_int</a> (int min, int c, int max)</td></tr>
+<tr class="separator:a502ba547bcbe1c6035ed180e732cd80b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ef41a3ef0020cdf027febcf7cb38db3"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html#a7ef41a3ef0020cdf027febcf7cb38db3">eu::round</a> (float num, float gran)</td></tr>
+<tr class="memdesc:a7ef41a3ef0020cdf027febcf7cb38db3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rounds a value to the nearest nice value.  <a href="namespaceeu.html#a7ef41a3ef0020cdf027febcf7cb38db3">More...</a><br /></td></tr>
+<tr class="separator:a7ef41a3ef0020cdf027febcf7cb38db3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.17-->

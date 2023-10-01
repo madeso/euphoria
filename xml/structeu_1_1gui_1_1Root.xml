@@ -17,9 +17,9 @@
         </inbodydescription>
         <location file="libs/gui/src/gui/root.h" line="66" column="21" bodyfile="libs/gui/src/gui/root.h" bodystart="66" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeu_1_1gui_1_1Root_1a523b85dbff13bd5566f102c96f6e805e" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1core_1_1size2f" kindref="compound">core::size2f</ref></type>
-        <definition>core::size2f eu::gui::Root::size</definition>
+      <memberdef kind="variable" id="structeu_1_1gui_1_1Root_1a41963e1b9011be15c55542f4066ce9cd" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1size2f" kindref="compound">size2f</ref></type>
+        <definition>size2f eu::gui::Root::size</definition>
         <argsstring></argsstring>
         <name>size</name>
         <briefdescription>
@@ -28,7 +28,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/gui/src/gui/root.h" line="67" column="22" bodyfile="libs/gui/src/gui/root.h" bodystart="67" bodyend="-1"/>
+        <location file="libs/gui/src/gui/root.h" line="67" column="16" bodyfile="libs/gui/src/gui/root.h" bodystart="67" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1gui_1_1Root_1a3d2c7435c40db75a54a62814d89a70da" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1gui_1_1State" kindref="compound">State</ref></type>
@@ -84,13 +84,13 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
-      <memberdef kind="function" id="structeu_1_1gui_1_1Root_1a4fe6f0c446b683d4bb98b57680b25cb3" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1gui_1_1Root_1ad3cb4634ab6425542efb15cfe62099f4" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
         <type></type>
         <definition>eu::gui::Root::Root</definition>
-        <argsstring>(const core::size2f &amp;s)</argsstring>
+        <argsstring>(const size2f &amp;s)</argsstring>
         <name>Root</name>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1size2f" kindref="compound">core::size2f</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1size2f" kindref="compound">size2f</ref> &amp;</type>
           <declname>s</declname>
         </param>
         <briefdescription>
@@ -209,13 +209,13 @@
         </inbodydescription>
         <location file="libs/gui/src/gui/root.h" line="46" column="9" bodyfile="libs/gui/src/gui/root.cc" bodystart="24" bodyend="39"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1gui_1_1Root_1a8456f3984d27c913c3dcf7c03bd37f44" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1gui_1_1Root_1a4b99229be5dff53fdb9429391c6bcbb4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void eu::gui::Root::set_input_mouse</definition>
-        <argsstring>(const core::vec2f &amp;pos, bool down)</argsstring>
+        <argsstring>(const vec2f &amp;pos, bool down)</argsstring>
         <name>set_input_mouse</name>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1vec2f" kindref="compound">core::vec2f</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
           <declname>pos</declname>
         </param>
         <param>
@@ -247,13 +247,13 @@
         </inbodydescription>
         <location file="libs/gui/src/gui/root.h" line="58" column="9" bodyfile="libs/gui/src/gui/root.cc" bodystart="51" bodyend="56"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1gui_1_1Root_1a0a44be0fa4f15c24682f50328e955a1f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1gui_1_1Root_1a2815deeda8d18f3245f6c94e95a0b404" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void eu::gui::Root::set_size</definition>
-        <argsstring>(const core::size2f &amp;new_size)</argsstring>
+        <argsstring>(const size2f &amp;new_size)</argsstring>
         <name>set_size</name>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1size2f" kindref="compound">core::size2f</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1size2f" kindref="compound">size2f</ref> &amp;</type>
           <declname>new_size</declname>
         </param>
         <briefdescription>
@@ -287,7 +287,7 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-      <node id="7">
+      <node id="9">
         <label>eu::gui::LayoutData</label>
         <link refid="structeu_1_1gui_1_1LayoutData"/>
       </node>
@@ -295,45 +295,41 @@
         <label>eu::gui::Container</label>
         <link refid="structeu_1_1gui_1_1Container"/>
       </node>
-      <node id="4">
+      <node id="5">
         <label>eu::gui::State</label>
         <link refid="structeu_1_1gui_1_1State"/>
-        <childnode refid="5" relation="usage">
+        <childnode refid="6" relation="usage">
           <edgelabel>active</edgelabel>
           <edgelabel>hot</edgelabel>
         </childnode>
-        <childnode refid="9" relation="usage">
+        <childnode refid="10" relation="usage">
           <edgelabel>mouse</edgelabel>
         </childnode>
       </node>
-      <node id="5">
+      <node id="4">
+        <label>eu::size2f</label>
+        <link refid="structeu_1_1size2f"/>
+      </node>
+      <node id="6">
         <label>eu::gui::Widget</label>
         <link refid="structeu_1_1gui_1_1Widget"/>
-        <childnode refid="6" relation="usage">
+        <childnode refid="7" relation="usage">
           <edgelabel>margin</edgelabel>
           <edgelabel>padding</edgelabel>
-        </childnode>
-        <childnode refid="7" relation="usage">
-          <edgelabel>layout</edgelabel>
         </childnode>
         <childnode refid="8" relation="usage">
           <edgelabel>rect</edgelabel>
         </childnode>
-        <childnode refid="4" relation="usage">
+        <childnode refid="9" relation="usage">
+          <edgelabel>layout</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
           <edgelabel>ui_state</edgelabel>
         </childnode>
       </node>
       <node id="8">
-        <label>eu::core::Rectf</label>
-        <link refid="structeu_1_1core_1_1Rectf"/>
-      </node>
-      <node id="6">
-        <label>eu::core::Lrud&lt; float &gt;</label>
-        <link refid="structeu_1_1core_1_1Lrud"/>
-      </node>
-      <node id="9">
-        <label>eu::core::vec2f</label>
-        <link refid="structeu_1_1core_1_1vec2f"/>
+        <label>eu::Rectf</label>
+        <link refid="structeu_1_1Rectf"/>
       </node>
       <node id="1">
         <label>eu::gui::Root</label>
@@ -342,15 +338,19 @@
           <edgelabel>container</edgelabel>
         </childnode>
         <childnode refid="4" relation="usage">
-          <edgelabel>state</edgelabel>
-        </childnode>
-        <childnode refid="10" relation="usage">
           <edgelabel>size</edgelabel>
         </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>state</edgelabel>
+        </childnode>
+      </node>
+      <node id="7">
+        <label>eu::Lrud&lt; float &gt;</label>
+        <link refid="structeu_1_1Lrud"/>
       </node>
       <node id="10">
-        <label>eu::core::size2f</label>
-        <link refid="structeu_1_1core_1_1size2f"/>
+        <label>eu::vec2f</label>
+        <link refid="structeu_1_1vec2f"/>
       </node>
       <node id="2">
         <label>eu::gui::LayoutContainer</label>
@@ -368,12 +368,12 @@
       <member refid="structeu_1_1gui_1_1Root_1a61dcd4da3b4ebb57e89a2a818b8facd3" prot="public" virt="non-virtual"><scope>eu::gui::Root</scope><name>operator=</name></member>
       <member refid="structeu_1_1gui_1_1Root_1ab73b4c584c5807dae3169baf884f7b5d" prot="public" virt="non-virtual"><scope>eu::gui::Root</scope><name>operator=</name></member>
       <member refid="structeu_1_1gui_1_1Root_1aa319db9d619039e931cddc098484469d" prot="public" virt="non-virtual"><scope>eu::gui::Root</scope><name>render</name></member>
-      <member refid="structeu_1_1gui_1_1Root_1a4fe6f0c446b683d4bb98b57680b25cb3" prot="public" virt="non-virtual"><scope>eu::gui::Root</scope><name>Root</name></member>
+      <member refid="structeu_1_1gui_1_1Root_1ad3cb4634ab6425542efb15cfe62099f4" prot="public" virt="non-virtual"><scope>eu::gui::Root</scope><name>Root</name></member>
       <member refid="structeu_1_1gui_1_1Root_1a07f2f60d77f526cc76a9ea2b26e13a06" prot="public" virt="non-virtual"><scope>eu::gui::Root</scope><name>Root</name></member>
       <member refid="structeu_1_1gui_1_1Root_1ad2b85f721e1aec988a1f5ba0606ac21d" prot="public" virt="non-virtual"><scope>eu::gui::Root</scope><name>Root</name></member>
-      <member refid="structeu_1_1gui_1_1Root_1a8456f3984d27c913c3dcf7c03bd37f44" prot="public" virt="non-virtual"><scope>eu::gui::Root</scope><name>set_input_mouse</name></member>
-      <member refid="structeu_1_1gui_1_1Root_1a0a44be0fa4f15c24682f50328e955a1f" prot="public" virt="non-virtual"><scope>eu::gui::Root</scope><name>set_size</name></member>
-      <member refid="structeu_1_1gui_1_1Root_1a523b85dbff13bd5566f102c96f6e805e" prot="public" virt="non-virtual"><scope>eu::gui::Root</scope><name>size</name></member>
+      <member refid="structeu_1_1gui_1_1Root_1a4b99229be5dff53fdb9429391c6bcbb4" prot="public" virt="non-virtual"><scope>eu::gui::Root</scope><name>set_input_mouse</name></member>
+      <member refid="structeu_1_1gui_1_1Root_1a2815deeda8d18f3245f6c94e95a0b404" prot="public" virt="non-virtual"><scope>eu::gui::Root</scope><name>set_size</name></member>
+      <member refid="structeu_1_1gui_1_1Root_1a41963e1b9011be15c55542f4066ce9cd" prot="public" virt="non-virtual"><scope>eu::gui::Root</scope><name>size</name></member>
       <member refid="structeu_1_1gui_1_1Root_1a3fdc940ecfbe88588e88967c63c3fbd5" prot="public" virt="non-virtual"><scope>eu::gui::Root</scope><name>skins</name></member>
       <member refid="structeu_1_1gui_1_1Root_1a3d2c7435c40db75a54a62814d89a70da" prot="public" virt="non-virtual"><scope>eu::gui::Root</scope><name>state</name></member>
       <member refid="structeu_1_1gui_1_1Root_1a67449fb769595a1bc7c2c0f4df2daa4a" prot="public" virt="non-virtual"><scope>eu::gui::Root</scope><name>update</name></member>

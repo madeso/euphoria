@@ -85,7 +85,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="185" column="9" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="245" bodyend="251"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="185" column="9" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="241" bodyend="247"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

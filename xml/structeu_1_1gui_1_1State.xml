@@ -4,19 +4,19 @@
     <compoundname>eu::gui::State</compoundname>
     <includes refid="uistate_8h" local="no">uistate.h</includes>
       <sectiondef kind="public-attrib">
-      <memberdef kind="variable" id="structeu_1_1gui_1_1State_1a566f34aedb696529ca683096675743e3" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1core_1_1vec2f" kindref="compound">core::vec2f</ref></type>
-        <definition>core::vec2f eu::gui::State::mouse</definition>
+      <memberdef kind="variable" id="structeu_1_1gui_1_1State_1a017615b1898d78af319d8715d4c374fa" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1vec2f" kindref="compound">vec2f</ref></type>
+        <definition>vec2f eu::gui::State::mouse</definition>
         <argsstring></argsstring>
         <name>mouse</name>
-        <initializer>= <ref refid="structeu_1_1core_1_1vec2f" kindref="compound">core::vec2f</ref>(0.0f, 0.0f)</initializer>
+        <initializer>= <ref refid="structeu_1_1vec2f" kindref="compound">vec2f</ref>(0.0f, 0.0f)</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/gui/src/gui/uistate.h" line="16" column="21" bodyfile="libs/gui/src/gui/uistate.h" bodystart="16" bodyend="-1"/>
+        <location file="libs/gui/src/gui/uistate.h" line="16" column="15" bodyfile="libs/gui/src/gui/uistate.h" bodystart="16" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1gui_1_1State_1ac3e2ece6b413fb0d246800adcdc58fc2" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -168,7 +168,7 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-      <node id="4">
+      <node id="5">
         <label>eu::gui::LayoutData</label>
         <link refid="structeu_1_1gui_1_1LayoutData"/>
       </node>
@@ -191,26 +191,26 @@
           <edgelabel>padding</edgelabel>
         </childnode>
         <childnode refid="4" relation="usage">
-          <edgelabel>layout</edgelabel>
+          <edgelabel>rect</edgelabel>
         </childnode>
         <childnode refid="5" relation="usage">
-          <edgelabel>rect</edgelabel>
+          <edgelabel>layout</edgelabel>
         </childnode>
         <childnode refid="1" relation="usage">
           <edgelabel>ui_state</edgelabel>
         </childnode>
       </node>
-      <node id="5">
-        <label>eu::core::Rectf</label>
-        <link refid="structeu_1_1core_1_1Rectf"/>
+      <node id="4">
+        <label>eu::Rectf</label>
+        <link refid="structeu_1_1Rectf"/>
       </node>
       <node id="3">
-        <label>eu::core::Lrud&lt; float &gt;</label>
-        <link refid="structeu_1_1core_1_1Lrud"/>
+        <label>eu::Lrud&lt; float &gt;</label>
+        <link refid="structeu_1_1Lrud"/>
       </node>
       <node id="6">
-        <label>eu::core::vec2f</label>
-        <link refid="structeu_1_1core_1_1vec2f"/>
+        <label>eu::vec2f</label>
+        <link refid="structeu_1_1vec2f"/>
       </node>
     </collaborationgraph>
     <location file="libs/gui/src/gui/uistate.h" line="12" column="5" bodyfile="libs/gui/src/gui/uistate.h" bodystart="13" bodyend="37"/>
@@ -221,7 +221,7 @@
       <member refid="structeu_1_1gui_1_1State_1a782393041e5fadb8a6fe6af15635a55d" prot="public" virt="non-virtual"><scope>eu::gui::State</scope><name>has_active</name></member>
       <member refid="structeu_1_1gui_1_1State_1a8116948bea77d374293953d736d5a67a" prot="public" virt="non-virtual"><scope>eu::gui::State</scope><name>hot</name></member>
       <member refid="structeu_1_1gui_1_1State_1ae73c6de328811fcbdcbc66b2bee492d8" prot="public" virt="non-virtual"><scope>eu::gui::State</scope><name>is_mouse_down</name></member>
-      <member refid="structeu_1_1gui_1_1State_1a566f34aedb696529ca683096675743e3" prot="public" virt="non-virtual"><scope>eu::gui::State</scope><name>mouse</name></member>
+      <member refid="structeu_1_1gui_1_1State_1a017615b1898d78af319d8715d4c374fa" prot="public" virt="non-virtual"><scope>eu::gui::State</scope><name>mouse</name></member>
       <member refid="structeu_1_1gui_1_1State_1ac3e2ece6b413fb0d246800adcdc58fc2" prot="public" virt="non-virtual"><scope>eu::gui::State</scope><name>mouse_down</name></member>
       <member refid="structeu_1_1gui_1_1State_1aa766275c7bc226c0c56d40e6ddce961a" prot="public" virt="non-virtual"><scope>eu::gui::State</scope><name>set_active</name></member>
       <member refid="structeu_1_1gui_1_1State_1a671c7de0435994ea769ba7bb0dd23cf9" prot="public" virt="non-virtual"><scope>eu::gui::State</scope><name>set_hot</name></member>

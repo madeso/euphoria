@@ -28,7 +28,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/camera3.editor.cc" line="27" column="21" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="27" bodyend="28" declfile="libs/core/src/core/camera3.editor.h" declline="32" declcolumn="21"/>
+        <location file="libs/core/src/core/camera3.editor.cc" line="27" column="21" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="27" bodyend="28" declfile="libs/core/src/core/camera3.editor.h" declline="36" declcolumn="21"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1core_1_1detail_1ac7b5912badf061fd97a7724b1a4a788c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -120,7 +120,7 @@
           <declname>latest_viewport</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1vec2i" kindref="compound">vec2i</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1vec2i" kindref="compound">vec2i</ref> &amp;</type>
           <declname>latest_mouse</declname>
         </param>
         <param>

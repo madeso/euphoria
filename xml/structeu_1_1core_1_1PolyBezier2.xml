@@ -5,7 +5,7 @@
     <includes refid="polybezier_8h" local="no">polybezier.h</includes>
       <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structeu_1_1core_1_1PolyBezier2_1ace704797a79db864cb63ad5529b8371f" prot="public" static="no" mutable="no">
-        <type>std::vector&lt; <ref refid="structeu_1_1core_1_1vec2f" kindref="compound">vec2f</ref> &gt;</type>
+        <type>std::vector&lt; <ref refid="structeu_1_1vec2f" kindref="compound">vec2f</ref> &gt;</type>
         <definition>std::vector&lt;vec2f&gt; eu::core::PolyBezier2::points</definition>
         <argsstring></argsstring>
         <name>points</name>
@@ -53,7 +53,7 @@
         <argsstring>(const vec2f &amp;center)</argsstring>
         <name>PolyBezier2</name>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
           <declname>center</declname>
         </param>
         <briefdescription>
@@ -70,7 +70,7 @@
         <argsstring>(const vec2f &amp;p)</argsstring>
         <name>add_point</name>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
           <declname>p</declname>
         </param>
         <briefdescription>
@@ -91,7 +91,7 @@
           <declname>i</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
           <declname>delta</declname>
         </param>
         <briefdescription>

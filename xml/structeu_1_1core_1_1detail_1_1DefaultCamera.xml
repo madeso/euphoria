@@ -19,7 +19,7 @@
         <location file="libs/core/src/core/camera3.editor.cc" line="329" column="18" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="329" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1detail_1_1DefaultCamera_1a2f86228b04886fac77ebfb5865c63b3f" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1core_1_1vec2i" kindref="compound">vec2i</ref></type>
+        <type><ref refid="structeu_1_1vec2i" kindref="compound">vec2i</ref></type>
         <definition>vec2i eu::core::detail::DefaultCamera::latest_mouse</definition>
         <argsstring></argsstring>
         <name>latest_mouse</name>
@@ -180,7 +180,7 @@
           <declname>shift</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1vec2i" kindref="compound">vec2i</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1vec2i" kindref="compound">vec2i</ref> &amp;</type>
           <declname>mouse</declname>
         </param>
         <param>
@@ -279,31 +279,19 @@
         <childnode refid="2" relation="public-inheritance">
         </childnode>
         <childnode refid="3" relation="usage">
-          <edgelabel>latest_mouse</edgelabel>
-        </childnode>
-        <childnode refid="4" relation="usage">
           <edgelabel>latest_camera</edgelabel>
         </childnode>
-        <childnode refid="6" relation="usage">
+        <childnode refid="5" relation="usage">
           <edgelabel>latest_viewport</edgelabel>
         </childnode>
-      </node>
-      <node id="7">
-        <label>eu::core::Recti</label>
-        <link refid="structeu_1_1core_1_1Recti"/>
+        <childnode refid="7" relation="usage">
+          <edgelabel>latest_mouse</edgelabel>
+        </childnode>
       </node>
       <node id="5">
-        <label>eu::core::mat4f</label>
-        <link refid="structeu_1_1core_1_1mat4f"/>
-      </node>
-      <node id="3">
-        <label>eu::core::vec2i</label>
-        <link refid="structeu_1_1core_1_1vec2i"/>
-      </node>
-      <node id="6">
         <label>eu::core::Viewport</label>
         <link refid="structeu_1_1core_1_1Viewport"/>
-        <childnode refid="7" relation="usage">
+        <childnode refid="6" relation="usage">
           <edgelabel>bounds</edgelabel>
         </childnode>
       </node>
@@ -311,15 +299,27 @@
         <label>eu::core::detail::EditorCameraState3</label>
         <link refid="structeu_1_1core_1_1detail_1_1EditorCameraState3"/>
       </node>
+      <node id="6">
+        <label>eu::Recti</label>
+        <link refid="structeu_1_1Recti"/>
+      </node>
       <node id="4">
+        <label>eu::mat4f</label>
+        <link refid="structeu_1_1mat4f"/>
+      </node>
+      <node id="3">
         <label>eu::core::CompiledCamera3</label>
         <link refid="structeu_1_1core_1_1CompiledCamera3"/>
-        <childnode refid="5" relation="usage">
+        <childnode refid="4" relation="usage">
           <edgelabel>combined</edgelabel>
           <edgelabel>combined_inverted</edgelabel>
           <edgelabel>projection</edgelabel>
           <edgelabel>view</edgelabel>
         </childnode>
+      </node>
+      <node id="7">
+        <label>eu::vec2i</label>
+        <link refid="structeu_1_1vec2i"/>
       </node>
     </collaborationgraph>
     <location file="libs/core/src/core/camera3.editor.cc" line="327" column="9" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="328" bodyend="455"/>

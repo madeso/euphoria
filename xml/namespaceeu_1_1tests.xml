@@ -141,19 +141,19 @@
         </inbodydescription>
         <location file="libs/tests/src/tests/approx_equal.cc" line="7" column="5" bodyfile="libs/tests/src/tests/approx_equal.cc" bodystart="7" bodyend="12"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1tests_1a0ebdbc0941faa6757f7a99979f54d4ce" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeu_1_1tests_1a530eae83c0beb3b7032d54d97ce90eee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
         </templateparamlist>
         <type>bool</type>
         <definition>bool eu::tests::is_approximately_equal</definition>
-        <argsstring>(core::vec3f const &amp;lhs, core::vec3f const &amp;rhs, const ApproxData &amp;data)</argsstring>
+        <argsstring>(vec3f const &amp;lhs, vec3f const &amp;rhs, const ApproxData &amp;data)</argsstring>
         <name>is_approximately_equal</name>
         <param>
-          <type><ref refid="structeu_1_1core_1_1vec3f" kindref="compound">core::vec3f</ref> const &amp;</type>
+          <type><ref refid="structeu_1_1vec3f" kindref="compound">vec3f</ref> const &amp;</type>
           <declname>lhs</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1core_1_1vec3f" kindref="compound">core::vec3f</ref> const &amp;</type>
+          <type><ref refid="structeu_1_1vec3f" kindref="compound">vec3f</ref> const &amp;</type>
           <declname>rhs</declname>
         </param>
         <param>
@@ -168,19 +168,19 @@
         </inbodydescription>
         <location file="libs/tests/src/tests/approx_equal.cc" line="16" column="5" bodyfile="libs/tests/src/tests/approx_equal.cc" bodystart="16" bodyend="22" declfile="libs/tests/src/tests/approx_equal.h" declline="15" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1tests_1ad9de263f2a6df1f2960b0c93c9cab59c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeu_1_1tests_1aecb539dd14f5c5d64a75c8e234b69783" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
         </templateparamlist>
         <type>bool</type>
         <definition>bool eu::tests::is_approximately_equal</definition>
-        <argsstring>(core::vec4f const &amp;lhs, core::vec4f const &amp;rhs, const ApproxData &amp;data)</argsstring>
+        <argsstring>(vec4f const &amp;lhs, vec4f const &amp;rhs, const ApproxData &amp;data)</argsstring>
         <name>is_approximately_equal</name>
         <param>
-          <type><ref refid="structeu_1_1core_1_1vec4f" kindref="compound">core::vec4f</ref> const &amp;</type>
+          <type><ref refid="structeu_1_1vec4f" kindref="compound">vec4f</ref> const &amp;</type>
           <declname>lhs</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1core_1_1vec4f" kindref="compound">core::vec4f</ref> const &amp;</type>
+          <type><ref refid="structeu_1_1vec4f" kindref="compound">vec4f</ref> const &amp;</type>
           <declname>rhs</declname>
         </param>
         <param>
@@ -195,19 +195,19 @@
         </inbodydescription>
         <location file="libs/tests/src/tests/approx_equal.cc" line="26" column="5" bodyfile="libs/tests/src/tests/approx_equal.cc" bodystart="26" bodyend="36" declfile="libs/tests/src/tests/approx_equal.h" declline="22" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1tests_1a799b1d2c99d88c6b3bc8217bd308a723" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeu_1_1tests_1a187bc6bacf77cbbdf4cb8dd5ee4df75d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
         </templateparamlist>
         <type>bool</type>
         <definition>bool eu::tests::is_approximately_equal</definition>
-        <argsstring>(core::Rgb const &amp;lhs, core::Rgb const &amp;rhs, const ApproxData &amp;data)</argsstring>
+        <argsstring>(Rgb const &amp;lhs, Rgb const &amp;rhs, const ApproxData &amp;data)</argsstring>
         <name>is_approximately_equal</name>
         <param>
-          <type><ref refid="structeu_1_1core_1_1Rgb" kindref="compound">core::Rgb</ref> const &amp;</type>
+          <type><ref refid="structeu_1_1Rgb" kindref="compound">Rgb</ref> const &amp;</type>
           <declname>lhs</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1core_1_1Rgb" kindref="compound">core::Rgb</ref> const &amp;</type>
+          <type><ref refid="structeu_1_1Rgb" kindref="compound">Rgb</ref> const &amp;</type>
           <declname>rhs</declname>
         </param>
         <param>
@@ -222,19 +222,19 @@
         </inbodydescription>
         <location file="libs/tests/src/tests/approx_equal.cc" line="40" column="5" bodyfile="libs/tests/src/tests/approx_equal.cc" bodystart="40" bodyend="48" declfile="libs/tests/src/tests/approx_equal.h" declline="29" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1tests_1a59715d934260b19db882cccadd1c6b3d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeu_1_1tests_1a85e87035d9200eddb645e161e5103594" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
         </templateparamlist>
         <type>bool</type>
         <definition>bool eu::tests::is_approximately_equal</definition>
-        <argsstring>(core::Hsl const &amp;lhs, core::Hsl const &amp;rhs, const ApproxData &amp;data)</argsstring>
+        <argsstring>(Hsl const &amp;lhs, Hsl const &amp;rhs, const ApproxData &amp;data)</argsstring>
         <name>is_approximately_equal</name>
         <param>
-          <type><ref refid="structeu_1_1core_1_1Hsl" kindref="compound">core::Hsl</ref> const &amp;</type>
+          <type><ref refid="structeu_1_1Hsl" kindref="compound">Hsl</ref> const &amp;</type>
           <declname>lhs</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1core_1_1Hsl" kindref="compound">core::Hsl</ref> const &amp;</type>
+          <type><ref refid="structeu_1_1Hsl" kindref="compound">Hsl</ref> const &amp;</type>
           <declname>rhs</declname>
         </param>
         <param>
@@ -249,19 +249,19 @@
         </inbodydescription>
         <location file="libs/tests/src/tests/approx_equal.cc" line="52" column="5" bodyfile="libs/tests/src/tests/approx_equal.cc" bodystart="52" bodyend="60" declfile="libs/tests/src/tests/approx_equal.h" declline="43" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1tests_1aa89ad2534b5101fe16741c9b87a25bc2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeu_1_1tests_1af74f4364a4a7486cc406a8bd9b4eb1d6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
         </templateparamlist>
         <type>bool</type>
         <definition>bool eu::tests::is_approximately_equal</definition>
-        <argsstring>(core::unit3f const &amp;lhs, core::unit3f const &amp;rhs, const ApproxData &amp;data)</argsstring>
+        <argsstring>(unit3f const &amp;lhs, unit3f const &amp;rhs, const ApproxData &amp;data)</argsstring>
         <name>is_approximately_equal</name>
         <param>
-          <type><ref refid="structeu_1_1core_1_1unit3f" kindref="compound">core::unit3f</ref> const &amp;</type>
+          <type><ref refid="structeu_1_1unit3f" kindref="compound">unit3f</ref> const &amp;</type>
           <declname>lhs</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1core_1_1unit3f" kindref="compound">core::unit3f</ref> const &amp;</type>
+          <type><ref refid="structeu_1_1unit3f" kindref="compound">unit3f</ref> const &amp;</type>
           <declname>rhs</declname>
         </param>
         <param>
@@ -276,19 +276,19 @@
         </inbodydescription>
         <location file="libs/tests/src/tests/approx_equal.cc" line="64" column="5" bodyfile="libs/tests/src/tests/approx_equal.cc" bodystart="64" bodyend="70" declfile="libs/tests/src/tests/approx_equal.h" declline="50" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1tests_1abc30b0ac7fda737eecc7f7a7dca53775" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeu_1_1tests_1ad715452c6df4d6266a9102adff2b733e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
         </templateparamlist>
         <type>bool</type>
         <definition>bool eu::tests::is_approximately_equal</definition>
-        <argsstring>(core::Rgba const &amp;lhs, core::Rgba const &amp;rhs, const ApproxData &amp;data)</argsstring>
+        <argsstring>(Rgba const &amp;lhs, Rgba const &amp;rhs, const ApproxData &amp;data)</argsstring>
         <name>is_approximately_equal</name>
         <param>
-          <type><ref refid="structeu_1_1core_1_1Rgba" kindref="compound">core::Rgba</ref> const &amp;</type>
+          <type><ref refid="structeu_1_1Rgba" kindref="compound">Rgba</ref> const &amp;</type>
           <declname>lhs</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1core_1_1Rgba" kindref="compound">core::Rgba</ref> const &amp;</type>
+          <type><ref refid="structeu_1_1Rgba" kindref="compound">Rgba</ref> const &amp;</type>
           <declname>rhs</declname>
         </param>
         <param>
@@ -303,19 +303,19 @@
         </inbodydescription>
         <location file="libs/tests/src/tests/approx_equal.cc" line="74" column="5" bodyfile="libs/tests/src/tests/approx_equal.cc" bodystart="74" bodyend="83" declfile="libs/tests/src/tests/approx_equal.h" declline="36" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1tests_1a300d0e7459e2aee212b74f374775a247" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeu_1_1tests_1a6a7426293aa88c8b7f58b45348808d5c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
         </templateparamlist>
         <type>bool</type>
         <definition>bool eu::tests::is_approximately_equal</definition>
-        <argsstring>(core::quatf const &amp;lhs, core::quatf const &amp;rhs, const ApproxData &amp;data)</argsstring>
+        <argsstring>(quatf const &amp;lhs, quatf const &amp;rhs, const ApproxData &amp;data)</argsstring>
         <name>is_approximately_equal</name>
         <param>
-          <type><ref refid="structeu_1_1core_1_1quatf" kindref="compound">core::quatf</ref> const &amp;</type>
+          <type><ref refid="structeu_1_1quatf" kindref="compound">quatf</ref> const &amp;</type>
           <declname>lhs</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1core_1_1quatf" kindref="compound">core::quatf</ref> const &amp;</type>
+          <type><ref refid="structeu_1_1quatf" kindref="compound">quatf</ref> const &amp;</type>
           <declname>rhs</declname>
         </param>
         <param>
@@ -330,19 +330,19 @@
         </inbodydescription>
         <location file="libs/tests/src/tests/approx_equal.cc" line="88" column="5" bodyfile="libs/tests/src/tests/approx_equal.cc" bodystart="88" bodyend="94" declfile="libs/tests/src/tests/approx_equal.h" declline="57" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1tests_1ac8091ece9544f878ba7626da0fcb73fe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeu_1_1tests_1ad830165614f5e51d9c5d936f593a582e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
         </templateparamlist>
         <type>bool</type>
         <definition>bool eu::tests::is_approximately_equal</definition>
-        <argsstring>(core::AxisAngle const &amp;lhs, core::AxisAngle const &amp;rhs, const ApproxData &amp;data)</argsstring>
+        <argsstring>(AxisAngle const &amp;lhs, AxisAngle const &amp;rhs, const ApproxData &amp;data)</argsstring>
         <name>is_approximately_equal</name>
         <param>
-          <type><ref refid="structeu_1_1core_1_1AxisAngle" kindref="compound">core::AxisAngle</ref> const &amp;</type>
+          <type><ref refid="structeu_1_1AxisAngle" kindref="compound">AxisAngle</ref> const &amp;</type>
           <declname>lhs</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1core_1_1AxisAngle" kindref="compound">core::AxisAngle</ref> const &amp;</type>
+          <type><ref refid="structeu_1_1AxisAngle" kindref="compound">AxisAngle</ref> const &amp;</type>
           <declname>rhs</declname>
         </param>
         <param>
@@ -357,19 +357,19 @@
         </inbodydescription>
         <location file="libs/tests/src/tests/approx_equal.cc" line="98" column="5" bodyfile="libs/tests/src/tests/approx_equal.cc" bodystart="98" bodyend="121" declfile="libs/tests/src/tests/approx_equal.h" declline="64" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1tests_1a895b1bc09bab9d8d0e199d13a39d1a2c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeu_1_1tests_1aa18eb13078e5d12971ae73982cd50039" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
         </templateparamlist>
         <type>bool</type>
         <definition>bool eu::tests::is_approximately_equal</definition>
-        <argsstring>(core::mat4f const &amp;lhs, core::mat4f const &amp;rhs, const ApproxData &amp;data)</argsstring>
+        <argsstring>(mat4f const &amp;lhs, mat4f const &amp;rhs, const ApproxData &amp;data)</argsstring>
         <name>is_approximately_equal</name>
         <param>
-          <type><ref refid="structeu_1_1core_1_1mat4f" kindref="compound">core::mat4f</ref> const &amp;</type>
+          <type><ref refid="structeu_1_1mat4f" kindref="compound">mat4f</ref> const &amp;</type>
           <declname>lhs</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1core_1_1mat4f" kindref="compound">core::mat4f</ref> const &amp;</type>
+          <type><ref refid="structeu_1_1mat4f" kindref="compound">mat4f</ref> const &amp;</type>
           <declname>rhs</declname>
         </param>
         <param>

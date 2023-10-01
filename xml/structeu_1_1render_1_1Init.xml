@@ -145,9 +145,9 @@
         </inbodydescription>
         <location file="libs/render/src/render/init.h" line="28" column="14"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1render_1_1Init_1a7289fbb5e9de4a0a0876210c0cbdc78b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1core_1_1mat4f" kindref="compound">core::mat4f</ref></type>
-        <definition>core::mat4f eu::render::Init::get_ortho_projection</definition>
+      <memberdef kind="function" id="structeu_1_1render_1_1Init_1ad8fff37d72a5375e75edb7c2759837aa" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1mat4f" kindref="compound">mat4f</ref></type>
+        <definition>mat4f eu::render::Init::get_ortho_projection</definition>
         <argsstring>(float width, float height) const</argsstring>
         <name>get_ortho_projection</name>
         <param>
@@ -164,15 +164,15 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/init.h" line="30" column="22" bodyfile="libs/render/src/render/init.cc" bodystart="61" bodyend="65"/>
+        <location file="libs/render/src/render/init.h" line="30" column="16" bodyfile="libs/render/src/render/init.cc" bodystart="61" bodyend="65"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1render_1_1Init_1a7f73323f22a03ee90528a150d4579944" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1render_1_1Init_1a722c62ee5965d9d161f609e6316e1430" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void eu::render::Init::clear_screen</definition>
-        <argsstring>(const core::Rgb &amp;color) const</argsstring>
+        <argsstring>(const Rgb &amp;color) const</argsstring>
         <name>clear_screen</name>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1Rgb" kindref="compound">core::Rgb</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1Rgb" kindref="compound">Rgb</ref> &amp;</type>
           <declname>color</declname>
         </param>
         <briefdescription>
@@ -204,8 +204,8 @@
     <location file="libs/render/src/render/init.h" line="12" column="5" bodyfile="libs/render/src/render/init.h" bodystart="13" bodyend="38"/>
     <listofallmembers>
       <member refid="structeu_1_1render_1_1Init_1ac5912d10e13a21e39de7195b22ba0312" prot="public" virt="non-virtual"><scope>eu::render::Init</scope><name>BlendHack</name></member>
-      <member refid="structeu_1_1render_1_1Init_1a7f73323f22a03ee90528a150d4579944" prot="public" virt="non-virtual"><scope>eu::render::Init</scope><name>clear_screen</name></member>
-      <member refid="structeu_1_1render_1_1Init_1a7289fbb5e9de4a0a0876210c0cbdc78b" prot="public" virt="non-virtual"><scope>eu::render::Init</scope><name>get_ortho_projection</name></member>
+      <member refid="structeu_1_1render_1_1Init_1a722c62ee5965d9d161f609e6316e1430" prot="public" virt="non-virtual"><scope>eu::render::Init</scope><name>clear_screen</name></member>
+      <member refid="structeu_1_1render_1_1Init_1ad8fff37d72a5375e75edb7c2759837aa" prot="public" virt="non-virtual"><scope>eu::render::Init</scope><name>get_ortho_projection</name></member>
       <member refid="structeu_1_1render_1_1Init_1af61a309c1bce9284048cdaa1e57f44b6" prot="public" virt="non-virtual"><scope>eu::render::Init</scope><name>Init</name></member>
       <member refid="structeu_1_1render_1_1Init_1a193e0e28fee26d3b85d9bd8b2cfc9af8" prot="public" virt="non-virtual"><scope>eu::render::Init</scope><name>Init</name></member>
       <member refid="structeu_1_1render_1_1Init_1a85ea1d3d06ac8efa440f9643adf001fa" prot="public" virt="non-virtual"><scope>eu::render::Init</scope><name>Init</name></member>

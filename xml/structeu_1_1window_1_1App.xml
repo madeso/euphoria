@@ -18,9 +18,9 @@
         </inbodydescription>
         <location file="libs/window/src/window/app.h" line="17" column="14" bodyfile="libs/window/src/window/app.h" bodystart="17" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeu_1_1window_1_1App_1a5198cfd8024bd46060e760cb9f2b98f9" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1core_1_1Rgb" kindref="compound">core::Rgb</ref></type>
-        <definition>core::Rgb eu::window::App::clear_color</definition>
+      <memberdef kind="variable" id="structeu_1_1window_1_1App_1ae7083a728d76f8f9cab5ee69cdbc4e2e" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1Rgb" kindref="compound">Rgb</ref></type>
+        <definition>Rgb eu::window::App::clear_color</definition>
         <argsstring></argsstring>
         <name>clear_color</name>
         <briefdescription>
@@ -29,7 +29,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/app.h" line="18" column="19" bodyfile="libs/window/src/window/app.h" bodystart="18" bodyend="-1"/>
+        <location file="libs/window/src/window/app.h" line="18" column="13" bodyfile="libs/window/src/window/app.h" bodystart="18" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -155,6 +155,10 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
+      <node id="2">
+        <label>eu::Rgb</label>
+        <link refid="structeu_1_1Rgb"/>
+      </node>
       <node id="1">
         <label>eu::window::App</label>
         <link refid="structeu_1_1window_1_1App"/>
@@ -162,17 +166,13 @@
           <edgelabel>clear_color</edgelabel>
         </childnode>
       </node>
-      <node id="2">
-        <label>eu::core::Rgb</label>
-        <link refid="structeu_1_1core_1_1Rgb"/>
-      </node>
     </collaborationgraph>
     <location file="libs/window/src/window/app.h" line="15" column="5" bodyfile="libs/window/src/window/app.h" bodystart="16" bodyend="30"/>
     <listofallmembers>
       <member refid="structeu_1_1window_1_1App_1a53951e99504d8ac4b75f3bf8da870ebd" prot="public" virt="non-virtual"><scope>eu::window::App</scope><name>App</name></member>
       <member refid="structeu_1_1window_1_1App_1a246783ca142d2627ebdd0063bd0411e2" prot="public" virt="non-virtual"><scope>eu::window::App</scope><name>App</name></member>
       <member refid="structeu_1_1window_1_1App_1a3956f97810b8b26529ec8ec40f35e0c3" prot="public" virt="non-virtual"><scope>eu::window::App</scope><name>App</name></member>
-      <member refid="structeu_1_1window_1_1App_1a5198cfd8024bd46060e760cb9f2b98f9" prot="public" virt="non-virtual"><scope>eu::window::App</scope><name>clear_color</name></member>
+      <member refid="structeu_1_1window_1_1App_1ae7083a728d76f8f9cab5ee69cdbc4e2e" prot="public" virt="non-virtual"><scope>eu::window::App</scope><name>clear_color</name></member>
       <member refid="structeu_1_1window_1_1App_1ae026bf2e4444a92725dc9e3676f832c1" prot="public" virt="virtual"><scope>eu::window::App</scope><name>on_gui</name></member>
       <member refid="structeu_1_1window_1_1App_1a616f7786b96deb65ff0ace9eb17ae944" prot="public" virt="virtual"><scope>eu::window::App</scope><name>on_quit</name></member>
       <member refid="structeu_1_1window_1_1App_1a2cb3638737725d427a24e613de17756f" prot="public" virt="non-virtual"><scope>eu::window::App</scope><name>operator=</name></member>

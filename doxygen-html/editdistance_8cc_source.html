@@ -112,7 +112,7 @@
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                <span class="keyword">const</span> <span class="keywordtype">int</span> above = matrix[source_index - 1][target_index];</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                <span class="keyword">const</span> <span class="keywordtype">int</span> left = matrix[source_index][target_index - 1];</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                <span class="keyword">const</span> <span class="keywordtype">int</span> diag = matrix[source_index - 1][target_index - 1];</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                <span class="keywordtype">int</span> cell = <a class="code" href="namespaceeu_1_1core.html#ad3870359986324d79e00cf2a1c0c4f57">std::min</a>(above + 1, <a class="code" href="namespaceeu_1_1core.html#ad3870359986324d79e00cf2a1c0c4f57">std::min</a>(left + 1, diag + cost));</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                <span class="keywordtype">int</span> cell = <a class="code" href="namespaceeu.html#aaf1a3950938da15ce8c4835ab92ee46a">std::min</a>(above + 1, <a class="code" href="namespaceeu.html#aaf1a3950938da15ce8c4835ab92ee46a">std::min</a>(left + 1, diag + cost));</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                <span class="keywordflow">if</span>(source_index &gt; 2 &amp;&amp; target_index &gt; 2)</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                {</div>
@@ -176,7 +176,7 @@
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;                <span class="keyword">const</span> <span class="keywordtype">int</span> b = v1[row_index - 1] + 1;</div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;                <span class="keyword">const</span> <span class="keywordtype">int</span> c = v0[row_index - 1] + cost;</div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160; </div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;                v1[row_index] = <a class="code" href="namespaceeu_1_1core.html#ad3870359986324d79e00cf2a1c0c4f57">std::min</a>(<a class="code" href="namespaceeu_1_1core.html#ad3870359986324d79e00cf2a1c0c4f57">std::min</a>(m_min, b), c);</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;                v1[row_index] = <a class="code" href="namespaceeu.html#aaf1a3950938da15ce8c4835ab92ee46a">std::min</a>(<a class="code" href="namespaceeu.html#aaf1a3950938da15ce8c4835ab92ee46a">std::min</a>(m_min, b), c);</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;            }</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;            v0.swap(v1);</div>
@@ -189,9 +189,9 @@
 <div class="ttc" id="aassert_8h_html"><div class="ttname"><a href="assert_8h.html">assert.h</a></div></div>
 <div class="ttc" id="acint_8h_html"><div class="ttname"><a href="cint_8h.html">cint.h</a></div></div>
 <div class="ttc" id="aeditdistance_8h_html"><div class="ttname"><a href="editdistance_8h.html">editdistance.h</a></div></div>
-<div class="ttc" id="anamespaceeu_1_1core_html_ad3870359986324d79e00cf2a1c0c4f57"><div class="ttname"><a href="namespaceeu_1_1core.html#ad3870359986324d79e00cf2a1c0c4f57">eu::core::min</a></div><div class="ttdeci">vec3f min(const vec3f &amp;lhs, const vec3f &amp;rhs)</div><div class="ttdef"><b>Definition:</b> <a href="aabb_8cc_source.html#l00031">aabb.cc:31</a></div></div>
 <div class="ttc" id="anamespaceeu_html"><div class="ttname"><a href="namespaceeu.html">eu</a></div><div class="ttdef"><b>Definition:</b> <a href="assert_8h_source.html#l00089">assert.h:90</a></div></div>
 <div class="ttc" id="anamespaceeu_html_a175a9253ebea7fa874013257344e2a54"><div class="ttname"><a href="namespaceeu.html#a175a9253ebea7fa874013257344e2a54">eu::c_sizet_to_int</a></div><div class="ttdeci">int c_sizet_to_int(size_t t)</div><div class="ttdef"><b>Definition:</b> <a href="cint_8cc_source.html#l00011">cint.cc:11</a></div></div>
+<div class="ttc" id="anamespaceeu_html_aaf1a3950938da15ce8c4835ab92ee46a"><div class="ttname"><a href="namespaceeu.html#aaf1a3950938da15ce8c4835ab92ee46a">eu::min</a></div><div class="ttdeci">size2f min(const size2f lhs, const size2f rhs)</div><div class="ttdef"><b>Definition:</b> <a href="size2_8cc_source.html#l00140">size2.cc:140</a></div></div>
 <div class="ttc" id="anamespaceeu_html_ab2f47b63a33a6d3853f54665ba055b96"><div class="ttname"><a href="namespaceeu.html#ab2f47b63a33a6d3853f54665ba055b96">eu::calc_edit_distance_fast</a></div><div class="ttdeci">int calc_edit_distance_fast(const std::string &amp;the_row, const std::string &amp;the_col)</div><div class="ttdef"><b>Definition:</b> <a href="editdistance_8cc_source.html#l00086">editdistance.cc:86</a></div></div>
 <div class="ttc" id="anamespaceeu_html_afa6c8e77e7bd6872619a926ce0d5a894"><div class="ttname"><a href="namespaceeu.html#afa6c8e77e7bd6872619a926ce0d5a894">eu::calc_edit_distance</a></div><div class="ttdeci">int calc_edit_distance(const std::string &amp;source, const std::string &amp;target)</div><div class="ttdef"><b>Definition:</b> <a href="editdistance_8cc_source.html#l00014">editdistance.cc:14</a></div></div>
 </div><!-- fragment --></div><!-- contents -->

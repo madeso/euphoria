@@ -95,7 +95,7 @@
         <argsstring>(Random *rand)</argsstring>
         <name>get_random_item</name>
         <param>
-          <type><ref refid="structeu_1_1core_1_1Random" kindref="compound">Random</ref> *</type>
+          <type><ref refid="structeu_1_1Random" kindref="compound">Random</ref> *</type>
           <declname>rand</declname>
         </param>
         <briefdescription>

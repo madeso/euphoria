@@ -5,30 +5,19 @@
     <includes local="no">algorithm</includes>
     <includes local="no">utility</includes>
     <includes local="no">functional</includes>
-    <includes refid="vec2_8h" local="yes">core/vec2.h</includes>
-    <includes refid="vec3_8h" local="yes">core/vec3.h</includes>
+    <includes refid="vec2_8h" local="yes">base/vec2.h</includes>
+    <includes refid="vec3_8h" local="yes">base/vec3.h</includes>
     <includes local="yes">imgui/imgui.h</includes>
     <includedby refid="app_8cc" local="yes">libs/window/src/window/app.cc</includedby>
     <includedby refid="canvas_8cc" local="yes">libs/window/src/window/canvas.cc</includedby>
     <includedby refid="imgui__extra_8cc" local="yes">libs/window/src/window/imgui_extra.cc</includedby>
     <incdepgraph>
-      <node id="4">
-        <label>functional</label>
-      </node>
-      <node id="16">
-        <label>cstdint</label>
-      </node>
-      <node id="20">
-        <label>imgui/imgui.h</label>
-      </node>
-      <node id="15">
-        <label>base/ints.h</label>
-        <link refid="ints_8h"/>
-        <childnode refid="16" relation="include">
-        </childnode>
+      <node id="10">
+        <label>base/default_interpolate.h</label>
+        <link refid="default__interpolate_8h"/>
       </node>
       <node id="19">
-        <label>core/vec3.h</label>
+        <label>base/vec3.h</label>
         <link refid="vec3_8h"/>
         <childnode refid="6" relation="include">
         </childnode>
@@ -38,15 +27,36 @@
         </childnode>
         <childnode refid="7" relation="include">
         </childnode>
-        <childnode refid="14" relation="include">
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>functional</label>
+      </node>
+      <node id="15">
+        <label>cstdint</label>
+      </node>
+      <node id="20">
+        <label>imgui/imgui.h</label>
+      </node>
+      <node id="14">
+        <label>base/ints.h</label>
+        <link refid="ints_8h"/>
+        <childnode refid="15" relation="include">
         </childnode>
       </node>
       <node id="8">
         <label>string</label>
       </node>
-      <node id="18">
-        <label>core/vec.base.h</label>
-        <link refid="vec_8base_8h"/>
+      <node id="11">
+        <label>base/angle.h</label>
+        <link refid="angle_8h"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
       </node>
       <node id="7">
         <label>assert/assert.h</label>
@@ -56,32 +66,16 @@
         <childnode refid="9" relation="include">
         </childnode>
       </node>
-      <node id="5">
-        <label>core/vec2.h</label>
-        <link refid="vec2_8h"/>
-        <childnode refid="6" relation="include">
-        </childnode>
-        <childnode refid="7" relation="include">
-        </childnode>
+      <node id="13">
+        <label>base/numeric.h</label>
+        <link refid="numeric_8h"/>
         <childnode refid="10" relation="include">
         </childnode>
-        <childnode refid="11" relation="include">
-        </childnode>
-        <childnode refid="13" relation="include">
-        </childnode>
         <childnode refid="14" relation="include">
-        </childnode>
-        <childnode refid="18" relation="include">
         </childnode>
       </node>
       <node id="6">
         <label>tuple</label>
-      </node>
-      <node id="13">
-        <label>core/numeric.h</label>
-        <link refid="numeric_8h"/>
-        <childnode refid="10" relation="include">
-        </childnode>
       </node>
       <node id="9">
         <label>vector</label>
@@ -111,27 +105,35 @@
       <node id="17">
         <label>cstddef</label>
       </node>
-      <node id="10">
-        <label>core/interpolate.default.h</label>
-        <link refid="interpolate_8default_8h"/>
-      </node>
-      <node id="11">
-        <label>core/angle.h</label>
-        <link refid="angle_8h"/>
-        <childnode refid="12" relation="include">
+      <node id="5">
+        <label>base/vec2.h</label>
+        <link refid="vec2_8h"/>
+        <childnode refid="6" relation="include">
         </childnode>
-        <childnode refid="13" relation="include">
+        <childnode refid="7" relation="include">
         </childnode>
         <childnode refid="10" relation="include">
         </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
       </node>
-      <node id="14">
+      <node id="16">
         <label>base/cint.h</label>
         <link refid="cint_8h"/>
-        <childnode refid="15" relation="include">
+        <childnode refid="14" relation="include">
         </childnode>
         <childnode refid="17" relation="include">
         </childnode>
+      </node>
+      <node id="18">
+        <label>base/vec.base.h</label>
+        <link refid="vec_8base_8h"/>
       </node>
       <node id="2">
         <label>algorithm</label>
@@ -163,7 +165,6 @@
     </invincdepgraph>
     <innerclass refid="structeu_1_1window_1_1imgui_1_1VisuallyDisabledWidgets" prot="public">eu::window::imgui::VisuallyDisabledWidgets</innerclass>
     <innernamespace refid="namespaceeu">eu</innernamespace>
-    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
     <innernamespace refid="namespaceeu_1_1render">eu::render</innernamespace>
     <innernamespace refid="namespaceeu_1_1window">eu::window</innernamespace>
     <innernamespace refid="namespaceeu_1_1window_1_1imgui">eu::window::imgui</innernamespace>

@@ -1,0 +1,169 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1Hsl" kind="struct" language="C++" prot="public">
+    <compoundname>eu::Hsl</compoundname>
+    <includes refid="rgb_8h" local="no">rgb.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1Hsl_1a8c4b3306ae84974ce53fea17440bc75b" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1Angle" kindref="compound">Angle</ref></type>
+        <definition>Angle eu::Hsl::h</definition>
+        <argsstring></argsstring>
+        <name>h</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rgb.h" line="106" column="15" bodyfile="libs/base/src/base/rgb.h" bodystart="106" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1Hsl_1ad814b0226b0dd4f94edaa3955491b547" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float eu::Hsl::s</definition>
+        <argsstring></argsstring>
+        <name>s</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rgb.h" line="107" column="15" bodyfile="libs/base/src/base/rgb.h" bodystart="107" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1Hsl_1ab2810d6506cbe0e7cb0ed5f514d325f3" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float eu::Hsl::l</definition>
+        <argsstring></argsstring>
+        <name>l</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rgb.h" line="108" column="15" bodyfile="libs/base/src/base/rgb.h" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="structeu_1_1Hsl_1a4fa1c6ba457f50d2e4e4af4aa51db006" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr <ref refid="structeu_1_1Angle" kindref="compound">Angle</ref></type>
+        <definition>constexpr Angle eu::Hsl::red</definition>
+        <argsstring></argsstring>
+        <name>red</name>
+        <initializer>= <ref refid="structeu_1_1Angle_1ab337618cd98b7c22d33ebc08c6e2ed70" kindref="member">Angle::from_percent_of_360</ref>(0.0f)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rgb.h" line="111" column="32" bodyfile="libs/base/src/base/rgb.h" bodystart="111" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1Hsl_1ad874952c2d4800f3ecce973e3d45d3a8" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr <ref refid="structeu_1_1Angle" kindref="compound">Angle</ref></type>
+        <definition>constexpr Angle eu::Hsl::yellow</definition>
+        <argsstring></argsstring>
+        <name>yellow</name>
+        <initializer>= <ref refid="structeu_1_1Angle_1ab337618cd98b7c22d33ebc08c6e2ed70" kindref="member">Angle::from_percent_of_360</ref>(1 / 6.0f)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rgb.h" line="112" column="32" bodyfile="libs/base/src/base/rgb.h" bodystart="112" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1Hsl_1a0ac04a466bf628383a09f29a56550170" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr <ref refid="structeu_1_1Angle" kindref="compound">Angle</ref></type>
+        <definition>constexpr Angle eu::Hsl::green</definition>
+        <argsstring></argsstring>
+        <name>green</name>
+        <initializer>= <ref refid="structeu_1_1Angle_1ab337618cd98b7c22d33ebc08c6e2ed70" kindref="member">Angle::from_percent_of_360</ref>(2 / 6.0f)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rgb.h" line="113" column="32" bodyfile="libs/base/src/base/rgb.h" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1Hsl_1abe4207dc684d7386bdb6ada4606cc17c" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr <ref refid="structeu_1_1Angle" kindref="compound">Angle</ref></type>
+        <definition>constexpr Angle eu::Hsl::cyan</definition>
+        <argsstring></argsstring>
+        <name>cyan</name>
+        <initializer>= <ref refid="structeu_1_1Angle_1ab337618cd98b7c22d33ebc08c6e2ed70" kindref="member">Angle::from_percent_of_360</ref>(3 / 6.0f)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rgb.h" line="114" column="32" bodyfile="libs/base/src/base/rgb.h" bodystart="114" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1Hsl_1a37e5697debe973ca5cb19bee29049661" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr <ref refid="structeu_1_1Angle" kindref="compound">Angle</ref></type>
+        <definition>constexpr Angle eu::Hsl::blue</definition>
+        <argsstring></argsstring>
+        <name>blue</name>
+        <initializer>= <ref refid="structeu_1_1Angle_1ab337618cd98b7c22d33ebc08c6e2ed70" kindref="member">Angle::from_percent_of_360</ref>(4 / 6.0f)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rgb.h" line="115" column="32" bodyfile="libs/base/src/base/rgb.h" bodystart="115" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1Hsl_1a4b6395fe0814dc25e953e4da083e5002" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr <ref refid="structeu_1_1Angle" kindref="compound">Angle</ref></type>
+        <definition>constexpr Angle eu::Hsl::magenta</definition>
+        <argsstring></argsstring>
+        <name>magenta</name>
+        <initializer>= <ref refid="structeu_1_1Angle_1ab337618cd98b7c22d33ebc08c6e2ed70" kindref="member">Angle::from_percent_of_360</ref>(5 / 6.0f)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rgb.h" line="116" column="32" bodyfile="libs/base/src/base/rgb.h" bodystart="116" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>eu::Hsl</label>
+        <link refid="structeu_1_1Hsl"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>blue</edgelabel>
+          <edgelabel>cyan</edgelabel>
+          <edgelabel>green</edgelabel>
+          <edgelabel>h</edgelabel>
+          <edgelabel>magenta</edgelabel>
+          <edgelabel>red</edgelabel>
+          <edgelabel>yellow</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>eu::Angle</label>
+        <link refid="structeu_1_1Angle"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/base/src/base/rgb.h" line="103" column="5" bodyfile="libs/base/src/base/rgb.h" bodystart="104" bodyend="117"/>
+    <listofallmembers>
+      <member refid="structeu_1_1Hsl_1a37e5697debe973ca5cb19bee29049661" prot="public" virt="non-virtual"><scope>eu::Hsl</scope><name>blue</name></member>
+      <member refid="structeu_1_1Hsl_1abe4207dc684d7386bdb6ada4606cc17c" prot="public" virt="non-virtual"><scope>eu::Hsl</scope><name>cyan</name></member>
+      <member refid="structeu_1_1Hsl_1a0ac04a466bf628383a09f29a56550170" prot="public" virt="non-virtual"><scope>eu::Hsl</scope><name>green</name></member>
+      <member refid="structeu_1_1Hsl_1a8c4b3306ae84974ce53fea17440bc75b" prot="public" virt="non-virtual"><scope>eu::Hsl</scope><name>h</name></member>
+      <member refid="structeu_1_1Hsl_1ab2810d6506cbe0e7cb0ed5f514d325f3" prot="public" virt="non-virtual"><scope>eu::Hsl</scope><name>l</name></member>
+      <member refid="structeu_1_1Hsl_1a4b6395fe0814dc25e953e4da083e5002" prot="public" virt="non-virtual"><scope>eu::Hsl</scope><name>magenta</name></member>
+      <member refid="structeu_1_1Hsl_1a4fa1c6ba457f50d2e4e4af4aa51db006" prot="public" virt="non-virtual"><scope>eu::Hsl</scope><name>red</name></member>
+      <member refid="structeu_1_1Hsl_1ad814b0226b0dd4f94edaa3955491b547" prot="public" virt="non-virtual"><scope>eu::Hsl</scope><name>s</name></member>
+      <member refid="structeu_1_1Hsl_1ad874952c2d4800f3ecce973e3d45d3a8" prot="public" virt="non-virtual"><scope>eu::Hsl</scope><name>yellow</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

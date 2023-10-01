@@ -5,7 +5,7 @@
     <includes refid="fpscontroller_8h" local="no">fpscontroller.h</includes>
       <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structeu_1_1core_1_1FpsController_1adc76b18c96564368544fcf4ae95d113a" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1core_1_1Angle" kindref="compound">Angle</ref></type>
+        <type><ref refid="structeu_1_1Angle" kindref="compound">Angle</ref></type>
         <definition>Angle eu::core::FpsController::rotation_angle</definition>
         <argsstring></argsstring>
         <name>rotation_angle</name>
@@ -18,7 +18,7 @@
         <location file="libs/core/src/core/fpscontroller.h" line="13" column="15" bodyfile="libs/core/src/core/fpscontroller.h" bodystart="13" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1FpsController_1ad498bf882550d0c5712b1c06923f29b0" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1core_1_1Angle" kindref="compound">Angle</ref></type>
+        <type><ref refid="structeu_1_1Angle" kindref="compound">Angle</ref></type>
         <definition>Angle eu::core::FpsController::look_angle</definition>
         <argsstring></argsstring>
         <name>look_angle</name>
@@ -115,7 +115,7 @@
         <location file="libs/core/src/core/fpscontroller.h" line="20" column="14" bodyfile="libs/core/src/core/fpscontroller.h" bodystart="20" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1FpsController_1a1da7b180a3dc406f620c432f963aba10" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
+        <type><ref refid="structeu_1_1vec3f" kindref="compound">vec3f</ref></type>
         <definition>vec3f eu::core::FpsController::position</definition>
         <argsstring></argsstring>
         <name>position</name>
@@ -336,7 +336,7 @@
         <argsstring>(const unit3f &amp;v)</argsstring>
         <name>look_in_direction</name>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1unit3f" kindref="compound">unit3f</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1unit3f" kindref="compound">unit3f</ref> &amp;</type>
           <declname>v</declname>
         </param>
         <briefdescription>
@@ -348,7 +348,7 @@
         <location file="libs/core/src/core/fpscontroller.h" line="36" column="14" bodyfile="libs/core/src/core/fpscontroller.cc" bodystart="152" bodyend="156"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1FpsController_1a11494b0f76a1033cde3d3147d23e64a9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1core_1_1quatf" kindref="compound">quatf</ref></type>
+        <type><ref refid="structeu_1_1quatf" kindref="compound">quatf</ref></type>
         <definition>quatf eu::core::FpsController::get_rotation</definition>
         <argsstring>() const</argsstring>
         <name>get_rotation</name>
@@ -363,16 +363,16 @@
       </sectiondef>
       <sectiondef kind="public-static-func">
       <memberdef kind="function" id="structeu_1_1core_1_1FpsController_1a42a0100d011d8ab6ae5fd73752370888" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1core_1_1quatf" kindref="compound">quatf</ref></type>
+        <type><ref refid="structeu_1_1quatf" kindref="compound">quatf</ref></type>
         <definition>quatf eu::core::FpsController::calc_rotation</definition>
         <argsstring>(const Angle &amp;rotation_angle, const Angle &amp;look_angle)</argsstring>
         <name>calc_rotation</name>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1Angle" kindref="compound">Angle</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1Angle" kindref="compound">Angle</ref> &amp;</type>
           <declname>rotation_angle</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1Angle" kindref="compound">Angle</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1Angle" kindref="compound">Angle</ref> &amp;</type>
           <declname>look_angle</declname>
         </param>
         <briefdescription>
@@ -389,27 +389,27 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-      <node id="2">
+      <node id="3">
         <label>eu::core::Sensitivity</label>
         <link refid="structeu_1_1core_1_1Sensitivity"/>
       </node>
-      <node id="4">
-        <label>eu::core::vec3f</label>
-        <link refid="structeu_1_1core_1_1vec3f"/>
+      <node id="2">
+        <label>eu::Angle</label>
+        <link refid="structeu_1_1Angle"/>
       </node>
-      <node id="3">
-        <label>eu::core::Angle</label>
-        <link refid="structeu_1_1core_1_1Angle"/>
+      <node id="4">
+        <label>eu::vec3f</label>
+        <link refid="structeu_1_1vec3f"/>
       </node>
       <node id="1">
         <label>eu::core::FpsController</label>
         <link refid="structeu_1_1core_1_1FpsController"/>
         <childnode refid="2" relation="usage">
-          <edgelabel>look_sensitivity</edgelabel>
-        </childnode>
-        <childnode refid="3" relation="usage">
           <edgelabel>look_angle</edgelabel>
           <edgelabel>rotation_angle</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>look_sensitivity</edgelabel>
         </childnode>
         <childnode refid="4" relation="usage">
           <edgelabel>position</edgelabel>

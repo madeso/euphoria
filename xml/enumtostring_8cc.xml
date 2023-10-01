@@ -2,7 +2,7 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="enumtostring_8cc" kind="file" language="C++">
     <compoundname>enumtostring.cc</compoundname>
-    <includes refid="enumtostring_8h" local="yes">core/enumtostring.h</includes>
+    <includes refid="enumtostring_8h" local="yes">base/enumtostring.h</includes>
     <incdepgraph>
       <node id="10">
         <label>queue</label>
@@ -27,6 +27,12 @@
         <childnode refid="7" relation="include">
         </childnode>
       </node>
+      <node id="1">
+        <label>libs/base/src/base/enumtostring.cc</label>
+        <link refid="enumtostring_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
       <node id="13">
         <label>magic_enum/magic_enum.hpp</label>
       </node>
@@ -43,14 +49,8 @@
         <childnode refid="12" relation="include">
         </childnode>
       </node>
-      <node id="1">
-        <label>libs/core/src/core/enumtostring.cc</label>
-        <link refid="enumtostring_8cc"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-      </node>
       <node id="2">
-        <label>core/enumtostring.h</label>
+        <label>base/enumtostring.h</label>
         <link refid="enumtostring_8h"/>
         <childnode refid="3" relation="include">
         </childnode>
@@ -80,6 +80,6 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/enumtostring.cc"/>
+    <location file="libs/base/src/base/enumtostring.cc"/>
   </compounddef>
 </doxygen>

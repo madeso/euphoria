@@ -5,7 +5,7 @@
     <basecompoundref refid="structeu_1_1core_1_1generator_1_1Rule" prot="public" virt="non-virtual">eu::core::generator::Rule</basecompoundref>
       <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structeu_1_1core_1_1generator_1_1RandomFillRule_1a3ee136676b54ddeab6c48458d3082d50" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1core_1_1Random" kindref="compound">Random</ref> *</type>
+        <type><ref refid="structeu_1_1Random" kindref="compound">Random</ref> *</type>
         <definition>Random* eu::core::generator::RandomFillRule::rand</definition>
         <argsstring></argsstring>
         <name>rand</name>
@@ -31,7 +31,7 @@
         <location file="libs/core/src/core/generator_cell.cc" line="42" column="15" bodyfile="libs/core/src/core/generator_cell.cc" bodystart="42" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1generator_1_1RandomFillRule_1a87becf66fd7c991fbc1c786253d66fbe" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1core_1_1Lrud" kindref="compound">Lrud</ref>&lt; <ref refid="namespaceeu_1_1core_1ad816ec64a4ad2c10feb5ed0b227785df" kindref="member">BorderSetupRule</ref> &gt;</type>
+        <type><ref refid="structeu_1_1Lrud" kindref="compound">Lrud</ref>&lt; <ref refid="namespaceeu_1_1core_1ad816ec64a4ad2c10feb5ed0b227785df" kindref="member">BorderSetupRule</ref> &gt;</type>
         <definition>Lrud&lt;BorderSetupRule&gt; eu::core::generator::RandomFillRule::border_control</definition>
         <argsstring></argsstring>
         <name>border_control</name>
@@ -51,7 +51,7 @@
         <argsstring>(Random *r, float rf, Lrud&lt; BorderSetupRule &gt; bc)</argsstring>
         <name>RandomFillRule</name>
         <param>
-          <type><ref refid="structeu_1_1core_1_1Random" kindref="compound">Random</ref> *</type>
+          <type><ref refid="structeu_1_1Random" kindref="compound">Random</ref> *</type>
           <declname>r</declname>
         </param>
         <param>
@@ -59,7 +59,7 @@
           <declname>rf</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1core_1_1Lrud" kindref="compound">Lrud</ref>&lt; <ref refid="namespaceeu_1_1core_1ad816ec64a4ad2c10feb5ed0b227785df" kindref="member">BorderSetupRule</ref> &gt;</type>
+          <type><ref refid="structeu_1_1Lrud" kindref="compound">Lrud</ref>&lt; <ref refid="namespaceeu_1_1core_1ad816ec64a4ad2c10feb5ed0b227785df" kindref="member">BorderSetupRule</ref> &gt;</type>
           <declname>bc</declname>
         </param>
         <briefdescription>
@@ -107,12 +107,12 @@
     </inheritancegraph>
     <collaborationgraph>
       <node id="4">
-        <label>eu::core::Lrud&lt; BorderSetupRule &gt;</label>
-        <link refid="structeu_1_1core_1_1Lrud"/>
+        <label>eu::Lrud&lt; BorderSetupRule &gt;</label>
+        <link refid="structeu_1_1Lrud"/>
       </node>
       <node id="3">
-        <label>eu::core::Random</label>
-        <link refid="structeu_1_1core_1_1Random"/>
+        <label>eu::Random</label>
+        <link refid="structeu_1_1Random"/>
       </node>
       <node id="2">
         <label>eu::core::generator::Rule</label>

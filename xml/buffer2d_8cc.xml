@@ -8,6 +8,10 @@
     <includes refid="cint_8h" local="yes">base/cint.h</includes>
     <includes refid="shaderattribute2d_8h" local="yes">render/shaderattribute2d.h</includes>
     <incdepgraph>
+      <node id="13">
+        <label>base/default_interpolate.h</label>
+        <link refid="default__interpolate_8h"/>
+      </node>
       <node id="1">
         <label>libs/render/src/render/buffer2d.cc</label>
         <link refid="buffer2d_8cc"/>
@@ -17,18 +21,18 @@
         </childnode>
         <childnode refid="10" relation="include">
         </childnode>
-        <childnode refid="17" relation="include">
+        <childnode refid="19" relation="include">
         </childnode>
         <childnode refid="22" relation="include">
         </childnode>
       </node>
-      <node id="19">
+      <node id="18">
         <label>cstdint</label>
       </node>
-      <node id="18">
+      <node id="17">
         <label>base/ints.h</label>
         <link refid="ints_8h"/>
-        <childnode refid="19" relation="include">
+        <childnode refid="18" relation="include">
         </childnode>
       </node>
       <node id="10">
@@ -66,9 +70,15 @@
         <childnode refid="5" relation="include">
         </childnode>
       </node>
-      <node id="21">
-        <label>core/vec.base.h</label>
-        <link refid="vec_8base_8h"/>
+      <node id="14">
+        <label>base/angle.h</label>
+        <link refid="angle_8h"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
       </node>
       <node id="7">
         <label>assert/assert.h</label>
@@ -78,32 +88,16 @@
         <childnode refid="9" relation="include">
         </childnode>
       </node>
-      <node id="11">
-        <label>core/vec2.h</label>
-        <link refid="vec2_8h"/>
-        <childnode refid="12" relation="include">
-        </childnode>
-        <childnode refid="7" relation="include">
-        </childnode>
+      <node id="16">
+        <label>base/numeric.h</label>
+        <link refid="numeric_8h"/>
         <childnode refid="13" relation="include">
         </childnode>
-        <childnode refid="14" relation="include">
-        </childnode>
-        <childnode refid="16" relation="include">
-        </childnode>
         <childnode refid="17" relation="include">
-        </childnode>
-        <childnode refid="21" relation="include">
         </childnode>
       </node>
       <node id="12">
         <label>tuple</label>
-      </node>
-      <node id="16">
-        <label>core/numeric.h</label>
-        <link refid="numeric_8h"/>
-        <childnode refid="13" relation="include">
-        </childnode>
       </node>
       <node id="9">
         <label>vector</label>
@@ -118,27 +112,35 @@
       <node id="20">
         <label>cstddef</label>
       </node>
-      <node id="13">
-        <label>core/interpolate.default.h</label>
-        <link refid="interpolate_8default_8h"/>
-      </node>
-      <node id="14">
-        <label>core/angle.h</label>
-        <link refid="angle_8h"/>
-        <childnode refid="15" relation="include">
+      <node id="11">
+        <label>base/vec2.h</label>
+        <link refid="vec2_8h"/>
+        <childnode refid="12" relation="include">
         </childnode>
-        <childnode refid="16" relation="include">
+        <childnode refid="7" relation="include">
         </childnode>
         <childnode refid="13" relation="include">
         </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
       </node>
-      <node id="17">
+      <node id="19">
         <label>base/cint.h</label>
         <link refid="cint_8h"/>
-        <childnode refid="18" relation="include">
+        <childnode refid="17" relation="include">
         </childnode>
         <childnode refid="20" relation="include">
         </childnode>
+      </node>
+      <node id="21">
+        <label>base/vec.base.h</label>
+        <link refid="vec_8base_8h"/>
       </node>
       <node id="22">
         <label>render/shaderattribute2d.h</label>

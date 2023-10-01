@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="default__interpolate_8cc" kind="file" language="C++">
+    <compoundname>default_interpolate.cc</compoundname>
+    <includes refid="default__interpolate_8h" local="yes">base/default_interpolate.h</includes>
+    <incdepgraph>
+      <node id="2">
+        <label>base/default_interpolate.h</label>
+        <link refid="default__interpolate_8h"/>
+      </node>
+      <node id="1">
+        <label>libs/base/src/base/default_interpolate.cc</label>
+        <link refid="default__interpolate_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/base/src/base/default_interpolate.cc"/>
+  </compounddef>
+</doxygen>

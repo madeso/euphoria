@@ -6,6 +6,6 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/rgb.cc" line="515" column="5"/>
+    <location file="libs/core/src/core/polybezier.cc" line="9" column="18"/>
   </compounddef>
 </doxygen>

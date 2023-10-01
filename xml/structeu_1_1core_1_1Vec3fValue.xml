@@ -6,7 +6,7 @@
     <includes refid="propertytree_8h" local="no">propertytree.h</includes>
       <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structeu_1_1core_1_1Vec3fValue_1a5d0da60bc6dc458fae4751fcd49d487a" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
+        <type><ref refid="structeu_1_1vec3f" kindref="compound">vec3f</ref></type>
         <definition>vec3f eu::core::Vec3fValue::value</definition>
         <argsstring></argsstring>
         <name>value</name>
@@ -26,7 +26,7 @@
         <argsstring>(const vec3f &amp;v)</argsstring>
         <name>Vec3fValue</name>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
           <declname>v</declname>
         </param>
         <briefdescription>
@@ -40,7 +40,7 @@
       </sectiondef>
       <sectiondef kind="public-static-func">
       <memberdef kind="function" id="structeu_1_1core_1_1Vec3fValue_1a820f2afb6719c825d2dfd4f7e8778e0b" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
+        <type><ref refid="structeu_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
         <definition>vec3f &amp; eu::core::Vec3fValue::get</definition>
         <argsstring>(core::Value *value)</argsstring>
         <name>get</name>
@@ -88,8 +88,8 @@
         <link refid="structeu_1_1core_1_1Value"/>
       </node>
       <node id="3">
-        <label>eu::core::vec3f</label>
-        <link refid="structeu_1_1core_1_1vec3f"/>
+        <label>eu::vec3f</label>
+        <link refid="structeu_1_1vec3f"/>
       </node>
     </collaborationgraph>
     <location file="libs/core/src/core/propertytree.h" line="50" column="5" bodyfile="libs/core/src/core/propertytree.h" bodystart="51" bodyend="57"/>

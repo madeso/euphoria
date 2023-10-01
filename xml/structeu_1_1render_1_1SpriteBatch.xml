@@ -176,33 +176,33 @@
         </inbodydescription>
         <location file="libs/render/src/render/spritebatch.h" line="25" column="9" bodyfile="libs/render/src/render/spritebatch.cc" bodystart="25" bodyend="29"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1render_1_1SpriteBatch_1a63379a2447679de7dcea22708608cf7b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1render_1_1SpriteBatch_1a2e3ba55850da2b5c79fd85f1f596c539" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void eu::render::SpriteBatch::render_quad</definition>
-        <argsstring>(const core::vec2f &amp;pos, const core::size2f &amp;quad, const core::Rectf &amp;uv, const core::Scale2f &amp;center, const core::Angle &amp;rotation, const core::Rgba &amp;color)</argsstring>
+        <argsstring>(const vec2f &amp;pos, const size2f &amp;quad, const Rectf &amp;uv, const Scale2f &amp;center, const Angle &amp;rotation, const Rgba &amp;color)</argsstring>
         <name>render_quad</name>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1vec2f" kindref="compound">core::vec2f</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
           <declname>pos</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1size2f" kindref="compound">core::size2f</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1size2f" kindref="compound">size2f</ref> &amp;</type>
           <declname>quad</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1Rectf" kindref="compound">core::Rectf</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1Rectf" kindref="compound">Rectf</ref> &amp;</type>
           <declname>uv</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1Scale2f" kindref="compound">core::Scale2f</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1Scale2f" kindref="compound">Scale2f</ref> &amp;</type>
           <declname>center</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1Angle" kindref="compound">core::Angle</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1Angle" kindref="compound">Angle</ref> &amp;</type>
           <declname>rotation</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1Rgba" kindref="compound">core::Rgba</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1Rgba" kindref="compound">Rgba</ref> &amp;</type>
           <declname>color</declname>
         </param>
         <briefdescription>
@@ -255,7 +255,7 @@
       <member refid="structeu_1_1render_1_1SpriteBatch_1a1bdeccf1a75f03db27f5751b9183dfc2" prot="public" virt="non-virtual"><scope>eu::render::SpriteBatch</scope><name>operator=</name></member>
       <member refid="structeu_1_1render_1_1SpriteBatch_1ae6fe69a3ff9cf2bded6cc53c6cff888d" prot="public" virt="non-virtual"><scope>eu::render::SpriteBatch</scope><name>operator=</name></member>
       <member refid="structeu_1_1render_1_1SpriteBatch_1aa6c07e8e31e41aa423624675fe10f40e" prot="private" virt="non-virtual"><scope>eu::render::SpriteBatch</scope><name>quad_indices</name></member>
-      <member refid="structeu_1_1render_1_1SpriteBatch_1a63379a2447679de7dcea22708608cf7b" prot="public" virt="non-virtual"><scope>eu::render::SpriteBatch</scope><name>render_quad</name></member>
+      <member refid="structeu_1_1render_1_1SpriteBatch_1a2e3ba55850da2b5c79fd85f1f596c539" prot="public" virt="non-virtual"><scope>eu::render::SpriteBatch</scope><name>render_quad</name></member>
       <member refid="structeu_1_1render_1_1SpriteBatch_1a9c7522db53e0500de909dd44524616af" prot="public" virt="non-virtual"><scope>eu::render::SpriteBatch</scope><name>SpriteBatch</name></member>
       <member refid="structeu_1_1render_1_1SpriteBatch_1a226cc36f8c2df5c870ca8b7f8fdd8e2c" prot="public" virt="non-virtual"><scope>eu::render::SpriteBatch</scope><name>SpriteBatch</name></member>
       <member refid="structeu_1_1render_1_1SpriteBatch_1af84416d3dae05124ce0da01095c7b90d" prot="public" virt="non-virtual"><scope>eu::render::SpriteBatch</scope><name>SpriteBatch</name></member>

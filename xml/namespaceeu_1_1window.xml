@@ -62,7 +62,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/imgui_extra.h" line="32" column="5" bodyfile="libs/window/src/window/imgui_extra.h" bodystart="33" bodyend="39"/>
+        <location file="libs/window/src/window/imgui_extra.h" line="31" column="5" bodyfile="libs/window/src/window/imgui_extra.h" bodystart="32" bodyend="38"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="typedef">
@@ -399,13 +399,13 @@
         </inbodydescription>
         <location file="libs/window/src/window/filesystem.cc" line="24" column="5" bodyfile="libs/window/src/window/filesystem.cc" bodystart="24" bodyend="37" declfile="libs/window/src/window/filesystem.h" declline="14" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1window_1a0484972b2b588f829b463485b7b22e35" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeu_1_1window_1a01937d7fb447d066f0cc2fa8937ef148" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>ImVec2</type>
         <definition>ImVec2 eu::window::con</definition>
-        <argsstring>(const core::vec2f &amp;v)</argsstring>
+        <argsstring>(const vec2f &amp;v)</argsstring>
         <name>con</name>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1vec2f" kindref="compound">core::vec2f</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
           <declname>v</declname>
         </param>
         <briefdescription>
@@ -414,11 +414,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/imgui_extra.cc" line="27" column="5" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="27" bodyend="30" declfile="libs/window/src/window/imgui_extra.h" declline="42" declcolumn="5"/>
+        <location file="libs/window/src/window/imgui_extra.cc" line="27" column="5" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="27" bodyend="30" declfile="libs/window/src/window/imgui_extra.h" declline="41" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1window_1af13a5635d3751fc1771180f34fcb16e0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1core_1_1vec2f" kindref="compound">core::vec2f</ref></type>
-        <definition>core::vec2f eu::window::con</definition>
+      <memberdef kind="function" id="namespaceeu_1_1window_1a579cd7f25b5c990c2ded85887fadc41d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1vec2f" kindref="compound">vec2f</ref></type>
+        <definition>vec2f eu::window::con</definition>
         <argsstring>(const ImVec2 &amp;v)</argsstring>
         <name>con</name>
         <param>
@@ -431,7 +431,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/imgui_extra.cc" line="34" column="5" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="34" bodyend="37" declfile="libs/window/src/window/imgui_extra.h" declline="45" declcolumn="5"/>
+        <location file="libs/window/src/window/imgui_extra.cc" line="34" column="5" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="34" bodyend="37" declfile="libs/window/src/window/imgui_extra.h" declline="44" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1window_1a492f570387ef15b4cf739ce7192a6bc3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="namespaceeu_1_1core_1a6fca7b841e42734cd5c01e04fc9e6511" kindref="member">core::Key</ref></type>

@@ -716,9 +716,9 @@
         </inbodydescription>
         <location file="libs/render/src/render/font.cc" line="49" column="5" bodyfile="libs/render/src/render/font.cc" bodystart="50" bodyend="73"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1render_1a141036cb6bec8ed96ca587448a76c409" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>std::pair&lt; <ref refid="structeu_1_1core_1_1Rectf" kindref="compound">core::Rectf</ref>, <ref refid="structeu_1_1core_1_1Rectf" kindref="compound">core::Rectf</ref> &gt;</type>
-        <definition>std::pair&lt;core::Rectf, core::Rectf&gt; eu::render::construct_character_rects</definition>
+      <memberdef kind="function" id="namespaceeu_1_1render_1a7e483f5c56182f7c4f867cc4fc83d0c8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::pair&lt; <ref refid="structeu_1_1Rectf" kindref="compound">Rectf</ref>, <ref refid="structeu_1_1Rectf" kindref="compound">Rectf</ref> &gt;</type>
+        <definition>std::pair&lt;Rectf, Rectf&gt; eu::render::construct_character_rects</definition>
         <argsstring>(const stbrp_rect &amp;src_rect, const core::LoadedGlyph &amp;src_char, int image_width, int image_height)</argsstring>
         <name>construct_character_rects</name>
         <param>
@@ -745,17 +745,17 @@
         </inbodydescription>
         <location file="libs/render/src/render/font.cc" line="77" column="5" bodyfile="libs/render/src/render/font.cc" bodystart="78" bodyend="119"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1render_1ac1797891081a8ebb4e40f1d7334463cd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1core_1_1vec2f" kindref="compound">core::vec2f</ref></type>
-        <definition>core::vec2f eu::render::get_offset</definition>
-        <argsstring>(Align alignment, const core::Rectf &amp;extent)</argsstring>
+      <memberdef kind="function" id="namespaceeu_1_1render_1a6964120b1cba4392bbde8d4fa4878957" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1vec2f" kindref="compound">vec2f</ref></type>
+        <definition>vec2f eu::render::get_offset</definition>
+        <argsstring>(Align alignment, const Rectf &amp;extent)</argsstring>
         <name>get_offset</name>
         <param>
           <type><ref refid="namespaceeu_1_1render_1aaf6adcd14a4e060d8a9b6433438be51c" kindref="member">Align</ref></type>
           <declname>alignment</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1Rectf" kindref="compound">core::Rectf</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1Rectf" kindref="compound">Rectf</ref> &amp;</type>
           <declname>extent</declname>
         </param>
         <briefdescription>
@@ -766,17 +766,17 @@
         </inbodydescription>
         <location file="libs/render/src/render/font.cc" line="561" column="5" bodyfile="libs/render/src/render/font.cc" bodystart="561" bodyend="582"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1render_1a66f9988f3ff21ca77392557e0d3ab37a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1core_1_1mat4f" kindref="compound">core::mat4f</ref></type>
-        <definition>core::mat4f eu::render::calc_model_matrix</definition>
-        <argsstring>(const core::vec3f &amp;position, const core::quatf &amp;rotation)</argsstring>
+      <memberdef kind="function" id="namespaceeu_1_1render_1a2a4772fc2352a26126bcd1adf1b44ab1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1mat4f" kindref="compound">mat4f</ref></type>
+        <definition>mat4f eu::render::calc_model_matrix</definition>
+        <argsstring>(const vec3f &amp;position, const quatf &amp;rotation)</argsstring>
         <name>calc_model_matrix</name>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1vec3f" kindref="compound">core::vec3f</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
           <declname>position</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1quatf" kindref="compound">core::quatf</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1quatf" kindref="compound">quatf</ref> &amp;</type>
           <declname>rotation</declname>
         </param>
         <briefdescription>
@@ -785,7 +785,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/instance.cc" line="18" column="5" bodyfile="libs/render/src/render/instance.cc" bodystart="19" bodyend="25" declfile="libs/render/src/render/instance.h" declline="37" declcolumn="18"/>
+        <location file="libs/render/src/render/instance.cc" line="18" column="5" bodyfile="libs/render/src/render/instance.cc" bodystart="19" bodyend="25" declfile="libs/render/src/render/instance.h" declline="37" declcolumn="12"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1render_1a465f8c9988ae3a9d9926637dd5062449" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>

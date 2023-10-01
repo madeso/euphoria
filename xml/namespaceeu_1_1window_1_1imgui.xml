@@ -110,7 +110,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/imgui_extra.h" line="52" column="5" bodyfile="libs/window/src/window/imgui_extra.h" bodystart="53" bodyend="77"/>
+        <location file="libs/window/src/window/imgui_extra.h" line="51" column="5" bodyfile="libs/window/src/window/imgui_extra.h" bodystart="52" bodyend="76"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="func">
@@ -129,7 +129,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/imgui_extra.cc" line="43" column="5" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="43" bodyend="48" declfile="libs/window/src/window/imgui_extra.h" declline="80" declcolumn="5"/>
+        <location file="libs/window/src/window/imgui_extra.cc" line="43" column="5" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="43" bodyend="48" declfile="libs/window/src/window/imgui_extra.h" declline="79" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1window_1_1imgui_1ae240dc96579ea01ca15c108109470b03" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -146,7 +146,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/imgui_extra.cc" line="52" column="5" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="52" bodyend="62" declfile="libs/window/src/window/imgui_extra.h" declline="83" declcolumn="5"/>
+        <location file="libs/window/src/window/imgui_extra.cc" line="52" column="5" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="52" bodyend="62" declfile="libs/window/src/window/imgui_extra.h" declline="82" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1window_1_1imgui_1a29a0b2b6b8e9194f4e3b9a27d0afb314" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -163,27 +163,27 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/imgui_extra.cc" line="67" column="5" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="67" bodyend="70" declfile="libs/window/src/window/imgui_extra.h" declline="86" declcolumn="5"/>
+        <location file="libs/window/src/window/imgui_extra.cc" line="67" column="5" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="67" bodyend="70" declfile="libs/window/src/window/imgui_extra.h" declline="85" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1window_1_1imgui_1a249b1da4ba5e0404057567bd8515911f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeu_1_1window_1_1imgui_1a02774654538c8fd891576688b5f46544" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
         <definition>bool eu::window::imgui::imgui_angle_slider</definition>
-        <argsstring>(const char *name, core::Angle *angle, const core::Angle &amp;mindeg, const core::Angle &amp;maxdeg)</argsstring>
+        <argsstring>(const char *name, Angle *angle, const Angle &amp;mindeg, const Angle &amp;maxdeg)</argsstring>
         <name>imgui_angle_slider</name>
         <param>
           <type>const char *</type>
           <declname>name</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1core_1_1Angle" kindref="compound">core::Angle</ref> *</type>
+          <type><ref refid="structeu_1_1Angle" kindref="compound">Angle</ref> *</type>
           <declname>angle</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1Angle" kindref="compound">core::Angle</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1Angle" kindref="compound">Angle</ref> &amp;</type>
           <declname>mindeg</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1Angle" kindref="compound">core::Angle</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1Angle" kindref="compound">Angle</ref> &amp;</type>
           <declname>maxdeg</declname>
         </param>
         <briefdescription>
@@ -192,19 +192,19 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/imgui_extra.cc" line="74" column="5" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="75" bodyend="99" declfile="libs/window/src/window/imgui_extra.h" declline="89" declcolumn="5"/>
+        <location file="libs/window/src/window/imgui_extra.cc" line="74" column="5" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="75" bodyend="99" declfile="libs/window/src/window/imgui_extra.h" declline="88" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1window_1_1imgui_1a4eccf17f78cb4e7eb3fb5264ab590dad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeu_1_1window_1_1imgui_1a2e27140db5856d2d47db6df40bed3e95" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
         <definition>bool eu::window::imgui::imgui_angle_slider</definition>
-        <argsstring>(const char *name, core::Angle *angle)</argsstring>
+        <argsstring>(const char *name, Angle *angle)</argsstring>
         <name>imgui_angle_slider</name>
         <param>
           <type>const char *</type>
           <declname>name</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1core_1_1Angle" kindref="compound">core::Angle</ref> *</type>
+          <type><ref refid="structeu_1_1Angle" kindref="compound">Angle</ref> *</type>
           <declname>angle</declname>
         </param>
         <briefdescription>
@@ -213,7 +213,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/imgui_extra.cc" line="103" column="5" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="104" bodyend="125" declfile="libs/window/src/window/imgui_extra.h" declline="98" declcolumn="5"/>
+        <location file="libs/window/src/window/imgui_extra.cc" line="103" column="5" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="104" bodyend="125" declfile="libs/window/src/window/imgui_extra.h" declline="97" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1window_1_1imgui_1a1f4ca8634f78e02ed142fd531309579f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -238,19 +238,19 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/imgui_extra.cc" line="129" column="5" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="129" bodyend="144" declfile="libs/window/src/window/imgui_extra.h" declline="105" declcolumn="5"/>
+        <location file="libs/window/src/window/imgui_extra.cc" line="129" column="5" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="129" bodyend="144" declfile="libs/window/src/window/imgui_extra.h" declline="104" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1window_1_1imgui_1a971584341d41c54e273069e4570bb5a2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeu_1_1window_1_1imgui_1ae147e36820448cf976fa2f5ad27649a8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
         <definition>bool eu::window::imgui::imgui_color_edit</definition>
-        <argsstring>(const char *name, core::Rgb *c)</argsstring>
+        <argsstring>(const char *name, Rgb *c)</argsstring>
         <name>imgui_color_edit</name>
         <param>
           <type>const char *</type>
           <declname>name</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1core_1_1Rgb" kindref="compound">core::Rgb</ref> *</type>
+          <type><ref refid="structeu_1_1Rgb" kindref="compound">Rgb</ref> *</type>
           <declname>c</declname>
         </param>
         <briefdescription>
@@ -259,19 +259,19 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/imgui_extra.cc" line="147" column="5" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="147" bodyend="150" declfile="libs/window/src/window/imgui_extra.h" declline="116" declcolumn="5"/>
+        <location file="libs/window/src/window/imgui_extra.cc" line="147" column="5" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="147" bodyend="150" declfile="libs/window/src/window/imgui_extra.h" declline="115" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1window_1_1imgui_1acdb9dafdcba11775a286cdbc901e8161" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeu_1_1window_1_1imgui_1ac5d00007b31925b373270e5390f9df78" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
         <definition>bool eu::window::imgui::imgui_color_edit</definition>
-        <argsstring>(const char *name, core::Rgba *c)</argsstring>
+        <argsstring>(const char *name, Rgba *c)</argsstring>
         <name>imgui_color_edit</name>
         <param>
           <type>const char *</type>
           <declname>name</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1core_1_1Rgba" kindref="compound">core::Rgba</ref> *</type>
+          <type><ref refid="structeu_1_1Rgba" kindref="compound">Rgba</ref> *</type>
           <declname>c</declname>
         </param>
         <briefdescription>
@@ -280,19 +280,19 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/imgui_extra.cc" line="153" column="5" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="153" bodyend="156" declfile="libs/window/src/window/imgui_extra.h" declline="119" declcolumn="5"/>
+        <location file="libs/window/src/window/imgui_extra.cc" line="153" column="5" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="153" bodyend="156" declfile="libs/window/src/window/imgui_extra.h" declline="118" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1window_1_1imgui_1ab618a1a1ef454079b88104f91dc9585d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeu_1_1window_1_1imgui_1a36ff97e3feefa6b35507c5f087c55cde" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
         <definition>bool eu::window::imgui::imgui_color_edit</definition>
-        <argsstring>(const char *name, core::Rgbai *c)</argsstring>
+        <argsstring>(const char *name, Rgbai *c)</argsstring>
         <name>imgui_color_edit</name>
         <param>
           <type>const char *</type>
           <declname>name</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1core_1_1Rgbai" kindref="compound">core::Rgbai</ref> *</type>
+          <type><ref refid="structeu_1_1Rgbai" kindref="compound">Rgbai</ref> *</type>
           <declname>c</declname>
         </param>
         <briefdescription>
@@ -301,7 +301,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/imgui_extra.cc" line="159" column="5" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="159" bodyend="168" declfile="libs/window/src/window/imgui_extra.h" declline="122" declcolumn="5"/>
+        <location file="libs/window/src/window/imgui_extra.cc" line="159" column="5" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="159" bodyend="168" declfile="libs/window/src/window/imgui_extra.h" declline="121" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1window_1_1imgui_1ada53e3a3049ebe5efacf161e0a5d68b7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>ImTextureID</type>
@@ -318,7 +318,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/imgui_extra.cc" line="172" column="5" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="172" bodyend="183" declfile="libs/window/src/window/imgui_extra.h" declline="109" declcolumn="5"/>
+        <location file="libs/window/src/window/imgui_extra.cc" line="172" column="5" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="172" bodyend="183" declfile="libs/window/src/window/imgui_extra.h" declline="108" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1window_1_1imgui_1abbbc821bc8c48a187bdc227edae86a88" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -335,7 +335,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/imgui_extra.cc" line="188" column="5" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="188" bodyend="240" declfile="libs/window/src/window/imgui_extra.h" declline="113" declcolumn="5"/>
+        <location file="libs/window/src/window/imgui_extra.cc" line="188" column="5" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="188" bodyend="240" declfile="libs/window/src/window/imgui_extra.h" declline="112" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1window_1_1imgui_1a986ccf9000589e3376807f065b444239" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -364,7 +364,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/imgui_extra.cc" line="245" column="5" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="246" bodyend="285" declfile="libs/window/src/window/imgui_extra.h" declline="125" declcolumn="5"/>
+        <location file="libs/window/src/window/imgui_extra.cc" line="245" column="5" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="246" bodyend="285" declfile="libs/window/src/window/imgui_extra.h" declline="124" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1window_1_1imgui_1aa714c7649e4b844fc2d2912cb8f6a4be" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -385,7 +385,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/imgui_extra.cc" line="306" column="5" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="306" bodyend="322" declfile="libs/window/src/window/imgui_extra.h" declline="145" declcolumn="5"/>
+        <location file="libs/window/src/window/imgui_extra.cc" line="306" column="5" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="306" bodyend="322" declfile="libs/window/src/window/imgui_extra.h" declline="144" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1window_1_1imgui_1a238cbf10e9bb5229e47a9b47b7d74d01" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -455,7 +455,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/imgui_extra.cc" line="357" column="5" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="358" bodyend="540" declfile="libs/window/src/window/imgui_extra.h" declline="148" declcolumn="5"/>
+        <location file="libs/window/src/window/imgui_extra.cc" line="357" column="5" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="358" bodyend="539" declfile="libs/window/src/window/imgui_extra.h" declline="147" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1window_1_1imgui_1a5bd79fded32b26cccfabe55f8b720349" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -476,7 +476,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/imgui_extra.cc" line="543" column="5" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="543" bodyend="556" declfile="libs/window/src/window/imgui_extra.h" declline="158" declcolumn="5"/>
+        <location file="libs/window/src/window/imgui_extra.cc" line="542" column="5" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="542" bodyend="555" declfile="libs/window/src/window/imgui_extra.h" declline="157" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1window_1_1imgui_1a3343d50d7b01a09748b330210fd8cc30" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -489,7 +489,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/imgui_extra.cc" line="559" column="5" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="559" bodyend="565" declfile="libs/window/src/window/imgui_extra.h" declline="161" declcolumn="5"/>
+        <location file="libs/window/src/window/imgui_extra.cc" line="558" column="5" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="558" bodyend="564" declfile="libs/window/src/window/imgui_extra.h" declline="160" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1window_1_1imgui_1a519f82eb0e505565d4df89cf8d4b5246" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -510,7 +510,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/imgui_extra.cc" line="568" column="5" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="568" bodyend="571" declfile="libs/window/src/window/imgui_extra.h" declline="165" declcolumn="5"/>
+        <location file="libs/window/src/window/imgui_extra.cc" line="567" column="5" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="567" bodyend="570" declfile="libs/window/src/window/imgui_extra.h" declline="164" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1window_1_1imgui_1a0ad11875a947d32fdbe6a07405ee3482" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -531,7 +531,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/imgui_extra.cc" line="574" column="5" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="574" bodyend="577" declfile="libs/window/src/window/imgui_extra.h" declline="168" declcolumn="5"/>
+        <location file="libs/window/src/window/imgui_extra.cc" line="573" column="5" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="573" bodyend="576" declfile="libs/window/src/window/imgui_extra.h" declline="167" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1window_1_1imgui_1abc1a79c564a67927022308b4e70365bc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -544,7 +544,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/imgui_extra.cc" line="580" column="5" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="580" bodyend="583" declfile="libs/window/src/window/imgui_extra.h" declline="171" declcolumn="5"/>
+        <location file="libs/window/src/window/imgui_extra.cc" line="579" column="5" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="579" bodyend="582" declfile="libs/window/src/window/imgui_extra.h" declline="170" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1window_1_1imgui_1abd29186abd7530cc14f697da53368373" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -574,7 +574,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/imgui_extra.h" line="174" column="10" bodyfile="libs/window/src/window/imgui_extra.h" bodystart="175" bodyend="209"/>
+        <location file="libs/window/src/window/imgui_extra.h" line="173" column="10" bodyfile="libs/window/src/window/imgui_extra.h" bodystart="174" bodyend="208"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1window_1_1imgui_1ad93aab85cc8c2418c54e67d37d9b1d08" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -611,7 +611,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/imgui_extra.h" line="213" column="5" bodyfile="libs/window/src/window/imgui_extra.h" bodystart="213" bodyend="227"/>
+        <location file="libs/window/src/window/imgui_extra.h" line="212" column="5" bodyfile="libs/window/src/window/imgui_extra.h" bodystart="212" bodyend="226"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1window_1_1imgui_1a0c40b01296e7a09e4454a3b4578ef4ae" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>

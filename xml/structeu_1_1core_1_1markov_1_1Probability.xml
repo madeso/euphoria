@@ -24,13 +24,13 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
-      <memberdef kind="function" id="structeu_1_1core_1_1markov_1_1Probability_1aae6fa11543d73aafb6f8cc9ae0f2126c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1core_1_1markov_1_1Probability_1a358b8a4611d0d4597d3b1019aad97322" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>T</type>
         <definition>T eu::core::markov::Probability&lt; T &gt;::get</definition>
-        <argsstring>(core::Random *rnd) const</argsstring>
+        <argsstring>(Random *rnd) const</argsstring>
         <name>get</name>
         <param>
-          <type><ref refid="structeu_1_1core_1_1Random" kindref="compound">core::Random</ref> *</type>
+          <type><ref refid="structeu_1_1Random" kindref="compound">Random</ref> *</type>
           <declname>rnd</declname>
         </param>
         <briefdescription>
@@ -49,7 +49,7 @@
     <location file="libs/core/src/core/markov.h" line="34" column="5" bodyfile="libs/core/src/core/markov.h" bodystart="35" bodyend="53"/>
     <listofallmembers>
       <member refid="structeu_1_1core_1_1markov_1_1Probability_1ae3546430d7cb48adae6a479a2e0060c0" prot="public" virt="non-virtual"><scope>eu::core::markov::Probability</scope><name>data</name></member>
-      <member refid="structeu_1_1core_1_1markov_1_1Probability_1aae6fa11543d73aafb6f8cc9ae0f2126c" prot="public" virt="non-virtual"><scope>eu::core::markov::Probability</scope><name>get</name></member>
+      <member refid="structeu_1_1core_1_1markov_1_1Probability_1a358b8a4611d0d4597d3b1019aad97322" prot="public" virt="non-virtual"><scope>eu::core::markov::Probability</scope><name>get</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

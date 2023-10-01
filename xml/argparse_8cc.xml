@@ -13,6 +13,10 @@
     <includes refid="wordwrap_8h" local="yes">core/wordwrap.h</includes>
     <includes refid="functional_8h" local="yes">base/functional.h</includes>
     <incdepgraph>
+      <node id="32">
+        <label>base/default_interpolate.h</label>
+        <link refid="default__interpolate_8h"/>
+      </node>
       <node id="30">
         <label>core/table.h</label>
         <link refid="table_8h"/>
@@ -42,18 +46,6 @@
         <childnode refid="3" relation="include">
         </childnode>
       </node>
-      <node id="38">
-        <label>core/size2.h</label>
-        <link refid="size2_8h"/>
-        <childnode refid="34" relation="include">
-        </childnode>
-        <childnode refid="31" relation="include">
-        </childnode>
-        <childnode refid="13" relation="include">
-        </childnode>
-        <childnode refid="8" relation="include">
-        </childnode>
-      </node>
       <node id="28">
         <label>cstdint</label>
       </node>
@@ -76,6 +68,24 @@
       </node>
       <node id="3">
         <label>map</label>
+      </node>
+      <node id="19">
+        <label>base/string_io.h</label>
+        <link refid="string__io_8h"/>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="38">
+        <label>base/size2.h</label>
+        <link refid="size2_8h"/>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
       </node>
       <node id="2">
         <label>core/argparse.h</label>
@@ -121,9 +131,15 @@
         <childnode refid="41" relation="include">
         </childnode>
       </node>
-      <node id="37">
-        <label>core/vec.base.h</label>
-        <link refid="vec_8base_8h"/>
+      <node id="36">
+        <label>base/angle.h</label>
+        <link refid="angle_8h"/>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
       </node>
       <node id="10">
         <label>assert/assert.h</label>
@@ -133,32 +149,16 @@
         <childnode refid="12" relation="include">
         </childnode>
       </node>
-      <node id="23">
-        <label>string_view</label>
-      </node>
-      <node id="34">
-        <label>core/vec2.h</label>
-        <link refid="vec2_8h"/>
-        <childnode refid="35" relation="include">
-        </childnode>
-        <childnode refid="10" relation="include">
-        </childnode>
+      <node id="31">
+        <label>base/numeric.h</label>
+        <link refid="numeric_8h"/>
         <childnode refid="32" relation="include">
         </childnode>
-        <childnode refid="36" relation="include">
-        </childnode>
-        <childnode refid="31" relation="include">
-        </childnode>
-        <childnode refid="26" relation="include">
-        </childnode>
-        <childnode refid="37" relation="include">
+        <childnode refid="27" relation="include">
         </childnode>
       </node>
-      <node id="21">
-        <label>core/numparse.h</label>
-        <link refid="numparse_8h"/>
-        <childnode refid="5" relation="include">
-        </childnode>
+      <node id="23">
+        <label>string_view</label>
       </node>
       <node id="35">
         <label>tuple</label>
@@ -169,6 +169,16 @@
         <childnode refid="5" relation="include">
         </childnode>
       </node>
+      <node id="8">
+        <label>base/default_parse.h</label>
+        <link refid="default__parse_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
       <node id="5">
         <label>optional</label>
       </node>
@@ -176,12 +186,6 @@
         <label>core/wordwrap.h</label>
         <link refid="wordwrap_8h"/>
         <childnode refid="6" relation="include">
-        </childnode>
-      </node>
-      <node id="31">
-        <label>core/numeric.h</label>
-        <link refid="numeric_8h"/>
-        <childnode refid="32" relation="include">
         </childnode>
       </node>
       <node id="18">
@@ -200,27 +204,11 @@
         <childnode refid="17" relation="include">
         </childnode>
       </node>
-      <node id="19">
-        <label>core/custom_parser.h</label>
-        <link refid="custom__parser_8h"/>
-        <childnode refid="20" relation="include">
-        </childnode>
-      </node>
       <node id="42">
         <label>utility</label>
       </node>
-      <node id="24">
-        <label>iostream</label>
-      </node>
-      <node id="29">
-        <label>cstddef</label>
-      </node>
-      <node id="32">
-        <label>core/interpolate.default.h</label>
-        <link refid="interpolate_8default_8h"/>
-      </node>
       <node id="39">
-        <label>core/range.h</label>
+        <label>base/range.h</label>
         <link refid="range_8h"/>
         <childnode refid="7" relation="include">
         </childnode>
@@ -231,8 +219,20 @@
         <childnode refid="26" relation="include">
         </childnode>
       </node>
+      <node id="33">
+        <label>base/rect.h</label>
+        <link refid="rect_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+      </node>
       <node id="9">
-        <label>core/enumtostring.h</label>
+        <label>base/enumtostring.h</label>
         <link refid="enumtostring_8h"/>
         <childnode refid="3" relation="include">
         </childnode>
@@ -247,31 +247,33 @@
         <childnode refid="18" relation="include">
         </childnode>
       </node>
-      <node id="33">
-        <label>core/rect.h</label>
-        <link refid="rect_8h"/>
+      <node id="24">
+        <label>iostream</label>
+      </node>
+      <node id="29">
+        <label>cstddef</label>
+      </node>
+      <node id="34">
+        <label>base/vec2.h</label>
+        <link refid="vec2_8h"/>
+        <childnode refid="35" relation="include">
+        </childnode>
         <childnode refid="10" relation="include">
         </childnode>
-        <childnode refid="34" relation="include">
+        <childnode refid="32" relation="include">
         </childnode>
-        <childnode refid="38" relation="include">
+        <childnode refid="36" relation="include">
         </childnode>
-        <childnode refid="39" relation="include">
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
         </childnode>
       </node>
       <node id="17">
         <label>base/editdistance.h</label>
         <link refid="editdistance_8h"/>
-      </node>
-      <node id="36">
-        <label>core/angle.h</label>
-        <link refid="angle_8h"/>
-        <childnode refid="24" relation="include">
-        </childnode>
-        <childnode refid="31" relation="include">
-        </childnode>
-        <childnode refid="32" relation="include">
-        </childnode>
       </node>
       <node id="26">
         <label>base/cint.h</label>
@@ -281,18 +283,18 @@
         <childnode refid="29" relation="include">
         </childnode>
       </node>
-      <node id="8">
-        <label>core/default_parse.h</label>
-        <link refid="default__parse_8h"/>
-        <childnode refid="9" relation="include">
-        </childnode>
-        <childnode refid="19" relation="include">
-        </childnode>
-        <childnode refid="21" relation="include">
+      <node id="21">
+        <label>base/numparse.h</label>
+        <link refid="numparse_8h"/>
+        <childnode refid="5" relation="include">
         </childnode>
       </node>
       <node id="7">
         <label>type_traits</label>
+      </node>
+      <node id="37">
+        <label>base/vec.base.h</label>
+        <link refid="vec_8base_8h"/>
       </node>
       <node id="16">
         <label>algorithm</label>

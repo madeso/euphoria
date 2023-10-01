@@ -2,61 +2,26 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="range_8cc" kind="file" language="C++">
     <compoundname>range.cc</compoundname>
-    <includes refid="range_8h" local="yes">core/range.h</includes>
+    <includes refid="range_8h" local="yes">base/range.h</includes>
     <incdepgraph>
-      <node id="13">
-        <label>cstdint</label>
-      </node>
-      <node id="12">
-        <label>base/ints.h</label>
-        <link refid="ints_8h"/>
-        <childnode refid="13" relation="include">
-        </childnode>
+      <node id="7">
+        <label>base/default_interpolate.h</label>
+        <link refid="default__interpolate_8h"/>
       </node>
       <node id="9">
-        <label>string</label>
+        <label>cstdint</label>
       </node>
       <node id="8">
-        <label>assert/assert.h</label>
-        <link refid="assert_8h"/>
+        <label>base/ints.h</label>
+        <link refid="ints_8h"/>
         <childnode refid="9" relation="include">
         </childnode>
-        <childnode refid="10" relation="include">
-        </childnode>
       </node>
-      <node id="6">
-        <label>core/numeric.h</label>
-        <link refid="numeric_8h"/>
-        <childnode refid="7" relation="include">
-        </childnode>
-      </node>
-      <node id="10">
-        <label>vector</label>
-      </node>
-      <node id="5">
-        <label>iostream</label>
-      </node>
-      <node id="14">
-        <label>cstddef</label>
-      </node>
-      <node id="7">
-        <label>core/interpolate.default.h</label>
-        <link refid="interpolate_8default_8h"/>
-      </node>
-      <node id="2">
-        <label>core/range.h</label>
-        <link refid="range_8h"/>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="4" relation="include">
-        </childnode>
-        <childnode refid="8" relation="include">
-        </childnode>
-        <childnode refid="11" relation="include">
-        </childnode>
+      <node id="11">
+        <label>string</label>
       </node>
       <node id="4">
-        <label>core/angle.h</label>
+        <label>base/angle.h</label>
         <link refid="angle_8h"/>
         <childnode refid="5" relation="include">
         </childnode>
@@ -65,10 +30,53 @@
         <childnode refid="7" relation="include">
         </childnode>
       </node>
-      <node id="11">
+      <node id="10">
+        <label>assert/assert.h</label>
+        <link refid="assert_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>base/numeric.h</label>
+        <link refid="numeric_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>libs/base/src/base/range.cc</label>
+        <link refid="range_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>vector</label>
+      </node>
+      <node id="2">
+        <label>base/range.h</label>
+        <link refid="range_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>iostream</label>
+      </node>
+      <node id="14">
+        <label>cstddef</label>
+      </node>
+      <node id="13">
         <label>base/cint.h</label>
         <link refid="cint_8h"/>
-        <childnode refid="12" relation="include">
+        <childnode refid="8" relation="include">
         </childnode>
         <childnode refid="14" relation="include">
         </childnode>
@@ -76,19 +84,12 @@
       <node id="3">
         <label>type_traits</label>
       </node>
-      <node id="1">
-        <label>libs/core/src/core/range.cc</label>
-        <link refid="range_8cc"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-      </node>
     </incdepgraph>
     <innernamespace refid="namespaceeu">eu</innernamespace>
-    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/range.cc"/>
+    <location file="libs/base/src/base/range.cc"/>
   </compounddef>
 </doxygen>

@@ -152,7 +152,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="260" column="14" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="522" bodyend="568"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="260" column="14" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="518" bodyend="564"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1minsynth_1_1ArpegiatorNode_1ad64aa01e83147bca7b0aeb3b7d621139" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -178,7 +178,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="261" column="14" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="571" bodyend="622"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="261" column="14" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="567" bodyend="618"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

@@ -142,13 +142,13 @@
         </inbodydescription>
         <location file="libs/core/src/core/tracery.h" line="118" column="17" bodyfile="libs/core/src/core/tracery.cc" bodystart="655" bodyend="663"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1core_1_1tracery_1_1Grammar_1a866125563502d5de2a91832d2b420653" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1core_1_1tracery_1_1Grammar_1a7f29b187a672acd09b249df50acf7ec3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1core_1_1tracery_1_1Result" kindref="compound">Result</ref></type>
         <definition>Result eu::core::tracery::Grammar::flatten</definition>
-        <argsstring>(core::Random *random, const std::string &amp;rule) const</argsstring>
+        <argsstring>(Random *random, const std::string &amp;rule) const</argsstring>
         <name>flatten</name>
         <param>
-          <type><ref refid="structeu_1_1core_1_1Random" kindref="compound">core::Random</ref> *</type>
+          <type><ref refid="structeu_1_1Random" kindref="compound">Random</ref> *</type>
           <declname>random</declname>
         </param>
         <param>
@@ -171,7 +171,7 @@
     <location file="libs/core/src/core/tracery.h" line="103" column="5" bodyfile="libs/core/src/core/tracery.h" bodystart="104" bodyend="120"/>
     <listofallmembers>
       <member refid="structeu_1_1core_1_1tracery_1_1Grammar_1ad6e145b2ad27219fa3919c9e60c3783d" prot="public" virt="non-virtual"><scope>eu::core::tracery::Grammar</scope><name>apply_modifier</name></member>
-      <member refid="structeu_1_1core_1_1tracery_1_1Grammar_1a866125563502d5de2a91832d2b420653" prot="public" virt="non-virtual"><scope>eu::core::tracery::Grammar</scope><name>flatten</name></member>
+      <member refid="structeu_1_1core_1_1tracery_1_1Grammar_1a7f29b187a672acd09b249df50acf7ec3" prot="public" virt="non-virtual"><scope>eu::core::tracery::Grammar</scope><name>flatten</name></member>
       <member refid="structeu_1_1core_1_1tracery_1_1Grammar_1aa479a47b2779670fbc0bdc759a604f23" prot="public" virt="non-virtual"><scope>eu::core::tracery::Grammar</scope><name>get_string_from_symbol</name></member>
       <member refid="structeu_1_1core_1_1tracery_1_1Grammar_1aa7c46387f92a32cc27b9807f85e1ac6e" prot="public" virt="non-virtual"><scope>eu::core::tracery::Grammar</scope><name>Grammar</name></member>
       <member refid="structeu_1_1core_1_1tracery_1_1Grammar_1ab1f43960e2c28b88f7221b5e9e2788fc" prot="public" virt="non-virtual"><scope>eu::core::tracery::Grammar</scope><name>load_from_string</name></member>

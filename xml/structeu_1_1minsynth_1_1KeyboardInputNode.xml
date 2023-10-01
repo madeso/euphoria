@@ -85,7 +85,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="210" column="14" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="393" bodyend="454"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="210" column="14" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="389" bodyend="450"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1minsynth_1_1KeyboardInputNode_1a2a726409554a7c349de20f8cd7abc087" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -118,7 +118,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="212" column="14" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="364" bodyend="375"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="212" column="14" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="360" bodyend="371"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1minsynth_1_1KeyboardInputNode_1a65c52b5242b248b3a2726ee5f564bdda" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -147,7 +147,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="221" column="14" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="379" bodyend="390"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="221" column="14" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="375" bodyend="386"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

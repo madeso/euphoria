@@ -19,21 +19,21 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
-      <memberdef kind="function" id="structeu_1_1render_1_1ListOfTextDrawCommands_1ac19f7acc81d244e274c72f4fd2b60a08" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1render_1_1ListOfTextDrawCommands_1ada21fd4033bc46a502bcdf8b71ecf9f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void eu::render::ListOfTextDrawCommands::add</definition>
-        <argsstring>(const Texture2 *texture, const core::Rectf &amp;sprite_rect, const core::Rectf &amp;texture_rect, bool hi)</argsstring>
+        <argsstring>(const Texture2 *texture, const Rectf &amp;sprite_rect, const Rectf &amp;texture_rect, bool hi)</argsstring>
         <name>add</name>
         <param>
           <type>const <ref refid="structeu_1_1render_1_1Texture2" kindref="compound">Texture2</ref> *</type>
           <declname>texture</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1Rectf" kindref="compound">core::Rectf</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1Rectf" kindref="compound">Rectf</ref> &amp;</type>
           <declname>sprite_rect</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1Rectf" kindref="compound">core::Rectf</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1Rectf" kindref="compound">Rectf</ref> &amp;</type>
           <declname>texture_rect</declname>
         </param>
         <param>
@@ -48,25 +48,25 @@
         </inbodydescription>
         <location file="libs/render/src/render/font.h" line="88" column="9" bodyfile="libs/render/src/render/font.cc" bodystart="336" bodyend="344"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1render_1_1ListOfTextDrawCommands_1a3a081677dd94a769cbcfe695c6f6162a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1render_1_1ListOfTextDrawCommands_1a7886acb0e4a6d2622de4e399d6b4ec7a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void eu::render::ListOfTextDrawCommands::draw</definition>
-        <argsstring>(SpriteRenderer *renderer, const core::vec2f &amp;start_position, const core::Rgb &amp;base_color, const core::Rgb &amp;hi_color)</argsstring>
+        <argsstring>(SpriteRenderer *renderer, const vec2f &amp;start_position, const Rgb &amp;base_color, const Rgb &amp;hi_color)</argsstring>
         <name>draw</name>
         <param>
           <type><ref refid="structeu_1_1render_1_1SpriteRenderer" kindref="compound">SpriteRenderer</ref> *</type>
           <declname>renderer</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1vec2f" kindref="compound">core::vec2f</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
           <declname>start_position</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1Rgb" kindref="compound">core::Rgb</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1Rgb" kindref="compound">Rgb</ref> &amp;</type>
           <declname>base_color</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1Rgb" kindref="compound">core::Rgb</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1Rgb" kindref="compound">Rgb</ref> &amp;</type>
           <declname>hi_color</declname>
         </param>
         <briefdescription>
@@ -77,9 +77,9 @@
         </inbodydescription>
         <location file="libs/render/src/render/font.h" line="97" column="9" bodyfile="libs/render/src/render/font.cc" bodystart="349" bodyend="369"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1render_1_1ListOfTextDrawCommands_1a5c920f3cd647418a1900eb4b242b85bd" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1core_1_1Rectf" kindref="compound">core::Rectf</ref></type>
-        <definition>core::Rectf eu::render::ListOfTextDrawCommands::get_extents</definition>
+      <memberdef kind="function" id="structeu_1_1render_1_1ListOfTextDrawCommands_1a3783653c83b82e49fe156a783a0ab112" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1Rectf" kindref="compound">Rectf</ref></type>
+        <definition>Rectf eu::render::ListOfTextDrawCommands::get_extents</definition>
         <argsstring>() const</argsstring>
         <name>get_extents</name>
         <briefdescription>
@@ -97,10 +97,10 @@
     </detaileddescription>
     <location file="libs/render/src/render/font.h" line="83" column="5" bodyfile="libs/render/src/render/font.h" bodystart="84" bodyend="107"/>
     <listofallmembers>
-      <member refid="structeu_1_1render_1_1ListOfTextDrawCommands_1ac19f7acc81d244e274c72f4fd2b60a08" prot="public" virt="non-virtual"><scope>eu::render::ListOfTextDrawCommands</scope><name>add</name></member>
+      <member refid="structeu_1_1render_1_1ListOfTextDrawCommands_1ada21fd4033bc46a502bcdf8b71ecf9f8" prot="public" virt="non-virtual"><scope>eu::render::ListOfTextDrawCommands</scope><name>add</name></member>
       <member refid="structeu_1_1render_1_1ListOfTextDrawCommands_1a82efe79230f1d02de632e12a6711058c" prot="public" virt="non-virtual"><scope>eu::render::ListOfTextDrawCommands</scope><name>commands</name></member>
-      <member refid="structeu_1_1render_1_1ListOfTextDrawCommands_1a3a081677dd94a769cbcfe695c6f6162a" prot="public" virt="non-virtual"><scope>eu::render::ListOfTextDrawCommands</scope><name>draw</name></member>
-      <member refid="structeu_1_1render_1_1ListOfTextDrawCommands_1a5c920f3cd647418a1900eb4b242b85bd" prot="public" virt="non-virtual"><scope>eu::render::ListOfTextDrawCommands</scope><name>get_extents</name></member>
+      <member refid="structeu_1_1render_1_1ListOfTextDrawCommands_1a7886acb0e4a6d2622de4e399d6b4ec7a" prot="public" virt="non-virtual"><scope>eu::render::ListOfTextDrawCommands</scope><name>draw</name></member>
+      <member refid="structeu_1_1render_1_1ListOfTextDrawCommands_1a3783653c83b82e49fe156a783a0ab112" prot="public" virt="non-virtual"><scope>eu::render::ListOfTextDrawCommands</scope><name>get_extents</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

@@ -5,6 +5,10 @@
     <includes refid="palette__cubehelix_8h" local="yes">core/palette_cubehelix.h</includes>
     <includes refid="palette_8h" local="yes">core/palette.h</includes>
     <incdepgraph>
+      <node id="16">
+        <label>base/default_interpolate.h</label>
+        <link refid="default__interpolate_8h"/>
+      </node>
       <node id="26">
         <label>queue</label>
       </node>
@@ -13,10 +17,6 @@
         <link refid="stringutils_8h"/>
         <childnode refid="19" relation="include">
         </childnode>
-      </node>
-      <node id="12">
-        <label>core/colors.h</label>
-        <link refid="colors_8h"/>
       </node>
       <node id="10">
         <label>cstdint</label>
@@ -27,8 +27,11 @@
         <childnode refid="10" relation="include">
         </childnode>
       </node>
+      <node id="22">
+        <label>string</label>
+      </node>
       <node id="7">
-        <label>core/rgb.h</label>
+        <label>base/rgb.h</label>
         <link refid="rgb_8h"/>
         <childnode refid="8" relation="include">
         </childnode>
@@ -41,14 +44,27 @@
         <childnode refid="17" relation="include">
         </childnode>
       </node>
-      <node id="22">
-        <label>string</label>
-      </node>
       <node id="19">
         <label>map</label>
       </node>
       <node id="6">
         <label>range/v3/view/span.hpp</label>
+      </node>
+      <node id="30">
+        <label>base/string_io.h</label>
+        <link refid="string__io_8h"/>
+        <childnode refid="31" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>base/angle.h</label>
+        <link refid="angle_8h"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
       </node>
       <node id="21">
         <label>assert/assert.h</label>
@@ -58,14 +74,16 @@
         <childnode refid="23" relation="include">
         </childnode>
       </node>
+      <node id="15">
+        <label>base/numeric.h</label>
+        <link refid="numeric_8h"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
       <node id="4">
         <label>string_view</label>
-      </node>
-      <node id="33">
-        <label>core/numparse.h</label>
-        <link refid="numparse_8h"/>
-        <childnode refid="32" relation="include">
-        </childnode>
       </node>
       <node id="31">
         <label>base/result.h</label>
@@ -73,14 +91,18 @@
         <childnode refid="32" relation="include">
         </childnode>
       </node>
+      <node id="17">
+        <label>base/default_parse.h</label>
+        <link refid="default__parse_8h"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+      </node>
       <node id="32">
         <label>optional</label>
-      </node>
-      <node id="15">
-        <label>core/numeric.h</label>
-        <link refid="numeric_8h"/>
-        <childnode refid="16" relation="include">
-        </childnode>
       </node>
       <node id="29">
         <label>magic_enum/magic_enum.hpp</label>
@@ -110,33 +132,11 @@
         <childnode refid="28" relation="include">
         </childnode>
       </node>
-      <node id="30">
-        <label>core/custom_parser.h</label>
-        <link refid="custom__parser_8h"/>
-        <childnode refid="31" relation="include">
-        </childnode>
-      </node>
       <node id="5">
         <label>array</label>
       </node>
-      <node id="14">
-        <label>iostream</label>
-      </node>
-      <node id="2">
-        <label>core/palette_cubehelix.h</label>
-        <link refid="palette__cubehelix_8h"/>
-        <childnode refid="3" relation="include">
-        </childnode>
-      </node>
-      <node id="11">
-        <label>cstddef</label>
-      </node>
-      <node id="16">
-        <label>core/interpolate.default.h</label>
-        <link refid="interpolate_8default_8h"/>
-      </node>
       <node id="18">
-        <label>core/enumtostring.h</label>
+        <label>base/enumtostring.h</label>
         <link refid="enumtostring_8h"/>
         <childnode refid="19" relation="include">
         </childnode>
@@ -151,6 +151,18 @@
         <childnode refid="29" relation="include">
         </childnode>
       </node>
+      <node id="14">
+        <label>iostream</label>
+      </node>
+      <node id="2">
+        <label>core/palette_cubehelix.h</label>
+        <link refid="palette__cubehelix_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>cstddef</label>
+      </node>
       <node id="28">
         <label>base/editdistance.h</label>
         <link refid="editdistance_8h"/>
@@ -163,16 +175,6 @@
         <childnode refid="3" relation="include">
         </childnode>
       </node>
-      <node id="13">
-        <label>core/angle.h</label>
-        <link refid="angle_8h"/>
-        <childnode refid="14" relation="include">
-        </childnode>
-        <childnode refid="15" relation="include">
-        </childnode>
-        <childnode refid="16" relation="include">
-        </childnode>
-      </node>
       <node id="8">
         <label>base/cint.h</label>
         <link refid="cint_8h"/>
@@ -181,14 +183,10 @@
         <childnode refid="11" relation="include">
         </childnode>
       </node>
-      <node id="17">
-        <label>core/default_parse.h</label>
-        <link refid="default__parse_8h"/>
-        <childnode refid="18" relation="include">
-        </childnode>
-        <childnode refid="30" relation="include">
-        </childnode>
-        <childnode refid="33" relation="include">
+      <node id="33">
+        <label>base/numparse.h</label>
+        <link refid="numparse_8h"/>
+        <childnode refid="32" relation="include">
         </childnode>
       </node>
       <node id="20">
@@ -196,6 +194,10 @@
       </node>
       <node id="27">
         <label>algorithm</label>
+      </node>
+      <node id="12">
+        <label>base/colors.h</label>
+        <link refid="colors_8h"/>
       </node>
     </incdepgraph>
     <briefdescription>

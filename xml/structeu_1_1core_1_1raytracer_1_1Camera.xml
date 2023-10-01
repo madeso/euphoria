@@ -4,7 +4,7 @@
     <compoundname>eu::core::raytracer::Camera</compoundname>
       <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structeu_1_1core_1_1raytracer_1_1Camera_1aa35182073786a857a46a74383a373fa1" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
+        <type><ref refid="structeu_1_1vec3f" kindref="compound">vec3f</ref></type>
         <definition>vec3f eu::core::raytracer::Camera::lower_left_corner</definition>
         <argsstring></argsstring>
         <name>lower_left_corner</name>
@@ -17,7 +17,7 @@
         <location file="libs/core/src/core/raytracer.cc" line="427" column="15" bodyfile="libs/core/src/core/raytracer.cc" bodystart="427" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1raytracer_1_1Camera_1a8e4309ff53327f32f1ba18932cab2fef" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
+        <type><ref refid="structeu_1_1vec3f" kindref="compound">vec3f</ref></type>
         <definition>vec3f eu::core::raytracer::Camera::horizontal</definition>
         <argsstring></argsstring>
         <name>horizontal</name>
@@ -30,7 +30,7 @@
         <location file="libs/core/src/core/raytracer.cc" line="428" column="15" bodyfile="libs/core/src/core/raytracer.cc" bodystart="428" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1raytracer_1_1Camera_1a585fe4003cf25619eaf76982dae359e8" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
+        <type><ref refid="structeu_1_1vec3f" kindref="compound">vec3f</ref></type>
         <definition>vec3f eu::core::raytracer::Camera::vertical</definition>
         <argsstring></argsstring>
         <name>vertical</name>
@@ -43,7 +43,7 @@
         <location file="libs/core/src/core/raytracer.cc" line="429" column="15" bodyfile="libs/core/src/core/raytracer.cc" bodystart="429" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1raytracer_1_1Camera_1ad09a5cd51a5c01ae39bcd5651396adc1" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
+        <type><ref refid="structeu_1_1vec3f" kindref="compound">vec3f</ref></type>
         <definition>vec3f eu::core::raytracer::Camera::origin</definition>
         <argsstring></argsstring>
         <name>origin</name>
@@ -63,7 +63,7 @@
         <argsstring>(const Angle &amp;vfov, float aspect)</argsstring>
         <name>create</name>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1Angle" kindref="compound">Angle</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1Angle" kindref="compound">Angle</ref> &amp;</type>
           <declname>vfov</declname>
         </param>
         <param>
@@ -81,7 +81,7 @@
       </sectiondef>
       <sectiondef kind="public-func">
       <memberdef kind="function" id="structeu_1_1core_1_1raytracer_1_1Camera_1a59f021b4484c55f9d0e98b4e80c494b4" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
-        <type><ref refid="structeu_1_1core_1_1UnitRay3f" kindref="compound">UnitRay3f</ref></type>
+        <type><ref refid="structeu_1_1UnitRay3f" kindref="compound">UnitRay3f</ref></type>
         <definition>UnitRay3f eu::core::raytracer::Camera::get_ray</definition>
         <argsstring>(float u, float v) const</argsstring>
         <name>get_ray</name>
@@ -107,10 +107,6 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-      <node id="2">
-        <label>eu::core::vec3f</label>
-        <link refid="structeu_1_1core_1_1vec3f"/>
-      </node>
       <node id="1">
         <label>eu::core::raytracer::Camera</label>
         <link refid="structeu_1_1core_1_1raytracer_1_1Camera"/>
@@ -120,6 +116,10 @@
           <edgelabel>origin</edgelabel>
           <edgelabel>vertical</edgelabel>
         </childnode>
+      </node>
+      <node id="2">
+        <label>eu::vec3f</label>
+        <link refid="structeu_1_1vec3f"/>
       </node>
     </collaborationgraph>
     <location file="libs/core/src/core/raytracer.cc" line="425" column="5" bodyfile="libs/core/src/core/raytracer.cc" bodystart="426" bodyend="456"/>

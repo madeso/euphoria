@@ -119,7 +119,7 @@
         <argsstring>(const vec3f &amp;p, float radius, const Rgbi &amp;color)</argsstring>
         <name>add_sphere</name>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
           <declname>p</declname>
         </param>
         <param>
@@ -127,7 +127,7 @@
           <declname>radius</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1Rgbi" kindref="compound">Rgbi</ref> &amp;</type>
           <declname>color</declname>
         </param>
         <briefdescription>
@@ -144,11 +144,11 @@
         <argsstring>(const std::vector&lt; vec3f &gt; &amp;lines, const Rgbi &amp;color) -&gt; void</argsstring>
         <name>add_lines</name>
         <param>
-          <type>const std::vector&lt; <ref refid="structeu_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &gt; &amp;</type>
+          <type>const std::vector&lt; <ref refid="structeu_1_1vec3f" kindref="compound">vec3f</ref> &gt; &amp;</type>
           <declname>lines</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1Rgbi" kindref="compound">Rgbi</ref> &amp;</type>
           <declname>color</declname>
         </param>
         <briefdescription>
@@ -165,11 +165,11 @@
         <argsstring>(const Plane &amp;plane, const Rgbi &amp;color)</argsstring>
         <name>add_plane</name>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1Plane" kindref="compound">Plane</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1Plane" kindref="compound">Plane</ref> &amp;</type>
           <declname>plane</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1Rgbi" kindref="compound">Rgbi</ref> &amp;</type>
           <declname>color</declname>
         </param>
         <briefdescription>
@@ -186,11 +186,11 @@
         <argsstring>(const Ray3f &amp;ray, const Rgbi &amp;color)</argsstring>
         <name>add_arrow</name>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1Ray3f" kindref="compound">Ray3f</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1Ray3f" kindref="compound">Ray3f</ref> &amp;</type>
           <declname>ray</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1Rgbi" kindref="compound">Rgbi</ref> &amp;</type>
           <declname>color</declname>
         </param>
         <briefdescription>

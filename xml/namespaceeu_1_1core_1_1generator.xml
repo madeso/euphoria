@@ -108,7 +108,7 @@
           <declname>cell</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1core_1_1Random" kindref="compound">Random</ref> *</type>
+          <type><ref refid="structeu_1_1Random" kindref="compound">Random</ref> *</type>
           <declname>random</declname>
         </param>
         <param>
@@ -116,7 +116,7 @@
           <declname>random_fill</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1core_1_1Lrud" kindref="compound">Lrud</ref>&lt; <ref refid="namespaceeu_1_1core_1ad816ec64a4ad2c10feb5ed0b227785df" kindref="member">BorderSetupRule</ref> &gt;</type>
+          <type><ref refid="structeu_1_1Lrud" kindref="compound">Lrud</ref>&lt; <ref refid="namespaceeu_1_1core_1ad816ec64a4ad2c10feb5ed0b227785df" kindref="member">BorderSetupRule</ref> &gt;</type>
           <declname>border_control</declname>
         </param>
         <briefdescription>
@@ -376,7 +376,7 @@
         <location file="libs/core/src/core/generator_cell.cc" line="345" column="5" bodyfile="libs/core/src/core/generator_cell.cc" bodystart="345" bodyend="352" declfile="libs/core/src/core/generator_cell.h" declline="147" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1core_1_1generator_1aa039ffb75f7a7b4cafe9965075108009" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1core_1_1vec2i" kindref="compound">vec2i</ref></type>
+        <type><ref refid="structeu_1_1vec2i" kindref="compound">vec2i</ref></type>
         <definition>vec2i eu::core::generator::from_dir_to_offset</definition>
         <argsstring>(const Direction d)</argsstring>
         <name>from_dir_to_offset</name>
@@ -449,7 +449,7 @@
           <declname>maze</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1vec2i" kindref="compound">vec2i</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1vec2i" kindref="compound">vec2i</ref> &amp;</type>
           <declname>np</declname>
         </param>
         <briefdescription>
@@ -461,7 +461,7 @@
         <location file="libs/core/src/core/generator_maze.cc" line="63" column="5" bodyfile="libs/core/src/core/generator_maze.cc" bodystart="63" bodyend="66"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1core_1_1generator_1a819ee6687192d427f86269ec5caa4825" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1core_1_1vec2i" kindref="compound">vec2i</ref></type>
+        <type><ref refid="structeu_1_1vec2i" kindref="compound">vec2i</ref></type>
         <definition>vec2i eu::core::generator::add_step_to_maze</definition>
         <argsstring>(Maze *maze, const vec2i &amp;c, Direction dir)</argsstring>
         <name>add_step_to_maze</name>
@@ -470,7 +470,7 @@
           <declname>maze</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1vec2i" kindref="compound">vec2i</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1vec2i" kindref="compound">vec2i</ref> &amp;</type>
           <declname>c</declname>
         </param>
         <param>
@@ -495,7 +495,7 @@
           <declname>maze</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1vec2i" kindref="compound">vec2i</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1vec2i" kindref="compound">vec2i</ref> &amp;</type>
           <declname>np</declname>
         </param>
         <briefdescription>
@@ -516,7 +516,7 @@
           <declname>maze</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1vec2i" kindref="compound">vec2i</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1vec2i" kindref="compound">vec2i</ref> &amp;</type>
           <declname>np</declname>
         </param>
         <briefdescription>
@@ -542,7 +542,7 @@
           <declname>vec</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1core_1_1Random" kindref="compound">Random</ref> *</type>
+          <type><ref refid="structeu_1_1Random" kindref="compound">Random</ref> *</type>
           <declname>r</declname>
         </param>
         <briefdescription>
@@ -554,12 +554,12 @@
         <location file="libs/core/src/core/generator_maze.cc" line="101" column="5" bodyfile="libs/core/src/core/generator_maze.cc" bodystart="101" bodyend="108"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1core_1_1generator_1a39e9f291ae941d97903d99350e160247" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1core_1_1vec2i" kindref="compound">vec2i</ref></type>
+        <type><ref refid="structeu_1_1vec2i" kindref="compound">vec2i</ref></type>
         <definition>vec2i eu::core::generator::calc_random_position_on_maze</definition>
         <argsstring>(Random *random, Maze *maze)</argsstring>
         <name>calc_random_position_on_maze</name>
         <param>
-          <type><ref refid="structeu_1_1core_1_1Random" kindref="compound">Random</ref> *</type>
+          <type><ref refid="structeu_1_1Random" kindref="compound">Random</ref> *</type>
           <declname>random</declname>
         </param>
         <param>
@@ -588,7 +588,7 @@
           <declname>frontier</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1vec2i" kindref="compound">vec2i</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1vec2i" kindref="compound">vec2i</ref> &amp;</type>
           <declname>p</declname>
         </param>
         <briefdescription>

@@ -6,6 +6,6 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/enumtostring.h" line="174" column="1"/>
+    <location file="libs/base/src/base/enumtostring.h" line="174" column="1"/>
   </compounddef>
 </doxygen>

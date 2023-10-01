@@ -238,10 +238,6 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-      <node id="3">
-        <label>eu::core::Range&lt; float &gt;</label>
-        <link refid="structeu_1_1core_1_1Range"/>
-      </node>
       <node id="2">
         <label>eu::core::CanvasLogic</label>
         <link refid="structeu_1_1core_1_1CanvasLogic"/>
@@ -252,9 +248,13 @@
           <edgelabel>scroll</edgelabel>
         </childnode>
       </node>
+      <node id="3">
+        <label>eu::Range&lt; float &gt;</label>
+        <link refid="structeu_1_1Range"/>
+      </node>
       <node id="4">
-        <label>eu::core::vec2f</label>
-        <link refid="structeu_1_1core_1_1vec2f"/>
+        <label>eu::vec2f</label>
+        <link refid="structeu_1_1vec2f"/>
       </node>
       <node id="1">
         <label>eu::window::Canvas</label>

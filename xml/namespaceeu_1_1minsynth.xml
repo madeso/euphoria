@@ -381,22 +381,6 @@
         <location file="libs/minsynth/src/minsynth/synth.h" line="345" column="5" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="345" bodyend="-1"/>
       </memberdef>
       </sectiondef>
-      <sectiondef kind="var">
-      <memberdef kind="variable" id="namespaceeu_1_1minsynth_1a8937c082baae8cf4c6e7de0e218ab292" prot="public" static="no" constexpr="yes" mutable="no">
-        <type>constexpr float</type>
-        <definition>constexpr float eu::minsynth::pi</definition>
-        <argsstring></argsstring>
-        <name>pi</name>
-        <initializer>= core::pi</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.cc" line="30" column="21" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="30" bodyend="-1"/>
-      </memberdef>
-      </sectiondef>
       <sectiondef kind="func">
       <memberdef kind="function" id="namespaceeu_1_1minsynth_1a9469f69c6aed74ea772a748adbfa68cc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -413,7 +397,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.cc" line="34" column="5" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="34" bodyend="48" declfile="libs/minsynth/src/minsynth/synth.h" declline="91" declcolumn="17"/>
+        <location file="libs/minsynth/src/minsynth/synth.cc" line="30" column="5" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="30" bodyend="44" declfile="libs/minsynth/src/minsynth/synth.h" declline="91" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1minsynth_1a5d2b87236fcc89c6b9731c6511eacaac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -430,7 +414,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.cc" line="51" column="5" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="51" bodyend="67" declfile="libs/minsynth/src/minsynth/synth.h" declline="92" declcolumn="17"/>
+        <location file="libs/minsynth/src/minsynth/synth.cc" line="47" column="5" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="47" bodyend="63" declfile="libs/minsynth/src/minsynth/synth.h" declline="92" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1minsynth_1ab9e14c1010c5bafce7d2b2fad61fad70" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
@@ -447,7 +431,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.cc" line="70" column="5" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="70" bodyend="84" declfile="libs/minsynth/src/minsynth/synth.h" declline="98" declcolumn="11"/>
+        <location file="libs/minsynth/src/minsynth/synth.cc" line="66" column="5" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="66" bodyend="80" declfile="libs/minsynth/src/minsynth/synth.h" declline="98" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1minsynth_1a304dc5cbe5100946a1f0156260a1ddb4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -464,7 +448,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.cc" line="88" column="5" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="88" bodyend="101" declfile="libs/minsynth/src/minsynth/synth.h" declline="96" declcolumn="17"/>
+        <location file="libs/minsynth/src/minsynth/synth.cc" line="84" column="5" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="84" bodyend="97" declfile="libs/minsynth/src/minsynth/synth.h" declline="96" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1minsynth_1a21ccfa0fba486ead81a437e951d7e37a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -481,7 +465,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.cc" line="105" column="5" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="105" bodyend="117" declfile="libs/minsynth/src/minsynth/synth.h" declline="93" declcolumn="17"/>
+        <location file="libs/minsynth/src/minsynth/synth.cc" line="101" column="5" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="101" bodyend="113" declfile="libs/minsynth/src/minsynth/synth.h" declline="93" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1minsynth_1aa6b9c7bc18c76def272edacc19f3dbd3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -498,7 +482,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.cc" line="121" column="5" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="121" bodyend="132" declfile="libs/minsynth/src/minsynth/synth.h" declline="94" declcolumn="17"/>
+        <location file="libs/minsynth/src/minsynth/synth.cc" line="117" column="5" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="117" bodyend="128" declfile="libs/minsynth/src/minsynth/synth.h" declline="94" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1minsynth_1a0219021e18e8b9fc691fe48667e92a9c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -526,7 +510,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.cc" line="180" column="5" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="180" bodyend="184"/>
+        <location file="libs/minsynth/src/minsynth/synth.cc" line="176" column="5" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="176" bodyend="180"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1minsynth_1a39136627cc756b932e8aa60dc57cdc1a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
@@ -547,7 +531,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.cc" line="187" column="5" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="187" bodyend="190" declfile="libs/minsynth/src/minsynth/synth.h" declline="100" declcolumn="11"/>
+        <location file="libs/minsynth/src/minsynth/synth.cc" line="183" column="5" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="183" bodyend="186" declfile="libs/minsynth/src/minsynth/synth.h" declline="100" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1minsynth_1af900e2ce3db44537a04f30c9a14e8994" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
@@ -572,7 +556,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.cc" line="626" column="5" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="626" bodyend="642" declfile="libs/minsynth/src/minsynth/synth.h" declline="265" declcolumn="11"/>
+        <location file="libs/minsynth/src/minsynth/synth.cc" line="622" column="5" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="622" bodyend="638" declfile="libs/minsynth/src/minsynth/synth.h" declline="265" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1minsynth_1a75aa75245fa669eba787a16848e84267" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
@@ -597,7 +581,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.cc" line="646" column="5" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="646" bodyend="649" declfile="libs/minsynth/src/minsynth/synth.h" declline="283" declcolumn="11"/>
+        <location file="libs/minsynth/src/minsynth/synth.cc" line="642" column="5" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="642" bodyend="645" declfile="libs/minsynth/src/minsynth/synth.h" declline="283" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1minsynth_1afd0c77f94ccb738ab5f49705948dcbf4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::vector&lt; <ref refid="structeu_1_1minsynth_1_1PianoKey" kindref="compound">PianoKey</ref> &gt;</type>
@@ -666,7 +650,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.cc" line="826" column="5" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="827" bodyend="860"/>
+        <location file="libs/minsynth/src/minsynth/synth.cc" line="822" column="5" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="823" bodyend="856"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1minsynth_1a172bc4755cfad9dba7f68b3bdbe58811" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>const <ref refid="namespaceeu_1_1minsynth_1a9184924598c6b3238619d4e4d4b1c060" kindref="member">KeyboardLayout</ref> &amp;</type>
@@ -679,7 +663,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.cc" line="864" column="5" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="864" bodyend="877" declfile="libs/minsynth/src/minsynth/synth.h" declline="348" declcolumn="26"/>
+        <location file="libs/minsynth/src/minsynth/synth.cc" line="860" column="5" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="860" bodyend="873" declfile="libs/minsynth/src/minsynth/synth.h" declline="348" declcolumn="26"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1minsynth_1a9c318a51e69d885398ffbcf1b134b86a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -716,7 +700,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.cc" line="881" column="5" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="882" bodyend="926"/>
+        <location file="libs/minsynth/src/minsynth/synth.cc" line="877" column="5" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="878" bodyend="922"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1minsynth_1aca319766557fbd53bdfdb4ab353865b0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -741,7 +725,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.cc" line="930" column="5" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="931" bodyend="955" declfile="libs/minsynth/src/minsynth/synth.h" declline="350" declcolumn="10"/>
+        <location file="libs/minsynth/src/minsynth/synth.cc" line="926" column="5" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="927" bodyend="951" declfile="libs/minsynth/src/minsynth/synth.h" declline="350" declcolumn="10"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

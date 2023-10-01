@@ -175,9 +175,9 @@
         </inbodydescription>
         <location file="libs/render/src/render/scalablesprite.h" line="40" column="14"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1render_1_1ScalableSprite_1a39364e72cf8851d68638f9b395017c38" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1core_1_1size2f" kindref="compound">core::size2f</ref></type>
-        <definition>core::size2f eu::render::ScalableSprite::get_minimum_size</definition>
+      <memberdef kind="function" id="structeu_1_1render_1_1ScalableSprite_1adfd22a8f930b604ae3c1f6da150e45fb" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1size2f" kindref="compound">size2f</ref></type>
+        <definition>size2f eu::render::ScalableSprite::get_minimum_size</definition>
         <argsstring>() const</argsstring>
         <name>get_minimum_size</name>
         <briefdescription>
@@ -188,21 +188,21 @@
         </inbodydescription>
         <location file="libs/render/src/render/scalablesprite.h" line="43" column="9" bodyfile="libs/render/src/render/scalablesprite.cc" bodystart="100" bodyend="107"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1render_1_1ScalableSprite_1af89b17a9a6260cd9003229da74b758c9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1render_1_1ScalableSprite_1aabf2ad591c864ea1c6f72ebf69d24e63" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void eu::render::ScalableSprite::render</definition>
-        <argsstring>(SpriteRenderer *renderer, const core::Rectf &amp;rect, const core::Rgba &amp;tint) const</argsstring>
+        <argsstring>(SpriteRenderer *renderer, const Rectf &amp;rect, const Rgba &amp;tint) const</argsstring>
         <name>render</name>
         <param>
           <type><ref refid="structeu_1_1render_1_1SpriteRenderer" kindref="compound">SpriteRenderer</ref> *</type>
           <declname>renderer</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1Rectf" kindref="compound">core::Rectf</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1Rectf" kindref="compound">Rectf</ref> &amp;</type>
           <declname>rect</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1Rgba" kindref="compound">core::Rgba</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1Rgba" kindref="compound">Rgba</ref> &amp;</type>
           <declname>tint</declname>
         </param>
         <briefdescription>
@@ -223,10 +223,10 @@
       <member refid="structeu_1_1render_1_1ScalableSprite_1acbe08a81dca81c73eba1d22291e3092c" prot="public" virt="non-virtual"><scope>eu::render::ScalableSprite</scope><name>calculated_texture_size_columns</name></member>
       <member refid="structeu_1_1render_1_1ScalableSprite_1a2f674b71326250c23f075d88848f86f4" prot="public" virt="non-virtual"><scope>eu::render::ScalableSprite</scope><name>calculated_texture_size_rows</name></member>
       <member refid="structeu_1_1render_1_1ScalableSprite_1a91bb0d39c0cb02b3cf1cabd9d6fec82d" prot="public" virt="non-virtual"><scope>eu::render::ScalableSprite</scope><name>columns</name></member>
-      <member refid="structeu_1_1render_1_1ScalableSprite_1a39364e72cf8851d68638f9b395017c38" prot="public" virt="non-virtual"><scope>eu::render::ScalableSprite</scope><name>get_minimum_size</name></member>
+      <member refid="structeu_1_1render_1_1ScalableSprite_1adfd22a8f930b604ae3c1f6da150e45fb" prot="public" virt="non-virtual"><scope>eu::render::ScalableSprite</scope><name>get_minimum_size</name></member>
       <member refid="structeu_1_1render_1_1ScalableSprite_1a630b73649800439fc5c224a4d4224c0d" prot="public" virt="non-virtual"><scope>eu::render::ScalableSprite</scope><name>operator=</name></member>
       <member refid="structeu_1_1render_1_1ScalableSprite_1ac541edf199934383a960ffdc3c853e4d" prot="public" virt="non-virtual"><scope>eu::render::ScalableSprite</scope><name>operator=</name></member>
-      <member refid="structeu_1_1render_1_1ScalableSprite_1af89b17a9a6260cd9003229da74b758c9" prot="public" virt="non-virtual"><scope>eu::render::ScalableSprite</scope><name>render</name></member>
+      <member refid="structeu_1_1render_1_1ScalableSprite_1aabf2ad591c864ea1c6f72ebf69d24e63" prot="public" virt="non-virtual"><scope>eu::render::ScalableSprite</scope><name>render</name></member>
       <member refid="structeu_1_1render_1_1ScalableSprite_1a75dc9eb061e451dfac2e8031d79a0af1" prot="public" virt="non-virtual"><scope>eu::render::ScalableSprite</scope><name>rows</name></member>
       <member refid="structeu_1_1render_1_1ScalableSprite_1a6212787aa4719d61843de9cb094fa2f6" prot="public" virt="non-virtual"><scope>eu::render::ScalableSprite</scope><name>ScalableSprite</name></member>
       <member refid="structeu_1_1render_1_1ScalableSprite_1ab2adde6c9981a9efc5534a4de4c814e6" prot="public" virt="non-virtual"><scope>eu::render::ScalableSprite</scope><name>ScalableSprite</name></member>

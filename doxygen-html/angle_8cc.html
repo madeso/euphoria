@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Euphoria: libs/core/src/core/angle.cc File Reference</title>
+<title>Euphoria: libs/base/src/base/angle.cc File Reference</title>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <link href="style.css" rel="stylesheet" type="text/css" />
@@ -46,7 +46,7 @@
   </div>
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="dir_6f77a39b07c019ccd7492ea87272f732.html">core</a></li><li class="navelem"><a class="el" href="dir_232ab8dc75117fda122ab855789b1b2c.html">src</a></li><li class="navelem"><a class="el" href="dir_415d9b35eca6c445d7f5977763a796bd.html">core</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="dir_06498c378442102d76a793fbea770c00.html">base</a></li><li class="navelem"><a class="el" href="dir_1434489f875b8806781a8ab0a150cad2.html">src</a></li><li class="navelem"><a class="el" href="dir_9335635e0e9dc5833ab0cd315fbf7edd.html">base</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -57,10 +57,10 @@
 <div class="title">angle.cc File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="angle_8h_source.html">core/angle.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="angle_8h_source.html">base/angle.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="assert_8h_source.html">assert/assert.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="range_8h_source.html">core/range.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="random_8h_source.html">core/random.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="range_8h_source.html">base/range.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="random_8h_source.html">base/random.h</a>&quot;</code><br />
 <code>#include &lt;cmath&gt;</code><br />
 </div>
 <p><a href="angle_8cc_source.html">Go to the source code of this file.</a></p>
@@ -69,49 +69,47 @@
 Namespaces</h2></td></tr>
 <tr class="memitem:namespaceeu"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html">eu</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:namespaceeu_1_1core"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html">eu::core</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:abdcf8ca48c30bfe5df42858c65848bcc"><td class="memItemLeft" align="right" valign="top">Angle&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#abdcf8ca48c30bfe5df42858c65848bcc">eu::core::get_random_angle</a> (::<a class="el" href="structeu_1_1core_1_1Random.html">eu::core::Random</a> *random)</td></tr>
-<tr class="separator:abdcf8ca48c30bfe5df42858c65848bcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab56defec98cbaff7903f4210f04a7173"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#ab56defec98cbaff7903f4210f04a7173">eu::core::sin</a> (const Angle &amp;ang)</td></tr>
-<tr class="separator:ab56defec98cbaff7903f4210f04a7173"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a99f3870f13531ca64de7f8184b539c4f"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#a99f3870f13531ca64de7f8184b539c4f">eu::core::cos</a> (const Angle &amp;ang)</td></tr>
-<tr class="separator:a99f3870f13531ca64de7f8184b539c4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a381a24408b885cdf2c12f202a2b242af"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#a381a24408b885cdf2c12f202a2b242af">eu::core::tan</a> (const Angle &amp;ang)</td></tr>
-<tr class="separator:a381a24408b885cdf2c12f202a2b242af"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a59d879aeac088bd57389e4f59b10a507"><td class="memItemLeft" align="right" valign="top">Angle&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#a59d879aeac088bd57389e4f59b10a507">eu::core::asin</a> (float v)</td></tr>
-<tr class="separator:a59d879aeac088bd57389e4f59b10a507"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7830c8660ca717ab223e937ea9b8c70b"><td class="memItemLeft" align="right" valign="top">Angle&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#a7830c8660ca717ab223e937ea9b8c70b">eu::core::acos</a> (float v)</td></tr>
-<tr class="separator:a7830c8660ca717ab223e937ea9b8c70b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a67123602932c34109d378f285ec9dd4c"><td class="memItemLeft" align="right" valign="top">Angle&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#a67123602932c34109d378f285ec9dd4c">eu::core::atan</a> (float v)</td></tr>
-<tr class="separator:a67123602932c34109d378f285ec9dd4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a17660ae0e0a121f979332bbe2e3f1a60"><td class="memItemLeft" align="right" valign="top">Angle&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#a17660ae0e0a121f979332bbe2e3f1a60">eu::core::atan2</a> (float y, float x)</td></tr>
-<tr class="separator:a17660ae0e0a121f979332bbe2e3f1a60"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac34ad825449b57e9df77bb00081f616e"><td class="memItemLeft" align="right" valign="top">Angle&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#ac34ad825449b57e9df77bb00081f616e">eu::core::operator+</a> (const Angle &amp;lhs, const Angle &amp;rhs)</td></tr>
-<tr class="separator:ac34ad825449b57e9df77bb00081f616e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3f4d20a64624d46bc80886722b6631b1"><td class="memItemLeft" align="right" valign="top">Angle&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#a3f4d20a64624d46bc80886722b6631b1">eu::core::operator-</a> (const Angle &amp;lhs, const Angle &amp;rhs)</td></tr>
-<tr class="separator:a3f4d20a64624d46bc80886722b6631b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af4a61628bf308aa5397c0aa92bf0ad09"><td class="memItemLeft" align="right" valign="top">Angle&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#af4a61628bf308aa5397c0aa92bf0ad09">eu::core::operator/</a> (const Angle &amp;lhs, float rhs)</td></tr>
-<tr class="separator:af4a61628bf308aa5397c0aa92bf0ad09"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0304b5bc34edeed54637d1cf4957cf92"><td class="memItemLeft" align="right" valign="top">Angle&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#a0304b5bc34edeed54637d1cf4957cf92">eu::core::operator*</a> (const Angle &amp;lhs, float rhs)</td></tr>
-<tr class="separator:a0304b5bc34edeed54637d1cf4957cf92"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a01b0a4a686afb722d066351e21187f34"><td class="memItemLeft" align="right" valign="top">Angle&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#a01b0a4a686afb722d066351e21187f34">eu::core::operator*</a> (float rhs, const Angle &amp;lhs)</td></tr>
-<tr class="separator:a01b0a4a686afb722d066351e21187f34"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac2df8a7015454dd457c3c1669bfae67b"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#ac2df8a7015454dd457c3c1669bfae67b">eu::core::to_string</a> (const Angle &amp;a)</td></tr>
-<tr class="separator:ac2df8a7015454dd457c3c1669bfae67b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a393789d572a6c41201bcbadfbe7b4abc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#a393789d572a6c41201bcbadfbe7b4abc">eu::core::operator&lt;</a> (const Angle &amp;lhs, const Angle &amp;rhs)</td></tr>
-<tr class="separator:a393789d572a6c41201bcbadfbe7b4abc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af3e91671a5b62470dfe45d4301da09c9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#af3e91671a5b62470dfe45d4301da09c9">eu::core::operator&lt;=</a> (const Angle &amp;lhs, const Angle &amp;rhs)</td></tr>
-<tr class="separator:af3e91671a5b62470dfe45d4301da09c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab767a83fbe334221a13991c34000ed6f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#ab767a83fbe334221a13991c34000ed6f">eu::core::operator&gt;</a> (const Angle &amp;lhs, const Angle &amp;rhs)</td></tr>
-<tr class="separator:ab767a83fbe334221a13991c34000ed6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5864afa93746fd31337cffae998b3731"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#a5864afa93746fd31337cffae998b3731">eu::core::operator&gt;=</a> (const Angle &amp;lhs, const Angle &amp;rhs)</td></tr>
-<tr class="separator:a5864afa93746fd31337cffae998b3731"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0aeeb3ddd24add3f7cf9e329d4035c1c"><td class="memItemLeft" align="right" valign="top">Angle&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#a0aeeb3ddd24add3f7cf9e329d4035c1c">eu::core::lerp_angle</a> (const Angle &amp;from, float v, const Angle &amp;to)</td></tr>
-<tr class="separator:a0aeeb3ddd24add3f7cf9e329d4035c1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac289bda2ea11c030f0813fb0fb60c8cc"><td class="memItemLeft" align="right" valign="top">Angle&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html#ac289bda2ea11c030f0813fb0fb60c8cc">eu::get_random_angle</a> (::<a class="el" href="structeu_1_1Random.html">eu::Random</a> *random)</td></tr>
+<tr class="separator:ac289bda2ea11c030f0813fb0fb60c8cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca78dba63a28d6e87e705f3f09960a1a"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html#aca78dba63a28d6e87e705f3f09960a1a">eu::sin</a> (const Angle &amp;ang)</td></tr>
+<tr class="separator:aca78dba63a28d6e87e705f3f09960a1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b1d8ca75a7658f3f361475191b71912"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html#a9b1d8ca75a7658f3f361475191b71912">eu::cos</a> (const Angle &amp;ang)</td></tr>
+<tr class="separator:a9b1d8ca75a7658f3f361475191b71912"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a638a925ff24a903a48a9dd83b7dcf6f4"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html#a638a925ff24a903a48a9dd83b7dcf6f4">eu::tan</a> (const Angle &amp;ang)</td></tr>
+<tr class="separator:a638a925ff24a903a48a9dd83b7dcf6f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a447b534d9cfdf0039c832d40b7a0d7bc"><td class="memItemLeft" align="right" valign="top">Angle&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html#a447b534d9cfdf0039c832d40b7a0d7bc">eu::asin</a> (float v)</td></tr>
+<tr class="separator:a447b534d9cfdf0039c832d40b7a0d7bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a186d8c0bfc19958c5efcffcd8d1d8bad"><td class="memItemLeft" align="right" valign="top">Angle&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html#a186d8c0bfc19958c5efcffcd8d1d8bad">eu::acos</a> (float v)</td></tr>
+<tr class="separator:a186d8c0bfc19958c5efcffcd8d1d8bad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa548598221289780061f93b70046a165"><td class="memItemLeft" align="right" valign="top">Angle&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html#aa548598221289780061f93b70046a165">eu::atan</a> (float v)</td></tr>
+<tr class="separator:aa548598221289780061f93b70046a165"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23e6035e556f3a5109f183de61dd1eb4"><td class="memItemLeft" align="right" valign="top">Angle&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html#a23e6035e556f3a5109f183de61dd1eb4">eu::atan2</a> (float y, float x)</td></tr>
+<tr class="separator:a23e6035e556f3a5109f183de61dd1eb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f26b2f5215f64fd7753410b36d2ed40"><td class="memItemLeft" align="right" valign="top">Angle&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html#a0f26b2f5215f64fd7753410b36d2ed40">eu::operator+</a> (const Angle &amp;lhs, const Angle &amp;rhs)</td></tr>
+<tr class="separator:a0f26b2f5215f64fd7753410b36d2ed40"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a313a2aa80887cfb3c9ef71cbc2b136ab"><td class="memItemLeft" align="right" valign="top">Angle&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html#a313a2aa80887cfb3c9ef71cbc2b136ab">eu::operator-</a> (const Angle &amp;lhs, const Angle &amp;rhs)</td></tr>
+<tr class="separator:a313a2aa80887cfb3c9ef71cbc2b136ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a378c4e208a075433eb6b79ff1d37ac45"><td class="memItemLeft" align="right" valign="top">Angle&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html#a378c4e208a075433eb6b79ff1d37ac45">eu::operator/</a> (const Angle &amp;lhs, float rhs)</td></tr>
+<tr class="separator:a378c4e208a075433eb6b79ff1d37ac45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8db85497bbda3078a4b20f66bdb5b4a"><td class="memItemLeft" align="right" valign="top">Angle&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html#ad8db85497bbda3078a4b20f66bdb5b4a">eu::operator*</a> (const Angle &amp;lhs, float rhs)</td></tr>
+<tr class="separator:ad8db85497bbda3078a4b20f66bdb5b4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28fd8ac0c2e01367a5727671670fc84e"><td class="memItemLeft" align="right" valign="top">Angle&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html#a28fd8ac0c2e01367a5727671670fc84e">eu::operator*</a> (float rhs, const Angle &amp;lhs)</td></tr>
+<tr class="separator:a28fd8ac0c2e01367a5727671670fc84e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa542af8138ef5d5a6d189f930a307013"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html#aa542af8138ef5d5a6d189f930a307013">eu::to_string</a> (const Angle &amp;a)</td></tr>
+<tr class="separator:aa542af8138ef5d5a6d189f930a307013"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0980fedfeba0f10b266f81201213074"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html#ad0980fedfeba0f10b266f81201213074">eu::operator&lt;</a> (const Angle &amp;lhs, const Angle &amp;rhs)</td></tr>
+<tr class="separator:ad0980fedfeba0f10b266f81201213074"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afebadcbc758added22f9e71b09a9a76b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html#afebadcbc758added22f9e71b09a9a76b">eu::operator&lt;=</a> (const Angle &amp;lhs, const Angle &amp;rhs)</td></tr>
+<tr class="separator:afebadcbc758added22f9e71b09a9a76b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb583e46e3f948a681b988bba27dc244"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html#adb583e46e3f948a681b988bba27dc244">eu::operator&gt;</a> (const Angle &amp;lhs, const Angle &amp;rhs)</td></tr>
+<tr class="separator:adb583e46e3f948a681b988bba27dc244"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa337311fc35735e687b7f1c0a9b4c727"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html#aa337311fc35735e687b7f1c0a9b4c727">eu::operator&gt;=</a> (const Angle &amp;lhs, const Angle &amp;rhs)</td></tr>
+<tr class="separator:aa337311fc35735e687b7f1c0a9b4c727"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7866b7832f7e604469afe0328520d641"><td class="memItemLeft" align="right" valign="top">Angle&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html#a7866b7832f7e604469afe0328520d641">eu::lerp_angle</a> (const Angle &amp;from, float v, const Angle &amp;to)</td></tr>
+<tr class="separator:a7866b7832f7e604469afe0328520d641"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.17-->

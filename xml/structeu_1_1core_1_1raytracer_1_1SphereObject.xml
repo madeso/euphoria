@@ -18,7 +18,7 @@
         <location file="libs/core/src/core/raytracer.cc" line="34" column="22" bodyfile="libs/core/src/core/raytracer.cc" bodystart="34" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1raytracer_1_1SphereObject_1ac2537e3e648a65f6ee0ecc6954f355e0" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
+        <type><ref refid="structeu_1_1vec3f" kindref="compound">vec3f</ref></type>
         <definition>vec3f eu::core::raytracer::SphereObject::position</definition>
         <argsstring></argsstring>
         <name>position</name>
@@ -55,7 +55,7 @@
           <declname>asphere</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
           <declname>aposition</declname>
         </param>
         <param>
@@ -77,11 +77,11 @@
         <name>get_collision</name>
         <reimplements refid="structeu_1_1core_1_1raytracer_1_1Object_1a8defa5a771a6894ad7dd3fd22cbe51be">get_collision</reimplements>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1UnitRay3f" kindref="compound">UnitRay3f</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1UnitRay3f" kindref="compound">UnitRay3f</ref> &amp;</type>
           <declname>ray</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1Range" kindref="compound">Range</ref>&lt; float &gt; &amp;</type>
+          <type>const <ref refid="structeu_1_1Range" kindref="compound">Range</ref>&lt; float &gt; &amp;</type>
           <declname>range</declname>
         </param>
         <briefdescription>
@@ -131,8 +131,8 @@
         <link refid="structeu_1_1core_1_1raytracer_1_1Object"/>
       </node>
       <node id="4">
-        <label>eu::core::vec3f</label>
-        <link refid="structeu_1_1core_1_1vec3f"/>
+        <label>eu::vec3f</label>
+        <link refid="structeu_1_1vec3f"/>
       </node>
     </collaborationgraph>
     <location file="libs/core/src/core/raytracer.cc" line="32" column="5" bodyfile="libs/core/src/core/raytracer.cc" bodystart="33" bodyend="76"/>

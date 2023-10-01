@@ -1,0 +1,182 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1unit3f" kind="struct" language="C++" prot="public">
+    <compoundname>eu::unit3f</compoundname>
+    <basecompoundref refid="structeu_1_1vec3f" prot="public" virt="non-virtual">eu::vec3f</basecompoundref>
+    <includes refid="vec3_8h" local="no">vec3.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1unit3f_1aae9cf49fbfc3c5b7fc24f9c40fc668e5" prot="public" static="no" constexpr="yes" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>constexpr <ref refid="structeu_1_1unit3f" kindref="compound">unit3f</ref></type>
+        <definition>constexpr unit3f eu::unit3f::operator-</definition>
+        <argsstring>() const</argsstring>
+        <name>operator-</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/vec3.h" line="103" column="26" bodyfile="libs/base/src/base/vec3.h" bodystart="103" bodyend="106"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1unit3f_1a2bb52c938ae6faa049c9fe9211daa853" prot="public" static="no" constexpr="yes" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>constexpr bool</type>
+        <definition>constexpr bool eu::unit3f::is_valid</definition>
+        <argsstring>() const</argsstring>
+        <name>is_valid</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/vec3.h" line="109" column="9" bodyfile="libs/base/src/base/vec3.h" bodystart="109" bodyend="112"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1unit3f_1a67fa205c4b1e74dcd3e3cef83f7ed1e1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool eu::unit3f::operator==</definition>
+        <argsstring>(const unit3f &amp;rhs)=delete</argsstring>
+        <name>operator==</name>
+        <param>
+          <type>const <ref refid="structeu_1_1unit3f" kindref="compound">unit3f</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/vec3.h" line="117" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1unit3f_1a9f8fe7b9306a9f6db787d11492f21fdf" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>constexpr</type>
+        <definition>constexpr eu::unit3f::unit3f</definition>
+        <argsstring>(float a, float b, float c)</argsstring>
+        <name>unit3f</name>
+        <param>
+          <type>float</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>b</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/vec3.h" line="119" column="19" bodyfile="libs/base/src/base/vec3.h" bodystart="119" bodyend="123"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="structeu_1_1unit3f_1a4686f9ad0a87f1ef08b080881e9925f7" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1unit3f" kindref="compound">unit3f</ref></type>
+        <definition>unit3f eu::unit3f::to_unit</definition>
+        <argsstring>(float x, float y, float z)</argsstring>
+        <name>to_unit</name>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>z</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/vec3.h" line="114" column="23" bodyfile="libs/base/src/base/vec3.cc" bodystart="192" bodyend="195"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1unit3f_1a69549bd9966442b4670996abb5b9a4e1" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1unit3f" kindref="compound">unit3f</ref></type>
+        <definition>unit3f eu::unit3f::to_unit</definition>
+        <argsstring>(const vec3f &amp;v)</argsstring>
+        <name>to_unit</name>
+        <param>
+          <type>const <ref refid="structeu_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/vec3.h" line="115" column="23" bodyfile="libs/base/src/base/vec3.cc" bodystart="199" bodyend="202"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>eu::unit3f</label>
+        <link refid="structeu_1_1unit3f"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>eu::vec3f</label>
+        <link refid="structeu_1_1vec3f"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>eu::unit3f</label>
+        <link refid="structeu_1_1unit3f"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>eu::vec3f</label>
+        <link refid="structeu_1_1vec3f"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/base/src/base/vec3.h" line="101" column="5" bodyfile="libs/base/src/base/vec3.h" bodystart="102" bodyend="124"/>
+    <listofallmembers>
+      <member refid="structeu_1_1vec3f_1a5a5c32555148db281d99bd7779eaccf9" prot="public" virt="non-virtual"><scope>eu::unit3f</scope><name>as_normalized</name></member>
+      <member refid="structeu_1_1vec3f_1a916eab24fb3ba199effcbd2f06304c18" prot="public" virt="non-virtual"><scope>eu::unit3f</scope><name>cross</name></member>
+      <member refid="structeu_1_1vec3f_1adbe232e627cc94bce222dca707a5dbf9" prot="public" virt="non-virtual"><scope>eu::unit3f</scope><name>dot</name></member>
+      <member refid="structeu_1_1vec3f_1aa1cd9394a9ea6afc8e17e3b816bdd957" prot="public" virt="non-virtual"><scope>eu::unit3f</scope><name>from_to</name></member>
+      <member refid="structeu_1_1vec3f_1a478b0949c6f1c7760958d67a54765ff1" prot="public" virt="non-virtual"><scope>eu::unit3f</scope><name>get_data_ptr</name></member>
+      <member refid="structeu_1_1vec3f_1a3fb5afa3d6073edf3a20ef9ac09d19e0" prot="public" virt="non-virtual"><scope>eu::unit3f</scope><name>get_data_ptr</name></member>
+      <member refid="structeu_1_1vec3f_1a5e7f28d0638966fbf6e18bd8c31063a7" prot="public" virt="non-virtual"><scope>eu::unit3f</scope><name>get_length</name></member>
+      <member refid="structeu_1_1vec3f_1a8f8e8449807ee098dd7a7246b02ba4b8" prot="public" virt="non-virtual"><scope>eu::unit3f</scope><name>get_length_squared</name></member>
+      <member refid="structeu_1_1vec3f_1a36bb7a690ceb7497b6622797a51e833e" prot="public" virt="non-virtual"><scope>eu::unit3f</scope><name>get_normalized</name></member>
+      <member refid="structeu_1_1unit3f_1a2bb52c938ae6faa049c9fe9211daa853" prot="public" virt="non-virtual"><scope>eu::unit3f</scope><name>is_valid</name></member>
+      <member refid="structeu_1_1vec3f_1a705d8a63e9408893a8a82c387f039173" prot="public" virt="non-virtual"><scope>eu::unit3f</scope><name>normalize</name></member>
+      <member refid="structeu_1_1vec3f_1a4d15b039025433613e8a028cf8c0d82a" prot="public" virt="non-virtual"><scope>eu::unit3f</scope><name>operator*=</name></member>
+      <member refid="structeu_1_1vec3f_1acf3191ff7e6984e950b08bf3b79e32e1" prot="public" virt="non-virtual"><scope>eu::unit3f</scope><name>operator+=</name></member>
+      <member refid="structeu_1_1unit3f_1aae9cf49fbfc3c5b7fc24f9c40fc668e5" prot="public" virt="non-virtual"><scope>eu::unit3f</scope><name>operator-</name></member>
+      <member refid="structeu_1_1vec3f_1a27cf1c6fc483e433a1d5ab26a5f996e5" prot="public" virt="non-virtual"><scope>eu::unit3f</scope><name>operator-=</name></member>
+      <member refid="structeu_1_1vec3f_1afd9f3b6630c445a521123efd847da325" prot="public" virt="non-virtual"><scope>eu::unit3f</scope><name>operator/=</name></member>
+      <member refid="structeu_1_1unit3f_1a67fa205c4b1e74dcd3e3cef83f7ed1e1" prot="public" virt="non-virtual"><scope>eu::unit3f</scope><name>operator==</name></member>
+      <member refid="structeu_1_1vec3f_1ab40278149cdedcbc42bc940f47dc5f79" prot="public" virt="non-virtual" ambiguityscope="eu::vec3f::"><scope>eu::unit3f</scope><name>operator==</name></member>
+      <member refid="structeu_1_1unit3f_1a4686f9ad0a87f1ef08b080881e9925f7" prot="public" virt="non-virtual"><scope>eu::unit3f</scope><name>to_unit</name></member>
+      <member refid="structeu_1_1unit3f_1a69549bd9966442b4670996abb5b9a4e1" prot="public" virt="non-virtual"><scope>eu::unit3f</scope><name>to_unit</name></member>
+      <member refid="structeu_1_1unit3f_1a9f8fe7b9306a9f6db787d11492f21fdf" prot="public" virt="non-virtual"><scope>eu::unit3f</scope><name>unit3f</name></member>
+      <member refid="structeu_1_1vec3f_1a9b051fee57b8e02168682112b577cb32" prot="public" virt="non-virtual"><scope>eu::unit3f</scope><name>vec3f</name></member>
+      <member refid="structeu_1_1vec3f_1aa9ba766993dcf201410c3ce9df3b6ac9" prot="public" virt="non-virtual"><scope>eu::unit3f</scope><name>vec3f</name></member>
+      <member refid="structeu_1_1vec3f_1a17c615024dcd934105cd926772ab8c18" prot="public" virt="non-virtual"><scope>eu::unit3f</scope><name>vec3f</name></member>
+      <member refid="structeu_1_1vec3f_1a94f8669e41e701b1f664d9d511a8f6e0" prot="public" virt="non-virtual"><scope>eu::unit3f</scope><name>vec3f</name></member>
+      <member refid="structeu_1_1vec3f_1a4b7f9b644a7dd6f6c43c2b5159556251" prot="public" virt="non-virtual"><scope>eu::unit3f</scope><name>vec3f</name></member>
+      <member refid="structeu_1_1vec3f_1a327d65a4d3c02886e8db2ebfe98729e2" prot="public" virt="non-virtual"><scope>eu::unit3f</scope><name>x</name></member>
+      <member refid="structeu_1_1vec3f_1a36716bc781b3cea50ec1467be72f437e" prot="public" virt="non-virtual"><scope>eu::unit3f</scope><name>y</name></member>
+      <member refid="structeu_1_1vec3f_1aaa1239701014732a644906f7fd6edbce" prot="public" virt="non-virtual"><scope>eu::unit3f</scope><name>z</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

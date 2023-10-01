@@ -18,7 +18,7 @@
         <location file="libs/core/src/core/table_bool.h" line="99" column="25" bodyfile="libs/core/src/core/table_bool.h" bodystart="99" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1WallCounter_1ae9c819390d00666b5ccbea94d4ba653a" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1core_1_1Lrud" kindref="compound">Lrud</ref>&lt; <ref refid="namespaceeu_1_1core_1a1c50537347b75b64ae1b2ebc9f3f82b8" kindref="member">core::OutsideRule</ref> &gt;</type>
+        <type><ref refid="structeu_1_1Lrud" kindref="compound">Lrud</ref>&lt; <ref refid="namespaceeu_1_1core_1a1c50537347b75b64ae1b2ebc9f3f82b8" kindref="member">core::OutsideRule</ref> &gt;</type>
         <definition>Lrud&lt;core::OutsideRule&gt; eu::core::WallCounter::outside_rule</definition>
         <argsstring></argsstring>
         <name>outside_rule</name>
@@ -68,7 +68,7 @@
           <declname>w</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1core_1_1Lrud" kindref="compound">Lrud</ref>&lt; <ref refid="namespaceeu_1_1core_1a1c50537347b75b64ae1b2ebc9f3f82b8" kindref="member">core::OutsideRule</ref> &gt;</type>
+          <type><ref refid="structeu_1_1Lrud" kindref="compound">Lrud</ref>&lt; <ref refid="namespaceeu_1_1core_1a1c50537347b75b64ae1b2ebc9f3f82b8" kindref="member">core::OutsideRule</ref> &gt;</type>
           <declname>r</declname>
         </param>
         <param>
@@ -118,13 +118,13 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
+      <node id="3">
+        <label>eu::Lrud&lt; core::OutsideRule &gt;</label>
+        <link refid="structeu_1_1Lrud"/>
+      </node>
       <node id="2">
         <label>eu::core::Table&lt; T &gt;</label>
         <link refid="structeu_1_1core_1_1Table"/>
-      </node>
-      <node id="3">
-        <label>eu::core::Lrud&lt; core::OutsideRule &gt;</label>
-        <link refid="structeu_1_1core_1_1Lrud"/>
       </node>
       <node id="1">
         <label>eu::core::WallCounter</label>

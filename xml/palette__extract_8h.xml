@@ -2,9 +2,13 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="palette__extract_8h" kind="file" language="C++">
     <compoundname>palette_extract.h</compoundname>
-    <includes refid="rgb_8h" local="yes">core/rgb.h</includes>
+    <includes refid="rgb_8h" local="yes">base/rgb.h</includes>
     <includedby refid="palette__extract_8cc" local="yes">libs/core/src/core/palette_extract.cc</includedby>
     <incdepgraph>
+      <node id="11">
+        <label>base/default_interpolate.h</label>
+        <link refid="default__interpolate_8h"/>
+      </node>
       <node id="21">
         <label>queue</label>
       </node>
@@ -13,10 +17,6 @@
         <link refid="stringutils_8h"/>
         <childnode refid="14" relation="include">
         </childnode>
-      </node>
-      <node id="7">
-        <label>core/colors.h</label>
-        <link refid="colors_8h"/>
       </node>
       <node id="5">
         <label>cstdint</label>
@@ -27,8 +27,11 @@
         <childnode refid="5" relation="include">
         </childnode>
       </node>
+      <node id="17">
+        <label>string</label>
+      </node>
       <node id="2">
-        <label>core/rgb.h</label>
+        <label>base/rgb.h</label>
         <link refid="rgb_8h"/>
         <childnode refid="3" relation="include">
         </childnode>
@@ -41,11 +44,24 @@
         <childnode refid="12" relation="include">
         </childnode>
       </node>
-      <node id="17">
-        <label>string</label>
-      </node>
       <node id="14">
         <label>map</label>
+      </node>
+      <node id="25">
+        <label>base/string_io.h</label>
+        <link refid="string__io_8h"/>
+        <childnode refid="26" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>base/angle.h</label>
+        <link refid="angle_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
       </node>
       <node id="16">
         <label>assert/assert.h</label>
@@ -55,10 +71,12 @@
         <childnode refid="18" relation="include">
         </childnode>
       </node>
-      <node id="28">
-        <label>core/numparse.h</label>
-        <link refid="numparse_8h"/>
-        <childnode refid="27" relation="include">
+      <node id="10">
+        <label>base/numeric.h</label>
+        <link refid="numeric_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
         </childnode>
       </node>
       <node id="26">
@@ -67,14 +85,18 @@
         <childnode refid="27" relation="include">
         </childnode>
       </node>
+      <node id="12">
+        <label>base/default_parse.h</label>
+        <link refid="default__parse_8h"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+      </node>
       <node id="27">
         <label>optional</label>
-      </node>
-      <node id="10">
-        <label>core/numeric.h</label>
-        <link refid="numeric_8h"/>
-        <childnode refid="11" relation="include">
-        </childnode>
       </node>
       <node id="24">
         <label>magic_enum/magic_enum.hpp</label>
@@ -92,24 +114,8 @@
         <childnode refid="23" relation="include">
         </childnode>
       </node>
-      <node id="25">
-        <label>core/custom_parser.h</label>
-        <link refid="custom__parser_8h"/>
-        <childnode refid="26" relation="include">
-        </childnode>
-      </node>
-      <node id="9">
-        <label>iostream</label>
-      </node>
-      <node id="6">
-        <label>cstddef</label>
-      </node>
-      <node id="11">
-        <label>core/interpolate.default.h</label>
-        <link refid="interpolate_8default_8h"/>
-      </node>
       <node id="13">
-        <label>core/enumtostring.h</label>
+        <label>base/enumtostring.h</label>
         <link refid="enumtostring_8h"/>
         <childnode refid="14" relation="include">
         </childnode>
@@ -124,19 +130,15 @@
         <childnode refid="24" relation="include">
         </childnode>
       </node>
+      <node id="9">
+        <label>iostream</label>
+      </node>
+      <node id="6">
+        <label>cstddef</label>
+      </node>
       <node id="23">
         <label>base/editdistance.h</label>
         <link refid="editdistance_8h"/>
-      </node>
-      <node id="8">
-        <label>core/angle.h</label>
-        <link refid="angle_8h"/>
-        <childnode refid="9" relation="include">
-        </childnode>
-        <childnode refid="10" relation="include">
-        </childnode>
-        <childnode refid="11" relation="include">
-        </childnode>
       </node>
       <node id="3">
         <label>base/cint.h</label>
@@ -152,14 +154,10 @@
         <childnode refid="2" relation="include">
         </childnode>
       </node>
-      <node id="12">
-        <label>core/default_parse.h</label>
-        <link refid="default__parse_8h"/>
-        <childnode refid="13" relation="include">
-        </childnode>
-        <childnode refid="25" relation="include">
-        </childnode>
-        <childnode refid="28" relation="include">
+      <node id="28">
+        <label>base/numparse.h</label>
+        <link refid="numparse_8h"/>
+        <childnode refid="27" relation="include">
         </childnode>
       </node>
       <node id="15">
@@ -167,6 +165,10 @@
       </node>
       <node id="22">
         <label>algorithm</label>
+      </node>
+      <node id="7">
+        <label>base/colors.h</label>
+        <link refid="colors_8h"/>
       </node>
     </incdepgraph>
     <invincdepgraph>

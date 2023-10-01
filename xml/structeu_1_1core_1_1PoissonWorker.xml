@@ -5,7 +5,7 @@
     <includes refid="poisson_8h" local="no">poisson.h</includes>
       <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structeu_1_1core_1_1PoissonWorker_1a35dd1f50c14d56899b8dbf71a13a451a" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1core_1_1Rectf" kindref="compound">Rectf</ref></type>
+        <type><ref refid="structeu_1_1Rectf" kindref="compound">Rectf</ref></type>
         <definition>Rectf eu::core::PoissonWorker::area</definition>
         <argsstring></argsstring>
         <name>area</name>
@@ -15,10 +15,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/poisson.h" line="17" column="15" bodyfile="libs/core/src/core/poisson.h" bodystart="17" bodyend="-1"/>
+        <location file="libs/core/src/core/poisson.h" line="22" column="15" bodyfile="libs/core/src/core/poisson.h" bodystart="22" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1PoissonWorker_1a553718795fe0d6932316ccc7d9d30fc2" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1core_1_1Random" kindref="compound">Random</ref> *</type>
+        <type><ref refid="structeu_1_1Random" kindref="compound">Random</ref> *</type>
         <definition>Random* eu::core::PoissonWorker::rand</definition>
         <argsstring></argsstring>
         <name>rand</name>
@@ -28,7 +28,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/poisson.h" line="18" column="16" bodyfile="libs/core/src/core/poisson.h" bodystart="18" bodyend="-1"/>
+        <location file="libs/core/src/core/poisson.h" line="23" column="16" bodyfile="libs/core/src/core/poisson.h" bodystart="23" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1PoissonWorker_1ae395175e7d96fbda23a6c39f2971f067" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -41,7 +41,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/poisson.h" line="19" column="15" bodyfile="libs/core/src/core/poisson.h" bodystart="19" bodyend="-1"/>
+        <location file="libs/core/src/core/poisson.h" line="24" column="15" bodyfile="libs/core/src/core/poisson.h" bodystart="24" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1PoissonWorker_1a665ffd8ead997fd2303aba2b3bb9ae4b" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -54,7 +54,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/poisson.h" line="20" column="15" bodyfile="libs/core/src/core/poisson.h" bodystart="20" bodyend="-1"/>
+        <location file="libs/core/src/core/poisson.h" line="25" column="15" bodyfile="libs/core/src/core/poisson.h" bodystart="25" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1PoissonWorker_1a68cee0f79b5a17ae8d466644e723d511" prot="public" static="no" mutable="no">
         <type>int</type>
@@ -67,7 +67,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/poisson.h" line="21" column="13" bodyfile="libs/core/src/core/poisson.h" bodystart="21" bodyend="-1"/>
+        <location file="libs/core/src/core/poisson.h" line="26" column="13" bodyfile="libs/core/src/core/poisson.h" bodystart="26" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1PoissonWorker_1ad4b32f595b47f89946b43325f29c46ab" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -80,7 +80,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/poisson.h" line="23" column="15" bodyfile="libs/core/src/core/poisson.h" bodystart="23" bodyend="-1"/>
+        <location file="libs/core/src/core/poisson.h" line="28" column="15" bodyfile="libs/core/src/core/poisson.h" bodystart="28" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1PoissonWorker_1aa4d2c2f0b85fc6463105a68925f3d40c" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1core_1_1Table" kindref="compound">Table</ref>&lt; int &gt;</type>
@@ -93,7 +93,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/poisson.h" line="24" column="15" bodyfile="libs/core/src/core/poisson.h" bodystart="24" bodyend="-1"/>
+        <location file="libs/core/src/core/poisson.h" line="29" column="15" bodyfile="libs/core/src/core/poisson.h" bodystart="29" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1PoissonWorker_1af3b414ab5233a1cc55d69cc827898dd2" prot="public" static="no" mutable="no">
         <type>std::vector&lt; int &gt;</type>
@@ -106,10 +106,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/poisson.h" line="25" column="21" bodyfile="libs/core/src/core/poisson.h" bodystart="25" bodyend="-1"/>
+        <location file="libs/core/src/core/poisson.h" line="30" column="21" bodyfile="libs/core/src/core/poisson.h" bodystart="30" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1PoissonWorker_1a7cd5bb43b95831fb8d2844472db30c7a" prot="public" static="no" mutable="no">
-        <type>std::vector&lt; <ref refid="structeu_1_1core_1_1vec2f" kindref="compound">vec2f</ref> &gt;</type>
+        <type>std::vector&lt; <ref refid="structeu_1_1vec2f" kindref="compound">vec2f</ref> &gt;</type>
         <definition>std::vector&lt;vec2f&gt; eu::core::PoissonWorker::samples</definition>
         <argsstring></argsstring>
         <name>samples</name>
@@ -119,7 +119,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/poisson.h" line="26" column="21" bodyfile="libs/core/src/core/poisson.h" bodystart="26" bodyend="-1"/>
+        <location file="libs/core/src/core/poisson.h" line="31" column="21" bodyfile="libs/core/src/core/poisson.h" bodystart="31" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -129,11 +129,11 @@
         <argsstring>(const Rectf &amp;area, Random *random, float r, float bs, int k)</argsstring>
         <name>PoissonWorker</name>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1Rectf" kindref="compound">Rectf</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1Rectf" kindref="compound">Rectf</ref> &amp;</type>
           <declname>area</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1core_1_1Random" kindref="compound">Random</ref> *</type>
+          <type><ref refid="structeu_1_1Random" kindref="compound">Random</ref> *</type>
           <declname>random</declname>
         </param>
         <param>
@@ -154,10 +154,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/poisson.h" line="28" column="9" bodyfile="libs/core/src/core/poisson.cc" bodystart="23" bodyend="51"/>
+        <location file="libs/core/src/core/poisson.h" line="33" column="9" bodyfile="libs/core/src/core/poisson.cc" bodystart="23" bodyend="51"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1PoissonWorker_1a9106c4c8fad5f76413271558276fcc5c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>std::optional&lt; std::tuple&lt; <ref refid="structeu_1_1core_1_1vec2f" kindref="compound">vec2f</ref>, <ref refid="structeu_1_1core_1_1vec2f" kindref="compound">vec2f</ref> &gt; &gt;</type>
+        <type>std::optional&lt; std::tuple&lt; <ref refid="structeu_1_1vec2f" kindref="compound">vec2f</ref>, <ref refid="structeu_1_1vec2f" kindref="compound">vec2f</ref> &gt; &gt;</type>
         <definition>std::optional&lt; std::tuple&lt; vec2f, vec2f &gt; &gt; eu::core::PoissonWorker::update</definition>
         <argsstring>()</argsstring>
         <name>update</name>
@@ -167,7 +167,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/poisson.h" line="30" column="23" bodyfile="libs/core/src/core/poisson.cc" bodystart="133" bodyend="154"/>
+        <location file="libs/core/src/core/poisson.h" line="35" column="23" bodyfile="libs/core/src/core/poisson.cc" bodystart="133" bodyend="154"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1PoissonWorker_1a657ee5d276171d762edebfb216f2cf5b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -175,11 +175,11 @@
         <argsstring>(const vec2f &amp;potential_sample, const vec2i &amp;potential_sample_pos)</argsstring>
         <name>can_place_at</name>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
           <declname>potential_sample</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1vec2i" kindref="compound">vec2i</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1vec2i" kindref="compound">vec2i</ref> &amp;</type>
           <declname>potential_sample_pos</declname>
         </param>
         <briefdescription>
@@ -188,10 +188,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/poisson.h" line="31" column="14" bodyfile="libs/core/src/core/poisson.cc" bodystart="65" bodyend="85"/>
+        <location file="libs/core/src/core/poisson.h" line="36" column="14" bodyfile="libs/core/src/core/poisson.cc" bodystart="65" bodyend="85"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1PoissonWorker_1abe3f36774078bfa191d7467820d8c58e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>std::tuple&lt; bool, <ref refid="structeu_1_1core_1_1vec2f" kindref="compound">vec2f</ref> &gt;</type>
+        <type>std::tuple&lt; bool, <ref refid="structeu_1_1vec2f" kindref="compound">vec2f</ref> &gt;</type>
         <definition>std::tuple&lt; bool, vec2f &gt; eu::core::PoissonWorker::try_place</definition>
         <argsstring>(int active_index)</argsstring>
         <name>try_place</name>
@@ -205,15 +205,15 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/poisson.h" line="32" column="20" bodyfile="libs/core/src/core/poisson.cc" bodystart="89" bodyend="122"/>
+        <location file="libs/core/src/core/poisson.h" line="37" column="20" bodyfile="libs/core/src/core/poisson.cc" bodystart="89" bodyend="122"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1PoissonWorker_1afeb3a5edfed0ec41d3eed5efb47d32dd" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1core_1_1vec2i" kindref="compound">vec2i</ref></type>
+        <type><ref refid="structeu_1_1vec2i" kindref="compound">vec2i</ref></type>
         <definition>vec2i eu::core::PoissonWorker::c_point_to_index</definition>
         <argsstring>(const vec2f &amp;p) const</argsstring>
         <name>c_point_to_index</name>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
           <declname>p</declname>
         </param>
         <briefdescription>
@@ -222,10 +222,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/poisson.h" line="34" column="16" bodyfile="libs/core/src/core/poisson.cc" bodystart="60" bodyend="61"/>
+        <location file="libs/core/src/core/poisson.h" line="39" column="16" bodyfile="libs/core/src/core/poisson.cc" bodystart="60" bodyend="61"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1PoissonWorker_1a08ecba3f5ebac6bf285ae96d07e77138" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1core_1_1vec2f" kindref="compound">vec2f</ref></type>
+        <type><ref refid="structeu_1_1vec2f" kindref="compound">vec2f</ref></type>
         <definition>vec2f eu::core::PoissonWorker::get_random_point_in_area</definition>
         <argsstring>() const</argsstring>
         <name>get_random_point_in_area</name>
@@ -235,7 +235,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/poisson.h" line="36" column="16" bodyfile="libs/core/src/core/poisson.cc" bodystart="55" bodyend="56"/>
+        <location file="libs/core/src/core/poisson.h" line="41" column="16" bodyfile="libs/core/src/core/poisson.cc" bodystart="55" bodyend="56"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1PoissonWorker_1a9d266f971b01a889707a7dce544df7a0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -248,7 +248,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/poisson.h" line="37" column="15" bodyfile="libs/core/src/core/poisson.cc" bodystart="126" bodyend="129"/>
+        <location file="libs/core/src/core/poisson.h" line="42" column="15" bodyfile="libs/core/src/core/poisson.cc" bodystart="126" bodyend="129"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -260,10 +260,6 @@
         <label>eu::core::Table&lt; int &gt;</label>
         <link refid="structeu_1_1core_1_1Table"/>
       </node>
-      <node id="4">
-        <label>eu::core::Rectf</label>
-        <link refid="structeu_1_1core_1_1Rectf"/>
-      </node>
       <node id="1">
         <label>eu::core::PoissonWorker</label>
         <link refid="structeu_1_1core_1_1PoissonWorker"/>
@@ -271,18 +267,22 @@
           <edgelabel>grid</edgelabel>
         </childnode>
         <childnode refid="3" relation="usage">
-          <edgelabel>rand</edgelabel>
-        </childnode>
-        <childnode refid="4" relation="usage">
           <edgelabel>area</edgelabel>
         </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>rand</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>eu::Random</label>
+        <link refid="structeu_1_1Random"/>
       </node>
       <node id="3">
-        <label>eu::core::Random</label>
-        <link refid="structeu_1_1core_1_1Random"/>
+        <label>eu::Rectf</label>
+        <link refid="structeu_1_1Rectf"/>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/poisson.h" line="15" column="5" bodyfile="libs/core/src/core/poisson.h" bodystart="16" bodyend="38"/>
+    <location file="libs/core/src/core/poisson.h" line="20" column="5" bodyfile="libs/core/src/core/poisson.h" bodystart="21" bodyend="43"/>
     <listofallmembers>
       <member refid="structeu_1_1core_1_1PoissonWorker_1af3b414ab5233a1cc55d69cc827898dd2" prot="public" virt="non-virtual"><scope>eu::core::PoissonWorker</scope><name>active</name></member>
       <member refid="structeu_1_1core_1_1PoissonWorker_1a35dd1f50c14d56899b8dbf71a13a451a" prot="public" virt="non-virtual"><scope>eu::core::PoissonWorker</scope><name>area</name></member>

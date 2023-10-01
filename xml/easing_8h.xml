@@ -4,12 +4,20 @@
     <compoundname>easing.h</compoundname>
     <includedby refid="camera3_8editor_8h" local="yes">libs/core/src/core/camera3.editor.h</includedby>
     <includedby refid="easing_8cc" local="yes">libs/core/src/core/easing.cc</includedby>
-    <includedby refid="interpolate_8h" local="yes">libs/core/src/core/interpolate.h</includedby>
+    <includedby refid="tweenable_8h" local="yes">libs/core/src/core/tweenable.h</includedby>
     <includedby refid="skin_8h" local="yes">libs/gui/src/gui/skin.h</includedby>
     <invincdepgraph>
+      <node id="5">
+        <label>libs/core/src/core/tweenable.h</label>
+        <link refid="tweenable_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
       <node id="6">
-        <label>libs/core/src/core/interpolate.cc</label>
-        <link refid="interpolate_8cc"/>
+        <label>libs/core/src/core/tweenable.cc</label>
+        <link refid="tweenable_8cc"/>
       </node>
       <node id="11">
         <label>libs/gui/src/gui/root.cc</label>
@@ -67,14 +75,6 @@
         <childnode refid="11" relation="include">
         </childnode>
         <childnode refid="12" relation="include">
-        </childnode>
-      </node>
-      <node id="5">
-        <label>libs/core/src/core/interpolate.h</label>
-        <link refid="interpolate_8h"/>
-        <childnode refid="6" relation="include">
-        </childnode>
-        <childnode refid="7" relation="include">
         </childnode>
       </node>
       <node id="9">

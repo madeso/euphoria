@@ -110,10 +110,10 @@
         </inbodydescription>
         <location file="libs/render/src/render/font.h" line="183" column="9" bodyfile="libs/render/src/render/font.cc" bodystart="126" bodyend="296"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1render_1_1DrawableFont_1ab7e5105bf3c6c1a1896aca939a065626" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1render_1_1DrawableFont_1ad1bed03d29bd2eb762ada3a35bb54913" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void eu::render::DrawableFont::draw_background</definition>
-        <argsstring>(SpriteRenderer *renderer, float alpha, const core::Rectf &amp;where) const</argsstring>
+        <argsstring>(SpriteRenderer *renderer, float alpha, const Rectf &amp;where) const</argsstring>
         <name>draw_background</name>
         <param>
           <type><ref refid="structeu_1_1render_1_1SpriteRenderer" kindref="compound">SpriteRenderer</ref> *</type>
@@ -124,7 +124,7 @@
           <declname>alpha</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1Rectf" kindref="compound">core::Rectf</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1Rectf" kindref="compound">Rectf</ref> &amp;</type>
           <declname>where</declname>
         </param>
         <briefdescription>
@@ -166,7 +166,7 @@
       <member refid="structeu_1_1render_1_1DrawableFont_1a34d001d73cc4b438df509ee2b23809c5" prot="public" virt="non-virtual"><scope>eu::render::DrawableFont</scope><name>background</name></member>
       <member refid="structeu_1_1render_1_1DrawableFont_1a350c48aaccd5995a73b3fb5ae8e3eb70" prot="public" virt="non-virtual"><scope>eu::render::DrawableFont</scope><name>char_to_glyph</name></member>
       <member refid="structeu_1_1render_1_1DrawableFont_1ab0b6ca074636f4ab3f53fedd05c6c655" prot="public" virt="non-virtual"><scope>eu::render::DrawableFont</scope><name>compile_list</name></member>
-      <member refid="structeu_1_1render_1_1DrawableFont_1ab7e5105bf3c6c1a1896aca939a065626" prot="public" virt="non-virtual"><scope>eu::render::DrawableFont</scope><name>draw_background</name></member>
+      <member refid="structeu_1_1render_1_1DrawableFont_1ad1bed03d29bd2eb762ada3a35bb54913" prot="public" virt="non-virtual"><scope>eu::render::DrawableFont</scope><name>draw_background</name></member>
       <member refid="structeu_1_1render_1_1DrawableFont_1afdecef012aab3cf29fbd68c20af0f5db" prot="public" virt="non-virtual"><scope>eu::render::DrawableFont</scope><name>DrawableFont</name></member>
       <member refid="structeu_1_1render_1_1DrawableFont_1a09f0d7dcd14c643794a6dd990e47c8b4" prot="public" virt="non-virtual"><scope>eu::render::DrawableFont</scope><name>kernings</name></member>
       <member refid="structeu_1_1render_1_1DrawableFont_1a6356d8d8c97cbc3a75dcb1b1c8febf86" prot="public" virt="non-virtual"><scope>eu::render::DrawableFont</scope><name>line_height</name></member>

@@ -98,13 +98,13 @@
         </inbodydescription>
         <location file="libs/gui/src/gui/layout.h" line="28" column="14"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1gui_1_1Layout_1a4ff0daf6a2c735c40f06926fdea3bf25" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
-        <type><ref refid="structeu_1_1core_1_1size2f" kindref="compound">core::size2f</ref></type>
-        <definition>virtual core::size2f eu::gui::Layout::calc_minimum_area</definition>
+      <memberdef kind="function" id="structeu_1_1gui_1_1Layout_1a87ca2d8c4b638fe690bbbcecb3ecc64a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="structeu_1_1size2f" kindref="compound">size2f</ref></type>
+        <definition>virtual size2f eu::gui::Layout::calc_minimum_area</definition>
         <argsstring>(const std::vector&lt; std::shared_ptr&lt; Widget &gt;&gt; &amp;widgets) const =0</argsstring>
         <name>calc_minimum_area</name>
-        <reimplementedby refid="structeu_1_1gui_1_1TableLayout_1a23b7fc9d87c095a6881094305cfa9b3c">calc_minimum_area</reimplementedby>
-        <reimplementedby refid="structeu_1_1gui_1_1SingleRowLayout_1a56f0bf2fb4aa58e09d494dd4eb375d80">calc_minimum_area</reimplementedby>
+        <reimplementedby refid="structeu_1_1gui_1_1TableLayout_1a012439592c68dd37238e6d31e1a83efd">calc_minimum_area</reimplementedby>
+        <reimplementedby refid="structeu_1_1gui_1_1SingleRowLayout_1aa2e25216518c6aab77714db1cf503efe">calc_minimum_area</reimplementedby>
         <param>
           <type>const std::vector&lt; std::shared_ptr&lt; <ref refid="structeu_1_1gui_1_1Widget" kindref="compound">Widget</ref> &gt;&gt; &amp;</type>
           <declname>widgets</declname>
@@ -117,19 +117,19 @@
         </inbodydescription>
         <location file="libs/gui/src/gui/layout.h" line="31" column="9"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1gui_1_1Layout_1a8da97e4aab05f8d4d8d55902838023bb" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+      <memberdef kind="function" id="structeu_1_1gui_1_1Layout_1a7bb3a2f576b619c0ae81dec3ee818e51" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
         <type>void</type>
         <definition>virtual void eu::gui::Layout::lay_out</definition>
-        <argsstring>(std::vector&lt; std::shared_ptr&lt; Widget &gt;&gt; *widgets, const core::Rectf &amp;area) const =0</argsstring>
+        <argsstring>(std::vector&lt; std::shared_ptr&lt; Widget &gt;&gt; *widgets, const Rectf &amp;area) const =0</argsstring>
         <name>lay_out</name>
-        <reimplementedby refid="structeu_1_1gui_1_1TableLayout_1a7b3ddd9c470ffa0560267f6d96da9da6">lay_out</reimplementedby>
-        <reimplementedby refid="structeu_1_1gui_1_1SingleRowLayout_1a17fb0102127e46d79cd814bd5df38b98">lay_out</reimplementedby>
+        <reimplementedby refid="structeu_1_1gui_1_1TableLayout_1a6410be359776f3b5269f3be367a2af36">lay_out</reimplementedby>
+        <reimplementedby refid="structeu_1_1gui_1_1SingleRowLayout_1ab8771cc27a0813f388e4b4cbef6272eb">lay_out</reimplementedby>
         <param>
           <type>std::vector&lt; std::shared_ptr&lt; <ref refid="structeu_1_1gui_1_1Widget" kindref="compound">Widget</ref> &gt;&gt; *</type>
           <declname>widgets</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1Rectf" kindref="compound">core::Rectf</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1Rectf" kindref="compound">Rectf</ref> &amp;</type>
           <declname>area</declname>
         </param>
         <briefdescription>
@@ -165,8 +165,8 @@
     </inheritancegraph>
     <location file="libs/gui/src/gui/layout.h" line="18" column="5" bodyfile="libs/gui/src/gui/layout.h" bodystart="19" bodyend="43"/>
     <listofallmembers>
-      <member refid="structeu_1_1gui_1_1Layout_1a4ff0daf6a2c735c40f06926fdea3bf25" prot="public" virt="pure-virtual"><scope>eu::gui::Layout</scope><name>calc_minimum_area</name></member>
-      <member refid="structeu_1_1gui_1_1Layout_1a8da97e4aab05f8d4d8d55902838023bb" prot="public" virt="pure-virtual"><scope>eu::gui::Layout</scope><name>lay_out</name></member>
+      <member refid="structeu_1_1gui_1_1Layout_1a87ca2d8c4b638fe690bbbcecb3ecc64a" prot="public" virt="pure-virtual"><scope>eu::gui::Layout</scope><name>calc_minimum_area</name></member>
+      <member refid="structeu_1_1gui_1_1Layout_1a7bb3a2f576b619c0ae81dec3ee818e51" prot="public" virt="pure-virtual"><scope>eu::gui::Layout</scope><name>lay_out</name></member>
       <member refid="structeu_1_1gui_1_1Layout_1ab68c8b834471a9347bb16968a73c3d85" prot="public" virt="non-virtual"><scope>eu::gui::Layout</scope><name>Layout</name></member>
       <member refid="structeu_1_1gui_1_1Layout_1a2a21cfe46697cbec7b2a87e13b269804" prot="public" virt="non-virtual"><scope>eu::gui::Layout</scope><name>Layout</name></member>
       <member refid="structeu_1_1gui_1_1Layout_1a8b95922a157c88e378231b4eeed8007a" prot="public" virt="non-virtual"><scope>eu::gui::Layout</scope><name>Layout</name></member>

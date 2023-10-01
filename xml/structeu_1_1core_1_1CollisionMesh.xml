@@ -4,9 +4,9 @@
     <compoundname>eu::core::CollisionMesh</compoundname>
     <includes refid="collisionmesh_8h" local="no">collisionmesh.h</includes>
       <sectiondef kind="public-attrib">
-      <memberdef kind="variable" id="structeu_1_1core_1_1CollisionMesh_1a0f54118584d6a9dc059fa9a155292626" prot="public" static="no" mutable="no">
-        <type>std::vector&lt; <ref refid="structeu_1_1core_1_1vec3f" kindref="compound">core::vec3f</ref> &gt;</type>
-        <definition>std::vector&lt;core::vec3f&gt; eu::core::CollisionMesh::points</definition>
+      <memberdef kind="variable" id="structeu_1_1core_1_1CollisionMesh_1a17028db2d093a413eb074af0c1f2558a" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structeu_1_1vec3f" kindref="compound">vec3f</ref> &gt;</type>
+        <definition>std::vector&lt;vec3f&gt; eu::core::CollisionMesh::points</definition>
         <argsstring></argsstring>
         <name>points</name>
         <briefdescription>
@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/collisionmesh.h" line="27" column="17" bodyfile="libs/core/src/core/collisionmesh.h" bodystart="27" bodyend="-1"/>
+        <location file="libs/core/src/core/collisionmesh.h" line="34" column="17" bodyfile="libs/core/src/core/collisionmesh.h" bodystart="34" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1CollisionMesh_1a83eb5d33bb283b114f2f994a6c76f1a4" prot="public" static="no" mutable="no">
         <type>std::vector&lt; <ref refid="structeu_1_1core_1_1CollisionFace" kindref="compound">CollisionFace</ref> &gt;</type>
@@ -28,7 +28,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/collisionmesh.h" line="28" column="17" bodyfile="libs/core/src/core/collisionmesh.h" bodystart="28" bodyend="-1"/>
+        <location file="libs/core/src/core/collisionmesh.h" line="35" column="17" bodyfile="libs/core/src/core/collisionmesh.h" bodystart="35" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -47,18 +47,18 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/collisionmesh.h" line="30" column="10" bodyfile="libs/core/src/core/collisionmesh.cc" bodystart="12" bodyend="35"/>
+        <location file="libs/core/src/core/collisionmesh.h" line="37" column="10" bodyfile="libs/core/src/core/collisionmesh.cc" bodystart="12" bodyend="35"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/collisionmesh.h" line="25" column="1" bodyfile="libs/core/src/core/collisionmesh.h" bodystart="26" bodyend="31"/>
+    <location file="libs/core/src/core/collisionmesh.h" line="32" column="1" bodyfile="libs/core/src/core/collisionmesh.h" bodystart="33" bodyend="38"/>
     <listofallmembers>
       <member refid="structeu_1_1core_1_1CollisionMesh_1a75e4cb33da55ebc01039b4d05f7c9718" prot="public" virt="non-virtual"><scope>eu::core::CollisionMesh</scope><name>add</name></member>
       <member refid="structeu_1_1core_1_1CollisionMesh_1a83eb5d33bb283b114f2f994a6c76f1a4" prot="public" virt="non-virtual"><scope>eu::core::CollisionMesh</scope><name>faces</name></member>
-      <member refid="structeu_1_1core_1_1CollisionMesh_1a0f54118584d6a9dc059fa9a155292626" prot="public" virt="non-virtual"><scope>eu::core::CollisionMesh</scope><name>points</name></member>
+      <member refid="structeu_1_1core_1_1CollisionMesh_1a17028db2d093a413eb074af0c1f2558a" prot="public" virt="non-virtual"><scope>eu::core::CollisionMesh</scope><name>points</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

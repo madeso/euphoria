@@ -33,7 +33,7 @@
       </sectiondef>
       <sectiondef kind="public-func">
       <memberdef kind="function" id="structeu_1_1core_1_1Mesh_1a04d7403dc080b1edac04c3e16edfe372" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1core_1_1Aabb" kindref="compound">Aabb</ref></type>
+        <type><ref refid="structeu_1_1Aabb" kindref="compound">Aabb</ref></type>
         <definition>Aabb eu::core::Mesh::calc_aabb</definition>
         <argsstring>() const</argsstring>
         <name>calc_aabb</name>

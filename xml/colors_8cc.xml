@@ -2,23 +2,23 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="colors_8cc" kind="file" language="C++">
     <compoundname>colors.cc</compoundname>
-    <includes refid="colors_8h" local="yes">core/colors.h</includes>
+    <includes refid="colors_8h" local="yes">base/colors.h</includes>
     <incdepgraph>
-      <node id="2">
-        <label>core/colors.h</label>
-        <link refid="colors_8h"/>
-      </node>
       <node id="1">
-        <label>libs/core/src/core/colors.cc</label>
+        <label>libs/base/src/base/colors.cc</label>
         <link refid="colors_8cc"/>
         <childnode refid="2" relation="include">
         </childnode>
+      </node>
+      <node id="2">
+        <label>base/colors.h</label>
+        <link refid="colors_8h"/>
       </node>
     </incdepgraph>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/colors.cc"/>
+    <location file="libs/base/src/base/colors.cc"/>
   </compounddef>
 </doxygen>

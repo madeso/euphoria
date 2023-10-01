@@ -23,7 +23,7 @@
           <declname>sphere</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
           <declname>position</declname>
         </param>
         <param>
@@ -39,12 +39,12 @@
         <location file="libs/core/src/core/raytracer.cc" line="80" column="5" bodyfile="libs/core/src/core/raytracer.cc" bodystart="81" bodyend="93"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1core_1_1raytracer_1a208111d0825205b0cb56457bc61ebdfe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1core_1_1Rgb" kindref="compound">Rgb</ref></type>
+        <type><ref refid="structeu_1_1Rgb" kindref="compound">Rgb</ref></type>
         <definition>Rgb eu::core::raytracer::to_rgb</definition>
         <argsstring>(const unit3f &amp;normal)</argsstring>
         <name>to_rgb</name>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1unit3f" kindref="compound">unit3f</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1unit3f" kindref="compound">unit3f</ref> &amp;</type>
           <declname>normal</declname>
         </param>
         <briefdescription>
@@ -56,12 +56,12 @@
         <location file="libs/core/src/core/raytracer.cc" line="125" column="5" bodyfile="libs/core/src/core/raytracer.cc" bodystart="125" bodyend="133"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1core_1_1raytracer_1acaf82b0461649d83760491e82e57fd0f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
+        <type><ref refid="structeu_1_1vec3f" kindref="compound">vec3f</ref></type>
         <definition>vec3f eu::core::raytracer::get_random_vec3_in_unit_sphere</definition>
         <argsstring>(Random *random)</argsstring>
         <name>get_random_vec3_in_unit_sphere</name>
         <param>
-          <type><ref refid="structeu_1_1core_1_1Random" kindref="compound">Random</ref> *</type>
+          <type><ref refid="structeu_1_1Random" kindref="compound">Random</ref> *</type>
           <declname>random</declname>
         </param>
         <briefdescription>
@@ -73,16 +73,16 @@
         <location file="libs/core/src/core/raytracer.cc" line="136" column="11" bodyfile="libs/core/src/core/raytracer.cc" bodystart="136" bodyend="139"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1core_1_1raytracer_1accce0b2eea0d333c8a4278beb2fcd860" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
+        <type><ref refid="structeu_1_1vec3f" kindref="compound">vec3f</ref></type>
         <definition>vec3f eu::core::raytracer::get_reflected</definition>
         <argsstring>(const vec3f &amp;v, const unit3f &amp;normal)</argsstring>
         <name>get_reflected</name>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
           <declname>v</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1unit3f" kindref="compound">unit3f</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1unit3f" kindref="compound">unit3f</ref> &amp;</type>
           <declname>normal</declname>
         </param>
         <briefdescription>
@@ -94,16 +94,16 @@
         <location file="libs/core/src/core/raytracer.cc" line="171" column="11" bodyfile="libs/core/src/core/raytracer.cc" bodystart="171" bodyend="173"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1core_1_1raytracer_1ad7d6fac88fb0efbf887149480fb76a0d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>std::optional&lt; <ref refid="structeu_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &gt;</type>
+        <type>std::optional&lt; <ref refid="structeu_1_1vec3f" kindref="compound">vec3f</ref> &gt;</type>
         <definition>std::optional&lt;vec3f&gt; eu::core::raytracer::get_refracted</definition>
         <argsstring>(const unit3f &amp;uv, const unit3f &amp;normal, float ni)</argsstring>
         <name>get_refracted</name>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1unit3f" kindref="compound">unit3f</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1unit3f" kindref="compound">unit3f</ref> &amp;</type>
           <declname>uv</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1unit3f" kindref="compound">unit3f</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1unit3f" kindref="compound">unit3f</ref> &amp;</type>
           <declname>normal</declname>
         </param>
         <param>
@@ -145,7 +145,7 @@
         <argsstring>(const Rgb &amp;albedo)</argsstring>
         <name>create_diffuse_material</name>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1Rgb" kindref="compound">Rgb</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1Rgb" kindref="compound">Rgb</ref> &amp;</type>
           <declname>albedo</declname>
         </param>
         <briefdescription>
@@ -162,7 +162,7 @@
         <argsstring>(const Rgb &amp;albedo, float fuzz)</argsstring>
         <name>create_metal_material</name>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1Rgb" kindref="compound">Rgb</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1Rgb" kindref="compound">Rgb</ref> &amp;</type>
           <declname>albedo</declname>
         </param>
         <param>
@@ -183,7 +183,7 @@
         <argsstring>(const Rgb &amp;albedo, float refractive_index)</argsstring>
         <name>create_dielectric_material</name>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1Rgb" kindref="compound">Rgb</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1Rgb" kindref="compound">Rgb</ref> &amp;</type>
           <declname>albedo</declname>
         </param>
         <param>
@@ -199,7 +199,7 @@
         <location file="libs/core/src/core/raytracer.cc" line="356" column="5" bodyfile="libs/core/src/core/raytracer.cc" bodystart="357" bodyend="367" declfile="libs/core/src/core/raytracer.h" declline="104" declcolumn="25"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1core_1_1raytracer_1ae93d1c9afc291dbb858310f4460eecc8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1core_1_1Rgb" kindref="compound">Rgb</ref></type>
+        <type><ref refid="structeu_1_1Rgb" kindref="compound">Rgb</ref></type>
         <definition>Rgb eu::core::raytracer::get_color</definition>
         <argsstring>(const Scene &amp;scene, const UnitRay3f &amp;ray, Random *random, int depth)</argsstring>
         <name>get_color</name>
@@ -208,11 +208,11 @@
           <declname>scene</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1UnitRay3f" kindref="compound">UnitRay3f</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1UnitRay3f" kindref="compound">UnitRay3f</ref> &amp;</type>
           <declname>ray</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1core_1_1Random" kindref="compound">Random</ref> *</type>
+          <type><ref refid="structeu_1_1Random" kindref="compound">Random</ref> *</type>
           <declname>random</declname>
         </param>
         <param>
@@ -228,12 +228,12 @@
         <location file="libs/core/src/core/raytracer.cc" line="371" column="5" bodyfile="libs/core/src/core/raytracer.cc" bodystart="372" bodyend="422"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1core_1_1raytracer_1a79876f0fa147107831c0edfec967812c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1core_1_1Rgb" kindref="compound">Rgb</ref></type>
+        <type><ref refid="structeu_1_1Rgb" kindref="compound">Rgb</ref></type>
         <definition>Rgb eu::core::raytracer::correct_color_using_gamma2</definition>
         <argsstring>(const Rgb &amp;color)</argsstring>
         <name>correct_color_using_gamma2</name>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1Rgb" kindref="compound">Rgb</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1Rgb" kindref="compound">Rgb</ref> &amp;</type>
           <declname>color</declname>
         </param>
         <briefdescription>
@@ -279,7 +279,7 @@
           <declname>sphere</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
           <declname>position</declname>
         </param>
         <param>

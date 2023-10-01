@@ -17,7 +17,7 @@
         <location file="libs/core/src/core/camera3.editor.cc" line="92" column="18" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="92" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1detail_1_1OrbitData_1a37112a9772a98d0890ae5d1e7681d63d" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
+        <type><ref refid="structeu_1_1vec3f" kindref="compound">vec3f</ref></type>
         <definition>vec3f eu::core::detail::OrbitData::center</definition>
         <argsstring></argsstring>
         <name>center</name>
@@ -43,7 +43,7 @@
         <location file="libs/core/src/core/camera3.editor.cc" line="94" column="19" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="94" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1detail_1_1OrbitData_1a2db6d622af25886b84c90f8c53781d59" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1core_1_1Angle" kindref="compound">Angle</ref></type>
+        <type><ref refid="structeu_1_1Angle" kindref="compound">Angle</ref></type>
         <definition>Angle eu::core::detail::OrbitData::rotation_angle</definition>
         <argsstring></argsstring>
         <name>rotation_angle</name>
@@ -56,7 +56,7 @@
         <location file="libs/core/src/core/camera3.editor.cc" line="95" column="19" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="95" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1detail_1_1OrbitData_1a928b40dea68163240f24a0ebca99eb19" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1core_1_1Angle" kindref="compound">Angle</ref></type>
+        <type><ref refid="structeu_1_1Angle" kindref="compound">Angle</ref></type>
         <definition>Angle eu::core::detail::OrbitData::look_angle</definition>
         <argsstring></argsstring>
         <name>look_angle</name>
@@ -76,7 +76,7 @@
         <argsstring>(std::optional&lt; vec3f &gt; collision, const CameraFrame &amp;f)</argsstring>
         <name>OrbitData</name>
         <param>
-          <type>std::optional&lt; <ref refid="structeu_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &gt;</type>
+          <type>std::optional&lt; <ref refid="structeu_1_1vec3f" kindref="compound">vec3f</ref> &gt;</type>
           <declname>collision</declname>
         </param>
         <param>
@@ -97,13 +97,13 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-      <node id="3">
-        <label>eu::core::vec3f</label>
-        <link refid="structeu_1_1core_1_1vec3f"/>
-      </node>
       <node id="2">
-        <label>eu::core::Angle</label>
-        <link refid="structeu_1_1core_1_1Angle"/>
+        <label>eu::Angle</label>
+        <link refid="structeu_1_1Angle"/>
+      </node>
+      <node id="3">
+        <label>eu::vec3f</label>
+        <link refid="structeu_1_1vec3f"/>
       </node>
       <node id="1">
         <label>eu::core::detail::OrbitData</label>

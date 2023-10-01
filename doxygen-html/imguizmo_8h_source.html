@@ -56,10 +56,10 @@
 <div class="contents">
 <a href="imguizmo_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="mat4_8h.html">core/mat4.h</a>&quot;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="vec3_8h.html">core/vec3.h</a>&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="quat_8h.html">core/quat.h</a>&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="angle_8h.html">core/angle.h</a>&quot;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="mat4_8h.html">base/mat4.h</a>&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="vec3_8h.html">base/vec3.h</a>&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="quat_8h.html">base/quat.h</a>&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="angle_8h.html">base/angle.h</a>&quot;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;optional&gt;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
@@ -70,40 +70,37 @@
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="namespaceeu_1_1window_1_1imgui_1_1guizmo.html#ad61765427be2eedee9e2ffc1561b9e49">begin</a>();</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordtype">bool</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="namespaceeu_1_1window_1_1imgui_1_1guizmo.html#ae6cf03dd1c5a4a6e78b0fd6211d4fc2a">translate</a></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="namespaceeu_1_1window_1_1imgui_1_1guizmo.html#a67c0f5e323113091e60f4a42858951a2">translate</a></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    (</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <span class="keywordtype">bool</span> is_local,</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keyword">const</span> std::optional&lt;core::vec3f&gt;&amp; snap,</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keyword">const</span> <a class="code" href="structeu_1_1core_1_1mat4f.html">core::mat4f</a>&amp; camera_view,</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keyword">const</span> <a class="code" href="structeu_1_1core_1_1mat4f.html">core::mat4f</a>&amp; camera_projection,</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keyword">const</span> <a class="code" href="structeu_1_1core_1_1mat4f.html">core::mat4f</a>&amp; model,</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keyword">const</span> std::optional&lt;vec3f&gt;&amp; snap,</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keyword">const</span> mat4f&amp; camera_view,</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keyword">const</span> mat4f&amp; camera_projection,</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keyword">const</span> mat4f&amp; model,</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keywordtype">bool</span> x, <span class="keywordtype">bool</span> y, <span class="keywordtype">bool</span> z,</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <a class="code" href="structeu_1_1core_1_1vec3f.html">core::vec3f</a>* new_position</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        vec3f* new_position</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    );</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">bool</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <a class="code" href="namespaceeu_1_1window_1_1imgui_1_1guizmo.html#a09043280a7caf413423732127079ee76">rotate</a></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <a class="code" href="namespaceeu_1_1window_1_1imgui_1_1guizmo.html#abe83214306117c312faa0c24d59db632">rotate</a></div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    (</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keywordtype">bool</span> is_local,</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keyword">const</span> std::optional&lt;core::Angle&gt;&amp; snap,</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keyword">const</span> <a class="code" href="structeu_1_1core_1_1mat4f.html">core::mat4f</a>&amp; camera_view,</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keyword">const</span> <a class="code" href="structeu_1_1core_1_1mat4f.html">core::mat4f</a>&amp; camera_projection,</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keyword">const</span> <a class="code" href="structeu_1_1core_1_1mat4f.html">core::mat4f</a>&amp; model,</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keyword">const</span> std::optional&lt;Angle&gt;&amp; snap,</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keyword">const</span> mat4f&amp; camera_view,</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keyword">const</span> mat4f&amp; camera_projection,</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keyword">const</span> mat4f&amp; model,</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keywordtype">bool</span> y, <span class="keywordtype">bool</span> p, <span class="keywordtype">bool</span> r,</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <a class="code" href="structeu_1_1core_1_1quatf.html">core::quatf</a>* new_rotation</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        quatf* new_rotation</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    );</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;}</div>
 <div class="ttc" id="aangle_8h_html"><div class="ttname"><a href="angle_8h.html">angle.h</a></div></div>
 <div class="ttc" id="amat4_8h_html"><div class="ttname"><a href="mat4_8h.html">mat4.h</a></div></div>
 <div class="ttc" id="anamespaceeu_1_1window_1_1imgui_1_1guizmo_html"><div class="ttname"><a href="namespaceeu_1_1window_1_1imgui_1_1guizmo.html">eu::window::imgui::guizmo</a></div><div class="ttdef"><b>Definition:</b> <a href="imguizmo_8cc_source.html#l00007">imguizmo.cc:8</a></div></div>
-<div class="ttc" id="anamespaceeu_1_1window_1_1imgui_1_1guizmo_html_a09043280a7caf413423732127079ee76"><div class="ttname"><a href="namespaceeu_1_1window_1_1imgui_1_1guizmo.html#a09043280a7caf413423732127079ee76">eu::window::imgui::guizmo::rotate</a></div><div class="ttdeci">bool rotate(bool is_local, const std::optional&lt; core::Angle &gt; &amp;snap, const core::mat4f &amp;camera_view, const core::mat4f &amp;camera_projection, const core::mat4f &amp;model, bool rx, bool ry, bool rz, core::quatf *new_rotation)</div><div class="ttdef"><b>Definition:</b> <a href="imguizmo_8cc_source.html#l00112">imguizmo.cc:113</a></div></div>
+<div class="ttc" id="anamespaceeu_1_1window_1_1imgui_1_1guizmo_html_a67c0f5e323113091e60f4a42858951a2"><div class="ttname"><a href="namespaceeu_1_1window_1_1imgui_1_1guizmo.html#a67c0f5e323113091e60f4a42858951a2">eu::window::imgui::guizmo::translate</a></div><div class="ttdeci">bool translate(bool is_local, const std::optional&lt; vec3f &gt; &amp;snap, const mat4f &amp;camera_view, const mat4f &amp;camera_projection, const mat4f &amp;model, bool tx, bool ty, bool tz, vec3f *new_position)</div><div class="ttdef"><b>Definition:</b> <a href="imguizmo_8cc_source.html#l00052">imguizmo.cc:53</a></div></div>
 <div class="ttc" id="anamespaceeu_1_1window_1_1imgui_1_1guizmo_html_a90e83861dc5affeb2c7875893442dd52"><div class="ttname"><a href="namespaceeu_1_1window_1_1imgui_1_1guizmo.html#a90e83861dc5affeb2c7875893442dd52">eu::window::imgui::guizmo::setup</a></div><div class="ttdeci">void setup()</div><div class="ttdef"><b>Definition:</b> <a href="imguizmo_8cc_source.html#l00009">imguizmo.cc:9</a></div></div>
+<div class="ttc" id="anamespaceeu_1_1window_1_1imgui_1_1guizmo_html_abe83214306117c312faa0c24d59db632"><div class="ttname"><a href="namespaceeu_1_1window_1_1imgui_1_1guizmo.html#abe83214306117c312faa0c24d59db632">eu::window::imgui::guizmo::rotate</a></div><div class="ttdeci">bool rotate(bool is_local, const std::optional&lt; Angle &gt; &amp;snap, const mat4f &amp;camera_view, const mat4f &amp;camera_projection, const mat4f &amp;model, bool rx, bool ry, bool rz, quatf *new_rotation)</div><div class="ttdef"><b>Definition:</b> <a href="imguizmo_8cc_source.html#l00112">imguizmo.cc:113</a></div></div>
 <div class="ttc" id="anamespaceeu_1_1window_1_1imgui_1_1guizmo_html_ad61765427be2eedee9e2ffc1561b9e49"><div class="ttname"><a href="namespaceeu_1_1window_1_1imgui_1_1guizmo.html#ad61765427be2eedee9e2ffc1561b9e49">eu::window::imgui::guizmo::begin</a></div><div class="ttdeci">void begin()</div><div class="ttdef"><b>Definition:</b> <a href="imguizmo_8cc_source.html#l00015">imguizmo.cc:15</a></div></div>
-<div class="ttc" id="anamespaceeu_1_1window_1_1imgui_1_1guizmo_html_ae6cf03dd1c5a4a6e78b0fd6211d4fc2a"><div class="ttname"><a href="namespaceeu_1_1window_1_1imgui_1_1guizmo.html#ae6cf03dd1c5a4a6e78b0fd6211d4fc2a">eu::window::imgui::guizmo::translate</a></div><div class="ttdeci">bool translate(bool is_local, const std::optional&lt; core::vec3f &gt; &amp;snap, const core::mat4f &amp;camera_view, const core::mat4f &amp;camera_projection, const core::mat4f &amp;model, bool tx, bool ty, bool tz, core::vec3f *new_position)</div><div class="ttdef"><b>Definition:</b> <a href="imguizmo_8cc_source.html#l00052">imguizmo.cc:53</a></div></div>
 <div class="ttc" id="aquat_8h_html"><div class="ttname"><a href="quat_8h.html">quat.h</a></div></div>
-<div class="ttc" id="astructeu_1_1core_1_1mat4f_html"><div class="ttname"><a href="structeu_1_1core_1_1mat4f.html">eu::core::mat4f</a></div><div class="ttdef"><b>Definition:</b> <a href="mat4_8h_source.html#l00013">mat4.h:14</a></div></div>
-<div class="ttc" id="astructeu_1_1core_1_1quatf_html"><div class="ttname"><a href="structeu_1_1core_1_1quatf.html">eu::core::quatf</a></div><div class="ttdef"><b>Definition:</b> <a href="quat_8h_source.html#l00014">quat.h:15</a></div></div>
-<div class="ttc" id="astructeu_1_1core_1_1vec3f_html"><div class="ttname"><a href="structeu_1_1core_1_1vec3f.html">eu::core::vec3f</a></div><div class="ttdef"><b>Definition:</b> <a href="vec3_8h_source.html#l00047">vec3.h:48</a></div></div>
 <div class="ttc" id="avec3_8h_html"><div class="ttname"><a href="vec3_8h.html">vec3.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.17-->

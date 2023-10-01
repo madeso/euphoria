@@ -45,7 +45,7 @@
       </sectiondef>
       <sectiondef kind="func">
       <memberdef kind="function" id="namespaceeu_1_1core_1_1palettes_1_1mycarta_1ac7be3fb27b60fe2be5596071f75c4dde" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>constexpr <ref refid="structeu_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref></type>
+        <type>constexpr <ref refid="structeu_1_1Rgbi" kindref="compound">Rgbi</ref></type>
         <definition>constexpr Rgbi eu::core::palettes::mycarta::con</definition>
         <argsstring>(unsigned char r, unsigned char g, unsigned char b)</argsstring>
         <name>con</name>

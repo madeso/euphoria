@@ -1,0 +1,147 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1Ray2f" kind="struct" language="C++" prot="public">
+    <compoundname>eu::Ray2f</compoundname>
+    <includes refid="ray_8h" local="no">ray.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1Ray2f_1a4196e932dd6b3aeb2407a0bfe7e8b815" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1vec2f" kindref="compound">vec2f</ref></type>
+        <definition>vec2f eu::Ray2f::position</definition>
+        <argsstring></argsstring>
+        <name>position</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/ray.h" line="25" column="15" bodyfile="libs/base/src/base/ray.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1Ray2f_1abce866f6d05702d5fad2b9d51a1dc07a" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1vec2f" kindref="compound">vec2f</ref></type>
+        <definition>vec2f eu::Ray2f::direction</definition>
+        <argsstring></argsstring>
+        <name>direction</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/ray.h" line="26" column="15" bodyfile="libs/base/src/base/ray.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1Ray2f_1a92840032a99c35e347c7b86eb733b65d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::Ray2f::Ray2f</definition>
+        <argsstring>(const vec2f &amp;p, const vec2f &amp;d)</argsstring>
+        <name>Ray2f</name>
+        <param>
+          <type>const <ref refid="structeu_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
+          <declname>d</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/ray.h" line="28" column="9" bodyfile="libs/base/src/base/ray.cc" bodystart="69" bodyend="73"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Ray2f_1a00872916e1983a76fa64a20795a56e4e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1vec2f" kindref="compound">vec2f</ref></type>
+        <definition>vec2f eu::Ray2f::get_position</definition>
+        <argsstring>(float d) const</argsstring>
+        <name>get_position</name>
+        <param>
+          <type>float</type>
+          <declname>d</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/ray.h" line="33" column="16" bodyfile="libs/base/src/base/ray.cc" bodystart="63" bodyend="66"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="structeu_1_1Ray2f_1ac1e0b212ffc8440203819a977b5f2478" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1Ray2f" kindref="compound">Ray2f</ref></type>
+        <definition>Ray2f eu::Ray2f::from_to</definition>
+        <argsstring>(const vec2f &amp;from, const vec2f &amp;to)</argsstring>
+        <name>from_to</name>
+        <param>
+          <type>const <ref refid="structeu_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
+          <declname>from</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
+          <declname>to</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/ray.h" line="30" column="23" bodyfile="libs/base/src/base/ray.cc" bodystart="56" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Ray2f_1a140f71a0718f97fbf1554502b94d681c" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1Ray2f" kindref="compound">Ray2f</ref></type>
+        <definition>Ray2f eu::Ray2f::from_direction</definition>
+        <argsstring>(const vec2f &amp;direction, const vec2f &amp;pos=zero2f)</argsstring>
+        <name>from_direction</name>
+        <param>
+          <type>const <ref refid="structeu_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
+          <declname>direction</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
+          <declname>pos</declname>
+          <defval><ref refid="namespaceeu_1a0e7c9aad856ffd16ad97ae64df63ab4e" kindref="member">zero2f</ref></defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/ray.h" line="31" column="23" bodyfile="libs/base/src/base/ray.cc" bodystart="49" bodyend="52"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>eu::Ray2f</label>
+        <link refid="structeu_1_1Ray2f"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>direction</edgelabel>
+          <edgelabel>position</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>eu::vec2f</label>
+        <link refid="structeu_1_1vec2f"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/base/src/base/ray.h" line="23" column="5" bodyfile="libs/base/src/base/ray.h" bodystart="24" bodyend="34"/>
+    <listofallmembers>
+      <member refid="structeu_1_1Ray2f_1abce866f6d05702d5fad2b9d51a1dc07a" prot="public" virt="non-virtual"><scope>eu::Ray2f</scope><name>direction</name></member>
+      <member refid="structeu_1_1Ray2f_1a140f71a0718f97fbf1554502b94d681c" prot="public" virt="non-virtual"><scope>eu::Ray2f</scope><name>from_direction</name></member>
+      <member refid="structeu_1_1Ray2f_1ac1e0b212ffc8440203819a977b5f2478" prot="public" virt="non-virtual"><scope>eu::Ray2f</scope><name>from_to</name></member>
+      <member refid="structeu_1_1Ray2f_1a00872916e1983a76fa64a20795a56e4e" prot="public" virt="non-virtual"><scope>eu::Ray2f</scope><name>get_position</name></member>
+      <member refid="structeu_1_1Ray2f_1a4196e932dd6b3aeb2407a0bfe7e8b815" prot="public" virt="non-virtual"><scope>eu::Ray2f</scope><name>position</name></member>
+      <member refid="structeu_1_1Ray2f_1a92840032a99c35e347c7b86eb733b65d" prot="public" virt="non-virtual"><scope>eu::Ray2f</scope><name>Ray2f</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

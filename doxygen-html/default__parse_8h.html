@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Euphoria: libs/core/src/core/default_parse.h File Reference</title>
+<title>Euphoria: libs/base/src/base/default_parse.h File Reference</title>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <link href="style.css" rel="stylesheet" type="text/css" />
@@ -46,7 +46,7 @@
   </div>
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="dir_6f77a39b07c019ccd7492ea87272f732.html">core</a></li><li class="navelem"><a class="el" href="dir_232ab8dc75117fda122ab855789b1b2c.html">src</a></li><li class="navelem"><a class="el" href="dir_415d9b35eca6c445d7f5977763a796bd.html">core</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="dir_06498c378442102d76a793fbea770c00.html">base</a></li><li class="navelem"><a class="el" href="dir_1434489f875b8806781a8ab0a150cad2.html">src</a></li><li class="navelem"><a class="el" href="dir_9335635e0e9dc5833ab0cd315fbf7edd.html">base</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -57,9 +57,9 @@
 <div class="title">default_parse.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="enumtostring_8h_source.html">core/enumtostring.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="custom__parser_8h_source.html">core/custom_parser.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="numparse_8h_source.html">core/numparse.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="enumtostring_8h_source.html">base/enumtostring.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="string__io_8h_source.html">base/string_io.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="numparse_8h_source.html">base/numparse.h</a>&quot;</code><br />
 </div>
 <p><a href="default__parse_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -67,24 +67,20 @@
 Namespaces</h2></td></tr>
 <tr class="memitem:namespaceeu"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html">eu</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:namespaceeu_1_1core"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html">eu::core</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:namespaceeu_1_1core_1_1argparse"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core_1_1argparse.html">eu::core::argparse</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a604a71dea552b0763cbbeca1b31e6d4b"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core_1_1argparse.html#a604a71dea552b0763cbbeca1b31e6d4b">eu::core::argparse::add_quotes_and_combine_with_english_or</a> (const std::vector&lt; std::string &gt; &amp;matches)</td></tr>
-<tr class="separator:a604a71dea552b0763cbbeca1b31e6d4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac1384467d92e234b3184b8fc48f91baa"><td class="memTemplParams" colspan="2">template&lt;typename T , std::enable_if_t&lt; CustomArgparser&lt; T &gt;::value !=0, int &gt;  = 0&gt; </td></tr>
-<tr class="memitem:ac1384467d92e234b3184b8fc48f91baa"><td class="memTemplItemLeft" align="right" valign="top">Result&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core_1_1argparse.html#ac1384467d92e234b3184b8fc48f91baa">eu::core::argparse::default_parse_function</a> (const std::string &amp;value)</td></tr>
-<tr class="separator:ac1384467d92e234b3184b8fc48f91baa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad848be83cb584b63c2daa6b6108e9f6a"><td class="memTemplParams" colspan="2">template&lt;typename T , std::enable_if_t&lt; std::is_enum&lt; T &gt;::value==false, int &gt;  = 0&gt; </td></tr>
-<tr class="memitem:ad848be83cb584b63c2daa6b6108e9f6a"><td class="memTemplItemLeft" align="right" valign="top">std::optional&lt; std::string &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core_1_1argparse.html#ad848be83cb584b63c2daa6b6108e9f6a">eu::core::argparse::default_describe</a> ()</td></tr>
-<tr class="separator:ad848be83cb584b63c2daa6b6108e9f6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab5073158dd27a2d9969f36f36d90f6ba"><td class="memTemplParams" colspan="2">template&lt;typename T , std::enable_if_t&lt; CustomArgparser&lt; T &gt;::value !=0, int &gt;  = 0&gt; </td></tr>
-<tr class="memitem:ab5073158dd27a2d9969f36f36d90f6ba"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core_1_1argparse.html#ab5073158dd27a2d9969f36f36d90f6ba">eu::core::argparse::from_default_value_to_string</a> (const T &amp;t)</td></tr>
-<tr class="separator:ab5073158dd27a2d9969f36f36d90f6ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61b8f7b7fb28bf474606550d3c09279b"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html#a61b8f7b7fb28bf474606550d3c09279b">eu::add_quotes_and_combine_with_english_or</a> (const std::vector&lt; std::string &gt; &amp;matches)</td></tr>
+<tr class="separator:a61b8f7b7fb28bf474606550d3c09279b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f62f918a255d51da88a2a3605fda424"><td class="memTemplParams" colspan="2">template&lt;typename T , std::enable_if_t&lt; StringParser&lt; T &gt;::value !=0, int &gt;  = 0&gt; </td></tr>
+<tr class="memitem:a7f62f918a255d51da88a2a3605fda424"><td class="memTemplItemLeft" align="right" valign="top">Result&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceeu.html#a7f62f918a255d51da88a2a3605fda424">eu::default_parse_function</a> (const std::string &amp;value)</td></tr>
+<tr class="separator:a7f62f918a255d51da88a2a3605fda424"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac597dc3282a8b054fccc67542ccb0d3"><td class="memTemplParams" colspan="2">template&lt;typename T , std::enable_if_t&lt; std::is_enum&lt; T &gt;::value==false, int &gt;  = 0&gt; </td></tr>
+<tr class="memitem:aac597dc3282a8b054fccc67542ccb0d3"><td class="memTemplItemLeft" align="right" valign="top">std::optional&lt; std::string &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceeu.html#aac597dc3282a8b054fccc67542ccb0d3">eu::default_describe</a> ()</td></tr>
+<tr class="separator:aac597dc3282a8b054fccc67542ccb0d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a924266058b065205c65e7ce37aff1e1c"><td class="memTemplParams" colspan="2">template&lt;typename T , std::enable_if_t&lt; StringParser&lt; T &gt;::value !=0, int &gt;  = 0&gt; </td></tr>
+<tr class="memitem:a924266058b065205c65e7ce37aff1e1c"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceeu.html#a924266058b065205c65e7ce37aff1e1c">eu::from_default_value_to_string</a> (const T &amp;t)</td></tr>
+<tr class="separator:a924266058b065205c65e7ce37aff1e1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.17-->

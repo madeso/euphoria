@@ -5,22 +5,26 @@
     <includes refid="cypher_8h" local="yes">core/cypher.h</includes>
     <includes refid="assert_8h" local="yes">assert/assert.h</includes>
     <includes refid="stringutils_8h" local="yes">base/stringutils.h</includes>
-    <includes refid="range_8h" local="yes">core/range.h</includes>
+    <includes refid="range_8h" local="yes">base/range.h</includes>
     <includes refid="stringbuilder_8h" local="yes">base/stringbuilder.h</includes>
     <incdepgraph>
+      <node id="13">
+        <label>base/default_interpolate.h</label>
+        <link refid="default__interpolate_8h"/>
+      </node>
       <node id="6">
         <label>base/stringutils.h</label>
         <link refid="stringutils_8h"/>
         <childnode refid="7" relation="include">
         </childnode>
       </node>
-      <node id="16">
+      <node id="15">
         <label>cstdint</label>
       </node>
-      <node id="15">
+      <node id="14">
         <label>base/ints.h</label>
         <link refid="ints_8h"/>
-        <childnode refid="16" relation="include">
+        <childnode refid="15" relation="include">
         </childnode>
       </node>
       <node id="4">
@@ -28,6 +32,16 @@
       </node>
       <node id="7">
         <label>map</label>
+      </node>
+      <node id="10">
+        <label>base/angle.h</label>
+        <link refid="angle_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
       </node>
       <node id="18">
         <label>base/stringbuilder.h</label>
@@ -39,6 +53,14 @@
         <childnode refid="4" relation="include">
         </childnode>
         <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>base/numeric.h</label>
+        <link refid="numeric_8h"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
         </childnode>
       </node>
       <node id="1">
@@ -55,27 +77,11 @@
         <childnode refid="18" relation="include">
         </childnode>
       </node>
-      <node id="12">
-        <label>core/numeric.h</label>
-        <link refid="numeric_8h"/>
-        <childnode refid="13" relation="include">
-        </childnode>
-      </node>
       <node id="5">
         <label>vector</label>
       </node>
-      <node id="11">
-        <label>iostream</label>
-      </node>
-      <node id="17">
-        <label>cstddef</label>
-      </node>
-      <node id="13">
-        <label>core/interpolate.default.h</label>
-        <link refid="interpolate_8default_8h"/>
-      </node>
       <node id="8">
-        <label>core/range.h</label>
+        <label>base/range.h</label>
         <link refid="range_8h"/>
         <childnode refid="9" relation="include">
         </childnode>
@@ -83,27 +89,23 @@
         </childnode>
         <childnode refid="3" relation="include">
         </childnode>
-        <childnode refid="14" relation="include">
+        <childnode refid="16" relation="include">
         </childnode>
+      </node>
+      <node id="11">
+        <label>iostream</label>
+      </node>
+      <node id="17">
+        <label>cstddef</label>
       </node>
       <node id="2">
         <label>core/cypher.h</label>
         <link refid="cypher_8h"/>
       </node>
-      <node id="10">
-        <label>core/angle.h</label>
-        <link refid="angle_8h"/>
-        <childnode refid="11" relation="include">
-        </childnode>
-        <childnode refid="12" relation="include">
-        </childnode>
-        <childnode refid="13" relation="include">
-        </childnode>
-      </node>
-      <node id="14">
+      <node id="16">
         <label>base/cint.h</label>
         <link refid="cint_8h"/>
-        <childnode refid="15" relation="include">
+        <childnode refid="14" relation="include">
         </childnode>
         <childnode refid="17" relation="include">
         </childnode>

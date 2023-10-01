@@ -1,0 +1,266 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1vec2i" kind="struct" language="C++" prot="public">
+    <compoundname>eu::vec2i</compoundname>
+    <includes refid="vec2_8h" local="no">vec2.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1vec2i_1ad1af8d994424bfd8db56ac3ea39b7a8e" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int eu::vec2i::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/vec2.h" line="73" column="13" bodyfile="libs/base/src/base/vec2.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1vec2i_1a30c5e9aab149fd6b6b8d6970f373bdc2" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int eu::vec2i::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/vec2.h" line="74" column="13" bodyfile="libs/base/src/base/vec2.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1vec2i_1ae666c18f3880446bd7a3f07947b69e3b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::vec2i::vec2i</definition>
+        <argsstring>()=default</argsstring>
+        <name>vec2i</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/vec2.h" line="76" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1vec2i_1aa4e91032f48b362e3d9d1759e3ae003b" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>constexpr</type>
+        <definition>constexpr eu::vec2i::vec2i</definition>
+        <argsstring>(int ax, int ay)</argsstring>
+        <name>vec2i</name>
+        <param>
+          <type>int</type>
+          <declname>ax</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>ay</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/vec2.h" line="77" column="19" bodyfile="libs/base/src/base/vec2.h" bodystart="77" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1vec2i_1abba9bffffea21a71a7719d7149fb5a77" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::vec2i::vec2i</definition>
+        <argsstring>(const std::tuple&lt; int, int &gt; &amp;a)</argsstring>
+        <name>vec2i</name>
+        <param>
+          <type>const std::tuple&lt; int, int &gt; &amp;</type>
+          <declname>a</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/vec2.h" line="82" column="18" bodyfile="libs/base/src/base/vec2.cc" bodystart="130" bodyend="134"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1vec2i_1ad427441e0cb993c3477bc13c33277c81" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::vec2i::vec2i</definition>
+        <argsstring>(const unit2i &amp;u)</argsstring>
+        <name>vec2i</name>
+        <param>
+          <type>const unit2i &amp;</type>
+          <declname>u</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/vec2.h" line="83" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1vec2i_1a6fa0aa680b055505ca012879a81d920d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int *</type>
+        <definition>int * eu::vec2i::get_data_ptr</definition>
+        <argsstring>()</argsstring>
+        <name>get_data_ptr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/vec2.h" line="87" column="13" bodyfile="libs/base/src/base/vec2.cc" bodystart="143" bodyend="146"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1vec2i_1ac4bbcf103d833a0266509e9bd0bd2805" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const int *</type>
+        <definition>const int * eu::vec2i::get_data_ptr</definition>
+        <argsstring>() const</argsstring>
+        <name>get_data_ptr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/vec2.h" line="88" column="20" bodyfile="libs/base/src/base/vec2.cc" bodystart="149" bodyend="152"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1vec2i_1a8b3cd763d5f21608e9d08e5e1866d75f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1vec2f" kindref="compound">vec2f</ref></type>
+        <definition>vec2f eu::vec2i::to_f</definition>
+        <argsstring>() const</argsstring>
+        <name>to_f</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/vec2.h" line="90" column="16" bodyfile="libs/base/src/base/vec2.cc" bodystart="137" bodyend="140"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1vec2i_1a173134c612e1ee1ab78895f95a87f545" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1vec2i" kindref="compound">vec2i</ref></type>
+        <definition>vec2i eu::vec2i::get_flipped_y</definition>
+        <argsstring>() const</argsstring>
+        <name>get_flipped_y</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/vec2.h" line="91" column="16" bodyfile="libs/base/src/base/vec2.cc" bodystart="155" bodyend="158"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1vec2i_1ad3e3cbe04d9414fe767d0723539b7271" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::vec2i::operator+=</definition>
+        <argsstring>(const vec2i &amp;rhs)</argsstring>
+        <name>operator+=</name>
+        <param>
+          <type>const <ref refid="structeu_1_1vec2i" kindref="compound">vec2i</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/vec2.h" line="93" column="14" bodyfile="libs/base/src/base/vec2.cc" bodystart="161" bodyend="165"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1vec2i_1acfece58be82a3d712a7e8a7f98ae87f1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::vec2i::operator-=</definition>
+        <argsstring>(const vec2i &amp;rhs)</argsstring>
+        <name>operator-=</name>
+        <param>
+          <type>const <ref refid="structeu_1_1vec2i" kindref="compound">vec2i</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/vec2.h" line="94" column="14" bodyfile="libs/base/src/base/vec2.cc" bodystart="168" bodyend="172"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1vec2i_1a589204b92361331c741e90214bf1f27b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1vec2i" kindref="compound">vec2i</ref></type>
+        <definition>vec2i eu::vec2i::operator-</definition>
+        <argsstring>() const</argsstring>
+        <name>operator-</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/vec2.h" line="95" column="15" bodyfile="libs/base/src/base/vec2.cc" bodystart="175" bodyend="178"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1vec2i_1a6805f5ba9d1916a45da70f7732c88064" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::vec2i::operator*=</definition>
+        <argsstring>(int rhs)</argsstring>
+        <name>operator*=</name>
+        <param>
+          <type>int</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/vec2.h" line="96" column="14" bodyfile="libs/base/src/base/vec2.cc" bodystart="188" bodyend="192"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="structeu_1_1vec2i_1ab1bceacaf4f96a62a90ec295149191bc" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1vec2i" kindref="compound">vec2i</ref></type>
+        <definition>vec2i eu::vec2i::from_to</definition>
+        <argsstring>(const vec2i &amp;from, const vec2i &amp;to)</argsstring>
+        <name>from_to</name>
+        <param>
+          <type>const <ref refid="structeu_1_1vec2i" kindref="compound">vec2i</ref> &amp;</type>
+          <declname>from</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1vec2i" kindref="compound">vec2i</ref> &amp;</type>
+          <declname>to</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/vec2.h" line="85" column="23" bodyfile="libs/base/src/base/vec2.cc" bodystart="182" bodyend="185"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/base/src/base/vec2.h" line="71" column="5" bodyfile="libs/base/src/base/vec2.h" bodystart="72" bodyend="97"/>
+    <listofallmembers>
+      <member refid="structeu_1_1vec2i_1ab1bceacaf4f96a62a90ec295149191bc" prot="public" virt="non-virtual"><scope>eu::vec2i</scope><name>from_to</name></member>
+      <member refid="structeu_1_1vec2i_1a6fa0aa680b055505ca012879a81d920d" prot="public" virt="non-virtual"><scope>eu::vec2i</scope><name>get_data_ptr</name></member>
+      <member refid="structeu_1_1vec2i_1ac4bbcf103d833a0266509e9bd0bd2805" prot="public" virt="non-virtual"><scope>eu::vec2i</scope><name>get_data_ptr</name></member>
+      <member refid="structeu_1_1vec2i_1a173134c612e1ee1ab78895f95a87f545" prot="public" virt="non-virtual"><scope>eu::vec2i</scope><name>get_flipped_y</name></member>
+      <member refid="structeu_1_1vec2i_1a6805f5ba9d1916a45da70f7732c88064" prot="public" virt="non-virtual"><scope>eu::vec2i</scope><name>operator*=</name></member>
+      <member refid="structeu_1_1vec2i_1ad3e3cbe04d9414fe767d0723539b7271" prot="public" virt="non-virtual"><scope>eu::vec2i</scope><name>operator+=</name></member>
+      <member refid="structeu_1_1vec2i_1a589204b92361331c741e90214bf1f27b" prot="public" virt="non-virtual"><scope>eu::vec2i</scope><name>operator-</name></member>
+      <member refid="structeu_1_1vec2i_1acfece58be82a3d712a7e8a7f98ae87f1" prot="public" virt="non-virtual"><scope>eu::vec2i</scope><name>operator-=</name></member>
+      <member refid="structeu_1_1vec2i_1a8b3cd763d5f21608e9d08e5e1866d75f" prot="public" virt="non-virtual"><scope>eu::vec2i</scope><name>to_f</name></member>
+      <member refid="structeu_1_1vec2i_1ae666c18f3880446bd7a3f07947b69e3b" prot="public" virt="non-virtual"><scope>eu::vec2i</scope><name>vec2i</name></member>
+      <member refid="structeu_1_1vec2i_1aa4e91032f48b362e3d9d1759e3ae003b" prot="public" virt="non-virtual"><scope>eu::vec2i</scope><name>vec2i</name></member>
+      <member refid="structeu_1_1vec2i_1abba9bffffea21a71a7719d7149fb5a77" prot="public" virt="non-virtual"><scope>eu::vec2i</scope><name>vec2i</name></member>
+      <member refid="structeu_1_1vec2i_1ad427441e0cb993c3477bc13c33277c81" prot="public" virt="non-virtual"><scope>eu::vec2i</scope><name>vec2i</name></member>
+      <member refid="structeu_1_1vec2i_1ad1af8d994424bfd8db56ac3ea39b7a8e" prot="public" virt="non-virtual"><scope>eu::vec2i</scope><name>x</name></member>
+      <member refid="structeu_1_1vec2i_1a30c5e9aab149fd6b6b8d6970f373bdc2" prot="public" virt="non-virtual"><scope>eu::vec2i</scope><name>y</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

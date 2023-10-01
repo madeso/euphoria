@@ -2,19 +2,14 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="plane_8cc" kind="file" language="C++">
     <compoundname>plane.cc</compoundname>
-    <includes refid="plane_8h" local="yes">core/plane.h</includes>
+    <includes refid="plane_8h" local="yes">base/plane.h</includes>
     <incdepgraph>
-      <node id="15">
-        <label>cstdint</label>
-      </node>
-      <node id="14">
-        <label>base/ints.h</label>
-        <link refid="ints_8h"/>
-        <childnode refid="15" relation="include">
-        </childnode>
+      <node id="9">
+        <label>base/default_interpolate.h</label>
+        <link refid="default__interpolate_8h"/>
       </node>
       <node id="3">
-        <label>core/vec3.h</label>
+        <label>base/vec3.h</label>
         <link refid="vec3_8h"/>
         <childnode refid="4" relation="include">
         </childnode>
@@ -24,15 +19,36 @@
         </childnode>
         <childnode refid="6" relation="include">
         </childnode>
-        <childnode refid="13" relation="include">
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>cstdint</label>
+      </node>
+      <node id="13">
+        <label>base/ints.h</label>
+        <link refid="ints_8h"/>
+        <childnode refid="14" relation="include">
         </childnode>
       </node>
       <node id="7">
         <label>string</label>
       </node>
-      <node id="17">
-        <label>core/vec.base.h</label>
-        <link refid="vec_8base_8h"/>
+      <node id="1">
+        <label>libs/base/src/base/plane.cc</label>
+        <link refid="plane_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>base/angle.h</label>
+        <link refid="angle_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
       </node>
       <node id="6">
         <label>assert/assert.h</label>
@@ -42,8 +58,34 @@
         <childnode refid="8" relation="include">
         </childnode>
       </node>
+      <node id="12">
+        <label>base/numeric.h</label>
+        <link refid="numeric_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>base/plane.h</label>
+        <link refid="plane_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>tuple</label>
+      </node>
+      <node id="8">
+        <label>vector</label>
+      </node>
+      <node id="11">
+        <label>iostream</label>
+      </node>
+      <node id="16">
+        <label>cstddef</label>
+      </node>
       <node id="5">
-        <label>core/vec2.h</label>
+        <label>base/vec2.h</label>
         <link refid="vec2_8h"/>
         <childnode refid="4" relation="include">
         </childnode>
@@ -55,70 +97,29 @@
         </childnode>
         <childnode refid="12" relation="include">
         </childnode>
-        <childnode refid="13" relation="include">
+        <childnode refid="15" relation="include">
         </childnode>
         <childnode refid="17" relation="include">
         </childnode>
       </node>
-      <node id="4">
-        <label>tuple</label>
-      </node>
-      <node id="2">
-        <label>core/plane.h</label>
-        <link refid="plane_8h"/>
-        <childnode refid="3" relation="include">
-        </childnode>
-      </node>
-      <node id="12">
-        <label>core/numeric.h</label>
-        <link refid="numeric_8h"/>
-        <childnode refid="9" relation="include">
-        </childnode>
-      </node>
-      <node id="8">
-        <label>vector</label>
-      </node>
-      <node id="1">
-        <label>libs/core/src/core/plane.cc</label>
-        <link refid="plane_8cc"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-      </node>
-      <node id="11">
-        <label>iostream</label>
-      </node>
-      <node id="16">
-        <label>cstddef</label>
-      </node>
-      <node id="9">
-        <label>core/interpolate.default.h</label>
-        <link refid="interpolate_8default_8h"/>
-      </node>
-      <node id="10">
-        <label>core/angle.h</label>
-        <link refid="angle_8h"/>
-        <childnode refid="11" relation="include">
-        </childnode>
-        <childnode refid="12" relation="include">
-        </childnode>
-        <childnode refid="9" relation="include">
-        </childnode>
-      </node>
-      <node id="13">
+      <node id="15">
         <label>base/cint.h</label>
         <link refid="cint_8h"/>
-        <childnode refid="14" relation="include">
+        <childnode refid="13" relation="include">
         </childnode>
         <childnode refid="16" relation="include">
         </childnode>
       </node>
+      <node id="17">
+        <label>base/vec.base.h</label>
+        <link refid="vec_8base_8h"/>
+      </node>
     </incdepgraph>
     <innernamespace refid="namespaceeu">eu</innernamespace>
-    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/plane.cc"/>
+    <location file="libs/base/src/base/plane.cc"/>
   </compounddef>
 </doxygen>

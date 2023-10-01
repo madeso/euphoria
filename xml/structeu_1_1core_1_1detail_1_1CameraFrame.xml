@@ -5,7 +5,7 @@
     <includes refid="camera3_8editor_8h" local="no">camera3.editor.h</includes>
       <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structeu_1_1core_1_1detail_1_1CameraFrame_1a98de95b66ecd9ec81887aef7577cbe1a" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1core_1_1Angle" kindref="compound">Angle</ref></type>
+        <type><ref refid="structeu_1_1Angle" kindref="compound">Angle</ref></type>
         <definition>Angle eu::core::detail::CameraFrame::rotation_angle</definition>
         <argsstring></argsstring>
         <name>rotation_angle</name>
@@ -15,10 +15,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/camera3.editor.h" line="27" column="19" bodyfile="libs/core/src/core/camera3.editor.h" bodystart="27" bodyend="-1"/>
+        <location file="libs/core/src/core/camera3.editor.h" line="31" column="19" bodyfile="libs/core/src/core/camera3.editor.h" bodystart="31" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1detail_1_1CameraFrame_1a41fc3ebbae011fbdc31aa8564f60d2c2" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1core_1_1Angle" kindref="compound">Angle</ref></type>
+        <type><ref refid="structeu_1_1Angle" kindref="compound">Angle</ref></type>
         <definition>Angle eu::core::detail::CameraFrame::look_angle</definition>
         <argsstring></argsstring>
         <name>look_angle</name>
@@ -28,10 +28,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/camera3.editor.h" line="28" column="19" bodyfile="libs/core/src/core/camera3.editor.h" bodystart="28" bodyend="-1"/>
+        <location file="libs/core/src/core/camera3.editor.h" line="32" column="19" bodyfile="libs/core/src/core/camera3.editor.h" bodystart="32" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1detail_1_1CameraFrame_1a59f4eed138aabc6b8eba14c24a5a56a4" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
+        <type><ref refid="structeu_1_1vec3f" kindref="compound">vec3f</ref></type>
         <definition>vec3f eu::core::detail::CameraFrame::position</definition>
         <argsstring></argsstring>
         <name>position</name>
@@ -41,7 +41,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/camera3.editor.h" line="29" column="19" bodyfile="libs/core/src/core/camera3.editor.h" bodystart="29" bodyend="-1"/>
+        <location file="libs/core/src/core/camera3.editor.h" line="33" column="19" bodyfile="libs/core/src/core/camera3.editor.h" bodystart="33" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -49,10 +49,6 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-      <node id="3">
-        <label>eu::core::vec3f</label>
-        <link refid="structeu_1_1core_1_1vec3f"/>
-      </node>
       <node id="1">
         <label>eu::core::detail::CameraFrame</label>
         <link refid="structeu_1_1core_1_1detail_1_1CameraFrame"/>
@@ -65,11 +61,15 @@
         </childnode>
       </node>
       <node id="2">
-        <label>eu::core::Angle</label>
-        <link refid="structeu_1_1core_1_1Angle"/>
+        <label>eu::Angle</label>
+        <link refid="structeu_1_1Angle"/>
+      </node>
+      <node id="3">
+        <label>eu::vec3f</label>
+        <link refid="structeu_1_1vec3f"/>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/camera3.editor.h" line="25" column="9" bodyfile="libs/core/src/core/camera3.editor.h" bodystart="26" bodyend="30"/>
+    <location file="libs/core/src/core/camera3.editor.h" line="29" column="9" bodyfile="libs/core/src/core/camera3.editor.h" bodystart="30" bodyend="34"/>
     <listofallmembers>
       <member refid="structeu_1_1core_1_1detail_1_1CameraFrame_1a41fc3ebbae011fbdc31aa8564f60d2c2" prot="public" virt="non-virtual"><scope>eu::core::detail::CameraFrame</scope><name>look_angle</name></member>
       <member refid="structeu_1_1core_1_1detail_1_1CameraFrame_1a59f4eed138aabc6b8eba14c24a5a56a4" prot="public" virt="non-virtual"><scope>eu::core::detail::CameraFrame</scope><name>position</name></member>

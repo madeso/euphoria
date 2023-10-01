@@ -29,29 +29,29 @@
         </inbodydescription>
         <location file="libs/window/src/window/imguizmo.cc" line="15" column="10" bodyfile="libs/window/src/window/imguizmo.cc" bodystart="15" bodyend="18" declfile="libs/window/src/window/imguizmo.h" declline="14" declcolumn="10"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1window_1_1imgui_1_1guizmo_1ae6cf03dd1c5a4a6e78b0fd6211d4fc2a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeu_1_1window_1_1imgui_1_1guizmo_1a67c0f5e323113091e60f4a42858951a2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
         <definition>bool eu::window::imgui::guizmo::translate</definition>
-        <argsstring>(bool is_local, const std::optional&lt; core::vec3f &gt; &amp;snap, const core::mat4f &amp;camera_view, const core::mat4f &amp;camera_projection, const core::mat4f &amp;model, bool tx, bool ty, bool tz, core::vec3f *new_position)</argsstring>
+        <argsstring>(bool is_local, const std::optional&lt; vec3f &gt; &amp;snap, const mat4f &amp;camera_view, const mat4f &amp;camera_projection, const mat4f &amp;model, bool tx, bool ty, bool tz, vec3f *new_position)</argsstring>
         <name>translate</name>
         <param>
           <type>bool</type>
           <declname>is_local</declname>
         </param>
         <param>
-          <type>const std::optional&lt; <ref refid="structeu_1_1core_1_1vec3f" kindref="compound">core::vec3f</ref> &gt; &amp;</type>
+          <type>const std::optional&lt; <ref refid="structeu_1_1vec3f" kindref="compound">vec3f</ref> &gt; &amp;</type>
           <declname>snap</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1mat4f" kindref="compound">core::mat4f</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1mat4f" kindref="compound">mat4f</ref> &amp;</type>
           <declname>camera_view</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1mat4f" kindref="compound">core::mat4f</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1mat4f" kindref="compound">mat4f</ref> &amp;</type>
           <declname>camera_projection</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1mat4f" kindref="compound">core::mat4f</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1mat4f" kindref="compound">mat4f</ref> &amp;</type>
           <declname>model</declname>
         </param>
         <param>
@@ -67,7 +67,7 @@
           <declname>tz</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1core_1_1vec3f" kindref="compound">core::vec3f</ref> *</type>
+          <type><ref refid="structeu_1_1vec3f" kindref="compound">vec3f</ref> *</type>
           <declname>new_position</declname>
         </param>
         <briefdescription>
@@ -78,29 +78,29 @@
         </inbodydescription>
         <location file="libs/window/src/window/imguizmo.cc" line="52" column="5" bodyfile="libs/window/src/window/imguizmo.cc" bodystart="53" bodyend="108" declfile="libs/window/src/window/imguizmo.h" declline="17" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1window_1_1imgui_1_1guizmo_1a09043280a7caf413423732127079ee76" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeu_1_1window_1_1imgui_1_1guizmo_1abe83214306117c312faa0c24d59db632" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
         <definition>bool eu::window::imgui::guizmo::rotate</definition>
-        <argsstring>(bool is_local, const std::optional&lt; core::Angle &gt; &amp;snap, const core::mat4f &amp;camera_view, const core::mat4f &amp;camera_projection, const core::mat4f &amp;model, bool rx, bool ry, bool rz, core::quatf *new_rotation)</argsstring>
+        <argsstring>(bool is_local, const std::optional&lt; Angle &gt; &amp;snap, const mat4f &amp;camera_view, const mat4f &amp;camera_projection, const mat4f &amp;model, bool rx, bool ry, bool rz, quatf *new_rotation)</argsstring>
         <name>rotate</name>
         <param>
           <type>bool</type>
           <declname>is_local</declname>
         </param>
         <param>
-          <type>const std::optional&lt; <ref refid="structeu_1_1core_1_1Angle" kindref="compound">core::Angle</ref> &gt; &amp;</type>
+          <type>const std::optional&lt; <ref refid="structeu_1_1Angle" kindref="compound">Angle</ref> &gt; &amp;</type>
           <declname>snap</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1mat4f" kindref="compound">core::mat4f</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1mat4f" kindref="compound">mat4f</ref> &amp;</type>
           <declname>camera_view</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1mat4f" kindref="compound">core::mat4f</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1mat4f" kindref="compound">mat4f</ref> &amp;</type>
           <declname>camera_projection</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1mat4f" kindref="compound">core::mat4f</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1mat4f" kindref="compound">mat4f</ref> &amp;</type>
           <declname>model</declname>
         </param>
         <param>
@@ -116,7 +116,7 @@
           <declname>rz</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1core_1_1quatf" kindref="compound">core::quatf</ref> *</type>
+          <type><ref refid="structeu_1_1quatf" kindref="compound">quatf</ref> *</type>
           <declname>new_rotation</declname>
         </param>
         <briefdescription>

@@ -59,7 +59,7 @@
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="assert_8h.html">assert/assert.h</a>&quot;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="cint_8h.html">base/cint.h</a>&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="numeric_8h.html">core/numeric.h</a>&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="numeric_8h.html">base/numeric.h</a>&quot;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceeu_1_1core.html">eu::core</a></div>
@@ -69,7 +69,7 @@
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    {</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <a class="code" href="assert_8h.html#aca68c0d4ac8df0838e209fb5300f7be3">ASSERT</a>(positions.empty() == <span class="keyword">false</span>);</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <span class="keyword">auto</span> center = <a class="code" href="namespaceeu_1_1core.html#a472ff652892538c5d9e53b9aaba50cb6">zero3f</a>;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <span class="keyword">auto</span> center = <a class="code" href="namespaceeu.html#ae6904cdb3f5a821f19253d26980406fd">zero3f</a>;</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">const</span> <span class="keyword">auto</span>&amp; <a class="code" href="namespaceeu_1_1core.html#a6fca7b841e42734cd5c01e04fc9e6511a83878c91171338902e0fe0fb97a8c47a">p</a>: positions)</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        {</div>
@@ -89,7 +89,7 @@
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">const</span> <span class="keyword">auto</span>&amp; <a class="code" href="namespaceeu_1_1core.html#a6fca7b841e42734cd5c01e04fc9e6511a83878c91171338902e0fe0fb97a8c47a">p</a>: positions)</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        {</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span> lensq = <a class="code" href="structeu_1_1core_1_1vec3f.html#ad9fefa28f0b67473fb753fdbe8a6701b">vec3f::from_to</a>(<a class="code" href="namespaceeu_1_1core.html#a6fca7b841e42734cd5c01e04fc9e6511a83878c91171338902e0fe0fb97a8c47a">p</a>, center).<a class="code" href="structeu_1_1core_1_1vec3f.html#a6812d46a02501b74aaed3e9a70110c8b">get_length_squared</a>();</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span> lensq = <a class="code" href="structeu_1_1vec3f.html#aa1cd9394a9ea6afc8e17e3b816bdd957">vec3f::from_to</a>(<a class="code" href="namespaceeu_1_1core.html#a6fca7b841e42734cd5c01e04fc9e6511a83878c91171338902e0fe0fb97a8c47a">p</a>, center).<a class="code" href="structeu_1_1vec3f.html#a8f8e8449807ee098dd7a7246b02ba4b8">get_length_squared</a>();</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            <span class="keywordflow">if</span>(lensq &gt; radius_squared)</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            {</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                radius_squared = lensq;</div>
@@ -98,7 +98,7 @@
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordflow">return</span></div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        {</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            <a class="code" href="structeu_1_1core_1_1Sphere.html">Sphere</a>{<a class="code" href="namespaceeu_1_1core.html#a660a28e5c7dd5a7d20deb9736ecf5537">core::sqrt</a>(radius_squared)},</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            <a class="code" href="structeu_1_1core_1_1Sphere.html">Sphere</a>{<a class="code" href="namespaceeu.html#a066452fba287c9fcb6a0188ea8424760">sqrt</a>(radius_squared)},</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            center</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        };</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    }</div>
@@ -106,18 +106,18 @@
 <div class="ttc" id="aassert_8h_html"><div class="ttname"><a href="assert_8h.html">assert.h</a></div></div>
 <div class="ttc" id="aassert_8h_html_aca68c0d4ac8df0838e209fb5300f7be3"><div class="ttname"><a href="assert_8h.html#aca68c0d4ac8df0838e209fb5300f7be3">ASSERT</a></div><div class="ttdeci">#define ASSERT(x)</div><div class="ttdef"><b>Definition:</b> <a href="assert_8h_source.html#l00029">assert.h:29</a></div></div>
 <div class="ttc" id="acint_8h_html"><div class="ttname"><a href="cint_8h.html">cint.h</a></div></div>
-<div class="ttc" id="anamespaceeu_1_1core_html"><div class="ttname"><a href="namespaceeu_1_1core.html">eu::core</a></div><div class="ttdef"><b>Definition:</b> <a href="aabb_8cc_source.html#l00008">aabb.cc:9</a></div></div>
+<div class="ttc" id="anamespaceeu_1_1core_html"><div class="ttname"><a href="namespaceeu_1_1core.html">eu::core</a></div><div class="ttdef"><b>Definition:</b> <a href="argparse_8cc_source.html#l00044">argparse.cc:45</a></div></div>
 <div class="ttc" id="anamespaceeu_1_1core_html_a3b8eb0e490e39133e3eca64c193a2261"><div class="ttname"><a href="namespaceeu_1_1core.html#a3b8eb0e490e39133e3eca64c193a2261">eu::core::build_bounding_sphere</a></div><div class="ttdeci">SphereAndPosition build_bounding_sphere(const std::vector&lt; vec3f &gt; &amp;positions)</div><div class="ttdef"><b>Definition:</b> <a href="sphere_8builder_8cc_source.html#l00027">sphere.builder.cc:27</a></div></div>
-<div class="ttc" id="anamespaceeu_1_1core_html_a472ff652892538c5d9e53b9aaba50cb6"><div class="ttname"><a href="namespaceeu_1_1core.html#a472ff652892538c5d9e53b9aaba50cb6">eu::core::zero3f</a></div><div class="ttdeci">constexpr vec3f zero3f</div><div class="ttdef"><b>Definition:</b> <a href="vec3_8h_source.html#l00095">vec3.h:95</a></div></div>
-<div class="ttc" id="anamespaceeu_1_1core_html_a660a28e5c7dd5a7d20deb9736ecf5537"><div class="ttname"><a href="namespaceeu_1_1core.html#a660a28e5c7dd5a7d20deb9736ecf5537">eu::core::sqrt</a></div><div class="ttdeci">float sqrt(float r)</div><div class="ttdef"><b>Definition:</b> <a href="numeric_8cc_source.html#l00101">numeric.cc:101</a></div></div>
 <div class="ttc" id="anamespaceeu_1_1core_html_a6fca7b841e42734cd5c01e04fc9e6511a83878c91171338902e0fe0fb97a8c47a"><div class="ttname"><a href="namespaceeu_1_1core.html#a6fca7b841e42734cd5c01e04fc9e6511a83878c91171338902e0fe0fb97a8c47a">eu::core::Key::p</a></div><div class="ttdeci">@ p</div></div>
 <div class="ttc" id="anamespaceeu_1_1core_html_a730b18405f754244243f12f5e4f55e67"><div class="ttname"><a href="namespaceeu_1_1core.html#a730b18405f754244243f12f5e4f55e67">eu::core::calc_center</a></div><div class="ttdeci">vec3f calc_center(const std::vector&lt; vec3f &gt; &amp;positions)</div><div class="ttdef"><b>Definition:</b> <a href="sphere_8builder_8cc_source.html#l00012">sphere.builder.cc:12</a></div></div>
+<div class="ttc" id="anamespaceeu_html_a066452fba287c9fcb6a0188ea8424760"><div class="ttname"><a href="namespaceeu.html#a066452fba287c9fcb6a0188ea8424760">eu::sqrt</a></div><div class="ttdeci">float sqrt(float r)</div><div class="ttdef"><b>Definition:</b> <a href="numeric_8cc_source.html#l00101">numeric.cc:101</a></div></div>
 <div class="ttc" id="anamespaceeu_html_a0bf6f3d026ddfbf012b2f738691c0091"><div class="ttname"><a href="namespaceeu.html#a0bf6f3d026ddfbf012b2f738691c0091">eu::c_sizet_to_float</a></div><div class="ttdeci">constexpr float c_sizet_to_float(std::size_t f)</div><div class="ttdef"><b>Definition:</b> <a href="cint_8h_source.html#l00043">cint.h:43</a></div></div>
+<div class="ttc" id="anamespaceeu_html_ae6904cdb3f5a821f19253d26980406fd"><div class="ttname"><a href="namespaceeu.html#ae6904cdb3f5a821f19253d26980406fd">eu::zero3f</a></div><div class="ttdeci">constexpr vec3f zero3f</div><div class="ttdef"><b>Definition:</b> <a href="vec3_8h_source.html#l00095">vec3.h:95</a></div></div>
 <div class="ttc" id="anumeric_8h_html"><div class="ttname"><a href="numeric_8h.html">numeric.h</a></div></div>
 <div class="ttc" id="asphere_8builder_8h_html"><div class="ttname"><a href="sphere_8builder_8h.html">sphere.builder.h</a></div></div>
 <div class="ttc" id="astructeu_1_1core_1_1Sphere_html"><div class="ttname"><a href="structeu_1_1core_1_1Sphere.html">eu::core::Sphere</a></div><div class="ttdef"><b>Definition:</b> <a href="sphere_8h_source.html#l00005">sphere.h:6</a></div></div>
-<div class="ttc" id="astructeu_1_1core_1_1vec3f_html_a6812d46a02501b74aaed3e9a70110c8b"><div class="ttname"><a href="structeu_1_1core_1_1vec3f.html#a6812d46a02501b74aaed3e9a70110c8b">eu::core::vec3f::get_length_squared</a></div><div class="ttdeci">constexpr float get_length_squared() const</div><div class="ttdef"><b>Definition:</b> <a href="vec3_8h_source.html#l00079">vec3.h:79</a></div></div>
-<div class="ttc" id="astructeu_1_1core_1_1vec3f_html_ad9fefa28f0b67473fb753fdbe8a6701b"><div class="ttname"><a href="structeu_1_1core_1_1vec3f.html#ad9fefa28f0b67473fb753fdbe8a6701b">eu::core::vec3f::from_to</a></div><div class="ttdeci">static vec3f from_to(const vec3f &amp;from, const vec3f &amp;to)</div><div class="ttdef"><b>Definition:</b> <a href="vec3_8cc_source.html#l00127">vec3.cc:127</a></div></div>
+<div class="ttc" id="astructeu_1_1vec3f_html_a8f8e8449807ee098dd7a7246b02ba4b8"><div class="ttname"><a href="structeu_1_1vec3f.html#a8f8e8449807ee098dd7a7246b02ba4b8">eu::vec3f::get_length_squared</a></div><div class="ttdeci">constexpr float get_length_squared() const</div><div class="ttdef"><b>Definition:</b> <a href="vec3_8h_source.html#l00079">vec3.h:79</a></div></div>
+<div class="ttc" id="astructeu_1_1vec3f_html_aa1cd9394a9ea6afc8e17e3b816bdd957"><div class="ttname"><a href="structeu_1_1vec3f.html#aa1cd9394a9ea6afc8e17e3b816bdd957">eu::vec3f::from_to</a></div><div class="ttdeci">static vec3f from_to(const vec3f &amp;from, const vec3f &amp;to)</div><div class="ttdef"><b>Definition:</b> <a href="vec3_8cc_source.html#l00127">vec3.cc:127</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.17-->
 <!-- start footer part -->

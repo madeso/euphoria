@@ -56,10 +56,10 @@
 <div class="contents">
 <a href="approx__equal_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="vec3_8h.html">core/vec3.h</a>&quot;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="axisangle_8h.html">core/axisangle.h</a>&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="quat_8h.html">core/quat.h</a>&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="rgb_8h.html">core/rgb.h</a>&quot;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="vec3_8h.html">base/vec3.h</a>&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="axisangle_8h.html">base/axisangle.h</a>&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="quat_8h.html">base/quat.h</a>&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="rgb_8h.html">base/rgb.h</a>&quot;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="approx_8h.html">tests/approx.h</a>&quot;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
@@ -69,57 +69,57 @@
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keyword">template</span> &lt;&gt;</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordtype">bool</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <a class="code" href="namespaceeu_1_1tests.html#af345ce71ac050b0e3ecdf61c8bbb060d">is_approximately_equal</a>(</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;            <a class="code" href="structeu_1_1core_1_1vec3f.html">core::vec3f</a> <span class="keyword">const</span>&amp; lhs,</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;            <a class="code" href="structeu_1_1core_1_1vec3f.html">core::vec3f</a> <span class="keyword">const</span>&amp; rhs,</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;            vec3f <span class="keyword">const</span>&amp; lhs,</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;            vec3f <span class="keyword">const</span>&amp; rhs,</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;            <span class="keyword">const</span> ApproxData&amp; data);</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">template</span> &lt;&gt;</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordtype">bool</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <a class="code" href="namespaceeu_1_1tests.html#af345ce71ac050b0e3ecdf61c8bbb060d">is_approximately_equal</a>(</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <a class="code" href="structeu_1_1core_1_1vec4f.html">core::vec4f</a> <span class="keyword">const</span>&amp; lhs,</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <a class="code" href="structeu_1_1core_1_1vec4f.html">core::vec4f</a> <span class="keyword">const</span>&amp; rhs,</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        vec4f <span class="keyword">const</span>&amp; lhs,</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        vec4f <span class="keyword">const</span>&amp; rhs,</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keyword">const</span> ApproxData&amp; data);</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">template</span> &lt;&gt;</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">bool</span></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <a class="code" href="namespaceeu_1_1tests.html#af345ce71ac050b0e3ecdf61c8bbb060d">is_approximately_equal</a>(</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            <a class="code" href="structeu_1_1core_1_1Rgb.html">core::Rgb</a> <span class="keyword">const</span>&amp; lhs,</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            <a class="code" href="structeu_1_1core_1_1Rgb.html">core::Rgb</a> <span class="keyword">const</span>&amp; rhs,</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            Rgb <span class="keyword">const</span>&amp; lhs,</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            Rgb <span class="keyword">const</span>&amp; rhs,</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            <span class="keyword">const</span> ApproxData&amp; data);</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">template</span> &lt;&gt;</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">bool</span></div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <a class="code" href="namespaceeu_1_1tests.html#af345ce71ac050b0e3ecdf61c8bbb060d">is_approximately_equal</a>(</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            <a class="code" href="structeu_1_1core_1_1Rgba.html">core::Rgba</a> <span class="keyword">const</span>&amp; lhs,</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            <a class="code" href="structeu_1_1core_1_1Rgba.html">core::Rgba</a> <span class="keyword">const</span>&amp; rhs,</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            Rgba <span class="keyword">const</span>&amp; lhs,</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            Rgba <span class="keyword">const</span>&amp; rhs,</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            <span class="keyword">const</span> ApproxData&amp; data);</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">template</span> &lt;&gt;</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">bool</span></div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <a class="code" href="namespaceeu_1_1tests.html#af345ce71ac050b0e3ecdf61c8bbb060d">is_approximately_equal</a>(</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            <a class="code" href="structeu_1_1core_1_1Hsl.html">core::Hsl</a> <span class="keyword">const</span>&amp; lhs,</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            <a class="code" href="structeu_1_1core_1_1Hsl.html">core::Hsl</a> <span class="keyword">const</span>&amp; rhs,</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            Hsl <span class="keyword">const</span>&amp; lhs,</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            Hsl <span class="keyword">const</span>&amp; rhs,</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            <span class="keyword">const</span> ApproxData&amp; data);</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keyword">template</span> &lt;&gt;</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">bool</span></div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <a class="code" href="namespaceeu_1_1tests.html#af345ce71ac050b0e3ecdf61c8bbb060d">is_approximately_equal</a>(</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            <a class="code" href="structeu_1_1core_1_1unit3f.html">core::unit3f</a> <span class="keyword">const</span>&amp; lhs,</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            <a class="code" href="structeu_1_1core_1_1unit3f.html">core::unit3f</a> <span class="keyword">const</span>&amp; rhs,</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            unit3f <span class="keyword">const</span>&amp; lhs,</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            unit3f <span class="keyword">const</span>&amp; rhs,</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            <span class="keyword">const</span> ApproxData&amp; data);</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keyword">template</span> &lt;&gt;</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">bool</span></div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <a class="code" href="namespaceeu_1_1tests.html#af345ce71ac050b0e3ecdf61c8bbb060d">is_approximately_equal</a>(</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            <a class="code" href="structeu_1_1core_1_1quatf.html">core::quatf</a> <span class="keyword">const</span>&amp; lhs,</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            <a class="code" href="structeu_1_1core_1_1quatf.html">core::quatf</a> <span class="keyword">const</span>&amp; rhs,</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            quatf <span class="keyword">const</span>&amp; lhs,</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            quatf <span class="keyword">const</span>&amp; rhs,</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            <span class="keyword">const</span> ApproxData&amp; data);</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keyword">template</span> &lt;&gt;</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">bool</span></div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <a class="code" href="namespaceeu_1_1tests.html#af345ce71ac050b0e3ecdf61c8bbb060d">is_approximately_equal</a>(</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            <a class="code" href="structeu_1_1core_1_1AxisAngle.html">core::AxisAngle</a> <span class="keyword">const</span>&amp; lhs,</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            <a class="code" href="structeu_1_1core_1_1AxisAngle.html">core::AxisAngle</a> <span class="keyword">const</span>&amp; rhs,</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            AxisAngle <span class="keyword">const</span>&amp; lhs,</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            AxisAngle <span class="keyword">const</span>&amp; rhs,</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            <span class="keyword">const</span> ApproxData&amp; data);</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;}</div>
@@ -129,14 +129,6 @@
 <div class="ttc" id="anamespaceeu_1_1tests_html_af345ce71ac050b0e3ecdf61c8bbb060d"><div class="ttname"><a href="namespaceeu_1_1tests.html#af345ce71ac050b0e3ecdf61c8bbb060d">eu::tests::is_approximately_equal</a></div><div class="ttdeci">bool is_approximately_equal(float const &amp;lhs, float const &amp;rhs, const ApproxData &amp;data)</div><div class="ttdef"><b>Definition:</b> <a href="approx_8cc_source.html#l00019">approx.cc:20</a></div></div>
 <div class="ttc" id="aquat_8h_html"><div class="ttname"><a href="quat_8h.html">quat.h</a></div></div>
 <div class="ttc" id="argb_8h_html"><div class="ttname"><a href="rgb_8h.html">rgb.h</a></div></div>
-<div class="ttc" id="astructeu_1_1core_1_1AxisAngle_html"><div class="ttname"><a href="structeu_1_1core_1_1AxisAngle.html">eu::core::AxisAngle</a></div><div class="ttdef"><b>Definition:</b> <a href="axisangle_8h_source.html#l00010">axisangle.h:11</a></div></div>
-<div class="ttc" id="astructeu_1_1core_1_1Hsl_html"><div class="ttname"><a href="structeu_1_1core_1_1Hsl.html">eu::core::Hsl</a></div><div class="ttdef"><b>Definition:</b> <a href="rgb_8h_source.html#l00103">rgb.h:104</a></div></div>
-<div class="ttc" id="astructeu_1_1core_1_1Rgb_html"><div class="ttname"><a href="structeu_1_1core_1_1Rgb.html">eu::core::Rgb</a></div><div class="ttdef"><b>Definition:</b> <a href="rgb_8h_source.html#l00061">rgb.h:62</a></div></div>
-<div class="ttc" id="astructeu_1_1core_1_1Rgba_html"><div class="ttname"><a href="structeu_1_1core_1_1Rgba.html">eu::core::Rgba</a></div><div class="ttdef"><b>Definition:</b> <a href="rgb_8h_source.html#l00142">rgb.h:143</a></div></div>
-<div class="ttc" id="astructeu_1_1core_1_1quatf_html"><div class="ttname"><a href="structeu_1_1core_1_1quatf.html">eu::core::quatf</a></div><div class="ttdef"><b>Definition:</b> <a href="quat_8h_source.html#l00014">quat.h:15</a></div></div>
-<div class="ttc" id="astructeu_1_1core_1_1unit3f_html"><div class="ttname"><a href="structeu_1_1core_1_1unit3f.html">eu::core::unit3f</a></div><div class="ttdef"><b>Definition:</b> <a href="vec3_8h_source.html#l00101">vec3.h:102</a></div></div>
-<div class="ttc" id="astructeu_1_1core_1_1vec3f_html"><div class="ttname"><a href="structeu_1_1core_1_1vec3f.html">eu::core::vec3f</a></div><div class="ttdef"><b>Definition:</b> <a href="vec3_8h_source.html#l00047">vec3.h:48</a></div></div>
-<div class="ttc" id="astructeu_1_1core_1_1vec4f_html"><div class="ttname"><a href="structeu_1_1core_1_1vec4f.html">eu::core::vec4f</a></div><div class="ttdef"><b>Definition:</b> <a href="vec4_8h_source.html#l00013">vec4.h:14</a></div></div>
 <div class="ttc" id="avec3_8h_html"><div class="ttname"><a href="vec3_8h.html">vec3.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.17-->

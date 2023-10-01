@@ -4,7 +4,7 @@
     <compoundname>eu::core::detail::PanData</compoundname>
       <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structeu_1_1core_1_1detail_1_1PanData_1a91dc0121ed7d2d8ec490f6294ddb1967" prot="public" static="no" mutable="no">
-        <type>std::optional&lt; <ref refid="structeu_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &gt;</type>
+        <type>std::optional&lt; <ref refid="structeu_1_1vec3f" kindref="compound">vec3f</ref> &gt;</type>
         <definition>std::optional&lt;vec3f&gt; eu::core::detail::PanData::collision</definition>
         <argsstring></argsstring>
         <name>collision</name>

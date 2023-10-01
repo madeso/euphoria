@@ -3,9 +3,9 @@
   <compounddef id="structeu_1_1core_1_1tracery_1_1GeneratorArgument" kind="struct" language="C++" prot="public">
     <compoundname>eu::core::tracery::GeneratorArgument</compoundname>
       <sectiondef kind="public-attrib">
-      <memberdef kind="variable" id="structeu_1_1core_1_1tracery_1_1GeneratorArgument_1ad0d53c6150f2f59107c1718dd74ac4f6" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1core_1_1Random" kindref="compound">core::Random</ref> *</type>
-        <definition>core::Random* eu::core::tracery::GeneratorArgument::generator</definition>
+      <memberdef kind="variable" id="structeu_1_1core_1_1tracery_1_1GeneratorArgument_1ad3050ee37eef2ce3d7e5b74f0ce184af" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1Random" kindref="compound">Random</ref> *</type>
+        <definition>Random* eu::core::tracery::GeneratorArgument::generator</definition>
         <argsstring></argsstring>
         <name>generator</name>
         <initializer>= nullptr</initializer>
@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/tracery.cc" line="24" column="22" bodyfile="libs/core/src/core/tracery.cc" bodystart="24" bodyend="-1"/>
+        <location file="libs/core/src/core/tracery.cc" line="24" column="16" bodyfile="libs/core/src/core/tracery.cc" bodystart="24" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1tracery_1_1GeneratorArgument_1ad232fcb4057bc556f3379c16d4073152" prot="public" static="no" mutable="no">
         <type>const <ref refid="structeu_1_1core_1_1tracery_1_1Grammar" kindref="compound">tracery::Grammar</ref> *</type>
@@ -51,8 +51,8 @@
     </detaileddescription>
     <collaborationgraph>
       <node id="2">
-        <label>eu::core::Random</label>
-        <link refid="structeu_1_1core_1_1Random"/>
+        <label>eu::Random</label>
+        <link refid="structeu_1_1Random"/>
       </node>
       <node id="3">
         <label>eu::core::tracery::Grammar</label>
@@ -71,7 +71,7 @@
     </collaborationgraph>
     <location file="libs/core/src/core/tracery.cc" line="22" column="5" bodyfile="libs/core/src/core/tracery.cc" bodystart="23" bodyend="27"/>
     <listofallmembers>
-      <member refid="structeu_1_1core_1_1tracery_1_1GeneratorArgument_1ad0d53c6150f2f59107c1718dd74ac4f6" prot="public" virt="non-virtual"><scope>eu::core::tracery::GeneratorArgument</scope><name>generator</name></member>
+      <member refid="structeu_1_1core_1_1tracery_1_1GeneratorArgument_1ad3050ee37eef2ce3d7e5b74f0ce184af" prot="public" virt="non-virtual"><scope>eu::core::tracery::GeneratorArgument</scope><name>generator</name></member>
       <member refid="structeu_1_1core_1_1tracery_1_1GeneratorArgument_1ad232fcb4057bc556f3379c16d4073152" prot="public" virt="non-virtual"><scope>eu::core::tracery::GeneratorArgument</scope><name>grammar</name></member>
       <member refid="structeu_1_1core_1_1tracery_1_1GeneratorArgument_1a4ccd1bcbfecd2c3cffa10d3f3ed9818a" prot="public" virt="non-virtual"><scope>eu::core::tracery::GeneratorArgument</scope><name>overridden_rules</name></member>
     </listofallmembers>

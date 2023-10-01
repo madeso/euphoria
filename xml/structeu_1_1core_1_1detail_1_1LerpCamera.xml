@@ -145,7 +145,7 @@
           <type>bool</type>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1vec2i" kindref="compound">vec2i</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1vec2i" kindref="compound">vec2i</ref> &amp;</type>
         </param>
         <param>
           <type>const <ref refid="structeu_1_1core_1_1CompiledCamera3" kindref="compound">CompiledCamera3</ref> &amp;</type>
@@ -257,10 +257,6 @@
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="5">
-        <label>eu::core::vec3f</label>
-        <link refid="structeu_1_1core_1_1vec3f"/>
-      </node>
       <node id="3">
         <label>eu::core::detail::CameraFrame</label>
         <link refid="structeu_1_1core_1_1detail_1_1CameraFrame"/>
@@ -287,8 +283,12 @@
         </childnode>
       </node>
       <node id="4">
-        <label>eu::core::Angle</label>
-        <link refid="structeu_1_1core_1_1Angle"/>
+        <label>eu::Angle</label>
+        <link refid="structeu_1_1Angle"/>
+      </node>
+      <node id="5">
+        <label>eu::vec3f</label>
+        <link refid="structeu_1_1vec3f"/>
       </node>
     </collaborationgraph>
     <location file="libs/core/src/core/camera3.editor.cc" line="458" column="9" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="459" bodyend="515"/>

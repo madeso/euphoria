@@ -71,21 +71,21 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
-      <memberdef kind="function" id="structeu_1_1render_1_1CompiledLines_1af93ab444f003798c2a98e8023390692a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1render_1_1CompiledLines_1a502599b07a540ee681bfe2d247ba91c3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void eu::render::CompiledLines::render</definition>
-        <argsstring>(const core::mat4f &amp;model_matrix, const core::mat4f &amp;projection_matrix, const core::mat4f &amp;view_matrix)</argsstring>
+        <argsstring>(const mat4f &amp;model_matrix, const mat4f &amp;projection_matrix, const mat4f &amp;view_matrix)</argsstring>
         <name>render</name>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1mat4f" kindref="compound">core::mat4f</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1mat4f" kindref="compound">mat4f</ref> &amp;</type>
           <declname>model_matrix</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1mat4f" kindref="compound">core::mat4f</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1mat4f" kindref="compound">mat4f</ref> &amp;</type>
           <declname>projection_matrix</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1core_1_1mat4f" kindref="compound">core::mat4f</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1mat4f" kindref="compound">mat4f</ref> &amp;</type>
           <declname>view_matrix</declname>
         </param>
         <briefdescription>
@@ -144,7 +144,7 @@
       <member refid="structeu_1_1render_1_1CompiledLines_1a0df934bc00742efb7d9ab4d96db72f74" prot="public" virt="non-virtual"><scope>eu::render::CompiledLines</scope><name>data</name></member>
       <member refid="structeu_1_1render_1_1CompiledLines_1ad2101e5a2bb778f0f555293978092c10" prot="public" virt="non-virtual"><scope>eu::render::CompiledLines</scope><name>line_count</name></member>
       <member refid="structeu_1_1render_1_1CompiledLines_1aa5b12bb302d39bb19f60493afcd04d6e" prot="public" virt="non-virtual"><scope>eu::render::CompiledLines</scope><name>lines</name></member>
-      <member refid="structeu_1_1render_1_1CompiledLines_1af93ab444f003798c2a98e8023390692a" prot="public" virt="non-virtual"><scope>eu::render::CompiledLines</scope><name>render</name></member>
+      <member refid="structeu_1_1render_1_1CompiledLines_1a502599b07a540ee681bfe2d247ba91c3" prot="public" virt="non-virtual"><scope>eu::render::CompiledLines</scope><name>render</name></member>
       <member refid="structeu_1_1render_1_1CompiledLines_1aa65420ab92a69650a7e9356b5a438afe" prot="public" virt="non-virtual"><scope>eu::render::CompiledLines</scope><name>shader</name></member>
     </listofallmembers>
   </compounddef>

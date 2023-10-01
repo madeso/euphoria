@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Euphoria: libs/core/src/core/random.cc File Reference</title>
+<title>Euphoria: libs/base/src/base/random.cc File Reference</title>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <link href="style.css" rel="stylesheet" type="text/css" />
@@ -46,7 +46,7 @@
   </div>
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="dir_6f77a39b07c019ccd7492ea87272f732.html">core</a></li><li class="navelem"><a class="el" href="dir_232ab8dc75117fda122ab855789b1b2c.html">src</a></li><li class="navelem"><a class="el" href="dir_415d9b35eca6c445d7f5977763a796bd.html">core</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="dir_06498c378442102d76a793fbea770c00.html">base</a></li><li class="navelem"><a class="el" href="dir_1434489f875b8806781a8ab0a150cad2.html">src</a></li><li class="navelem"><a class="el" href="dir_9335635e0e9dc5833ab0cd315fbf7edd.html">base</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -57,9 +57,9 @@
 <div class="title">random.cc File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="random_8h_source.html">core/random.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="numeric_8h_source.html">core/numeric.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="range_8h_source.html">core/range.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="random_8h_source.html">base/random.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="numeric_8h_source.html">base/numeric.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="range_8h_source.html">base/range.h</a>&quot;</code><br />
 <code>#include &lt;limits&gt;</code><br />
 <code>#include &lt;ctime&gt;</code><br />
 </div>
@@ -69,21 +69,19 @@
 Namespaces</h2></td></tr>
 <tr class="memitem:namespaceeu"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html">eu</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:namespaceeu_1_1core"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html">eu::core</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:abc056fc81814d504130948a533c20e89"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#abc056fc81814d504130948a533c20e89">eu::core::get_random_gaussian_float01</a> (Random *rand)</td></tr>
-<tr class="separator:abc056fc81814d504130948a533c20e89"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad868315ee0679fd75ce538f7fe1f3671"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#ad868315ee0679fd75ce538f7fe1f3671">eu::core::get_random_gaussian</a> (Random *rand, float mean, float std_dev)</td></tr>
-<tr class="separator:ad868315ee0679fd75ce538f7fe1f3671"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac9bdd71197ed31cbbb8738960b1d1bdf"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#ac9bdd71197ed31cbbb8738960b1d1bdf">eu::core::get_random_gaussian</a> (Random *rand, float mean, float std_dev, const Range&lt; float &gt; &amp;r)</td></tr>
-<tr class="separator:ac9bdd71197ed31cbbb8738960b1d1bdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5565238a02f18feee04b6691f5549013"><td class="memItemLeft" align="right" valign="top">vec2f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#a5565238a02f18feee04b6691f5549013">eu::core::get_random_point_on_unit_circle_center_focused</a> (Random *r)</td></tr>
-<tr class="separator:a5565238a02f18feee04b6691f5549013"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa7f866bc8492f8ea592da28a511bb700"><td class="memItemLeft" align="right" valign="top">vec2f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html#aa7f866bc8492f8ea592da28a511bb700">eu::core::get_random_point_on_unit_circle_uniform</a> (Random *r)</td></tr>
-<tr class="separator:aa7f866bc8492f8ea592da28a511bb700"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b58d2764c39ae5868cfef488dfae32f"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html#a3b58d2764c39ae5868cfef488dfae32f">eu::get_random_gaussian_float01</a> (Random *rand)</td></tr>
+<tr class="separator:a3b58d2764c39ae5868cfef488dfae32f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6fd068325f34358a2513b5fb2ce68f5"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html#ad6fd068325f34358a2513b5fb2ce68f5">eu::get_random_gaussian</a> (Random *rand, float mean, float std_dev)</td></tr>
+<tr class="separator:ad6fd068325f34358a2513b5fb2ce68f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0f38d5df06aa601a01cc927e44db866"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html#aa0f38d5df06aa601a01cc927e44db866">eu::get_random_gaussian</a> (Random *rand, float mean, float std_dev, const Range&lt; float &gt; &amp;r)</td></tr>
+<tr class="separator:aa0f38d5df06aa601a01cc927e44db866"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8692b150eb4eee006f58a146fb247da3"><td class="memItemLeft" align="right" valign="top">vec2f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html#a8692b150eb4eee006f58a146fb247da3">eu::get_random_point_on_unit_circle_center_focused</a> (Random *r)</td></tr>
+<tr class="separator:a8692b150eb4eee006f58a146fb247da3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aedafaac95899fcf7abc3ed70c35ef70b"><td class="memItemLeft" align="right" valign="top">vec2f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html#aedafaac95899fcf7abc3ed70c35ef70b">eu::get_random_point_on_unit_circle_uniform</a> (Random *r)</td></tr>
+<tr class="separator:aedafaac95899fcf7abc3ed70c35ef70b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.17-->

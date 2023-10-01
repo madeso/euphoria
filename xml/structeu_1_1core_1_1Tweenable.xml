@@ -1,0 +1,304 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structeu_1_1core_1_1Tweenable" kind="struct" language="C++" prot="public">
+    <compoundname>eu::core::Tweenable</compoundname>
+    <includes refid="tweenable_8h" local="no">tweenable.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename T</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="structeu_1_1core_1_1Tweenable_1ab84e6cf748827bb82b8bef1873fbef1d" prot="public" static="no">
+        <type><ref refid="structeu_1_1core_1_1Tweenable" kindref="compound">Tweenable</ref>&lt; T &gt;</type>
+        <definition>using eu::core::Tweenable&lt; T &gt;::Self =  Tweenable&lt;T&gt;</definition>
+        <argsstring></argsstring>
+        <name>Self</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/tweenable.h" line="13" column="9" bodyfile="libs/core/src/core/tweenable.h" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="structeu_1_1core_1_1Tweenable_1af014e03d175ddcd8fc03311023909b1d" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr float</type>
+        <definition>constexpr float eu::core::Tweenable&lt; T &gt;::transition_ended</definition>
+        <argsstring></argsstring>
+        <name>transition_ended</name>
+        <initializer>= 2.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/tweenable.h" line="15" column="32" bodyfile="libs/core/src/core/tweenable.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1core_1_1Tweenable_1a8a166cef588cdbcafaa327b4d04a481c" prot="public" static="no" mutable="no">
+        <type>T</type>
+        <definition>T eu::core::Tweenable&lt; T &gt;::from</definition>
+        <argsstring></argsstring>
+        <name>from</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/tweenable.h" line="17" column="11" bodyfile="libs/core/src/core/tweenable.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1Tweenable_1a58b5c01e1b7d9f2bd30eb031fb062cb5" prot="public" static="no" mutable="no">
+        <type>T</type>
+        <definition>T eu::core::Tweenable&lt; T &gt;::to</definition>
+        <argsstring></argsstring>
+        <name>to</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/tweenable.h" line="18" column="11" bodyfile="libs/core/src/core/tweenable.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1Tweenable_1a7228a261793586375c3aed164981685f" prot="public" static="no" mutable="no">
+        <type>T</type>
+        <definition>T eu::core::Tweenable&lt; T &gt;::value</definition>
+        <argsstring></argsstring>
+        <name>value</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/tweenable.h" line="19" column="11" bodyfile="libs/core/src/core/tweenable.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1Tweenable_1a595a47c6637b40a70b7a0eb4a0f8fc6e" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float eu::core::Tweenable&lt; T &gt;::t</definition>
+        <argsstring></argsstring>
+        <name>t</name>
+        <initializer>= 1.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/tweenable.h" line="21" column="15" bodyfile="libs/core/src/core/tweenable.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1Tweenable_1af972fc15901459a61a340a48652ecd45" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float eu::core::Tweenable&lt; T &gt;::speed</definition>
+        <argsstring></argsstring>
+        <name>speed</name>
+        <initializer>= 1.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/tweenable.h" line="22" column="15" bodyfile="libs/core/src/core/tweenable.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1Tweenable_1ad39f279b19c261fa77134964f238f842" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeu_1_1core_1_1easing_1a999cd23e606018b1ab295e172ef2ddd1" kindref="member">easing::Function</ref></type>
+        <definition>easing::Function eu::core::Tweenable&lt; T &gt;::easing_function</definition>
+        <argsstring></argsstring>
+        <name>easing_function</name>
+        <initializer>= <ref refid="namespaceeu_1_1core_1_1easing_1a999cd23e606018b1ab295e172ef2ddd1a9a932b3cb396238423eb2f33ec17d6aa" kindref="member">easing::Function::linear</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/tweenable.h" line="23" column="26" bodyfile="libs/core/src/core/tweenable.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1Tweenable_1ad3a9ab4502b815edca5af80c0ca393ed" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>eu::core::Tweenable&lt; T &gt;::Tweenable</definition>
+        <argsstring>(T v)</argsstring>
+        <name>Tweenable</name>
+        <param>
+          <type>T</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/tweenable.h" line="25" column="18" bodyfile="libs/core/src/core/tweenable.h" bodystart="25" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1Tweenable_1ab0ea73a2b1476f0c1e176e4be4165409" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1Tweenable_1ab84e6cf748827bb82b8bef1873fbef1d" kindref="member">Self</ref> &amp;</type>
+        <definition>Self&amp; eu::core::Tweenable&lt; T &gt;::clear</definition>
+        <argsstring>()</argsstring>
+        <name>clear</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/tweenable.h" line="32" column="14" bodyfile="libs/core/src/core/tweenable.h" bodystart="32" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1Tweenable_1aea815cfc4bf53be7fe49419f5448d96c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1Tweenable_1ab84e6cf748827bb82b8bef1873fbef1d" kindref="member">Self</ref> &amp;</type>
+        <definition>Self&amp; eu::core::Tweenable&lt; T &gt;::set</definition>
+        <argsstring>(const T &amp;new_value)</argsstring>
+        <name>set</name>
+        <param>
+          <type>const T &amp;</type>
+          <declname>new_value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/tweenable.h" line="38" column="14" bodyfile="libs/core/src/core/tweenable.h" bodystart="38" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1Tweenable_1ac3cf2fde3c4a0571e6ad3d293983f0e2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::Tweenable&lt; T &gt;::set</definition>
+        <argsstring>(const T &amp;new_value, easing::Function f, float time)</argsstring>
+        <name>set</name>
+        <param>
+          <type>const T &amp;</type>
+          <declname>new_value</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceeu_1_1core_1_1easing_1a999cd23e606018b1ab295e172ef2ddd1" kindref="member">easing::Function</ref></type>
+          <declname>f</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>time</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/tweenable.h" line="45" column="14" bodyfile="libs/core/src/core/tweenable.h" bodystart="45" bodyend="54"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1Tweenable_1a0abbdec21db0e8a25d87c5e6286c718c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::Tweenable&lt; T &gt;::set</definition>
+        <argsstring>(easing::Function f, const T &amp;new_value, float time)</argsstring>
+        <name>set</name>
+        <param>
+          <type><ref refid="namespaceeu_1_1core_1_1easing_1a999cd23e606018b1ab295e172ef2ddd1" kindref="member">easing::Function</ref></type>
+          <declname>f</declname>
+        </param>
+        <param>
+          <type>const T &amp;</type>
+          <declname>new_value</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>time</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/tweenable.h" line="56" column="14" bodyfile="libs/core/src/core/tweenable.h" bodystart="56" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1Tweenable_1a9c49ff698e7fee3ffc5c2cdbf664f4b4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename F</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void eu::core::Tweenable&lt; T &gt;::update</definition>
+        <argsstring>(float dt, F transform_function)</argsstring>
+        <name>update</name>
+        <param>
+          <type>float</type>
+          <declname>dt</declname>
+        </param>
+        <param>
+          <type>F</type>
+          <declname>transform_function</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/tweenable.h" line="62" column="14" bodyfile="libs/core/src/core/tweenable.h" bodystart="62" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1Tweenable_1a7a5ea87287ebac2951f3f0ecaaefb0a5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::core::Tweenable&lt; T &gt;::update</definition>
+        <argsstring>(float dt)</argsstring>
+        <name>update</name>
+        <param>
+          <type>float</type>
+          <declname>dt</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/tweenable.h" line="83" column="14" bodyfile="libs/core/src/core/tweenable.h" bodystart="83" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1Tweenable_1a594c8ac60bc3077d60c85e8eb7573269" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool eu::core::Tweenable&lt; T &gt;::is_active</definition>
+        <argsstring>() const</argsstring>
+        <name>is_active</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/tweenable.h" line="88" column="15" bodyfile="libs/core/src/core/tweenable.h" bodystart="88" bodyend="91"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/tweenable.h" line="11" column="5" bodyfile="libs/core/src/core/tweenable.h" bodystart="12" bodyend="92"/>
+    <listofallmembers>
+      <member refid="structeu_1_1core_1_1Tweenable_1ab0ea73a2b1476f0c1e176e4be4165409" prot="public" virt="non-virtual"><scope>eu::core::Tweenable</scope><name>clear</name></member>
+      <member refid="structeu_1_1core_1_1Tweenable_1ad39f279b19c261fa77134964f238f842" prot="public" virt="non-virtual"><scope>eu::core::Tweenable</scope><name>easing_function</name></member>
+      <member refid="structeu_1_1core_1_1Tweenable_1a8a166cef588cdbcafaa327b4d04a481c" prot="public" virt="non-virtual"><scope>eu::core::Tweenable</scope><name>from</name></member>
+      <member refid="structeu_1_1core_1_1Tweenable_1a594c8ac60bc3077d60c85e8eb7573269" prot="public" virt="non-virtual"><scope>eu::core::Tweenable</scope><name>is_active</name></member>
+      <member refid="structeu_1_1core_1_1Tweenable_1ab84e6cf748827bb82b8bef1873fbef1d" prot="public" virt="non-virtual"><scope>eu::core::Tweenable</scope><name>Self</name></member>
+      <member refid="structeu_1_1core_1_1Tweenable_1aea815cfc4bf53be7fe49419f5448d96c" prot="public" virt="non-virtual"><scope>eu::core::Tweenable</scope><name>set</name></member>
+      <member refid="structeu_1_1core_1_1Tweenable_1ac3cf2fde3c4a0571e6ad3d293983f0e2" prot="public" virt="non-virtual"><scope>eu::core::Tweenable</scope><name>set</name></member>
+      <member refid="structeu_1_1core_1_1Tweenable_1a0abbdec21db0e8a25d87c5e6286c718c" prot="public" virt="non-virtual"><scope>eu::core::Tweenable</scope><name>set</name></member>
+      <member refid="structeu_1_1core_1_1Tweenable_1af972fc15901459a61a340a48652ecd45" prot="public" virt="non-virtual"><scope>eu::core::Tweenable</scope><name>speed</name></member>
+      <member refid="structeu_1_1core_1_1Tweenable_1a595a47c6637b40a70b7a0eb4a0f8fc6e" prot="public" virt="non-virtual"><scope>eu::core::Tweenable</scope><name>t</name></member>
+      <member refid="structeu_1_1core_1_1Tweenable_1a58b5c01e1b7d9f2bd30eb031fb062cb5" prot="public" virt="non-virtual"><scope>eu::core::Tweenable</scope><name>to</name></member>
+      <member refid="structeu_1_1core_1_1Tweenable_1af014e03d175ddcd8fc03311023909b1d" prot="public" virt="non-virtual"><scope>eu::core::Tweenable</scope><name>transition_ended</name></member>
+      <member refid="structeu_1_1core_1_1Tweenable_1ad3a9ab4502b815edca5af80c0ca393ed" prot="public" virt="non-virtual"><scope>eu::core::Tweenable</scope><name>Tweenable</name></member>
+      <member refid="structeu_1_1core_1_1Tweenable_1a9c49ff698e7fee3ffc5c2cdbf664f4b4" prot="public" virt="non-virtual"><scope>eu::core::Tweenable</scope><name>update</name></member>
+      <member refid="structeu_1_1core_1_1Tweenable_1a7a5ea87287ebac2951f3f0ecaaefb0a5" prot="public" virt="non-virtual"><scope>eu::core::Tweenable</scope><name>update</name></member>
+      <member refid="structeu_1_1core_1_1Tweenable_1a7228a261793586375c3aed164981685f" prot="public" virt="non-virtual"><scope>eu::core::Tweenable</scope><name>value</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
