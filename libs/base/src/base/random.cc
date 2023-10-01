@@ -95,7 +95,7 @@ better numbers than Mersenne. How can you go wrong? :)
             s = v1 * v1 + v2 * v2;
         } while(s >= 1.0f || is_zero(s));
 
-        s = sqrt((-2.0f * log(s)) / s);
+        s = sqrt((-2.0f * std::log(s)) / s);
 
         return v1 * s;
     }
