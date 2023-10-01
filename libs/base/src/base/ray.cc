@@ -1,8 +1,8 @@
-#include "core/ray.h"
+#include "base/ray.h"
 
 
 
-namespace eu::core
+namespace eu
 {
 
 

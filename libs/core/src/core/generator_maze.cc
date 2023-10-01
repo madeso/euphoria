@@ -2,7 +2,7 @@
 
 #include "base/random.h"
 #include "core/image_draw.h"
-#include "core/colors.h"
+#include "base/colors.h"
 
 namespace eu::core::generator
 {

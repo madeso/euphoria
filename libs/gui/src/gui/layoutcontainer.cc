@@ -41,7 +41,7 @@ namespace eu::gui
 
 
     void
-    LayoutContainer::lay_out(core::Rectf area)
+    LayoutContainer::lay_out(Rectf area)
     {
         ASSERT(layout);
         layout->lay_out(&widgets, area);

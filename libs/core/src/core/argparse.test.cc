@@ -1,7 +1,7 @@
 #include "core/argparse.h"
 
-#include "core/enumtostring.h"
-#include "core/fourway.h"
+#include "base/enumtostring.h"
+#include "base/lrud.h"
 #include "tests/utils.h"
 #include "tests/stringeq.h"
 #include "tests/vectorequals.h"

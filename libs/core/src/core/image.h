@@ -4,9 +4,9 @@
 
 #include <memory>
 
-#include "core/rgb.h"
+#include "base/rgb.h"
 #include "base/memorychunk.h"
-#include "core/rect.h"
+#include "base/rect.h"
 
 namespace eu::io
 {

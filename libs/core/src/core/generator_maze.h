@@ -3,7 +3,7 @@
 #include "core/table.h"
 #include "base/vec2.h"
 #include "core/image.h"
-#include "core/enumtostring.h"
+#include "base/enumtostring.h"
 
 #include <stack>
 

@@ -5,12 +5,12 @@
 #include "base/angle.h"
 #include "core/palette_tableu.h"
 #include "core/shufflebag.h"
-#include "core/plane.h"
-#include "core/ray.h"
+#include "base/plane.h"
+#include "base/ray.h"
 #include "base/os.h"
 #include "core/argparse.h"
 
-#include "core/aabb.h"
+#include "base/aabb.h"
 
 using namespace eu;
 using namespace eu::core;

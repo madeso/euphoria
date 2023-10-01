@@ -4,7 +4,7 @@
 #include <algorithm>
 
 #include "assert/assert.h"
-#include "core/rect.h"
+#include "base/rect.h"
 #include "core/tablelayout.h"
 
 #include "files/scalingsprite.h"
@@ -108,7 +108,7 @@ namespace eu::render
 
 
     void
-    ScalableSprite::render(SpriteRenderer* renderer, const core::Rectf& rect, const core::Rgba& tint) const
+    ScalableSprite::render(SpriteRenderer* renderer, const Rectf& rect, const Rgba& tint) const
     {
         const auto size = rect.get_size();
         const auto pos = rect.get_bottom_left();
@@ -148,14 +148,14 @@ namespace eu::render
                     uv_current_row,
                     uv_next_row
                 );
-                const auto position_rect = core::Rectf::from_left_right_top_bottom
+                const auto position_rect = Rectf::from_left_right_top_bottom
                 (
                     position_current_col,
                     position_next_col,
                     position_current_row,
                     position_next_row
                 );
-                const auto uv_rect = core::Rectf::from_left_right_top_bottom
+                const auto uv_rect = Rectf::from_left_right_top_bottom
                 (
                     uv_current_col,
                     uv_next_col,

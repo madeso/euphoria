@@ -7,11 +7,11 @@
 
 #include "core/stdutils.h"
 #include "core/lines.h"
-#include "core/colors.h"
+#include "base/colors.h"
 #include "core/enum.h"
 #include "core/texturetypes.h"
 #include "core/viewport.h"
-#include "core/plane.h"
+#include "base/plane.h"
 #include "core/intersection.h"
 #include "core/easing.h"
 
@@ -43,7 +43,7 @@ namespace eu::t3d
     std::optional<vec3f>
     EditorCamera3::raycast
     (
-        const core::UnitRay3f& ray
+        const UnitRay3f& ray
     )
     {
         ASSERT(parent != nullptr);
@@ -51,7 +51,7 @@ namespace eu::t3d
         const auto closest_point_on_mesh = parent->editor->raycast_closest_point(ray);
         if(closest_point_on_mesh) { return closest_point_on_mesh; }
 
-        const auto ground = core::Plane::from_normal_and_point
+        const auto ground = Plane::from_normal_and_point
         (
             common::y_axis, zero3f
         );
@@ -154,7 +154,7 @@ namespace eu::t3d
         core::Lines* def,
         float size,
         float x,
-        const core::Rgb& color
+        const Rgb& color
     )
     {
         def->add_line(vec3f {x, 0, -size}, vec3f {x, 0, size}, color);
@@ -168,11 +168,11 @@ namespace eu::t3d
     Application::update_grid()
     {
         constexpr auto smallest_step = 0.01f;
-        constexpr auto small_color = core::NamedColor::gray;
-        constexpr auto big_color = core::NamedColor::black;
-        constexpr auto x_color = core::NamedColor::pure_blue;
-        constexpr auto z_color = core::NamedColor::pure_red;
-        constexpr auto y_color = core::NamedColor::pure_yellow;
+        constexpr auto small_color = NamedColor::gray;
+        constexpr auto big_color = NamedColor::black;
+        constexpr auto x_color = NamedColor::pure_blue;
+        constexpr auto z_color = NamedColor::pure_red;
+        constexpr auto y_color = NamedColor::pure_yellow;
 
         if(grid)
         {
@@ -969,7 +969,7 @@ namespace eu::t3d
         camera.position = editor_camera.fps.position;
         camera.rotation = editor_camera.fps.get_rotation();
 
-        engine->init->clear_screen(core::NamedColor::light_gray);
+        engine->init->clear_screen(NamedColor::light_gray);
 
         render();
 

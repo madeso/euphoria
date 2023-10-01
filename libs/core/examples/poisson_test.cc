@@ -2,7 +2,7 @@
 #include "core/dump.h"
 #include "core/poisson.h"
 #include "base/random.h"
-#include "core/rect.h"
+#include "base/rect.h"
 #include "core/image.h"
 #include "core/image_draw.h"
 #include "io/io.h"

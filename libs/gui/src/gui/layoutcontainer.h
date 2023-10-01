@@ -2,7 +2,7 @@
 
 #include <memory>
 
-#include "core/rect.h"
+#include "base/rect.h"
 #include "base/size2.h"
 
 #include "gui/container.h"
@@ -35,7 +35,7 @@ namespace eu::gui
         void operator=(const LayoutContainer&) = delete;
         void operator=(LayoutContainer&&) = delete;
 
-        void lay_out(core::Rectf area);
+        void lay_out(Rectf area);
 
         [[nodiscard]] size2f calc_minimum_area() const;
     };

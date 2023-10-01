@@ -4,9 +4,9 @@
 #include "base/vec2.h"
 #include "base/vec3.h"
 #include "base/vec4.h"
-#include "core/rgb.h"
+#include "base/rgb.h"
 #include "base/mat4.h"
-#include "core/rect.h"
+#include "base/rect.h"
 #include "io/vfs_path.h"
 
 #include "render/gltypes.h"
@@ -74,13 +74,13 @@ namespace eu::render
 
         void set_uniform(const ShaderUniform& attribute, gl::Int val);
         void set_uniform(const ShaderUniform& attribute, float val);
-        void set_uniform(const ShaderUniform& attribute, const core::Rgb& val);
-        void set_uniform(const ShaderUniform& attribute, const core::Rgba& val);
+        void set_uniform(const ShaderUniform& attribute, const Rgb& val);
+        void set_uniform(const ShaderUniform& attribute, const Rgba& val);
         void set_uniform(const ShaderUniform& attribute, const vec3f& val);
         void set_uniform(const ShaderUniform& attribute, const vec4f& val);
         void set_uniform(const ShaderUniform& attribute, const mat3f& val);
         void set_uniform(const ShaderUniform& attribute, const mat4f& val);
-        void set_uniform(const ShaderUniform& attribute, const core::Rectf& val);
+        void set_uniform(const ShaderUniform& attribute, const Rectf& val);
 
         // debug
         [[nodiscard]] static const ShaderProgram*

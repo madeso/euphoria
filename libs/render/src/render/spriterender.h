@@ -3,9 +3,9 @@
 #include <memory>
 
 #include "base/vec2.h"
-#include "core/rgb.h"
+#include "base/rgb.h"
 #include "base/angle.h"
-#include "core/rect.h"
+#include "base/rect.h"
 
 #include "render/shaderuniform.h"
 #include "render/shader.h"
@@ -21,13 +21,13 @@ namespace eu::render
     {
         Angle rotation;
         Scale2f scale;
-        core::Rgba tint;
+        Rgba tint;
 
         DrawData();
 
         DrawData& set_rotation(const Angle& r);
         DrawData& set_scale(const Scale2f& s);
-        DrawData& set_tint(const core::Rgba& t);
+        DrawData& set_tint(const Rgba& t);
     };
 
 
@@ -45,11 +45,11 @@ namespace eu::render
         draw_rect
         (
             const Texture2& texture,
-            const core::Rectf& sprite_area,
-            const core::Rectf& texture_region,
+            const Rectf& sprite_area,
+            const Rectf& texture_region,
             const Angle& rotation_angle,
             const Scale2f& rotation_anchor,
-            const core::Rgba& tint_color
+            const Rgba& tint_color
         );
 
         // position is center
@@ -57,7 +57,7 @@ namespace eu::render
         draw_sprite
         (
             const Texture2& texture,
-            const core::Rectf& position,
+            const Rectf& position,
             const DrawData& data = DrawData{}
         );
 
@@ -66,8 +66,8 @@ namespace eu::render
         draw_ninepatch
         (
             const ScalableSprite& ninepatch,
-            const core::Rectf& rect,
-            const core::Rgba& tint
+            const Rectf& rect,
+            const Rgba& tint
         );
 
     private:

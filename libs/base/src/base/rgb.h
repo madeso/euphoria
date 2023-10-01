@@ -3,13 +3,13 @@
 
 
 #include "base/cint.h"
-#include "core/colors.h"
+#include "base/colors.h"
 #include "base/angle.h"
 #include "base/default_interpolate.h"
-#include "core/default_parse.h"
+#include "base/default_parse.h"
 
 
-namespace eu::core
+namespace eu
 {
     // U8 colors: 0 - 255
     struct Rgbi;
@@ -407,26 +407,26 @@ namespace eu
 {
 
     template<>
-    struct StringParser<core::Rgbi>
+    struct StringParser<Rgbi>
     {
         enum { value = 1 };
 
-        static std::string to_string(const core::Rgbi& c)
+        static std::string to_string(const Rgbi& c)
         {
-            return core::to_string(c);
+            return eu::to_string(c);
         }
 
-        static Result<core::Rgbi> parse(const std::string& value)
+        static Result<Rgbi> parse(const std::string& value)
         {
-            return core::to_rgbi(value);
+            return to_rgbi(value);
         }
     };
 
-    DEFAULT_INTERPOLATE(core::Rgb, core::lerp_rgb);
+    DEFAULT_INTERPOLATE(Rgb, lerp_rgb);
 }
 
-ADD_DEFAULT_FORMATTER(eu::core::Rgbi, std::string, eu::core::to_string);
-ADD_DEFAULT_FORMATTER(eu::core::Rgbai, std::string, eu::core::to_string);
-ADD_DEFAULT_FORMATTER(eu::core::Rgb, std::string, eu::core::to_string);
-ADD_DEFAULT_FORMATTER(eu::core::Rgba, std::string, eu::core::to_string);
-ADD_DEFAULT_FORMATTER(eu::core::Hsl, std::string, eu::core::to_string);
+ADD_DEFAULT_FORMATTER(eu::Rgbi, std::string, eu::to_string);
+ADD_DEFAULT_FORMATTER(eu::Rgbai, std::string, eu::to_string);
+ADD_DEFAULT_FORMATTER(eu::Rgb, std::string, eu::to_string);
+ADD_DEFAULT_FORMATTER(eu::Rgba, std::string, eu::to_string);
+ADD_DEFAULT_FORMATTER(eu::Hsl, std::string, eu::to_string);

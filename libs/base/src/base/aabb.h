@@ -9,7 +9,7 @@ namespace eu
     struct Random;
 }
 
-namespace eu::core
+namespace eu
 {
     struct Aabb
     {
@@ -38,4 +38,4 @@ namespace eu::core
     vec3f get_random_point(Random* rand, const Aabb&);
 }
 
-ADD_DEFAULT_FORMATTER(eu::core::Aabb, std::string, eu::core::to_string);
+ADD_DEFAULT_FORMATTER(eu::Aabb, std::string, eu::to_string);

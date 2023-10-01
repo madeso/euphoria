@@ -1,7 +1,7 @@
 #pragma once
 
 
-#include "core/rect.h"
+#include "base/rect.h"
 
 namespace eu::core
 {

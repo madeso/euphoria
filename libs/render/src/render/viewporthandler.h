@@ -2,7 +2,7 @@
 
 
 
-#include "core/rect.h"
+#include "base/rect.h"
 #include "core/viewport.h"
 
 
@@ -29,9 +29,9 @@ namespace eu::render
         float virtual_width = 800.0f;
         float virtual_height = 600.0f;
 
-        core::Rectf* virtual_screen;
+        Rectf* virtual_screen;
 
-        ViewportHandler(render::Init* i, core::Rectf* s);
+        ViewportHandler(render::Init* i, Rectf* s);
 
         void
         add(ShaderProgram* shader);

@@ -1,8 +1,8 @@
 #pragma once
 
-#include "core/rect.h"
+#include "base/rect.h"
 #include "base/vec2.h"
-#include "core/ray.h"
+#include "base/ray.h"
 
 namespace eu::core
 {

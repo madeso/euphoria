@@ -2,7 +2,7 @@
 
 
 
-#include "core/rgb.h"
+#include "base/rgb.h"
 #include "base/vec2.h"
 #include "base/mat3.h"
 

@@ -38,8 +38,8 @@ namespace eu::tests
     template <>
     bool
     is_approximately_equal(
-            core::Rgb const& lhs,
-            core::Rgb const& rhs,
+            Rgb const& lhs,
+            Rgb const& rhs,
             const ApproxData& data)
     {
         return is_approximately_equal(lhs.r, rhs.r, data)
@@ -50,8 +50,8 @@ namespace eu::tests
     template <>
     bool
     is_approximately_equal(
-            core::Hsl const& lhs,
-            core::Hsl const& rhs,
+            Hsl const& lhs,
+            Hsl const& rhs,
             const ApproxData& data)
     {
         return is_approximately_equal(lhs.h.as_degrees(), rhs.h.as_degrees(), data)
@@ -72,8 +72,8 @@ namespace eu::tests
     template <>
     bool
     is_approximately_equal(
-            core::Rgba const& lhs,
-            core::Rgba const& rhs,
+            Rgba const& lhs,
+            Rgba const& rhs,
             const ApproxData& data)
     {
         return is_approximately_equal(lhs.r, rhs.r, data)

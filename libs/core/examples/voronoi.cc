@@ -8,7 +8,7 @@
 #include "base/vec2.h"
 #include "core/palette.h"
 #include "core/closestpoint.h"
-#include "core/rect.h"
+#include "base/rect.h"
 #include "base/cint.h"
 
 #include "core/palette_tableu.h"

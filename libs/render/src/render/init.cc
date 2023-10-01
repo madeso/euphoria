@@ -74,7 +74,7 @@ namespace eu::render
 
 
     void
-    Init::clear_screen(const core::Rgb& color) const
+    Init::clear_screen(const Rgb& color) const
     {
         ASSERT(is_ok);
         glClearColor(color.r, color.g, color.b, 1.0f);

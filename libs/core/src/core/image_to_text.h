@@ -4,7 +4,7 @@
 
 
 #include "core/table.h"
-#include "core/rgb.h"
+#include "base/rgb.h"
 
 #include "core/imagefilters.h"
 

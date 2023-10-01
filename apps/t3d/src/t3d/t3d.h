@@ -5,7 +5,7 @@
 
 #include "imgui/imgui.h"
 
-#include "core/rgb.h"
+#include "base/rgb.h"
 #include "core/key.h"
 #include "base/vec2.h"
 #include "core/camera3.h"
@@ -22,11 +22,14 @@
 #include "t3d/filelist.h"
 #include "t3d/keyboardstate.h"
 
+namespace eu
+{
+    struct UnitRay3f;
+}
 
 namespace eu::core
 {
     struct Lines;
-    struct UnitRay3f;
 }
 
 namespace eu::core::argparse
@@ -62,7 +65,7 @@ namespace eu::t3d
         std::optional<vec3f>
         raycast
         (
-            const core::UnitRay3f& ray
+            const UnitRay3f& ray
         ) override;
     };
 

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "core/aabb.h"
+#include "base/aabb.h"
 #include "io/vfs_path.h"
 #include "core/collisionmesh.h"
 
@@ -25,7 +25,7 @@ namespace eu::t3d
         void operator=(Tile&&) = delete;
 
         io::FilePath path;
-        core::Aabb aabb;
+        Aabb aabb;
         std::string name;
 
         core::CollisionMesh collison;

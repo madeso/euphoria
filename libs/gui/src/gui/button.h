@@ -1,7 +1,7 @@
 #pragma once
 
-#include "core/rect.h"
-#include "core/rgb.h"
+#include "base/rect.h"
+#include "base/rgb.h"
 #include "base/vec2.h"
 #include "core/tweenable.h"
 
@@ -30,8 +30,8 @@ namespace eu::gui
         Skin* skin;
 
         core::Tweenable<float> scale;
-        core::Tweenable<core::Rgb> image_color;
-        core::Tweenable<core::Rgb> text_color;
+        core::Tweenable<Rgb> image_color;
+        core::Tweenable<Rgb> text_color;
         core::Tweenable<vec2f> position_displacement;
 
         Button(gui::State* state);

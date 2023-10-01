@@ -5,8 +5,8 @@
 
 
 #include "assert/assert.h"
-#include "core/plane.h"
-#include "core/ray.h"
+#include "base/plane.h"
+#include "base/ray.h"
 
 
 namespace eu::core::dump2d

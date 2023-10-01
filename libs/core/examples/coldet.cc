@@ -1,9 +1,9 @@
 #include "core/intersection.h"
 #include "core/dump.h"
 #include "base/numeric.h"
-#include "core/colors.h"
-#include "core/ray.h"
-#include "core/plane.h"
+#include "base/colors.h"
+#include "base/ray.h"
+#include "base/plane.h"
 #include "core/sphere.h"
 #include "core/argparse.h"
 #include "base/os.h"
@@ -18,7 +18,7 @@ using namespace eu::core::dump3d;
 
 struct PlaneDemo
 {
-    const eu::core::Plane plane = eu::core::Plane::from_points
+    const eu::Plane plane = eu::Plane::from_points
     (vec3f(5, 6, 7), vec3f(6, 5, 4), vec3f(1, 2, 3));
     const std::vector<vec3f> points =
     {

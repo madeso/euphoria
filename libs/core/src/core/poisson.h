@@ -5,7 +5,7 @@
 #include <optional>
 
 #include "base/vec2.h"
-#include "core/rect.h"
+#include "base/rect.h"
 #include "core/table.h"
 
 

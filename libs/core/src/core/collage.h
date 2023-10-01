@@ -7,10 +7,14 @@
 #include "base/size2.h"
 
 
+namespace eu
+{
+    struct Rgbi;
+}
+
 namespace eu::core
 {
     struct Image;
-    struct Rgbi;
 
     std::vector<size2i> collect_sizes
     (

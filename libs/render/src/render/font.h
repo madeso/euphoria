@@ -7,8 +7,8 @@
 #include "core/loadedfont.h"
 #include "base/vec2.h"
 #include "base/vec3.h"
-#include "core/rgb.h"
-#include "core/rect.h"
+#include "base/rgb.h"
+#include "base/rect.h"
 
 #include "core/ui_text.h"
 
@@ -31,15 +31,15 @@ namespace eu::render
 
     struct Glyph
     {
-        core::Rectf sprite_rect; // relative to 0,0
-        core::Rectf texture_rect; // image texture uvs
+        Rectf sprite_rect; // relative to 0,0
+        Rectf texture_rect; // image texture uvs
         int code_point; // the character or string id
         float advance;
 
         Glyph
         (
-            const core::Rectf& sprite,
-            const core::Rectf& texture,
+            const Rectf& sprite,
+            const Rectf& texture,
             int ch,
             float ad
         );
@@ -66,15 +66,15 @@ namespace eu::render
     struct TextDrawCommand
     {
         const Texture2* texture;
-        core::Rectf sprite_rect;
-        core::Rectf texture_rect;
+        Rectf sprite_rect;
+        Rectf texture_rect;
         bool hi;
 
         TextDrawCommand
         (
             const Texture2* texture,
-            const core::Rectf& sprite_rect,
-            const core::Rectf& texture_rect,
+            const Rectf& sprite_rect,
+            const Rectf& texture_rect,
             bool hi
         );
     };
@@ -88,8 +88,8 @@ namespace eu::render
         add
         (
             const Texture2* texture,
-            const core::Rectf& sprite_rect,
-            const core::Rectf& texture_rect,
+            const Rectf& sprite_rect,
+            const Rectf& texture_rect,
             bool hi
         );
 
@@ -98,11 +98,11 @@ namespace eu::render
         (
                 SpriteRenderer* renderer,
                 const vec2f& start_position,
-                const core::Rgb& base_color,
-                const core::Rgb& hi_color
+                const Rgb& base_color,
+                const Rgb& hi_color
         );
 
-        [[nodiscard]] core::Rectf
+        [[nodiscard]] Rectf
         get_extents() const;
     };
 
@@ -135,7 +135,7 @@ namespace eu::render
         (
             SpriteRenderer* renderer,
             const vec2f& p,
-            const core::Rgb& base_hi_color
+            const Rgb& base_hi_color
         ) const;
 
         void
@@ -143,11 +143,11 @@ namespace eu::render
         (
             SpriteRenderer* renderer,
             const vec2f& p,
-            const core::Rgb& base_color,
-            const core::Rgb& hi_color
+            const Rgb& base_color,
+            const Rgb& hi_color
         ) const;
 
-        core::Rectf
+        Rectf
         get_extents() const;
 
         void
@@ -193,7 +193,7 @@ namespace eu::render
         (
             SpriteRenderer* renderer,
             float alpha,
-            const core::Rectf& where
+            const Rectf& where
         ) const;
 
         [[nodiscard]] ListOfTextDrawCommands compile_list

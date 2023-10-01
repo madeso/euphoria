@@ -329,24 +329,24 @@ namespace eu::runner
                 }
             );
 
-            auto rect_type = duk->state.new_usertype<core::Rectf>("rectf", sol::no_constructor);
+            auto rect_type = duk->state.new_usertype<Rectf>("rectf", sol::no_constructor);
             rect_type["contains"] = sol::overload
             (
-                [](const core::Rectf& r, const core::Rectf& rr) -> bool
+                [](const Rectf& r, const Rectf& rr) -> bool
                 {
                     return r.contains_exclusive(rr);
                 },
-                [](const core::Rectf& r, const vec2f& p) -> bool
+                [](const Rectf& r, const vec2f& p) -> bool
                 {
                     return r.contains_exclusive(p);
                 },
-                [](const core::Rectf& r, double x, double y) -> bool
+                [](const Rectf& r, double x, double y) -> bool
                 {
                     return r.contains_exclusive(c_double_to_float(x), c_double_to_float(y));
                 }
             );
-            rect_type["get_height"] = [](const core::Rectf& r) -> double { return c_float_to_double(r.get_height()); };
-            rect_type["get_width"] = [](const core::Rectf& r) -> double { return c_float_to_double(r.get_width()); };
+            rect_type["get_height"] = [](const Rectf& r) -> double { return c_float_to_double(r.get_height()); };
+            rect_type["get_width"] = [](const Rectf& r) -> double { return c_float_to_double(r.get_width()); };
 
             auto random_type = duk->state.new_usertype<Random>("random");
             random_type["next_float01"] = [](Random& r) -> double { return c_float_to_double(r.get_next_float01()); };
@@ -355,7 +355,7 @@ namespace eu::runner
                 return c_float_to_double(get_random_in_range(&r, c_double_to_float(f)));
             };
             random_type["next_bool"] = &Random::get_next_bool;
-            random_type["next_point2"] = [](Random& r, core::Rectf& rect) -> vec2f
+            random_type["next_point2"] = [](Random& r, Rectf& rect) -> vec2f
             {
                 return get_random_point(&r, rect);
             };

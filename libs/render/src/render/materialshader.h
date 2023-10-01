@@ -86,9 +86,9 @@ namespace eu::render
 
         void set_colors
         (
-            const core::Rgb& ambient_data,
-            const core::Rgb& diffuse_data,
-            const core::Rgb& specular_data,
+            const Rgb& ambient_data,
+            const Rgb& diffuse_data,
+            const Rgb& specular_data,
             float shininess_data
         );
     };

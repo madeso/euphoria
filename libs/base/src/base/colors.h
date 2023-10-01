@@ -1,7 +1,7 @@
 #pragma once
 
 
-namespace eu::core
+namespace eu
 {
     // initially based on http://alumni.media.mit.edu/~wad/color/palette.html
     // pure- colors are values directly from wikipedia

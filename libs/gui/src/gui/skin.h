@@ -3,7 +3,7 @@
 #include <memory>
 #include <optional>
 
-#include "core/rgb.h"
+#include "base/rgb.h"
 #include "core/easing.h"
 #include "io/vfs_path.h"
 
@@ -25,8 +25,8 @@ namespace eu::gui
     {
         // std::string image;
         float scale = 0;
-        core::Rgb image_color {0.0f};
-        core::Rgb text_color {1.0f};
+        Rgb image_color {0.0f};
+        Rgb text_color {1.0f};
         float dx = 0;
         float dy = 0;
 

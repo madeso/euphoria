@@ -3,7 +3,7 @@
 #include "assert/assert.h"
 #include "base/numeric.h"
 #include "base/random.h"
-#include "core/colors.h"
+#include "base/colors.h"
 
 
 namespace eu::core

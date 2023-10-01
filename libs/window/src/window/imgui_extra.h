@@ -12,10 +12,6 @@
 namespace eu
 {
     struct Angle;
-}
-
-namespace eu::core
-{
     struct Rgb;
     struct Rgba;
     struct Rgbai;
@@ -116,13 +112,13 @@ namespace eu::window::imgui
     imgui_image(render::Texture2* texture);
 
     bool
-    imgui_color_edit(const char* name, core::Rgb* rgb);
+    imgui_color_edit(const char* name, Rgb* rgb);
 
     bool
-    imgui_color_edit(const char* name, core::Rgba* rgb);
+    imgui_color_edit(const char* name, Rgba* rgb);
 
     bool
-    imgui_color_edit(const char* name, core::Rgbai* rgb);
+    imgui_color_edit(const char* name, Rgbai* rgb);
 
     bool
     begin_fixed_overlay

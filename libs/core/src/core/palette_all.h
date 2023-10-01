@@ -3,7 +3,7 @@
 
 #include <array>
 
-#include "core/enumtostring.h"
+#include "base/enumtostring.h"
 #include "core/compiler_warning.h"
 
 namespace eu::core

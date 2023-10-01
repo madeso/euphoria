@@ -1,9 +1,9 @@
 #include "core/intersection.h"
 
-#include "core/ray.h"
-#include "core/aabb.h"
+#include "base/ray.h"
+#include "base/aabb.h"
 #include "core/sphere.h"
-#include "core/plane.h"
+#include "base/plane.h"
 #include "base/numeric.h"
 
 

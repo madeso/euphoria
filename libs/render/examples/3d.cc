@@ -4,7 +4,7 @@
 #include "core/shufflebag.h"
 #include "io/vfs.h"
 #include "base/axisangle.h"
-#include "core/aabb.h"
+#include "base/aabb.h"
 #include "core/texturetypes.h"
 #include "core/vfs_imagegenerator.h"
 #include "io/vfs_path.h"

@@ -2,14 +2,14 @@
 
 #include "base/range.h"
 
-namespace core = eu;
 
-#define TO_01(min, v, max) core::to01(core::make_range(min, max), v)
-#define FROM_01(min, v, max) core::from_01(core::make_range(min, max), v)
-#define GET_360_ANGULAR(min, v, max) core::get360_angular(core::make_range(min, max), v)
-#define KEEP_WITHIN(min, v, max) core::keep_within(core::make_range(min, max), v)
-#define IS_WITHIN_INCLUSIVE(min, v, max) core::is_within(core::make_range(min, max), v)
-#define WRAP(min, v, max) core::wrap(core::make_range(min, max), v)
+
+#define TO_01(min, v, max) eu::to01(eu::make_range(min, max), v)
+#define FROM_01(min, v, max) eu::from_01(eu::make_range(min, max), v)
+#define GET_360_ANGULAR(min, v, max) eu::get360_angular(eu::make_range(min, max), v)
+#define KEEP_WITHIN(min, v, max) eu::keep_within(eu::make_range(min, max), v)
+#define IS_WITHIN_INCLUSIVE(min, v, max) eu::is_within(eu::make_range(min, max), v)
+#define WRAP(min, v, max) eu::wrap(eu::make_range(min, max), v)
 
 TEST_CASE("num-to01", "[numeric]")
 {
@@ -38,9 +38,9 @@ TEST_CASE("num-from_01-int", "[numeric]")
 
 TEST_CASE("num-remap", "[numeric]")
 {
-    REQUIRE(core::remap_to(
-                    core::make_range<float>(0, 3),
-                    core::make_range<float>(0, 2),
+    REQUIRE(eu::remap_to(
+                    eu::make_range<float>(0, 3),
+                    eu::make_range<float>(0, 2),
                     1.5f)
             == Approx(1.0f));
 }

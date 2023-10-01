@@ -3,15 +3,19 @@
 #include <memory>
 #include <optional>
 
-
 #include "core/fpscontroller.h"
 #include "core/mousebehaviour.h"
 #include "core/easing.h"
 
 
-namespace eu::core
+namespace eu
 {
     struct UnitRay3f;
+}
+
+
+namespace eu::core
+{
     struct Camera3;
     struct CompiledCamera3;
     struct Viewport;

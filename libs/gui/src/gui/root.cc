@@ -32,7 +32,7 @@ namespace eu::gui
 
         if(result)
         {
-            container.lay_out(core::Rectf::from_width_height(size));
+            container.lay_out(Rectf::from_width_height(size));
         }
 
         return result;
@@ -60,7 +60,7 @@ namespace eu::gui
     Root::set_size(const size2f& new_size)
     {
         size = new_size;
-        container.lay_out(core::Rectf::from_width_height(size));
+        container.lay_out(Rectf::from_width_height(size));
     }
 
 
@@ -76,7 +76,7 @@ namespace eu::gui
             sp->draw_sprite
             (
                 *image,
-                core::Rectf::from_position_anchor_width_and_height
+                Rectf::from_position_anchor_width_and_height
                 (
                     state.mouse,
                     Scale2f{0, 1},

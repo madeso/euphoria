@@ -3,7 +3,7 @@
 #include <range/v3/all.hpp>
 
 #include "core/image.h"
-#include "core/rgb.h"
+#include "base/rgb.h"
 #include "core/image_draw.h"
 #include "core/pack.h"
 #include "base/cint.h"

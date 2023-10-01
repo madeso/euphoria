@@ -3,7 +3,7 @@
 #include <memory>
 
 #include "base/vec2.h"
-#include "core/rect.h"
+#include "base/rect.h"
 #include "core/ecs.id.h"
 
 #include "render/texturecache.h"
@@ -36,7 +36,7 @@ namespace eu::runner
         core::ecs::ComponentIndex sprite;
     };
 
-    core::Rectf
+    Rectf
     get_sprite_rect
     (
         const vec2f& position,

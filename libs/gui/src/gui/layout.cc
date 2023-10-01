@@ -76,7 +76,7 @@ namespace eu::gui
     TableLayout::lay_out
     (
         std::vector<std::shared_ptr<Widget>>* widgets,
-        const core::Rectf& area
+        const Rectf& area
     ) const
     {
         // todo(Gustav): include padding
@@ -148,7 +148,7 @@ namespace eu::gui
 
             w->set_rect
             (
-                core::Rectf::from_top_left_width_height
+                Rectf::from_top_left_width_height
                 (
                     vec2f{x, y},
                     width[d.column],
@@ -196,7 +196,7 @@ namespace eu::gui
     SingleRowLayout::lay_out
     (
         std::vector<std::shared_ptr<Widget>>* widgets,
-        const core::Rectf& area
+        const Rectf& area
     ) const
     {
         const auto tl = area.get_top_left();
@@ -206,7 +206,7 @@ namespace eu::gui
             const auto& s = w->get_preferred_size();
             w->set_rect
             (
-                core::Rectf::from_top_left_width_height
+                Rectf::from_top_left_width_height
                 (
                     vec2f{x, tl.y},
                     s.width,

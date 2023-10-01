@@ -3,7 +3,7 @@
 
 
 #include "core/image.h"
-#include "core/rgb.h"
+#include "base/rgb.h"
 #include "assert/assert.h"
 #include "core/rng.h"
 #include "base/numeric.h"

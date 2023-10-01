@@ -6,7 +6,7 @@
 #include "assert/assert.h"
 #include "base/range.h"
 
-namespace eu::core
+namespace eu
 {
     template
     <

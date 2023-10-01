@@ -6,9 +6,9 @@
 
 #include "base/vec2.h"
 #include "base/vec3.h"
-#include "core/rgb.h"
+#include "base/rgb.h"
 #include "core/enum.h"
-#include "core/aabb.h"
+#include "base/aabb.h"
 
 
 namespace eu::io

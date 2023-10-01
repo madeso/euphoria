@@ -2,10 +2,10 @@
 
 #include "core/table.h"
 
-#include "core/rgb.h"
+#include "base/rgb.h"
 #include "core/image.h"
-#include "core/fourway.h"
-#include "core/enumtostring.h"
+#include "base/lrud.h"
+#include "base/enumtostring.h"
 
 #include <functional>
 #include <optional>

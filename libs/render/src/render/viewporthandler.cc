@@ -77,7 +77,7 @@ namespace
 
         if(handler->virtual_screen != nullptr)
         {
-            *handler->virtual_screen = core::Rectf::from_width_height
+            *handler->virtual_screen = eu::Rectf::from_width_height
             (
                 vp.virtual_width,
                 vp.virtual_height
@@ -92,7 +92,7 @@ namespace
 
 namespace eu::render
 {
-    ViewportHandler::ViewportHandler(render::Init* i, core::Rectf* s)
+    ViewportHandler::ViewportHandler(render::Init* i, Rectf* s)
         : init(i)
         , virtual_screen(s)
     {
@@ -130,7 +130,7 @@ namespace eu::render
             false
         );
 
-        init->clear_screen(core::NamedColor::black);
+        init->clear_screen(NamedColor::black);
 
         apply_viewport
         (
@@ -147,7 +147,7 @@ namespace eu::render
     {
         const auto viewport = core::Viewport
         {
-            core::Recti::from_width_height(window_width, window_height)
+            Recti::from_width_height(window_width, window_height)
                 .set_bottom_left_to_copy
                 (
                     0,

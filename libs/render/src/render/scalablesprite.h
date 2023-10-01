@@ -2,7 +2,7 @@
 
 #include <memory>
 
-#include "core/rect.h"
+#include "base/rect.h"
 
 
 namespace eu::io
@@ -11,7 +11,7 @@ namespace eu::io
     struct FilePath;
 }
 
-namespace eu::core
+namespace eu
 {
     struct Rgba;
 }
@@ -43,7 +43,7 @@ namespace eu::render
         get_minimum_size() const;
 
         void
-        render(SpriteRenderer* renderer, const core::Rectf& rect, const core::Rgba& tint) const;
+        render(SpriteRenderer* renderer, const Rectf& rect, const Rgba& tint) const;
 
         std::shared_ptr<Texture2> texture;
 

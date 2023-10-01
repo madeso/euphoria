@@ -16,8 +16,8 @@ namespace eu::gui
         , last_state(nullptr)
         , skin(nullptr)
         , scale(1.0f)
-        , image_color(core::Rgb(1.0f))
-        , text_color(core::Rgb(1.0f))
+        , image_color(Rgb(1.0f))
+        , text_color(Rgb(1.0f))
         , position_displacement(zero2f)
     {
     }

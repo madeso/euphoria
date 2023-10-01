@@ -1,9 +1,9 @@
-#include "core/rect.h"
+#include "base/rect.h"
 
 #include "base/random.h"
 
 
-namespace eu::core
+namespace eu
 {
 
     Rectf::Rectf()

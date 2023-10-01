@@ -7,10 +7,10 @@
 
 #include "base/string_io.h"
 #include "base/stringutils.h"
-#include "core/default_parse.h"
+#include "base/default_parse.h"
 
 
-namespace eu::core
+namespace eu
 {
     /**
       Generic version of a CSS like padding type.
@@ -89,20 +89,17 @@ namespace eu::core
     {
         return !(lhs == rhs);
     }
-}
 
-namespace eu
-{
 
     /** Parses a Lrud according to the CSS spec.
       Either all, ver/hor or up/right/down/left
     */
     template<typename T>
-    struct StringParser<core::Lrud<T>>
+    struct StringParser<Lrud<T>>
     {
         enum { value = 1 };
 
-        using Lrud = core::Lrud<T>;
+        using Lrud = Lrud<T>;
 
         static constexpr char separator = '/';
 
@@ -114,10 +111,10 @@ namespace eu
             (
                 "{1}{0}{2}{0}{3}{0}{4}",
                 separator,
-                core::argparse::from_default_value_to_string(fw.up),
-                core::argparse::from_default_value_to_string(fw.right),
-                core::argparse::from_default_value_to_string(fw.down),
-                core::argparse::from_default_value_to_string(fw.left)
+                from_default_value_to_string(fw.up),
+                from_default_value_to_string(fw.right),
+                from_default_value_to_string(fw.down),
+                from_default_value_to_string(fw.left)
             );
         }
 
@@ -128,7 +125,7 @@ namespace eu
             using R = Result<Lrud>;
             auto parse = [](const std::string& v)
             {
-                return core::argparse::default_parse_function<T>(v);
+                return default_parse_function<T>(v);
             };
             const auto values = split(value, separator);
             switch(values.size())
@@ -191,10 +188,10 @@ namespace eu
 
 
 template<typename T>
-struct fmt::formatter<eu::core::Lrud<T>> : formatter<std::string>
+struct fmt::formatter<eu::Lrud<T>> : formatter<std::string>
 {
     template <typename FormatContext>
-    auto format(const eu::core::Lrud<T>& fw, FormatContext& ctx) const
+    auto format(const eu::Lrud<T>& fw, FormatContext& ctx) const
     {
         return formatter<string_view>::format
         (

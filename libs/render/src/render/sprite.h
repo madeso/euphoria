@@ -6,7 +6,7 @@
 
 #include "base/vec2.h"
 #include "base/vec3.h"
-#include "core/rgb.h"
+#include "base/rgb.h"
 
 namespace eu::render
 {
@@ -19,7 +19,7 @@ namespace eu::render
         vec2f position;
         Angle rotation;
         Scale2f scale = Scale2f(1, 1);
-        core::Rgb color = core::Rgb(1.0f);
+        Rgb color = Rgb(1.0f);
         float alpha = 1.0f;
 
         explicit Sprite

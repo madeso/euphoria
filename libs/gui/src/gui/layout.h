@@ -1,6 +1,6 @@
 #pragma once
 
-#include "core/rect.h"
+#include "base/rect.h"
 #include "base/size2.h"
 
 
@@ -38,7 +38,7 @@ namespace eu::gui
         lay_out
         (
             std::vector<std::shared_ptr<Widget>>* widgets,
-            const core::Rectf& area
+            const Rectf& area
         ) const = 0;
     };
 
@@ -68,7 +68,7 @@ namespace eu::gui
         lay_out
         (
             std::vector<std::shared_ptr<Widget>>* widgets,
-            const core::Rectf& area
+            const Rectf& area
         ) const override;
 
         std::vector<bool> expandable_rows;
@@ -97,7 +97,7 @@ namespace eu::gui
         lay_out
         (
             std::vector<std::shared_ptr<Widget>>* widgets,
-            const core::Rectf& area
+            const Rectf& area
         ) const override;
 
         float padding;

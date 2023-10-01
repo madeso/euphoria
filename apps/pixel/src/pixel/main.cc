@@ -1,8 +1,8 @@
 #include "log/log.h"
 
 #include "base/random.h"
-#include "core/rgb.h"
-#include "core/colors.h"
+#include "base/rgb.h"
+#include "base/colors.h"
 #include "core/palette_lospec.h"
 #include "core/palette.h"
 #include "core/image.h"

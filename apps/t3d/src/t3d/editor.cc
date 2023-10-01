@@ -25,7 +25,7 @@ namespace eu::t3d
         , world(aworld)
         , tile_library(atile_library)
         , camera(m4_identity, m4_identity)
-        , viewport(core::Recti::from_width_height(10, 10))
+        , viewport(Recti::from_width_height(10, 10))
         , mouse(vec2i{ 0, 0 })
     {
     }
@@ -79,7 +79,7 @@ namespace eu::t3d
 
 
     std::vector<std::shared_ptr<PlacedMesh>>
-    Editor::raycast(const core::UnitRay3f& ray)
+    Editor::raycast(const UnitRay3f& ray)
     {
         std::vector<std::shared_ptr<PlacedMesh>> r;
 
@@ -106,7 +106,7 @@ namespace eu::t3d
 
 
     std::optional<vec3f>
-    Editor::raycast_closest_point(const core::UnitRay3f& ray)
+    Editor::raycast_closest_point(const UnitRay3f& ray)
     {
         std::optional<vec3f> r;
 

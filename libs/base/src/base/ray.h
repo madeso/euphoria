@@ -3,7 +3,7 @@
 #include "base/vec3.h"
 #include "base/mat4.h"
 
-namespace eu::core
+namespace eu
 {
     struct UnitRay3f
     {

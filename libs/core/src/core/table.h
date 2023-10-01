@@ -3,7 +3,7 @@
 
 #include "assert/assert.h"
 #include "base/numeric.h"
-#include "core/rect.h"
+#include "base/rect.h"
 #include "base/cint.h"
 #include "base/vec2.h"
 

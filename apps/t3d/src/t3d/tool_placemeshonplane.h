@@ -2,7 +2,7 @@
 
 #include <memory>
 
-#include "core/plane.h"
+#include "base/plane.h"
 
 #include "t3d/tool.h"
 
@@ -20,7 +20,7 @@ namespace eu::t3d
     struct ToolPlaceMeshOnAPlane : public Tool
     {
         std::shared_ptr<PlacedMesh> placed_mesh;
-        core::Plane plane;
+        Plane plane;
 
 
         ToolPlaceMeshOnAPlane(std::shared_ptr<PlacedMesh> aactor);

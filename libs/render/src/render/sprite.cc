@@ -42,7 +42,7 @@ namespace eu::render
         render->draw_sprite
         (
             *texture,
-            core::Rectf::from_position_anchor_width_and_height
+            Rectf::from_position_anchor_width_and_height
             (
                 position,
                 Scale2f{0, 0},
@@ -52,7 +52,7 @@ namespace eu::render
             DrawData{}
                 .set_rotation(rotation)
                 .set_scale(scale)
-                .set_tint(core::Rgba(color, alpha))
+                .set_tint(Rgba(color, alpha))
         );
     }
 

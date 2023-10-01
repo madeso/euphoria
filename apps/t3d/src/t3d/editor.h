@@ -12,7 +12,7 @@
 #include "t3d/toolstack.h"
 
 
-namespace eu::core
+namespace eu
 {
     struct UnitRay3f;
 }
@@ -76,10 +76,10 @@ namespace eu::t3d
 
 
         std::vector<std::shared_ptr<PlacedMesh>>
-        raycast(const core::UnitRay3f& ray);
+        raycast(const UnitRay3f& ray);
 
         std::optional<vec3f>
-        raycast_closest_point(const core::UnitRay3f& ray);
+        raycast_closest_point(const UnitRay3f& ray);
 
 
         // current tool callbacks

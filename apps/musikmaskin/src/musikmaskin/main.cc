@@ -3,7 +3,7 @@
 #include "base/mat4.h"
 #include "base/random.h"
 #include "base/axisangle.h"
-#include "core/aabb.h"
+#include "base/aabb.h"
 #include "core/texturetypes.h"
 #include "io/vfs.h"
 #include "core/vfs_imagegenerator.h"

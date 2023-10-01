@@ -1,10 +1,10 @@
-#include "core/default_parse.h"
+#include "base/default_parse.h"
 
 #include "base/stringmerger.h"
 #include "base/functional.h"
 
 
-namespace eu::core::argparse
+namespace eu
 {
     std::string
     add_quotes_and_combine_with_english_or(const std::vector<std::string>& matches)

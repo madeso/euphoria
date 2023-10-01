@@ -28,10 +28,10 @@ namespace eu::runner
     {
     }
 
-    core::Rectf
+    Rectf
     get_sprite_rect(const vec2f& position, const render::Texture2& texture)
     {
-        return core::Rectf::from_position_anchor_width_and_height
+        return Rectf::from_position_anchor_width_and_height
         (
             position,
             Scale2f{0.5f, 0.5f},

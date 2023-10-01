@@ -34,10 +34,10 @@ namespace eu::render
     (
         const vec2f& pos,
         const size2f& quad,
-        const core::Rectf& uv,
+        const Rectf& uv,
         const Scale2f& center,
         const Angle& rotation,
-        const core::Rgba& color
+        const Rgba& color
     )
     {
         ASSERT(is_inside && "batch need to be open");

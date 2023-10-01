@@ -1,10 +1,10 @@
 #pragma once
 
-#include "core/rect.h"
+#include "base/rect.h"
 #include "base/size2.h"
 #include "base/vec2.h"
 #include "base/angle.h"
-#include "core/rgb.h"
+#include "base/rgb.h"
 
 
 namespace eu::render
@@ -29,10 +29,10 @@ namespace eu::render
         (
             const vec2f& pos,
             const size2f& quad,
-            const core::Rectf& uv,
+            const Rectf& uv,
             const Scale2f& center,
             const Angle& rotation,
-            const core::Rgba& color
+            const Rgba& color
         );
 
         void

@@ -8,10 +8,10 @@
 
 #include "base/vec2.h"
 #include "base/vec3.h"
-#include "core/rgb.h"
-#include "core/colors.h"
+#include "base/rgb.h"
+#include "base/colors.h"
 
-namespace eu::core
+namespace eu
 {
     struct Plane;
     struct Ray3f;

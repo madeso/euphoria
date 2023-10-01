@@ -5,7 +5,7 @@
 #include <array>
 #include "range/v3/view/span.hpp"
 
-#include "core/rgb.h"
+#include "base/rgb.h"
 
 
 namespace eu

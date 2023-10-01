@@ -1,8 +1,8 @@
 #pragma once
 
-#include "core/rect.h"
+#include "base/rect.h"
 #include "base/size2.h"
-#include "core/fourway.h"
+#include "base/lrud.h"
 
 #include "gui/layoutdata.h"
 
@@ -23,8 +23,8 @@ namespace eu::gui
     struct Widget
     {
         std::string name;
-        core::Lrud<float> margin;
-        core::Lrud<float> padding;
+        Lrud<float> margin;
+        Lrud<float> padding;
 
         explicit
         Widget(gui::State* state);
@@ -51,14 +51,14 @@ namespace eu::gui
         void
         on_size_changed();
 
-        [[nodiscard]] core::Rectf
+        [[nodiscard]] Rectf
         get_client_rect() const;
 
-        [[nodiscard]] core::Rectf
+        [[nodiscard]] Rectf
         get_background_rect() const;
 
         void
-        set_rect(const core::Rectf& r);
+        set_rect(const Rectf& r);
 
         [[nodiscard]] size2f
         get_preferred_size() const;
@@ -84,6 +84,6 @@ namespace eu::gui
         gui::State* ui_state;
 
         LayoutData layout;
-        core::Rectf rect;
+        Rectf rect;
     };
 }

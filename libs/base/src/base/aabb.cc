@@ -1,11 +1,11 @@
-#include "core/aabb.h"
+#include "base/aabb.h"
 
 #include "assert/assert.h"
 #include "base/numeric.h"
 #include "base/range.h"
 #include "base/random.h"
 
-namespace eu::core
+namespace eu
 {
     Aabb::Aabb(const vec3f& amin, const vec3f& amax) : min(amin), max(amax)
     {

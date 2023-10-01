@@ -15,7 +15,7 @@ namespace eu::t3d
 {
     ToolPlaceMeshOnAPlane::ToolPlaceMeshOnAPlane(std::shared_ptr<PlacedMesh> mesh_to_place)
         : placed_mesh(mesh_to_place)
-        , plane(core::Plane::from_normal_and_point(common::up, zero3f))
+        , plane(Plane::from_normal_and_point(common::up, zero3f))
     {
     }
 

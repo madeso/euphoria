@@ -1,10 +1,10 @@
 #pragma once
 
 #include "base/vec3.h"
-#include "core/ray.h"
+#include "base/ray.h"
 #include "base/range.h"
 #include "core/sphere.h"
-#include "core/rgb.h"
+#include "base/rgb.h"
 
 #include <memory>
 

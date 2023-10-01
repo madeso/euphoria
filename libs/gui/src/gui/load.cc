@@ -86,10 +86,10 @@ namespace eu::gui
     }
 
 
-    core::Lrud<float>
+    Lrud<float>
     from_gaf_to_lrud(const files::gui::Lrtb& lrtd)
     {
-        return core::Lrud<float>::from_lrud
+        return Lrud<float>::from_lrud
         (
             lrtd.left,
             lrtd.right,
@@ -201,7 +201,7 @@ namespace eu::gui
         }
     }
 
-    core::Rgb
+    Rgb
     load(const files::gui::Rgb& src)
     {
         return {src.r, src.g, src.b};

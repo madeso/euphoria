@@ -3,7 +3,7 @@
 #include "io/vfs.h"
 #include "io/vfs_path.h"
 #include "core/base64.h"
-#include "core/rgb.h"
+#include "base/rgb.h"
 #include "core/image_draw.h"
 #include "core/image_to_text.h"
 #include "core/loadedfont.h"
@@ -54,7 +54,7 @@ TEST_CASE("image-load", "[img]")
     SECTION("load-white")
     {
         const auto pixel = loaded.image.get_pixel(0, 1);
-        const auto white = core::Rgbai{core::Rgbi{255, 255, 255}, 255};
+        const auto white = Rgbai{Rgbi{255, 255, 255}, 255};
         REQUIRE(pixel == white);
     }
 
@@ -62,7 +62,7 @@ TEST_CASE("image-load", "[img]")
     SECTION("load-red")
     {
         const auto pixel = loaded.image.get_pixel(1, 1);
-        const auto red = core::Rgbai{core::Rgbi{255, 0, 0}, 255};
+        const auto red = Rgbai{Rgbi{255, 0, 0}, 255};
         REQUIRE(pixel == red);
     }
 
@@ -70,7 +70,7 @@ TEST_CASE("image-load", "[img]")
     SECTION("load-green")
     {
         const auto pixel = loaded.image.get_pixel(0, 0);
-        const auto green = core::Rgbai{core::Rgbi{0, 255, 0}, 255};
+        const auto green = Rgbai{Rgbi{0, 255, 0}, 255};
         REQUIRE(pixel == green);
     }
 
@@ -78,7 +78,7 @@ TEST_CASE("image-load", "[img]")
     SECTION("load-blue")
     {
         const auto pixel = loaded.image.get_pixel(1, 0);
-        const auto blue = core::Rgbai{core::Rgbi{0, 0, 255}, 255};
+        const auto blue = Rgbai{Rgbi{0, 0, 255}, 255};
         REQUIRE(pixel == blue);
     }
 }
@@ -90,14 +90,14 @@ TEST_CASE("image solid", "[img]")
 
     SECTION("default-is-black")
     {
-        REQUIRE(img.get_pixel(0, 0) == core::Rgbai(core::Rgbi{0, 0, 0}, 255));
-        REQUIRE(img.get_pixel(1, 0) == core::Rgbai(core::Rgbi{0, 0, 0}, 255));
+        REQUIRE(img.get_pixel(0, 0) == Rgbai(Rgbi{0, 0, 0}, 255));
+        REQUIRE(img.get_pixel(1, 0) == Rgbai(Rgbi{0, 0, 0}, 255));
     }
 
     SECTION("can set and get color")
     {
-        REQUIRE(img.get_pixel(0, 0) == core::Rgbai(core::Rgbi{0, 0, 0}, 255));
-        core::Rgbai color {core::Rgbi {255, 255, 255}, 255};
+        REQUIRE(img.get_pixel(0, 0) == Rgbai(Rgbi{0, 0, 0}, 255));
+        Rgbai color {Rgbi {255, 255, 255}, 255};
         img.set_pixel(0, 0, color);
         REQUIRE(img.get_pixel(0, 0) == color);
     }
@@ -111,14 +111,14 @@ TEST_CASE("image transparent", "[img]")
 
     SECTION("default-is-black")
     {
-        REQUIRE(img.get_pixel(0, 0) == core::Rgbai(core::Rgbi{0, 0, 0}, 0));
-        REQUIRE(img.get_pixel(1, 1) == core::Rgbai(core::Rgbi{0, 0, 0}, 0));
+        REQUIRE(img.get_pixel(0, 0) == Rgbai(Rgbi{0, 0, 0}, 0));
+        REQUIRE(img.get_pixel(1, 1) == Rgbai(Rgbi{0, 0, 0}, 0));
     }
 
     SECTION("can set and get color")
     {
-        REQUIRE(img.get_pixel(0, 0) == core::Rgbai(core::Rgbi{0, 0, 0}, 0));
-        core::Rgbai color {core::Rgbi {255, 255, 255}, 255};
+        REQUIRE(img.get_pixel(0, 0) == Rgbai(Rgbi{0, 0, 0}, 0));
+        Rgbai color {Rgbi {255, 255, 255}, 255};
         img.set_pixel(0, 0, color);
         REQUIRE(img.get_pixel(0, 0) == color);
     }
@@ -142,8 +142,8 @@ TEST_CASE("image draw", "[img]")
         CHECK(size.get_height() == height);
     }
 
-    core::Rgbi color {255, 255, 0};
-    core::Rgbai colora {color, 255};
+    Rgbi color {255, 255, 0};
+    Rgbai colora {color, 255};
 
     SECTION("fill")
     {
@@ -220,21 +220,21 @@ TEST_CASE("image text")
     {
         core::Image image;
         image.setup_no_alpha_support(width, height);
-        core::draw_rect(&image, {core::NamedColor::white}, core::on_whole_image(image));
+        core::draw_rect(&image, {NamedColor::white}, core::on_whole_image(image));
         core::draw_text
         (
             &image,
             vec2i(0,height-8),
             text,
-            {core::NamedColor::black},
+            {NamedColor::black},
             core::load_characters_from_builtin8()
         );
         const auto table = core::from_image_to_string_table_exact
         (
             image,
             {
-                {'#', core::NamedColor::black},
-                {' ', core::NamedColor::white}
+                {'#', NamedColor::black},
+                {' ', NamedColor::white}
             },
             '?'
         );

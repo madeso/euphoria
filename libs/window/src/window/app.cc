@@ -6,7 +6,7 @@
 #include "log/log.h"
 
 #include "core/argparse.h"
-#include "core/colors.h"
+#include "base/colors.h"
 
 #include "render/init.h"
 
@@ -20,7 +20,7 @@
 namespace eu::window
 {
     App::App()
-        : clear_color(core::NamedColor::light_gray)
+        : clear_color(NamedColor::light_gray)
     {
     }
 

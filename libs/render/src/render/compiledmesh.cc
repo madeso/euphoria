@@ -5,7 +5,7 @@
 #include <numeric>
 
 #include "base/cint.h"
-#include "core/rgb.h"
+#include "base/rgb.h"
 #include "assert/assert.h"
 #include "core/enum.h"
 #include "core/texturetypes.h"
@@ -23,9 +23,9 @@
 namespace eu::render
 {
     CompiledMeshMaterial::CompiledMeshMaterial()
-        : ambient(core::NamedColor::white)
-        , diffuse(core::NamedColor::white)
-        , specular(core::NamedColor::white)
+        : ambient(NamedColor::white)
+        , diffuse(NamedColor::white)
+        , specular(NamedColor::white)
         , shininess(135.0f)
     {
     }

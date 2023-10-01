@@ -3,7 +3,7 @@
 #include <functional>
 #include <algorithm>
 
-#include "core/minmax.h"
+#include "base/minmax.h"
 #include "core/subvec.h"
 #include "core/image.h"
 #include "base/cint.h"

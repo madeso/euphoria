@@ -1,11 +1,11 @@
 #pragma once
 
-#include "core/rect.h"
+#include "base/rect.h"
 
 namespace eu::runner
 {
     struct CameraData
     {
-        core::Rectf screen;
+        Rectf screen;
     };
 }

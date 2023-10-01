@@ -1,8 +1,8 @@
 #pragma once
 
 #include "core/image.h"
-#include "core/rgb.h"
-#include "core/rect.h"
+#include "base/rgb.h"
+#include "base/rect.h"
 #include "base/vec2.h"
 #include "core/rgb_blend.h"
 

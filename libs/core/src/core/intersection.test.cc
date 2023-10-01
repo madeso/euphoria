@@ -1,7 +1,7 @@
 #include "core/intersection.h"
 #include "tests/approx_equal.h"
 #include "catch.hpp"
-#include "core/ray.h"
+#include "base/ray.h"
 
 using namespace eu;
 using namespace eu::core;

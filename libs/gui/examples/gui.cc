@@ -7,7 +7,7 @@
 #include "core/vfs_imagegenerator.h"
 #include "core/vfs_defaultshaders.h"
 #include "core/viewportdef.h"
-#include "core/fourway.h"
+#include "base/lrud.h"
 #include "core/viewport.h"
 
 #include "render/debuggl.h"
@@ -83,7 +83,7 @@ imgui_widget(const char* title, bool* b)
 
 
 bool
-imgui_widget(const char* title, eu::core::Lrud<float>* p)
+imgui_widget(const char* title, eu::Lrud<float>* p)
 {
     const auto spacing = ImGui::GetStyle().ItemInnerSpacing.x;
     ImGui::PushID(title);

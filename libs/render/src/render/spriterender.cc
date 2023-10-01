@@ -18,7 +18,7 @@ namespace eu::render
     DrawData::DrawData()
         : rotation(0.0_rad)
         , scale(Scale2f(1, 1))
-        , tint(core::Rgba(core::NamedColor::white))
+        , tint(Rgba(NamedColor::white))
     {
     }
 
@@ -40,7 +40,7 @@ namespace eu::render
 
 
     DrawData&
-    DrawData::set_tint(const core::Rgba& t)
+    DrawData::set_tint(const Rgba& t)
     {
         tint = t;
         return *this;
@@ -70,11 +70,11 @@ namespace eu::render
     SpriteRenderer::draw_rect
     (
         const Texture2& texture,
-        const core::Rectf& sprite_area,
-        const core::Rectf& texture_region,
+        const Rectf& sprite_area,
+        const Rectf& texture_region,
         const Angle& rotation_angle,
         const Scale2f& rotation_anchor,
-        const core::Rgba& tint_color
+        const Rgba& tint_color
     )
     {
         use(sprite_shader);
@@ -124,7 +124,7 @@ namespace eu::render
     SpriteRenderer::draw_sprite
     (
         const Texture2& texture,
-        const core::Rectf& position,
+        const Rectf& position,
         const DrawData& data
     )
     {
@@ -132,7 +132,7 @@ namespace eu::render
         (
             texture,
             position,
-            core::Rectf::from_top_left_width_height(vec2f{0, 1}, 1, 1),
+            Rectf::from_top_left_width_height(vec2f{0, 1}, 1, 1),
             data.rotation,
             Scale2f{0.5f, 0.5f},
             data.tint
@@ -144,8 +144,8 @@ namespace eu::render
     SpriteRenderer::draw_ninepatch
     (
         const ScalableSprite& ninepatch,
-        const core::Rectf& rect,
-        const core::Rgba& tint
+        const Rectf& rect,
+        const Rgba& tint
     )
     {
         ninepatch.render(this, rect, tint);

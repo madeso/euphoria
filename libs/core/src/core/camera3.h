@@ -4,7 +4,7 @@
 #include "base/vec2.h"
 #include "base/vec3.h"
 #include "base/quat.h"
-#include "core/ray.h"
+#include "base/ray.h"
 #include "base/angle.h"
 
 

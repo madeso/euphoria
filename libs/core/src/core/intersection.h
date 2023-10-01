@@ -6,15 +6,19 @@
 #include "base/vec3.h"
 
 
-namespace eu::core
+namespace eu
 {
-    // defined elsewhere
     struct Ray2f;
     struct Ray3f;
     struct UnitRay3f;
     struct Aabb;
-    struct Sphere;
     struct Plane;
+}
+
+namespace eu::core
+{
+    // defined elsewhere
+    struct Sphere;
 
     // defined later
     struct Ray3AabbResult;

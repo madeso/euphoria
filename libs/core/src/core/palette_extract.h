@@ -2,7 +2,7 @@
 
 
 
-#include "core/rgb.h"
+#include "base/rgb.h"
 
 
 namespace eu::core

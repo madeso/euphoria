@@ -38,14 +38,14 @@ namespace eu::gui
     }
 
 
-    core::Rectf
+    Rectf
     Widget::get_client_rect() const
     {
         return rect.inset_copy(padding.left, padding.right, padding.up, padding.down);
     }
 
 
-    core::Rectf
+    Rectf
     Widget::get_background_rect() const
     {
         return rect;
@@ -53,7 +53,7 @@ namespace eu::gui
 
 
     void
-    Widget::set_rect(const core::Rectf& r)
+    Widget::set_rect(const Rectf& r)
     {
         rect = r.inset_copy
         (

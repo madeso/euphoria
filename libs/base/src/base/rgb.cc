@@ -1,4 +1,4 @@
-#include "core/rgb.h"
+#include "base/rgb.h"
 
 #include <iostream>
 #include <map>
@@ -11,7 +11,7 @@
 #include "base/stringmerger.h"
 
 
-namespace eu::core
+namespace eu
 {
     Rgb::Rgb(float red, float green, float blue) : r(red), g(green), b(blue) {}
 

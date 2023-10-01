@@ -52,7 +52,7 @@ namespace eu::core
     Aabb
     MeshPart::calc_aabb() const
     {
-        Aabb aabb = core::Aabb::create_empty();
+        Aabb aabb = Aabb::create_empty();
 
         for(const auto& p: points)
         {
@@ -99,7 +99,7 @@ namespace eu::core
     Aabb
     Mesh::calc_aabb() const
     {
-        Aabb aabb = core::Aabb::create_empty();
+        Aabb aabb = Aabb::create_empty();
 
         for(const auto& part: parts)
         {

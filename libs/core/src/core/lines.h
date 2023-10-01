@@ -1,7 +1,7 @@
 #pragma once
 
 #include "base/vec3.h"
-#include "core/rgb.h"
+#include "base/rgb.h"
 
 
 #include <tuple>

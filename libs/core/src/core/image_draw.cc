@@ -6,7 +6,7 @@
 #include "core/loadedfont.h"
 #include "core/utf8.h"
 #include "core/rgb_blend.h"
-#include "core/minmax.h"
+#include "base/minmax.h"
 #include "core/intersection.h"
 
 #include "log/log.h"

@@ -7,7 +7,7 @@
 // for sdl main to work
 #include "SDL.h"
 
-#include "core/rgb.h"
+#include "base/rgb.h"
 
 
 namespace eu::window
@@ -15,7 +15,7 @@ namespace eu::window
     struct App
     {
         bool running = true;
-        core::Rgb clear_color;
+        Rgb clear_color;
 
         App();
         virtual ~App() = default;

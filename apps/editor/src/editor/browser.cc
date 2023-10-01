@@ -15,7 +15,6 @@
 #include <optional>
 
 using namespace eu;
-using namespace eu::core;
 
 namespace eu::editor
 {

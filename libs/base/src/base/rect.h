@@ -16,7 +16,7 @@ namespace eu
 
 // todo(Gustav): look into better names/easier discoverability for functions
 
-namespace eu::core
+namespace eu
 {
 
     struct Rectf;
@@ -240,5 +240,5 @@ namespace eu::core
     bool operator==(const Recti& lhs, const Recti& rhs);
 }
 
-ADD_DEFAULT_FORMATTER(eu::core::Rectf, std::string, eu::core::to_string);
-ADD_DEFAULT_FORMATTER(eu::core::Recti, std::string, eu::core::to_string);
+ADD_DEFAULT_FORMATTER(eu::Rectf, std::string, eu::to_string);
+ADD_DEFAULT_FORMATTER(eu::Recti, std::string, eu::to_string);

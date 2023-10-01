@@ -1,9 +1,9 @@
-#include "core/enumtostring.h"
+#include "base/enumtostring.h"
 
 #include "tests/utils.h"
 #include "tests/stringeq.h"
 
-namespace core = eu::core;
+namespace core = eu;
 
 using namespace eu::tests;
 

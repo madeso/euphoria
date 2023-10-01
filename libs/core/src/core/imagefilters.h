@@ -1,16 +1,16 @@
 #pragma once
 
-#include "core/rgb.h"
+#include "base/rgb.h"
 
 namespace eu
 {
     struct Angle;
+    struct Rgb;
 }
 
 namespace eu::core
 {
     struct Image;
-    struct Rgb;
     struct Palette;
 
     enum class Grayscale

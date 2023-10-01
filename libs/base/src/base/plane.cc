@@ -1,6 +1,6 @@
-#include "core/plane.h"
+#include "base/plane.h"
 
-namespace eu::core
+namespace eu
 {
     Plane::Plane(const unit3f& n, float d)
         : normal(n)

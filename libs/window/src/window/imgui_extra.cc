@@ -3,7 +3,7 @@
 #include "assert/assert.h"
 
 #include "base/angle.h"
-#include "core/rgb.h"
+#include "base/rgb.h"
 #include "base/numeric.h"
 
 #include "render/texture.h"
@@ -144,19 +144,19 @@ namespace eu::window::imgui
     }
 
     bool
-    imgui_color_edit(const char* name, core::Rgb* c)
+    imgui_color_edit(const char* name, Rgb* c)
     {
         return ImGui::ColorEdit3(name, &c->r);
     }
 
     bool
-    imgui_color_edit(const char* name, core::Rgba* c)
+    imgui_color_edit(const char* name, Rgba* c)
     {
         return ImGui::ColorEdit4(name, &c->r);
     }
 
     bool
-    imgui_color_edit(const char* name, core::Rgbai* c)
+    imgui_color_edit(const char* name, Rgbai* c)
     {
         auto cc = to_rgba(*c);
         const auto changed = ImGui::ColorEdit4(name, &cc.r);

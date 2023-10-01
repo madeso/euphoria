@@ -14,7 +14,7 @@ namespace eu::t3d
 {
     Tile::Tile()
         : path("~/unknown_tile")
-        , aabb(core::Aabb::create_empty())
+        , aabb(Aabb::create_empty())
     {
     }
 

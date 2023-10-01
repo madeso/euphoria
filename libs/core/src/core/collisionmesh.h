@@ -6,11 +6,18 @@
 #include "base/vec3.h"
 
 
+
+namespace eu
+{
+    struct UnitRay3f;
+}
+
+
 namespace eu::core
 {
 
+
 struct Mesh;
-struct UnitRay3f;
 
 struct CollisionFace
 {

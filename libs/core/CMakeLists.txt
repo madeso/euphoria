@@ -3,7 +3,6 @@
 
 set(app_src_color
     src/core/colorbrewer.cc src/core/colorbrewer.h
-    src/core/colors.cc src/core/colors.h
     src/core/image_canvas.cc src/core/image_canvas.h
     src/core/image_draw.cc src/core/image_draw.h
     src/core/image_to_text.cc src/core/image_to_text.h
@@ -20,18 +19,13 @@ set(app_src_color
 )
 
 set(app_src_math
-    src/core/aabb.cc src/core/aabb.h
     src/core/collage.cc src/core/collage.h
     src/core/easing.cc src/core/easing.h
     src/core/lines.cc src/core/lines.h
     src/core/pack.cc src/core/pack.h
-    src/core/plane.cc src/core/plane.h
     src/core/poisson.cc src/core/poisson.h
     src/core/polybezier.cc src/core/polybezier.h
-    src/core/ray.cc src/core/ray.h
-    src/core/rect.cc src/core/rect.h
     src/core/rgb_blend.cc src/core/rgb_blend.h
-    src/core/rgb.cc src/core/rgb.h
     src/core/sphere.builder.cc src/core/sphere.builder.h
     src/core/sphere.cc src/core/sphere.h
     src/core/sphere.position.cc src/core/sphere.position.h
@@ -63,7 +57,6 @@ set(app_src_hash
 )
 
 set(app_src_table
-    src/core/fourway.cc src/core/fourway.h
     src/core/table_bool.cc src/core/table_bool.h
     src/core/table_string.cc src/core/table_string.h
     src/core/table.cc src/core/table.h
@@ -86,13 +79,11 @@ set(app_src
     src/core/cypher.cc src/core/cypher.h
     src/core/datetime.cc src/core/datetime.h
     src/core/decompress.cc src/core/decompress.h
-    src/core/default_parse.cc src/core/default_parse.h
     src/core/dotoutput.cc src/core/dotoutput.h
     src/core/dump.cc src/core/dump.h
     src/core/ecs.cc src/core/ecs.h
     src/core/ecs.id.cc src/core/ecs.id.h
     src/core/enum.cc src/core/enum.h
-    src/core/enumtostring.cc src/core/enumtostring.h
     src/core/findstring.cc src/core/findstring.h
     src/core/fpscontroller.cc src/core/fpscontroller.h
     src/core/guid.cc src/core/guid.h
@@ -106,7 +97,6 @@ set(app_src
     src/core/last_n.cc src/core/last_n.h
     src/core/loadedfont.cc src/core/loadedfont.h
     src/core/mesh.cc src/core/mesh.h
-    src/core/minmax.cc src/core/minmax.h
     src/core/mousebehaviour.cc src/core/mousebehaviour.h
     src/core/multisort.cc src/core/multisort.h
     src/core/nlp_line.cc src/core/nlp_line.h
@@ -167,7 +157,6 @@ target_link_libraries(core
         euph::log
         euph::assert
         euph::fmt
-        external::magic_enum
         external::lua
         undef_windows::undef_windows
         euph::files
@@ -209,7 +198,6 @@ set(test_src
     src/core/date.test.cc
     src/core/drunken_bishop.test.cc
     src/core/ecs.test.cc
-    src/core/enumtostring.test.cc
     src/core/findstring.test.cc
     src/core/guid.test.cc
     src/core/hash.test.cc
@@ -225,9 +213,7 @@ set(test_src
     src/core/pack.test.cc
     src/core/quicksort.test.cc
     src/core/radix_sort.test.cc
-    src/core/rect.test.cc
     src/core/rgb_blend.test.cc
-    src/core/rgb.test.cc
     src/core/stringtable.test.cc
     src/core/subvec.test.cc
     src/core/table.test.cc

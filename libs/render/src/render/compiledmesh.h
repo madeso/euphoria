@@ -40,9 +40,9 @@ namespace eu::render
 
     struct CompiledMeshMaterial
     {
-        core::Rgb ambient;
-        core::Rgb diffuse;
-        core::Rgb specular;
+        Rgb ambient;
+        Rgb diffuse;
+        Rgb specular;
         float shininess;
         std::shared_ptr<MaterialShader> shader;
         std::map<core::EnumValue, std::shared_ptr<Texture2>> textures;

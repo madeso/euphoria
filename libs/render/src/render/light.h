@@ -1,7 +1,7 @@
 #pragma once
 
 #include "base/vec3.h"
-#include "core/rgb.h"
+#include "base/rgb.h"
 #include "base/angle.h"
 
 namespace eu::render
@@ -28,9 +28,9 @@ namespace eu::render
         Type light_type;
         vec3f position;
         unit3f direction;
-        core::Rgb ambient;
-        core::Rgb diffuse;
-        core::Rgb specular;
+        Rgb ambient;
+        Rgb diffuse;
+        Rgb specular;
         Angle cutoff_angle_outer;
         Angle cutoff_angle_inner;
 

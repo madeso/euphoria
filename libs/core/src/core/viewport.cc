@@ -27,7 +27,7 @@ namespace eu::core
     }
 
 
-    core::Ray3f from_mouse_to_ray
+    Ray3f from_mouse_to_ray
     (
         const core::CompiledCamera3& camera,
         const core::Viewport& viewport,
@@ -44,7 +44,7 @@ namespace eu::core
     }
 
 
-    core::UnitRay3f from_mouse_to_unit_ray
+    UnitRay3f from_mouse_to_unit_ray
     (
         const core::CompiledCamera3& camera,
         const core::Viewport& viewport,

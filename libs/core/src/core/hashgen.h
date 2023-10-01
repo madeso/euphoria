@@ -3,7 +3,7 @@
 #include <optional>
 
 
-#include "core/rgb.h"
+#include "base/rgb.h"
 #include "base/ints.h"
 
 namespace eu::core

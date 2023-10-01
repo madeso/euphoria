@@ -1,9 +1,7 @@
 #include "core/hashgen.h"
 
-
-
 #include "core/image.h"
-#include "core/rgb.h"
+#include "base/rgb.h"
 #include "assert/assert.h"
 #include "base/numeric.h"
 #include "base/range.h"
@@ -18,6 +16,7 @@
 
 namespace
 {
+    using namespace eu;
     using namespace eu::core;
 
     const auto patch0 = std::vector<int>{0, 4, 24, 20 };

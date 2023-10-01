@@ -5,7 +5,7 @@
 #include "core/camera3.h"
 #include "core/viewport.h"
 #include "core/intersection.h"
-#include "core/plane.h"
+#include "base/plane.h"
 #include "base/numeric.h"
 #include "core/sphere.position.h"
 

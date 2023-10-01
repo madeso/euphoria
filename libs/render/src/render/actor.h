@@ -5,7 +5,7 @@
 #include "base/mat4.h"
 #include "base/vec3.h"
 #include "base/quat.h"
-#include "core/rgb.h"
+#include "base/rgb.h"
 
 #include "render/instance.h"
 #include "render/compiledmesh.h"

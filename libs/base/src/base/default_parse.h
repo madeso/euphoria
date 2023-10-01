@@ -1,11 +1,11 @@
 #pragma once
 
-#include "core/enumtostring.h"
+#include "base/enumtostring.h"
 #include "base/string_io.h"
 #include "base/numparse.h"
 
 
-namespace eu::core::argparse
+namespace eu
 {
     std::string
     add_quotes_and_combine_with_english_or(const std::vector<std::string>& matches);
@@ -86,7 +86,7 @@ namespace eu::core::argparse
         const std::string& value
     )
     {
-        auto matches = core::from_string_to_enum<T>(value);
+        auto matches = from_string_to_enum<T>(value);
         if (matches.single_match)
         {
             return Result<T>::create_value(matches.values[0]);
@@ -169,6 +169,6 @@ namespace eu::core::argparse
     std::string
     from_default_value_to_string(const T& t)
     {
-        return core::from_enum_to_string(t);
+        return from_enum_to_string(t);
     }
 }

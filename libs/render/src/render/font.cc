@@ -32,8 +32,8 @@ namespace eu::render
 {
     Glyph::Glyph
     (
-        const core::Rectf& sprite,
-        const core::Rectf& texture,
+        const Rectf& sprite,
+        const Rectf& texture,
         int ch,
         float ad
     )
@@ -73,7 +73,7 @@ namespace eu::render
     }
 
 
-    std::pair<core::Rectf, core::Rectf>
+    std::pair<Rectf, Rectf>
     construct_character_rects
     (
         const stbrp_rect& src_rect,
@@ -99,14 +99,14 @@ namespace eu::render
         const auto iw = static_cast<float>(image_width);
         const auto ih = static_cast<float>(image_height);
 
-        const auto sprite = core::Rectf::from_left_right_top_bottom
+        const auto sprite = Rectf::from_left_right_top_bottom
         (
             static_cast<float>(vert_left),
             static_cast<float>(vert_right),
             static_cast<float>(vert_top),
             static_cast<float>(vert_bottom)
         );
-        const auto texture = core::Rectf::from_left_right_top_bottom
+        const auto texture = Rectf::from_left_right_top_bottom
         (
             static_cast<float>(uv_left) / iw,
             static_cast<float>(uv_right) / iw,
@@ -301,17 +301,17 @@ namespace eu::render
     (
         SpriteRenderer* renderer,
         float alpha,
-        const core::Rectf& where
+        const Rectf& where
     ) const
     {
         renderer->draw_rect
         (
             *background,
             where,
-            core::Rectf::from_width_height(1, 1),
+            Rectf::from_width_height(1, 1),
             0.0_rad,
             Scale2f{0, 0},
-            core::Rgba{core::NamedColor::black, alpha}
+            Rgba{NamedColor::black, alpha}
         );
     }
 
@@ -319,8 +319,8 @@ namespace eu::render
     TextDrawCommand::TextDrawCommand
     (
         const Texture2* atexture,
-        const core::Rectf& asprite_rect,
-        const core::Rectf& atexture_rect,
+        const Rectf& asprite_rect,
+        const Rectf& atexture_rect,
         bool ahi
     )
         : texture(atexture)
@@ -335,8 +335,8 @@ namespace eu::render
     ListOfTextDrawCommands::add
     (
         const Texture2* texture,
-        const core::Rectf& sprite_rect,
-        const core::Rectf& texture_rect,
+        const Rectf& sprite_rect,
+        const Rectf& texture_rect,
         bool hi
     )
     {
@@ -349,8 +349,8 @@ namespace eu::render
     (
         SpriteRenderer* renderer,
         const vec2f& start_position,
-        const core::Rgb& base_color,
-        const core::Rgb& hi_color
+        const Rgb& base_color,
+        const Rgb& hi_color
     )
     {
         for(const auto& cmd: commands)
@@ -363,7 +363,7 @@ namespace eu::render
                 cmd.texture_rect,
                 0.0_rad,
                 Scale2f{0.5f, 0.5f},
-                core::Rgba{tint}
+                Rgba{tint}
             );
         }
     }
@@ -497,10 +497,10 @@ namespace eu::render
     }
 
 
-    core::Rectf
+    Rectf
     ListOfTextDrawCommands::get_extents() const
     {
-        core::Rectf ret;
+        Rectf ret;
         for(const auto& cmd: commands)
         {
             ret.include(cmd.sprite_rect);
@@ -558,7 +558,7 @@ namespace eu::render
 
 
     vec2f
-    get_offset(Align alignment, const core::Rectf& extent)
+    get_offset(Align alignment, const Rectf& extent)
     {
         // todo(Gustav): test this more
         const auto middle = -(extent.left + extent.right) / 2;
@@ -587,7 +587,7 @@ namespace eu::render
     (
         SpriteRenderer* renderer,
         const vec2f& p,
-        const core::Rgb& base_hi_color
+        const Rgb& base_hi_color
     ) const
     {
         draw(renderer, p, base_hi_color, base_hi_color);
@@ -599,8 +599,8 @@ namespace eu::render
     (
         SpriteRenderer* renderer,
         const vec2f& p,
-        const core::Rgb& base_color,
-        const core::Rgb& hi_color
+        const Rgb& base_color,
+        const Rgb& hi_color
     ) const
     {
         compile();
@@ -637,7 +637,7 @@ namespace eu::render
     }
 
 
-    core::Rectf
+    Rectf
     DrawableText::get_extents() const
     {
         compile();

@@ -2,7 +2,7 @@
 
 #include "base/vec3.h"
 
-namespace eu::core
+namespace eu
 {
     struct Plane
     {

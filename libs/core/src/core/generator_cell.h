@@ -1,6 +1,6 @@
 #pragma once
 
-#include "core/fourway.h"
+#include "base/lrud.h"
 #include "core/table_bool.h"
 
 
