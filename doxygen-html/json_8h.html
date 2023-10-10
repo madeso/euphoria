@@ -581,7 +581,7 @@ Functions</h2></td></tr>
 <div class="line">        auto dnu_json = <span class="keywordtype">object</span>.get(#PROP);\</div>
 <div class="line">        if (dnu_json)\</div>
 <div class="line">        {\</div>
-<div class="line">            TYPE dnu_prop;\</div>
+<div class="line">            TYPE dnu_prop = {};\</div>
 <div class="line">            if (<span class="keyword">false</span> == parse(log, &amp;dnu_prop, *dnu_json, doc))\</div>
 <div class="line">            {\</div>
 <div class="line">                return <span class="keyword">false</span>;\</div>

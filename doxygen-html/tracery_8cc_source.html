@@ -88,15 +88,15 @@
 <div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="namespaceeu_1_1core_1_1tracery.html#aeaeca9434fa9045af71e3562b27b817a">   32</a></span>&#160;    <a class="code" href="namespaceeu_1_1core_1_1tracery.html#aeaeca9434fa9045af71e3562b27b817a">from_json</a>(<a class="code" href="structeu_1_1core_1_1tracery_1_1Symbol.html">Symbol</a>* rule, <span class="keyword">const</span> jsonh::Value&amp; value, <span class="keyword">const</span> jsonh::Document* doc)</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    {</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keyword">auto</span> <a class="code" href="namespaceeu_1_1core.html#aa1676f6b793bf695a9a6fdb9c6e0833aa4b43b0aee35624cd95b910189b3dc231">r</a> = [&amp;]() -&gt; <a class="code" href="structeu_1_1core_1_1tracery_1_1Result.html">Result</a> {</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            <span class="keywordflow">if</span> (<span class="keyword">auto</span>* str = value.AsString(doc); str != <span class="keyword">nullptr</span>)</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            <span class="keywordflow">if</span> (<span class="keyword">const</span> <span class="keyword">auto</span>* str = value.AsString(doc); str != <span class="keyword">nullptr</span>)</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            {</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                <span class="keywordflow">return</span> rule-&gt;<a class="code" href="structeu_1_1core_1_1tracery_1_1Symbol.html#a34aeb64983bd401fbbb220029ec9270c">add_rule</a>(str-&gt;value);</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            }</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<span class="keyword">auto</span>* arr = value.AsArray(doc); arr != <span class="keyword">nullptr</span>)</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<span class="keyword">const</span> <span class="keyword">auto</span>* arr = value.AsArray(doc); arr != <span class="keyword">nullptr</span>)</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            {</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; <a class="code" href="namespaceeu_1_1core.html#a6fca7b841e42734cd5c01e04fc9e6511a9e3669d19b675bd57058fd4664205d2a">v</a> : arr-&gt;array)</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                {</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                    <span class="keywordflow">if</span> (<span class="keyword">auto</span>* vstr = <a class="code" href="namespaceeu_1_1core.html#a6fca7b841e42734cd5c01e04fc9e6511a9e3669d19b675bd57058fd4664205d2a">v</a>.AsString(doc); vstr != <span class="keyword">nullptr</span>)</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                    <span class="keywordflow">if</span> (<span class="keyword">const</span> <span class="keyword">auto</span>* vstr = <a class="code" href="namespaceeu_1_1core.html#a6fca7b841e42734cd5c01e04fc9e6511a9e3669d19b675bd57058fd4664205d2a">v</a>.AsString(doc); vstr != <span class="keyword">nullptr</span>)</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                    {</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                        <a class="code" href="structeu_1_1core_1_1tracery_1_1Result.html">Result</a> res = rule-&gt;<a class="code" href="structeu_1_1core_1_1tracery_1_1Symbol.html#a34aeb64983bd401fbbb220029ec9270c">add_rule</a>(vstr-&gt;value);</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                        <span class="keywordflow">if</span> (res == <span class="keyword">false</span>)</div>
@@ -656,7 +656,7 @@
 <div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160;            <span class="keywordflow">return</span> ret;</div>
 <div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160;        }</div>
 <div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160; </div>
-<div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;        <span class="keyword">auto</span> root = result.root-&gt;AsObject(&amp;result.doc);</div>
+<div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> root = result.root-&gt;AsObject(&amp;result.doc);</div>
 <div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160; </div>
 <div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;        <span class="keywordflow">if</span> (root == <span class="keyword">nullptr</span>)</div>
 <div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160;        {</div>

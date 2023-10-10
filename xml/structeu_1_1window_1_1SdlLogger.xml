@@ -5,10 +5,10 @@
     <basecompoundref refid="structeu_1_1log_1_1Logger" prot="public" virt="non-virtual">eu::log::Logger</basecompoundref>
     <includes refid="window_2src_2window_2log_8h" local="no">log.h</includes>
       <sectiondef kind="public-func">
-      <memberdef kind="function" id="structeu_1_1window_1_1SdlLogger_1a7f2d467e02d02ed54a1980c5d4910269" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+      <memberdef kind="function" id="structeu_1_1window_1_1SdlLogger_1a9cc79c986fc851b1c28b1b3fa88b1a9d" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
         <definition>void eu::window::SdlLogger::info</definition>
-        <argsstring>(const std::string &amp;str)</argsstring>
+        <argsstring>(const std::string &amp;str) override</argsstring>
         <name>info</name>
         <reimplements refid="structeu_1_1log_1_1Logger_1ad2b67eb49edc11aab5978f306f8e41b5">info</reimplements>
         <param>
@@ -23,10 +23,10 @@
         </inbodydescription>
         <location file="libs/window/src/window/log.h" line="11" column="10" bodyfile="libs/window/src/window/log.cc" bodystart="29" bodyend="32"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1window_1_1SdlLogger_1abad2d46f6a719f7e979cf4074ac478cb" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+      <memberdef kind="function" id="structeu_1_1window_1_1SdlLogger_1aa32c306b76dd327ca6d0d34649692fc3" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
         <definition>void eu::window::SdlLogger::warn</definition>
-        <argsstring>(const std::string &amp;str)</argsstring>
+        <argsstring>(const std::string &amp;str) override</argsstring>
         <name>warn</name>
         <reimplements refid="structeu_1_1log_1_1Logger_1a06423e395456c121ee759d7569df5907">warn</reimplements>
         <param>
@@ -41,10 +41,10 @@
         </inbodydescription>
         <location file="libs/window/src/window/log.h" line="12" column="10" bodyfile="libs/window/src/window/log.cc" bodystart="34" bodyend="37"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1window_1_1SdlLogger_1a7da52259fc713ad71d0a307f95bb3d50" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+      <memberdef kind="function" id="structeu_1_1window_1_1SdlLogger_1a88ca677bf95c0b330ad0034bb3000036" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
         <definition>void eu::window::SdlLogger::error</definition>
-        <argsstring>(const std::string &amp;str)</argsstring>
+        <argsstring>(const std::string &amp;str) override</argsstring>
         <name>error</name>
         <reimplements refid="structeu_1_1log_1_1Logger_1afaf5e8f95546857df1e95d8bae6775ef">error</reimplements>
         <param>
@@ -90,9 +90,9 @@
     </collaborationgraph>
     <location file="libs/window/src/window/log.h" line="9" column="1" bodyfile="libs/window/src/window/log.h" bodystart="10" bodyend="14"/>
     <listofallmembers>
-      <member refid="structeu_1_1window_1_1SdlLogger_1a7da52259fc713ad71d0a307f95bb3d50" prot="public" virt="virtual"><scope>eu::window::SdlLogger</scope><name>error</name></member>
-      <member refid="structeu_1_1window_1_1SdlLogger_1a7f2d467e02d02ed54a1980c5d4910269" prot="public" virt="virtual"><scope>eu::window::SdlLogger</scope><name>info</name></member>
-      <member refid="structeu_1_1window_1_1SdlLogger_1abad2d46f6a719f7e979cf4074ac478cb" prot="public" virt="virtual"><scope>eu::window::SdlLogger</scope><name>warn</name></member>
+      <member refid="structeu_1_1window_1_1SdlLogger_1a88ca677bf95c0b330ad0034bb3000036" prot="public" virt="virtual"><scope>eu::window::SdlLogger</scope><name>error</name></member>
+      <member refid="structeu_1_1window_1_1SdlLogger_1a9cc79c986fc851b1c28b1b3fa88b1a9d" prot="public" virt="virtual"><scope>eu::window::SdlLogger</scope><name>info</name></member>
+      <member refid="structeu_1_1window_1_1SdlLogger_1aa32c306b76dd327ca6d0d34649692fc3" prot="public" virt="virtual"><scope>eu::window::SdlLogger</scope><name>warn</name></member>
       <member refid="structeu_1_1log_1_1Logger_1a567e35f85f815f99041930e7c998010f" prot="public" virt="virtual"><scope>eu::window::SdlLogger</scope><name>~Logger</name></member>
     </listofallmembers>
   </compounddef>

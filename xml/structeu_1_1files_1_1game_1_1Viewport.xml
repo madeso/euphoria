@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/files/src/files/game.h" line="61" column="22" bodyfile="libs/files/src/files/game.h" bodystart="61" bodyend="-1"/>
+        <location file="libs/files/src/files/game.h" line="62" column="22" bodyfile="libs/files/src/files/game.h" bodystart="62" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1files_1_1game_1_1Viewport_1a66bc7e7bed120f602de1ea7b4d8ea12d" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -29,7 +29,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/files/src/files/game.h" line="62" column="15" bodyfile="libs/files/src/files/game.h" bodystart="62" bodyend="-1"/>
+        <location file="libs/files/src/files/game.h" line="63" column="15" bodyfile="libs/files/src/files/game.h" bodystart="63" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1files_1_1game_1_1Viewport_1a84fad46085ee0b094b3cf248c5557004" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -43,14 +43,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/files/src/files/game.h" line="63" column="15" bodyfile="libs/files/src/files/game.h" bodystart="63" bodyend="-1"/>
+        <location file="libs/files/src/files/game.h" line="64" column="15" bodyfile="libs/files/src/files/game.h" bodystart="64" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/files/src/files/game.h" line="59" column="5" bodyfile="libs/files/src/files/game.h" bodystart="60" bodyend="64"/>
+    <location file="libs/files/src/files/game.h" line="60" column="5" bodyfile="libs/files/src/files/game.h" bodystart="61" bodyend="65"/>
     <listofallmembers>
       <member refid="structeu_1_1files_1_1game_1_1Viewport_1a84fad46085ee0b094b3cf248c5557004" prot="public" virt="non-virtual"><scope>eu::files::game::Viewport</scope><name>height</name></member>
       <member refid="structeu_1_1files_1_1game_1_1Viewport_1a95e9d15e40f3da188c8fd0d524404183" prot="public" virt="non-virtual"><scope>eu::files::game::Viewport</scope><name>type</name></member>

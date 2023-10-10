@@ -23,7 +23,7 @@
         <definition>virtual void eu::log::Logger::info</definition>
         <argsstring>(const std::string &amp;str)=0</argsstring>
         <name>info</name>
-        <reimplementedby refid="structeu_1_1window_1_1SdlLogger_1a7f2d467e02d02ed54a1980c5d4910269">info</reimplementedby>
+        <reimplementedby refid="structeu_1_1window_1_1SdlLogger_1a9cc79c986fc851b1c28b1b3fa88b1a9d">info</reimplementedby>
         <param>
           <type>const std::string &amp;</type>
           <declname>str</declname>
@@ -41,7 +41,7 @@
         <definition>virtual void eu::log::Logger::warn</definition>
         <argsstring>(const std::string &amp;str)=0</argsstring>
         <name>warn</name>
-        <reimplementedby refid="structeu_1_1window_1_1SdlLogger_1abad2d46f6a719f7e979cf4074ac478cb">warn</reimplementedby>
+        <reimplementedby refid="structeu_1_1window_1_1SdlLogger_1aa32c306b76dd327ca6d0d34649692fc3">warn</reimplementedby>
         <param>
           <type>const std::string &amp;</type>
           <declname>str</declname>
@@ -59,7 +59,7 @@
         <definition>virtual void eu::log::Logger::error</definition>
         <argsstring>(const std::string &amp;str)=0</argsstring>
         <name>error</name>
-        <reimplementedby refid="structeu_1_1window_1_1SdlLogger_1a7da52259fc713ad71d0a307f95bb3d50">error</reimplementedby>
+        <reimplementedby refid="structeu_1_1window_1_1SdlLogger_1a88ca677bf95c0b330ad0034bb3000036">error</reimplementedby>
         <param>
           <type>const std::string &amp;</type>
           <declname>str</declname>

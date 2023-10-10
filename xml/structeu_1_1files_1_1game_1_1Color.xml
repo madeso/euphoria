@@ -15,14 +15,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/files/src/files/game.h" line="79" column="23" bodyfile="libs/files/src/files/game.h" bodystart="79" bodyend="-1"/>
+        <location file="libs/files/src/files/game.h" line="80" column="23" bodyfile="libs/files/src/files/game.h" bodystart="80" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/files/src/files/game.h" line="76" column="5" bodyfile="libs/files/src/files/game.h" bodystart="77" bodyend="80"/>
+    <location file="libs/files/src/files/game.h" line="77" column="5" bodyfile="libs/files/src/files/game.h" bodystart="78" bodyend="81"/>
     <listofallmembers>
       <member refid="structeu_1_1files_1_1game_1_1Color_1ac1a0958c86abc79967487aced1907bcd" prot="public" virt="non-virtual"><scope>eu::files::game::Color</scope><name>hex</name></member>
     </listofallmembers>

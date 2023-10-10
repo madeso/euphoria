@@ -64,63 +64,59 @@
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <span class="keyword">struct </span>ConsoleLogger : <a class="code" href="structeu_1_1log_1_1Logger.html">eu::log::Logger</a></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    {</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="structeu_1_1log_1_1Logger.html#ad2b67eb49edc11aab5978f306f8e41b5">info</a>(<span class="keyword">const</span> std::string&amp; str)</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        {</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="structeu_1_1log_1_1Logger.html#ad2b67eb49edc11aab5978f306f8e41b5">info</a>(<span class="keyword">const</span> std::string&amp; str)<span class="keyword"> override</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">        </span>{</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;            std::cout &lt;&lt; str &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        }</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="structeu_1_1log_1_1Logger.html#a06423e395456c121ee759d7569df5907">warn</a>(<span class="keyword">const</span> std::string &amp; str)</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        {</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="structeu_1_1log_1_1Logger.html#a06423e395456c121ee759d7569df5907">warn</a>(<span class="keyword">const</span> std::string &amp; str)<span class="keyword"> override</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">        </span>{</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;            std::cerr &lt;&lt; str &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        }</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="structeu_1_1log_1_1Logger.html#afaf5e8f95546857df1e95d8bae6775ef">error</a>(<span class="keyword">const</span> std::string &amp; str)</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        {</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="structeu_1_1log_1_1Logger.html#afaf5e8f95546857df1e95d8bae6775ef">error</a>(<span class="keyword">const</span> std::string &amp; str)<span class="keyword"> override</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">        </span>{</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;            std::cerr &lt;&lt; str &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        }</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    };</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="structeu_1_1log_1_1Logger.html">eu::log::Logger</a>*&amp; global_logger()</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    {</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keyword">static</span> <a class="code" href="structeu_1_1log_1_1Logger.html">eu::log::Logger</a>* logger = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keywordflow">return</span> logger;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    }</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;}</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="namespaceeu_1_1log.html">   35</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceeu_1_1log.html">eu::log</a></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;{</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="structeu_1_1log_1_1Logger.html">Logger</a>*</div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="namespaceeu_1_1log.html#a643960e2f05465dc8fbdf5229e4e934d">   38</a></span>&#160;    <a class="code" href="namespaceeu_1_1log.html#a643960e2f05465dc8fbdf5229e4e934d">get_global_logger</a>()</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    {</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keyword">static</span> ConsoleLogger console_logger;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <a class="code" href="structeu_1_1log_1_1Logger.html">Logger</a>* logger = global_logger();</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="structeu_1_1log_1_1Logger.html">eu::log::Logger</a>* global_logger = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;}</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="namespaceeu_1_1log.html">   31</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceeu_1_1log.html">eu::log</a></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;{</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <a class="code" href="structeu_1_1log_1_1Logger.html">Logger</a>*</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="namespaceeu_1_1log.html#a643960e2f05465dc8fbdf5229e4e934d">   34</a></span>&#160;    <a class="code" href="namespaceeu_1_1log.html#a643960e2f05465dc8fbdf5229e4e934d">get_global_logger</a>()</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    {</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keyword">static</span> ConsoleLogger console_logger;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <a class="code" href="structeu_1_1log_1_1Logger.html">Logger</a>* logger = global_logger;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keywordflow">if</span> (logger != <span class="keyword">nullptr</span>) { <span class="keywordflow">return</span> logger; }</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keywordflow">else</span> { <span class="keywordflow">return</span> &amp;console_logger; }</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    }</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordflow">if</span> (logger) { <span class="keywordflow">return</span> logger; }</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keywordflow">else</span> { <span class="keywordflow">return</span> &amp;console_logger; }</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    }</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    </div>
-<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="structeu_1_1log_1_1ScopedLogger.html#a9268bca1b3ab62f4c0cf04fd293268d2">   48</a></span>&#160;    <a class="code" href="structeu_1_1log_1_1ScopedLogger.html#a9268bca1b3ab62f4c0cf04fd293268d2">ScopedLogger::ScopedLogger</a>(<a class="code" href="structeu_1_1log_1_1Logger.html">Logger</a>* new_log)</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    {</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        assert(global_logger());</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        global_logger() = new_log;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    }</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="structeu_1_1log_1_1ScopedLogger.html#a9273d3cbeac047b0d86ed868d64f6543">   54</a></span>&#160;    <a class="code" href="structeu_1_1log_1_1ScopedLogger.html#a9273d3cbeac047b0d86ed868d64f6543">ScopedLogger::~ScopedLogger</a>()</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    {</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        global_logger() = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    }</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;}</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    </div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="structeu_1_1log_1_1ScopedLogger.html#a9268bca1b3ab62f4c0cf04fd293268d2">   44</a></span>&#160;    <a class="code" href="structeu_1_1log_1_1ScopedLogger.html#a9268bca1b3ab62f4c0cf04fd293268d2">ScopedLogger::ScopedLogger</a>(<a class="code" href="structeu_1_1log_1_1Logger.html">Logger</a>* new_log)</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    {</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        assert(global_logger);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        global_logger = new_log;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    }</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="structeu_1_1log_1_1ScopedLogger.html#a9273d3cbeac047b0d86ed868d64f6543">   50</a></span>&#160;    <a class="code" href="structeu_1_1log_1_1ScopedLogger.html#a9273d3cbeac047b0d86ed868d64f6543">ScopedLogger::~ScopedLogger</a>()</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    {</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        global_logger = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    }</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;}</div>
 <div class="ttc" id="alog_2src_2log_2log_8h_html"><div class="ttname"><a href="log_2src_2log_2log_8h.html">log.h</a></div></div>
-<div class="ttc" id="anamespaceeu_1_1log_html"><div class="ttname"><a href="namespaceeu_1_1log.html">eu::log</a></div><div class="ttdef"><b>Definition:</b> <a href="log_2src_2log_2log_8cc_source.html#l00035">log.cc:36</a></div></div>
-<div class="ttc" id="anamespaceeu_1_1log_html_a643960e2f05465dc8fbdf5229e4e934d"><div class="ttname"><a href="namespaceeu_1_1log.html#a643960e2f05465dc8fbdf5229e4e934d">eu::log::get_global_logger</a></div><div class="ttdeci">Logger * get_global_logger()</div><div class="ttdef"><b>Definition:</b> <a href="log_2src_2log_2log_8cc_source.html#l00038">log.cc:38</a></div></div>
+<div class="ttc" id="anamespaceeu_1_1log_html"><div class="ttname"><a href="namespaceeu_1_1log.html">eu::log</a></div><div class="ttdef"><b>Definition:</b> <a href="log_2src_2log_2log_8cc_source.html#l00031">log.cc:32</a></div></div>
+<div class="ttc" id="anamespaceeu_1_1log_html_a643960e2f05465dc8fbdf5229e4e934d"><div class="ttname"><a href="namespaceeu_1_1log.html#a643960e2f05465dc8fbdf5229e4e934d">eu::log::get_global_logger</a></div><div class="ttdeci">Logger * get_global_logger()</div><div class="ttdef"><b>Definition:</b> <a href="log_2src_2log_2log_8cc_source.html#l00034">log.cc:34</a></div></div>
 <div class="ttc" id="astructeu_1_1log_1_1Logger_html"><div class="ttname"><a href="structeu_1_1log_1_1Logger.html">eu::log::Logger</a></div><div class="ttdef"><b>Definition:</b> <a href="log_2src_2log_2log_8h_source.html#l00015">log.h:16</a></div></div>
 <div class="ttc" id="astructeu_1_1log_1_1Logger_html_a06423e395456c121ee759d7569df5907"><div class="ttname"><a href="structeu_1_1log_1_1Logger.html#a06423e395456c121ee759d7569df5907">eu::log::Logger::warn</a></div><div class="ttdeci">virtual void warn(const std::string &amp;str)=0</div></div>
 <div class="ttc" id="astructeu_1_1log_1_1Logger_html_ad2b67eb49edc11aab5978f306f8e41b5"><div class="ttname"><a href="structeu_1_1log_1_1Logger.html#ad2b67eb49edc11aab5978f306f8e41b5">eu::log::Logger::info</a></div><div class="ttdeci">virtual void info(const std::string &amp;str)=0</div></div>
 <div class="ttc" id="astructeu_1_1log_1_1Logger_html_afaf5e8f95546857df1e95d8bae6775ef"><div class="ttname"><a href="structeu_1_1log_1_1Logger.html#afaf5e8f95546857df1e95d8bae6775ef">eu::log::Logger::error</a></div><div class="ttdeci">virtual void error(const std::string &amp;str)=0</div></div>
-<div class="ttc" id="astructeu_1_1log_1_1ScopedLogger_html_a9268bca1b3ab62f4c0cf04fd293268d2"><div class="ttname"><a href="structeu_1_1log_1_1ScopedLogger.html#a9268bca1b3ab62f4c0cf04fd293268d2">eu::log::ScopedLogger::ScopedLogger</a></div><div class="ttdeci">ScopedLogger(Logger *new_log)</div><div class="ttdef"><b>Definition:</b> <a href="log_2src_2log_2log_8cc_source.html#l00048">log.cc:48</a></div></div>
-<div class="ttc" id="astructeu_1_1log_1_1ScopedLogger_html_a9273d3cbeac047b0d86ed868d64f6543"><div class="ttname"><a href="structeu_1_1log_1_1ScopedLogger.html#a9273d3cbeac047b0d86ed868d64f6543">eu::log::ScopedLogger::~ScopedLogger</a></div><div class="ttdeci">~ScopedLogger()</div><div class="ttdef"><b>Definition:</b> <a href="log_2src_2log_2log_8cc_source.html#l00054">log.cc:54</a></div></div>
+<div class="ttc" id="astructeu_1_1log_1_1ScopedLogger_html_a9268bca1b3ab62f4c0cf04fd293268d2"><div class="ttname"><a href="structeu_1_1log_1_1ScopedLogger.html#a9268bca1b3ab62f4c0cf04fd293268d2">eu::log::ScopedLogger::ScopedLogger</a></div><div class="ttdeci">ScopedLogger(Logger *new_log)</div><div class="ttdef"><b>Definition:</b> <a href="log_2src_2log_2log_8cc_source.html#l00044">log.cc:44</a></div></div>
+<div class="ttc" id="astructeu_1_1log_1_1ScopedLogger_html_a9273d3cbeac047b0d86ed868d64f6543"><div class="ttname"><a href="structeu_1_1log_1_1ScopedLogger.html#a9273d3cbeac047b0d86ed868d64f6543">eu::log::ScopedLogger::~ScopedLogger</a></div><div class="ttdeci">~ScopedLogger()</div><div class="ttdef"><b>Definition:</b> <a href="log_2src_2log_2log_8cc_source.html#l00050">log.cc:50</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.17-->
 <!-- start footer part -->

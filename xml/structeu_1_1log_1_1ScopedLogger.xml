@@ -19,7 +19,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/log/src/log/log.h" line="25" column="18" bodyfile="libs/log/src/log/log.cc" bodystart="48" bodyend="52"/>
+        <location file="libs/log/src/log/log.h" line="25" column="18" bodyfile="libs/log/src/log/log.cc" bodystart="44" bodyend="48"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1log_1_1ScopedLogger_1a9273d3cbeac047b0d86ed868d64f6543" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -32,7 +32,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/log/src/log/log.h" line="26" column="9" bodyfile="libs/log/src/log/log.cc" bodystart="54" bodyend="57"/>
+        <location file="libs/log/src/log/log.h" line="26" column="9" bodyfile="libs/log/src/log/log.cc" bodystart="50" bodyend="53"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1log_1_1ScopedLogger_1a2ba3d86cf3bfcef8810c68d66aa3d1c3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>

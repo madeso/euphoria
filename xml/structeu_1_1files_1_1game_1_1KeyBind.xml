@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/files/src/files/game.h" line="70" column="21" bodyfile="libs/files/src/files/game.h" bodystart="70" bodyend="-1"/>
+        <location file="libs/files/src/files/game.h" line="71" column="21" bodyfile="libs/files/src/files/game.h" bodystart="71" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1files_1_1game_1_1KeyBind_1a218f101ec17ef3f6814b5f94e0090530" prot="public" static="no" mutable="no">
         <type>std::string</type>
@@ -28,14 +28,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/files/src/files/game.h" line="71" column="21" bodyfile="libs/files/src/files/game.h" bodystart="71" bodyend="-1"/>
+        <location file="libs/files/src/files/game.h" line="72" column="21" bodyfile="libs/files/src/files/game.h" bodystart="72" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/files/src/files/game.h" line="68" column="5" bodyfile="libs/files/src/files/game.h" bodystart="69" bodyend="72"/>
+    <location file="libs/files/src/files/game.h" line="69" column="5" bodyfile="libs/files/src/files/game.h" bodystart="70" bodyend="73"/>
     <listofallmembers>
       <member refid="structeu_1_1files_1_1game_1_1KeyBind_1a218f101ec17ef3f6814b5f94e0090530" prot="public" virt="non-virtual"><scope>eu::files::game::KeyBind</scope><name>key</name></member>
       <member refid="structeu_1_1files_1_1game_1_1KeyBind_1aa0f92b8f1e83404ce1de1b6139308668" prot="public" virt="non-virtual"><scope>eu::files::game::KeyBind</scope><name>name</name></member>

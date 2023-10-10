@@ -2629,9 +2629,9 @@
     <member refid="structeu_1_1window_1_1SdlLibrary_1aa1c6a9568ddb89da28380ea0f0811f01" kind="function"><name>operator=</name></member>
   </compound>
   <compound refid="structeu_1_1window_1_1SdlLogger" kind="struct"><name>eu::window::SdlLogger</name>
-    <member refid="structeu_1_1window_1_1SdlLogger_1a7f2d467e02d02ed54a1980c5d4910269" kind="function"><name>info</name></member>
-    <member refid="structeu_1_1window_1_1SdlLogger_1abad2d46f6a719f7e979cf4074ac478cb" kind="function"><name>warn</name></member>
-    <member refid="structeu_1_1window_1_1SdlLogger_1a7da52259fc713ad71d0a307f95bb3d50" kind="function"><name>error</name></member>
+    <member refid="structeu_1_1window_1_1SdlLogger_1a9cc79c986fc851b1c28b1b3fa88b1a9d" kind="function"><name>info</name></member>
+    <member refid="structeu_1_1window_1_1SdlLogger_1aa32c306b76dd327ca6d0d34649692fc3" kind="function"><name>warn</name></member>
+    <member refid="structeu_1_1window_1_1SdlLogger_1a88ca677bf95c0b330ad0034bb3000036" kind="function"><name>error</name></member>
   </compound>
   <compound refid="structeu_1_1window_1_1SdlOpenglContext" kind="struct"><name>eu::window::SdlOpenglContext</name>
     <member refid="structeu_1_1window_1_1SdlOpenglContext_1a6b48318c9c28080bf76f850a2665d5ed" kind="variable"><name>context</name></member>
