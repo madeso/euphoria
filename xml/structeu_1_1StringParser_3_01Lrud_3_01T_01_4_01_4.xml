@@ -28,11 +28,11 @@
         </inbodydescription>
         <location file="libs/base/src/base/lrud.h" line="100" column="9" bodyfile="libs/base/src/base/lrud.h" bodystart="100" bodyend="100"/>
       </memberdef>
-      <memberdef kind="typedef" id="structeu_1_1StringParser_3_01Lrud_3_01T_01_4_01_4_1aa56f88e138bd26b3b3e401d91c70fa09" prot="public" static="no">
-        <type><ref refid="structeu_1_1StringParser_3_01Lrud_3_01T_01_4_01_4_1aa56f88e138bd26b3b3e401d91c70fa09" kindref="member">Lrud</ref>&lt; T &gt;</type>
-        <definition>using eu::StringParser&lt; Lrud&lt; T &gt; &gt;::Lrud =  Lrud&lt;T&gt;</definition>
+      <memberdef kind="typedef" id="structeu_1_1StringParser_3_01Lrud_3_01T_01_4_01_4_1a74a06b602e1a7836dd1f35f81d34879b" prot="public" static="no">
+        <type><ref refid="structeu_1_1Lrud" kindref="compound">Lrud</ref>&lt; T &gt;</type>
+        <definition>using eu::StringParser&lt; Lrud&lt; T &gt; &gt;::Self =  Lrud&lt;T&gt;</definition>
         <argsstring></argsstring>
-        <name>Lrud</name>
+        <name>Self</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -59,13 +59,13 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
-      <memberdef kind="function" id="structeu_1_1StringParser_3_01Lrud_3_01T_01_4_01_4_1a9ebbbe71f2c5a671b63e364ada8571bd" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1StringParser_3_01Lrud_3_01T_01_4_01_4_1a17e1fff2b9836b406245363fe146d191" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>std::string</type>
         <definition>static std::string eu::StringParser&lt; Lrud&lt; T &gt; &gt;::to_string</definition>
-        <argsstring>(const Lrud &amp;fw)</argsstring>
+        <argsstring>(const Self &amp;fw)</argsstring>
         <name>to_string</name>
         <param>
-          <type>const <ref refid="structeu_1_1StringParser_3_01Lrud_3_01T_01_4_01_4_1aa56f88e138bd26b3b3e401d91c70fa09" kindref="member">Lrud</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1StringParser_3_01Lrud_3_01T_01_4_01_4_1a74a06b602e1a7836dd1f35f81d34879b" kindref="member">Self</ref> &amp;</type>
           <declname>fw</declname>
         </param>
         <briefdescription>
@@ -76,9 +76,9 @@
         </inbodydescription>
         <location file="libs/base/src/base/lrud.h" line="108" column="9" bodyfile="libs/base/src/base/lrud.h" bodystart="108" bodyend="119"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1StringParser_3_01Lrud_3_01T_01_4_01_4_1ac925fa233e7fda8f3476434f20cacda7" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type><ref refid="structeu_1_1Result" kindref="compound">Result</ref>&lt; <ref refid="structeu_1_1StringParser_3_01Lrud_3_01T_01_4_01_4_1aa56f88e138bd26b3b3e401d91c70fa09" kindref="member">Lrud</ref> &gt;</type>
-        <definition>static Result&lt;Lrud&gt; eu::StringParser&lt; Lrud&lt; T &gt; &gt;::parse</definition>
+      <memberdef kind="function" id="structeu_1_1StringParser_3_01Lrud_3_01T_01_4_01_4_1a993ce4a22463af68e28fcc0199f18ae9" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeu_1_1Result" kindref="compound">Result</ref>&lt; <ref refid="structeu_1_1StringParser_3_01Lrud_3_01T_01_4_01_4_1a74a06b602e1a7836dd1f35f81d34879b" kindref="member">Self</ref> &gt;</type>
+        <definition>static Result&lt;Self&gt; eu::StringParser&lt; Lrud&lt; T &gt; &gt;::parse</definition>
         <argsstring>(const std::string &amp;value)</argsstring>
         <name>parse</name>
         <param>
@@ -102,10 +102,10 @@
     </detaileddescription>
     <location file="libs/base/src/base/lrud.h" line="98" column="5" bodyfile="libs/base/src/base/lrud.h" bodystart="99" bodyend="185"/>
     <listofallmembers>
-      <member refid="structeu_1_1StringParser_3_01Lrud_3_01T_01_4_01_4_1aa56f88e138bd26b3b3e401d91c70fa09" prot="public" virt="non-virtual"><scope>eu::StringParser&lt; Lrud&lt; T &gt; &gt;</scope><name>Lrud</name></member>
-      <member refid="structeu_1_1StringParser_3_01Lrud_3_01T_01_4_01_4_1ac925fa233e7fda8f3476434f20cacda7" prot="public" virt="non-virtual"><scope>eu::StringParser&lt; Lrud&lt; T &gt; &gt;</scope><name>parse</name></member>
+      <member refid="structeu_1_1StringParser_3_01Lrud_3_01T_01_4_01_4_1a993ce4a22463af68e28fcc0199f18ae9" prot="public" virt="non-virtual"><scope>eu::StringParser&lt; Lrud&lt; T &gt; &gt;</scope><name>parse</name></member>
+      <member refid="structeu_1_1StringParser_3_01Lrud_3_01T_01_4_01_4_1a74a06b602e1a7836dd1f35f81d34879b" prot="public" virt="non-virtual"><scope>eu::StringParser&lt; Lrud&lt; T &gt; &gt;</scope><name>Self</name></member>
       <member refid="structeu_1_1StringParser_3_01Lrud_3_01T_01_4_01_4_1aeafa9497a258fac21016b70ae5c24c8f" prot="public" virt="non-virtual"><scope>eu::StringParser&lt; Lrud&lt; T &gt; &gt;</scope><name>separator</name></member>
-      <member refid="structeu_1_1StringParser_3_01Lrud_3_01T_01_4_01_4_1a9ebbbe71f2c5a671b63e364ada8571bd" prot="public" virt="non-virtual"><scope>eu::StringParser&lt; Lrud&lt; T &gt; &gt;</scope><name>to_string</name></member>
+      <member refid="structeu_1_1StringParser_3_01Lrud_3_01T_01_4_01_4_1a17e1fff2b9836b406245363fe146d191" prot="public" virt="non-virtual"><scope>eu::StringParser&lt; Lrud&lt; T &gt; &gt;</scope><name>to_string</name></member>
       <member refid="structeu_1_1StringParser_3_01Lrud_3_01T_01_4_01_4_1a446e99717dc194c8cac3aa92887eca39ad5a6307a55080c99f837f2273ecb2fd8" prot="public" virt="non-virtual"><scope>eu::StringParser&lt; Lrud&lt; T &gt; &gt;</scope><name>value</name></member>
     </listofallmembers>
   </compounddef>

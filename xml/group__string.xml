@@ -31,9 +31,9 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="var">
-      <memberdef kind="variable" id="group__string_1ga15da2155ca42b256f31ead0dcf4f212d" prot="public" static="no" mutable="no">
-        <type>const std::string</type>
-        <definition>const std::string eu::space_characters</definition>
+      <memberdef kind="variable" id="group__string_1ga668fa0c5742dd7ed1c18ba1f94444dd6" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr std::string_view</type>
+        <definition>constexpr std::string_view eu::space_characters</definition>
         <argsstring></argsstring>
         <name>space_characters</name>
         <initializer>= &quot; \n\r\t&quot;</initializer>
@@ -47,7 +47,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/stringutils.h" line="24" column="23" bodyfile="libs/base/src/base/stringutils.h" bodystart="24" bodyend="-1"/>
+        <location file="libs/base/src/base/stringutils.h" line="24" column="32" bodyfile="libs/base/src/base/stringutils.h" bodystart="24" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="func">
@@ -154,17 +154,17 @@
         </inbodydescription>
         <location file="libs/base/src/base/stringutils.cc" line="40" column="1" bodyfile="libs/base/src/base/stringutils.cc" bodystart="40" bodyend="48" declfile="libs/base/src/base/stringutils.h" declline="41" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="group__string_1ga6835c61b16a0e91db39e1759f3ccf07f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="group__string_1gabd0037125a91414b1cc1134a65432292" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
         <definition>std::string eu::trim_right</definition>
-        <argsstring>(const std::string &amp;string_to_trim, const std::string &amp;trim_characters=space_characters)</argsstring>
+        <argsstring>(const std::string &amp;string_to_trim, std::string_view trim_characters=space_characters)</argsstring>
         <name>trim_right</name>
         <param>
           <type>const std::string &amp;</type>
           <declname>string_to_trim</declname>
         </param>
         <param>
-          <type>const std::string &amp;</type>
+          <type>std::string_view</type>
           <declname>trim_characters</declname>
           <defval>space_characters</defval>
         </param>
@@ -197,17 +197,17 @@
         </inbodydescription>
         <location file="libs/base/src/base/stringutils.cc" line="65" column="1" bodyfile="libs/base/src/base/stringutils.cc" bodystart="65" bodyend="68" declfile="libs/base/src/base/stringutils.h" declline="50" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="group__string_1ga4189207e12bfff75ed562aac7fc68bd9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="group__string_1ga302ffb9b1d77af1d4d4a9300cc95ce9f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
         <definition>std::string eu::trim_left</definition>
-        <argsstring>(const std::string &amp;string_to_trim, const std::string &amp;trim_characters=space_characters)</argsstring>
+        <argsstring>(const std::string &amp;string_to_trim, std::string_view trim_characters=space_characters)</argsstring>
         <name>trim_left</name>
         <param>
           <type>const std::string &amp;</type>
           <declname>string_to_trim</declname>
         </param>
         <param>
-          <type>const std::string &amp;</type>
+          <type>std::string_view</type>
           <declname>trim_characters</declname>
           <defval>space_characters</defval>
         </param>
@@ -240,17 +240,17 @@
         </inbodydescription>
         <location file="libs/base/src/base/stringutils.cc" line="72" column="1" bodyfile="libs/base/src/base/stringutils.cc" bodystart="72" bodyend="75" declfile="libs/base/src/base/stringutils.h" declline="59" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="group__string_1gaba5dbc7e97fd23465bfb415e8d222087" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="group__string_1gadec8bf7517ec3547294ab20a5bf0d2fa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
         <definition>std::string eu::trim</definition>
-        <argsstring>(const std::string &amp;string_to_trim, const std::string &amp;trim_characters=space_characters)</argsstring>
+        <argsstring>(const std::string &amp;string_to_trim, std::string_view trim_characters=space_characters)</argsstring>
         <name>trim</name>
         <param>
           <type>const std::string &amp;</type>
           <declname>string_to_trim</declname>
         </param>
         <param>
-          <type>const std::string &amp;</type>
+          <type>std::string_view</type>
           <declname>trim_characters</declname>
           <defval>space_characters</defval>
         </param>

@@ -3014,10 +3014,10 @@
   <compound refid="structeu_1_1StringParser_3_01Lrud_3_01T_01_4_01_4" kind="struct"><name>eu::StringParser&lt; Lrud&lt; T &gt; &gt;</name>
     <member refid="structeu_1_1StringParser_3_01Lrud_3_01T_01_4_01_4_1a446e99717dc194c8cac3aa92887eca39" kind="enum"><name>@0</name></member>
     <member refid="structeu_1_1StringParser_3_01Lrud_3_01T_01_4_01_4_1a446e99717dc194c8cac3aa92887eca39ad5a6307a55080c99f837f2273ecb2fd8" kind="enumvalue"><name>value</name></member>
-    <member refid="structeu_1_1StringParser_3_01Lrud_3_01T_01_4_01_4_1aa56f88e138bd26b3b3e401d91c70fa09" kind="typedef"><name>Lrud</name></member>
+    <member refid="structeu_1_1StringParser_3_01Lrud_3_01T_01_4_01_4_1a74a06b602e1a7836dd1f35f81d34879b" kind="typedef"><name>Self</name></member>
     <member refid="structeu_1_1StringParser_3_01Lrud_3_01T_01_4_01_4_1aeafa9497a258fac21016b70ae5c24c8f" kind="variable"><name>separator</name></member>
-    <member refid="structeu_1_1StringParser_3_01Lrud_3_01T_01_4_01_4_1a9ebbbe71f2c5a671b63e364ada8571bd" kind="function"><name>to_string</name></member>
-    <member refid="structeu_1_1StringParser_3_01Lrud_3_01T_01_4_01_4_1ac925fa233e7fda8f3476434f20cacda7" kind="function"><name>parse</name></member>
+    <member refid="structeu_1_1StringParser_3_01Lrud_3_01T_01_4_01_4_1a17e1fff2b9836b406245363fe146d191" kind="function"><name>to_string</name></member>
+    <member refid="structeu_1_1StringParser_3_01Lrud_3_01T_01_4_01_4_1a993ce4a22463af68e28fcc0199f18ae9" kind="function"><name>parse</name></member>
   </compound>
   <compound refid="structeu_1_1StringParser_3_01Rgbi_01_4" kind="struct"><name>eu::StringParser&lt; Rgbi &gt;</name>
     <member refid="structeu_1_1StringParser_3_01Rgbi_01_4_1a7566c9b73d47ac07505a68a591994879" kind="enum"><name>@1</name></member>
@@ -3908,7 +3908,7 @@
     <member refid="namespaceeu_1a168787042231fd75574792ef12be530d" kind="variable"><name>q_identity</name></member>
     <member refid="namespaceeu_1abb3f2260d267fda207e4cbb285f90998" kind="variable"><name>r01</name></member>
     <member refid="namespaceeu_1ad3f5c4dd7e4d7cf1252f63a5dd8366e8" kind="variable"><name>r11</name></member>
-    <member refid="group__string_1ga15da2155ca42b256f31ead0dcf4f212d" kind="variable"><name>space_characters</name></member>
+    <member refid="group__string_1ga668fa0c5742dd7ed1c18ba1f94444dd6" kind="variable"><name>space_characters</name></member>
     <member refid="namespaceeu_1a0e7c9aad856ffd16ad97ae64df63ab4e" kind="variable"><name>zero2f</name></member>
     <member refid="namespaceeu_1a1b61de673bf9e0248a03112202ce30a4" kind="variable"><name>zero2i</name></member>
     <member refid="namespaceeu_1ae6904cdb3f5a821f19253d26980406fd" kind="variable"><name>zero3f</name></member>
@@ -4134,9 +4134,9 @@
     <member refid="group__string_1ga2ae1e3ca3167ed8f8138a4b275de664c" kind="function"><name>get_first_chars</name></member>
     <member refid="group__string_1ga562092e6d5cdff99bb2002135520d43a" kind="function"><name>get_first_chars_with_ellipsis</name></member>
     <member refid="group__string_1gaf34bd10282008511adeee9b34ed68de1" kind="function"><name>strip_last_string</name></member>
-    <member refid="group__string_1ga6835c61b16a0e91db39e1759f3ccf07f" kind="function"><name>trim_right</name></member>
-    <member refid="group__string_1ga4189207e12bfff75ed562aac7fc68bd9" kind="function"><name>trim_left</name></member>
-    <member refid="group__string_1gaba5dbc7e97fd23465bfb415e8d222087" kind="function"><name>trim</name></member>
+    <member refid="group__string_1gabd0037125a91414b1cc1134a65432292" kind="function"><name>trim_right</name></member>
+    <member refid="group__string_1ga302ffb9b1d77af1d4d4a9300cc95ce9f" kind="function"><name>trim_left</name></member>
+    <member refid="group__string_1gadec8bf7517ec3547294ab20a5bf0d2fa" kind="function"><name>trim</name></member>
     <member refid="group__string_1gaf84b447fd234f94fb8dd8edf185f58bf" kind="function"><name>begins_with</name></member>
     <member refid="group__string_1ga0769382ce3f4a117a18b8adf61298297" kind="function"><name>ends_with</name></member>
     <member refid="group__string_1gae2f29a648243ade3cadfacad13ce419d" kind="function"><name>to_lower_char</name></member>
@@ -6709,15 +6709,15 @@
     <member refid="group__string_1ga20491245288871dc76aabddb7437225f" kind="enum"><name>CharToStringStyle</name></member>
     <member refid="group__string_1gga20491245288871dc76aabddb7437225fa8c319f28d81d1527a9428e9a5c2195f5" kind="enumvalue"><name>smart</name></member>
     <member refid="group__string_1gga20491245288871dc76aabddb7437225fafa2f1c8dc686b38506663647e5242622" kind="enumvalue"><name>include_hex</name></member>
-    <member refid="group__string_1ga15da2155ca42b256f31ead0dcf4f212d" kind="variable"><name>space_characters</name></member>
+    <member refid="group__string_1ga668fa0c5742dd7ed1c18ba1f94444dd6" kind="variable"><name>space_characters</name></member>
     <member refid="group__string_1gac2203845e75e9d4fba81b932ed6f95cd" kind="function"><name>is_number</name></member>
     <member refid="group__string_1gaf34bd10282008511adeee9b34ed68de1" kind="function"><name>strip_last_string</name></member>
     <member refid="group__string_1gad9066d3055457c57ae5375b238a22a93" kind="function"><name>get_last_string</name></member>
     <member refid="group__string_1ga2ae1e3ca3167ed8f8138a4b275de664c" kind="function"><name>get_first_chars</name></member>
     <member refid="group__string_1ga562092e6d5cdff99bb2002135520d43a" kind="function"><name>get_first_chars_with_ellipsis</name></member>
-    <member refid="group__string_1ga6835c61b16a0e91db39e1759f3ccf07f" kind="function"><name>trim_right</name></member>
-    <member refid="group__string_1ga4189207e12bfff75ed562aac7fc68bd9" kind="function"><name>trim_left</name></member>
-    <member refid="group__string_1gaba5dbc7e97fd23465bfb415e8d222087" kind="function"><name>trim</name></member>
+    <member refid="group__string_1gabd0037125a91414b1cc1134a65432292" kind="function"><name>trim_right</name></member>
+    <member refid="group__string_1ga302ffb9b1d77af1d4d4a9300cc95ce9f" kind="function"><name>trim_left</name></member>
+    <member refid="group__string_1gadec8bf7517ec3547294ab20a5bf0d2fa" kind="function"><name>trim</name></member>
     <member refid="group__string_1gaf84b447fd234f94fb8dd8edf185f58bf" kind="function"><name>begins_with</name></member>
     <member refid="group__string_1ga0769382ce3f4a117a18b8adf61298297" kind="function"><name>ends_with</name></member>
     <member refid="group__string_1gae2f29a648243ade3cadfacad13ce419d" kind="function"><name>to_lower_char</name></member>
