@@ -108,7 +108,7 @@ namespace eu::io
         auto dnu_json = object.get(#PROP);\
         if (dnu_json)\
         {\
-            TYPE dnu_prop;\
+            TYPE dnu_prop = {};\
             if (false == parse(log, &dnu_prop, *dnu_json, doc))\
             {\
                 return false;\

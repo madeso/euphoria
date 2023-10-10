@@ -8,9 +8,9 @@ namespace eu::window
 
 struct SdlLogger : log::Logger
 {
-    void info(const std::string& str);
-    void warn(const std::string& str);
-    void error(const std::string& str);
+    void info(const std::string& str) override;
+    void warn(const std::string& str) override;
+    void error(const std::string& str) override;
 };
 
 }

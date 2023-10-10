@@ -111,7 +111,7 @@ namespace eu::editor
         for(int index = 0; index < c_sizet_to_int(data.size()); index+=1)
         {
             const int value = data[index];
-            const int step = abs(value);
+            const int step = std::abs(value);
             ret.emplace_back(x, x + step, index);
             x += step;
         }

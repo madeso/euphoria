@@ -32,15 +32,15 @@ namespace eu::core::tracery
     from_json(Symbol* rule, const jsonh::Value& value, const jsonh::Document* doc)
     {
         auto r = [&]() -> Result {
-            if (auto* str = value.AsString(doc); str != nullptr)
+            if (const auto* str = value.AsString(doc); str != nullptr)
             {
                 return rule->add_rule(str->value);
             }
-            else if (auto* arr = value.AsArray(doc); arr != nullptr)
+            else if (const auto* arr = value.AsArray(doc); arr != nullptr)
             {
                 for (const auto& v : arr->array)
                 {
-                    if (auto* vstr = v.AsString(doc); vstr != nullptr)
+                    if (const auto* vstr = v.AsString(doc); vstr != nullptr)
                     {
                         Result res = rule->add_rule(vstr->value);
                         if (res == false)
@@ -601,7 +601,7 @@ namespace eu::core::tracery
             return ret;
         }
 
-        auto root = result.root->AsObject(&result.doc);
+        const auto root = result.root->AsObject(&result.doc);
 
         if (root == nullptr)
         {

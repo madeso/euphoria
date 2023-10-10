@@ -51,6 +51,7 @@ namespace eu::files::game
         std::vector<Component> components;
     };
 
+    // todo(Gustav): rename enum
     enum class ViewportType
     {
         FitWithBlackBars, Extend, ScreenPixel
