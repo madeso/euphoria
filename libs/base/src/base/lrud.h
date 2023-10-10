@@ -99,13 +99,13 @@ namespace eu
     {
         enum { value = 1 };
 
-        using Lrud = Lrud<T>;
+        using Self = Lrud<T>;
 
         static constexpr char separator = '/';
 
         static
         std::string
-        to_string(const Lrud& fw)
+        to_string(const Self& fw)
         {
             return fmt::format
             (
@@ -119,10 +119,10 @@ namespace eu
         }
 
         static
-        Result<Lrud>
+        Result<Self>
         parse(const std::string& value)
         {
-            using R = Result<Lrud>;
+            using R = Result<Self>;
             auto parse = [](const std::string& v)
             {
                 return default_parse_function<T>(v);
@@ -136,7 +136,7 @@ namespace eu
 
                     if(!val) { return R::create_error(val.get_error()); }
 
-                    return R::create_value(Lrud{*val});
+                    return R::create_value(Self{*val});
                 }
                 case 2:
                 {
@@ -149,7 +149,7 @@ namespace eu
                     if(!hor) { return R::create_error(fmt::format("invalid hor({}): {}", vhor, hor.get_error())); }
                     if(!vert) { return R::create_error(fmt::format("invalid vert({}): {}", vvert, vert.get_error())); }
 
-                    return R::create_value(Lrud::from_lrud(*hor, *vert));
+                    return R::create_value(Self::from_lrud(*hor, *vert));
                 }
                 case 4:
                 {
@@ -168,7 +168,7 @@ namespace eu
                     if(!up) { return R::create_error(fmt::format("invalid up({}): {}", vup, up.get_error())); }
                     if(!down) { return R::create_error(fmt::format("invalid down({}): {}", vdown, down.get_error())); }
 
-                    return R::create_value(Lrud::from_lrud
+                    return R::create_value(Self::from_lrud
                     (
                         *left,
                         *right,
