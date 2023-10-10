@@ -62,21 +62,21 @@ strip_last_string(const std::string& str, char sep)
 
 
 std::string
-trim_right(const std::string& string_to_trim, const std::string& trim_characters)
+trim_right(const std::string& string_to_trim, std::string_view trim_characters)
 {
     return std::string(string_to_trim).erase(string_to_trim.find_last_not_of(trim_characters) + 1);
 }
 
 
 std::string
-trim_left(const std::string& string_to_trim, const std::string& trim_characters)
+trim_left(const std::string& string_to_trim, std::string_view trim_characters)
 {
     return std::string(string_to_trim).erase(0, string_to_trim.find_first_not_of(trim_characters));
 }
 
 
 std::string
-trim(const std::string& string_to_trim, const std::string& trim_characters)
+trim(const std::string& string_to_trim, std::string_view trim_characters)
 {
     return trim_right(trim_left(string_to_trim, trim_characters), trim_characters);
 }

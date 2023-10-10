@@ -21,7 +21,7 @@ namespace eu
     /** Space characters.
     @returns the space characters.
     */
-    const std::string space_characters = " \n\r\t";
+    constexpr std::string_view space_characters = " \n\r\t";
 
 
     /// for hello.dog and . gets hello
@@ -47,7 +47,7 @@ namespace eu
     @returns the trimmed string.
     */
     std::string
-    trim_right(const std::string& string_to_trim, const std::string& trim_characters = space_characters);
+    trim_right(const std::string& string_to_trim, std::string_view trim_characters = space_characters);
 
 
     /** Remove characters from the left, stops at invalid character.
@@ -56,7 +56,7 @@ namespace eu
     @returns the trimmed string.
     */
     std::string
-    trim_left(const std::string& string_to_trim, const std::string& trim_characters = space_characters);
+    trim_left(const std::string& string_to_trim, std::string_view trim_characters = space_characters);
 
 
     /** Remove characters from both the start and the end.
@@ -65,7 +65,7 @@ namespace eu
     @returns the trimmed string.
     */
     std::string
-    trim(const std::string& string_to_trim, const std::string& trim_characters = space_characters);
+    trim(const std::string& string_to_trim, std::string_view trim_characters = space_characters);
 
 
     /** Tests if a string starts with another string.

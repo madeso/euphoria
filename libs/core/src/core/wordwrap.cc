@@ -20,7 +20,7 @@ namespace
         return space_characters.find(c) != std::string::npos;
     }
 
-    const std::string split_chars = space_characters;
+    constexpr auto split_chars = space_characters;
 
     std::vector<std::string>
     explode(const std::string& str)
