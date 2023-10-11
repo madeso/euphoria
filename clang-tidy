@@ -71,6 +71,9 @@ google-*
 # in assert backtrace logic, string manipulation is cosidered vararg?
 -cppcoreguidelines-pro-type-vararg
 
+# globals are sometimes ok
+-cppcoreguidelines-avoid-non-const-global-variables
+
 # makes sense but sometimes it doesn't
 -bugprone-macro-parentheses
 

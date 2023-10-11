@@ -140,7 +140,7 @@ namespace eu::io
         for (const auto& x : object->object)
         {
             const auto& key = x.first;
-            if (found.find(key) != found.end()) continue;
+            if (found.find(key) != found.end()) { continue; }
 
             // todo(Gustav): add file, line and column
             errors.emplace_back(fmt::format("existing key {} was not read, could be {}", key, could_be(key, miss)));
@@ -154,7 +154,7 @@ namespace eu::io
         if (errors.empty()) { return std::nullopt; }
 
         // todo(Gustav): join with newlines instead?
-        else return string_mergers::english_and.merge(errors);
+        else { return string_mergers::english_and.merge(errors); }
     }
 }
 

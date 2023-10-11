@@ -14,7 +14,14 @@ namespace eu::log
 
     struct Logger
     {
+        Logger() = default;
         virtual ~Logger() = default;
+
+        Logger(const Logger&) = delete;
+        Logger(Logger&&) = delete;
+        void operator=(const Logger&) = delete;
+        void operator=(Logger&&) = delete;
+
         virtual void info(const std::string& str) = 0;
         virtual void warn(const std::string& str) = 0;
         virtual void error(const std::string& str) = 0;

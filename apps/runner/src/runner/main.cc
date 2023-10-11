@@ -141,13 +141,14 @@ run_main_script_file(LuaState* duk, FileSystem* fs, const FilePath& path)
 ViewportType
 con(files::game::ViewportType type)
 {
+    
     switch(type)
     {
-    case files::game::ViewportType::FitWithBlackBars:
+    case files::game::ViewportType::fit_with_black_bars:
         return ViewportType::fit_with_black_bars;
-    case files::game::ViewportType::ScreenPixel:
+    case files::game::ViewportType::screen_pixel:
         return ViewportType::screen_pixel;
-    case files::game::ViewportType::Extend:
+    case files::game::ViewportType::extend:
         return ViewportType::extend;
     default:
         DIE("Unhandled viewport case");

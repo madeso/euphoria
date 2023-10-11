@@ -56,8 +56,8 @@ namespace eu::files::gui
         // common data
         std::string name;
 
-        jsonh::tint column;
-        jsonh::tint row;
+        int column;
+        int row;
         float preferred_width;
         float preferred_height;
         Lrtb margin;

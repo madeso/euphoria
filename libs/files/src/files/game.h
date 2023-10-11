@@ -54,7 +54,7 @@ namespace eu::files::game
     // todo(Gustav): rename enum
     enum class ViewportType
     {
-        FitWithBlackBars, Extend, ScreenPixel
+        fit_with_black_bars, extend, screen_pixel
     };
 
     struct Viewport

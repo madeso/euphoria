@@ -79,9 +79,9 @@ namespace eu::files::game
     {
         JSON_BEGIN_ENUM(ViewportType);
 
-        JSON_ENUM_VAL(FitWithBlackBars);
-        JSON_ENUM_VAL(Extend);
-        JSON_ENUM_VAL(ScreenPixel);
+        JSON_ENUM_VAL(fit_with_black_bars);
+        JSON_ENUM_VAL(extend);
+        JSON_ENUM_VAL(screen_pixel);
 
         JSON_END_ENUM();
     }

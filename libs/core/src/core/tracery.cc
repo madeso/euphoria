@@ -601,7 +601,7 @@ namespace eu::core::tracery
             return ret;
         }
 
-        const auto root = result.root->AsObject(&result.doc);
+        const auto* const root = result.root->AsObject(&result.doc);
 
         if (root == nullptr)
         {
