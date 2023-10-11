@@ -17,22 +17,22 @@
       <memberdef kind="enum" id="namespaceeu_1_1files_1_1game_1a91559d690c16592f901267006b52d877" prot="public" static="no" strong="yes">
         <type></type>
         <name>ViewportType</name>
-        <enumvalue id="namespaceeu_1_1files_1_1game_1a91559d690c16592f901267006b52d877a192f685c41520a09a34a3ccbceac31cd" prot="public">
-          <name>FitWithBlackBars</name>
+        <enumvalue id="namespaceeu_1_1files_1_1game_1a91559d690c16592f901267006b52d877a2c09f32da8197fe3a7bccfc19b481c82" prot="public">
+          <name>fit_with_black_bars</name>
           <briefdescription>
           </briefdescription>
           <detaileddescription>
           </detaileddescription>
         </enumvalue>
-        <enumvalue id="namespaceeu_1_1files_1_1game_1a91559d690c16592f901267006b52d877a3bc026b815790a05493fa56fc4b8d8bd" prot="public">
-          <name>Extend</name>
+        <enumvalue id="namespaceeu_1_1files_1_1game_1a91559d690c16592f901267006b52d877ae0a91e6db6ff1103171559559f2d9698" prot="public">
+          <name>extend</name>
           <briefdescription>
           </briefdescription>
           <detaileddescription>
           </detaileddescription>
         </enumvalue>
-        <enumvalue id="namespaceeu_1_1files_1_1game_1a91559d690c16592f901267006b52d877a84bc820605180cc053da4e9fb38cfb4f" prot="public">
-          <name>ScreenPixel</name>
+        <enumvalue id="namespaceeu_1_1files_1_1game_1a91559d690c16592f901267006b52d877a2ff26f477fe6c0f2fcf8a4caf1b9128d" prot="public">
+          <name>screen_pixel</name>
           <briefdescription>
           </briefdescription>
           <detaileddescription>

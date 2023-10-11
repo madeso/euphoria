@@ -5,6 +5,19 @@
     <derivedcompoundref refid="structeu_1_1window_1_1SdlLogger" prot="public" virt="non-virtual">eu::window::SdlLogger</derivedcompoundref>
     <includes refid="log_2src_2log_2log_8h" local="no">log.h</includes>
       <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1log_1_1Logger_1a86a567c61eabb14a1894b05094c49400" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::log::Logger::Logger</definition>
+        <argsstring>()=default</argsstring>
+        <name>Logger</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/log/src/log/log.h" line="17" column="9"/>
+      </memberdef>
       <memberdef kind="function" id="structeu_1_1log_1_1Logger_1a567e35f85f815f99041930e7c998010f" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type></type>
         <definition>virtual eu::log::Logger::~Logger</definition>
@@ -16,7 +29,71 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/log/src/log/log.h" line="17" column="17"/>
+        <location file="libs/log/src/log/log.h" line="18" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1log_1_1Logger_1a594fa067eb15ab6ce49a26ce97ebaf92" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::log::Logger::Logger</definition>
+        <argsstring>(const Logger &amp;)=delete</argsstring>
+        <name>Logger</name>
+        <param>
+          <type>const <ref refid="structeu_1_1log_1_1Logger" kindref="compound">Logger</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/log/src/log/log.h" line="20" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1log_1_1Logger_1a1b1e9a5e0b46f72c504dea548c3f0476" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::log::Logger::Logger</definition>
+        <argsstring>(Logger &amp;&amp;)=delete</argsstring>
+        <name>Logger</name>
+        <param>
+          <type><ref refid="structeu_1_1log_1_1Logger" kindref="compound">Logger</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/log/src/log/log.h" line="21" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1log_1_1Logger_1aa2ee55126420e17cd6c60a1b573480f1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::log::Logger::operator=</definition>
+        <argsstring>(const Logger &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="structeu_1_1log_1_1Logger" kindref="compound">Logger</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/log/src/log/log.h" line="22" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1log_1_1Logger_1aaeda7ce06bd578f6efa49d3c9863f6d1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::log::Logger::operator=</definition>
+        <argsstring>(Logger &amp;&amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="structeu_1_1log_1_1Logger" kindref="compound">Logger</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/log/src/log/log.h" line="23" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1log_1_1Logger_1ad2b67eb49edc11aab5978f306f8e41b5" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
         <type>void</type>
@@ -34,7 +111,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/log/src/log/log.h" line="18" column="22"/>
+        <location file="libs/log/src/log/log.h" line="25" column="22"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1log_1_1Logger_1a06423e395456c121ee759d7569df5907" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
         <type>void</type>
@@ -52,7 +129,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/log/src/log/log.h" line="19" column="22"/>
+        <location file="libs/log/src/log/log.h" line="26" column="22"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1log_1_1Logger_1afaf5e8f95546857df1e95d8bae6775ef" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
         <type>void</type>
@@ -70,7 +147,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/log/src/log/log.h" line="20" column="22"/>
+        <location file="libs/log/src/log/log.h" line="27" column="22"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -89,10 +166,15 @@
         <link refid="structeu_1_1log_1_1Logger"/>
       </node>
     </inheritancegraph>
-    <location file="libs/log/src/log/log.h" line="15" column="5" bodyfile="libs/log/src/log/log.h" bodystart="16" bodyend="21"/>
+    <location file="libs/log/src/log/log.h" line="15" column="5" bodyfile="libs/log/src/log/log.h" bodystart="16" bodyend="28"/>
     <listofallmembers>
       <member refid="structeu_1_1log_1_1Logger_1afaf5e8f95546857df1e95d8bae6775ef" prot="public" virt="pure-virtual"><scope>eu::log::Logger</scope><name>error</name></member>
       <member refid="structeu_1_1log_1_1Logger_1ad2b67eb49edc11aab5978f306f8e41b5" prot="public" virt="pure-virtual"><scope>eu::log::Logger</scope><name>info</name></member>
+      <member refid="structeu_1_1log_1_1Logger_1a86a567c61eabb14a1894b05094c49400" prot="public" virt="non-virtual"><scope>eu::log::Logger</scope><name>Logger</name></member>
+      <member refid="structeu_1_1log_1_1Logger_1a594fa067eb15ab6ce49a26ce97ebaf92" prot="public" virt="non-virtual"><scope>eu::log::Logger</scope><name>Logger</name></member>
+      <member refid="structeu_1_1log_1_1Logger_1a1b1e9a5e0b46f72c504dea548c3f0476" prot="public" virt="non-virtual"><scope>eu::log::Logger</scope><name>Logger</name></member>
+      <member refid="structeu_1_1log_1_1Logger_1aa2ee55126420e17cd6c60a1b573480f1" prot="public" virt="non-virtual"><scope>eu::log::Logger</scope><name>operator=</name></member>
+      <member refid="structeu_1_1log_1_1Logger_1aaeda7ce06bd578f6efa49d3c9863f6d1" prot="public" virt="non-virtual"><scope>eu::log::Logger</scope><name>operator=</name></member>
       <member refid="structeu_1_1log_1_1Logger_1a06423e395456c121ee759d7569df5907" prot="public" virt="pure-virtual"><scope>eu::log::Logger</scope><name>warn</name></member>
       <member refid="structeu_1_1log_1_1Logger_1a567e35f85f815f99041930e7c998010f" prot="public" virt="virtual"><scope>eu::log::Logger</scope><name>~Logger</name></member>
     </listofallmembers>

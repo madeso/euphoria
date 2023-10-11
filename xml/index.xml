@@ -1433,7 +1433,12 @@
     <member refid="structeu_1_1core_1_1detail_1_1LocationInFile_1a066741e2b22a7e9cf4bf8a3b62b4ebab" kind="variable"><name>column</name></member>
   </compound>
   <compound refid="structeu_1_1log_1_1Logger" kind="struct"><name>eu::log::Logger</name>
+    <member refid="structeu_1_1log_1_1Logger_1a86a567c61eabb14a1894b05094c49400" kind="function"><name>Logger</name></member>
     <member refid="structeu_1_1log_1_1Logger_1a567e35f85f815f99041930e7c998010f" kind="function"><name>~Logger</name></member>
+    <member refid="structeu_1_1log_1_1Logger_1a594fa067eb15ab6ce49a26ce97ebaf92" kind="function"><name>Logger</name></member>
+    <member refid="structeu_1_1log_1_1Logger_1a1b1e9a5e0b46f72c504dea548c3f0476" kind="function"><name>Logger</name></member>
+    <member refid="structeu_1_1log_1_1Logger_1aa2ee55126420e17cd6c60a1b573480f1" kind="function"><name>operator=</name></member>
+    <member refid="structeu_1_1log_1_1Logger_1aaeda7ce06bd578f6efa49d3c9863f6d1" kind="function"><name>operator=</name></member>
     <member refid="structeu_1_1log_1_1Logger_1ad2b67eb49edc11aab5978f306f8e41b5" kind="function"><name>info</name></member>
     <member refid="structeu_1_1log_1_1Logger_1a06423e395456c121ee759d7569df5907" kind="function"><name>warn</name></member>
     <member refid="structeu_1_1log_1_1Logger_1afaf5e8f95546857df1e95d8bae6775ef" kind="function"><name>error</name></member>
@@ -3734,8 +3739,8 @@
   </compound>
   <compound refid="structeu_1_1files_1_1gui_1_1Widget" kind="struct"><name>eu::files::gui::Widget</name>
     <member refid="structeu_1_1files_1_1gui_1_1Widget_1a2b0330f1d5a35bca1268a8a503f8cde9" kind="variable"><name>name</name></member>
-    <member refid="structeu_1_1files_1_1gui_1_1Widget_1afae996cdfa1057914bdbbbd0499f04d6" kind="variable"><name>column</name></member>
-    <member refid="structeu_1_1files_1_1gui_1_1Widget_1a8964b802833662cb91c48a43ecf25b1f" kind="variable"><name>row</name></member>
+    <member refid="structeu_1_1files_1_1gui_1_1Widget_1af1ae45f28501a0ef55b3a055e83f9674" kind="variable"><name>column</name></member>
+    <member refid="structeu_1_1files_1_1gui_1_1Widget_1ad1f0f559bc16b1b6bb2277469d3cc533" kind="variable"><name>row</name></member>
     <member refid="structeu_1_1files_1_1gui_1_1Widget_1a10edac40100c30885b29202ca2990266" kind="variable"><name>preferred_width</name></member>
     <member refid="structeu_1_1files_1_1gui_1_1Widget_1ad7aeaec5dc62d354c1fa4f74a6ed4b16" kind="variable"><name>preferred_height</name></member>
     <member refid="structeu_1_1files_1_1gui_1_1Widget_1a7e7d0c87811a186ab7495c6e5db17443" kind="variable"><name>margin</name></member>
@@ -5237,9 +5242,9 @@
   </compound>
   <compound refid="namespaceeu_1_1files_1_1game" kind="namespace"><name>eu::files::game</name>
     <member refid="namespaceeu_1_1files_1_1game_1a91559d690c16592f901267006b52d877" kind="enum"><name>ViewportType</name></member>
-    <member refid="namespaceeu_1_1files_1_1game_1a91559d690c16592f901267006b52d877a192f685c41520a09a34a3ccbceac31cd" kind="enumvalue"><name>FitWithBlackBars</name></member>
-    <member refid="namespaceeu_1_1files_1_1game_1a91559d690c16592f901267006b52d877a3bc026b815790a05493fa56fc4b8d8bd" kind="enumvalue"><name>Extend</name></member>
-    <member refid="namespaceeu_1_1files_1_1game_1a91559d690c16592f901267006b52d877a84bc820605180cc053da4e9fb38cfb4f" kind="enumvalue"><name>ScreenPixel</name></member>
+    <member refid="namespaceeu_1_1files_1_1game_1a91559d690c16592f901267006b52d877a2c09f32da8197fe3a7bccfc19b481c82" kind="enumvalue"><name>fit_with_black_bars</name></member>
+    <member refid="namespaceeu_1_1files_1_1game_1a91559d690c16592f901267006b52d877ae0a91e6db6ff1103171559559f2d9698" kind="enumvalue"><name>extend</name></member>
+    <member refid="namespaceeu_1_1files_1_1game_1a91559d690c16592f901267006b52d877a2ff26f477fe6c0f2fcf8a4caf1b9128d" kind="enumvalue"><name>screen_pixel</name></member>
     <member refid="namespaceeu_1_1files_1_1game_1ac8ae858e60bd76378edc5d9bc5eaea38" kind="function"><name>JSON_PARSE_FUNC</name></member>
     <member refid="namespaceeu_1_1files_1_1game_1a06613269fc62199879e3744c28a44274" kind="function"><name>JSON_PARSE_FUNC</name></member>
     <member refid="namespaceeu_1_1files_1_1game_1af82f33950bb186a148a3c2594558a47a" kind="function"><name>JSON_PARSE_FUNC</name></member>

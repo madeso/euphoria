@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/log/src/log/log.cc" line="34" column="5" bodyfile="libs/log/src/log/log.cc" bodystart="34" bodyend="41" declfile="libs/log/src/log/log.h" declline="34" declcolumn="12"/>
+        <location file="libs/log/src/log/log.cc" line="34" column="5" bodyfile="libs/log/src/log/log.cc" bodystart="34" bodyend="41" declfile="libs/log/src/log/log.h" declline="41" declcolumn="12"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
