@@ -5,11 +5,12 @@
         "external/",
         "libs/assert/",
         "libs/core/examples/",
-        "libs/core/test/main.cc"
-        "libs/file_types/",
+        "libs/files/",
         "libs/gui/",
+        "libs/io/",
         "libs/log/",
         "libs/render/",
-        "libs/window/",
+        "libs/tests/",
+        "libs/window/"
     ]
 }
