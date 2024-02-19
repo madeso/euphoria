@@ -8,6 +8,7 @@ The name is swedish for "music machine".
 
 ** Planned features **
 
+ * scale input: 12-tone equal temperament, https://github.com/surge-synthesizer/tuning-library
  * configurable midi input
  * piano roll, with ability to only display notes in a certain scale [like](https://www.youtube.com/watch?v=fZeZ75gM9p4) [bosca ceoil](https://github.com/TerryCavanagh/boscaceoil/) and "chord notes"
  * place pattern in a gui like fl studio/dance ejay, should be many shortcuts so there is less drag and drop though
