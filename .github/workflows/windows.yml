@@ -9,6 +9,7 @@ jobs:
                 os: [windows-2022]
                 platform: [x64]
                 build_type: [Debug, Release]
+            fail-fast: false
 
         runs-on: ${{matrix.os}}
 
