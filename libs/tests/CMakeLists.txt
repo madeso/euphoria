@@ -36,10 +36,8 @@ target_link_libraries(tests
 set(test_src
     src/tests/stringeq.test.cc
 )
-set(test_main_src test/main.cc)
 source_group("" FILES ${test_src})
-source_group("main" FILES ${test_main_src})
-add_executable(tests_test ${test_src} ${test_main_src})
+add_executable(tests_test ${test_src})
 set_target_properties(tests_test PROPERTIES FOLDER "Tests")
 target_link_libraries(tests_test
     PRIVATE

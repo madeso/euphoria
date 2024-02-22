@@ -3,7 +3,7 @@
 #include "tests/vectorequals.h"
 #include "tests/approx.h"
 
-#include "catch.hpp"
+#include "catch2/catch_all.hpp"
 
 
 using namespace eu;

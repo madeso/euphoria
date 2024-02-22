@@ -1,5 +1,5 @@
 #include "core/ui_text.h"
-#include "catch.hpp"
+#include "catch2/catch_all.hpp"
 
 namespace core = eu::core;
 namespace textparser = eu::core::textparser;

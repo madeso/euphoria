@@ -4,7 +4,7 @@
 
 #include <limits>
 
-#include "catch.hpp"
+#include "catch2/catch_all.hpp"
 
 
 namespace eu::tests

@@ -1,7 +1,7 @@
 #include "io/vfs.h"
 #include "io/vfs_path.h"
 
-#include "catch.hpp"
+#include "catch2/catch_all.hpp"
 
 
 #define GTEST(X) TEST(filesystem, X)

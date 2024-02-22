@@ -2,7 +2,7 @@
 
 #include "base/random.h"
 
-#include "catch.hpp"
+#include "catch2/catch_all.hpp"
 
 namespace tr = eu::core::tracery;
 

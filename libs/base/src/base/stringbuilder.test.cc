@@ -1,6 +1,6 @@
 #include "base/stringbuilder.h"
 
-#include "catch.hpp"
+#include "catch2/catch_all.hpp"
 
 using namespace eu;
 

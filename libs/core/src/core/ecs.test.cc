@@ -185,7 +185,7 @@ TEST_CASE("ecs2-error", "[ecs2]")
         REQUIRE_THROWS_WITH
         (
             reg.get_component<Dog>(a, cat),
-            Catch::Contains("Assertion failed") && Catch::Contains("cat")
+            Catch::Matchers::ContainsSubstring("Assertion failed") && Catch::Matchers::ContainsSubstring("cat")
         );
     }
 }

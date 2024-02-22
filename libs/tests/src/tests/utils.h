@@ -1,6 +1,6 @@
 #pragma once
 
-#include "catch.hpp"
+#include "catch2/catch_all.hpp"
 
 // ASSERT_THAT
 #define CATCH_IS_VECTOR(TYPE, ...) \

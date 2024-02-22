@@ -1,6 +1,6 @@
 #include "core/quicksort.h"
 
-#include "catch.hpp"
+#include "catch2/catch_all.hpp"
 
 namespace core = eu::core;
 

@@ -1,4 +1,4 @@
-#include "catch.hpp"
+#include "catch2/catch_all.hpp"
 
 #include "base/range.h"
 
@@ -13,16 +13,16 @@
 
 TEST_CASE("num-to01", "[numeric]")
 {
-    REQUIRE(TO_01(1.0f, 2.0f, 3.0f) == Approx(0.5f));
-    REQUIRE(TO_01(-1.0f, 0.0f, 1.0f) == Approx(0.5f));
-    REQUIRE(TO_01(-1.0f, 2.0f, 1.0f) == Approx(1.5f));
+    REQUIRE(TO_01(1.0f, 2.0f, 3.0f) == Catch::Approx(0.5f));
+    REQUIRE(TO_01(-1.0f, 0.0f, 1.0f) == Catch::Approx(0.5f));
+    REQUIRE(TO_01(-1.0f, 2.0f, 1.0f) == Catch::Approx(1.5f));
 }
 
 TEST_CASE("num-from_01-float", "[numeric]")
 {
-    REQUIRE(FROM_01(0.0f, 0.5f, 2.0f) == Approx(1.0f));
-    REQUIRE(FROM_01(-2.0f, 0.5f, 2.0f) == Approx(0.0f));
-    REQUIRE(FROM_01(-2.0f, 1.5f, 2.0f) == Approx(4.0f));
+    REQUIRE(FROM_01(0.0f, 0.5f, 2.0f) == Catch::Approx(1.0f));
+    REQUIRE(FROM_01(-2.0f, 0.5f, 2.0f) == Catch::Approx(0.0f));
+    REQUIRE(FROM_01(-2.0f, 1.5f, 2.0f) == Catch::Approx(4.0f));
 }
 
 TEST_CASE("num-from_01-int", "[numeric]")
@@ -42,23 +42,23 @@ TEST_CASE("num-remap", "[numeric]")
                     eu::make_range<float>(0, 3),
                     eu::make_range<float>(0, 2),
                     1.5f)
-            == Approx(1.0f));
+            == Catch::Approx(1.0f));
 }
 
 TEST_CASE("num-get360angular", "[numeric]")
 {
-    REQUIRE(GET_360_ANGULAR(0.0f, 0.25f, 1.0f) == Approx(0.5f));
-    REQUIRE(GET_360_ANGULAR(0.0f, 0.75f, 1.0f) == Approx(0.5f));
-    REQUIRE(GET_360_ANGULAR(0.0f, 0.5f, 1.0f) == Approx(1.0f));
-    REQUIRE(GET_360_ANGULAR(0.0f, 0.0f, 1.0f) == Approx(0.0f));
-    REQUIRE(GET_360_ANGULAR(0.0f, 1.0f, 1.0f) == Approx(0.0f));
+    REQUIRE(GET_360_ANGULAR(0.0f, 0.25f, 1.0f) == Catch::Approx(0.5f));
+    REQUIRE(GET_360_ANGULAR(0.0f, 0.75f, 1.0f) == Catch::Approx(0.5f));
+    REQUIRE(GET_360_ANGULAR(0.0f, 0.5f, 1.0f) == Catch::Approx(1.0f));
+    REQUIRE(GET_360_ANGULAR(0.0f, 0.0f, 1.0f) == Catch::Approx(0.0f));
+    REQUIRE(GET_360_ANGULAR(0.0f, 1.0f, 1.0f) == Catch::Approx(0.0f));
 }
 
 TEST_CASE("num-keep_within", "[numeric]")
 {
-    REQUIRE(KEEP_WITHIN(0, -4, 1) == Approx(0));
-    REQUIRE(KEEP_WITHIN(0, 2, 4) == Approx(2));
-    REQUIRE(KEEP_WITHIN(0, 8, 4) == Approx(4));
+    REQUIRE(KEEP_WITHIN(0, -4, 1) == Catch::Approx(0));
+    REQUIRE(KEEP_WITHIN(0, 2, 4) == Catch::Approx(2));
+    REQUIRE(KEEP_WITHIN(0, 8, 4) == Catch::Approx(4));
 }
 
 TEST_CASE("num-is_within_inclusive", "[numeric]")
@@ -71,9 +71,9 @@ TEST_CASE("num-is_within_inclusive", "[numeric]")
 
 TEST_CASE("num-wrap", "[numeric]")
 {
-    REQUIRE(WRAP(0.0f, 0.5f, 1.0f) == Approx(0.5f));
-    REQUIRE(WRAP(0.0f, 1.5f, 1.0f) == Approx(0.5f));
-    REQUIRE(WRAP(0.0f, 55.5f, 1.0f) == Approx(0.5f));
+    REQUIRE(WRAP(0.0f, 0.5f, 1.0f) == Catch::Approx(0.5f));
+    REQUIRE(WRAP(0.0f, 1.5f, 1.0f) == Catch::Approx(0.5f));
+    REQUIRE(WRAP(0.0f, 55.5f, 1.0f) == Catch::Approx(0.5f));
 
-    REQUIRE(WRAP(-1.0f, 1.5f, 1.0f) == Approx(-0.5f));
+    REQUIRE(WRAP(-1.0f, 1.5f, 1.0f) == Catch::Approx(-0.5f));
 }

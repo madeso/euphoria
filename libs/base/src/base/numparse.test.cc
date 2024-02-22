@@ -1,7 +1,7 @@
 #include "base/numparse.h"
 
 #include "tests/approx_equal.h"
-#include "catch.hpp"
+#include "catch2/catch_all.hpp"
 
 using namespace eu;
 
@@ -18,8 +18,8 @@ TEST_CASE("numparse", "[numparse]")
     SECTION("floats")
     {
         //todo(Gustav): this is locale parse, this might fail
-        REQUIRE(*locale_parse_float("  4.2  ") == Approx(4.2));
-        REQUIRE(*locale_parse_float(" -12.3 dog") == Approx(-12.3));
+        REQUIRE(*locale_parse_float("  4.2  ") == Catch::Approx(4.2));
+        REQUIRE(*locale_parse_float(" -12.3 dog") == Catch::Approx(-12.3));
     }
 
     SECTION("bools")

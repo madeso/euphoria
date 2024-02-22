@@ -71,7 +71,7 @@ set(MACOSX_BUNDLE_INFO_PLIST "${CMAKE_CURRENT_SOURCE_DIR}/tools/osx-bundle.plist
 set(Gaf_CUSTOM_ARGUMENTS_FROM_FILE ${CMAKE_CURRENT_SOURCE_DIR}/tools/gaf_options.txt)
 
 include(CTest)
-include(external/catch/Catch.cmake)
+include(external/catch2/extras/Catch.cmake)
 
 enable_testing()
 

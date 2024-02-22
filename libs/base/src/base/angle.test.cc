@@ -1,7 +1,7 @@
 #include "base/angle.h"
 #include "base/numeric.h"
 
-#include "catch.hpp"
+#include "catch2/catch_all.hpp"
 #include "tests/approx.h"
 
 // todo(Gustav): don't use horrible define to use out custom Approx

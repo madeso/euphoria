@@ -1,6 +1,6 @@
 #include "tests/stringeq.h"
 
-#include "catch.hpp"
+#include "catch2/catch_all.hpp"
 #include <algorithm>
 
 #include "base/editdistance.h"

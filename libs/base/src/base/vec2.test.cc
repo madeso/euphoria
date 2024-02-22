@@ -2,7 +2,7 @@
 
 #include "tests/approx_equal.h"
 
-#include "catch.hpp"
+#include "catch2/catch_all.hpp"
 
 using namespace eu::tests;
 
@@ -78,22 +78,22 @@ TEST_CASE("vec2-div_assign", "[vec2]")
 TEST_CASE("vec2-length_squared", "[vec2]")
 {
     const auto v = eu::vec2f(1.0f, 2.0f).get_length_squared();
-    REQUIRE(v == Approx(5.0f));
+    REQUIRE(v == Catch::Approx(5.0f));
 }
 
 
 TEST_CASE("vec2-length", "[vec2]")
 {
     const auto v = eu::vec2f(0.0f, 3.0f).get_length();
-    REQUIRE(v == Approx(3.0f));
+    REQUIRE(v == Catch::Approx(3.0f));
 }
 
 
 TEST_CASE("vec2-get_normalized", "[vec2]")
 {
     const auto v = eu::vec2f(0.0f, 3.0f).get_normalized();
-    REQUIRE(v.x == Approx(0.0f));
-    REQUIRE(v.y == Approx(1.0f));
+    REQUIRE(v.x == Catch::Approx(0.0f));
+    REQUIRE(v.y == Catch::Approx(1.0f));
 }
 
 
@@ -107,5 +107,5 @@ TEST_CASE("vec2-equal", "[vec2]")
 TEST_CASE("vec2-dot", "[vec2]")
 {
     const auto r = eu::dot(eu::vec2f(1.0f, 2.0f), eu::vec2f(3.0f, 4.0f));
-    REQUIRE(r == Approx(11.0f));
+    REQUIRE(r == Catch::Approx(11.0f));
 }

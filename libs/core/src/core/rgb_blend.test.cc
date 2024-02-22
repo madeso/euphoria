@@ -1,6 +1,6 @@
 #include "core/rgb_blend.h"
 
-#include "catch.hpp"
+#include "catch2/catch_all.hpp"
 
 using namespace eu;
 using namespace eu::core;

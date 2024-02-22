@@ -1,6 +1,6 @@
 #include "core/camera3.h"
 
-#include "catch.hpp"
+#include "catch2/catch_all.hpp"
 #include "tests/approx.h"
 
 using namespace eu;

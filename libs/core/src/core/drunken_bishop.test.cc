@@ -2,7 +2,7 @@
 
 #include <bitset>
 
-#include "catch.hpp"
+#include "catch2/catch_all.hpp"
 #include "tests/utils.h"
 #include "tests/falsestring.h"
 #include "tests/vectorequals.h"

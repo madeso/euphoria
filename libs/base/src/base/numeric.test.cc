@@ -1,6 +1,6 @@
 #include "base/numeric.h"
 
-#include "catch.hpp"
+#include "catch2/catch_all.hpp"
 
 
 
@@ -33,55 +33,55 @@ TEST_CASE("num-sign", "[numeric]")
 
 TEST_CASE("num-lerp", "[numeric]")
 {
-    REQUIRE(eu::lerp_float(0.0f, 0.5f, 2.0f) == Approx(1.0f));
-    REQUIRE(eu::lerp_float(-1.0f, 0.5f, 1.0f) == Approx(0.0f));
-    REQUIRE(eu::lerp_float(0.0f, 0.25f, 4.0f) == Approx(1.0f));
+    REQUIRE(eu::lerp_float(0.0f, 0.5f, 2.0f) == Catch::Approx(1.0f));
+    REQUIRE(eu::lerp_float(-1.0f, 0.5f, 1.0f) == Catch::Approx(0.0f));
+    REQUIRE(eu::lerp_float(0.0f, 0.25f, 4.0f) == Catch::Approx(1.0f));
 }
 
 TEST_CASE("num-square", "[numeric]")
 {
-    REQUIRE(eu::square(3.0f) == Approx(9.0f));
+    REQUIRE(eu::square(3.0f) == Catch::Approx(9.0f));
 }
 
 TEST_CASE("num-sqrt", "[numeric]")
 {
-    REQUIRE(eu::sqrt(9.0f) == Approx(3.0f));
+    REQUIRE(eu::sqrt(9.0f) == Catch::Approx(3.0f));
 }
 
 TEST_CASE("num-abs", "[numeric]")
 {
-    REQUIRE(eu::abs(34.0f) == Approx(34.0f));
-    REQUIRE(eu::abs(-14.0f) == Approx(14.0f));
+    REQUIRE(eu::abs(34.0f) == Catch::Approx(34.0f));
+    REQUIRE(eu::abs(-14.0f) == Catch::Approx(14.0f));
 }
 
 TEST_CASE("num-min", "[numeric]")
 {
-    REQUIRE(eu::min(1.0f, 2.0f) == Approx(1.0f));
-    REQUIRE(eu::min(1.0f, -2.0f) == Approx(-2.0f));
+    REQUIRE(eu::min(1.0f, 2.0f) == Catch::Approx(1.0f));
+    REQUIRE(eu::min(1.0f, -2.0f) == Catch::Approx(-2.0f));
 }
 
 TEST_CASE("num-max", "[numeric]")
 {
-    REQUIRE(eu::max(1.0f, 2.0f) == Approx(2.0f));
-    REQUIRE(eu::max(1.0f, -2.0f) == Approx(1.0f));
+    REQUIRE(eu::max(1.0f, 2.0f) == Catch::Approx(2.0f));
+    REQUIRE(eu::max(1.0f, -2.0f) == Catch::Approx(1.0f));
 }
 
 TEST_CASE("num-round", "[numeric]")
 {
-    REQUIRE(eu::round(0.9f, 1.0f) == Approx(1.0f));
-    REQUIRE(eu::round(1.493f, 0.5f) == Approx(1.5f));
-    REQUIRE(eu::round(2.9f, 2.0f) == Approx(2.0f));
-    REQUIRE(eu::round(2.9f, 1.0f) == Approx(3.0f));
+    REQUIRE(eu::round(0.9f, 1.0f) == Catch::Approx(1.0f));
+    REQUIRE(eu::round(1.493f, 0.5f) == Catch::Approx(1.5f));
+    REQUIRE(eu::round(2.9f, 2.0f) == Catch::Approx(2.0f));
+    REQUIRE(eu::round(2.9f, 1.0f) == Catch::Approx(3.0f));
 }
 
 TEST_CASE("num-close_to_zero", "[numeric]")
 {
     REQUIRE(eu::get_default_if_close_to_zero<float>(10.0f, 42.0f, 0.1f)
-            == Approx(10.0f));
+            == Catch::Approx(10.0f));
     REQUIRE(eu::get_default_if_close_to_zero<float>(-10.0f, 42.0f, 0.1f)
-            == Approx(-10.0f));
+            == Catch::Approx(-10.0f));
     REQUIRE(eu::get_default_if_close_to_zero<float>(0.09f, 42.0f, 0.1f)
-            == Approx(42.0f));
+            == Catch::Approx(42.0f));
     REQUIRE(eu::get_default_if_close_to_zero<float>(-0.09f, 42.0f, 0.1f)
-            == Approx(42.0f));
+            == Catch::Approx(42.0f));
 }

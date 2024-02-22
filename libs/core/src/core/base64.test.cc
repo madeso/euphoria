@@ -1,6 +1,6 @@
 #include "core/base64.h"
 
-#include "catch.hpp"
+#include "catch2/catch_all.hpp"
 
 #include "base/stringbuilder.h"
 

@@ -1,6 +1,6 @@
 #include "base/rect.h"
 
-#include "catch.hpp"
+#include "catch2/catch_all.hpp"
 
 
 TEST_CASE("rect-constructor_topleftwidthheight", "[rect]")
@@ -274,10 +274,10 @@ TEST_CASE("rect-from-anchor-center", "[rect]")
             eu::Scale2f{0.5f, 0.5f},
                 half_width * 2,
                 half_height * 2);
-        REQUIRE(r.left == Approx {-half_width});
-        REQUIRE(r.right == Approx {half_width});
+        REQUIRE(r.left == Catch::Approx {-half_width});
+        REQUIRE(r.right == Catch::Approx {half_width});
 
-        REQUIRE(r.top == Approx {half_height});
-        REQUIRE(r.bottom == Approx {-half_height});
+        REQUIRE(r.top == Catch::Approx {half_height});
+        REQUIRE(r.bottom == Catch::Approx {-half_height});
     }
 }

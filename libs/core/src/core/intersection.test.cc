@@ -1,6 +1,6 @@
 #include "core/intersection.h"
 #include "tests/approx_equal.h"
-#include "catch.hpp"
+#include "catch2/catch_all.hpp"
 #include "base/ray.h"
 
 using namespace eu;
@@ -72,12 +72,12 @@ bool print_test(Random* r, int max_tests)
     {
         if(!add_ok) { return true; }
         ok_tests += 1;
-        
+
         print_test("collision", ok_tests);
-        
+
         fmt::print("    REQUIRE(result);\n");
         fmt::print("    CHECK(*result == Approx({}));\n", *result);
-        
+
         fmt::print("}}\n");
     }
     else
@@ -197,7 +197,7 @@ TEST_CASE("intersection-ray/triangle", "[intersection]")
             vec3f{47.333054f, -84.06681f, 26.312601f}
         );
         REQUIRE(result);
-        CHECK(*result == Approx(85.52471));
+        CHECK(*result == Catch::Approx(85.52471));
     }
     SECTION("collision_2")
     {
@@ -213,7 +213,7 @@ TEST_CASE("intersection-ray/triangle", "[intersection]")
             vec3f{73.32132f, -65.6623f, 17.67616f}
         );
         REQUIRE(result);
-        CHECK(*result == Approx(33.192245));
+        CHECK(*result == Catch::Approx(33.192245));
     }
     SECTION("collision_3")
     {
@@ -229,7 +229,7 @@ TEST_CASE("intersection-ray/triangle", "[intersection]")
             vec3f{-27.764107f, -53.843563f, -79.561455f}
         );
         REQUIRE(result);
-        CHECK(*result == Approx(51.045776));
+        CHECK(*result == Catch::Approx(51.045776));
     }
     SECTION("collision_4")
     {
@@ -245,7 +245,7 @@ TEST_CASE("intersection-ray/triangle", "[intersection]")
             vec3f{-11.927585f, -98.50488f, -12.430616f}
         );
         REQUIRE(result);
-        CHECK(*result == Approx(20.742744));
+        CHECK(*result == Catch::Approx(20.742744));
     }
     SECTION("collision_5")
     {
@@ -261,6 +261,6 @@ TEST_CASE("intersection-ray/triangle", "[intersection]")
             vec3f{-97.64034f, -9.205268f, -19.535276f}
         );
         REQUIRE(result);
-        CHECK(*result == Approx(159.43541));
+        CHECK(*result == Catch::Approx(159.43541));
     }
 }

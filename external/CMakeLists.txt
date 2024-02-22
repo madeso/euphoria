@@ -146,16 +146,22 @@ add_library(external::icon_font_cpp_headers ALIAS icon_font_cpp_headers)
 
 ###################################################################################################
 ## catch
-add_library(catch INTERFACE)
+file(GLOB_RECURSE cmake_source LIST_DIRECTORIES false CONFIGURE_DEPENDS
+    ${CMAKE_CURRENT_SOURCE_DIR}/catch2/src/catch2/*.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/catch2/src/catch2/*.hpp
+)
+add_library(catch STATIC ${cmake_source})
 target_include_directories(catch SYSTEM
-    INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/catch
+    PUBLIC
+        ${CMAKE_CURRENT_SOURCE_DIR}/catch2/src/
+        ${CMAKE_CURRENT_SOURCE_DIR}/catch2/euph/
 )
 target_link_libraries(catch INTERFACE ${CMAKE_THREAD_LIBS_INIT})
 add_library(external::catch ALIAS catch)
 
 
 add_library(catch_main STATIC
-    catch_main/main.cc
+    catch2/euph/main.cc
 )
 set_target_properties(catch_main PROPERTIES FOLDER "Dependencies")
 target_link_libraries(catch_main
