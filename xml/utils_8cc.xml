@@ -11,7 +11,7 @@
         </childnode>
       </node>
       <node id="3">
-        <label>catch.hpp</label>
+        <label>catch2/catch_all.hpp</label>
       </node>
       <node id="1">
         <label>libs/tests/src/tests/utils.cc</label>

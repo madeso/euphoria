@@ -22,9 +22,6 @@
         <childnode refid="15" relation="include">
         </childnode>
       </node>
-      <node id="44">
-        <label>catch.hpp</label>
-      </node>
       <node id="33">
         <label>queue</label>
       </node>
@@ -302,6 +299,9 @@
         </childnode>
         <childnode refid="10" relation="include">
         </childnode>
+      </node>
+      <node id="44">
+        <label>catch2/catch_all.hpp</label>
       </node>
       <node id="40">
         <label>base/numparse.h</label>

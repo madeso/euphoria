@@ -3,16 +3,13 @@
   <compounddef id="stringeq_8cc" kind="file" language="C++">
     <compoundname>stringeq.cc</compoundname>
     <includes refid="stringeq_8h" local="yes">tests/stringeq.h</includes>
-    <includes local="yes">catch.hpp</includes>
+    <includes local="yes">catch2/catch_all.hpp</includes>
     <includes local="no">algorithm</includes>
     <includes refid="editdistance_8h" local="yes">base/editdistance.h</includes>
     <includes refid="assert_8h" local="yes">assert/assert.h</includes>
     <includes refid="stringutils_8h" local="yes">base/stringutils.h</includes>
     <includes refid="vectortostring_8h" local="yes">tests/vectortostring.h</includes>
     <incdepgraph>
-      <node id="5">
-        <label>catch.hpp</label>
-      </node>
       <node id="11">
         <label>base/stringutils.h</label>
         <link refid="stringutils_8h"/>
@@ -70,6 +67,9 @@
       <node id="7">
         <label>base/editdistance.h</label>
         <link refid="editdistance_8h"/>
+      </node>
+      <node id="5">
+        <label>catch2/catch_all.hpp</label>
       </node>
       <node id="6">
         <label>algorithm</label>

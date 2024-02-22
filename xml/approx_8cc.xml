@@ -4,9 +4,6 @@
     <compoundname>approx.cc</compoundname>
     <includes refid="approx_8h" local="yes">tests/approx.h</includes>
     <incdepgraph>
-      <node id="5">
-        <label>catch.hpp</label>
-      </node>
       <node id="4">
         <label>limits</label>
       </node>
@@ -28,6 +25,9 @@
         <link refid="approx_8cc"/>
         <childnode refid="2" relation="include">
         </childnode>
+      </node>
+      <node id="5">
+        <label>catch2/catch_all.hpp</label>
       </node>
     </incdepgraph>
     <innernamespace refid="namespaceeu">eu</innernamespace>

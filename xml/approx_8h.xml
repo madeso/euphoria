@@ -4,13 +4,10 @@
     <compoundname>approx.h</compoundname>
     <includes local="no">cmath</includes>
     <includes local="no">limits</includes>
-    <includes local="yes">catch.hpp</includes>
+    <includes local="yes">catch2/catch_all.hpp</includes>
     <includedby refid="approx_8cc" local="yes">libs/tests/src/tests/approx.cc</includedby>
     <includedby refid="approx__equal_8h" local="yes">libs/tests/src/tests/approx_equal.h</includedby>
     <incdepgraph>
-      <node id="4">
-        <label>catch.hpp</label>
-      </node>
       <node id="3">
         <label>limits</label>
       </node>
@@ -26,6 +23,9 @@
         </childnode>
         <childnode refid="4" relation="include">
         </childnode>
+      </node>
+      <node id="4">
+        <label>catch2/catch_all.hpp</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
