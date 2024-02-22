@@ -156,7 +156,11 @@ target_include_directories(catch SYSTEM
         ${CMAKE_CURRENT_SOURCE_DIR}/catch2/src/
         ${CMAKE_CURRENT_SOURCE_DIR}/catch2/euph/
 )
-target_link_libraries(catch INTERFACE ${CMAKE_THREAD_LIBS_INIT})
+target_link_libraries(catch
+    PUBLIC
+        ${CMAKE_THREAD_LIBS_INIT}
+)
+target_compile_features(catch PUBLIC cxx_std_17)
 add_library(external::catch ALIAS catch)
 
 
