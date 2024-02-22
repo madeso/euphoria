@@ -8,6 +8,7 @@ jobs:
             matrix:
                 cxx: [g++-13, clang++-15]
                 build_type: [Debug, Release]
+            fail-fast: false
 
         runs-on: ubuntu-22.04
 
