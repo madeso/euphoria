@@ -6,7 +6,7 @@ jobs:
     build:
         strategy:
             matrix:
-                cxx: [g++-12]
+                cxx: [g++-13]
                 build_type: [Debug]
 
         runs-on: ubuntu-22.04
@@ -62,7 +62,7 @@ jobs:
           shell: bash
           working-directory: ${{github.workspace}}/build
           env:
-                CC: gcc-12
+                CC: gcc-13
                 CXX: ${{matrix.cxx}}
           run: cmake -DGENERATE_COVERAGE=ON -DCMAKE_BUILD_TYPE=${{matrix.build_type}} $GITHUB_WORKSPACE
 

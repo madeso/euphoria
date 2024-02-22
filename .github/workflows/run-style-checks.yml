@@ -34,7 +34,7 @@ jobs:
           shell: bash
           working-directory: ${{github.workspace}}/build
           env:
-                CXX: clang++-14
+                CXX: clang++-15
           run: cmake -DCMAKE_BUILD_TYPE=${{matrix.build_type}} $GITHUB_WORKSPACE
 
         - name: clang-tidy version
@@ -42,9 +42,9 @@ jobs:
           working-directory: ${{github.workspace}}/build
           run: |
                 ls /usr/bin/clang-*
-                alias clang-tidy='/usr/bin/clang-tidy-14'
+                alias clang-tidy='/usr/bin/clang-tidy-15'
                 which clang-tidy
-                clang-tidy-14 --version
+                clang-tidy-15 --version
                 clang-tidy --version
 
         - name: Build
@@ -55,7 +55,7 @@ jobs:
         - name: Run code check (clang-tidy)
           shell: bash
           working-directory: ${{github.workspace}}
-          run: time ./tools/clang.py tidy libs apps --list --tidy clang-tidy-14
+          run: time ./tools/clang.py tidy libs apps --list --tidy clang-tidy-15
 
         - name: Run code check (filename check)
           shell: bash
