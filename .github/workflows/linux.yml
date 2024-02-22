@@ -6,7 +6,7 @@ jobs:
     build:
         strategy:
             matrix:
-                cxx: [g++-12, clang++-14]
+                cxx: [g++-13, clang++-15]
                 build_type: [Debug, Release]
 
         runs-on: ubuntu-22.04
