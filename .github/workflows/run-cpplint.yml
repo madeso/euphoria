@@ -20,4 +20,4 @@ jobs:
           packages: cpplint
 
       - name: Cpplint run
-        run: ./tools/run-cpplint.py run
+        run: dotnet run --project .\tools\buildtools\Workbench\ -- cpplint run --compiler ${{matrix.os}} --platform ${{matrix.platform}}
