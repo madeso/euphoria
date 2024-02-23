@@ -55,9 +55,9 @@ jobs:
         - name: Run code check (clang-tidy)
           shell: bash
           working-directory: ${{github.workspace}}
-          run: time ./tools/clang.py tidy libs apps --list --tidy clang-tidy-15
+          run: dotnet run --project ./tools/buildtools/Workbench/ -- clang tidy libs apps --list --tidy clang-tidy-15 --compiler ${{matrix.os}} --platform ${{matrix.platform}}
 
         - name: Run code check (filename check)
           shell: bash
           working-directory: ${{github.workspace}}
-          run: time ./tools/tools.py check-files libs apps
+          run: dotnet run --project ./tools/buildtools/Workbench/ -- check-files libs apps
