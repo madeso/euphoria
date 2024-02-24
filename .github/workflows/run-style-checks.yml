@@ -60,4 +60,4 @@ jobs:
         - name: Run code check (filename check)
           shell: bash
           working-directory: ${{github.workspace}}
-          run: dotnet run --project ./tools/buildtools/Workbench/ -- check-files libs apps
+          run: dotnet run --project ./tools/buildtools/Workbench/ -- check-file-names libs apps
