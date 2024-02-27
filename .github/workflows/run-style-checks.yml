@@ -39,7 +39,7 @@ jobs:
 
         - name: clang-tidy version
           shell: bash
-          working-directory: ${{github.workspace}}/build
+          working-directory: ${{github.workspace}}
           run: |
                 ls /usr/bin/clang-*
                 clang-tidy-15 --version
