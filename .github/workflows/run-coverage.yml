@@ -37,8 +37,8 @@ jobs:
 
         - name: Switch to latest GCC
           run: |
-                sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-12 12
-                sudo update-alternatives --install /usr/bin/gcov gcov /usr/bin/gcov-12 12
+                sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-13 13
+                sudo update-alternatives --install /usr/bin/gcov gcov /usr/bin/gcov-13 13
 
 
         - name: Check version
