@@ -43,7 +43,7 @@ jobs:
           run: |
                 ls /usr/bin/clang-*
                 clang-tidy-15 --version
-                dotnet run --project ./tools/buildtools/Workbench/ -- path clang-tidy set clang-tidy-15
+                dotnet run --project ./tools/buildtools/Workbench/ -- path clang-tidy set /usr/bin/clang-tidy-15
 
         - name: Build
           shell: bash
