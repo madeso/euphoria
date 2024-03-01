@@ -44,6 +44,7 @@ jobs:
                 ls /usr/bin/clang-*
                 clang-tidy-15 --version
                 dotnet run --project ./tools/buildtools/Workbench/ -- path clang-tidy set /usr/bin/clang-tidy-15
+                dotnet run --project ./tools/buildtools/Workbench/ -- path clang-tidy list
 
         - name: Build
           shell: bash
@@ -53,7 +54,9 @@ jobs:
         - name: Run code check (clang-tidy)
           shell: bash
           working-directory: ${{github.workspace}}
-          run: dotnet run --project ./tools/buildtools/Workbench/ -- clang tidy libs apps --list
+          run: |
+                dotnet run --project ./tools/buildtools/Workbench/ -- path clang-tidy list
+                dotnet run --project ./tools/buildtools/Workbench/ -- clang tidy libs apps --list
 
         - name: Run code check (filename check)
           shell: bash
