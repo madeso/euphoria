@@ -47,3 +47,6 @@ cppcheck-result.txt
 .lite_workspace.lua
 
 .vs/
+
+workbench.paths.jsonc
+
