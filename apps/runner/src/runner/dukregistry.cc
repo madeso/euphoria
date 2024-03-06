@@ -145,7 +145,7 @@ namespace eu::runner
         }
         else
         {
-            sol::error err = val;
+            const sol::error err = val;
             const auto message = fmt::format("Failed to call create for component {0}({1}): {2}", name, core::ecs::c_comp(comp), err.what());
             LOG_ERROR("{0}", message);
             if(!ctx->has_error)

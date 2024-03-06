@@ -178,7 +178,10 @@ namespace eu::editor
                             const auto sub_directory = io::DirPath{"./" + item.name};
                             const auto resolved = resolve_relative(sub_directory, current_folder);
                             ASSERTX(resolved.has_value(), sub_directory, current_folder);
-                            current_folder = resolved.value();
+                            if(resolved)
+                            {
+                                current_folder = resolved.value();
+                            }
                         }
                         refresh();
                     }

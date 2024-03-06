@@ -1,10 +1,14 @@
 #include "log/log.h"
 
+#include "assert/assert.h"
+
 #include "base/mat4.h"
 #include "base/random.h"
-#include "io/vfs.h"
-#include "core/vfs_imagegenerator.h"
 #include "base/stringutils.h"
+
+#include "io/vfs.h"
+
+#include "core/vfs_imagegenerator.h"
 #include "core/stdutils.h"
 #include "core/viewport.h"
 
@@ -510,7 +514,11 @@ struct FileHandlerList
                 )
             )
             {
-                handler->open(windows, path.value());
+                ASSERT(path);
+                if(path)
+                {
+                    handler->open(windows, path.value());
+                }
             }
         }
     }

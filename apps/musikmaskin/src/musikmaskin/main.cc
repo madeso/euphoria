@@ -265,7 +265,7 @@ draw_keys
     float spacing
 )
 {
-    ImGuiStyle& style = ImGui::GetStyle();
+    const ImGuiStyle& style = ImGui::GetStyle();
     ImDrawList* draw_list = ImGui::GetWindowDrawList();
 
     float y = start_y;
