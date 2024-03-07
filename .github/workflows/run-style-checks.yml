@@ -55,7 +55,6 @@ jobs:
           shell: bash
           working-directory: ${{github.workspace}}
           run: |
-                dotnet run --project ./tools/buildtools/Workbench/ -- path clang-tidy list
                 dotnet run --project ./tools/buildtools/Workbench/ -- clang tidy libs apps --list
 
         - name: Run code check (filename check)
