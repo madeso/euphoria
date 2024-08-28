@@ -12,7 +12,7 @@
 
 #include "log/log.h"
 #include "assert/assert.h"
-#include "core/image_draw.h"
+// #include "core/image_draw.h"
 #include "core/utf8.h"
 #include "io/vfs.h"
 #include "base/cint.h"
@@ -221,8 +221,8 @@ namespace eu::core
                     bool pixel = 0 != (glyphs[glyph_index][7 - y] & 1 << x);
                     if(pixel)
                     {
-                        // glyph.image.SetPixel(x, y, Color::White);
-                        draw_square(&glyph.image, {NamedColor::white}, x, y, 1);
+                        glyph.image.set_pixel(x, y, { NamedColor::white });
+                        // draw_square(&glyph.image, {NamedColor::white}, x, y, 1);
                     }
                 }
             }
@@ -263,7 +263,8 @@ namespace eu::core
                     );
                     if(pixel)
                     {
-                        draw_square(&glyph.image, {NamedColor::white}, x, y, 1);
+                        glyph.image.set_pixel(x, y, { NamedColor::white });
+                        // draw_square(&glyph.image, {NamedColor::white}, x, y, 1);
                     }
                 }
             }

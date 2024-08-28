@@ -5,7 +5,6 @@
 #include "core/vfs_imagegenerator.h"
 #include "core/vfs_defaultshaders.h"
 #include "core/viewportdef.h"
-#include "core/image_draw.h"
 
 #include "render/debuggl.h"
 #include "render/font.h"
@@ -98,6 +97,8 @@ main(int argc, char* argv[])
     SDL_GetMouseState(&window_mouse_x, &window_mouse_y);
     bool mouse_lmb_down = false;
 
+    // todo(Gustav): replace with a proper image?
+#if 0
     {
         Image image;
         image.setup_no_alpha_support(256, 256);
@@ -115,6 +116,8 @@ main(int argc, char* argv[])
             image.write(ImageWriteFormat::png)
         );
     }
+#endif
+
     auto arrows = cache.get_texture(io::FilePath{"~/image"});
 
     engine.init->use_2d();

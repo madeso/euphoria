@@ -1,5 +1,4 @@
 #include "base/mat4.h"
-#include "core/image_draw.h"
 #include "base/random.h"
 #include "core/shufflebag.h"
 #include "io/vfs.h"
@@ -92,11 +91,14 @@ main(int argc, char** argv)
         texture_type
     );
 
+    auto rand = Random{ 42 };
+
+    // todo(Gustav): replace with a proper image?
+#if 0
     Image image;
     image.setup_no_alpha_support(256, 256);
     const auto wi = on_whole_image(image);
     clear(&image, {NamedColor::red});
-    auto rand = Random{42};
 
     for(int circle_counter = 0; circle_counter < 20; circle_counter += 1)
     {
@@ -121,6 +123,7 @@ main(int argc, char** argv)
         io::FilePath{"~/image"},
         image.write(ImageWriteFormat::png)
     );
+#endif
 
     TextureCache texture_cache {engine.file_system.get()};
 

@@ -9,7 +9,7 @@
 #include "stb_rect_pack.h"
 
 #include "log/log.h"
-#include "core/image_draw.h"
+// #include "core/image_draw.h"
 #include "core/ui_text.h"
 #include "core/utf8.h"
 #include "assert/assert.h"
@@ -17,6 +17,7 @@
 #include "io/vfs_path.h"
 #include "core/stdutils.h"
 #include "base/stringmerger.h"
+#include "base/vec2.h"
 
 #include "files/font.h"
 
@@ -120,6 +121,40 @@ namespace eu::render
 
 
     ////////////////////////////////////////////////////////////////////////////////
+
+
+    void
+    paste_image
+    (
+        core::Image* dest_image,
+        const vec2i& position,
+        const core::Image& source_image
+    )
+    {
+        ASSERT(dest_image);
+
+        for(int y = 0; y < source_image.height; ++y)
+        {
+            for(int x = 0; x < source_image.width; ++x)
+            {
+                const auto dest_x = position.x + x;
+                const auto dest_y = position.y + y;
+                if
+                (
+                    is_within(dest_image->get_indices(), vec2i(dest_x, dest_y)) == false
+                )
+                {
+                    // nop
+                }
+                else
+                {
+                    const auto top = source_image.get_pixel(x, y);
+                    const auto color = top;
+                    dest_image->set_pixel(dest_x, dest_y, color);
+                }
+            }
+        }
+    }
 
 
     DrawableFont::DrawableFont
@@ -247,7 +282,7 @@ namespace eu::render
                 continue;
             }
             const auto& src_char = fontchars.codepoint_to_glyph[id_to_codepoint[src_rect.id]];
-            core::paste_image
+            paste_image
             (
                 &image,
                 vec2i

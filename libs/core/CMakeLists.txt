@@ -2,24 +2,11 @@
 # core project
 
 set(app_src_color
-    src/core/colorbrewer.cc src/core/colorbrewer.h
-    src/core/image_canvas.cc src/core/image_canvas.h
-    src/core/image_draw.cc src/core/image_draw.h
-    src/core/image_to_text.cc src/core/image_to_text.h
     src/core/image.cc src/core/image.h
-    src/core/imagefilters.cc src/core/imagefilters.h
-    src/core/palette_all.cc src/core/palette_all.h
-    src/core/palette_cubehelix.cc src/core/palette_cubehelix.h
-    src/core/palette_extract.cc src/core/palette_extract.h
-    src/core/palette_lospec.cc src/core/palette_lospec.h
-    src/core/palette_matplot.cc src/core/palette_matplot.h
-    src/core/palette_mycarta.cc src/core/palette_mycarta.h
-    src/core/palette_tableu.cc src/core/palette_tableu.h
     src/core/palette.cc src/core/palette.h
 )
 
 set(app_src_math
-    src/core/collage.cc src/core/collage.h
     src/core/easing.cc src/core/easing.h
     src/core/lines.cc src/core/lines.h
     src/core/pack.cc src/core/pack.h
@@ -33,39 +20,22 @@ set(app_src_math
 )
 
 set(app_src_cli
-    src/core/cli_progress_dots.cc src/core/cli_progress_dots.h
-    src/core/cp437.cc src/core/cp437.h
-    src/core/ctree.cc src/core/ctree.h
-    src/core/textbox.cc src/core/textbox.h
 )
 
 set(app_src_pcg
-    src/core/drunken_bishop.cc src/core/drunken_bishop.h
-    src/core/generator_cell.cc src/core/generator_cell.h
-    src/core/generator_maze.cc src/core/generator_maze.h
-    src/core/markov.cc src/core/markov.h
-    src/core/tracery.cc src/core/tracery.h
 )
 
 set(app_src_hash
     src/core/hash.cc src/core/hash.h
     src/core/hash.string.cc src/core/hash.string.h
-    src/core/hashgen.h
-        src/core/hashgen.identicon.cc
-        src/core/hashgen.retro.cc
-        src/core/hashgen.sprator.cc
 )
 
 set(app_src_table
-    src/core/table_bool.cc src/core/table_bool.h
-    src/core/table_string.cc src/core/table_string.h
     src/core/table.cc src/core/table.h
 )
 
 set(app_src
     src/core/argparse.cc src/core/argparse.h
-    src/core/base64.cc src/core/base64.h
-    src/core/bitfield.cc src/core/bitfield.h
     src/core/bufferbuilder2d.cc src/core/bufferbuilder2d.h
     src/core/cache.cc src/core/cache.h
     src/core/camera3.cc src/core/camera3.h
@@ -76,8 +46,6 @@ set(app_src
     src/core/compiler_warning.cc src/core/compiler_warning.h
     src/core/console.cc src/core/console.h
     src/core/crc32.cc src/core/crc32.h
-    src/core/cypher.cc src/core/cypher.h
-    src/core/datetime.cc src/core/datetime.h
     src/core/decompress.cc src/core/decompress.h
     src/core/dotoutput.cc src/core/dotoutput.h
     src/core/dump.cc src/core/dump.h
@@ -99,13 +67,9 @@ set(app_src
     src/core/mesh.cc src/core/mesh.h
     src/core/mousebehaviour.cc src/core/mousebehaviour.h
     src/core/multisort.cc src/core/multisort.h
-    src/core/nlp_line.cc src/core/nlp_line.h
-    src/core/nlp_sentence.cc src/core/nlp_sentence.h
     src/core/orbitcontroller.cc src/core/orbitcontroller.h
-    src/core/propertytree.cc src/core/propertytree.h
     src/core/quicksort.cc src/core/quicksort.h
     src/core/radix_sort.cc src/core/radix_sort.h
-    src/core/raytracer.cc src/core/raytracer.h
     src/core/rng.cc src/core/rng.h
     src/core/sensitivity.cc src/core/sensitivity.h
     src/core/shufflebag.cc src/core/shufflebag.h
@@ -117,7 +81,6 @@ set(app_src
     src/core/textfileparser.cc src/core/textfileparser.h
     src/core/texttemplate.cc src/core/texttemplate.h
     src/core/texturetypes.cc src/core/texturetypes.h
-    src/core/timepoint.cc src/core/timepoint.h
     src/core/ui_text.cc src/core/ui_text.h
     src/core/utf8.cc src/core/utf8.h
     src/core/vfs_defaultshaders.cc src/core/vfs_defaultshaders.h
@@ -189,14 +152,9 @@ set_target_properties(core PROPERTIES FOLDER "Libraries")
 set(test_src
     data/test/test_image.png
     src/core/argparse.test.cc
-    src/core/base64.test.cc
-    src/core/bitfield.test.cc
     src/core/bufferbuilder2d.test.cc
     src/core/camera.test.cc
     src/core/commandlineparser.test.cc
-    src/core/cypher.test.cc
-    src/core/date.test.cc
-    src/core/drunken_bishop.test.cc
     src/core/ecs.test.cc
     src/core/findstring.test.cc
     src/core/guid.test.cc
@@ -208,21 +166,16 @@ set(test_src
     src/core/iterate.test.cc
     src/core/loadedfont.test.cc
     src/core/multisort.test.cc
-    src/core/nlp_line.test.cc
-    src/core/nlp_sentence.test.cc
     src/core/pack.test.cc
     src/core/quicksort.test.cc
     src/core/radix_sort.test.cc
     src/core/rgb_blend.test.cc
-    src/core/stringtable.test.cc
     src/core/subvec.test.cc
     src/core/table.test.cc
     src/core/tablelayout.test.cc
     src/core/template.test.cc
-    src/core/textbox.test.cc
     src/core/textfileparser.test.cc
     src/core/torcurve.test.cc
-    src/core/tracery.test.cc
     src/core/ui_text.test.cc
     src/core/utf8.test.cc
     src/core/viewportdef.test.cc
@@ -246,75 +199,16 @@ catch_discover_tests(core_test)
 file(GLOB all_examples_src examples/*.cc)
 source_group("" FILES ${all_examples_src})
 
-# single file applications that could be useful
-
-add_executable(palextract examples/palette_extract.cc)
-set_target_properties(palextract PROPERTIES FOLDER "Examples/Useful")
-target_link_libraries(palextract PRIVATE euph::project_options euph::project_warnings euph::core)
-
-add_executable(collage examples/collage.cc)
-set_target_properties(collage PROPERTIES FOLDER "Examples/Useful")
-target_link_libraries(collage PRIVATE euph::project_options euph::project_warnings euph::core)
-
-add_executable(tabletool examples/tabletool.cc)
-set_target_properties(tabletool PROPERTIES FOLDER "Examples/Useful")
-target_link_libraries(tabletool PRIVATE euph::project_options euph::project_warnings euph::core)
-
-add_executable(base64 examples/base64.cc)
-set_target_properties(base64 PROPERTIES FOLDER "Examples/Useful")
-target_link_libraries(base64 PRIVATE euph::project_options euph::project_warnings euph::core)
-
-add_executable(markov examples/markov_main.cc)
-set_target_properties(markov PROPERTIES FOLDER "Examples/Useful")
-target_link_libraries(markov PRIVATE euph::project_options euph::project_warnings euph::core)
-
-add_executable(tracery examples/tracery.cc)
-set_target_properties(tracery PROPERTIES FOLDER "Examples/Useful")
-target_link_libraries(tracery PRIVATE euph::project_options euph::project_warnings euph::core)
-
-add_executable(raytracer examples/raytracer_main.cc)
-set_target_properties(raytracer PROPERTIES FOLDER "Examples/Useful")
-target_link_libraries(raytracer PRIVATE euph::project_options euph::project_warnings euph::core)
-
-add_executable(cypher examples/cypher_main.cc)
-set_target_properties(cypher PROPERTIES FOLDER "Examples/Useful")
-target_link_libraries(cypher PRIVATE euph::project_options euph::project_warnings euph::core)
-
-
 # examples applications that serve no purpose other than
 # testing the libraries and perhaps generate some pretty visuals :)
-
-add_executable(examples-drunken-bishop examples/drunken_bishop_main.cc)
-set_target_properties(examples-drunken-bishop PROPERTIES FOLDER "Examples/Core")
-target_link_libraries(examples-drunken-bishop PRIVATE euph::project_options euph::project_warnings euph::core)
 
 add_executable(examples-rng examples/rng_main.cc)
 set_target_properties(examples-rng PROPERTIES FOLDER "Examples/Core")
 target_link_libraries(examples-rng PRIVATE euph::project_options euph::project_warnings euph::core)
 
-add_executable(examples-font examples/font_main.cc)
-set_target_properties(examples-font PROPERTIES FOLDER "Examples/Core")
-target_link_libraries(examples-font PRIVATE euph::project_options euph::project_warnings euph::core)
-
-add_executable(examples-palette examples/palette_main.cc)
-set_target_properties(examples-palette PROPERTIES FOLDER "Examples/Core")
-target_link_libraries(examples-palette PRIVATE euph::project_options euph::project_warnings euph::core)
-
 add_executable(examples-coldet examples/coldet.cc)
 set_target_properties(examples-coldet PROPERTIES FOLDER "Examples/Core")
 target_link_libraries(examples-coldet PRIVATE euph::project_options euph::project_warnings euph::core)
-
-add_executable(examples-draw-test examples/draw_test.cc)
-set_target_properties(examples-draw-test PROPERTIES FOLDER "Examples/Core")
-target_link_libraries(examples-draw-test PRIVATE euph::project_options euph::project_warnings euph::core)
-
-add_executable(examples-img examples/img.cc)
-set_target_properties(examples-img PROPERTIES FOLDER "Examples/Core")
-target_link_libraries(examples-img PRIVATE euph::project_options euph::project_warnings euph::core)
-
-add_executable(examples-poisson-test examples/poisson_test.cc)
-set_target_properties(examples-poisson-test PROPERTIES FOLDER "Examples/Core")
-target_link_libraries(examples-poisson-test PRIVATE euph::project_options euph::project_warnings euph::core)
 
 add_executable(examples-svg-dump examples/svg_dump.cc)
 set_target_properties(examples-svg-dump PROPERTIES FOLDER "Examples/Core")
@@ -323,24 +217,3 @@ target_link_libraries(examples-svg-dump PRIVATE euph::project_options euph::proj
 add_executable(examples-three-dump examples/three_dump.cc)
 set_target_properties(examples-three-dump PROPERTIES FOLDER "Examples/Core")
 target_link_libraries(examples-three-dump PRIVATE euph::project_options euph::project_warnings euph::core)
-
-add_executable(examples-identicon examples/identicon_main.cc)
-set_target_properties(examples-identicon PROPERTIES FOLDER "Examples/Core")
-target_link_libraries(examples-identicon PRIVATE euph::project_options euph::project_warnings euph::core)
-
-add_executable(examples-canvas examples/canvas_main.cc)
-set_target_properties(examples-canvas PROPERTIES FOLDER "Examples/Core")
-target_link_libraries(examples-canvas PRIVATE euph::project_options euph::project_warnings euph::core)
-
-add_executable(examples-tree examples/tree.cc)
-set_target_properties(examples-tree PROPERTIES FOLDER "Examples/Core")
-target_link_libraries(examples-tree PRIVATE euph::project_options euph::project_warnings euph::core)
-
-add_executable(examples-worldgen examples/worldgen.cc)
-set_target_properties(examples-worldgen PROPERTIES FOLDER "Examples/Core")
-target_link_libraries(examples-worldgen PRIVATE euph::project_options euph::project_warnings euph::core)
-
-add_executable(examples-voronoi examples/voronoi.cc)
-set_target_properties(examples-voronoi PROPERTIES FOLDER "Examples/Core")
-target_link_libraries(examples-voronoi PRIVATE euph::project_options euph::project_warnings euph::core)
-

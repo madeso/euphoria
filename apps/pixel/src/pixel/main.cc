@@ -3,7 +3,7 @@
 #include "base/random.h"
 #include "base/rgb.h"
 #include "base/colors.h"
-#include "core/palette_lospec.h"
+#include "core/palette.h"
 #include "core/palette.h"
 #include "core/image.h"
 #include "base/cint.h"
@@ -79,7 +79,7 @@ struct PixelApp : App
     Image image;
     Random random;
     Tool current_tool = Tool::pen;
-    Palette palette = *palettes::lospec::endesga_64;
+    Palette palette = *dawnbringer_palette;
     int foreground = 0;
     int background = 1;
 

@@ -1,7 +1,6 @@
 #include "core/vfs_imagegenerator.h"
 
 #include "core/image.h"
-#include "core/image_draw.h"
 #include "base/stringutils.h"
 #include "base/stringmerger.h"
 #include "log/log.h"
@@ -24,34 +23,8 @@ namespace eu::core
     std::shared_ptr<MemoryChunk>
     ReadRootImageGenerator::read_file(const io::FilePath& path)
     {
-        const auto [dir, command] = path.split_directories_and_file();
-        if(dir != base)
-        {
-            return MemoryChunk::create_null();
-        }
-
-        const auto color_name = to_lower(command);
-
-        const auto found_color = from_string_to_enum<NamedColor>(color_name);
-
-        if(!found_color.single_match)
-        {
-            LOG_WARN
-            (
-                "Invalid color name: {0} for path {1} closest matches are {2}",
-                color_name,
-                path,
-                string_mergers::english_or.merge(from_enum_to_string(found_color.values))
-            );
-            return MemoryChunk::create_null();
-        }
-
-        const auto color = found_color.values[0];
-
-        Image image;
-        image.setup_no_alpha_support(128, 128);
-        clear(&image, {color});
-        return image.write(ImageWriteFormat::png);
+        // todo(Gustav): replace this with proper 1x1 pixel images
+        return MemoryChunk::create_null();
     }
 
 

@@ -29,7 +29,7 @@ Euphoria is under heavy development, not ready for prime time, and the final pro
 
 ## About the code
 
-The folder structure should follow the [pitchfork layout](https://github.com/vector-of-bool/pitchfork).
+The folder structure should follow the [pitchfork layout](https://github.com/vector-of-bool/pitchfork). `graveyard` contains old code that could be brought back to life but should more or less be considered deleted.
 
 ![project layout](./docs/euphoria.excalidraw.svg)
 

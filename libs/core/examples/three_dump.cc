@@ -3,7 +3,7 @@
 #include "base/random.h"
 #include "core/palette.h"
 #include "base/angle.h"
-#include "core/palette_tableu.h"
+#include "core/palette.h"
 #include "core/shufflebag.h"
 #include "base/plane.h"
 #include "base/ray.h"
@@ -48,7 +48,7 @@ main(int argc, char* argv[])
 
     Random rand;
 
-    auto pal = create_shuffle_bag(palettes::tableau::color_blind_10->colors, 2);
+    auto pal = create_shuffle_bag(dawnbringer_palette->colors, 2);
 
     const auto size = 15.0f;
     auto area = Aabb{vec3f{-size, -size, -size}, vec3f{size, size, size}};

@@ -7,7 +7,6 @@
 #include "base/random.h"
 #include "base/range.h"
 #include "core/palette.h"
-#include "core/palette_tableu.h"
 #include "core/shufflebag.h"
 #include "base/os.h"
 #include "core/argparse.h"
@@ -57,7 +56,7 @@ main(int argc, char* argv[])
 
     Random rand;
 
-    auto pal = create_shuffle_bag(palettes::tableau::color_blind_10->colors, 2);
+    auto pal = create_shuffle_bag(dawnbringer_palette->colors, 2);
 
     auto svg = Dumper{};
 
