@@ -9,6 +9,7 @@ Inspirations are
 * portal 2 level editor: https://www.youtube.com/watch?v=iJgllufikSo
 * bethesda level editor: [Fallout 4's Modular Level Design](https://www.youtube.com/watch?v=QBAM27YbKZg) / [Skyrim’s Modular Approach to Level Design](http://blog.joelburgess.com/2013/04/skyrims-modular-level-design-gdc-2013.html)
 * asset forge [demo video](https://www.youtube.com/watch?v=tXUyR2D8Pxc)
+* asset placer [video](https://www.youtube.com/watch?v=UNqc_zMehAI) and [documentation](https://cookiebadger.github.io/assetplacer-docs/index.html)
 
 ## todo
 * should we force items on a grid or not
