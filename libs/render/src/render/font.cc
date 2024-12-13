@@ -246,8 +246,6 @@ namespace eu::render
         // the half margin between glyphs in the final texture
         const int half_margin = 1;
 
-        // todo(Gustav): use core/pack.h instead
-
         // pack char textures to a single texture
         const int num_rects = c_sizet_to_int(fontchars.codepoint_to_glyph.size());
         std::vector<stbrp_rect> packed_rects(num_rects);
