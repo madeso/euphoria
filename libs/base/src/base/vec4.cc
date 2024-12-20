@@ -1,83 +1,47 @@
 #include "base/vec4.h"
 
-
 namespace eu
 {
-    vec4f::vec4f(float a)
-        : x(a)
-        , y(a)
-        , z(a)
-        , w(a)
+    v4::v4(float a)
+        : x(a), y(a), z(a), w(a)
     {
     }
 
-
-    vec4f::vec4f(float ax, float ay, float az, float aw)
-        : x(ax)
-        , y(ay)
-        , z(az)
-        , w(aw)
+    v4::v4(float ax, float ay, float az, float aw)
+        : x(ax), y(ay), z(az), w(aw)
     {
     }
 
-
-    vec4f::vec4f(const vec3f& a, float aw)
-        : x(a.x)
-        , y(a.y)
-        , z(a.z)
-        , w(aw)
+    v4::v4(const v3 &a, float aw)
+        : x(a.x), y(a.y), z(a.z), w(aw)
     {
     }
 
-
-    vec4f::vec4f(const Scale3f& a)
-        : x(a.x)
-        , y(a.y)
-        , z(a.z)
-        , w(1)
+    v4::v4(const float *a)
+        : x(a[0]), y(a[1]), z(a[2]), w(a[3])
     {
     }
 
-
-    vec4f::vec4f(const float* a)
-        : x(a[0])
-        , y(a[1])
-        , z(a[2])
-        , w(a[3])
-    {
-    }
-
-
-    vec3f
-    vec4f::to_vec3(float ww) const
+    v3
+    v4::to_vec3(float ww) const
     {
         ASSERTX(is_equal(w, ww), w, ww);
         return {x, y, z};
     }
 
-
-    vec3f
-    vec4f::to_vec3() const
-    {
-        return {x, y, z};
-    }
-
-
-    float*
-    vec4f::get_data_ptr()
+    float *
+    v4::get_data_ptr()
     {
         return &x;
     }
 
-
-    const float*
-    vec4f::get_data_ptr() const
+    const float *
+    v4::get_data_ptr() const
     {
         return &x;
     }
 
-
-    std::string to_string(const vec4f& v)
+    std::string to_string(const v4 &v)
     {
         return fmt::format("({}, {}, {}, {})", v.x, v.y, v.z, v.w);
     }

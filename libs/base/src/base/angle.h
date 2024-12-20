@@ -1,15 +1,9 @@
 #pragma once
 
-#include <iostream>
-
 #include "base/numeric.h"
-#include "base/default_interpolate.h"
-
 
 namespace eu
 {
-    struct Random;
-
     struct Angle
     {
         [[nodiscard]] constexpr static Angle
@@ -89,8 +83,6 @@ namespace eu
     constexpr Angle quarter_turn = Angle::from_radians(pi / 2.0f);
     constexpr Angle no_rotation = Angle::from_radians(0.0f);
 
-    [[nodiscard]] Angle get_random_angle(::eu::Random* random);
-
 
     float sin(const Angle& ang);
     float cos(const Angle& ang);
@@ -114,21 +106,19 @@ namespace eu
     bool operator>=(const Angle& lhs, const Angle& rhs);
 
     Angle lerp_angle(const Angle& from, float v, const Angle& to);
-
-    DEFAULT_INTERPOLATE(Angle, lerp_angle);
 }
 
 ADD_DEFAULT_FORMATTER(eu::Angle, std::string, eu::to_string);
 
 namespace eu::convert
 {
-    constexpr Angle operator"" _deg(long double d)
+    constexpr Angle operator""_deg(long double d)
     {
         return Angle::from_degrees(static_cast<float>(d));
     }
 
 
-    constexpr Angle operator"" _rad(long double r)
+    constexpr Angle operator""_rad(long double r)
     {
         return Angle::from_radians(static_cast<float>(r));
     }

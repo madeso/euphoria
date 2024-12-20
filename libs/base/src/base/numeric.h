@@ -1,6 +1,5 @@
 #pragma once
 
-#include "base/default_interpolate.h"
 #include "base/ints.h"
 
 namespace eu
@@ -68,8 +67,6 @@ namespace eu
     float
     lerp_float(float f, float scale, float t);
 
-    DEFAULT_INTERPOLATE(float, lerp_float);
-
     float
     square(float r);
 
@@ -96,16 +93,14 @@ namespace eu
         return rhs; \
     }
     EU_MAKE_MINMAX(float)
-    // EU_MAKE_MINMAX(int)
-    // EU_MAKE_MINMAX(std::size_t)
-    EU_MAKE_MINMAX(I64)
-    EU_MAKE_MINMAX(I32)
-    EU_MAKE_MINMAX(I16)
-    EU_MAKE_MINMAX(I8)
-    EU_MAKE_MINMAX(U64)
-    EU_MAKE_MINMAX(U32)
-    EU_MAKE_MINMAX(U16)
-    EU_MAKE_MINMAX(U8)
+    EU_MAKE_MINMAX(i64)
+    EU_MAKE_MINMAX(i32)
+    EU_MAKE_MINMAX(i16)
+    EU_MAKE_MINMAX(i8)
+    EU_MAKE_MINMAX(u64)
+    EU_MAKE_MINMAX(u32)
+    EU_MAKE_MINMAX(u16)
+    EU_MAKE_MINMAX(u8)
 #undef EU_MAKE_MINMAX
 
 

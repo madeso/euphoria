@@ -7,7 +7,6 @@
 
 #include "base/angle.h"
 #include "assert/assert.h"
-#include "base/cint.h"
 
 namespace eu
 {
@@ -45,13 +44,6 @@ namespace eu
     Range<T> make_range(T max)
     {
         return Range<T>(max);
-    }
-
-    template <typename T>
-    Range<int> make_range(const std::vector<T>& v)
-    {
-        ASSERT(!v.empty());
-        return make_range<int>(c_sizet_to_int(v.size()) - 1);
     }
 
     constexpr Range<float> r01 = { 0.0f, 1.0f};

@@ -1,80 +1,49 @@
 #pragma once
 
-
-
 #include <tuple>
 
-#include "base/vec2.h"
-#include "base/numeric.h"
 #include "assert/assert.h"
-#include "base/cint.h"
 
+#include "base/numeric.h"
 
 namespace eu
 {
     ////////////////////////////////////////////////////////////////////////////////
     /// Forward declarations
 
-    struct vec3f;
-    struct unit3f;
-    struct Scale3f;
-
+    struct v3;
+    struct n3;
 
     ////////////////////////////////////////////////////////////////////////////////
 
-
-    struct Scale3f
+    struct v3
     {
         float x;
         float y;
         float z;
 
-        explicit Scale3f(float a);
-        explicit Scale3f(const std::tuple<float, float, float>& a);
-        Scale3f(float ax, float ay, float az);
-        explicit Scale3f(const float* a);
-
-        float* get_data_ptr();
-        [[nodiscard]] const float* get_data_ptr() const;
-
-        bool operator==(const Scale3f& rhs) = delete;
-    };
-
-
-    ////////////////////////////////////////////////////////////////////////////////
-
-
-    struct vec3f
-    {
-        float x;
-        float y;
-        float z;
-
-        explicit vec3f(float a);
-        explicit vec3f(const std::tuple<float, float, float>& a);
-        constexpr vec3f(float ax, float ay, float az)
-            : x(ax)
-            , y(ay)
-            , z(az)
+        explicit v3(float a);
+        explicit v3(const std::tuple<float, float, float> &a);
+        constexpr v3(float ax, float ay, float az)
+            : x(ax), y(ay), z(az)
         {
         }
 
-        explicit vec3f(const float* a);
-        vec3f(const vec2f& a, float az);
+        explicit v3(const float *a);
 
-        static vec3f from_to(const vec3f& from, const vec3f& to);
-        
-        [[nodiscard]] float dot(const vec3f& rhs) const;
-        [[nodiscard]] vec3f cross(const vec3f& u) const;
+        static v3 from_to(const v3 &from, const v3 &to);
 
-        void operator+=(const vec3f& rhs);
-        void operator-=(const vec3f& rhs);
+        [[nodiscard]] float dot(const v3 &rhs) const;
+        [[nodiscard]] v3 cross(const v3 &u) const;
+
+        void operator+=(const v3 &rhs);
+        void operator-=(const v3 &rhs);
         void operator/=(float rhs);
         void operator*=(float rhs);
-        vec3f operator-() const;
-        
-        float* get_data_ptr();
-        [[nodiscard]] const float* get_data_ptr() const;
+        v3 operator-() const;
+
+        float *get_data_ptr();
+        [[nodiscard]] const float *get_data_ptr() const;
 
         [[nodiscard]] constexpr float get_length_squared() const
         {
@@ -84,23 +53,21 @@ namespace eu
         [[nodiscard]] float get_length() const;
 
         void normalize();
-        [[nodiscard]] unit3f get_normalized() const;
+        [[nodiscard]] n3 get_normalized() const;
 
         // todo(Gustav): rename to assume_normalized
-        [[nodiscard]] unit3f as_normalized() const;
+        [[nodiscard]] n3 as_normalized() const;
 
-        bool operator==(const vec3f& rhs) = delete;
+        bool operator==(const v3 &rhs) = delete;
     };
 
-    constexpr vec3f zero3f = vec3f{ 0.0f, 0.0f, 0.0f };
-
+    constexpr v3 zero3f = v3{0.0f, 0.0f, 0.0f};
 
     ////////////////////////////////////////////////////////////////////////////////
 
-
-    struct unit3f : public vec3f
+    struct n3 : public v3
     {
-        constexpr unit3f operator-() const
+        constexpr n3 operator-() const
         {
             return {-this->x, -this->y, -this->z};
         }
@@ -111,13 +78,13 @@ namespace eu
             return is_equal(get_length_squared(), 1.0f);
         }
 
-        static unit3f to_unit(float x, float y, float z);
-        static unit3f to_unit(const vec3f& v);
+        static n3 to_unit(float x, float y, float z);
+        static n3 to_unit(const v3 &v);
 
-        bool operator==(const unit3f& rhs) = delete;
+        bool operator==(const n3 &rhs) = delete;
 
-        constexpr unit3f(float a, float b, float c)
-            : vec3f(a, b, c)
+        constexpr n3(float a, float b, float c)
+            : v3(a, b, c)
         {
             ASSERT(is_valid());
         }
@@ -125,64 +92,58 @@ namespace eu
 
     namespace common
     {
-        constexpr unit3f x_axis = unit3f {1.0f, 0.0f, 0.0f};
-        constexpr unit3f y_axis = unit3f {0.0f, 1.0f, 0.0f};
-        constexpr unit3f z_axis = unit3f {0.0f, 0.0f, 1.0f};
-        constexpr unit3f up = y_axis;
-        constexpr unit3f down = -y_axis;
-        constexpr unit3f right = x_axis;
-        constexpr unit3f left = -x_axis;
-        constexpr unit3f in = -z_axis;
-        constexpr unit3f out = z_axis;
+        constexpr n3 x_axis = n3{1.0f, 0.0f, 0.0f};
+        constexpr n3 y_axis = n3{0.0f, 1.0f, 0.0f};
+        constexpr n3 z_axis = n3{0.0f, 0.0f, 1.0f};
+        constexpr n3 up = y_axis;
+        constexpr n3 down = -y_axis;
+        constexpr n3 right = x_axis;
+        constexpr n3 left = -x_axis;
+        constexpr n3 in = -z_axis;
+        constexpr n3 out = z_axis;
     }
 
     ////////////////////////////////////////////////////////////////////////////////
     /// Math operators
 
-    vec3f operator+(const vec3f& lhs, const vec3f& rhs);
-    vec3f operator-(const vec3f& lhs, const vec3f& rhs);
+    v3 operator+(const v3 &lhs, const v3 &rhs);
+    v3 operator-(const v3 &lhs, const v3 &rhs);
 
-    vec3f operator*(float lhs, const vec3f& rhs);
-    vec3f operator*(const vec3f& lhs, float rhs);
+    v3 operator*(float lhs, const v3 &rhs);
+    v3 operator*(const v3 &lhs, float rhs);
 
-    vec3f operator/(const vec3f& lhs, float rhs);
-    vec3f operator/(float lhs, const vec3f& rhs);
-
+    v3 operator/(const v3 &lhs, float rhs);
+    v3 operator/(float lhs, const v3 &rhs);
 
     ////////////////////////////////////////////////////////////////////////////////
     /// Transformations
 
-    vec3f lerp_vec3f(const vec3f& f, float v, const vec3f& t);
-
+    v3 lerp_v3(const v3 &f, float v, const v3 &t);
 
     ////////////////////////////////////////////////////////////////////////////////
     /// Printing
 
-    std::string to_string(const vec3f& v);
-    std::string to_string(const unit3f& v);
-    std::string to_string(const Scale3f& v);
-
+    std::string to_string(const v3 &v);
+    std::string to_string(const n3 &v);
 
     //////////////////////////
     // minmax
-    constexpr vec3f
-    min(const vec3f& lhs, const vec3f& rhs)
+    constexpr v3
+    min(const v3 &lhs, const v3 &rhs)
     {
 #define M(var) eu::min(lhs.var, rhs.var)
-        return vec3f {M(x), M(y), M(z)};
+        return v3{M(x), M(y), M(z)};
 #undef M
     }
 
-
-    constexpr vec3f
-    max(const vec3f& lhs, const vec3f& rhs)
+    constexpr v3
+    max(const v3 &lhs, const v3 &rhs)
     {
 #define M(var) eu::max(lhs.var, rhs.var)
-        return vec3f {M(x), M(y), M(z)};
+        return v3{M(x), M(y), M(z)};
 #undef M
     }
 }
 
-ADD_DEFAULT_FORMATTER(eu::vec3f, std::string, eu::to_string);
-ADD_DEFAULT_FORMATTER(eu::unit3f, std::string, eu::to_string);
-ADD_DEFAULT_FORMATTER(eu::Scale3f, std::string, eu::to_string);
+ADD_DEFAULT_FORMATTER(eu::v3, std::string, eu::to_string);
+ADD_DEFAULT_FORMATTER(eu::n3, std::string, eu::to_string);

@@ -5,43 +5,35 @@
 #include "assert/assert.h"
 #include "base/numeric.h"
 
-
-
 namespace eu
 {
     // represents a homogeneous coordinate
-    struct vec4f
+    struct v4
     {
         float x;
         float y;
         float z;
         float w;
 
-        explicit vec4f(float a);
-        vec4f(float ax, float ay, float az, float aw);
+        explicit v4(float a);
+        v4(float ax, float ay, float az, float aw);
 
         /// @param aw point is 1, vector is 0
-        vec4f(const vec3f& a, float aw);
+        v4(const v3 &a, float aw);
 
-        // todo(Gustav): make explicit?
-        vec4f(const Scale3f& a);
+        explicit v4(const float *a);
 
-        explicit vec4f(const float* a);
-
-        float* get_data_ptr();
+        float *get_data_ptr();
 
         /// asserts that the w component is what is expected
-        [[nodiscard]] vec3f to_vec3(float ww) const;
+        [[nodiscard]] v3 to_vec3(float ww) const;
 
-        // todo(Gustav): replace this and instead always call the assert version (above)
-        [[nodiscard]] vec3f to_vec3() const;
+        [[nodiscard]] const float *get_data_ptr() const;
 
-        [[nodiscard]] const float* get_data_ptr() const;
-
-        bool operator==(const vec4f& rhs) = delete;
+        bool operator==(const v4 &rhs) = delete;
     };
 
-    std::string to_string(const vec4f& v);
+    std::string to_string(const v4 &v);
 }
 
-ADD_DEFAULT_FORMATTER(eu::vec4f, std::string, eu::to_string);
+ADD_DEFAULT_FORMATTER(eu::v4, std::string, eu::to_string);

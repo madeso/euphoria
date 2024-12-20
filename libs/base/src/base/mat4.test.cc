@@ -10,52 +10,52 @@ using namespace eu::tests;
 
 TEST_CASE("mat4-colmajor", "[mat]")
 {
-    const auto m = eu::mat4f::from_col_major
+    const auto m = eu::m4::from_col_major
     (
          0.0f,   1.0f,   2.0f,   3.0f,
          4.0f,   5.0f,   6.0f,   7.0f,
          8.0f,   9.0f,  10.0f,  11.0f,
         12.0f,  13.0f,  14.0f,  15.0f
     );
-    REQUIRE(m.get_column(0) == approx(eu::vec4f( 0.0f,   1.0f,  2.0f,  3.0f )));
-    REQUIRE(m.get_column(1) == approx(eu::vec4f( 4.0f,   5.0f,  6.0f,  7.0f )));
-    REQUIRE(m.get_column(2) == approx(eu::vec4f( 8.0f,   9.0f, 10.0f, 11.0f)));
-    REQUIRE(m.get_column(3) == approx(eu::vec4f(12.0f,  13.0f, 14.0f, 15.0f)));
+    REQUIRE(m.get_column(0) == approx(eu::v4( 0.0f,   1.0f,  2.0f,  3.0f )));
+    REQUIRE(m.get_column(1) == approx(eu::v4( 4.0f,   5.0f,  6.0f,  7.0f )));
+    REQUIRE(m.get_column(2) == approx(eu::v4( 8.0f,   9.0f, 10.0f, 11.0f)));
+    REQUIRE(m.get_column(3) == approx(eu::v4(12.0f,  13.0f, 14.0f, 15.0f)));
 }
 
 TEST_CASE("mat4-rowmajor", "[mat]")
 {
-    const auto m = eu::mat4f::from_row_major
+    const auto m = eu::m4::from_row_major
     (
          0.0f,   1.0f,  2.0f,   3.0f,
          4.0f,   5.0f,  6.0f,   7.0f,
          8.0f,   9.0f, 10.0f,  11.0f,
         12.0f,  13.0f, 14.0f,  15.0f
     );
-    REQUIRE(m.get_column(0) == approx(eu::vec4f(0.0f,  4.0f,   8.0f, 12.0f)));
-    REQUIRE(m.get_column(1) == approx(eu::vec4f(1.0f,  5.0f,   9.0f, 13.0f)));
-    REQUIRE(m.get_column(2) == approx(eu::vec4f(2.0f,  6.0f,  10.0f, 14.0f)));
-    REQUIRE(m.get_column(3) == approx(eu::vec4f(3.0f,  7.0f,  11.0f, 15.0f)));
+    REQUIRE(m.get_column(0) == approx(eu::v4(0.0f,  4.0f,   8.0f, 12.0f)));
+    REQUIRE(m.get_column(1) == approx(eu::v4(1.0f,  5.0f,   9.0f, 13.0f)));
+    REQUIRE(m.get_column(2) == approx(eu::v4(2.0f,  6.0f,  10.0f, 14.0f)));
+    REQUIRE(m.get_column(3) == approx(eu::v4(3.0f,  7.0f,  11.0f, 15.0f)));
 }
 
 TEST_CASE("mat4-rowmajor_row", "[mat]")
 {
-    const auto m = eu::mat4f::from_row_major
+    const auto m = eu::m4::from_row_major
     (
          0.0f,   1.0f,   2.0f,   3.0f,
          4.0f,   5.0f,   6.0f,   7.0f,
          8.0f,   9.0f,  10.0f,  11.0f,
         12.0f,  13.0f,  14.0f,  15.0f
     );
-    REQUIRE(m.get_row(0) == approx(eu::vec4f( 0.0f,   1.0f,   2.0f,   3.0f)));
-    REQUIRE(m.get_row(1) == approx(eu::vec4f( 4.0f,   5.0f,   6.0f,   7.0f)));
-    REQUIRE(m.get_row(2) == approx(eu::vec4f( 8.0f,   9.0f,  10.0f,  11.0f)));
-    REQUIRE(m.get_row(3) == approx(eu::vec4f(12.0f,  13.0f,  14.0f,  15.0f)));
+    REQUIRE(m.get_row(0) == approx(eu::v4( 0.0f,   1.0f,   2.0f,   3.0f)));
+    REQUIRE(m.get_row(1) == approx(eu::v4( 4.0f,   5.0f,   6.0f,   7.0f)));
+    REQUIRE(m.get_row(2) == approx(eu::v4( 8.0f,   9.0f,  10.0f,  11.0f)));
+    REQUIRE(m.get_row(3) == approx(eu::v4(12.0f,  13.0f,  14.0f,  15.0f)));
 }
 
 TEST_CASE("mat4-identity", "[mat]")
 {
-    const auto m = eu::mat4f::from_row_major
+    const auto m = eu::m4::from_row_major
     (
         1.0f,  0.0f,  0.0f,  0.0f,
         0.0f,  1.0f,  0.0f,  0.0f,
@@ -71,7 +71,7 @@ TEST_CASE("mat4-identity", "[mat]")
 
 TEST_CASE("mat4-index", "[mat]")
 {
-    const auto m = eu::mat4f::from_row_major
+    const auto m = eu::m4::from_row_major
     (
          0.0f,   1.0f,   2.0f,   3.0f,
          4.0f,   5.0f,   6.0f,   7.0f,
@@ -84,7 +84,7 @@ TEST_CASE("mat4-index", "[mat]")
 
 TEST_CASE("mat4-major", "[mat]")
 {
-    const auto m = eu::mat4f::from_row_major
+    const auto m = eu::m4::from_row_major
         (
              0.0f,   1.0f,   2.0f,   3.0f,
              4.0f,   5.0f,   6.0f,   7.0f,
@@ -92,12 +92,12 @@ TEST_CASE("mat4-major", "[mat]")
             12.0f,  13.0f,  14.0f,  15.0f
         )
         .get_major();
-    REQUIRE(eu::vec4f(0.0f, 5.0f, 10.0f, 15.0f) == approx(m));
+    REQUIRE(eu::v4(0.0f, 5.0f, 10.0f, 15.0f) == approx(m));
 }
 
 TEST_CASE("mat4-transposed", "[mat]")
 {
-    const auto m = eu::mat4f::from_row_major
+    const auto m = eu::m4::from_row_major
         (
              0.0f,   1.0f,   2.0f,   3.0f,
              4.0f,   5.0f,   6.0f,   7.0f,
@@ -106,7 +106,7 @@ TEST_CASE("mat4-transposed", "[mat]")
         )
         .get_transposed()
         ;
-    REQUIRE(m == approx(eu::mat4f::from_col_major
+    REQUIRE(m == approx(eu::m4::from_col_major
         (
              0.0f,   1.0f,   2.0f,   3.0f,
              4.0f,   5.0f,   6.0f,   7.0f,
@@ -119,21 +119,21 @@ TEST_CASE("mat4-transposed", "[mat]")
 TEST_CASE("mat4-axis", "[mat]")
 {
     const auto m = eu::m4_identity;
-    REQUIRE(eu::unit3f::to_unit({1.0f, 0.0f, 0.0f}) == approx(m.get_x_axis()));
-    REQUIRE(eu::unit3f::to_unit({0.0f, 1.0f, 0.0f}) == approx(m.get_y_axis()));
-    REQUIRE(eu::unit3f::to_unit({0.0f, 0.0f, 1.0f}) == approx(m.get_z_axis()));
+    REQUIRE(eu::n3::to_unit({1.0f, 0.0f, 0.0f}) == approx(m.get_x_axis()));
+    REQUIRE(eu::n3::to_unit({0.0f, 1.0f, 0.0f}) == approx(m.get_y_axis()));
+    REQUIRE(eu::n3::to_unit({0.0f, 0.0f, 1.0f}) == approx(m.get_z_axis()));
 }
 
 TEST_CASE("mat4-math", "[mat]")
 {
-    const auto lhs = eu::mat4f::from_row_major
+    const auto lhs = eu::m4::from_row_major
     (
          0.0f,  1.0f,  2.0f,  3.0f,
          4.0f,  5.0f,  6.0f,  7.0f,
          8.0f,  9.0f, 10.0f, 11.0f,
         12.0f, 13.0f, 14.0f, 15.0f
     );
-    const auto rhs = eu::mat4f::from_row_major
+    const auto rhs = eu::m4::from_row_major
     (
         16.0f, 17.0f, 18.0f, 19.0f,
         20.0f, 21.0f, 22.0f, 23.0f,
@@ -149,7 +149,7 @@ TEST_CASE("mat4-math", "[mat]")
         // simplify({{0,1,2,3},{4,5,6,7},{8,9,10,11},{12,13,14,15}}.{{16,17,18,19},{20,21,22,23},{24,25,26,27},{28,29,30,31}})
         REQUIRE
         (
-            m == approx(eu::mat4f::from_row_major
+            m == approx(eu::m4::from_row_major
             (
                  152.0f,  158.0f,  164.0f,  170.0f,
                  504.0f,  526.0f,  548.0f,  570.0f,
@@ -164,7 +164,7 @@ TEST_CASE("mat4-math", "[mat]")
         const auto m = lhs + rhs;
         REQUIRE
         (
-            m == approx(eu::mat4f::from_row_major
+            m == approx(eu::m4::from_row_major
             (
                 16.0f, 18.0f, 20.0f, 22.0f,
                 24.0f, 26.0f, 28.0f, 30.0f,
@@ -179,7 +179,7 @@ TEST_CASE("mat4-math", "[mat]")
         const auto m = rhs - lhs;
         REQUIRE
         (
-            m == approx(eu::mat4f::from_row_major
+            m == approx(eu::m4::from_row_major
             (
                 16.0f, 16.0f, 16.0f, 16.0f,
                 16.0f, 16.0f, 16.0f, 16.0f,
@@ -190,25 +190,9 @@ TEST_CASE("mat4-math", "[mat]")
     }
 }
 
-TEST_CASE("mat4-mat3", "[mat]")
-{
-    const auto m4 = eu::mat4f::from_col_major
-    (
-         0.0f,  1.0f,  2.0f,  3.0f,
-         4.0f,  5.0f,  6.0f,  7.0f,
-         8.0f,  9.0f, 10.0f, 11.0f,
-        12.0f, 13.0f, 14.0f, 15.0f
-    );
-    const auto m3 = m4.get_mat3();
-    REQUIRE(m3.get_column(0) == approx(eu::vec3f(0.0f, 1.0f,  2.0f)));
-    REQUIRE(m3.get_column(1) == approx(eu::vec3f(4.0f, 5.0f,  6.0f)));
-    REQUIRE(m3.get_column(2) == approx(eu::vec3f(8.0f, 9.0f, 10.0f)));
-}
-
-
 TEST_CASE("mat4-inverse", "[mat]")
 {
-    const auto m0 = eu::mat4f::from_col_major
+    const auto m0 = eu::m4::from_col_major
     (
         0.6f, 0.2f, 0.3f, 0.4f,
         0.2f, 0.7f, 0.5f, 0.3f,
@@ -229,9 +213,9 @@ TEST_CASE("mat4-inverse", "[mat]")
 
 TEST_CASE("mat4-TestTransformation", "[mat]")
 {
-    const auto src = eu::vec3f(1.0f, 2.0f, 3.0f);
+    const auto src = eu::v3(1.0f, 2.0f, 3.0f);
     const auto translated =
-        eu::mat4f::from_translation(src)
+        eu::m4::from_translation(src)
         .get_translation()
         ;
     REQUIRE(translated == approx(src));
@@ -258,14 +242,14 @@ TEST_CASE("mat4-TestIn", "[mat]")
 
 TEST_CASE("mat4-test", "[mat]")
 {
-    const eu::mat4f start = eu::m4_identity;
+    const eu::m4 start = eu::m4_identity;
     const eu::AxisAngle aa = eu::AxisAngle::from_right_hand_around
     (
         eu::common::up,
         eu::Angle::from_degrees(-90)
     );
-    const eu::vec3f to_transform{0.0f, 0.0f, -5.0f};
-    const eu::vec3f result{5.0f, 0.0f, 0.0f};
+    const eu::v3 to_transform{0.0f, 0.0f, -5.0f};
+    const eu::v3 result{5.0f, 0.0f, 0.0f};
 
     SECTION("TestRotationAxisAngle")
     {
@@ -286,10 +270,10 @@ TEST_CASE("mat4-TestCombined_RT", "[mat]")
                 eu::Angle::from_degrees(-90)
             )
         )
-        .get_translated(eu::vec3f{0.0f, 0.0f, -5.0f})
-        .get_transform_point(eu::vec3f{0.0f, 0.0f, 0.0f})
+        .get_translated(eu::v3{0.0f, 0.0f, -5.0f})
+        .get_transform_point(eu::v3{0.0f, 0.0f, 0.0f})
         ;
-    REQUIRE(r == approx(eu::vec3f{5.0f, 0.0f, 0.0f}));
+    REQUIRE(r == approx(eu::v3{5.0f, 0.0f, 0.0f}));
 }
 
 TEST_CASE("mat4-TestCombined2_RT", "[mat]")
@@ -303,16 +287,16 @@ TEST_CASE("mat4-TestCombined2_RT", "[mat]")
                 eu::common::up, eu::Angle::from_degrees(90)
             )
         )
-        .get_translated(eu::vec3f(0, 0, -5))
-        .get_transform_point(eu::vec3f(0, 0, 0))
+        .get_translated(eu::v3(0, 0, -5))
+        .get_transform_point(eu::v3(0, 0, 0))
         ;
-    REQUIRE(r == approx(eu::vec3f(-5, 0, 0)));
+    REQUIRE(r == approx(eu::v3(-5, 0, 0)));
 }
 
 TEST_CASE("mat4-TestCombined_TR", "[mat]")
 {
     const auto r = eu::m4_identity
-        .get_translated(eu::vec3f(0, 0, 5))
+        .get_translated(eu::v3(0, 0, 5))
         .get_rotated
         (
             eu::AxisAngle::from_right_hand_around
@@ -321,27 +305,27 @@ TEST_CASE("mat4-TestCombined_TR", "[mat]")
                 eu::Angle::from_degrees(-90)
             )
         )
-        .get_transform_point(eu::vec3f(0, 0, 0))
+        .get_transform_point(eu::v3(0, 0, 0))
         ;
-    REQUIRE(r == approx(eu::vec3f(0, 0, 5)));
+    REQUIRE(r == approx(eu::v3(0, 0, 5)));
 }
 
 TEST_CASE("mat4-TestTranslation", "[mat]")
 {
     const auto r = eu::m4_identity
-        .get_translated(eu::vec3f(1, 2, 3))
-        .get_transform_point(eu::vec3f(7, 8, 9))
+        .get_translated(eu::v3(1, 2, 3))
+        .get_transform_point(eu::v3(7, 8, 9))
         ;
-    REQUIRE(r == approx(eu::vec3f(8, 10, 12)));
+    REQUIRE(r == approx(eu::v3(8, 10, 12)));
 }
 
 
 TEST_CASE("mat4-TestIentityTransform", "[mat]")
 {
     const auto r = eu::m4_identity
-        .get_transform_point(eu::vec3f(1, 2, 3))
+        .get_transform_point(eu::v3(1, 2, 3))
         ;
-    REQUIRE(r == approx(eu::vec3f(1, 2, 3)));
+    REQUIRE(r == approx(eu::v3(1, 2, 3)));
 }
 
 TEST_CASE("mat4-TestIentityMultiply", "[mat]")
@@ -351,15 +335,15 @@ TEST_CASE("mat4-TestIentityMultiply", "[mat]")
 
 TEST_CASE("mat4-TestVec4Multiply", "[mat]")
 {
-    const auto lhs = eu::mat4f::from_row_major
+    const auto lhs = eu::m4::from_row_major
     (
          0.0f,  1.0f,  2.0f,  3.0f,
          4.0f,  5.0f,  6.0f,  7.0f,
          8.0f,  9.0f, 10.0f, 11.0f,
         12.0f, 13.0f, 14.0f, 15.0f
     );
-    const auto m = lhs * eu::vec4f(16, 17, 18, 19);
+    const auto m = lhs * eu::v4(16, 17, 18, 19);
     // simplify({{0,1,2,3},{4,5,6,7},{8,9,10,11},{12,13,14,15}}.{16,17,18,19})
-    REQUIRE(m == approx(eu::vec4f(110, 390, 670, 950)));
+    REQUIRE(m == approx(eu::v4(110, 390, 670, 950)));
 }
 

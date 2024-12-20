@@ -13,7 +13,7 @@ namespace eu
         return &w;
     }
 
-    vec3f quatf::get_vec_part() const
+    v3 quatf::get_vec_part() const
     {
         return {x, y, z};
     }
@@ -61,20 +61,10 @@ namespace eu
     }
 
 
-    [[nodiscard]] quatf
-    quatf::from_random(Random* random)
-    {
-        const auto axis = get_random_unit3(random);
-        const auto angle = get_random_angle(random);
-
-        return quatf::from_axis_angle(AxisAngle::from_right_hand_around(axis, angle));
-    }
-
-
-    [[nodiscard]] mat4f
+    [[nodiscard]] m4
     quatf::to_mat4() const
     {
-        return mat4f::from_axis_angle(to_axis_angle());
+        return m4::from_axis_angle(to_axis_angle());
     }
 
 
@@ -95,9 +85,9 @@ namespace eu
 
 
     [[nodiscard]] quatf
-    quatf::look_at(const vec3f& from, const vec3f& to, const unit3f& up)
+    quatf::look_at(const v3& from, const v3& to, const n3& up)
     {
-        return look_in_direction(vec3f::from_to(from, to).get_normalized(), up);
+        return look_in_direction(v3::from_to(from, to).get_normalized(), up);
     }
 
 
@@ -183,24 +173,24 @@ namespace eu
     }
 
 
-    unit3f quatf::get_in   () const { return rotate_around_origo(-common::z_axis); }
-    unit3f quatf::get_out  () const { return rotate_around_origo( common::z_axis); }
-    unit3f quatf::get_right() const { return rotate_around_origo( common::x_axis); }
-    unit3f quatf::get_left () const { return rotate_around_origo(-common::x_axis); }
-    unit3f quatf::get_up   () const { return rotate_around_origo( common::y_axis); }
-    unit3f quatf::get_down () const { return rotate_around_origo(-common::y_axis); }
+    n3 quatf::get_in   () const { return rotate_around_origo(-common::z_axis); }
+    n3 quatf::get_out  () const { return rotate_around_origo( common::z_axis); }
+    n3 quatf::get_right() const { return rotate_around_origo( common::x_axis); }
+    n3 quatf::get_left () const { return rotate_around_origo(-common::x_axis); }
+    n3 quatf::get_up   () const { return rotate_around_origo( common::y_axis); }
+    n3 quatf::get_down () const { return rotate_around_origo(-common::y_axis); }
 
 
     // In*Z + Right*X + Up*Y
-    vec3f
-    quatf::create_from_right_up_in(const vec3f& v) const
+    v3
+    quatf::create_from_right_up_in(const v3& v) const
     {
         return get_in() * v.z + get_right() * v.x + get_up() * v.y;
     }
 
 
-    unit3f
-    quatf::rotate_around_origo(const unit3f& v) const
+    n3
+    quatf::rotate_around_origo(const n3& v) const
     {
         // http://gamedev.stackexchange.com/questions/28395/rotating-vector3-by-a-quaternion
         const quatf pure = {0, v};
@@ -240,7 +230,7 @@ namespace eu
             return quatf
             {
                 qt.w * 0.5f,
-                vec3f
+                v3
                 {
                     qt.x * 0.5f,
                     qt.y * 0.5f,
@@ -329,9 +319,9 @@ namespace eu
         z = w1z2 + z1w2 + x1y2 - y1x2;
     }
 
-    quatf quatf::look_in_direction(const unit3f& dir, const unit3f& up)
+    quatf quatf::look_in_direction(const n3& dir, const n3& up)
     {
-        const vec3f in = common::in;
+        const v3 in = common::in;
         float dot_value = in.dot(dir);
 
         if (abs(dot_value - (-1.0f)) < 0.000001f)

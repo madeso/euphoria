@@ -1,20 +1,13 @@
 #include "base/angle.h"
 
 #include "assert/assert.h"
+#include "base/numeric.h"
 #include "base/range.h"
-#include "base/random.h"
 
 #include <cmath>
 
 namespace eu
 {
-    Angle
-    get_random_angle(::eu::Random* random)
-    {
-        return Angle::from_percent_of_360(random->get_next_float01());
-    }
-
-
     void
     Angle::wrap()
     {

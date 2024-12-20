@@ -11,12 +11,12 @@ using namespace eu::tests;
 TEST_CASE("quat-identity", "[quat]")
 {
     const auto q = eu::q_identity;
-    REQUIRE(q == approx(eu::quatf(1, eu::vec3f(0, 0, 0))));
+    REQUIRE(q == approx(eu::quatf(1, eu::v3(0, 0, 0))));
 }
 
 TEST_CASE("quat-testVecOp", "[quat]")
 {
-    REQUIRE(eu::quatf(4, eu::vec3f(1, 2, 3)).get_vec_part() == approx(eu::vec3f(1, 2, 3)));
+    REQUIRE(eu::quatf(4, eu::v3(1, 2, 3)).get_vec_part() == approx(eu::v3(1, 2, 3)));
 }
 
 #define EXPECT_PRED_FORMAT2(a, b) REQUIRE(b == approx(a))
@@ -92,8 +92,8 @@ TEST_CASE("quat-testLook", "[quat]")
         ),
         eu::quatf::look_at
         (
-            eu::vec3f(0, 0, 0),
-            eu::vec3f(5, 0, 0),
+            eu::v3(0, 0, 0),
+            eu::v3(5, 0, 0),
             eu::common::up
         )
     );
@@ -101,15 +101,15 @@ TEST_CASE("quat-testLook", "[quat]")
             eu::quatf::from_axis_angle(eu::AxisAngle::from_right_hand_around(
                     eu::common::up, eu::Angle::from_degrees(-90))),
             eu::quatf::look_at(
-                    eu::vec3f(0, 0, 0),
-                    eu::vec3f(2, 0, 0),
+                    eu::v3(0, 0, 0),
+                    eu::v3(2, 0, 0),
                     eu::common::up));
     EXPECT_PRED_FORMAT2(
             eu::quatf::from_axis_angle(eu::AxisAngle::from_right_hand_around(
                     eu::common::up, eu::Angle::from_degrees(-90))),
             eu::quatf::look_at(
-                    eu::vec3f(0, 0, 0),
-                    eu::vec3f(0.25f, 0, 0),
+                    eu::v3(0, 0, 0),
+                    eu::v3(0.25f, 0, 0),
                     eu::common::up));
 
     // need to pass in a normalized vec3 or it won't compile, hence the
@@ -119,22 +119,22 @@ TEST_CASE("quat-testLook", "[quat]")
             eu::quatf::from_axis_angle(eu::AxisAngle::from_right_hand_around(
                     eu::common::up, eu::Angle::from_degrees(0))),
             eu::quatf::look_in_direction(
-                    eu::vec3f(0, 0, -9).get_normalized(), eu::common::up));
+                    eu::v3(0, 0, -9).get_normalized(), eu::common::up));
     EXPECT_PRED_FORMAT2(
             eu::quatf::from_axis_angle(eu::AxisAngle::from_right_hand_around(
                     eu::common::up, eu::Angle::from_degrees(180))),
             eu::quatf::look_in_direction(
-                    eu::vec3f(0, 0, 9).get_normalized(), eu::common::up));
+                    eu::v3(0, 0, 9).get_normalized(), eu::common::up));
     EXPECT_PRED_FORMAT2(
             eu::quatf::from_axis_angle(eu::AxisAngle::from_right_hand_around(
                     eu::common::up, eu::Angle::from_degrees(-90))),
             eu::quatf::look_in_direction(
-                    eu::vec3f(3, 0, 0).get_normalized(), eu::common::up));
+                    eu::v3(3, 0, 0).get_normalized(), eu::common::up));
     EXPECT_PRED_FORMAT2(
             eu::quatf::from_axis_angle(eu::AxisAngle::from_right_hand_around(
                     eu::common::up, eu::Angle::from_degrees(90))),
             eu::quatf::look_in_direction(
-                    eu::vec3f(-5, 0, 0).get_normalized(), eu::common::up));
+                    eu::v3(-5, 0, 0).get_normalized(), eu::common::up));
 
     // todo(Gustav): add more test where up != up()
 }

@@ -14,8 +14,8 @@ namespace eu::tests
     template <>
     bool
     is_approximately_equal(
-            vec3f const& lhs,
-            vec3f const& rhs,
+            v3 const& lhs,
+            v3 const& rhs,
             const ApproxData& data)
     {
         return is_approximately_equal_xyz(lhs, rhs, data);
@@ -24,8 +24,8 @@ namespace eu::tests
     template <>
     bool
     is_approximately_equal(
-            vec4f const& lhs,
-            vec4f const& rhs,
+            v4 const& lhs,
+            v4 const& rhs,
             const ApproxData& data)
     {
         return is_approximately_equal(lhs.x, rhs.x, data)
@@ -38,48 +38,11 @@ namespace eu::tests
     template <>
     bool
     is_approximately_equal(
-            Rgb const& lhs,
-            Rgb const& rhs,
-            const ApproxData& data)
-    {
-        return is_approximately_equal(lhs.r, rhs.r, data)
-               && is_approximately_equal(lhs.g, rhs.g, data)
-               && is_approximately_equal(lhs.b, rhs.b, data);
-    }
-
-    template <>
-    bool
-    is_approximately_equal(
-            Hsl const& lhs,
-            Hsl const& rhs,
-            const ApproxData& data)
-    {
-        return is_approximately_equal(lhs.h.as_degrees(), rhs.h.as_degrees(), data)
-               && is_approximately_equal(lhs.s * 100, rhs.s * 100, data)
-               && is_approximately_equal(lhs.l * 100, rhs.l * 100, data);
-    }
-
-    template <>
-    bool
-    is_approximately_equal(
-            unit3f const& lhs,
-            unit3f const& rhs,
+            n3 const& lhs,
+            n3 const& rhs,
             const ApproxData& data)
     {
         return is_approximately_equal_xyz(lhs, rhs, data);
-    }
-
-    template <>
-    bool
-    is_approximately_equal(
-            Rgba const& lhs,
-            Rgba const& rhs,
-            const ApproxData& data)
-    {
-        return is_approximately_equal(lhs.r, rhs.r, data)
-               && is_approximately_equal(lhs.g, rhs.g, data)
-               && is_approximately_equal(lhs.b, rhs.b, data)
-               && is_approximately_equal(lhs.a, rhs.a, data);
     }
 
 
@@ -123,7 +86,7 @@ namespace eu::tests
 
     template <>
     bool
-    is_approximately_equal(mat4f const& lhs, mat4f const& rhs, const ApproxData& data)
+    is_approximately_equal(m4 const& lhs, m4 const& rhs, const ApproxData& data)
     {
         for (int row_index = 0; row_index < 4; row_index += 1)
         {

@@ -3,12 +3,12 @@
 
 namespace eu
 {
-    float* mat4f::get_column_major() { return data; }
-    const float* mat4f::get_column_major() const { return data; }
+    float* m4::get_column_major() { return data; }
+    const float* m4::get_column_major() const { return data; }
 
     [[nodiscard]]
-    mat4f
-    mat4f::from_col_major
+    m4
+    m4::from_col_major
     (
         float t00, float t01, float t02, float t03,
         float t10, float t11, float t12, float t13,
@@ -26,8 +26,8 @@ namespace eu
     }
 
     [[nodiscard]]
-    mat4f
-    mat4f::from_major(const vec4f& major)
+    m4
+    m4::from_major(const v4& major)
     {
         const float zero = 0;
         return from_row_major
@@ -40,15 +40,8 @@ namespace eu
     }
 
     [[nodiscard]]
-    mat4f
-    mat4f::from_scale(const Scale3f& scale)
-    {
-        return from_major(vec4f(scale));
-    }
-
-    [[nodiscard]]
-    mat4f
-    mat4f::from_translation(const vec3f& v)
+    m4
+    m4::from_translation(const v3& v)
     {
         const float one = 1;
         const float z = 0;
@@ -61,45 +54,45 @@ namespace eu
         );
     }
 
-    vec4f
-    mat4f::get_transform(const vec4f& p) const
+    v4
+    m4::get_transform(const v4& p) const
     {
         return *this * p;
     }
 
-    vec3f
-    mat4f::get_transform(const vec3f& p, float w) const
+    v3
+    m4::get_transform(const v3& p, float w) const
     {
-        return get_transform(vec4f{p, w}).to_vec3(w);
+        return get_transform(v4{p, w}).to_vec3(w);
     }
 
-    vec3f
-    mat4f::get_transform_point(const vec3f& p) const
+    v3
+    m4::get_transform_point(const v3& p) const
     {
         return get_transform(p, 1);
     }
 
-    vec3f
-    mat4f::get_transform_vec(const vec3f& p) const
+    v3
+    m4::get_transform_vec(const v3& p) const
     {
         return get_transform(p, 0);
     }
 
-    unit3f
-    mat4f::get_transform_vec(const unit3f& p) const
+    n3
+    m4::get_transform_vec(const n3& p) const
     {
-        return unit3f::to_unit(get_transform_vec(static_cast<vec3f>(p)));
+        return n3::to_unit(get_transform_vec(static_cast<v3>(p)));
     }
 
-    vec3f
-    mat4f::get_translation() const
+    v3
+    m4::get_translation() const
     {
         return {get(0, 3), get(1, 3), get(2, 3)};
     }
 
     [[nodiscard]]
-    mat4f
-    mat4f::from_rot_x(const Angle& a)
+    m4
+    m4::from_rot_x(const Angle& a)
     {
         const auto c = cos(a);
         const auto s = sin(a);
@@ -112,8 +105,8 @@ namespace eu
         );
     }
 
-    mat4f
-    mat4f::from_rot_y(const Angle& a)
+    m4
+    m4::from_rot_y(const Angle& a)
     {
         const auto c = cos(a);
         const auto s = sin(a);
@@ -127,8 +120,8 @@ namespace eu
     }
 
     [[nodiscard]]
-    mat4f
-    mat4f::from_rot_z(const Angle& a)
+    m4
+    m4::from_rot_z(const Angle& a)
     {
         const auto c = cos(a);
         const auto s = sin(a);
@@ -142,8 +135,8 @@ namespace eu
     }
 
     [[nodiscard]]
-    mat4f
-    mat4f::from_axis_angle(const AxisAngle& aa)
+    m4
+    m4::from_axis_angle(const AxisAngle& aa)
     {
         const float rcos = cos(aa.angle);
         const float rsin = sin(aa.angle);
@@ -152,7 +145,7 @@ namespace eu
         const auto v = aa.axis.y;
         const auto w = aa.axis.z;
 
-        return mat4f::from_col_major
+        return m4::from_col_major
         (
             rcos + u * u * (1 - rcos),
             w * rsin + v * u * (1 - rcos),
@@ -177,38 +170,38 @@ namespace eu
     }
 
     
-    vec4f
-    mat4f::get_major() const
+    v4
+    m4::get_major() const
     {
         return {get(0, 0), get(1, 1), get(2, 2), get(3, 3)};
     }
 
-    unit3f
-    mat4f::get_axis(int col) const
+    n3
+    m4::get_axis(int col) const
     {
-        return unit3f::to_unit(get_column(col).to_vec3());
+        return n3::to_unit(get_column(col).to_vec3(0.0f));
     }
 
-    unit3f
-    mat4f::get_x_axis() const
+    n3
+    m4::get_x_axis() const
     {
         return get_axis(0);
     }
 
-    unit3f
-    mat4f::get_y_axis() const
+    n3
+    m4::get_y_axis() const
     {
         return get_axis(1);
     }
 
-    unit3f
-    mat4f::get_z_axis() const
+    n3
+    m4::get_z_axis() const
     {
         return get_axis(2);
     }
 
-    mat4f
-    mat4f::get_transposed() const
+    m4
+    m4::get_transposed() const
     {
         // https://www.j3d.org/matrix_faq/matrfaq_latest.html
         return from_col_major
@@ -221,7 +214,7 @@ namespace eu
     }
 
     bool
-    mat4f::invert()
+    m4::invert()
     {
         // from the glu source?
         // https://stackoverflow.com/questions/1148309/inverting-a-4x4-matrix
@@ -345,8 +338,8 @@ namespace eu
         return true;
     }
 
-    mat4f
-    mat4f::get_inverted() const
+    m4
+    m4::get_inverted() const
     {
         auto r = *this;
         const auto was_inverted = r.invert();
@@ -354,19 +347,8 @@ namespace eu
         return r;
     }
 
-    mat3f
-    mat4f::get_mat3() const
-    {
-        return mat3f::from_row_major
-        (
-            get(0, 0), get(0, 1), get(0, 2),
-            get(1, 0), get(1, 1), get(1, 2),
-            get(2, 0), get(2, 1), get(2, 2)
-        );
-    }
-
     void
-    mat4f::operator+=(const mat4f& rhs)
+    m4::operator+=(const m4& rhs)
     {
 #define OP(i) data[i] += rhs.data[i]
         OP(0); OP(1); OP(2); OP(3);
@@ -377,7 +359,7 @@ namespace eu
     }
 
     void
-    mat4f::operator-=(const mat4f& rhs)
+    m4::operator-=(const m4& rhs)
     {
 #define OP(i) data[i] -= rhs.data[i]
         OP(0); OP(1); OP(2); OP(3);
@@ -388,8 +370,8 @@ namespace eu
     }
 
     [[nodiscard]]
-    mat4f
-    mat4f::create_ortho(float l, float r, float b, float t, float n, float f)
+    m4
+    m4::create_ortho(float l, float r, float b, float t, float n, float f)
     {
         // http://www.songho.ca/opengl/gl_projectionmatrix.html
         return from_row_major
@@ -402,8 +384,8 @@ namespace eu
     }
 
     [[nodiscard]]
-    mat4f
-    mat4f::create_perspective(const Angle& fov, float a, float near, float far)
+    m4
+    m4::create_perspective(const Angle& fov, float a, float near, float far)
     {
         const float t = 1 / tan(fov / 2);
         const float zm = far - near;
@@ -417,45 +399,39 @@ namespace eu
         );
     }
 
-    mat4f
-    mat4f::get_translated(const vec3f& t) const
+    m4
+    m4::get_translated(const v3& t) const
     {
         return *this * from_translation(t);
     }
 
-    mat4f
-    mat4f::get_rotated(const AxisAngle& aa) const
+    m4
+    m4::get_rotated(const AxisAngle& aa) const
     {
         return *this * from_axis_angle(aa);
     }
 
-    mat4f
-    mat4f::get_scaled(const Scale3f& scale) const
-    {
-        return *this * from_scale(scale);
-    }
-
     const float*
-    mat4f::get_data_ptr() const
+    m4::get_data_ptr() const
     {
         return data;
     }
 
     float*
-    mat4f::get_data_ptr()
+    m4::get_data_ptr()
     {
         return data;
     }
 
 
     float
-    mat4f::get(int row, int col) const
+    m4::get(int row, int col) const
     {
         return data[col * 4 + row];
     }
 
-    vec4f
-    mat4f::get_column(int col) const
+    v4
+    m4::get_column(int col) const
     {
         const auto base = col * 4;
         return
@@ -467,38 +443,38 @@ namespace eu
         };
     }
 
-    vec4f
-    mat4f::get_row(int r) const
+    v4
+    m4::get_row(int r) const
     {
         return {get(r, 0), get(r, 1), get(r, 2), get(r, 3)};
     }
 
     
-    std::string to_string(const mat4f& m)
+    std::string to_string(const m4& m)
     {
         return fmt::format("({}, {}. {}. {})", m.get_row(0), m.get_row(1), m.get_row(2), m.get_row(3));
     }
 
     
-    mat4f
-    operator+(const mat4f& lhs, const mat4f& rhs)
+    m4
+    operator+(const m4& lhs, const m4& rhs)
     {
-        mat4f t = lhs;
+        m4 t = lhs;
         t += rhs;
         return t;
     }
 
     
-    mat4f
-    operator-(const mat4f& lhs, const mat4f& rhs)
+    m4
+    operator-(const m4& lhs, const m4& rhs)
     {
-        mat4f t = lhs;
+        m4 t = lhs;
         t -= rhs;
         return t;
     }
 
     float
-    get_component_multiply_sum(const vec4f& lhs, const vec4f& rhs)
+    get_component_multiply_sum(const v4& lhs, const v4& rhs)
     {
         const auto x = lhs.x * rhs.x;
         const auto y = lhs.y * rhs.y;
@@ -507,13 +483,13 @@ namespace eu
         return x + y + z + w;
     }
     
-    mat4f operator*(const mat4f& lhs, const mat4f& rhs)
+    m4 operator*(const m4& lhs, const m4& rhs)
     {
         const auto op = [&lhs, &rhs](int r, int c) -> float
         {
             return get_component_multiply_sum(lhs.get_row(r), rhs.get_column(c));
         };
-        return mat4f::from_row_major
+        return m4::from_row_major
         (
             op(0, 0), op(0, 1), op(0, 2), op(0, 3),
             op(1, 0), op(1, 1), op(1, 2), op(1, 3),
@@ -523,7 +499,7 @@ namespace eu
     }
 
     
-    vec4f operator*(const mat4f& lhs, const vec4f& rhs)
+    v4 operator*(const m4& lhs, const v4& rhs)
     {
         const auto op = [&lhs, &rhs](int r) -> float
         {
