@@ -7,7 +7,7 @@
 
 namespace eu
 {
-    // represents a homogeneous coordinate
+    /// A 4d vector, it represents a homogeneous coordinate/projective coordinate.
     struct v4
     {
         float x;

@@ -10,7 +10,7 @@ namespace eu
 
     template <>
     float
-    from_01(const Range<float>& range, float value)
+    from_01(const R<float>& range, float value)
     {
         return from_01f
         (
