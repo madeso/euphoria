@@ -9,7 +9,8 @@
 
 namespace eu
 {
-    /// A quaternion, useful for representing a rotation in 3d.
+    /// A quaternion.
+    /// It is useful for representing a rotation in 3d.
     struct Q
     {
         float w;

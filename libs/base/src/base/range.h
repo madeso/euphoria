@@ -10,7 +10,8 @@
 
 namespace eu
 {
-    /// Represents a (inclusive) range between two values. Zero range is allowed.
+    /// A (inclusive) range between two values.
+    /// Zero range is allowed.
     template <typename T>
     struct R
     {
