@@ -236,7 +236,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/quat.h" line="69" column="17" bodyfile="libs/base/src/base/quat.h" bodystart="69" bodyend="-1"/>
+        <location file="libs/base/src/base/quat.h" line="70" column="17" bodyfile="libs/base/src/base/quat.h" bodystart="70" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespaceeu_1a1762260135f2b7b538f1b8be43146481" prot="public" static="no" constexpr="yes" mutable="no">
         <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">constexpr</ref> <ref refid="structeu_1_1R" kindref="compound">R</ref>&lt; <ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">float</ref> &gt;</type>
@@ -251,7 +251,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/range.h" line="45" column="17" bodyfile="libs/base/src/base/range.h" bodystart="45" bodyend="45"/>
+        <location file="libs/base/src/base/range.h" line="46" column="17" bodyfile="libs/base/src/base/range.h" bodystart="46" bodyend="46"/>
       </memberdef>
       <memberdef kind="variable" id="namespaceeu_1ab44633bc6b6ae7cbf3e473fe917d1e70" prot="public" static="no" constexpr="yes" mutable="no">
         <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">constexpr</ref> <ref refid="structeu_1_1R" kindref="compound">R</ref>&lt; <ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">float</ref> &gt;</type>
@@ -266,7 +266,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/range.h" line="46" column="17" bodyfile="libs/base/src/base/range.h" bodystart="46" bodyend="46"/>
+        <location file="libs/base/src/base/range.h" line="47" column="17" bodyfile="libs/base/src/base/range.h" bodystart="47" bodyend="47"/>
       </memberdef>
       <memberdef kind="variable" id="namespaceeu_1a5fac55b859c3ed3d22eac1245737524f" prot="public" static="no" constexpr="yes" mutable="no">
         <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">constexpr</ref> <ref refid="structeu_1_1v2" kindref="compound">v2</ref></type>
@@ -964,7 +964,7 @@
         <detaileddescription>
 <para><simplesect kind="return"><para>1 if r is greater than 0, -1 if not. </para>
 </simplesect>
-<simplesect kind="see"><para><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">Abs()</ref> </para>
+<simplesect kind="see"><para>Abs() </para>
 </simplesect>
 </para>
         </detaileddescription>
@@ -1302,7 +1302,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/quat.cc" line="204" column="5" bodyfile="libs/base/src/base/quat.cc" bodystart="204" bodyend="207" declfile="libs/base/src/base/quat.h" declline="71" declcolumn="7"/>
+        <location file="libs/base/src/base/quat.cc" line="204" column="5" bodyfile="libs/base/src/base/quat.cc" bodystart="204" bodyend="207" declfile="libs/base/src/base/quat.h" declline="72" declcolumn="7"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1a1e05b672b47b209b25bc12c58308fa05" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1Q" kindref="compound">Q</ref></type>
@@ -1328,7 +1328,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/quat.cc" line="211" column="5" bodyfile="libs/base/src/base/quat.cc" bodystart="211" bodyend="244" declfile="libs/base/src/base/quat.h" declline="72" declcolumn="7"/>
+        <location file="libs/base/src/base/quat.cc" line="211" column="5" bodyfile="libs/base/src/base/quat.cc" bodystart="211" bodyend="244" declfile="libs/base/src/base/quat.h" declline="73" declcolumn="7"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1ae6089c53b1f851cdbefd186bba37f9d6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1Q" kindref="compound">Q</ref></type>
@@ -1354,7 +1354,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/quat.cc" line="248" column="5" bodyfile="libs/base/src/base/quat.cc" bodystart="248" bodyend="258" declfile="libs/base/src/base/quat.h" declline="73" declcolumn="7"/>
+        <location file="libs/base/src/base/quat.cc" line="248" column="5" bodyfile="libs/base/src/base/quat.cc" bodystart="248" bodyend="258" declfile="libs/base/src/base/quat.h" declline="74" declcolumn="7"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1af254c49a36023b5a0f648b1c79a4b123" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -1372,7 +1372,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/quat.cc" line="346" column="17" bodyfile="libs/base/src/base/quat.cc" bodystart="346" bodyend="349" declfile="libs/base/src/base/quat.h" declline="77" declcolumn="17"/>
+        <location file="libs/base/src/base/quat.cc" line="346" column="17" bodyfile="libs/base/src/base/quat.cc" bodystart="346" bodyend="349" declfile="libs/base/src/base/quat.h" declline="78" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1ad4b8d21db1b1a25c346296eec35b330b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">float</ref></type>
@@ -1394,7 +1394,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/quat.cc" line="353" column="5" bodyfile="libs/base/src/base/quat.cc" bodystart="353" bodyend="356" declfile="libs/base/src/base/quat.h" declline="75" declcolumn="11"/>
+        <location file="libs/base/src/base/quat.cc" line="353" column="5" bodyfile="libs/base/src/base/quat.cc" bodystart="353" bodyend="356" declfile="libs/base/src/base/quat.h" declline="76" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1ae99fc2a026a0a7ac61fbc6281d530996" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1Q" kindref="compound">Q</ref></type>
@@ -1416,7 +1416,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/quat.cc" line="359" column="7" bodyfile="libs/base/src/base/quat.cc" bodystart="359" bodyend="364" declfile="libs/base/src/base/quat.h" declline="79" declcolumn="7"/>
+        <location file="libs/base/src/base/quat.cc" line="359" column="7" bodyfile="libs/base/src/base/quat.cc" bodystart="359" bodyend="364" declfile="libs/base/src/base/quat.h" declline="80" declcolumn="7"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1a74899d4681ffa6fdccd09f9588ba7661" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1Q" kindref="compound">Q</ref></type>
@@ -1438,7 +1438,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/quat.cc" line="367" column="7" bodyfile="libs/base/src/base/quat.cc" bodystart="367" bodyend="372" declfile="libs/base/src/base/quat.h" declline="80" declcolumn="7"/>
+        <location file="libs/base/src/base/quat.cc" line="367" column="7" bodyfile="libs/base/src/base/quat.cc" bodystart="367" bodyend="372" declfile="libs/base/src/base/quat.h" declline="81" declcolumn="7"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1a4dde67115df3f842c8371817f87587d4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1Q" kindref="compound">Q</ref></type>
@@ -1460,7 +1460,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/quat.cc" line="375" column="7" bodyfile="libs/base/src/base/quat.cc" bodystart="375" bodyend="380" declfile="libs/base/src/base/quat.h" declline="81" declcolumn="7"/>
+        <location file="libs/base/src/base/quat.cc" line="375" column="7" bodyfile="libs/base/src/base/quat.cc" bodystart="375" bodyend="380" declfile="libs/base/src/base/quat.h" declline="82" declcolumn="7"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1a94c89d4216e30fc6ad3711eb540a25fc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1Q" kindref="compound">Q</ref></type>
@@ -1482,7 +1482,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/quat.cc" line="384" column="5" bodyfile="libs/base/src/base/quat.cc" bodystart="384" bodyend="389" declfile="libs/base/src/base/quat.h" declline="82" declcolumn="7"/>
+        <location file="libs/base/src/base/quat.cc" line="384" column="5" bodyfile="libs/base/src/base/quat.cc" bodystart="384" bodyend="389" declfile="libs/base/src/base/quat.h" declline="83" declcolumn="7"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1ae807f257d9b667c1c45602b2d67ceafa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1Q" kindref="compound">Q</ref></type>
@@ -1504,7 +1504,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/quat.cc" line="393" column="5" bodyfile="libs/base/src/base/quat.cc" bodystart="393" bodyend="398" declfile="libs/base/src/base/quat.h" declline="83" declcolumn="7"/>
+        <location file="libs/base/src/base/quat.cc" line="393" column="5" bodyfile="libs/base/src/base/quat.cc" bodystart="393" bodyend="398" declfile="libs/base/src/base/quat.h" declline="84" declcolumn="7"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1a1d52a91adaa565513eb90b8d2dce2df5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">float</ref></type>
@@ -1530,7 +1530,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/range.cc" line="6" column="5" bodyfile="libs/base/src/base/range.cc" bodystart="6" bodyend="9" declfile="libs/base/src/base/range.h" declline="48" declcolumn="11"/>
+        <location file="libs/base/src/base/range.cc" line="6" column="5" bodyfile="libs/base/src/base/range.cc" bodystart="6" bodyend="9" declfile="libs/base/src/base/range.h" declline="49" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1a71a5abeae01c3597f3e9d7371a7e9df3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1581,7 +1581,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/range.h" line="34" column="7" bodyfile="libs/base/src/base/range.h" bodystart="34" bodyend="37"/>
+        <location file="libs/base/src/base/range.h" line="35" column="7" bodyfile="libs/base/src/base/range.h" bodystart="35" bodyend="38"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1a572ae747813ec1771667ebd29d4c8144" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1604,7 +1604,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/range.h" line="40" column="7" bodyfile="libs/base/src/base/range.h" bodystart="40" bodyend="43"/>
+        <location file="libs/base/src/base/range.h" line="41" column="7" bodyfile="libs/base/src/base/range.h" bodystart="41" bodyend="44"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1aa18213902220185ad70feda7d212e55a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1631,7 +1631,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/range.h" line="51" column="7" bodyfile="libs/base/src/base/range.h" bodystart="51" bodyend="66"/>
+        <location file="libs/base/src/base/range.h" line="52" column="7" bodyfile="libs/base/src/base/range.h" bodystart="52" bodyend="67"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1a71a5abeae01c3597f3e9d7371a7e9df3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1655,7 +1655,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/range.h" line="69" column="11" bodyfile="libs/base/src/base/range.cc" bodystart="13" bodyend="21" declfile="libs/base/src/base/range.h" declline="69" declcolumn="11"/>
+        <location file="libs/base/src/base/range.h" line="70" column="11" bodyfile="libs/base/src/base/range.cc" bodystart="13" bodyend="21" declfile="libs/base/src/base/range.h" declline="70" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1a4b358bd01ddb038d5d8d1dc62920e0ee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1682,7 +1682,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/range.h" line="72" column="11" bodyfile="libs/base/src/base/range.h" bodystart="72" bodyend="76"/>
+        <location file="libs/base/src/base/range.h" line="73" column="11" bodyfile="libs/base/src/base/range.h" bodystart="73" bodyend="77"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1a20dfd6271d0dde18b4cc12e2ddf8709f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1709,7 +1709,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/range.h" line="80" column="7" bodyfile="libs/base/src/base/range.h" bodystart="80" bodyend="86"/>
+        <location file="libs/base/src/base/range.h" line="81" column="7" bodyfile="libs/base/src/base/range.h" bodystart="81" bodyend="87"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1a3081f17d05e200b8d7baddf4034c5c8f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1743,7 +1743,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/range.h" line="89" column="7" bodyfile="libs/base/src/base/range.h" bodystart="89" bodyend="92"/>
+        <location file="libs/base/src/base/range.h" line="90" column="7" bodyfile="libs/base/src/base/range.h" bodystart="90" bodyend="93"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1a2c34413b1d29ccceb8d31b6b275c14bd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1770,7 +1770,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/range.h" line="96" column="10" bodyfile="libs/base/src/base/range.h" bodystart="96" bodyend="99"/>
+        <location file="libs/base/src/base/range.h" line="97" column="10" bodyfile="libs/base/src/base/range.h" bodystart="97" bodyend="100"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1a2bcfebef199f602f177fe3da4b940d89" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1797,7 +1797,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/range.h" line="103" column="7" bodyfile="libs/base/src/base/range.h" bodystart="103" bodyend="115"/>
+        <location file="libs/base/src/base/range.h" line="104" column="7" bodyfile="libs/base/src/base/range.h" bodystart="104" bodyend="116"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1a9624527e97e0cec9990cf1500a14d57e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1824,7 +1824,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/range.h" line="118" column="7" bodyfile="libs/base/src/base/range.h" bodystart="118" bodyend="132"/>
+        <location file="libs/base/src/base/range.h" line="119" column="7" bodyfile="libs/base/src/base/range.h" bodystart="119" bodyend="133"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1a4800a7b85e537456b232d20a822b9cf6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1v2" kindref="compound">v2</ref></type>
@@ -2346,7 +2346,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec4.cc" line="44" column="17" bodyfile="libs/base/src/base/vec4.cc" bodystart="44" bodyend="47" declfile="libs/base/src/base/vec4.h" declline="36" declcolumn="17"/>
+        <location file="libs/base/src/base/vec4.cc" line="44" column="17" bodyfile="libs/base/src/base/vec4.cc" bodystart="44" bodyend="47" declfile="libs/base/src/base/vec4.h" declline="37" declcolumn="17"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
