@@ -92,7 +92,7 @@ namespace eu
 
     [[nodiscard]]
     m4
-    m4::from_rot_x(const Angle& a)
+    m4::from_rot_x(const An& a)
     {
         const auto c = cos(a);
         const auto s = sin(a);
@@ -106,7 +106,7 @@ namespace eu
     }
 
     m4
-    m4::from_rot_y(const Angle& a)
+    m4::from_rot_y(const An& a)
     {
         const auto c = cos(a);
         const auto s = sin(a);
@@ -121,7 +121,7 @@ namespace eu
 
     [[nodiscard]]
     m4
-    m4::from_rot_z(const Angle& a)
+    m4::from_rot_z(const An& a)
     {
         const auto c = cos(a);
         const auto s = sin(a);
@@ -385,7 +385,7 @@ namespace eu
 
     [[nodiscard]]
     m4
-    m4::create_perspective(const Angle& fov, float a, float near, float far)
+    m4::create_perspective(const An& fov, float a, float near, float far)
     {
         const float t = 1 / tan(fov / 2);
         const float zm = far - near;

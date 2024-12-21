@@ -4,30 +4,31 @@
 
 namespace eu
 {
-    struct Angle
+    /// An angle in both degrees and radians.
+    struct An
     {
-        [[nodiscard]] constexpr static Angle
+        [[nodiscard]] constexpr static An
         from_degrees(float degrees)
         {
-            return Angle(c_degrees_to_radian(degrees));
+            return An(c_degrees_to_radian(degrees));
         }
 
-        [[nodiscard]] constexpr static Angle
+        [[nodiscard]] constexpr static An
         from_radians(float radians)
         {
-            return Angle(radians);
+            return An(radians);
         }
 
-        [[nodiscard]] constexpr static Angle
+        [[nodiscard]] constexpr static An
         from_percent_of_360(float percent)
         {
-            return Angle::from_radians(percent * pi * 2.0f);
+            return An::from_radians(percent * pi * 2.0f);
         }
 
-        [[nodiscard]] constexpr static Angle
+        [[nodiscard]] constexpr static An
         from_percent_of_180(float percent)
         {
-            return Angle::from_radians(percent * pi);
+            return An::from_radians(percent * pi);
         }
 
 
@@ -52,18 +53,18 @@ namespace eu
             return as_radians() / (pi * 2.0f);
         }
 
-        [[nodiscard]] Angle get_wrapped() const;
+        [[nodiscard]] An get_wrapped() const;
 
-        void operator+=(const Angle& rhs);
-        void operator-=(const Angle& rhs);
+        void operator+=(const An& rhs);
+        void operator-=(const An& rhs);
         void operator*=(float rhs);
         void operator/=(float rhs);
-        Angle operator-() const;
+        An operator-() const;
 
     private:
         float radians;
 
-        constexpr explicit Angle(float r) : radians(r) {}
+        constexpr explicit An(float r) : radians(r) {}
 
         [[nodiscard]] static constexpr float
         c_radian_to_degrees(float radians)
@@ -78,48 +79,48 @@ namespace eu
         }
     };
 
-    constexpr Angle one_turn = Angle::from_radians(pi * 2.0f);
-    constexpr Angle half_turn = Angle::from_radians(pi);
-    constexpr Angle quarter_turn = Angle::from_radians(pi / 2.0f);
-    constexpr Angle no_rotation = Angle::from_radians(0.0f);
+    constexpr An one_turn = An::from_radians(pi * 2.0f);
+    constexpr An half_turn = An::from_radians(pi);
+    constexpr An quarter_turn = An::from_radians(pi / 2.0f);
+    constexpr An no_rotation = An::from_radians(0.0f);
 
 
-    float sin(const Angle& ang);
-    float cos(const Angle& ang);
-    float tan(const Angle& ang);
-    Angle asin(float v);
-    Angle acos(float v);
-    Angle atan(float v);
-    Angle atan2(float y, float x);
+    float sin(const An& ang);
+    float cos(const An& ang);
+    float tan(const An& ang);
+    An asin(float v);
+    An acos(float v);
+    An atan(float v);
+    An atan2(float y, float x);
 
-    Angle operator+(const Angle& lhs, const Angle& rhs);
-    Angle operator-(const Angle& lhs, const Angle& rhs);
-    Angle operator*(const Angle& lhs, float rhs);
-    Angle operator/(const Angle& lhs, float rhs);
-    Angle operator*(float rhs, const Angle& lhs);
+    An operator+(const An& lhs, const An& rhs);
+    An operator-(const An& lhs, const An& rhs);
+    An operator*(const An& lhs, float rhs);
+    An operator/(const An& lhs, float rhs);
+    An operator*(float rhs, const An& lhs);
 
-    std::string to_string(const Angle& a);
+    std::string to_string(const An& a);
 
-    bool operator<(const Angle& lhs, const Angle& rhs);
-    bool operator<=(const Angle& lhs, const Angle& rhs);
-    bool operator>(const Angle& lhs, const Angle& rhs);
-    bool operator>=(const Angle& lhs, const Angle& rhs);
+    bool operator<(const An& lhs, const An& rhs);
+    bool operator<=(const An& lhs, const An& rhs);
+    bool operator>(const An& lhs, const An& rhs);
+    bool operator>=(const An& lhs, const An& rhs);
 
-    Angle lerp_angle(const Angle& from, float v, const Angle& to);
+    An lerp_angle(const An& from, float v, const An& to);
 }
 
-ADD_DEFAULT_FORMATTER(eu::Angle, std::string, eu::to_string);
+ADD_DEFAULT_FORMATTER(eu::An, std::string, eu::to_string);
 
 namespace eu::convert
 {
-    constexpr Angle operator""_deg(long double d)
+    constexpr An operator""_deg(long double d)
     {
-        return Angle::from_degrees(static_cast<float>(d));
+        return An::from_degrees(static_cast<float>(d));
     }
 
 
-    constexpr Angle operator""_rad(long double r)
+    constexpr An operator""_rad(long double r)
     {
-        return Angle::from_radians(static_cast<float>(r));
+        return An::from_radians(static_cast<float>(r));
     }
 }

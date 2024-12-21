@@ -31,7 +31,7 @@ namespace eu
 
 
     [[nodiscard]] Q
-    Q::from_ypr(const Angle& yaw, const Angle& pitch, const Angle& roll)
+    Q::from_ypr(const An& yaw, const An& pitch, const An& roll)
     {
         // Abbreviations for the various angular functions
         const auto cy = cos(yaw * 0.5);

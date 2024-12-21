@@ -7,7 +7,7 @@
 TEST_CASE("aa-righthand", "[aa]")
 {
     const auto aa = eu::AxisAngle::from_right_hand_around(
-            eu::common::x_axis, eu::Angle::from_degrees(12.0f));
+            eu::common::x_axis, eu::An::from_degrees(12.0f));
     REQUIRE(aa.angle.as_degrees() == Catch::Approx(12.0f));
 
     // todo(Gustav): replace one require

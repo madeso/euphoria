@@ -9,6 +9,7 @@
 
 namespace eu
 {
+    /// A quaternion, useful for representing a rotation in 3d.
     struct Q
     {
         float w;
@@ -25,7 +26,7 @@ namespace eu
         }
 
         [[nodiscard]] static Q from_axis_angle(const AxisAngle& aa);
-        [[nodiscard]] static Q from_ypr(const Angle& yaw, const Angle& pitch, const Angle& roll);
+        [[nodiscard]] static Q from_ypr(const An& yaw, const An& pitch, const An& roll);
         [[nodiscard]] static Q from_to(const Q& from, const Q& to);
         [[nodiscard]] static Q look_at(const v3& from, const v3& to, const n3& up);
         [[nodiscard]] static Q look_in_direction(const n3& dir, const n3& up);

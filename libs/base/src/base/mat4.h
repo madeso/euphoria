@@ -7,6 +7,7 @@
 
 namespace eu
 {
+    /// 4x4 matrix
     struct m4
     {
         [[nodiscard]] static m4 from_col_major(
@@ -30,12 +31,12 @@ namespace eu
 
         [[nodiscard]] static m4 from_major(const v4 &major);
         [[nodiscard]] static m4 from_translation(const v3 &v);
-        [[nodiscard]] static m4 from_rot_x(const Angle &a);
-        [[nodiscard]] static m4 from_rot_y(const Angle &a);
-        [[nodiscard]] static m4 from_rot_z(const Angle &a);
+        [[nodiscard]] static m4 from_rot_x(const An &a);
+        [[nodiscard]] static m4 from_rot_y(const An &a);
+        [[nodiscard]] static m4 from_rot_z(const An &a);
         [[nodiscard]] static m4 from_axis_angle(const AxisAngle &aa);
         [[nodiscard]] static m4 create_ortho(float l, float r, float b, float t, float n, float f);
-        [[nodiscard]] static m4 create_perspective(const Angle &fov, float a, float near, float far);
+        [[nodiscard]] static m4 create_perspective(const An &fov, float a, float near, float far);
         [[nodiscard]] constexpr static m4 from_scalar(float scalar)
         {
             const float z = 0;

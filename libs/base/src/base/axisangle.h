@@ -13,13 +13,13 @@ namespace eu
         n3 axis;
 
         /// rotation according to right-hand rule
-        Angle angle;
+        An angle;
 
         [[nodiscard]] static AxisAngle
-        from_right_hand_around(const n3 &axis, const Angle &angle);
+        from_right_hand_around(const n3 &axis, const An &angle);
 
     private:
-        AxisAngle(const n3 &ax, const Angle &ang);
+        AxisAngle(const n3 &ax, const An &ang);
     };
 
     std::string to_string(const AxisAngle &aa);

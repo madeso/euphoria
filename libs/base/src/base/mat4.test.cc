@@ -246,7 +246,7 @@ TEST_CASE("mat4-test", "[mat]")
     const eu::AxisAngle aa = eu::AxisAngle::from_right_hand_around
     (
         eu::common::up,
-        eu::Angle::from_degrees(-90)
+        eu::An::from_degrees(-90)
     );
     const eu::v3 to_transform{0.0f, 0.0f, -5.0f};
     const eu::v3 result{5.0f, 0.0f, 0.0f};
@@ -267,7 +267,7 @@ TEST_CASE("mat4-TestCombined_RT", "[mat]")
             eu::AxisAngle::from_right_hand_around
             (
                 eu::common::up,
-                eu::Angle::from_degrees(-90)
+                eu::An::from_degrees(-90)
             )
         )
         .get_translated(eu::v3{0.0f, 0.0f, -5.0f})
@@ -284,7 +284,7 @@ TEST_CASE("mat4-TestCombined2_RT", "[mat]")
         (
             eu::AxisAngle::from_right_hand_around
             (
-                eu::common::up, eu::Angle::from_degrees(90)
+                eu::common::up, eu::An::from_degrees(90)
             )
         )
         .get_translated(eu::v3(0, 0, -5))
@@ -302,7 +302,7 @@ TEST_CASE("mat4-TestCombined_TR", "[mat]")
             eu::AxisAngle::from_right_hand_around
             (
                 eu::common::up,
-                eu::Angle::from_degrees(-90)
+                eu::An::from_degrees(-90)
             )
         )
         .get_transform_point(eu::v3(0, 0, 0))

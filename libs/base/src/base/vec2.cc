@@ -32,7 +32,7 @@ namespace eu
     }
 
     v2
-    v2::get_rotated(const Angle& a) const
+    v2::get_rotated(const An& a) const
     {
         const float nx = x * cos(a) - y * sin(a);
         const float ny = x * sin(a) + y * cos(a);
@@ -127,7 +127,7 @@ namespace eu
     }
 
     n2
-    n2::get_rotated(const Angle& a) const
+    n2::get_rotated(const An& a) const
     {
         const float nx = x * cos(a) - y * sin(a);
         const float ny = x * sin(a) + y * cos(a);

@@ -40,7 +40,7 @@ namespace eu
         float* get_data_ptr();
         float normalize();
 
-        [[nodiscard]] v2 get_rotated(const Angle& a) const;
+        [[nodiscard]] v2 get_rotated(const An& a) const;
 
         [[nodiscard]] const float* get_data_ptr() const;
         [[nodiscard]] v2 get_flipped_y() const;
@@ -69,7 +69,7 @@ namespace eu
 
         float* get_data_ptr();
 
-        [[nodiscard]] n2 get_rotated(const Angle& a) const;
+        [[nodiscard]] n2 get_rotated(const An& a) const;
 
         [[nodiscard]] const float* get_data_ptr() const;
         [[nodiscard]] v2 to_vec() const;
