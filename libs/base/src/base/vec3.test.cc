@@ -35,6 +35,7 @@ TEST_CASE("vec3-constructor_unique", "[vec3]")
     REQUIRE(v.y == approx(2.0f));
     REQUIRE(v.z == approx(3.0f));
 }
+
 TEST_CASE("vec3-equal", "[vec3]")
 {
     REQUIRE(eu::v3(1.0f, 2.0f, 3.0f) == approx(eu::v3(1.0f, 2.0f, 3.0f)));

@@ -33,8 +33,8 @@ namespace eu::tests
     template <>
     bool
     is_approximately_equal(
-            quatf const& lhs,
-            quatf const& rhs,
+            Q const& lhs,
+            Q const& rhs,
             const ApproxData& data);
 
     template <>

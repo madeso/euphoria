@@ -49,8 +49,8 @@ namespace eu::tests
     template <>
     bool
     is_approximately_equal(
-            quatf const& lhs,
-            quatf const& rhs,
+            Q const& lhs,
+            Q const& rhs,
             const ApproxData& data)
     {
         return is_approximately_equal(1.0f, dot(lhs, rhs), data);

@@ -9,14 +9,14 @@
 
 namespace eu
 {
-    struct quatf
+    struct Q
     {
         float w;
         float x;
         float y;
         float z;
 
-        constexpr quatf(float aw, const v3& v)
+        constexpr Q(float aw, const v3& v)
             : w(aw)
             , x(v.x)
             , y(v.y)
@@ -24,33 +24,33 @@ namespace eu
         {
         }
 
-        [[nodiscard]] static quatf from_axis_angle(const AxisAngle& aa);
-        [[nodiscard]] static quatf from_ypr(const Angle& yaw, const Angle& pitch, const Angle& roll);
-        [[nodiscard]] static quatf from_to(const quatf& from, const quatf& to);
-        [[nodiscard]] static quatf look_at(const v3& from, const v3& to, const n3& up);
-        [[nodiscard]] static quatf look_in_direction(const n3& dir, const n3& up);
+        [[nodiscard]] static Q from_axis_angle(const AxisAngle& aa);
+        [[nodiscard]] static Q from_ypr(const Angle& yaw, const Angle& pitch, const Angle& roll);
+        [[nodiscard]] static Q from_to(const Q& from, const Q& to);
+        [[nodiscard]] static Q look_at(const v3& from, const v3& to, const n3& up);
+        [[nodiscard]] static Q look_in_direction(const n3& dir, const n3& up);
 
         float* get_data_ptr();
         void normalize();
 
         /// returns In*Z + Right*X + Up*Y
         [[nodiscard]] v3 create_from_right_up_in(const v3& v) const;
-        [[nodiscard]] quatf get_rotated(const quatf& q) const;
+        [[nodiscard]] Q get_rotated(const Q& q) const;
         [[nodiscard]] n3 rotate_around_origo(const n3& v) const;
 
         // the negated represents the same rotation
-        [[nodiscard]] quatf get_negated() const;
+        [[nodiscard]] Q get_negated() const;
 
         [[nodiscard]] m4 to_mat4() const;
         [[nodiscard]] AxisAngle to_axis_angle() const;
         [[nodiscard]] const float* get_data_ptr() const;
         [[nodiscard]] v3 get_vec_part() const;
-        [[nodiscard]] quatf get_conjugate() const;
-        [[nodiscard]] quatf get_inverse() const;
-        [[nodiscard]] quatf get_identity() const;
+        [[nodiscard]] Q get_conjugate() const;
+        [[nodiscard]] Q get_inverse() const;
+        [[nodiscard]] Q get_identity() const;
         [[nodiscard]] float get_length() const;
         [[nodiscard]] float get_length_squared() const;
-        [[nodiscard]] quatf get_normalized() const;
+        [[nodiscard]] Q get_normalized() const;
 
         [[nodiscard]] n3 get_in() const;
         [[nodiscard]] n3 get_out() const;
@@ -59,27 +59,27 @@ namespace eu
         [[nodiscard]] n3 get_up() const;
         [[nodiscard]] n3 get_down() const;
 
-        void operator+=(const quatf& rhs);
-        void operator-=(const quatf& rhs);
+        void operator+=(const Q& rhs);
+        void operator-=(const Q& rhs);
         void operator*=(float rhs);
-        void operator*=(const quatf& rhs);
+        void operator*=(const Q& rhs);
     };
 
-    constexpr quatf q_identity = quatf(1, v3(0, 0, 0));
+    constexpr Q q_identity = Q(1, v3(0, 0, 0));
 
-    quatf lerp_quatf(const quatf& f, float scale, const quatf& t);
-    quatf slerp_fast(const quatf& qa, float t, const quatf& qb);
-    quatf slerp_shortway(const quatf& from, float scale, const quatf& to);
+    Q lerp_quatf(const Q& f, float scale, const Q& t);
+    Q slerp_fast(const Q& qa, float t, const Q& qb);
+    Q slerp_shortway(const Q& from, float scale, const Q& to);
 
-    float dot(const quatf& lhs, const quatf& rhs);
+    float dot(const Q& lhs, const Q& rhs);
     
-    std::string to_string(const quatf& v);
+    std::string to_string(const Q& v);
 
-    quatf operator*(const quatf& lhs, const quatf& rhs);
-    quatf operator*(float scale, const quatf& q);
-    quatf operator*(const quatf& q, float scale);
-    quatf operator+(const quatf& lhs, const quatf& rhs);
-    quatf operator-(const quatf& lhs, const quatf& rhs);
+    Q operator*(const Q& lhs, const Q& rhs);
+    Q operator*(float scale, const Q& q);
+    Q operator*(const Q& q, float scale);
+    Q operator+(const Q& lhs, const Q& rhs);
+    Q operator-(const Q& lhs, const Q& rhs);
 }
 
-ADD_DEFAULT_FORMATTER(eu::quatf, std::string, eu::to_string);
+ADD_DEFAULT_FORMATTER(eu::Q, std::string, eu::to_string);

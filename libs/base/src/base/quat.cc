@@ -3,35 +3,35 @@
 
 namespace eu
 {
-    float* quatf::get_data_ptr()
+    float* Q::get_data_ptr()
     {
         return &w;
     }
 
-    [[nodiscard]] const float* quatf::get_data_ptr() const
+    [[nodiscard]] const float* Q::get_data_ptr() const
     {
         return &w;
     }
 
-    v3 quatf::get_vec_part() const
+    v3 Q::get_vec_part() const
     {
         return {x, y, z};
     }
 
 
-    [[nodiscard]] quatf
-    quatf::from_axis_angle(const AxisAngle& aa)
+    [[nodiscard]] Q
+    Q::from_axis_angle(const AxisAngle& aa)
     {
         const float sin_a = sin(aa.angle / 2);
         const float cos_a = cos(aa.angle / 2);
-        quatf r(cos_a, aa.axis * sin_a);
+        Q r(cos_a, aa.axis * sin_a);
         r.normalize();
         return r;
     }
 
 
-    [[nodiscard]] quatf
-    quatf::from_ypr(const Angle& yaw, const Angle& pitch, const Angle& roll)
+    [[nodiscard]] Q
+    Q::from_ypr(const Angle& yaw, const Angle& pitch, const Angle& roll)
     {
         // Abbreviations for the various angular functions
         const auto cy = cos(yaw * 0.5);
@@ -53,8 +53,8 @@ namespace eu
     }
 
 
-    [[nodiscard]] quatf
-    quatf::from_to(const quatf& from, const quatf& to)
+    [[nodiscard]] Q
+    Q::from_to(const Q& from, const Q& to)
     {
         // https://stackoverflow.com/a/22167097
         return to * from.get_inverse();
@@ -62,14 +62,14 @@ namespace eu
 
 
     [[nodiscard]] m4
-    quatf::to_mat4() const
+    Q::to_mat4() const
     {
         return m4::from_axis_angle(to_axis_angle());
     }
 
 
     [[nodiscard]] AxisAngle
-    quatf::to_axis_angle() const
+    Q::to_axis_angle() const
     {
         const float cos_a = w;
         const auto angle = acos(cos_a) * 2;
@@ -84,29 +84,29 @@ namespace eu
     // static Q FromAngles(float x, float y, float z);
 
 
-    [[nodiscard]] quatf
-    quatf::look_at(const v3& from, const v3& to, const n3& up)
+    [[nodiscard]] Q
+    Q::look_at(const v3& from, const v3& to, const n3& up)
     {
         return look_in_direction(v3::from_to(from, to).get_normalized(), up);
     }
 
 
-    quatf
-    quatf::get_rotated(const quatf& q) const
+    Q
+    Q::get_rotated(const Q& q) const
     {
         return q * *this;
     }
 
 
-    quatf
-    quatf::get_conjugate() const
+    Q
+    Q::get_conjugate() const
     {
         return {w, -get_vec_part()};
     }
 
 
-    quatf
-    quatf::get_inverse() const
+    Q
+    Q::get_inverse() const
     {
         // todo(Gustav): assert here
         // get_length_squared() == 1
@@ -115,15 +115,15 @@ namespace eu
 
 
     // the negated represents the same rotation
-    quatf
-    quatf::get_negated() const
+    Q
+    Q::get_negated() const
     {
         return {-w, -get_vec_part()};
     }
 
 
-    quatf
-    quatf::get_identity() const
+    Q
+    Q::get_identity() const
     {
         const float l2 = get_length_squared();
         if(is_equal(l2, 0.0f)) { return q_identity; }
@@ -133,21 +133,21 @@ namespace eu
 
 
     float
-    quatf::get_length() const
+    Q::get_length() const
     {
         return sqrt(get_length_squared());
     }
 
 
     float
-    quatf::get_length_squared() const
+    Q::get_length_squared() const
     {
         return x * x + y * y + z * z + w * w;
     }
 
 
     void
-    quatf::normalize()
+    Q::normalize()
     {
         const float l = get_length();
         if(is_zero(l))
@@ -164,51 +164,51 @@ namespace eu
     }
 
 
-    quatf
-    quatf::get_normalized() const
+    Q
+    Q::get_normalized() const
     {
-        quatf r = *this;
+        Q r = *this;
         r.normalize();
         return r;
     }
 
 
-    n3 quatf::get_in   () const { return rotate_around_origo(-common::z_axis); }
-    n3 quatf::get_out  () const { return rotate_around_origo( common::z_axis); }
-    n3 quatf::get_right() const { return rotate_around_origo( common::x_axis); }
-    n3 quatf::get_left () const { return rotate_around_origo(-common::x_axis); }
-    n3 quatf::get_up   () const { return rotate_around_origo( common::y_axis); }
-    n3 quatf::get_down () const { return rotate_around_origo(-common::y_axis); }
+    n3 Q::get_in   () const { return rotate_around_origo(-common::z_axis); }
+    n3 Q::get_out  () const { return rotate_around_origo( common::z_axis); }
+    n3 Q::get_right() const { return rotate_around_origo( common::x_axis); }
+    n3 Q::get_left () const { return rotate_around_origo(-common::x_axis); }
+    n3 Q::get_up   () const { return rotate_around_origo( common::y_axis); }
+    n3 Q::get_down () const { return rotate_around_origo(-common::y_axis); }
 
 
     // In*Z + Right*X + Up*Y
     v3
-    quatf::create_from_right_up_in(const v3& v) const
+    Q::create_from_right_up_in(const v3& v) const
     {
         return get_in() * v.z + get_right() * v.x + get_up() * v.y;
     }
 
 
     n3
-    quatf::rotate_around_origo(const n3& v) const
+    Q::rotate_around_origo(const n3& v) const
     {
         // http://gamedev.stackexchange.com/questions/28395/rotating-vector3-by-a-quaternion
-        const quatf pure = {0, v};
-        const quatf a = *this * pure;
-        const quatf ret = a * get_conjugate();
+        const Q pure = {0, v};
+        const Q a = *this * pure;
+        const Q ret = a * get_conjugate();
         return ret.get_vec_part().get_normalized();
     }
 
 
-    quatf
-    lerp_quatf(const quatf& f, const float scale, const quatf& t)
+    Q
+    lerp_quatf(const Q& f, const float scale, const Q& t)
     {
         return f * (1 - scale) + t * scale;
     }
 
 
-    quatf
-    slerp_fast(const quatf& qa, const float t, const quatf& qb)
+    Q
+    slerp_fast(const Q& qa, const float t, const Q& qb)
     {
         // from:
         // http://www.euclideanspace.com/maths/algebra/realNormedAlgebra/quaternions/slerp/
@@ -226,8 +226,8 @@ namespace eu
         {
             // if theta = 180 degrees then result is not fully defined
             // we could rotate around any axis normal to qa or qb
-            const quatf qt = qa + qb;
-            return quatf
+            const Q qt = qa + qb;
+            return Q
             {
                 qt.w * 0.5f,
                 v3
@@ -244,8 +244,8 @@ namespace eu
     }
 
 
-    quatf
-    slerp_shortway(const quatf& from, const float scale, const quatf& to)
+    Q
+    slerp_shortway(const Q& from, const float scale, const Q& to)
     {
         if(dot(from, to) < 0)
         {
@@ -259,7 +259,7 @@ namespace eu
 
 
     void
-    quatf::operator+=(const quatf& rhs)
+    Q::operator+=(const Q& rhs)
     {
         x += rhs.x;
         y += rhs.y;
@@ -269,7 +269,7 @@ namespace eu
 
 
     void
-    quatf::operator-=(const quatf& rhs)
+    Q::operator-=(const Q& rhs)
     {
         x -= rhs.x;
         y -= rhs.y;
@@ -279,7 +279,7 @@ namespace eu
 
 
     void
-    quatf::operator*=(float rhs)
+    Q::operator*=(float rhs)
     {
         x *= rhs;
         y *= rhs;
@@ -289,7 +289,7 @@ namespace eu
 
 
     void
-    quatf::operator*=(const quatf& rhs)
+    Q::operator*=(const Q& rhs)
     {
 #define VAR(a, b) const float a##1##b##2 = a * rhs.b
         VAR(w, w);
@@ -319,7 +319,7 @@ namespace eu
         z = w1z2 + z1w2 + x1y2 - y1x2;
     }
 
-    quatf quatf::look_in_direction(const n3& dir, const n3& up)
+    Q Q::look_in_direction(const n3& dir, const n3& up)
     {
         const v3 in = common::in;
         float dot_value = in.dot(dir);
@@ -336,63 +336,63 @@ namespace eu
 
         const auto rot_angle = acos(dot_value);
         const auto rot_axis = in.cross(dir).get_normalized();
-        return quatf::from_axis_angle
+        return Q::from_axis_angle
         (
             AxisAngle::from_right_hand_around(rot_axis, rot_angle)
         );
     }
 
 
-    std::string to_string(const quatf& v)
+    std::string to_string(const Q& v)
     {
         return fmt::format("({} ({}, {}, {}))", v.w, v.x, v.y, v.z);
     }
 
 
     float
-    dot(const quatf& lhs, const quatf& rhs)
+    dot(const Q& lhs, const Q& rhs)
     {
         return lhs.x * rhs.x + lhs.y * rhs.y + lhs.z * rhs.z + lhs.w * rhs.w;
     }
 
 
-    quatf operator*(const quatf& lhs, const quatf& rhs)
+    Q operator*(const Q& lhs, const Q& rhs)
     {
-        quatf r = lhs;
+        Q r = lhs;
         r *= rhs;
         return r;
     }
 
 
-    quatf operator*(float scale, const quatf& q)
+    Q operator*(float scale, const Q& q)
     {
-        quatf r = q;
+        Q r = q;
         r *= scale;
         return r;
     }
 
 
-    quatf operator*(const quatf& q, float scale)
+    Q operator*(const Q& q, float scale)
     {
-        quatf r = q;
+        Q r = q;
         r *= scale;
         return r;
     }
 
 
-    quatf
-    operator+(const quatf& lhs, const quatf& rhs)
+    Q
+    operator+(const Q& lhs, const Q& rhs)
     {
-        quatf r = rhs;
+        Q r = rhs;
         r += lhs;
         return r;
     }
 
 
-    quatf
-    operator-(const quatf& lhs, const quatf& rhs)
+    Q
+    operator-(const Q& lhs, const Q& rhs)
     {
-        quatf r = rhs;
+        Q r = rhs;
         r -= lhs;
         return r;
     }
