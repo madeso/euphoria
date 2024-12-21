@@ -1,14 +1,14 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
   <compounddef id="approx_8cc" kind="file" language="C++">
     <compoundname>approx.cc</compoundname>
     <includes refid="approx_8h" local="yes">tests/approx.h</includes>
     <incdepgraph>
-      <node id="4">
-        <label>limits</label>
-      </node>
-      <node id="3">
-        <label>cmath</label>
+      <node id="1">
+        <label>libs/tests/src/tests/approx.cc</label>
+        <link refid="approx_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
       </node>
       <node id="2">
         <label>tests/approx.h</label>
@@ -20,14 +20,14 @@
         <childnode refid="5" relation="include">
         </childnode>
       </node>
-      <node id="1">
-        <label>libs/tests/src/tests/approx.cc</label>
-        <link refid="approx_8cc"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-      </node>
       <node id="5">
         <label>catch2/catch_all.hpp</label>
+      </node>
+      <node id="3">
+        <label>cmath</label>
+      </node>
+      <node id="4">
+        <label>limits</label>
       </node>
     </incdepgraph>
     <innernamespace refid="namespaceeu">eu</innernamespace>

@@ -1,32 +1,52 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
   <compounddef id="structeu_1_1Angle" kind="struct" language="C++" prot="public">
     <compoundname>eu::Angle</compoundname>
     <includes refid="angle_8h" local="no">angle.h</includes>
-      <sectiondef kind="private-attrib">
+    <sectiondef kind="private-attrib">
       <memberdef kind="variable" id="structeu_1_1Angle_1abd6e2978d755d8a0e203b08f83df32ec" prot="private" static="no" mutable="no">
-        <type>float</type>
+        <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">float</ref></type>
         <definition>float eu::Angle::radians</definition>
         <argsstring></argsstring>
         <name>radians</name>
+        <qualifiedname>eu::Angle::radians</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/angle.h" line="70" column="15" bodyfile="libs/base/src/base/angle.h" bodystart="70" bodyend="-1"/>
+        <location file="libs/base/src/base/angle.h" line="64" column="15" bodyfile="libs/base/src/base/angle.h" bodystart="64" bodyend="-1"/>
       </memberdef>
-      </sectiondef>
-      <sectiondef kind="public-static-func">
-      <memberdef kind="function" id="structeu_1_1Angle_1ab731748f45d076a402e9f38811e008cc" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type>constexpr static <ref refid="structeu_1_1Angle" kindref="compound">Angle</ref></type>
-        <definition>constexpr static Angle eu::Angle::from_degrees</definition>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="structeu_1_1Angle_1a4a4f61e6d2629c8cc7007d0932e3b34c" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">constexpr</ref> <ref refid="structeu_1_1Angle" kindref="compound">Angle</ref></type>
+        <definition>static constexpr Angle eu::Angle::from_degrees</definition>
         <argsstring>(float degrees)</argsstring>
         <name>from_degrees</name>
+        <qualifiedname>eu::Angle::from_degrees</qualifiedname>
         <param>
-          <type>float</type>
+          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">float</ref></type>
           <declname>degrees</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/angle.h" line="10" column="9" bodyfile="libs/base/src/base/angle.h" bodystart="10" bodyend="13"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Angle_1a2b54c0b925d8a61b4e63cdeae28d88a4" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">constexpr</ref> <ref refid="structeu_1_1Angle" kindref="compound">Angle</ref></type>
+        <definition>static constexpr Angle eu::Angle::from_radians</definition>
+        <argsstring>(float radians)</argsstring>
+        <name>from_radians</name>
+        <qualifiedname>eu::Angle::from_radians</qualifiedname>
+        <param>
+          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">float</ref></type>
+          <declname>radians</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -36,14 +56,15 @@
         </inbodydescription>
         <location file="libs/base/src/base/angle.h" line="16" column="9" bodyfile="libs/base/src/base/angle.h" bodystart="16" bodyend="19"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1Angle_1ab9802112540d204c98ea0c746fb22cab" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type>constexpr static <ref refid="structeu_1_1Angle" kindref="compound">Angle</ref></type>
-        <definition>constexpr static Angle eu::Angle::from_radians</definition>
-        <argsstring>(float radians)</argsstring>
-        <name>from_radians</name>
+      <memberdef kind="function" id="structeu_1_1Angle_1a41c5ad99116d3787939aac7855be230b" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">constexpr</ref> <ref refid="structeu_1_1Angle" kindref="compound">Angle</ref></type>
+        <definition>static constexpr Angle eu::Angle::from_percent_of_360</definition>
+        <argsstring>(float percent)</argsstring>
+        <name>from_percent_of_360</name>
+        <qualifiedname>eu::Angle::from_percent_of_360</qualifiedname>
         <param>
-          <type>float</type>
-          <declname>radians</declname>
+          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">float</ref></type>
+          <declname>percent</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -53,13 +74,14 @@
         </inbodydescription>
         <location file="libs/base/src/base/angle.h" line="22" column="9" bodyfile="libs/base/src/base/angle.h" bodystart="22" bodyend="25"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1Angle_1ab337618cd98b7c22d33ebc08c6e2ed70" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type>constexpr static <ref refid="structeu_1_1Angle" kindref="compound">Angle</ref></type>
-        <definition>constexpr static Angle eu::Angle::from_percent_of_360</definition>
+      <memberdef kind="function" id="structeu_1_1Angle_1a6d408fe337e627a43f12952592099ef5" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">constexpr</ref> <ref refid="structeu_1_1Angle" kindref="compound">Angle</ref></type>
+        <definition>static constexpr Angle eu::Angle::from_percent_of_180</definition>
         <argsstring>(float percent)</argsstring>
-        <name>from_percent_of_360</name>
+        <name>from_percent_of_180</name>
+        <qualifiedname>eu::Angle::from_percent_of_180</qualifiedname>
         <param>
-          <type>float</type>
+          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">float</ref></type>
           <declname>percent</declname>
         </param>
         <briefdescription>
@@ -70,43 +92,42 @@
         </inbodydescription>
         <location file="libs/base/src/base/angle.h" line="28" column="9" bodyfile="libs/base/src/base/angle.h" bodystart="28" bodyend="31"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1Angle_1aac580cf76c70266355d9df8819411834" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type>constexpr static <ref refid="structeu_1_1Angle" kindref="compound">Angle</ref></type>
-        <definition>constexpr static Angle eu::Angle::from_percent_of_180</definition>
-        <argsstring>(float percent)</argsstring>
-        <name>from_percent_of_180</name>
-        <param>
-          <type>float</type>
-          <declname>percent</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/base/src/base/angle.h" line="34" column="9" bodyfile="libs/base/src/base/angle.h" bodystart="34" bodyend="37"/>
-      </memberdef>
-      </sectiondef>
-      <sectiondef kind="public-func">
+    </sectiondef>
+    <sectiondef kind="public-func">
       <memberdef kind="function" id="structeu_1_1Angle_1a28fd03fe48cf73d620a85d2f0cb8f704" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>void</type>
+        <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">void</ref></type>
         <definition>void eu::Angle::wrap</definition>
         <argsstring>()</argsstring>
         <name>wrap</name>
+        <qualifiedname>eu::Angle::wrap</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/angle.h" line="40" column="14" bodyfile="libs/base/src/base/angle.cc" bodystart="19" bodyend="22"/>
+        <location file="libs/base/src/base/angle.h" line="34" column="14" bodyfile="libs/base/src/base/angle.cc" bodystart="12" bodyend="15"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1Angle_1a8462bec39862bfbd57ffd7e99e6852f2" prot="public" static="no" constexpr="yes" const="yes" explicit="no" inline="yes" virt="non-virtual">
-        <type>constexpr float</type>
+        <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">constexpr</ref> <ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">float</ref></type>
         <definition>constexpr float eu::Angle::as_degrees</definition>
         <argsstring>() const</argsstring>
         <name>as_degrees</name>
+        <qualifiedname>eu::Angle::as_degrees</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/angle.h" line="38" column="9" bodyfile="libs/base/src/base/angle.h" bodystart="38" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Angle_1a15767e2f0dfa47775dbae8438db1edb3" prot="public" static="no" constexpr="yes" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">constexpr</ref> <ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">float</ref></type>
+        <definition>constexpr float eu::Angle::as_radians</definition>
+        <argsstring>() const</argsstring>
+        <name>as_radians</name>
+        <qualifiedname>eu::Angle::as_radians</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -115,11 +136,12 @@
         </inbodydescription>
         <location file="libs/base/src/base/angle.h" line="44" column="9" bodyfile="libs/base/src/base/angle.h" bodystart="44" bodyend="47"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1Angle_1a15767e2f0dfa47775dbae8438db1edb3" prot="public" static="no" constexpr="yes" const="yes" explicit="no" inline="yes" virt="non-virtual">
-        <type>constexpr float</type>
-        <definition>constexpr float eu::Angle::as_radians</definition>
+      <memberdef kind="function" id="structeu_1_1Angle_1ad01b4e298a7e9d3691d2ad70120b9352" prot="public" static="no" constexpr="yes" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">constexpr</ref> <ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">float</ref></type>
+        <definition>constexpr float eu::Angle::from_percent_of_360</definition>
         <argsstring>() const</argsstring>
-        <name>as_radians</name>
+        <name>from_percent_of_360</name>
+        <qualifiedname>eu::Angle::from_percent_of_360</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -128,39 +150,28 @@
         </inbodydescription>
         <location file="libs/base/src/base/angle.h" line="50" column="9" bodyfile="libs/base/src/base/angle.h" bodystart="50" bodyend="53"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1Angle_1ad01b4e298a7e9d3691d2ad70120b9352" prot="public" static="no" constexpr="yes" const="yes" explicit="no" inline="yes" virt="non-virtual">
-        <type>constexpr float</type>
-        <definition>constexpr float eu::Angle::from_percent_of_360</definition>
-        <argsstring>() const</argsstring>
-        <name>from_percent_of_360</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/base/src/base/angle.h" line="56" column="9" bodyfile="libs/base/src/base/angle.h" bodystart="56" bodyend="59"/>
-      </memberdef>
       <memberdef kind="function" id="structeu_1_1Angle_1ac787958228424f810699c58e71549cb3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1Angle" kindref="compound">Angle</ref></type>
         <definition>Angle eu::Angle::get_wrapped</definition>
         <argsstring>() const</argsstring>
         <name>get_wrapped</name>
+        <qualifiedname>eu::Angle::get_wrapped</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/angle.h" line="61" column="16" bodyfile="libs/base/src/base/angle.cc" bodystart="114" bodyend="119"/>
+        <location file="libs/base/src/base/angle.h" line="55" column="16" bodyfile="libs/base/src/base/angle.cc" bodystart="107" bodyend="112"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1Angle_1a531a244c6af6f888637bd2b114c72de3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>void</type>
+        <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">void</ref></type>
         <definition>void eu::Angle::operator+=</definition>
         <argsstring>(const Angle &amp;rhs)</argsstring>
         <name>operator+=</name>
+        <qualifiedname>eu::Angle::operator+=</qualifiedname>
         <param>
-          <type>const <ref refid="structeu_1_1Angle" kindref="compound">Angle</ref> &amp;</type>
+          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1Angle" kindref="compound">Angle</ref> &amp;</type>
           <declname>rhs</declname>
         </param>
         <briefdescription>
@@ -169,15 +180,16 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/angle.h" line="63" column="14" bodyfile="libs/base/src/base/angle.cc" bodystart="26" bodyend="29"/>
+        <location file="libs/base/src/base/angle.h" line="57" column="14" bodyfile="libs/base/src/base/angle.cc" bodystart="19" bodyend="22"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1Angle_1a23388f334e8d3645e3de698454681d1f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>void</type>
+        <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">void</ref></type>
         <definition>void eu::Angle::operator-=</definition>
         <argsstring>(const Angle &amp;rhs)</argsstring>
         <name>operator-=</name>
+        <qualifiedname>eu::Angle::operator-=</qualifiedname>
         <param>
-          <type>const <ref refid="structeu_1_1Angle" kindref="compound">Angle</ref> &amp;</type>
+          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1Angle" kindref="compound">Angle</ref> &amp;</type>
           <declname>rhs</declname>
         </param>
         <briefdescription>
@@ -186,15 +198,16 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/angle.h" line="64" column="14" bodyfile="libs/base/src/base/angle.cc" bodystart="33" bodyend="36"/>
+        <location file="libs/base/src/base/angle.h" line="58" column="14" bodyfile="libs/base/src/base/angle.cc" bodystart="26" bodyend="29"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1Angle_1aeb4ef4d606e1ecc2a299cf6436951094" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>void</type>
+        <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">void</ref></type>
         <definition>void eu::Angle::operator*=</definition>
         <argsstring>(float rhs)</argsstring>
         <name>operator*=</name>
+        <qualifiedname>eu::Angle::operator*=</qualifiedname>
         <param>
-          <type>float</type>
+          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">float</ref></type>
           <declname>rhs</declname>
         </param>
         <briefdescription>
@@ -203,15 +216,16 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/angle.h" line="65" column="14" bodyfile="libs/base/src/base/angle.cc" bodystart="40" bodyend="43"/>
+        <location file="libs/base/src/base/angle.h" line="59" column="14" bodyfile="libs/base/src/base/angle.cc" bodystart="33" bodyend="36"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1Angle_1aac22c6c459c092634eea23686ba4b6b7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>void</type>
+        <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">void</ref></type>
         <definition>void eu::Angle::operator/=</definition>
         <argsstring>(float rhs)</argsstring>
         <name>operator/=</name>
+        <qualifiedname>eu::Angle::operator/=</qualifiedname>
         <param>
-          <type>float</type>
+          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">float</ref></type>
           <declname>rhs</declname>
         </param>
         <briefdescription>
@@ -220,30 +234,32 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/angle.h" line="66" column="14" bodyfile="libs/base/src/base/angle.cc" bodystart="47" bodyend="50"/>
+        <location file="libs/base/src/base/angle.h" line="60" column="14" bodyfile="libs/base/src/base/angle.cc" bodystart="40" bodyend="43"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1Angle_1a08eed13a3a4c703d74c80db9a7d483d0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1Angle" kindref="compound">Angle</ref></type>
         <definition>Angle eu::Angle::operator-</definition>
         <argsstring>() const</argsstring>
         <name>operator-</name>
+        <qualifiedname>eu::Angle::operator-</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/angle.h" line="67" column="15" bodyfile="libs/base/src/base/angle.cc" bodystart="54" bodyend="57"/>
+        <location file="libs/base/src/base/angle.h" line="61" column="15" bodyfile="libs/base/src/base/angle.cc" bodystart="47" bodyend="50"/>
       </memberdef>
-      </sectiondef>
-      <sectiondef kind="private-func">
+    </sectiondef>
+    <sectiondef kind="private-func">
       <memberdef kind="function" id="structeu_1_1Angle_1a7bdc53dabeb93a472c2a3f6c50ec960e" prot="private" static="no" constexpr="yes" const="no" explicit="yes" inline="yes" virt="non-virtual">
-        <type>constexpr</type>
+        <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">constexpr</ref></type>
         <definition>constexpr eu::Angle::Angle</definition>
         <argsstring>(float r)</argsstring>
         <name>Angle</name>
+        <qualifiedname>eu::Angle::Angle</qualifiedname>
         <param>
-          <type>float</type>
+          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">float</ref></type>
           <declname>r</declname>
         </param>
         <briefdescription>
@@ -252,18 +268,37 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/angle.h" line="72" column="28" bodyfile="libs/base/src/base/angle.h" bodystart="72" bodyend="72"/>
+        <location file="libs/base/src/base/angle.h" line="66" column="28" bodyfile="libs/base/src/base/angle.h" bodystart="66" bodyend="66"/>
       </memberdef>
-      </sectiondef>
-      <sectiondef kind="private-static-func">
+    </sectiondef>
+    <sectiondef kind="private-static-func">
       <memberdef kind="function" id="structeu_1_1Angle_1ae7e20482bf8df45cbd68ea63d88a1ca8" prot="private" static="yes" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type>constexpr float</type>
+        <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">constexpr</ref> <ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">float</ref></type>
         <definition>static constexpr float eu::Angle::c_radian_to_degrees</definition>
         <argsstring>(float radians)</argsstring>
         <name>c_radian_to_degrees</name>
+        <qualifiedname>eu::Angle::c_radian_to_degrees</qualifiedname>
         <param>
-          <type>float</type>
+          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">float</ref></type>
           <declname>radians</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/angle.h" line="69" column="9" bodyfile="libs/base/src/base/angle.h" bodystart="69" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Angle_1adf5964495911186ce6047f8ae9fdcd79" prot="private" static="yes" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">constexpr</ref> <ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">float</ref></type>
+        <definition>static constexpr float eu::Angle::c_degrees_to_radian</definition>
+        <argsstring>(float degrees)</argsstring>
+        <name>c_degrees_to_radian</name>
+        <qualifiedname>eu::Angle::c_degrees_to_radian</qualifiedname>
+        <param>
+          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">float</ref></type>
+          <declname>degrees</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -273,40 +308,23 @@
         </inbodydescription>
         <location file="libs/base/src/base/angle.h" line="75" column="9" bodyfile="libs/base/src/base/angle.h" bodystart="75" bodyend="78"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1Angle_1adf5964495911186ce6047f8ae9fdcd79" prot="private" static="yes" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type>constexpr float</type>
-        <definition>static constexpr float eu::Angle::c_degrees_to_radian</definition>
-        <argsstring>(float degrees)</argsstring>
-        <name>c_degrees_to_radian</name>
-        <param>
-          <type>float</type>
-          <declname>degrees</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/base/src/base/angle.h" line="81" column="9" bodyfile="libs/base/src/base/angle.h" bodystart="81" bodyend="84"/>
-      </memberdef>
-      </sectiondef>
+    </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/base/src/base/angle.h" line="13" column="5" bodyfile="libs/base/src/base/angle.h" bodystart="14" bodyend="85"/>
+    <location file="libs/base/src/base/angle.h" line="7" column="5" bodyfile="libs/base/src/base/angle.h" bodystart="8" bodyend="79"/>
     <listofallmembers>
       <member refid="structeu_1_1Angle_1a7bdc53dabeb93a472c2a3f6c50ec960e" prot="private" virt="non-virtual"><scope>eu::Angle</scope><name>Angle</name></member>
       <member refid="structeu_1_1Angle_1a8462bec39862bfbd57ffd7e99e6852f2" prot="public" virt="non-virtual"><scope>eu::Angle</scope><name>as_degrees</name></member>
       <member refid="structeu_1_1Angle_1a15767e2f0dfa47775dbae8438db1edb3" prot="public" virt="non-virtual"><scope>eu::Angle</scope><name>as_radians</name></member>
       <member refid="structeu_1_1Angle_1adf5964495911186ce6047f8ae9fdcd79" prot="private" virt="non-virtual"><scope>eu::Angle</scope><name>c_degrees_to_radian</name></member>
       <member refid="structeu_1_1Angle_1ae7e20482bf8df45cbd68ea63d88a1ca8" prot="private" virt="non-virtual"><scope>eu::Angle</scope><name>c_radian_to_degrees</name></member>
-      <member refid="structeu_1_1Angle_1ab731748f45d076a402e9f38811e008cc" prot="public" virt="non-virtual"><scope>eu::Angle</scope><name>from_degrees</name></member>
-      <member refid="structeu_1_1Angle_1aac580cf76c70266355d9df8819411834" prot="public" virt="non-virtual"><scope>eu::Angle</scope><name>from_percent_of_180</name></member>
-      <member refid="structeu_1_1Angle_1ab337618cd98b7c22d33ebc08c6e2ed70" prot="public" virt="non-virtual"><scope>eu::Angle</scope><name>from_percent_of_360</name></member>
+      <member refid="structeu_1_1Angle_1a4a4f61e6d2629c8cc7007d0932e3b34c" prot="public" virt="non-virtual"><scope>eu::Angle</scope><name>from_degrees</name></member>
+      <member refid="structeu_1_1Angle_1a6d408fe337e627a43f12952592099ef5" prot="public" virt="non-virtual"><scope>eu::Angle</scope><name>from_percent_of_180</name></member>
+      <member refid="structeu_1_1Angle_1a41c5ad99116d3787939aac7855be230b" prot="public" virt="non-virtual"><scope>eu::Angle</scope><name>from_percent_of_360</name></member>
       <member refid="structeu_1_1Angle_1ad01b4e298a7e9d3691d2ad70120b9352" prot="public" virt="non-virtual"><scope>eu::Angle</scope><name>from_percent_of_360</name></member>
-      <member refid="structeu_1_1Angle_1ab9802112540d204c98ea0c746fb22cab" prot="public" virt="non-virtual"><scope>eu::Angle</scope><name>from_radians</name></member>
+      <member refid="structeu_1_1Angle_1a2b54c0b925d8a61b4e63cdeae28d88a4" prot="public" virt="non-virtual"><scope>eu::Angle</scope><name>from_radians</name></member>
       <member refid="structeu_1_1Angle_1ac787958228424f810699c58e71549cb3" prot="public" virt="non-virtual"><scope>eu::Angle</scope><name>get_wrapped</name></member>
       <member refid="structeu_1_1Angle_1aeb4ef4d606e1ecc2a299cf6436951094" prot="public" virt="non-virtual"><scope>eu::Angle</scope><name>operator*=</name></member>
       <member refid="structeu_1_1Angle_1a531a244c6af6f888637bd2b114c72de3" prot="public" virt="non-virtual"><scope>eu::Angle</scope><name>operator+=</name></member>

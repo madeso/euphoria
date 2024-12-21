@@ -1,15 +1,15 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
   <compounddef id="structeu_1_1log_1_1Logger" kind="struct" language="C++" prot="public" abstract="yes">
     <compoundname>eu::log::Logger</compoundname>
-    <derivedcompoundref refid="structeu_1_1window_1_1SdlLogger" prot="public" virt="non-virtual">eu::window::SdlLogger</derivedcompoundref>
-    <includes refid="log_2src_2log_2log_8h" local="no">log.h</includes>
-      <sectiondef kind="public-func">
+    <includes refid="log_8h" local="no">log.h</includes>
+    <sectiondef kind="public-func">
       <memberdef kind="function" id="structeu_1_1log_1_1Logger_1a86a567c61eabb14a1894b05094c49400" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>eu::log::Logger::Logger</definition>
         <argsstring>()=default</argsstring>
         <name>Logger</name>
+        <qualifiedname>eu::log::Logger::Logger</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -23,6 +23,7 @@
         <definition>virtual eu::log::Logger::~Logger</definition>
         <argsstring>()=default</argsstring>
         <name>~Logger</name>
+        <qualifiedname>eu::log::Logger::~Logger</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -36,8 +37,9 @@
         <definition>eu::log::Logger::Logger</definition>
         <argsstring>(const Logger &amp;)=delete</argsstring>
         <name>Logger</name>
+        <qualifiedname>eu::log::Logger::Logger</qualifiedname>
         <param>
-          <type>const <ref refid="structeu_1_1log_1_1Logger" kindref="compound">Logger</ref> &amp;</type>
+          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1log_1_1Logger" kindref="compound">Logger</ref> &amp;</type>
         </param>
         <briefdescription>
         </briefdescription>
@@ -52,6 +54,7 @@
         <definition>eu::log::Logger::Logger</definition>
         <argsstring>(Logger &amp;&amp;)=delete</argsstring>
         <name>Logger</name>
+        <qualifiedname>eu::log::Logger::Logger</qualifiedname>
         <param>
           <type><ref refid="structeu_1_1log_1_1Logger" kindref="compound">Logger</ref> &amp;&amp;</type>
         </param>
@@ -64,12 +67,13 @@
         <location file="libs/log/src/log/log.h" line="21" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1log_1_1Logger_1aa2ee55126420e17cd6c60a1b573480f1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>void</type>
+        <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">void</ref></type>
         <definition>void eu::log::Logger::operator=</definition>
         <argsstring>(const Logger &amp;)=delete</argsstring>
         <name>operator=</name>
+        <qualifiedname>eu::log::Logger::operator=</qualifiedname>
         <param>
-          <type>const <ref refid="structeu_1_1log_1_1Logger" kindref="compound">Logger</ref> &amp;</type>
+          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1log_1_1Logger" kindref="compound">Logger</ref> &amp;</type>
         </param>
         <briefdescription>
         </briefdescription>
@@ -80,10 +84,11 @@
         <location file="libs/log/src/log/log.h" line="22" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1log_1_1Logger_1aaeda7ce06bd578f6efa49d3c9863f6d1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>void</type>
+        <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">void</ref></type>
         <definition>void eu::log::Logger::operator=</definition>
         <argsstring>(Logger &amp;&amp;)=delete</argsstring>
         <name>operator=</name>
+        <qualifiedname>eu::log::Logger::operator=</qualifiedname>
         <param>
           <type><ref refid="structeu_1_1log_1_1Logger" kindref="compound">Logger</ref> &amp;&amp;</type>
         </param>
@@ -96,13 +101,13 @@
         <location file="libs/log/src/log/log.h" line="23" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1log_1_1Logger_1ad2b67eb49edc11aab5978f306f8e41b5" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
-        <type>void</type>
+        <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">void</ref></type>
         <definition>virtual void eu::log::Logger::info</definition>
         <argsstring>(const std::string &amp;str)=0</argsstring>
         <name>info</name>
-        <reimplementedby refid="structeu_1_1window_1_1SdlLogger_1a9cc79c986fc851b1c28b1b3fa88b1a9d">info</reimplementedby>
+        <qualifiedname>eu::log::Logger::info</qualifiedname>
         <param>
-          <type>const std::string &amp;</type>
+          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> std::string &amp;</type>
           <declname>str</declname>
         </param>
         <briefdescription>
@@ -114,13 +119,13 @@
         <location file="libs/log/src/log/log.h" line="25" column="22"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1log_1_1Logger_1a06423e395456c121ee759d7569df5907" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
-        <type>void</type>
+        <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">void</ref></type>
         <definition>virtual void eu::log::Logger::warn</definition>
         <argsstring>(const std::string &amp;str)=0</argsstring>
         <name>warn</name>
-        <reimplementedby refid="structeu_1_1window_1_1SdlLogger_1aa32c306b76dd327ca6d0d34649692fc3">warn</reimplementedby>
+        <qualifiedname>eu::log::Logger::warn</qualifiedname>
         <param>
-          <type>const std::string &amp;</type>
+          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> std::string &amp;</type>
           <declname>str</declname>
         </param>
         <briefdescription>
@@ -132,13 +137,13 @@
         <location file="libs/log/src/log/log.h" line="26" column="22"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1log_1_1Logger_1afaf5e8f95546857df1e95d8bae6775ef" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
-        <type>void</type>
+        <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">void</ref></type>
         <definition>virtual void eu::log::Logger::error</definition>
         <argsstring>(const std::string &amp;str)=0</argsstring>
         <name>error</name>
-        <reimplementedby refid="structeu_1_1window_1_1SdlLogger_1a88ca677bf95c0b330ad0034bb3000036">error</reimplementedby>
+        <qualifiedname>eu::log::Logger::error</qualifiedname>
         <param>
-          <type>const std::string &amp;</type>
+          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> std::string &amp;</type>
           <declname>str</declname>
         </param>
         <briefdescription>
@@ -149,23 +154,11 @@
         </inbodydescription>
         <location file="libs/log/src/log/log.h" line="27" column="22"/>
       </memberdef>
-      </sectiondef>
+    </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <inheritancegraph>
-      <node id="2">
-        <label>eu::window::SdlLogger</label>
-        <link refid="structeu_1_1window_1_1SdlLogger"/>
-        <childnode refid="1" relation="public-inheritance">
-        </childnode>
-      </node>
-      <node id="1">
-        <label>eu::log::Logger</label>
-        <link refid="structeu_1_1log_1_1Logger"/>
-      </node>
-    </inheritancegraph>
     <location file="libs/log/src/log/log.h" line="15" column="5" bodyfile="libs/log/src/log/log.h" bodystart="16" bodyend="28"/>
     <listofallmembers>
       <member refid="structeu_1_1log_1_1Logger_1afaf5e8f95546857df1e95d8bae6775ef" prot="public" virt="pure-virtual"><scope>eu::log::Logger</scope><name>error</name></member>

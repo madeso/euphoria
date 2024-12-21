@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
   <compounddef id="approx_8h" kind="file" language="C++">
     <compoundname>approx.h</compoundname>
     <includes local="no">cmath</includes>
@@ -8,12 +8,6 @@
     <includedby refid="approx_8cc" local="yes">libs/tests/src/tests/approx.cc</includedby>
     <includedby refid="approx__equal_8h" local="yes">libs/tests/src/tests/approx_equal.h</includedby>
     <incdepgraph>
-      <node id="3">
-        <label>limits</label>
-      </node>
-      <node id="2">
-        <label>cmath</label>
-      </node>
       <node id="1">
         <label>libs/tests/src/tests/approx.h</label>
         <link refid="approx_8h"/>
@@ -27,8 +21,18 @@
       <node id="4">
         <label>catch2/catch_all.hpp</label>
       </node>
+      <node id="2">
+        <label>cmath</label>
+      </node>
+      <node id="3">
+        <label>limits</label>
+      </node>
     </incdepgraph>
     <invincdepgraph>
+      <node id="2">
+        <label>libs/tests/src/tests/approx.cc</label>
+        <link refid="approx_8cc"/>
+      </node>
       <node id="1">
         <label>libs/tests/src/tests/approx.h</label>
         <link refid="approx_8h"/>
@@ -37,19 +41,15 @@
         <childnode refid="3" relation="include">
         </childnode>
       </node>
+      <node id="4">
+        <label>libs/tests/src/tests/approx_equal.cc</label>
+        <link refid="approx__equal_8cc"/>
+      </node>
       <node id="3">
         <label>libs/tests/src/tests/approx_equal.h</label>
         <link refid="approx__equal_8h"/>
         <childnode refid="4" relation="include">
         </childnode>
-      </node>
-      <node id="2">
-        <label>libs/tests/src/tests/approx.cc</label>
-        <link refid="approx_8cc"/>
-      </node>
-      <node id="4">
-        <label>libs/tests/src/tests/approx_equal.cc</label>
-        <link refid="approx__equal_8cc"/>
       </node>
     </invincdepgraph>
     <innerclass refid="structeu_1_1tests_1_1ApproxData" prot="public">eu::tests::ApproxData</innerclass>

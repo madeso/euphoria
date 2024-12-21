@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="namespaceeu_1_1color" kind="namespace" language="C++">
+    <compoundname>eu::color</compoundname>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="namespaceeu_1_1color_1afb9fb8abe019e7eaad0f4d1c8b95bd20" prot="public" static="no" constexpr="yes" mutable="no">
+        <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">constexpr</ref> <ref refid="structeu_1_1v3" kindref="compound">v3</ref></type>
+        <definition>constexpr v3 eu::color::white</definition>
+        <argsstring></argsstring>
+        <name>white</name>
+        <qualifiedname>eu::color::white</qualifiedname>
+        <initializer>= <ref refid="structeu_1_1v3" kindref="compound">v3</ref>{1.0f, 1.0f, 1.0f}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/colors.h" line="9" column="22" bodyfile="libs/base/src/base/colors.h" bodystart="9" bodyend="9"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceeu_1_1color_1a7c3d531301aa7dade4768761906924c3" prot="public" static="no" constexpr="yes" mutable="no">
+        <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">constexpr</ref> <ref refid="structeu_1_1v3" kindref="compound">v3</ref></type>
+        <definition>constexpr v3 eu::color::black</definition>
+        <argsstring></argsstring>
+        <name>black</name>
+        <qualifiedname>eu::color::black</qualifiedname>
+        <initializer>= <ref refid="structeu_1_1v3" kindref="compound">v3</ref>{0.0f, 0.0f, 0.0f}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/colors.h" line="10" column="22" bodyfile="libs/base/src/base/colors.h" bodystart="10" bodyend="10"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/base/src/base/colors.h" line="7" column="5"/>
+  </compounddef>
+</doxygen>

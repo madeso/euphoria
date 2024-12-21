@@ -1,14 +1,15 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
   <compounddef id="structeu_1_1assertlib_1_1AssertArgumentValue" kind="struct" language="C++" prot="public">
     <compoundname>eu::assertlib::AssertArgumentValue</compoundname>
     <includes refid="assert_8h" local="no">assert.h</includes>
-      <sectiondef kind="public-attrib">
+    <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structeu_1_1assertlib_1_1AssertArgumentValue_1a9f425e2dec6e8ffb624790f86001e418" prot="public" static="no" mutable="no">
         <type>std::string</type>
         <definition>std::string eu::assertlib::AssertArgumentValue::value</definition>
         <argsstring></argsstring>
         <name>value</name>
+        <qualifiedname>eu::assertlib::AssertArgumentValue::value</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -17,20 +18,21 @@
         </inbodydescription>
         <location file="libs/assert/src/assert/assert.h" line="93" column="21" bodyfile="libs/assert/src/assert/assert.h" bodystart="93" bodyend="-1"/>
       </memberdef>
-      </sectiondef>
-      <sectiondef kind="public-func">
+    </sectiondef>
+    <sectiondef kind="public-func">
       <memberdef kind="function" id="structeu_1_1assertlib_1_1AssertArgumentValue_1a92e0b7266e3d8677880942e67f775fc9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
           <param>
-            <type>typename T</type>
+            <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">typename</ref> <ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">T</ref></type>
           </param>
         </templateparamlist>
         <type></type>
         <definition>eu::assertlib::AssertArgumentValue::AssertArgumentValue</definition>
         <argsstring>(const T &amp;t)</argsstring>
         <name>AssertArgumentValue</name>
+        <qualifiedname>eu::assertlib::AssertArgumentValue::AssertArgumentValue</qualifiedname>
         <param>
-          <type>const T &amp;</type>
+          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">T</ref> &amp;</type>
           <declname>t</declname>
         </param>
         <briefdescription>
@@ -41,7 +43,7 @@
         </inbodydescription>
         <location file="libs/assert/src/assert/assert.h" line="96" column="9" bodyfile="libs/assert/src/assert/assert.h" bodystart="96" bodyend="98"/>
       </memberdef>
-      </sectiondef>
+    </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

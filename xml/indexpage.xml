@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
   <compounddef id="indexpage" kind="page">
     <compoundname>index</compoundname>
     <title>Euphoria</title>
@@ -38,7 +38,7 @@
 </sect2>
 <sect2 id="index_1autotoc_md1">
 <title>About the code</title>
-<para>The folder structure should follow the <ulink url="https://github.com/vector-of-bool/pitchfork">pitchfork layout</ulink>.</para>
+<para>The folder structure should follow the <ulink url="https://github.com/vector-of-bool/pitchfork">pitchfork layout</ulink>. <computeroutput>graveyard</computeroutput> contains old code that could be brought back to life but should more or less be considered deleted.</para>
 <para><image type="html" name="./docs/euphoria.excalidraw.svg" alt="project layout" inline="yes"></image>
 </para>
 <para>All names should follow <computeroutput>snake_case</computeroutput>, both for variables, members, functions and files. The only exception are C++ macros that should follow <computeroutput>SHOUTING_SNAKE_CASE</computeroutput> and structs &amp; template arguments that should follow <computeroutput>PascalCase</computeroutput>.</para>

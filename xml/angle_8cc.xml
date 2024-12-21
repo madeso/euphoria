@@ -1,145 +1,77 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
   <compounddef id="angle_8cc" kind="file" language="C++">
     <compoundname>angle.cc</compoundname>
     <includes refid="angle_8h" local="yes">base/angle.h</includes>
     <includes refid="assert_8h" local="yes">assert/assert.h</includes>
+    <includes refid="numeric_8h" local="yes">base/numeric.h</includes>
     <includes refid="range_8h" local="yes">base/range.h</includes>
-    <includes refid="random_8h" local="yes">base/random.h</includes>
     <includes local="no">cmath</includes>
     <incdepgraph>
-      <node id="5">
-        <label>base/default_interpolate.h</label>
-        <link refid="default__interpolate_8h"/>
-      </node>
-      <node id="7">
-        <label>cstdint</label>
-      </node>
       <node id="6">
-        <label>base/ints.h</label>
-        <link refid="ints_8h"/>
+        <label>assert/assert.h</label>
+        <link refid="assert_8h"/>
         <childnode refid="7" relation="include">
         </childnode>
-      </node>
-      <node id="20">
-        <label>cmath</label>
+        <childnode refid="8" relation="include">
+        </childnode>
       </node>
       <node id="1">
         <label>libs/base/src/base/angle.cc</label>
         <link refid="angle_8cc"/>
         <childnode refid="2" relation="include">
         </childnode>
-        <childnode refid="8" relation="include">
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
         </childnode>
         <childnode refid="11" relation="include">
         </childnode>
-        <childnode refid="15" relation="include">
-        </childnode>
-        <childnode refid="20" relation="include">
-        </childnode>
-      </node>
-      <node id="9">
-        <label>string</label>
-      </node>
-      <node id="16">
-        <label>range/v3/view/span.hpp</label>
       </node>
       <node id="2">
         <label>base/angle.h</label>
         <link refid="angle_8h"/>
         <childnode refid="3" relation="include">
         </childnode>
-        <childnode refid="4" relation="include">
-        </childnode>
-        <childnode refid="5" relation="include">
-        </childnode>
-      </node>
-      <node id="8">
-        <label>assert/assert.h</label>
-        <link refid="assert_8h"/>
-        <childnode refid="9" relation="include">
-        </childnode>
-        <childnode refid="10" relation="include">
-        </childnode>
       </node>
       <node id="4">
-        <label>base/numeric.h</label>
-        <link refid="numeric_8h"/>
+        <label>base/ints.h</label>
+        <link refid="ints_8h"/>
         <childnode refid="5" relation="include">
-        </childnode>
-        <childnode refid="6" relation="include">
-        </childnode>
-      </node>
-      <node id="18">
-        <label>tuple</label>
-      </node>
-      <node id="10">
-        <label>vector</label>
-      </node>
-      <node id="11">
-        <label>base/range.h</label>
-        <link refid="range_8h"/>
-        <childnode refid="12" relation="include">
-        </childnode>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="8" relation="include">
-        </childnode>
-        <childnode refid="13" relation="include">
         </childnode>
       </node>
       <node id="3">
-        <label>iostream</label>
-      </node>
-      <node id="14">
-        <label>cstddef</label>
-      </node>
-      <node id="17">
-        <label>base/vec2.h</label>
-        <link refid="vec2_8h"/>
-        <childnode refid="18" relation="include">
+        <label>base/numeric.h</label>
+        <link refid="numeric_8h"/>
+        <childnode refid="4" relation="include">
         </childnode>
-        <childnode refid="8" relation="include">
-        </childnode>
-        <childnode refid="5" relation="include">
+      </node>
+      <node id="9">
+        <label>base/range.h</label>
+        <link refid="range_8h"/>
+        <childnode refid="10" relation="include">
         </childnode>
         <childnode refid="2" relation="include">
         </childnode>
-        <childnode refid="4" relation="include">
-        </childnode>
-        <childnode refid="13" relation="include">
-        </childnode>
-        <childnode refid="19" relation="include">
-        </childnode>
-      </node>
-      <node id="13">
-        <label>base/cint.h</label>
-        <link refid="cint_8h"/>
         <childnode refid="6" relation="include">
         </childnode>
-        <childnode refid="14" relation="include">
-        </childnode>
       </node>
-      <node id="12">
+      <node id="11">
+        <label>cmath</label>
+      </node>
+      <node id="5">
+        <label>cstdint</label>
+      </node>
+      <node id="7">
+        <label>string</label>
+      </node>
+      <node id="10">
         <label>type_traits</label>
       </node>
-      <node id="19">
-        <label>base/vec.base.h</label>
-        <link refid="vec_8base_8h"/>
-      </node>
-      <node id="15">
-        <label>base/random.h</label>
-        <link refid="random_8h"/>
-        <childnode refid="16" relation="include">
-        </childnode>
-        <childnode refid="8" relation="include">
-        </childnode>
-        <childnode refid="6" relation="include">
-        </childnode>
-        <childnode refid="17" relation="include">
-        </childnode>
-        <childnode refid="11" relation="include">
-        </childnode>
+      <node id="8">
+        <label>vector</label>
       </node>
     </incdepgraph>
     <innernamespace refid="namespaceeu">eu</innernamespace>

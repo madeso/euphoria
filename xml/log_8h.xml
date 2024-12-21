@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="log_8h" kind="file" language="C++">
+    <compoundname>log.h</compoundname>
+    <includedby refid="log_8cc" local="yes">libs/log/src/log/log.cc</includedby>
+    <invincdepgraph>
+      <node id="2">
+        <label>libs/log/src/log/log.cc</label>
+        <link refid="log_8cc"/>
+      </node>
+      <node id="1">
+        <label>libs/log/src/log/log.h</label>
+        <link refid="log_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structeu_1_1log_1_1Logger" prot="public">eu::log::Logger</innerclass>
+    <innerclass refid="structeu_1_1log_1_1ScopedLogger" prot="public">eu::log::ScopedLogger</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1log">eu::log</innernamespace>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="log_8h_1a378e28bfcb78d17285210d6bbb70a083" prot="public" static="no">
+        <name>LOG_INFO</name>
+        <param><defname>...</defname></param>
+        <initializer><ref refid="namespaceeu_1_1log_1a643960e2f05465dc8fbdf5229e4e934d" kindref="member">eu::log::get_global_logger</ref>()-&gt;info(fmt::format(__VA_ARGS__))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/log/src/log/log.h" line="7" column="9" bodyfile="libs/log/src/log/log.h" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="log_8h_1add82efa459e0af380b68522c29b9fd44" prot="public" static="no">
+        <name>LOG_WARN</name>
+        <param><defname>...</defname></param>
+        <initializer><ref refid="namespaceeu_1_1log_1a643960e2f05465dc8fbdf5229e4e934d" kindref="member">eu::log::get_global_logger</ref>()-&gt;warn(fmt::format(__VA_ARGS__))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/log/src/log/log.h" line="8" column="9" bodyfile="libs/log/src/log/log.h" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="log_8h_1ad4a9117ce894e3319e903142347a0f63" prot="public" static="no">
+        <name>LOG_ERROR</name>
+        <param><defname>...</defname></param>
+        <initializer><ref refid="namespaceeu_1_1log_1a643960e2f05465dc8fbdf5229e4e934d" kindref="member">eu::log::get_global_logger</ref>()-&gt;error(fmt::format(__VA_ARGS__))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/log/src/log/log.h" line="9" column="9" bodyfile="libs/log/src/log/log.h" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="log_8h_1adc38b8c88c5c45ed801c3625226c394b" prot="public" static="no">
+        <name>LOG_INFOS</name>
+        <param><defname>...</defname></param>
+        <initializer><ref refid="namespaceeu_1_1log_1a643960e2f05465dc8fbdf5229e4e934d" kindref="member">eu::log::get_global_logger</ref>()-&gt;info(__VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/log/src/log/log.h" line="11" column="9" bodyfile="libs/log/src/log/log.h" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="log_8h_1a100d3287a5d5db09dc69f859c2e61d1b" prot="public" static="no">
+        <name>LOG_WARNS</name>
+        <param><defname>...</defname></param>
+        <initializer><ref refid="namespaceeu_1_1log_1a643960e2f05465dc8fbdf5229e4e934d" kindref="member">eu::log::get_global_logger</ref>()-&gt;warn(__VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/log/src/log/log.h" line="12" column="9" bodyfile="libs/log/src/log/log.h" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="log_8h_1a3c18fc0250adea37a50322c49a3530fa" prot="public" static="no">
+        <name>LOG_ERRORS</name>
+        <param><defname>...</defname></param>
+        <initializer><ref refid="namespaceeu_1_1log_1a643960e2f05465dc8fbdf5229e4e934d" kindref="member">eu::log::get_global_logger</ref>()-&gt;error(__VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/log/src/log/log.h" line="13" column="9" bodyfile="libs/log/src/log/log.h" bodystart="13" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/log/src/log/log.h"/>
+  </compounddef>
+</doxygen>

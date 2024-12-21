@@ -1,14 +1,11 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
   <compounddef id="fmt_2src_2pch_8public_8h" kind="file" language="C++">
     <compoundname>pch.public.h</compoundname>
     <includes local="no">fmt/core.h</includes>
     <includes local="no">fmt/format.h</includes>
     <includes local="no">fmt/ranges.h</includes>
     <incdepgraph>
-      <node id="3">
-        <label>fmt/format.h</label>
-      </node>
       <node id="1">
         <label>libs/fmt/src/pch.public.h</label>
         <link refid="fmt_2src_2pch_8public_8h"/>
@@ -22,11 +19,14 @@
       <node id="2">
         <label>fmt/core.h</label>
       </node>
+      <node id="3">
+        <label>fmt/format.h</label>
+      </node>
       <node id="4">
         <label>fmt/ranges.h</label>
       </node>
     </incdepgraph>
-      <sectiondef kind="define">
+    <sectiondef kind="define">
       <memberdef kind="define" id="fmt_2src_2pch_8public_8h_1a6b81aa36f1dc1afd2acf99e4c1f30361" prot="public" static="no">
         <name>ADD_DEFAULT_FORMATTER</name>
         <param><defname>TYPE</defname></param>
@@ -46,9 +46,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/fmt/src/pch.public.h" line="12" column="9" bodyfile="libs/fmt/src/pch.public.h" bodystart="12" bodyend="-1"/>
+        <location file="libs/fmt/src/pch.public.h" line="12" column="9" bodyfile="libs/fmt/src/pch.public.h" bodystart="12" bodyend="20"/>
       </memberdef>
-      </sectiondef>
+    </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

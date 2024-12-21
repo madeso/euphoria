@@ -1,139 +1,148 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
   <compounddef id="namespaceeu_1_1common" kind="namespace" language="C++">
     <compoundname>eu::common</compoundname>
-      <sectiondef kind="var">
-      <memberdef kind="variable" id="namespaceeu_1_1common_1a16d6b24e1fe4fa7dd5086cc4a8733872" prot="public" static="no" constexpr="yes" mutable="no">
-        <type>constexpr <ref refid="structeu_1_1unit3f" kindref="compound">unit3f</ref></type>
-        <definition>constexpr unit3f eu::common::x_axis</definition>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="namespaceeu_1_1common_1a7b4164209a2cd93dea08ff276e81ba2a" prot="public" static="no" constexpr="yes" mutable="no">
+        <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">constexpr</ref> <ref refid="structeu_1_1n3" kindref="compound">n3</ref></type>
+        <definition>constexpr n3 eu::common::x_axis</definition>
         <argsstring></argsstring>
         <name>x_axis</name>
-        <initializer>= <ref refid="structeu_1_1unit3f" kindref="compound">unit3f</ref> {1.0f, 0.0f, 0.0f}</initializer>
+        <qualifiedname>eu::common::x_axis</qualifiedname>
+        <initializer>= <ref refid="structeu_1_1n3" kindref="compound">n3</ref>{1.0f, 0.0f, 0.0f}</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec3.h" line="128" column="26" bodyfile="libs/base/src/base/vec3.h" bodystart="128" bodyend="-1"/>
+        <location file="libs/base/src/base/vec3.h" line="95" column="22" bodyfile="libs/base/src/base/vec3.h" bodystart="95" bodyend="95"/>
       </memberdef>
-      <memberdef kind="variable" id="namespaceeu_1_1common_1a7cb8d056acfc03fe6e66ed14d168e9c2" prot="public" static="no" constexpr="yes" mutable="no">
-        <type>constexpr <ref refid="structeu_1_1unit3f" kindref="compound">unit3f</ref></type>
-        <definition>constexpr unit3f eu::common::y_axis</definition>
+      <memberdef kind="variable" id="namespaceeu_1_1common_1a552df87dd761337aee02901a332fa235" prot="public" static="no" constexpr="yes" mutable="no">
+        <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">constexpr</ref> <ref refid="structeu_1_1n3" kindref="compound">n3</ref></type>
+        <definition>constexpr n3 eu::common::y_axis</definition>
         <argsstring></argsstring>
         <name>y_axis</name>
-        <initializer>= <ref refid="structeu_1_1unit3f" kindref="compound">unit3f</ref> {0.0f, 1.0f, 0.0f}</initializer>
+        <qualifiedname>eu::common::y_axis</qualifiedname>
+        <initializer>= <ref refid="structeu_1_1n3" kindref="compound">n3</ref>{0.0f, 1.0f, 0.0f}</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec3.h" line="129" column="26" bodyfile="libs/base/src/base/vec3.h" bodystart="129" bodyend="-1"/>
+        <location file="libs/base/src/base/vec3.h" line="96" column="22" bodyfile="libs/base/src/base/vec3.h" bodystart="96" bodyend="96"/>
       </memberdef>
-      <memberdef kind="variable" id="namespaceeu_1_1common_1a8696c05b346c02b2558af5acac919a6a" prot="public" static="no" constexpr="yes" mutable="no">
-        <type>constexpr <ref refid="structeu_1_1unit3f" kindref="compound">unit3f</ref></type>
-        <definition>constexpr unit3f eu::common::z_axis</definition>
+      <memberdef kind="variable" id="namespaceeu_1_1common_1a366f01d5cec67052e3f2cf64790e98eb" prot="public" static="no" constexpr="yes" mutable="no">
+        <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">constexpr</ref> <ref refid="structeu_1_1n3" kindref="compound">n3</ref></type>
+        <definition>constexpr n3 eu::common::z_axis</definition>
         <argsstring></argsstring>
         <name>z_axis</name>
-        <initializer>= <ref refid="structeu_1_1unit3f" kindref="compound">unit3f</ref> {0.0f, 0.0f, 1.0f}</initializer>
+        <qualifiedname>eu::common::z_axis</qualifiedname>
+        <initializer>= <ref refid="structeu_1_1n3" kindref="compound">n3</ref>{0.0f, 0.0f, 1.0f}</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec3.h" line="130" column="26" bodyfile="libs/base/src/base/vec3.h" bodystart="130" bodyend="-1"/>
+        <location file="libs/base/src/base/vec3.h" line="97" column="22" bodyfile="libs/base/src/base/vec3.h" bodystart="97" bodyend="97"/>
       </memberdef>
-      <memberdef kind="variable" id="namespaceeu_1_1common_1ac7af4cfc2bf5bff0712f98dd10bfe884" prot="public" static="no" constexpr="yes" mutable="no">
-        <type>constexpr <ref refid="structeu_1_1unit3f" kindref="compound">unit3f</ref></type>
-        <definition>constexpr unit3f eu::common::up</definition>
+      <memberdef kind="variable" id="namespaceeu_1_1common_1a56f29f3a9ccf0462b1417a0fdd5ad6a9" prot="public" static="no" constexpr="yes" mutable="no">
+        <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">constexpr</ref> <ref refid="structeu_1_1n3" kindref="compound">n3</ref></type>
+        <definition>constexpr n3 eu::common::up</definition>
         <argsstring></argsstring>
         <name>up</name>
-        <initializer>= <ref refid="namespaceeu_1_1common_1a7cb8d056acfc03fe6e66ed14d168e9c2" kindref="member">y_axis</ref></initializer>
+        <qualifiedname>eu::common::up</qualifiedname>
+        <initializer>= <ref refid="namespaceeu_1_1common_1a552df87dd761337aee02901a332fa235" kindref="member">y_axis</ref></initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec3.h" line="131" column="26" bodyfile="libs/base/src/base/vec3.h" bodystart="131" bodyend="-1"/>
+        <location file="libs/base/src/base/vec3.h" line="98" column="22" bodyfile="libs/base/src/base/vec3.h" bodystart="98" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="namespaceeu_1_1common_1ade04e5faa8f5cd463452b4568e9a7db8" prot="public" static="no" constexpr="yes" mutable="no">
-        <type>constexpr <ref refid="structeu_1_1unit3f" kindref="compound">unit3f</ref></type>
-        <definition>constexpr unit3f eu::common::down</definition>
+      <memberdef kind="variable" id="namespaceeu_1_1common_1a59f363dc8534c920f8f3b46f62e45796" prot="public" static="no" constexpr="yes" mutable="no">
+        <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">constexpr</ref> <ref refid="structeu_1_1n3" kindref="compound">n3</ref></type>
+        <definition>constexpr n3 eu::common::down</definition>
         <argsstring></argsstring>
         <name>down</name>
-        <initializer>= -<ref refid="namespaceeu_1_1common_1a7cb8d056acfc03fe6e66ed14d168e9c2" kindref="member">y_axis</ref></initializer>
+        <qualifiedname>eu::common::down</qualifiedname>
+        <initializer>= -<ref refid="namespaceeu_1_1common_1a552df87dd761337aee02901a332fa235" kindref="member">y_axis</ref></initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec3.h" line="132" column="26" bodyfile="libs/base/src/base/vec3.h" bodystart="132" bodyend="-1"/>
+        <location file="libs/base/src/base/vec3.h" line="99" column="22" bodyfile="libs/base/src/base/vec3.h" bodystart="99" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="namespaceeu_1_1common_1a430c9e95fff58c9f8375e594aa0b9511" prot="public" static="no" constexpr="yes" mutable="no">
-        <type>constexpr <ref refid="structeu_1_1unit3f" kindref="compound">unit3f</ref></type>
-        <definition>constexpr unit3f eu::common::right</definition>
+      <memberdef kind="variable" id="namespaceeu_1_1common_1ac4ccfd728aac43cc18c0abe58eb1fb89" prot="public" static="no" constexpr="yes" mutable="no">
+        <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">constexpr</ref> <ref refid="structeu_1_1n3" kindref="compound">n3</ref></type>
+        <definition>constexpr n3 eu::common::right</definition>
         <argsstring></argsstring>
         <name>right</name>
-        <initializer>= <ref refid="namespaceeu_1_1common_1a16d6b24e1fe4fa7dd5086cc4a8733872" kindref="member">x_axis</ref></initializer>
+        <qualifiedname>eu::common::right</qualifiedname>
+        <initializer>= <ref refid="namespaceeu_1_1common_1a7b4164209a2cd93dea08ff276e81ba2a" kindref="member">x_axis</ref></initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec3.h" line="133" column="26" bodyfile="libs/base/src/base/vec3.h" bodystart="133" bodyend="-1"/>
+        <location file="libs/base/src/base/vec3.h" line="100" column="22" bodyfile="libs/base/src/base/vec3.h" bodystart="100" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="namespaceeu_1_1common_1a80891696068f4224bbaadddc76f0eb84" prot="public" static="no" constexpr="yes" mutable="no">
-        <type>constexpr <ref refid="structeu_1_1unit3f" kindref="compound">unit3f</ref></type>
-        <definition>constexpr unit3f eu::common::left</definition>
+      <memberdef kind="variable" id="namespaceeu_1_1common_1af8caf75f450a087c5efdacb91fc195b5" prot="public" static="no" constexpr="yes" mutable="no">
+        <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">constexpr</ref> <ref refid="structeu_1_1n3" kindref="compound">n3</ref></type>
+        <definition>constexpr n3 eu::common::left</definition>
         <argsstring></argsstring>
         <name>left</name>
-        <initializer>= -<ref refid="namespaceeu_1_1common_1a16d6b24e1fe4fa7dd5086cc4a8733872" kindref="member">x_axis</ref></initializer>
+        <qualifiedname>eu::common::left</qualifiedname>
+        <initializer>= -<ref refid="namespaceeu_1_1common_1a7b4164209a2cd93dea08ff276e81ba2a" kindref="member">x_axis</ref></initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec3.h" line="134" column="26" bodyfile="libs/base/src/base/vec3.h" bodystart="134" bodyend="-1"/>
+        <location file="libs/base/src/base/vec3.h" line="101" column="22" bodyfile="libs/base/src/base/vec3.h" bodystart="101" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="namespaceeu_1_1common_1a0c9ef914c175a611ff934d1a5786d06a" prot="public" static="no" constexpr="yes" mutable="no">
-        <type>constexpr <ref refid="structeu_1_1unit3f" kindref="compound">unit3f</ref></type>
-        <definition>constexpr unit3f eu::common::in</definition>
+      <memberdef kind="variable" id="namespaceeu_1_1common_1a0128e3e490cb760c37f9f47f438f088e" prot="public" static="no" constexpr="yes" mutable="no">
+        <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">constexpr</ref> <ref refid="structeu_1_1n3" kindref="compound">n3</ref></type>
+        <definition>constexpr n3 eu::common::in</definition>
         <argsstring></argsstring>
         <name>in</name>
-        <initializer>= -<ref refid="namespaceeu_1_1common_1a8696c05b346c02b2558af5acac919a6a" kindref="member">z_axis</ref></initializer>
+        <qualifiedname>eu::common::in</qualifiedname>
+        <initializer>= -<ref refid="namespaceeu_1_1common_1a366f01d5cec67052e3f2cf64790e98eb" kindref="member">z_axis</ref></initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec3.h" line="135" column="26" bodyfile="libs/base/src/base/vec3.h" bodystart="135" bodyend="-1"/>
+        <location file="libs/base/src/base/vec3.h" line="102" column="22" bodyfile="libs/base/src/base/vec3.h" bodystart="102" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="namespaceeu_1_1common_1a3e62ee44371004ab04bcfeffd22afde5" prot="public" static="no" constexpr="yes" mutable="no">
-        <type>constexpr <ref refid="structeu_1_1unit3f" kindref="compound">unit3f</ref></type>
-        <definition>constexpr unit3f eu::common::out</definition>
+      <memberdef kind="variable" id="namespaceeu_1_1common_1a57827af741604160c6e925bdc0c32747" prot="public" static="no" constexpr="yes" mutable="no">
+        <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">constexpr</ref> <ref refid="structeu_1_1n3" kindref="compound">n3</ref></type>
+        <definition>constexpr n3 eu::common::out</definition>
         <argsstring></argsstring>
         <name>out</name>
-        <initializer>= <ref refid="namespaceeu_1_1common_1a8696c05b346c02b2558af5acac919a6a" kindref="member">z_axis</ref></initializer>
+        <qualifiedname>eu::common::out</qualifiedname>
+        <initializer>= <ref refid="namespaceeu_1_1common_1a366f01d5cec67052e3f2cf64790e98eb" kindref="member">z_axis</ref></initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec3.h" line="136" column="26" bodyfile="libs/base/src/base/vec3.h" bodystart="136" bodyend="-1"/>
+        <location file="libs/base/src/base/vec3.h" line="103" column="22" bodyfile="libs/base/src/base/vec3.h" bodystart="103" bodyend="-1"/>
       </memberdef>
-      </sectiondef>
+    </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/base/src/base/vec3.h" line="126" column="5"/>
+    <location file="libs/base/src/base/vec3.h" line="93" column="5"/>
   </compounddef>
 </doxygen>

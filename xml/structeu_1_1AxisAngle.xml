@@ -1,14 +1,15 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
   <compounddef id="structeu_1_1AxisAngle" kind="struct" language="C++" prot="public">
     <compoundname>eu::AxisAngle</compoundname>
     <includes refid="axisangle_8h" local="no">axisangle.h</includes>
-      <sectiondef kind="public-attrib">
-      <memberdef kind="variable" id="structeu_1_1AxisAngle_1a56e43d263c0510a9c2b92d40995047b5" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1unit3f" kindref="compound">unit3f</ref></type>
-        <definition>unit3f eu::AxisAngle::axis</definition>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1AxisAngle_1a7654effe0275cf19fdd149ef1018545a" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1n3" kindref="compound">n3</ref></type>
+        <definition>n3 eu::AxisAngle::axis</definition>
         <argsstring></argsstring>
         <name>axis</name>
+        <qualifiedname>eu::AxisAngle::axis</qualifiedname>
         <briefdescription>
 <para>a unit-vector </para>
         </briefdescription>
@@ -16,13 +17,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/axisangle.h" line="13" column="16" bodyfile="libs/base/src/base/axisangle.h" bodystart="13" bodyend="-1"/>
+        <location file="libs/base/src/base/axisangle.h" line="13" column="12" bodyfile="libs/base/src/base/axisangle.h" bodystart="13" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1AxisAngle_1a762a6e9ae42aaadcb1190958a0527a23" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1Angle" kindref="compound">Angle</ref></type>
         <definition>Angle eu::AxisAngle::angle</definition>
         <argsstring></argsstring>
         <name>angle</name>
+        <qualifiedname>eu::AxisAngle::angle</qualifiedname>
         <briefdescription>
 <para>rotation according to right-hand rule </para>
         </briefdescription>
@@ -32,19 +34,20 @@
         </inbodydescription>
         <location file="libs/base/src/base/axisangle.h" line="16" column="15" bodyfile="libs/base/src/base/axisangle.h" bodystart="16" bodyend="-1"/>
       </memberdef>
-      </sectiondef>
-      <sectiondef kind="public-static-func">
-      <memberdef kind="function" id="structeu_1_1AxisAngle_1a8e82ac3bff99bbf977ced3f44c121e9b" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="structeu_1_1AxisAngle_1a0f3fdfea8ae219ded042790d329782e7" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1AxisAngle" kindref="compound">AxisAngle</ref></type>
         <definition>AxisAngle eu::AxisAngle::from_right_hand_around</definition>
-        <argsstring>(const unit3f &amp;axis, const Angle &amp;angle)</argsstring>
+        <argsstring>(const n3 &amp;axis, const Angle &amp;angle)</argsstring>
         <name>from_right_hand_around</name>
+        <qualifiedname>eu::AxisAngle::from_right_hand_around</qualifiedname>
         <param>
-          <type>const <ref refid="structeu_1_1unit3f" kindref="compound">unit3f</ref> &amp;</type>
+          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1n3" kindref="compound">n3</ref> &amp;</type>
           <declname>axis</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1Angle" kindref="compound">Angle</ref> &amp;</type>
+          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1Angle" kindref="compound">Angle</ref> &amp;</type>
           <declname>angle</declname>
         </param>
         <briefdescription>
@@ -55,19 +58,20 @@
         </inbodydescription>
         <location file="libs/base/src/base/axisangle.h" line="19" column="9" bodyfile="libs/base/src/base/axisangle.cc" bodystart="14" bodyend="18"/>
       </memberdef>
-      </sectiondef>
-      <sectiondef kind="private-func">
-      <memberdef kind="function" id="structeu_1_1AxisAngle_1a4e52dc426487f7174f490f208720ebe7" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="structeu_1_1AxisAngle_1adb5df071df21ad0161253cf7609235e8" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>eu::AxisAngle::AxisAngle</definition>
-        <argsstring>(const unit3f &amp;ax, const Angle &amp;ang)</argsstring>
+        <argsstring>(const n3 &amp;ax, const Angle &amp;ang)</argsstring>
         <name>AxisAngle</name>
+        <qualifiedname>eu::AxisAngle::AxisAngle</qualifiedname>
         <param>
-          <type>const <ref refid="structeu_1_1unit3f" kindref="compound">unit3f</ref> &amp;</type>
+          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1n3" kindref="compound">n3</ref> &amp;</type>
           <declname>ax</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1Angle" kindref="compound">Angle</ref> &amp;</type>
+          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1Angle" kindref="compound">Angle</ref> &amp;</type>
           <declname>ang</declname>
         </param>
         <briefdescription>
@@ -78,19 +82,13 @@
         </inbodydescription>
         <location file="libs/base/src/base/axisangle.h" line="22" column="9" bodyfile="libs/base/src/base/axisangle.cc" bodystart="7" bodyend="11"/>
       </memberdef>
-      </sectiondef>
+    </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-      <node id="3">
-        <label>eu::unit3f</label>
-        <link refid="structeu_1_1unit3f"/>
-        <childnode refid="4" relation="public-inheritance">
-        </childnode>
-      </node>
-      <node id="2">
+      <node id="4">
         <label>eu::Angle</label>
         <link refid="structeu_1_1Angle"/>
       </node>
@@ -98,23 +96,29 @@
         <label>eu::AxisAngle</label>
         <link refid="structeu_1_1AxisAngle"/>
         <childnode refid="2" relation="usage">
-          <edgelabel>angle</edgelabel>
-        </childnode>
-        <childnode refid="3" relation="usage">
           <edgelabel>axis</edgelabel>
         </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>angle</edgelabel>
+        </childnode>
       </node>
-      <node id="4">
-        <label>eu::vec3f</label>
-        <link refid="structeu_1_1vec3f"/>
+      <node id="2">
+        <label>eu::n3</label>
+        <link refid="structeu_1_1n3"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>eu::v3</label>
+        <link refid="structeu_1_1v3"/>
       </node>
     </collaborationgraph>
     <location file="libs/base/src/base/axisangle.h" line="10" column="5" bodyfile="libs/base/src/base/axisangle.h" bodystart="11" bodyend="23"/>
     <listofallmembers>
       <member refid="structeu_1_1AxisAngle_1a762a6e9ae42aaadcb1190958a0527a23" prot="public" virt="non-virtual"><scope>eu::AxisAngle</scope><name>angle</name></member>
-      <member refid="structeu_1_1AxisAngle_1a56e43d263c0510a9c2b92d40995047b5" prot="public" virt="non-virtual"><scope>eu::AxisAngle</scope><name>axis</name></member>
-      <member refid="structeu_1_1AxisAngle_1a4e52dc426487f7174f490f208720ebe7" prot="private" virt="non-virtual"><scope>eu::AxisAngle</scope><name>AxisAngle</name></member>
-      <member refid="structeu_1_1AxisAngle_1a8e82ac3bff99bbf977ced3f44c121e9b" prot="public" virt="non-virtual"><scope>eu::AxisAngle</scope><name>from_right_hand_around</name></member>
+      <member refid="structeu_1_1AxisAngle_1a7654effe0275cf19fdd149ef1018545a" prot="public" virt="non-virtual"><scope>eu::AxisAngle</scope><name>axis</name></member>
+      <member refid="structeu_1_1AxisAngle_1adb5df071df21ad0161253cf7609235e8" prot="private" virt="non-virtual"><scope>eu::AxisAngle</scope><name>AxisAngle</name></member>
+      <member refid="structeu_1_1AxisAngle_1a0f3fdfea8ae219ded042790d329782e7" prot="public" virt="non-virtual"><scope>eu::AxisAngle</scope><name>from_right_hand_around</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>
