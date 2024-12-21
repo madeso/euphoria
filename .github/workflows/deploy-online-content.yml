@@ -23,7 +23,7 @@ jobs:
           shell: bash
           working-directory: ${{github.workspace}}/build
           env:
-                CXX: clang++-15
+                CXX: clang++-18
           run: cmake -DCMAKE_BUILD_TYPE=Release $GITHUB_WORKSPACE
 
         - name: Build

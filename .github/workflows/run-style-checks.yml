@@ -8,7 +8,7 @@ jobs:
             matrix:
                 build_type: [Debug, Release]
 
-        runs-on: ubuntu-22.04
+        runs-on: ubuntu-24.04
 
         steps:
         - uses: actions/checkout@v2
@@ -34,7 +34,7 @@ jobs:
           shell: bash
           working-directory: ${{github.workspace}}/build
           env:
-                CXX: clang++-15
+                CXX: clang++-18
           run: cmake -DCMAKE_BUILD_TYPE=${{matrix.build_type}} $GITHUB_WORKSPACE
 
         - name: clang-tidy version
@@ -42,8 +42,9 @@ jobs:
           working-directory: ${{github.workspace}}
           run: |
                 ls /usr/bin/clang-*
-                clang-tidy-15 --version
-                dotnet run --project ./tools/buildtools/Workbench/ -- path clang-tidy set /usr/bin/clang-tidy-15
+                clang-tidy-18 --version
+                dotnet run --project ./tools/buildtools/Workbench/ -- path clang-tidy list
+                dotnet run --project ./tools/buildtools/Workbench/ -- path clang-tidy set /usr/bin/clang-tidy-18
                 dotnet run --project ./tools/buildtools/Workbench/ -- path clang-tidy list
 
         - name: Build
