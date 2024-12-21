@@ -75,7 +75,7 @@
         </childnode>
       </node>
     </invincdepgraph>
-    <innerclass refid="structeu_1_1Range" prot="public">eu::Range</innerclass>
+    <innerclass refid="structeu_1_1R" prot="public">eu::R</innerclass>
     <innernamespace refid="namespaceeu">eu</innernamespace>
     <briefdescription>
     </briefdescription>

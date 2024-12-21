@@ -132,22 +132,22 @@
         </childnode>
       </node>
     </invincdepgraph>
-    <innerclass refid="structeu_1_1quatf" prot="public">eu::quatf</innerclass>
+    <innerclass refid="structeu_1_1Q" prot="public">eu::Q</innerclass>
     <innernamespace refid="namespaceeu">eu</innernamespace>
     <sectiondef kind="func">
-      <memberdef kind="function" id="quat_8h_1ae5c3184ca6835fbbff06990ae8eb15a0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="quat_8h_1a88149584743e651b1991c884035300e2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>ADD_DEFAULT_FORMATTER</definition>
-        <argsstring>(eu::quatf, std::string, eu::to_string)</argsstring>
+        <argsstring>(eu::Q, std::string, eu::to_string)</argsstring>
         <name>ADD_DEFAULT_FORMATTER</name>
         <param>
-          <type><ref refid="structeu_1_1quatf" kindref="compound">eu::quatf</ref></type>
+          <type><ref refid="structeu_1_1Q" kindref="compound">eu::Q</ref></type>
         </param>
         <param>
           <type>std::string</type>
         </param>
         <param>
-          <type><ref refid="namespaceeu_1aa542af8138ef5d5a6d189f930a307013" kindref="member">eu::to_string</ref></type>
+          <type><ref refid="namespaceeu_1a3deb3b36c867593fd0645ddbd299b9ce" kindref="member">eu::to_string</ref></type>
         </param>
         <briefdescription>
         </briefdescription>
@@ -155,7 +155,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/quat.h" line="85" column="1" declfile="libs/base/src/base/quat.h" declline="85" declcolumn="1"/>
+        <location file="libs/base/src/base/quat.h" line="86" column="1" declfile="libs/base/src/base/quat.h" declline="86" declcolumn="1"/>
       </memberdef>
     </sectiondef>
     <briefdescription>

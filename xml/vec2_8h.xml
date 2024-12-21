@@ -61,7 +61,7 @@
           <type>std::string</type>
         </param>
         <param>
-          <type><ref refid="namespaceeu_1aa542af8138ef5d5a6d189f930a307013" kindref="member">eu::to_string</ref></type>
+          <type><ref refid="namespaceeu_1a3deb3b36c867593fd0645ddbd299b9ce" kindref="member">eu::to_string</ref></type>
         </param>
         <briefdescription>
         </briefdescription>
@@ -69,7 +69,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec2.h" line="126" column="1" declfile="libs/base/src/base/vec2.h" declline="126" declcolumn="1"/>
+        <location file="libs/base/src/base/vec2.h" line="123" column="1" declfile="libs/base/src/base/vec2.h" declline="123" declcolumn="1"/>
       </memberdef>
       <memberdef kind="function" id="vec2_8h_1a31ce758f20965d50e59b792006aab540" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -83,7 +83,7 @@
           <type>std::string</type>
         </param>
         <param>
-          <type><ref refid="namespaceeu_1aa542af8138ef5d5a6d189f930a307013" kindref="member">eu::to_string</ref></type>
+          <type><ref refid="namespaceeu_1a3deb3b36c867593fd0645ddbd299b9ce" kindref="member">eu::to_string</ref></type>
         </param>
         <briefdescription>
         </briefdescription>
@@ -91,7 +91,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec2.h" line="127" column="1" declfile="libs/base/src/base/vec2.h" declline="127" declcolumn="1"/>
+        <location file="libs/base/src/base/vec2.h" line="124" column="1" declfile="libs/base/src/base/vec2.h" declline="124" declcolumn="1"/>
       </memberdef>
     </sectiondef>
     <briefdescription>

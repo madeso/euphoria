@@ -3,9 +3,9 @@
   <compounddef id="namespaceeu_1_1convert" kind="namespace" language="C++">
     <compoundname>eu::convert</compoundname>
     <sectiondef kind="func">
-      <memberdef kind="function" id="namespaceeu_1_1convert_1ab9727d471ef623688995a5e20730daff" prot="private" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">constexpr</ref> <ref refid="structeu_1_1Angle" kindref="compound">Angle</ref></type>
-        <definition>constexpr Angle eu::convert::operator&quot;&quot;_deg</definition>
+      <memberdef kind="function" id="namespaceeu_1_1convert_1ad9a8ef509475899faebcef9f3cf0e098" prot="private" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">constexpr</ref> <ref refid="structeu_1_1An" kindref="compound">An</ref></type>
+        <definition>constexpr An eu::convert::operator&quot;&quot;_deg</definition>
         <argsstring>(long double d)</argsstring>
         <name>operator&quot;&quot;_deg</name>
         <qualifiedname>eu::convert::operator&quot;&quot;_deg</qualifiedname>
@@ -19,11 +19,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/angle.h" line="115" column="21" bodyfile="libs/base/src/base/angle.h" bodystart="115" bodyend="118"/>
+        <location file="libs/base/src/base/angle.h" line="116" column="18" bodyfile="libs/base/src/base/angle.h" bodystart="116" bodyend="119"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1convert_1a487c6b2d6617c234e0a3a33b341fab0d" prot="private" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">constexpr</ref> <ref refid="structeu_1_1Angle" kindref="compound">Angle</ref></type>
-        <definition>constexpr Angle eu::convert::operator&quot;&quot;_rad</definition>
+      <memberdef kind="function" id="namespaceeu_1_1convert_1a8bf275d232d046a033d75f1f072baf7d" prot="private" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">constexpr</ref> <ref refid="structeu_1_1An" kindref="compound">An</ref></type>
+        <definition>constexpr An eu::convert::operator&quot;&quot;_rad</definition>
         <argsstring>(long double r)</argsstring>
         <name>operator&quot;&quot;_rad</name>
         <qualifiedname>eu::convert::operator&quot;&quot;_rad</qualifiedname>
@@ -37,13 +37,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/angle.h" line="121" column="21" bodyfile="libs/base/src/base/angle.h" bodystart="121" bodyend="124"/>
+        <location file="libs/base/src/base/angle.h" line="122" column="18" bodyfile="libs/base/src/base/angle.h" bodystart="122" bodyend="125"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/base/src/base/angle.h" line="113" column="1"/>
+    <location file="libs/base/src/base/angle.h" line="114" column="1"/>
   </compounddef>
 </doxygen>

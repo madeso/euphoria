@@ -124,7 +124,7 @@
           <type>std::string</type>
         </param>
         <param>
-          <type><ref refid="namespaceeu_1aa542af8138ef5d5a6d189f930a307013" kindref="member">eu::to_string</ref></type>
+          <type><ref refid="namespaceeu_1a3deb3b36c867593fd0645ddbd299b9ce" kindref="member">eu::to_string</ref></type>
         </param>
         <briefdescription>
         </briefdescription>

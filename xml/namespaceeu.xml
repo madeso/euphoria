@@ -2,13 +2,13 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
   <compounddef id="namespaceeu" kind="namespace" language="C++">
     <compoundname>eu</compoundname>
-    <innerclass refid="structeu_1_1Angle" prot="public">eu::Angle</innerclass>
+    <innerclass refid="structeu_1_1An" prot="public">eu::An</innerclass>
     <innerclass refid="structeu_1_1AxisAngle" prot="public">eu::AxisAngle</innerclass>
     <innerclass refid="structeu_1_1m4" prot="public">eu::m4</innerclass>
     <innerclass refid="structeu_1_1n2" prot="public">eu::n2</innerclass>
     <innerclass refid="structeu_1_1n3" prot="public">eu::n3</innerclass>
-    <innerclass refid="structeu_1_1quatf" prot="public">eu::quatf</innerclass>
-    <innerclass refid="structeu_1_1Range" prot="public">eu::Range</innerclass>
+    <innerclass refid="structeu_1_1Q" prot="public">eu::Q</innerclass>
+    <innerclass refid="structeu_1_1R" prot="public">eu::R</innerclass>
     <innerclass refid="structeu_1_1v2" prot="public">eu::v2</innerclass>
     <innerclass refid="structeu_1_1v3" prot="public">eu::v3</innerclass>
     <innerclass refid="structeu_1_1v4" prot="public">eu::v4</innerclass>
@@ -133,65 +133,65 @@
       </memberdef>
     </sectiondef>
     <sectiondef kind="var">
-      <memberdef kind="variable" id="namespaceeu_1a38f22299b51db4687ecd7c0b05e13651" prot="public" static="no" constexpr="yes" mutable="no">
-        <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">constexpr</ref> <ref refid="structeu_1_1Angle" kindref="compound">Angle</ref></type>
-        <definition>constexpr Angle eu::one_turn</definition>
+      <memberdef kind="variable" id="namespaceeu_1aad753d4f4d3024b2f9b0366738751511" prot="public" static="no" constexpr="yes" mutable="no">
+        <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">constexpr</ref> <ref refid="structeu_1_1An" kindref="compound">An</ref></type>
+        <definition>constexpr An eu::one_turn</definition>
         <argsstring></argsstring>
         <name>one_turn</name>
         <qualifiedname>eu::one_turn</qualifiedname>
-        <initializer>= <ref refid="structeu_1_1Angle_1a2b54c0b925d8a61b4e63cdeae28d88a4" kindref="member">Angle::from_radians</ref>(<ref refid="namespaceeu_1a25eb222abfe7c9e7f34d6f19ed40c1a0" kindref="member">pi</ref> * 2.0f)</initializer>
+        <initializer>= <ref refid="structeu_1_1An_1a978cd7edfef73d6cac1eff7862c04472" kindref="member">An::from_radians</ref>(<ref refid="namespaceeu_1a25eb222abfe7c9e7f34d6f19ed40c1a0" kindref="member">pi</ref> * 2.0f)</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/angle.h" line="81" column="21" bodyfile="libs/base/src/base/angle.h" bodystart="81" bodyend="-1"/>
+        <location file="libs/base/src/base/angle.h" line="82" column="18" bodyfile="libs/base/src/base/angle.h" bodystart="82" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="namespaceeu_1a307b4e369fadf7e8cab854726cb1521b" prot="public" static="no" constexpr="yes" mutable="no">
-        <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">constexpr</ref> <ref refid="structeu_1_1Angle" kindref="compound">Angle</ref></type>
-        <definition>constexpr Angle eu::half_turn</definition>
+      <memberdef kind="variable" id="namespaceeu_1a03d368230871c29cd8d4464edd37081d" prot="public" static="no" constexpr="yes" mutable="no">
+        <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">constexpr</ref> <ref refid="structeu_1_1An" kindref="compound">An</ref></type>
+        <definition>constexpr An eu::half_turn</definition>
         <argsstring></argsstring>
         <name>half_turn</name>
         <qualifiedname>eu::half_turn</qualifiedname>
-        <initializer>= <ref refid="structeu_1_1Angle_1a2b54c0b925d8a61b4e63cdeae28d88a4" kindref="member">Angle::from_radians</ref>(<ref refid="namespaceeu_1a25eb222abfe7c9e7f34d6f19ed40c1a0" kindref="member">pi</ref>)</initializer>
+        <initializer>= <ref refid="structeu_1_1An_1a978cd7edfef73d6cac1eff7862c04472" kindref="member">An::from_radians</ref>(<ref refid="namespaceeu_1a25eb222abfe7c9e7f34d6f19ed40c1a0" kindref="member">pi</ref>)</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/angle.h" line="82" column="21" bodyfile="libs/base/src/base/angle.h" bodystart="82" bodyend="-1"/>
+        <location file="libs/base/src/base/angle.h" line="83" column="18" bodyfile="libs/base/src/base/angle.h" bodystart="83" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="namespaceeu_1a12efa545ff4a811ef348298950604e10" prot="public" static="no" constexpr="yes" mutable="no">
-        <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">constexpr</ref> <ref refid="structeu_1_1Angle" kindref="compound">Angle</ref></type>
-        <definition>constexpr Angle eu::quarter_turn</definition>
+      <memberdef kind="variable" id="namespaceeu_1a795093272e2f8a2748665fd8a37e5d91" prot="public" static="no" constexpr="yes" mutable="no">
+        <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">constexpr</ref> <ref refid="structeu_1_1An" kindref="compound">An</ref></type>
+        <definition>constexpr An eu::quarter_turn</definition>
         <argsstring></argsstring>
         <name>quarter_turn</name>
         <qualifiedname>eu::quarter_turn</qualifiedname>
-        <initializer>= <ref refid="structeu_1_1Angle_1a2b54c0b925d8a61b4e63cdeae28d88a4" kindref="member">Angle::from_radians</ref>(<ref refid="namespaceeu_1a25eb222abfe7c9e7f34d6f19ed40c1a0" kindref="member">pi</ref> / 2.0f)</initializer>
+        <initializer>= <ref refid="structeu_1_1An_1a978cd7edfef73d6cac1eff7862c04472" kindref="member">An::from_radians</ref>(<ref refid="namespaceeu_1a25eb222abfe7c9e7f34d6f19ed40c1a0" kindref="member">pi</ref> / 2.0f)</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/angle.h" line="83" column="21" bodyfile="libs/base/src/base/angle.h" bodystart="83" bodyend="-1"/>
+        <location file="libs/base/src/base/angle.h" line="84" column="18" bodyfile="libs/base/src/base/angle.h" bodystart="84" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="namespaceeu_1a3b9fd0a50b9a17fe196a7577dd2f5e6e" prot="public" static="no" constexpr="yes" mutable="no">
-        <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">constexpr</ref> <ref refid="structeu_1_1Angle" kindref="compound">Angle</ref></type>
-        <definition>constexpr Angle eu::no_rotation</definition>
+      <memberdef kind="variable" id="namespaceeu_1a22905decd86a4bf45c79c109119f2b6f" prot="public" static="no" constexpr="yes" mutable="no">
+        <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">constexpr</ref> <ref refid="structeu_1_1An" kindref="compound">An</ref></type>
+        <definition>constexpr An eu::no_rotation</definition>
         <argsstring></argsstring>
         <name>no_rotation</name>
         <qualifiedname>eu::no_rotation</qualifiedname>
-        <initializer>= <ref refid="structeu_1_1Angle_1a2b54c0b925d8a61b4e63cdeae28d88a4" kindref="member">Angle::from_radians</ref>(0.0f)</initializer>
+        <initializer>= <ref refid="structeu_1_1An_1a978cd7edfef73d6cac1eff7862c04472" kindref="member">An::from_radians</ref>(0.0f)</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/angle.h" line="84" column="21" bodyfile="libs/base/src/base/angle.h" bodystart="84" bodyend="-1"/>
+        <location file="libs/base/src/base/angle.h" line="85" column="18" bodyfile="libs/base/src/base/angle.h" bodystart="85" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespaceeu_1a5957f0b19a66d6e1123f22d681e726e0" prot="public" static="no" constexpr="yes" mutable="no">
         <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">constexpr</ref> <ref refid="structeu_1_1m4" kindref="compound">m4</ref></type>
@@ -206,7 +206,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/mat4.h" line="99" column="18" bodyfile="libs/base/src/base/mat4.h" bodystart="99" bodyend="-1"/>
+        <location file="libs/base/src/base/mat4.h" line="100" column="18" bodyfile="libs/base/src/base/mat4.h" bodystart="100" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespaceeu_1a25eb222abfe7c9e7f34d6f19ed40c1a0" prot="public" static="no" constexpr="yes" mutable="no">
         <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">constexpr</ref> <ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">float</ref></type>
@@ -223,24 +223,24 @@
         </inbodydescription>
         <location file="libs/base/src/base/numeric.h" line="122" column="21" bodyfile="libs/base/src/base/numeric.h" bodystart="122" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="namespaceeu_1a168787042231fd75574792ef12be530d" prot="public" static="no" constexpr="yes" mutable="no">
-        <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">constexpr</ref> <ref refid="structeu_1_1quatf" kindref="compound">quatf</ref></type>
-        <definition>constexpr quatf eu::q_identity</definition>
+      <memberdef kind="variable" id="namespaceeu_1a074a5f400069f641ce3857da18d65d93" prot="public" static="no" constexpr="yes" mutable="no">
+        <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">constexpr</ref> <ref refid="structeu_1_1Q" kindref="compound">Q</ref></type>
+        <definition>constexpr Q eu::q_identity</definition>
         <argsstring></argsstring>
         <name>q_identity</name>
         <qualifiedname>eu::q_identity</qualifiedname>
-        <initializer>= <ref refid="structeu_1_1quatf" kindref="compound">quatf</ref>(1, <ref refid="structeu_1_1v3" kindref="compound">v3</ref>(0, 0, 0))</initializer>
+        <initializer>= <ref refid="structeu_1_1Q" kindref="compound">Q</ref>(1, <ref refid="structeu_1_1v3" kindref="compound">v3</ref>(0, 0, 0))</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/quat.h" line="68" column="21" bodyfile="libs/base/src/base/quat.h" bodystart="68" bodyend="-1"/>
+        <location file="libs/base/src/base/quat.h" line="69" column="17" bodyfile="libs/base/src/base/quat.h" bodystart="69" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="namespaceeu_1abb3f2260d267fda207e4cbb285f90998" prot="public" static="no" constexpr="yes" mutable="no">
-        <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">constexpr</ref> <ref refid="structeu_1_1Range" kindref="compound">Range</ref>&lt; <ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">float</ref> &gt;</type>
-        <definition>constexpr Range&lt;float&gt; eu::r01</definition>
+      <memberdef kind="variable" id="namespaceeu_1a1762260135f2b7b538f1b8be43146481" prot="public" static="no" constexpr="yes" mutable="no">
+        <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">constexpr</ref> <ref refid="structeu_1_1R" kindref="compound">R</ref>&lt; <ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">float</ref> &gt;</type>
+        <definition>constexpr R&lt;float&gt; eu::r01</definition>
         <argsstring></argsstring>
         <name>r01</name>
         <qualifiedname>eu::r01</qualifiedname>
@@ -251,11 +251,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/range.h" line="49" column="21" bodyfile="libs/base/src/base/range.h" bodystart="49" bodyend="49"/>
+        <location file="libs/base/src/base/range.h" line="45" column="17" bodyfile="libs/base/src/base/range.h" bodystart="45" bodyend="45"/>
       </memberdef>
-      <memberdef kind="variable" id="namespaceeu_1ad3f5c4dd7e4d7cf1252f63a5dd8366e8" prot="public" static="no" constexpr="yes" mutable="no">
-        <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">constexpr</ref> <ref refid="structeu_1_1Range" kindref="compound">Range</ref>&lt; <ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">float</ref> &gt;</type>
-        <definition>constexpr Range&lt;float&gt; eu::r11</definition>
+      <memberdef kind="variable" id="namespaceeu_1ab44633bc6b6ae7cbf3e473fe917d1e70" prot="public" static="no" constexpr="yes" mutable="no">
+        <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">constexpr</ref> <ref refid="structeu_1_1R" kindref="compound">R</ref>&lt; <ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">float</ref> &gt;</type>
+        <definition>constexpr R&lt;float&gt; eu::r11</definition>
         <argsstring></argsstring>
         <name>r11</name>
         <qualifiedname>eu::r11</qualifiedname>
@@ -266,7 +266,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/range.h" line="50" column="21" bodyfile="libs/base/src/base/range.h" bodystart="50" bodyend="50"/>
+        <location file="libs/base/src/base/range.h" line="46" column="17" bodyfile="libs/base/src/base/range.h" bodystart="46" bodyend="46"/>
       </memberdef>
       <memberdef kind="variable" id="namespaceeu_1a5fac55b859c3ed3d22eac1245737524f" prot="public" static="no" constexpr="yes" mutable="no">
         <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">constexpr</ref> <ref refid="structeu_1_1v2" kindref="compound">v2</ref></type>
@@ -281,7 +281,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec2.h" line="58" column="18" bodyfile="libs/base/src/base/vec2.h" bodystart="58" bodyend="58"/>
+        <location file="libs/base/src/base/vec2.h" line="55" column="18" bodyfile="libs/base/src/base/vec2.h" bodystart="55" bodyend="55"/>
       </memberdef>
       <memberdef kind="variable" id="namespaceeu_1af1a49fc9a55b790e9d31a82a0aa3c6db" prot="public" static="no" constexpr="yes" mutable="no">
         <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">constexpr</ref> <ref refid="structeu_1_1v3" kindref="compound">v3</ref></type>
@@ -296,18 +296,18 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec3.h" line="64" column="18" bodyfile="libs/base/src/base/vec3.h" bodystart="64" bodyend="64"/>
+        <location file="libs/base/src/base/vec3.h" line="65" column="18" bodyfile="libs/base/src/base/vec3.h" bodystart="65" bodyend="65"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="func">
-      <memberdef kind="function" id="namespaceeu_1aca78dba63a28d6e87e705f3f09960a1a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeu_1a3cbb6d297bb58186cf62a6faccaecc9f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">float</ref></type>
         <definition>float eu::sin</definition>
-        <argsstring>(const Angle &amp;ang)</argsstring>
+        <argsstring>(const An &amp;ang)</argsstring>
         <name>sin</name>
         <qualifiedname>eu::sin</qualifiedname>
         <param>
-          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1Angle" kindref="compound">Angle</ref> &amp;</type>
+          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1An" kindref="compound">An</ref> &amp;</type>
           <declname>ang</declname>
         </param>
         <briefdescription>
@@ -316,16 +316,16 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/angle.cc" line="54" column="5" bodyfile="libs/base/src/base/angle.cc" bodystart="54" bodyend="57" declfile="libs/base/src/base/angle.h" declline="87" declcolumn="11"/>
+        <location file="libs/base/src/base/angle.cc" line="54" column="5" bodyfile="libs/base/src/base/angle.cc" bodystart="54" bodyend="57" declfile="libs/base/src/base/angle.h" declline="88" declcolumn="11"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1a9b1d8ca75a7658f3f361475191b71912" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeu_1ae6beaf44514cc6ed0e0868cde5ff1ab4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">float</ref></type>
         <definition>float eu::cos</definition>
-        <argsstring>(const Angle &amp;ang)</argsstring>
+        <argsstring>(const An &amp;ang)</argsstring>
         <name>cos</name>
         <qualifiedname>eu::cos</qualifiedname>
         <param>
-          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1Angle" kindref="compound">Angle</ref> &amp;</type>
+          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1An" kindref="compound">An</ref> &amp;</type>
           <declname>ang</declname>
         </param>
         <briefdescription>
@@ -334,16 +334,16 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/angle.cc" line="61" column="5" bodyfile="libs/base/src/base/angle.cc" bodystart="61" bodyend="64" declfile="libs/base/src/base/angle.h" declline="88" declcolumn="11"/>
+        <location file="libs/base/src/base/angle.cc" line="61" column="5" bodyfile="libs/base/src/base/angle.cc" bodystart="61" bodyend="64" declfile="libs/base/src/base/angle.h" declline="89" declcolumn="11"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1a638a925ff24a903a48a9dd83b7dcf6f4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeu_1a516772ab56ddbef8fdfb9b155219fe89" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">float</ref></type>
         <definition>float eu::tan</definition>
-        <argsstring>(const Angle &amp;ang)</argsstring>
+        <argsstring>(const An &amp;ang)</argsstring>
         <name>tan</name>
         <qualifiedname>eu::tan</qualifiedname>
         <param>
-          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1Angle" kindref="compound">Angle</ref> &amp;</type>
+          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1An" kindref="compound">An</ref> &amp;</type>
           <declname>ang</declname>
         </param>
         <briefdescription>
@@ -352,11 +352,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/angle.cc" line="68" column="5" bodyfile="libs/base/src/base/angle.cc" bodystart="68" bodyend="71" declfile="libs/base/src/base/angle.h" declline="89" declcolumn="11"/>
+        <location file="libs/base/src/base/angle.cc" line="68" column="5" bodyfile="libs/base/src/base/angle.cc" bodystart="68" bodyend="71" declfile="libs/base/src/base/angle.h" declline="90" declcolumn="11"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1a447b534d9cfdf0039c832d40b7a0d7bc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1Angle" kindref="compound">Angle</ref></type>
-        <definition>Angle eu::asin</definition>
+      <memberdef kind="function" id="namespaceeu_1acc962f319f4b97d3a3b72cf4ecd0fd17" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1An" kindref="compound">An</ref></type>
+        <definition>An eu::asin</definition>
         <argsstring>(float v)</argsstring>
         <name>asin</name>
         <qualifiedname>eu::asin</qualifiedname>
@@ -370,11 +370,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/angle.cc" line="75" column="5" bodyfile="libs/base/src/base/angle.cc" bodystart="75" bodyend="80" declfile="libs/base/src/base/angle.h" declline="90" declcolumn="11"/>
+        <location file="libs/base/src/base/angle.cc" line="75" column="5" bodyfile="libs/base/src/base/angle.cc" bodystart="75" bodyend="80" declfile="libs/base/src/base/angle.h" declline="91" declcolumn="8"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1a186d8c0bfc19958c5efcffcd8d1d8bad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1Angle" kindref="compound">Angle</ref></type>
-        <definition>Angle eu::acos</definition>
+      <memberdef kind="function" id="namespaceeu_1a541d45e26c450d76a511c7e3c753b0ac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1An" kindref="compound">An</ref></type>
+        <definition>An eu::acos</definition>
         <argsstring>(float v)</argsstring>
         <name>acos</name>
         <qualifiedname>eu::acos</qualifiedname>
@@ -388,11 +388,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/angle.cc" line="84" column="5" bodyfile="libs/base/src/base/angle.cc" bodystart="84" bodyend="89" declfile="libs/base/src/base/angle.h" declline="91" declcolumn="11"/>
+        <location file="libs/base/src/base/angle.cc" line="84" column="5" bodyfile="libs/base/src/base/angle.cc" bodystart="84" bodyend="89" declfile="libs/base/src/base/angle.h" declline="92" declcolumn="8"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1aa548598221289780061f93b70046a165" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1Angle" kindref="compound">Angle</ref></type>
-        <definition>Angle eu::atan</definition>
+      <memberdef kind="function" id="namespaceeu_1ae46ea0693c249adaf3485667bce0d9a4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1An" kindref="compound">An</ref></type>
+        <definition>An eu::atan</definition>
         <argsstring>(float v)</argsstring>
         <name>atan</name>
         <qualifiedname>eu::atan</qualifiedname>
@@ -406,11 +406,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/angle.cc" line="93" column="5" bodyfile="libs/base/src/base/angle.cc" bodystart="93" bodyend="96" declfile="libs/base/src/base/angle.h" declline="92" declcolumn="11"/>
+        <location file="libs/base/src/base/angle.cc" line="93" column="5" bodyfile="libs/base/src/base/angle.cc" bodystart="93" bodyend="96" declfile="libs/base/src/base/angle.h" declline="93" declcolumn="8"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1a23e6035e556f3a5109f183de61dd1eb4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1Angle" kindref="compound">Angle</ref></type>
-        <definition>Angle eu::atan2</definition>
+      <memberdef kind="function" id="namespaceeu_1a8de0a9fb14b3fcf5466c96ba6a503c92" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1An" kindref="compound">An</ref></type>
+        <definition>An eu::atan2</definition>
         <argsstring>(float y, float x)</argsstring>
         <name>atan2</name>
         <qualifiedname>eu::atan2</qualifiedname>
@@ -428,20 +428,20 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/angle.cc" line="100" column="5" bodyfile="libs/base/src/base/angle.cc" bodystart="100" bodyend="103" declfile="libs/base/src/base/angle.h" declline="93" declcolumn="11"/>
+        <location file="libs/base/src/base/angle.cc" line="100" column="5" bodyfile="libs/base/src/base/angle.cc" bodystart="100" bodyend="103" declfile="libs/base/src/base/angle.h" declline="94" declcolumn="8"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1a0f26b2f5215f64fd7753410b36d2ed40" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1Angle" kindref="compound">Angle</ref></type>
-        <definition>Angle eu::operator+</definition>
-        <argsstring>(const Angle &amp;lhs, const Angle &amp;rhs)</argsstring>
+      <memberdef kind="function" id="namespaceeu_1addb270c0f4a5cc2ddd647b52208e2192" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1An" kindref="compound">An</ref></type>
+        <definition>An eu::operator+</definition>
+        <argsstring>(const An &amp;lhs, const An &amp;rhs)</argsstring>
         <name>operator+</name>
         <qualifiedname>eu::operator+</qualifiedname>
         <param>
-          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1Angle" kindref="compound">Angle</ref> &amp;</type>
+          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1An" kindref="compound">An</ref> &amp;</type>
           <declname>lhs</declname>
         </param>
         <param>
-          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1Angle" kindref="compound">Angle</ref> &amp;</type>
+          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1An" kindref="compound">An</ref> &amp;</type>
           <declname>rhs</declname>
         </param>
         <briefdescription>
@@ -450,20 +450,20 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/angle.cc" line="116" column="5" bodyfile="libs/base/src/base/angle.cc" bodystart="116" bodyend="121" declfile="libs/base/src/base/angle.h" declline="95" declcolumn="11"/>
+        <location file="libs/base/src/base/angle.cc" line="116" column="5" bodyfile="libs/base/src/base/angle.cc" bodystart="116" bodyend="121" declfile="libs/base/src/base/angle.h" declline="96" declcolumn="8"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1a313a2aa80887cfb3c9ef71cbc2b136ab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1Angle" kindref="compound">Angle</ref></type>
-        <definition>Angle eu::operator-</definition>
-        <argsstring>(const Angle &amp;lhs, const Angle &amp;rhs)</argsstring>
+      <memberdef kind="function" id="namespaceeu_1aa5ac4cace5f29e16ecaf5065f56a3b5e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1An" kindref="compound">An</ref></type>
+        <definition>An eu::operator-</definition>
+        <argsstring>(const An &amp;lhs, const An &amp;rhs)</argsstring>
         <name>operator-</name>
         <qualifiedname>eu::operator-</qualifiedname>
         <param>
-          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1Angle" kindref="compound">Angle</ref> &amp;</type>
+          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1An" kindref="compound">An</ref> &amp;</type>
           <declname>lhs</declname>
         </param>
         <param>
-          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1Angle" kindref="compound">Angle</ref> &amp;</type>
+          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1An" kindref="compound">An</ref> &amp;</type>
           <declname>rhs</declname>
         </param>
         <briefdescription>
@@ -472,16 +472,16 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/angle.cc" line="125" column="5" bodyfile="libs/base/src/base/angle.cc" bodystart="125" bodyend="130" declfile="libs/base/src/base/angle.h" declline="96" declcolumn="11"/>
+        <location file="libs/base/src/base/angle.cc" line="125" column="5" bodyfile="libs/base/src/base/angle.cc" bodystart="125" bodyend="130" declfile="libs/base/src/base/angle.h" declline="97" declcolumn="8"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1a378c4e208a075433eb6b79ff1d37ac45" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1Angle" kindref="compound">Angle</ref></type>
-        <definition>Angle eu::operator/</definition>
-        <argsstring>(const Angle &amp;lhs, float rhs)</argsstring>
+      <memberdef kind="function" id="namespaceeu_1a70234da8d6bce29f0ce528b1f1c04dad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1An" kindref="compound">An</ref></type>
+        <definition>An eu::operator/</definition>
+        <argsstring>(const An &amp;lhs, float rhs)</argsstring>
         <name>operator/</name>
         <qualifiedname>eu::operator/</qualifiedname>
         <param>
-          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1Angle" kindref="compound">Angle</ref> &amp;</type>
+          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1An" kindref="compound">An</ref> &amp;</type>
           <declname>lhs</declname>
         </param>
         <param>
@@ -494,16 +494,16 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/angle.cc" line="134" column="5" bodyfile="libs/base/src/base/angle.cc" bodystart="134" bodyend="139" declfile="libs/base/src/base/angle.h" declline="98" declcolumn="11"/>
+        <location file="libs/base/src/base/angle.cc" line="134" column="5" bodyfile="libs/base/src/base/angle.cc" bodystart="134" bodyend="139" declfile="libs/base/src/base/angle.h" declline="99" declcolumn="8"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1ad8db85497bbda3078a4b20f66bdb5b4a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1Angle" kindref="compound">Angle</ref></type>
-        <definition>Angle eu::operator*</definition>
-        <argsstring>(const Angle &amp;lhs, float rhs)</argsstring>
+      <memberdef kind="function" id="namespaceeu_1ae19fc15fd3b494668d1040e9125aa1de" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1An" kindref="compound">An</ref></type>
+        <definition>An eu::operator*</definition>
+        <argsstring>(const An &amp;lhs, float rhs)</argsstring>
         <name>operator*</name>
         <qualifiedname>eu::operator*</qualifiedname>
         <param>
-          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1Angle" kindref="compound">Angle</ref> &amp;</type>
+          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1An" kindref="compound">An</ref> &amp;</type>
           <declname>lhs</declname>
         </param>
         <param>
@@ -516,12 +516,12 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/angle.cc" line="142" column="11" bodyfile="libs/base/src/base/angle.cc" bodystart="142" bodyend="147" declfile="libs/base/src/base/angle.h" declline="97" declcolumn="11"/>
+        <location file="libs/base/src/base/angle.cc" line="142" column="8" bodyfile="libs/base/src/base/angle.cc" bodystart="142" bodyend="147" declfile="libs/base/src/base/angle.h" declline="98" declcolumn="8"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1a28fd8ac0c2e01367a5727671670fc84e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1Angle" kindref="compound">Angle</ref></type>
-        <definition>Angle eu::operator*</definition>
-        <argsstring>(float rhs, const Angle &amp;lhs)</argsstring>
+      <memberdef kind="function" id="namespaceeu_1a513f443e6cc11c48dd05de3e5dfb5ab8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1An" kindref="compound">An</ref></type>
+        <definition>An eu::operator*</definition>
+        <argsstring>(float rhs, const An &amp;lhs)</argsstring>
         <name>operator*</name>
         <qualifiedname>eu::operator*</qualifiedname>
         <param>
@@ -529,7 +529,7 @@
           <declname>rhs</declname>
         </param>
         <param>
-          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1Angle" kindref="compound">Angle</ref> &amp;</type>
+          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1An" kindref="compound">An</ref> &amp;</type>
           <declname>lhs</declname>
         </param>
         <briefdescription>
@@ -538,16 +538,16 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/angle.cc" line="149" column="11" bodyfile="libs/base/src/base/angle.cc" bodystart="149" bodyend="152" declfile="libs/base/src/base/angle.h" declline="99" declcolumn="11"/>
+        <location file="libs/base/src/base/angle.cc" line="149" column="8" bodyfile="libs/base/src/base/angle.cc" bodystart="149" bodyend="152" declfile="libs/base/src/base/angle.h" declline="100" declcolumn="8"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1aa542af8138ef5d5a6d189f930a307013" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeu_1a3deb3b36c867593fd0645ddbd299b9ce" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
         <definition>std::string eu::to_string</definition>
-        <argsstring>(const Angle &amp;a)</argsstring>
+        <argsstring>(const An &amp;a)</argsstring>
         <name>to_string</name>
         <qualifiedname>eu::to_string</qualifiedname>
         <param>
-          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1Angle" kindref="compound">Angle</ref> &amp;</type>
+          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1An" kindref="compound">An</ref> &amp;</type>
           <declname>a</declname>
         </param>
         <briefdescription>
@@ -556,20 +556,20 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/angle.cc" line="155" column="17" bodyfile="libs/base/src/base/angle.cc" bodystart="155" bodyend="156" declfile="libs/base/src/base/angle.h" declline="101" declcolumn="17"/>
+        <location file="libs/base/src/base/angle.cc" line="155" column="17" bodyfile="libs/base/src/base/angle.cc" bodystart="155" bodyend="156" declfile="libs/base/src/base/angle.h" declline="102" declcolumn="17"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1ad0980fedfeba0f10b266f81201213074" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeu_1a37aec4a04518d899030ef13b9bfdb231" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">bool</ref></type>
         <definition>bool eu::operator&lt;</definition>
-        <argsstring>(const Angle &amp;lhs, const Angle &amp;rhs)</argsstring>
+        <argsstring>(const An &amp;lhs, const An &amp;rhs)</argsstring>
         <name>operator&lt;</name>
         <qualifiedname>eu::operator&lt;</qualifiedname>
         <param>
-          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1Angle" kindref="compound">Angle</ref> &amp;</type>
+          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1An" kindref="compound">An</ref> &amp;</type>
           <declname>lhs</declname>
         </param>
         <param>
-          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1Angle" kindref="compound">Angle</ref> &amp;</type>
+          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1An" kindref="compound">An</ref> &amp;</type>
           <declname>rhs</declname>
         </param>
         <briefdescription>
@@ -578,20 +578,20 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/angle.cc" line="159" column="5" bodyfile="libs/base/src/base/angle.cc" bodystart="160" bodyend="163" declfile="libs/base/src/base/angle.h" declline="103" declcolumn="5"/>
+        <location file="libs/base/src/base/angle.cc" line="159" column="5" bodyfile="libs/base/src/base/angle.cc" bodystart="160" bodyend="163" declfile="libs/base/src/base/angle.h" declline="104" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1afebadcbc758added22f9e71b09a9a76b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeu_1adbbd7ab52e37fdc56cd66e0920a813e2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">bool</ref></type>
         <definition>bool eu::operator&lt;=</definition>
-        <argsstring>(const Angle &amp;lhs, const Angle &amp;rhs)</argsstring>
+        <argsstring>(const An &amp;lhs, const An &amp;rhs)</argsstring>
         <name>operator&lt;=</name>
         <qualifiedname>eu::operator&lt;=</qualifiedname>
         <param>
-          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1Angle" kindref="compound">Angle</ref> &amp;</type>
+          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1An" kindref="compound">An</ref> &amp;</type>
           <declname>lhs</declname>
         </param>
         <param>
-          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1Angle" kindref="compound">Angle</ref> &amp;</type>
+          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1An" kindref="compound">An</ref> &amp;</type>
           <declname>rhs</declname>
         </param>
         <briefdescription>
@@ -600,20 +600,20 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/angle.cc" line="166" column="5" bodyfile="libs/base/src/base/angle.cc" bodystart="167" bodyend="170" declfile="libs/base/src/base/angle.h" declline="104" declcolumn="5"/>
+        <location file="libs/base/src/base/angle.cc" line="166" column="5" bodyfile="libs/base/src/base/angle.cc" bodystart="167" bodyend="170" declfile="libs/base/src/base/angle.h" declline="105" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1adb583e46e3f948a681b988bba27dc244" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeu_1aa3e88f63b802a9db740a821f312e6556" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">bool</ref></type>
         <definition>bool eu::operator&gt;</definition>
-        <argsstring>(const Angle &amp;lhs, const Angle &amp;rhs)</argsstring>
+        <argsstring>(const An &amp;lhs, const An &amp;rhs)</argsstring>
         <name>operator&gt;</name>
         <qualifiedname>eu::operator&gt;</qualifiedname>
         <param>
-          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1Angle" kindref="compound">Angle</ref> &amp;</type>
+          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1An" kindref="compound">An</ref> &amp;</type>
           <declname>lhs</declname>
         </param>
         <param>
-          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1Angle" kindref="compound">Angle</ref> &amp;</type>
+          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1An" kindref="compound">An</ref> &amp;</type>
           <declname>rhs</declname>
         </param>
         <briefdescription>
@@ -622,20 +622,20 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/angle.cc" line="174" column="5" bodyfile="libs/base/src/base/angle.cc" bodystart="174" bodyend="177" declfile="libs/base/src/base/angle.h" declline="105" declcolumn="10"/>
+        <location file="libs/base/src/base/angle.cc" line="174" column="5" bodyfile="libs/base/src/base/angle.cc" bodystart="174" bodyend="177" declfile="libs/base/src/base/angle.h" declline="106" declcolumn="10"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1aa337311fc35735e687b7f1c0a9b4c727" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeu_1af8448b714bf16cc794b4a29bfac33e6a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">bool</ref></type>
         <definition>bool eu::operator&gt;=</definition>
-        <argsstring>(const Angle &amp;lhs, const Angle &amp;rhs)</argsstring>
+        <argsstring>(const An &amp;lhs, const An &amp;rhs)</argsstring>
         <name>operator&gt;=</name>
         <qualifiedname>eu::operator&gt;=</qualifiedname>
         <param>
-          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1Angle" kindref="compound">Angle</ref> &amp;</type>
+          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1An" kindref="compound">An</ref> &amp;</type>
           <declname>lhs</declname>
         </param>
         <param>
-          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1Angle" kindref="compound">Angle</ref> &amp;</type>
+          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1An" kindref="compound">An</ref> &amp;</type>
           <declname>rhs</declname>
         </param>
         <briefdescription>
@@ -644,16 +644,16 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/angle.cc" line="181" column="5" bodyfile="libs/base/src/base/angle.cc" bodystart="181" bodyend="184" declfile="libs/base/src/base/angle.h" declline="106" declcolumn="10"/>
+        <location file="libs/base/src/base/angle.cc" line="181" column="5" bodyfile="libs/base/src/base/angle.cc" bodystart="181" bodyend="184" declfile="libs/base/src/base/angle.h" declline="107" declcolumn="10"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1a7866b7832f7e604469afe0328520d641" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1Angle" kindref="compound">Angle</ref></type>
-        <definition>Angle eu::lerp_angle</definition>
-        <argsstring>(const Angle &amp;from, float v, const Angle &amp;to)</argsstring>
+      <memberdef kind="function" id="namespaceeu_1a0bade92aadaac348c9d69c311012401c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1An" kindref="compound">An</ref></type>
+        <definition>An eu::lerp_angle</definition>
+        <argsstring>(const An &amp;from, float v, const An &amp;to)</argsstring>
         <name>lerp_angle</name>
         <qualifiedname>eu::lerp_angle</qualifiedname>
         <param>
-          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1Angle" kindref="compound">Angle</ref> &amp;</type>
+          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1An" kindref="compound">An</ref> &amp;</type>
           <declname>from</declname>
         </param>
         <param>
@@ -661,7 +661,7 @@
           <declname>v</declname>
         </param>
         <param>
-          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1Angle" kindref="compound">Angle</ref> &amp;</type>
+          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1An" kindref="compound">An</ref> &amp;</type>
           <declname>to</declname>
         </param>
         <briefdescription>
@@ -670,7 +670,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/angle.cc" line="187" column="11" bodyfile="libs/base/src/base/angle.cc" bodystart="187" bodyend="200" declfile="libs/base/src/base/angle.h" declline="108" declcolumn="11"/>
+        <location file="libs/base/src/base/angle.cc" line="187" column="8" bodyfile="libs/base/src/base/angle.cc" bodystart="187" bodyend="200" declfile="libs/base/src/base/angle.h" declline="109" declcolumn="8"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1ac63c715fd08b2adbad224c32eb3cb378" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -706,7 +706,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/mat4.cc" line="453" column="17" bodyfile="libs/base/src/base/mat4.cc" bodystart="453" bodyend="456" declfile="libs/base/src/base/mat4.h" declline="101" declcolumn="17"/>
+        <location file="libs/base/src/base/mat4.cc" line="453" column="17" bodyfile="libs/base/src/base/mat4.cc" bodystart="453" bodyend="456" declfile="libs/base/src/base/mat4.h" declline="102" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1ac6df9508643c5fd4c3492e047e9a932c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1m4" kindref="compound">m4</ref></type>
@@ -728,7 +728,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/mat4.cc" line="460" column="5" bodyfile="libs/base/src/base/mat4.cc" bodystart="460" bodyend="465" declfile="libs/base/src/base/mat4.h" declline="103" declcolumn="8"/>
+        <location file="libs/base/src/base/mat4.cc" line="460" column="5" bodyfile="libs/base/src/base/mat4.cc" bodystart="460" bodyend="465" declfile="libs/base/src/base/mat4.h" declline="104" declcolumn="8"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1af28a2e40d555474d81f7d62a6f02c726" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1m4" kindref="compound">m4</ref></type>
@@ -750,7 +750,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/mat4.cc" line="469" column="5" bodyfile="libs/base/src/base/mat4.cc" bodystart="469" bodyend="474" declfile="libs/base/src/base/mat4.h" declline="104" declcolumn="8"/>
+        <location file="libs/base/src/base/mat4.cc" line="469" column="5" bodyfile="libs/base/src/base/mat4.cc" bodystart="469" bodyend="474" declfile="libs/base/src/base/mat4.h" declline="105" declcolumn="8"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1a6c7411b88038f38cf17a8bf5ab6912f5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">float</ref></type>
@@ -794,7 +794,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/mat4.cc" line="486" column="8" bodyfile="libs/base/src/base/mat4.cc" bodystart="486" bodyend="499" declfile="libs/base/src/base/mat4.h" declline="105" declcolumn="8"/>
+        <location file="libs/base/src/base/mat4.cc" line="486" column="8" bodyfile="libs/base/src/base/mat4.cc" bodystart="486" bodyend="499" declfile="libs/base/src/base/mat4.h" declline="106" declcolumn="8"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1a71c65bf3f1b8eec74b96ffb0ea0103fa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1v4" kindref="compound">v4</ref></type>
@@ -816,7 +816,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/mat4.cc" line="502" column="8" bodyfile="libs/base/src/base/mat4.cc" bodystart="502" bodyend="510" declfile="libs/base/src/base/mat4.h" declline="106" declcolumn="8"/>
+        <location file="libs/base/src/base/mat4.cc" line="502" column="8" bodyfile="libs/base/src/base/mat4.cc" bodystart="502" bodyend="510" declfile="libs/base/src/base/mat4.h" declline="107" declcolumn="8"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1a84234ac42f340bb5b38c0a34f4cd0e3f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">bool</ref></type>
@@ -1278,14 +1278,14 @@
         </inbodydescription>
         <location file="libs/base/src/base/numeric.h" line="137" column="5" bodyfile="libs/base/src/base/numeric.h" bodystart="137" bodyend="140"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1a66eb0c3eaa651f8be9b3403b3522af1b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1quatf" kindref="compound">quatf</ref></type>
-        <definition>quatf eu::lerp_quatf</definition>
-        <argsstring>(const quatf &amp;f, const float scale, const quatf &amp;t)</argsstring>
+      <memberdef kind="function" id="namespaceeu_1a5cd76c94b44e55f7122a46bba3ae4d81" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1Q" kindref="compound">Q</ref></type>
+        <definition>Q eu::lerp_quatf</definition>
+        <argsstring>(const Q &amp;f, const float scale, const Q &amp;t)</argsstring>
         <name>lerp_quatf</name>
         <qualifiedname>eu::lerp_quatf</qualifiedname>
         <param>
-          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1quatf" kindref="compound">quatf</ref> &amp;</type>
+          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1Q" kindref="compound">Q</ref> &amp;</type>
           <declname>f</declname>
         </param>
         <param>
@@ -1293,7 +1293,7 @@
           <declname>scale</declname>
         </param>
         <param>
-          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1quatf" kindref="compound">quatf</ref> &amp;</type>
+          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1Q" kindref="compound">Q</ref> &amp;</type>
           <declname>t</declname>
         </param>
         <briefdescription>
@@ -1302,16 +1302,16 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/quat.cc" line="204" column="5" bodyfile="libs/base/src/base/quat.cc" bodystart="204" bodyend="207" declfile="libs/base/src/base/quat.h" declline="70" declcolumn="11"/>
+        <location file="libs/base/src/base/quat.cc" line="204" column="5" bodyfile="libs/base/src/base/quat.cc" bodystart="204" bodyend="207" declfile="libs/base/src/base/quat.h" declline="71" declcolumn="7"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1a38937a718ee289d51ad5972e883d4f7a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1quatf" kindref="compound">quatf</ref></type>
-        <definition>quatf eu::slerp_fast</definition>
-        <argsstring>(const quatf &amp;qa, const float t, const quatf &amp;qb)</argsstring>
+      <memberdef kind="function" id="namespaceeu_1a1e05b672b47b209b25bc12c58308fa05" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1Q" kindref="compound">Q</ref></type>
+        <definition>Q eu::slerp_fast</definition>
+        <argsstring>(const Q &amp;qa, const float t, const Q &amp;qb)</argsstring>
         <name>slerp_fast</name>
         <qualifiedname>eu::slerp_fast</qualifiedname>
         <param>
-          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1quatf" kindref="compound">quatf</ref> &amp;</type>
+          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1Q" kindref="compound">Q</ref> &amp;</type>
           <declname>qa</declname>
         </param>
         <param>
@@ -1319,7 +1319,7 @@
           <declname>t</declname>
         </param>
         <param>
-          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1quatf" kindref="compound">quatf</ref> &amp;</type>
+          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1Q" kindref="compound">Q</ref> &amp;</type>
           <declname>qb</declname>
         </param>
         <briefdescription>
@@ -1328,16 +1328,16 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/quat.cc" line="211" column="5" bodyfile="libs/base/src/base/quat.cc" bodystart="211" bodyend="244" declfile="libs/base/src/base/quat.h" declline="71" declcolumn="11"/>
+        <location file="libs/base/src/base/quat.cc" line="211" column="5" bodyfile="libs/base/src/base/quat.cc" bodystart="211" bodyend="244" declfile="libs/base/src/base/quat.h" declline="72" declcolumn="7"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1aaca0d00791a888537fd17406e6c7ae88" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1quatf" kindref="compound">quatf</ref></type>
-        <definition>quatf eu::slerp_shortway</definition>
-        <argsstring>(const quatf &amp;from, const float scale, const quatf &amp;to)</argsstring>
+      <memberdef kind="function" id="namespaceeu_1ae6089c53b1f851cdbefd186bba37f9d6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1Q" kindref="compound">Q</ref></type>
+        <definition>Q eu::slerp_shortway</definition>
+        <argsstring>(const Q &amp;from, const float scale, const Q &amp;to)</argsstring>
         <name>slerp_shortway</name>
         <qualifiedname>eu::slerp_shortway</qualifiedname>
         <param>
-          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1quatf" kindref="compound">quatf</ref> &amp;</type>
+          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1Q" kindref="compound">Q</ref> &amp;</type>
           <declname>from</declname>
         </param>
         <param>
@@ -1345,7 +1345,7 @@
           <declname>scale</declname>
         </param>
         <param>
-          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1quatf" kindref="compound">quatf</ref> &amp;</type>
+          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1Q" kindref="compound">Q</ref> &amp;</type>
           <declname>to</declname>
         </param>
         <briefdescription>
@@ -1354,16 +1354,16 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/quat.cc" line="248" column="5" bodyfile="libs/base/src/base/quat.cc" bodystart="248" bodyend="258" declfile="libs/base/src/base/quat.h" declline="72" declcolumn="11"/>
+        <location file="libs/base/src/base/quat.cc" line="248" column="5" bodyfile="libs/base/src/base/quat.cc" bodystart="248" bodyend="258" declfile="libs/base/src/base/quat.h" declline="73" declcolumn="7"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1a7d52baa17f1e27e830d1facb23c27d2b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeu_1af254c49a36023b5a0f648b1c79a4b123" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
         <definition>std::string eu::to_string</definition>
-        <argsstring>(const quatf &amp;v)</argsstring>
+        <argsstring>(const Q &amp;v)</argsstring>
         <name>to_string</name>
         <qualifiedname>eu::to_string</qualifiedname>
         <param>
-          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1quatf" kindref="compound">quatf</ref> &amp;</type>
+          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1Q" kindref="compound">Q</ref> &amp;</type>
           <declname>v</declname>
         </param>
         <briefdescription>
@@ -1372,20 +1372,20 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/quat.cc" line="346" column="17" bodyfile="libs/base/src/base/quat.cc" bodystart="346" bodyend="349" declfile="libs/base/src/base/quat.h" declline="76" declcolumn="17"/>
+        <location file="libs/base/src/base/quat.cc" line="346" column="17" bodyfile="libs/base/src/base/quat.cc" bodystart="346" bodyend="349" declfile="libs/base/src/base/quat.h" declline="77" declcolumn="17"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1adc7077ea64fcc6ba21fa0cf7fee70d43" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeu_1ad4b8d21db1b1a25c346296eec35b330b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">float</ref></type>
         <definition>float eu::dot</definition>
-        <argsstring>(const quatf &amp;lhs, const quatf &amp;rhs)</argsstring>
+        <argsstring>(const Q &amp;lhs, const Q &amp;rhs)</argsstring>
         <name>dot</name>
         <qualifiedname>eu::dot</qualifiedname>
         <param>
-          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1quatf" kindref="compound">quatf</ref> &amp;</type>
+          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1Q" kindref="compound">Q</ref> &amp;</type>
           <declname>lhs</declname>
         </param>
         <param>
-          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1quatf" kindref="compound">quatf</ref> &amp;</type>
+          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1Q" kindref="compound">Q</ref> &amp;</type>
           <declname>rhs</declname>
         </param>
         <briefdescription>
@@ -1394,20 +1394,20 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/quat.cc" line="353" column="5" bodyfile="libs/base/src/base/quat.cc" bodystart="353" bodyend="356" declfile="libs/base/src/base/quat.h" declline="74" declcolumn="11"/>
+        <location file="libs/base/src/base/quat.cc" line="353" column="5" bodyfile="libs/base/src/base/quat.cc" bodystart="353" bodyend="356" declfile="libs/base/src/base/quat.h" declline="75" declcolumn="11"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1a29457947467faa1477cee1829fc89846" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1quatf" kindref="compound">quatf</ref></type>
-        <definition>quatf eu::operator*</definition>
-        <argsstring>(const quatf &amp;lhs, const quatf &amp;rhs)</argsstring>
+      <memberdef kind="function" id="namespaceeu_1ae99fc2a026a0a7ac61fbc6281d530996" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1Q" kindref="compound">Q</ref></type>
+        <definition>Q eu::operator*</definition>
+        <argsstring>(const Q &amp;lhs, const Q &amp;rhs)</argsstring>
         <name>operator*</name>
         <qualifiedname>eu::operator*</qualifiedname>
         <param>
-          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1quatf" kindref="compound">quatf</ref> &amp;</type>
+          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1Q" kindref="compound">Q</ref> &amp;</type>
           <declname>lhs</declname>
         </param>
         <param>
-          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1quatf" kindref="compound">quatf</ref> &amp;</type>
+          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1Q" kindref="compound">Q</ref> &amp;</type>
           <declname>rhs</declname>
         </param>
         <briefdescription>
@@ -1416,12 +1416,12 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/quat.cc" line="359" column="11" bodyfile="libs/base/src/base/quat.cc" bodystart="359" bodyend="364" declfile="libs/base/src/base/quat.h" declline="78" declcolumn="11"/>
+        <location file="libs/base/src/base/quat.cc" line="359" column="7" bodyfile="libs/base/src/base/quat.cc" bodystart="359" bodyend="364" declfile="libs/base/src/base/quat.h" declline="79" declcolumn="7"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1a7c89a91c7d3c6b5848365f3c1a364ca0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1quatf" kindref="compound">quatf</ref></type>
-        <definition>quatf eu::operator*</definition>
-        <argsstring>(float scale, const quatf &amp;q)</argsstring>
+      <memberdef kind="function" id="namespaceeu_1a74899d4681ffa6fdccd09f9588ba7661" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1Q" kindref="compound">Q</ref></type>
+        <definition>Q eu::operator*</definition>
+        <argsstring>(float scale, const Q &amp;q)</argsstring>
         <name>operator*</name>
         <qualifiedname>eu::operator*</qualifiedname>
         <param>
@@ -1429,7 +1429,7 @@
           <declname>scale</declname>
         </param>
         <param>
-          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1quatf" kindref="compound">quatf</ref> &amp;</type>
+          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1Q" kindref="compound">Q</ref> &amp;</type>
           <declname>q</declname>
         </param>
         <briefdescription>
@@ -1438,16 +1438,16 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/quat.cc" line="367" column="11" bodyfile="libs/base/src/base/quat.cc" bodystart="367" bodyend="372" declfile="libs/base/src/base/quat.h" declline="79" declcolumn="11"/>
+        <location file="libs/base/src/base/quat.cc" line="367" column="7" bodyfile="libs/base/src/base/quat.cc" bodystart="367" bodyend="372" declfile="libs/base/src/base/quat.h" declline="80" declcolumn="7"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1a1c83902bcc56340a823090158fa69133" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1quatf" kindref="compound">quatf</ref></type>
-        <definition>quatf eu::operator*</definition>
-        <argsstring>(const quatf &amp;q, float scale)</argsstring>
+      <memberdef kind="function" id="namespaceeu_1a4dde67115df3f842c8371817f87587d4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1Q" kindref="compound">Q</ref></type>
+        <definition>Q eu::operator*</definition>
+        <argsstring>(const Q &amp;q, float scale)</argsstring>
         <name>operator*</name>
         <qualifiedname>eu::operator*</qualifiedname>
         <param>
-          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1quatf" kindref="compound">quatf</ref> &amp;</type>
+          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1Q" kindref="compound">Q</ref> &amp;</type>
           <declname>q</declname>
         </param>
         <param>
@@ -1460,20 +1460,20 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/quat.cc" line="375" column="11" bodyfile="libs/base/src/base/quat.cc" bodystart="375" bodyend="380" declfile="libs/base/src/base/quat.h" declline="80" declcolumn="11"/>
+        <location file="libs/base/src/base/quat.cc" line="375" column="7" bodyfile="libs/base/src/base/quat.cc" bodystart="375" bodyend="380" declfile="libs/base/src/base/quat.h" declline="81" declcolumn="7"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1abc680621d9b15ffd418f75f85d47551b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1quatf" kindref="compound">quatf</ref></type>
-        <definition>quatf eu::operator+</definition>
-        <argsstring>(const quatf &amp;lhs, const quatf &amp;rhs)</argsstring>
+      <memberdef kind="function" id="namespaceeu_1a94c89d4216e30fc6ad3711eb540a25fc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1Q" kindref="compound">Q</ref></type>
+        <definition>Q eu::operator+</definition>
+        <argsstring>(const Q &amp;lhs, const Q &amp;rhs)</argsstring>
         <name>operator+</name>
         <qualifiedname>eu::operator+</qualifiedname>
         <param>
-          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1quatf" kindref="compound">quatf</ref> &amp;</type>
+          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1Q" kindref="compound">Q</ref> &amp;</type>
           <declname>lhs</declname>
         </param>
         <param>
-          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1quatf" kindref="compound">quatf</ref> &amp;</type>
+          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1Q" kindref="compound">Q</ref> &amp;</type>
           <declname>rhs</declname>
         </param>
         <briefdescription>
@@ -1482,20 +1482,20 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/quat.cc" line="384" column="5" bodyfile="libs/base/src/base/quat.cc" bodystart="384" bodyend="389" declfile="libs/base/src/base/quat.h" declline="81" declcolumn="11"/>
+        <location file="libs/base/src/base/quat.cc" line="384" column="5" bodyfile="libs/base/src/base/quat.cc" bodystart="384" bodyend="389" declfile="libs/base/src/base/quat.h" declline="82" declcolumn="7"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1a699ab486c5e231d4f19f3bdde7ed8ec3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1quatf" kindref="compound">quatf</ref></type>
-        <definition>quatf eu::operator-</definition>
-        <argsstring>(const quatf &amp;lhs, const quatf &amp;rhs)</argsstring>
+      <memberdef kind="function" id="namespaceeu_1ae807f257d9b667c1c45602b2d67ceafa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1Q" kindref="compound">Q</ref></type>
+        <definition>Q eu::operator-</definition>
+        <argsstring>(const Q &amp;lhs, const Q &amp;rhs)</argsstring>
         <name>operator-</name>
         <qualifiedname>eu::operator-</qualifiedname>
         <param>
-          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1quatf" kindref="compound">quatf</ref> &amp;</type>
+          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1Q" kindref="compound">Q</ref> &amp;</type>
           <declname>lhs</declname>
         </param>
         <param>
-          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1quatf" kindref="compound">quatf</ref> &amp;</type>
+          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1Q" kindref="compound">Q</ref> &amp;</type>
           <declname>rhs</declname>
         </param>
         <briefdescription>
@@ -1504,7 +1504,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/quat.cc" line="393" column="5" bodyfile="libs/base/src/base/quat.cc" bodystart="393" bodyend="398" declfile="libs/base/src/base/quat.h" declline="82" declcolumn="11"/>
+        <location file="libs/base/src/base/quat.cc" line="393" column="5" bodyfile="libs/base/src/base/quat.cc" bodystart="393" bodyend="398" declfile="libs/base/src/base/quat.h" declline="83" declcolumn="7"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1a1d52a91adaa565513eb90b8d2dce2df5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">float</ref></type>
@@ -1530,18 +1530,18 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/range.cc" line="6" column="5" bodyfile="libs/base/src/base/range.cc" bodystart="6" bodyend="9" declfile="libs/base/src/base/range.h" declline="52" declcolumn="11"/>
+        <location file="libs/base/src/base/range.cc" line="6" column="5" bodyfile="libs/base/src/base/range.cc" bodystart="6" bodyend="9" declfile="libs/base/src/base/range.h" declline="48" declcolumn="11"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1a9a3978efa912b6fa277d7a04d86343b0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeu_1a71a5abeae01c3597f3e9d7371a7e9df3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
         </templateparamlist>
         <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">float</ref></type>
         <definition>float eu::from_01</definition>
-        <argsstring>(const Range&lt; float &gt; &amp;range, float value)</argsstring>
+        <argsstring>(const R&lt; float &gt; &amp;range, float value)</argsstring>
         <name>from_01</name>
         <qualifiedname>eu::from_01</qualifiedname>
         <param>
-          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1Range" kindref="compound">Range</ref>&lt; <ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">float</ref> &gt; &amp;</type>
+          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1R" kindref="compound">R</ref>&lt; <ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">float</ref> &gt; &amp;</type>
           <declname>range</declname>
         </param>
         <param>
@@ -1556,14 +1556,14 @@
         </inbodydescription>
         <location file="libs/base/src/base/range.cc" line="13" column="5" bodyfile="libs/base/src/base/range.cc" bodystart="13" bodyend="21"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1aa2225ea34c17f170c03e413bb0811861" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeu_1a53e78e428a56c4436a3a11a8c747cb4c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename T</type>
           </param>
         </templateparamlist>
-        <type><ref refid="structeu_1_1Range" kindref="compound">Range</ref>&lt; <ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">T</ref> &gt;</type>
-        <definition>Range&lt; T &gt; eu::make_range</definition>
+        <type><ref refid="structeu_1_1R" kindref="compound">R</ref>&lt; <ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">T</ref> &gt;</type>
+        <definition>R&lt; T &gt; eu::make_range</definition>
         <argsstring>(T min, T max)</argsstring>
         <name>make_range</name>
         <qualifiedname>eu::make_range</qualifiedname>
@@ -1581,16 +1581,16 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/range.h" line="38" column="11" bodyfile="libs/base/src/base/range.h" bodystart="38" bodyend="41"/>
+        <location file="libs/base/src/base/range.h" line="34" column="7" bodyfile="libs/base/src/base/range.h" bodystart="34" bodyend="37"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1a226ed9290636d5727af5e04037c03074" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeu_1a572ae747813ec1771667ebd29d4c8144" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename T</type>
           </param>
         </templateparamlist>
-        <type><ref refid="structeu_1_1Range" kindref="compound">Range</ref>&lt; <ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">T</ref> &gt;</type>
-        <definition>Range&lt; T &gt; eu::make_range</definition>
+        <type><ref refid="structeu_1_1R" kindref="compound">R</ref>&lt; <ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">T</ref> &gt;</type>
+        <definition>R&lt; T &gt; eu::make_range</definition>
         <argsstring>(T max)</argsstring>
         <name>make_range</name>
         <qualifiedname>eu::make_range</qualifiedname>
@@ -1604,9 +1604,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/range.h" line="44" column="11" bodyfile="libs/base/src/base/range.h" bodystart="44" bodyend="47"/>
+        <location file="libs/base/src/base/range.h" line="40" column="7" bodyfile="libs/base/src/base/range.h" bodystart="40" bodyend="43"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1a62e6335b7e10ac2e10defeb72ec6d0e4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeu_1aa18213902220185ad70feda7d212e55a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename T</type>
@@ -1614,11 +1614,11 @@
         </templateparamlist>
         <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">T</ref></type>
         <definition>T eu::from_01</definition>
-        <argsstring>(const Range&lt; T &gt; &amp;range, float value)</argsstring>
+        <argsstring>(const R&lt; T &gt; &amp;range, float value)</argsstring>
         <name>from_01</name>
         <qualifiedname>eu::from_01</qualifiedname>
         <param>
-          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1Range" kindref="compound">Range</ref>&lt; <ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">T</ref> &gt; &amp;</type>
+          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1R" kindref="compound">R</ref>&lt; <ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">T</ref> &gt; &amp;</type>
           <declname>range</declname>
         </param>
         <param>
@@ -1631,18 +1631,18 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/range.h" line="55" column="7" bodyfile="libs/base/src/base/range.h" bodystart="55" bodyend="70"/>
+        <location file="libs/base/src/base/range.h" line="51" column="7" bodyfile="libs/base/src/base/range.h" bodystart="51" bodyend="66"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1a9a3978efa912b6fa277d7a04d86343b0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeu_1a71a5abeae01c3597f3e9d7371a7e9df3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
         </templateparamlist>
         <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">float</ref></type>
         <definition>float eu::from_01</definition>
-        <argsstring>(const Range&lt; float &gt; &amp;range, float value)</argsstring>
+        <argsstring>(const R&lt; float &gt; &amp;range, float value)</argsstring>
         <name>from_01</name>
         <qualifiedname>eu::from_01</qualifiedname>
         <param>
-          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1Range" kindref="compound">Range</ref>&lt; <ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">float</ref> &gt; &amp;</type>
+          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1R" kindref="compound">R</ref>&lt; <ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">float</ref> &gt; &amp;</type>
           <declname>range</declname>
         </param>
         <param>
@@ -1655,9 +1655,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/range.h" line="73" column="11" bodyfile="libs/base/src/base/range.cc" bodystart="13" bodyend="21" declfile="libs/base/src/base/range.h" declline="73" declcolumn="11"/>
+        <location file="libs/base/src/base/range.h" line="69" column="11" bodyfile="libs/base/src/base/range.cc" bodystart="13" bodyend="21" declfile="libs/base/src/base/range.h" declline="69" declcolumn="11"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1a57d7cc3919022e61afa4b99f0adefcf9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeu_1a4b358bd01ddb038d5d8d1dc62920e0ee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename T</type>
@@ -1665,11 +1665,11 @@
         </templateparamlist>
         <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">float</ref></type>
         <definition>float eu::to01</definition>
-        <argsstring>(const Range&lt; T &gt; &amp;range, T value)</argsstring>
+        <argsstring>(const R&lt; T &gt; &amp;range, T value)</argsstring>
         <name>to01</name>
         <qualifiedname>eu::to01</qualifiedname>
         <param>
-          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1Range" kindref="compound">Range</ref>&lt; <ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">T</ref> &gt; &amp;</type>
+          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1R" kindref="compound">R</ref>&lt; <ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">T</ref> &gt; &amp;</type>
           <declname>range</declname>
         </param>
         <param>
@@ -1682,9 +1682,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/range.h" line="76" column="11" bodyfile="libs/base/src/base/range.h" bodystart="76" bodyend="80"/>
+        <location file="libs/base/src/base/range.h" line="72" column="11" bodyfile="libs/base/src/base/range.h" bodystart="72" bodyend="76"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1af2b461d314dcf9ca9b7a8040b268b37c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeu_1a20dfd6271d0dde18b4cc12e2ddf8709f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename T</type>
@@ -1692,11 +1692,11 @@
         </templateparamlist>
         <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">T</ref></type>
         <definition>T eu::get360_angular</definition>
-        <argsstring>(const Range&lt; T &gt; &amp;range, float value)</argsstring>
+        <argsstring>(const R&lt; T &gt; &amp;range, float value)</argsstring>
         <name>get360_angular</name>
         <qualifiedname>eu::get360_angular</qualifiedname>
         <param>
-          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1Range" kindref="compound">Range</ref>&lt; <ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">T</ref> &gt; &amp;</type>
+          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1R" kindref="compound">R</ref>&lt; <ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">T</ref> &gt; &amp;</type>
           <declname>range</declname>
         </param>
         <param>
@@ -1709,9 +1709,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/range.h" line="84" column="7" bodyfile="libs/base/src/base/range.h" bodystart="84" bodyend="90"/>
+        <location file="libs/base/src/base/range.h" line="80" column="7" bodyfile="libs/base/src/base/range.h" bodystart="80" bodyend="86"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1a7e8aaccd2f627203128e4d4944fafe20" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeu_1a3081f17d05e200b8d7baddf4034c5c8f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename T</type>
@@ -1722,15 +1722,15 @@
         </templateparamlist>
         <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">T</ref></type>
         <definition>T eu::remap_to</definition>
-        <argsstring>(const Range&lt; F &gt; &amp;from, const Range&lt; T &gt; &amp;to, F value)</argsstring>
+        <argsstring>(const R&lt; F &gt; &amp;from, const R&lt; T &gt; &amp;to, F value)</argsstring>
         <name>remap_to</name>
         <qualifiedname>eu::remap_to</qualifiedname>
         <param>
-          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1Range" kindref="compound">Range</ref>&lt; <ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">F</ref> &gt; &amp;</type>
+          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1R" kindref="compound">R</ref>&lt; <ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">F</ref> &gt; &amp;</type>
           <declname>from</declname>
         </param>
         <param>
-          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1Range" kindref="compound">Range</ref>&lt; <ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">T</ref> &gt; &amp;</type>
+          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1R" kindref="compound">R</ref>&lt; <ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">T</ref> &gt; &amp;</type>
           <declname>to</declname>
         </param>
         <param>
@@ -1743,9 +1743,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/range.h" line="93" column="7" bodyfile="libs/base/src/base/range.h" bodystart="93" bodyend="96"/>
+        <location file="libs/base/src/base/range.h" line="89" column="7" bodyfile="libs/base/src/base/range.h" bodystart="89" bodyend="92"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1acd03216e0720fbf7f2f67f7f619d0fa5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeu_1a2c34413b1d29ccceb8d31b6b275c14bd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename T</type>
@@ -1753,11 +1753,11 @@
         </templateparamlist>
         <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">bool</ref></type>
         <definition>bool eu::is_within</definition>
-        <argsstring>(const Range&lt; T &gt; &amp;range, T value)</argsstring>
+        <argsstring>(const R&lt; T &gt; &amp;range, T value)</argsstring>
         <name>is_within</name>
         <qualifiedname>eu::is_within</qualifiedname>
         <param>
-          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1Range" kindref="compound">Range</ref>&lt; <ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">T</ref> &gt; &amp;</type>
+          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1R" kindref="compound">R</ref>&lt; <ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">T</ref> &gt; &amp;</type>
           <declname>range</declname>
         </param>
         <param>
@@ -1770,9 +1770,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/range.h" line="100" column="10" bodyfile="libs/base/src/base/range.h" bodystart="100" bodyend="103"/>
+        <location file="libs/base/src/base/range.h" line="96" column="10" bodyfile="libs/base/src/base/range.h" bodystart="96" bodyend="99"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1a039ba0b543cf5dbb5b2a61bf6c5efb71" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeu_1a2bcfebef199f602f177fe3da4b940d89" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename T</type>
@@ -1780,11 +1780,11 @@
         </templateparamlist>
         <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">T</ref></type>
         <definition>T eu::keep_within</definition>
-        <argsstring>(const Range&lt; T &gt; &amp;range, T value)</argsstring>
+        <argsstring>(const R&lt; T &gt; &amp;range, T value)</argsstring>
         <name>keep_within</name>
         <qualifiedname>eu::keep_within</qualifiedname>
         <param>
-          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1Range" kindref="compound">Range</ref>&lt; <ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">T</ref> &gt; &amp;</type>
+          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1R" kindref="compound">R</ref>&lt; <ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">T</ref> &gt; &amp;</type>
           <declname>range</declname>
         </param>
         <param>
@@ -1797,9 +1797,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/range.h" line="107" column="7" bodyfile="libs/base/src/base/range.h" bodystart="107" bodyend="119"/>
+        <location file="libs/base/src/base/range.h" line="103" column="7" bodyfile="libs/base/src/base/range.h" bodystart="103" bodyend="115"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1a88d590b8dd7bd3e9e64ecf886d94e382" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeu_1a9624527e97e0cec9990cf1500a14d57e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename T</type>
@@ -1807,11 +1807,11 @@
         </templateparamlist>
         <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">T</ref></type>
         <definition>T eu::wrap</definition>
-        <argsstring>(const Range&lt; T &gt; &amp;range, T value)</argsstring>
+        <argsstring>(const R&lt; T &gt; &amp;range, T value)</argsstring>
         <name>wrap</name>
         <qualifiedname>eu::wrap</qualifiedname>
         <param>
-          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1Range" kindref="compound">Range</ref>&lt; <ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">T</ref> &gt; &amp;</type>
+          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1R" kindref="compound">R</ref>&lt; <ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">T</ref> &gt; &amp;</type>
           <declname>range</declname>
         </param>
         <param>
@@ -1824,7 +1824,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/range.h" line="122" column="7" bodyfile="libs/base/src/base/range.h" bodystart="122" bodyend="136"/>
+        <location file="libs/base/src/base/range.h" line="118" column="7" bodyfile="libs/base/src/base/range.h" bodystart="118" bodyend="132"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1a4800a7b85e537456b232d20a822b9cf6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1v2" kindref="compound">v2</ref></type>
@@ -1847,7 +1847,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec2.cc" line="177" column="8" bodyfile="libs/base/src/base/vec2.cc" bodystart="177" bodyend="182" declfile="libs/base/src/base/vec2.h" declline="94" declcolumn="8"/>
+        <location file="libs/base/src/base/vec2.cc" line="177" column="8" bodyfile="libs/base/src/base/vec2.cc" bodystart="177" bodyend="182" declfile="libs/base/src/base/vec2.h" declline="91" declcolumn="8"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1a8b04e3baf0731fe2189eedcc198802ed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1v2" kindref="compound">v2</ref></type>
@@ -1869,7 +1869,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec2.cc" line="184" column="8" bodyfile="libs/base/src/base/vec2.cc" bodystart="184" bodyend="189" declfile="libs/base/src/base/vec2.h" declline="95" declcolumn="8"/>
+        <location file="libs/base/src/base/vec2.cc" line="184" column="8" bodyfile="libs/base/src/base/vec2.cc" bodystart="184" bodyend="189" declfile="libs/base/src/base/vec2.h" declline="92" declcolumn="8"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1acb026ebe78d1da4dc0644d1910db7637" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1v2" kindref="compound">v2</ref></type>
@@ -1891,7 +1891,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec2.cc" line="191" column="8" bodyfile="libs/base/src/base/vec2.cc" bodystart="191" bodyend="196" declfile="libs/base/src/base/vec2.h" declline="96" declcolumn="8"/>
+        <location file="libs/base/src/base/vec2.cc" line="191" column="8" bodyfile="libs/base/src/base/vec2.cc" bodystart="191" bodyend="196" declfile="libs/base/src/base/vec2.h" declline="93" declcolumn="8"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1a1e39be8c6248cb595c1352d7461d00e4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1v2" kindref="compound">v2</ref></type>
@@ -1913,7 +1913,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec2.cc" line="198" column="8" bodyfile="libs/base/src/base/vec2.cc" bodystart="198" bodyend="203" declfile="libs/base/src/base/vec2.h" declline="97" declcolumn="8"/>
+        <location file="libs/base/src/base/vec2.cc" line="198" column="8" bodyfile="libs/base/src/base/vec2.cc" bodystart="198" bodyend="203" declfile="libs/base/src/base/vec2.h" declline="94" declcolumn="8"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1a57f4cd9af77a018eab90cbae9f5a1695" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1v2" kindref="compound">v2</ref></type>
@@ -1935,7 +1935,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec2.cc" line="205" column="8" bodyfile="libs/base/src/base/vec2.cc" bodystart="205" bodyend="210" declfile="libs/base/src/base/vec2.h" declline="98" declcolumn="8"/>
+        <location file="libs/base/src/base/vec2.cc" line="205" column="8" bodyfile="libs/base/src/base/vec2.cc" bodystart="205" bodyend="210" declfile="libs/base/src/base/vec2.h" declline="95" declcolumn="8"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1aadf6165530c925eecfb176b285482e1b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1v2" kindref="compound">v2</ref></type>
@@ -1957,7 +1957,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec2.cc" line="212" column="8" bodyfile="libs/base/src/base/vec2.cc" bodystart="212" bodyend="217" declfile="libs/base/src/base/vec2.h" declline="99" declcolumn="8"/>
+        <location file="libs/base/src/base/vec2.cc" line="212" column="8" bodyfile="libs/base/src/base/vec2.cc" bodystart="212" bodyend="217" declfile="libs/base/src/base/vec2.h" declline="96" declcolumn="8"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1a15097e3a98c6a6729aaacc53539dd5a8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1v2" kindref="compound">v2</ref></type>
@@ -1979,7 +1979,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec2.cc" line="220" column="5" bodyfile="libs/base/src/base/vec2.cc" bodystart="220" bodyend="225" declfile="libs/base/src/base/vec2.h" declline="100" declcolumn="8"/>
+        <location file="libs/base/src/base/vec2.cc" line="220" column="5" bodyfile="libs/base/src/base/vec2.cc" bodystart="220" bodyend="225" declfile="libs/base/src/base/vec2.h" declline="97" declcolumn="8"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1acb6acea8076942dd1562a76886089c8e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">float</ref></type>
@@ -2002,7 +2002,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec2.cc" line="229" column="5" bodyfile="libs/base/src/base/vec2.cc" bodystart="229" bodyend="232" declfile="libs/base/src/base/vec2.h" declline="106" declcolumn="11"/>
+        <location file="libs/base/src/base/vec2.cc" line="229" column="5" bodyfile="libs/base/src/base/vec2.cc" bodystart="229" bodyend="232" declfile="libs/base/src/base/vec2.h" declline="103" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1acabbf07d3508dd327a89b476b39f8eac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1v2" kindref="compound">v2</ref></type>
@@ -2029,7 +2029,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec2.cc" line="235" column="8" bodyfile="libs/base/src/base/vec2.cc" bodystart="235" bodyend="242" declfile="libs/base/src/base/vec2.h" declline="111" declcolumn="8"/>
+        <location file="libs/base/src/base/vec2.cc" line="235" column="8" bodyfile="libs/base/src/base/vec2.cc" bodystart="235" bodyend="242" declfile="libs/base/src/base/vec2.h" declline="108" declcolumn="8"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1a758cfd5ac0ed2310497d87d9e798efd7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -2048,7 +2048,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec2.cc" line="245" column="17" bodyfile="libs/base/src/base/vec2.cc" bodystart="245" bodyend="246" declfile="libs/base/src/base/vec2.h" declline="119" declcolumn="17"/>
+        <location file="libs/base/src/base/vec2.cc" line="245" column="17" bodyfile="libs/base/src/base/vec2.cc" bodystart="245" bodyend="246" declfile="libs/base/src/base/vec2.h" declline="116" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1a9ac96a2a0883953b4c94565181b79d7f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -2066,7 +2066,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec2.cc" line="248" column="17" bodyfile="libs/base/src/base/vec2.cc" bodystart="248" bodyend="249" declfile="libs/base/src/base/vec2.h" declline="120" declcolumn="17"/>
+        <location file="libs/base/src/base/vec2.cc" line="248" column="17" bodyfile="libs/base/src/base/vec2.cc" bodystart="248" bodyend="249" declfile="libs/base/src/base/vec2.h" declline="117" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1a5471675c0c6108ef9e845a5962e4ac0c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1n2" kindref="compound">n2</ref></type>
@@ -2084,7 +2084,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec2.h" line="123" column="8" declfile="libs/base/src/base/vec2.h" declline="123" declcolumn="8"/>
+        <location file="libs/base/src/base/vec2.h" line="120" column="8" declfile="libs/base/src/base/vec2.h" declline="120" declcolumn="8"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1a810d947671583fc421a8b6561708583e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1v3" kindref="compound">v3</ref></type>
@@ -2107,7 +2107,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec3.cc" line="131" column="5" bodyfile="libs/base/src/base/vec3.cc" bodystart="131" bodyend="136" declfile="libs/base/src/base/vec3.h" declline="109" declcolumn="8"/>
+        <location file="libs/base/src/base/vec3.cc" line="131" column="5" bodyfile="libs/base/src/base/vec3.cc" bodystart="131" bodyend="136" declfile="libs/base/src/base/vec3.h" declline="111" declcolumn="8"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1a806e92c1f7113df43c3b6bb128684ce1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1v3" kindref="compound">v3</ref></type>
@@ -2129,7 +2129,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec3.cc" line="139" column="5" bodyfile="libs/base/src/base/vec3.cc" bodystart="139" bodyend="144" declfile="libs/base/src/base/vec3.h" declline="110" declcolumn="8"/>
+        <location file="libs/base/src/base/vec3.cc" line="139" column="5" bodyfile="libs/base/src/base/vec3.cc" bodystart="139" bodyend="144" declfile="libs/base/src/base/vec3.h" declline="112" declcolumn="8"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1a1d1620b0b7a6b4dc28c476ca51eeed6a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1v3" kindref="compound">v3</ref></type>
@@ -2151,7 +2151,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec3.cc" line="146" column="8" bodyfile="libs/base/src/base/vec3.cc" bodystart="146" bodyend="151" declfile="libs/base/src/base/vec3.h" declline="112" declcolumn="8"/>
+        <location file="libs/base/src/base/vec3.cc" line="146" column="8" bodyfile="libs/base/src/base/vec3.cc" bodystart="146" bodyend="151" declfile="libs/base/src/base/vec3.h" declline="114" declcolumn="8"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1a45487cdd319ddcfabd12e90b47b9d210" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1v3" kindref="compound">v3</ref></type>
@@ -2173,7 +2173,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec3.cc" line="153" column="8" bodyfile="libs/base/src/base/vec3.cc" bodystart="153" bodyend="158" declfile="libs/base/src/base/vec3.h" declline="113" declcolumn="8"/>
+        <location file="libs/base/src/base/vec3.cc" line="153" column="8" bodyfile="libs/base/src/base/vec3.cc" bodystart="153" bodyend="158" declfile="libs/base/src/base/vec3.h" declline="115" declcolumn="8"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1a52398dba8d527f1516636902c49730bf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1v3" kindref="compound">v3</ref></type>
@@ -2195,7 +2195,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec3.cc" line="161" column="5" bodyfile="libs/base/src/base/vec3.cc" bodystart="161" bodyend="166" declfile="libs/base/src/base/vec3.h" declline="115" declcolumn="8"/>
+        <location file="libs/base/src/base/vec3.cc" line="161" column="5" bodyfile="libs/base/src/base/vec3.cc" bodystart="161" bodyend="166" declfile="libs/base/src/base/vec3.h" declline="117" declcolumn="8"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1a6287a63682804e3c425e10e34261d129" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1v3" kindref="compound">v3</ref></type>
@@ -2217,7 +2217,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec3.cc" line="169" column="5" bodyfile="libs/base/src/base/vec3.cc" bodystart="169" bodyend="173" declfile="libs/base/src/base/vec3.h" declline="116" declcolumn="8"/>
+        <location file="libs/base/src/base/vec3.cc" line="169" column="5" bodyfile="libs/base/src/base/vec3.cc" bodystart="169" bodyend="173" declfile="libs/base/src/base/vec3.h" declline="118" declcolumn="8"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1ac91ed2ee0f9cfe6e689fc0dc4cdd29f0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1v3" kindref="compound">v3</ref></type>
@@ -2245,7 +2245,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec3.cc" line="178" column="8" bodyfile="libs/base/src/base/vec3.cc" bodystart="178" bodyend="184" declfile="libs/base/src/base/vec3.h" declline="121" declcolumn="8"/>
+        <location file="libs/base/src/base/vec3.cc" line="178" column="8" bodyfile="libs/base/src/base/vec3.cc" bodystart="178" bodyend="184" declfile="libs/base/src/base/vec3.h" declline="123" declcolumn="8"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1a00d3546a73323cf6ac9c2d40b1e5a13b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -2266,7 +2266,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec3.cc" line="209" column="17" bodyfile="libs/base/src/base/vec3.cc" bodystart="209" bodyend="209" declfile="libs/base/src/base/vec3.h" declline="126" declcolumn="17"/>
+        <location file="libs/base/src/base/vec3.cc" line="209" column="17" bodyfile="libs/base/src/base/vec3.cc" bodystart="209" bodyend="209" declfile="libs/base/src/base/vec3.h" declline="128" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1a347c0ebf7a591b691d8f4fe2474f0124" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -2284,7 +2284,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec3.cc" line="210" column="17" bodyfile="libs/base/src/base/vec3.cc" bodystart="210" bodyend="210" declfile="libs/base/src/base/vec3.h" declline="127" declcolumn="17"/>
+        <location file="libs/base/src/base/vec3.cc" line="210" column="17" bodyfile="libs/base/src/base/vec3.cc" bodystart="210" bodyend="210" declfile="libs/base/src/base/vec3.h" declline="129" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1a20517b7416d5479476f6372742c5f9b9" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">constexpr</ref> <ref refid="structeu_1_1v3" kindref="compound">v3</ref></type>
@@ -2306,7 +2306,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec3.h" line="132" column="5" bodyfile="libs/base/src/base/vec3.h" bodystart="132" bodyend="137"/>
+        <location file="libs/base/src/base/vec3.h" line="134" column="5" bodyfile="libs/base/src/base/vec3.h" bodystart="134" bodyend="139"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1a6acd10ee86510432805a6f2e2cefa8e5" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">constexpr</ref> <ref refid="structeu_1_1v3" kindref="compound">v3</ref></type>
@@ -2328,7 +2328,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec3.h" line="140" column="5" bodyfile="libs/base/src/base/vec3.h" bodystart="140" bodyend="145"/>
+        <location file="libs/base/src/base/vec3.h" line="142" column="5" bodyfile="libs/base/src/base/vec3.h" bodystart="142" bodyend="147"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1a4abd1857f70cbf315e97fd23cfdb4d3d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>

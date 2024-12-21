@@ -257,20 +257,20 @@
         </inbodydescription>
         <location file="libs/tests/src/tests/approx_equal.cc" line="40" column="5" bodyfile="libs/tests/src/tests/approx_equal.cc" bodystart="40" bodyend="46"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1tests_1a6a7426293aa88c8b7f58b45348808d5c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeu_1_1tests_1a1d81d87b4c3e1cc42b4788a8e8c49f08" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
         </templateparamlist>
         <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">bool</ref></type>
         <definition>bool eu::tests::is_approximately_equal</definition>
-        <argsstring>(quatf const &amp;lhs, quatf const &amp;rhs, const ApproxData &amp;data)</argsstring>
+        <argsstring>(Q const &amp;lhs, Q const &amp;rhs, const ApproxData &amp;data)</argsstring>
         <name>is_approximately_equal</name>
         <qualifiedname>eu::tests::is_approximately_equal</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1quatf" kindref="compound">quatf</ref> <ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> &amp;</type>
+          <type><ref refid="structeu_1_1Q" kindref="compound">Q</ref> <ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> &amp;</type>
           <declname>lhs</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1quatf" kindref="compound">quatf</ref> <ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> &amp;</type>
+          <type><ref refid="structeu_1_1Q" kindref="compound">Q</ref> <ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> &amp;</type>
           <declname>rhs</declname>
         </param>
         <param>
@@ -425,20 +425,20 @@
         </inbodydescription>
         <location file="libs/tests/src/tests/approx_equal.h" line="28" column="5" bodyfile="libs/tests/src/tests/approx_equal.cc" bodystart="40" bodyend="46" declfile="libs/tests/src/tests/approx_equal.h" declline="28" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1tests_1a6a7426293aa88c8b7f58b45348808d5c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeu_1_1tests_1a1d81d87b4c3e1cc42b4788a8e8c49f08" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
         </templateparamlist>
         <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">bool</ref></type>
         <definition>bool eu::tests::is_approximately_equal</definition>
-        <argsstring>(quatf const &amp;lhs, quatf const &amp;rhs, const ApproxData &amp;data)</argsstring>
+        <argsstring>(Q const &amp;lhs, Q const &amp;rhs, const ApproxData &amp;data)</argsstring>
         <name>is_approximately_equal</name>
         <qualifiedname>eu::tests::is_approximately_equal</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1quatf" kindref="compound">quatf</ref> <ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> &amp;</type>
+          <type><ref refid="structeu_1_1Q" kindref="compound">Q</ref> <ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> &amp;</type>
           <declname>lhs</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1quatf" kindref="compound">quatf</ref> <ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> &amp;</type>
+          <type><ref refid="structeu_1_1Q" kindref="compound">Q</ref> <ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> &amp;</type>
           <declname>rhs</declname>
         </param>
         <param>

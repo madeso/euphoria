@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structeu_1_1R" kind="struct" language="C++" prot="public">
+    <compoundname>eu::R</compoundname>
+    <includes refid="range_8h" local="no">range.h</includes>
+    <templateparamlist>
+      <param>
+        <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">typename</ref> <ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">T</ref></type>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1R_1a21fb9b629bbc9a9db9899a63864cc629" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">T</ref></type>
+        <definition>T eu::R&lt; T &gt;::lower_bound</definition>
+        <argsstring></argsstring>
+        <name>lower_bound</name>
+        <qualifiedname>eu::R::lower_bound</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/range.h" line="17" column="11" bodyfile="libs/base/src/base/range.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1R_1a16291fb716b70bb755ece3fabfdfce2b" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">T</ref></type>
+        <definition>T eu::R&lt; T &gt;::upper_bound</definition>
+        <argsstring></argsstring>
+        <name>upper_bound</name>
+        <qualifiedname>eu::R::upper_bound</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/range.h" line="18" column="11" bodyfile="libs/base/src/base/range.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1R_1aa03a59e319c92bce2c9069eb2c65af65" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">constexpr</ref></type>
+        <definition>constexpr eu::R&lt; T &gt;::R</definition>
+        <argsstring>(T min, T max)</argsstring>
+        <name>R</name>
+        <qualifiedname>eu::R::R</qualifiedname>
+        <param>
+          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">T</ref></type>
+          <declname>min</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">T</ref></type>
+          <declname>max</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/range.h" line="20" column="19" bodyfile="libs/base/src/base/range.h" bodystart="20" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1R_1aadabaf1c6919f01c4a386cb187df7ac2" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">T</ref></type>
+        <definition>T eu::R&lt; T &gt;::get_distance</definition>
+        <argsstring>() const</argsstring>
+        <name>get_distance</name>
+        <qualifiedname>eu::R::get_distance</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/range.h" line="26" column="9" bodyfile="libs/base/src/base/range.h" bodystart="26" bodyend="29"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Represents a (inclusive) range between two values. Zero range is allowed. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/base/src/base/range.h" line="15" column="5" bodyfile="libs/base/src/base/range.h" bodystart="16" bodyend="30"/>
+    <listofallmembers>
+      <member refid="structeu_1_1R_1aadabaf1c6919f01c4a386cb187df7ac2" prot="public" virt="non-virtual"><scope>eu::R</scope><name>get_distance</name></member>
+      <member refid="structeu_1_1R_1a21fb9b629bbc9a9db9899a63864cc629" prot="public" virt="non-virtual"><scope>eu::R</scope><name>lower_bound</name></member>
+      <member refid="structeu_1_1R_1aa03a59e319c92bce2c9069eb2c65af65" prot="public" virt="non-virtual"><scope>eu::R</scope><name>R</name></member>
+      <member refid="structeu_1_1R_1a16291fb716b70bb755ece3fabfdfce2b" prot="public" virt="non-virtual"><scope>eu::R</scope><name>upper_bound</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

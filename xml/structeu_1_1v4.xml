@@ -227,6 +227,7 @@
       </memberdef>
     </sectiondef>
     <briefdescription>
+<para>A 4d vector, it represents a homogeneous coordinate/projective coordinate. </para>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
