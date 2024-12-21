@@ -110,7 +110,7 @@ namespace eu
     v2::get_normalized() const
     {
         v2 r = *this;
-        const auto l = r.normalize();
+        r.normalize();
         return n2{r};
     }
 
@@ -168,7 +168,7 @@ namespace eu
     {
         ASSERT(is_valid());
     }
-    
+
     n2::n2(const v2& v) : x(v.x), y(v.y)
     {
         ASSERT(is_valid());
@@ -230,7 +230,7 @@ namespace eu
     {
         return lhs.x * rhs.x + lhs.y * rhs.y;
     }
-    
+
 
     v2 lerp_vec2f(const v2& from, float v, const v2& to)
     {
@@ -241,7 +241,7 @@ namespace eu
         };
     }
 
-    
+
     std::string to_string(const v2& v)
         { return fmt::format("({}, {})", v.x, v.y); }
 
