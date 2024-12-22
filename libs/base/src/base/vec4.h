@@ -34,7 +34,7 @@ namespace eu
         bool operator==(const v4 &rhs) = delete;
     };
 
-    std::string to_string(const v4 &v);
+    std::string string_from(const v4 &v);
 }
 
-ADD_DEFAULT_FORMATTER(eu::v4, std::string, eu::to_string);
+ADD_DEFAULT_FORMATTER(eu::v4, std::string, eu::string_from);

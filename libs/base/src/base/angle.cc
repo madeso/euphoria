@@ -152,7 +152,7 @@ namespace eu
     }
 
 
-    std::string to_string(const An& a)
+    std::string string_from(const An& a)
         { return fmt::format("{} deg", a.as_degrees()); }
 
 

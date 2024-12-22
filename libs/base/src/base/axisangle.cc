@@ -18,13 +18,13 @@ namespace eu
     }
 
     std::string
-    to_string(const AA &aa)
+    string_from(const AA &aa)
     {
         return fmt::format("({} {})", aa.axis, aa.angle);
     }
 
     std::string
-    to_string(const Ypr& x)
+    string_from(const Ypr& x)
     {
         return fmt::format("({} {} {})", x.yaw, x.pitch, x.roll);
     }

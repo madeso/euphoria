@@ -99,7 +99,7 @@ namespace eu
     An operator/(const An& lhs, float rhs);
     An operator*(float rhs, const An& lhs);
 
-    std::string to_string(const An& a);
+    std::string string_from(const An& a);
 
     bool operator<(const An& lhs, const An& rhs);
     bool operator<=(const An& lhs, const An& rhs);
@@ -109,7 +109,7 @@ namespace eu
     An lerp_angle(const An& from, float v, const An& to);
 }
 
-ADD_DEFAULT_FORMATTER(eu::An, std::string, eu::to_string);
+ADD_DEFAULT_FORMATTER(eu::An, std::string, eu::string_from);
 
 namespace eu::convert
 {

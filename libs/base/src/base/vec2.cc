@@ -242,9 +242,9 @@ namespace eu
     }
 
 
-    std::string to_string(const v2& v)
+    std::string string_from(const v2& v)
         { return fmt::format("({}, {})", v.x, v.y); }
 
-    std::string to_string(const n2& v)
+    std::string string_from(const n2& v)
         { return fmt::format("({}, {})", v.x, v.y); }
 }

@@ -450,7 +450,7 @@ namespace eu
     }
 
     
-    std::string to_string(const m4& m)
+    std::string string_from(const m4& m)
     {
         return fmt::format("({}, {}. {}. {})", m.get_row(0), m.get_row(1), m.get_row(2), m.get_row(3));
     }

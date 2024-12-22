@@ -68,7 +68,7 @@ namespace eu::tests
             }
 
             [[nodiscard]] std::string
-            to_string() const
+            string_from() const
             {
                 Catch::ReusableStringStream rss;
                 rss << "Approx( " << ::Catch::Detail::stringify(value)
@@ -117,7 +117,7 @@ namespace eu::tests
     std::ostream&
     operator<<(std::ostream& stream, const custom::Approx<T>& v)
     {
-        return stream << v.to_string();
+        return stream << v.string_from();
     }
 
     ////////////////////////////////////////////////////////////////////////////////

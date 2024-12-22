@@ -206,6 +206,6 @@ namespace eu
     ////////////////////////////////////////////////////////////////////////////////
     /// Printing
 
-    std::string to_string(const v3 &v) { return fmt::format("({}, {}, {})", v.x, v.y, v.z); }
-    std::string to_string(const n3 &v) { return fmt::format("({}, {}, {})", v.x, v.y, v.z); }
+    std::string string_from(const v3 &v) { return fmt::format("({}, {}, {})", v.x, v.y, v.z); }
+    std::string string_from(const n3 &v) { return fmt::format("({}, {}, {})", v.x, v.y, v.z); }
 }

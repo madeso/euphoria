@@ -340,7 +340,7 @@ namespace eu
     }
 
 
-    std::string to_string(const Q& v)
+    std::string string_from(const Q& v)
     {
         return fmt::format("({} ({}, {}, {}))", v.w, v.x, v.y, v.z);
     }

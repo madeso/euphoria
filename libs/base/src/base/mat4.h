@@ -99,7 +99,7 @@ namespace eu
 
     constexpr m4 m4_identity = m4::from_scalar(1);
 
-    std::string to_string(const m4 &m);
+    std::string string_from(const m4 &m);
 
     m4 operator+(const m4 &lhs, const m4 &rhs);
     m4 operator-(const m4 &lhs, const m4 &rhs);

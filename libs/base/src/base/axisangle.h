@@ -30,10 +30,10 @@ namespace eu
     [[nodiscard]] AA
     right_hand_around(const n3& axis, const An& angle);
 
-    std::string to_string(const AA &aa);
-    std::string to_string(const Ypr& ypr);
+    std::string string_from(const AA &aa);
+    std::string string_from(const Ypr& ypr);
 
 }
 
-ADD_DEFAULT_FORMATTER(eu::AA, std::string, eu::to_string);
-ADD_DEFAULT_FORMATTER(eu::Ypr, std::string, eu::to_string);
+ADD_DEFAULT_FORMATTER(eu::AA, std::string, eu::string_from);
+ADD_DEFAULT_FORMATTER(eu::Ypr, std::string, eu::string_from);

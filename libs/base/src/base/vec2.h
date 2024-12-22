@@ -113,12 +113,12 @@ namespace eu
     ////////////////////////////////////////////////////////////////////////////////
     /// Printing
 
-    std::string to_string(const v2& v);
-    std::string to_string(const n2& v);
+    std::string string_from(const v2& v);
+    std::string string_from(const n2& v);
     
     // util functions
     n2 create_random_unit(Random* random);
 }
 
-ADD_DEFAULT_FORMATTER(eu::v2, std::string, eu::to_string);
-ADD_DEFAULT_FORMATTER(eu::n2, std::string, eu::to_string);
+ADD_DEFAULT_FORMATTER(eu::v2, std::string, eu::string_from);
+ADD_DEFAULT_FORMATTER(eu::n2, std::string, eu::string_from);

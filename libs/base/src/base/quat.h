@@ -75,7 +75,7 @@ namespace eu
 
     float dot(const Q& lhs, const Q& rhs);
     
-    std::string to_string(const Q& v);
+    std::string string_from(const Q& v);
 
     Q operator*(const Q& lhs, const Q& rhs);
     Q operator*(float scale, const Q& q);
@@ -84,4 +84,4 @@ namespace eu
     Q operator-(const Q& lhs, const Q& rhs);
 }
 
-ADD_DEFAULT_FORMATTER(eu::Q, std::string, eu::to_string);
+ADD_DEFAULT_FORMATTER(eu::Q, std::string, eu::string_from);

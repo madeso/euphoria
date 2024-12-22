@@ -125,8 +125,8 @@ namespace eu
     ////////////////////////////////////////////////////////////////////////////////
     /// Printing
 
-    std::string to_string(const v3 &v);
-    std::string to_string(const n3 &v);
+    std::string string_from(const v3 &v);
+    std::string string_from(const n3 &v);
 
     //////////////////////////
     // minmax
@@ -147,5 +147,5 @@ namespace eu
     }
 }
 
-ADD_DEFAULT_FORMATTER(eu::v3, std::string, eu::to_string);
-ADD_DEFAULT_FORMATTER(eu::n3, std::string, eu::to_string);
+ADD_DEFAULT_FORMATTER(eu::v3, std::string, eu::string_from);
+ADD_DEFAULT_FORMATTER(eu::n3, std::string, eu::string_from);
