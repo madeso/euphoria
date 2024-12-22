@@ -5,8 +5,13 @@
 #include "base/angle.h"
 #include "base/axisangle.h"
 
+
 namespace eu
 {
+    /** \addtogroup math
+     *  @{
+     */
+
     struct Q;
 
     /// 4x4 matrix
@@ -108,4 +113,6 @@ namespace eu
     m4 operator-(const m4 &lhs, const m4 &rhs);
     m4 operator*(const m4 &lhs, const m4 &rhs);
     v4 operator*(const m4 &lhs, const v4 &rhs);
+
+    /** @}*/
 }

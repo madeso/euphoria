@@ -4,6 +4,10 @@
 
 namespace eu
 {
+    /** \addtogroup math
+     *  @{
+     */
+
     /// An angle in both degrees and radians.
     struct An
     {
@@ -107,6 +111,8 @@ namespace eu
     bool operator>=(const An& lhs, const An& rhs);
 
     An lerp_angle(const An& from, float v, const An& to);
+
+    /** @}*/
 }
 
 ADD_DEFAULT_FORMATTER(eu::An, std::string, eu::string_from);

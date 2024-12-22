@@ -2,8 +2,13 @@
 
 #include "base/ints.h"
 
+
 namespace eu
 {
+    /** \addtogroup math
+     *  @{
+     */
+
     constexpr float abs(float r)
     {
         return r >= 0.0f
@@ -139,5 +144,6 @@ namespace eu
         return each && (i % each) == each - 1;
     }
 
+    /** @}*/
 }
 

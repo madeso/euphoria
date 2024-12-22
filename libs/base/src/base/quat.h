@@ -9,6 +9,11 @@
 
 namespace eu
 {
+    /** \addtogroup math
+     *  @{
+     */
+
+
     /// A quaternion.
     /// It is useful for representing a rotation in 3d.
     struct Q
@@ -80,6 +85,9 @@ namespace eu
     Q operator*(const Q& q, float scale);
     Q operator+(const Q& lhs, const Q& rhs);
     Q operator-(const Q& lhs, const Q& rhs);
+
+    /** @}*/
 }
 
 ADD_DEFAULT_FORMATTER(eu::Q, std::string, eu::string_from);
+

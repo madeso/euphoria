@@ -5,8 +5,13 @@
 #include "base/vec3.h"
 #include "base/angle.h"
 
+
 namespace eu
 {
+    /** \addtogroup math
+     *  @{
+     */
+
     struct Q;
 
     /// Axis + Angle
@@ -37,6 +42,7 @@ namespace eu
     std::string string_from(const AA &aa);
     std::string string_from(const Ypr& ypr);
 
+    /** @}*/
 }
 
 ADD_DEFAULT_FORMATTER(eu::AA, std::string, eu::string_from);

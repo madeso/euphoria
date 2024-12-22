@@ -8,6 +8,10 @@
 
 namespace eu
 {
+    /** \addtogroup math
+     *  @{
+     */
+
     ////////////////////////////////////////////////////////////////////////////////
     /// Forward declarations
 
@@ -145,7 +149,11 @@ namespace eu
         return v3{M(x), M(y), M(z)};
 #undef M
     }
+
+    /** @}*/
+
 }
 
 ADD_DEFAULT_FORMATTER(eu::v3, std::string, eu::string_from);
 ADD_DEFAULT_FORMATTER(eu::n3, std::string, eu::string_from);
+

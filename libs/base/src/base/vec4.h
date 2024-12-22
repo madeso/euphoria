@@ -7,6 +7,10 @@
 
 namespace eu
 {
+    /** \addtogroup math
+     *  @{
+     */
+
     /// A 4d vector.
     /// It represents a homogeneous coordinate/projective coordinate.
     struct v4
@@ -35,6 +39,10 @@ namespace eu
     };
 
     std::string string_from(const v4 &v);
+
+    /** @}*/
+
 }
 
 ADD_DEFAULT_FORMATTER(eu::v4, std::string, eu::string_from);
+

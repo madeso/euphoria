@@ -1,15 +1,17 @@
 #pragma once
 
-
-
 #include <type_traits>
-
 
 #include "base/angle.h"
 #include "assert/assert.h"
 
+
 namespace eu
 {
+    /** \addtogroup math
+     *  @{
+     */
+
     /// A (inclusive) range between two values.
     /// Zero range is allowed.
     template <typename T>
@@ -132,5 +134,6 @@ namespace eu
         return range.lower_bound + wrapped;
     }
 
+    /** @}*/
 }
 
