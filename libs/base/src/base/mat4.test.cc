@@ -243,7 +243,7 @@ TEST_CASE("mat4-TestIn", "[mat]")
 TEST_CASE("mat4-test", "[mat]")
 {
     const eu::m4 start = eu::m4_identity;
-    const eu::AA aa = eu::AA::from_right_hand_around
+    const eu::AA aa = eu::right_hand_around
     (
         eu::common::up,
         eu::An::from_degrees(-90)
@@ -264,7 +264,7 @@ TEST_CASE("mat4-TestCombined_RT", "[mat]")
     const auto r = eu::m4_identity
         .get_rotated
         (
-            eu::AA::from_right_hand_around
+            eu::right_hand_around
             (
                 eu::common::up,
                 eu::An::from_degrees(-90)
@@ -282,7 +282,7 @@ TEST_CASE("mat4-TestCombined2_RT", "[mat]")
         eu::m4_identity
         .get_rotated
         (
-            eu::AA::from_right_hand_around
+            eu::right_hand_around
             (
                 eu::common::up, eu::An::from_degrees(90)
             )
@@ -299,7 +299,7 @@ TEST_CASE("mat4-TestCombined_TR", "[mat]")
         .get_translated(eu::v3(0, 0, 5))
         .get_rotated
         (
-            eu::AA::from_right_hand_around
+            eu::right_hand_around
             (
                 eu::common::up,
                 eu::An::from_degrees(-90)

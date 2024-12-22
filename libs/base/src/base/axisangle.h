@@ -15,12 +15,11 @@ namespace eu
         /// rotation according to right-hand rule
         An angle;
 
-        [[nodiscard]] static AA
-        from_right_hand_around(const n3 &axis, const An &angle);
-
-    private:
         AA(const n3 &ax, const An &ang);
     };
+
+    [[nodiscard]] AA
+    right_hand_around(const n3& axis, const An& angle);
 
     std::string to_string(const AA &aa);
 

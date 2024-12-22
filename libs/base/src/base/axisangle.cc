@@ -11,7 +11,7 @@ namespace eu
     }
 
     AA
-    AA::from_right_hand_around(const n3 &axis, const An &angle)
+    right_hand_around(const n3 &axis, const An &angle)
     {
         ASSERT(axis.is_valid());
         return {axis, An::from_radians(angle.as_radians())};
