@@ -78,35 +78,9 @@ namespace eu
     float
     sqrt(float r);
 
-#define EU_MAKE_MINMAX(T) \
-    constexpr T min(T lhs, T rhs) \
-    { \
-        if (lhs < rhs) \
-        { \
-            return lhs; \
-        } \
-         \
-        return rhs; \
-    } \
-    constexpr T max(T lhs, T rhs) \
-    { \
-        if (lhs > rhs) \
-        { \
-            return lhs; \
-        } \
-         \
-        return rhs; \
-    }
-    EU_MAKE_MINMAX(float)
-    EU_MAKE_MINMAX(i64)
-    EU_MAKE_MINMAX(i32)
-    EU_MAKE_MINMAX(i16)
-    EU_MAKE_MINMAX(i8)
-    EU_MAKE_MINMAX(u64)
-    EU_MAKE_MINMAX(u32)
-    EU_MAKE_MINMAX(u16)
-    EU_MAKE_MINMAX(u8)
-#undef EU_MAKE_MINMAX
+
+    constexpr float min(float lhs, float rhs) { return lhs < rhs ? lhs : rhs; }
+    constexpr float max(float lhs, float rhs) { return lhs > rhs ? lhs : rhs; }
 
 
     float
