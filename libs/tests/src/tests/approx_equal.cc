@@ -59,8 +59,8 @@ namespace eu::tests
     template <>
     bool
     is_approximately_equal(
-            AxisAngle const& lhs,
-            AxisAngle const& rhs,
+            AA const& lhs,
+            AA const& rhs,
             const ApproxData& data)
     {
         if(is_approximately_equal(

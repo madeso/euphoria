@@ -34,7 +34,7 @@ namespace eu
         [[nodiscard]] static m4 from_rot_x(const An &a);
         [[nodiscard]] static m4 from_rot_y(const An &a);
         [[nodiscard]] static m4 from_rot_z(const An &a);
-        [[nodiscard]] static m4 from_axis_angle(const AxisAngle &aa);
+        [[nodiscard]] static m4 from_axis_angle(const AA &aa);
         [[nodiscard]] static m4 create_ortho(float l, float r, float b, float t, float n, float f);
         [[nodiscard]] static m4 create_perspective(const An &fov, float a, float near, float far);
         [[nodiscard]] constexpr static m4 from_scalar(float scalar)
@@ -60,7 +60,7 @@ namespace eu
         [[nodiscard]] n3 get_transform_vec(const n3 &p) const;
         [[nodiscard]] n3 get_axis(int col) const;
         [[nodiscard]] m4 get_translated(const v3 &t) const;
-        [[nodiscard]] m4 get_rotated(const AxisAngle &aa) const;
+        [[nodiscard]] m4 get_rotated(const AA &aa) const;
         [[nodiscard]] v4 get_column(int c) const;
         [[nodiscard]] v4 get_row(int r) const;
 

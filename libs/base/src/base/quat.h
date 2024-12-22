@@ -26,7 +26,7 @@ namespace eu
         {
         }
 
-        [[nodiscard]] static Q from_axis_angle(const AxisAngle& aa);
+        [[nodiscard]] static Q from_axis_angle(const AA& aa);
         [[nodiscard]] static Q from_ypr(const An& yaw, const An& pitch, const An& roll);
         [[nodiscard]] static Q from_to(const Q& from, const Q& to);
         [[nodiscard]] static Q look_at(const v3& from, const v3& to, const n3& up);
@@ -44,7 +44,7 @@ namespace eu
         [[nodiscard]] Q get_negated() const;
 
         [[nodiscard]] m4 to_mat4() const;
-        [[nodiscard]] AxisAngle to_axis_angle() const;
+        [[nodiscard]] AA to_axis_angle() const;
         [[nodiscard]] const float* get_data_ptr() const;
         [[nodiscard]] v3 get_vec_part() const;
         [[nodiscard]] Q get_conjugate() const;

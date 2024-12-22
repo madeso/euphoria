@@ -20,7 +20,7 @@ namespace eu
 
 
     [[nodiscard]] Q
-    Q::from_axis_angle(const AxisAngle& aa)
+    Q::from_axis_angle(const AA& aa)
     {
         const float sin_a = sin(aa.angle / 2);
         const float cos_a = cos(aa.angle / 2);
@@ -68,7 +68,7 @@ namespace eu
     }
 
 
-    [[nodiscard]] AxisAngle
+    [[nodiscard]] AA
     Q::to_axis_angle() const
     {
         const float cos_a = w;
@@ -76,7 +76,7 @@ namespace eu
         const auto sin_a = get_default_if_close_to_zero<float>(
                 sqrt(1.0f - cos_a * cos_a), 1, 0.0005f);
         // todo(Gustav): do we need to normalize here?
-        return AxisAngle::from_right_hand_around(
+        return AA::from_right_hand_around(
                 (get_vec_part() / sin_a).get_normalized(), angle);
     }
 
@@ -338,7 +338,7 @@ namespace eu
         const auto rot_axis = in.cross(dir).get_normalized();
         return Q::from_axis_angle
         (
-            AxisAngle::from_right_hand_around(rot_axis, rot_angle)
+            AA::from_right_hand_around(rot_axis, rot_angle)
         );
     }
 

@@ -35,7 +35,7 @@ TEST_CASE("quat-testLocalAxis", "[quat]")
     {
         const auto q = eu::Q::from_axis_angle
         (
-            eu::AxisAngle::from_right_hand_around
+            eu::AA::from_right_hand_around
             (
                 eu::common::up,
                 eu::An::from_degrees(90)
@@ -50,7 +50,7 @@ TEST_CASE("quat-testLocalAxis", "[quat]")
     {
         const auto q = eu::Q::from_axis_angle
         (
-            eu::AxisAngle::from_right_hand_around
+            eu::AA::from_right_hand_around
             (
                 eu::common::right,
                 eu::An::from_degrees(90)
@@ -65,7 +65,7 @@ TEST_CASE("quat-testLocalAxis", "[quat]")
     {
         const auto q = eu::Q::from_axis_angle
         (
-            eu::AxisAngle::from_right_hand_around
+            eu::AA::from_right_hand_around
             (
                 eu::common::in,
                 eu::An::from_degrees(90)
@@ -84,7 +84,7 @@ TEST_CASE("quat-testLook", "[quat]")
     (
         eu::Q::from_axis_angle
         (
-            eu::AxisAngle::from_right_hand_around
+            eu::AA::from_right_hand_around
             (
                 eu::common::up,
                 eu::An::from_degrees(-90)
@@ -98,14 +98,14 @@ TEST_CASE("quat-testLook", "[quat]")
         )
     );
     EXPECT_PRED_FORMAT2(
-            eu::Q::from_axis_angle(eu::AxisAngle::from_right_hand_around(
+            eu::Q::from_axis_angle(eu::AA::from_right_hand_around(
                     eu::common::up, eu::An::from_degrees(-90))),
             eu::Q::look_at(
                     eu::v3(0, 0, 0),
                     eu::v3(2, 0, 0),
                     eu::common::up));
     EXPECT_PRED_FORMAT2(
-            eu::Q::from_axis_angle(eu::AxisAngle::from_right_hand_around(
+            eu::Q::from_axis_angle(eu::AA::from_right_hand_around(
                     eu::common::up, eu::An::from_degrees(-90))),
             eu::Q::look_at(
                     eu::v3(0, 0, 0),
@@ -116,22 +116,22 @@ TEST_CASE("quat-testLook", "[quat]")
     // .get_normalized() call
     // Z looks reversed, but remember, negative direction is in
     EXPECT_PRED_FORMAT2(
-            eu::Q::from_axis_angle(eu::AxisAngle::from_right_hand_around(
+            eu::Q::from_axis_angle(eu::AA::from_right_hand_around(
                     eu::common::up, eu::An::from_degrees(0))),
             eu::Q::look_in_direction(
                     eu::v3(0, 0, -9).get_normalized(), eu::common::up));
     EXPECT_PRED_FORMAT2(
-            eu::Q::from_axis_angle(eu::AxisAngle::from_right_hand_around(
+            eu::Q::from_axis_angle(eu::AA::from_right_hand_around(
                     eu::common::up, eu::An::from_degrees(180))),
             eu::Q::look_in_direction(
                     eu::v3(0, 0, 9).get_normalized(), eu::common::up));
     EXPECT_PRED_FORMAT2(
-            eu::Q::from_axis_angle(eu::AxisAngle::from_right_hand_around(
+            eu::Q::from_axis_angle(eu::AA::from_right_hand_around(
                     eu::common::up, eu::An::from_degrees(-90))),
             eu::Q::look_in_direction(
                     eu::v3(3, 0, 0).get_normalized(), eu::common::up));
     EXPECT_PRED_FORMAT2(
-            eu::Q::from_axis_angle(eu::AxisAngle::from_right_hand_around(
+            eu::Q::from_axis_angle(eu::AA::from_right_hand_around(
                     eu::common::up, eu::An::from_degrees(90))),
             eu::Q::look_in_direction(
                     eu::v3(-5, 0, 0).get_normalized(), eu::common::up));
@@ -143,43 +143,43 @@ TEST_CASE("quat-testLook", "[quat]")
 TEST_CASE("quat-testCombine", "[quat]")
 {
     EXPECT_PRED_FORMAT2(
-            eu::Q::from_axis_angle(eu::AxisAngle::from_right_hand_around(
+            eu::Q::from_axis_angle(eu::AA::from_right_hand_around(
                     eu::common::up, eu::An::from_degrees(90))),
             eu::q_identity.get_rotated(
-                    eu::Q::from_axis_angle(eu::AxisAngle::from_right_hand_around(
+                    eu::Q::from_axis_angle(eu::AA::from_right_hand_around(
                             eu::common::up,
                             eu::An::from_degrees(90)))));
 
     EXPECT_PRED_FORMAT2(
-            eu::Q::from_axis_angle(eu::AxisAngle::from_right_hand_around(
+            eu::Q::from_axis_angle(eu::AA::from_right_hand_around(
                     eu::common::up, eu::An::from_degrees(90))),
             eu::Q::from_axis_angle(
-                    eu::AxisAngle::from_right_hand_around(
+                    eu::AA::from_right_hand_around(
                             eu::common::up, eu::An::from_degrees(90)))
                     .get_rotated(eu::q_identity));
 
     EXPECT_PRED_FORMAT2(
-            eu::Q::from_axis_angle(eu::AxisAngle::from_right_hand_around(
+            eu::Q::from_axis_angle(eu::AA::from_right_hand_around(
                     eu::common::up, eu::An::from_degrees(90))),
             eu::q_identity.get_rotated(
-                    eu::Q::from_axis_angle(eu::AxisAngle::from_right_hand_around(
+                    eu::Q::from_axis_angle(eu::AA::from_right_hand_around(
                             eu::common::up,
                             eu::An::from_degrees(90)))));
 
     EXPECT_PRED_FORMAT2(
 
             eu::Q::from_axis_angle(
-                    eu::AxisAngle::from_right_hand_around(
+                    eu::AA::from_right_hand_around(
                             eu::common::up, eu::An::from_degrees(-90)))
                     .get_rotated(eu::Q::from_axis_angle(
-                            eu::AxisAngle::from_right_hand_around(
+                            eu::AA::from_right_hand_around(
                                     eu::common::out,
                                     eu::An::from_degrees(90)))),
-            eu::Q::from_axis_angle(eu::AxisAngle::from_right_hand_around(
+            eu::Q::from_axis_angle(eu::AA::from_right_hand_around(
                                                eu::common::right,
                                                eu::An::from_degrees(90)))
                     .get_rotated(eu::Q::from_axis_angle(
-                            eu::AxisAngle::from_right_hand_around(
+                            eu::AA::from_right_hand_around(
                                     eu::common::up,
                                     eu::An::from_degrees(-90)))));
 }
@@ -188,62 +188,62 @@ TEST_CASE("quat-testCombine", "[quat]")
 TEST_CASE("quat-verifyTestAxisAngle", "[quat]")
 {
     EXPECT_PRED_FORMAT2(
-            eu::AxisAngle::from_right_hand_around(
+            eu::AA::from_right_hand_around(
                     eu::common::up, eu::An::from_degrees(0)),
-            eu::AxisAngle::from_right_hand_around(
+            eu::AA::from_right_hand_around(
                     eu::common::up, eu::An::from_degrees(0)));
     EXPECT_PRED_FORMAT2(
-            eu::AxisAngle::from_right_hand_around(
+            eu::AA::from_right_hand_around(
                     eu::common::right, eu::An::from_degrees(90)),
-            eu::AxisAngle::from_right_hand_around(
+            eu::AA::from_right_hand_around(
                     eu::common::right, eu::An::from_degrees(90)));
     EXPECT_PRED_FORMAT2(
-            eu::AxisAngle::from_right_hand_around(
+            eu::AA::from_right_hand_around(
                     eu::common::up, eu::An::from_degrees(-45)),
-            eu::AxisAngle::from_right_hand_around(
+            eu::AA::from_right_hand_around(
                     -eu::common::up, eu::An::from_degrees(45)));
     EXPECT_PRED_FORMAT2(
 
-            eu::AxisAngle::from_right_hand_around(
+            eu::AA::from_right_hand_around(
                     eu::common::right, eu::An::from_degrees(90)),
-            eu::AxisAngle::from_right_hand_around(
+            eu::AA::from_right_hand_around(
                     -eu::common::right, eu::An::from_degrees(-90)));
 }
 
 TEST_CASE("quat-checkAxisAngle", "[quat]")
 {
     EXPECT_PRED_FORMAT2(
-            eu::AxisAngle::from_right_hand_around(
+            eu::AA::from_right_hand_around(
                     eu::common::up, eu::An::from_degrees(0)),
             eu::Q::from_axis_angle(
-                    eu::AxisAngle::from_right_hand_around(
+                    eu::AA::from_right_hand_around(
                             eu::common::up, eu::An::from_degrees(0)))
                     .to_axis_angle());
     EXPECT_PRED_FORMAT2(
-            eu::AxisAngle::from_right_hand_around(
+            eu::AA::from_right_hand_around(
                     eu::common::right, eu::An::from_degrees(0)),
             eu::Q::from_axis_angle(
-                    eu::AxisAngle::from_right_hand_around(
+                    eu::AA::from_right_hand_around(
                             eu::common::right, eu::An::from_degrees(0)))
                     .to_axis_angle());
     EXPECT_PRED_FORMAT2(
-            eu::AxisAngle::from_right_hand_around(
+            eu::AA::from_right_hand_around(
                     eu::common::right, eu::An::from_degrees(90)),
-            eu::Q::from_axis_angle(eu::AxisAngle::from_right_hand_around(
+            eu::Q::from_axis_angle(eu::AA::from_right_hand_around(
                                                eu::common::right,
                                                eu::An::from_degrees(90)))
                     .to_axis_angle());
     EXPECT_PRED_FORMAT2(
-            eu::AxisAngle::from_right_hand_around(
+            eu::AA::from_right_hand_around(
                     eu::common::up, eu::An::from_degrees(-45)),
             eu::Q::from_axis_angle(
-                    eu::AxisAngle::from_right_hand_around(
+                    eu::AA::from_right_hand_around(
                             -eu::common::up, eu::An::from_degrees(45)))
                     .to_axis_angle());
     EXPECT_PRED_FORMAT2(
-            eu::AxisAngle::from_right_hand_around(
+            eu::AA::from_right_hand_around(
                     eu::common::right, eu::An::from_degrees(90)),
-            eu::Q::from_axis_angle(eu::AxisAngle::from_right_hand_around(
+            eu::Q::from_axis_angle(eu::AA::from_right_hand_around(
                                                -eu::common::right,
                                                eu::An::from_degrees(-90)))
                     .to_axis_angle());
@@ -251,10 +251,10 @@ TEST_CASE("quat-checkAxisAngle", "[quat]")
 
 TEST_CASE("quat-checkQuatConjugate", "[quat]")
 {
-    const auto a = eu::Q::from_axis_angle(eu::AxisAngle::from_right_hand_around(
+    const auto a = eu::Q::from_axis_angle(eu::AA::from_right_hand_around(
             eu::common::up, eu::An::from_degrees(90)));
     const auto b
-            = eu::Q::from_axis_angle(eu::AxisAngle::from_right_hand_around(
+            = eu::Q::from_axis_angle(eu::AA::from_right_hand_around(
                                                  eu::common::up,
                                                  eu::An::from_degrees(-90)))
                       .get_conjugate();

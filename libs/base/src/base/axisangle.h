@@ -7,7 +7,7 @@
 
 namespace eu
 {
-    struct AxisAngle
+    struct AA
     {
         /// a unit-vector
         n3 axis;
@@ -15,15 +15,15 @@ namespace eu
         /// rotation according to right-hand rule
         An angle;
 
-        [[nodiscard]] static AxisAngle
+        [[nodiscard]] static AA
         from_right_hand_around(const n3 &axis, const An &angle);
 
     private:
-        AxisAngle(const n3 &ax, const An &ang);
+        AA(const n3 &ax, const An &ang);
     };
 
-    std::string to_string(const AxisAngle &aa);
+    std::string to_string(const AA &aa);
 
 }
 
-ADD_DEFAULT_FORMATTER(eu::AxisAngle, std::string, eu::to_string);
+ADD_DEFAULT_FORMATTER(eu::AA, std::string, eu::to_string);
