@@ -136,7 +136,7 @@ namespace eu
 
     [[nodiscard]]
     m4
-    m4::from_axis_angle(const AA& aa)
+    m4::from(const AA& aa)
     {
         const float rcos = cos(aa.angle);
         const float rsin = sin(aa.angle);
@@ -408,7 +408,7 @@ namespace eu
     m4
     m4::get_rotated(const AA& aa) const
     {
-        return *this * from_axis_angle(aa);
+        return *this * from(aa);
     }
 
     const float*

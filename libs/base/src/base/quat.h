@@ -26,8 +26,8 @@ namespace eu
         {
         }
 
-        [[nodiscard]] static Q from_axis_angle(const AA& aa);
-        [[nodiscard]] static Q from_ypr(const An& yaw, const An& pitch, const An& roll);
+        [[nodiscard]] static Q from(const AA& aa);
+        [[nodiscard]] static Q from(const Ypr& ypr);
         [[nodiscard]] static Q from_to(const Q& from, const Q& to);
         [[nodiscard]] static Q look_at(const v3& from, const v3& to, const n3& up);
         [[nodiscard]] static Q look_in_direction(const n3& dir, const n3& up);

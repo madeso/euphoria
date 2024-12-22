@@ -34,7 +34,7 @@ namespace eu
         [[nodiscard]] static m4 from_rot_x(const An &a);
         [[nodiscard]] static m4 from_rot_y(const An &a);
         [[nodiscard]] static m4 from_rot_z(const An &a);
-        [[nodiscard]] static m4 from_axis_angle(const AA &aa);
+        [[nodiscard]] static m4 from(const AA &aa);
         [[nodiscard]] static m4 create_ortho(float l, float r, float b, float t, float n, float f);
         [[nodiscard]] static m4 create_perspective(const An &fov, float a, float near, float far);
         [[nodiscard]] constexpr static m4 from_scalar(float scalar)

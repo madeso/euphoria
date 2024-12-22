@@ -7,6 +7,7 @@
 
 namespace eu
 {
+    /// Axis + Angle
     struct AA
     {
         /// a unit-vector
@@ -18,11 +19,21 @@ namespace eu
         AA(const n3 &ax, const An &ang);
     };
 
+    /// yaw + pitch + roll
+    struct Ypr
+    {
+        An yaw = no_rotation;
+        An pitch = no_rotation;
+        An roll = no_rotation;
+    };
+
     [[nodiscard]] AA
     right_hand_around(const n3& axis, const An& angle);
 
     std::string to_string(const AA &aa);
+    std::string to_string(const Ypr& ypr);
 
 }
 
 ADD_DEFAULT_FORMATTER(eu::AA, std::string, eu::to_string);
+ADD_DEFAULT_FORMATTER(eu::Ypr, std::string, eu::to_string);

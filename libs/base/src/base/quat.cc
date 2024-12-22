@@ -20,7 +20,7 @@ namespace eu
 
 
     [[nodiscard]] Q
-    Q::from_axis_angle(const AA& aa)
+    Q::from(const AA& aa)
     {
         const float sin_a = sin(aa.angle / 2);
         const float cos_a = cos(aa.angle / 2);
@@ -31,15 +31,15 @@ namespace eu
 
 
     [[nodiscard]] Q
-    Q::from_ypr(const An& yaw, const An& pitch, const An& roll)
+    Q::from(const Ypr& ypr)
     {
         // Abbreviations for the various angular functions
-        const auto cy = cos(yaw * 0.5);
-        const auto sy = sin(yaw * 0.5);
-        const auto cp = cos(pitch * 0.5);
-        const auto sp = sin(pitch * 0.5);
-        const auto cr = cos(roll * 0.5);
-        const auto sr = sin(roll * 0.5);
+        const auto cy = cos(ypr.yaw * 0.5);
+        const auto sy = sin(ypr.yaw * 0.5);
+        const auto cp = cos(ypr.pitch * 0.5);
+        const auto sp = sin(ypr.pitch * 0.5);
+        const auto cr = cos(ypr.roll * 0.5);
+        const auto sr = sin(ypr.roll * 0.5);
 
         return
         {
@@ -64,7 +64,7 @@ namespace eu
     [[nodiscard]] m4
     Q::to_mat4() const
     {
-        return m4::from_axis_angle(to_axis_angle());
+        return m4::from(to_axis_angle());
     }
 
 
@@ -336,10 +336,7 @@ namespace eu
 
         const auto rot_angle = acos(dot_value);
         const auto rot_axis = in.cross(dir).get_normalized();
-        return Q::from_axis_angle
-        (
-            right_hand_around(rot_axis, rot_angle)
-        );
+        return Q::from(right_hand_around(rot_axis, rot_angle));
     }
 
 

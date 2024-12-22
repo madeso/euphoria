@@ -22,4 +22,10 @@ namespace eu
     {
         return fmt::format("({} {})", aa.axis, aa.angle);
     }
+
+    std::string
+    to_string(const Ypr& x)
+    {
+        return fmt::format("({} {} {})", x.yaw, x.pitch, x.roll);
+    }
 }
