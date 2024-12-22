@@ -6,7 +6,7 @@
     <includes refid="vec3_8h" local="no">vec3.h</includes>
     <sectiondef kind="public-func">
       <memberdef kind="function" id="structeu_1_1n3_1a06e6ca95f05664ef279e4b724cf9ba9c" prot="public" static="no" constexpr="yes" const="yes" explicit="no" inline="yes" virt="non-virtual">
-        <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">constexpr</ref> <ref refid="structeu_1_1n3" kindref="compound">n3</ref></type>
+        <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">constexpr</ref> <ref refid="structeu_1_1n3" kindref="compound">n3</ref></type>
         <definition>constexpr n3 eu::n3::operator-</definition>
         <argsstring>() const</argsstring>
         <name>operator-</name>
@@ -17,10 +17,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec3.h" line="72" column="22" bodyfile="libs/base/src/base/vec3.h" bodystart="72" bodyend="75"/>
+        <location file="libs/base/src/base/vec3.h" line="73" column="22" bodyfile="libs/base/src/base/vec3.h" bodystart="73" bodyend="76"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1n3_1aa68e70e5a5cb06987e61869c66f54232" prot="public" static="no" constexpr="yes" const="yes" explicit="no" inline="yes" virt="non-virtual">
-        <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">constexpr</ref> <ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">bool</ref></type>
+        <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">constexpr</ref> <ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">bool</ref></type>
         <definition>constexpr bool eu::n3::is_valid</definition>
         <argsstring>() const</argsstring>
         <name>is_valid</name>
@@ -31,16 +31,16 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec3.h" line="78" column="9" bodyfile="libs/base/src/base/vec3.h" bodystart="78" bodyend="81"/>
+        <location file="libs/base/src/base/vec3.h" line="79" column="9" bodyfile="libs/base/src/base/vec3.h" bodystart="79" bodyend="82"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1n3_1a1c9dc301328a0e9da5e4ea1da860b2dd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">bool</ref></type>
+        <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">bool</ref></type>
         <definition>bool eu::n3::operator==</definition>
         <argsstring>(const n3 &amp;rhs)=delete</argsstring>
         <name>operator==</name>
         <qualifiedname>eu::n3::operator==</qualifiedname>
         <param>
-          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1n3" kindref="compound">n3</ref> &amp;</type>
+          <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1n3" kindref="compound">n3</ref> &amp;</type>
           <declname>rhs</declname>
         </param>
         <briefdescription>
@@ -49,24 +49,24 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec3.h" line="86" column="14"/>
+        <location file="libs/base/src/base/vec3.h" line="84" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1n3_1a20006da90f262b4cf7e5d9f293f21f60" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">constexpr</ref></type>
+        <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">constexpr</ref></type>
         <definition>constexpr eu::n3::n3</definition>
         <argsstring>(float a, float b, float c)</argsstring>
         <name>n3</name>
         <qualifiedname>eu::n3::n3</qualifiedname>
         <param>
-          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">float</ref></type>
+          <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">float</ref></type>
           <declname>a</declname>
         </param>
         <param>
-          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">float</ref></type>
+          <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">float</ref></type>
           <declname>b</declname>
         </param>
         <param>
-          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">float</ref></type>
+          <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">float</ref></type>
           <declname>c</declname>
         </param>
         <briefdescription>
@@ -75,44 +75,16 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec3.h" line="88" column="19" bodyfile="libs/base/src/base/vec3.h" bodystart="88" bodyend="92"/>
+        <location file="libs/base/src/base/vec3.h" line="86" column="19" bodyfile="libs/base/src/base/vec3.h" bodystart="86" bodyend="90"/>
       </memberdef>
-    </sectiondef>
-    <sectiondef kind="public-static-func">
-      <memberdef kind="function" id="structeu_1_1n3_1ac78e93a2421c8c7a3dc8a82e71234077" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1n3" kindref="compound">n3</ref></type>
-        <definition>n3 eu::n3::to_unit</definition>
-        <argsstring>(float x, float y, float z)</argsstring>
-        <name>to_unit</name>
-        <qualifiedname>eu::n3::to_unit</qualifiedname>
-        <param>
-          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">float</ref></type>
-          <declname>x</declname>
-        </param>
-        <param>
-          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">float</ref></type>
-          <declname>y</declname>
-        </param>
-        <param>
-          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">float</ref></type>
-          <declname>z</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/base/src/base/vec3.h" line="83" column="19" bodyfile="libs/base/src/base/vec3.cc" bodystart="116" bodyend="119"/>
-      </memberdef>
-      <memberdef kind="function" id="structeu_1_1n3_1abddcee7308250a03f8791ba2409b84fa" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1n3" kindref="compound">n3</ref></type>
-        <definition>n3 eu::n3::to_unit</definition>
+      <memberdef kind="function" id="structeu_1_1n3_1a6ac60a5efa4f1e306a4c7b2fbe5bd969" prot="public" static="no" constexpr="yes" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">constexpr</ref></type>
+        <definition>constexpr eu::n3::n3</definition>
         <argsstring>(const v3 &amp;v)</argsstring>
-        <name>to_unit</name>
-        <qualifiedname>eu::n3::to_unit</qualifiedname>
+        <name>n3</name>
+        <qualifiedname>eu::n3::n3</qualifiedname>
         <param>
-          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1v3" kindref="compound">v3</ref> &amp;</type>
+          <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1v3" kindref="compound">v3</ref> &amp;</type>
           <declname>v</declname>
         </param>
         <briefdescription>
@@ -121,7 +93,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec3.h" line="84" column="19" bodyfile="libs/base/src/base/vec3.cc" bodystart="122" bodyend="125"/>
+        <location file="libs/base/src/base/vec3.h" line="92" column="28" bodyfile="libs/base/src/base/vec3.h" bodystart="92" bodyend="96"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -153,9 +125,8 @@
         <link refid="structeu_1_1v3"/>
       </node>
     </collaborationgraph>
-    <location file="libs/base/src/base/vec3.h" line="70" column="5" bodyfile="libs/base/src/base/vec3.h" bodystart="71" bodyend="93"/>
+    <location file="libs/base/src/base/vec3.h" line="71" column="5" bodyfile="libs/base/src/base/vec3.h" bodystart="72" bodyend="97"/>
     <listofallmembers>
-      <member refid="structeu_1_1v3_1a9f889215d880aaf9ae879d7b4c233cd1" prot="public" virt="non-virtual"><scope>eu::n3</scope><name>as_normalized</name></member>
       <member refid="structeu_1_1v3_1aa99cba50159afb3c350a5eec965de84e" prot="public" virt="non-virtual"><scope>eu::n3</scope><name>cross</name></member>
       <member refid="structeu_1_1v3_1a764fc0768cb46634ca097e4beedc783f" prot="public" virt="non-virtual"><scope>eu::n3</scope><name>dot</name></member>
       <member refid="structeu_1_1v3_1a77831e16b66e7d615221d3f3cd55350a" prot="public" virt="non-virtual"><scope>eu::n3</scope><name>from_to</name></member>
@@ -166,6 +137,7 @@
       <member refid="structeu_1_1v3_1a7089404a4bbe62dbd5ab7456a54307d9" prot="public" virt="non-virtual"><scope>eu::n3</scope><name>get_normalized</name></member>
       <member refid="structeu_1_1n3_1aa68e70e5a5cb06987e61869c66f54232" prot="public" virt="non-virtual"><scope>eu::n3</scope><name>is_valid</name></member>
       <member refid="structeu_1_1n3_1a20006da90f262b4cf7e5d9f293f21f60" prot="public" virt="non-virtual"><scope>eu::n3</scope><name>n3</name></member>
+      <member refid="structeu_1_1n3_1a6ac60a5efa4f1e306a4c7b2fbe5bd969" prot="public" virt="non-virtual"><scope>eu::n3</scope><name>n3</name></member>
       <member refid="structeu_1_1v3_1a398e2f716bacc7b46247b53c7b066cc0" prot="public" virt="non-virtual"><scope>eu::n3</scope><name>normalize</name></member>
       <member refid="structeu_1_1v3_1a9528b4d498a609b0154558d00388b3c5" prot="public" virt="non-virtual"><scope>eu::n3</scope><name>operator*=</name></member>
       <member refid="structeu_1_1v3_1a505f18e5bb6f065f804ad6cae29d7119" prot="public" virt="non-virtual"><scope>eu::n3</scope><name>operator+=</name></member>
@@ -174,8 +146,6 @@
       <member refid="structeu_1_1v3_1a220dfac60ad3353bf059360fca02f56b" prot="public" virt="non-virtual"><scope>eu::n3</scope><name>operator/=</name></member>
       <member refid="structeu_1_1n3_1a1c9dc301328a0e9da5e4ea1da860b2dd" prot="public" virt="non-virtual"><scope>eu::n3</scope><name>operator==</name></member>
       <member refid="structeu_1_1v3_1aec2154808567055f1f237d6be4807cec" prot="public" virt="non-virtual" ambiguityscope="eu::v3::"><scope>eu::n3</scope><name>operator==</name></member>
-      <member refid="structeu_1_1n3_1ac78e93a2421c8c7a3dc8a82e71234077" prot="public" virt="non-virtual"><scope>eu::n3</scope><name>to_unit</name></member>
-      <member refid="structeu_1_1n3_1abddcee7308250a03f8791ba2409b84fa" prot="public" virt="non-virtual"><scope>eu::n3</scope><name>to_unit</name></member>
       <member refid="structeu_1_1v3_1a6aa1f8e37882224729ac9e1a76a61cc9" prot="public" virt="non-virtual"><scope>eu::n3</scope><name>v3</name></member>
       <member refid="structeu_1_1v3_1a98f60e5879b3eaa2e47eff51675cefe1" prot="public" virt="non-virtual"><scope>eu::n3</scope><name>v3</name></member>
       <member refid="structeu_1_1v3_1a2572cb44aaee0a0f7d84be279e8b86b5" prot="public" virt="non-virtual"><scope>eu::n3</scope><name>v3</name></member>

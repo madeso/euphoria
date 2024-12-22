@@ -116,6 +116,10 @@
       <node id="8">
         <label>libs/base/src/base/quat.h</label>
         <link refid="quat_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
         <childnode refid="9" relation="include">
         </childnode>
         <childnode refid="10" relation="include">
@@ -189,37 +193,6 @@
       </node>
     </invincdepgraph>
     <innernamespace refid="namespaceeu">eu</innernamespace>
-    <sectiondef kind="define">
-      <memberdef kind="define" id="numeric_8h_1a5fe0c02217dc0b7c84ade77c0f2ff935" prot="public" static="no">
-        <name>EU_MAKE_MINMAX</name>
-        <param><defname>T</defname></param>
-        <initializer>    constexpr T min(T lhs, T rhs) \
-    { \
-        if (lhs &lt; rhs) \
-        { \
-            return lhs; \
-        } \
-         \
-        return rhs; \
-    } \
-    constexpr T max(T lhs, T rhs) \
-    { \
-        if (lhs &gt; rhs) \
-        { \
-            return lhs; \
-        } \
-         \
-        return rhs; \
-    }</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/base/src/base/numeric.h" line="76" column="9" bodyfile="libs/base/src/base/numeric.h" bodystart="76" bodyend="94"/>
-      </memberdef>
-    </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

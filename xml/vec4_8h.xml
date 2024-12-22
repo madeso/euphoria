@@ -62,6 +62,10 @@
       </node>
     </incdepgraph>
     <invincdepgraph>
+      <node id="5">
+        <label>libs/base/src/base/axisangle.cc</label>
+        <link refid="axisangle_8cc"/>
+      </node>
       <node id="3">
         <label>libs/base/src/base/mat4.cc</label>
         <link refid="mat4_8cc"/>
@@ -74,7 +78,7 @@
         <childnode refid="4" relation="include">
         </childnode>
       </node>
-      <node id="5">
+      <node id="6">
         <label>libs/base/src/base/quat.cc</label>
         <link refid="quat_8cc"/>
       </node>
@@ -83,10 +87,14 @@
         <link refid="quat_8h"/>
         <childnode refid="5" relation="include">
         </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
         <childnode refid="6" relation="include">
         </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
       </node>
-      <node id="8">
+      <node id="9">
         <label>libs/base/src/base/vec4.cc</label>
         <link refid="vec4_8cc"/>
       </node>
@@ -95,27 +103,27 @@
         <link refid="vec4_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
-        <childnode refid="8" relation="include">
+        <childnode refid="9" relation="include">
         </childnode>
       </node>
-      <node id="7">
+      <node id="8">
         <label>libs/tests/src/tests/approx_equal.cc</label>
         <link refid="approx__equal_8cc"/>
       </node>
-      <node id="6">
+      <node id="7">
         <label>libs/tests/src/tests/approx_equal.h</label>
         <link refid="approx__equal_8h"/>
-        <childnode refid="7" relation="include">
+        <childnode refid="8" relation="include">
         </childnode>
       </node>
     </invincdepgraph>
     <innerclass refid="structeu_1_1v4" prot="public">eu::v4</innerclass>
     <innernamespace refid="namespaceeu">eu</innernamespace>
     <sectiondef kind="func">
-      <memberdef kind="function" id="vec4_8h_1ac6a38eab1b29f7f87fd067a035b9cc31" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="vec4_8h_1a13752e90dee20772d444a364d34ea698" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>ADD_DEFAULT_FORMATTER</definition>
-        <argsstring>(eu::v4, std::string, eu::to_string)</argsstring>
+        <argsstring>(eu::v4, std::string, eu::string_from)</argsstring>
         <name>ADD_DEFAULT_FORMATTER</name>
         <param>
           <type><ref refid="structeu_1_1v4" kindref="compound">eu::v4</ref></type>
@@ -124,7 +132,7 @@
           <type>std::string</type>
         </param>
         <param>
-          <type><ref refid="namespaceeu_1a3deb3b36c867593fd0645ddbd299b9ce" kindref="member">eu::to_string</ref></type>
+          <type><ref refid="group__math_1gafa7f170a2c4415e5c9f4d517b138a489" kindref="member">eu::string_from</ref></type>
         </param>
         <briefdescription>
         </briefdescription>
@@ -132,7 +140,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec4.h" line="40" column="1" declfile="libs/base/src/base/vec4.h" declline="40" declcolumn="1"/>
+        <location file="libs/base/src/base/vec4.h" line="47" column="1" declfile="libs/base/src/base/vec4.h" declline="47" declcolumn="1"/>
       </memberdef>
     </sectiondef>
     <briefdescription>

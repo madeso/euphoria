@@ -4,7 +4,7 @@
     <compoundname>eu::common</compoundname>
     <sectiondef kind="var">
       <memberdef kind="variable" id="namespaceeu_1_1common_1a7b4164209a2cd93dea08ff276e81ba2a" prot="public" static="no" constexpr="yes" mutable="no">
-        <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">constexpr</ref> <ref refid="structeu_1_1n3" kindref="compound">n3</ref></type>
+        <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">constexpr</ref> <ref refid="structeu_1_1n3" kindref="compound">n3</ref></type>
         <definition>constexpr n3 eu::common::x_axis</definition>
         <argsstring></argsstring>
         <name>x_axis</name>
@@ -16,10 +16,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec3.h" line="97" column="22" bodyfile="libs/base/src/base/vec3.h" bodystart="97" bodyend="97"/>
+        <location file="libs/base/src/base/vec3.h" line="101" column="22" bodyfile="libs/base/src/base/vec3.h" bodystart="101" bodyend="101"/>
       </memberdef>
       <memberdef kind="variable" id="namespaceeu_1_1common_1a552df87dd761337aee02901a332fa235" prot="public" static="no" constexpr="yes" mutable="no">
-        <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">constexpr</ref> <ref refid="structeu_1_1n3" kindref="compound">n3</ref></type>
+        <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">constexpr</ref> <ref refid="structeu_1_1n3" kindref="compound">n3</ref></type>
         <definition>constexpr n3 eu::common::y_axis</definition>
         <argsstring></argsstring>
         <name>y_axis</name>
@@ -31,10 +31,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec3.h" line="98" column="22" bodyfile="libs/base/src/base/vec3.h" bodystart="98" bodyend="98"/>
+        <location file="libs/base/src/base/vec3.h" line="102" column="22" bodyfile="libs/base/src/base/vec3.h" bodystart="102" bodyend="102"/>
       </memberdef>
       <memberdef kind="variable" id="namespaceeu_1_1common_1a366f01d5cec67052e3f2cf64790e98eb" prot="public" static="no" constexpr="yes" mutable="no">
-        <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">constexpr</ref> <ref refid="structeu_1_1n3" kindref="compound">n3</ref></type>
+        <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">constexpr</ref> <ref refid="structeu_1_1n3" kindref="compound">n3</ref></type>
         <definition>constexpr n3 eu::common::z_axis</definition>
         <argsstring></argsstring>
         <name>z_axis</name>
@@ -46,10 +46,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec3.h" line="99" column="22" bodyfile="libs/base/src/base/vec3.h" bodystart="99" bodyend="99"/>
+        <location file="libs/base/src/base/vec3.h" line="103" column="22" bodyfile="libs/base/src/base/vec3.h" bodystart="103" bodyend="103"/>
       </memberdef>
       <memberdef kind="variable" id="namespaceeu_1_1common_1a56f29f3a9ccf0462b1417a0fdd5ad6a9" prot="public" static="no" constexpr="yes" mutable="no">
-        <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">constexpr</ref> <ref refid="structeu_1_1n3" kindref="compound">n3</ref></type>
+        <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">constexpr</ref> <ref refid="structeu_1_1n3" kindref="compound">n3</ref></type>
         <definition>constexpr n3 eu::common::up</definition>
         <argsstring></argsstring>
         <name>up</name>
@@ -61,10 +61,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec3.h" line="100" column="22" bodyfile="libs/base/src/base/vec3.h" bodystart="100" bodyend="-1"/>
+        <location file="libs/base/src/base/vec3.h" line="104" column="22" bodyfile="libs/base/src/base/vec3.h" bodystart="104" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespaceeu_1_1common_1a59f363dc8534c920f8f3b46f62e45796" prot="public" static="no" constexpr="yes" mutable="no">
-        <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">constexpr</ref> <ref refid="structeu_1_1n3" kindref="compound">n3</ref></type>
+        <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">constexpr</ref> <ref refid="structeu_1_1n3" kindref="compound">n3</ref></type>
         <definition>constexpr n3 eu::common::down</definition>
         <argsstring></argsstring>
         <name>down</name>
@@ -76,10 +76,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec3.h" line="101" column="22" bodyfile="libs/base/src/base/vec3.h" bodystart="101" bodyend="-1"/>
+        <location file="libs/base/src/base/vec3.h" line="105" column="22" bodyfile="libs/base/src/base/vec3.h" bodystart="105" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespaceeu_1_1common_1ac4ccfd728aac43cc18c0abe58eb1fb89" prot="public" static="no" constexpr="yes" mutable="no">
-        <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">constexpr</ref> <ref refid="structeu_1_1n3" kindref="compound">n3</ref></type>
+        <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">constexpr</ref> <ref refid="structeu_1_1n3" kindref="compound">n3</ref></type>
         <definition>constexpr n3 eu::common::right</definition>
         <argsstring></argsstring>
         <name>right</name>
@@ -91,10 +91,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec3.h" line="102" column="22" bodyfile="libs/base/src/base/vec3.h" bodystart="102" bodyend="-1"/>
+        <location file="libs/base/src/base/vec3.h" line="106" column="22" bodyfile="libs/base/src/base/vec3.h" bodystart="106" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespaceeu_1_1common_1af8caf75f450a087c5efdacb91fc195b5" prot="public" static="no" constexpr="yes" mutable="no">
-        <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">constexpr</ref> <ref refid="structeu_1_1n3" kindref="compound">n3</ref></type>
+        <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">constexpr</ref> <ref refid="structeu_1_1n3" kindref="compound">n3</ref></type>
         <definition>constexpr n3 eu::common::left</definition>
         <argsstring></argsstring>
         <name>left</name>
@@ -106,10 +106,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec3.h" line="103" column="22" bodyfile="libs/base/src/base/vec3.h" bodystart="103" bodyend="-1"/>
+        <location file="libs/base/src/base/vec3.h" line="107" column="22" bodyfile="libs/base/src/base/vec3.h" bodystart="107" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespaceeu_1_1common_1a0128e3e490cb760c37f9f47f438f088e" prot="public" static="no" constexpr="yes" mutable="no">
-        <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">constexpr</ref> <ref refid="structeu_1_1n3" kindref="compound">n3</ref></type>
+        <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">constexpr</ref> <ref refid="structeu_1_1n3" kindref="compound">n3</ref></type>
         <definition>constexpr n3 eu::common::in</definition>
         <argsstring></argsstring>
         <name>in</name>
@@ -121,10 +121,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec3.h" line="104" column="22" bodyfile="libs/base/src/base/vec3.h" bodystart="104" bodyend="-1"/>
+        <location file="libs/base/src/base/vec3.h" line="108" column="22" bodyfile="libs/base/src/base/vec3.h" bodystart="108" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespaceeu_1_1common_1a57827af741604160c6e925bdc0c32747" prot="public" static="no" constexpr="yes" mutable="no">
-        <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">constexpr</ref> <ref refid="structeu_1_1n3" kindref="compound">n3</ref></type>
+        <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">constexpr</ref> <ref refid="structeu_1_1n3" kindref="compound">n3</ref></type>
         <definition>constexpr n3 eu::common::out</definition>
         <argsstring></argsstring>
         <name>out</name>
@@ -136,13 +136,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec3.h" line="105" column="22" bodyfile="libs/base/src/base/vec3.h" bodystart="105" bodyend="-1"/>
+        <location file="libs/base/src/base/vec3.h" line="109" column="22" bodyfile="libs/base/src/base/vec3.h" bodystart="109" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/base/src/base/vec3.h" line="95" column="5"/>
+    <location file="libs/base/src/base/vec3.h" line="99" column="5"/>
   </compounddef>
 </doxygen>

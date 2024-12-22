@@ -98,6 +98,10 @@
       <node id="7">
         <label>libs/base/src/base/quat.h</label>
         <link refid="quat_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
         <childnode refid="8" relation="include">
         </childnode>
         <childnode refid="9" relation="include">
@@ -140,10 +144,10 @@
     <innernamespace refid="namespaceeu">eu</innernamespace>
     <innernamespace refid="namespaceeu_1_1convert">eu::convert</innernamespace>
     <sectiondef kind="func">
-      <memberdef kind="function" id="angle_8h_1a1ff8b2e61ab3349da6356f39356b8972" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="angle_8h_1ae609547bdcde38422388f0d112f43147" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>ADD_DEFAULT_FORMATTER</definition>
-        <argsstring>(eu::An, std::string, eu::to_string)</argsstring>
+        <argsstring>(eu::An, std::string, eu::string_from)</argsstring>
         <name>ADD_DEFAULT_FORMATTER</name>
         <param>
           <type><ref refid="structeu_1_1An" kindref="compound">eu::An</ref></type>
@@ -152,7 +156,7 @@
           <type>std::string</type>
         </param>
         <param>
-          <type><ref refid="namespaceeu_1a3deb3b36c867593fd0645ddbd299b9ce" kindref="member">eu::to_string</ref></type>
+          <type><ref refid="group__math_1gafa7f170a2c4415e5c9f4d517b138a489" kindref="member">eu::string_from</ref></type>
         </param>
         <briefdescription>
         </briefdescription>
@@ -160,7 +164,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/angle.h" line="112" column="1" declfile="libs/base/src/base/angle.h" declline="112" declcolumn="1"/>
+        <location file="libs/base/src/base/angle.h" line="118" column="1" declfile="libs/base/src/base/angle.h" declline="118" declcolumn="1"/>
       </memberdef>
     </sectiondef>
     <briefdescription>

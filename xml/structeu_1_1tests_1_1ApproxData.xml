@@ -5,7 +5,7 @@
     <includes refid="approx_8h" local="no">approx.h</includes>
     <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structeu_1_1tests_1_1ApproxData_1a1d90aedc0e488ae7dffddbcd6ebfb202" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">float</ref></type>
+        <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">float</ref></type>
         <definition>float eu::tests::ApproxData::epsilon</definition>
         <argsstring></argsstring>
         <name>epsilon</name>
@@ -19,7 +19,7 @@
         <location file="libs/tests/src/tests/approx.h" line="14" column="15" bodyfile="libs/tests/src/tests/approx.h" bodystart="14" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1tests_1_1ApproxData_1a13183a28bdb83823a7f2fa170b978b30" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">float</ref></type>
+        <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">float</ref></type>
         <definition>float eu::tests::ApproxData::scale</definition>
         <argsstring></argsstring>
         <name>scale</name>
@@ -33,7 +33,7 @@
         <location file="libs/tests/src/tests/approx.h" line="15" column="15" bodyfile="libs/tests/src/tests/approx.h" bodystart="15" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1tests_1_1ApproxData_1a836482cb09b95cec361bb26a6e7eedfb" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">float</ref></type>
+        <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">float</ref></type>
         <definition>float eu::tests::ApproxData::margin</definition>
         <argsstring></argsstring>
         <name>margin</name>

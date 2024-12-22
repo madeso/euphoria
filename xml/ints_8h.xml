@@ -118,6 +118,10 @@
       <node id="10">
         <label>libs/base/src/base/quat.h</label>
         <link refid="quat_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
         <childnode refid="11" relation="include">
         </childnode>
         <childnode refid="12" relation="include">

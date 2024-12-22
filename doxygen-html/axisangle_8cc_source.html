@@ -32,6 +32,7 @@
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
+      <li><a href="topics.html"><span>Topics</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
@@ -61,43 +62,82 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="assert_8h.html">assert/assert.h</a>&quot;</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceeu.html">eu</a></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>{</div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>    AxisAngle::AxisAngle(<span class="keyword">const</span> n3 &amp;ax, <span class="keyword">const</span> An &amp;ang)</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>        : axis(ax), angle(ang)</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    {</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>        <a class="code hl_define" href="assert_8h.html#aca68c0d4ac8df0838e209fb5300f7be3">ASSERT</a>(ax.is_valid());</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    }</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    AxisAngle</div>
-<div class="foldopen" id="foldopen00014" data-start="{" data-end="}">
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="structeu_1_1AxisAngle.html#a7a30e75f829d8f4e11b42ef06f5acb80">   14</a></span>    AxisAngle::from_right_hand_around(<span class="keyword">const</span> <a class="code hl_struct" href="structeu_1_1n3.html">n3</a> &amp;axis, <span class="keyword">const</span> <a class="code hl_struct" href="structeu_1_1An.html">An</a> &amp;angle)</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    {</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>        <a class="code hl_define" href="assert_8h.html#aca68c0d4ac8df0838e209fb5300f7be3">ASSERT</a>(axis.<a class="code hl_function" href="structeu_1_1n3.html#aa68e70e5a5cb06987e61869c66f54232">is_valid</a>());</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        <span class="keywordflow">return</span> {axis, An::from_radians(angle.<a class="code hl_function" href="structeu_1_1An.html#aca132e3f67eac75b6b3ae43fb86cdaf7">as_radians</a>())};</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    }</div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="quat_8h.html">base/quat.h</a>&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceeu.html">eu</a></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>{</div>
+<div class="foldopen" id="foldopen00009" data-start="{" data-end="}">
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="structeu_1_1AA.html#af1690aab94c15e9db117c61ea3265e8a">    9</a></span>    <a class="code hl_function" href="structeu_1_1AA.html#af1690aab94c15e9db117c61ea3265e8a">AA::AA</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structeu_1_1n3.html">n3</a> &amp;ax, <span class="keyword">const</span> <a class="code hl_struct" href="structeu_1_1An.html">An</a> &amp;ang)</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>        : axis(ax), angle(ang)</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    {</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>        <a class="code hl_define" href="assert_8h.html#aca68c0d4ac8df0838e209fb5300f7be3">ASSERT</a>(ax.<a class="code hl_function" href="structeu_1_1n3.html#aa68e70e5a5cb06987e61869c66f54232">is_valid</a>());</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    }</div>
 </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    std::string</div>
-<div class="foldopen" id="foldopen00021" data-start="{" data-end="}">
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="namespaceeu.html#ac63c715fd08b2adbad224c32eb3cb378">   21</a></span>    <a class="code hl_function" href="namespaceeu.html#a3deb3b36c867593fd0645ddbd299b9ce">to_string</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structeu_1_1AxisAngle.html">AxisAngle</a> &amp;aa)</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    {</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        <span class="keywordflow">return</span> fmt::format(<span class="stringliteral">&quot;({} {})&quot;</span>, aa.<a class="code hl_variable" href="structeu_1_1AxisAngle.html#a7654effe0275cf19fdd149ef1018545a">axis</a>, aa.<a class="code hl_variable" href="structeu_1_1AxisAngle.html#a9c1117f02c2574835b446c5fadf3b9e3">angle</a>);</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    }</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    [[nodiscard]] <a class="code hl_struct" href="structeu_1_1AA.html">AA</a></div>
+<div class="foldopen" id="foldopen00016" data-start="{" data-end="}">
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="structeu_1_1AA.html#a03e357ffaeca451e69fc09403d0fd80e">   16</a></span>    <a class="code hl_function" href="structeu_1_1AA.html#a03e357ffaeca451e69fc09403d0fd80e">AA::from</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structeu_1_1Q.html">Q</a>&amp; q)</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    {</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        <span class="keyword">const</span> <span class="keywordtype">float</span> cos_a = q.<a class="code hl_variable" href="structeu_1_1Q.html#a7afdc2215833a3cb71c2bf1a8c90fe2c">w</a>;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        <span class="keyword">const</span> <span class="keyword">auto</span> <a class="code hl_variable" href="structeu_1_1AA.html#a0ef36e1500a96f32d75602e9a53596da">angle</a> = <a class="code hl_function" href="group__math.html#ga541d45e26c450d76a511c7e3c753b0ac">acos</a>(cos_a) * 2;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        <span class="keyword">const</span> <span class="keyword">auto</span> sin_a = <a class="code hl_function" href="group__math.html#gaa74119d780a49aabca833a465dd27d7a">get_default_if_close_to_zero&lt;float&gt;</a>(</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>                <a class="code hl_function" href="group__math.html#ga066452fba287c9fcb6a0188ea8424760">sqrt</a>(1.0f - <a class="code hl_function" href="group__math.html#gaa74119d780a49aabca833a465dd27d7a">cos_a</a> * <a class="code hl_function" href="group__math.html#gaa74119d780a49aabca833a465dd27d7a">cos_a</a>), 1, 0.0005f);</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        <span class="comment">// todo(Gustav): do we need to normalize here?</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="group__math.html#gae9cc9ff4ed32a327a7e883617b9b7de2">right_hand_around</a>(</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>                (<a class="code hl_function" href="group__math.html#gaa74119d780a49aabca833a465dd27d7a">q</a>.get_vec_part() / <a class="code hl_function" href="group__math.html#gaa74119d780a49aabca833a465dd27d7a">sin_a</a>).get_normalized(), <a class="code hl_variable" href="structeu_1_1AA.html#a0ef36e1500a96f32d75602e9a53596da">angle</a>);</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    }</div>
 </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>}</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <a class="code hl_struct" href="structeu_1_1AA.html">AA</a></div>
+<div class="foldopen" id="foldopen00028" data-start="{" data-end="}">
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="group__math.html#gae9cc9ff4ed32a327a7e883617b9b7de2">   28</a></span>    <a class="code hl_function" href="group__math.html#gae9cc9ff4ed32a327a7e883617b9b7de2">right_hand_around</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structeu_1_1n3.html">n3</a> &amp;axis, <span class="keyword">const</span> <a class="code hl_struct" href="structeu_1_1An.html">An</a> &amp;angle)</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    {</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        <a class="code hl_define" href="assert_8h.html#aca68c0d4ac8df0838e209fb5300f7be3">ASSERT</a>(axis.<a class="code hl_function" href="structeu_1_1n3.html#aa68e70e5a5cb06987e61869c66f54232">is_valid</a>());</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        <span class="keywordflow">return</span> {axis, <a class="code hl_function" href="structeu_1_1An.html#a978cd7edfef73d6cac1eff7862c04472">An::from_radians</a>(angle.<a class="code hl_function" href="structeu_1_1An.html#aca132e3f67eac75b6b3ae43fb86cdaf7">as_radians</a>())};</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    }</div>
+</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    std::string</div>
+<div class="foldopen" id="foldopen00035" data-start="{" data-end="}">
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="group__math.html#gaa507848ead7e3929ac34a5631d051638">   35</a></span>    <a class="code hl_function" href="group__math.html#gafa7f170a2c4415e5c9f4d517b138a489">string_from</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structeu_1_1AA.html">AA</a> &amp;<a class="code hl_function" href="group__math.html#gaa74119d780a49aabca833a465dd27d7a">aa</a>)</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    {</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        <span class="keywordflow">return</span> fmt::format(<span class="stringliteral">&quot;({} {})&quot;</span>, <a class="code hl_function" href="group__math.html#gaa74119d780a49aabca833a465dd27d7a">aa</a>.axis, <a class="code hl_function" href="group__math.html#gaa74119d780a49aabca833a465dd27d7a">aa</a>.angle);</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    }</div>
+</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    std::string</div>
+<div class="foldopen" id="foldopen00041" data-start="{" data-end="}">
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="group__math.html#ga06c34e869eddc08c945c040b0066925a">   41</a></span>    <a class="code hl_function" href="group__math.html#gafa7f170a2c4415e5c9f4d517b138a489">string_from</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structeu_1_1Ypr.html">Ypr</a>&amp; x)</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    {</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        <span class="keywordflow">return</span> fmt::format(<span class="stringliteral">&quot;({} {} {})&quot;</span>, x.<a class="code hl_variable" href="structeu_1_1Ypr.html#a876d894be0edc78d9250f3d5df68f7d4">yaw</a>, x.<a class="code hl_variable" href="structeu_1_1Ypr.html#a19ba5b756baa3ae5baa58d281e791ea2">pitch</a>, x.<a class="code hl_variable" href="structeu_1_1Ypr.html#ac60be98970716f36245071ef9ef088ac">roll</a>);</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    }</div>
+</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>}</div>
 <div class="ttc" id="aassert_8h_html"><div class="ttname"><a href="assert_8h.html">assert.h</a></div></div>
 <div class="ttc" id="aassert_8h_html_aca68c0d4ac8df0838e209fb5300f7be3"><div class="ttname"><a href="assert_8h.html#aca68c0d4ac8df0838e209fb5300f7be3">ASSERT</a></div><div class="ttdeci">#define ASSERT(x)</div><div class="ttdef"><b>Definition</b> <a href="assert_8h_source.html#l00029">assert.h:29</a></div></div>
 <div class="ttc" id="aaxisangle_8h_html"><div class="ttname"><a href="axisangle_8h.html">axisangle.h</a></div></div>
+<div class="ttc" id="agroup__math_html_ga066452fba287c9fcb6a0188ea8424760"><div class="ttname"><a href="group__math.html#ga066452fba287c9fcb6a0188ea8424760">eu::sqrt</a></div><div class="ttdeci">float sqrt(float r)</div><div class="ttdef"><b>Definition</b> <a href="numeric_8cc_source.html#l00100">numeric.cc:100</a></div></div>
+<div class="ttc" id="agroup__math_html_ga541d45e26c450d76a511c7e3c753b0ac"><div class="ttname"><a href="group__math.html#ga541d45e26c450d76a511c7e3c753b0ac">eu::acos</a></div><div class="ttdeci">An acos(float v)</div><div class="ttdef"><b>Definition</b> <a href="angle_8cc_source.html#l00084">angle.cc:84</a></div></div>
+<div class="ttc" id="agroup__math_html_gaa74119d780a49aabca833a465dd27d7a"><div class="ttname"><a href="group__math.html#gaa74119d780a49aabca833a465dd27d7a">eu::get_default_if_close_to_zero</a></div><div class="ttdeci">T get_default_if_close_to_zero(T value, T def, T epsilon)</div><div class="ttdef"><b>Definition</b> <a href="numeric_8h_source.html#l00106">numeric.h:106</a></div></div>
+<div class="ttc" id="agroup__math_html_gae9cc9ff4ed32a327a7e883617b9b7de2"><div class="ttname"><a href="group__math.html#gae9cc9ff4ed32a327a7e883617b9b7de2">eu::right_hand_around</a></div><div class="ttdeci">AA right_hand_around(const n3 &amp;axis, const An &amp;angle)</div><div class="ttdef"><b>Definition</b> <a href="axisangle_8cc_source.html#l00028">axisangle.cc:28</a></div></div>
+<div class="ttc" id="agroup__math_html_gafa7f170a2c4415e5c9f4d517b138a489"><div class="ttname"><a href="group__math.html#gafa7f170a2c4415e5c9f4d517b138a489">eu::string_from</a></div><div class="ttdeci">std::string string_from(const An &amp;a)</div><div class="ttdef"><b>Definition</b> <a href="angle_8cc_source.html#l00155">angle.cc:155</a></div></div>
 <div class="ttc" id="anamespaceeu_html"><div class="ttname"><a href="namespaceeu.html">eu</a></div><div class="ttdef"><b>Definition</b> <a href="assert_8h_source.html#l00089">assert.h:90</a></div></div>
-<div class="ttc" id="anamespaceeu_html_a3deb3b36c867593fd0645ddbd299b9ce"><div class="ttname"><a href="namespaceeu.html#a3deb3b36c867593fd0645ddbd299b9ce">eu::to_string</a></div><div class="ttdeci">std::string to_string(const An &amp;a)</div><div class="ttdef"><b>Definition</b> <a href="angle_8cc_source.html#l00155">angle.cc:155</a></div></div>
-<div class="ttc" id="astructeu_1_1An_html"><div class="ttname"><a href="structeu_1_1An.html">eu::An</a></div><div class="ttdoc">An angle in both degrees and radians.</div><div class="ttdef"><b>Definition</b> <a href="angle_8h_source.html#l00008">angle.h:9</a></div></div>
-<div class="ttc" id="astructeu_1_1An_html_aca132e3f67eac75b6b3ae43fb86cdaf7"><div class="ttname"><a href="structeu_1_1An.html#aca132e3f67eac75b6b3ae43fb86cdaf7">eu::An::as_radians</a></div><div class="ttdeci">constexpr float as_radians() const</div><div class="ttdef"><b>Definition</b> <a href="angle_8h_source.html#l00045">angle.h:45</a></div></div>
-<div class="ttc" id="astructeu_1_1AxisAngle_html"><div class="ttname"><a href="structeu_1_1AxisAngle.html">eu::AxisAngle</a></div><div class="ttdef"><b>Definition</b> <a href="axisangle_8h_source.html#l00010">axisangle.h:11</a></div></div>
-<div class="ttc" id="astructeu_1_1AxisAngle_html_a7654effe0275cf19fdd149ef1018545a"><div class="ttname"><a href="structeu_1_1AxisAngle.html#a7654effe0275cf19fdd149ef1018545a">eu::AxisAngle::axis</a></div><div class="ttdeci">n3 axis</div><div class="ttdoc">a unit-vector</div><div class="ttdef"><b>Definition</b> <a href="axisangle_8h_source.html#l00013">axisangle.h:13</a></div></div>
-<div class="ttc" id="astructeu_1_1AxisAngle_html_a9c1117f02c2574835b446c5fadf3b9e3"><div class="ttname"><a href="structeu_1_1AxisAngle.html#a9c1117f02c2574835b446c5fadf3b9e3">eu::AxisAngle::angle</a></div><div class="ttdeci">An angle</div><div class="ttdoc">rotation according to right-hand rule</div><div class="ttdef"><b>Definition</b> <a href="axisangle_8h_source.html#l00016">axisangle.h:16</a></div></div>
-<div class="ttc" id="astructeu_1_1n3_html"><div class="ttname"><a href="structeu_1_1n3.html">eu::n3</a></div><div class="ttdoc">a 3d unit (vector)</div><div class="ttdef"><b>Definition</b> <a href="vec3_8h_source.html#l00070">vec3.h:71</a></div></div>
-<div class="ttc" id="astructeu_1_1n3_html_aa68e70e5a5cb06987e61869c66f54232"><div class="ttname"><a href="structeu_1_1n3.html#aa68e70e5a5cb06987e61869c66f54232">eu::n3::is_valid</a></div><div class="ttdeci">constexpr bool is_valid() const</div><div class="ttdef"><b>Definition</b> <a href="vec3_8h_source.html#l00078">vec3.h:78</a></div></div>
+<div class="ttc" id="aquat_8h_html"><div class="ttname"><a href="quat_8h.html">quat.h</a></div></div>
+<div class="ttc" id="astructeu_1_1AA_html"><div class="ttname"><a href="structeu_1_1AA.html">eu::AA</a></div><div class="ttdoc">Axis + Angle.</div><div class="ttdef"><b>Definition</b> <a href="axisangle_8h_source.html#l00018">axisangle.h:19</a></div></div>
+<div class="ttc" id="astructeu_1_1AA_html_a03e357ffaeca451e69fc09403d0fd80e"><div class="ttname"><a href="structeu_1_1AA.html#a03e357ffaeca451e69fc09403d0fd80e">eu::AA::from</a></div><div class="ttdeci">static AA from(const Q &amp;q)</div><div class="ttdef"><b>Definition</b> <a href="axisangle_8cc_source.html#l00016">axisangle.cc:16</a></div></div>
+<div class="ttc" id="astructeu_1_1AA_html_a0ef36e1500a96f32d75602e9a53596da"><div class="ttname"><a href="structeu_1_1AA.html#a0ef36e1500a96f32d75602e9a53596da">eu::AA::angle</a></div><div class="ttdeci">An angle</div><div class="ttdoc">rotation according to right-hand rule</div><div class="ttdef"><b>Definition</b> <a href="axisangle_8h_source.html#l00024">axisangle.h:24</a></div></div>
+<div class="ttc" id="astructeu_1_1AA_html_af1690aab94c15e9db117c61ea3265e8a"><div class="ttname"><a href="structeu_1_1AA.html#af1690aab94c15e9db117c61ea3265e8a">eu::AA::AA</a></div><div class="ttdeci">AA(const n3 &amp;ax, const An &amp;ang)</div><div class="ttdef"><b>Definition</b> <a href="axisangle_8cc_source.html#l00009">axisangle.cc:9</a></div></div>
+<div class="ttc" id="astructeu_1_1An_html"><div class="ttname"><a href="structeu_1_1An.html">eu::An</a></div><div class="ttdoc">An angle in both degrees and radians.</div><div class="ttdef"><b>Definition</b> <a href="angle_8h_source.html#l00012">angle.h:13</a></div></div>
+<div class="ttc" id="astructeu_1_1An_html_a978cd7edfef73d6cac1eff7862c04472"><div class="ttname"><a href="structeu_1_1An.html#a978cd7edfef73d6cac1eff7862c04472">eu::An::from_radians</a></div><div class="ttdeci">static constexpr An from_radians(float radians)</div><div class="ttdef"><b>Definition</b> <a href="angle_8h_source.html#l00021">angle.h:21</a></div></div>
+<div class="ttc" id="astructeu_1_1An_html_aca132e3f67eac75b6b3ae43fb86cdaf7"><div class="ttname"><a href="structeu_1_1An.html#aca132e3f67eac75b6b3ae43fb86cdaf7">eu::An::as_radians</a></div><div class="ttdeci">constexpr float as_radians() const</div><div class="ttdef"><b>Definition</b> <a href="angle_8h_source.html#l00049">angle.h:49</a></div></div>
+<div class="ttc" id="astructeu_1_1Q_html"><div class="ttname"><a href="structeu_1_1Q.html">eu::Q</a></div><div class="ttdoc">A quaternion.</div><div class="ttdef"><b>Definition</b> <a href="quat_8h_source.html#l00019">quat.h:20</a></div></div>
+<div class="ttc" id="astructeu_1_1Q_html_a7afdc2215833a3cb71c2bf1a8c90fe2c"><div class="ttname"><a href="structeu_1_1Q.html#a7afdc2215833a3cb71c2bf1a8c90fe2c">eu::Q::w</a></div><div class="ttdeci">float w</div><div class="ttdef"><b>Definition</b> <a href="quat_8h_source.html#l00021">quat.h:21</a></div></div>
+<div class="ttc" id="astructeu_1_1Ypr_html"><div class="ttname"><a href="structeu_1_1Ypr.html">eu::Ypr</a></div><div class="ttdoc">yaw + pitch + roll</div><div class="ttdef"><b>Definition</b> <a href="axisangle_8h_source.html#l00032">axisangle.h:33</a></div></div>
+<div class="ttc" id="astructeu_1_1Ypr_html_a19ba5b756baa3ae5baa58d281e791ea2"><div class="ttname"><a href="structeu_1_1Ypr.html#a19ba5b756baa3ae5baa58d281e791ea2">eu::Ypr::pitch</a></div><div class="ttdeci">An pitch</div><div class="ttdef"><b>Definition</b> <a href="axisangle_8h_source.html#l00035">axisangle.h:35</a></div></div>
+<div class="ttc" id="astructeu_1_1Ypr_html_a876d894be0edc78d9250f3d5df68f7d4"><div class="ttname"><a href="structeu_1_1Ypr.html#a876d894be0edc78d9250f3d5df68f7d4">eu::Ypr::yaw</a></div><div class="ttdeci">An yaw</div><div class="ttdef"><b>Definition</b> <a href="axisangle_8h_source.html#l00034">axisangle.h:34</a></div></div>
+<div class="ttc" id="astructeu_1_1Ypr_html_ac60be98970716f36245071ef9ef088ac"><div class="ttname"><a href="structeu_1_1Ypr.html#ac60be98970716f36245071ef9ef088ac">eu::Ypr::roll</a></div><div class="ttdeci">An roll</div><div class="ttdef"><b>Definition</b> <a href="axisangle_8h_source.html#l00036">axisangle.h:36</a></div></div>
+<div class="ttc" id="astructeu_1_1n3_html"><div class="ttname"><a href="structeu_1_1n3.html">eu::n3</a></div><div class="ttdoc">a 3d unit (vector)</div><div class="ttdef"><b>Definition</b> <a href="vec3_8h_source.html#l00071">vec3.h:72</a></div></div>
+<div class="ttc" id="astructeu_1_1n3_html_aa68e70e5a5cb06987e61869c66f54232"><div class="ttname"><a href="structeu_1_1n3.html#aa68e70e5a5cb06987e61869c66f54232">eu::n3::is_valid</a></div><div class="ttdeci">constexpr bool is_valid() const</div><div class="ttdef"><b>Definition</b> <a href="vec3_8h_source.html#l00079">vec3.h:79</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

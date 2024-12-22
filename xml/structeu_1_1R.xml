@@ -5,12 +5,12 @@
     <includes refid="range_8h" local="no">range.h</includes>
     <templateparamlist>
       <param>
-        <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">typename</ref> <ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">T</ref></type>
+        <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">typename</ref> <ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">T</ref></type>
       </param>
     </templateparamlist>
     <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structeu_1_1R_1a21fb9b629bbc9a9db9899a63864cc629" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">T</ref></type>
+        <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">T</ref></type>
         <definition>T eu::R&lt; T &gt;::lower_bound</definition>
         <argsstring></argsstring>
         <name>lower_bound</name>
@@ -21,10 +21,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/range.h" line="18" column="11" bodyfile="libs/base/src/base/range.h" bodystart="18" bodyend="-1"/>
+        <location file="libs/base/src/base/range.h" line="20" column="11" bodyfile="libs/base/src/base/range.h" bodystart="20" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1R_1a16291fb716b70bb755ece3fabfdfce2b" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">T</ref></type>
+        <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">T</ref></type>
         <definition>T eu::R&lt; T &gt;::upper_bound</definition>
         <argsstring></argsstring>
         <name>upper_bound</name>
@@ -35,22 +35,22 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/range.h" line="19" column="11" bodyfile="libs/base/src/base/range.h" bodystart="19" bodyend="-1"/>
+        <location file="libs/base/src/base/range.h" line="21" column="11" bodyfile="libs/base/src/base/range.h" bodystart="21" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
       <memberdef kind="function" id="structeu_1_1R_1aa03a59e319c92bce2c9069eb2c65af65" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">constexpr</ref></type>
+        <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">constexpr</ref></type>
         <definition>constexpr eu::R&lt; T &gt;::R</definition>
         <argsstring>(T min, T max)</argsstring>
         <name>R</name>
         <qualifiedname>eu::R::R</qualifiedname>
         <param>
-          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">T</ref></type>
+          <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">T</ref></type>
           <declname>min</declname>
         </param>
         <param>
-          <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">T</ref></type>
+          <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">T</ref></type>
           <declname>max</declname>
         </param>
         <briefdescription>
@@ -59,10 +59,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/range.h" line="21" column="19" bodyfile="libs/base/src/base/range.h" bodystart="21" bodyend="24"/>
+        <location file="libs/base/src/base/range.h" line="23" column="19" bodyfile="libs/base/src/base/range.h" bodystart="23" bodyend="26"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1R_1aadabaf1c6919f01c4a386cb187df7ac2" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
-        <type><ref refid="namespaceeu_1aa74119d780a49aabca833a465dd27d7a" kindref="member">T</ref></type>
+        <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">T</ref></type>
         <definition>T eu::R&lt; T &gt;::get_distance</definition>
         <argsstring>() const</argsstring>
         <name>get_distance</name>
@@ -73,7 +73,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/range.h" line="27" column="9" bodyfile="libs/base/src/base/range.h" bodystart="27" bodyend="30"/>
+        <location file="libs/base/src/base/range.h" line="29" column="9" bodyfile="libs/base/src/base/range.h" bodystart="29" bodyend="32"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -82,7 +82,7 @@
     <detaileddescription>
 <para>Zero range is allowed. </para>
     </detaileddescription>
-    <location file="libs/base/src/base/range.h" line="16" column="5" bodyfile="libs/base/src/base/range.h" bodystart="17" bodyend="31"/>
+    <location file="libs/base/src/base/range.h" line="18" column="5" bodyfile="libs/base/src/base/range.h" bodystart="19" bodyend="33"/>
     <listofallmembers>
       <member refid="structeu_1_1R_1aadabaf1c6919f01c4a386cb187df7ac2" prot="public" virt="non-virtual"><scope>eu::R</scope><name>get_distance</name></member>
       <member refid="structeu_1_1R_1a21fb9b629bbc9a9db9899a63864cc629" prot="public" virt="non-virtual"><scope>eu::R</scope><name>lower_bound</name></member>

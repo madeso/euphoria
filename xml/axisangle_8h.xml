@@ -108,6 +108,10 @@
       <node id="5">
         <label>libs/base/src/base/quat.h</label>
         <link refid="quat_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
         <childnode refid="6" relation="include">
         </childnode>
         <childnode refid="7" relation="include">
@@ -124,22 +128,23 @@
         </childnode>
       </node>
     </invincdepgraph>
-    <innerclass refid="structeu_1_1AxisAngle" prot="public">eu::AxisAngle</innerclass>
+    <innerclass refid="structeu_1_1AA" prot="public">eu::AA</innerclass>
+    <innerclass refid="structeu_1_1Ypr" prot="public">eu::Ypr</innerclass>
     <innernamespace refid="namespaceeu">eu</innernamespace>
     <sectiondef kind="func">
-      <memberdef kind="function" id="axisangle_8h_1a1abc44c4ba0ae704b3166ceb31c13f17" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="axisangle_8h_1ad8d9e9f798342c50d29b9a149f9c0a7e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>ADD_DEFAULT_FORMATTER</definition>
-        <argsstring>(eu::AxisAngle, std::string, eu::to_string)</argsstring>
+        <argsstring>(eu::AA, std::string, eu::string_from)</argsstring>
         <name>ADD_DEFAULT_FORMATTER</name>
         <param>
-          <type><ref refid="structeu_1_1AxisAngle" kindref="compound">eu::AxisAngle</ref></type>
+          <type><ref refid="structeu_1_1AA" kindref="compound">eu::AA</ref></type>
         </param>
         <param>
           <type>std::string</type>
         </param>
         <param>
-          <type><ref refid="namespaceeu_1a3deb3b36c867593fd0645ddbd299b9ce" kindref="member">eu::to_string</ref></type>
+          <type><ref refid="group__math_1gafa7f170a2c4415e5c9f4d517b138a489" kindref="member">eu::string_from</ref></type>
         </param>
         <briefdescription>
         </briefdescription>
@@ -147,7 +152,29 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/axisangle.h" line="29" column="1" declfile="libs/base/src/base/axisangle.h" declline="29" declcolumn="1"/>
+        <location file="libs/base/src/base/axisangle.h" line="48" column="1" declfile="libs/base/src/base/axisangle.h" declline="48" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="axisangle_8h_1ac72a38dc59b447a915fbd4f3e87c0cb0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ADD_DEFAULT_FORMATTER</definition>
+        <argsstring>(eu::Ypr, std::string, eu::string_from)</argsstring>
+        <name>ADD_DEFAULT_FORMATTER</name>
+        <param>
+          <type><ref refid="structeu_1_1Ypr" kindref="compound">eu::Ypr</ref></type>
+        </param>
+        <param>
+          <type>std::string</type>
+        </param>
+        <param>
+          <type><ref refid="group__math_1gafa7f170a2c4415e5c9f4d517b138a489" kindref="member">eu::string_from</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/axisangle.h" line="49" column="1" declfile="libs/base/src/base/axisangle.h" declline="49" declcolumn="1"/>
       </memberdef>
     </sectiondef>
     <briefdescription>

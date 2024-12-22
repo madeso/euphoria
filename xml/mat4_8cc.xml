@@ -3,6 +3,7 @@
   <compounddef id="mat4_8cc" kind="file" language="C++">
     <compoundname>mat4.cc</compoundname>
     <includes refid="mat4_8h" local="yes">base/mat4.h</includes>
+    <includes refid="quat_8h" local="yes">base/quat.h</includes>
     <incdepgraph>
       <node id="5">
         <label>assert/assert.h</label>
@@ -39,6 +40,8 @@
         <link refid="mat4_8cc"/>
         <childnode refid="2" relation="include">
         </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
       </node>
       <node id="2">
         <label>base/mat4.h</label>
@@ -56,6 +59,20 @@
         <label>base/numeric.h</label>
         <link refid="numeric_8h"/>
         <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>base/quat.h</label>
+        <link refid="quat_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
         </childnode>
       </node>
       <node id="3">
@@ -106,7 +123,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/mat4.cc" line="353" column="9"/>
+        <location file="libs/base/src/base/mat4.cc" line="361" column="9"/>
       </memberdef>
       <memberdef kind="define" id="mat4_8cc_1a52267107dd1016c80abd3e27e445e437" prot="public" static="no">
         <name>OP</name>
@@ -118,7 +135,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/mat4.cc" line="364" column="9"/>
+        <location file="libs/base/src/base/mat4.cc" line="372" column="9"/>
       </memberdef>
     </sectiondef>
     <briefdescription>

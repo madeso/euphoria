@@ -121,7 +121,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/quat.cc" line="294" column="9"/>
+        <location file="libs/base/src/base/quat.cc" line="271" column="9"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
