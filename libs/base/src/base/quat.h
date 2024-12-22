@@ -43,8 +43,6 @@ namespace eu
         // the negated represents the same rotation
         [[nodiscard]] Q get_negated() const;
 
-        [[nodiscard]] m4 to_mat4() const;
-        [[nodiscard]] AA to_axis_angle() const;
         [[nodiscard]] const float* get_data_ptr() const;
         [[nodiscard]] v3 get_vec_part() const;
         [[nodiscard]] Q get_conjugate() const;

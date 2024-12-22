@@ -56,9 +56,6 @@ namespace eu
         void normalize();
         [[nodiscard]] n3 get_normalized() const;
 
-        // todo(Gustav): rename to assume_normalized
-        [[nodiscard]] n3 as_normalized() const;
-
         bool operator==(const v3 &rhs) = delete;
     };
 
@@ -80,13 +77,16 @@ namespace eu
             return is_equal(get_length_squared(), 1.0f);
         }
 
-        static n3 to_unit(float x, float y, float z);
-        static n3 to_unit(const v3 &v);
-
         bool operator==(const n3 &rhs) = delete;
 
         constexpr n3(float a, float b, float c)
             : v3(a, b, c)
+        {
+            ASSERT(is_valid());
+        }
+
+        constexpr explicit n3(const v3& v)
+            : v3(v)
         {
             ASSERT(is_valid());
         }

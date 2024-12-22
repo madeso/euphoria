@@ -101,27 +101,7 @@ namespace eu
     {
         v3 r = *this;
         r.normalize();
-        return n3::to_unit(r);
-    }
-
-    [[nodiscard]] n3
-    v3::as_normalized() const
-    {
-        return n3::to_unit(*this);
-    }
-
-    ////////////////////////////////////////////////////////////////////////////////
-
-    n3
-    n3::to_unit(float x, float y, float z)
-    {
-        return {x, y, z};
-    }
-
-    n3
-    n3::to_unit(const v3 &v)
-    {
-        return {v.x, v.y, v.z};
+        return n3{r};
     }
 
     ////////////////////////////////////////////////////////////////////////////////

@@ -78,6 +78,12 @@ namespace eu
         return {to.x - from.x, to.y - from.y};
     }
 
+    v2
+    v2::from(const n2& n)
+    {
+        return {n.x, n.y};
+    }
+
     void
     v2::operator/=(float rhs)
     {
@@ -150,12 +156,6 @@ namespace eu
     n2::get_length_squared() const
     {
         return x * x + y * y;
-    }
-
-    v2
-    n2::to_vec() const
-    {
-        return {x, y};
     }
 
     [[nodiscard]] bool

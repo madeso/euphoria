@@ -1,5 +1,6 @@
 #include "base/mat4.h"
 
+#include "base/quat.h"
 
 namespace eu
 {
@@ -81,7 +82,7 @@ namespace eu
     n3
     m4::get_transform_vec(const n3& p) const
     {
-        return n3::to_unit(get_transform_vec(static_cast<v3>(p)));
+        return n3{ get_transform_vec(static_cast<v3>(p))};
     }
 
     v3
@@ -169,6 +170,13 @@ namespace eu
         );
     }
 
+
+    [[nodiscard]] m4
+    m4::from(const Q& q)
+    {
+        return m4::from(AA::from(q));
+    }
+
     
     v4
     m4::get_major() const
@@ -179,7 +187,7 @@ namespace eu
     n3
     m4::get_axis(int col) const
     {
-        return n3::to_unit(get_column(col).to_vec3(0.0f));
+        return n3{get_column(col).to_vec3(0.0f)};
     }
 
     n3

@@ -61,29 +61,6 @@ namespace eu
     }
 
 
-    [[nodiscard]] m4
-    Q::to_mat4() const
-    {
-        return m4::from(to_axis_angle());
-    }
-
-
-    [[nodiscard]] AA
-    Q::to_axis_angle() const
-    {
-        const float cos_a = w;
-        const auto angle = acos(cos_a) * 2;
-        const auto sin_a = get_default_if_close_to_zero<float>(
-                sqrt(1.0f - cos_a * cos_a), 1, 0.0005f);
-        // todo(Gustav): do we need to normalize here?
-        return right_hand_around(
-                (get_vec_part() / sin_a).get_normalized(), angle);
-    }
-
-
-    // static Q FromAngles(float x, float y, float z);
-
-
     [[nodiscard]] Q
     Q::look_at(const v3& from, const v3& to, const n3& up)
     {

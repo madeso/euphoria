@@ -33,6 +33,7 @@ namespace eu
         explicit v2(const n2& u);
 
         [[nodiscard]] static v2 from_to(const v2& from, const v2& to);
+        [[nodiscard]] static v2 from(const n2& n);
 
         float* get_data_ptr();
         float normalize();
@@ -69,7 +70,6 @@ namespace eu
         [[nodiscard]] n2 get_rotated(const An& a) const;
 
         [[nodiscard]] const float* get_data_ptr() const;
-        [[nodiscard]] v2 to_vec() const;
         [[nodiscard]] n2 get_flipped_y() const;
 
         // todo(Gustav): remove this...

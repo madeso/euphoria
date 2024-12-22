@@ -1,6 +1,7 @@
 #include "base/quat.h"
 
 #include "tests/approx_equal.h"
+#include "base/axisangle.h"
 
 #include "catch2/catch_all.hpp"
 
@@ -117,7 +118,7 @@ TEST_CASE("quat-testLook", "[quat]")
     // Z looks reversed, but remember, negative direction is in
     EXPECT_PRED_FORMAT2(
             eu::Q::from(eu::right_hand_around(
-                    eu::common::up, eu::An::from_degrees(0))),
+                    eu::common::up, eu::no_rotation)),
             eu::Q::look_in_direction(
                     eu::v3(0, 0, -9).get_normalized(), eu::common::up));
     EXPECT_PRED_FORMAT2(
@@ -189,9 +190,9 @@ TEST_CASE("quat-verifyTestAxisAngle", "[quat]")
 {
     EXPECT_PRED_FORMAT2(
             eu::right_hand_around(
-                    eu::common::up, eu::An::from_degrees(0)),
+                    eu::common::up, eu::no_rotation),
             eu::right_hand_around(
-                    eu::common::up, eu::An::from_degrees(0)));
+                    eu::common::up, eu::no_rotation));
     EXPECT_PRED_FORMAT2(
             eu::right_hand_around(
                     eu::common::right, eu::An::from_degrees(90)),
@@ -213,40 +214,41 @@ TEST_CASE("quat-verifyTestAxisAngle", "[quat]")
 TEST_CASE("quat-checkAxisAngle", "[quat]")
 {
     EXPECT_PRED_FORMAT2(
-            eu::right_hand_around(
-                    eu::common::up, eu::An::from_degrees(0)),
+        eu::right_hand_around(eu::common::up, eu::no_rotation),
+        eu::AA::from(
             eu::Q::from(
-                    eu::right_hand_around(
-                            eu::common::up, eu::An::from_degrees(0)))
-                    .to_axis_angle());
+                eu::right_hand_around(eu::common::up, eu::no_rotation)
+            )
+        )
+    );
     EXPECT_PRED_FORMAT2(
             eu::right_hand_around(
-                    eu::common::right, eu::An::from_degrees(0)),
-            eu::Q::from(
+                    eu::common::right, eu::no_rotation),
+        eu::AA::from(eu::Q::from(
                     eu::right_hand_around(
-                            eu::common::right, eu::An::from_degrees(0)))
-                    .to_axis_angle());
+                            eu::common::right, eu::no_rotation))
+                    ));
     EXPECT_PRED_FORMAT2(
             eu::right_hand_around(
                     eu::common::right, eu::An::from_degrees(90)),
-            eu::Q::from(eu::right_hand_around(
+            eu::AA::from(eu::Q::from(eu::right_hand_around(
                                                eu::common::right,
                                                eu::An::from_degrees(90)))
-                    .to_axis_angle());
+                    ));
     EXPECT_PRED_FORMAT2(
             eu::right_hand_around(
                     eu::common::up, eu::An::from_degrees(-45)),
-            eu::Q::from(
+        eu::AA::from(eu::Q::from(
                     eu::right_hand_around(
                             -eu::common::up, eu::An::from_degrees(45)))
-                    .to_axis_angle());
+                    ));
     EXPECT_PRED_FORMAT2(
             eu::right_hand_around(
                     eu::common::right, eu::An::from_degrees(90)),
-            eu::Q::from(eu::right_hand_around(
+            eu::AA::from(eu::Q::from(eu::right_hand_around(
                                                -eu::common::right,
                                                eu::An::from_degrees(-90)))
-                    .to_axis_angle());
+                    ));
 }
 
 TEST_CASE("quat-checkQuatConjugate", "[quat]")

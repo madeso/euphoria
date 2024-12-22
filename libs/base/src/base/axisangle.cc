@@ -2,12 +2,26 @@
 
 #include "assert/assert.h"
 
+#include "base/quat.h"
+
 namespace eu
 {
     AA::AA(const n3 &ax, const An &ang)
         : axis(ax), angle(ang)
     {
         ASSERT(ax.is_valid());
+    }
+
+    [[nodiscard]] AA
+    AA::from(const Q& q)
+    {
+        const float cos_a = q.w;
+        const auto angle = acos(cos_a) * 2;
+        const auto sin_a = get_default_if_close_to_zero<float>(
+                sqrt(1.0f - cos_a * cos_a), 1, 0.0005f);
+        // todo(Gustav): do we need to normalize here?
+        return right_hand_around(
+                (q.get_vec_part() / sin_a).get_normalized(), angle);
     }
 
     AA

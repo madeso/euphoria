@@ -8,9 +8,9 @@ using namespace eu::tests;
 
 TEST_CASE("vec3-to-unit-test", "[vec3]")
 {
-    REQUIRE(eu::n3::to_unit(eu::v3(1.0f, 0.0f, 0.0f)) == approx(eu::common::x_axis));
-    REQUIRE(eu::n3::to_unit(eu::v3(0.0f, 1.0f, 0.0f)) == approx(eu::common::y_axis));
-    REQUIRE(eu::n3::to_unit(eu::v3(0.0f, 0.0f, 1.0f)) == approx(eu::common::z_axis));
+    REQUIRE(eu::n3{1.0f, 0.0f, 0.0f} == approx(eu::common::x_axis));
+    REQUIRE(eu::n3{0.0f, 1.0f, 0.0f} == approx(eu::common::y_axis));
+    REQUIRE(eu::n3{0.0f, 0.0f, 1.0f} == approx(eu::common::z_axis));
 }
 
 TEST_CASE("vec3-axis_test", "[vec3]")

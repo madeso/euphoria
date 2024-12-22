@@ -119,9 +119,9 @@ TEST_CASE("mat4-transposed", "[mat]")
 TEST_CASE("mat4-axis", "[mat]")
 {
     const auto m = eu::m4_identity;
-    REQUIRE(eu::n3::to_unit({1.0f, 0.0f, 0.0f}) == approx(m.get_x_axis()));
-    REQUIRE(eu::n3::to_unit({0.0f, 1.0f, 0.0f}) == approx(m.get_y_axis()));
-    REQUIRE(eu::n3::to_unit({0.0f, 0.0f, 1.0f}) == approx(m.get_z_axis()));
+    REQUIRE(eu::n3{1.0f, 0.0f, 0.0f} == approx(m.get_x_axis()));
+    REQUIRE(eu::n3{0.0f, 1.0f, 0.0f} == approx(m.get_y_axis()));
+    REQUIRE(eu::n3{0.0f, 0.0f, 1.0f} == approx(m.get_z_axis()));
 }
 
 TEST_CASE("mat4-math", "[mat]")

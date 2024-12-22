@@ -10,7 +10,7 @@ namespace eu
         [[nodiscard]] constexpr static An
         from_degrees(float degrees)
         {
-            return An(c_degrees_to_radian(degrees));
+            return An(rad_from_deg(degrees));
         }
 
         [[nodiscard]] constexpr static An
@@ -38,7 +38,7 @@ namespace eu
         [[nodiscard]] constexpr float
         as_degrees() const
         {
-            return c_radian_to_degrees(radians);
+            return deg_from_rad(radians);
         }
 
         [[nodiscard]] constexpr float
@@ -67,13 +67,13 @@ namespace eu
         constexpr explicit An(float r) : radians(r) {}
 
         [[nodiscard]] static constexpr float
-        c_radian_to_degrees(float radians)
+        deg_from_rad(float radians)
         {
             return (180.0f / pi) * radians;
         }
 
         [[nodiscard]] static constexpr float
-        c_degrees_to_radian(float degrees)
+        rad_from_deg(float degrees)
         {
             return pi / 180.0f * degrees;
         }
