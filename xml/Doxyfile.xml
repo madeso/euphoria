@@ -84,7 +84,7 @@
   <option  id='CASE_SENSE_NAMES' default='no' type='string'><value>YES</value></option>
   <option  id='HIDE_SCOPE_NAMES' default='yes' type='bool'><value>NO</value></option>
   <option  id='HIDE_COMPOUND_REFERENCE' default='yes' type='bool'><value>NO</value></option>
-  <option  id='SHOW_HEADERFILE' default='yes' type='bool'><value>YES</value></option>
+  <option  id='SHOW_HEADERFILE' default='no' type='bool'><value>NO</value></option>
   <option  id='SHOW_INCLUDE_FILES' default='yes' type='bool'><value>YES</value></option>
   <option  id='SHOW_GROUPED_MEMB_INC' default='no' type='bool'><value>YES</value></option>
   <option  id='FORCE_LOCAL_INCLUDES' default='yes' type='bool'><value>NO</value></option>
