@@ -5,7 +5,7 @@
     <innerclass refid="structeu_1_1assertlib_1_1AssertArgumentValue" prot="public">eu::assertlib::AssertArgumentValue</innerclass>
     <sectiondef kind="func">
       <memberdef kind="function" id="namespaceeu_1_1assertlib_1a7ca844c158bbf7e734f29b4312c6db01" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">void</ref></type>
+        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
         <definition>void eu::assertlib::begin_throwing</definition>
         <argsstring>()</argsstring>
         <name>begin_throwing</name>
@@ -19,7 +19,7 @@
         <location file="libs/assert/src/assert/assert.h" line="102" column="5" declfile="libs/assert/src/assert/assert.h" declline="102" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1assertlib_1a0edb7b21ba4d86e980bd40b0f63a0c2e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">bool</ref></type>
+        <type><ref refid="structeu_1_1R" kindref="compound">bool</ref></type>
         <definition>bool eu::assertlib::is_throwing</definition>
         <argsstring>()</argsstring>
         <name>is_throwing</name>
@@ -33,33 +33,33 @@
         <location file="libs/assert/src/assert/assert.h" line="105" column="5" declfile="libs/assert/src/assert/assert.h" declline="105" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1assertlib_1adc0b8ea0bf3e97d51c38156ad5484a67" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">void</ref></type>
+        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
         <definition>void eu::assertlib::on_assert</definition>
         <argsstring>(const char *expression, int line, const char *file, const char *argstr, const std::vector&lt; AssertArgumentValue &gt; &amp;arguments, const char *function)</argsstring>
         <name>on_assert</name>
         <qualifiedname>eu::assertlib::on_assert</qualifiedname>
         <param>
-          <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">char</ref> *</type>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1R" kindref="compound">char</ref> *</type>
           <declname>expression</declname>
         </param>
         <param>
-          <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">int</ref></type>
+          <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
           <declname>line</declname>
         </param>
         <param>
-          <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">char</ref> *</type>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1R" kindref="compound">char</ref> *</type>
           <declname>file</declname>
         </param>
         <param>
-          <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">char</ref> *</type>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1R" kindref="compound">char</ref> *</type>
           <declname>argstr</declname>
         </param>
         <param>
-          <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> std::vector&lt; <ref refid="structeu_1_1assertlib_1_1AssertArgumentValue" kindref="compound">AssertArgumentValue</ref> &gt; &amp;</type>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> std::vector&lt; <ref refid="structeu_1_1assertlib_1_1AssertArgumentValue" kindref="compound">AssertArgumentValue</ref> &gt; &amp;</type>
           <declname>arguments</declname>
         </param>
         <param>
-          <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">char</ref> *</type>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1R" kindref="compound">char</ref> *</type>
           <declname>function</declname>
         </param>
         <briefdescription>

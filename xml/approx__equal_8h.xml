@@ -6,7 +6,6 @@
     <includes refid="axisangle_8h" local="yes">base/axisangle.h</includes>
     <includes refid="quat_8h" local="yes">base/quat.h</includes>
     <includes refid="approx_8h" local="yes">tests/approx.h</includes>
-    <includedby refid="approx__equal_8cc" local="yes">libs/tests/src/tests/approx_equal.cc</includedby>
     <incdepgraph>
       <node id="4">
         <label>assert/assert.h</label>
@@ -137,18 +136,6 @@
         <label>vector</label>
       </node>
     </incdepgraph>
-    <invincdepgraph>
-      <node id="2">
-        <label>libs/tests/src/tests/approx_equal.cc</label>
-        <link refid="approx__equal_8cc"/>
-      </node>
-      <node id="1">
-        <label>libs/tests/src/tests/approx_equal.h</label>
-        <link refid="approx__equal_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-      </node>
-    </invincdepgraph>
     <innernamespace refid="namespaceeu">eu</innernamespace>
     <innernamespace refid="namespaceeu_1_1tests">eu::tests</innernamespace>
     <briefdescription>

@@ -2,29 +2,18 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
   <compounddef id="dir_9335635e0e9dc5833ab0cd315fbf7edd" kind="dir">
     <compoundname>libs/base/src/base</compoundname>
-    <innerfile refid="angle_8cc">angle.cc</innerfile>
     <innerfile refid="angle_8h">angle.h</innerfile>
-    <innerfile refid="axisangle_8cc">axisangle.cc</innerfile>
     <innerfile refid="axisangle_8h">axisangle.h</innerfile>
-    <innerfile refid="colors_8cc">colors.cc</innerfile>
     <innerfile refid="colors_8h">colors.h</innerfile>
-    <innerfile refid="ints_8cc">ints.cc</innerfile>
     <innerfile refid="ints_8h">ints.h</innerfile>
-    <innerfile refid="mat4_8cc">mat4.cc</innerfile>
     <innerfile refid="mat4_8h">mat4.h</innerfile>
-    <innerfile refid="numeric_8cc">numeric.cc</innerfile>
     <innerfile refid="numeric_8h">numeric.h</innerfile>
     <innerfile refid="pch_8private_8h">pch.private.h</innerfile>
     <innerfile refid="base_2src_2base_2pch_8public_8h">pch.public.h</innerfile>
-    <innerfile refid="quat_8cc">quat.cc</innerfile>
     <innerfile refid="quat_8h">quat.h</innerfile>
-    <innerfile refid="range_8cc">range.cc</innerfile>
     <innerfile refid="range_8h">range.h</innerfile>
-    <innerfile refid="vec2_8cc">vec2.cc</innerfile>
     <innerfile refid="vec2_8h">vec2.h</innerfile>
-    <innerfile refid="vec3_8cc">vec3.cc</innerfile>
     <innerfile refid="vec3_8h">vec3.h</innerfile>
-    <innerfile refid="vec4_8cc">vec4.cc</innerfile>
     <innerfile refid="vec4_8h">vec4.h</innerfile>
     <briefdescription>
     </briefdescription>

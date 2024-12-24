@@ -5,7 +5,6 @@
     <includes local="no">iostream</includes>
     <includes refid="vec3_8h" local="yes">base/vec3.h</includes>
     <includes refid="angle_8h" local="yes">base/angle.h</includes>
-    <includedby refid="axisangle_8cc" local="yes">libs/base/src/base/axisangle.cc</includedby>
     <includedby refid="mat4_8h" local="yes">libs/base/src/base/mat4.h</includedby>
     <includedby refid="quat_8h" local="yes">libs/base/src/base/quat.h</includedby>
     <includedby refid="approx__equal_8h" local="yes">libs/tests/src/tests/approx_equal.h</includedby>
@@ -73,10 +72,6 @@
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="2">
-        <label>libs/base/src/base/axisangle.cc</label>
-        <link refid="axisangle_8cc"/>
-      </node>
       <node id="1">
         <label>libs/base/src/base/axisangle.h</label>
         <link refid="axisangle_8h"/>
@@ -84,99 +79,29 @@
         </childnode>
         <childnode refid="3" relation="include">
         </childnode>
-        <childnode refid="5" relation="include">
+        <childnode refid="4" relation="include">
         </childnode>
-        <childnode refid="7" relation="include">
+      </node>
+      <node id="2">
+        <label>libs/base/src/base/mat4.h</label>
+        <link refid="mat4_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>libs/base/src/base/quat.h</label>
+        <link refid="quat_8h"/>
+        <childnode refid="4" relation="include">
         </childnode>
       </node>
       <node id="4">
-        <label>libs/base/src/base/mat4.cc</label>
-        <link refid="mat4_8cc"/>
-      </node>
-      <node id="3">
-        <label>libs/base/src/base/mat4.h</label>
-        <link refid="mat4_8h"/>
-        <childnode refid="4" relation="include">
-        </childnode>
-        <childnode refid="5" relation="include">
-        </childnode>
-      </node>
-      <node id="6">
-        <label>libs/base/src/base/quat.cc</label>
-        <link refid="quat_8cc"/>
-      </node>
-      <node id="5">
-        <label>libs/base/src/base/quat.h</label>
-        <link refid="quat_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="4" relation="include">
-        </childnode>
-        <childnode refid="6" relation="include">
-        </childnode>
-        <childnode refid="7" relation="include">
-        </childnode>
-      </node>
-      <node id="8">
-        <label>libs/tests/src/tests/approx_equal.cc</label>
-        <link refid="approx__equal_8cc"/>
-      </node>
-      <node id="7">
         <label>libs/tests/src/tests/approx_equal.h</label>
         <link refid="approx__equal_8h"/>
-        <childnode refid="8" relation="include">
-        </childnode>
       </node>
     </invincdepgraph>
     <innerclass refid="structeu_1_1AA" prot="public">eu::AA</innerclass>
     <innerclass refid="structeu_1_1Ypr" prot="public">eu::Ypr</innerclass>
     <innernamespace refid="namespaceeu">eu</innernamespace>
-    <sectiondef kind="func">
-      <memberdef kind="function" id="axisangle_8h_1ad8d9e9f798342c50d29b9a149f9c0a7e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>ADD_DEFAULT_FORMATTER</definition>
-        <argsstring>(eu::AA, std::string, eu::string_from)</argsstring>
-        <name>ADD_DEFAULT_FORMATTER</name>
-        <param>
-          <type><ref refid="structeu_1_1AA" kindref="compound">eu::AA</ref></type>
-        </param>
-        <param>
-          <type>std::string</type>
-        </param>
-        <param>
-          <type><ref refid="group__math_1gafa7f170a2c4415e5c9f4d517b138a489" kindref="member">eu::string_from</ref></type>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/base/src/base/axisangle.h" line="48" column="1" declfile="libs/base/src/base/axisangle.h" declline="48" declcolumn="1"/>
-      </memberdef>
-      <memberdef kind="function" id="axisangle_8h_1ac72a38dc59b447a915fbd4f3e87c0cb0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>ADD_DEFAULT_FORMATTER</definition>
-        <argsstring>(eu::Ypr, std::string, eu::string_from)</argsstring>
-        <name>ADD_DEFAULT_FORMATTER</name>
-        <param>
-          <type><ref refid="structeu_1_1Ypr" kindref="compound">eu::Ypr</ref></type>
-        </param>
-        <param>
-          <type>std::string</type>
-        </param>
-        <param>
-          <type><ref refid="group__math_1gafa7f170a2c4415e5c9f4d517b138a489" kindref="member">eu::string_from</ref></type>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/base/src/base/axisangle.h" line="49" column="1" declfile="libs/base/src/base/axisangle.h" declline="49" declcolumn="1"/>
-      </memberdef>
-    </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

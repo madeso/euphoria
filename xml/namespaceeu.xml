@@ -156,8 +156,8 @@
       <member refid="group__math_1ga8de0a9fb14b3fcf5466c96ba6a503c92" kind="function"><name>atan2</name></member>
       <member refid="group__math_1gaddb270c0f4a5cc2ddd647b52208e2192" kind="function"><name>operator+</name></member>
       <member refid="group__math_1gaa5ac4cace5f29e16ecaf5065f56a3b5e" kind="function"><name>operator-</name></member>
-      <member refid="group__math_1ga70234da8d6bce29f0ce528b1f1c04dad" kind="function"><name>operator/</name></member>
       <member refid="group__math_1gae19fc15fd3b494668d1040e9125aa1de" kind="function"><name>operator*</name></member>
+      <member refid="group__math_1ga70234da8d6bce29f0ce528b1f1c04dad" kind="function"><name>operator/</name></member>
       <member refid="group__math_1ga513f443e6cc11c48dd05de3e5dfb5ab8" kind="function"><name>operator*</name></member>
       <member refid="group__math_1gafa7f170a2c4415e5c9f4d517b138a489" kind="function"><name>string_from</name></member>
       <member refid="group__math_1ga37aec4a04518d899030ef13b9bfdb231" kind="function"><name>operator&lt;</name></member>
@@ -167,34 +167,15 @@
       <member refid="group__math_1ga0bade92aadaac348c9d69c311012401c" kind="function"><name>lerp_angle</name></member>
       <member refid="group__math_1gae9cc9ff4ed32a327a7e883617b9b7de2" kind="function"><name>right_hand_around</name></member>
       <member refid="group__math_1gaa507848ead7e3929ac34a5631d051638" kind="function"><name>string_from</name></member>
-      <member refid="group__math_1ga06c34e869eddc08c945c040b0066925a" kind="function"><name>string_from</name></member>
+      <member refid="group__math_1gad902ccc075018be926b6d34aa5eb7d92" kind="function"><name>string_from</name></member>
       <member refid="group__math_1ga66e1820c967a20b5f47444560e472077" kind="function"><name>string_from</name></member>
       <member refid="group__math_1gac6df9508643c5fd4c3492e047e9a932c" kind="function"><name>operator+</name></member>
       <member refid="group__math_1gaf28a2e40d555474d81f7d62a6f02c726" kind="function"><name>operator-</name></member>
-      <memberdef kind="function" id="namespaceeu_1a6c7411b88038f38cf17a8bf5ab6912f5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">float</ref></type>
-        <definition>float eu::get_component_multiply_sum</definition>
-        <argsstring>(const v4 &amp;lhs, const v4 &amp;rhs)</argsstring>
-        <name>get_component_multiply_sum</name>
-        <qualifiedname>eu::get_component_multiply_sum</qualifiedname>
-        <param>
-          <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1v4" kindref="compound">v4</ref> &amp;</type>
-          <declname>lhs</declname>
-        </param>
-        <param>
-          <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1v4" kindref="compound">v4</ref> &amp;</type>
-          <declname>rhs</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/base/src/base/mat4.cc" line="485" column="5" bodyfile="libs/base/src/base/mat4.cc" bodystart="485" bodyend="492"/>
-      </memberdef>
       <member refid="group__math_1gad0d155e66eaba7b173f177f04434b446" kind="function"><name>operator*</name></member>
       <member refid="group__math_1ga71c65bf3f1b8eec74b96ffb0ea0103fa" kind="function"><name>operator*</name></member>
+      <member refid="group__math_1ga6124e8a8479a4359c8aec7feee2651de" kind="function"><name>abs</name></member>
+      <member refid="group__math_1ga63cd526bac84ee9b0d7550d6c73657d5" kind="function"><name>is_zero</name></member>
+      <member refid="group__math_1ga8e2e7f88b7732924df89619f76286878" kind="function"><name>is_equal</name></member>
       <member refid="group__math_1ga84234ac42f340bb5b38c0a34f4cd0e3f" kind="function"><name>is_equal</name></member>
       <member refid="group__math_1ga4cd8cf9bbadd516833a572bfd4abc3b0" kind="function"><name>is_zero</name></member>
       <member refid="group__math_1ga18b5929af6c64c2b319d0f5709430afc" kind="function"><name>clamp_zero</name></member>
@@ -208,30 +189,26 @@
       <member refid="group__math_1ga3bd12ab44428ae8a36fd69bd74afef85" kind="function"><name>lerp_float</name></member>
       <member refid="group__math_1ga692b7283c3a58ab27de56366b3fadbd4" kind="function"><name>square</name></member>
       <member refid="group__math_1ga066452fba287c9fcb6a0188ea8424760" kind="function"><name>sqrt</name></member>
+      <member refid="group__math_1gaa4f3a1d68eda3b72dc542eca112fc1e3" kind="function"><name>min</name></member>
+      <member refid="group__math_1gafdb18ee646a157c1e7d64082029202bb" kind="function"><name>max</name></member>
       <member refid="group__math_1ga7d43cf27d1afca3da4e04b3b8451c9f1" kind="function"><name>mod</name></member>
       <member refid="group__math_1ga502ba547bcbe1c6035ed180e732cd80b" kind="function"><name>is_within_inclusive_as_int</name></member>
       <member refid="group__math_1ga7ef41a3ef0020cdf027febcf7cb38db3" kind="function"><name>round</name></member>
-      <member refid="group__math_1ga6124e8a8479a4359c8aec7feee2651de" kind="function"><name>abs</name></member>
-      <member refid="group__math_1ga63cd526bac84ee9b0d7550d6c73657d5" kind="function"><name>is_zero</name></member>
-      <member refid="group__math_1ga8e2e7f88b7732924df89619f76286878" kind="function"><name>is_equal</name></member>
-      <member refid="group__math_1gaa4f3a1d68eda3b72dc542eca112fc1e3" kind="function"><name>min</name></member>
-      <member refid="group__math_1gafdb18ee646a157c1e7d64082029202bb" kind="function"><name>max</name></member>
       <member refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kind="function"><name>get_default_if_close_to_zero</name></member>
       <member refid="group__math_1ga5d5dc7f4ea7cac8493e9006180e9a657" kind="function"><name>is_each_nth</name></member>
-      <member refid="group__math_1ga5cd76c94b44e55f7122a46bba3ae4d81" kind="function"><name>lerp_quatf</name></member>
-      <member refid="group__math_1ga1e05b672b47b209b25bc12c58308fa05" kind="function"><name>slerp_fast</name></member>
-      <member refid="group__math_1gae6089c53b1f851cdbefd186bba37f9d6" kind="function"><name>slerp_shortway</name></member>
-      <member refid="group__math_1ga6214f288996499f35cf95e039b52e1ee" kind="function"><name>string_from</name></member>
+      <member refid="group__math_1ga29f9e616e317eab3c31fb9aa68efbeb5" kind="function"><name>lerp_quatf</name></member>
+      <member refid="group__math_1gab8152198125a37ecb802cfd5eb21c853" kind="function"><name>slerp_fast</name></member>
+      <member refid="group__math_1ga885b7e90819af2ad08620fb94973045f" kind="function"><name>slerp_shortway</name></member>
       <member refid="group__math_1gad4b8d21db1b1a25c346296eec35b330b" kind="function"><name>dot</name></member>
+      <member refid="group__math_1ga6214f288996499f35cf95e039b52e1ee" kind="function"><name>string_from</name></member>
       <member refid="group__math_1gae99fc2a026a0a7ac61fbc6281d530996" kind="function"><name>operator*</name></member>
       <member refid="group__math_1ga74899d4681ffa6fdccd09f9588ba7661" kind="function"><name>operator*</name></member>
       <member refid="group__math_1ga4dde67115df3f842c8371817f87587d4" kind="function"><name>operator*</name></member>
       <member refid="group__math_1ga94c89d4216e30fc6ad3711eb540a25fc" kind="function"><name>operator+</name></member>
       <member refid="group__math_1gae807f257d9b667c1c45602b2d67ceafa" kind="function"><name>operator-</name></member>
-      <member refid="group__math_1ga1d52a91adaa565513eb90b8d2dce2df5" kind="function"><name>from_01f</name></member>
-      <member refid="group__math_1ga71a5abeae01c3597f3e9d7371a7e9df3" kind="function"><name>from_01</name></member>
       <member refid="group__math_1ga53e78e428a56c4436a3a11a8c747cb4c" kind="function"><name>make_range</name></member>
       <member refid="group__math_1ga572ae747813ec1771667ebd29d4c8144" kind="function"><name>make_range</name></member>
+      <member refid="group__math_1ga1d52a91adaa565513eb90b8d2dce2df5" kind="function"><name>from_01f</name></member>
       <member refid="group__math_1gaa18213902220185ad70feda7d212e55a" kind="function"><name>from_01</name></member>
       <member refid="group__math_1ga71a5abeae01c3597f3e9d7371a7e9df3" kind="function"><name>from_01</name></member>
       <member refid="group__math_1ga4b358bd01ddb038d5d8d1dc62920e0ee" kind="function"><name>to01</name></member>

@@ -4,7 +4,7 @@
     <member refid="structeu_1_1AA_1a517bd92c9485430787c833f68eb42379" kind="variable"><name>axis</name></member>
     <member refid="structeu_1_1AA_1a0ef36e1500a96f32d75602e9a53596da" kind="variable"><name>angle</name></member>
     <member refid="structeu_1_1AA_1af1690aab94c15e9db117c61ea3265e8a" kind="function"><name>AA</name></member>
-    <member refid="structeu_1_1AA_1a03e357ffaeca451e69fc09403d0fd80e" kind="function"><name>from</name></member>
+    <member refid="structeu_1_1AA_1a01fd8ed962964dc8404291b42325b40e" kind="function"><name>from</name></member>
   </compound>
   <compound refid="structeu_1_1An" kind="struct"><name>eu::An</name>
     <member refid="structeu_1_1An_1a187f0b5cc79e5083d34ea80bc95ec1f0" kind="variable"><name>radians</name></member>
@@ -63,17 +63,17 @@
   </compound>
   <compound refid="structeu_1_1m4" kind="struct"><name>eu::m4</name>
     <member refid="structeu_1_1m4_1af7c3cf30f02fe7416cf478c3c49efea0" kind="variable"><name>data</name></member>
-    <member refid="structeu_1_1m4_1a32a21f5da59841c2d0c4df378a63a878" kind="function"><name>from_col_major</name></member>
+    <member refid="structeu_1_1m4_1a58645dabbcce1444dad58a89e7611fd3" kind="function"><name>from_col_major</name></member>
     <member refid="structeu_1_1m4_1a87e85f6fda44138f93d1d53565f0c4f2" kind="function"><name>from_row_major</name></member>
-    <member refid="structeu_1_1m4_1af9c75f3c3eca8b18eb3ceb750f2adc81" kind="function"><name>from_major</name></member>
-    <member refid="structeu_1_1m4_1ae5426275a989ff66b7b8e466c5bb497b" kind="function"><name>from_translation</name></member>
-    <member refid="structeu_1_1m4_1ab2c96190d3bb65adeaa6e537771ce44f" kind="function"><name>from_rot_x</name></member>
-    <member refid="structeu_1_1m4_1ab67f3ea5a38236ed9dbf6a3374c172e8" kind="function"><name>from_rot_y</name></member>
-    <member refid="structeu_1_1m4_1a2650673d607273788b3d2aa5db8eee61" kind="function"><name>from_rot_z</name></member>
-    <member refid="structeu_1_1m4_1a4cc3a2ecfaca3d770080bde7031a215a" kind="function"><name>from</name></member>
-    <member refid="structeu_1_1m4_1ae0059b875d3da5ef7b6eb36c81a25660" kind="function"><name>from</name></member>
-    <member refid="structeu_1_1m4_1a2181b49f95857d9675bfd7ca6765ee97" kind="function"><name>create_ortho</name></member>
-    <member refid="structeu_1_1m4_1a3dafc219fdf0be5cdf201328a6918151" kind="function"><name>create_perspective</name></member>
+    <member refid="structeu_1_1m4_1ae6eaf6bb5bd67c4e665537d0b1ac4ad7" kind="function"><name>from_major</name></member>
+    <member refid="structeu_1_1m4_1aba676fc0ae9d7b1b6a26d36b8b91034c" kind="function"><name>from_translation</name></member>
+    <member refid="structeu_1_1m4_1a40ffd44fdb5e5afff26219ee1ca73686" kind="function"><name>from_rot_x</name></member>
+    <member refid="structeu_1_1m4_1a05aee86e518e28de0e30b59d1b45a044" kind="function"><name>from_rot_y</name></member>
+    <member refid="structeu_1_1m4_1a82ebadeb3686d4969a25ea562a77b69c" kind="function"><name>from_rot_z</name></member>
+    <member refid="structeu_1_1m4_1afbf74cfa8215fe5c7c29f14095592a4d" kind="function"><name>from</name></member>
+    <member refid="structeu_1_1m4_1a61c652ef3fa0b95f69e970fad0115995" kind="function"><name>from</name></member>
+    <member refid="structeu_1_1m4_1ae8ba82977a543bd9ab1991f1b4e33dbb" kind="function"><name>create_ortho</name></member>
+    <member refid="structeu_1_1m4_1a09082b8b01477bcfcf5d6eaab85c1855" kind="function"><name>create_perspective</name></member>
     <member refid="structeu_1_1m4_1aa47c360516068b62237182dd1f005cd7" kind="function"><name>from_scalar</name></member>
     <member refid="structeu_1_1m4_1a65d91262bd9bef4225ef863ccf35dcef" kind="function"><name>get_data_ptr</name></member>
     <member refid="structeu_1_1m4_1a9427ee3705d08290d5556fcfd02f4037" kind="function"><name>get_column_major</name></member>
@@ -154,11 +154,11 @@
     <member refid="structeu_1_1Q_1a3a6307c05c948f7c01a444b30a2d6af2" kind="function"><name>operator-=</name></member>
     <member refid="structeu_1_1Q_1a0d598e8d983468dd130394a0fcab90fa" kind="function"><name>operator*=</name></member>
     <member refid="structeu_1_1Q_1a5157e607b25efe618c69117897b19daa" kind="function"><name>operator*=</name></member>
-    <member refid="structeu_1_1Q_1ab8b717d42d0a5c9f4c4e4383bf2b30fb" kind="function"><name>from</name></member>
-    <member refid="structeu_1_1Q_1af8787298cefa9114b0ae1be83f2063b0" kind="function"><name>from</name></member>
-    <member refid="structeu_1_1Q_1ad2918920e18ddd60a35c6732064322b5" kind="function"><name>from_to</name></member>
-    <member refid="structeu_1_1Q_1ae767ff0cafc36d26166a5fdb6828ae47" kind="function"><name>look_at</name></member>
-    <member refid="structeu_1_1Q_1a9b7f4468e85e0bc4f68287c70f92bbc3" kind="function"><name>look_in_direction</name></member>
+    <member refid="structeu_1_1Q_1acf38e08247c681bffa8d6e4d3e731f96" kind="function"><name>from</name></member>
+    <member refid="structeu_1_1Q_1afaa1c917caaf0a005f39bc0ba222ecac" kind="function"><name>from</name></member>
+    <member refid="structeu_1_1Q_1a0b7e97b743d06f8d4305a4f3ad54c26a" kind="function"><name>from_to</name></member>
+    <member refid="structeu_1_1Q_1a3d601fbf33e303ecb94993c477f4e6e6" kind="function"><name>look_at</name></member>
+    <member refid="structeu_1_1Q_1abdf0df3ce5bdd1000bb0658c7838fc28" kind="function"><name>look_in_direction</name></member>
   </compound>
   <compound refid="structeu_1_1R" kind="struct"><name>eu::R</name>
     <member refid="structeu_1_1R_1a21fb9b629bbc9a9db9899a63864cc629" kind="variable"><name>lower_bound</name></member>
@@ -194,8 +194,8 @@
     <member refid="structeu_1_1v2_1ae0b3e570e0a08b96e4afce5ee47515a6" kind="function"><name>operator-</name></member>
     <member refid="structeu_1_1v2_1a0affead99e4d96ac25467ffc792e4404" kind="function"><name>operator/=</name></member>
     <member refid="structeu_1_1v2_1a12dc1a1ad25853a224cfb4a99b3370ea" kind="function"><name>operator*=</name></member>
-    <member refid="structeu_1_1v2_1a7c2654201fecf580871f4adb2c2b63b0" kind="function"><name>from_to</name></member>
-    <member refid="structeu_1_1v2_1a617a0729b54967f60d707ca7137181db" kind="function"><name>from</name></member>
+    <member refid="structeu_1_1v2_1abb813dccdd6fa86a5b27a46b71d6d3a8" kind="function"><name>from_to</name></member>
+    <member refid="structeu_1_1v2_1ae6784a3af47155b3bcd9769f63b5a01b" kind="function"><name>from</name></member>
   </compound>
   <compound refid="structeu_1_1v3" kind="struct"><name>eu::v3</name>
     <member refid="structeu_1_1v3_1a8055f3b9688190527bf7a46ad1960970" kind="variable"><name>x</name></member>
@@ -219,7 +219,7 @@
     <member refid="structeu_1_1v3_1a398e2f716bacc7b46247b53c7b066cc0" kind="function"><name>normalize</name></member>
     <member refid="structeu_1_1v3_1a7089404a4bbe62dbd5ab7456a54307d9" kind="function"><name>get_normalized</name></member>
     <member refid="structeu_1_1v3_1aec2154808567055f1f237d6be4807cec" kind="function"><name>operator==</name></member>
-    <member refid="structeu_1_1v3_1a77831e16b66e7d615221d3f3cd55350a" kind="function"><name>from_to</name></member>
+    <member refid="structeu_1_1v3_1a3d56743109db2dbb8c142dc72d1e3666" kind="function"><name>from_to</name></member>
   </compound>
   <compound refid="structeu_1_1v4" kind="struct"><name>eu::v4</name>
     <member refid="structeu_1_1v4_1ac61bea2183fe4e355b562933875d9a17" kind="variable"><name>x</name></member>
@@ -239,10 +239,6 @@
     <member refid="structeu_1_1Ypr_1a876d894be0edc78d9250f3d5df68f7d4" kind="variable"><name>yaw</name></member>
     <member refid="structeu_1_1Ypr_1a19ba5b756baa3ae5baa58d281e791ea2" kind="variable"><name>pitch</name></member>
     <member refid="structeu_1_1Ypr_1ac60be98970716f36245071ef9ef088ac" kind="variable"><name>roll</name></member>
-  </compound>
-  <compound refid="namespace_0d28" kind="namespace"><name>@28</name>
-  </compound>
-  <compound refid="namespace_0d30" kind="namespace"><name>@30</name>
   </compound>
   <compound refid="namespaceeu" kind="namespace"><name>eu</name>
     <member refid="namespaceeu_1af51071e3961aca6266852501c7229467" kind="typedef"><name>i8</name></member>
@@ -273,8 +269,8 @@
     <member refid="group__math_1ga8de0a9fb14b3fcf5466c96ba6a503c92" kind="function"><name>atan2</name></member>
     <member refid="group__math_1gaddb270c0f4a5cc2ddd647b52208e2192" kind="function"><name>operator+</name></member>
     <member refid="group__math_1gaa5ac4cace5f29e16ecaf5065f56a3b5e" kind="function"><name>operator-</name></member>
-    <member refid="group__math_1ga70234da8d6bce29f0ce528b1f1c04dad" kind="function"><name>operator/</name></member>
     <member refid="group__math_1gae19fc15fd3b494668d1040e9125aa1de" kind="function"><name>operator*</name></member>
+    <member refid="group__math_1ga70234da8d6bce29f0ce528b1f1c04dad" kind="function"><name>operator/</name></member>
     <member refid="group__math_1ga513f443e6cc11c48dd05de3e5dfb5ab8" kind="function"><name>operator*</name></member>
     <member refid="group__math_1gafa7f170a2c4415e5c9f4d517b138a489" kind="function"><name>string_from</name></member>
     <member refid="group__math_1ga37aec4a04518d899030ef13b9bfdb231" kind="function"><name>operator&lt;</name></member>
@@ -284,13 +280,15 @@
     <member refid="group__math_1ga0bade92aadaac348c9d69c311012401c" kind="function"><name>lerp_angle</name></member>
     <member refid="group__math_1gae9cc9ff4ed32a327a7e883617b9b7de2" kind="function"><name>right_hand_around</name></member>
     <member refid="group__math_1gaa507848ead7e3929ac34a5631d051638" kind="function"><name>string_from</name></member>
-    <member refid="group__math_1ga06c34e869eddc08c945c040b0066925a" kind="function"><name>string_from</name></member>
+    <member refid="group__math_1gad902ccc075018be926b6d34aa5eb7d92" kind="function"><name>string_from</name></member>
     <member refid="group__math_1ga66e1820c967a20b5f47444560e472077" kind="function"><name>string_from</name></member>
     <member refid="group__math_1gac6df9508643c5fd4c3492e047e9a932c" kind="function"><name>operator+</name></member>
     <member refid="group__math_1gaf28a2e40d555474d81f7d62a6f02c726" kind="function"><name>operator-</name></member>
-    <member refid="namespaceeu_1a6c7411b88038f38cf17a8bf5ab6912f5" kind="function"><name>get_component_multiply_sum</name></member>
     <member refid="group__math_1gad0d155e66eaba7b173f177f04434b446" kind="function"><name>operator*</name></member>
     <member refid="group__math_1ga71c65bf3f1b8eec74b96ffb0ea0103fa" kind="function"><name>operator*</name></member>
+    <member refid="group__math_1ga6124e8a8479a4359c8aec7feee2651de" kind="function"><name>abs</name></member>
+    <member refid="group__math_1ga63cd526bac84ee9b0d7550d6c73657d5" kind="function"><name>is_zero</name></member>
+    <member refid="group__math_1ga8e2e7f88b7732924df89619f76286878" kind="function"><name>is_equal</name></member>
     <member refid="group__math_1ga84234ac42f340bb5b38c0a34f4cd0e3f" kind="function"><name>is_equal</name></member>
     <member refid="group__math_1ga4cd8cf9bbadd516833a572bfd4abc3b0" kind="function"><name>is_zero</name></member>
     <member refid="group__math_1ga18b5929af6c64c2b319d0f5709430afc" kind="function"><name>clamp_zero</name></member>
@@ -304,30 +302,26 @@
     <member refid="group__math_1ga3bd12ab44428ae8a36fd69bd74afef85" kind="function"><name>lerp_float</name></member>
     <member refid="group__math_1ga692b7283c3a58ab27de56366b3fadbd4" kind="function"><name>square</name></member>
     <member refid="group__math_1ga066452fba287c9fcb6a0188ea8424760" kind="function"><name>sqrt</name></member>
+    <member refid="group__math_1gaa4f3a1d68eda3b72dc542eca112fc1e3" kind="function"><name>min</name></member>
+    <member refid="group__math_1gafdb18ee646a157c1e7d64082029202bb" kind="function"><name>max</name></member>
     <member refid="group__math_1ga7d43cf27d1afca3da4e04b3b8451c9f1" kind="function"><name>mod</name></member>
     <member refid="group__math_1ga502ba547bcbe1c6035ed180e732cd80b" kind="function"><name>is_within_inclusive_as_int</name></member>
     <member refid="group__math_1ga7ef41a3ef0020cdf027febcf7cb38db3" kind="function"><name>round</name></member>
-    <member refid="group__math_1ga6124e8a8479a4359c8aec7feee2651de" kind="function"><name>abs</name></member>
-    <member refid="group__math_1ga63cd526bac84ee9b0d7550d6c73657d5" kind="function"><name>is_zero</name></member>
-    <member refid="group__math_1ga8e2e7f88b7732924df89619f76286878" kind="function"><name>is_equal</name></member>
-    <member refid="group__math_1gaa4f3a1d68eda3b72dc542eca112fc1e3" kind="function"><name>min</name></member>
-    <member refid="group__math_1gafdb18ee646a157c1e7d64082029202bb" kind="function"><name>max</name></member>
     <member refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kind="function"><name>get_default_if_close_to_zero</name></member>
     <member refid="group__math_1ga5d5dc7f4ea7cac8493e9006180e9a657" kind="function"><name>is_each_nth</name></member>
-    <member refid="group__math_1ga5cd76c94b44e55f7122a46bba3ae4d81" kind="function"><name>lerp_quatf</name></member>
-    <member refid="group__math_1ga1e05b672b47b209b25bc12c58308fa05" kind="function"><name>slerp_fast</name></member>
-    <member refid="group__math_1gae6089c53b1f851cdbefd186bba37f9d6" kind="function"><name>slerp_shortway</name></member>
-    <member refid="group__math_1ga6214f288996499f35cf95e039b52e1ee" kind="function"><name>string_from</name></member>
+    <member refid="group__math_1ga29f9e616e317eab3c31fb9aa68efbeb5" kind="function"><name>lerp_quatf</name></member>
+    <member refid="group__math_1gab8152198125a37ecb802cfd5eb21c853" kind="function"><name>slerp_fast</name></member>
+    <member refid="group__math_1ga885b7e90819af2ad08620fb94973045f" kind="function"><name>slerp_shortway</name></member>
     <member refid="group__math_1gad4b8d21db1b1a25c346296eec35b330b" kind="function"><name>dot</name></member>
+    <member refid="group__math_1ga6214f288996499f35cf95e039b52e1ee" kind="function"><name>string_from</name></member>
     <member refid="group__math_1gae99fc2a026a0a7ac61fbc6281d530996" kind="function"><name>operator*</name></member>
     <member refid="group__math_1ga74899d4681ffa6fdccd09f9588ba7661" kind="function"><name>operator*</name></member>
     <member refid="group__math_1ga4dde67115df3f842c8371817f87587d4" kind="function"><name>operator*</name></member>
     <member refid="group__math_1ga94c89d4216e30fc6ad3711eb540a25fc" kind="function"><name>operator+</name></member>
     <member refid="group__math_1gae807f257d9b667c1c45602b2d67ceafa" kind="function"><name>operator-</name></member>
-    <member refid="group__math_1ga1d52a91adaa565513eb90b8d2dce2df5" kind="function"><name>from_01f</name></member>
-    <member refid="group__math_1ga71a5abeae01c3597f3e9d7371a7e9df3" kind="function"><name>from_01</name></member>
     <member refid="group__math_1ga53e78e428a56c4436a3a11a8c747cb4c" kind="function"><name>make_range</name></member>
     <member refid="group__math_1ga572ae747813ec1771667ebd29d4c8144" kind="function"><name>make_range</name></member>
+    <member refid="group__math_1ga1d52a91adaa565513eb90b8d2dce2df5" kind="function"><name>from_01f</name></member>
     <member refid="group__math_1gaa18213902220185ad70feda7d212e55a" kind="function"><name>from_01</name></member>
     <member refid="group__math_1ga71a5abeae01c3597f3e9d7371a7e9df3" kind="function"><name>from_01</name></member>
     <member refid="group__math_1ga4b358bd01ddb038d5d8d1dc62920e0ee" kind="function"><name>to01</name></member>
@@ -360,8 +354,6 @@
     <member refid="group__math_1ga6acd10ee86510432805a6f2e2cefa8e5" kind="function"><name>max</name></member>
     <member refid="group__math_1ga865e0eb4a624211381ce34daf5aad69d" kind="function"><name>string_from</name></member>
   </compound>
-  <compound refid="namespaceeu_1_1_0d12" kind="namespace"><name>eu::@12</name>
-  </compound>
   <compound refid="namespaceeu_1_1assertlib" kind="namespace"><name>eu::assertlib</name>
     <member refid="namespaceeu_1_1assertlib_1a7ca844c158bbf7e734f29b4312c6db01" kind="function"><name>begin_throwing</name></member>
     <member refid="namespaceeu_1_1assertlib_1a0edb7b21ba4d86e980bd40b0f63a0c2e" kind="function"><name>is_throwing</name></member>
@@ -390,18 +382,10 @@
     <member refid="namespaceeu_1_1log_1a643960e2f05465dc8fbdf5229e4e934d" kind="function"><name>get_global_logger</name></member>
   </compound>
   <compound refid="namespaceeu_1_1tests" kind="namespace"><name>eu::tests</name>
-    <member refid="namespaceeu_1_1tests_1af345ce71ac050b0e3ecdf61c8bbb060d" kind="function"><name>is_approximately_equal</name></member>
     <member refid="namespaceeu_1_1tests_1a429f06a337ab5eca77d8f680617bbb3e" kind="function"><name>is_approximately_equal</name></member>
     <member refid="namespaceeu_1_1tests_1af345ce71ac050b0e3ecdf61c8bbb060d" kind="function"><name>is_approximately_equal</name></member>
     <member refid="namespaceeu_1_1tests_1af709b49e5d6bd250c6bc5fadbe98dcaf" kind="function"><name>operator&lt;&lt;</name></member>
     <member refid="namespaceeu_1_1tests_1a64576baee16640d9d585f9e8508e9ac9" kind="function"><name>approx</name></member>
-    <member refid="namespaceeu_1_1tests_1ad1779ec1241adec7990ffaad2a6db8c5" kind="function"><name>is_approximately_equal_xyz</name></member>
-    <member refid="namespaceeu_1_1tests_1a6fc2935563b7eb53a45df4f07fc00ec9" kind="function"><name>is_approximately_equal</name></member>
-    <member refid="namespaceeu_1_1tests_1ad6b9776427e5e68d4a5b5520a9c892c0" kind="function"><name>is_approximately_equal</name></member>
-    <member refid="namespaceeu_1_1tests_1a8625a5c60ac58efeb4f0b35d380eb5e9" kind="function"><name>is_approximately_equal</name></member>
-    <member refid="namespaceeu_1_1tests_1a1d81d87b4c3e1cc42b4788a8e8c49f08" kind="function"><name>is_approximately_equal</name></member>
-    <member refid="namespaceeu_1_1tests_1a8ec13d4ff8a062c1e11223fdae314383" kind="function"><name>is_approximately_equal</name></member>
-    <member refid="namespaceeu_1_1tests_1a5ccf9ca66634bff5881b9dccff3c25ea" kind="function"><name>is_approximately_equal</name></member>
     <member refid="namespaceeu_1_1tests_1a6fc2935563b7eb53a45df4f07fc00ec9" kind="function"><name>is_approximately_equal</name></member>
     <member refid="namespaceeu_1_1tests_1ad6b9776427e5e68d4a5b5520a9c892c0" kind="function"><name>is_approximately_equal</name></member>
     <member refid="namespaceeu_1_1tests_1a8625a5c60ac58efeb4f0b35d380eb5e9" kind="function"><name>is_approximately_equal</name></member>
@@ -414,8 +398,6 @@
   </compound>
   <compound refid="mesh_8md" kind="file"><name>mesh.md</name>
   </compound>
-  <compound refid="assert_8cc" kind="file"><name>assert.cc</name>
-  </compound>
   <compound refid="assert_8h" kind="file"><name>assert.h</name>
     <member refid="assert_8h_1a3950e5c477d263585dc2704da469ae98" kind="define"><name>BREAK_IN_DEBUG</name></member>
     <member refid="assert_8h_1aa904224faf8979f062517894af990c6a" kind="define"><name>IMPLEMENT_ASSERT_LIB</name></member>
@@ -424,74 +406,33 @@
     <member refid="assert_8h_1ae9328389a3cf2705a8a3f35a4a9ceca2" kind="define"><name>DIE</name></member>
     <member refid="assert_8h_1ab2792c0e49bcb5df802ae03ffbf859cf" kind="define"><name>DIEX</name></member>
   </compound>
-  <compound refid="angle_8cc" kind="file"><name>angle.cc</name>
-  </compound>
   <compound refid="angle_8h" kind="file"><name>angle.h</name>
-    <member refid="angle_8h_1ae609547bdcde38422388f0d112f43147" kind="function"><name>ADD_DEFAULT_FORMATTER</name></member>
-  </compound>
-  <compound refid="axisangle_8cc" kind="file"><name>axisangle.cc</name>
   </compound>
   <compound refid="axisangle_8h" kind="file"><name>axisangle.h</name>
-    <member refid="axisangle_8h_1ad8d9e9f798342c50d29b9a149f9c0a7e" kind="function"><name>ADD_DEFAULT_FORMATTER</name></member>
-    <member refid="axisangle_8h_1ac72a38dc59b447a915fbd4f3e87c0cb0" kind="function"><name>ADD_DEFAULT_FORMATTER</name></member>
-  </compound>
-  <compound refid="colors_8cc" kind="file"><name>colors.cc</name>
   </compound>
   <compound refid="colors_8h" kind="file"><name>colors.h</name>
   </compound>
-  <compound refid="ints_8cc" kind="file"><name>ints.cc</name>
-  </compound>
   <compound refid="ints_8h" kind="file"><name>ints.h</name>
   </compound>
-  <compound refid="mat4_8cc" kind="file"><name>mat4.cc</name>
-    <member refid="mat4_8cc_1a52267107dd1016c80abd3e27e445e437" kind="define"><name>OP</name></member>
-    <member refid="mat4_8cc_1a52267107dd1016c80abd3e27e445e437" kind="define"><name>OP</name></member>
-  </compound>
   <compound refid="mat4_8h" kind="file"><name>mat4.h</name>
-  </compound>
-  <compound refid="numeric_8cc" kind="file"><name>numeric.cc</name>
   </compound>
   <compound refid="numeric_8h" kind="file"><name>numeric.h</name>
   </compound>
   <compound refid="pch_8private_8h" kind="file"><name>pch.private.h</name>
   </compound>
-  <compound refid="quat_8cc" kind="file"><name>quat.cc</name>
-    <member refid="quat_8cc_1a8d0db73225fbc80f01b8366f19dbb884" kind="define"><name>VAR</name></member>
-  </compound>
   <compound refid="quat_8h" kind="file"><name>quat.h</name>
-    <member refid="quat_8h_1a0b989095a35b868a4b2314a18bb234f8" kind="function"><name>ADD_DEFAULT_FORMATTER</name></member>
-  </compound>
-  <compound refid="range_8cc" kind="file"><name>range.cc</name>
   </compound>
   <compound refid="range_8h" kind="file"><name>range.h</name>
   </compound>
-  <compound refid="vec2_8cc" kind="file"><name>vec2.cc</name>
-  </compound>
   <compound refid="vec2_8h" kind="file"><name>vec2.h</name>
-    <member refid="vec2_8h_1ad8e169fc9f9d41c40b6870c7fab8c08f" kind="function"><name>ADD_DEFAULT_FORMATTER</name></member>
-    <member refid="vec2_8h_1afdcde680749acdfb6e4a042a1c8f9bab" kind="function"><name>ADD_DEFAULT_FORMATTER</name></member>
-  </compound>
-  <compound refid="vec3_8cc" kind="file"><name>vec3.cc</name>
   </compound>
   <compound refid="vec3_8h" kind="file"><name>vec3.h</name>
-    <member refid="vec3_8h_1a6ec115b2a1dfc65cf71f912fc5531e35" kind="define"><name>M</name></member>
-    <member refid="vec3_8h_1a6ec115b2a1dfc65cf71f912fc5531e35" kind="define"><name>M</name></member>
-    <member refid="vec3_8h_1af55c1ae5e08e3acfdc28c90824ef085f" kind="function"><name>ADD_DEFAULT_FORMATTER</name></member>
-    <member refid="vec3_8h_1ab691a6929bea38c91f34941c05bbdc3b" kind="function"><name>ADD_DEFAULT_FORMATTER</name></member>
-  </compound>
-  <compound refid="vec4_8cc" kind="file"><name>vec4.cc</name>
   </compound>
   <compound refid="vec4_8h" kind="file"><name>vec4.h</name>
-    <member refid="vec4_8h_1a13752e90dee20772d444a364d34ea698" kind="function"><name>ADD_DEFAULT_FORMATTER</name></member>
-  </compound>
-  <compound refid="fmt_8cc" kind="file"><name>fmt.cc</name>
   </compound>
   <compound refid="base_2src_2base_2pch_8public_8h" kind="file"><name>pch.public.h</name>
   </compound>
   <compound refid="fmt_2src_2pch_8public_8h" kind="file"><name>pch.public.h</name>
-    <member refid="fmt_2src_2pch_8public_8h_1a6b81aa36f1dc1afd2acf99e4c1f30361" kind="define"><name>ADD_DEFAULT_FORMATTER</name></member>
-  </compound>
-  <compound refid="log_8cc" kind="file"><name>log.cc</name>
   </compound>
   <compound refid="log_8h" kind="file"><name>log.h</name>
     <member refid="log_8h_1a378e28bfcb78d17285210d6bbb70a083" kind="define"><name>LOG_INFO</name></member>
@@ -501,11 +442,7 @@
     <member refid="log_8h_1a100d3287a5d5db09dc69f859c2e61d1b" kind="define"><name>LOG_WARNS</name></member>
     <member refid="log_8h_1a3c18fc0250adea37a50322c49a3530fa" kind="define"><name>LOG_ERRORS</name></member>
   </compound>
-  <compound refid="approx_8cc" kind="file"><name>approx.cc</name>
-  </compound>
   <compound refid="approx_8h" kind="file"><name>approx.h</name>
-  </compound>
-  <compound refid="approx__equal_8cc" kind="file"><name>approx_equal.cc</name>
   </compound>
   <compound refid="approx__equal_8h" kind="file"><name>approx_equal.h</name>
   </compound>
@@ -545,7 +482,7 @@
     <member refid="group__math_1ga0bade92aadaac348c9d69c311012401c" kind="function"><name>lerp_angle</name></member>
     <member refid="group__math_1gae9cc9ff4ed32a327a7e883617b9b7de2" kind="function"><name>right_hand_around</name></member>
     <member refid="group__math_1gaa507848ead7e3929ac34a5631d051638" kind="function"><name>string_from</name></member>
-    <member refid="group__math_1ga06c34e869eddc08c945c040b0066925a" kind="function"><name>string_from</name></member>
+    <member refid="group__math_1gad902ccc075018be926b6d34aa5eb7d92" kind="function"><name>string_from</name></member>
     <member refid="group__math_1ga66e1820c967a20b5f47444560e472077" kind="function"><name>string_from</name></member>
     <member refid="group__math_1gac6df9508643c5fd4c3492e047e9a932c" kind="function"><name>operator+</name></member>
     <member refid="group__math_1gaf28a2e40d555474d81f7d62a6f02c726" kind="function"><name>operator-</name></member>
@@ -574,9 +511,9 @@
     <member refid="group__math_1ga7ef41a3ef0020cdf027febcf7cb38db3" kind="function"><name>round</name></member>
     <member refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kind="function"><name>get_default_if_close_to_zero</name></member>
     <member refid="group__math_1ga5d5dc7f4ea7cac8493e9006180e9a657" kind="function"><name>is_each_nth</name></member>
-    <member refid="group__math_1ga5cd76c94b44e55f7122a46bba3ae4d81" kind="function"><name>lerp_quatf</name></member>
-    <member refid="group__math_1ga1e05b672b47b209b25bc12c58308fa05" kind="function"><name>slerp_fast</name></member>
-    <member refid="group__math_1gae6089c53b1f851cdbefd186bba37f9d6" kind="function"><name>slerp_shortway</name></member>
+    <member refid="group__math_1ga29f9e616e317eab3c31fb9aa68efbeb5" kind="function"><name>lerp_quatf</name></member>
+    <member refid="group__math_1gab8152198125a37ecb802cfd5eb21c853" kind="function"><name>slerp_fast</name></member>
+    <member refid="group__math_1ga885b7e90819af2ad08620fb94973045f" kind="function"><name>slerp_shortway</name></member>
     <member refid="group__math_1gad4b8d21db1b1a25c346296eec35b330b" kind="function"><name>dot</name></member>
     <member refid="group__math_1ga6214f288996499f35cf95e039b52e1ee" kind="function"><name>string_from</name></member>
     <member refid="group__math_1gae99fc2a026a0a7ac61fbc6281d530996" kind="function"><name>operator*</name></member>

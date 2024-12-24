@@ -23,7 +23,7 @@
       <memberdef kind="function" id="structeu_1_1assertlib_1_1AssertArgumentValue_1a92e0b7266e3d8677880942e67f775fc9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
           <param>
-            <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">typename</ref> <ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">T</ref></type>
+            <type><ref refid="structeu_1_1R" kindref="compound">typename</ref> <ref refid="structeu_1_1R" kindref="compound">T</ref></type>
           </param>
         </templateparamlist>
         <type></type>
@@ -32,7 +32,7 @@
         <name>AssertArgumentValue</name>
         <qualifiedname>eu::assertlib::AssertArgumentValue::AssertArgumentValue</qualifiedname>
         <param>
-          <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">T</ref> &amp;</type>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1R" kindref="compound">T</ref> &amp;</type>
           <declname>t</declname>
         </param>
         <briefdescription>

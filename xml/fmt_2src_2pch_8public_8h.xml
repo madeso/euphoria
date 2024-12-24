@@ -26,29 +26,6 @@
         <label>fmt/ranges.h</label>
       </node>
     </incdepgraph>
-    <sectiondef kind="define">
-      <memberdef kind="define" id="fmt_2src_2pch_8public_8h_1a6b81aa36f1dc1afd2acf99e4c1f30361" prot="public" static="no">
-        <name>ADD_DEFAULT_FORMATTER</name>
-        <param><defname>TYPE</defname></param>
-        <param><defname>STRING</defname></param>
-        <param><defname>TO_STRING</defname></param>
-        <initializer>template &lt;&gt; struct fmt::formatter&lt;TYPE&gt;: fmt::formatter&lt;STRING&gt; \
-{ \
-    template &lt;typename FormatContext&gt; \
-    auto format(const TYPE&amp; c, FormatContext&amp; ctx) const \
-    { \
-        return fmt::formatter&lt;STRING&gt;::format(TO_STRING(c), ctx); \
-    } \
-}</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/fmt/src/pch.public.h" line="12" column="9" bodyfile="libs/fmt/src/pch.public.h" bodystart="12" bodyend="20"/>
-      </memberdef>
-    </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

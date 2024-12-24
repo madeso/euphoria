@@ -7,9 +7,6 @@
     <includes refid="axisangle_8h" local="yes">base/axisangle.h</includes>
     <includes refid="angle_8h" local="yes">base/angle.h</includes>
     <includes refid="mat4_8h" local="yes">base/mat4.h</includes>
-    <includedby refid="axisangle_8cc" local="yes">libs/base/src/base/axisangle.cc</includedby>
-    <includedby refid="mat4_8cc" local="yes">libs/base/src/base/mat4.cc</includedby>
-    <includedby refid="quat_8cc" local="yes">libs/base/src/base/quat.cc</includedby>
     <includedby refid="approx__equal_8h" local="yes">libs/tests/src/tests/approx_equal.h</includedby>
     <incdepgraph>
       <node id="4">
@@ -111,67 +108,19 @@
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="2">
-        <label>libs/base/src/base/axisangle.cc</label>
-        <link refid="axisangle_8cc"/>
-      </node>
-      <node id="3">
-        <label>libs/base/src/base/mat4.cc</label>
-        <link refid="mat4_8cc"/>
-      </node>
-      <node id="4">
-        <label>libs/base/src/base/quat.cc</label>
-        <link refid="quat_8cc"/>
-      </node>
       <node id="1">
         <label>libs/base/src/base/quat.h</label>
         <link refid="quat_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="4" relation="include">
-        </childnode>
-        <childnode refid="5" relation="include">
-        </childnode>
       </node>
-      <node id="6">
-        <label>libs/tests/src/tests/approx_equal.cc</label>
-        <link refid="approx__equal_8cc"/>
-      </node>
-      <node id="5">
+      <node id="2">
         <label>libs/tests/src/tests/approx_equal.h</label>
         <link refid="approx__equal_8h"/>
-        <childnode refid="6" relation="include">
-        </childnode>
       </node>
     </invincdepgraph>
     <innerclass refid="structeu_1_1Q" prot="public">eu::Q</innerclass>
     <innernamespace refid="namespaceeu">eu</innernamespace>
-    <sectiondef kind="func">
-      <memberdef kind="function" id="quat_8h_1a0b989095a35b868a4b2314a18bb234f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>ADD_DEFAULT_FORMATTER</definition>
-        <argsstring>(eu::Q, std::string, eu::string_from)</argsstring>
-        <name>ADD_DEFAULT_FORMATTER</name>
-        <param>
-          <type><ref refid="structeu_1_1Q" kindref="compound">eu::Q</ref></type>
-        </param>
-        <param>
-          <type>std::string</type>
-        </param>
-        <param>
-          <type><ref refid="group__math_1gafa7f170a2c4415e5c9f4d517b138a489" kindref="member">eu::string_from</ref></type>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/base/src/base/quat.h" line="92" column="1" declfile="libs/base/src/base/quat.h" declline="92" declcolumn="1"/>
-      </memberdef>
-    </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

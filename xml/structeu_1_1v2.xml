@@ -5,7 +5,7 @@
     <includes refid="vec2_8h" local="no">vec2.h</includes>
     <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structeu_1_1v2_1acde135631a96d1063a8634ce5e692537" prot="public" static="no" mutable="no">
-        <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">float</ref></type>
+        <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
         <definition>float eu::v2::x</definition>
         <argsstring></argsstring>
         <name>x</name>
@@ -19,7 +19,7 @@
         <location file="libs/base/src/base/vec2.h" line="25" column="15" bodyfile="libs/base/src/base/vec2.h" bodystart="25" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1v2_1a76d7028250e5593bf8cef8432e47b7a1" prot="public" static="no" mutable="no">
-        <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">float</ref></type>
+        <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
         <definition>float eu::v2::y</definition>
         <argsstring></argsstring>
         <name>y</name>
@@ -49,17 +49,17 @@
         <location file="libs/base/src/base/vec2.h" line="28" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1v2_1a82ef1bd3cd01872842347c61a0da8445" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">constexpr</ref></type>
+        <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref></type>
         <definition>constexpr eu::v2::v2</definition>
         <argsstring>(float ax, float ay)</argsstring>
         <name>v2</name>
         <qualifiedname>eu::v2::v2</qualifiedname>
         <param>
-          <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">float</ref></type>
+          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
           <declname>ax</declname>
         </param>
         <param>
-          <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">float</ref></type>
+          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
           <declname>ay</declname>
         </param>
         <briefdescription>
@@ -77,7 +77,7 @@
         <name>v2</name>
         <qualifiedname>eu::v2::v2</qualifiedname>
         <param>
-          <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> std::tuple&lt; <ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">float</ref>, <ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">float</ref> &gt; &amp;</type>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> std::tuple&lt; <ref refid="structeu_1_1R" kindref="compound">float</ref>, <ref refid="structeu_1_1R" kindref="compound">float</ref> &gt; &amp;</type>
           <declname>a</declname>
         </param>
         <briefdescription>
@@ -86,7 +86,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec2.h" line="34" column="18" bodyfile="libs/base/src/base/vec2.cc" bodystart="9" bodyend="13"/>
+        <location file="libs/base/src/base/vec2.h" line="34" column="18"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1v2_1ab0e1f98bc30d5e1311c495329dc1115d" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
         <type></type>
@@ -95,7 +95,7 @@
         <name>v2</name>
         <qualifiedname>eu::v2::v2</qualifiedname>
         <param>
-          <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1n2" kindref="compound">n2</ref> &amp;</type>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1n2" kindref="compound">n2</ref> &amp;</type>
           <declname>u</declname>
         </param>
         <briefdescription>
@@ -104,10 +104,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec2.h" line="35" column="18" bodyfile="libs/base/src/base/vec2.cc" bodystart="15" bodyend="19"/>
+        <location file="libs/base/src/base/vec2.h" line="35" column="18"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1v2_1a69af00c77b62d73ffcfd60afcc6cbcb2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">float</ref> *</type>
+        <type><ref refid="structeu_1_1R" kindref="compound">float</ref> *</type>
         <definition>float * eu::v2::get_data_ptr</definition>
         <argsstring>()</argsstring>
         <name>get_data_ptr</name>
@@ -118,10 +118,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec2.h" line="40" column="15" bodyfile="libs/base/src/base/vec2.cc" bodystart="23" bodyend="26"/>
+        <location file="libs/base/src/base/vec2.h" line="40" column="15"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1v2_1a6fea31c140798a5b4e46a15b51b96cd2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">float</ref></type>
+        <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
         <definition>float eu::v2::normalize</definition>
         <argsstring>()</argsstring>
         <name>normalize</name>
@@ -132,7 +132,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec2.h" line="41" column="15" bodyfile="libs/base/src/base/vec2.cc" bodystart="108" bodyend="113"/>
+        <location file="libs/base/src/base/vec2.h" line="41" column="15"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1v2_1ac1da047ccf55da4f3760dbeb91ac2aac" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1v2" kindref="compound">v2</ref></type>
@@ -141,7 +141,7 @@
         <name>get_rotated</name>
         <qualifiedname>eu::v2::get_rotated</qualifiedname>
         <param>
-          <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1An" kindref="compound">An</ref> &amp;</type>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1An" kindref="compound">An</ref> &amp;</type>
           <declname>a</declname>
         </param>
         <briefdescription>
@@ -150,10 +150,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec2.h" line="43" column="13" bodyfile="libs/base/src/base/vec2.cc" bodystart="35" bodyend="40"/>
+        <location file="libs/base/src/base/vec2.h" line="43" column="13"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1v2_1a498f7b5158e712297989cabb562f5932" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">float</ref> *</type>
+        <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1R" kindref="compound">float</ref> *</type>
         <definition>const float * eu::v2::get_data_ptr</definition>
         <argsstring>() const</argsstring>
         <name>get_data_ptr</name>
@@ -164,7 +164,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec2.h" line="45" column="22" bodyfile="libs/base/src/base/vec2.cc" bodystart="29" bodyend="32"/>
+        <location file="libs/base/src/base/vec2.h" line="45" column="22"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1v2_1a7ff570a559152323759a8a52799f58ef" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1v2" kindref="compound">v2</ref></type>
@@ -178,10 +178,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec2.h" line="46" column="13" bodyfile="libs/base/src/base/vec2.cc" bodystart="43" bodyend="46"/>
+        <location file="libs/base/src/base/vec2.h" line="46" column="13"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1v2_1a2b749ca276a64efb9245891aced00f05" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">float</ref></type>
+        <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
         <definition>float eu::v2::get_length_squared</definition>
         <argsstring>() const</argsstring>
         <name>get_length_squared</name>
@@ -192,10 +192,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec2.h" line="47" column="16" bodyfile="libs/base/src/base/vec2.cc" bodystart="69" bodyend="72"/>
+        <location file="libs/base/src/base/vec2.h" line="47" column="16"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1v2_1a140feb386ea1931b17fdf2b6a8d91957" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">float</ref></type>
+        <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
         <definition>float eu::v2::get_length</definition>
         <argsstring>() const</argsstring>
         <name>get_length</name>
@@ -206,7 +206,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec2.h" line="48" column="16" bodyfile="libs/base/src/base/vec2.cc" bodystart="102" bodyend="105"/>
+        <location file="libs/base/src/base/vec2.h" line="48" column="16"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1v2_1a134c83c8693144abf99662e8821e85af" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1n2" kindref="compound">n2</ref></type>
@@ -220,16 +220,16 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec2.h" line="49" column="13" bodyfile="libs/base/src/base/vec2.cc" bodystart="116" bodyend="121"/>
+        <location file="libs/base/src/base/vec2.h" line="49" column="13"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1v2_1aaeeb1af4d226caf949d1d5f961497612" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">void</ref></type>
+        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
         <definition>void eu::v2::operator+=</definition>
         <argsstring>(const v2 &amp;rhs)</argsstring>
         <name>operator+=</name>
         <qualifiedname>eu::v2::operator+=</qualifiedname>
         <param>
-          <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1v2" kindref="compound">v2</ref> &amp;</type>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1v2" kindref="compound">v2</ref> &amp;</type>
           <declname>rhs</declname>
         </param>
         <briefdescription>
@@ -238,16 +238,16 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec2.h" line="51" column="14" bodyfile="libs/base/src/base/vec2.cc" bodystart="49" bodyend="53"/>
+        <location file="libs/base/src/base/vec2.h" line="51" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1v2_1a4f9ce2d2077380bbdfe71b8ce5b8b068" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">void</ref></type>
+        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
         <definition>void eu::v2::operator-=</definition>
         <argsstring>(const v2 &amp;rhs)</argsstring>
         <name>operator-=</name>
         <qualifiedname>eu::v2::operator-=</qualifiedname>
         <param>
-          <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1v2" kindref="compound">v2</ref> &amp;</type>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1v2" kindref="compound">v2</ref> &amp;</type>
           <declname>rhs</declname>
         </param>
         <briefdescription>
@@ -256,7 +256,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec2.h" line="52" column="14" bodyfile="libs/base/src/base/vec2.cc" bodystart="56" bodyend="60"/>
+        <location file="libs/base/src/base/vec2.h" line="52" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1v2_1ae0b3e570e0a08b96e4afce5ee47515a6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1v2" kindref="compound">v2</ref></type>
@@ -270,16 +270,16 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec2.h" line="53" column="12" bodyfile="libs/base/src/base/vec2.cc" bodystart="63" bodyend="66"/>
+        <location file="libs/base/src/base/vec2.h" line="53" column="12"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1v2_1a0affead99e4d96ac25467ffc792e4404" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">void</ref></type>
+        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
         <definition>void eu::v2::operator/=</definition>
         <argsstring>(float rhs)</argsstring>
         <name>operator/=</name>
         <qualifiedname>eu::v2::operator/=</qualifiedname>
         <param>
-          <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">float</ref></type>
+          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
           <declname>rhs</declname>
         </param>
         <briefdescription>
@@ -288,16 +288,16 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec2.h" line="54" column="14" bodyfile="libs/base/src/base/vec2.cc" bodystart="88" bodyend="92"/>
+        <location file="libs/base/src/base/vec2.h" line="54" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1v2_1a12dc1a1ad25853a224cfb4a99b3370ea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">void</ref></type>
+        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
         <definition>void eu::v2::operator*=</definition>
         <argsstring>(float rhs)</argsstring>
         <name>operator*=</name>
         <qualifiedname>eu::v2::operator*=</qualifiedname>
         <param>
-          <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">float</ref></type>
+          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
           <declname>rhs</declname>
         </param>
         <briefdescription>
@@ -306,22 +306,22 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec2.h" line="55" column="14" bodyfile="libs/base/src/base/vec2.cc" bodystart="95" bodyend="99"/>
+        <location file="libs/base/src/base/vec2.h" line="55" column="14"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-static-func">
-      <memberdef kind="function" id="structeu_1_1v2_1a7c2654201fecf580871f4adb2c2b63b0" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1v2_1abb813dccdd6fa86a5b27a46b71d6d3a8" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1v2" kindref="compound">v2</ref></type>
-        <definition>v2 eu::v2::from_to</definition>
+        <definition>static v2 eu::v2::from_to</definition>
         <argsstring>(const v2 &amp;from, const v2 &amp;to)</argsstring>
         <name>from_to</name>
         <qualifiedname>eu::v2::from_to</qualifiedname>
         <param>
-          <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1v2" kindref="compound">v2</ref> &amp;</type>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1v2" kindref="compound">v2</ref> &amp;</type>
           <declname>from</declname>
         </param>
         <param>
-          <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1v2" kindref="compound">v2</ref> &amp;</type>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1v2" kindref="compound">v2</ref> &amp;</type>
           <declname>to</declname>
         </param>
         <briefdescription>
@@ -330,16 +330,16 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec2.h" line="37" column="20" bodyfile="libs/base/src/base/vec2.cc" bodystart="76" bodyend="79"/>
+        <location file="libs/base/src/base/vec2.h" line="37" column="20"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1v2_1a617a0729b54967f60d707ca7137181db" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1v2_1ae6784a3af47155b3bcd9769f63b5a01b" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1v2" kindref="compound">v2</ref></type>
-        <definition>v2 eu::v2::from</definition>
+        <definition>static v2 eu::v2::from</definition>
         <argsstring>(const n2 &amp;n)</argsstring>
         <name>from</name>
         <qualifiedname>eu::v2::from</qualifiedname>
         <param>
-          <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1n2" kindref="compound">n2</ref> &amp;</type>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1n2" kindref="compound">n2</ref> &amp;</type>
           <declname>n</declname>
         </param>
         <briefdescription>
@@ -348,7 +348,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec2.h" line="38" column="20" bodyfile="libs/base/src/base/vec2.cc" bodystart="82" bodyend="85"/>
+        <location file="libs/base/src/base/vec2.h" line="38" column="20"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -358,8 +358,8 @@
     </detaileddescription>
     <location file="libs/base/src/base/vec2.h" line="23" column="5" bodyfile="libs/base/src/base/vec2.h" bodystart="24" bodyend="56"/>
     <listofallmembers>
-      <member refid="structeu_1_1v2_1a617a0729b54967f60d707ca7137181db" prot="public" virt="non-virtual"><scope>eu::v2</scope><name>from</name></member>
-      <member refid="structeu_1_1v2_1a7c2654201fecf580871f4adb2c2b63b0" prot="public" virt="non-virtual"><scope>eu::v2</scope><name>from_to</name></member>
+      <member refid="structeu_1_1v2_1ae6784a3af47155b3bcd9769f63b5a01b" prot="public" virt="non-virtual"><scope>eu::v2</scope><name>from</name></member>
+      <member refid="structeu_1_1v2_1abb813dccdd6fa86a5b27a46b71d6d3a8" prot="public" virt="non-virtual"><scope>eu::v2</scope><name>from_to</name></member>
       <member refid="structeu_1_1v2_1a69af00c77b62d73ffcfd60afcc6cbcb2" prot="public" virt="non-virtual"><scope>eu::v2</scope><name>get_data_ptr</name></member>
       <member refid="structeu_1_1v2_1a498f7b5158e712297989cabb562f5932" prot="public" virt="non-virtual"><scope>eu::v2</scope><name>get_data_ptr</name></member>
       <member refid="structeu_1_1v2_1a7ff570a559152323759a8a52799f58ef" prot="public" virt="non-virtual"><scope>eu::v2</scope><name>get_flipped_y</name></member>

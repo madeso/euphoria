@@ -43,11 +43,11 @@
         <name>AA</name>
         <qualifiedname>eu::AA::AA</qualifiedname>
         <param>
-          <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1n3" kindref="compound">n3</ref> &amp;</type>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1n3" kindref="compound">n3</ref> &amp;</type>
           <declname>ax</declname>
         </param>
         <param>
-          <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1An" kindref="compound">An</ref> &amp;</type>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1An" kindref="compound">An</ref> &amp;</type>
           <declname>ang</declname>
         </param>
         <briefdescription>
@@ -56,18 +56,18 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/axisangle.h" line="26" column="9" bodyfile="libs/base/src/base/axisangle.cc" bodystart="9" bodyend="13"/>
+        <location file="libs/base/src/base/axisangle.h" line="26" column="9"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-static-func">
-      <memberdef kind="function" id="structeu_1_1AA_1a03e357ffaeca451e69fc09403d0fd80e" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1AA_1a01fd8ed962964dc8404291b42325b40e" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1AA" kindref="compound">AA</ref></type>
-        <definition>AA eu::AA::from</definition>
+        <definition>static AA eu::AA::from</definition>
         <argsstring>(const Q &amp;q)</argsstring>
         <name>from</name>
         <qualifiedname>eu::AA::from</qualifiedname>
         <param>
-          <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1Q" kindref="compound">Q</ref> &amp;</type>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1Q" kindref="compound">Q</ref> &amp;</type>
           <declname>q</declname>
         </param>
         <briefdescription>
@@ -76,7 +76,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/axisangle.h" line="28" column="20" bodyfile="libs/base/src/base/axisangle.cc" bodystart="16" bodyend="25"/>
+        <location file="libs/base/src/base/axisangle.h" line="28" column="20"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -115,7 +115,7 @@
       <member refid="structeu_1_1AA_1af1690aab94c15e9db117c61ea3265e8a" prot="public" virt="non-virtual"><scope>eu::AA</scope><name>AA</name></member>
       <member refid="structeu_1_1AA_1a0ef36e1500a96f32d75602e9a53596da" prot="public" virt="non-virtual"><scope>eu::AA</scope><name>angle</name></member>
       <member refid="structeu_1_1AA_1a517bd92c9485430787c833f68eb42379" prot="public" virt="non-virtual"><scope>eu::AA</scope><name>axis</name></member>
-      <member refid="structeu_1_1AA_1a03e357ffaeca451e69fc09403d0fd80e" prot="public" virt="non-virtual"><scope>eu::AA</scope><name>from</name></member>
+      <member refid="structeu_1_1AA_1a01fd8ed962964dc8404291b42325b40e" prot="public" virt="non-virtual"><scope>eu::AA</scope><name>from</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

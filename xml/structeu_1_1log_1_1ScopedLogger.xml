@@ -20,7 +20,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/log/src/log/log.h" line="32" column="18" bodyfile="libs/log/src/log/log.cc" bodystart="44" bodyend="48"/>
+        <location file="libs/log/src/log/log.h" line="32" column="18"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1log_1_1ScopedLogger_1a9273d3cbeac047b0d86ed868d64f6543" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -34,7 +34,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/log/src/log/log.h" line="33" column="9" bodyfile="libs/log/src/log/log.cc" bodystart="50" bodyend="53"/>
+        <location file="libs/log/src/log/log.h" line="33" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1log_1_1ScopedLogger_1a2ba3d86cf3bfcef8810c68d66aa3d1c3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -43,7 +43,7 @@
         <name>ScopedLogger</name>
         <qualifiedname>eu::log::ScopedLogger::ScopedLogger</qualifiedname>
         <param>
-          <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1log_1_1ScopedLogger" kindref="compound">ScopedLogger</ref> &amp;</type>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1log_1_1ScopedLogger" kindref="compound">ScopedLogger</ref> &amp;</type>
         </param>
         <briefdescription>
         </briefdescription>
@@ -71,13 +71,13 @@
         <location file="libs/log/src/log/log.h" line="36" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1log_1_1ScopedLogger_1abf3cd5fa18bcdf1ad2107b3f9782039e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">void</ref></type>
+        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
         <definition>void eu::log::ScopedLogger::operator=</definition>
         <argsstring>(const ScopedLogger &amp;)=delete</argsstring>
         <name>operator=</name>
         <qualifiedname>eu::log::ScopedLogger::operator=</qualifiedname>
         <param>
-          <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1log_1_1ScopedLogger" kindref="compound">ScopedLogger</ref> &amp;</type>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1log_1_1ScopedLogger" kindref="compound">ScopedLogger</ref> &amp;</type>
         </param>
         <briefdescription>
         </briefdescription>
@@ -88,7 +88,7 @@
         <location file="libs/log/src/log/log.h" line="37" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1log_1_1ScopedLogger_1a7f1c35c53bd6395becd4603d90f0a2d6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">void</ref></type>
+        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
         <definition>void eu::log::ScopedLogger::operator=</definition>
         <argsstring>(ScopedLogger &amp;&amp;)=delete</argsstring>
         <name>operator=</name>

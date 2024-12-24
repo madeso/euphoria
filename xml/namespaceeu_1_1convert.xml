@@ -4,13 +4,13 @@
     <compoundname>eu::convert</compoundname>
     <sectiondef kind="func">
       <memberdef kind="function" id="namespaceeu_1_1convert_1ad9a8ef509475899faebcef9f3cf0e098" prot="private" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">constexpr</ref> <ref refid="structeu_1_1An" kindref="compound">An</ref></type>
+        <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref> <ref refid="structeu_1_1An" kindref="compound">An</ref></type>
         <definition>constexpr An eu::convert::operator&quot;&quot;_deg</definition>
         <argsstring>(long double d)</argsstring>
         <name>operator&quot;&quot;_deg</name>
         <qualifiedname>eu::convert::operator&quot;&quot;_deg</qualifiedname>
         <param>
-          <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">long</ref> <ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">double</ref></type>
+          <type><ref refid="structeu_1_1R" kindref="compound">long</ref> <ref refid="structeu_1_1R" kindref="compound">double</ref></type>
           <declname>d</declname>
         </param>
         <briefdescription>
@@ -22,13 +22,13 @@
         <location file="libs/base/src/base/angle.h" line="122" column="18" bodyfile="libs/base/src/base/angle.h" bodystart="122" bodyend="125"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1convert_1a8bf275d232d046a033d75f1f072baf7d" prot="private" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">constexpr</ref> <ref refid="structeu_1_1An" kindref="compound">An</ref></type>
+        <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref> <ref refid="structeu_1_1An" kindref="compound">An</ref></type>
         <definition>constexpr An eu::convert::operator&quot;&quot;_rad</definition>
         <argsstring>(long double r)</argsstring>
         <name>operator&quot;&quot;_rad</name>
         <qualifiedname>eu::convert::operator&quot;&quot;_rad</qualifiedname>
         <param>
-          <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">long</ref> <ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">double</ref></type>
+          <type><ref refid="structeu_1_1R" kindref="compound">long</ref> <ref refid="structeu_1_1R" kindref="compound">double</ref></type>
           <declname>r</declname>
         </param>
         <briefdescription>

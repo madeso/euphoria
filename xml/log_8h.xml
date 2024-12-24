@@ -2,19 +2,6 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
   <compounddef id="log_8h" kind="file" language="C++">
     <compoundname>log.h</compoundname>
-    <includedby refid="log_8cc" local="yes">libs/log/src/log/log.cc</includedby>
-    <invincdepgraph>
-      <node id="2">
-        <label>libs/log/src/log/log.cc</label>
-        <link refid="log_8cc"/>
-      </node>
-      <node id="1">
-        <label>libs/log/src/log/log.h</label>
-        <link refid="log_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-      </node>
-    </invincdepgraph>
     <innerclass refid="structeu_1_1log_1_1Logger" prot="public">eu::log::Logger</innerclass>
     <innerclass refid="structeu_1_1log_1_1ScopedLogger" prot="public">eu::log::ScopedLogger</innerclass>
     <innernamespace refid="namespaceeu">eu</innernamespace>

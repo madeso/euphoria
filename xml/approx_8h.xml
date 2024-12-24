@@ -5,7 +5,6 @@
     <includes local="no">cmath</includes>
     <includes local="no">limits</includes>
     <includes local="yes">catch2/catch_all.hpp</includes>
-    <includedby refid="approx_8cc" local="yes">libs/tests/src/tests/approx.cc</includedby>
     <includedby refid="approx__equal_8h" local="yes">libs/tests/src/tests/approx_equal.h</includedby>
     <incdepgraph>
       <node id="1">
@@ -29,27 +28,15 @@
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="2">
-        <label>libs/tests/src/tests/approx.cc</label>
-        <link refid="approx_8cc"/>
-      </node>
       <node id="1">
         <label>libs/tests/src/tests/approx.h</label>
         <link refid="approx_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
-        <childnode refid="3" relation="include">
-        </childnode>
       </node>
-      <node id="4">
-        <label>libs/tests/src/tests/approx_equal.cc</label>
-        <link refid="approx__equal_8cc"/>
-      </node>
-      <node id="3">
+      <node id="2">
         <label>libs/tests/src/tests/approx_equal.h</label>
         <link refid="approx__equal_8h"/>
-        <childnode refid="4" relation="include">
-        </childnode>
       </node>
     </invincdepgraph>
     <innerclass refid="structeu_1_1tests_1_1ApproxData" prot="public">eu::tests::ApproxData</innerclass>

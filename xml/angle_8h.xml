@@ -3,13 +3,10 @@
   <compounddef id="angle_8h" kind="file" language="C++">
     <compoundname>angle.h</compoundname>
     <includes refid="numeric_8h" local="yes">base/numeric.h</includes>
-    <includedby refid="angle_8cc" local="yes">libs/base/src/base/angle.cc</includedby>
     <includedby refid="axisangle_8h" local="yes">libs/base/src/base/axisangle.h</includedby>
     <includedby refid="mat4_8h" local="yes">libs/base/src/base/mat4.h</includedby>
-    <includedby refid="numeric_8cc" local="yes">libs/base/src/base/numeric.cc</includedby>
     <includedby refid="quat_8h" local="yes">libs/base/src/base/quat.h</includedby>
     <includedby refid="range_8h" local="yes">libs/base/src/base/range.h</includedby>
-    <includedby refid="vec2_8cc" local="yes">libs/base/src/base/vec2.cc</includedby>
     <includedby refid="vec2_8h" local="yes">libs/base/src/base/vec2.h</includedby>
     <incdepgraph>
       <node id="1">
@@ -35,10 +32,6 @@
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="2">
-        <label>libs/base/src/base/angle.cc</label>
-        <link refid="angle_8cc"/>
-      </node>
       <node id="1">
         <label>libs/base/src/base/angle.h</label>
         <link refid="angle_8h"/>
@@ -46,127 +39,51 @@
         </childnode>
         <childnode refid="3" relation="include">
         </childnode>
-        <childnode refid="5" relation="include">
+        <childnode refid="4" relation="include">
         </childnode>
-        <childnode refid="11" relation="include">
+        <childnode refid="6" relation="include">
         </childnode>
         <childnode refid="7" relation="include">
         </childnode>
-        <childnode refid="12" relation="include">
+      </node>
+      <node id="2">
+        <label>libs/base/src/base/axisangle.h</label>
+        <link refid="axisangle_8h"/>
+        <childnode refid="3" relation="include">
         </childnode>
-        <childnode refid="14" relation="include">
+        <childnode refid="4" relation="include">
         </childnode>
-        <childnode refid="15" relation="include">
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>libs/base/src/base/mat4.h</label>
+        <link refid="mat4_8h"/>
+        <childnode refid="4" relation="include">
         </childnode>
       </node>
       <node id="4">
-        <label>libs/base/src/base/axisangle.cc</label>
-        <link refid="axisangle_8cc"/>
-      </node>
-      <node id="3">
-        <label>libs/base/src/base/axisangle.h</label>
-        <link refid="axisangle_8h"/>
-        <childnode refid="4" relation="include">
-        </childnode>
+        <label>libs/base/src/base/quat.h</label>
+        <link refid="quat_8h"/>
         <childnode refid="5" relation="include">
-        </childnode>
-        <childnode refid="7" relation="include">
-        </childnode>
-        <childnode refid="9" relation="include">
         </childnode>
       </node>
       <node id="6">
-        <label>libs/base/src/base/mat4.cc</label>
-        <link refid="mat4_8cc"/>
-      </node>
-      <node id="5">
-        <label>libs/base/src/base/mat4.h</label>
-        <link refid="mat4_8h"/>
-        <childnode refid="6" relation="include">
-        </childnode>
-        <childnode refid="7" relation="include">
-        </childnode>
-      </node>
-      <node id="11">
-        <label>libs/base/src/base/numeric.cc</label>
-        <link refid="numeric_8cc"/>
-      </node>
-      <node id="8">
-        <label>libs/base/src/base/quat.cc</label>
-        <link refid="quat_8cc"/>
-      </node>
-      <node id="7">
-        <label>libs/base/src/base/quat.h</label>
-        <link refid="quat_8h"/>
-        <childnode refid="4" relation="include">
-        </childnode>
-        <childnode refid="6" relation="include">
-        </childnode>
-        <childnode refid="8" relation="include">
-        </childnode>
-        <childnode refid="9" relation="include">
-        </childnode>
-      </node>
-      <node id="13">
-        <label>libs/base/src/base/range.cc</label>
-        <link refid="range_8cc"/>
-      </node>
-      <node id="12">
         <label>libs/base/src/base/range.h</label>
         <link refid="range_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="13" relation="include">
-        </childnode>
       </node>
-      <node id="14">
-        <label>libs/base/src/base/vec2.cc</label>
-        <link refid="vec2_8cc"/>
-      </node>
-      <node id="15">
+      <node id="7">
         <label>libs/base/src/base/vec2.h</label>
         <link refid="vec2_8h"/>
-        <childnode refid="14" relation="include">
-        </childnode>
       </node>
-      <node id="10">
-        <label>libs/tests/src/tests/approx_equal.cc</label>
-        <link refid="approx__equal_8cc"/>
-      </node>
-      <node id="9">
+      <node id="5">
         <label>libs/tests/src/tests/approx_equal.h</label>
         <link refid="approx__equal_8h"/>
-        <childnode refid="10" relation="include">
-        </childnode>
       </node>
     </invincdepgraph>
     <innerclass refid="structeu_1_1An" prot="public">eu::An</innerclass>
     <innernamespace refid="namespaceeu">eu</innernamespace>
     <innernamespace refid="namespaceeu_1_1convert">eu::convert</innernamespace>
-    <sectiondef kind="func">
-      <memberdef kind="function" id="angle_8h_1ae609547bdcde38422388f0d112f43147" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>ADD_DEFAULT_FORMATTER</definition>
-        <argsstring>(eu::An, std::string, eu::string_from)</argsstring>
-        <name>ADD_DEFAULT_FORMATTER</name>
-        <param>
-          <type><ref refid="structeu_1_1An" kindref="compound">eu::An</ref></type>
-        </param>
-        <param>
-          <type>std::string</type>
-        </param>
-        <param>
-          <type><ref refid="group__math_1gafa7f170a2c4415e5c9f4d517b138a489" kindref="member">eu::string_from</ref></type>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/base/src/base/angle.h" line="118" column="1" declfile="libs/base/src/base/angle.h" declline="118" declcolumn="1"/>
-      </memberdef>
-    </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

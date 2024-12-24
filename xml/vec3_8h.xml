@@ -9,7 +9,6 @@
     <includedby refid="colors_8h" local="yes">libs/base/src/base/colors.h</includedby>
     <includedby refid="mat4_8h" local="yes">libs/base/src/base/mat4.h</includedby>
     <includedby refid="quat_8h" local="yes">libs/base/src/base/quat.h</includedby>
-    <includedby refid="vec3_8cc" local="yes">libs/base/src/base/vec3.cc</includedby>
     <includedby refid="vec4_8h" local="yes">libs/base/src/base/vec4.h</includedby>
     <includedby refid="approx__equal_8h" local="yes">libs/tests/src/tests/approx_equal.h</includedby>
     <incdepgraph>
@@ -57,10 +56,6 @@
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="3">
-        <label>libs/base/src/base/axisangle.cc</label>
-        <link refid="axisangle_8cc"/>
-      </node>
       <node id="2">
         <label>libs/base/src/base/axisangle.h</label>
         <link refid="axisangle_8h"/>
@@ -68,170 +63,56 @@
         </childnode>
         <childnode refid="4" relation="include">
         </childnode>
-        <childnode refid="6" relation="include">
-        </childnode>
-        <childnode refid="8" relation="include">
-        </childnode>
-      </node>
-      <node id="11">
-        <label>libs/base/src/base/colors.cc</label>
-        <link refid="colors_8cc"/>
-      </node>
-      <node id="10">
-        <label>libs/base/src/base/colors.h</label>
-        <link refid="colors_8h"/>
-        <childnode refid="11" relation="include">
-        </childnode>
-      </node>
-      <node id="5">
-        <label>libs/base/src/base/mat4.cc</label>
-        <link refid="mat4_8cc"/>
-      </node>
-      <node id="4">
-        <label>libs/base/src/base/mat4.h</label>
-        <link refid="mat4_8h"/>
         <childnode refid="5" relation="include">
         </childnode>
-        <childnode refid="6" relation="include">
-        </childnode>
-      </node>
-      <node id="7">
-        <label>libs/base/src/base/quat.cc</label>
-        <link refid="quat_8cc"/>
       </node>
       <node id="6">
-        <label>libs/base/src/base/quat.h</label>
-        <link refid="quat_8h"/>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="5" relation="include">
-        </childnode>
-        <childnode refid="7" relation="include">
-        </childnode>
-        <childnode refid="8" relation="include">
+        <label>libs/base/src/base/colors.h</label>
+        <link refid="colors_8h"/>
+      </node>
+      <node id="3">
+        <label>libs/base/src/base/mat4.h</label>
+        <link refid="mat4_8h"/>
+        <childnode refid="4" relation="include">
         </childnode>
       </node>
-      <node id="12">
-        <label>libs/base/src/base/vec3.cc</label>
-        <link refid="vec3_8cc"/>
+      <node id="4">
+        <label>libs/base/src/base/quat.h</label>
+        <link refid="quat_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
       </node>
       <node id="1">
         <label>libs/base/src/base/vec3.h</label>
         <link refid="vec3_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
-        <childnode refid="10" relation="include">
-        </childnode>
-        <childnode refid="4" relation="include">
-        </childnode>
         <childnode refid="6" relation="include">
         </childnode>
-        <childnode refid="12" relation="include">
+        <childnode refid="3" relation="include">
         </childnode>
-        <childnode refid="13" relation="include">
-        </childnode>
-        <childnode refid="8" relation="include">
-        </childnode>
-      </node>
-      <node id="14">
-        <label>libs/base/src/base/vec4.cc</label>
-        <link refid="vec4_8cc"/>
-      </node>
-      <node id="13">
-        <label>libs/base/src/base/vec4.h</label>
-        <link refid="vec4_8h"/>
         <childnode refid="4" relation="include">
         </childnode>
-        <childnode refid="14" relation="include">
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
         </childnode>
       </node>
-      <node id="9">
-        <label>libs/tests/src/tests/approx_equal.cc</label>
-        <link refid="approx__equal_8cc"/>
+      <node id="7">
+        <label>libs/base/src/base/vec4.h</label>
+        <link refid="vec4_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
       </node>
-      <node id="8">
+      <node id="5">
         <label>libs/tests/src/tests/approx_equal.h</label>
         <link refid="approx__equal_8h"/>
-        <childnode refid="9" relation="include">
-        </childnode>
       </node>
     </invincdepgraph>
     <innerclass refid="structeu_1_1v3" prot="public">eu::v3</innerclass>
     <innerclass refid="structeu_1_1n3" prot="public">eu::n3</innerclass>
     <innernamespace refid="namespaceeu">eu</innernamespace>
     <innernamespace refid="namespaceeu_1_1common">eu::common</innernamespace>
-    <sectiondef kind="define">
-      <memberdef kind="define" id="vec3_8h_1a6ec115b2a1dfc65cf71f912fc5531e35" prot="public" static="no">
-        <name>M</name>
-        <param><defname>var</defname></param>
-        <initializer><ref refid="group__math_1gaa4f3a1d68eda3b72dc542eca112fc1e3" kindref="member">eu::min</ref>(lhs.var, rhs.var)</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/base/src/base/vec3.h" line="140" column="9"/>
-      </memberdef>
-      <memberdef kind="define" id="vec3_8h_1a6ec115b2a1dfc65cf71f912fc5531e35" prot="public" static="no">
-        <name>M</name>
-        <param><defname>var</defname></param>
-        <initializer><ref refid="group__math_1gafdb18ee646a157c1e7d64082029202bb" kindref="member">eu::max</ref>(lhs.var, rhs.var)</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/base/src/base/vec3.h" line="148" column="9"/>
-      </memberdef>
-    </sectiondef>
-    <sectiondef kind="func">
-      <memberdef kind="function" id="vec3_8h_1af55c1ae5e08e3acfdc28c90824ef085f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>ADD_DEFAULT_FORMATTER</definition>
-        <argsstring>(eu::v3, std::string, eu::string_from)</argsstring>
-        <name>ADD_DEFAULT_FORMATTER</name>
-        <param>
-          <type><ref refid="structeu_1_1v3" kindref="compound">eu::v3</ref></type>
-        </param>
-        <param>
-          <type>std::string</type>
-        </param>
-        <param>
-          <type><ref refid="group__math_1gafa7f170a2c4415e5c9f4d517b138a489" kindref="member">eu::string_from</ref></type>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/base/src/base/vec3.h" line="157" column="1" declfile="libs/base/src/base/vec3.h" declline="157" declcolumn="1"/>
-      </memberdef>
-      <memberdef kind="function" id="vec3_8h_1ab691a6929bea38c91f34941c05bbdc3b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>ADD_DEFAULT_FORMATTER</definition>
-        <argsstring>(eu::n3, std::string, eu::string_from)</argsstring>
-        <name>ADD_DEFAULT_FORMATTER</name>
-        <param>
-          <type><ref refid="structeu_1_1n3" kindref="compound">eu::n3</ref></type>
-        </param>
-        <param>
-          <type>std::string</type>
-        </param>
-        <param>
-          <type><ref refid="group__math_1gafa7f170a2c4415e5c9f4d517b138a489" kindref="member">eu::string_from</ref></type>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/base/src/base/vec3.h" line="158" column="1" declfile="libs/base/src/base/vec3.h" declline="158" declcolumn="1"/>
-      </memberdef>
-    </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

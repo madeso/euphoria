@@ -138,7 +138,6 @@
     <value><![CDATA[*.idl]]></value>
     <value><![CDATA[*.ddl]]></value>
     <value><![CDATA[*.odl]]></value>
-    <value><![CDATA[*.cc]]></value>
     <value><![CDATA[*.h]]></value>
     <value><![CDATA[*.hh]]></value>
     <value><![CDATA[*.hxx]]></value>
@@ -181,7 +180,8 @@
     <value><![CDATA[*/data/*]]></value>
     <value><![CDATA[*/test/*]]></value>
   </option>
-  <option  id='EXCLUDE_SYMBOLS' default='yes' type='stringlist'>
+  <option  id='EXCLUDE_SYMBOLS' default='no' type='stringlist'>
+    <value><![CDATA[ADD_DEFAULT_FORMATTER*]]></value>
   </option>
   <option  id='EXAMPLE_PATH' default='yes' type='stringlist'>
   </option>

@@ -4,7 +4,7 @@
     <compoundname>eu::color</compoundname>
     <sectiondef kind="var">
       <memberdef kind="variable" id="namespaceeu_1_1color_1afb9fb8abe019e7eaad0f4d1c8b95bd20" prot="public" static="no" constexpr="yes" mutable="no">
-        <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">constexpr</ref> <ref refid="structeu_1_1v3" kindref="compound">v3</ref></type>
+        <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref> <ref refid="structeu_1_1v3" kindref="compound">v3</ref></type>
         <definition>constexpr v3 eu::color::white</definition>
         <argsstring></argsstring>
         <name>white</name>
@@ -19,7 +19,7 @@
         <location file="libs/base/src/base/colors.h" line="9" column="22" bodyfile="libs/base/src/base/colors.h" bodystart="9" bodyend="9"/>
       </memberdef>
       <memberdef kind="variable" id="namespaceeu_1_1color_1a7c3d531301aa7dade4768761906924c3" prot="public" static="no" constexpr="yes" mutable="no">
-        <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">constexpr</ref> <ref refid="structeu_1_1v3" kindref="compound">v3</ref></type>
+        <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref> <ref refid="structeu_1_1v3" kindref="compound">v3</ref></type>
         <definition>constexpr v3 eu::color::black</definition>
         <argsstring></argsstring>
         <name>black</name>

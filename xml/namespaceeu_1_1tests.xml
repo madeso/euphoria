@@ -5,55 +5,27 @@
     <innerclass refid="structeu_1_1tests_1_1ApproxData" prot="public">eu::tests::ApproxData</innerclass>
     <innernamespace refid="namespaceeu_1_1tests_1_1custom">eu::tests::custom</innernamespace>
     <sectiondef kind="func">
-      <memberdef kind="function" id="namespaceeu_1_1tests_1af345ce71ac050b0e3ecdf61c8bbb060d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <templateparamlist>
-        </templateparamlist>
-        <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">bool</ref></type>
-        <definition>bool eu::tests::is_approximately_equal</definition>
-        <argsstring>(float const &amp;lhs, float const &amp;rhs, const ApproxData &amp;data)</argsstring>
-        <name>is_approximately_equal</name>
-        <qualifiedname>eu::tests::is_approximately_equal</qualifiedname>
-        <param>
-          <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">float</ref> <ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> &amp;</type>
-          <declname>lhs</declname>
-        </param>
-        <param>
-          <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">float</ref> <ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> &amp;</type>
-          <declname>rhs</declname>
-        </param>
-        <param>
-          <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1tests_1_1ApproxData" kindref="compound">ApproxData</ref> &amp;</type>
-          <declname>data</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/tests/src/tests/approx.cc" line="19" column="5" bodyfile="libs/tests/src/tests/approx.cc" bodystart="20" bodyend="46"/>
-      </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1tests_1a429f06a337ab5eca77d8f680617bbb3e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename T</type>
           </param>
         </templateparamlist>
-        <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">bool</ref></type>
+        <type><ref refid="structeu_1_1R" kindref="compound">bool</ref></type>
         <definition>bool eu::tests::is_approximately_equal</definition>
         <argsstring>(const T &amp;lhs, const T &amp;rhs, const ApproxData &amp;data)</argsstring>
         <name>is_approximately_equal</name>
         <qualifiedname>eu::tests::is_approximately_equal</qualifiedname>
         <param>
-          <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">T</ref> &amp;</type>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1R" kindref="compound">T</ref> &amp;</type>
           <declname>lhs</declname>
         </param>
         <param>
-          <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">T</ref> &amp;</type>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1R" kindref="compound">T</ref> &amp;</type>
           <declname>rhs</declname>
         </param>
         <param>
-          <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1tests_1_1ApproxData" kindref="compound">ApproxData</ref> &amp;</type>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1tests_1_1ApproxData" kindref="compound">ApproxData</ref> &amp;</type>
           <declname>data</declname>
         </param>
         <briefdescription>
@@ -67,21 +39,21 @@
       <memberdef kind="function" id="namespaceeu_1_1tests_1af345ce71ac050b0e3ecdf61c8bbb060d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
         </templateparamlist>
-        <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">bool</ref></type>
+        <type><ref refid="structeu_1_1R" kindref="compound">bool</ref></type>
         <definition>bool eu::tests::is_approximately_equal</definition>
         <argsstring>(float const &amp;lhs, float const &amp;rhs, const ApproxData &amp;data)</argsstring>
         <name>is_approximately_equal</name>
         <qualifiedname>eu::tests::is_approximately_equal</qualifiedname>
         <param>
-          <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">float</ref> <ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> &amp;</type>
+          <type><ref refid="structeu_1_1R" kindref="compound">float</ref> <ref refid="structeu_1_1R" kindref="compound">const</ref> &amp;</type>
           <declname>lhs</declname>
         </param>
         <param>
-          <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">float</ref> <ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> &amp;</type>
+          <type><ref refid="structeu_1_1R" kindref="compound">float</ref> <ref refid="structeu_1_1R" kindref="compound">const</ref> &amp;</type>
           <declname>rhs</declname>
         </param>
         <param>
-          <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1tests_1_1ApproxData" kindref="compound">ApproxData</ref> &amp;</type>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1tests_1_1ApproxData" kindref="compound">ApproxData</ref> &amp;</type>
           <declname>data</declname>
         </param>
         <briefdescription>
@@ -90,7 +62,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/tests/src/tests/approx.h" line="28" column="5" bodyfile="libs/tests/src/tests/approx.cc" bodystart="20" bodyend="46" declfile="libs/tests/src/tests/approx.h" declline="28" declcolumn="5"/>
+        <location file="libs/tests/src/tests/approx.h" line="28" column="5" declfile="libs/tests/src/tests/approx.h" declline="28" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1tests_1af709b49e5d6bd250c6bc5fadbe98dcaf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -108,7 +80,7 @@
           <declname>stream</declname>
         </param>
         <param>
-          <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1tests_1_1custom_1_1Approx" kindref="compound">custom::Approx</ref>&lt; <ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">T</ref> &gt; &amp;</type>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1tests_1_1custom_1_1Approx" kindref="compound">custom::Approx</ref>&lt; <ref refid="structeu_1_1R" kindref="compound">T</ref> &gt; &amp;</type>
           <declname>v</declname>
         </param>
         <briefdescription>
@@ -125,13 +97,13 @@
             <type>typename T</type>
           </param>
         </templateparamlist>
-        <type><ref refid="structeu_1_1tests_1_1custom_1_1Approx" kindref="compound">custom::Approx</ref>&lt; <ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">T</ref> &gt;</type>
+        <type><ref refid="structeu_1_1tests_1_1custom_1_1Approx" kindref="compound">custom::Approx</ref>&lt; <ref refid="structeu_1_1R" kindref="compound">T</ref> &gt;</type>
         <definition>custom::Approx&lt; T &gt; eu::tests::approx</definition>
         <argsstring>(T const &amp;t)</argsstring>
         <name>approx</name>
         <qualifiedname>eu::tests::approx</qualifiedname>
         <param>
-          <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">T</ref> <ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> &amp;</type>
+          <type><ref refid="structeu_1_1R" kindref="compound">T</ref> <ref refid="structeu_1_1R" kindref="compound">const</ref> &amp;</type>
           <declname>t</declname>
         </param>
         <briefdescription>
@@ -142,55 +114,24 @@
         </inbodydescription>
         <location file="libs/tests/src/tests/approx.h" line="128" column="5" bodyfile="libs/tests/src/tests/approx.h" bodystart="128" bodyend="131"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1tests_1ad1779ec1241adec7990ffaad2a6db8c5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <templateparamlist>
-          <param>
-            <type>typename T</type>
-          </param>
-        </templateparamlist>
-        <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">bool</ref></type>
-        <definition>bool eu::tests::is_approximately_equal_xyz</definition>
-        <argsstring>(T const &amp;lhs, T const &amp;rhs, const ApproxData &amp;data)</argsstring>
-        <name>is_approximately_equal_xyz</name>
-        <qualifiedname>eu::tests::is_approximately_equal_xyz</qualifiedname>
-        <param>
-          <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">T</ref> <ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> &amp;</type>
-          <declname>lhs</declname>
-        </param>
-        <param>
-          <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">T</ref> <ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> &amp;</type>
-          <declname>rhs</declname>
-        </param>
-        <param>
-          <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1tests_1_1ApproxData" kindref="compound">ApproxData</ref> &amp;</type>
-          <declname>data</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/tests/src/tests/approx_equal.cc" line="7" column="5" bodyfile="libs/tests/src/tests/approx_equal.cc" bodystart="7" bodyend="12"/>
-      </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1tests_1a6fc2935563b7eb53a45df4f07fc00ec9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
         </templateparamlist>
-        <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">bool</ref></type>
+        <type><ref refid="structeu_1_1R" kindref="compound">bool</ref></type>
         <definition>bool eu::tests::is_approximately_equal</definition>
         <argsstring>(v3 const &amp;lhs, v3 const &amp;rhs, const ApproxData &amp;data)</argsstring>
         <name>is_approximately_equal</name>
         <qualifiedname>eu::tests::is_approximately_equal</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1v3" kindref="compound">v3</ref> <ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> &amp;</type>
+          <type><ref refid="structeu_1_1v3" kindref="compound">v3</ref> <ref refid="structeu_1_1R" kindref="compound">const</ref> &amp;</type>
           <declname>lhs</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1v3" kindref="compound">v3</ref> <ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> &amp;</type>
+          <type><ref refid="structeu_1_1v3" kindref="compound">v3</ref> <ref refid="structeu_1_1R" kindref="compound">const</ref> &amp;</type>
           <declname>rhs</declname>
         </param>
         <param>
-          <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1tests_1_1ApproxData" kindref="compound">ApproxData</ref> &amp;</type>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1tests_1_1ApproxData" kindref="compound">ApproxData</ref> &amp;</type>
           <declname>data</declname>
         </param>
         <briefdescription>
@@ -199,26 +140,26 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/tests/src/tests/approx_equal.cc" line="16" column="5" bodyfile="libs/tests/src/tests/approx_equal.cc" bodystart="16" bodyend="22"/>
+        <location file="libs/tests/src/tests/approx_equal.h" line="14" column="5" declfile="libs/tests/src/tests/approx_equal.h" declline="14" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1tests_1ad6b9776427e5e68d4a5b5520a9c892c0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
         </templateparamlist>
-        <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">bool</ref></type>
+        <type><ref refid="structeu_1_1R" kindref="compound">bool</ref></type>
         <definition>bool eu::tests::is_approximately_equal</definition>
         <argsstring>(v4 const &amp;lhs, v4 const &amp;rhs, const ApproxData &amp;data)</argsstring>
         <name>is_approximately_equal</name>
         <qualifiedname>eu::tests::is_approximately_equal</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1v4" kindref="compound">v4</ref> <ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> &amp;</type>
+          <type><ref refid="structeu_1_1v4" kindref="compound">v4</ref> <ref refid="structeu_1_1R" kindref="compound">const</ref> &amp;</type>
           <declname>lhs</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1v4" kindref="compound">v4</ref> <ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> &amp;</type>
+          <type><ref refid="structeu_1_1v4" kindref="compound">v4</ref> <ref refid="structeu_1_1R" kindref="compound">const</ref> &amp;</type>
           <declname>rhs</declname>
         </param>
         <param>
-          <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1tests_1_1ApproxData" kindref="compound">ApproxData</ref> &amp;</type>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1tests_1_1ApproxData" kindref="compound">ApproxData</ref> &amp;</type>
           <declname>data</declname>
         </param>
         <briefdescription>
@@ -227,26 +168,26 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/tests/src/tests/approx_equal.cc" line="26" column="5" bodyfile="libs/tests/src/tests/approx_equal.cc" bodystart="26" bodyend="36"/>
+        <location file="libs/tests/src/tests/approx_equal.h" line="21" column="5" declfile="libs/tests/src/tests/approx_equal.h" declline="21" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1tests_1a8625a5c60ac58efeb4f0b35d380eb5e9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
         </templateparamlist>
-        <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">bool</ref></type>
+        <type><ref refid="structeu_1_1R" kindref="compound">bool</ref></type>
         <definition>bool eu::tests::is_approximately_equal</definition>
         <argsstring>(n3 const &amp;lhs, n3 const &amp;rhs, const ApproxData &amp;data)</argsstring>
         <name>is_approximately_equal</name>
         <qualifiedname>eu::tests::is_approximately_equal</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1n3" kindref="compound">n3</ref> <ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> &amp;</type>
+          <type><ref refid="structeu_1_1n3" kindref="compound">n3</ref> <ref refid="structeu_1_1R" kindref="compound">const</ref> &amp;</type>
           <declname>lhs</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1n3" kindref="compound">n3</ref> <ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> &amp;</type>
+          <type><ref refid="structeu_1_1n3" kindref="compound">n3</ref> <ref refid="structeu_1_1R" kindref="compound">const</ref> &amp;</type>
           <declname>rhs</declname>
         </param>
         <param>
-          <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1tests_1_1ApproxData" kindref="compound">ApproxData</ref> &amp;</type>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1tests_1_1ApproxData" kindref="compound">ApproxData</ref> &amp;</type>
           <declname>data</declname>
         </param>
         <briefdescription>
@@ -255,26 +196,26 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/tests/src/tests/approx_equal.cc" line="40" column="5" bodyfile="libs/tests/src/tests/approx_equal.cc" bodystart="40" bodyend="46"/>
+        <location file="libs/tests/src/tests/approx_equal.h" line="28" column="5" declfile="libs/tests/src/tests/approx_equal.h" declline="28" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1tests_1a1d81d87b4c3e1cc42b4788a8e8c49f08" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
         </templateparamlist>
-        <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">bool</ref></type>
+        <type><ref refid="structeu_1_1R" kindref="compound">bool</ref></type>
         <definition>bool eu::tests::is_approximately_equal</definition>
         <argsstring>(Q const &amp;lhs, Q const &amp;rhs, const ApproxData &amp;data)</argsstring>
         <name>is_approximately_equal</name>
         <qualifiedname>eu::tests::is_approximately_equal</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1Q" kindref="compound">Q</ref> <ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> &amp;</type>
+          <type><ref refid="structeu_1_1Q" kindref="compound">Q</ref> <ref refid="structeu_1_1R" kindref="compound">const</ref> &amp;</type>
           <declname>lhs</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1Q" kindref="compound">Q</ref> <ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> &amp;</type>
+          <type><ref refid="structeu_1_1Q" kindref="compound">Q</ref> <ref refid="structeu_1_1R" kindref="compound">const</ref> &amp;</type>
           <declname>rhs</declname>
         </param>
         <param>
-          <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1tests_1_1ApproxData" kindref="compound">ApproxData</ref> &amp;</type>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1tests_1_1ApproxData" kindref="compound">ApproxData</ref> &amp;</type>
           <declname>data</declname>
         </param>
         <briefdescription>
@@ -283,26 +224,26 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/tests/src/tests/approx_equal.cc" line="51" column="5" bodyfile="libs/tests/src/tests/approx_equal.cc" bodystart="51" bodyend="57"/>
+        <location file="libs/tests/src/tests/approx_equal.h" line="35" column="5" declfile="libs/tests/src/tests/approx_equal.h" declline="35" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1tests_1a8ec13d4ff8a062c1e11223fdae314383" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
         </templateparamlist>
-        <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">bool</ref></type>
+        <type><ref refid="structeu_1_1R" kindref="compound">bool</ref></type>
         <definition>bool eu::tests::is_approximately_equal</definition>
         <argsstring>(AA const &amp;lhs, AA const &amp;rhs, const ApproxData &amp;data)</argsstring>
         <name>is_approximately_equal</name>
         <qualifiedname>eu::tests::is_approximately_equal</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1AA" kindref="compound">AA</ref> <ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> &amp;</type>
+          <type><ref refid="structeu_1_1AA" kindref="compound">AA</ref> <ref refid="structeu_1_1R" kindref="compound">const</ref> &amp;</type>
           <declname>lhs</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1AA" kindref="compound">AA</ref> <ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> &amp;</type>
+          <type><ref refid="structeu_1_1AA" kindref="compound">AA</ref> <ref refid="structeu_1_1R" kindref="compound">const</ref> &amp;</type>
           <declname>rhs</declname>
         </param>
         <param>
-          <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1tests_1_1ApproxData" kindref="compound">ApproxData</ref> &amp;</type>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1tests_1_1ApproxData" kindref="compound">ApproxData</ref> &amp;</type>
           <declname>data</declname>
         </param>
         <briefdescription>
@@ -311,181 +252,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/tests/src/tests/approx_equal.cc" line="61" column="5" bodyfile="libs/tests/src/tests/approx_equal.cc" bodystart="61" bodyend="84"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1tests_1a5ccf9ca66634bff5881b9dccff3c25ea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <templateparamlist>
-        </templateparamlist>
-        <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">bool</ref></type>
-        <definition>bool eu::tests::is_approximately_equal</definition>
-        <argsstring>(m4 const &amp;lhs, m4 const &amp;rhs, const ApproxData &amp;data)</argsstring>
-        <name>is_approximately_equal</name>
-        <qualifiedname>eu::tests::is_approximately_equal</qualifiedname>
-        <param>
-          <type><ref refid="structeu_1_1m4" kindref="compound">m4</ref> <ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> &amp;</type>
-          <declname>lhs</declname>
-        </param>
-        <param>
-          <type><ref refid="structeu_1_1m4" kindref="compound">m4</ref> <ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> &amp;</type>
-          <declname>rhs</declname>
-        </param>
-        <param>
-          <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1tests_1_1ApproxData" kindref="compound">ApproxData</ref> &amp;</type>
-          <declname>data</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/tests/src/tests/approx_equal.cc" line="89" column="5" bodyfile="libs/tests/src/tests/approx_equal.cc" bodystart="89" bodyend="102"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1tests_1a6fc2935563b7eb53a45df4f07fc00ec9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <templateparamlist>
-        </templateparamlist>
-        <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">bool</ref></type>
-        <definition>bool eu::tests::is_approximately_equal</definition>
-        <argsstring>(v3 const &amp;lhs, v3 const &amp;rhs, const ApproxData &amp;data)</argsstring>
-        <name>is_approximately_equal</name>
-        <qualifiedname>eu::tests::is_approximately_equal</qualifiedname>
-        <param>
-          <type><ref refid="structeu_1_1v3" kindref="compound">v3</ref> <ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> &amp;</type>
-          <declname>lhs</declname>
-        </param>
-        <param>
-          <type><ref refid="structeu_1_1v3" kindref="compound">v3</ref> <ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> &amp;</type>
-          <declname>rhs</declname>
-        </param>
-        <param>
-          <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1tests_1_1ApproxData" kindref="compound">ApproxData</ref> &amp;</type>
-          <declname>data</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/tests/src/tests/approx_equal.h" line="14" column="5" bodyfile="libs/tests/src/tests/approx_equal.cc" bodystart="16" bodyend="22" declfile="libs/tests/src/tests/approx_equal.h" declline="14" declcolumn="5"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1tests_1ad6b9776427e5e68d4a5b5520a9c892c0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <templateparamlist>
-        </templateparamlist>
-        <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">bool</ref></type>
-        <definition>bool eu::tests::is_approximately_equal</definition>
-        <argsstring>(v4 const &amp;lhs, v4 const &amp;rhs, const ApproxData &amp;data)</argsstring>
-        <name>is_approximately_equal</name>
-        <qualifiedname>eu::tests::is_approximately_equal</qualifiedname>
-        <param>
-          <type><ref refid="structeu_1_1v4" kindref="compound">v4</ref> <ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> &amp;</type>
-          <declname>lhs</declname>
-        </param>
-        <param>
-          <type><ref refid="structeu_1_1v4" kindref="compound">v4</ref> <ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> &amp;</type>
-          <declname>rhs</declname>
-        </param>
-        <param>
-          <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1tests_1_1ApproxData" kindref="compound">ApproxData</ref> &amp;</type>
-          <declname>data</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/tests/src/tests/approx_equal.h" line="21" column="5" bodyfile="libs/tests/src/tests/approx_equal.cc" bodystart="26" bodyend="36" declfile="libs/tests/src/tests/approx_equal.h" declline="21" declcolumn="5"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1tests_1a8625a5c60ac58efeb4f0b35d380eb5e9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <templateparamlist>
-        </templateparamlist>
-        <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">bool</ref></type>
-        <definition>bool eu::tests::is_approximately_equal</definition>
-        <argsstring>(n3 const &amp;lhs, n3 const &amp;rhs, const ApproxData &amp;data)</argsstring>
-        <name>is_approximately_equal</name>
-        <qualifiedname>eu::tests::is_approximately_equal</qualifiedname>
-        <param>
-          <type><ref refid="structeu_1_1n3" kindref="compound">n3</ref> <ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> &amp;</type>
-          <declname>lhs</declname>
-        </param>
-        <param>
-          <type><ref refid="structeu_1_1n3" kindref="compound">n3</ref> <ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> &amp;</type>
-          <declname>rhs</declname>
-        </param>
-        <param>
-          <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1tests_1_1ApproxData" kindref="compound">ApproxData</ref> &amp;</type>
-          <declname>data</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/tests/src/tests/approx_equal.h" line="28" column="5" bodyfile="libs/tests/src/tests/approx_equal.cc" bodystart="40" bodyend="46" declfile="libs/tests/src/tests/approx_equal.h" declline="28" declcolumn="5"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1tests_1a1d81d87b4c3e1cc42b4788a8e8c49f08" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <templateparamlist>
-        </templateparamlist>
-        <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">bool</ref></type>
-        <definition>bool eu::tests::is_approximately_equal</definition>
-        <argsstring>(Q const &amp;lhs, Q const &amp;rhs, const ApproxData &amp;data)</argsstring>
-        <name>is_approximately_equal</name>
-        <qualifiedname>eu::tests::is_approximately_equal</qualifiedname>
-        <param>
-          <type><ref refid="structeu_1_1Q" kindref="compound">Q</ref> <ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> &amp;</type>
-          <declname>lhs</declname>
-        </param>
-        <param>
-          <type><ref refid="structeu_1_1Q" kindref="compound">Q</ref> <ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> &amp;</type>
-          <declname>rhs</declname>
-        </param>
-        <param>
-          <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1tests_1_1ApproxData" kindref="compound">ApproxData</ref> &amp;</type>
-          <declname>data</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/tests/src/tests/approx_equal.h" line="35" column="5" bodyfile="libs/tests/src/tests/approx_equal.cc" bodystart="51" bodyend="57" declfile="libs/tests/src/tests/approx_equal.h" declline="35" declcolumn="5"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1tests_1a8ec13d4ff8a062c1e11223fdae314383" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <templateparamlist>
-        </templateparamlist>
-        <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">bool</ref></type>
-        <definition>bool eu::tests::is_approximately_equal</definition>
-        <argsstring>(AA const &amp;lhs, AA const &amp;rhs, const ApproxData &amp;data)</argsstring>
-        <name>is_approximately_equal</name>
-        <qualifiedname>eu::tests::is_approximately_equal</qualifiedname>
-        <param>
-          <type><ref refid="structeu_1_1AA" kindref="compound">AA</ref> <ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> &amp;</type>
-          <declname>lhs</declname>
-        </param>
-        <param>
-          <type><ref refid="structeu_1_1AA" kindref="compound">AA</ref> <ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> &amp;</type>
-          <declname>rhs</declname>
-        </param>
-        <param>
-          <type><ref refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kindref="member">const</ref> <ref refid="structeu_1_1tests_1_1ApproxData" kindref="compound">ApproxData</ref> &amp;</type>
-          <declname>data</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/tests/src/tests/approx_equal.h" line="42" column="5" bodyfile="libs/tests/src/tests/approx_equal.cc" bodystart="61" bodyend="84" declfile="libs/tests/src/tests/approx_equal.h" declline="42" declcolumn="5"/>
+        <location file="libs/tests/src/tests/approx_equal.h" line="42" column="5" declfile="libs/tests/src/tests/approx_equal.h" declline="42" declcolumn="5"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/tests/src/tests/approx.cc" line="15" column="1"/>
+    <location file="libs/tests/src/tests/approx.h" line="10" column="1"/>
   </compounddef>
 </doxygen>

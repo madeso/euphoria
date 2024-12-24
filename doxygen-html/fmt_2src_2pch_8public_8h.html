@@ -50,8 +50,6 @@
 </div>
 </div><!-- top -->
 <div class="header">
-  <div class="summary">
-<a href="#define-members">Macros</a>  </div>
   <div class="headertitle"><div class="title">pch.public.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
@@ -60,57 +58,6 @@
 <code>#include &lt;fmt/ranges.h&gt;</code><br />
 </div>
 <p><a href="fmt_2src_2pch_8public_8h_source.html">Go to the source code of this file.</a></p>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:a6b81aa36f1dc1afd2acf99e4c1f30361" id="r_a6b81aa36f1dc1afd2acf99e4c1f30361"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fmt_2src_2pch_8public_8h.html#a6b81aa36f1dc1afd2acf99e4c1f30361">ADD_DEFAULT_FORMATTER</a>(TYPE,  STRING,  TO_STRING)</td></tr>
-<tr class="separator:a6b81aa36f1dc1afd2acf99e4c1f30361"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="a6b81aa36f1dc1afd2acf99e4c1f30361" name="a6b81aa36f1dc1afd2acf99e4c1f30361"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6b81aa36f1dc1afd2acf99e4c1f30361">&#9670;&#160;</a></span>ADD_DEFAULT_FORMATTER</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define ADD_DEFAULT_FORMATTER</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">TYPE, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">STRING, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">TO_STRING&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line"><span class="keyword">template</span> &lt;&gt; <span class="keyword">struct </span>fmt::formatter&lt;TYPE&gt;: fmt::formatter&lt;STRING&gt; \</div>
-<div class="line">{ \</div>
-<div class="line">    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> FormatContext&gt; \</div>
-<div class="line">    <span class="keyword">auto</span> format(<span class="keyword">const</span> TYPE&amp; c, FormatContext&amp; ctx) <span class="keyword">const</span> \</div>
-<div class="line">    { \</div>
-<div class="line">        <span class="keywordflow">return</span> fmt::formatter&lt;STRING&gt;::format(TO_STRING(c), ctx); \</div>
-<div class="line">    } \</div>
-<div class="line">}</div>
-</div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="fmt_2src_2pch_8public_8h_source.html#l00012">12</a> of file <a class="el" href="fmt_2src_2pch_8public_8h_source.html">pch.public.h</a>.</p>
-
-</div>
-</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

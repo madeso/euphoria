@@ -2,7 +2,6 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
   <compounddef id="dir_ccce5c7bfdb575666c322ea4a56d00ce" kind="dir">
     <compoundname>libs/fmt/src</compoundname>
-    <innerfile refid="fmt_8cc">fmt.cc</innerfile>
     <innerfile refid="fmt_2src_2pch_8public_8h">pch.public.h</innerfile>
     <briefdescription>
     </briefdescription>
