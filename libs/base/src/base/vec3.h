@@ -137,17 +137,21 @@ namespace eu
     constexpr v3
     min(const v3 &lhs, const v3 &rhs)
     {
-#define M(var) eu::min(lhs.var, rhs.var)
-        return v3{M(x), M(y), M(z)};
-#undef M
+        return {
+            eu::min(lhs.x, rhs.x),
+            eu::min(lhs.y, rhs.y),
+            eu::min(lhs.z, rhs.z)
+        };
     }
 
     constexpr v3
     max(const v3 &lhs, const v3 &rhs)
     {
-#define M(var) eu::max(lhs.var, rhs.var)
-        return v3{M(x), M(y), M(z)};
-#undef M
+        return {
+            eu::max(lhs.x, rhs.x),
+            eu::max(lhs.y, rhs.y),
+            eu::max(lhs.z, rhs.z)
+        };
     }
 
     /** @}*/
