@@ -5,6 +5,29 @@
 
 #include "catch2/catch_all.hpp"
 
+// move to a common file in test lib
+namespace Catch
+{
+    template <typename T>
+    struct StringMaker<std::optional<T>>
+    {
+        static std::string convert(std::optional<T> const& value)
+        {
+            if (!value) return "<empty>";
+
+            return fmt::to_string(*value);
+        }
+    };
+
+    template <>
+    struct StringMaker<std::nullopt_t>
+    {
+        static std::string convert(std::nullopt_t const&)
+        {
+            return "<empty>";
+        }
+    };
+}
 
 
 using namespace eu::tests;
@@ -20,7 +43,7 @@ TEST_CASE("quat-testVecOp", "[quat]")
     REQUIRE(eu::Q(4, eu::v3(1, 2, 3)).get_vec_part() == approx(eu::v3(1, 2, 3)));
 }
 
-#define EXPECT_PRED_FORMAT2(a, b) REQUIRE(b == approx(a))
+#define EXPECT_PRED_FORMAT2(a, b) CHECK(b == approx(a))
 
 TEST_CASE("quat-testLocalAxis", "[quat]")
 {
@@ -120,22 +143,22 @@ TEST_CASE("quat-testLook", "[quat]")
             eu::Q::from(eu::right_hand_around(
                     eu::common::up, eu::no_rotation)),
             eu::Q::look_in_direction(
-                    eu::v3(0, 0, -9).get_normalized(), eu::common::up));
+                    *eu::v3(0, 0, -9).get_normalized(), eu::common::up));
     EXPECT_PRED_FORMAT2(
             eu::Q::from(eu::right_hand_around(
                     eu::common::up, eu::An::from_degrees(180))),
             eu::Q::look_in_direction(
-                    eu::v3(0, 0, 9).get_normalized(), eu::common::up));
+                    *eu::v3(0, 0, 9).get_normalized(), eu::common::up));
     EXPECT_PRED_FORMAT2(
             eu::Q::from(eu::right_hand_around(
                     eu::common::up, eu::An::from_degrees(-90))),
             eu::Q::look_in_direction(
-                    eu::v3(3, 0, 0).get_normalized(), eu::common::up));
+                    *eu::v3(3, 0, 0).get_normalized(), eu::common::up));
     EXPECT_PRED_FORMAT2(
             eu::Q::from(eu::right_hand_around(
                     eu::common::up, eu::An::from_degrees(90))),
             eu::Q::look_in_direction(
-                    eu::v3(-5, 0, 0).get_normalized(), eu::common::up));
+                    *eu::v3(-5, 0, 0).get_normalized(), eu::common::up));
 
     // todo(Gustav): add more test where up != up()
 }
@@ -213,21 +236,21 @@ TEST_CASE("quat-verifyTestAxisAngle", "[quat]")
 
 TEST_CASE("quat-checkAxisAngle", "[quat]")
 {
-    EXPECT_PRED_FORMAT2(
-        eu::right_hand_around(eu::common::up, eu::no_rotation),
+    CHECK(
+        std::nullopt == 
         eu::AA::from(
             eu::Q::from(
                 eu::right_hand_around(eu::common::up, eu::no_rotation)
             )
         )
     );
-    EXPECT_PRED_FORMAT2(
-            eu::right_hand_around(
-                    eu::common::right, eu::no_rotation),
+    CHECK(
+            std::nullopt == 
         eu::AA::from(eu::Q::from(
                     eu::right_hand_around(
                             eu::common::right, eu::no_rotation))
                     ));
+
     EXPECT_PRED_FORMAT2(
             eu::right_hand_around(
                     eu::common::right, eu::An::from_degrees(90)),

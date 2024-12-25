@@ -63,13 +63,6 @@ namespace eu::tests
             AA const& rhs,
             const ApproxData& data)
     {
-        if(is_approximately_equal(
-                   lhs.angle.as_degrees(), rhs.angle.as_degrees(), data)
-           && is_approximately_equal(lhs.angle.as_degrees(), 0.0f, data))
-        {
-            return true; // zero rotation is always equal zero
-        }
-
         const bool a =
         (
             is_approximately_equal(rhs.axis, lhs.axis, data) &&
