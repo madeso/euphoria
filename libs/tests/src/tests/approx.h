@@ -68,12 +68,9 @@ namespace eu::tests
             }
 
             [[nodiscard]] std::string
-            string_from() const
+            to_string() const
             {
-                Catch::ReusableStringStream rss;
-                rss << "Approx( " << ::Catch::Detail::stringify(value)
-                    << " )";
-                return rss.str();
+                return fmt::format("Approx( {0} )", value);
             }
 
             friend bool
@@ -129,4 +126,16 @@ namespace eu::tests
     {
         return custom::Approx<T>(t);
     }
+}
+
+namespace Catch
+{
+    template <typename T>
+    struct StringMaker<eu::tests::custom::Approx<T>>
+    {
+        static std::string convert(eu::tests::custom::Approx<T> const& value)
+        {
+            return value.to_string();
+        }
+    };
 }
