@@ -4,7 +4,7 @@
     <member refid="structeu_1_1AA_1a517bd92c9485430787c833f68eb42379" kind="variable"><name>axis</name></member>
     <member refid="structeu_1_1AA_1a0ef36e1500a96f32d75602e9a53596da" kind="variable"><name>angle</name></member>
     <member refid="structeu_1_1AA_1af1690aab94c15e9db117c61ea3265e8a" kind="function"><name>AA</name></member>
-    <member refid="structeu_1_1AA_1a01fd8ed962964dc8404291b42325b40e" kind="function"><name>from</name></member>
+    <member refid="structeu_1_1AA_1aa12744e9510b1a6de37d85d0c326eafc" kind="function"><name>from</name></member>
   </compound>
   <compound refid="structeu_1_1An" kind="struct"><name>eu::An</name>
     <member refid="structeu_1_1An_1a187f0b5cc79e5083d34ea80bc95ec1f0" kind="variable"><name>radians</name></member>
@@ -35,7 +35,7 @@
     <member refid="structeu_1_1tests_1_1custom_1_1Approx_1a8e2e5746e6f145cf4fb7178945ef204e" kind="function"><name>set_epsilon</name></member>
     <member refid="structeu_1_1tests_1_1custom_1_1Approx_1afec0f714567eb9c08271bc2a37866449" kind="function"><name>set_margin</name></member>
     <member refid="structeu_1_1tests_1_1custom_1_1Approx_1a133352e4b3ebac12407a3084f50b4f65" kind="function"><name>set_scale</name></member>
-    <member refid="structeu_1_1tests_1_1custom_1_1Approx_1a1fcebc23ec2acdeb7893873e2c332b8b" kind="function"><name>string_from</name></member>
+    <member refid="structeu_1_1tests_1_1custom_1_1Approx_1a733fee95d9d25fef82996941cc03bc66" kind="function"><name>to_string</name></member>
     <member refid="structeu_1_1tests_1_1custom_1_1Approx_1ad4e89e4fc9539b3d1cd1087ecfa07985" kind="friend"><name>operator==</name></member>
     <member refid="structeu_1_1tests_1_1custom_1_1Approx_1a66bc64b9f6ca0ed5c6256a10b59260df" kind="friend"><name>operator==</name></member>
     <member refid="structeu_1_1tests_1_1custom_1_1Approx_1a98eb1ff7b0e1a2a9f75c35339f7185ea" kind="friend"><name>operator!=</name></member>
@@ -71,7 +71,7 @@
     <member refid="structeu_1_1m4_1a05aee86e518e28de0e30b59d1b45a044" kind="function"><name>from_rot_y</name></member>
     <member refid="structeu_1_1m4_1a82ebadeb3686d4969a25ea562a77b69c" kind="function"><name>from_rot_z</name></member>
     <member refid="structeu_1_1m4_1afbf74cfa8215fe5c7c29f14095592a4d" kind="function"><name>from</name></member>
-    <member refid="structeu_1_1m4_1a61c652ef3fa0b95f69e970fad0115995" kind="function"><name>from</name></member>
+    <member refid="structeu_1_1m4_1acedb3177529232cb02854aaa8ec1407f" kind="function"><name>from</name></member>
     <member refid="structeu_1_1m4_1ae8ba82977a543bd9ab1991f1b4e33dbb" kind="function"><name>create_ortho</name></member>
     <member refid="structeu_1_1m4_1a09082b8b01477bcfcf5d6eaab85c1855" kind="function"><name>create_perspective</name></member>
     <member refid="structeu_1_1m4_1aa47c360516068b62237182dd1f005cd7" kind="function"><name>from_scalar</name></member>
@@ -157,7 +157,7 @@
     <member refid="structeu_1_1Q_1acf38e08247c681bffa8d6e4d3e731f96" kind="function"><name>from</name></member>
     <member refid="structeu_1_1Q_1afaa1c917caaf0a005f39bc0ba222ecac" kind="function"><name>from</name></member>
     <member refid="structeu_1_1Q_1a0b7e97b743d06f8d4305a4f3ad54c26a" kind="function"><name>from_to</name></member>
-    <member refid="structeu_1_1Q_1a3d601fbf33e303ecb94993c477f4e6e6" kind="function"><name>look_at</name></member>
+    <member refid="structeu_1_1Q_1af80452ab6aa9531bb2cfc11ada256321" kind="function"><name>look_at</name></member>
     <member refid="structeu_1_1Q_1abdf0df3ce5bdd1000bb0658c7838fc28" kind="function"><name>look_in_direction</name></member>
   </compound>
   <compound refid="structeu_1_1R" kind="struct"><name>eu::R</name>
@@ -173,6 +173,9 @@
     <member refid="structeu_1_1log_1_1ScopedLogger_1a3b6cb64a7c7e6ff9eadc1f929b6b84bc" kind="function"><name>ScopedLogger</name></member>
     <member refid="structeu_1_1log_1_1ScopedLogger_1abf3cd5fa18bcdf1ad2107b3f9782039e" kind="function"><name>operator=</name></member>
     <member refid="structeu_1_1log_1_1ScopedLogger_1a7f1c35c53bd6395becd4603d90f0a2d6" kind="function"><name>operator=</name></member>
+  </compound>
+  <compound refid="structCatch_1_1StringMaker_3_01eu_1_1tests_1_1custom_1_1Approx_3_01T_01_4_01_4" kind="struct"><name>Catch::StringMaker&lt; eu::tests::custom::Approx&lt; T &gt; &gt;</name>
+    <member refid="structCatch_1_1StringMaker_3_01eu_1_1tests_1_1custom_1_1Approx_3_01T_01_4_01_4_1a601bd5ba250b68eeb4d92004e2a7ab0f" kind="function"><name>convert</name></member>
   </compound>
   <compound refid="structeu_1_1v2" kind="struct"><name>eu::v2</name>
     <member refid="structeu_1_1v2_1acde135631a96d1063a8634ce5e692537" kind="variable"><name>x</name></member>
@@ -216,8 +219,8 @@
     <member refid="structeu_1_1v3_1aa10b5855955fce26402df64eba38998d" kind="function"><name>get_data_ptr</name></member>
     <member refid="structeu_1_1v3_1a2c18892ec9ae86a90876f559c57196c7" kind="function"><name>get_length_squared</name></member>
     <member refid="structeu_1_1v3_1ad131a826d10d3ee228f289e65c1e5d5d" kind="function"><name>get_length</name></member>
-    <member refid="structeu_1_1v3_1a398e2f716bacc7b46247b53c7b066cc0" kind="function"><name>normalize</name></member>
-    <member refid="structeu_1_1v3_1a7089404a4bbe62dbd5ab7456a54307d9" kind="function"><name>get_normalized</name></member>
+    <member refid="structeu_1_1v3_1a7ef340f9143fbfc013e1922a4b73b7aa" kind="function"><name>normalize</name></member>
+    <member refid="structeu_1_1v3_1a72db54f47fe07478249fc6238fb8b020" kind="function"><name>get_normalized</name></member>
     <member refid="structeu_1_1v3_1aec2154808567055f1f237d6be4807cec" kind="function"><name>operator==</name></member>
     <member refid="structeu_1_1v3_1a3d56743109db2dbb8c142dc72d1e3666" kind="function"><name>from_to</name></member>
   </compound>
@@ -239,6 +242,8 @@
     <member refid="structeu_1_1Ypr_1a876d894be0edc78d9250f3d5df68f7d4" kind="variable"><name>yaw</name></member>
     <member refid="structeu_1_1Ypr_1a19ba5b756baa3ae5baa58d281e791ea2" kind="variable"><name>pitch</name></member>
     <member refid="structeu_1_1Ypr_1ac60be98970716f36245071ef9ef088ac" kind="variable"><name>roll</name></member>
+  </compound>
+  <compound refid="namespaceCatch" kind="namespace"><name>Catch</name>
   </compound>
   <compound refid="namespaceeu" kind="namespace"><name>eu</name>
     <member refid="namespaceeu_1af51071e3961aca6266852501c7229467" kind="typedef"><name>i8</name></member>

@@ -509,9 +509,9 @@
         </inbodydescription>
         <location file="libs/base/src/base/quat.h" line="36" column="19"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1Q_1a3d601fbf33e303ecb94993c477f4e6e6" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1Q" kindref="compound">Q</ref></type>
-        <definition>static Q eu::Q::look_at</definition>
+      <memberdef kind="function" id="structeu_1_1Q_1af80452ab6aa9531bb2cfc11ada256321" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::optional&lt; <ref refid="structeu_1_1Q" kindref="compound">Q</ref> &gt;</type>
+        <definition>static std::optional&lt; Q &gt; eu::Q::look_at</definition>
         <argsstring>(const v3 &amp;from, const v3 &amp;to, const n3 &amp;up)</argsstring>
         <name>look_at</name>
         <qualifiedname>eu::Q::look_at</qualifiedname>
@@ -533,7 +533,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/quat.h" line="37" column="19"/>
+        <location file="libs/base/src/base/quat.h" line="37" column="31"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1Q_1abdf0df3ce5bdd1000bb0658c7838fc28" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1Q" kindref="compound">Q</ref></type>
@@ -587,7 +587,7 @@
       <member refid="structeu_1_1Q_1ad4ef10bf6309b058ada75c92ce932324" prot="public" virt="non-virtual"><scope>eu::Q</scope><name>get_rotated</name></member>
       <member refid="structeu_1_1Q_1a6391edc50ae8d4cc3a8c2d4f4ed2debb" prot="public" virt="non-virtual"><scope>eu::Q</scope><name>get_up</name></member>
       <member refid="structeu_1_1Q_1a504bd4cb431623cb546353b9e7543d6c" prot="public" virt="non-virtual"><scope>eu::Q</scope><name>get_vec_part</name></member>
-      <member refid="structeu_1_1Q_1a3d601fbf33e303ecb94993c477f4e6e6" prot="public" virt="non-virtual"><scope>eu::Q</scope><name>look_at</name></member>
+      <member refid="structeu_1_1Q_1af80452ab6aa9531bb2cfc11ada256321" prot="public" virt="non-virtual"><scope>eu::Q</scope><name>look_at</name></member>
       <member refid="structeu_1_1Q_1abdf0df3ce5bdd1000bb0658c7838fc28" prot="public" virt="non-virtual"><scope>eu::Q</scope><name>look_in_direction</name></member>
       <member refid="structeu_1_1Q_1a92b5e5a95a0ff772e72d89c30cc29c54" prot="public" virt="non-virtual"><scope>eu::Q</scope><name>normalize</name></member>
       <member refid="structeu_1_1Q_1a0d598e8d983468dd130394a0fcab90fa" prot="public" virt="non-virtual"><scope>eu::Q</scope><name>operator*=</name></member>

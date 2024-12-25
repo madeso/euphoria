@@ -89,7 +89,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/tests/src/tests/approx.h" line="117" column="5" bodyfile="libs/tests/src/tests/approx.h" bodystart="118" bodyend="121"/>
+        <location file="libs/tests/src/tests/approx.h" line="114" column="5" bodyfile="libs/tests/src/tests/approx.h" bodystart="115" bodyend="118"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1tests_1a64576baee16640d9d585f9e8508e9ac9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -112,7 +112,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/tests/src/tests/approx.h" line="128" column="5" bodyfile="libs/tests/src/tests/approx.h" bodystart="128" bodyend="131"/>
+        <location file="libs/tests/src/tests/approx.h" line="125" column="5" bodyfile="libs/tests/src/tests/approx.h" bodystart="125" bodyend="128"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1tests_1a6fc2935563b7eb53a45df4f07fc00ec9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>

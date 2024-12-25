@@ -60,9 +60,9 @@
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-static-func">
-      <memberdef kind="function" id="structeu_1_1AA_1a01fd8ed962964dc8404291b42325b40e" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1AA" kindref="compound">AA</ref></type>
-        <definition>static AA eu::AA::from</definition>
+      <memberdef kind="function" id="structeu_1_1AA_1aa12744e9510b1a6de37d85d0c326eafc" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::optional&lt; <ref refid="structeu_1_1AA" kindref="compound">AA</ref> &gt;</type>
+        <definition>static std::optional&lt; AA &gt; eu::AA::from</definition>
         <argsstring>(const Q &amp;q)</argsstring>
         <name>from</name>
         <qualifiedname>eu::AA::from</qualifiedname>
@@ -76,7 +76,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/axisangle.h" line="28" column="20"/>
+        <location file="libs/base/src/base/axisangle.h" line="28" column="31"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -115,7 +115,7 @@
       <member refid="structeu_1_1AA_1af1690aab94c15e9db117c61ea3265e8a" prot="public" virt="non-virtual"><scope>eu::AA</scope><name>AA</name></member>
       <member refid="structeu_1_1AA_1a0ef36e1500a96f32d75602e9a53596da" prot="public" virt="non-virtual"><scope>eu::AA</scope><name>angle</name></member>
       <member refid="structeu_1_1AA_1a517bd92c9485430787c833f68eb42379" prot="public" virt="non-virtual"><scope>eu::AA</scope><name>axis</name></member>
-      <member refid="structeu_1_1AA_1a01fd8ed962964dc8404291b42325b40e" prot="public" virt="non-virtual"><scope>eu::AA</scope><name>from</name></member>
+      <member refid="structeu_1_1AA_1aa12744e9510b1a6de37d85d0c326eafc" prot="public" virt="non-virtual"><scope>eu::AA</scope><name>from</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

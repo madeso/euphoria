@@ -41,9 +41,11 @@
     </invincdepgraph>
     <innerclass refid="structeu_1_1tests_1_1ApproxData" prot="public">eu::tests::ApproxData</innerclass>
     <innerclass refid="structeu_1_1tests_1_1custom_1_1Approx" prot="public">eu::tests::custom::Approx</innerclass>
+    <innerclass refid="structCatch_1_1StringMaker_3_01eu_1_1tests_1_1custom_1_1Approx_3_01T_01_4_01_4" prot="private">Catch::StringMaker&lt; eu::tests::custom::Approx&lt; T &gt; &gt;</innerclass>
     <innernamespace refid="namespaceeu">eu</innernamespace>
     <innernamespace refid="namespaceeu_1_1tests">eu::tests</innernamespace>
     <innernamespace refid="namespaceeu_1_1tests_1_1custom">eu::tests::custom</innernamespace>
+    <innernamespace refid="namespaceCatch">Catch</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

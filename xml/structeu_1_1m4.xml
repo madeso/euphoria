@@ -284,9 +284,9 @@
         </inbodydescription>
         <location file="libs/base/src/base/mat4.h" line="44" column="20"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1m4_1a61c652ef3fa0b95f69e970fad0115995" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1m4" kindref="compound">m4</ref></type>
-        <definition>static m4 eu::m4::from</definition>
+      <memberdef kind="function" id="structeu_1_1m4_1acedb3177529232cb02854aaa8ec1407f" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::optional&lt; <ref refid="structeu_1_1m4" kindref="compound">m4</ref> &gt;</type>
+        <definition>static std::optional&lt; m4 &gt; eu::m4::from</definition>
         <argsstring>(const Q &amp;q)</argsstring>
         <name>from</name>
         <qualifiedname>eu::m4::from</qualifiedname>
@@ -300,7 +300,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/mat4.h" line="45" column="20"/>
+        <location file="libs/base/src/base/mat4.h" line="45" column="31"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1m4_1ae8ba82977a543bd9ab1991f1b4e33dbb" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1m4" kindref="compound">m4</ref></type>
@@ -906,7 +906,7 @@
       <member refid="structeu_1_1m4_1a09082b8b01477bcfcf5d6eaab85c1855" prot="public" virt="non-virtual"><scope>eu::m4</scope><name>create_perspective</name></member>
       <member refid="structeu_1_1m4_1af7c3cf30f02fe7416cf478c3c49efea0" prot="private" virt="non-virtual"><scope>eu::m4</scope><name>data</name></member>
       <member refid="structeu_1_1m4_1afbf74cfa8215fe5c7c29f14095592a4d" prot="public" virt="non-virtual"><scope>eu::m4</scope><name>from</name></member>
-      <member refid="structeu_1_1m4_1a61c652ef3fa0b95f69e970fad0115995" prot="public" virt="non-virtual"><scope>eu::m4</scope><name>from</name></member>
+      <member refid="structeu_1_1m4_1acedb3177529232cb02854aaa8ec1407f" prot="public" virt="non-virtual"><scope>eu::m4</scope><name>from</name></member>
       <member refid="structeu_1_1m4_1a58645dabbcce1444dad58a89e7611fd3" prot="public" virt="non-virtual"><scope>eu::m4</scope><name>from_col_major</name></member>
       <member refid="structeu_1_1m4_1ae6eaf6bb5bd67c4e665537d0b1ac4ad7" prot="public" virt="non-virtual"><scope>eu::m4</scope><name>from_major</name></member>
       <member refid="structeu_1_1m4_1a40ffd44fdb5e5afff26219ee1ca73686" prot="public" virt="non-virtual"><scope>eu::m4</scope><name>from_rot_x</name></member>
