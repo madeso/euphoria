@@ -12,7 +12,7 @@ namespace eu
         ASSERT(ax.is_valid());
     }
 
-    [[nodiscard]] AA
+    [[nodiscard]] std::optional<AA>
     AA::from(const Q& q)
     {
         const float cos_a = q.w;
@@ -20,8 +20,9 @@ namespace eu
         const auto sin_a = get_default_if_close_to_zero<float>(
                 sqrt(1.0f - cos_a * cos_a), 1, 0.0005f);
         // todo(Gustav): do we need to normalize here?
-        return right_hand_around(
-                (q.get_vec_part() / sin_a).get_normalized(), angle);
+        const auto axis = (q.get_vec_part() / sin_a).get_normalized();
+        if (!axis) return std::nullopt;
+        return right_hand_around(*axis, angle);
     }
 
     AA

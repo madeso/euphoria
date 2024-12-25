@@ -25,7 +25,7 @@ namespace eu
 
         AA(const n3 &ax, const An &ang);
 
-        [[nodiscard]] static AA from(const Q& q);
+        [[nodiscard]] static std::optional<AA> from(const Q& q);
     };
 
     /// yaw + pitch + roll

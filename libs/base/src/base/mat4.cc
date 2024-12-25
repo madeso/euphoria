@@ -171,10 +171,12 @@ namespace eu
     }
 
 
-    [[nodiscard]] m4
+    [[nodiscard]] std::optional<m4>
     m4::from(const Q& q)
     {
-        return m4::from(AA::from(q));
+        const auto aa = AA::from(q);
+        if (!aa) return std::nullopt;
+        return m4::from(*aa);
     }
 
     

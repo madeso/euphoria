@@ -61,10 +61,12 @@ namespace eu
     }
 
 
-    [[nodiscard]] Q
+    [[nodiscard]] std::optional<Q>
     Q::look_at(const v3& from, const v3& to, const n3& up)
     {
-        return look_in_direction(v3::from_to(from, to).get_normalized(), up);
+        const auto direction = v3::from_to(from, to).get_normalized();
+        if (direction.has_value() == false) return std::nullopt;
+        return look_in_direction(*direction, up);
     }
 
 
@@ -173,7 +175,8 @@ namespace eu
         const Q pure = {0, v};
         const Q a = *this * pure;
         const Q ret = a * get_conjugate();
-        return ret.get_vec_part().get_normalized();
+        // todo(Gustav): should we normalize here? Can we get a invalid vector?
+        return *ret.get_vec_part().get_normalized();
     }
 
 
@@ -313,7 +316,8 @@ namespace eu
 
         const auto rot_angle = acos(dot_value);
         const auto rot_axis = in.cross(dir).get_normalized();
-        return Q::from(right_hand_around(rot_axis, rot_angle));
+        ASSERT(rot_axis);
+        return Q::from(right_hand_around(*rot_axis, rot_angle));
     }
 
 

@@ -82,25 +82,30 @@ namespace eu
         return sqrt(get_length_squared());
     }
 
-    void
+    bool
     v3::normalize()
     {
         const float l2 = get_length_squared();
         if (is_equal(l2, 0.0f))
         {
             *this = common::up;
+            return false;
         }
         else
         {
             *this /= sqrt(l2);
+            return true;
         }
     }
 
-    [[nodiscard]] n3
+    [[nodiscard]] std::optional<n3>
     v3::get_normalized() const
     {
         v3 r = *this;
-        r.normalize();
+        if (false == r.normalize())
+        {
+            return std::nullopt;
+        }
         return n3{r};
     }
 
