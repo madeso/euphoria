@@ -20,24 +20,30 @@ namespace eu
         float z;
         float w;
 
-        explicit v4(float a);
         v4(float ax, float ay, float az, float aw);
 
-        /// @param aw point is 1, vector is 0
+        /// @param a the xyz components
+        /// @param aw the w component, point=1, vector=0
         v4(const v3 &a, float aw);
 
+        /// Construct the vector from an array.
+        /// It is assumed the array is of at least 4 elements in xyzw order.
         explicit v4(const float *a);
 
-        float *get_data_ptr();
-
-        /// asserts that the w component is what is expected
+        /// asserts that the w component is what is expected, point=1, vector=0
         [[nodiscard]] v3 to_vec3(float ww) const;
 
+
+        /// returns an array to the data
+        float* get_data_ptr();
+
+        /// returns an array to the data
         [[nodiscard]] const float *get_data_ptr() const;
 
         bool operator==(const v4 &rhs) = delete;
     };
 
+    /// converts a 4d vector to a string, prefer fmt
     std::string string_from(const v4 &v);
 
     /** @}*/

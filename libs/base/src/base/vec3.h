@@ -49,14 +49,21 @@ namespace eu
         void operator*=(float rhs);
         v3 operator-() const;
 
+        /// Returns an array to the data.
+        /// non const so it's useful for letting an API tweak the members.
         float *get_data_ptr();
+
+        /// Returns an array to the data
         [[nodiscard]] const float *get_data_ptr() const;
 
+        /// Returns the squared length of the vector.
+        /// This is useful if you want to compare to zero, sort by length or similar, otherwise see @ref get_length()
         [[nodiscard]] constexpr float get_length_squared() const
         {
             return x * x + y * y + z * z;
         }
 
+        /// Returns the length of the vector
         [[nodiscard]] float get_length() const;
 
         /** Changes the length to 1.

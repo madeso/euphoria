@@ -2,11 +2,6 @@
 
 namespace eu
 {
-    v4::v4(float a)
-        : x(a), y(a), z(a), w(a)
-    {
-    }
-
     v4::v4(float ax, float ay, float az, float aw)
         : x(ax), y(ay), z(az), w(aw)
     {

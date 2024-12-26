@@ -6,15 +6,6 @@
 
 using namespace eu::tests;
 
-TEST_CASE("vec4-constructor_same", "[vec4]")
-{
-    const auto v = eu::v4(42.0f);
-    REQUIRE(v.x == approx(42.0f));
-    REQUIRE(v.y == approx(42.0f));
-    REQUIRE(v.z == approx(42.0f));
-    REQUIRE(v.w == approx(42.0f));
-}
-
 TEST_CASE("vec4-constructor_unique", "[vec4]")
 {
     const auto v = eu::v4(1.0f, 2.0f, 3.0f, 4.0f);
