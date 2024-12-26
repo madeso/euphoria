@@ -179,7 +179,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec3.h" line="74" column="18" bodyfile="libs/base/src/base/vec3.h" bodystart="74" bodyend="74"/>
+        <location file="libs/base/src/base/vec3.h" line="81" column="18" bodyfile="libs/base/src/base/vec3.h" bodystart="81" bodyend="81"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="func">
@@ -2009,7 +2009,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec3.h" line="123" column="8" declfile="libs/base/src/base/vec3.h" declline="123" declcolumn="8"/>
+        <location file="libs/base/src/base/vec3.h" line="130" column="8" declfile="libs/base/src/base/vec3.h" declline="130" declcolumn="8"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1ga806e92c1f7113df43c3b6bb128684ce1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>v3</type>
@@ -2031,7 +2031,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec3.h" line="124" column="8" declfile="libs/base/src/base/vec3.h" declline="124" declcolumn="8"/>
+        <location file="libs/base/src/base/vec3.h" line="131" column="8" declfile="libs/base/src/base/vec3.h" declline="131" declcolumn="8"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1ga1d1620b0b7a6b4dc28c476ca51eeed6a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>v3</type>
@@ -2053,7 +2053,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec3.h" line="125" column="8" declfile="libs/base/src/base/vec3.h" declline="125" declcolumn="8"/>
+        <location file="libs/base/src/base/vec3.h" line="132" column="8" declfile="libs/base/src/base/vec3.h" declline="132" declcolumn="8"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1ga45487cdd319ddcfabd12e90b47b9d210" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>v3</type>
@@ -2075,7 +2075,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec3.h" line="126" column="8" declfile="libs/base/src/base/vec3.h" declline="126" declcolumn="8"/>
+        <location file="libs/base/src/base/vec3.h" line="133" column="8" declfile="libs/base/src/base/vec3.h" declline="133" declcolumn="8"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1ga52398dba8d527f1516636902c49730bf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>v3</type>
@@ -2097,7 +2097,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec3.h" line="127" column="8" declfile="libs/base/src/base/vec3.h" declline="127" declcolumn="8"/>
+        <location file="libs/base/src/base/vec3.h" line="134" column="8" declfile="libs/base/src/base/vec3.h" declline="134" declcolumn="8"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1ga6287a63682804e3c425e10e34261d129" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>v3</type>
@@ -2119,7 +2119,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec3.h" line="128" column="8" declfile="libs/base/src/base/vec3.h" declline="128" declcolumn="8"/>
+        <location file="libs/base/src/base/vec3.h" line="135" column="8" declfile="libs/base/src/base/vec3.h" declline="135" declcolumn="8"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1gac91ed2ee0f9cfe6e689fc0dc4cdd29f0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>v3</type>
@@ -2145,7 +2145,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec3.h" line="131" column="8" declfile="libs/base/src/base/vec3.h" declline="131" declcolumn="8"/>
+        <location file="libs/base/src/base/vec3.h" line="138" column="8" declfile="libs/base/src/base/vec3.h" declline="138" declcolumn="8"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1ga0720620adf5255e9d5928ac94de86d5d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -2164,7 +2164,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec3.h" line="134" column="17" declfile="libs/base/src/base/vec3.h" declline="134" declcolumn="17"/>
+        <location file="libs/base/src/base/vec3.h" line="141" column="17" declfile="libs/base/src/base/vec3.h" declline="141" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1gaa1dd49dd72a82624ced10255790833b8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -2183,7 +2183,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec3.h" line="137" column="17" declfile="libs/base/src/base/vec3.h" declline="137" declcolumn="17"/>
+        <location file="libs/base/src/base/vec3.h" line="144" column="17" declfile="libs/base/src/base/vec3.h" declline="144" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1ga20517b7416d5479476f6372742c5f9b9" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>constexpr v3</type>
@@ -2206,7 +2206,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec3.h" line="141" column="5" bodyfile="libs/base/src/base/vec3.h" bodystart="141" bodyend="148"/>
+        <location file="libs/base/src/base/vec3.h" line="148" column="5" bodyfile="libs/base/src/base/vec3.h" bodystart="148" bodyend="155"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1ga6acd10ee86510432805a6f2e2cefa8e5" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>constexpr v3</type>
@@ -2229,7 +2229,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec3.h" line="152" column="5" bodyfile="libs/base/src/base/vec3.h" bodystart="152" bodyend="159"/>
+        <location file="libs/base/src/base/vec3.h" line="159" column="5" bodyfile="libs/base/src/base/vec3.h" bodystart="159" bodyend="166"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1ga865e0eb4a624211381ce34daf5aad69d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -2242,12 +2242,13 @@
           <declname>v</declname>
         </param>
         <briefdescription>
+<para>converts a 4d vector to a string, prefer fmt </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec4.h" line="41" column="17" declfile="libs/base/src/base/vec4.h" declline="41" declcolumn="17"/>
+        <location file="libs/base/src/base/vec4.h" line="47" column="17" declfile="libs/base/src/base/vec4.h" declline="47" declcolumn="17"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
