@@ -1,5 +1,6 @@
 #pragma once
 
+#include "base/vec2.h"
 #include "base/vec3.h"
 #include "base/axisangle.h"
 #include "base/quat.h"
@@ -9,6 +10,20 @@
 
 namespace eu::tests
 {
+    template <>
+    bool
+    is_approximately_equal(
+            v2 const& lhs,
+            v2 const& rhs,
+            const ApproxData& data);
+
+    template <>
+    bool
+    is_approximately_equal(
+            n2 const& lhs,
+            n2 const& rhs,
+            const ApproxData& data);
+
     template <>
     bool
     is_approximately_equal(

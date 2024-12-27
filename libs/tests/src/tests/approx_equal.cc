@@ -11,6 +11,36 @@ namespace eu::tests
                && is_approximately_equal(lhs.z, rhs.z, data);
     }
 
+    template <typename T>
+    bool
+    is_approximately_equal_xy(T const& lhs, T const& rhs, const ApproxData& data)
+    {
+        return is_approximately_equal(lhs.x, rhs.x, data)
+               && is_approximately_equal(lhs.y, rhs.y, data);
+    }
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    template <>
+    bool
+    is_approximately_equal(
+            v2 const& lhs,
+            v2 const& rhs,
+            const ApproxData& data)
+    {
+        return is_approximately_equal_xy(lhs, rhs, data);
+    }
+
+    template <>
+    bool
+    is_approximately_equal(
+            n2 const& lhs,
+            n2 const& rhs,
+            const ApproxData& data)
+    {
+        return is_approximately_equal_xy(lhs, rhs, data);
+    }
+
     template <>
     bool
     is_approximately_equal(
