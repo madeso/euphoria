@@ -72,7 +72,7 @@ namespace eu
         bool normalize();
 
         /// Returns a unit vector.
-        /// if the length is zero, nullopt is returend
+        /// if the length is zero, `nullopt` is returend
         [[nodiscard]] std::optional<n3> get_normalized() const;
 
         bool operator==(const v3 &rhs) = delete;

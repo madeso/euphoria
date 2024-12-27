@@ -104,26 +104,29 @@ namespace eu
         return sqrt(get_length_squared());
     }
 
-    float
+    bool
     v2::normalize()
     {
-        const auto l = get_length();
-        *this /= l;
-        return l;
+        const auto l2 = get_length();
+        if (is_equal(l2, 0.0f))
+        {
+            *this = v2{ 1.0f, 0.0f };
+            return false;
+        }
+
+        *this /= l2;
+        return true;
     }
 
-    n2
+    std::optional<n2>
     v2::get_normalized() const
     {
         v2 r = *this;
-        r.normalize();
+        if(r.normalize() == false)
+        {
+            return std::nullopt;
+        }
         return n2{r};
-    }
-
-    float*
-    n2::get_data_ptr()
-    {
-        return &x;
     }
 
     const float*
@@ -153,15 +156,15 @@ namespace eu
     }
 
     float
-    n2::get_length_squared() const
+    length_squared_from(const n2& n)
     {
-        return x * x + y * y;
+        return n.x * n.x + n.y * n.y;
     }
 
     [[nodiscard]] bool
     n2::is_valid() const
     {
-        return is_equal(get_length_squared(), 1.0f);
+        return is_equal(length_squared_from(*this), 1.0f);
     }
 
     n2::n2(float ax, float ay) : x(ax), y(ay)
