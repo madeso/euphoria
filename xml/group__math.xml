@@ -164,7 +164,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec2.h" line="58" column="18" bodyfile="libs/base/src/base/vec2.h" bodystart="58" bodyend="58"/>
+        <location file="libs/base/src/base/vec2.h" line="70" column="18" bodyfile="libs/base/src/base/vec2.h" bodystart="70" bodyend="70"/>
       </memberdef>
       <memberdef kind="variable" id="group__math_1gaf1a49fc9a55b790e9d31a82a0aa3c6db" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr v3</type>
@@ -1762,13 +1762,12 @@
           <declname>rhs</declname>
         </param>
         <briefdescription>
-<para>Math operators. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec2.h" line="93" column="8" declfile="libs/base/src/base/vec2.h" declline="93" declcolumn="8"/>
+        <location file="libs/base/src/base/vec2.h" line="100" column="8" declfile="libs/base/src/base/vec2.h" declline="100" declcolumn="8"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1ga8b04e3baf0731fe2189eedcc198802ed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>v2</type>
@@ -1790,7 +1789,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec2.h" line="94" column="8" declfile="libs/base/src/base/vec2.h" declline="94" declcolumn="8"/>
+        <location file="libs/base/src/base/vec2.h" line="101" column="8" declfile="libs/base/src/base/vec2.h" declline="101" declcolumn="8"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1gacb026ebe78d1da4dc0644d1910db7637" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>v2</type>
@@ -1812,7 +1811,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec2.h" line="95" column="8" declfile="libs/base/src/base/vec2.h" declline="95" declcolumn="8"/>
+        <location file="libs/base/src/base/vec2.h" line="102" column="8" declfile="libs/base/src/base/vec2.h" declline="102" declcolumn="8"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1ga1e39be8c6248cb595c1352d7461d00e4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>v2</type>
@@ -1834,7 +1833,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec2.h" line="96" column="8" declfile="libs/base/src/base/vec2.h" declline="96" declcolumn="8"/>
+        <location file="libs/base/src/base/vec2.h" line="103" column="8" declfile="libs/base/src/base/vec2.h" declline="103" declcolumn="8"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1ga57f4cd9af77a018eab90cbae9f5a1695" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>v2</type>
@@ -1856,7 +1855,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec2.h" line="97" column="8" declfile="libs/base/src/base/vec2.h" declline="97" declcolumn="8"/>
+        <location file="libs/base/src/base/vec2.h" line="104" column="8" declfile="libs/base/src/base/vec2.h" declline="104" declcolumn="8"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1gaadf6165530c925eecfb176b285482e1b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>v2</type>
@@ -1878,7 +1877,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec2.h" line="98" column="8" declfile="libs/base/src/base/vec2.h" declline="98" declcolumn="8"/>
+        <location file="libs/base/src/base/vec2.h" line="105" column="8" declfile="libs/base/src/base/vec2.h" declline="105" declcolumn="8"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1ga15097e3a98c6a6729aaacc53539dd5a8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>v2</type>
@@ -1900,7 +1899,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec2.h" line="99" column="8" declfile="libs/base/src/base/vec2.h" declline="99" declcolumn="8"/>
+        <location file="libs/base/src/base/vec2.h" line="106" column="8" declfile="libs/base/src/base/vec2.h" declline="106" declcolumn="8"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1gacb6acea8076942dd1562a76886089c8e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
@@ -1917,13 +1916,12 @@
           <declname>rhs</declname>
         </param>
         <briefdescription>
-<para>Functions. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec2.h" line="105" column="11" declfile="libs/base/src/base/vec2.h" declline="105" declcolumn="11"/>
+        <location file="libs/base/src/base/vec2.h" line="109" column="11" declfile="libs/base/src/base/vec2.h" declline="109" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1gacabbf07d3508dd327a89b476b39f8eac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>v2</type>
@@ -1944,13 +1942,12 @@
           <declname>to</declname>
         </param>
         <briefdescription>
-<para>Transform. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec2.h" line="110" column="8" declfile="libs/base/src/base/vec2.h" declline="110" declcolumn="8"/>
+        <location file="libs/base/src/base/vec2.h" line="111" column="8" declfile="libs/base/src/base/vec2.h" declline="111" declcolumn="8"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1gad48308b54abb481dece4ab464048202d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -1963,13 +1960,13 @@
           <declname>v</declname>
         </param>
         <briefdescription>
-<para>Printing. </para>
+<para>converts a 2d vector to a string, prefer fmt </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec2.h" line="118" column="17" declfile="libs/base/src/base/vec2.h" declline="118" declcolumn="17"/>
+        <location file="libs/base/src/base/vec2.h" line="114" column="17" declfile="libs/base/src/base/vec2.h" declline="114" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1ga92a0e2f8c9ecc8ceaee41a90680eba8c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -1982,12 +1979,13 @@
           <declname>v</declname>
         </param>
         <briefdescription>
+<para>converts a 2d unit vector to a string, prefer fmt </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec2.h" line="119" column="17" declfile="libs/base/src/base/vec2.h" declline="119" declcolumn="17"/>
+        <location file="libs/base/src/base/vec2.h" line="117" column="17" declfile="libs/base/src/base/vec2.h" declline="117" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1ga810d947671583fc421a8b6561708583e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>v3</type>

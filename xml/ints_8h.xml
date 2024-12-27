@@ -81,6 +81,8 @@
       <node id="9">
         <label>libs/base/src/base/vec2.h</label>
         <link refid="vec2_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
       </node>
       <node id="10">
         <label>libs/base/src/base/vec3.h</label>

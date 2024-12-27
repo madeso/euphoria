@@ -114,6 +114,62 @@
         </inbodydescription>
         <location file="libs/tests/src/tests/approx.h" line="125" column="5" bodyfile="libs/tests/src/tests/approx.h" bodystart="125" bodyend="128"/>
       </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1tests_1aa6a9f3d10ed999c310b7754e3fbbed7c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+        </templateparamlist>
+        <type><ref refid="structeu_1_1R" kindref="compound">bool</ref></type>
+        <definition>bool eu::tests::is_approximately_equal</definition>
+        <argsstring>(v2 const &amp;lhs, v2 const &amp;rhs, const ApproxData &amp;data)</argsstring>
+        <name>is_approximately_equal</name>
+        <qualifiedname>eu::tests::is_approximately_equal</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1v2" kindref="compound">v2</ref> <ref refid="structeu_1_1R" kindref="compound">const</ref> &amp;</type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1v2" kindref="compound">v2</ref> <ref refid="structeu_1_1R" kindref="compound">const</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1tests_1_1ApproxData" kindref="compound">ApproxData</ref> &amp;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/tests/src/tests/approx_equal.h" line="15" column="5" declfile="libs/tests/src/tests/approx_equal.h" declline="15" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1tests_1ae6f8fee0830865aa57bf975d60cb5c50" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+        </templateparamlist>
+        <type><ref refid="structeu_1_1R" kindref="compound">bool</ref></type>
+        <definition>bool eu::tests::is_approximately_equal</definition>
+        <argsstring>(n2 const &amp;lhs, n2 const &amp;rhs, const ApproxData &amp;data)</argsstring>
+        <name>is_approximately_equal</name>
+        <qualifiedname>eu::tests::is_approximately_equal</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1n2" kindref="compound">n2</ref> <ref refid="structeu_1_1R" kindref="compound">const</ref> &amp;</type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1n2" kindref="compound">n2</ref> <ref refid="structeu_1_1R" kindref="compound">const</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1tests_1_1ApproxData" kindref="compound">ApproxData</ref> &amp;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/tests/src/tests/approx_equal.h" line="22" column="5" declfile="libs/tests/src/tests/approx_equal.h" declline="22" declcolumn="5"/>
+      </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1tests_1a6fc2935563b7eb53a45df4f07fc00ec9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
         </templateparamlist>
@@ -140,7 +196,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/tests/src/tests/approx_equal.h" line="14" column="5" declfile="libs/tests/src/tests/approx_equal.h" declline="14" declcolumn="5"/>
+        <location file="libs/tests/src/tests/approx_equal.h" line="29" column="5" declfile="libs/tests/src/tests/approx_equal.h" declline="29" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1tests_1ad6b9776427e5e68d4a5b5520a9c892c0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -168,7 +224,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/tests/src/tests/approx_equal.h" line="21" column="5" declfile="libs/tests/src/tests/approx_equal.h" declline="21" declcolumn="5"/>
+        <location file="libs/tests/src/tests/approx_equal.h" line="36" column="5" declfile="libs/tests/src/tests/approx_equal.h" declline="36" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1tests_1a8625a5c60ac58efeb4f0b35d380eb5e9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -196,7 +252,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/tests/src/tests/approx_equal.h" line="28" column="5" declfile="libs/tests/src/tests/approx_equal.h" declline="28" declcolumn="5"/>
+        <location file="libs/tests/src/tests/approx_equal.h" line="43" column="5" declfile="libs/tests/src/tests/approx_equal.h" declline="43" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1tests_1a1d81d87b4c3e1cc42b4788a8e8c49f08" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -224,7 +280,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/tests/src/tests/approx_equal.h" line="35" column="5" declfile="libs/tests/src/tests/approx_equal.h" declline="35" declcolumn="5"/>
+        <location file="libs/tests/src/tests/approx_equal.h" line="50" column="5" declfile="libs/tests/src/tests/approx_equal.h" declline="50" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1tests_1a8ec13d4ff8a062c1e11223fdae314383" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -252,7 +308,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/tests/src/tests/approx_equal.h" line="42" column="5" declfile="libs/tests/src/tests/approx_equal.h" declline="42" declcolumn="5"/>
+        <location file="libs/tests/src/tests/approx_equal.h" line="57" column="5" declfile="libs/tests/src/tests/approx_equal.h" declline="57" declcolumn="5"/>
       </memberdef>
     </sectiondef>
     <briefdescription>

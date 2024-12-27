@@ -340,7 +340,7 @@
 <para>Returns a unit vector. </para>
         </briefdescription>
         <detaileddescription>
-<para>if the length is zero, nullopt is returend </para>
+<para>if the length is zero, <computeroutput>nullopt</computeroutput> is returend </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
