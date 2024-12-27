@@ -11,8 +11,7 @@ TEST_CASE("vec2-div_assign", "[vec2]")
 {
     auto v = eu::v2(2.0f, 4.0f);
     v /= 2;
-    REQUIRE(v.x == approx(1.0f));
-    REQUIRE(v.y == approx(2.0f));
+    REQUIRE(v == approx(eu::v2{ 1.0f, 2.0f }));
 }
 
 
@@ -33,8 +32,7 @@ TEST_CASE("vec2-length", "[vec2]")
 TEST_CASE("vec2-get_normalized", "[vec2]")
 {
     const auto v = eu::v2(0.0f, 3.0f).get_normalized();
-    REQUIRE(v.x == Catch::Approx(0.0f));
-    REQUIRE(v.y == Catch::Approx(1.0f));
+    REQUIRE(v == approx(eu::n2{ 0.0f, 1.0f }));
 }
 
 
