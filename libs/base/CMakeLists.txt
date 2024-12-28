@@ -14,6 +14,7 @@ set(app_src
     src/base/vec3.cc src/base/vec3.h
     src/base/vec4.cc src/base/vec4.h
     src/base/hash.string.cc src/base/hash.string.h
+    src/base/guid.cc src/base/guid.h
 
     src/base/pch.private.h
     src/base/pch.public.h
@@ -44,7 +45,7 @@ target_link_libraries(base
         euph::assert
         euph::fmt
         external::range
-        external::magic_enum
+        external::guid
     PRIVATE
         euph::project_options
         euph::project_warnings
@@ -67,6 +68,7 @@ set(test_src
     src/base/vec3.test.cc
     src/base/vec4.test.cc
     src/base/hash.string.test.cc
+    src/base/guid.test.cc
 )
 # set(test_main_src test/main.cc)
 source_group("" FILES ${test_src})
