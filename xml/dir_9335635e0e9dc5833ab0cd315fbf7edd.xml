@@ -5,6 +5,8 @@
     <innerfile refid="angle_8h">angle.h</innerfile>
     <innerfile refid="axisangle_8h">axisangle.h</innerfile>
     <innerfile refid="colors_8h">colors.h</innerfile>
+    <innerfile refid="guid_8h">guid.h</innerfile>
+    <innerfile refid="hash_8string_8h">hash.string.h</innerfile>
     <innerfile refid="ints_8h">ints.h</innerfile>
     <innerfile refid="mat4_8h">mat4.h</innerfile>
     <innerfile refid="numeric_8h">numeric.h</innerfile>

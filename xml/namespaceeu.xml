@@ -4,6 +4,8 @@
     <compoundname>eu</compoundname>
     <innerclass refid="structeu_1_1AA" prot="public">eu::AA</innerclass>
     <innerclass refid="structeu_1_1An" prot="public">eu::An</innerclass>
+    <innerclass refid="structeu_1_1Guid" prot="public">eu::Guid</innerclass>
+    <innerclass refid="structeu_1_1HashedStringView" prot="public">eu::HashedStringView</innerclass>
     <innerclass refid="structeu_1_1m4" prot="public">eu::m4</innerclass>
     <innerclass refid="structeu_1_1n2" prot="public">eu::n2</innerclass>
     <innerclass refid="structeu_1_1n3" prot="public">eu::n3</innerclass>
@@ -138,6 +140,31 @@
       <member refid="group__math_1ga03d368230871c29cd8d4464edd37081d" kind="variable"><name>half_turn</name></member>
       <member refid="group__math_1ga795093272e2f8a2748665fd8a37e5d91" kind="variable"><name>quarter_turn</name></member>
       <member refid="group__math_1ga22905decd86a4bf45c79c109119f2b6f" kind="variable"><name>no_rotation</name></member>
+      <memberdef kind="variable" id="namespaceeu_1aac60b8ebeed751e1d2dcb1594eb0d28f" prot="public" static="no" constexpr="yes" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref> <ref refid="structeu_1_1Guid" kindref="compound">Guid</ref></type>
+        <definition>constexpr Guid eu::nil_guid</definition>
+        <argsstring></argsstring>
+        <name>nil_guid</name>
+        <qualifiedname>eu::nil_guid</qualifiedname>
+        <initializer>= <ref refid="structeu_1_1Guid" kindref="compound">Guid</ref>
+    {
+        std::array&lt;<ref refid="namespaceeu_1ad34c2d1a742c5f58543366875dc21649" kindref="member">u8</ref>, 16&gt;
+        {
+            0, 0, 0, 0,
+            0, 0,
+            0, 0,
+            0, 0,
+            0, 0, 0, 0, 0, 0
+        }
+    }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/guid.h" line="27" column="20" bodyfile="libs/base/src/base/guid.h" bodystart="27" bodyend="37"/>
+      </memberdef>
       <member refid="group__math_1ga5957f0b19a66d6e1123f22d681e726e0" kind="variable"><name>m4_identity</name></member>
       <member refid="group__math_1ga25eb222abfe7c9e7f34d6f19ed40c1a0" kind="variable"><name>pi</name></member>
       <member refid="group__math_1ga074a5f400069f641ce3857da18d65d93" kind="variable"><name>q_identity</name></member>
@@ -168,6 +195,67 @@
       <member refid="group__math_1gae9cc9ff4ed32a327a7e883617b9b7de2" kind="function"><name>right_hand_around</name></member>
       <member refid="group__math_1gaa507848ead7e3929ac34a5631d051638" kind="function"><name>string_from</name></member>
       <member refid="group__math_1gad902ccc075018be926b6d34aa5eb7d92" kind="function"><name>string_from</name></member>
+      <memberdef kind="function" id="namespaceeu_1ac922ddcef9eb3a0f85486c218a8cab69" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::optional&lt; <ref refid="structeu_1_1Guid" kindref="compound">Guid</ref> &gt;</type>
+        <definition>std::optional&lt; Guid &gt; eu::guid_from</definition>
+        <argsstring>(const std::string &amp;str)</argsstring>
+        <name>guid_from</name>
+        <qualifiedname>eu::guid_from</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> std::string &amp;</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/guid.h" line="24" column="20" declfile="libs/base/src/base/guid.h" declline="24" declcolumn="20"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1a6200e130947527c643d6a88a406fd9c9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string eu::string_from</definition>
+        <argsstring>(const Guid &amp;g)</argsstring>
+        <name>string_from</name>
+        <qualifiedname>eu::string_from</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1Guid" kindref="compound">Guid</ref> &amp;</type>
+          <declname>g</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/guid.h" line="25" column="18" declfile="libs/base/src/base/guid.h" declline="25" declcolumn="18"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1a1314a884697b4470c9c443ec00890b63" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref> <ref refid="namespaceeu_1ac0b6d77da47da3ce6bb55d66abc897f5" kindref="member">u64</ref></type>
+        <definition>constexpr u64 eu::hash64</definition>
+        <argsstring>(const std::string_view str, u64 hash=0xcbf29ce484222325)</argsstring>
+        <name>hash64</name>
+        <qualifiedname>eu::hash64</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> std::string_view</type>
+          <declname>str</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceeu_1ac0b6d77da47da3ce6bb55d66abc897f5" kindref="member">u64</ref></type>
+          <declname>hash</declname>
+          <defval>0xcbf29ce484222325</defval>
+        </param>
+        <briefdescription>
+<para>fnv-1a hash. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><ulink url="https://en.wikipedia.org/wiki/Fowler%E2%80%93Noll%E2%80%93Vo_hash_function">https://en.wikipedia.org/wiki/Fowler%E2%80%93Noll%E2%80%93Vo_hash_function</ulink> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/hash.string.h" line="17" column="15" bodyfile="libs/base/src/base/hash.string.h" bodystart="17" bodyend="18"/>
+      </memberdef>
       <member refid="group__math_1ga66e1820c967a20b5f47444560e472077" kind="function"><name>string_from</name></member>
       <member refid="group__math_1gac6df9508643c5fd4c3492e047e9a932c" kind="function"><name>operator+</name></member>
       <member refid="group__math_1gaf28a2e40d555474d81f7d62a6f02c726" kind="function"><name>operator-</name></member>

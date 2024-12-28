@@ -50,6 +50,20 @@
     <member refid="structeu_1_1assertlib_1_1AssertArgumentValue_1a9f425e2dec6e8ffb624790f86001e418" kind="variable"><name>value</name></member>
     <member refid="structeu_1_1assertlib_1_1AssertArgumentValue_1a92e0b7266e3d8677880942e67f775fc9" kind="function"><name>AssertArgumentValue</name></member>
   </compound>
+  <compound refid="structeu_1_1Guid" kind="struct"><name>eu::Guid</name>
+    <member refid="structeu_1_1Guid_1ac9c5c042647a79b26ba31966a708f3fc" kind="variable"><name>data</name></member>
+    <member refid="structeu_1_1Guid_1a0a314dc9e3b9e79a4444a1689494d1aa" kind="function"><name>Guid</name></member>
+    <member refid="structeu_1_1Guid_1ad0a6db57ed177d9ca1cc00a7901856b8" kind="function"><name>Guid</name></member>
+    <member refid="structeu_1_1Guid_1a8ef712e40958a0c96ee7bf46140ec0e8" kind="function"><name>generate</name></member>
+  </compound>
+  <compound refid="structstd_1_1std_1_1hash_3_01eu_1_1HashedStringView_01_4" kind="struct"><name>std::std::hash&lt; eu::HashedStringView &gt;</name>
+    <member refid="structstd_1_1std_1_1hash_3_01eu_1_1HashedStringView_01_4_1a7191876a1082301faa9a3f68dc36fd76" kind="function"><name>operator()</name></member>
+  </compound>
+  <compound refid="structeu_1_1HashedStringView" kind="struct"><name>eu::HashedStringView</name>
+    <member refid="structeu_1_1HashedStringView_1ab49042f3482bfd035018c2dd8a493782" kind="variable"><name>hash</name></member>
+    <member refid="structeu_1_1HashedStringView_1abe4e9dc5a8f18fcf564e02067515c9ec" kind="variable"><name>text</name></member>
+    <member refid="structeu_1_1HashedStringView_1a384b8e0aa97f1b3f4425198ae009be52" kind="function"><name>HashedStringView</name></member>
+  </compound>
   <compound refid="structeu_1_1log_1_1Logger" kind="struct"><name>eu::log::Logger</name>
     <member refid="structeu_1_1log_1_1Logger_1a86a567c61eabb14a1894b05094c49400" kind="function"><name>Logger</name></member>
     <member refid="structeu_1_1log_1_1Logger_1a567e35f85f815f99041930e7c998010f" kind="function"><name>~Logger</name></member>
@@ -254,6 +268,7 @@
     <member refid="group__math_1ga03d368230871c29cd8d4464edd37081d" kind="variable"><name>half_turn</name></member>
     <member refid="group__math_1ga795093272e2f8a2748665fd8a37e5d91" kind="variable"><name>quarter_turn</name></member>
     <member refid="group__math_1ga22905decd86a4bf45c79c109119f2b6f" kind="variable"><name>no_rotation</name></member>
+    <member refid="namespaceeu_1aac60b8ebeed751e1d2dcb1594eb0d28f" kind="variable"><name>nil_guid</name></member>
     <member refid="group__math_1ga5957f0b19a66d6e1123f22d681e726e0" kind="variable"><name>m4_identity</name></member>
     <member refid="group__math_1ga25eb222abfe7c9e7f34d6f19ed40c1a0" kind="variable"><name>pi</name></member>
     <member refid="group__math_1ga074a5f400069f641ce3857da18d65d93" kind="variable"><name>q_identity</name></member>
@@ -282,6 +297,9 @@
     <member refid="group__math_1gae9cc9ff4ed32a327a7e883617b9b7de2" kind="function"><name>right_hand_around</name></member>
     <member refid="group__math_1gaa507848ead7e3929ac34a5631d051638" kind="function"><name>string_from</name></member>
     <member refid="group__math_1gad902ccc075018be926b6d34aa5eb7d92" kind="function"><name>string_from</name></member>
+    <member refid="namespaceeu_1ac922ddcef9eb3a0f85486c218a8cab69" kind="function"><name>guid_from</name></member>
+    <member refid="namespaceeu_1a6200e130947527c643d6a88a406fd9c9" kind="function"><name>string_from</name></member>
+    <member refid="namespaceeu_1a1314a884697b4470c9c443ec00890b63" kind="function"><name>hash64</name></member>
     <member refid="group__math_1ga66e1820c967a20b5f47444560e472077" kind="function"><name>string_from</name></member>
     <member refid="group__math_1gac6df9508643c5fd4c3492e047e9a932c" kind="function"><name>operator+</name></member>
     <member refid="group__math_1gaf28a2e40d555474d81f7d62a6f02c726" kind="function"><name>operator-</name></member>
@@ -397,6 +415,10 @@
   </compound>
   <compound refid="namespaceeu_1_1tests_1_1custom" kind="namespace"><name>eu::tests::custom</name>
   </compound>
+  <compound refid="namespacestd" kind="namespace"><name>std</name>
+  </compound>
+  <compound refid="namespacestd_1_1std" kind="namespace"><name>std::std</name>
+  </compound>
   <compound refid="coordinate-system_8md" kind="file"><name>coordinate-system.md</name>
   </compound>
   <compound refid="mesh_8md" kind="file"><name>mesh.md</name>
@@ -414,6 +436,12 @@
   <compound refid="axisangle_8h" kind="file"><name>axisangle.h</name>
   </compound>
   <compound refid="colors_8h" kind="file"><name>colors.h</name>
+  </compound>
+  <compound refid="guid_8h" kind="file"><name>guid.h</name>
+  </compound>
+  <compound refid="hash_8string_8h" kind="file"><name>hash.string.h</name>
+    <member refid="hash_8string_8h_1a61b49dfb5004bf7c525e7f0ab68818c2" kind="define"><name>USE_HASH_TEXT</name></member>
+    <member refid="hash_8string_8h_1abb6ddc3ad6b4c1ff94de4861474c3e34" kind="define"><name>OP</name></member>
   </compound>
   <compound refid="ints_8h" kind="file"><name>ints.h</name>
   </compound>

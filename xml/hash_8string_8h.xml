@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="hash_8string_8h" kind="file" language="C++">
+    <compoundname>hash.string.h</compoundname>
+    <includes refid="ints_8h" local="yes">base/ints.h</includes>
+    <includes local="no">string_view</includes>
+    <includes local="no">unordered_map</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>libs/base/src/base/hash.string.h</label>
+        <link refid="hash_8string_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>base/ints.h</label>
+        <link refid="ints_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>cstdint</label>
+      </node>
+      <node id="4">
+        <label>string_view</label>
+      </node>
+      <node id="5">
+        <label>unordered_map</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="structeu_1_1HashedStringView" prot="public">eu::HashedStringView</innerclass>
+    <innerclass refid="structstd_1_1std_1_1hash_3_01eu_1_1HashedStringView_01_4" prot="public">std::std::hash&lt; eu::HashedStringView &gt;</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespacestd">std</innernamespace>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="hash_8string_8h_1a61b49dfb5004bf7c525e7f0ab68818c2" prot="public" static="no">
+        <name>USE_HASH_TEXT</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/hash.string.h" line="10" column="9" bodyfile="libs/base/src/base/hash.string.h" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="hash_8string_8h_1abb6ddc3ad6b4c1ff94de4861474c3e34" prot="public" static="no">
+        <name>OP</name>
+        <param><defname>op</defname></param>
+        <initializer>    constexpr bool operator op(const HashedStringView&amp; lhs, const HashedStringView&amp; rhs)\
+        { return lhs.hash op rhs.hash; }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/hash.string.h" line="35" column="9" bodyfile="libs/base/src/base/hash.string.h" bodystart="35" bodyend="37"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/base/src/base/hash.string.h"/>
+  </compounddef>
+</doxygen>
