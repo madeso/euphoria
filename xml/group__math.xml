@@ -129,12 +129,13 @@
         <qualifiedname>eu::r01</qualifiedname>
         <initializer>= { 0.0f, 1.0f}</initializer>
         <briefdescription>
+<para>A range going from 0 to 1. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/range.h" line="48" column="17" bodyfile="libs/base/src/base/range.h" bodystart="48" bodyend="48"/>
+        <location file="libs/base/src/base/range.h" line="52" column="17" bodyfile="libs/base/src/base/range.h" bodystart="52" bodyend="52"/>
       </memberdef>
       <memberdef kind="variable" id="group__math_1gab44633bc6b6ae7cbf3e473fe917d1e70" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr R&lt; float &gt;</type>
@@ -149,7 +150,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/range.h" line="49" column="17" bodyfile="libs/base/src/base/range.h" bodystart="49" bodyend="49"/>
+        <location file="libs/base/src/base/range.h" line="55" column="17" bodyfile="libs/base/src/base/range.h" bodystart="55" bodyend="55"/>
       </memberdef>
       <memberdef kind="variable" id="group__math_1ga5fac55b859c3ed3d22eac1245737524f" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr v2</type>
@@ -1471,12 +1472,13 @@
           <declname>max</declname>
         </param>
         <briefdescription>
+<para>Create a range from <computeroutput>min</computeroutput> to <computeroutput>max</computeroutput> (inclusive) </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/range.h" line="37" column="7" bodyfile="libs/base/src/base/range.h" bodystart="37" bodyend="40"/>
+        <location file="libs/base/src/base/range.h" line="39" column="7" bodyfile="libs/base/src/base/range.h" bodystart="39" bodyend="42"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1ga572ae747813ec1771667ebd29d4c8144" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1494,12 +1496,13 @@
           <declname>max</declname>
         </param>
         <briefdescription>
+<para>Create a range from zero (0) to <computeroutput>max</computeroutput> (inclusive) </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/range.h" line="43" column="7" bodyfile="libs/base/src/base/range.h" bodystart="43" bodyend="46"/>
+        <location file="libs/base/src/base/range.h" line="46" column="7" bodyfile="libs/base/src/base/range.h" bodystart="46" bodyend="49"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1ga1d52a91adaa565513eb90b8d2dce2df5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
@@ -1525,7 +1528,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/range.h" line="51" column="11" declfile="libs/base/src/base/range.h" declline="51" declcolumn="11"/>
+        <location file="libs/base/src/base/range.h" line="57" column="11" declfile="libs/base/src/base/range.h" declline="57" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1gaa18213902220185ad70feda7d212e55a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1547,12 +1550,13 @@
           <declname>value</declname>
         </param>
         <briefdescription>
+<para>Converts a value in 0-1 range to a custom range. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/range.h" line="54" column="7" bodyfile="libs/base/src/base/range.h" bodystart="54" bodyend="69"/>
+        <location file="libs/base/src/base/range.h" line="61" column="7" bodyfile="libs/base/src/base/range.h" bodystart="61" bodyend="76"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1ga71a5abeae01c3597f3e9d7371a7e9df3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1576,7 +1580,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/range.h" line="72" column="11" declfile="libs/base/src/base/range.h" declline="72" declcolumn="11"/>
+        <location file="libs/base/src/base/range.h" line="79" column="11" declfile="libs/base/src/base/range.h" declline="79" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1ga4b358bd01ddb038d5d8d1dc62920e0ee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1598,12 +1602,13 @@
           <declname>value</declname>
         </param>
         <briefdescription>
+<para>Converts a value in a range to the 0-1 range. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/range.h" line="75" column="11" bodyfile="libs/base/src/base/range.h" bodystart="75" bodyend="79"/>
+        <location file="libs/base/src/base/range.h" line="83" column="11" bodyfile="libs/base/src/base/range.h" bodystart="83" bodyend="87"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1ga20dfd6271d0dde18b4cc12e2ddf8709f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1630,7 +1635,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/range.h" line="83" column="7" bodyfile="libs/base/src/base/range.h" bodystart="83" bodyend="89"/>
+        <location file="libs/base/src/base/range.h" line="91" column="7" bodyfile="libs/base/src/base/range.h" bodystart="91" bodyend="97"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1ga3081f17d05e200b8d7baddf4034c5c8f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1659,12 +1664,13 @@
           <declname>value</declname>
         </param>
         <briefdescription>
+<para>Remaps a value from one range to another. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/range.h" line="92" column="7" bodyfile="libs/base/src/base/range.h" bodystart="92" bodyend="95"/>
+        <location file="libs/base/src/base/range.h" line="101" column="7" bodyfile="libs/base/src/base/range.h" bodystart="101" bodyend="104"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1ga2c34413b1d29ccceb8d31b6b275c14bd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1686,12 +1692,13 @@
           <declname>value</declname>
         </param>
         <briefdescription>
+<para>Returns true if a value is withing a range. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/range.h" line="99" column="10" bodyfile="libs/base/src/base/range.h" bodystart="99" bodyend="102"/>
+        <location file="libs/base/src/base/range.h" line="108" column="10" bodyfile="libs/base/src/base/range.h" bodystart="108" bodyend="111"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1ga2bcfebef199f602f177fe3da4b940d89" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1713,12 +1720,16 @@
           <declname>value</declname>
         </param>
         <briefdescription>
+<para>Returns a value that is kept within the range. </para>
         </briefdescription>
         <detaileddescription>
+<para>i.e the value can&apos;t go lower than the lower bound or higher than the higher bound <simplesect kind="see"><para>wrap </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/range.h" line="106" column="7" bodyfile="libs/base/src/base/range.h" bodystart="106" bodyend="118"/>
+        <location file="libs/base/src/base/range.h" line="117" column="7" bodyfile="libs/base/src/base/range.h" bodystart="117" bodyend="129"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1ga9624527e97e0cec9990cf1500a14d57e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1740,12 +1751,14 @@
           <declname>value</declname>
         </param>
         <briefdescription>
+<para>Returns a value that wraps around the range. </para>
         </briefdescription>
         <detaileddescription>
+<para>When the value go outside the range, the value is wrapped back to either the start if exited at the end or vice versa. </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/range.h" line="121" column="7" bodyfile="libs/base/src/base/range.h" bodystart="121" bodyend="135"/>
+        <location file="libs/base/src/base/range.h" line="134" column="7" bodyfile="libs/base/src/base/range.h" bodystart="134" bodyend="148"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1ga4800a7b85e537456b232d20a822b9cf6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>v2</type>

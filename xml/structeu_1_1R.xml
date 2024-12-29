@@ -54,12 +54,13 @@
           <declname>max</declname>
         </param>
         <briefdescription>
+<para>Asserts if max is below min. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/range.h" line="23" column="19" bodyfile="libs/base/src/base/range.h" bodystart="23" bodyend="26"/>
+        <location file="libs/base/src/base/range.h" line="24" column="19" bodyfile="libs/base/src/base/range.h" bodystart="24" bodyend="27"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1R_1aadabaf1c6919f01c4a386cb187df7ac2" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">T</ref></type>
@@ -73,7 +74,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/range.h" line="29" column="9" bodyfile="libs/base/src/base/range.h" bodystart="29" bodyend="32"/>
+        <location file="libs/base/src/base/range.h" line="30" column="9" bodyfile="libs/base/src/base/range.h" bodystart="30" bodyend="33"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -82,7 +83,7 @@
     <detaileddescription>
 <para>Zero range is allowed. </para>
     </detaileddescription>
-    <location file="libs/base/src/base/range.h" line="18" column="5" bodyfile="libs/base/src/base/range.h" bodystart="19" bodyend="33"/>
+    <location file="libs/base/src/base/range.h" line="18" column="5" bodyfile="libs/base/src/base/range.h" bodystart="19" bodyend="34"/>
     <listofallmembers>
       <member refid="structeu_1_1R_1aadabaf1c6919f01c4a386cb187df7ac2" prot="public" virt="non-virtual"><scope>eu::R</scope><name>get_distance</name></member>
       <member refid="structeu_1_1R_1a21fb9b629bbc9a9db9899a63864cc629" prot="public" virt="non-virtual"><scope>eu::R</scope><name>lower_bound</name></member>
