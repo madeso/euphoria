@@ -3,16 +3,6 @@
 
 namespace eu
 {
-    float* Q::get_data_ptr()
-    {
-        return &w;
-    }
-
-    [[nodiscard]] const float* Q::get_data_ptr() const
-    {
-        return &w;
-    }
-
     v3 Q::get_vec_part() const
     {
         return {x, y, z};
@@ -71,7 +61,7 @@ namespace eu
 
 
     Q
-    Q::get_rotated(const Q& q) const
+    Q::then_get_rotated(const Q& q) const
     {
         return q * *this;
     }
@@ -87,8 +77,7 @@ namespace eu
     Q
     Q::get_inverse() const
     {
-        // todo(Gustav): assert here
-        // get_length_squared() == 1
+        ASSERT(is_equal(get_length(), 1.0f));
         return get_conjugate();
     }
 
@@ -100,28 +89,11 @@ namespace eu
         return {-w, -get_vec_part()};
     }
 
-
-    Q
-    Q::get_identity() const
-    {
-        const float l2 = get_length_squared();
-        if(is_equal(l2, 0.0f)) { return q_identity; }
-        else if(is_equal(l2, 1.0f)) { return get_conjugate(); }
-        else { return {w / sqrt(l2), -get_vec_part()}; }
-    }
-
-
     float
     Q::get_length() const
     {
-        return sqrt(get_length_squared());
-    }
-
-
-    float
-    Q::get_length_squared() const
-    {
-        return x * x + y * y + z * z + w * w;
+        const auto l2 = x * x + y * y + z * z + w * w;
+        return sqrt(l2);
     }
 
 
@@ -152,24 +124,16 @@ namespace eu
     }
 
 
-    n3 Q::get_in   () const { return rotate_around_origo(-common::z_axis); }
-    n3 Q::get_out  () const { return rotate_around_origo( common::z_axis); }
-    n3 Q::get_right() const { return rotate_around_origo( common::x_axis); }
-    n3 Q::get_left () const { return rotate_around_origo(-common::x_axis); }
-    n3 Q::get_up   () const { return rotate_around_origo( common::y_axis); }
-    n3 Q::get_down () const { return rotate_around_origo(-common::y_axis); }
-
-
-    // In*Z + Right*X + Up*Y
-    v3
-    Q::create_from_right_up_in(const v3& v) const
-    {
-        return get_in() * v.z + get_right() * v.x + get_up() * v.y;
-    }
+    n3 Q::get_local_in   () const { return get_rotated(-common::z_axis); }
+    n3 Q::get_local_out  () const { return get_rotated( common::z_axis); }
+    n3 Q::get_local_right() const { return get_rotated( common::x_axis); }
+    n3 Q::get_local_left () const { return get_rotated(-common::x_axis); }
+    n3 Q::get_local_up   () const { return get_rotated( common::y_axis); }
+    n3 Q::get_local_down () const { return get_rotated(-common::y_axis); }
 
 
     n3
-    Q::rotate_around_origo(const n3& v) const
+    Q::get_rotated(const n3& v) const
     {
         // http://gamedev.stackexchange.com/questions/28395/rotating-vector3-by-a-quaternion
         const Q pure = {0, v};
@@ -181,14 +145,14 @@ namespace eu
 
 
     Q
-    lerp_quatf(const Q& f, const float scale, const Q& t)
+    Q::nlerp(const Q& f, const float scale, const Q& t)
     {
-        return f * (1 - scale) + t * scale;
+        return (f * (1 - scale) + t * scale).get_normalized();
     }
 
 
     Q
-    slerp_fast(const Q& qa, const float t, const Q& qb)
+    Q::slerp_fast(const Q& qa, const float t, const Q& qb)
     {
         // from:
         // http://www.euclideanspace.com/maths/algebra/realNormedAlgebra/quaternions/slerp/
@@ -225,7 +189,7 @@ namespace eu
 
 
     Q
-    slerp_shortway(const Q& from, const float scale, const Q& to)
+    Q::slerp(const Q& from, const float scale, const Q& to)
     {
         if(dot(from, to) < 0)
         {

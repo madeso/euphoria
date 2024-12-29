@@ -50,9 +50,9 @@ TEST_CASE("quat-testLocalAxis", "[quat]")
     SECTION("identity")
     {
         const auto q = eu::q_identity;
-        REQUIRE(q.get_right() == approx(eu::common::right));
-        REQUIRE(q.get_up() == approx(eu::common::up));
-        REQUIRE(q.get_in() == approx(eu::common::in));
+        REQUIRE(q.get_local_right() == approx(eu::common::right));
+        REQUIRE(q.get_local_up() == approx(eu::common::up));
+        REQUIRE(q.get_local_in() == approx(eu::common::in));
     }
 
     SECTION("look left")
@@ -65,9 +65,9 @@ TEST_CASE("quat-testLocalAxis", "[quat]")
                 eu::An::from_degrees(90)
             )
         );
-        REQUIRE(q.get_right() == approx(eu::common::in));
-        REQUIRE(q.get_up() == approx(eu::common::up));
-        REQUIRE(q.get_in() == approx(eu::common::left));
+        REQUIRE(q.get_local_right() == approx(eu::common::in));
+        REQUIRE(q.get_local_up() == approx(eu::common::up));
+        REQUIRE(q.get_local_in() == approx(eu::common::left));
     }
 
     SECTION("look up")
@@ -80,9 +80,9 @@ TEST_CASE("quat-testLocalAxis", "[quat]")
                 eu::An::from_degrees(90)
             )
         );
-        REQUIRE(q.get_right() == approx(eu::common::right));
-        REQUIRE(q.get_up() == approx(eu::common::out));
-        REQUIRE(q.get_in() == approx(eu::common::up));
+        REQUIRE(q.get_local_right() == approx(eu::common::right));
+        REQUIRE(q.get_local_up() == approx(eu::common::out));
+        REQUIRE(q.get_local_in() == approx(eu::common::up));
     }
 
     SECTION("roll right")
@@ -95,9 +95,9 @@ TEST_CASE("quat-testLocalAxis", "[quat]")
                 eu::An::from_degrees(90)
             )
         );
-        REQUIRE(q.get_right() == approx(eu::common::down));
-        REQUIRE(q.get_up() == approx(eu::common::right));
-        REQUIRE(q.get_in() == approx(eu::common::in));
+        REQUIRE(q.get_local_right() == approx(eu::common::down));
+        REQUIRE(q.get_local_up() == approx(eu::common::right));
+        REQUIRE(q.get_local_in() == approx(eu::common::in));
     }
 }
 
@@ -169,7 +169,7 @@ TEST_CASE("quat-testCombine", "[quat]")
     EXPECT_PRED_FORMAT2(
             eu::Q::from(eu::right_hand_around(
                     eu::common::up, eu::An::from_degrees(90))),
-            eu::q_identity.get_rotated(
+            eu::q_identity.then_get_rotated(
                     eu::Q::from(eu::right_hand_around(
                             eu::common::up,
                             eu::An::from_degrees(90)))));
@@ -180,12 +180,12 @@ TEST_CASE("quat-testCombine", "[quat]")
             eu::Q::from(
                     eu::right_hand_around(
                             eu::common::up, eu::An::from_degrees(90)))
-                    .get_rotated(eu::q_identity));
+                    .then_get_rotated(eu::q_identity));
 
     EXPECT_PRED_FORMAT2(
             eu::Q::from(eu::right_hand_around(
                     eu::common::up, eu::An::from_degrees(90))),
-            eu::q_identity.get_rotated(
+            eu::q_identity.then_get_rotated(
                     eu::Q::from(eu::right_hand_around(
                             eu::common::up,
                             eu::An::from_degrees(90)))));
@@ -195,14 +195,14 @@ TEST_CASE("quat-testCombine", "[quat]")
             eu::Q::from(
                     eu::right_hand_around(
                             eu::common::up, eu::An::from_degrees(-90)))
-                    .get_rotated(eu::Q::from(
+                    .then_get_rotated(eu::Q::from(
                             eu::right_hand_around(
                                     eu::common::out,
                                     eu::An::from_degrees(90)))),
             eu::Q::from(eu::right_hand_around(
                                                eu::common::right,
                                                eu::An::from_degrees(90)))
-                    .get_rotated(eu::Q::from(
+                    .then_get_rotated(eu::Q::from(
                             eu::right_hand_around(
                                     eu::common::up,
                                     eu::An::from_degrees(-90)))));

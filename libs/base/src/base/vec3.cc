@@ -1,5 +1,7 @@
 #include "base/vec3.h"
 
+#include "base/quat.h"
+
 namespace eu
 {
 
@@ -60,6 +62,15 @@ namespace eu
         return {to.x - from.x, to.y - from.y, to.z - from.z};
     }
 
+    v3
+    v3::from_localspace_rui(const Q& r, float right, float up, float in)
+    {
+        const auto vright = r.get_local_right() * right;
+        const auto vup = r.get_local_up() * up;
+        const auto vin = r.get_local_in() * in;
+        return vright + vup + vin;
+    }
+
     void
     v3::operator/=(float rhs)
     {
@@ -110,7 +121,7 @@ namespace eu
     }
 
     ////////////////////////////////////////////////////////////////////////////////
-    /// Math operators
+    // Math operators
 
     v3
     operator+(const v3 &lhs, const v3 &rhs)
