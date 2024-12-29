@@ -18,7 +18,7 @@ namespace eu
         return guid;
     }
 #else
-    std::optional<Guid> Guid::genereate()
+    std::optional<Guid> Guid::generate()
     {
         GUID g;
 
