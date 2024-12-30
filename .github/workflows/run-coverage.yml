@@ -94,9 +94,9 @@ jobs:
                 echo "*** gcovr version ***"
                 gcovr --version
                 echo "*** run gcovr to cobertura***"
-                gcovr -v --root .. --exclude '.*/build/.*' --exclude 'apps/editor/.*' --exclude 'libs/file_types/.*' --exclude '.*/external/.*' --exclude '.*/apps/.*' --exclude '.*/libs/tests/.*' --exclude '.*/libs/gui/.*' --exclude '.*/libs/log/.*' --exclude '.*/libs/render/.*' --exclude '.*/libs/window/.*' --exclude '.*/libs/assert/.*'  --exclude '.*/libs/file_types/.*' --exclude '.*/libs/core/.*/examples.*' --exclude '.*/libs/core/test/.*' --exclude '.*/libs/minsynth/test/.*' --cobertura cobertura.xml .
+                gcovr -v --root .. --cobertura cobertura.xml .
                 echo "*** run gcovr ***"
-                gcovr -v --root .. --exclude '.*/build/.*' --exclude 'apps/editor/.*' --exclude 'libs/file_types/.*' --exclude '.*/external/.*' --exclude '.*/apps/.*' --exclude '.*/libs/tests/.*' --exclude '.*/libs/gui/.*' --exclude '.*/libs/log/.*' --exclude '.*/libs/render/.*' --exclude '.*/libs/window/.*' --exclude '.*/libs/assert/.*'  --exclude '.*/libs/file_types/.*' --exclude '.*/libs/core/.*/examples.*' --exclude '.*/libs/core/test/.*' --exclude '.*/libs/minsynth/test/.*' --coveralls coveralls.json
+                gcovr -v --root ..  --coveralls coveralls.json
 
 
 
