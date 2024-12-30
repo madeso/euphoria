@@ -33,7 +33,7 @@
       </node>
     </incdepgraph>
     <innerclass refid="structeu_1_1HashedStringView" prot="public">eu::HashedStringView</innerclass>
-    <innerclass refid="structstd_1_1std_1_1hash_3_01eu_1_1HashedStringView_01_4" prot="public">std::std::hash&lt; eu::HashedStringView &gt;</innerclass>
+    <innerclass refid="structstd_1_1hash_3_01eu_1_1HashedStringView_01_4" prot="public">std::hash&lt; eu::HashedStringView &gt;</innerclass>
     <innernamespace refid="namespaceeu">eu</innernamespace>
     <innernamespace refid="namespacestd">std</innernamespace>
     <sectiondef kind="define">

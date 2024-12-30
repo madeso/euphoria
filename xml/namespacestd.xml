@@ -2,7 +2,7 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
   <compounddef id="namespacestd" kind="namespace" language="C++">
     <compoundname>std</compoundname>
-    <innernamespace refid="namespacestd_1_1std">std::std</innernamespace>
+    <innerclass refid="structstd_1_1hash_3_01eu_1_1HashedStringView_01_4" prot="public">std::hash&lt; eu::HashedStringView &gt;</innerclass>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
