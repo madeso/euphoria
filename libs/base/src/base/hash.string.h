@@ -56,7 +56,7 @@ TStream& operator<<(TStream& s, const HashedStringView& hash)
 namespace std
 {
 
-template <> struct std::hash<eu::HashedStringView>
+template <> struct hash<eu::HashedStringView>
 {
     std::size_t operator()(const eu::HashedStringView& x) const
         { return x.hash; }
