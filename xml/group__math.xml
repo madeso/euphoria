@@ -114,12 +114,13 @@
         <qualifiedname>eu::q_identity</qualifiedname>
         <initializer>= Q(1, v3(0, 0, 0))</initializer>
         <briefdescription>
+<para>The identity quaternion. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/quat.h" line="73" column="17" bodyfile="libs/base/src/base/quat.h" bodystart="73" bodyend="-1"/>
+        <location file="libs/base/src/base/quat.h" line="123" column="17" bodyfile="libs/base/src/base/quat.h" bodystart="123" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="group__math_1ga1762260135f2b7b538f1b8be43146481" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr R&lt; float &gt;</type>
@@ -180,7 +181,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec3.h" line="81" column="18" bodyfile="libs/base/src/base/vec3.h" bodystart="81" bodyend="81"/>
+        <location file="libs/base/src/base/vec3.h" line="86" column="18" bodyfile="libs/base/src/base/vec3.h" bodystart="86" bodyend="86"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="func">
@@ -1224,84 +1225,6 @@
         </inbodydescription>
         <location file="libs/base/src/base/numeric.h" line="116" column="5" bodyfile="libs/base/src/base/numeric.h" bodystart="116" bodyend="119"/>
       </memberdef>
-      <memberdef kind="function" id="group__math_1ga29f9e616e317eab3c31fb9aa68efbeb5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>Q</type>
-        <definition>Q eu::lerp_quatf</definition>
-        <argsstring>(const Q &amp;f, float scale, const Q &amp;t)</argsstring>
-        <name>lerp_quatf</name>
-        <qualifiedname>eu::lerp_quatf</qualifiedname>
-        <param>
-          <type>const Q &amp;</type>
-          <declname>f</declname>
-        </param>
-        <param>
-          <type>float</type>
-          <declname>scale</declname>
-        </param>
-        <param>
-          <type>const Q &amp;</type>
-          <declname>t</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/base/src/base/quat.h" line="75" column="7" declfile="libs/base/src/base/quat.h" declline="75" declcolumn="7"/>
-      </memberdef>
-      <memberdef kind="function" id="group__math_1gab8152198125a37ecb802cfd5eb21c853" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>Q</type>
-        <definition>Q eu::slerp_fast</definition>
-        <argsstring>(const Q &amp;qa, float t, const Q &amp;qb)</argsstring>
-        <name>slerp_fast</name>
-        <qualifiedname>eu::slerp_fast</qualifiedname>
-        <param>
-          <type>const Q &amp;</type>
-          <declname>qa</declname>
-        </param>
-        <param>
-          <type>float</type>
-          <declname>t</declname>
-        </param>
-        <param>
-          <type>const Q &amp;</type>
-          <declname>qb</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/base/src/base/quat.h" line="76" column="7" declfile="libs/base/src/base/quat.h" declline="76" declcolumn="7"/>
-      </memberdef>
-      <memberdef kind="function" id="group__math_1ga885b7e90819af2ad08620fb94973045f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>Q</type>
-        <definition>Q eu::slerp_shortway</definition>
-        <argsstring>(const Q &amp;from, float scale, const Q &amp;to)</argsstring>
-        <name>slerp_shortway</name>
-        <qualifiedname>eu::slerp_shortway</qualifiedname>
-        <param>
-          <type>const Q &amp;</type>
-          <declname>from</declname>
-        </param>
-        <param>
-          <type>float</type>
-          <declname>scale</declname>
-        </param>
-        <param>
-          <type>const Q &amp;</type>
-          <declname>to</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/base/src/base/quat.h" line="77" column="7" declfile="libs/base/src/base/quat.h" declline="77" declcolumn="7"/>
-      </memberdef>
       <memberdef kind="function" id="group__math_1gad4b8d21db1b1a25c346296eec35b330b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
         <definition>float eu::dot</definition>
@@ -1322,7 +1245,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/quat.h" line="79" column="11" declfile="libs/base/src/base/quat.h" declline="79" declcolumn="11"/>
+        <location file="libs/base/src/base/quat.h" line="125" column="11" declfile="libs/base/src/base/quat.h" declline="125" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1ga6214f288996499f35cf95e039b52e1ee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -1335,12 +1258,13 @@
           <declname>v</declname>
         </param>
         <briefdescription>
+<para>Converts a quaternion to string, prefer fmt. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/quat.h" line="81" column="17" declfile="libs/base/src/base/quat.h" declline="81" declcolumn="17"/>
+        <location file="libs/base/src/base/quat.h" line="128" column="17" declfile="libs/base/src/base/quat.h" declline="128" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1gae99fc2a026a0a7ac61fbc6281d530996" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>Q</type>
@@ -1362,7 +1286,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/quat.h" line="83" column="7" declfile="libs/base/src/base/quat.h" declline="83" declcolumn="7"/>
+        <location file="libs/base/src/base/quat.h" line="130" column="7" declfile="libs/base/src/base/quat.h" declline="130" declcolumn="7"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1ga74899d4681ffa6fdccd09f9588ba7661" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>Q</type>
@@ -1384,7 +1308,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/quat.h" line="84" column="7" declfile="libs/base/src/base/quat.h" declline="84" declcolumn="7"/>
+        <location file="libs/base/src/base/quat.h" line="131" column="7" declfile="libs/base/src/base/quat.h" declline="131" declcolumn="7"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1ga4dde67115df3f842c8371817f87587d4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>Q</type>
@@ -1406,7 +1330,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/quat.h" line="85" column="7" declfile="libs/base/src/base/quat.h" declline="85" declcolumn="7"/>
+        <location file="libs/base/src/base/quat.h" line="132" column="7" declfile="libs/base/src/base/quat.h" declline="132" declcolumn="7"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1ga94c89d4216e30fc6ad3711eb540a25fc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>Q</type>
@@ -1428,7 +1352,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/quat.h" line="86" column="7" declfile="libs/base/src/base/quat.h" declline="86" declcolumn="7"/>
+        <location file="libs/base/src/base/quat.h" line="133" column="7" declfile="libs/base/src/base/quat.h" declline="133" declcolumn="7"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1gae807f257d9b667c1c45602b2d67ceafa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>Q</type>
@@ -1450,7 +1374,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/quat.h" line="87" column="7" declfile="libs/base/src/base/quat.h" declline="87" declcolumn="7"/>
+        <location file="libs/base/src/base/quat.h" line="134" column="7" declfile="libs/base/src/base/quat.h" declline="134" declcolumn="7"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1ga53e78e428a56c4436a3a11a8c747cb4c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -2020,7 +1944,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec3.h" line="130" column="8" declfile="libs/base/src/base/vec3.h" declline="130" declcolumn="8"/>
+        <location file="libs/base/src/base/vec3.h" line="135" column="8" declfile="libs/base/src/base/vec3.h" declline="135" declcolumn="8"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1ga806e92c1f7113df43c3b6bb128684ce1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>v3</type>
@@ -2042,7 +1966,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec3.h" line="131" column="8" declfile="libs/base/src/base/vec3.h" declline="131" declcolumn="8"/>
+        <location file="libs/base/src/base/vec3.h" line="136" column="8" declfile="libs/base/src/base/vec3.h" declline="136" declcolumn="8"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1ga1d1620b0b7a6b4dc28c476ca51eeed6a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>v3</type>
@@ -2064,7 +1988,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec3.h" line="132" column="8" declfile="libs/base/src/base/vec3.h" declline="132" declcolumn="8"/>
+        <location file="libs/base/src/base/vec3.h" line="137" column="8" declfile="libs/base/src/base/vec3.h" declline="137" declcolumn="8"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1ga45487cdd319ddcfabd12e90b47b9d210" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>v3</type>
@@ -2086,7 +2010,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec3.h" line="133" column="8" declfile="libs/base/src/base/vec3.h" declline="133" declcolumn="8"/>
+        <location file="libs/base/src/base/vec3.h" line="138" column="8" declfile="libs/base/src/base/vec3.h" declline="138" declcolumn="8"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1ga52398dba8d527f1516636902c49730bf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>v3</type>
@@ -2108,7 +2032,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec3.h" line="134" column="8" declfile="libs/base/src/base/vec3.h" declline="134" declcolumn="8"/>
+        <location file="libs/base/src/base/vec3.h" line="139" column="8" declfile="libs/base/src/base/vec3.h" declline="139" declcolumn="8"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1ga6287a63682804e3c425e10e34261d129" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>v3</type>
@@ -2130,7 +2054,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec3.h" line="135" column="8" declfile="libs/base/src/base/vec3.h" declline="135" declcolumn="8"/>
+        <location file="libs/base/src/base/vec3.h" line="140" column="8" declfile="libs/base/src/base/vec3.h" declline="140" declcolumn="8"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1gac91ed2ee0f9cfe6e689fc0dc4cdd29f0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>v3</type>
@@ -2156,7 +2080,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec3.h" line="138" column="8" declfile="libs/base/src/base/vec3.h" declline="138" declcolumn="8"/>
+        <location file="libs/base/src/base/vec3.h" line="143" column="8" declfile="libs/base/src/base/vec3.h" declline="143" declcolumn="8"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1ga0720620adf5255e9d5928ac94de86d5d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -2175,7 +2099,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec3.h" line="141" column="17" declfile="libs/base/src/base/vec3.h" declline="141" declcolumn="17"/>
+        <location file="libs/base/src/base/vec3.h" line="146" column="17" declfile="libs/base/src/base/vec3.h" declline="146" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1gaa1dd49dd72a82624ced10255790833b8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -2194,7 +2118,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec3.h" line="144" column="17" declfile="libs/base/src/base/vec3.h" declline="144" declcolumn="17"/>
+        <location file="libs/base/src/base/vec3.h" line="149" column="17" declfile="libs/base/src/base/vec3.h" declline="149" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1ga20517b7416d5479476f6372742c5f9b9" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>constexpr v3</type>
@@ -2217,7 +2141,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec3.h" line="148" column="5" bodyfile="libs/base/src/base/vec3.h" bodystart="148" bodyend="155"/>
+        <location file="libs/base/src/base/vec3.h" line="153" column="5" bodyfile="libs/base/src/base/vec3.h" bodystart="153" bodyend="160"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1ga6acd10ee86510432805a6f2e2cefa8e5" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>constexpr v3</type>
@@ -2240,7 +2164,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec3.h" line="159" column="5" bodyfile="libs/base/src/base/vec3.h" bodystart="159" bodyend="166"/>
+        <location file="libs/base/src/base/vec3.h" line="164" column="5" bodyfile="libs/base/src/base/vec3.h" bodystart="164" bodyend="171"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1ga865e0eb4a624211381ce34daf5aad69d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>

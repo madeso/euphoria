@@ -141,26 +141,21 @@
     <member refid="structeu_1_1Q_1a50aaa08671d751fed867532d0dd79a47" kind="variable"><name>y</name></member>
     <member refid="structeu_1_1Q_1a1a6ff7d5f15569592af76d269183253f" kind="variable"><name>z</name></member>
     <member refid="structeu_1_1Q_1a4a94b2934844952ebb8fc9b0f51fa41f" kind="function"><name>Q</name></member>
-    <member refid="structeu_1_1Q_1a8a8a31ef878b4fe147ea989dca3eeba9" kind="function"><name>get_data_ptr</name></member>
     <member refid="structeu_1_1Q_1a92b5e5a95a0ff772e72d89c30cc29c54" kind="function"><name>normalize</name></member>
-    <member refid="structeu_1_1Q_1a109d1f6355f25fceb7c8aefe599aa0ed" kind="function"><name>create_from_right_up_in</name></member>
-    <member refid="structeu_1_1Q_1ad4ef10bf6309b058ada75c92ce932324" kind="function"><name>get_rotated</name></member>
-    <member refid="structeu_1_1Q_1ad3255274903bdcc6fd0016d6c6ccd29d" kind="function"><name>rotate_around_origo</name></member>
+    <member refid="structeu_1_1Q_1a9bd27b1649ccaa89974b6b8fea7e24d0" kind="function"><name>then_get_rotated</name></member>
+    <member refid="structeu_1_1Q_1ac3a95299a10db635df3c150ddb614224" kind="function"><name>get_rotated</name></member>
     <member refid="structeu_1_1Q_1a3213b5c3e10b21ebd36eedcf8d4c509c" kind="function"><name>get_negated</name></member>
-    <member refid="structeu_1_1Q_1a845f97d1ae81ca0cb88611480acf10ab" kind="function"><name>get_data_ptr</name></member>
     <member refid="structeu_1_1Q_1a504bd4cb431623cb546353b9e7543d6c" kind="function"><name>get_vec_part</name></member>
     <member refid="structeu_1_1Q_1aa68e076abf7fa7b0c888ae7e7d77f9b5" kind="function"><name>get_conjugate</name></member>
     <member refid="structeu_1_1Q_1ae7d04e804c60452ca2bdcfa519c97b08" kind="function"><name>get_inverse</name></member>
-    <member refid="structeu_1_1Q_1aecfd6b001114c183af50de0c4e49f914" kind="function"><name>get_identity</name></member>
     <member refid="structeu_1_1Q_1a4e47f55d29c27a6d91c9f17123fccc0f" kind="function"><name>get_length</name></member>
-    <member refid="structeu_1_1Q_1a61a6fee4749fd3dd6835c685e6d56e56" kind="function"><name>get_length_squared</name></member>
     <member refid="structeu_1_1Q_1af2147d76f7cb77cf06cb71fab354aab3" kind="function"><name>get_normalized</name></member>
-    <member refid="structeu_1_1Q_1ac5c5f8d1972e78b939886718a5c86705" kind="function"><name>get_in</name></member>
-    <member refid="structeu_1_1Q_1a6cc7ab580007e88862b74c57609777de" kind="function"><name>get_out</name></member>
-    <member refid="structeu_1_1Q_1a277e7fa5236ee9bc967600c06ae944d4" kind="function"><name>get_right</name></member>
-    <member refid="structeu_1_1Q_1a6cdbda6202a88cca33b08d2aafed07b3" kind="function"><name>get_left</name></member>
-    <member refid="structeu_1_1Q_1a6391edc50ae8d4cc3a8c2d4f4ed2debb" kind="function"><name>get_up</name></member>
-    <member refid="structeu_1_1Q_1acc2b1ddafbeadabb21fa71a618ba796a" kind="function"><name>get_down</name></member>
+    <member refid="structeu_1_1Q_1ade74dc1916312df46de10734debf25af" kind="function"><name>get_local_in</name></member>
+    <member refid="structeu_1_1Q_1ad20730e19c10e6956b81e938fe8c8959" kind="function"><name>get_local_out</name></member>
+    <member refid="structeu_1_1Q_1a2078a81b5a4e15ab9d49a3defe463f09" kind="function"><name>get_local_right</name></member>
+    <member refid="structeu_1_1Q_1ace0d24d75aba71d2ac882167e13ec69a" kind="function"><name>get_local_left</name></member>
+    <member refid="structeu_1_1Q_1a0f45561d12959099fd8f1835de33b01c" kind="function"><name>get_local_up</name></member>
+    <member refid="structeu_1_1Q_1abac216f44639cd93359eb94cf9df7133" kind="function"><name>get_local_down</name></member>
     <member refid="structeu_1_1Q_1a265b6580ff8614450bb53147732944ea" kind="function"><name>operator+=</name></member>
     <member refid="structeu_1_1Q_1a3a6307c05c948f7c01a444b30a2d6af2" kind="function"><name>operator-=</name></member>
     <member refid="structeu_1_1Q_1a0d598e8d983468dd130394a0fcab90fa" kind="function"><name>operator*=</name></member>
@@ -170,6 +165,9 @@
     <member refid="structeu_1_1Q_1a0b7e97b743d06f8d4305a4f3ad54c26a" kind="function"><name>from_to</name></member>
     <member refid="structeu_1_1Q_1af80452ab6aa9531bb2cfc11ada256321" kind="function"><name>look_at</name></member>
     <member refid="structeu_1_1Q_1abdf0df3ce5bdd1000bb0658c7838fc28" kind="function"><name>look_in_direction</name></member>
+    <member refid="structeu_1_1Q_1ad00dec4c8c27dccc03671098080bb817" kind="function"><name>nlerp</name></member>
+    <member refid="structeu_1_1Q_1ade6b9d81f9750befb4d67af5324263a9" kind="function"><name>slerp_fast</name></member>
+    <member refid="structeu_1_1Q_1a9cd9f45333d77f435568cba66c0be12c" kind="function"><name>slerp</name></member>
   </compound>
   <compound refid="structeu_1_1R" kind="struct"><name>eu::R</name>
     <member refid="structeu_1_1R_1a21fb9b629bbc9a9db9899a63864cc629" kind="variable"><name>lower_bound</name></member>
@@ -234,6 +232,7 @@
     <member refid="structeu_1_1v3_1a72db54f47fe07478249fc6238fb8b020" kind="function"><name>get_normalized</name></member>
     <member refid="structeu_1_1v3_1aec2154808567055f1f237d6be4807cec" kind="function"><name>operator==</name></member>
     <member refid="structeu_1_1v3_1a3d56743109db2dbb8c142dc72d1e3666" kind="function"><name>from_to</name></member>
+    <member refid="structeu_1_1v3_1a737b55d4e07f18e6c812227bbe81d3a8" kind="function"><name>from_localspace_rui</name></member>
   </compound>
   <compound refid="structeu_1_1v4" kind="struct"><name>eu::v4</name>
     <member refid="structeu_1_1v4_1ac61bea2183fe4e355b562933875d9a17" kind="variable"><name>x</name></member>
@@ -328,9 +327,6 @@
     <member refid="group__math_1ga7ef41a3ef0020cdf027febcf7cb38db3" kind="function"><name>round</name></member>
     <member refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kind="function"><name>get_default_if_close_to_zero</name></member>
     <member refid="group__math_1ga5d5dc7f4ea7cac8493e9006180e9a657" kind="function"><name>is_each_nth</name></member>
-    <member refid="group__math_1ga29f9e616e317eab3c31fb9aa68efbeb5" kind="function"><name>lerp_quatf</name></member>
-    <member refid="group__math_1gab8152198125a37ecb802cfd5eb21c853" kind="function"><name>slerp_fast</name></member>
-    <member refid="group__math_1ga885b7e90819af2ad08620fb94973045f" kind="function"><name>slerp_shortway</name></member>
     <member refid="group__math_1gad4b8d21db1b1a25c346296eec35b330b" kind="function"><name>dot</name></member>
     <member refid="group__math_1ga6214f288996499f35cf95e039b52e1ee" kind="function"><name>string_from</name></member>
     <member refid="group__math_1gae99fc2a026a0a7ac61fbc6281d530996" kind="function"><name>operator*</name></member>
@@ -542,9 +538,6 @@
     <member refid="group__math_1ga7ef41a3ef0020cdf027febcf7cb38db3" kind="function"><name>round</name></member>
     <member refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kind="function"><name>get_default_if_close_to_zero</name></member>
     <member refid="group__math_1ga5d5dc7f4ea7cac8493e9006180e9a657" kind="function"><name>is_each_nth</name></member>
-    <member refid="group__math_1ga29f9e616e317eab3c31fb9aa68efbeb5" kind="function"><name>lerp_quatf</name></member>
-    <member refid="group__math_1gab8152198125a37ecb802cfd5eb21c853" kind="function"><name>slerp_fast</name></member>
-    <member refid="group__math_1ga885b7e90819af2ad08620fb94973045f" kind="function"><name>slerp_shortway</name></member>
     <member refid="group__math_1gad4b8d21db1b1a25c346296eec35b330b" kind="function"><name>dot</name></member>
     <member refid="group__math_1ga6214f288996499f35cf95e039b52e1ee" kind="function"><name>string_from</name></member>
     <member refid="group__math_1gae99fc2a026a0a7ac61fbc6281d530996" kind="function"><name>operator*</name></member>

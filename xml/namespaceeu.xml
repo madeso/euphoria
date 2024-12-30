@@ -284,9 +284,6 @@
       <member refid="group__math_1ga7ef41a3ef0020cdf027febcf7cb38db3" kind="function"><name>round</name></member>
       <member refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kind="function"><name>get_default_if_close_to_zero</name></member>
       <member refid="group__math_1ga5d5dc7f4ea7cac8493e9006180e9a657" kind="function"><name>is_each_nth</name></member>
-      <member refid="group__math_1ga29f9e616e317eab3c31fb9aa68efbeb5" kind="function"><name>lerp_quatf</name></member>
-      <member refid="group__math_1gab8152198125a37ecb802cfd5eb21c853" kind="function"><name>slerp_fast</name></member>
-      <member refid="group__math_1ga885b7e90819af2ad08620fb94973045f" kind="function"><name>slerp_shortway</name></member>
       <member refid="group__math_1gad4b8d21db1b1a25c346296eec35b330b" kind="function"><name>dot</name></member>
       <member refid="group__math_1ga6214f288996499f35cf95e039b52e1ee" kind="function"><name>string_from</name></member>
       <member refid="group__math_1gae99fc2a026a0a7ac61fbc6281d530996" kind="function"><name>operator*</name></member>

@@ -69,7 +69,7 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">4x4 matrix  <a href="structeu_1_1m4.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeu_1_1Q.html">eu::Q</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A quaternion.  <a href="structeu_1_1Q.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A quaternion representing a rotation in 3d.  <a href="structeu_1_1Q.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeu_1_1R.html">eu::R&lt; T &gt;</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A (inclusive) range between two values.  <a href="structeu_1_1R.html#details">More...</a><br /></td></tr>
@@ -196,15 +196,10 @@ Functions</h2></td></tr>
 <tr class="memitem:ga5d5dc7f4ea7cac8493e9006180e9a657"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structeu_1_1R.html">constexpr</a> <a class="el" href="structeu_1_1R.html">bool</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__math.html#ga5d5dc7f4ea7cac8493e9006180e9a657">eu::is_each_nth</a> (<a class="el" href="structeu_1_1R.html">I</a> <a class="el" href="structeu_1_1R.html">i</a>, <a class="el" href="structeu_1_1R.html">I</a> <a class="el" href="structeu_1_1R.html">each</a>)</td></tr>
 <tr class="memdesc:ga5d5dc7f4ea7cac8493e9006180e9a657"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns true for a index each Nth loop.  <br /></td></tr>
 <tr class="separator:ga5d5dc7f4ea7cac8493e9006180e9a657"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga29f9e616e317eab3c31fb9aa68efbeb5" id="r_ga29f9e616e317eab3c31fb9aa68efbeb5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeu_1_1Q.html">Q</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__math.html#ga29f9e616e317eab3c31fb9aa68efbeb5">eu::lerp_quatf</a> (<a class="el" href="structeu_1_1R.html">const</a> <a class="el" href="structeu_1_1Q.html">Q</a> &amp;<a class="el" href="structeu_1_1R.html">f</a>, <a class="el" href="structeu_1_1R.html">float</a> scale, <a class="el" href="structeu_1_1R.html">const</a> <a class="el" href="structeu_1_1Q.html">Q</a> &amp;<a class="el" href="structeu_1_1R.html">t</a>)</td></tr>
-<tr class="separator:ga29f9e616e317eab3c31fb9aa68efbeb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gab8152198125a37ecb802cfd5eb21c853" id="r_gab8152198125a37ecb802cfd5eb21c853"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeu_1_1Q.html">Q</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__math.html#gab8152198125a37ecb802cfd5eb21c853">eu::slerp_fast</a> (<a class="el" href="structeu_1_1R.html">const</a> <a class="el" href="structeu_1_1Q.html">Q</a> &amp;<a class="el" href="structeu_1_1R.html">qa</a>, <a class="el" href="structeu_1_1R.html">float</a> <a class="el" href="structeu_1_1R.html">t</a>, <a class="el" href="structeu_1_1R.html">const</a> <a class="el" href="structeu_1_1Q.html">Q</a> &amp;<a class="el" href="structeu_1_1R.html">qb</a>)</td></tr>
-<tr class="separator:gab8152198125a37ecb802cfd5eb21c853"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga885b7e90819af2ad08620fb94973045f" id="r_ga885b7e90819af2ad08620fb94973045f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeu_1_1Q.html">Q</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__math.html#ga885b7e90819af2ad08620fb94973045f">eu::slerp_shortway</a> (<a class="el" href="structeu_1_1R.html">const</a> <a class="el" href="structeu_1_1Q.html">Q</a> &amp;from, <a class="el" href="structeu_1_1R.html">float</a> scale, <a class="el" href="structeu_1_1R.html">const</a> <a class="el" href="structeu_1_1Q.html">Q</a> &amp;<a class="el" href="structeu_1_1R.html">to</a>)</td></tr>
-<tr class="separator:ga885b7e90819af2ad08620fb94973045f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gad4b8d21db1b1a25c346296eec35b330b" id="r_gad4b8d21db1b1a25c346296eec35b330b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeu_1_1R.html">float</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__math.html#gad4b8d21db1b1a25c346296eec35b330b">eu::dot</a> (<a class="el" href="structeu_1_1R.html">const</a> <a class="el" href="structeu_1_1Q.html">Q</a> &amp;<a class="el" href="structeu_1_1R.html">lhs</a>, <a class="el" href="structeu_1_1R.html">const</a> <a class="el" href="structeu_1_1Q.html">Q</a> &amp;<a class="el" href="structeu_1_1R.html">rhs</a>)</td></tr>
 <tr class="separator:gad4b8d21db1b1a25c346296eec35b330b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga6214f288996499f35cf95e039b52e1ee" id="r_ga6214f288996499f35cf95e039b52e1ee"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__math.html#ga6214f288996499f35cf95e039b52e1ee">eu::string_from</a> (<a class="el" href="structeu_1_1R.html">const</a> <a class="el" href="structeu_1_1Q.html">Q</a> &amp;<a class="el" href="structeu_1_1R.html">v</a>)</td></tr>
+<tr class="memdesc:ga6214f288996499f35cf95e039b52e1ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a quaternion to string, prefer fmt.  <br /></td></tr>
 <tr class="separator:ga6214f288996499f35cf95e039b52e1ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gae99fc2a026a0a7ac61fbc6281d530996" id="r_gae99fc2a026a0a7ac61fbc6281d530996"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeu_1_1Q.html">Q</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__math.html#gae99fc2a026a0a7ac61fbc6281d530996">eu::operator*</a> (<a class="el" href="structeu_1_1R.html">const</a> <a class="el" href="structeu_1_1Q.html">Q</a> &amp;<a class="el" href="structeu_1_1R.html">lhs</a>, <a class="el" href="structeu_1_1R.html">const</a> <a class="el" href="structeu_1_1Q.html">Q</a> &amp;<a class="el" href="structeu_1_1R.html">rhs</a>)</td></tr>
 <tr class="separator:gae99fc2a026a0a7ac61fbc6281d530996"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -325,6 +320,7 @@ Variables</h2></td></tr>
 <tr class="memitem:ga25eb222abfe7c9e7f34d6f19ed40c1a0" id="r_ga25eb222abfe7c9e7f34d6f19ed40c1a0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeu_1_1R.html">constexpr</a> <a class="el" href="structeu_1_1R.html">float</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__math.html#ga25eb222abfe7c9e7f34d6f19ed40c1a0">eu::pi</a> = 3.1415926535897932384626433832795<a class="el" href="structeu_1_1R.html">f</a></td></tr>
 <tr class="separator:ga25eb222abfe7c9e7f34d6f19ed40c1a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga074a5f400069f641ce3857da18d65d93" id="r_ga074a5f400069f641ce3857da18d65d93"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeu_1_1R.html">constexpr</a> <a class="el" href="structeu_1_1Q.html">Q</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__math.html#ga074a5f400069f641ce3857da18d65d93">eu::q_identity</a> = <a class="el" href="structeu_1_1Q.html">Q</a>(1, <a class="el" href="structeu_1_1v3.html">v3</a>(0, 0, 0))</td></tr>
+<tr class="memdesc:ga074a5f400069f641ce3857da18d65d93"><td class="mdescLeft">&#160;</td><td class="mdescRight">The identity quaternion.  <br /></td></tr>
 <tr class="separator:ga074a5f400069f641ce3857da18d65d93"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga1762260135f2b7b538f1b8be43146481" id="r_ga1762260135f2b7b538f1b8be43146481"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeu_1_1R.html">constexpr</a> <a class="el" href="structeu_1_1R.html">R</a>&lt; <a class="el" href="structeu_1_1R.html">float</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__math.html#ga1762260135f2b7b538f1b8be43146481">eu::r01</a> = { 0.0f, 1.0f}</td></tr>
 <tr class="memdesc:ga1762260135f2b7b538f1b8be43146481"><td class="mdescLeft">&#160;</td><td class="mdescRight">A range going from 0 to 1.  <br /></td></tr>
@@ -1228,42 +1224,6 @@ template&lt;<a class="el" href="structeu_1_1R.html">typename</a> <a class="el" h
 
 </div>
 </div>
-<a id="ga29f9e616e317eab3c31fb9aa68efbeb5" name="ga29f9e616e317eab3c31fb9aa68efbeb5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga29f9e616e317eab3c31fb9aa68efbeb5">&#9670;&#160;</a></span>lerp_quatf()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structeu_1_1Q.html">Q</a> eu::lerp_quatf </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structeu_1_1R.html">const</a> <a class="el" href="structeu_1_1Q.html">Q</a> &amp;&#160;</td>
-          <td class="paramname"><em>f</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structeu_1_1R.html">float</a>&#160;</td>
-          <td class="paramname"><em>scale</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structeu_1_1R.html">const</a> <a class="el" href="structeu_1_1Q.html">Q</a> &amp;&#160;</td>
-          <td class="paramname"><em>t</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p><code>#include &lt;<a class="el" href="quat_8h.html">libs/base/src/base/quat.h</a>&gt;</code></p>
-
-</div>
-</div>
 <a id="gac91ed2ee0f9cfe6e689fc0dc4cdd29f0" name="gac91ed2ee0f9cfe6e689fc0dc4cdd29f0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#gac91ed2ee0f9cfe6e689fc0dc4cdd29f0">&#9670;&#160;</a></span>lerp_v3()</h2>
 
@@ -1436,7 +1396,7 @@ template&lt;<a class="el" href="structeu_1_1R.html">typename</a> <a class="el" h
 
 <p>component wise max value </p>
 
-<p class="definition">Definition at line <a class="el" href="vec3_8h_source.html#l00159">159</a> of file <a class="el" href="vec3_8h_source.html">vec3.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vec3_8h_source.html#l00164">164</a> of file <a class="el" href="vec3_8h_source.html">vec3.h</a>.</p>
 
 </div>
 </div>
@@ -1518,7 +1478,7 @@ template&lt;<a class="el" href="structeu_1_1R.html">typename</a> <a class="el" h
 
 <p>component wise min value </p>
 
-<p class="definition">Definition at line <a class="el" href="vec3_8h_source.html#l00148">148</a> of file <a class="el" href="vec3_8h_source.html">vec3.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vec3_8h_source.html#l00153">153</a> of file <a class="el" href="vec3_8h_source.html">vec3.h</a>.</p>
 
 </div>
 </div>
@@ -2653,78 +2613,6 @@ template&lt;<a class="el" href="structeu_1_1R.html">typename</a> <a class="el" h
 
 </div>
 </div>
-<a id="gab8152198125a37ecb802cfd5eb21c853" name="gab8152198125a37ecb802cfd5eb21c853"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gab8152198125a37ecb802cfd5eb21c853">&#9670;&#160;</a></span>slerp_fast()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structeu_1_1Q.html">Q</a> eu::slerp_fast </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structeu_1_1R.html">const</a> <a class="el" href="structeu_1_1Q.html">Q</a> &amp;&#160;</td>
-          <td class="paramname"><em>qa</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structeu_1_1R.html">float</a>&#160;</td>
-          <td class="paramname"><em>t</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structeu_1_1R.html">const</a> <a class="el" href="structeu_1_1Q.html">Q</a> &amp;&#160;</td>
-          <td class="paramname"><em>qb</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p><code>#include &lt;<a class="el" href="quat_8h.html">libs/base/src/base/quat.h</a>&gt;</code></p>
-
-</div>
-</div>
-<a id="ga885b7e90819af2ad08620fb94973045f" name="ga885b7e90819af2ad08620fb94973045f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga885b7e90819af2ad08620fb94973045f">&#9670;&#160;</a></span>slerp_shortway()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structeu_1_1Q.html">Q</a> eu::slerp_shortway </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structeu_1_1R.html">const</a> <a class="el" href="structeu_1_1Q.html">Q</a> &amp;&#160;</td>
-          <td class="paramname"><em>from</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structeu_1_1R.html">float</a>&#160;</td>
-          <td class="paramname"><em>scale</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structeu_1_1R.html">const</a> <a class="el" href="structeu_1_1Q.html">Q</a> &amp;&#160;</td>
-          <td class="paramname"><em>to</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p><code>#include &lt;<a class="el" href="quat_8h.html">libs/base/src/base/quat.h</a>&gt;</code></p>
-
-</div>
-</div>
 <a id="ga066452fba287c9fcb6a0188ea8424760" name="ga066452fba287c9fcb6a0188ea8424760"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga066452fba287c9fcb6a0188ea8424760">&#9670;&#160;</a></span>sqrt()</h2>
 
@@ -2886,6 +2774,8 @@ template&lt;<a class="el" href="structeu_1_1R.html">typename</a> <a class="el" h
 </div><div class="memdoc">
 
 <p><code>#include &lt;<a class="el" href="quat_8h.html">libs/base/src/base/quat.h</a>&gt;</code></p>
+
+<p>Converts a quaternion to string, prefer fmt. </p>
 
 </div>
 </div>
@@ -3221,7 +3111,9 @@ template&lt;<a class="el" href="structeu_1_1R.html">typename</a> <a class="el" h
 
 <p><code>#include &lt;<a class="el" href="quat_8h.html">libs/base/src/base/quat.h</a>&gt;</code></p>
 
-<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00073">73</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
+<p>The identity quaternion. </p>
+
+<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00123">123</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
 
 </div>
 </div>
@@ -3353,7 +3245,7 @@ template&lt;<a class="el" href="structeu_1_1R.html">typename</a> <a class="el" h
 
 <p><code>#include &lt;<a class="el" href="vec3_8h.html">libs/base/src/base/vec3.h</a>&gt;</code></p>
 
-<p class="definition">Definition at line <a class="el" href="vec3_8h_source.html#l00081">81</a> of file <a class="el" href="vec3_8h_source.html">vec3.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vec3_8h_source.html#l00086">86</a> of file <a class="el" href="vec3_8h_source.html">vec3.h</a>.</p>
 
 </div>
 </div>

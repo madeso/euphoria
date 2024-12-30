@@ -17,7 +17,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec3.h" line="88" column="22" bodyfile="libs/base/src/base/vec3.h" bodystart="88" bodyend="91"/>
+        <location file="libs/base/src/base/vec3.h" line="93" column="22" bodyfile="libs/base/src/base/vec3.h" bodystart="93" bodyend="96"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1n3_1aa68e70e5a5cb06987e61869c66f54232" prot="public" static="no" constexpr="yes" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref> <ref refid="structeu_1_1R" kindref="compound">bool</ref></type>
@@ -32,7 +32,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec3.h" line="95" column="9" bodyfile="libs/base/src/base/vec3.h" bodystart="95" bodyend="98"/>
+        <location file="libs/base/src/base/vec3.h" line="100" column="9" bodyfile="libs/base/src/base/vec3.h" bodystart="100" bodyend="103"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1n3_1a1c9dc301328a0e9da5e4ea1da860b2dd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">bool</ref></type>
@@ -50,7 +50,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec3.h" line="100" column="14"/>
+        <location file="libs/base/src/base/vec3.h" line="105" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1n3_1a20006da90f262b4cf7e5d9f293f21f60" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref></type>
@@ -77,7 +77,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec3.h" line="103" column="19" bodyfile="libs/base/src/base/vec3.h" bodystart="103" bodyend="107"/>
+        <location file="libs/base/src/base/vec3.h" line="108" column="19" bodyfile="libs/base/src/base/vec3.h" bodystart="108" bodyend="112"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1n3_1a6ac60a5efa4f1e306a4c7b2fbe5bd969" prot="public" static="no" constexpr="yes" const="no" explicit="yes" inline="yes" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref></type>
@@ -96,7 +96,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec3.h" line="110" column="28" bodyfile="libs/base/src/base/vec3.h" bodystart="110" bodyend="114"/>
+        <location file="libs/base/src/base/vec3.h" line="115" column="28" bodyfile="libs/base/src/base/vec3.h" bodystart="115" bodyend="119"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -128,10 +128,11 @@
         <link refid="structeu_1_1v3"/>
       </node>
     </collaborationgraph>
-    <location file="libs/base/src/base/vec3.h" line="86" column="5" bodyfile="libs/base/src/base/vec3.h" bodystart="87" bodyend="115"/>
+    <location file="libs/base/src/base/vec3.h" line="91" column="5" bodyfile="libs/base/src/base/vec3.h" bodystart="92" bodyend="120"/>
     <listofallmembers>
       <member refid="structeu_1_1v3_1aa99cba50159afb3c350a5eec965de84e" prot="public" virt="non-virtual"><scope>eu::n3</scope><name>cross</name></member>
       <member refid="structeu_1_1v3_1a764fc0768cb46634ca097e4beedc783f" prot="public" virt="non-virtual"><scope>eu::n3</scope><name>dot</name></member>
+      <member refid="structeu_1_1v3_1a737b55d4e07f18e6c812227bbe81d3a8" prot="public" virt="non-virtual"><scope>eu::n3</scope><name>from_localspace_rui</name></member>
       <member refid="structeu_1_1v3_1a3d56743109db2dbb8c142dc72d1e3666" prot="public" virt="non-virtual"><scope>eu::n3</scope><name>from_to</name></member>
       <member refid="structeu_1_1v3_1a03fe39fe690ae1574681d81774f8931f" prot="public" virt="non-virtual"><scope>eu::n3</scope><name>get_data_ptr</name></member>
       <member refid="structeu_1_1v3_1aa10b5855955fce26402df64eba38998d" prot="public" virt="non-virtual"><scope>eu::n3</scope><name>get_data_ptr</name></member>
