@@ -43,7 +43,7 @@ namespace eu
         static v3 from_to(const v3 &from, const v3 &to);
 
         /// Creates a vector in quaterion local space from Right Up In.
-        static [[nodiscard]] v3 from_localspace_rui(const Q& rotation, float right, float up, float in);
+        [[nodiscard]] static v3 from_localspace_rui(const Q& rotation, float right, float up, float in);
 
         [[nodiscard]] float dot(const v3 &rhs) const;
         [[nodiscard]] v3 cross(const v3 &u) const;
