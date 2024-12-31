@@ -8,7 +8,6 @@
 [![run-cppcheck](https://github.com/madeso/euphoria/actions/workflows/run-cppcheck.yml/badge.svg)](https://github.com/madeso/euphoria/actions/workflows/run-cppcheck.yml)
 [![run-cpplint](https://github.com/madeso/euphoria/actions/workflows/run-cpplint.yml/badge.svg)](https://github.com/madeso/euphoria/actions/workflows/run-cpplint.yml)
 
-[![run-coverage](https://github.com/madeso/euphoria/actions/workflows/run-coverage.yml/badge.svg)](https://github.com/madeso/euphoria/actions/workflows/run-coverage.yml)
 [![codecov](https://codecov.io/gh/madeso/euphoria/branch/master/graph/badge.svg?token=V9K2H0U03G)](https://codecov.io/gh/madeso/euphoria) [![Coverage Status](https://coveralls.io/repos/github/madeso/euphoria/badge.svg?branch=master)](https://coveralls.io/github/madeso/euphoria?branch=master)
 
 Euphoria is a data-driven "game engine". It's in quotes because
