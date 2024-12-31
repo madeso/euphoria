@@ -4,6 +4,11 @@ on: [push, pull_request]
 
 jobs:
     build:
+        strategy:
+            matrix:
+                gcc: ['14']
+                build_type: [Debug]
+
         runs-on: ubuntu-24.04
 
         steps:
@@ -11,10 +16,39 @@ jobs:
           with:
             submodules: recursive
 
+
+
+
         - name: Install Dependencies
           run: |
                 sudo apt update
-                sudo apt install -y libsdl2-dev libassimp-dev
+                sudo apt install -y libsdl2-dev libassimp-dev curl
+                pip3 install wheel setuptools gcovr
+                sudo apt install -y doxygen
+
+
+
+        - name: List all installed GCC
+          run: |
+                which gcc
+                echo "*** gcc ***"
+                ls -l /usr/bin/gcc*
+                echo "*** gcov ***"
+                ls -l /usr/bin/gcov*
+
+        - name: Switch to latest GCC
+          run: |
+                sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-${{matrix.gcc}} ${{matrix.gcc}}
+                sudo update-alternatives --install /usr/bin/gcov gcov /usr/bin/gcov-${{matrix.gcc}} ${{matrix.gcc}}
+
+        - name: Check version
+          run: |
+                gcc --version
+                gcov --version
+
+
+
+
 
         - name: Create Build Environment
           run: cmake -E make_directory ${{github.workspace}}/build
@@ -23,19 +57,56 @@ jobs:
           shell: bash
           working-directory: ${{github.workspace}}/build
           env:
-                CXX: clang++-18
-          run: cmake -DCMAKE_BUILD_TYPE=Release $GITHUB_WORKSPACE
+                CC: gcc-${{matrix.gcc}}
+                CXX: g++-${{matrix.gcc}}
+          run: cmake -DGENERATE_COVERAGE=ON -DCMAKE_BUILD_TYPE=${{matrix.build_type}} $GITHUB_WORKSPACE
 
         - name: Build
           shell: bash
           working-directory: ${{github.workspace}}/build
-          run: time cmake --build . --config Release
+          env:
+                CC: gcc-${{matrix.gcc}}
+                CXX: g++-${{matrix.gcc}}
+          run: time cmake --build . --config ${{matrix.build_type}}
 
-        - name: Install doxygen
-          run: sudo apt install -y doxygen
+
+
+
+
+
+
+
+        - name: Generate coverage files by running tests
+          shell: bash
+          working-directory: ${{github.workspace}}/build
+          run: |
+                ctest -C ${{matrix.build_type}}
+
+        - name: Generate cobertura.xml and coveralls.json
+          shell: bash
+          env:
+                COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_PROJECT_TOKEN }}
+          working-directory: ${{github.workspace}}/build
+          run: |
+                echo "*** gcovr version ***"
+                gcovr --version
+                echo "*** run gcovr to cobertura***"
+                gcovr -v --root .. --cobertura cobertura.xml .
+                echo "*** run gcovr to coveralls ***"
+                gcovr -v --root ..  --coveralls coveralls.json
+                echo "*** run gcovr to html ***"
+                gcovr -v --root .. --html-theme github.blue --html-details ../docs/generated/coverage.html
+
+
+
+
 
         - name: Build doxygen
           run: doxygen docs/doxygen.ini
+
+
+
+
 
         - name: Deploy
           uses: peaceiris/actions-gh-pages@v3
@@ -43,3 +114,24 @@ jobs:
           with:
                 github_token: ${{ secrets.GITHUB_TOKEN }}
                 publish_dir: ./docs/generated/
+
+
+        - name: Upload coverage to Codecov
+          uses: codecov/codecov-action@v2
+          with:
+            flags: ${{ runner.os }}
+            name: ${{ runner.os }}-coverage
+            files: ${{github.workspace}}/build/cobertura.xml
+
+        - name: Upload coverage to codacy
+          uses: codacy/codacy-coverage-reporter-action@v1.3.0
+          with:
+            project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
+            coverage-reports: ${{github.workspace}}/build/cobertura.xml
+
+        - name: Upload coverage to coveralls via curl
+          working-directory: ${{github.workspace}}/build
+          shell: bash
+          run: |
+                curl --form json_file=@coveralls.json https://coveralls.io/api/v1/jobs
+
