@@ -16,8 +16,7 @@
 </ulink> <ulink url="https://github.com/madeso/euphoria/actions/workflows/run-cppcheck.yml"><image type="html" name="https://github.com/madeso/euphoria/actions/workflows/run-cppcheck.yml/badge.svg" alt="run-cppcheck" inline="yes"></image>
 </ulink> <ulink url="https://github.com/madeso/euphoria/actions/workflows/run-cpplint.yml"><image type="html" name="https://github.com/madeso/euphoria/actions/workflows/run-cpplint.yml/badge.svg" alt="run-cpplint" inline="yes"></image>
 </ulink></para>
-<para><ulink url="https://github.com/madeso/euphoria/actions/workflows/run-coverage.yml"><image type="html" name="https://github.com/madeso/euphoria/actions/workflows/run-coverage.yml/badge.svg" alt="run-coverage" inline="yes"></image>
-</ulink> <ulink url="https://codecov.io/gh/madeso/euphoria"><image type="html" name="https://codecov.io/gh/madeso/euphoria/branch/master/graph/badge.svg?token=V9K2H0U03G" alt="codecov" inline="yes"></image>
+<para><ulink url="https://codecov.io/gh/madeso/euphoria"><image type="html" name="https://codecov.io/gh/madeso/euphoria/branch/master/graph/badge.svg?token=V9K2H0U03G" alt="codecov" inline="yes"></image>
 </ulink> <ulink url="https://coveralls.io/github/madeso/euphoria?branch=master"><image type="html" name="https://coveralls.io/repos/github/madeso/euphoria/badge.svg?branch=master" alt="Coverage Status" inline="yes"></image>
 </ulink></para>
 <para>Euphoria is a data-driven &quot;game engine&quot;. It&apos;s in quotes because</para>
