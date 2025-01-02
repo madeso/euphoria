@@ -107,10 +107,20 @@ jobs:
 
 
 
+        - name: Generate code city
+          run: dotnet run --project ./tools/buildtools/Workbench/ -- code-city docs/generated/xml docs/generated/code-city.html
+
+
+        - name: Display clang-tidy
+          run: dotnet run --project ./tools/buildtools/Workbench/ -- clang-tidy libs --html docs/generated/tidy/
+
+
+
+
 
         - name: Deploy
           uses: peaceiris/actions-gh-pages@v3
-          if: github.ref == 'refs/heads/master'
+          if: github.ref == 'refs/heads/master' && (success() || failure())
           with:
                 github_token: ${{ secrets.GITHUB_TOKEN }}
                 publish_dir: ./docs/generated/

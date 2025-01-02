@@ -50,3 +50,5 @@ cppcheck-result.txt
 
 workbench.paths.jsonc
 
+docs/generated/code-city.html
+docs/generated/tidy/
