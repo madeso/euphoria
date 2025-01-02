@@ -112,7 +112,7 @@ jobs:
 
 
         - name: Display clang-tidy
-          run: dotnet run --project ./tools/buildtools/Workbench/ -- clang-tidy libs --html docs/generated/tidy/
+          run: dotnet run --project ./tools/buildtools/Workbench/ -- clang tidy libs --html docs/generated/tidy/
 
 
 
