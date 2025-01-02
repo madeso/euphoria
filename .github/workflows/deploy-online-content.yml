@@ -123,14 +123,14 @@ jobs:
           shell: bash
           working-directory: ${{github.workspace}}/build
           env:
-                CXX: CXX: clang++-${{matrix.clang}}
+                CXX: clang++-${{matrix.clang}}
           run: cmake -DCMAKE_BUILD_TYPE=${{matrix.build_type}} $GITHUB_WORKSPACE
 
         - name: Build (for clang)
           shell: bash
           working-directory: ${{github.workspace}}/build
           env:
-                CXX: CXX: clang++-${{matrix.clang}}
+                CXX: clang++-${{matrix.clang}}
           run: time cmake --build . --config ${{matrix.build_type}}
 
         - name: clang-tidy version
