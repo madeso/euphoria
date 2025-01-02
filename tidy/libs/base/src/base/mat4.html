@@ -1,0 +1,137 @@
+﻿<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+<title>libs/base/src/base/mat4.cc</title>
+</head>
+<body>
+<h1>libs/base/src/base/mat4.cc</h1>
+<hr>
+<h3>warning:  no header providing "eu::v4" is directly included</h3>
+<code>[misc-include-cleaner]</code>
+<p><i>libs/base/src/base/mat4.cc 31 : 26</i></p>
+<pre>
+    4 |     m4::from_major(const v4& major)
+      |                          ^
+</pre>
+<hr>
+<h3>warning:  no header providing "eu::v3" is directly included</h3>
+<code>[misc-include-cleaner]</code>
+<p><i>libs/base/src/base/mat4.cc 45 : 32</i></p>
+<pre>
+    4 |     m4::from_translation(const v3& v)
+      |                                ^
+</pre>
+<hr>
+<h3>warning:  no header providing "eu::n3" is directly included</h3>
+<code>[misc-include-cleaner]</code>
+<p><i>libs/base/src/base/mat4.cc 82 : 5</i></p>
+<pre>
+   82 |     n3
+      |     ^
+</pre>
+<hr>
+<h3>warning:  no header providing "eu::An" is directly included</h3>
+<code>[misc-include-cleaner]</code>
+<p><i>libs/base/src/base/mat4.cc 96 : 26</i></p>
+<pre>
+    3 |     m4::from_rot_x(const An& a)
+      |                          ^
+</pre>
+<hr>
+<h3>warning:  no header providing "eu::cos" is directly included</h3>
+<code>[misc-include-cleaner]</code>
+<p><i>libs/base/src/base/mat4.cc 98 : 24</i></p>
+<pre>
+   98 |         const auto c = cos(a);
+      |                        ^
+</pre>
+<hr>
+<h3>warning:  no header providing "eu::sin" is directly included</h3>
+<code>[misc-include-cleaner]</code>
+<p><i>libs/base/src/base/mat4.cc 99 : 24</i></p>
+<pre>
+   99 |         const auto s = sin(a);
+      |                        ^
+</pre>
+<hr>
+<h3>warning:  no header providing "eu::AA" is directly included</h3>
+<code>[misc-include-cleaner]</code>
+<p><i>libs/base/src/base/mat4.cc 140 : 20</i></p>
+<pre>
+    3 |     m4::from(const AA& aa)
+      |                    ^
+</pre>
+<hr>
+<h3>warning:  no header providing "std::optional" is directly included</h3>
+<code>[misc-include-cleaner]</code>
+<p><i>libs/base/src/base/mat4.cc 174 : 24</i></p>
+<pre>
+    4 |     [[nodiscard]] std::optional<m4>
+      |                        ^
+</pre>
+<hr>
+<h3>warning:  statement should be inside braces</h3>
+<code>[readability-braces-around-statements]</code>
+<p><i>libs/base/src/base/mat4.cc 178 : 17</i></p>
+<pre>
+  178 |         if (!aa) return std::nullopt;
+      |                 ^                    
+      |                  {
+</pre>
+<hr>
+<h3>warning:  no header providing "std::nullopt" is directly included</h3>
+<code>[misc-include-cleaner]</code>
+<p><i>libs/base/src/base/mat4.cc 178 : 30</i></p>
+<pre>
+  178 |         if (!aa) return std::nullopt;
+      |                              ^
+</pre>
+<hr>
+<h3>warning:  avoid do-while loops</h3>
+<code>[cppcoreguidelines-avoid-do-while]</code>
+<p><i>libs/base/src/base/mat4.cc 356 : 9</i></p>
+<pre>
+  356 |         ASSERT(was_inverted);
+      |         ^
+</pre>
+<p> expanded from macro 'ASSERT'</p>
+<p><i>libs/assert/src/assert/assert.h 30 : 5</i></p>
+<pre>
+   30 |     do \
+      |     ^
+</pre>
+<hr>
+<h3>warning:  no header providing "ASSERT" is directly included</h3>
+<code>[misc-include-cleaner]</code>
+<p><i>libs/base/src/base/mat4.cc 356 : 9</i></p>
+<pre>
+    3 |         ASSERT(was_inverted);
+      |         ^
+</pre>
+<hr>
+<h3>warning:  no header providing "eu::tan" is directly included</h3>
+<code>[misc-include-cleaner]</code>
+<p><i>libs/base/src/base/mat4.cc 400 : 29</i></p>
+<pre>
+  400 |         const float t = 1 / tan(fov / 2);
+      |                             ^
+</pre>
+<hr>
+<h3>warning:  no header providing "std::string" is directly included</h3>
+<code>[misc-include-cleaner]</code>
+<p><i>libs/base/src/base/mat4.cc 463 : 10</i></p>
+<pre>
+    4 |     std::string string_from(const m4& m)
+      |          ^
+</pre>
+<hr>
+<h3>warning:  no header providing "fmt::format" is directly included</h3>
+<code>[misc-include-cleaner]</code>
+<p><i>libs/base/src/base/mat4.cc 465 : 21</i></p>
+<pre>
+    4 |         return fmt::format("({}, {}. {}. {})", m.get_row(0), m.get_row(1), m.get_row(2), m.get_row(3));
+      |                     ^
+</pre>
+</body>
+</html>

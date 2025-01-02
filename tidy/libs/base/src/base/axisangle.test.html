@@ -1,0 +1,379 @@
+﻿<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+<title>libs/base/src/base/axisangle.test.cc</title>
+</head>
+<body>
+<h1>libs/base/src/base/axisangle.test.cc</h1>
+<hr>
+<h3>warning:  included header catch_all.hpp is not used directly</h3>
+<code>[misc-include-cleaner]</code>
+<p><i>libs/base/src/base/axisangle.test.cc 3 : 1</i></p>
+<pre>
+    3 | #include "catch2/catch_all.hpp"
+      | ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    4 | 
+</pre>
+<hr>
+<h3>warning:  no header providing "TEST_CASE" is directly included</h3>
+<code>[misc-include-cleaner]</code>
+<p><i>libs/base/src/base/axisangle.test.cc 7 : 1</i></p>
+<pre>
+    4 | 
+    5 | 
+    6 | 
+    7 | TEST_CASE("aa-righthand", "[aa]")
+      | ^
+</pre>
+<hr>
+<h3>warning:  no header providing "eu::common::x_axis" is directly included</h3>
+<code>[misc-include-cleaner]</code>
+<p><i>libs/base/src/base/axisangle.test.cc 10 : 25</i></p>
+<pre>
+    3 | #include "catch2/catch_all.hpp"
+    4 | 
+    5 | 
+    6 | 
+    7 | TEST_CASE("aa-righthand", "[aa]")
+    8 | {
+    9 |     const auto aa = eu::right_hand_around(
+   10 |             eu::common::x_axis, eu::An::from_degrees(12.0f));
+      |                         ^
+</pre>
+<hr>
+<h3>warning:  no header providing "eu::An" is directly included</h3>
+<code>[misc-include-cleaner]</code>
+<p><i>libs/base/src/base/axisangle.test.cc 10 : 37</i></p>
+<pre>
+    3 | #include "catch2/catch_all.hpp"
+    4 | 
+    5 | 
+    6 | 
+    7 | TEST_CASE("aa-righthand", "[aa]")
+    8 | {
+    9 |     const auto aa = eu::right_hand_around(
+   10 |             eu::common::x_axis, eu::An::from_degrees(12.0f));
+      |                                     ^
+</pre>
+<hr>
+<h3>warning:  chained comparison 'v0 <= v1 == v2' may generate unintended results, use parentheses to specify order of evaluation or a logical operator to separate comparison expressions</h3>
+<code>[bugprone-chained-comparison]</code>
+<p><i>libs/base/src/base/axisangle.test.cc 11 : 5</i></p>
+<pre>
+   11 |     REQUIRE(aa.angle.as_degrees() == Catch::Approx(12.0f));
+      |     ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 26</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
+<p> operand 'v0' is here</p>
+<p><i>libs/base/src/base/axisangle.test.cc 11 : 5</i></p>
+<pre>
+   11 |     REQUIRE(aa.angle.as_degrees() == Catch::Approx(12.0f));
+      |     ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 26</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                               ^~~~~~~~~~~~~~~~~~~
+</pre>
+<p> operand 'v1' is here</p>
+<p><i>libs/base/src/base/axisangle.test.cc 11 : 13</i></p>
+<pre>
+   11 |     REQUIRE(aa.angle.as_degrees() == Catch::Approx(12.0f));
+      |             ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 92</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                                                                                            ^~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                                                      ^~~~~~~~~~~
+</pre>
+<p> operand 'v2' is here</p>
+<p><i>libs/base/src/base/axisangle.test.cc 11 : 38</i></p>
+<pre>
+   11 |     REQUIRE(aa.angle.as_degrees() == Catch::Approx(12.0f));
+      |                                      ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 92</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                                                                                            ^~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                                                      ^~~~~~~~~~~
+</pre>
+<hr>
+<h3>warning:  no header providing "REQUIRE" is directly included</h3>
+<code>[misc-include-cleaner]</code>
+<p><i>libs/base/src/base/axisangle.test.cc 11 : 5</i></p>
+<pre>
+   11 |     REQUIRE(aa.angle.as_degrees() == Catch::Approx(12.0f));
+      |     ^
+</pre>
+<hr>
+<h3>warning:  no header providing "Catch::Approx" is directly included</h3>
+<code>[misc-include-cleaner]</code>
+<p><i>libs/base/src/base/axisangle.test.cc 11 : 45</i></p>
+<pre>
+    4 | 
+    5 | 
+    6 | 
+    7 | TEST_CASE("aa-righthand", "[aa]")
+    8 | {
+    9 |     const auto aa = eu::right_hand_around(
+   10 |             eu::common::x_axis, eu::An::from_degrees(12.0f));
+   11 |     REQUIRE(aa.angle.as_degrees() == Catch::Approx(12.0f));
+      |                                             ^
+</pre>
+<hr>
+<h3>warning:  chained comparison 'v0 <= v1 == v2' may generate unintended results, use parentheses to specify order of evaluation or a logical operator to separate comparison expressions</h3>
+<code>[bugprone-chained-comparison]</code>
+<p><i>libs/base/src/base/axisangle.test.cc 14 : 5</i></p>
+<pre>
+   14 |     REQUIRE(aa.axis.x == Catch::Approx(1.0f));
+      |     ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 26</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
+<p> operand 'v0' is here</p>
+<p><i>libs/base/src/base/axisangle.test.cc 14 : 5</i></p>
+<pre>
+   14 |     REQUIRE(aa.axis.x == Catch::Approx(1.0f));
+      |     ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 26</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                               ^~~~~~~~~~~~~~~~~~~
+</pre>
+<p> operand 'v1' is here</p>
+<p><i>libs/base/src/base/axisangle.test.cc 14 : 13</i></p>
+<pre>
+   14 |     REQUIRE(aa.axis.x == Catch::Approx(1.0f));
+      |             ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 92</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                                                                                            ^~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                                                      ^~~~~~~~~~~
+</pre>
+<p> operand 'v2' is here</p>
+<p><i>libs/base/src/base/axisangle.test.cc 14 : 26</i></p>
+<pre>
+   14 |     REQUIRE(aa.axis.x == Catch::Approx(1.0f));
+      |                          ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 92</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                                                                                            ^~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                                                      ^~~~~~~~~~~
+</pre>
+<hr>
+<h3>warning:  chained comparison 'v0 <= v1 == v2' may generate unintended results, use parentheses to specify order of evaluation or a logical operator to separate comparison expressions</h3>
+<code>[bugprone-chained-comparison]</code>
+<p><i>libs/base/src/base/axisangle.test.cc 15 : 5</i></p>
+<pre>
+   15 |     REQUIRE(aa.axis.y == Catch::Approx(0.0f));
+      |     ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 26</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
+<p> operand 'v0' is here</p>
+<p><i>libs/base/src/base/axisangle.test.cc 15 : 5</i></p>
+<pre>
+   15 |     REQUIRE(aa.axis.y == Catch::Approx(0.0f));
+      |     ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 26</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                               ^~~~~~~~~~~~~~~~~~~
+</pre>
+<p> operand 'v1' is here</p>
+<p><i>libs/base/src/base/axisangle.test.cc 15 : 13</i></p>
+<pre>
+   15 |     REQUIRE(aa.axis.y == Catch::Approx(0.0f));
+      |             ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 92</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                                                                                            ^~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                                                      ^~~~~~~~~~~
+</pre>
+<p> operand 'v2' is here</p>
+<p><i>libs/base/src/base/axisangle.test.cc 15 : 26</i></p>
+<pre>
+   15 |     REQUIRE(aa.axis.y == Catch::Approx(0.0f));
+      |                          ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 92</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                                                                                            ^~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                                                      ^~~~~~~~~~~
+</pre>
+<hr>
+<h3>warning:  chained comparison 'v0 <= v1 == v2' may generate unintended results, use parentheses to specify order of evaluation or a logical operator to separate comparison expressions</h3>
+<code>[bugprone-chained-comparison]</code>
+<p><i>libs/base/src/base/axisangle.test.cc 16 : 5</i></p>
+<pre>
+   16 |     REQUIRE(aa.axis.z == Catch::Approx(0.0f));
+      |     ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 26</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
+<p> operand 'v0' is here</p>
+<p><i>libs/base/src/base/axisangle.test.cc 16 : 5</i></p>
+<pre>
+   16 |     REQUIRE(aa.axis.z == Catch::Approx(0.0f));
+      |     ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 26</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                               ^~~~~~~~~~~~~~~~~~~
+</pre>
+<p> operand 'v1' is here</p>
+<p><i>libs/base/src/base/axisangle.test.cc 16 : 13</i></p>
+<pre>
+   16 |     REQUIRE(aa.axis.z == Catch::Approx(0.0f));
+      |             ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 92</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                                                                                            ^~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                                                      ^~~~~~~~~~~
+</pre>
+<p> operand 'v2' is here</p>
+<p><i>libs/base/src/base/axisangle.test.cc 16 : 26</i></p>
+<pre>
+   16 |     REQUIRE(aa.axis.z == Catch::Approx(0.0f));
+      |                          ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 92</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                                                                                            ^~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                                                      ^~~~~~~~~~~
+</pre>
+</body>
+</html>

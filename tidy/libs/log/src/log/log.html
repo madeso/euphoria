@@ -1,0 +1,24 @@
+﻿<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+<title>libs/log/src/log/log.cc</title>
+</head>
+<body>
+<h1>libs/log/src/log/log.cc</h1>
+<hr>
+<h3>warning:  no header providing "std::string" is directly included</h3>
+<code>[misc-include-cleaner]</code>
+<p><i>libs/log/src/log/log.cc 11 : 30</i></p>
+<pre>
+    5 | 
+    6 | 
+    7 | namespace
+    8 | {
+    9 |     struct ConsoleLogger : eu::log::Logger
+   10 |     {
+   11 |         void info(const std::string& str) override
+      |                              ^
+</pre>
+</body>
+</html>

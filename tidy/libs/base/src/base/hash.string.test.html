@@ -1,0 +1,421 @@
+﻿<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+<title>libs/base/src/base/hash.string.test.cc</title>
+</head>
+<body>
+<h1>libs/base/src/base/hash.string.test.cc</h1>
+<hr>
+<h3>warning:  included header catch_all.hpp is not used directly</h3>
+<code>[misc-include-cleaner]</code>
+<p><i>libs/base/src/base/hash.string.test.cc 3 : 1</i></p>
+<pre>
+    3 | #include "catch2/catch_all.hpp"
+      | ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    4 | 
+</pre>
+<hr>
+<h3>warning:  no header providing "TEST_CASE" is directly included</h3>
+<code>[misc-include-cleaner]</code>
+<p><i>libs/base/src/base/hash.string.test.cc 7 : 1</i></p>
+<pre>
+    4 | 
+    5 | using namespace std::literals;
+    6 | 
+    7 | TEST_CASE("hs-hash", "[hash]")
+      | ^
+</pre>
+<hr>
+<h3>warning:  no header providing "std::operator""sv" is directly included</h3>
+<code>[misc-include-cleaner]</code>
+<p><i>libs/base/src/base/hash.string.test.cc 9 : 41</i></p>
+<pre>
+    4 | 
+    5 | using namespace std::literals;
+    6 | 
+    7 | TEST_CASE("hs-hash", "[hash]")
+    8 | {
+    9 |     constexpr auto h = eu::hash64("test"sv);
+      |                                         ^
+</pre>
+<hr>
+<h3>warning:  chained comparison 'v0 <= v1 == v2' may generate unintended results, use parentheses to specify order of evaluation or a logical operator to separate comparison expressions</h3>
+<code>[bugprone-chained-comparison]</code>
+<p><i>libs/base/src/base/hash.string.test.cc 10 : 5</i></p>
+<pre>
+   10 |     REQUIRE(h == 0xf9e6e6ef197c2b25);
+      |     ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 26</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
+<p> operand 'v0' is here</p>
+<p><i>libs/base/src/base/hash.string.test.cc 10 : 5</i></p>
+<pre>
+   10 |     REQUIRE(h == 0xf9e6e6ef197c2b25);
+      |     ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 26</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                               ^~~~~~~~~~~~~~~~~~~
+</pre>
+<p> operand 'v1' is here</p>
+<p><i>libs/base/src/base/hash.string.test.cc 10 : 13</i></p>
+<pre>
+   10 |     REQUIRE(h == 0xf9e6e6ef197c2b25);
+      |             ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 92</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                                                                                            ^~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                                                      ^~~~~~~~~~~
+</pre>
+<p> operand 'v2' is here</p>
+<p><i>libs/base/src/base/hash.string.test.cc 10 : 18</i></p>
+<pre>
+   10 |     REQUIRE(h == 0xf9e6e6ef197c2b25);
+      |                  ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 92</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                                                                                            ^~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                                                      ^~~~~~~~~~~
+</pre>
+<hr>
+<h3>warning:  no header providing "REQUIRE" is directly included</h3>
+<code>[misc-include-cleaner]</code>
+<p><i>libs/base/src/base/hash.string.test.cc 10 : 5</i></p>
+<pre>
+   10 |     REQUIRE(h == 0xf9e6e6ef197c2b25);
+      |     ^
+</pre>
+<hr>
+<h3>warning:  chained comparison 'v0 <= v1 == v2' may generate unintended results, use parentheses to specify order of evaluation or a logical operator to separate comparison expressions</h3>
+<code>[bugprone-chained-comparison]</code>
+<p><i>libs/base/src/base/hash.string.test.cc 16 : 5</i></p>
+<pre>
+   16 |     REQUIRE(eu::hash64("") == 0xcbf29ce484222325);
+      |     ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 26</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
+<p> operand 'v0' is here</p>
+<p><i>libs/base/src/base/hash.string.test.cc 16 : 5</i></p>
+<pre>
+   16 |     REQUIRE(eu::hash64("") == 0xcbf29ce484222325);
+      |     ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 26</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                               ^~~~~~~~~~~~~~~~~~~
+</pre>
+<p> operand 'v1' is here</p>
+<p><i>libs/base/src/base/hash.string.test.cc 16 : 13</i></p>
+<pre>
+   16 |     REQUIRE(eu::hash64("") == 0xcbf29ce484222325);
+      |             ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 92</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                                                                                            ^~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                                                      ^~~~~~~~~~~
+</pre>
+<p> operand 'v2' is here</p>
+<p><i>libs/base/src/base/hash.string.test.cc 16 : 31</i></p>
+<pre>
+   16 |     REQUIRE(eu::hash64("") == 0xcbf29ce484222325);
+      |                               ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 92</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                                                                                            ^~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                                                      ^~~~~~~~~~~
+</pre>
+<hr>
+<h3>warning:  chained comparison 'v0 <= v1 == v2' may generate unintended results, use parentheses to specify order of evaluation or a logical operator to separate comparison expressions</h3>
+<code>[bugprone-chained-comparison]</code>
+<p><i>libs/base/src/base/hash.string.test.cc 17 : 5</i></p>
+<pre>
+   17 |     REQUIRE(eu::hash64("a") == 0xaf63dc4c8601ec8c);
+      |     ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 26</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
+<p> operand 'v0' is here</p>
+<p><i>libs/base/src/base/hash.string.test.cc 17 : 5</i></p>
+<pre>
+   17 |     REQUIRE(eu::hash64("a") == 0xaf63dc4c8601ec8c);
+      |     ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 26</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                               ^~~~~~~~~~~~~~~~~~~
+</pre>
+<p> operand 'v1' is here</p>
+<p><i>libs/base/src/base/hash.string.test.cc 17 : 13</i></p>
+<pre>
+   17 |     REQUIRE(eu::hash64("a") == 0xaf63dc4c8601ec8c);
+      |             ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 92</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                                                                                            ^~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                                                      ^~~~~~~~~~~
+</pre>
+<p> operand 'v2' is here</p>
+<p><i>libs/base/src/base/hash.string.test.cc 17 : 32</i></p>
+<pre>
+   17 |     REQUIRE(eu::hash64("a") == 0xaf63dc4c8601ec8c);
+      |                                ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 92</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                                                                                            ^~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                                                      ^~~~~~~~~~~
+</pre>
+<hr>
+<h3>warning:  chained comparison 'v0 <= v1 == v2' may generate unintended results, use parentheses to specify order of evaluation or a logical operator to separate comparison expressions</h3>
+<code>[bugprone-chained-comparison]</code>
+<p><i>libs/base/src/base/hash.string.test.cc 18 : 5</i></p>
+<pre>
+   18 |     REQUIRE(eu::hash64("foobar") == 0x85944171f73967e8);
+      |     ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 26</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
+<p> operand 'v0' is here</p>
+<p><i>libs/base/src/base/hash.string.test.cc 18 : 5</i></p>
+<pre>
+   18 |     REQUIRE(eu::hash64("foobar") == 0x85944171f73967e8);
+      |     ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 26</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                               ^~~~~~~~~~~~~~~~~~~
+</pre>
+<p> operand 'v1' is here</p>
+<p><i>libs/base/src/base/hash.string.test.cc 18 : 13</i></p>
+<pre>
+   18 |     REQUIRE(eu::hash64("foobar") == 0x85944171f73967e8);
+      |             ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 92</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                                                                                            ^~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                                                      ^~~~~~~~~~~
+</pre>
+<p> operand 'v2' is here</p>
+<p><i>libs/base/src/base/hash.string.test.cc 18 : 37</i></p>
+<pre>
+   18 |     REQUIRE(eu::hash64("foobar") == 0x85944171f73967e8);
+      |                                     ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 92</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                                                                                            ^~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                                                      ^~~~~~~~~~~
+</pre>
+<hr>
+<h3>warning:  chained comparison 'v0 <= v1 == v2' may generate unintended results, use parentheses to specify order of evaluation or a logical operator to separate comparison expressions</h3>
+<code>[bugprone-chained-comparison]</code>
+<p><i>libs/base/src/base/hash.string.test.cc 24 : 5</i></p>
+<pre>
+   24 |     REQUIRE(h.hash == 0xf9e6e6ef197c2b25);
+      |     ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 26</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
+<p> operand 'v0' is here</p>
+<p><i>libs/base/src/base/hash.string.test.cc 24 : 5</i></p>
+<pre>
+   24 |     REQUIRE(h.hash == 0xf9e6e6ef197c2b25);
+      |     ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 26</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                               ^~~~~~~~~~~~~~~~~~~
+</pre>
+<p> operand 'v1' is here</p>
+<p><i>libs/base/src/base/hash.string.test.cc 24 : 13</i></p>
+<pre>
+   24 |     REQUIRE(h.hash == 0xf9e6e6ef197c2b25);
+      |             ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 92</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                                                                                            ^~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                                                      ^~~~~~~~~~~
+</pre>
+<p> operand 'v2' is here</p>
+<p><i>libs/base/src/base/hash.string.test.cc 24 : 23</i></p>
+<pre>
+   24 |     REQUIRE(h.hash == 0xf9e6e6ef197c2b25);
+      |                       ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 92</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                                                                                            ^~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                                                      ^~~~~~~~~~~
+</pre>
+</body>
+</html>

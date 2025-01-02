@@ -1,0 +1,72 @@
+﻿<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+<title>libs/base/src/base/vec4.cc</title>
+</head>
+<body>
+<h1>libs/base/src/base/vec4.cc</h1>
+<hr>
+<h3>warning:  no header providing "eu::v3" is directly included</h3>
+<code>[misc-include-cleaner]</code>
+<p><i>libs/base/src/base/vec4.cc 10 : 18</i></p>
+<pre>
+    2 | 
+    3 | namespace eu
+    4 | {
+    5 |     v4::v4(float ax, float ay, float az, float aw)
+    6 |         : x(ax), y(ay), z(az), w(aw)
+    7 |     {
+    8 |     }
+    9 | 
+   10 |     v4::v4(const v3 &a, float aw)
+      |                  ^
+</pre>
+<hr>
+<h3>warning:  avoid do-while loops</h3>
+<code>[cppcoreguidelines-avoid-do-while]</code>
+<p><i>libs/base/src/base/vec4.cc 23 : 9</i></p>
+<pre>
+   23 |         ASSERTX(is_equal(w, ww), w, ww);
+      |         ^
+</pre>
+<p> expanded from macro 'ASSERTX'</p>
+<p><i>libs/assert/src/assert/assert.h 49 : 5</i></p>
+<pre>
+   49 |     do \
+      |     ^
+</pre>
+<hr>
+<h3>warning:  no header providing "ASSERTX" is directly included</h3>
+<code>[misc-include-cleaner]</code>
+<p><i>libs/base/src/base/vec4.cc 23 : 9</i></p>
+<pre>
+    2 |         ASSERTX(is_equal(w, ww), w, ww);
+      |         ^
+</pre>
+<hr>
+<h3>warning:  no header providing "eu::is_equal" is directly included</h3>
+<code>[misc-include-cleaner]</code>
+<p><i>libs/base/src/base/vec4.cc 23 : 17</i></p>
+<pre>
+    2 |         ASSERTX(is_equal(w, ww), w, ww);
+      |                 ^
+</pre>
+<hr>
+<h3>warning:  no header providing "std::string" is directly included</h3>
+<code>[misc-include-cleaner]</code>
+<p><i>libs/base/src/base/vec4.cc 39 : 10</i></p>
+<pre>
+    2 |     std::string string_from(const v4 &v)
+      |          ^
+</pre>
+<hr>
+<h3>warning:  no header providing "fmt::format" is directly included</h3>
+<code>[misc-include-cleaner]</code>
+<p><i>libs/base/src/base/vec4.cc 41 : 21</i></p>
+<pre>
+    2 |         return fmt::format("({}, {}, {}, {})", v.x, v.y, v.z, v.w);
+      |                     ^
+</pre>
+</body>
+</html>

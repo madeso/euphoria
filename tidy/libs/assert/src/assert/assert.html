@@ -1,0 +1,116 @@
+﻿<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+<title>libs/assert/src/assert/assert.cc</title>
+</head>
+<body>
+<h1>libs/assert/src/assert/assert.cc</h1>
+<hr>
+<h3>warning:  included header sstream is not used directly</h3>
+<code>[misc-include-cleaner]</code>
+<p><i>libs/assert/src/assert/assert.cc 14 : 1</i></p>
+<pre>
+   14 | #include <sstream>
+      | ^~~~~~~~~~~~~~~~~~
+   15 | 
+</pre>
+<hr>
+<h3>warning:  no header providing "std::string" is directly included</h3>
+<code>[misc-include-cleaner]</code>
+<p><i>libs/assert/src/assert/assert.cc 35 : 14</i></p>
+<pre>
+    2 |         std::string
+      |              ^
+</pre>
+<hr>
+<h3>warning:  no header providing "std::free" is directly included</h3>
+<code>[misc-include-cleaner]</code>
+<p><i>libs/assert/src/assert/assert.cc 38 : 56</i></p>
+<pre>
+    2 |             const std::unique_ptr<char, decltype(&std::free)> demangled
+      |                                                        ^
+</pre>
+<hr>
+<h3>warning:  use c++17 style variable templates</h3>
+<code>[modernize-type-traits]</code>
+<p><i>libs/assert/src/assert/assert.cc 59 : 17</i></p>
+<pre>
+   59 |                 std::extent<decltype(addresses)>::value
+      |                 ^                               ~~~~~~~
+      |                            _v
+</pre>
+<hr>
+<h3>warning:  no header providing "std::extent" is directly included</h3>
+<code>[misc-include-cleaner]</code>
+<p><i>libs/assert/src/assert/assert.cc 59 : 22</i></p>
+<pre>
+    2 |                 std::extent<decltype(addresses)>::value
+      |                      ^
+</pre>
+<hr>
+<h3>warning:  no header providing "fmt::format" is directly included</h3>
+<code>[misc-include-cleaner]</code>
+<p><i>libs/assert/src/assert/assert.cc 95 : 43</i></p>
+<pre>
+    2 |                     ret.emplace_back(fmt::format("{}{}+{}", first_symbol, second_symbol, end));
+      |                                           ^
+</pre>
+<hr>
+<h3>warning:  no header providing "fmt::formatter" is directly included</h3>
+<code>[misc-include-cleaner]</code>
+<p><i>libs/assert/src/assert/assert.cc 110 : 25</i></p>
+<pre>
+  110 | template <> struct fmt::formatter<eu::assertlib::AssertArgumentValue> : formatter<std::string>
+      |                         ^
+</pre>
+<hr>
+<h3>warning:  no header providing "fmt::formatter" is directly included</h3>
+<code>[misc-include-cleaner]</code>
+<p><i>libs/assert/src/assert/assert.cc 110 : 73</i></p>
+<pre>
+    2 | template <> struct fmt::formatter<eu::assertlib::AssertArgumentValue> : formatter<std::string>
+      |                                                                         ^
+</pre>
+<hr>
+<h3>warning:  no header providing "fmt::formatter" is directly included</h3>
+<code>[misc-include-cleaner]</code>
+<p><i>libs/assert/src/assert/assert.cc 115 : 16</i></p>
+<pre>
+  115 |         return formatter<string_view>::format(c.value, ctx);
+      |                ^
+</pre>
+<hr>
+<h3>warning:  no header providing "fmt::string_view" is directly included</h3>
+<code>[misc-include-cleaner]</code>
+<p><i>libs/assert/src/assert/assert.cc 115 : 26</i></p>
+<pre>
+  115 |         return formatter<string_view>::format(c.value, ctx);
+      |                          ^
+</pre>
+<hr>
+<h3>warning:  no header providing "fmt::join" is directly included</h3>
+<code>[misc-include-cleaner]</code>
+<p><i>libs/assert/src/assert/assert.cc 158 : 64</i></p>
+<pre>
+  158 |             : fmt::format("{}({}) = {}\n", start, argstr, fmt::join(arguments, ", "))
+      |                                                                ^
+</pre>
+<hr>
+<h3>warning:  no header providing "std::move" is directly included</h3>
+<code>[misc-include-cleaner]</code>
+<p><i>libs/assert/src/assert/assert.cc 169 : 24</i></p>
+<pre>
+    2 |             throw std::move(message);
+      |                        ^
+</pre>
+<hr>
+<h3>warning:  no header providing "exit" is directly included</h3>
+<code>[misc-include-cleaner]</code>
+<p><i>libs/assert/src/assert/assert.cc 174 : 13</i></p>
+<pre>
+  174 |             exit(-1);
+      |             ^
+</pre>
+</body>
+</html>

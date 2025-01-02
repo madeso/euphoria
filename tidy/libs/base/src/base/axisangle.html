@@ -1,0 +1,150 @@
+﻿<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+<title>libs/base/src/base/axisangle.cc</title>
+</head>
+<body>
+<h1>libs/base/src/base/axisangle.cc</h1>
+<hr>
+<h3>warning:  no header providing "eu::n3" is directly included</h3>
+<code>[misc-include-cleaner]</code>
+<p><i>libs/base/src/base/axisangle.cc 9 : 18</i></p>
+<pre>
+    6 | 
+    7 | namespace eu
+    8 | {
+    9 |     AA::AA(const n3 &ax, const An &ang)
+      |                  ^
+</pre>
+<hr>
+<h3>warning:  no header providing "eu::An" is directly included</h3>
+<code>[misc-include-cleaner]</code>
+<p><i>libs/base/src/base/axisangle.cc 9 : 32</i></p>
+<pre>
+    5 | #include "base/quat.h"
+    6 | 
+    7 | namespace eu
+    8 | {
+    9 |     AA::AA(const n3 &ax, const An &ang)
+      |                                ^
+</pre>
+<hr>
+<h3>warning:  avoid do-while loops</h3>
+<code>[cppcoreguidelines-avoid-do-while]</code>
+<p><i>libs/base/src/base/axisangle.cc 12 : 9</i></p>
+<pre>
+   12 |         ASSERT(ax.is_valid());
+      |         ^
+</pre>
+<p> expanded from macro 'ASSERT'</p>
+<p><i>libs/assert/src/assert/assert.h 30 : 5</i></p>
+<pre>
+   30 |     do \
+      |     ^
+</pre>
+<hr>
+<h3>warning:  no header providing "std::optional" is directly included</h3>
+<code>[misc-include-cleaner]</code>
+<p><i>libs/base/src/base/axisangle.cc 15 : 24</i></p>
+<pre>
+    6 | 
+    7 | namespace eu
+    8 | {
+    9 |     AA::AA(const n3 &ax, const An &ang)
+   10 |         : axis(ax), angle(ang)
+   11 |     {
+   12 |         ASSERT(ax.is_valid());
+   13 |     }
+   14 | 
+   15 |     [[nodiscard]] std::optional<AA>
+      |                        ^
+</pre>
+<hr>
+<h3>warning:  no header providing "eu::acos" is directly included</h3>
+<code>[misc-include-cleaner]</code>
+<p><i>libs/base/src/base/axisangle.cc 19 : 28</i></p>
+<pre>
+   19 |         const auto angle = acos(cos_a) * 2;
+      |                            ^
+</pre>
+<hr>
+<h3>warning:  no header providing "eu::get_default_if_close_to_zero" is directly included</h3>
+<code>[misc-include-cleaner]</code>
+<p><i>libs/base/src/base/axisangle.cc 20 : 28</i></p>
+<pre>
+    5 | #include "base/quat.h"
+    6 | 
+    7 | namespace eu
+    8 | {
+    9 |     AA::AA(const n3 &ax, const An &ang)
+   10 |         : axis(ax), angle(ang)
+   11 |     {
+   12 |         ASSERT(ax.is_valid());
+   13 |     }
+   14 | 
+   15 |     [[nodiscard]] std::optional<AA>
+   16 |     AA::from(const Q& q)
+   17 |     {
+   18 |         const float cos_a = q.w;
+   19 |         const auto angle = acos(cos_a) * 2;
+   20 |         const auto sin_a = get_default_if_close_to_zero<float>(
+      |                            ^
+</pre>
+<hr>
+<h3>warning:  no header providing "eu::sqrt" is directly included</h3>
+<code>[misc-include-cleaner]</code>
+<p><i>libs/base/src/base/axisangle.cc 21 : 17</i></p>
+<pre>
+   21 |                 sqrt(1.0f - cos_a * cos_a), 1, 0.0005f);
+      |                 ^
+</pre>
+<hr>
+<h3>warning:  statement should be inside braces</h3>
+<code>[readability-braces-around-statements]</code>
+<p><i>libs/base/src/base/axisangle.cc 24 : 19</i></p>
+<pre>
+   24 |         if (!axis) return std::nullopt;
+      |                   ^                    
+      |                    {
+</pre>
+<hr>
+<h3>warning:  no header providing "std::nullopt" is directly included</h3>
+<code>[misc-include-cleaner]</code>
+<p><i>libs/base/src/base/axisangle.cc 24 : 32</i></p>
+<pre>
+   24 |         if (!axis) return std::nullopt;
+      |                                ^
+</pre>
+<hr>
+<h3>warning:  avoid do-while loops</h3>
+<code>[cppcoreguidelines-avoid-do-while]</code>
+<p><i>libs/base/src/base/axisangle.cc 31 : 9</i></p>
+<pre>
+   31 |         ASSERT(axis.is_valid());
+      |         ^
+</pre>
+<p> expanded from macro 'ASSERT'</p>
+<p><i>libs/assert/src/assert/assert.h 30 : 5</i></p>
+<pre>
+   30 |     do \
+      |     ^
+</pre>
+<hr>
+<h3>warning:  no header providing "std::string" is directly included</h3>
+<code>[misc-include-cleaner]</code>
+<p><i>libs/base/src/base/axisangle.cc 35 : 10</i></p>
+<pre>
+    6 |     std::string
+      |          ^
+</pre>
+<hr>
+<h3>warning:  no header providing "fmt::format" is directly included</h3>
+<code>[misc-include-cleaner]</code>
+<p><i>libs/base/src/base/axisangle.cc 38 : 21</i></p>
+<pre>
+    6 |         return fmt::format("({} {})", aa.axis, aa.angle);
+      |                     ^
+</pre>
+</body>
+</html>

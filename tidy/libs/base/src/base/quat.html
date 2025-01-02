@@ -1,0 +1,277 @@
+﻿<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+<title>libs/base/src/base/quat.cc</title>
+</head>
+<body>
+<h1>libs/base/src/base/quat.cc</h1>
+<hr>
+<h3>warning:  no header providing "eu::v3" is directly included</h3>
+<code>[misc-include-cleaner]</code>
+<p><i>libs/base/src/base/quat.cc 6 : 5</i></p>
+<pre>
+    2 | 
+    3 | 
+    4 | namespace eu
+    5 | {
+    6 |     v3 Q::get_vec_part() const
+      |     ^
+</pre>
+<hr>
+<h3>warning:  no header providing "eu::AA" is directly included</h3>
+<code>[misc-include-cleaner]</code>
+<p><i>libs/base/src/base/quat.cc 13 : 19</i></p>
+<pre>
+    2 | 
+    3 | 
+    4 | namespace eu
+    5 | {
+    6 |     v3 Q::get_vec_part() const
+    7 |     {
+    8 |         return {x, y, z};
+    9 |     }
+   10 | 
+   11 | 
+   12 |     [[nodiscard]] Q
+   13 |     Q::from(const AA& aa)
+      |                   ^
+</pre>
+<hr>
+<h3>warning:  no header providing "eu::sin" is directly included</h3>
+<code>[misc-include-cleaner]</code>
+<p><i>libs/base/src/base/quat.cc 15 : 29</i></p>
+<pre>
+    2 | 
+    3 | 
+    4 | namespace eu
+    5 | {
+    6 |     v3 Q::get_vec_part() const
+    7 |     {
+    8 |         return {x, y, z};
+    9 |     }
+   10 | 
+   11 | 
+   12 |     [[nodiscard]] Q
+   13 |     Q::from(const AA& aa)
+   14 |     {
+   15 |         const float sin_a = sin(aa.angle / 2);
+      |                             ^
+</pre>
+<hr>
+<h3>warning:  no header providing "eu::cos" is directly included</h3>
+<code>[misc-include-cleaner]</code>
+<p><i>libs/base/src/base/quat.cc 16 : 29</i></p>
+<pre>
+   16 |         const float cos_a = cos(aa.angle / 2);
+      |                             ^
+</pre>
+<hr>
+<h3>warning:  no header providing "eu::Ypr" is directly included</h3>
+<code>[misc-include-cleaner]</code>
+<p><i>libs/base/src/base/quat.cc 24 : 19</i></p>
+<pre>
+   24 |     Q::from(const Ypr& ypr)
+      |                   ^
+</pre>
+<hr>
+<h3>warning:  no header providing "std::optional" is directly included</h3>
+<code>[misc-include-cleaner]</code>
+<p><i>libs/base/src/base/quat.cc 54 : 24</i></p>
+<pre>
+    2 |     [[nodiscard]] std::optional<Q>
+      |                        ^
+</pre>
+<hr>
+<h3>warning:  no header providing "eu::n3" is directly included</h3>
+<code>[misc-include-cleaner]</code>
+<p><i>libs/base/src/base/quat.cc 55 : 52</i></p>
+<pre>
+   55 |     Q::look_at(const v3& from, const v3& to, const n3& up)
+      |                                                    ^
+</pre>
+<hr>
+<h3>warning:  statement should be inside braces</h3>
+<code>[readability-braces-around-statements]</code>
+<p><i>libs/base/src/base/quat.cc 58 : 44</i></p>
+<pre>
+   58 |         if (direction.has_value() == false) return std::nullopt;
+      |                                            ^                    
+      |                                             {
+</pre>
+<hr>
+<h3>warning:  no header providing "std::nullopt" is directly included</h3>
+<code>[misc-include-cleaner]</code>
+<p><i>libs/base/src/base/quat.cc 58 : 57</i></p>
+<pre>
+   58 |         if (direction.has_value() == false) return std::nullopt;
+      |                                                         ^
+</pre>
+<hr>
+<h3>warning:  avoid do-while loops</h3>
+<code>[cppcoreguidelines-avoid-do-while]</code>
+<p><i>libs/base/src/base/quat.cc 80 : 9</i></p>
+<pre>
+   80 |         ASSERT(is_equal(get_length(), 1.0f));
+      |         ^
+</pre>
+<p> expanded from macro 'ASSERT'</p>
+<p><i>libs/assert/src/assert/assert.h 30 : 5</i></p>
+<pre>
+   30 |     do \
+      |     ^
+</pre>
+<hr>
+<h3>warning:  no header providing "ASSERT" is directly included</h3>
+<code>[misc-include-cleaner]</code>
+<p><i>libs/base/src/base/quat.cc 80 : 9</i></p>
+<pre>
+    2 |         ASSERT(is_equal(get_length(), 1.0f));
+      |         ^
+</pre>
+<hr>
+<h3>warning:  no header providing "eu::is_equal" is directly included</h3>
+<code>[misc-include-cleaner]</code>
+<p><i>libs/base/src/base/quat.cc 80 : 16</i></p>
+<pre>
+    2 |         ASSERT(is_equal(get_length(), 1.0f));
+      |                ^
+</pre>
+<hr>
+<h3>warning:  no header providing "eu::sqrt" is directly included</h3>
+<code>[misc-include-cleaner]</code>
+<p><i>libs/base/src/base/quat.cc 96 : 16</i></p>
+<pre>
+   96 |         return sqrt(l2);
+      |                ^
+</pre>
+<hr>
+<h3>warning:  no header providing "eu::is_zero" is directly included</h3>
+<code>[misc-include-cleaner]</code>
+<p><i>libs/base/src/base/quat.cc 104 : 12</i></p>
+<pre>
+  104 |         if(is_zero(l))
+      |            ^
+</pre>
+<hr>
+<h3>warning:  no header providing "eu::common::z_axis" is directly included</h3>
+<code>[misc-include-cleaner]</code>
+<p><i>libs/base/src/base/quat.cc 127 : 65</i></p>
+<pre>
+  127 |     n3 Q::get_local_in   () const { return get_rotated(-common::z_axis); }
+      |                                                                 ^
+</pre>
+<hr>
+<h3>warning:  no header providing "eu::common::x_axis" is directly included</h3>
+<code>[misc-include-cleaner]</code>
+<p><i>libs/base/src/base/quat.cc 129 : 65</i></p>
+<pre>
+  129 |     n3 Q::get_local_right() const { return get_rotated( common::x_axis); }
+      |                                                                 ^
+</pre>
+<hr>
+<h3>warning:  no header providing "eu::common::y_axis" is directly included</h3>
+<code>[misc-include-cleaner]</code>
+<p><i>libs/base/src/base/quat.cc 131 : 65</i></p>
+<pre>
+  131 |     n3 Q::get_local_up   () const { return get_rotated( common::y_axis); }
+      |                                                                 ^
+</pre>
+<hr>
+<h3>warning:  unchecked access to optional value</h3>
+<code>[bugprone-unchecked-optional-access]</code>
+<p><i>libs/base/src/base/quat.cc 143 : 17</i></p>
+<pre>
+  143 |         return *ret.get_vec_part().get_normalized();
+      |                 ^
+</pre>
+<hr>
+<h3>warning:  no header providing "eu::abs" is directly included</h3>
+<code>[misc-include-cleaner]</code>
+<p><i>libs/base/src/base/quat.cc 162 : 12</i></p>
+<pre>
+  162 |         if(abs(cos_half_theta) >= 1.0f)
+      |            ^
+</pre>
+<hr>
+<h3>warning:  no header providing "eu::acos" is directly included</h3>
+<code>[misc-include-cleaner]</code>
+<p><i>libs/base/src/base/quat.cc 167 : 33</i></p>
+<pre>
+  167 |         const auto half_theta = acos(cos_half_theta);
+      |                                 ^
+</pre>
+<hr>
+<h3>warning:  no header providing "eu::common::in" is directly included</h3>
+<code>[misc-include-cleaner]</code>
+<p><i>libs/base/src/base/quat.cc 268 : 31</i></p>
+<pre>
+  268 |         const v3 in = common::in;
+      |                               ^
+</pre>
+<hr>
+<h3>warning:  variable 'dot_value' of type 'float' can be declared 'const'</h3>
+<code>[misc-const-correctness]</code>
+<p><i>libs/base/src/base/quat.cc 269 : 9</i></p>
+<pre>
+  269 |         float dot_value = in.dot(dir);
+      |         ^
+      |               const 
+</pre>
+<hr>
+<h3>warning:  prefer 'std::numbers::pi_v<float>' to this literal, differs by '8.74e-08'</h3>
+<code>[modernize-use-std-numbers]</code>
+<p><i>libs/base/src/base/quat.cc 274 : 21</i></p>
+<pre>
+    2 |             return {3.1415926535897932f, up};
+      |                     ^~~~~~~~~~~~~~~~~~~
+      |                     std::numbers::pi_v<float>
+</pre>
+<hr>
+<h3>warning:  avoid do-while loops</h3>
+<code>[cppcoreguidelines-avoid-do-while]</code>
+<p><i>libs/base/src/base/quat.cc 283 : 9</i></p>
+<pre>
+  283 |         ASSERT(rot_axis);
+      |         ^
+</pre>
+<p> expanded from macro 'ASSERT'</p>
+<p><i>libs/assert/src/assert/assert.h 30 : 5</i></p>
+<pre>
+   30 |     do \
+      |     ^
+</pre>
+<hr>
+<h3>warning:  no header providing "eu::right_hand_around" is directly included</h3>
+<code>[misc-include-cleaner]</code>
+<p><i>libs/base/src/base/quat.cc 284 : 24</i></p>
+<pre>
+  284 |         return Q::from(right_hand_around(*rot_axis, rot_angle));
+      |                        ^
+</pre>
+<hr>
+<h3>warning:  unchecked access to optional value</h3>
+<code>[bugprone-unchecked-optional-access]</code>
+<p><i>libs/base/src/base/quat.cc 284 : 43</i></p>
+<pre>
+  284 |         return Q::from(right_hand_around(*rot_axis, rot_angle));
+      |                                           ^
+</pre>
+<hr>
+<h3>warning:  no header providing "std::string" is directly included</h3>
+<code>[misc-include-cleaner]</code>
+<p><i>libs/base/src/base/quat.cc 288 : 10</i></p>
+<pre>
+    2 |     std::string string_from(const Q& v)
+      |          ^
+</pre>
+<hr>
+<h3>warning:  no header providing "fmt::format" is directly included</h3>
+<code>[misc-include-cleaner]</code>
+<p><i>libs/base/src/base/quat.cc 290 : 21</i></p>
+<pre>
+    2 |         return fmt::format("({} ({}, {}, {}))", v.w, v.x, v.y, v.z);
+      |                     ^
+</pre>
+</body>
+</html>

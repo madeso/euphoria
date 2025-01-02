@@ -1,0 +1,128 @@
+﻿<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+<title>libs/base/src/base/guid.cc</title>
+</head>
+<body>
+<h1>libs/base/src/base/guid.cc</h1>
+<hr>
+<h3>warning:  no header providing "std::optional" is directly included</h3>
+<code>[misc-include-cleaner]</code>
+<p><i>libs/base/src/base/guid.cc 14 : 10</i></p>
+<pre>
+    2 | 
+    3 | 
+    4 | #ifdef _WIN32
+    5 |     #include <objbase.h>
+    6 | #else
+    7 |     #include <uuid/uuid.h>
+    8 | #endif
+    9 | 
+   10 | 
+   11 | namespace eu
+   12 | {
+   13 | #ifndef _WIN32
+   14 |     std::optional<Guid> Guid::generate()
+      |          ^
+</pre>
+<hr>
+<h3>warning:  no header providing "std::string_view" is directly included</h3>
+<code>[misc-include-cleaner]</code>
+<p><i>libs/base/src/base/guid.cc 56 : 14</i></p>
+<pre>
+    2 |         std::string_view str;
+      |              ^
+</pre>
+<hr>
+<h3>warning:  function 'has_more' should be marked</h3>
+<code>[[nodiscard]</code>
+<p><i>libs/base/src/base/guid.cc 60 : 9</i></p>
+<pre>
+   60 |         bool has_more() const
+      |         ^
+      |         [[nodiscard]] 
+</pre>
+<hr>
+<h3>warning:  statement should be inside braces</h3>
+<code>[readability-braces-around-statements]</code>
+<p><i>libs/base/src/base/guid.cc 67 : 36</i></p>
+<pre>
+   67 |             if(has_more() == false) return '\0';
+      |                                    ^            
+      |                                     {
+</pre>
+<hr>
+<h3>warning:  function 'peek' should be marked</h3>
+<code>[[nodiscard]</code>
+<p><i>libs/base/src/base/guid.cc 73 : 9</i></p>
+<pre>
+   73 |         char peek() const
+      |         ^
+      |         [[nodiscard]] 
+</pre>
+<hr>
+<h3>warning:  statement should be inside braces</h3>
+<code>[readability-braces-around-statements]</code>
+<p><i>libs/base/src/base/guid.cc 75 : 36</i></p>
+<pre>
+   75 |             if(has_more() == false) return '\0';
+      |                                    ^            
+      |                                     {
+</pre>
+<hr>
+<h3>warning:  no header providing "uint8_t" is directly included</h3>
+<code>[misc-include-cleaner]</code>
+<p><i>libs/base/src/base/guid.cc 92 : 30</i></p>
+<pre>
+    2 |         static std::optional<uint8_t> as_hex(char c)
+      |                              ^
+</pre>
+<hr>
+<h3>warning:  no header providing "std::nullopt" is directly included</h3>
+<code>[misc-include-cleaner]</code>
+<p><i>libs/base/src/base/guid.cc 97 : 25</i></p>
+<pre>
+   97 |             return std::nullopt;
+      |                         ^
+</pre>
+<hr>
+<h3>warning:  return type 'const std::optional<uint8_t>' (aka 'const optional<unsigned char>') is 'const'-qualified at the top level, which may reduce code readability without improving const correctness</h3>
+<code>[readability-const-return-type]</code>
+<p><i>libs/base/src/base/guid.cc 100 : 9</i></p>
+<pre>
+  100 |         const std::optional<uint8_t> read_hex()
+      |         ^~~~~
+</pre>
+<hr>
+<h3>warning:  conversion from 'std::optional<unsigned char>' into 'unsigned char' and back into 'std::optional<unsigned char>', remove potentially error-prone optional dereference</h3>
+<code>[bugprone-optional-value-conversion]</code>
+<p><i>libs/base/src/base/guid.cc 113 : 24</i></p>
+<pre>
+  113 |                 return *first;
+      |                        ^
+</pre>
+<p> remove '*' to silence this warning</p>
+<p><i>libs/base/src/base/guid.cc 113 : 24</i></p>
+<pre>
+  113 |                 return *first;
+      |                        ^
+</pre>
+<hr>
+<h3>warning:  no header providing "std::string" is directly included</h3>
+<code>[misc-include-cleaner]</code>
+<p><i>libs/base/src/base/guid.cc 118 : 46</i></p>
+<pre>
+    2 |     std::optional<Guid> guid_from(const std::string& str)
+      |                                              ^
+</pre>
+<hr>
+<h3>warning:  no header providing "fmt::format" is directly included</h3>
+<code>[misc-include-cleaner]</code>
+<p><i>libs/base/src/base/guid.cc 144 : 21</i></p>
+<pre>
+    2 |         return fmt::format
+      |                     ^
+</pre>
+</body>
+</html>
