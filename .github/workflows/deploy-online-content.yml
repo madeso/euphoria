@@ -7,6 +7,7 @@ jobs:
         strategy:
             matrix:
                 gcc: ['14']
+                clang: ['18']
                 build_type: [Debug]
 
         runs-on: ubuntu-24.04
@@ -111,8 +112,41 @@ jobs:
           run: dotnet run --project ./tools/buildtools/Workbench/ -- code-city docs/generated/xml docs/generated/code-city.html
 
 
+
+
+        - name: Create Build Environment (for clang)
+          run: |
+                rm -rf ${{github.workspace}}/build
+                cmake -E make_directory ${{github.workspace}}/build
+
+        - name: Configure (for clang)
+          shell: bash
+          working-directory: ${{github.workspace}}/build
+          env:
+                CXX: CXX: clang++-${{matrix.clang}}
+          run: cmake -DCMAKE_BUILD_TYPE=${{matrix.build_type}} $GITHUB_WORKSPACE
+
+        - name: Build (for clang)
+          shell: bash
+          working-directory: ${{github.workspace}}/build
+          env:
+                CXX: CXX: clang++-${{matrix.clang}}
+          run: time cmake --build . --config ${{matrix.build_type}}
+
+        - name: clang-tidy version
+          shell: bash
+          working-directory: ${{github.workspace}}
+          run: |
+                ls /usr/bin/clang-*
+                clang-tidy-${{matrix.clang}} --version
+                dotnet run --project ./tools/buildtools/Workbench/ -- path clang-tidy list
+                dotnet run --project ./tools/buildtools/Workbench/ -- path clang-tidy set /usr/bin/clang-tidy-${{matrix.clang}}
+                dotnet run --project ./tools/buildtools/Workbench/ -- path clang-tidy list
+
+
+
         - name: Display clang-tidy
-          run: dotnet run --project ./tools/buildtools/Workbench/ -- clang tidy libs --html docs/generated/tidy/
+          run: dotnet run --project ./tools/buildtools/Workbench/ -- clang tidy libs apps --html docs/generated/tidy/
 
 
 
