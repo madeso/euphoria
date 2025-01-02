@@ -1,0 +1,156 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>CodeCity</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <style>
+            body {
+                background-color: #bfe3dd;
+                color: #000;
+                margin: 0;
+            }
+            a {
+                color: #2983ff;
+            }
+            #info {
+                position: absolute;
+                top: 0px;
+                width: 100%;
+                padding: 10px;
+                box-sizing: border-box;
+                text-align: center;
+                -moz-user-select: none;
+                -webkit-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+                pointer-events: none;
+                z-index: 1;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="container"></div>
+        <div id="info">
+            Hello world
+        </div>
+        <script type="importmap">
+            {
+                "imports": {
+                  "three": "https://unpkg.com/three@0.157.0/build/three.module.js",
+                  "three/addons/": "https://unpkg.com/three@0.157.0/examples/jsm/"
+                }
+            }
+        </script>
+        <script type="module">
+            import * as THREE from 'three';
+            import Stats from 'three/addons/libs/stats.module.js';
+            import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+            const container = document.getElementById( 'container' );
+            const renderer = new THREE.WebGLRenderer( { antialias: true } );
+            renderer.setPixelRatio( window.devicePixelRatio );
+            renderer.setSize( window.innerWidth, window.innerHeight );
+            container.appendChild( renderer.domElement );
+            const scene = new THREE.Scene();
+            const MakeCube = (name, color, sx, sy, sz, x, y, z) => {
+                const geometry = new THREE.BoxGeometry(sx, sy, sz);
+                const material = new THREE.MeshLambertMaterial( { color: color } );
+                const cube = new THREE.Mesh( geometry, material );
+                cube.position.x = x;
+                cube.position.y = y;
+                cube.position.z = z;
+                cube.name = name;
+                scene.add(cube);
+            };
+            scene.background = new THREE.Color( 0xbfe3dd );
+            const camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 10000);
+            camera.position.set(42, 2, 21 );
+            const controls = new OrbitControls( camera, renderer.domElement )
+            controls.target.set(21, 0, 10.5 );
+            const dirLight1 = new THREE.DirectionalLight( 0xffffff, 3 );
+            dirLight1.position.set( 1, 1, 1 );
+            scene.add( dirLight1 );
+            const dirLight2 = new THREE.DirectionalLight( 0x002288, 3 );
+            dirLight2.position.set( - 1, - 1, - 1 );
+            scene.add( dirLight2 );
+            const ambientLight = new THREE.AmbientLight( 0x555555 );
+            scene.add( ambientLight );
+            MakeCube("Catch", 0x10e351, 4, 4, 4, 2, 2, 2);
+            MakeCube("Catch::StringMaker< eu::tests::custom::Approx< T > >", 0x75118b, 2, 3, 2, 2, 5.5, 2);
+            MakeCube("eu", 0xaa3247, 34, 4, 21, 21, 2, 10.5);
+            MakeCube("eu::assertlib", 0x239a69, 5, 4, 5, 7.5, 6, 3.5);
+            MakeCube("eu::assertlib::AssertArgumentValue", 0x8ad1be, 3, 3, 3, 7.5, 9.5, 3.5);
+            MakeCube("eu::color", 0xc1f260, 2, 4, 2, 11, 6, 2);
+            MakeCube("eu::common", 0x5c6f36, 2, 4, 2, 13, 6, 2);
+            MakeCube("eu::convert", 0x2202b0, 2, 4, 2, 15, 6, 2);
+            MakeCube("eu::log", 0xc42f3f, 4, 4, 6, 18, 6, 4);
+            MakeCube("eu::log::Logger", 0xc8cda6, 2, 11, 2, 18, 13.5, 3);
+            MakeCube("eu::log::ScopedLogger", 0x466741, 2, 8, 2, 18, 12, 5);
+            MakeCube("eu::tests", 0x266e48, 15, 4, 10, 27.5, 6, 6);
+            MakeCube("eu::tests::custom", 0xdefced, 8, 4, 8, 25, 10, 6);
+            MakeCube("eu::tests::custom::Approx", 0x9fe9f2, 6, 7, 6, 25, 15.5, 6);
+            MakeCube("eu::tests::ApproxData", 0xb8c44f, 5, 2, 5, 31.5, 9, 4.5);
+            MakeCube("eu::AA", 0x2f80a4, 4, 4, 4, 12, 6, 5);
+            MakeCube("eu::An", 0xb3ab2c, 3, 19, 3, 6.5, 13.5, 7.5);
+            MakeCube("eu::Guid", 0x11d0f3, 3, 5, 3, 9.5, 6.5, 8.5);
+            MakeCube("eu::HashedStringView", 0xff5c14, 4, 3, 4, 13, 5.5, 9);
+            MakeCube("eu::m4", 0x4c5b65, 3, 41, 3, 16.5, 24.5, 8.5);
+            MakeCube("eu::n2", 0x9a32a4, 4, 9, 4, 7, 8.5, 12);
+            MakeCube("eu::n3", 0xb8d0db, 2, 7, 2, 36, 7.5, 2);
+            MakeCube("eu::Q", 0x02ad63, 6, 30, 6, 12, 19, 14);
+            MakeCube("eu::R", 0x1f399c, 4, 4, 4, 17, 6, 12);
+            MakeCube("eu::v2", 0x793faa, 4, 21, 4, 21, 14.5, 13);
+            MakeCube("eu::v3", 0x3580d4, 5, 22, 5, 25.5, 15, 13.5);
+            MakeCube("eu::v4", 0x2bce6f, 6, 9, 6, 31, 8.5, 14);
+            MakeCube("eu::Ypr", 0x8f8a62, 5, 2, 5, 17.5, 5, 17.5);
+            MakeCube("std", 0x0dc6fd, 4, 4, 4, 40, 2, 2);
+            MakeCube("std::hash< eu::HashedStringView >", 0x13a2fd, 2, 3, 2, 40, 5.5, 2);
+            let inter = null;
+            const pointer = new THREE.Vector2();
+            const raycaster = new THREE.Raycaster();
+            function onPointerMove(event) {
+                pointer.x = ( event.clientX / window.innerWidth ) * 2 - 1;
+                pointer.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
+            }
+            document.addEventListener('mousemove', onPointerMove);
+            const intersect = () => {
+                raycaster.setFromCamera( pointer, camera );
+                const intersects = raycaster.intersectObjects( scene.children, false );
+                if (intersects.length > 0)
+                {
+                    const newInter = intersects[0].object;
+                    if (inter != newInter)
+                    {
+                        if (inter) inter.material.emissive.setHex( inter.currentHex );
+                        inter = newInter;
+                        inter.currentHex = inter.material.emissive.getHex();
+                        inter.material.emissive.setHex( 0xff0000 );
+                        info.innerHTML = inter.name
+                    }
+                }
+                else
+                {
+                    if (inter)
+                    {
+                        inter.material.emissive.setHex( inter.currentHex );
+                        info.innerHTML = "";
+                    }
+                    inter = null;
+                }
+            };
+            const clock = new THREE.Clock();
+            window.onresize = function () {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize( window.innerWidth, window.innerHeight );
+            };
+            function animate() {
+                requestAnimationFrame( animate );
+                controls.update();
+                intersect();
+                renderer.render( scene, camera );
+            }
+            animate();
+        </script>
+    </body>
+</html>
