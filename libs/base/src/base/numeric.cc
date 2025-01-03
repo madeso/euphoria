@@ -8,20 +8,6 @@
 
 namespace eu
 {
-    bool
-    is_equal(int lhs, int rhs)
-    {
-        return lhs == rhs;
-    }
-
-
-    bool
-    is_zero(int r)
-    {
-        return r == 0;
-    }
-
-
     float
     clamp_zero(float r)
     {
@@ -66,14 +52,6 @@ namespace eu
     }
 
 
-    int
-    get_sign(int r)
-    {
-        if(r >= 0) { return 1; }
-        else { return -1; }
-    }
-
-
     float
     get_sign(bool b)
     {
@@ -111,38 +89,15 @@ namespace eu
     }
 
 
-    bool
-    is_within_inclusive_as_int(int min, int c, int max)
-    {
-        return c >= min && c <= max;
-    }
-
-
-    namespace // internal
-    {
-        float
-        get_lower_bound(float num, float gran)
-        {
-            return std::floor(num / gran) * gran;
-        }
-
-
-        float
-        get_upper_bound(float num, float gran)
-        {
-            return std::ceil(num / gran) * gran;
-        }
-    }
-
-
     float
     round(float num, float gran)
     {
-        const float lower = get_lower_bound(num, gran);
-        const float upper = get_upper_bound(num, gran);
+        const float lower = std::floor(num / gran) * gran;
+        const float upper = std::ceil(num / gran) * gran;
+
         const float percent = (num - lower) / gran;
-        // 1.0 is upper, 0.0 is lower, 0.25 is 25% between
-        // lower and upper, moving from lower to upper
+        // 1.0 is upper, 0.0 is lower
+        // 0.25 is 25% between lower and upper
 
         if(percent >= 0.5f)
         {

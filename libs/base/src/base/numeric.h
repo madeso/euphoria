@@ -17,7 +17,7 @@ namespace eu
             ;
     }
 
-    // int overloads provided for template overload reasons
+
     constexpr bool is_zero(float r)
     {
         constexpr float epsilon = 0.0001f;
@@ -29,12 +29,6 @@ namespace eu
     {
         return is_zero(lhs - rhs);
     }
-
-    bool
-    is_equal(int lhs, int rhs);
-
-    bool
-    is_zero(int r);
 
     float
     clamp_zero(float r);
@@ -60,11 +54,7 @@ namespace eu
     get_sign(float r);
 
 
-    int
-    get_sign(int r);
-
-
-    /** Returns either 1 or -1 */
+    /// Returns `1` if `true` or -1
     float
     get_sign(bool b);
 
@@ -72,6 +62,7 @@ namespace eu
     float
     lerp_float(float f, float scale, float t);
 
+    /// Return `r * r`
     float
     square(float r);
 
@@ -86,9 +77,6 @@ namespace eu
     float
     mod(float numer, float denumer);
 
-    bool
-    is_within_inclusive_as_int(int min, int c, int max);
-
     /** Rounds a value to the nearest nice value.
         If the granularity is 1 the function rounds to the closest integer, at .5 the
         closest half integer, at 2 even integers etc...
@@ -101,6 +89,7 @@ namespace eu
     constexpr float pi = 3.1415926535897932384626433832795f;
     // constexpr float half_pi = pi / 2.0f;
 
+    /// If the `value` is close to zero, `def` is returned
     template <typename T>
     T
     get_default_if_close_to_zero(T value, T def, T epsilon)
