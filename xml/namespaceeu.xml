@@ -264,15 +264,12 @@
       <member refid="group__math_1ga6124e8a8479a4359c8aec7feee2651de" kind="function"><name>abs</name></member>
       <member refid="group__math_1ga63cd526bac84ee9b0d7550d6c73657d5" kind="function"><name>is_zero</name></member>
       <member refid="group__math_1ga8e2e7f88b7732924df89619f76286878" kind="function"><name>is_equal</name></member>
-      <member refid="group__math_1ga84234ac42f340bb5b38c0a34f4cd0e3f" kind="function"><name>is_equal</name></member>
-      <member refid="group__math_1ga4cd8cf9bbadd516833a572bfd4abc3b0" kind="function"><name>is_zero</name></member>
       <member refid="group__math_1ga18b5929af6c64c2b319d0f5709430afc" kind="function"><name>clamp_zero</name></member>
       <member refid="group__math_1gac953ee0edbaff0e5063d4d697c66f627" kind="function"><name>floor</name></member>
       <member refid="group__math_1ga82a16bae768ee6881fb591fddd27c507" kind="function"><name>ceil</name></member>
       <member refid="group__math_1gaf2fbc53ac0f3d3a135f913bf0e55abde" kind="function"><name>floor_to_int</name></member>
       <member refid="group__math_1gae3fafe9e7e4edf309c645464e089d0b0" kind="function"><name>ceil_to_int</name></member>
       <member refid="group__math_1ga8f52df7e071a1911e8ccdfe482a4558f" kind="function"><name>get_sign</name></member>
-      <member refid="group__math_1gad04118a0cac718a871b8917afbd44450" kind="function"><name>get_sign</name></member>
       <member refid="group__math_1ga1df61f8b3dbd8de93e41fb60b93db4a4" kind="function"><name>get_sign</name></member>
       <member refid="group__math_1ga3bd12ab44428ae8a36fd69bd74afef85" kind="function"><name>lerp_float</name></member>
       <member refid="group__math_1ga692b7283c3a58ab27de56366b3fadbd4" kind="function"><name>square</name></member>
@@ -280,7 +277,6 @@
       <member refid="group__math_1gaa4f3a1d68eda3b72dc542eca112fc1e3" kind="function"><name>min</name></member>
       <member refid="group__math_1gafdb18ee646a157c1e7d64082029202bb" kind="function"><name>max</name></member>
       <member refid="group__math_1ga7d43cf27d1afca3da4e04b3b8451c9f1" kind="function"><name>mod</name></member>
-      <member refid="group__math_1ga502ba547bcbe1c6035ed180e732cd80b" kind="function"><name>is_within_inclusive_as_int</name></member>
       <member refid="group__math_1ga7ef41a3ef0020cdf027febcf7cb38db3" kind="function"><name>round</name></member>
       <member refid="group__math_1gaa74119d780a49aabca833a465dd27d7a" kind="function"><name>get_default_if_close_to_zero</name></member>
       <member refid="group__math_1ga5d5dc7f4ea7cac8493e9006180e9a657" kind="function"><name>is_each_nth</name></member>

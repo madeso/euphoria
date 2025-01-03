@@ -104,7 +104,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/numeric.h" line="101" column="21" bodyfile="libs/base/src/base/numeric.h" bodystart="101" bodyend="-1"/>
+        <location file="libs/base/src/base/numeric.h" line="89" column="21" bodyfile="libs/base/src/base/numeric.h" bodystart="89" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="group__math_1ga074a5f400069f641ce3857da18d65d93" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr Q</type>
@@ -779,46 +779,6 @@
         </inbodydescription>
         <location file="libs/base/src/base/numeric.h" line="28" column="5" bodyfile="libs/base/src/base/numeric.h" bodystart="28" bodyend="31"/>
       </memberdef>
-      <memberdef kind="function" id="group__math_1ga84234ac42f340bb5b38c0a34f4cd0e3f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>bool</type>
-        <definition>bool eu::is_equal</definition>
-        <argsstring>(int lhs, int rhs)</argsstring>
-        <name>is_equal</name>
-        <qualifiedname>eu::is_equal</qualifiedname>
-        <param>
-          <type>int</type>
-          <declname>lhs</declname>
-        </param>
-        <param>
-          <type>int</type>
-          <declname>rhs</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/base/src/base/numeric.h" line="34" column="5" declfile="libs/base/src/base/numeric.h" declline="34" declcolumn="5"/>
-      </memberdef>
-      <memberdef kind="function" id="group__math_1ga4cd8cf9bbadd516833a572bfd4abc3b0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>bool</type>
-        <definition>bool eu::is_zero</definition>
-        <argsstring>(int r)</argsstring>
-        <name>is_zero</name>
-        <qualifiedname>eu::is_zero</qualifiedname>
-        <param>
-          <type>int</type>
-          <declname>r</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/base/src/base/numeric.h" line="37" column="5" declfile="libs/base/src/base/numeric.h" declline="37" declcolumn="5"/>
-      </memberdef>
       <memberdef kind="function" id="group__math_1ga18b5929af6c64c2b319d0f5709430afc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
         <definition>float eu::clamp_zero</definition>
@@ -835,7 +795,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/numeric.h" line="40" column="5" declfile="libs/base/src/base/numeric.h" declline="40" declcolumn="5"/>
+        <location file="libs/base/src/base/numeric.h" line="34" column="5" declfile="libs/base/src/base/numeric.h" declline="34" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1gac953ee0edbaff0e5063d4d697c66f627" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
@@ -853,7 +813,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/numeric.h" line="43" column="5" declfile="libs/base/src/base/numeric.h" declline="43" declcolumn="5"/>
+        <location file="libs/base/src/base/numeric.h" line="37" column="5" declfile="libs/base/src/base/numeric.h" declline="37" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1ga82a16bae768ee6881fb591fddd27c507" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
@@ -871,7 +831,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/numeric.h" line="46" column="5" declfile="libs/base/src/base/numeric.h" declline="46" declcolumn="5"/>
+        <location file="libs/base/src/base/numeric.h" line="40" column="5" declfile="libs/base/src/base/numeric.h" declline="40" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1gaf2fbc53ac0f3d3a135f913bf0e55abde" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -889,7 +849,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/numeric.h" line="49" column="5" declfile="libs/base/src/base/numeric.h" declline="49" declcolumn="5"/>
+        <location file="libs/base/src/base/numeric.h" line="43" column="5" declfile="libs/base/src/base/numeric.h" declline="43" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1gae3fafe9e7e4edf309c645464e089d0b0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -907,7 +867,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/numeric.h" line="52" column="5" declfile="libs/base/src/base/numeric.h" declline="52" declcolumn="5"/>
+        <location file="libs/base/src/base/numeric.h" line="46" column="5" declfile="libs/base/src/base/numeric.h" declline="46" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1ga8f52df7e071a1911e8ccdfe482a4558f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -931,25 +891,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/numeric.h" line="60" column="5" declfile="libs/base/src/base/numeric.h" declline="60" declcolumn="5"/>
-      </memberdef>
-      <memberdef kind="function" id="group__math_1gad04118a0cac718a871b8917afbd44450" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>int</type>
-        <definition>int eu::get_sign</definition>
-        <argsstring>(int r)</argsstring>
-        <name>get_sign</name>
-        <qualifiedname>eu::get_sign</qualifiedname>
-        <param>
-          <type>int</type>
-          <declname>r</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/base/src/base/numeric.h" line="64" column="5" declfile="libs/base/src/base/numeric.h" declline="64" declcolumn="5"/>
+        <location file="libs/base/src/base/numeric.h" line="54" column="5" declfile="libs/base/src/base/numeric.h" declline="54" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1ga1df61f8b3dbd8de93e41fb60b93db4a4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
@@ -962,13 +904,13 @@
           <declname>b</declname>
         </param>
         <briefdescription>
-<para>Returns either 1 or -1. </para>
+<para>Returns <computeroutput>1</computeroutput> if <computeroutput>true</computeroutput> or -1. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/numeric.h" line="69" column="5" declfile="libs/base/src/base/numeric.h" declline="69" declcolumn="5"/>
+        <location file="libs/base/src/base/numeric.h" line="59" column="5" declfile="libs/base/src/base/numeric.h" declline="59" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1ga3bd12ab44428ae8a36fd69bd74afef85" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
@@ -994,7 +936,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/numeric.h" line="73" column="5" declfile="libs/base/src/base/numeric.h" declline="73" declcolumn="5"/>
+        <location file="libs/base/src/base/numeric.h" line="63" column="5" declfile="libs/base/src/base/numeric.h" declline="63" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1ga692b7283c3a58ab27de56366b3fadbd4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
@@ -1007,12 +949,13 @@
           <declname>r</declname>
         </param>
         <briefdescription>
+<para>Return <computeroutput>r * r</computeroutput> </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/numeric.h" line="76" column="5" declfile="libs/base/src/base/numeric.h" declline="76" declcolumn="5"/>
+        <location file="libs/base/src/base/numeric.h" line="67" column="5" declfile="libs/base/src/base/numeric.h" declline="67" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1ga066452fba287c9fcb6a0188ea8424760" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
@@ -1030,7 +973,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/numeric.h" line="79" column="5" declfile="libs/base/src/base/numeric.h" declline="79" declcolumn="5"/>
+        <location file="libs/base/src/base/numeric.h" line="70" column="5" declfile="libs/base/src/base/numeric.h" declline="70" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1gaa4f3a1d68eda3b72dc542eca112fc1e3" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>constexpr float</type>
@@ -1052,7 +995,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/numeric.h" line="82" column="21" bodyfile="libs/base/src/base/numeric.h" bodystart="82" bodyend="82"/>
+        <location file="libs/base/src/base/numeric.h" line="73" column="21" bodyfile="libs/base/src/base/numeric.h" bodystart="73" bodyend="73"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1gafdb18ee646a157c1e7d64082029202bb" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>constexpr float</type>
@@ -1074,7 +1017,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/numeric.h" line="83" column="21" bodyfile="libs/base/src/base/numeric.h" bodystart="83" bodyend="83"/>
+        <location file="libs/base/src/base/numeric.h" line="74" column="21" bodyfile="libs/base/src/base/numeric.h" bodystart="74" bodyend="74"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1ga7d43cf27d1afca3da4e04b3b8451c9f1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
@@ -1096,33 +1039,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/numeric.h" line="87" column="5" declfile="libs/base/src/base/numeric.h" declline="87" declcolumn="5"/>
-      </memberdef>
-      <memberdef kind="function" id="group__math_1ga502ba547bcbe1c6035ed180e732cd80b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>bool</type>
-        <definition>bool eu::is_within_inclusive_as_int</definition>
-        <argsstring>(int min, int c, int max)</argsstring>
-        <name>is_within_inclusive_as_int</name>
-        <qualifiedname>eu::is_within_inclusive_as_int</qualifiedname>
-        <param>
-          <type>int</type>
-          <declname>min</declname>
-        </param>
-        <param>
-          <type>int</type>
-          <declname>c</declname>
-        </param>
-        <param>
-          <type>int</type>
-          <declname>max</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/base/src/base/numeric.h" line="90" column="5" declfile="libs/base/src/base/numeric.h" declline="90" declcolumn="5"/>
+        <location file="libs/base/src/base/numeric.h" line="78" column="5" declfile="libs/base/src/base/numeric.h" declline="78" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1ga7ef41a3ef0020cdf027febcf7cb38db3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
@@ -1163,7 +1080,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/numeric.h" line="99" column="5" declfile="libs/base/src/base/numeric.h" declline="99" declcolumn="5"/>
+        <location file="libs/base/src/base/numeric.h" line="87" column="5" declfile="libs/base/src/base/numeric.h" declline="87" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1gaa74119d780a49aabca833a465dd27d7a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1189,12 +1106,13 @@
           <declname>epsilon</declname>
         </param>
         <briefdescription>
+<para>If the <computeroutput>value</computeroutput> is close to zero, <computeroutput>def</computeroutput> is returned. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/numeric.h" line="106" column="5" bodyfile="libs/base/src/base/numeric.h" bodystart="106" bodyend="110"/>
+        <location file="libs/base/src/base/numeric.h" line="95" column="5" bodyfile="libs/base/src/base/numeric.h" bodystart="95" bodyend="99"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1ga5d5dc7f4ea7cac8493e9006180e9a657" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1223,7 +1141,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/numeric.h" line="116" column="5" bodyfile="libs/base/src/base/numeric.h" bodystart="116" bodyend="119"/>
+        <location file="libs/base/src/base/numeric.h" line="105" column="5" bodyfile="libs/base/src/base/numeric.h" bodystart="105" bodyend="108"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1gad4b8d21db1b1a25c346296eec35b330b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
