@@ -44,6 +44,12 @@ readability-*
 -cppcoreguidelines-avoid-c-arrays
 -modernize-avoid-c-arrays
 
+# results in lots of false positives
+-misc-include-cleaner
+
+# do while is ok
+-cppcoreguidelines-avoid-do-while
+
 # google are a sensible default
 google-*
 -google-runtime-int
