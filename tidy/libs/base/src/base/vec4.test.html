@@ -1,0 +1,1120 @@
+﻿<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+<title>libs/base/src/base/vec4.test.cc</title>
+</head>
+<body>
+<h1>libs/base/src/base/vec4.test.cc</h1>
+<hr>
+<h3>warning:  chained comparison 'v0 <= v1 == v2' may generate unintended results, use parentheses to specify order of evaluation or a logical operator to separate comparison expressions</h3>
+<code>[bugprone-chained-comparison]</code>
+<p><i>libs/base/src/base/vec4.test.cc 12 : 5</i></p>
+<pre>
+   12 |     REQUIRE(v.x == approx(1.0f));
+      |     ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 26</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
+<p> operand 'v0' is here</p>
+<p><i>libs/base/src/base/vec4.test.cc 12 : 5</i></p>
+<pre>
+   12 |     REQUIRE(v.x == approx(1.0f));
+      |     ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 26</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                               ^~~~~~~~~~~~~~~~~~~
+</pre>
+<p> operand 'v1' is here</p>
+<p><i>libs/base/src/base/vec4.test.cc 12 : 13</i></p>
+<pre>
+   12 |     REQUIRE(v.x == approx(1.0f));
+      |             ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 92</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                                                                                            ^~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                                                      ^~~~~~~~~~~
+</pre>
+<p> operand 'v2' is here</p>
+<p><i>libs/base/src/base/vec4.test.cc 12 : 20</i></p>
+<pre>
+   12 |     REQUIRE(v.x == approx(1.0f));
+      |                    ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 92</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                                                                                            ^~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                                                      ^~~~~~~~~~~
+</pre>
+<hr>
+<h3>warning:  chained comparison 'v0 <= v1 == v2' may generate unintended results, use parentheses to specify order of evaluation or a logical operator to separate comparison expressions</h3>
+<code>[bugprone-chained-comparison]</code>
+<p><i>libs/base/src/base/vec4.test.cc 13 : 5</i></p>
+<pre>
+   13 |     REQUIRE(v.y == approx(2.0f));
+      |     ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 26</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
+<p> operand 'v0' is here</p>
+<p><i>libs/base/src/base/vec4.test.cc 13 : 5</i></p>
+<pre>
+   13 |     REQUIRE(v.y == approx(2.0f));
+      |     ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 26</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                               ^~~~~~~~~~~~~~~~~~~
+</pre>
+<p> operand 'v1' is here</p>
+<p><i>libs/base/src/base/vec4.test.cc 13 : 13</i></p>
+<pre>
+   13 |     REQUIRE(v.y == approx(2.0f));
+      |             ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 92</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                                                                                            ^~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                                                      ^~~~~~~~~~~
+</pre>
+<p> operand 'v2' is here</p>
+<p><i>libs/base/src/base/vec4.test.cc 13 : 20</i></p>
+<pre>
+   13 |     REQUIRE(v.y == approx(2.0f));
+      |                    ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 92</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                                                                                            ^~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                                                      ^~~~~~~~~~~
+</pre>
+<hr>
+<h3>warning:  chained comparison 'v0 <= v1 == v2' may generate unintended results, use parentheses to specify order of evaluation or a logical operator to separate comparison expressions</h3>
+<code>[bugprone-chained-comparison]</code>
+<p><i>libs/base/src/base/vec4.test.cc 14 : 5</i></p>
+<pre>
+   14 |     REQUIRE(v.z == approx(3.0f));
+      |     ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 26</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
+<p> operand 'v0' is here</p>
+<p><i>libs/base/src/base/vec4.test.cc 14 : 5</i></p>
+<pre>
+   14 |     REQUIRE(v.z == approx(3.0f));
+      |     ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 26</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                               ^~~~~~~~~~~~~~~~~~~
+</pre>
+<p> operand 'v1' is here</p>
+<p><i>libs/base/src/base/vec4.test.cc 14 : 13</i></p>
+<pre>
+   14 |     REQUIRE(v.z == approx(3.0f));
+      |             ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 92</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                                                                                            ^~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                                                      ^~~~~~~~~~~
+</pre>
+<p> operand 'v2' is here</p>
+<p><i>libs/base/src/base/vec4.test.cc 14 : 20</i></p>
+<pre>
+   14 |     REQUIRE(v.z == approx(3.0f));
+      |                    ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 92</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                                                                                            ^~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                                                      ^~~~~~~~~~~
+</pre>
+<hr>
+<h3>warning:  chained comparison 'v0 <= v1 == v2' may generate unintended results, use parentheses to specify order of evaluation or a logical operator to separate comparison expressions</h3>
+<code>[bugprone-chained-comparison]</code>
+<p><i>libs/base/src/base/vec4.test.cc 15 : 5</i></p>
+<pre>
+   15 |     REQUIRE(v.w == approx(4.0f));
+      |     ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 26</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
+<p> operand 'v0' is here</p>
+<p><i>libs/base/src/base/vec4.test.cc 15 : 5</i></p>
+<pre>
+   15 |     REQUIRE(v.w == approx(4.0f));
+      |     ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 26</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                               ^~~~~~~~~~~~~~~~~~~
+</pre>
+<p> operand 'v1' is here</p>
+<p><i>libs/base/src/base/vec4.test.cc 15 : 13</i></p>
+<pre>
+   15 |     REQUIRE(v.w == approx(4.0f));
+      |             ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 92</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                                                                                            ^~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                                                      ^~~~~~~~~~~
+</pre>
+<p> operand 'v2' is here</p>
+<p><i>libs/base/src/base/vec4.test.cc 15 : 20</i></p>
+<pre>
+   15 |     REQUIRE(v.w == approx(4.0f));
+      |                    ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 92</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                                                                                            ^~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                                                      ^~~~~~~~~~~
+</pre>
+<hr>
+<h3>warning:  chained comparison 'v0 <= v1 == v2' may generate unintended results, use parentheses to specify order of evaluation or a logical operator to separate comparison expressions</h3>
+<code>[bugprone-chained-comparison]</code>
+<p><i>libs/base/src/base/vec4.test.cc 21 : 5</i></p>
+<pre>
+   21 |     REQUIRE(v.x == approx(1.0f));
+      |     ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 26</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
+<p> operand 'v0' is here</p>
+<p><i>libs/base/src/base/vec4.test.cc 21 : 5</i></p>
+<pre>
+   21 |     REQUIRE(v.x == approx(1.0f));
+      |     ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 26</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                               ^~~~~~~~~~~~~~~~~~~
+</pre>
+<p> operand 'v1' is here</p>
+<p><i>libs/base/src/base/vec4.test.cc 21 : 13</i></p>
+<pre>
+   21 |     REQUIRE(v.x == approx(1.0f));
+      |             ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 92</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                                                                                            ^~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                                                      ^~~~~~~~~~~
+</pre>
+<p> operand 'v2' is here</p>
+<p><i>libs/base/src/base/vec4.test.cc 21 : 20</i></p>
+<pre>
+   21 |     REQUIRE(v.x == approx(1.0f));
+      |                    ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 92</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                                                                                            ^~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                                                      ^~~~~~~~~~~
+</pre>
+<hr>
+<h3>warning:  chained comparison 'v0 <= v1 == v2' may generate unintended results, use parentheses to specify order of evaluation or a logical operator to separate comparison expressions</h3>
+<code>[bugprone-chained-comparison]</code>
+<p><i>libs/base/src/base/vec4.test.cc 22 : 5</i></p>
+<pre>
+   22 |     REQUIRE(v.y == approx(2.0f));
+      |     ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 26</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
+<p> operand 'v0' is here</p>
+<p><i>libs/base/src/base/vec4.test.cc 22 : 5</i></p>
+<pre>
+   22 |     REQUIRE(v.y == approx(2.0f));
+      |     ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 26</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                               ^~~~~~~~~~~~~~~~~~~
+</pre>
+<p> operand 'v1' is here</p>
+<p><i>libs/base/src/base/vec4.test.cc 22 : 13</i></p>
+<pre>
+   22 |     REQUIRE(v.y == approx(2.0f));
+      |             ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 92</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                                                                                            ^~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                                                      ^~~~~~~~~~~
+</pre>
+<p> operand 'v2' is here</p>
+<p><i>libs/base/src/base/vec4.test.cc 22 : 20</i></p>
+<pre>
+   22 |     REQUIRE(v.y == approx(2.0f));
+      |                    ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 92</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                                                                                            ^~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                                                      ^~~~~~~~~~~
+</pre>
+<hr>
+<h3>warning:  chained comparison 'v0 <= v1 == v2' may generate unintended results, use parentheses to specify order of evaluation or a logical operator to separate comparison expressions</h3>
+<code>[bugprone-chained-comparison]</code>
+<p><i>libs/base/src/base/vec4.test.cc 23 : 5</i></p>
+<pre>
+   23 |     REQUIRE(v.z == approx(3.0f));
+      |     ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 26</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
+<p> operand 'v0' is here</p>
+<p><i>libs/base/src/base/vec4.test.cc 23 : 5</i></p>
+<pre>
+   23 |     REQUIRE(v.z == approx(3.0f));
+      |     ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 26</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                               ^~~~~~~~~~~~~~~~~~~
+</pre>
+<p> operand 'v1' is here</p>
+<p><i>libs/base/src/base/vec4.test.cc 23 : 13</i></p>
+<pre>
+   23 |     REQUIRE(v.z == approx(3.0f));
+      |             ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 92</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                                                                                            ^~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                                                      ^~~~~~~~~~~
+</pre>
+<p> operand 'v2' is here</p>
+<p><i>libs/base/src/base/vec4.test.cc 23 : 20</i></p>
+<pre>
+   23 |     REQUIRE(v.z == approx(3.0f));
+      |                    ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 92</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                                                                                            ^~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                                                      ^~~~~~~~~~~
+</pre>
+<hr>
+<h3>warning:  chained comparison 'v0 <= v1 == v2' may generate unintended results, use parentheses to specify order of evaluation or a logical operator to separate comparison expressions</h3>
+<code>[bugprone-chained-comparison]</code>
+<p><i>libs/base/src/base/vec4.test.cc 24 : 5</i></p>
+<pre>
+   24 |     REQUIRE(v.w == approx(1.0f));
+      |     ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 26</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
+<p> operand 'v0' is here</p>
+<p><i>libs/base/src/base/vec4.test.cc 24 : 5</i></p>
+<pre>
+   24 |     REQUIRE(v.w == approx(1.0f));
+      |     ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 26</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                               ^~~~~~~~~~~~~~~~~~~
+</pre>
+<p> operand 'v1' is here</p>
+<p><i>libs/base/src/base/vec4.test.cc 24 : 13</i></p>
+<pre>
+   24 |     REQUIRE(v.w == approx(1.0f));
+      |             ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 92</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                                                                                            ^~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                                                      ^~~~~~~~~~~
+</pre>
+<p> operand 'v2' is here</p>
+<p><i>libs/base/src/base/vec4.test.cc 24 : 20</i></p>
+<pre>
+   24 |     REQUIRE(v.w == approx(1.0f));
+      |                    ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 92</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                                                                                            ^~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                                                      ^~~~~~~~~~~
+</pre>
+<hr>
+<h3>warning:  chained comparison 'v0 <= v1 == v2' may generate unintended results, use parentheses to specify order of evaluation or a logical operator to separate comparison expressions</h3>
+<code>[bugprone-chained-comparison]</code>
+<p><i>libs/base/src/base/vec4.test.cc 31 : 5</i></p>
+<pre>
+   31 |     REQUIRE(v.x == approx(1.0f));
+      |     ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 26</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
+<p> operand 'v0' is here</p>
+<p><i>libs/base/src/base/vec4.test.cc 31 : 5</i></p>
+<pre>
+   31 |     REQUIRE(v.x == approx(1.0f));
+      |     ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 26</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                               ^~~~~~~~~~~~~~~~~~~
+</pre>
+<p> operand 'v1' is here</p>
+<p><i>libs/base/src/base/vec4.test.cc 31 : 13</i></p>
+<pre>
+   31 |     REQUIRE(v.x == approx(1.0f));
+      |             ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 92</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                                                                                            ^~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                                                      ^~~~~~~~~~~
+</pre>
+<p> operand 'v2' is here</p>
+<p><i>libs/base/src/base/vec4.test.cc 31 : 20</i></p>
+<pre>
+   31 |     REQUIRE(v.x == approx(1.0f));
+      |                    ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 92</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                                                                                            ^~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                                                      ^~~~~~~~~~~
+</pre>
+<hr>
+<h3>warning:  chained comparison 'v0 <= v1 == v2' may generate unintended results, use parentheses to specify order of evaluation or a logical operator to separate comparison expressions</h3>
+<code>[bugprone-chained-comparison]</code>
+<p><i>libs/base/src/base/vec4.test.cc 32 : 5</i></p>
+<pre>
+   32 |     REQUIRE(v.y == approx(2.0f));
+      |     ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 26</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
+<p> operand 'v0' is here</p>
+<p><i>libs/base/src/base/vec4.test.cc 32 : 5</i></p>
+<pre>
+   32 |     REQUIRE(v.y == approx(2.0f));
+      |     ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 26</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                               ^~~~~~~~~~~~~~~~~~~
+</pre>
+<p> operand 'v1' is here</p>
+<p><i>libs/base/src/base/vec4.test.cc 32 : 13</i></p>
+<pre>
+   32 |     REQUIRE(v.y == approx(2.0f));
+      |             ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 92</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                                                                                            ^~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                                                      ^~~~~~~~~~~
+</pre>
+<p> operand 'v2' is here</p>
+<p><i>libs/base/src/base/vec4.test.cc 32 : 20</i></p>
+<pre>
+   32 |     REQUIRE(v.y == approx(2.0f));
+      |                    ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 92</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                                                                                            ^~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                                                      ^~~~~~~~~~~
+</pre>
+<hr>
+<h3>warning:  chained comparison 'v0 <= v1 == v2' may generate unintended results, use parentheses to specify order of evaluation or a logical operator to separate comparison expressions</h3>
+<code>[bugprone-chained-comparison]</code>
+<p><i>libs/base/src/base/vec4.test.cc 33 : 5</i></p>
+<pre>
+   33 |     REQUIRE(v.z == approx(3.0f));
+      |     ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 26</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
+<p> operand 'v0' is here</p>
+<p><i>libs/base/src/base/vec4.test.cc 33 : 5</i></p>
+<pre>
+   33 |     REQUIRE(v.z == approx(3.0f));
+      |     ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 26</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                               ^~~~~~~~~~~~~~~~~~~
+</pre>
+<p> operand 'v1' is here</p>
+<p><i>libs/base/src/base/vec4.test.cc 33 : 13</i></p>
+<pre>
+   33 |     REQUIRE(v.z == approx(3.0f));
+      |             ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 92</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                                                                                            ^~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                                                      ^~~~~~~~~~~
+</pre>
+<p> operand 'v2' is here</p>
+<p><i>libs/base/src/base/vec4.test.cc 33 : 20</i></p>
+<pre>
+   33 |     REQUIRE(v.z == approx(3.0f));
+      |                    ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 92</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                                                                                            ^~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                                                      ^~~~~~~~~~~
+</pre>
+<hr>
+<h3>warning:  chained comparison 'v0 <= v1 == v2' may generate unintended results, use parentheses to specify order of evaluation or a logical operator to separate comparison expressions</h3>
+<code>[bugprone-chained-comparison]</code>
+<p><i>libs/base/src/base/vec4.test.cc 34 : 5</i></p>
+<pre>
+   34 |     REQUIRE(v.w == approx(4.0f));
+      |     ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 26</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
+<p> operand 'v0' is here</p>
+<p><i>libs/base/src/base/vec4.test.cc 34 : 5</i></p>
+<pre>
+   34 |     REQUIRE(v.w == approx(4.0f));
+      |     ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 26</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                               ^~~~~~~~~~~~~~~~~~~
+</pre>
+<p> operand 'v1' is here</p>
+<p><i>libs/base/src/base/vec4.test.cc 34 : 13</i></p>
+<pre>
+   34 |     REQUIRE(v.w == approx(4.0f));
+      |             ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 92</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                                                                                            ^~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                                                      ^~~~~~~~~~~
+</pre>
+<p> operand 'v2' is here</p>
+<p><i>libs/base/src/base/vec4.test.cc 34 : 20</i></p>
+<pre>
+   34 |     REQUIRE(v.w == approx(4.0f));
+      |                    ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 92</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                                                                                            ^~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                                                      ^~~~~~~~~~~
+</pre>
+<hr>
+<h3>warning:  chained comparison 'v0 <= v1 == v2' may generate unintended results, use parentheses to specify order of evaluation or a logical operator to separate comparison expressions</h3>
+<code>[bugprone-chained-comparison]</code>
+<p><i>libs/base/src/base/vec4.test.cc 40 : 5</i></p>
+<pre>
+   40 |     REQUIRE(v.x == approx(1.0f));
+      |     ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 26</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
+<p> operand 'v0' is here</p>
+<p><i>libs/base/src/base/vec4.test.cc 40 : 5</i></p>
+<pre>
+   40 |     REQUIRE(v.x == approx(1.0f));
+      |     ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 26</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                               ^~~~~~~~~~~~~~~~~~~
+</pre>
+<p> operand 'v1' is here</p>
+<p><i>libs/base/src/base/vec4.test.cc 40 : 13</i></p>
+<pre>
+   40 |     REQUIRE(v.x == approx(1.0f));
+      |             ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 92</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                                                                                            ^~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                                                      ^~~~~~~~~~~
+</pre>
+<p> operand 'v2' is here</p>
+<p><i>libs/base/src/base/vec4.test.cc 40 : 20</i></p>
+<pre>
+   40 |     REQUIRE(v.x == approx(1.0f));
+      |                    ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 92</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                                                                                            ^~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                                                      ^~~~~~~~~~~
+</pre>
+<hr>
+<h3>warning:  chained comparison 'v0 <= v1 == v2' may generate unintended results, use parentheses to specify order of evaluation or a logical operator to separate comparison expressions</h3>
+<code>[bugprone-chained-comparison]</code>
+<p><i>libs/base/src/base/vec4.test.cc 41 : 5</i></p>
+<pre>
+   41 |     REQUIRE(v.y == approx(2.0f));
+      |     ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 26</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
+<p> operand 'v0' is here</p>
+<p><i>libs/base/src/base/vec4.test.cc 41 : 5</i></p>
+<pre>
+   41 |     REQUIRE(v.y == approx(2.0f));
+      |     ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 26</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                               ^~~~~~~~~~~~~~~~~~~
+</pre>
+<p> operand 'v1' is here</p>
+<p><i>libs/base/src/base/vec4.test.cc 41 : 13</i></p>
+<pre>
+   41 |     REQUIRE(v.y == approx(2.0f));
+      |             ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 92</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                                                                                            ^~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                                                      ^~~~~~~~~~~
+</pre>
+<p> operand 'v2' is here</p>
+<p><i>libs/base/src/base/vec4.test.cc 41 : 20</i></p>
+<pre>
+   41 |     REQUIRE(v.y == approx(2.0f));
+      |                    ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 92</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                                                                                            ^~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                                                      ^~~~~~~~~~~
+</pre>
+<hr>
+<h3>warning:  chained comparison 'v0 <= v1 == v2' may generate unintended results, use parentheses to specify order of evaluation or a logical operator to separate comparison expressions</h3>
+<code>[bugprone-chained-comparison]</code>
+<p><i>libs/base/src/base/vec4.test.cc 42 : 5</i></p>
+<pre>
+   42 |     REQUIRE(v.z == approx(3.0f));
+      |     ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 26</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
+<p> operand 'v0' is here</p>
+<p><i>libs/base/src/base/vec4.test.cc 42 : 5</i></p>
+<pre>
+   42 |     REQUIRE(v.z == approx(3.0f));
+      |     ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 26</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                               ^~~~~~~~~~~~~~~~~~~
+</pre>
+<p> operand 'v1' is here</p>
+<p><i>libs/base/src/base/vec4.test.cc 42 : 13</i></p>
+<pre>
+   42 |     REQUIRE(v.z == approx(3.0f));
+      |             ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 92</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                                                                                            ^~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                                                      ^~~~~~~~~~~
+</pre>
+<p> operand 'v2' is here</p>
+<p><i>libs/base/src/base/vec4.test.cc 42 : 20</i></p>
+<pre>
+   42 |     REQUIRE(v.z == approx(3.0f));
+      |                    ^
+</pre>
+<p> expanded from macro 'REQUIRE'</p>
+<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 92</i></p>
+<pre>
+  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+      |                                                                                            ^~~~~~~~~~~
+</pre>
+<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
+<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
+<pre>
+   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                                                      ^~~~~~~~~~~
+</pre>
+</body>
+</html>

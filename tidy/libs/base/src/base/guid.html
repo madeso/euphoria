@@ -1,0 +1,68 @@
+﻿<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+<title>libs/base/src/base/guid.cc</title>
+</head>
+<body>
+<h1>libs/base/src/base/guid.cc</h1>
+<hr>
+<h3>warning:  function 'has_more' should be marked [[nodiscard]]</h3>
+<code>[modernize-use-nodiscard]</code>
+<p><i>libs/base/src/base/guid.cc 60 : 9</i></p>
+<pre>
+   60 |         bool has_more() const
+      |         ^
+      |         [[nodiscard]] 
+</pre>
+<hr>
+<h3>warning:  statement should be inside braces</h3>
+<code>[readability-braces-around-statements]</code>
+<p><i>libs/base/src/base/guid.cc 67 : 36</i></p>
+<pre>
+   67 |             if(has_more() == false) return '\0';
+      |                                    ^            
+      |                                     {
+</pre>
+<hr>
+<h3>warning:  function 'peek' should be marked [[nodiscard]]</h3>
+<code>[modernize-use-nodiscard]</code>
+<p><i>libs/base/src/base/guid.cc 73 : 9</i></p>
+<pre>
+   73 |         char peek() const
+      |         ^
+      |         [[nodiscard]] 
+</pre>
+<hr>
+<h3>warning:  statement should be inside braces</h3>
+<code>[readability-braces-around-statements]</code>
+<p><i>libs/base/src/base/guid.cc 75 : 36</i></p>
+<pre>
+   75 |             if(has_more() == false) return '\0';
+      |                                    ^            
+      |                                     {
+</pre>
+<hr>
+<h3>warning: return type 'const std:: optional<uint8_t>' (aka 'const optional<unsigned char>') is 'const'-qualified at the top level, which may reduce code readability without improving const correctness</h3>
+<code>[readability-const-return-type]</code>
+<p><i>libs/base/src/base/guid.cc 100 : 9</i></p>
+<pre>
+  100 |         const std::optional<uint8_t> read_hex()
+      |         ^~~~~
+</pre>
+<hr>
+<h3>warning: conversion from 'std::optional<unsigned char>' into 'unsigned char' and back into 'std:: optional<unsigned char>', remove potentially error-prone optional dereference</h3>
+<code>[bugprone-optional-value-conversion]</code>
+<p><i>libs/base/src/base/guid.cc 113 : 24</i></p>
+<pre>
+  113 |                 return *first;
+      |                        ^
+</pre>
+<p> remove '*' to silence this warning</p>
+<p><i>libs/base/src/base/guid.cc 113 : 24</i></p>
+<pre>
+  113 |                 return *first;
+      |                        ^
+</pre>
+</body>
+</html>

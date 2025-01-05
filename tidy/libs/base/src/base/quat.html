@@ -1,0 +1,53 @@
+﻿<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+<title>libs/base/src/base/quat.cc</title>
+</head>
+<body>
+<h1>libs/base/src/base/quat.cc</h1>
+<hr>
+<h3>warning:  statement should be inside braces</h3>
+<code>[readability-braces-around-statements]</code>
+<p><i>libs/base/src/base/quat.cc 58 : 44</i></p>
+<pre>
+   58 |         if (direction.has_value() == false) return std::nullopt;
+      |                                            ^                    
+      |                                             {
+</pre>
+<hr>
+<h3>warning:  unchecked access to optional value</h3>
+<code>[bugprone-unchecked-optional-access]</code>
+<p><i>libs/base/src/base/quat.cc 143 : 17</i></p>
+<pre>
+  143 |         return *ret.get_vec_part().get_normalized();
+      |                 ^
+</pre>
+<hr>
+<h3>warning:  variable 'dot_value' of type 'float' can be declared 'const'</h3>
+<code>[misc-const-correctness]</code>
+<p><i>libs/base/src/base/quat.cc 269 : 9</i></p>
+<pre>
+  269 |         float dot_value = in.dot(dir);
+      |         ^
+      |               const 
+</pre>
+<hr>
+<h3>warning: prefer 'std::numbers:: pi_v<float>' to this literal, differs by '8.74e-08'</h3>
+<code>[modernize-use-std-numbers]</code>
+<p><i>libs/base/src/base/quat.cc 274 : 21</i></p>
+<pre>
+    2 |             return {3.1415926535897932f, up};
+      |                     ^~~~~~~~~~~~~~~~~~~
+      |                     std::numbers::pi_v<float>
+</pre>
+<hr>
+<h3>warning:  unchecked access to optional value</h3>
+<code>[bugprone-unchecked-optional-access]</code>
+<p><i>libs/base/src/base/quat.cc 284 : 43</i></p>
+<pre>
+  284 |         return Q::from(right_hand_around(*rot_axis, rot_angle));
+      |                                           ^
+</pre>
+</body>
+</html>
