@@ -16,1432 +16,156 @@
       |                         {
 </pre>
 <hr>
-<h3>warning:  chained comparison 'v0 <= v1 == v2' may generate unintended results, use parentheses to specify order of evaluation or a logical operator to separate comparison expressions</h3>
-<code>[bugprone-chained-comparison]</code>
-<p><i>libs/base/src/base/quat.test.cc 38 : 5</i></p>
+<h3>warning:  function 'CATCH2_INTERNAL_TEST_0' declared 'static', move to anonymous namespace instead</h3>
+<code>[misc-use-anonymous-namespace]</code>
+<p><i>libs/base/src/base/quat.test.cc 35 : 1</i></p>
 <pre>
-   38 |     REQUIRE(q == approx(eu::Q(1, eu::v3(0, 0, 0))));
-      |     ^
+   35 | TEST_CASE("quat-identity", "[quat]")
+      | ^
 </pre>
-<p> expanded from macro 'REQUIRE'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 26</i></p>
+<p> expanded from macro 'TEST_CASE'</p>
+<p><i>build/_deps/catch2-src/src/catch2/catch_test_macros.hpp 144 : 28</i></p>
 <pre>
-  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
-      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  144 |   #define TEST_CASE( ... ) INTERNAL_CATCH_TESTCASE( __VA_ARGS__ )
+      |                            ^
 </pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
+<p> expanded from macro 'INTERNAL_CATCH_TESTCASE'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_test_registry.hpp 118 : 35</i></p>
 <pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  118 |         INTERNAL_CATCH_TESTCASE2( INTERNAL_CATCH_UNIQUE_NAME( CATCH2_INTERNAL_TEST_ ), __VA_ARGS__ )
+      |                                   ^
 </pre>
-<p> operand 'v0' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 38 : 5</i></p>
+<p> expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_name.hpp 15 : 46</i></p>
 <pre>
-   38 |     REQUIRE(q == approx(eu::Q(1, eu::v3(0, 0, 0))));
-      |     ^
+   15 | #  define INTERNAL_CATCH_UNIQUE_NAME( name ) INTERNAL_CATCH_UNIQUE_NAME_LINE( name, __COUNTER__ )
+      |                                              ^
 </pre>
-<p> expanded from macro 'REQUIRE'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 26</i></p>
+<p> expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME_LINE'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_name.hpp 13 : 55</i></p>
 <pre>
-  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
-      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   13 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE( name, line ) INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line )
+      |                                                       ^
 </pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
+<p> expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME_LINE2'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_name.hpp 12 : 56</i></p>
 <pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                               ^~~~~~~~~~~~~~~~~~~
-</pre>
-<p> operand 'v1' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 38 : 13</i></p>
-<pre>
-   38 |     REQUIRE(q == approx(eu::Q(1, eu::v3(0, 0, 0))));
-      |             ^
-</pre>
-<p> expanded from macro 'REQUIRE'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 92</i></p>
-<pre>
-  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
-      |                                                                                            ^~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                                                      ^~~~~~~~~~~
-</pre>
-<p> operand 'v2' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 38 : 18</i></p>
-<pre>
-   38 |     REQUIRE(q == approx(eu::Q(1, eu::v3(0, 0, 0))));
-      |                  ^
-</pre>
-<p> expanded from macro 'REQUIRE'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 92</i></p>
-<pre>
-  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
-      |                                                                                            ^~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                                                      ^~~~~~~~~~~
+   12 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line ) name##line
+      |                                                        ^
 </pre>
 <hr>
-<h3>warning:  chained comparison 'v0 <= v1 == v2' may generate unintended results, use parentheses to specify order of evaluation or a logical operator to separate comparison expressions</h3>
-<code>[bugprone-chained-comparison]</code>
-<p><i>libs/base/src/base/quat.test.cc 43 : 5</i></p>
+<h3>warning:  function 'CATCH2_INTERNAL_TEST_2' declared 'static', move to anonymous namespace instead</h3>
+<code>[misc-use-anonymous-namespace]</code>
+<p><i>libs/base/src/base/quat.test.cc 41 : 1</i></p>
 <pre>
-   43 |     REQUIRE(eu::Q(4, eu::v3(1, 2, 3)).get_vec_part() == approx(eu::v3(1, 2, 3)));
-      |     ^
+   41 | TEST_CASE("quat-testVecOp", "[quat]")
+      | ^
 </pre>
-<p> expanded from macro 'REQUIRE'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 26</i></p>
+<p> expanded from macro 'TEST_CASE'</p>
+<p><i>build/_deps/catch2-src/src/catch2/catch_test_macros.hpp 144 : 28</i></p>
 <pre>
-  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
-      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  144 |   #define TEST_CASE( ... ) INTERNAL_CATCH_TESTCASE( __VA_ARGS__ )
+      |                            ^
 </pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
+<p> expanded from macro 'INTERNAL_CATCH_TESTCASE'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_test_registry.hpp 118 : 35</i></p>
 <pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  118 |         INTERNAL_CATCH_TESTCASE2( INTERNAL_CATCH_UNIQUE_NAME( CATCH2_INTERNAL_TEST_ ), __VA_ARGS__ )
+      |                                   ^
 </pre>
-<p> operand 'v0' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 43 : 5</i></p>
+<p> expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_name.hpp 15 : 46</i></p>
 <pre>
-   43 |     REQUIRE(eu::Q(4, eu::v3(1, 2, 3)).get_vec_part() == approx(eu::v3(1, 2, 3)));
-      |     ^
+   15 | #  define INTERNAL_CATCH_UNIQUE_NAME( name ) INTERNAL_CATCH_UNIQUE_NAME_LINE( name, __COUNTER__ )
+      |                                              ^
 </pre>
-<p> expanded from macro 'REQUIRE'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 26</i></p>
+<p> expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME_LINE'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_name.hpp 13 : 55</i></p>
 <pre>
-  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
-      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   13 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE( name, line ) INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line )
+      |                                                       ^
 </pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
+<p> expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME_LINE2'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_name.hpp 12 : 56</i></p>
 <pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                               ^~~~~~~~~~~~~~~~~~~
-</pre>
-<p> operand 'v1' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 43 : 13</i></p>
-<pre>
-   43 |     REQUIRE(eu::Q(4, eu::v3(1, 2, 3)).get_vec_part() == approx(eu::v3(1, 2, 3)));
-      |             ^
-</pre>
-<p> expanded from macro 'REQUIRE'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 92</i></p>
-<pre>
-  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
-      |                                                                                            ^~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                                                      ^~~~~~~~~~~
-</pre>
-<p> operand 'v2' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 43 : 57</i></p>
-<pre>
-   43 |     REQUIRE(eu::Q(4, eu::v3(1, 2, 3)).get_vec_part() == approx(eu::v3(1, 2, 3)));
-      |                                                         ^
-</pre>
-<p> expanded from macro 'REQUIRE'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 92</i></p>
-<pre>
-  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
-      |                                                                                            ^~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                                                      ^~~~~~~~~~~
+   12 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line ) name##line
+      |                                                        ^
 </pre>
 <hr>
-<h3>warning:  chained comparison 'v0 <= v1 == v2' may generate unintended results, use parentheses to specify order of evaluation or a logical operator to separate comparison expressions</h3>
-<code>[bugprone-chained-comparison]</code>
-<p><i>libs/base/src/base/quat.test.cc 53 : 9</i></p>
+<h3>warning:  function 'CATCH2_INTERNAL_TEST_4' declared 'static', move to anonymous namespace instead</h3>
+<code>[misc-use-anonymous-namespace]</code>
+<p><i>libs/base/src/base/quat.test.cc 48 : 1</i></p>
 <pre>
-   53 |         REQUIRE(q.get_local_right() == approx(eu::common::right));
-      |         ^
+   48 | TEST_CASE("quat-testLocalAxis", "[quat]")
+      | ^
 </pre>
-<p> expanded from macro 'REQUIRE'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 26</i></p>
+<p> expanded from macro 'TEST_CASE'</p>
+<p><i>build/_deps/catch2-src/src/catch2/catch_test_macros.hpp 144 : 28</i></p>
 <pre>
-  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
-      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  144 |   #define TEST_CASE( ... ) INTERNAL_CATCH_TESTCASE( __VA_ARGS__ )
+      |                            ^
 </pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
+<p> expanded from macro 'INTERNAL_CATCH_TESTCASE'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_test_registry.hpp 118 : 35</i></p>
 <pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  118 |         INTERNAL_CATCH_TESTCASE2( INTERNAL_CATCH_UNIQUE_NAME( CATCH2_INTERNAL_TEST_ ), __VA_ARGS__ )
+      |                                   ^
 </pre>
-<p> operand 'v0' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 53 : 9</i></p>
+<p> expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_name.hpp 15 : 46</i></p>
 <pre>
-   53 |         REQUIRE(q.get_local_right() == approx(eu::common::right));
-      |         ^
+   15 | #  define INTERNAL_CATCH_UNIQUE_NAME( name ) INTERNAL_CATCH_UNIQUE_NAME_LINE( name, __COUNTER__ )
+      |                                              ^
 </pre>
-<p> expanded from macro 'REQUIRE'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 26</i></p>
+<p> expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME_LINE'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_name.hpp 13 : 55</i></p>
 <pre>
-  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
-      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   13 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE( name, line ) INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line )
+      |                                                       ^
 </pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
+<p> expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME_LINE2'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_name.hpp 12 : 56</i></p>
 <pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                               ^~~~~~~~~~~~~~~~~~~
-</pre>
-<p> operand 'v1' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 53 : 17</i></p>
-<pre>
-   53 |         REQUIRE(q.get_local_right() == approx(eu::common::right));
-      |                 ^
-</pre>
-<p> expanded from macro 'REQUIRE'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 92</i></p>
-<pre>
-  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
-      |                                                                                            ^~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                                                      ^~~~~~~~~~~
-</pre>
-<p> operand 'v2' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 53 : 40</i></p>
-<pre>
-   53 |         REQUIRE(q.get_local_right() == approx(eu::common::right));
-      |                                        ^
-</pre>
-<p> expanded from macro 'REQUIRE'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 92</i></p>
-<pre>
-  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
-      |                                                                                            ^~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                                                      ^~~~~~~~~~~
+   12 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line ) name##line
+      |                                                        ^
 </pre>
 <hr>
-<h3>warning:  chained comparison 'v0 <= v1 == v2' may generate unintended results, use parentheses to specify order of evaluation or a logical operator to separate comparison expressions</h3>
-<code>[bugprone-chained-comparison]</code>
-<p><i>libs/base/src/base/quat.test.cc 54 : 9</i></p>
+<h3>warning:  function 'CATCH2_INTERNAL_TEST_10' declared 'static', move to anonymous namespace instead</h3>
+<code>[misc-use-anonymous-namespace]</code>
+<p><i>libs/base/src/base/quat.test.cc 105 : 1</i></p>
 <pre>
-   54 |         REQUIRE(q.get_local_up() == approx(eu::common::up));
-      |         ^
+  105 | TEST_CASE("quat-testLook", "[quat]")
+      | ^
 </pre>
-<p> expanded from macro 'REQUIRE'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 26</i></p>
+<p> expanded from macro 'TEST_CASE'</p>
+<p><i>build/_deps/catch2-src/src/catch2/catch_test_macros.hpp 144 : 28</i></p>
 <pre>
-  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
-      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  144 |   #define TEST_CASE( ... ) INTERNAL_CATCH_TESTCASE( __VA_ARGS__ )
+      |                            ^
 </pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
+<p> expanded from macro 'INTERNAL_CATCH_TESTCASE'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_test_registry.hpp 118 : 35</i></p>
 <pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  118 |         INTERNAL_CATCH_TESTCASE2( INTERNAL_CATCH_UNIQUE_NAME( CATCH2_INTERNAL_TEST_ ), __VA_ARGS__ )
+      |                                   ^
 </pre>
-<p> operand 'v0' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 54 : 9</i></p>
+<p> expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_name.hpp 15 : 46</i></p>
 <pre>
-   54 |         REQUIRE(q.get_local_up() == approx(eu::common::up));
-      |         ^
+   15 | #  define INTERNAL_CATCH_UNIQUE_NAME( name ) INTERNAL_CATCH_UNIQUE_NAME_LINE( name, __COUNTER__ )
+      |                                              ^
 </pre>
-<p> expanded from macro 'REQUIRE'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 26</i></p>
+<p> expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME_LINE'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_name.hpp 13 : 55</i></p>
 <pre>
-  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
-      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   13 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE( name, line ) INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line )
+      |                                                       ^
 </pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
+<p> expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME_LINE2'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_name.hpp 12 : 56</i></p>
 <pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                               ^~~~~~~~~~~~~~~~~~~
-</pre>
-<p> operand 'v1' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 54 : 17</i></p>
-<pre>
-   54 |         REQUIRE(q.get_local_up() == approx(eu::common::up));
-      |                 ^
-</pre>
-<p> expanded from macro 'REQUIRE'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 92</i></p>
-<pre>
-  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
-      |                                                                                            ^~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                                                      ^~~~~~~~~~~
-</pre>
-<p> operand 'v2' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 54 : 37</i></p>
-<pre>
-   54 |         REQUIRE(q.get_local_up() == approx(eu::common::up));
-      |                                     ^
-</pre>
-<p> expanded from macro 'REQUIRE'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 92</i></p>
-<pre>
-  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
-      |                                                                                            ^~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                                                      ^~~~~~~~~~~
-</pre>
-<hr>
-<h3>warning:  chained comparison 'v0 <= v1 == v2' may generate unintended results, use parentheses to specify order of evaluation or a logical operator to separate comparison expressions</h3>
-<code>[bugprone-chained-comparison]</code>
-<p><i>libs/base/src/base/quat.test.cc 55 : 9</i></p>
-<pre>
-   55 |         REQUIRE(q.get_local_in() == approx(eu::common::in));
-      |         ^
-</pre>
-<p> expanded from macro 'REQUIRE'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 26</i></p>
-<pre>
-  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
-      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> operand 'v0' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 55 : 9</i></p>
-<pre>
-   55 |         REQUIRE(q.get_local_in() == approx(eu::common::in));
-      |         ^
-</pre>
-<p> expanded from macro 'REQUIRE'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 26</i></p>
-<pre>
-  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
-      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                               ^~~~~~~~~~~~~~~~~~~
-</pre>
-<p> operand 'v1' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 55 : 17</i></p>
-<pre>
-   55 |         REQUIRE(q.get_local_in() == approx(eu::common::in));
-      |                 ^
-</pre>
-<p> expanded from macro 'REQUIRE'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 92</i></p>
-<pre>
-  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
-      |                                                                                            ^~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                                                      ^~~~~~~~~~~
-</pre>
-<p> operand 'v2' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 55 : 37</i></p>
-<pre>
-   55 |         REQUIRE(q.get_local_in() == approx(eu::common::in));
-      |                                     ^
-</pre>
-<p> expanded from macro 'REQUIRE'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 92</i></p>
-<pre>
-  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
-      |                                                                                            ^~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                                                      ^~~~~~~~~~~
-</pre>
-<hr>
-<h3>warning:  chained comparison 'v0 <= v1 == v2' may generate unintended results, use parentheses to specify order of evaluation or a logical operator to separate comparison expressions</h3>
-<code>[bugprone-chained-comparison]</code>
-<p><i>libs/base/src/base/quat.test.cc 68 : 9</i></p>
-<pre>
-   68 |         REQUIRE(q.get_local_right() == approx(eu::common::in));
-      |         ^
-</pre>
-<p> expanded from macro 'REQUIRE'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 26</i></p>
-<pre>
-  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
-      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> operand 'v0' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 68 : 9</i></p>
-<pre>
-   68 |         REQUIRE(q.get_local_right() == approx(eu::common::in));
-      |         ^
-</pre>
-<p> expanded from macro 'REQUIRE'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 26</i></p>
-<pre>
-  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
-      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                               ^~~~~~~~~~~~~~~~~~~
-</pre>
-<p> operand 'v1' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 68 : 17</i></p>
-<pre>
-   68 |         REQUIRE(q.get_local_right() == approx(eu::common::in));
-      |                 ^
-</pre>
-<p> expanded from macro 'REQUIRE'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 92</i></p>
-<pre>
-  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
-      |                                                                                            ^~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                                                      ^~~~~~~~~~~
-</pre>
-<p> operand 'v2' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 68 : 40</i></p>
-<pre>
-   68 |         REQUIRE(q.get_local_right() == approx(eu::common::in));
-      |                                        ^
-</pre>
-<p> expanded from macro 'REQUIRE'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 92</i></p>
-<pre>
-  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
-      |                                                                                            ^~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                                                      ^~~~~~~~~~~
-</pre>
-<hr>
-<h3>warning:  chained comparison 'v0 <= v1 == v2' may generate unintended results, use parentheses to specify order of evaluation or a logical operator to separate comparison expressions</h3>
-<code>[bugprone-chained-comparison]</code>
-<p><i>libs/base/src/base/quat.test.cc 69 : 9</i></p>
-<pre>
-   69 |         REQUIRE(q.get_local_up() == approx(eu::common::up));
-      |         ^
-</pre>
-<p> expanded from macro 'REQUIRE'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 26</i></p>
-<pre>
-  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
-      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> operand 'v0' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 69 : 9</i></p>
-<pre>
-   69 |         REQUIRE(q.get_local_up() == approx(eu::common::up));
-      |         ^
-</pre>
-<p> expanded from macro 'REQUIRE'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 26</i></p>
-<pre>
-  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
-      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                               ^~~~~~~~~~~~~~~~~~~
-</pre>
-<p> operand 'v1' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 69 : 17</i></p>
-<pre>
-   69 |         REQUIRE(q.get_local_up() == approx(eu::common::up));
-      |                 ^
-</pre>
-<p> expanded from macro 'REQUIRE'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 92</i></p>
-<pre>
-  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
-      |                                                                                            ^~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                                                      ^~~~~~~~~~~
-</pre>
-<p> operand 'v2' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 69 : 37</i></p>
-<pre>
-   69 |         REQUIRE(q.get_local_up() == approx(eu::common::up));
-      |                                     ^
-</pre>
-<p> expanded from macro 'REQUIRE'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 92</i></p>
-<pre>
-  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
-      |                                                                                            ^~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                                                      ^~~~~~~~~~~
-</pre>
-<hr>
-<h3>warning:  chained comparison 'v0 <= v1 == v2' may generate unintended results, use parentheses to specify order of evaluation or a logical operator to separate comparison expressions</h3>
-<code>[bugprone-chained-comparison]</code>
-<p><i>libs/base/src/base/quat.test.cc 70 : 9</i></p>
-<pre>
-   70 |         REQUIRE(q.get_local_in() == approx(eu::common::left));
-      |         ^
-</pre>
-<p> expanded from macro 'REQUIRE'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 26</i></p>
-<pre>
-  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
-      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> operand 'v0' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 70 : 9</i></p>
-<pre>
-   70 |         REQUIRE(q.get_local_in() == approx(eu::common::left));
-      |         ^
-</pre>
-<p> expanded from macro 'REQUIRE'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 26</i></p>
-<pre>
-  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
-      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                               ^~~~~~~~~~~~~~~~~~~
-</pre>
-<p> operand 'v1' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 70 : 17</i></p>
-<pre>
-   70 |         REQUIRE(q.get_local_in() == approx(eu::common::left));
-      |                 ^
-</pre>
-<p> expanded from macro 'REQUIRE'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 92</i></p>
-<pre>
-  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
-      |                                                                                            ^~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                                                      ^~~~~~~~~~~
-</pre>
-<p> operand 'v2' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 70 : 37</i></p>
-<pre>
-   70 |         REQUIRE(q.get_local_in() == approx(eu::common::left));
-      |                                     ^
-</pre>
-<p> expanded from macro 'REQUIRE'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 92</i></p>
-<pre>
-  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
-      |                                                                                            ^~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                                                      ^~~~~~~~~~~
-</pre>
-<hr>
-<h3>warning:  chained comparison 'v0 <= v1 == v2' may generate unintended results, use parentheses to specify order of evaluation or a logical operator to separate comparison expressions</h3>
-<code>[bugprone-chained-comparison]</code>
-<p><i>libs/base/src/base/quat.test.cc 83 : 9</i></p>
-<pre>
-   83 |         REQUIRE(q.get_local_right() == approx(eu::common::right));
-      |         ^
-</pre>
-<p> expanded from macro 'REQUIRE'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 26</i></p>
-<pre>
-  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
-      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> operand 'v0' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 83 : 9</i></p>
-<pre>
-   83 |         REQUIRE(q.get_local_right() == approx(eu::common::right));
-      |         ^
-</pre>
-<p> expanded from macro 'REQUIRE'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 26</i></p>
-<pre>
-  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
-      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                               ^~~~~~~~~~~~~~~~~~~
-</pre>
-<p> operand 'v1' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 83 : 17</i></p>
-<pre>
-   83 |         REQUIRE(q.get_local_right() == approx(eu::common::right));
-      |                 ^
-</pre>
-<p> expanded from macro 'REQUIRE'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 92</i></p>
-<pre>
-  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
-      |                                                                                            ^~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                                                      ^~~~~~~~~~~
-</pre>
-<p> operand 'v2' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 83 : 40</i></p>
-<pre>
-   83 |         REQUIRE(q.get_local_right() == approx(eu::common::right));
-      |                                        ^
-</pre>
-<p> expanded from macro 'REQUIRE'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 92</i></p>
-<pre>
-  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
-      |                                                                                            ^~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                                                      ^~~~~~~~~~~
-</pre>
-<hr>
-<h3>warning:  chained comparison 'v0 <= v1 == v2' may generate unintended results, use parentheses to specify order of evaluation or a logical operator to separate comparison expressions</h3>
-<code>[bugprone-chained-comparison]</code>
-<p><i>libs/base/src/base/quat.test.cc 84 : 9</i></p>
-<pre>
-   84 |         REQUIRE(q.get_local_up() == approx(eu::common::out));
-      |         ^
-</pre>
-<p> expanded from macro 'REQUIRE'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 26</i></p>
-<pre>
-  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
-      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> operand 'v0' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 84 : 9</i></p>
-<pre>
-   84 |         REQUIRE(q.get_local_up() == approx(eu::common::out));
-      |         ^
-</pre>
-<p> expanded from macro 'REQUIRE'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 26</i></p>
-<pre>
-  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
-      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                               ^~~~~~~~~~~~~~~~~~~
-</pre>
-<p> operand 'v1' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 84 : 17</i></p>
-<pre>
-   84 |         REQUIRE(q.get_local_up() == approx(eu::common::out));
-      |                 ^
-</pre>
-<p> expanded from macro 'REQUIRE'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 92</i></p>
-<pre>
-  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
-      |                                                                                            ^~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                                                      ^~~~~~~~~~~
-</pre>
-<p> operand 'v2' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 84 : 37</i></p>
-<pre>
-   84 |         REQUIRE(q.get_local_up() == approx(eu::common::out));
-      |                                     ^
-</pre>
-<p> expanded from macro 'REQUIRE'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 92</i></p>
-<pre>
-  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
-      |                                                                                            ^~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                                                      ^~~~~~~~~~~
-</pre>
-<hr>
-<h3>warning:  chained comparison 'v0 <= v1 == v2' may generate unintended results, use parentheses to specify order of evaluation or a logical operator to separate comparison expressions</h3>
-<code>[bugprone-chained-comparison]</code>
-<p><i>libs/base/src/base/quat.test.cc 85 : 9</i></p>
-<pre>
-   85 |         REQUIRE(q.get_local_in() == approx(eu::common::up));
-      |         ^
-</pre>
-<p> expanded from macro 'REQUIRE'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 26</i></p>
-<pre>
-  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
-      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> operand 'v0' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 85 : 9</i></p>
-<pre>
-   85 |         REQUIRE(q.get_local_in() == approx(eu::common::up));
-      |         ^
-</pre>
-<p> expanded from macro 'REQUIRE'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 26</i></p>
-<pre>
-  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
-      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                               ^~~~~~~~~~~~~~~~~~~
-</pre>
-<p> operand 'v1' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 85 : 17</i></p>
-<pre>
-   85 |         REQUIRE(q.get_local_in() == approx(eu::common::up));
-      |                 ^
-</pre>
-<p> expanded from macro 'REQUIRE'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 92</i></p>
-<pre>
-  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
-      |                                                                                            ^~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                                                      ^~~~~~~~~~~
-</pre>
-<p> operand 'v2' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 85 : 37</i></p>
-<pre>
-   85 |         REQUIRE(q.get_local_in() == approx(eu::common::up));
-      |                                     ^
-</pre>
-<p> expanded from macro 'REQUIRE'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 92</i></p>
-<pre>
-  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
-      |                                                                                            ^~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                                                      ^~~~~~~~~~~
-</pre>
-<hr>
-<h3>warning:  chained comparison 'v0 <= v1 == v2' may generate unintended results, use parentheses to specify order of evaluation or a logical operator to separate comparison expressions</h3>
-<code>[bugprone-chained-comparison]</code>
-<p><i>libs/base/src/base/quat.test.cc 98 : 9</i></p>
-<pre>
-   98 |         REQUIRE(q.get_local_right() == approx(eu::common::down));
-      |         ^
-</pre>
-<p> expanded from macro 'REQUIRE'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 26</i></p>
-<pre>
-  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
-      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> operand 'v0' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 98 : 9</i></p>
-<pre>
-   98 |         REQUIRE(q.get_local_right() == approx(eu::common::down));
-      |         ^
-</pre>
-<p> expanded from macro 'REQUIRE'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 26</i></p>
-<pre>
-  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
-      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                               ^~~~~~~~~~~~~~~~~~~
-</pre>
-<p> operand 'v1' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 98 : 17</i></p>
-<pre>
-   98 |         REQUIRE(q.get_local_right() == approx(eu::common::down));
-      |                 ^
-</pre>
-<p> expanded from macro 'REQUIRE'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 92</i></p>
-<pre>
-  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
-      |                                                                                            ^~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                                                      ^~~~~~~~~~~
-</pre>
-<p> operand 'v2' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 98 : 40</i></p>
-<pre>
-   98 |         REQUIRE(q.get_local_right() == approx(eu::common::down));
-      |                                        ^
-</pre>
-<p> expanded from macro 'REQUIRE'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 92</i></p>
-<pre>
-  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
-      |                                                                                            ^~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                                                      ^~~~~~~~~~~
-</pre>
-<hr>
-<h3>warning:  chained comparison 'v0 <= v1 == v2' may generate unintended results, use parentheses to specify order of evaluation or a logical operator to separate comparison expressions</h3>
-<code>[bugprone-chained-comparison]</code>
-<p><i>libs/base/src/base/quat.test.cc 99 : 9</i></p>
-<pre>
-   99 |         REQUIRE(q.get_local_up() == approx(eu::common::right));
-      |         ^
-</pre>
-<p> expanded from macro 'REQUIRE'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 26</i></p>
-<pre>
-  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
-      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> operand 'v0' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 99 : 9</i></p>
-<pre>
-   99 |         REQUIRE(q.get_local_up() == approx(eu::common::right));
-      |         ^
-</pre>
-<p> expanded from macro 'REQUIRE'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 26</i></p>
-<pre>
-  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
-      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                               ^~~~~~~~~~~~~~~~~~~
-</pre>
-<p> operand 'v1' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 99 : 17</i></p>
-<pre>
-   99 |         REQUIRE(q.get_local_up() == approx(eu::common::right));
-      |                 ^
-</pre>
-<p> expanded from macro 'REQUIRE'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 92</i></p>
-<pre>
-  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
-      |                                                                                            ^~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                                                      ^~~~~~~~~~~
-</pre>
-<p> operand 'v2' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 99 : 37</i></p>
-<pre>
-   99 |         REQUIRE(q.get_local_up() == approx(eu::common::right));
-      |                                     ^
-</pre>
-<p> expanded from macro 'REQUIRE'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 92</i></p>
-<pre>
-  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
-      |                                                                                            ^~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                                                      ^~~~~~~~~~~
-</pre>
-<hr>
-<h3>warning:  chained comparison 'v0 <= v1 == v2' may generate unintended results, use parentheses to specify order of evaluation or a logical operator to separate comparison expressions</h3>
-<code>[bugprone-chained-comparison]</code>
-<p><i>libs/base/src/base/quat.test.cc 100 : 9</i></p>
-<pre>
-  100 |         REQUIRE(q.get_local_in() == approx(eu::common::in));
-      |         ^
-</pre>
-<p> expanded from macro 'REQUIRE'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 26</i></p>
-<pre>
-  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
-      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> operand 'v0' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 100 : 9</i></p>
-<pre>
-  100 |         REQUIRE(q.get_local_in() == approx(eu::common::in));
-      |         ^
-</pre>
-<p> expanded from macro 'REQUIRE'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 26</i></p>
-<pre>
-  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
-      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                               ^~~~~~~~~~~~~~~~~~~
-</pre>
-<p> operand 'v1' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 100 : 17</i></p>
-<pre>
-  100 |         REQUIRE(q.get_local_in() == approx(eu::common::in));
-      |                 ^
-</pre>
-<p> expanded from macro 'REQUIRE'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 92</i></p>
-<pre>
-  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
-      |                                                                                            ^~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                                                      ^~~~~~~~~~~
-</pre>
-<p> operand 'v2' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 100 : 37</i></p>
-<pre>
-  100 |         REQUIRE(q.get_local_in() == approx(eu::common::in));
-      |                                     ^
-</pre>
-<p> expanded from macro 'REQUIRE'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 92</i></p>
-<pre>
-  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
-      |                                                                                            ^~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                                                      ^~~~~~~~~~~
-</pre>
-<hr>
-<h3>warning:  chained comparison 'v0 <= v1 == v2' may generate unintended results, use parentheses to specify order of evaluation or a logical operator to separate comparison expressions</h3>
-<code>[bugprone-chained-comparison]</code>
-<p><i>libs/base/src/base/quat.test.cc 107 : 5</i></p>
-<pre>
-  107 |     EXPECT_PRED_FORMAT2
-      |     ^
-</pre>
-<p> expanded from macro 'EXPECT_PRED_FORMAT2'</p>
-<p><i>libs/base/src/base/quat.test.cc 46 : 35</i></p>
-<pre>
-   46 | #define EXPECT_PRED_FORMAT2(a, b) CHECK(b == approx(a))
-      |                                   ^~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'CHECK'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 132 : 24</i></p>
-<pre>
-  132 |   #define CHECK( ... ) INTERNAL_CATCH_TEST( "CHECK", Catch::ResultDisposition::ContinueOnFailure, __VA_ARGS__ )
-      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> operand 'v0' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 107 : 5</i></p>
-<pre>
-  107 |     EXPECT_PRED_FORMAT2
-      |     ^
-</pre>
-<p> expanded from macro 'EXPECT_PRED_FORMAT2'</p>
-<p><i>libs/base/src/base/quat.test.cc 46 : 35</i></p>
-<pre>
-   46 | #define EXPECT_PRED_FORMAT2(a, b) CHECK(b == approx(a))
-      |                                   ^~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'CHECK'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 132 : 24</i></p>
-<pre>
-  132 |   #define CHECK( ... ) INTERNAL_CATCH_TEST( "CHECK", Catch::ResultDisposition::ContinueOnFailure, __VA_ARGS__ )
-      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                               ^~~~~~~~~~~~~~~~~~~
-</pre>
-<p> operand 'v1' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 117 : 9</i></p>
-<pre>
-  117 |         eu::Q::look_at
-      |         ^
-</pre>
-<p> expanded from macro 'EXPECT_PRED_FORMAT2'</p>
-<p><i>libs/base/src/base/quat.test.cc 46 : 41</i></p>
-<pre>
-   46 | #define EXPECT_PRED_FORMAT2(a, b) CHECK(b == approx(a))
-      |                                         ^
-</pre>
-<p> expanded from macro 'CHECK'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 132 : 99</i></p>
-<pre>
-  132 |   #define CHECK( ... ) INTERNAL_CATCH_TEST( "CHECK", Catch::ResultDisposition::ContinueOnFailure, __VA_ARGS__ )
-      |                                                                                                   ^~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                                                      ^~~~~~~~~~~
-</pre>
-<p> operand 'v2' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 107 : 5</i></p>
-<pre>
-  107 |     EXPECT_PRED_FORMAT2
-      |     ^
-</pre>
-<p> expanded from macro 'EXPECT_PRED_FORMAT2'</p>
-<p><i>libs/base/src/base/quat.test.cc 46 : 46</i></p>
-<pre>
-   46 | #define EXPECT_PRED_FORMAT2(a, b) CHECK(b == approx(a))
-      |                                   ~~~~~~~~~~~^~~~~~~~~~
-</pre>
-<p> expanded from macro 'CHECK'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 132 : 99</i></p>
-<pre>
-  132 |   #define CHECK( ... ) INTERNAL_CATCH_TEST( "CHECK", Catch::ResultDisposition::ContinueOnFailure, __VA_ARGS__ )
-      |                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                                                      ^~~~~~~~~~~
-</pre>
-<hr>
-<h3>warning:  chained comparison 'v0 <= v1 == v2' may generate unintended results, use parentheses to specify order of evaluation or a logical operator to separate comparison expressions</h3>
-<code>[bugprone-chained-comparison]</code>
-<p><i>libs/base/src/base/quat.test.cc 124 : 5</i></p>
-<pre>
-  124 |     EXPECT_PRED_FORMAT2(
-      |     ^
-</pre>
-<p> expanded from macro 'EXPECT_PRED_FORMAT2'</p>
-<p><i>libs/base/src/base/quat.test.cc 46 : 35</i></p>
-<pre>
-   46 | #define EXPECT_PRED_FORMAT2(a, b) CHECK(b == approx(a))
-      |                                   ^~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'CHECK'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 132 : 24</i></p>
-<pre>
-  132 |   #define CHECK( ... ) INTERNAL_CATCH_TEST( "CHECK", Catch::ResultDisposition::ContinueOnFailure, __VA_ARGS__ )
-      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> operand 'v0' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 124 : 5</i></p>
-<pre>
-  124 |     EXPECT_PRED_FORMAT2(
-      |     ^
-</pre>
-<p> expanded from macro 'EXPECT_PRED_FORMAT2'</p>
-<p><i>libs/base/src/base/quat.test.cc 46 : 35</i></p>
-<pre>
-   46 | #define EXPECT_PRED_FORMAT2(a, b) CHECK(b == approx(a))
-      |                                   ^~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'CHECK'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 132 : 24</i></p>
-<pre>
-  132 |   #define CHECK( ... ) INTERNAL_CATCH_TEST( "CHECK", Catch::ResultDisposition::ContinueOnFailure, __VA_ARGS__ )
-      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                               ^~~~~~~~~~~~~~~~~~~
-</pre>
-<p> operand 'v1' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 127 : 13</i></p>
-<pre>
-  127 |             eu::Q::look_at(
-      |             ^
-</pre>
-<p> expanded from macro 'EXPECT_PRED_FORMAT2'</p>
-<p><i>libs/base/src/base/quat.test.cc 46 : 41</i></p>
-<pre>
-   46 | #define EXPECT_PRED_FORMAT2(a, b) CHECK(b == approx(a))
-      |                                         ^
-</pre>
-<p> expanded from macro 'CHECK'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 132 : 99</i></p>
-<pre>
-  132 |   #define CHECK( ... ) INTERNAL_CATCH_TEST( "CHECK", Catch::ResultDisposition::ContinueOnFailure, __VA_ARGS__ )
-      |                                                                                                   ^~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                                                      ^~~~~~~~~~~
-</pre>
-<p> operand 'v2' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 124 : 5</i></p>
-<pre>
-  124 |     EXPECT_PRED_FORMAT2(
-      |     ^
-</pre>
-<p> expanded from macro 'EXPECT_PRED_FORMAT2'</p>
-<p><i>libs/base/src/base/quat.test.cc 46 : 46</i></p>
-<pre>
-   46 | #define EXPECT_PRED_FORMAT2(a, b) CHECK(b == approx(a))
-      |                                   ~~~~~~~~~~~^~~~~~~~~~
-</pre>
-<p> expanded from macro 'CHECK'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 132 : 99</i></p>
-<pre>
-  132 |   #define CHECK( ... ) INTERNAL_CATCH_TEST( "CHECK", Catch::ResultDisposition::ContinueOnFailure, __VA_ARGS__ )
-      |                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                                                      ^~~~~~~~~~~
-</pre>
-<hr>
-<h3>warning:  chained comparison 'v0 <= v1 == v2' may generate unintended results, use parentheses to specify order of evaluation or a logical operator to separate comparison expressions</h3>
-<code>[bugprone-chained-comparison]</code>
-<p><i>libs/base/src/base/quat.test.cc 131 : 5</i></p>
-<pre>
-  131 |     EXPECT_PRED_FORMAT2(
-      |     ^
-</pre>
-<p> expanded from macro 'EXPECT_PRED_FORMAT2'</p>
-<p><i>libs/base/src/base/quat.test.cc 46 : 35</i></p>
-<pre>
-   46 | #define EXPECT_PRED_FORMAT2(a, b) CHECK(b == approx(a))
-      |                                   ^~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'CHECK'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 132 : 24</i></p>
-<pre>
-  132 |   #define CHECK( ... ) INTERNAL_CATCH_TEST( "CHECK", Catch::ResultDisposition::ContinueOnFailure, __VA_ARGS__ )
-      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> operand 'v0' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 131 : 5</i></p>
-<pre>
-  131 |     EXPECT_PRED_FORMAT2(
-      |     ^
-</pre>
-<p> expanded from macro 'EXPECT_PRED_FORMAT2'</p>
-<p><i>libs/base/src/base/quat.test.cc 46 : 35</i></p>
-<pre>
-   46 | #define EXPECT_PRED_FORMAT2(a, b) CHECK(b == approx(a))
-      |                                   ^~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'CHECK'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 132 : 24</i></p>
-<pre>
-  132 |   #define CHECK( ... ) INTERNAL_CATCH_TEST( "CHECK", Catch::ResultDisposition::ContinueOnFailure, __VA_ARGS__ )
-      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                               ^~~~~~~~~~~~~~~~~~~
-</pre>
-<p> operand 'v1' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 134 : 13</i></p>
-<pre>
-  134 |             eu::Q::look_at(
-      |             ^
-</pre>
-<p> expanded from macro 'EXPECT_PRED_FORMAT2'</p>
-<p><i>libs/base/src/base/quat.test.cc 46 : 41</i></p>
-<pre>
-   46 | #define EXPECT_PRED_FORMAT2(a, b) CHECK(b == approx(a))
-      |                                         ^
-</pre>
-<p> expanded from macro 'CHECK'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 132 : 99</i></p>
-<pre>
-  132 |   #define CHECK( ... ) INTERNAL_CATCH_TEST( "CHECK", Catch::ResultDisposition::ContinueOnFailure, __VA_ARGS__ )
-      |                                                                                                   ^~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                                                      ^~~~~~~~~~~
-</pre>
-<p> operand 'v2' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 131 : 5</i></p>
-<pre>
-  131 |     EXPECT_PRED_FORMAT2(
-      |     ^
-</pre>
-<p> expanded from macro 'EXPECT_PRED_FORMAT2'</p>
-<p><i>libs/base/src/base/quat.test.cc 46 : 46</i></p>
-<pre>
-   46 | #define EXPECT_PRED_FORMAT2(a, b) CHECK(b == approx(a))
-      |                                   ~~~~~~~~~~~^~~~~~~~~~
-</pre>
-<p> expanded from macro 'CHECK'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 132 : 99</i></p>
-<pre>
-  132 |   #define CHECK( ... ) INTERNAL_CATCH_TEST( "CHECK", Catch::ResultDisposition::ContinueOnFailure, __VA_ARGS__ )
-      |                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                                                      ^~~~~~~~~~~
-</pre>
-<hr>
-<h3>warning:  chained comparison 'v0 <= v1 == v2' may generate unintended results, use parentheses to specify order of evaluation or a logical operator to separate comparison expressions</h3>
-<code>[bugprone-chained-comparison]</code>
-<p><i>libs/base/src/base/quat.test.cc 142 : 5</i></p>
-<pre>
-  142 |     EXPECT_PRED_FORMAT2(
-      |     ^
-</pre>
-<p> expanded from macro 'EXPECT_PRED_FORMAT2'</p>
-<p><i>libs/base/src/base/quat.test.cc 46 : 35</i></p>
-<pre>
-   46 | #define EXPECT_PRED_FORMAT2(a, b) CHECK(b == approx(a))
-      |                                   ^~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'CHECK'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 132 : 24</i></p>
-<pre>
-  132 |   #define CHECK( ... ) INTERNAL_CATCH_TEST( "CHECK", Catch::ResultDisposition::ContinueOnFailure, __VA_ARGS__ )
-      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> operand 'v0' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 142 : 5</i></p>
-<pre>
-  142 |     EXPECT_PRED_FORMAT2(
-      |     ^
-</pre>
-<p> expanded from macro 'EXPECT_PRED_FORMAT2'</p>
-<p><i>libs/base/src/base/quat.test.cc 46 : 35</i></p>
-<pre>
-   46 | #define EXPECT_PRED_FORMAT2(a, b) CHECK(b == approx(a))
-      |                                   ^~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'CHECK'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 132 : 24</i></p>
-<pre>
-  132 |   #define CHECK( ... ) INTERNAL_CATCH_TEST( "CHECK", Catch::ResultDisposition::ContinueOnFailure, __VA_ARGS__ )
-      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                               ^~~~~~~~~~~~~~~~~~~
-</pre>
-<p> operand 'v1' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 145 : 13</i></p>
-<pre>
-  145 |             eu::Q::look_in_direction(
-      |             ^
-</pre>
-<p> expanded from macro 'EXPECT_PRED_FORMAT2'</p>
-<p><i>libs/base/src/base/quat.test.cc 46 : 41</i></p>
-<pre>
-   46 | #define EXPECT_PRED_FORMAT2(a, b) CHECK(b == approx(a))
-      |                                         ^
-</pre>
-<p> expanded from macro 'CHECK'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 132 : 99</i></p>
-<pre>
-  132 |   #define CHECK( ... ) INTERNAL_CATCH_TEST( "CHECK", Catch::ResultDisposition::ContinueOnFailure, __VA_ARGS__ )
-      |                                                                                                   ^~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                                                      ^~~~~~~~~~~
-</pre>
-<p> operand 'v2' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 142 : 5</i></p>
-<pre>
-  142 |     EXPECT_PRED_FORMAT2(
-      |     ^
-</pre>
-<p> expanded from macro 'EXPECT_PRED_FORMAT2'</p>
-<p><i>libs/base/src/base/quat.test.cc 46 : 46</i></p>
-<pre>
-   46 | #define EXPECT_PRED_FORMAT2(a, b) CHECK(b == approx(a))
-      |                                   ~~~~~~~~~~~^~~~~~~~~~
-</pre>
-<p> expanded from macro 'CHECK'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 132 : 99</i></p>
-<pre>
-  132 |   #define CHECK( ... ) INTERNAL_CATCH_TEST( "CHECK", Catch::ResultDisposition::ContinueOnFailure, __VA_ARGS__ )
-      |                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                                                      ^~~~~~~~~~~
+   12 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line ) name##line
+      |                                                        ^
 </pre>
 <hr>
 <h3>warning:  unchecked access to optional value</h3>
@@ -1452,208 +176,12 @@
       |                      ^
 </pre>
 <hr>
-<h3>warning:  chained comparison 'v0 <= v1 == v2' may generate unintended results, use parentheses to specify order of evaluation or a logical operator to separate comparison expressions</h3>
-<code>[bugprone-chained-comparison]</code>
-<p><i>libs/base/src/base/quat.test.cc 147 : 5</i></p>
-<pre>
-  147 |     EXPECT_PRED_FORMAT2(
-      |     ^
-</pre>
-<p> expanded from macro 'EXPECT_PRED_FORMAT2'</p>
-<p><i>libs/base/src/base/quat.test.cc 46 : 35</i></p>
-<pre>
-   46 | #define EXPECT_PRED_FORMAT2(a, b) CHECK(b == approx(a))
-      |                                   ^~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'CHECK'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 132 : 24</i></p>
-<pre>
-  132 |   #define CHECK( ... ) INTERNAL_CATCH_TEST( "CHECK", Catch::ResultDisposition::ContinueOnFailure, __VA_ARGS__ )
-      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> operand 'v0' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 147 : 5</i></p>
-<pre>
-  147 |     EXPECT_PRED_FORMAT2(
-      |     ^
-</pre>
-<p> expanded from macro 'EXPECT_PRED_FORMAT2'</p>
-<p><i>libs/base/src/base/quat.test.cc 46 : 35</i></p>
-<pre>
-   46 | #define EXPECT_PRED_FORMAT2(a, b) CHECK(b == approx(a))
-      |                                   ^~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'CHECK'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 132 : 24</i></p>
-<pre>
-  132 |   #define CHECK( ... ) INTERNAL_CATCH_TEST( "CHECK", Catch::ResultDisposition::ContinueOnFailure, __VA_ARGS__ )
-      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                               ^~~~~~~~~~~~~~~~~~~
-</pre>
-<p> operand 'v1' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 150 : 13</i></p>
-<pre>
-  150 |             eu::Q::look_in_direction(
-      |             ^
-</pre>
-<p> expanded from macro 'EXPECT_PRED_FORMAT2'</p>
-<p><i>libs/base/src/base/quat.test.cc 46 : 41</i></p>
-<pre>
-   46 | #define EXPECT_PRED_FORMAT2(a, b) CHECK(b == approx(a))
-      |                                         ^
-</pre>
-<p> expanded from macro 'CHECK'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 132 : 99</i></p>
-<pre>
-  132 |   #define CHECK( ... ) INTERNAL_CATCH_TEST( "CHECK", Catch::ResultDisposition::ContinueOnFailure, __VA_ARGS__ )
-      |                                                                                                   ^~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                                                      ^~~~~~~~~~~
-</pre>
-<p> operand 'v2' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 147 : 5</i></p>
-<pre>
-  147 |     EXPECT_PRED_FORMAT2(
-      |     ^
-</pre>
-<p> expanded from macro 'EXPECT_PRED_FORMAT2'</p>
-<p><i>libs/base/src/base/quat.test.cc 46 : 46</i></p>
-<pre>
-   46 | #define EXPECT_PRED_FORMAT2(a, b) CHECK(b == approx(a))
-      |                                   ~~~~~~~~~~~^~~~~~~~~~
-</pre>
-<p> expanded from macro 'CHECK'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 132 : 99</i></p>
-<pre>
-  132 |   #define CHECK( ... ) INTERNAL_CATCH_TEST( "CHECK", Catch::ResultDisposition::ContinueOnFailure, __VA_ARGS__ )
-      |                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                                                      ^~~~~~~~~~~
-</pre>
-<hr>
 <h3>warning:  unchecked access to optional value</h3>
 <code>[bugprone-unchecked-optional-access]</code>
 <p><i>libs/base/src/base/quat.test.cc 151 : 22</i></p>
 <pre>
   151 |                     *eu::v3(0, 0, 9).get_normalized(), eu::common::up));
       |                      ^
-</pre>
-<hr>
-<h3>warning:  chained comparison 'v0 <= v1 == v2' may generate unintended results, use parentheses to specify order of evaluation or a logical operator to separate comparison expressions</h3>
-<code>[bugprone-chained-comparison]</code>
-<p><i>libs/base/src/base/quat.test.cc 152 : 5</i></p>
-<pre>
-  152 |     EXPECT_PRED_FORMAT2(
-      |     ^
-</pre>
-<p> expanded from macro 'EXPECT_PRED_FORMAT2'</p>
-<p><i>libs/base/src/base/quat.test.cc 46 : 35</i></p>
-<pre>
-   46 | #define EXPECT_PRED_FORMAT2(a, b) CHECK(b == approx(a))
-      |                                   ^~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'CHECK'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 132 : 24</i></p>
-<pre>
-  132 |   #define CHECK( ... ) INTERNAL_CATCH_TEST( "CHECK", Catch::ResultDisposition::ContinueOnFailure, __VA_ARGS__ )
-      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> operand 'v0' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 152 : 5</i></p>
-<pre>
-  152 |     EXPECT_PRED_FORMAT2(
-      |     ^
-</pre>
-<p> expanded from macro 'EXPECT_PRED_FORMAT2'</p>
-<p><i>libs/base/src/base/quat.test.cc 46 : 35</i></p>
-<pre>
-   46 | #define EXPECT_PRED_FORMAT2(a, b) CHECK(b == approx(a))
-      |                                   ^~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'CHECK'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 132 : 24</i></p>
-<pre>
-  132 |   #define CHECK( ... ) INTERNAL_CATCH_TEST( "CHECK", Catch::ResultDisposition::ContinueOnFailure, __VA_ARGS__ )
-      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                               ^~~~~~~~~~~~~~~~~~~
-</pre>
-<p> operand 'v1' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 155 : 13</i></p>
-<pre>
-  155 |             eu::Q::look_in_direction(
-      |             ^
-</pre>
-<p> expanded from macro 'EXPECT_PRED_FORMAT2'</p>
-<p><i>libs/base/src/base/quat.test.cc 46 : 41</i></p>
-<pre>
-   46 | #define EXPECT_PRED_FORMAT2(a, b) CHECK(b == approx(a))
-      |                                         ^
-</pre>
-<p> expanded from macro 'CHECK'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 132 : 99</i></p>
-<pre>
-  132 |   #define CHECK( ... ) INTERNAL_CATCH_TEST( "CHECK", Catch::ResultDisposition::ContinueOnFailure, __VA_ARGS__ )
-      |                                                                                                   ^~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                                                      ^~~~~~~~~~~
-</pre>
-<p> operand 'v2' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 152 : 5</i></p>
-<pre>
-  152 |     EXPECT_PRED_FORMAT2(
-      |     ^
-</pre>
-<p> expanded from macro 'EXPECT_PRED_FORMAT2'</p>
-<p><i>libs/base/src/base/quat.test.cc 46 : 46</i></p>
-<pre>
-   46 | #define EXPECT_PRED_FORMAT2(a, b) CHECK(b == approx(a))
-      |                                   ~~~~~~~~~~~^~~~~~~~~~
-</pre>
-<p> expanded from macro 'CHECK'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 132 : 99</i></p>
-<pre>
-  132 |   #define CHECK( ... ) INTERNAL_CATCH_TEST( "CHECK", Catch::ResultDisposition::ContinueOnFailure, __VA_ARGS__ )
-      |                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                                                      ^~~~~~~~~~~
 </pre>
 <hr>
 <h3>warning:  unchecked access to optional value</h3>
@@ -1664,104 +192,6 @@
       |                      ^
 </pre>
 <hr>
-<h3>warning:  chained comparison 'v0 <= v1 == v2' may generate unintended results, use parentheses to specify order of evaluation or a logical operator to separate comparison expressions</h3>
-<code>[bugprone-chained-comparison]</code>
-<p><i>libs/base/src/base/quat.test.cc 157 : 5</i></p>
-<pre>
-  157 |     EXPECT_PRED_FORMAT2(
-      |     ^
-</pre>
-<p> expanded from macro 'EXPECT_PRED_FORMAT2'</p>
-<p><i>libs/base/src/base/quat.test.cc 46 : 35</i></p>
-<pre>
-   46 | #define EXPECT_PRED_FORMAT2(a, b) CHECK(b == approx(a))
-      |                                   ^~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'CHECK'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 132 : 24</i></p>
-<pre>
-  132 |   #define CHECK( ... ) INTERNAL_CATCH_TEST( "CHECK", Catch::ResultDisposition::ContinueOnFailure, __VA_ARGS__ )
-      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> operand 'v0' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 157 : 5</i></p>
-<pre>
-  157 |     EXPECT_PRED_FORMAT2(
-      |     ^
-</pre>
-<p> expanded from macro 'EXPECT_PRED_FORMAT2'</p>
-<p><i>libs/base/src/base/quat.test.cc 46 : 35</i></p>
-<pre>
-   46 | #define EXPECT_PRED_FORMAT2(a, b) CHECK(b == approx(a))
-      |                                   ^~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'CHECK'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 132 : 24</i></p>
-<pre>
-  132 |   #define CHECK( ... ) INTERNAL_CATCH_TEST( "CHECK", Catch::ResultDisposition::ContinueOnFailure, __VA_ARGS__ )
-      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                               ^~~~~~~~~~~~~~~~~~~
-</pre>
-<p> operand 'v1' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 160 : 13</i></p>
-<pre>
-  160 |             eu::Q::look_in_direction(
-      |             ^
-</pre>
-<p> expanded from macro 'EXPECT_PRED_FORMAT2'</p>
-<p><i>libs/base/src/base/quat.test.cc 46 : 41</i></p>
-<pre>
-   46 | #define EXPECT_PRED_FORMAT2(a, b) CHECK(b == approx(a))
-      |                                         ^
-</pre>
-<p> expanded from macro 'CHECK'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 132 : 99</i></p>
-<pre>
-  132 |   #define CHECK( ... ) INTERNAL_CATCH_TEST( "CHECK", Catch::ResultDisposition::ContinueOnFailure, __VA_ARGS__ )
-      |                                                                                                   ^~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                                                      ^~~~~~~~~~~
-</pre>
-<p> operand 'v2' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 157 : 5</i></p>
-<pre>
-  157 |     EXPECT_PRED_FORMAT2(
-      |     ^
-</pre>
-<p> expanded from macro 'EXPECT_PRED_FORMAT2'</p>
-<p><i>libs/base/src/base/quat.test.cc 46 : 46</i></p>
-<pre>
-   46 | #define EXPECT_PRED_FORMAT2(a, b) CHECK(b == approx(a))
-      |                                   ~~~~~~~~~~~^~~~~~~~~~
-</pre>
-<p> expanded from macro 'CHECK'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 132 : 99</i></p>
-<pre>
-  132 |   #define CHECK( ... ) INTERNAL_CATCH_TEST( "CHECK", Catch::ResultDisposition::ContinueOnFailure, __VA_ARGS__ )
-      |                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                                                      ^~~~~~~~~~~
-</pre>
-<hr>
 <h3>warning:  unchecked access to optional value</h3>
 <code>[bugprone-unchecked-optional-access]</code>
 <p><i>libs/base/src/base/quat.test.cc 161 : 22</i></p>
@@ -1770,1304 +200,156 @@
       |                      ^
 </pre>
 <hr>
-<h3>warning:  chained comparison 'v0 <= v1 == v2' may generate unintended results, use parentheses to specify order of evaluation or a logical operator to separate comparison expressions</h3>
-<code>[bugprone-chained-comparison]</code>
-<p><i>libs/base/src/base/quat.test.cc 169 : 5</i></p>
+<h3>warning:  function 'CATCH2_INTERNAL_TEST_12' declared 'static', move to anonymous namespace instead</h3>
+<code>[misc-use-anonymous-namespace]</code>
+<p><i>libs/base/src/base/quat.test.cc 167 : 1</i></p>
 <pre>
-  169 |     EXPECT_PRED_FORMAT2(
-      |     ^
+  167 | TEST_CASE("quat-testCombine", "[quat]")
+      | ^
 </pre>
-<p> expanded from macro 'EXPECT_PRED_FORMAT2'</p>
-<p><i>libs/base/src/base/quat.test.cc 46 : 35</i></p>
+<p> expanded from macro 'TEST_CASE'</p>
+<p><i>build/_deps/catch2-src/src/catch2/catch_test_macros.hpp 144 : 28</i></p>
 <pre>
-   46 | #define EXPECT_PRED_FORMAT2(a, b) CHECK(b == approx(a))
-      |                                   ^~~~~~~~~~~~~~~~~~~~~
+  144 |   #define TEST_CASE( ... ) INTERNAL_CATCH_TESTCASE( __VA_ARGS__ )
+      |                            ^
 </pre>
-<p> expanded from macro 'CHECK'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 132 : 24</i></p>
+<p> expanded from macro 'INTERNAL_CATCH_TESTCASE'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_test_registry.hpp 118 : 35</i></p>
 <pre>
-  132 |   #define CHECK( ... ) INTERNAL_CATCH_TEST( "CHECK", Catch::ResultDisposition::ContinueOnFailure, __VA_ARGS__ )
-      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  118 |         INTERNAL_CATCH_TESTCASE2( INTERNAL_CATCH_UNIQUE_NAME( CATCH2_INTERNAL_TEST_ ), __VA_ARGS__ )
+      |                                   ^
 </pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
+<p> expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_name.hpp 15 : 46</i></p>
 <pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   15 | #  define INTERNAL_CATCH_UNIQUE_NAME( name ) INTERNAL_CATCH_UNIQUE_NAME_LINE( name, __COUNTER__ )
+      |                                              ^
 </pre>
-<p> operand 'v0' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 169 : 5</i></p>
+<p> expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME_LINE'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_name.hpp 13 : 55</i></p>
 <pre>
-  169 |     EXPECT_PRED_FORMAT2(
-      |     ^
+   13 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE( name, line ) INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line )
+      |                                                       ^
 </pre>
-<p> expanded from macro 'EXPECT_PRED_FORMAT2'</p>
-<p><i>libs/base/src/base/quat.test.cc 46 : 35</i></p>
+<p> expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME_LINE2'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_name.hpp 12 : 56</i></p>
 <pre>
-   46 | #define EXPECT_PRED_FORMAT2(a, b) CHECK(b == approx(a))
-      |                                   ^~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'CHECK'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 132 : 24</i></p>
-<pre>
-  132 |   #define CHECK( ... ) INTERNAL_CATCH_TEST( "CHECK", Catch::ResultDisposition::ContinueOnFailure, __VA_ARGS__ )
-      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                               ^~~~~~~~~~~~~~~~~~~
-</pre>
-<p> operand 'v1' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 172 : 13</i></p>
-<pre>
-  172 |             eu::q_identity.then_get_rotated(
-      |             ^
-</pre>
-<p> expanded from macro 'EXPECT_PRED_FORMAT2'</p>
-<p><i>libs/base/src/base/quat.test.cc 46 : 41</i></p>
-<pre>
-   46 | #define EXPECT_PRED_FORMAT2(a, b) CHECK(b == approx(a))
-      |                                         ^
-</pre>
-<p> expanded from macro 'CHECK'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 132 : 99</i></p>
-<pre>
-  132 |   #define CHECK( ... ) INTERNAL_CATCH_TEST( "CHECK", Catch::ResultDisposition::ContinueOnFailure, __VA_ARGS__ )
-      |                                                                                                   ^~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                                                      ^~~~~~~~~~~
-</pre>
-<p> operand 'v2' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 169 : 5</i></p>
-<pre>
-  169 |     EXPECT_PRED_FORMAT2(
-      |     ^
-</pre>
-<p> expanded from macro 'EXPECT_PRED_FORMAT2'</p>
-<p><i>libs/base/src/base/quat.test.cc 46 : 46</i></p>
-<pre>
-   46 | #define EXPECT_PRED_FORMAT2(a, b) CHECK(b == approx(a))
-      |                                   ~~~~~~~~~~~^~~~~~~~~~
-</pre>
-<p> expanded from macro 'CHECK'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 132 : 99</i></p>
-<pre>
-  132 |   #define CHECK( ... ) INTERNAL_CATCH_TEST( "CHECK", Catch::ResultDisposition::ContinueOnFailure, __VA_ARGS__ )
-      |                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                                                      ^~~~~~~~~~~
+   12 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line ) name##line
+      |                                                        ^
 </pre>
 <hr>
-<h3>warning:  chained comparison 'v0 <= v1 == v2' may generate unintended results, use parentheses to specify order of evaluation or a logical operator to separate comparison expressions</h3>
-<code>[bugprone-chained-comparison]</code>
-<p><i>libs/base/src/base/quat.test.cc 177 : 5</i></p>
+<h3>warning:  function 'CATCH2_INTERNAL_TEST_14' declared 'static', move to anonymous namespace instead</h3>
+<code>[misc-use-anonymous-namespace]</code>
+<p><i>libs/base/src/base/quat.test.cc 212 : 1</i></p>
 <pre>
-  177 |     EXPECT_PRED_FORMAT2(
-      |     ^
+  212 | TEST_CASE("quat-verifyTestAxisAngle", "[quat]")
+      | ^
 </pre>
-<p> expanded from macro 'EXPECT_PRED_FORMAT2'</p>
-<p><i>libs/base/src/base/quat.test.cc 46 : 35</i></p>
+<p> expanded from macro 'TEST_CASE'</p>
+<p><i>build/_deps/catch2-src/src/catch2/catch_test_macros.hpp 144 : 28</i></p>
 <pre>
-   46 | #define EXPECT_PRED_FORMAT2(a, b) CHECK(b == approx(a))
-      |                                   ^~~~~~~~~~~~~~~~~~~~~
+  144 |   #define TEST_CASE( ... ) INTERNAL_CATCH_TESTCASE( __VA_ARGS__ )
+      |                            ^
 </pre>
-<p> expanded from macro 'CHECK'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 132 : 24</i></p>
+<p> expanded from macro 'INTERNAL_CATCH_TESTCASE'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_test_registry.hpp 118 : 35</i></p>
 <pre>
-  132 |   #define CHECK( ... ) INTERNAL_CATCH_TEST( "CHECK", Catch::ResultDisposition::ContinueOnFailure, __VA_ARGS__ )
-      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  118 |         INTERNAL_CATCH_TESTCASE2( INTERNAL_CATCH_UNIQUE_NAME( CATCH2_INTERNAL_TEST_ ), __VA_ARGS__ )
+      |                                   ^
 </pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
+<p> expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_name.hpp 15 : 46</i></p>
 <pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   15 | #  define INTERNAL_CATCH_UNIQUE_NAME( name ) INTERNAL_CATCH_UNIQUE_NAME_LINE( name, __COUNTER__ )
+      |                                              ^
 </pre>
-<p> operand 'v0' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 177 : 5</i></p>
+<p> expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME_LINE'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_name.hpp 13 : 55</i></p>
 <pre>
-  177 |     EXPECT_PRED_FORMAT2(
-      |     ^
+   13 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE( name, line ) INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line )
+      |                                                       ^
 </pre>
-<p> expanded from macro 'EXPECT_PRED_FORMAT2'</p>
-<p><i>libs/base/src/base/quat.test.cc 46 : 35</i></p>
+<p> expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME_LINE2'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_name.hpp 12 : 56</i></p>
 <pre>
-   46 | #define EXPECT_PRED_FORMAT2(a, b) CHECK(b == approx(a))
-      |                                   ^~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'CHECK'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 132 : 24</i></p>
-<pre>
-  132 |   #define CHECK( ... ) INTERNAL_CATCH_TEST( "CHECK", Catch::ResultDisposition::ContinueOnFailure, __VA_ARGS__ )
-      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                               ^~~~~~~~~~~~~~~~~~~
-</pre>
-<p> operand 'v1' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 180 : 13</i></p>
-<pre>
-  180 |             eu::Q::from(
-      |             ^
-</pre>
-<p> expanded from macro 'EXPECT_PRED_FORMAT2'</p>
-<p><i>libs/base/src/base/quat.test.cc 46 : 41</i></p>
-<pre>
-   46 | #define EXPECT_PRED_FORMAT2(a, b) CHECK(b == approx(a))
-      |                                         ^
-</pre>
-<p> expanded from macro 'CHECK'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 132 : 99</i></p>
-<pre>
-  132 |   #define CHECK( ... ) INTERNAL_CATCH_TEST( "CHECK", Catch::ResultDisposition::ContinueOnFailure, __VA_ARGS__ )
-      |                                                                                                   ^~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                                                      ^~~~~~~~~~~
-</pre>
-<p> operand 'v2' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 177 : 5</i></p>
-<pre>
-  177 |     EXPECT_PRED_FORMAT2(
-      |     ^
-</pre>
-<p> expanded from macro 'EXPECT_PRED_FORMAT2'</p>
-<p><i>libs/base/src/base/quat.test.cc 46 : 46</i></p>
-<pre>
-   46 | #define EXPECT_PRED_FORMAT2(a, b) CHECK(b == approx(a))
-      |                                   ~~~~~~~~~~~^~~~~~~~~~
-</pre>
-<p> expanded from macro 'CHECK'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 132 : 99</i></p>
-<pre>
-  132 |   #define CHECK( ... ) INTERNAL_CATCH_TEST( "CHECK", Catch::ResultDisposition::ContinueOnFailure, __VA_ARGS__ )
-      |                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                                                      ^~~~~~~~~~~
+   12 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line ) name##line
+      |                                                        ^
 </pre>
 <hr>
-<h3>warning:  chained comparison 'v0 <= v1 == v2' may generate unintended results, use parentheses to specify order of evaluation or a logical operator to separate comparison expressions</h3>
-<code>[bugprone-chained-comparison]</code>
-<p><i>libs/base/src/base/quat.test.cc 185 : 5</i></p>
+<h3>warning:  function 'CATCH2_INTERNAL_TEST_16' declared 'static', move to anonymous namespace instead</h3>
+<code>[misc-use-anonymous-namespace]</code>
+<p><i>libs/base/src/base/quat.test.cc 237 : 1</i></p>
 <pre>
-  185 |     EXPECT_PRED_FORMAT2(
-      |     ^
+  237 | TEST_CASE("quat-checkAxisAngle", "[quat]")
+      | ^
 </pre>
-<p> expanded from macro 'EXPECT_PRED_FORMAT2'</p>
-<p><i>libs/base/src/base/quat.test.cc 46 : 35</i></p>
+<p> expanded from macro 'TEST_CASE'</p>
+<p><i>build/_deps/catch2-src/src/catch2/catch_test_macros.hpp 144 : 28</i></p>
 <pre>
-   46 | #define EXPECT_PRED_FORMAT2(a, b) CHECK(b == approx(a))
-      |                                   ^~~~~~~~~~~~~~~~~~~~~
+  144 |   #define TEST_CASE( ... ) INTERNAL_CATCH_TESTCASE( __VA_ARGS__ )
+      |                            ^
 </pre>
-<p> expanded from macro 'CHECK'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 132 : 24</i></p>
+<p> expanded from macro 'INTERNAL_CATCH_TESTCASE'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_test_registry.hpp 118 : 35</i></p>
 <pre>
-  132 |   #define CHECK( ... ) INTERNAL_CATCH_TEST( "CHECK", Catch::ResultDisposition::ContinueOnFailure, __VA_ARGS__ )
-      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  118 |         INTERNAL_CATCH_TESTCASE2( INTERNAL_CATCH_UNIQUE_NAME( CATCH2_INTERNAL_TEST_ ), __VA_ARGS__ )
+      |                                   ^
 </pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
+<p> expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_name.hpp 15 : 46</i></p>
 <pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   15 | #  define INTERNAL_CATCH_UNIQUE_NAME( name ) INTERNAL_CATCH_UNIQUE_NAME_LINE( name, __COUNTER__ )
+      |                                              ^
 </pre>
-<p> operand 'v0' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 185 : 5</i></p>
+<p> expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME_LINE'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_name.hpp 13 : 55</i></p>
 <pre>
-  185 |     EXPECT_PRED_FORMAT2(
-      |     ^
+   13 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE( name, line ) INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line )
+      |                                                       ^
 </pre>
-<p> expanded from macro 'EXPECT_PRED_FORMAT2'</p>
-<p><i>libs/base/src/base/quat.test.cc 46 : 35</i></p>
+<p> expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME_LINE2'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_name.hpp 12 : 56</i></p>
 <pre>
-   46 | #define EXPECT_PRED_FORMAT2(a, b) CHECK(b == approx(a))
-      |                                   ^~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'CHECK'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 132 : 24</i></p>
-<pre>
-  132 |   #define CHECK( ... ) INTERNAL_CATCH_TEST( "CHECK", Catch::ResultDisposition::ContinueOnFailure, __VA_ARGS__ )
-      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                               ^~~~~~~~~~~~~~~~~~~
-</pre>
-<p> operand 'v1' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 188 : 13</i></p>
-<pre>
-  188 |             eu::q_identity.then_get_rotated(
-      |             ^
-</pre>
-<p> expanded from macro 'EXPECT_PRED_FORMAT2'</p>
-<p><i>libs/base/src/base/quat.test.cc 46 : 41</i></p>
-<pre>
-   46 | #define EXPECT_PRED_FORMAT2(a, b) CHECK(b == approx(a))
-      |                                         ^
-</pre>
-<p> expanded from macro 'CHECK'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 132 : 99</i></p>
-<pre>
-  132 |   #define CHECK( ... ) INTERNAL_CATCH_TEST( "CHECK", Catch::ResultDisposition::ContinueOnFailure, __VA_ARGS__ )
-      |                                                                                                   ^~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                                                      ^~~~~~~~~~~
-</pre>
-<p> operand 'v2' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 185 : 5</i></p>
-<pre>
-  185 |     EXPECT_PRED_FORMAT2(
-      |     ^
-</pre>
-<p> expanded from macro 'EXPECT_PRED_FORMAT2'</p>
-<p><i>libs/base/src/base/quat.test.cc 46 : 46</i></p>
-<pre>
-   46 | #define EXPECT_PRED_FORMAT2(a, b) CHECK(b == approx(a))
-      |                                   ~~~~~~~~~~~^~~~~~~~~~
-</pre>
-<p> expanded from macro 'CHECK'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 132 : 99</i></p>
-<pre>
-  132 |   #define CHECK( ... ) INTERNAL_CATCH_TEST( "CHECK", Catch::ResultDisposition::ContinueOnFailure, __VA_ARGS__ )
-      |                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                                                      ^~~~~~~~~~~
+   12 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line ) name##line
+      |                                                        ^
 </pre>
 <hr>
-<h3>warning:  chained comparison 'v0 <= v1 == v2' may generate unintended results, use parentheses to specify order of evaluation or a logical operator to separate comparison expressions</h3>
-<code>[bugprone-chained-comparison]</code>
-<p><i>libs/base/src/base/quat.test.cc 193 : 5</i></p>
+<h3>warning:  function 'CATCH2_INTERNAL_TEST_18' declared 'static', move to anonymous namespace instead</h3>
+<code>[misc-use-anonymous-namespace]</code>
+<p><i>libs/base/src/base/quat.test.cc 277 : 1</i></p>
 <pre>
-  193 |     EXPECT_PRED_FORMAT2(
-      |     ^
+  277 | TEST_CASE("quat-checkQuatConjugate", "[quat]")
+      | ^
 </pre>
-<p> expanded from macro 'EXPECT_PRED_FORMAT2'</p>
-<p><i>libs/base/src/base/quat.test.cc 46 : 35</i></p>
+<p> expanded from macro 'TEST_CASE'</p>
+<p><i>build/_deps/catch2-src/src/catch2/catch_test_macros.hpp 144 : 28</i></p>
 <pre>
-   46 | #define EXPECT_PRED_FORMAT2(a, b) CHECK(b == approx(a))
-      |                                   ^~~~~~~~~~~~~~~~~~~~~
+  144 |   #define TEST_CASE( ... ) INTERNAL_CATCH_TESTCASE( __VA_ARGS__ )
+      |                            ^
 </pre>
-<p> expanded from macro 'CHECK'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 132 : 24</i></p>
+<p> expanded from macro 'INTERNAL_CATCH_TESTCASE'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_test_registry.hpp 118 : 35</i></p>
 <pre>
-  132 |   #define CHECK( ... ) INTERNAL_CATCH_TEST( "CHECK", Catch::ResultDisposition::ContinueOnFailure, __VA_ARGS__ )
-      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  118 |         INTERNAL_CATCH_TESTCASE2( INTERNAL_CATCH_UNIQUE_NAME( CATCH2_INTERNAL_TEST_ ), __VA_ARGS__ )
+      |                                   ^
 </pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
+<p> expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_name.hpp 15 : 46</i></p>
 <pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   15 | #  define INTERNAL_CATCH_UNIQUE_NAME( name ) INTERNAL_CATCH_UNIQUE_NAME_LINE( name, __COUNTER__ )
+      |                                              ^
 </pre>
-<p> operand 'v0' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 193 : 5</i></p>
+<p> expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME_LINE'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_name.hpp 13 : 55</i></p>
 <pre>
-  193 |     EXPECT_PRED_FORMAT2(
-      |     ^
+   13 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE( name, line ) INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line )
+      |                                                       ^
 </pre>
-<p> expanded from macro 'EXPECT_PRED_FORMAT2'</p>
-<p><i>libs/base/src/base/quat.test.cc 46 : 35</i></p>
+<p> expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME_LINE2'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_name.hpp 12 : 56</i></p>
 <pre>
-   46 | #define EXPECT_PRED_FORMAT2(a, b) CHECK(b == approx(a))
-      |                                   ^~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'CHECK'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 132 : 24</i></p>
-<pre>
-  132 |   #define CHECK( ... ) INTERNAL_CATCH_TEST( "CHECK", Catch::ResultDisposition::ContinueOnFailure, __VA_ARGS__ )
-      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                               ^~~~~~~~~~~~~~~~~~~
-</pre>
-<p> operand 'v1' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 202 : 13</i></p>
-<pre>
-  202 |             eu::Q::from(eu::right_hand_around(
-      |             ^
-</pre>
-<p> expanded from macro 'EXPECT_PRED_FORMAT2'</p>
-<p><i>libs/base/src/base/quat.test.cc 46 : 41</i></p>
-<pre>
-   46 | #define EXPECT_PRED_FORMAT2(a, b) CHECK(b == approx(a))
-      |                                         ^
-</pre>
-<p> expanded from macro 'CHECK'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 132 : 99</i></p>
-<pre>
-  132 |   #define CHECK( ... ) INTERNAL_CATCH_TEST( "CHECK", Catch::ResultDisposition::ContinueOnFailure, __VA_ARGS__ )
-      |                                                                                                   ^~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                                                      ^~~~~~~~~~~
-</pre>
-<p> operand 'v2' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 193 : 5</i></p>
-<pre>
-  193 |     EXPECT_PRED_FORMAT2(
-      |     ^
-</pre>
-<p> expanded from macro 'EXPECT_PRED_FORMAT2'</p>
-<p><i>libs/base/src/base/quat.test.cc 46 : 46</i></p>
-<pre>
-   46 | #define EXPECT_PRED_FORMAT2(a, b) CHECK(b == approx(a))
-      |                                   ~~~~~~~~~~~^~~~~~~~~~
-</pre>
-<p> expanded from macro 'CHECK'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 132 : 99</i></p>
-<pre>
-  132 |   #define CHECK( ... ) INTERNAL_CATCH_TEST( "CHECK", Catch::ResultDisposition::ContinueOnFailure, __VA_ARGS__ )
-      |                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                                                      ^~~~~~~~~~~
-</pre>
-<hr>
-<h3>warning:  chained comparison 'v0 <= v1 == v2' may generate unintended results, use parentheses to specify order of evaluation or a logical operator to separate comparison expressions</h3>
-<code>[bugprone-chained-comparison]</code>
-<p><i>libs/base/src/base/quat.test.cc 214 : 5</i></p>
-<pre>
-  214 |     EXPECT_PRED_FORMAT2(
-      |     ^
-</pre>
-<p> expanded from macro 'EXPECT_PRED_FORMAT2'</p>
-<p><i>libs/base/src/base/quat.test.cc 46 : 35</i></p>
-<pre>
-   46 | #define EXPECT_PRED_FORMAT2(a, b) CHECK(b == approx(a))
-      |                                   ^~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'CHECK'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 132 : 24</i></p>
-<pre>
-  132 |   #define CHECK( ... ) INTERNAL_CATCH_TEST( "CHECK", Catch::ResultDisposition::ContinueOnFailure, __VA_ARGS__ )
-      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> operand 'v0' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 214 : 5</i></p>
-<pre>
-  214 |     EXPECT_PRED_FORMAT2(
-      |     ^
-</pre>
-<p> expanded from macro 'EXPECT_PRED_FORMAT2'</p>
-<p><i>libs/base/src/base/quat.test.cc 46 : 35</i></p>
-<pre>
-   46 | #define EXPECT_PRED_FORMAT2(a, b) CHECK(b == approx(a))
-      |                                   ^~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'CHECK'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 132 : 24</i></p>
-<pre>
-  132 |   #define CHECK( ... ) INTERNAL_CATCH_TEST( "CHECK", Catch::ResultDisposition::ContinueOnFailure, __VA_ARGS__ )
-      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                               ^~~~~~~~~~~~~~~~~~~
-</pre>
-<p> operand 'v1' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 217 : 13</i></p>
-<pre>
-  217 |             eu::right_hand_around(
-      |             ^
-</pre>
-<p> expanded from macro 'EXPECT_PRED_FORMAT2'</p>
-<p><i>libs/base/src/base/quat.test.cc 46 : 41</i></p>
-<pre>
-   46 | #define EXPECT_PRED_FORMAT2(a, b) CHECK(b == approx(a))
-      |                                         ^
-</pre>
-<p> expanded from macro 'CHECK'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 132 : 99</i></p>
-<pre>
-  132 |   #define CHECK( ... ) INTERNAL_CATCH_TEST( "CHECK", Catch::ResultDisposition::ContinueOnFailure, __VA_ARGS__ )
-      |                                                                                                   ^~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                                                      ^~~~~~~~~~~
-</pre>
-<p> operand 'v2' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 214 : 5</i></p>
-<pre>
-  214 |     EXPECT_PRED_FORMAT2(
-      |     ^
-</pre>
-<p> expanded from macro 'EXPECT_PRED_FORMAT2'</p>
-<p><i>libs/base/src/base/quat.test.cc 46 : 46</i></p>
-<pre>
-   46 | #define EXPECT_PRED_FORMAT2(a, b) CHECK(b == approx(a))
-      |                                   ~~~~~~~~~~~^~~~~~~~~~
-</pre>
-<p> expanded from macro 'CHECK'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 132 : 99</i></p>
-<pre>
-  132 |   #define CHECK( ... ) INTERNAL_CATCH_TEST( "CHECK", Catch::ResultDisposition::ContinueOnFailure, __VA_ARGS__ )
-      |                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                                                      ^~~~~~~~~~~
-</pre>
-<hr>
-<h3>warning:  chained comparison 'v0 <= v1 == v2' may generate unintended results, use parentheses to specify order of evaluation or a logical operator to separate comparison expressions</h3>
-<code>[bugprone-chained-comparison]</code>
-<p><i>libs/base/src/base/quat.test.cc 219 : 5</i></p>
-<pre>
-  219 |     EXPECT_PRED_FORMAT2(
-      |     ^
-</pre>
-<p> expanded from macro 'EXPECT_PRED_FORMAT2'</p>
-<p><i>libs/base/src/base/quat.test.cc 46 : 35</i></p>
-<pre>
-   46 | #define EXPECT_PRED_FORMAT2(a, b) CHECK(b == approx(a))
-      |                                   ^~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'CHECK'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 132 : 24</i></p>
-<pre>
-  132 |   #define CHECK( ... ) INTERNAL_CATCH_TEST( "CHECK", Catch::ResultDisposition::ContinueOnFailure, __VA_ARGS__ )
-      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> operand 'v0' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 219 : 5</i></p>
-<pre>
-  219 |     EXPECT_PRED_FORMAT2(
-      |     ^
-</pre>
-<p> expanded from macro 'EXPECT_PRED_FORMAT2'</p>
-<p><i>libs/base/src/base/quat.test.cc 46 : 35</i></p>
-<pre>
-   46 | #define EXPECT_PRED_FORMAT2(a, b) CHECK(b == approx(a))
-      |                                   ^~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'CHECK'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 132 : 24</i></p>
-<pre>
-  132 |   #define CHECK( ... ) INTERNAL_CATCH_TEST( "CHECK", Catch::ResultDisposition::ContinueOnFailure, __VA_ARGS__ )
-      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                               ^~~~~~~~~~~~~~~~~~~
-</pre>
-<p> operand 'v1' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 222 : 13</i></p>
-<pre>
-  222 |             eu::right_hand_around(
-      |             ^
-</pre>
-<p> expanded from macro 'EXPECT_PRED_FORMAT2'</p>
-<p><i>libs/base/src/base/quat.test.cc 46 : 41</i></p>
-<pre>
-   46 | #define EXPECT_PRED_FORMAT2(a, b) CHECK(b == approx(a))
-      |                                         ^
-</pre>
-<p> expanded from macro 'CHECK'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 132 : 99</i></p>
-<pre>
-  132 |   #define CHECK( ... ) INTERNAL_CATCH_TEST( "CHECK", Catch::ResultDisposition::ContinueOnFailure, __VA_ARGS__ )
-      |                                                                                                   ^~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                                                      ^~~~~~~~~~~
-</pre>
-<p> operand 'v2' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 219 : 5</i></p>
-<pre>
-  219 |     EXPECT_PRED_FORMAT2(
-      |     ^
-</pre>
-<p> expanded from macro 'EXPECT_PRED_FORMAT2'</p>
-<p><i>libs/base/src/base/quat.test.cc 46 : 46</i></p>
-<pre>
-   46 | #define EXPECT_PRED_FORMAT2(a, b) CHECK(b == approx(a))
-      |                                   ~~~~~~~~~~~^~~~~~~~~~
-</pre>
-<p> expanded from macro 'CHECK'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 132 : 99</i></p>
-<pre>
-  132 |   #define CHECK( ... ) INTERNAL_CATCH_TEST( "CHECK", Catch::ResultDisposition::ContinueOnFailure, __VA_ARGS__ )
-      |                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                                                      ^~~~~~~~~~~
-</pre>
-<hr>
-<h3>warning:  chained comparison 'v0 <= v1 == v2' may generate unintended results, use parentheses to specify order of evaluation or a logical operator to separate comparison expressions</h3>
-<code>[bugprone-chained-comparison]</code>
-<p><i>libs/base/src/base/quat.test.cc 224 : 5</i></p>
-<pre>
-  224 |     EXPECT_PRED_FORMAT2(
-      |     ^
-</pre>
-<p> expanded from macro 'EXPECT_PRED_FORMAT2'</p>
-<p><i>libs/base/src/base/quat.test.cc 46 : 35</i></p>
-<pre>
-   46 | #define EXPECT_PRED_FORMAT2(a, b) CHECK(b == approx(a))
-      |                                   ^~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'CHECK'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 132 : 24</i></p>
-<pre>
-  132 |   #define CHECK( ... ) INTERNAL_CATCH_TEST( "CHECK", Catch::ResultDisposition::ContinueOnFailure, __VA_ARGS__ )
-      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> operand 'v0' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 224 : 5</i></p>
-<pre>
-  224 |     EXPECT_PRED_FORMAT2(
-      |     ^
-</pre>
-<p> expanded from macro 'EXPECT_PRED_FORMAT2'</p>
-<p><i>libs/base/src/base/quat.test.cc 46 : 35</i></p>
-<pre>
-   46 | #define EXPECT_PRED_FORMAT2(a, b) CHECK(b == approx(a))
-      |                                   ^~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'CHECK'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 132 : 24</i></p>
-<pre>
-  132 |   #define CHECK( ... ) INTERNAL_CATCH_TEST( "CHECK", Catch::ResultDisposition::ContinueOnFailure, __VA_ARGS__ )
-      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                               ^~~~~~~~~~~~~~~~~~~
-</pre>
-<p> operand 'v1' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 227 : 13</i></p>
-<pre>
-  227 |             eu::right_hand_around(
-      |             ^
-</pre>
-<p> expanded from macro 'EXPECT_PRED_FORMAT2'</p>
-<p><i>libs/base/src/base/quat.test.cc 46 : 41</i></p>
-<pre>
-   46 | #define EXPECT_PRED_FORMAT2(a, b) CHECK(b == approx(a))
-      |                                         ^
-</pre>
-<p> expanded from macro 'CHECK'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 132 : 99</i></p>
-<pre>
-  132 |   #define CHECK( ... ) INTERNAL_CATCH_TEST( "CHECK", Catch::ResultDisposition::ContinueOnFailure, __VA_ARGS__ )
-      |                                                                                                   ^~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                                                      ^~~~~~~~~~~
-</pre>
-<p> operand 'v2' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 224 : 5</i></p>
-<pre>
-  224 |     EXPECT_PRED_FORMAT2(
-      |     ^
-</pre>
-<p> expanded from macro 'EXPECT_PRED_FORMAT2'</p>
-<p><i>libs/base/src/base/quat.test.cc 46 : 46</i></p>
-<pre>
-   46 | #define EXPECT_PRED_FORMAT2(a, b) CHECK(b == approx(a))
-      |                                   ~~~~~~~~~~~^~~~~~~~~~
-</pre>
-<p> expanded from macro 'CHECK'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 132 : 99</i></p>
-<pre>
-  132 |   #define CHECK( ... ) INTERNAL_CATCH_TEST( "CHECK", Catch::ResultDisposition::ContinueOnFailure, __VA_ARGS__ )
-      |                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                                                      ^~~~~~~~~~~
-</pre>
-<hr>
-<h3>warning:  chained comparison 'v0 <= v1 == v2' may generate unintended results, use parentheses to specify order of evaluation or a logical operator to separate comparison expressions</h3>
-<code>[bugprone-chained-comparison]</code>
-<p><i>libs/base/src/base/quat.test.cc 229 : 5</i></p>
-<pre>
-  229 |     EXPECT_PRED_FORMAT2(
-      |     ^
-</pre>
-<p> expanded from macro 'EXPECT_PRED_FORMAT2'</p>
-<p><i>libs/base/src/base/quat.test.cc 46 : 35</i></p>
-<pre>
-   46 | #define EXPECT_PRED_FORMAT2(a, b) CHECK(b == approx(a))
-      |                                   ^~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'CHECK'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 132 : 24</i></p>
-<pre>
-  132 |   #define CHECK( ... ) INTERNAL_CATCH_TEST( "CHECK", Catch::ResultDisposition::ContinueOnFailure, __VA_ARGS__ )
-      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> operand 'v0' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 229 : 5</i></p>
-<pre>
-  229 |     EXPECT_PRED_FORMAT2(
-      |     ^
-</pre>
-<p> expanded from macro 'EXPECT_PRED_FORMAT2'</p>
-<p><i>libs/base/src/base/quat.test.cc 46 : 35</i></p>
-<pre>
-   46 | #define EXPECT_PRED_FORMAT2(a, b) CHECK(b == approx(a))
-      |                                   ^~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'CHECK'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 132 : 24</i></p>
-<pre>
-  132 |   #define CHECK( ... ) INTERNAL_CATCH_TEST( "CHECK", Catch::ResultDisposition::ContinueOnFailure, __VA_ARGS__ )
-      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                               ^~~~~~~~~~~~~~~~~~~
-</pre>
-<p> operand 'v1' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 233 : 13</i></p>
-<pre>
-  233 |             eu::right_hand_around(
-      |             ^
-</pre>
-<p> expanded from macro 'EXPECT_PRED_FORMAT2'</p>
-<p><i>libs/base/src/base/quat.test.cc 46 : 41</i></p>
-<pre>
-   46 | #define EXPECT_PRED_FORMAT2(a, b) CHECK(b == approx(a))
-      |                                         ^
-</pre>
-<p> expanded from macro 'CHECK'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 132 : 99</i></p>
-<pre>
-  132 |   #define CHECK( ... ) INTERNAL_CATCH_TEST( "CHECK", Catch::ResultDisposition::ContinueOnFailure, __VA_ARGS__ )
-      |                                                                                                   ^~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                                                      ^~~~~~~~~~~
-</pre>
-<p> operand 'v2' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 229 : 5</i></p>
-<pre>
-  229 |     EXPECT_PRED_FORMAT2(
-      |     ^
-</pre>
-<p> expanded from macro 'EXPECT_PRED_FORMAT2'</p>
-<p><i>libs/base/src/base/quat.test.cc 46 : 46</i></p>
-<pre>
-   46 | #define EXPECT_PRED_FORMAT2(a, b) CHECK(b == approx(a))
-      |                                   ~~~~~~~~~~~^~~~~~~~~~
-</pre>
-<p> expanded from macro 'CHECK'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 132 : 99</i></p>
-<pre>
-  132 |   #define CHECK( ... ) INTERNAL_CATCH_TEST( "CHECK", Catch::ResultDisposition::ContinueOnFailure, __VA_ARGS__ )
-      |                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                                                      ^~~~~~~~~~~
-</pre>
-<hr>
-<h3>warning:  chained comparison 'v0 <= v1 == v2' may generate unintended results, use parentheses to specify order of evaluation or a logical operator to separate comparison expressions</h3>
-<code>[bugprone-chained-comparison]</code>
-<p><i>libs/base/src/base/quat.test.cc 239 : 5</i></p>
-<pre>
-  239 |     CHECK(
-      |     ^
-</pre>
-<p> expanded from macro 'CHECK'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 132 : 24</i></p>
-<pre>
-  132 |   #define CHECK( ... ) INTERNAL_CATCH_TEST( "CHECK", Catch::ResultDisposition::ContinueOnFailure, __VA_ARGS__ )
-      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> operand 'v0' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 239 : 5</i></p>
-<pre>
-  239 |     CHECK(
-      |     ^
-</pre>
-<p> expanded from macro 'CHECK'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 132 : 24</i></p>
-<pre>
-  132 |   #define CHECK( ... ) INTERNAL_CATCH_TEST( "CHECK", Catch::ResultDisposition::ContinueOnFailure, __VA_ARGS__ )
-      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                               ^~~~~~~~~~~~~~~~~~~
-</pre>
-<p> operand 'v1' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 240 : 9</i></p>
-<pre>
-  240 |         std::nullopt == 
-      |         ^
-</pre>
-<p> expanded from macro 'CHECK'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 132 : 99</i></p>
-<pre>
-  132 |   #define CHECK( ... ) INTERNAL_CATCH_TEST( "CHECK", Catch::ResultDisposition::ContinueOnFailure, __VA_ARGS__ )
-      |                                                                                                   ^~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                                                      ^~~~~~~~~~~
-</pre>
-<p> operand 'v2' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 241 : 9</i></p>
-<pre>
-  241 |         eu::AA::from(
-      |         ^
-</pre>
-<p> expanded from macro 'CHECK'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 132 : 99</i></p>
-<pre>
-  132 |   #define CHECK( ... ) INTERNAL_CATCH_TEST( "CHECK", Catch::ResultDisposition::ContinueOnFailure, __VA_ARGS__ )
-      |                                                                                                   ^~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                                                      ^~~~~~~~~~~
-</pre>
-<hr>
-<h3>warning:  chained comparison 'v0 <= v1 == v2' may generate unintended results, use parentheses to specify order of evaluation or a logical operator to separate comparison expressions</h3>
-<code>[bugprone-chained-comparison]</code>
-<p><i>libs/base/src/base/quat.test.cc 247 : 5</i></p>
-<pre>
-  247 |     CHECK(
-      |     ^
-</pre>
-<p> expanded from macro 'CHECK'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 132 : 24</i></p>
-<pre>
-  132 |   #define CHECK( ... ) INTERNAL_CATCH_TEST( "CHECK", Catch::ResultDisposition::ContinueOnFailure, __VA_ARGS__ )
-      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> operand 'v0' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 247 : 5</i></p>
-<pre>
-  247 |     CHECK(
-      |     ^
-</pre>
-<p> expanded from macro 'CHECK'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 132 : 24</i></p>
-<pre>
-  132 |   #define CHECK( ... ) INTERNAL_CATCH_TEST( "CHECK", Catch::ResultDisposition::ContinueOnFailure, __VA_ARGS__ )
-      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                               ^~~~~~~~~~~~~~~~~~~
-</pre>
-<p> operand 'v1' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 248 : 13</i></p>
-<pre>
-  248 |             std::nullopt == 
-      |             ^
-</pre>
-<p> expanded from macro 'CHECK'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 132 : 99</i></p>
-<pre>
-  132 |   #define CHECK( ... ) INTERNAL_CATCH_TEST( "CHECK", Catch::ResultDisposition::ContinueOnFailure, __VA_ARGS__ )
-      |                                                                                                   ^~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                                                      ^~~~~~~~~~~
-</pre>
-<p> operand 'v2' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 249 : 9</i></p>
-<pre>
-  249 |         eu::AA::from(eu::Q::from(
-      |         ^
-</pre>
-<p> expanded from macro 'CHECK'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 132 : 99</i></p>
-<pre>
-  132 |   #define CHECK( ... ) INTERNAL_CATCH_TEST( "CHECK", Catch::ResultDisposition::ContinueOnFailure, __VA_ARGS__ )
-      |                                                                                                   ^~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                                                      ^~~~~~~~~~~
-</pre>
-<hr>
-<h3>warning:  chained comparison 'v0 <= v1 == v2' may generate unintended results, use parentheses to specify order of evaluation or a logical operator to separate comparison expressions</h3>
-<code>[bugprone-chained-comparison]</code>
-<p><i>libs/base/src/base/quat.test.cc 254 : 5</i></p>
-<pre>
-  254 |     EXPECT_PRED_FORMAT2(
-      |     ^
-</pre>
-<p> expanded from macro 'EXPECT_PRED_FORMAT2'</p>
-<p><i>libs/base/src/base/quat.test.cc 46 : 35</i></p>
-<pre>
-   46 | #define EXPECT_PRED_FORMAT2(a, b) CHECK(b == approx(a))
-      |                                   ^~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'CHECK'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 132 : 24</i></p>
-<pre>
-  132 |   #define CHECK( ... ) INTERNAL_CATCH_TEST( "CHECK", Catch::ResultDisposition::ContinueOnFailure, __VA_ARGS__ )
-      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> operand 'v0' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 254 : 5</i></p>
-<pre>
-  254 |     EXPECT_PRED_FORMAT2(
-      |     ^
-</pre>
-<p> expanded from macro 'EXPECT_PRED_FORMAT2'</p>
-<p><i>libs/base/src/base/quat.test.cc 46 : 35</i></p>
-<pre>
-   46 | #define EXPECT_PRED_FORMAT2(a, b) CHECK(b == approx(a))
-      |                                   ^~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'CHECK'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 132 : 24</i></p>
-<pre>
-  132 |   #define CHECK( ... ) INTERNAL_CATCH_TEST( "CHECK", Catch::ResultDisposition::ContinueOnFailure, __VA_ARGS__ )
-      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                               ^~~~~~~~~~~~~~~~~~~
-</pre>
-<p> operand 'v1' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 257 : 13</i></p>
-<pre>
-  257 |             eu::AA::from(eu::Q::from(eu::right_hand_around(
-      |             ^
-</pre>
-<p> expanded from macro 'EXPECT_PRED_FORMAT2'</p>
-<p><i>libs/base/src/base/quat.test.cc 46 : 41</i></p>
-<pre>
-   46 | #define EXPECT_PRED_FORMAT2(a, b) CHECK(b == approx(a))
-      |                                         ^
-</pre>
-<p> expanded from macro 'CHECK'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 132 : 99</i></p>
-<pre>
-  132 |   #define CHECK( ... ) INTERNAL_CATCH_TEST( "CHECK", Catch::ResultDisposition::ContinueOnFailure, __VA_ARGS__ )
-      |                                                                                                   ^~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                                                      ^~~~~~~~~~~
-</pre>
-<p> operand 'v2' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 254 : 5</i></p>
-<pre>
-  254 |     EXPECT_PRED_FORMAT2(
-      |     ^
-</pre>
-<p> expanded from macro 'EXPECT_PRED_FORMAT2'</p>
-<p><i>libs/base/src/base/quat.test.cc 46 : 46</i></p>
-<pre>
-   46 | #define EXPECT_PRED_FORMAT2(a, b) CHECK(b == approx(a))
-      |                                   ~~~~~~~~~~~^~~~~~~~~~
-</pre>
-<p> expanded from macro 'CHECK'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 132 : 99</i></p>
-<pre>
-  132 |   #define CHECK( ... ) INTERNAL_CATCH_TEST( "CHECK", Catch::ResultDisposition::ContinueOnFailure, __VA_ARGS__ )
-      |                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                                                      ^~~~~~~~~~~
-</pre>
-<hr>
-<h3>warning:  chained comparison 'v0 <= v1 == v2' may generate unintended results, use parentheses to specify order of evaluation or a logical operator to separate comparison expressions</h3>
-<code>[bugprone-chained-comparison]</code>
-<p><i>libs/base/src/base/quat.test.cc 261 : 5</i></p>
-<pre>
-  261 |     EXPECT_PRED_FORMAT2(
-      |     ^
-</pre>
-<p> expanded from macro 'EXPECT_PRED_FORMAT2'</p>
-<p><i>libs/base/src/base/quat.test.cc 46 : 35</i></p>
-<pre>
-   46 | #define EXPECT_PRED_FORMAT2(a, b) CHECK(b == approx(a))
-      |                                   ^~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'CHECK'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 132 : 24</i></p>
-<pre>
-  132 |   #define CHECK( ... ) INTERNAL_CATCH_TEST( "CHECK", Catch::ResultDisposition::ContinueOnFailure, __VA_ARGS__ )
-      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> operand 'v0' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 261 : 5</i></p>
-<pre>
-  261 |     EXPECT_PRED_FORMAT2(
-      |     ^
-</pre>
-<p> expanded from macro 'EXPECT_PRED_FORMAT2'</p>
-<p><i>libs/base/src/base/quat.test.cc 46 : 35</i></p>
-<pre>
-   46 | #define EXPECT_PRED_FORMAT2(a, b) CHECK(b == approx(a))
-      |                                   ^~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'CHECK'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 132 : 24</i></p>
-<pre>
-  132 |   #define CHECK( ... ) INTERNAL_CATCH_TEST( "CHECK", Catch::ResultDisposition::ContinueOnFailure, __VA_ARGS__ )
-      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                               ^~~~~~~~~~~~~~~~~~~
-</pre>
-<p> operand 'v1' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 264 : 9</i></p>
-<pre>
-  264 |         eu::AA::from(eu::Q::from(
-      |         ^
-</pre>
-<p> expanded from macro 'EXPECT_PRED_FORMAT2'</p>
-<p><i>libs/base/src/base/quat.test.cc 46 : 41</i></p>
-<pre>
-   46 | #define EXPECT_PRED_FORMAT2(a, b) CHECK(b == approx(a))
-      |                                         ^
-</pre>
-<p> expanded from macro 'CHECK'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 132 : 99</i></p>
-<pre>
-  132 |   #define CHECK( ... ) INTERNAL_CATCH_TEST( "CHECK", Catch::ResultDisposition::ContinueOnFailure, __VA_ARGS__ )
-      |                                                                                                   ^~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                                                      ^~~~~~~~~~~
-</pre>
-<p> operand 'v2' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 261 : 5</i></p>
-<pre>
-  261 |     EXPECT_PRED_FORMAT2(
-      |     ^
-</pre>
-<p> expanded from macro 'EXPECT_PRED_FORMAT2'</p>
-<p><i>libs/base/src/base/quat.test.cc 46 : 46</i></p>
-<pre>
-   46 | #define EXPECT_PRED_FORMAT2(a, b) CHECK(b == approx(a))
-      |                                   ~~~~~~~~~~~^~~~~~~~~~
-</pre>
-<p> expanded from macro 'CHECK'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 132 : 99</i></p>
-<pre>
-  132 |   #define CHECK( ... ) INTERNAL_CATCH_TEST( "CHECK", Catch::ResultDisposition::ContinueOnFailure, __VA_ARGS__ )
-      |                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                                                      ^~~~~~~~~~~
-</pre>
-<hr>
-<h3>warning:  chained comparison 'v0 <= v1 == v2' may generate unintended results, use parentheses to specify order of evaluation or a logical operator to separate comparison expressions</h3>
-<code>[bugprone-chained-comparison]</code>
-<p><i>libs/base/src/base/quat.test.cc 268 : 5</i></p>
-<pre>
-  268 |     EXPECT_PRED_FORMAT2(
-      |     ^
-</pre>
-<p> expanded from macro 'EXPECT_PRED_FORMAT2'</p>
-<p><i>libs/base/src/base/quat.test.cc 46 : 35</i></p>
-<pre>
-   46 | #define EXPECT_PRED_FORMAT2(a, b) CHECK(b == approx(a))
-      |                                   ^~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'CHECK'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 132 : 24</i></p>
-<pre>
-  132 |   #define CHECK( ... ) INTERNAL_CATCH_TEST( "CHECK", Catch::ResultDisposition::ContinueOnFailure, __VA_ARGS__ )
-      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> operand 'v0' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 268 : 5</i></p>
-<pre>
-  268 |     EXPECT_PRED_FORMAT2(
-      |     ^
-</pre>
-<p> expanded from macro 'EXPECT_PRED_FORMAT2'</p>
-<p><i>libs/base/src/base/quat.test.cc 46 : 35</i></p>
-<pre>
-   46 | #define EXPECT_PRED_FORMAT2(a, b) CHECK(b == approx(a))
-      |                                   ^~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'CHECK'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 132 : 24</i></p>
-<pre>
-  132 |   #define CHECK( ... ) INTERNAL_CATCH_TEST( "CHECK", Catch::ResultDisposition::ContinueOnFailure, __VA_ARGS__ )
-      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                               ^~~~~~~~~~~~~~~~~~~
-</pre>
-<p> operand 'v1' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 271 : 13</i></p>
-<pre>
-  271 |             eu::AA::from(eu::Q::from(eu::right_hand_around(
-      |             ^
-</pre>
-<p> expanded from macro 'EXPECT_PRED_FORMAT2'</p>
-<p><i>libs/base/src/base/quat.test.cc 46 : 41</i></p>
-<pre>
-   46 | #define EXPECT_PRED_FORMAT2(a, b) CHECK(b == approx(a))
-      |                                         ^
-</pre>
-<p> expanded from macro 'CHECK'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 132 : 99</i></p>
-<pre>
-  132 |   #define CHECK( ... ) INTERNAL_CATCH_TEST( "CHECK", Catch::ResultDisposition::ContinueOnFailure, __VA_ARGS__ )
-      |                                                                                                   ^~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                                                      ^~~~~~~~~~~
-</pre>
-<p> operand 'v2' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 268 : 5</i></p>
-<pre>
-  268 |     EXPECT_PRED_FORMAT2(
-      |     ^
-</pre>
-<p> expanded from macro 'EXPECT_PRED_FORMAT2'</p>
-<p><i>libs/base/src/base/quat.test.cc 46 : 46</i></p>
-<pre>
-   46 | #define EXPECT_PRED_FORMAT2(a, b) CHECK(b == approx(a))
-      |                                   ~~~~~~~~~~~^~~~~~~~~~
-</pre>
-<p> expanded from macro 'CHECK'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 132 : 99</i></p>
-<pre>
-  132 |   #define CHECK( ... ) INTERNAL_CATCH_TEST( "CHECK", Catch::ResultDisposition::ContinueOnFailure, __VA_ARGS__ )
-      |                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                                                      ^~~~~~~~~~~
-</pre>
-<hr>
-<h3>warning:  chained comparison 'v0 <= v1 == v2' may generate unintended results, use parentheses to specify order of evaluation or a logical operator to separate comparison expressions</h3>
-<code>[bugprone-chained-comparison]</code>
-<p><i>libs/base/src/base/quat.test.cc 286 : 5</i></p>
-<pre>
-  286 |     REQUIRE(b == approx(a));
-      |     ^
-</pre>
-<p> expanded from macro 'REQUIRE'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 26</i></p>
-<pre>
-  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
-      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> operand 'v0' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 286 : 5</i></p>
-<pre>
-  286 |     REQUIRE(b == approx(a));
-      |     ^
-</pre>
-<p> expanded from macro 'REQUIRE'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 26</i></p>
-<pre>
-  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
-      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 47</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                               ^~~~~~~~~~~~~~~~~~~
-</pre>
-<p> operand 'v1' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 286 : 13</i></p>
-<pre>
-  286 |     REQUIRE(b == approx(a));
-      |             ^
-</pre>
-<p> expanded from macro 'REQUIRE'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 92</i></p>
-<pre>
-  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
-      |                                                                                            ^~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                                                      ^~~~~~~~~~~
-</pre>
-<p> operand 'v2' is here</p>
-<p><i>libs/base/src/base/quat.test.cc 286 : 18</i></p>
-<pre>
-  286 |     REQUIRE(b == approx(a));
-      |                  ^
-</pre>
-<p> expanded from macro 'REQUIRE'</p>
-<p><i>external/catch2/src/catch2/catch_test_macros.hpp 125 : 92</i></p>
-<pre>
-  125 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
-      |                                                                                            ^~~~~~~~~~~
-</pre>
-<p> expanded from macro 'INTERNAL_CATCH_TEST'</p>
-<p><i>external/catch2/src/catch2/internal/catch_test_macro_impl.hpp 52 : 70</i></p>
-<pre>
-   52 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
-      |                                                                      ^~~~~~~~~~~
+   12 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line ) name##line
+      |                                                        ^
 </pre>
 </body>
 </html>
