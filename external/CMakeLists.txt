@@ -1,3 +1,9 @@
+Include(FetchContent)
+set(CATCH_GIT_TAG v3.7.1)
+
+
+
+
 ###################################################################################################
 ## undef_windows
 add_subdirectory(undef_windows)
@@ -146,36 +152,19 @@ add_library(external::icon_font_cpp_headers ALIAS icon_font_cpp_headers)
 
 ###################################################################################################
 ## catch
-file(GLOB_RECURSE cmake_source LIST_DIRECTORIES false CONFIGURE_DEPENDS
-    ${CMAKE_CURRENT_SOURCE_DIR}/catch2/src/catch2/*.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/catch2/src/catch2/*.hpp
+FetchContent_Declare(Catch2
+    GIT_REPOSITORY https://github.com/catchorg/Catch2.git
+    GIT_TAG        ${CATCH_GIT_TAG}
 )
-add_library(catch STATIC ${cmake_source})
-target_include_directories(catch SYSTEM
-    PUBLIC
-        ${CMAKE_CURRENT_SOURCE_DIR}/catch2/src/
-        ${CMAKE_CURRENT_SOURCE_DIR}/catch2/euph/
+FetchContent_MakeAvailable(Catch2)
+add_library(catch_main STATIC catch2/main.cc)
+target_link_libraries(catch_main PUBLIC
+    Catch2::Catch2
+    euph::assert
 )
-target_link_libraries(catch
-    PUBLIC
-        ${CMAKE_THREAD_LIBS_INIT}
-)
-target_compile_features(catch PUBLIC cxx_std_17)
-add_library(external::catch ALIAS catch)
-
-
-add_library(catch_main STATIC
-    catch2/euph/main.cc
-)
-set_target_properties(catch_main PROPERTIES FOLDER "Dependencies")
-target_link_libraries(catch_main
-    PUBLIC
-        external::catch
-        euph::assert
-        euph::project_options
-)
-add_library(external::catch_main ALIAS catch_main)
-
+add_library(external::catch ALIAS catch_main)
+list(APPEND CMAKE_MODULE_PATH ${catch2_SOURCE_DIR}/extras)
+include(Catch)
 
 ###################################################################################################
 ## fmt
