@@ -161,6 +161,8 @@ add_library(catch_main STATIC catch2/main.cc)
 target_link_libraries(catch_main PUBLIC
     Catch2::Catch2
     euph::assert
+    euph::project_options
+    euph::project_warnings
 )
 add_library(external::catch ALIAS catch_main)
 list(APPEND CMAKE_MODULE_PATH ${catch2_SOURCE_DIR}/extras)
