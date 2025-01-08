@@ -7,7 +7,7 @@
 <body>
 <h1>libs/base/src/base/guid.cc</h1>
 <hr>
-<h3>warning:  function 'has_more' should be marked [[nodiscard]]</h3>
+<h3>warning: function 'has_more' should be marked [[nodiscard]]</h3>
 <code>[modernize-use-nodiscard]</code>
 <p><i>libs/base/src/base/guid.cc 60 : 9</i></p>
 <pre>
@@ -16,7 +16,7 @@
       |         [[nodiscard]] 
 </pre>
 <hr>
-<h3>warning:  statement should be inside braces</h3>
+<h3>warning: statement should be inside braces</h3>
 <code>[readability-braces-around-statements]</code>
 <p><i>libs/base/src/base/guid.cc 67 : 36</i></p>
 <pre>
@@ -25,7 +25,7 @@
       |                                     {
 </pre>
 <hr>
-<h3>warning:  function 'peek' should be marked [[nodiscard]]</h3>
+<h3>warning: function 'peek' should be marked [[nodiscard]]</h3>
 <code>[modernize-use-nodiscard]</code>
 <p><i>libs/base/src/base/guid.cc 73 : 9</i></p>
 <pre>
@@ -34,7 +34,7 @@
       |         [[nodiscard]] 
 </pre>
 <hr>
-<h3>warning:  statement should be inside braces</h3>
+<h3>warning: statement should be inside braces</h3>
 <code>[readability-braces-around-statements]</code>
 <p><i>libs/base/src/base/guid.cc 75 : 36</i></p>
 <pre>
@@ -58,11 +58,38 @@
   113 |                 return *first;
       |                        ^
 </pre>
-<p> remove '*' to silence this warning</p>
+<p>remove '*' to silence this warning</p>
 <p><i>libs/base/src/base/guid.cc 113 : 24</i></p>
 <pre>
   113 |                 return *first;
       |                        ^
 </pre>
+<!--
+/home/runner/work/euphoria/euphoria/libs/base/src/base/guid.cc:60:9: warning: function 'has_more' should be marked [[nodiscard]] [modernize-use-nodiscard]
+   60 |         bool has_more() const
+      |         ^
+      |         [[nodiscard]] 
+/home/runner/work/euphoria/euphoria/libs/base/src/base/guid.cc:67:36: warning: statement should be inside braces [readability-braces-around-statements]
+   67 |             if(has_more() == false) return '\0';
+      |                                    ^            
+      |                                     {
+/home/runner/work/euphoria/euphoria/libs/base/src/base/guid.cc:73:9: warning: function 'peek' should be marked [[nodiscard]] [modernize-use-nodiscard]
+   73 |         char peek() const
+      |         ^
+      |         [[nodiscard]] 
+/home/runner/work/euphoria/euphoria/libs/base/src/base/guid.cc:75:36: warning: statement should be inside braces [readability-braces-around-statements]
+   75 |             if(has_more() == false) return '\0';
+      |                                    ^            
+      |                                     {
+/home/runner/work/euphoria/euphoria/libs/base/src/base/guid.cc:100:9: warning: return type 'const std::optional<uint8_t>' (aka 'const optional<unsigned char>') is 'const'-qualified at the top level, which may reduce code readability without improving const correctness [readability-const-return-type]
+  100 |         const std::optional<uint8_t> read_hex()
+      |         ^~~~~
+/home/runner/work/euphoria/euphoria/libs/base/src/base/guid.cc:113:24: warning: conversion from 'std::optional<unsigned char>' into 'unsigned char' and back into 'std::optional<unsigned char>', remove potentially error-prone optional dereference [bugprone-optional-value-conversion]
+  113 |                 return *first;
+      |                        ^
+/home/runner/work/euphoria/euphoria/libs/base/src/base/guid.cc:113:24: note: remove '*' to silence this warning
+  113 |                 return *first;
+      |                        ^
+-->
 </body>
 </html>

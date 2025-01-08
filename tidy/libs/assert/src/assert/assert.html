@@ -7,7 +7,7 @@
 <body>
 <h1>libs/assert/src/assert/assert.cc</h1>
 <hr>
-<h3>warning:  use c++17 style variable templates</h3>
+<h3>warning: use c++17 style variable templates</h3>
 <code>[modernize-type-traits]</code>
 <p><i>libs/assert/src/assert/assert.cc 59 : 17</i></p>
 <pre>
@@ -15,5 +15,11 @@
       |                 ^                               ~~~~~~~
       |                            _v
 </pre>
+<!--
+/home/runner/work/euphoria/euphoria/libs/assert/src/assert/assert.cc:59:17: warning: use c++17 style variable templates [modernize-type-traits]
+   59 |                 std::extent<decltype(addresses)>::value
+      |                 ^                               ~~~~~~~
+      |                            _v
+-->
 </body>
 </html>

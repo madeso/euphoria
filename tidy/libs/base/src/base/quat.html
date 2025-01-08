@@ -7,7 +7,7 @@
 <body>
 <h1>libs/base/src/base/quat.cc</h1>
 <hr>
-<h3>warning:  statement should be inside braces</h3>
+<h3>warning: statement should be inside braces</h3>
 <code>[readability-braces-around-statements]</code>
 <p><i>libs/base/src/base/quat.cc 58 : 44</i></p>
 <pre>
@@ -16,7 +16,7 @@
       |                                             {
 </pre>
 <hr>
-<h3>warning:  unchecked access to optional value</h3>
+<h3>warning: unchecked access to optional value</h3>
 <code>[bugprone-unchecked-optional-access]</code>
 <p><i>libs/base/src/base/quat.cc 143 : 17</i></p>
 <pre>
@@ -24,7 +24,7 @@
       |                 ^
 </pre>
 <hr>
-<h3>warning:  variable 'dot_value' of type 'float' can be declared 'const'</h3>
+<h3>warning: variable 'dot_value' of type 'float' can be declared 'const'</h3>
 <code>[misc-const-correctness]</code>
 <p><i>libs/base/src/base/quat.cc 269 : 9</i></p>
 <pre>
@@ -42,12 +42,32 @@
       |                     std::numbers::pi_v<float>
 </pre>
 <hr>
-<h3>warning:  unchecked access to optional value</h3>
+<h3>warning: unchecked access to optional value</h3>
 <code>[bugprone-unchecked-optional-access]</code>
 <p><i>libs/base/src/base/quat.cc 284 : 43</i></p>
 <pre>
   284 |         return Q::from(right_hand_around(*rot_axis, rot_angle));
       |                                           ^
 </pre>
+<!--
+/home/runner/work/euphoria/euphoria/libs/base/src/base/quat.cc:58:44: warning: statement should be inside braces [readability-braces-around-statements]
+   58 |         if (direction.has_value() == false) return std::nullopt;
+      |                                            ^                    
+      |                                             {
+/home/runner/work/euphoria/euphoria/libs/base/src/base/quat.cc:143:17: warning: unchecked access to optional value [bugprone-unchecked-optional-access]
+  143 |         return *ret.get_vec_part().get_normalized();
+      |                 ^
+/home/runner/work/euphoria/euphoria/libs/base/src/base/quat.cc:269:9: warning: variable 'dot_value' of type 'float' can be declared 'const' [misc-const-correctness]
+  269 |         float dot_value = in.dot(dir);
+      |         ^
+      |               const 
+/home/runner/work/euphoria/euphoria/libs/base/src/base/quat.cc:274:21: warning: prefer 'std::numbers::pi_v<float>' to this literal, differs by '8.74e-08' [modernize-use-std-numbers]
+    2 |             return {3.1415926535897932f, up};
+      |                     ^~~~~~~~~~~~~~~~~~~
+      |                     std::numbers::pi_v<float>
+/home/runner/work/euphoria/euphoria/libs/base/src/base/quat.cc:284:43: warning: unchecked access to optional value [bugprone-unchecked-optional-access]
+  284 |         return Q::from(right_hand_around(*rot_axis, rot_angle));
+      |                                           ^
+-->
 </body>
 </html>
