@@ -4,9 +4,6 @@
 
 namespace eu
 {
-    float* m4::get_column_major() { return data; }
-    const float* m4::get_column_major() const { return data; }
-
     [[nodiscard]]
     m4
     m4::from_col_major
@@ -56,33 +53,33 @@ namespace eu
     }
 
     v4
-    m4::get_transform(const v4& p) const
+    m4::get_transformed(const v4& p) const
     {
         return *this * p;
     }
 
     v3
-    m4::get_transform(const v3& p, float w) const
+    m4::get_transformed(const v3& p, float w) const
     {
-        return get_transform(v4{p, w}).to_vec3(w);
+        return get_transformed(v4{p, w}).to_vec3(w);
     }
 
     v3
-    m4::get_transform_point(const v3& p) const
+    m4::get_transformed_point(const v3& p) const
     {
-        return get_transform(p, 1);
+        return get_transformed(p, 1);
     }
 
     v3
-    m4::get_transform_vec(const v3& p) const
+    m4::get_transformed_vec(const v3& p) const
     {
-        return get_transform(p, 0);
+        return get_transformed(p, 0);
     }
 
     n3
-    m4::get_transform_vec(const n3& p) const
+    m4::get_transformed_vec(const n3& p) const
     {
-        return n3{ get_transform_vec(static_cast<v3>(p))};
+        return n3{ get_transformed_vec(static_cast<v3>(p))};
     }
 
     v3
@@ -187,27 +184,27 @@ namespace eu
     }
 
     n3
-    m4::get_axis(int col) const
+    get_axis(const m4& m, int col)
     {
-        return n3{get_column(col).to_vec3(0.0f)};
+        return n3{m.get_column(col).to_vec3(0.0f)};
     }
 
     n3
     m4::get_x_axis() const
     {
-        return get_axis(0);
+        return get_axis(*this, 0);
     }
 
     n3
     m4::get_y_axis() const
     {
-        return get_axis(1);
+        return get_axis(*this, 1);
     }
 
     n3
     m4::get_z_axis() const
     {
-        return get_axis(2);
+        return get_axis(*this, 2);
     }
 
     m4
@@ -422,13 +419,13 @@ namespace eu
     }
 
     const float*
-    m4::get_data_ptr() const
+    m4::get_column_major_data_ptr() const
     {
         return data;
     }
 
     float*
-    m4::get_data_ptr()
+    m4::get_column_major_data_ptr()
     {
         return data;
     }

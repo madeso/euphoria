@@ -253,7 +253,7 @@ TEST_CASE("mat4-test", "[mat]")
 
     SECTION("TestRotationAxisAngle")
     {
-        const auto r = start.get_rotated(aa).get_transform_point(to_transform);
+        const auto r = start.get_rotated(aa).get_transformed_point(to_transform);
         REQUIRE(r == approx(result));
     }
 }
@@ -271,7 +271,7 @@ TEST_CASE("mat4-TestCombined_RT", "[mat]")
             )
         )
         .get_translated(eu::v3{0.0f, 0.0f, -5.0f})
-        .get_transform_point(eu::v3{0.0f, 0.0f, 0.0f})
+        .get_transformed_point(eu::v3{0.0f, 0.0f, 0.0f})
         ;
     REQUIRE(r == approx(eu::v3{5.0f, 0.0f, 0.0f}));
 }
@@ -288,7 +288,7 @@ TEST_CASE("mat4-TestCombined2_RT", "[mat]")
             )
         )
         .get_translated(eu::v3(0, 0, -5))
-        .get_transform_point(eu::v3(0, 0, 0))
+        .get_transformed_point(eu::v3(0, 0, 0))
         ;
     REQUIRE(r == approx(eu::v3(-5, 0, 0)));
 }
@@ -305,7 +305,7 @@ TEST_CASE("mat4-TestCombined_TR", "[mat]")
                 eu::An::from_degrees(-90)
             )
         )
-        .get_transform_point(eu::v3(0, 0, 0))
+        .get_transformed_point(eu::v3(0, 0, 0))
         ;
     REQUIRE(r == approx(eu::v3(0, 0, 5)));
 }
@@ -314,7 +314,7 @@ TEST_CASE("mat4-TestTranslation", "[mat]")
 {
     const auto r = eu::m4_identity
         .get_translated(eu::v3(1, 2, 3))
-        .get_transform_point(eu::v3(7, 8, 9))
+        .get_transformed_point(eu::v3(7, 8, 9))
         ;
     REQUIRE(r == approx(eu::v3(8, 10, 12)));
 }
@@ -323,7 +323,7 @@ TEST_CASE("mat4-TestTranslation", "[mat]")
 TEST_CASE("mat4-TestIentityTransform", "[mat]")
 {
     const auto r = eu::m4_identity
-        .get_transform_point(eu::v3(1, 2, 3))
+        .get_transformed_point(eu::v3(1, 2, 3))
         ;
     REQUIRE(r == approx(eu::v3(1, 2, 3)));
 }
