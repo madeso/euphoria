@@ -80,6 +80,7 @@
     <member refid="structeu_1_1m4_1a58645dabbcce1444dad58a89e7611fd3" kind="function"><name>from_col_major</name></member>
     <member refid="structeu_1_1m4_1a87e85f6fda44138f93d1d53565f0c4f2" kind="function"><name>from_row_major</name></member>
     <member refid="structeu_1_1m4_1ae6eaf6bb5bd67c4e665537d0b1ac4ad7" kind="function"><name>from_major</name></member>
+    <member refid="structeu_1_1m4_1aa47c360516068b62237182dd1f005cd7" kind="function"><name>from_scalar</name></member>
     <member refid="structeu_1_1m4_1aba676fc0ae9d7b1b6a26d36b8b91034c" kind="function"><name>from_translation</name></member>
     <member refid="structeu_1_1m4_1a40ffd44fdb5e5afff26219ee1ca73686" kind="function"><name>from_rot_x</name></member>
     <member refid="structeu_1_1m4_1a05aee86e518e28de0e30b59d1b45a044" kind="function"><name>from_rot_y</name></member>
@@ -88,30 +89,26 @@
     <member refid="structeu_1_1m4_1acedb3177529232cb02854aaa8ec1407f" kind="function"><name>from</name></member>
     <member refid="structeu_1_1m4_1ae8ba82977a543bd9ab1991f1b4e33dbb" kind="function"><name>create_ortho</name></member>
     <member refid="structeu_1_1m4_1a09082b8b01477bcfcf5d6eaab85c1855" kind="function"><name>create_perspective</name></member>
-    <member refid="structeu_1_1m4_1aa47c360516068b62237182dd1f005cd7" kind="function"><name>from_scalar</name></member>
-    <member refid="structeu_1_1m4_1a65d91262bd9bef4225ef863ccf35dcef" kind="function"><name>get_data_ptr</name></member>
-    <member refid="structeu_1_1m4_1a9427ee3705d08290d5556fcfd02f4037" kind="function"><name>get_column_major</name></member>
+    <member refid="structeu_1_1m4_1aaf34521efbecbe4a057a6d0c90294e0c" kind="function"><name>get_column_major_data_ptr</name></member>
+    <member refid="structeu_1_1m4_1ade2bde04baa97bfe069b92942e5be37e" kind="function"><name>get_column_major_data_ptr</name></member>
     <member refid="structeu_1_1m4_1a346dce537e994a3987082b7b3bb9c08a" kind="function"><name>invert</name></member>
+    <member refid="structeu_1_1m4_1a7f9269dbbcf3f8dfdae73d470580fe93" kind="function"><name>get_inverted</name></member>
     <member refid="structeu_1_1m4_1a6014565213c198695d0c43f2ffd4f392" kind="function"><name>get</name></member>
-    <member refid="structeu_1_1m4_1acfda6760d726e02ac30a6ee73dd0f22e" kind="function"><name>get_transform</name></member>
-    <member refid="structeu_1_1m4_1aae4056c3ac5e3e24f58074d79e818a98" kind="function"><name>get_transform</name></member>
-    <member refid="structeu_1_1m4_1a0d3d2abf17f5e8c94316a874f621b21d" kind="function"><name>get_transform_point</name></member>
-    <member refid="structeu_1_1m4_1a2b497aca2753966a063924a043291da9" kind="function"><name>get_transform_vec</name></member>
-    <member refid="structeu_1_1m4_1aaea0069c1fc71c52264d55d368452e9e" kind="function"><name>get_transform_vec</name></member>
-    <member refid="structeu_1_1m4_1ad362f8ad30e4224d2973d53ab4066674" kind="function"><name>get_axis</name></member>
+    <member refid="structeu_1_1m4_1ac7a76a023788418920fc7df439b77749" kind="function"><name>get_transformed</name></member>
+    <member refid="structeu_1_1m4_1a7409e0ed0428d05b25a914c84749a070" kind="function"><name>get_transformed</name></member>
+    <member refid="structeu_1_1m4_1a22ce98de455dd1288dbc11090812f947" kind="function"><name>get_transformed_point</name></member>
+    <member refid="structeu_1_1m4_1a4200aff0f233b6cc4d8737b7902d09f6" kind="function"><name>get_transformed_vec</name></member>
+    <member refid="structeu_1_1m4_1a1badedce78b896c369dce5bf9fbe2501" kind="function"><name>get_transformed_vec</name></member>
+    <member refid="structeu_1_1m4_1a365aa70652a02f999cffcba9b9e7fb0c" kind="function"><name>get_row</name></member>
+    <member refid="structeu_1_1m4_1a077151f1e96cf410bab33a1cec955941" kind="function"><name>get_column</name></member>
     <member refid="structeu_1_1m4_1aba8c57d5749a35d55dfcba7720a346f8" kind="function"><name>get_translated</name></member>
     <member refid="structeu_1_1m4_1a962b8dc916fba399bce71f71e63d8def" kind="function"><name>get_rotated</name></member>
-    <member refid="structeu_1_1m4_1a077151f1e96cf410bab33a1cec955941" kind="function"><name>get_column</name></member>
-    <member refid="structeu_1_1m4_1a365aa70652a02f999cffcba9b9e7fb0c" kind="function"><name>get_row</name></member>
-    <member refid="structeu_1_1m4_1a2fbc9db08ba774d0b9edc69657c8b810" kind="function"><name>get_column_major</name></member>
-    <member refid="structeu_1_1m4_1a940d3de9cf0a99d3f28ae905aa1766fc" kind="function"><name>get_data_ptr</name></member>
     <member refid="structeu_1_1m4_1adeac0478f4b0cf3524a6307423c61b0d" kind="function"><name>get_translation</name></member>
     <member refid="structeu_1_1m4_1aaa003fa4e4763c74e009b1577e1c7f72" kind="function"><name>get_major</name></member>
     <member refid="structeu_1_1m4_1af13b7226a0a5013932ebb9945cc065e1" kind="function"><name>get_x_axis</name></member>
     <member refid="structeu_1_1m4_1afbfa1868818fd2601cf2dcc48663cf8b" kind="function"><name>get_y_axis</name></member>
     <member refid="structeu_1_1m4_1a2b52dc7ef3c427768e694d12722922a9" kind="function"><name>get_z_axis</name></member>
     <member refid="structeu_1_1m4_1a157926a01b83b752f5aca39fcc610992" kind="function"><name>get_transposed</name></member>
-    <member refid="structeu_1_1m4_1a7f9269dbbcf3f8dfdae73d470580fe93" kind="function"><name>get_inverted</name></member>
     <member refid="structeu_1_1m4_1a83c2d5a73883139aa0b97e37357bb22e" kind="function"><name>operator+=</name></member>
     <member refid="structeu_1_1m4_1a21b31d9f1ffceb8c98c98fc01bb2b4ad" kind="function"><name>operator-=</name></member>
     <member refid="structeu_1_1m4_1aabdfaa21b0e4235527aeb55c5ae6520a" kind="function"><name>m4</name></member>

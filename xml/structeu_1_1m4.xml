@@ -11,12 +11,13 @@
         <name>data</name>
         <qualifiedname>eu::m4::data</qualifiedname>
         <briefdescription>
+<para>stored in column major </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/mat4.h" line="90" column="15" bodyfile="libs/base/src/base/mat4.h" bodystart="90" bodyend="-1"/>
+        <location file="libs/base/src/base/mat4.h" line="150" column="15" bodyfile="libs/base/src/base/mat4.h" bodystart="150" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-static-func">
@@ -91,12 +92,13 @@
           <declname>t33</declname>
         </param>
         <briefdescription>
+<para>Create a new matrix from column major format. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/mat4.h" line="20" column="20"/>
+        <location file="libs/base/src/base/mat4.h" line="21" column="20"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1m4_1a87e85f6fda44138f93d1d53565f0c4f2" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref> <ref refid="structeu_1_1m4" kindref="compound">m4</ref></type>
@@ -169,12 +171,13 @@
           <declname>t33</declname>
         </param>
         <briefdescription>
+<para>Create a new matrix from row major format. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/mat4.h" line="26" column="30" bodyfile="libs/base/src/base/mat4.h" bodystart="26" bodyend="37"/>
+        <location file="libs/base/src/base/mat4.h" line="28" column="30" bodyfile="libs/base/src/base/mat4.h" bodystart="28" bodyend="39"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1m4_1ae6eaf6bb5bd67c4e665537d0b1ac4ad7" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1m4" kindref="compound">m4</ref></type>
@@ -187,12 +190,38 @@
           <declname>major</declname>
         </param>
         <briefdescription>
+<para>Create a matrix from the major, aka the diagonal. </para>
         </briefdescription>
         <detaileddescription>
+<para><simplesect kind="see"><para>from_scalar </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/mat4.h" line="39" column="20"/>
+        <location file="libs/base/src/base/mat4.h" line="43" column="20"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1m4_1aa47c360516068b62237182dd1f005cd7" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref> <ref refid="structeu_1_1m4" kindref="compound">m4</ref></type>
+        <definition>static constexpr m4 eu::m4::from_scalar</definition>
+        <argsstring>(float scalar)</argsstring>
+        <name>from_scalar</name>
+        <qualifiedname>eu::m4::from_scalar</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <declname>scalar</declname>
+        </param>
+        <briefdescription>
+<para>Create a matrix from a single scalar. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para>from_major </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/mat4.h" line="47" column="30" bodyfile="libs/base/src/base/mat4.h" bodystart="47" bodyend="55"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1m4_1aba676fc0ae9d7b1b6a26d36b8b91034c" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1m4" kindref="compound">m4</ref></type>
@@ -205,12 +234,13 @@
           <declname>v</declname>
         </param>
         <briefdescription>
+<para>Create a translation matrix. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/mat4.h" line="40" column="20"/>
+        <location file="libs/base/src/base/mat4.h" line="58" column="20"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1m4_1a40ffd44fdb5e5afff26219ee1ca73686" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1m4" kindref="compound">m4</ref></type>
@@ -223,12 +253,13 @@
           <declname>a</declname>
         </param>
         <briefdescription>
+<para>Create a rotation matrix, around the X axis. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/mat4.h" line="41" column="20"/>
+        <location file="libs/base/src/base/mat4.h" line="61" column="20"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1m4_1a05aee86e518e28de0e30b59d1b45a044" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1m4" kindref="compound">m4</ref></type>
@@ -241,12 +272,13 @@
           <declname>a</declname>
         </param>
         <briefdescription>
+<para>Create a rotation matrix, around the Y axis. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/mat4.h" line="42" column="20"/>
+        <location file="libs/base/src/base/mat4.h" line="64" column="20"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1m4_1a82ebadeb3686d4969a25ea562a77b69c" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1m4" kindref="compound">m4</ref></type>
@@ -259,12 +291,13 @@
           <declname>a</declname>
         </param>
         <briefdescription>
+<para>Create a rotation matrix, around the Z axis. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/mat4.h" line="43" column="20"/>
+        <location file="libs/base/src/base/mat4.h" line="67" column="20"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1m4_1afbf74cfa8215fe5c7c29f14095592a4d" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1m4" kindref="compound">m4</ref></type>
@@ -277,12 +310,13 @@
           <declname>aa</declname>
         </param>
         <briefdescription>
+<para>Create a rotation matrix, from an axis angle. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/mat4.h" line="44" column="20"/>
+        <location file="libs/base/src/base/mat4.h" line="70" column="20"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1m4_1acedb3177529232cb02854aaa8ec1407f" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::optional&lt; <ref refid="structeu_1_1m4" kindref="compound">m4</ref> &gt;</type>
@@ -295,12 +329,13 @@
           <declname>q</declname>
         </param>
         <briefdescription>
+<para>Create a rotation matrix, from a quaternion. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/mat4.h" line="45" column="31"/>
+        <location file="libs/base/src/base/mat4.h" line="73" column="31"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1m4_1ae8ba82977a543bd9ab1991f1b4e33dbb" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1m4" kindref="compound">m4</ref></type>
@@ -333,12 +368,13 @@
           <declname>f</declname>
         </param>
         <briefdescription>
+<para>Create an orthographic projection matrix. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/mat4.h" line="46" column="20"/>
+        <location file="libs/base/src/base/mat4.h" line="76" column="20"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1m4_1a09082b8b01477bcfcf5d6eaab85c1855" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1m4" kindref="compound">m4</ref></type>
@@ -363,60 +399,45 @@
           <declname>far</declname>
         </param>
         <briefdescription>
+<para>Create a perspective projection matrix. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/mat4.h" line="47" column="20"/>
-      </memberdef>
-      <memberdef kind="function" id="structeu_1_1m4_1aa47c360516068b62237182dd1f005cd7" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref> <ref refid="structeu_1_1m4" kindref="compound">m4</ref></type>
-        <definition>static constexpr m4 eu::m4::from_scalar</definition>
-        <argsstring>(float scalar)</argsstring>
-        <name>from_scalar</name>
-        <qualifiedname>eu::m4::from_scalar</qualifiedname>
-        <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
-          <declname>scalar</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/base/src/base/mat4.h" line="48" column="30" bodyfile="libs/base/src/base/mat4.h" bodystart="48" bodyend="56"/>
+        <location file="libs/base/src/base/mat4.h" line="79" column="20"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
-      <memberdef kind="function" id="structeu_1_1m4_1a65d91262bd9bef4225ef863ccf35dcef" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1m4_1aaf34521efbecbe4a057a6d0c90294e0c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">float</ref> *</type>
-        <definition>float * eu::m4::get_data_ptr</definition>
+        <definition>float * eu::m4::get_column_major_data_ptr</definition>
         <argsstring>()</argsstring>
-        <name>get_data_ptr</name>
-        <qualifiedname>eu::m4::get_data_ptr</qualifiedname>
+        <name>get_column_major_data_ptr</name>
+        <qualifiedname>eu::m4::get_column_major_data_ptr</qualifiedname>
         <briefdescription>
+<para>Get a direct pointer to the data in column major format, for API integration. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/mat4.h" line="58" column="15"/>
+        <location file="libs/base/src/base/mat4.h" line="82" column="15"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1m4_1a9427ee3705d08290d5556fcfd02f4037" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">float</ref> *</type>
-        <definition>float * eu::m4::get_column_major</definition>
-        <argsstring>()</argsstring>
-        <name>get_column_major</name>
-        <qualifiedname>eu::m4::get_column_major</qualifiedname>
+      <memberdef kind="function" id="structeu_1_1m4_1ade2bde04baa97bfe069b92942e5be37e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1R" kindref="compound">float</ref> *</type>
+        <definition>const float * eu::m4::get_column_major_data_ptr</definition>
+        <argsstring>() const</argsstring>
+        <name>get_column_major_data_ptr</name>
+        <qualifiedname>eu::m4::get_column_major_data_ptr</qualifiedname>
         <briefdescription>
+<para>Get a direct pointer to the const data in column major format, for API integration. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/mat4.h" line="59" column="15"/>
+        <location file="libs/base/src/base/mat4.h" line="85" column="22"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1m4_1a346dce537e994a3987082b7b3bb9c08a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">bool</ref></type>
@@ -425,12 +446,34 @@
         <name>invert</name>
         <qualifiedname>eu::m4::invert</qualifiedname>
         <briefdescription>
+<para>Invert the current matrix. </para>
         </briefdescription>
         <detaileddescription>
+<para><simplesect kind="see"><para>get_inverted </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/mat4.h" line="61" column="14"/>
+        <location file="libs/base/src/base/mat4.h" line="89" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1m4_1a7f9269dbbcf3f8dfdae73d470580fe93" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1m4" kindref="compound">m4</ref></type>
+        <definition>m4 eu::m4::get_inverted</definition>
+        <argsstring>() const</argsstring>
+        <name>get_inverted</name>
+        <qualifiedname>eu::m4::get_inverted</qualifiedname>
+        <briefdescription>
+<para>Return the inverted matrix. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para>invert </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/mat4.h" line="93" column="13"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1m4_1a6014565213c198695d0c43f2ffd4f392" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
@@ -447,37 +490,39 @@
           <declname>col</declname>
         </param>
         <briefdescription>
+<para>Return a single value given a row and column. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/mat4.h" line="63" column="16"/>
+        <location file="libs/base/src/base/mat4.h" line="96" column="16"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1m4_1acfda6760d726e02ac30a6ee73dd0f22e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1m4_1ac7a76a023788418920fc7df439b77749" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1v4" kindref="compound">v4</ref></type>
-        <definition>v4 eu::m4::get_transform</definition>
+        <definition>v4 eu::m4::get_transformed</definition>
         <argsstring>(const v4 &amp;p) const</argsstring>
-        <name>get_transform</name>
-        <qualifiedname>eu::m4::get_transform</qualifiedname>
+        <name>get_transformed</name>
+        <qualifiedname>eu::m4::get_transformed</qualifiedname>
         <param>
           <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1v4" kindref="compound">v4</ref> &amp;</type>
           <declname>p</declname>
         </param>
         <briefdescription>
+<para>Get a transformed vec4. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/mat4.h" line="64" column="13"/>
+        <location file="libs/base/src/base/mat4.h" line="99" column="13"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1m4_1aae4056c3ac5e3e24f58074d79e818a98" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1m4_1a7409e0ed0428d05b25a914c84749a070" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1v3" kindref="compound">v3</ref></type>
-        <definition>v3 eu::m4::get_transform</definition>
+        <definition>v3 eu::m4::get_transformed</definition>
         <argsstring>(const v3 &amp;p, float w) const</argsstring>
-        <name>get_transform</name>
-        <qualifiedname>eu::m4::get_transform</qualifiedname>
+        <name>get_transformed</name>
+        <qualifiedname>eu::m4::get_transformed</qualifiedname>
         <param>
           <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1v3" kindref="compound">v3</ref> &amp;</type>
           <declname>p</declname>
@@ -487,138 +532,70 @@
           <declname>w</declname>
         </param>
         <briefdescription>
+<para>Get a transformed vec3, using the w component of the vector. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/mat4.h" line="65" column="13"/>
+        <location file="libs/base/src/base/mat4.h" line="102" column="13"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1m4_1a0d3d2abf17f5e8c94316a874f621b21d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1m4_1a22ce98de455dd1288dbc11090812f947" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1v3" kindref="compound">v3</ref></type>
-        <definition>v3 eu::m4::get_transform_point</definition>
+        <definition>v3 eu::m4::get_transformed_point</definition>
         <argsstring>(const v3 &amp;p) const</argsstring>
-        <name>get_transform_point</name>
-        <qualifiedname>eu::m4::get_transform_point</qualifiedname>
+        <name>get_transformed_point</name>
+        <qualifiedname>eu::m4::get_transformed_point</qualifiedname>
         <param>
           <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1v3" kindref="compound">v3</ref> &amp;</type>
           <declname>p</declname>
         </param>
         <briefdescription>
+<para>Get a transformed vec3 assuming it&apos;s a point. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/mat4.h" line="66" column="13"/>
+        <location file="libs/base/src/base/mat4.h" line="105" column="13"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1m4_1a2b497aca2753966a063924a043291da9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1m4_1a4200aff0f233b6cc4d8737b7902d09f6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1v3" kindref="compound">v3</ref></type>
-        <definition>v3 eu::m4::get_transform_vec</definition>
+        <definition>v3 eu::m4::get_transformed_vec</definition>
         <argsstring>(const v3 &amp;p) const</argsstring>
-        <name>get_transform_vec</name>
-        <qualifiedname>eu::m4::get_transform_vec</qualifiedname>
+        <name>get_transformed_vec</name>
+        <qualifiedname>eu::m4::get_transformed_vec</qualifiedname>
         <param>
           <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1v3" kindref="compound">v3</ref> &amp;</type>
           <declname>p</declname>
         </param>
         <briefdescription>
+<para>Get a transformed vec3, assuming it&apos;s a normal vector. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/mat4.h" line="67" column="13"/>
+        <location file="libs/base/src/base/mat4.h" line="108" column="13"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1m4_1aaea0069c1fc71c52264d55d368452e9e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1m4_1a1badedce78b896c369dce5bf9fbe2501" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1n3" kindref="compound">n3</ref></type>
-        <definition>n3 eu::m4::get_transform_vec</definition>
+        <definition>n3 eu::m4::get_transformed_vec</definition>
         <argsstring>(const n3 &amp;p) const</argsstring>
-        <name>get_transform_vec</name>
-        <qualifiedname>eu::m4::get_transform_vec</qualifiedname>
+        <name>get_transformed_vec</name>
+        <qualifiedname>eu::m4::get_transformed_vec</qualifiedname>
         <param>
           <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1n3" kindref="compound">n3</ref> &amp;</type>
           <declname>p</declname>
         </param>
         <briefdescription>
+<para>Get a transformed unit3. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/mat4.h" line="68" column="13"/>
-      </memberdef>
-      <memberdef kind="function" id="structeu_1_1m4_1ad362f8ad30e4224d2973d53ab4066674" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1n3" kindref="compound">n3</ref></type>
-        <definition>n3 eu::m4::get_axis</definition>
-        <argsstring>(int col) const</argsstring>
-        <name>get_axis</name>
-        <qualifiedname>eu::m4::get_axis</qualifiedname>
-        <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
-          <declname>col</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/base/src/base/mat4.h" line="69" column="13"/>
-      </memberdef>
-      <memberdef kind="function" id="structeu_1_1m4_1aba8c57d5749a35d55dfcba7720a346f8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1m4" kindref="compound">m4</ref></type>
-        <definition>m4 eu::m4::get_translated</definition>
-        <argsstring>(const v3 &amp;t) const</argsstring>
-        <name>get_translated</name>
-        <qualifiedname>eu::m4::get_translated</qualifiedname>
-        <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1v3" kindref="compound">v3</ref> &amp;</type>
-          <declname>t</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/base/src/base/mat4.h" line="70" column="13"/>
-      </memberdef>
-      <memberdef kind="function" id="structeu_1_1m4_1a962b8dc916fba399bce71f71e63d8def" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1m4" kindref="compound">m4</ref></type>
-        <definition>m4 eu::m4::get_rotated</definition>
-        <argsstring>(const AA &amp;aa) const</argsstring>
-        <name>get_rotated</name>
-        <qualifiedname>eu::m4::get_rotated</qualifiedname>
-        <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1AA" kindref="compound">AA</ref> &amp;</type>
-          <declname>aa</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/base/src/base/mat4.h" line="71" column="13"/>
-      </memberdef>
-      <memberdef kind="function" id="structeu_1_1m4_1a077151f1e96cf410bab33a1cec955941" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1v4" kindref="compound">v4</ref></type>
-        <definition>v4 eu::m4::get_column</definition>
-        <argsstring>(int c) const</argsstring>
-        <name>get_column</name>
-        <qualifiedname>eu::m4::get_column</qualifiedname>
-        <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
-          <declname>c</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/base/src/base/mat4.h" line="72" column="13"/>
+        <location file="libs/base/src/base/mat4.h" line="111" column="13"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1m4_1a365aa70652a02f999cffcba9b9e7fb0c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1v4" kindref="compound">v4</ref></type>
@@ -631,40 +608,70 @@
           <declname>r</declname>
         </param>
         <briefdescription>
+<para>Get a row as a vec4. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/mat4.h" line="73" column="13"/>
+        <location file="libs/base/src/base/mat4.h" line="114" column="13"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1m4_1a2fbc9db08ba774d0b9edc69657c8b810" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1R" kindref="compound">float</ref> *</type>
-        <definition>const float * eu::m4::get_column_major</definition>
-        <argsstring>() const</argsstring>
-        <name>get_column_major</name>
-        <qualifiedname>eu::m4::get_column_major</qualifiedname>
+      <memberdef kind="function" id="structeu_1_1m4_1a077151f1e96cf410bab33a1cec955941" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1v4" kindref="compound">v4</ref></type>
+        <definition>v4 eu::m4::get_column</definition>
+        <argsstring>(int c) const</argsstring>
+        <name>get_column</name>
+        <qualifiedname>eu::m4::get_column</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+          <declname>c</declname>
+        </param>
         <briefdescription>
+<para>Get a column as vec4. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/mat4.h" line="75" column="22"/>
+        <location file="libs/base/src/base/mat4.h" line="117" column="13"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1m4_1a940d3de9cf0a99d3f28ae905aa1766fc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1R" kindref="compound">float</ref> *</type>
-        <definition>const float * eu::m4::get_data_ptr</definition>
-        <argsstring>() const</argsstring>
-        <name>get_data_ptr</name>
-        <qualifiedname>eu::m4::get_data_ptr</qualifiedname>
+      <memberdef kind="function" id="structeu_1_1m4_1aba8c57d5749a35d55dfcba7720a346f8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1m4" kindref="compound">m4</ref></type>
+        <definition>m4 eu::m4::get_translated</definition>
+        <argsstring>(const v3 &amp;t) const</argsstring>
+        <name>get_translated</name>
+        <qualifiedname>eu::m4::get_translated</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1v3" kindref="compound">v3</ref> &amp;</type>
+          <declname>t</declname>
+        </param>
         <briefdescription>
+<para>Combine this with a translation matrix. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/mat4.h" line="76" column="22"/>
+        <location file="libs/base/src/base/mat4.h" line="120" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1m4_1a962b8dc916fba399bce71f71e63d8def" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1m4" kindref="compound">m4</ref></type>
+        <definition>m4 eu::m4::get_rotated</definition>
+        <argsstring>(const AA &amp;aa) const</argsstring>
+        <name>get_rotated</name>
+        <qualifiedname>eu::m4::get_rotated</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1AA" kindref="compound">AA</ref> &amp;</type>
+          <declname>aa</declname>
+        </param>
+        <briefdescription>
+<para>Combine this with a rotation matrix. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/mat4.h" line="123" column="13"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1m4_1adeac0478f4b0cf3524a6307423c61b0d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1v3" kindref="compound">v3</ref></type>
@@ -673,12 +680,13 @@
         <name>get_translation</name>
         <qualifiedname>eu::m4::get_translation</qualifiedname>
         <briefdescription>
+<para>Get the current translation of the transformation matrix. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/mat4.h" line="78" column="13"/>
+        <location file="libs/base/src/base/mat4.h" line="126" column="13"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1m4_1aaa003fa4e4763c74e009b1577e1c7f72" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1v4" kindref="compound">v4</ref></type>
@@ -687,12 +695,13 @@
         <name>get_major</name>
         <qualifiedname>eu::m4::get_major</qualifiedname>
         <briefdescription>
+<para>Get the major vector. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/mat4.h" line="79" column="13"/>
+        <location file="libs/base/src/base/mat4.h" line="129" column="13"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1m4_1af13b7226a0a5013932ebb9945cc065e1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1n3" kindref="compound">n3</ref></type>
@@ -701,12 +710,13 @@
         <name>get_x_axis</name>
         <qualifiedname>eu::m4::get_x_axis</qualifiedname>
         <briefdescription>
+<para>Get the local X axis. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/mat4.h" line="80" column="13"/>
+        <location file="libs/base/src/base/mat4.h" line="132" column="13"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1m4_1afbfa1868818fd2601cf2dcc48663cf8b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1n3" kindref="compound">n3</ref></type>
@@ -715,12 +725,13 @@
         <name>get_y_axis</name>
         <qualifiedname>eu::m4::get_y_axis</qualifiedname>
         <briefdescription>
+<para>Get the local Y axis. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/mat4.h" line="81" column="13"/>
+        <location file="libs/base/src/base/mat4.h" line="135" column="13"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1m4_1a2b52dc7ef3c427768e694d12722922a9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1n3" kindref="compound">n3</ref></type>
@@ -729,12 +740,13 @@
         <name>get_z_axis</name>
         <qualifiedname>eu::m4::get_z_axis</qualifiedname>
         <briefdescription>
+<para>Get the local Z azis. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/mat4.h" line="82" column="13"/>
+        <location file="libs/base/src/base/mat4.h" line="138" column="13"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1m4_1a157926a01b83b752f5aca39fcc610992" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1m4" kindref="compound">m4</ref></type>
@@ -743,26 +755,14 @@
         <name>get_transposed</name>
         <qualifiedname>eu::m4::get_transposed</qualifiedname>
         <briefdescription>
+<para>Gets the transpose of a matrix. </para>
         </briefdescription>
         <detaileddescription>
+<para>If the matrix is a rotation matrix, then the transpose is guaranteed to be the inverse of the matrix. </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/mat4.h" line="83" column="13"/>
-      </memberdef>
-      <memberdef kind="function" id="structeu_1_1m4_1a7f9269dbbcf3f8dfdae73d470580fe93" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1m4" kindref="compound">m4</ref></type>
-        <definition>m4 eu::m4::get_inverted</definition>
-        <argsstring>() const</argsstring>
-        <name>get_inverted</name>
-        <qualifiedname>eu::m4::get_inverted</qualifiedname>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/base/src/base/mat4.h" line="84" column="13"/>
+        <location file="libs/base/src/base/mat4.h" line="142" column="13"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1m4_1a83c2d5a73883139aa0b97e37357bb22e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
@@ -780,7 +780,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/mat4.h" line="86" column="14"/>
+        <location file="libs/base/src/base/mat4.h" line="145" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1m4_1a21b31d9f1ffceb8c98c98fc01bb2b4ad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
@@ -798,7 +798,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/mat4.h" line="87" column="14"/>
+        <location file="libs/base/src/base/mat4.h" line="146" column="14"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="private-func">
@@ -814,7 +814,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/mat4.h" line="92" column="9"/>
+        <location file="libs/base/src/base/mat4.h" line="152" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1m4_1a62fa0da192dbb86ce59e53575bda7d86" prot="private" static="no" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref></type>
@@ -892,7 +892,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/mat4.h" line="94" column="19" bodyfile="libs/base/src/base/mat4.h" bodystart="94" bodyend="105"/>
+        <location file="libs/base/src/base/mat4.h" line="154" column="19" bodyfile="libs/base/src/base/mat4.h" bodystart="154" bodyend="165"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -900,7 +900,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/base/src/base/mat4.h" line="18" column="5" bodyfile="libs/base/src/base/mat4.h" bodystart="19" bodyend="106"/>
+    <location file="libs/base/src/base/mat4.h" line="18" column="5" bodyfile="libs/base/src/base/mat4.h" bodystart="19" bodyend="166"/>
     <listofallmembers>
       <member refid="structeu_1_1m4_1ae8ba82977a543bd9ab1991f1b4e33dbb" prot="public" virt="non-virtual"><scope>eu::m4</scope><name>create_ortho</name></member>
       <member refid="structeu_1_1m4_1a09082b8b01477bcfcf5d6eaab85c1855" prot="public" virt="non-virtual"><scope>eu::m4</scope><name>create_perspective</name></member>
@@ -916,21 +916,18 @@
       <member refid="structeu_1_1m4_1aa47c360516068b62237182dd1f005cd7" prot="public" virt="non-virtual"><scope>eu::m4</scope><name>from_scalar</name></member>
       <member refid="structeu_1_1m4_1aba676fc0ae9d7b1b6a26d36b8b91034c" prot="public" virt="non-virtual"><scope>eu::m4</scope><name>from_translation</name></member>
       <member refid="structeu_1_1m4_1a6014565213c198695d0c43f2ffd4f392" prot="public" virt="non-virtual"><scope>eu::m4</scope><name>get</name></member>
-      <member refid="structeu_1_1m4_1ad362f8ad30e4224d2973d53ab4066674" prot="public" virt="non-virtual"><scope>eu::m4</scope><name>get_axis</name></member>
       <member refid="structeu_1_1m4_1a077151f1e96cf410bab33a1cec955941" prot="public" virt="non-virtual"><scope>eu::m4</scope><name>get_column</name></member>
-      <member refid="structeu_1_1m4_1a9427ee3705d08290d5556fcfd02f4037" prot="public" virt="non-virtual"><scope>eu::m4</scope><name>get_column_major</name></member>
-      <member refid="structeu_1_1m4_1a2fbc9db08ba774d0b9edc69657c8b810" prot="public" virt="non-virtual"><scope>eu::m4</scope><name>get_column_major</name></member>
-      <member refid="structeu_1_1m4_1a65d91262bd9bef4225ef863ccf35dcef" prot="public" virt="non-virtual"><scope>eu::m4</scope><name>get_data_ptr</name></member>
-      <member refid="structeu_1_1m4_1a940d3de9cf0a99d3f28ae905aa1766fc" prot="public" virt="non-virtual"><scope>eu::m4</scope><name>get_data_ptr</name></member>
+      <member refid="structeu_1_1m4_1aaf34521efbecbe4a057a6d0c90294e0c" prot="public" virt="non-virtual"><scope>eu::m4</scope><name>get_column_major_data_ptr</name></member>
+      <member refid="structeu_1_1m4_1ade2bde04baa97bfe069b92942e5be37e" prot="public" virt="non-virtual"><scope>eu::m4</scope><name>get_column_major_data_ptr</name></member>
       <member refid="structeu_1_1m4_1a7f9269dbbcf3f8dfdae73d470580fe93" prot="public" virt="non-virtual"><scope>eu::m4</scope><name>get_inverted</name></member>
       <member refid="structeu_1_1m4_1aaa003fa4e4763c74e009b1577e1c7f72" prot="public" virt="non-virtual"><scope>eu::m4</scope><name>get_major</name></member>
       <member refid="structeu_1_1m4_1a962b8dc916fba399bce71f71e63d8def" prot="public" virt="non-virtual"><scope>eu::m4</scope><name>get_rotated</name></member>
       <member refid="structeu_1_1m4_1a365aa70652a02f999cffcba9b9e7fb0c" prot="public" virt="non-virtual"><scope>eu::m4</scope><name>get_row</name></member>
-      <member refid="structeu_1_1m4_1acfda6760d726e02ac30a6ee73dd0f22e" prot="public" virt="non-virtual"><scope>eu::m4</scope><name>get_transform</name></member>
-      <member refid="structeu_1_1m4_1aae4056c3ac5e3e24f58074d79e818a98" prot="public" virt="non-virtual"><scope>eu::m4</scope><name>get_transform</name></member>
-      <member refid="structeu_1_1m4_1a0d3d2abf17f5e8c94316a874f621b21d" prot="public" virt="non-virtual"><scope>eu::m4</scope><name>get_transform_point</name></member>
-      <member refid="structeu_1_1m4_1a2b497aca2753966a063924a043291da9" prot="public" virt="non-virtual"><scope>eu::m4</scope><name>get_transform_vec</name></member>
-      <member refid="structeu_1_1m4_1aaea0069c1fc71c52264d55d368452e9e" prot="public" virt="non-virtual"><scope>eu::m4</scope><name>get_transform_vec</name></member>
+      <member refid="structeu_1_1m4_1ac7a76a023788418920fc7df439b77749" prot="public" virt="non-virtual"><scope>eu::m4</scope><name>get_transformed</name></member>
+      <member refid="structeu_1_1m4_1a7409e0ed0428d05b25a914c84749a070" prot="public" virt="non-virtual"><scope>eu::m4</scope><name>get_transformed</name></member>
+      <member refid="structeu_1_1m4_1a22ce98de455dd1288dbc11090812f947" prot="public" virt="non-virtual"><scope>eu::m4</scope><name>get_transformed_point</name></member>
+      <member refid="structeu_1_1m4_1a4200aff0f233b6cc4d8737b7902d09f6" prot="public" virt="non-virtual"><scope>eu::m4</scope><name>get_transformed_vec</name></member>
+      <member refid="structeu_1_1m4_1a1badedce78b896c369dce5bf9fbe2501" prot="public" virt="non-virtual"><scope>eu::m4</scope><name>get_transformed_vec</name></member>
       <member refid="structeu_1_1m4_1aba8c57d5749a35d55dfcba7720a346f8" prot="public" virt="non-virtual"><scope>eu::m4</scope><name>get_translated</name></member>
       <member refid="structeu_1_1m4_1adeac0478f4b0cf3524a6307423c61b0d" prot="public" virt="non-virtual"><scope>eu::m4</scope><name>get_translation</name></member>
       <member refid="structeu_1_1m4_1a157926a01b83b752f5aca39fcc610992" prot="public" virt="non-virtual"><scope>eu::m4</scope><name>get_transposed</name></member>

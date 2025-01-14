@@ -135,6 +135,7 @@ Functions</h2></td></tr>
 <tr class="memitem:gad902ccc075018be926b6d34aa5eb7d92" id="r_gad902ccc075018be926b6d34aa5eb7d92"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__math.html#gad902ccc075018be926b6d34aa5eb7d92">eu::string_from</a> (<a class="el" href="structeu_1_1R.html">const</a> <a class="el" href="structeu_1_1Ypr.html">Ypr</a> &amp;<a class="el" href="structeu_1_1R.html">ypr</a>)</td></tr>
 <tr class="separator:gad902ccc075018be926b6d34aa5eb7d92"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga66e1820c967a20b5f47444560e472077" id="r_ga66e1820c967a20b5f47444560e472077"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__math.html#ga66e1820c967a20b5f47444560e472077">eu::string_from</a> (<a class="el" href="structeu_1_1R.html">const</a> <a class="el" href="structeu_1_1m4.html">m4</a> &amp;<a class="el" href="structeu_1_1R.html">m</a>)</td></tr>
+<tr class="memdesc:ga66e1820c967a20b5f47444560e472077"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert a matrix to a string representation, prefer fmt.  <br /></td></tr>
 <tr class="separator:ga66e1820c967a20b5f47444560e472077"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gac6df9508643c5fd4c3492e047e9a932c" id="r_gac6df9508643c5fd4c3492e047e9a932c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeu_1_1m4.html">m4</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__math.html#gac6df9508643c5fd4c3492e047e9a932c">eu::operator+</a> (<a class="el" href="structeu_1_1R.html">const</a> <a class="el" href="structeu_1_1m4.html">m4</a> &amp;<a class="el" href="structeu_1_1R.html">lhs</a>, <a class="el" href="structeu_1_1R.html">const</a> <a class="el" href="structeu_1_1m4.html">m4</a> &amp;<a class="el" href="structeu_1_1R.html">rhs</a>)</td></tr>
 <tr class="separator:gac6df9508643c5fd4c3492e047e9a932c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -310,6 +311,7 @@ Variables</h2></td></tr>
 <tr class="memitem:ga22905decd86a4bf45c79c109119f2b6f" id="r_ga22905decd86a4bf45c79c109119f2b6f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeu_1_1R.html">constexpr</a> <a class="el" href="structeu_1_1An.html">An</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__math.html#ga22905decd86a4bf45c79c109119f2b6f">eu::no_rotation</a> = <a class="el" href="structeu_1_1An.html#a978cd7edfef73d6cac1eff7862c04472">An::from_radians</a>(0.0f)</td></tr>
 <tr class="separator:ga22905decd86a4bf45c79c109119f2b6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga5957f0b19a66d6e1123f22d681e726e0" id="r_ga5957f0b19a66d6e1123f22d681e726e0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeu_1_1R.html">constexpr</a> <a class="el" href="structeu_1_1m4.html">m4</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__math.html#ga5957f0b19a66d6e1123f22d681e726e0">eu::m4_identity</a> = <a class="el" href="structeu_1_1m4.html#aa47c360516068b62237182dd1f005cd7">m4::from_scalar</a>(1)</td></tr>
+<tr class="memdesc:ga5957f0b19a66d6e1123f22d681e726e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">The identity matrix.  <br /></td></tr>
 <tr class="separator:ga5957f0b19a66d6e1123f22d681e726e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga25eb222abfe7c9e7f34d6f19ed40c1a0" id="r_ga25eb222abfe7c9e7f34d6f19ed40c1a0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeu_1_1R.html">constexpr</a> <a class="el" href="structeu_1_1R.html">float</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__math.html#ga25eb222abfe7c9e7f34d6f19ed40c1a0">eu::pi</a> = 3.1415926535897932384626433832795<a class="el" href="structeu_1_1R.html">f</a></td></tr>
 <tr class="separator:ga25eb222abfe7c9e7f34d6f19ed40c1a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -2603,6 +2605,8 @@ template&lt;<a class="el" href="structeu_1_1R.html">typename</a> <a class="el" h
 
 <p><code>#include &lt;<a class="el" href="mat4_8h.html">libs/base/src/base/mat4.h</a>&gt;</code></p>
 
+<p>Convert a matrix to a string representation, prefer fmt. </p>
+
 </div>
 </div>
 <a id="ga92a0e2f8c9ecc8ceaee41a90680eba8c" name="ga92a0e2f8c9ecc8ceaee41a90680eba8c"></a>
@@ -2899,7 +2903,9 @@ template&lt;<a class="el" href="structeu_1_1R.html">typename</a> <a class="el" h
 
 <p><code>#include &lt;<a class="el" href="mat4_8h.html">libs/base/src/base/mat4.h</a>&gt;</code></p>
 
-<p class="definition">Definition at line <a class="el" href="mat4_8h_source.html#l00108">108</a> of file <a class="el" href="mat4_8h_source.html">mat4.h</a>.</p>
+<p>The identity matrix. </p>
+
+<p class="definition">Definition at line <a class="el" href="mat4_8h_source.html#l00169">169</a> of file <a class="el" href="mat4_8h_source.html">mat4.h</a>.</p>
 
 </div>
 </div>
