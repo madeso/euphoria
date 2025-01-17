@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/guid.h" line="13" column="20" bodyfile="libs/base/src/base/guid.h" bodystart="13" bodyend="-1"/>
+        <location file="libs/base/src/base/guid.h" line="14" column="20" bodyfile="libs/base/src/base/guid.h" bodystart="14" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
@@ -27,12 +27,16 @@
         <name>Guid</name>
         <qualifiedname>eu::Guid::Guid</qualifiedname>
         <briefdescription>
+<para>Does nothing. </para>
         </briefdescription>
         <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="namespaceeu_1aac60b8ebeed751e1d2dcb1594eb0d28f" kindref="member">eu::nil_guid</ref> </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/guid.h" line="15" column="9"/>
+        <location file="libs/base/src/base/guid.h" line="19" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1Guid_1ad0a6db57ed177d9ca1cc00a7901856b8" prot="public" static="no" constexpr="yes" const="no" explicit="yes" inline="yes" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref></type>
@@ -45,12 +49,13 @@
           <declname>d</declname>
         </param>
         <briefdescription>
+<para>Set the guid data. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/guid.h" line="16" column="28" bodyfile="libs/base/src/base/guid.h" bodystart="16" bodyend="19"/>
+        <location file="libs/base/src/base/guid.h" line="22" column="28" bodyfile="libs/base/src/base/guid.h" bodystart="22" bodyend="25"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-static-func">
@@ -66,14 +71,15 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/guid.h" line="21" column="31"/>
+        <location file="libs/base/src/base/guid.h" line="27" column="31"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
+<para>Represents a universally unique identifier. </para>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/base/src/base/guid.h" line="11" column="5" bodyfile="libs/base/src/base/guid.h" bodystart="12" bodyend="22"/>
+    <location file="libs/base/src/base/guid.h" line="12" column="5" bodyfile="libs/base/src/base/guid.h" bodystart="13" bodyend="28"/>
     <listofallmembers>
       <member refid="structeu_1_1Guid_1ac9c5c042647a79b26ba31966a708f3fc" prot="public" virt="non-virtual"><scope>eu::Guid</scope><name>data</name></member>
       <member refid="structeu_1_1Guid_1a8ef712e40958a0c96ee7bf46140ec0e8" prot="public" virt="non-virtual"><scope>eu::Guid</scope><name>generate</name></member>

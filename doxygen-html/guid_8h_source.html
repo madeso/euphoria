@@ -68,51 +68,56 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceeu.html">eu</a></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>{</div>
-<div class="foldopen" id="foldopen00011" data-start="{" data-end="};">
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="structeu_1_1Guid.html">   11</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structeu_1_1Guid.html">Guid</a></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    {</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="structeu_1_1Guid.html#ac9c5c042647a79b26ba31966a708f3fc">   13</a></span>        std::array&lt;u8, 16&gt; <a class="code hl_variable" href="structeu_1_1Guid.html#ac9c5c042647a79b26ba31966a708f3fc">data</a>;</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="structeu_1_1Guid.html#a0a314dc9e3b9e79a4444a1689494d1aa">   15</a></span>        <a class="code hl_function" href="structeu_1_1Guid.html#a0a314dc9e3b9e79a4444a1689494d1aa">Guid</a>() = <span class="keywordflow">default</span>;</div>
-<div class="foldopen" id="foldopen00016" data-start="{" data-end="}">
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="structeu_1_1Guid.html#ad0a6db57ed177d9ca1cc00a7901856b8">   16</a></span>        <span class="keyword">constexpr</span> <span class="keyword">explicit</span> <a class="code hl_function" href="structeu_1_1Guid.html#ad0a6db57ed177d9ca1cc00a7901856b8">Guid</a>(std::array&lt;u8, 16&gt; d)</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>            : <a class="code hl_variable" href="structeu_1_1Guid.html#ac9c5c042647a79b26ba31966a708f3fc">data</a>(<a class="code hl_namespace" href="namespacestd.html">std</a>::move(d))</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        {</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        }</div>
-</div>
+<div class="foldopen" id="foldopen00012" data-start="{" data-end="};">
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="structeu_1_1Guid.html">   12</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structeu_1_1Guid.html">Guid</a></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    {</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="structeu_1_1Guid.html#ac9c5c042647a79b26ba31966a708f3fc">   14</a></span>        std::array&lt;u8, 16&gt; <a class="code hl_variable" href="structeu_1_1Guid.html#ac9c5c042647a79b26ba31966a708f3fc">data</a>;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="structeu_1_1Guid.html#a0a314dc9e3b9e79a4444a1689494d1aa">   19</a></span>        <a class="code hl_function" href="structeu_1_1Guid.html#a0a314dc9e3b9e79a4444a1689494d1aa">Guid</a>() = <span class="keywordflow">default</span>;</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="structeu_1_1Guid.html#a8ef712e40958a0c96ee7bf46140ec0e8">   21</a></span>        [[nodiscard]] <span class="keyword">static</span> std::optional&lt;Guid&gt; <a class="code hl_function" href="structeu_1_1Guid.html#a8ef712e40958a0c96ee7bf46140ec0e8">generate</a>();</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    };</div>
+<div class="foldopen" id="foldopen00022" data-start="{" data-end="}">
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="structeu_1_1Guid.html#ad0a6db57ed177d9ca1cc00a7901856b8">   22</a></span>        <span class="keyword">constexpr</span> <span class="keyword">explicit</span> <a class="code hl_function" href="structeu_1_1Guid.html#ad0a6db57ed177d9ca1cc00a7901856b8">Guid</a>(std::array&lt;u8, 16&gt; d)</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>            : <a class="code hl_variable" href="structeu_1_1Guid.html#ac9c5c042647a79b26ba31966a708f3fc">data</a>(<a class="code hl_namespace" href="namespacestd.html">std</a>::move(d))</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        {</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        }</div>
 </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="namespaceeu.html#ac922ddcef9eb3a0f85486c218a8cab69">   24</a></span>    [[nodiscard]] std::optional&lt;Guid&gt; <a class="code hl_function" href="namespaceeu.html#ac922ddcef9eb3a0f85486c218a8cab69">guid_from</a>(<span class="keyword">const</span> std::string&amp; str);</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="namespaceeu.html#a6200e130947527c643d6a88a406fd9c9">   25</a></span>    [[nodiscard]] std::string <a class="code hl_function" href="group__math.html#gafa7f170a2c4415e5c9f4d517b138a489">string_from</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structeu_1_1Guid.html">Guid</a>&amp; g);</div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="foldopen" id="foldopen00027" data-start="{" data-end="};">
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="namespaceeu.html#aac60b8ebeed751e1d2dcb1594eb0d28f">   27</a></span>    <span class="keyword">constexpr</span> <a class="code hl_struct" href="structeu_1_1Guid.html">Guid</a> <a class="code hl_variable" href="namespaceeu.html#aac60b8ebeed751e1d2dcb1594eb0d28f">nil_guid</a> = <a class="code hl_struct" href="structeu_1_1Guid.html">Guid</a></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    {</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        std::array&lt;u8, 16&gt;</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        {</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>            0, 0, 0, 0,</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>            0, 0,</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>            0, 0,</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>            0, 0,</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>            0, 0, 0, 0, 0, 0</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        }</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    };</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="structeu_1_1Guid.html#a8ef712e40958a0c96ee7bf46140ec0e8">   27</a></span>        [[nodiscard]] <span class="keyword">static</span> std::optional&lt;Guid&gt; <a class="code hl_function" href="structeu_1_1Guid.html#a8ef712e40958a0c96ee7bf46140ec0e8">generate</a>();</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    };</div>
 </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>}</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="namespaceeu.html#ac922ddcef9eb3a0f85486c218a8cab69">   31</a></span>    [[nodiscard]] std::optional&lt;Guid&gt; <a class="code hl_function" href="namespaceeu.html#ac922ddcef9eb3a0f85486c218a8cab69">guid_from</a>(<span class="keyword">const</span> std::string&amp; str);</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="namespaceeu.html#a6200e130947527c643d6a88a406fd9c9">   34</a></span>    [[nodiscard]] std::string <a class="code hl_function" href="group__math.html#gafa7f170a2c4415e5c9f4d517b138a489">string_from</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structeu_1_1Guid.html">Guid</a>&amp; g);</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="foldopen" id="foldopen00037" data-start="{" data-end="};">
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="namespaceeu.html#aac60b8ebeed751e1d2dcb1594eb0d28f">   37</a></span>    <span class="keyword">constexpr</span> <a class="code hl_struct" href="structeu_1_1Guid.html">Guid</a> <a class="code hl_variable" href="namespaceeu.html#aac60b8ebeed751e1d2dcb1594eb0d28f">nil_guid</a> = <a class="code hl_struct" href="structeu_1_1Guid.html">Guid</a></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    {</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        std::array&lt;u8, 16&gt;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        {</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>            0, 0, 0, 0,</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>            0, 0,</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>            0, 0,</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>            0, 0,</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>            0, 0, 0, 0, 0, 0</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        }</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    };</div>
+</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>}</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>ADD_DEFAULT_FORMATTER(<a class="code hl_struct" href="structeu_1_1Guid.html">eu::Guid</a>, std::string, <a class="code hl_function" href="group__math.html#gafa7f170a2c4415e5c9f4d517b138a489">eu::string_from</a>);</div>
 <div class="ttc" id="agroup__math_html_gafa7f170a2c4415e5c9f4d517b138a489"><div class="ttname"><a href="group__math.html#gafa7f170a2c4415e5c9f4d517b138a489">eu::string_from</a></div><div class="ttdeci">std::string string_from(const An &amp;a)</div></div>
 <div class="ttc" id="aints_8h_html"><div class="ttname"><a href="ints_8h.html">ints.h</a></div></div>
 <div class="ttc" id="anamespaceeu_html"><div class="ttname"><a href="namespaceeu.html">eu</a></div><div class="ttdef"><b>Definition</b> <a href="assert_8h_source.html#l00089">assert.h:90</a></div></div>
-<div class="ttc" id="anamespaceeu_html_aac60b8ebeed751e1d2dcb1594eb0d28f"><div class="ttname"><a href="namespaceeu.html#aac60b8ebeed751e1d2dcb1594eb0d28f">eu::nil_guid</a></div><div class="ttdeci">constexpr Guid nil_guid</div><div class="ttdef"><b>Definition</b> <a href="guid_8h_source.html#l00027">guid.h:27</a></div></div>
-<div class="ttc" id="anamespaceeu_html_ac922ddcef9eb3a0f85486c218a8cab69"><div class="ttname"><a href="namespaceeu.html#ac922ddcef9eb3a0f85486c218a8cab69">eu::guid_from</a></div><div class="ttdeci">std::optional&lt; Guid &gt; guid_from(const std::string &amp;str)</div></div>
+<div class="ttc" id="anamespaceeu_html_aac60b8ebeed751e1d2dcb1594eb0d28f"><div class="ttname"><a href="namespaceeu.html#aac60b8ebeed751e1d2dcb1594eb0d28f">eu::nil_guid</a></div><div class="ttdeci">constexpr Guid nil_guid</div><div class="ttdoc">A nil guid, all bits are set to 0.</div><div class="ttdef"><b>Definition</b> <a href="guid_8h_source.html#l00037">guid.h:37</a></div></div>
+<div class="ttc" id="anamespaceeu_html_ac922ddcef9eb3a0f85486c218a8cab69"><div class="ttname"><a href="namespaceeu.html#ac922ddcef9eb3a0f85486c218a8cab69">eu::guid_from</a></div><div class="ttdeci">std::optional&lt; Guid &gt; guid_from(const std::string &amp;str)</div><div class="ttdoc">Parse a guid from a string.</div></div>
 <div class="ttc" id="anamespacestd_html"><div class="ttname"><a href="namespacestd.html">std</a></div><div class="ttdef"><b>Definition</b> <a href="hash_8string_8h_source.html#l00056">hash.string.h:57</a></div></div>
-<div class="ttc" id="astructeu_1_1Guid_html"><div class="ttname"><a href="structeu_1_1Guid.html">eu::Guid</a></div><div class="ttdef"><b>Definition</b> <a href="guid_8h_source.html#l00011">guid.h:12</a></div></div>
-<div class="ttc" id="astructeu_1_1Guid_html_a0a314dc9e3b9e79a4444a1689494d1aa"><div class="ttname"><a href="structeu_1_1Guid.html#a0a314dc9e3b9e79a4444a1689494d1aa">eu::Guid::Guid</a></div><div class="ttdeci">Guid()=default</div></div>
+<div class="ttc" id="astructeu_1_1Guid_html"><div class="ttname"><a href="structeu_1_1Guid.html">eu::Guid</a></div><div class="ttdoc">Represents a universally unique identifier.</div><div class="ttdef"><b>Definition</b> <a href="guid_8h_source.html#l00012">guid.h:13</a></div></div>
+<div class="ttc" id="astructeu_1_1Guid_html_a0a314dc9e3b9e79a4444a1689494d1aa"><div class="ttname"><a href="structeu_1_1Guid.html#a0a314dc9e3b9e79a4444a1689494d1aa">eu::Guid::Guid</a></div><div class="ttdeci">Guid()=default</div><div class="ttdoc">Does nothing.</div></div>
 <div class="ttc" id="astructeu_1_1Guid_html_a8ef712e40958a0c96ee7bf46140ec0e8"><div class="ttname"><a href="structeu_1_1Guid.html#a8ef712e40958a0c96ee7bf46140ec0e8">eu::Guid::generate</a></div><div class="ttdeci">static std::optional&lt; Guid &gt; generate()</div></div>
-<div class="ttc" id="astructeu_1_1Guid_html_ac9c5c042647a79b26ba31966a708f3fc"><div class="ttname"><a href="structeu_1_1Guid.html#ac9c5c042647a79b26ba31966a708f3fc">eu::Guid::data</a></div><div class="ttdeci">std::array&lt; u8, 16 &gt; data</div><div class="ttdef"><b>Definition</b> <a href="guid_8h_source.html#l00013">guid.h:13</a></div></div>
-<div class="ttc" id="astructeu_1_1Guid_html_ad0a6db57ed177d9ca1cc00a7901856b8"><div class="ttname"><a href="structeu_1_1Guid.html#ad0a6db57ed177d9ca1cc00a7901856b8">eu::Guid::Guid</a></div><div class="ttdeci">constexpr Guid(std::array&lt; u8, 16 &gt; d)</div><div class="ttdef"><b>Definition</b> <a href="guid_8h_source.html#l00016">guid.h:16</a></div></div>
+<div class="ttc" id="astructeu_1_1Guid_html_ac9c5c042647a79b26ba31966a708f3fc"><div class="ttname"><a href="structeu_1_1Guid.html#ac9c5c042647a79b26ba31966a708f3fc">eu::Guid::data</a></div><div class="ttdeci">std::array&lt; u8, 16 &gt; data</div><div class="ttdef"><b>Definition</b> <a href="guid_8h_source.html#l00014">guid.h:14</a></div></div>
+<div class="ttc" id="astructeu_1_1Guid_html_ad0a6db57ed177d9ca1cc00a7901856b8"><div class="ttname"><a href="structeu_1_1Guid.html#ad0a6db57ed177d9ca1cc00a7901856b8">eu::Guid::Guid</a></div><div class="ttdeci">constexpr Guid(std::array&lt; u8, 16 &gt; d)</div><div class="ttdoc">Set the guid data.</div><div class="ttdef"><b>Definition</b> <a href="guid_8h_source.html#l00022">guid.h:22</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

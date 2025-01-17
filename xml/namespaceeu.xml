@@ -158,12 +158,13 @@
         }
     }</initializer>
         <briefdescription>
+<para>A nil guid, all bits are set to 0. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/guid.h" line="27" column="20" bodyfile="libs/base/src/base/guid.h" bodystart="27" bodyend="37"/>
+        <location file="libs/base/src/base/guid.h" line="37" column="20" bodyfile="libs/base/src/base/guid.h" bodystart="37" bodyend="47"/>
       </memberdef>
       <member refid="group__math_1ga5957f0b19a66d6e1123f22d681e726e0" kind="variable"><name>m4_identity</name></member>
       <member refid="group__math_1ga25eb222abfe7c9e7f34d6f19ed40c1a0" kind="variable"><name>pi</name></member>
@@ -206,12 +207,13 @@
           <declname>str</declname>
         </param>
         <briefdescription>
+<para>Parse a guid from a string. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/guid.h" line="24" column="20" declfile="libs/base/src/base/guid.h" declline="24" declcolumn="20"/>
+        <location file="libs/base/src/base/guid.h" line="31" column="20" declfile="libs/base/src/base/guid.h" declline="31" declcolumn="20"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1a6200e130947527c643d6a88a406fd9c9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -224,12 +226,13 @@
           <declname>g</declname>
         </param>
         <briefdescription>
+<para>Convert a guid to a string representation, prefer fmt. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/guid.h" line="25" column="18" declfile="libs/base/src/base/guid.h" declline="25" declcolumn="18"/>
+        <location file="libs/base/src/base/guid.h" line="34" column="18" declfile="libs/base/src/base/guid.h" declline="34" declcolumn="18"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1a1314a884697b4470c9c443ec00890b63" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref> <ref refid="namespaceeu_1ac0b6d77da47da3ce6bb55d66abc897f5" kindref="member">u64</ref></type>
