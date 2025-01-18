@@ -20,14 +20,14 @@ TEST_CASE("hash-appendix-c", "[hash]")
 
 TEST_CASE("hs-stringview generates the same hash as the hash function", "[hash]")
 {
-    constexpr eu::HashedStringView h = "test"sv;
+    constexpr eu::Hsh h = "test"sv;
     REQUIRE(h.hash == 0xf9e6e6ef197c2b25);
 }
 
 TEST_CASE("hs-comparing string views", "[hash]")
 {
-    constexpr eu::HashedStringView test = "test"sv;
-    constexpr eu::HashedStringView foo = "foobar"sv;
+    constexpr eu::Hsh test = "test"sv;
+    constexpr eu::Hsh foo = "foobar"sv;
 
     // hashing should match earlier values
     REQUIRE(test.hash == 0xf9e6e6ef197c2b25);
@@ -56,7 +56,7 @@ TEST_CASE("hs-comparing string views", "[hash]")
 
     SECTION("keys in std::map")
     {
-        std::map<eu::HashedStringView, int> map;
+        std::map<eu::Hsh, int> map;
         map[test] = test_value;
         map[foo] = foo_value;
 
@@ -72,7 +72,7 @@ TEST_CASE("hs-comparing string views", "[hash]")
 
     SECTION("keys in std::unordered_map")
     {
-        std::unordered_map<eu::HashedStringView, int> map;
+        std::unordered_map<eu::Hsh, int> map;
         map[test] = test_value;
         map[foo] = foo_value;
 
