@@ -43,6 +43,9 @@ namespace eu
     std::string string_from(const Ypr& ypr);
 
     /** @}*/
+
+    ADD_CATCH_FORMATTER(AA)
+    ADD_CATCH_FORMATTER(Ypr)
 }
 
 ADD_DEFAULT_FORMATTER(eu::AA, std::string, eu::string_from);

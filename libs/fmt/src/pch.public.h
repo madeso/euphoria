@@ -18,3 +18,10 @@ template <> struct fmt::formatter<TYPE>: fmt::formatter<STRING> \
         return fmt::formatter<STRING>::format(TO_STRING(c), ctx); \
     } \
 }
+
+#define ADD_CATCH_FORMATTER(TYPE) \
+constexpr std::ostream& \
+operator<<(std::ostream& stream, const TYPE& v) \
+{ \
+    return stream << ::eu::string_from(v); \
+}

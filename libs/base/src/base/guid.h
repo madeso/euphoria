@@ -45,6 +45,8 @@ namespace eu
             0, 0, 0, 0, 0, 0
         }
     };
+
+    ADD_CATCH_FORMATTER(Guid)
 }
 
 ADD_DEFAULT_FORMATTER(eu::Guid, std::string, eu::string_from);

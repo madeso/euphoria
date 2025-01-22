@@ -172,6 +172,9 @@ namespace eu
 
     /** @}*/
 
+    ADD_CATCH_FORMATTER(v3)
+    ADD_CATCH_FORMATTER(n3)
+
 }
 
 ADD_DEFAULT_FORMATTER(eu::v3, std::string, eu::string_from);

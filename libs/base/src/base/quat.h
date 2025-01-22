@@ -134,6 +134,7 @@ namespace eu
     Q operator-(const Q& lhs, const Q& rhs);
 
     /** @}*/
+    ADD_CATCH_FORMATTER(Q)
 }
 
 ADD_DEFAULT_FORMATTER(eu::Q, std::string, eu::string_from);
