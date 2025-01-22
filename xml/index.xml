@@ -97,8 +97,8 @@
     <member refid="structeu_1_1m4_1a82ebadeb3686d4969a25ea562a77b69c" kind="function"><name>from_rot_z</name></member>
     <member refid="structeu_1_1m4_1afbf74cfa8215fe5c7c29f14095592a4d" kind="function"><name>from</name></member>
     <member refid="structeu_1_1m4_1acedb3177529232cb02854aaa8ec1407f" kind="function"><name>from</name></member>
-    <member refid="structeu_1_1m4_1ae8ba82977a543bd9ab1991f1b4e33dbb" kind="function"><name>create_ortho</name></member>
-    <member refid="structeu_1_1m4_1a09082b8b01477bcfcf5d6eaab85c1855" kind="function"><name>create_perspective</name></member>
+    <member refid="structeu_1_1m4_1a5594d6358050a71d2ad7e8743da5990b" kind="function"><name>create_ortho_lrud</name></member>
+    <member refid="structeu_1_1m4_1ab73ca9f6b73f4f9a1e6cde9d24ebcf8c" kind="function"><name>create_perspective</name></member>
     <member refid="structeu_1_1m4_1aaf34521efbecbe4a057a6d0c90294e0c" kind="function"><name>get_column_major_data_ptr</name></member>
     <member refid="structeu_1_1m4_1ade2bde04baa97bfe069b92942e5be37e" kind="function"><name>get_column_major_data_ptr</name></member>
     <member refid="structeu_1_1m4_1a346dce537e994a3987082b7b3bb9c08a" kind="function"><name>invert</name></member>
@@ -461,6 +461,7 @@
   <compound refid="base_2src_2base_2pch_8public_8h" kind="file"><name>pch.public.h</name>
   </compound>
   <compound refid="fmt_2src_2pch_8public_8h" kind="file"><name>pch.public.h</name>
+    <member refid="fmt_2src_2pch_8public_8h_1a9c749523ffeb436257593aaa17a923ed" kind="define"><name>ADD_CATCH_FORMATTER</name></member>
   </compound>
   <compound refid="log_8h" kind="file"><name>log.h</name>
     <member refid="log_8h_1a378e28bfcb78d17285210d6bbb70a083" kind="define"><name>LOG_INFO</name></member>

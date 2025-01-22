@@ -50,6 +50,8 @@
 </div>
 </div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a>  </div>
   <div class="headertitle"><div class="title">pch.public.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
@@ -58,6 +60,39 @@
 <code>#include &lt;fmt/ranges.h&gt;</code><br />
 </div>
 <p><a href="fmt_2src_2pch_8public_8h_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a9c749523ffeb436257593aaa17a923ed" id="r_a9c749523ffeb436257593aaa17a923ed"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fmt_2src_2pch_8public_8h.html#a9c749523ffeb436257593aaa17a923ed">ADD_CATCH_FORMATTER</a>(TYPE)</td></tr>
+<tr class="separator:a9c749523ffeb436257593aaa17a923ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a9c749523ffeb436257593aaa17a923ed" name="a9c749523ffeb436257593aaa17a923ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c749523ffeb436257593aaa17a923ed">&#9670;&#160;</a></span>ADD_CATCH_FORMATTER</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ADD_CATCH_FORMATTER</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">TYPE</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line"><span class="keyword">constexpr</span> std::ostream&amp; \</div>
+<div class="line">operator&lt;&lt;(std::ostream&amp; stream, <span class="keyword">const</span> TYPE&amp; v) \</div>
+<div class="line">{ \</div>
+<div class="line">    <span class="keywordflow">return</span> stream &lt;&lt; <a class="code hl_function" href="group__math.html#gafa7f170a2c4415e5c9f4d517b138a489">::eu::string_from</a>(v); \</div>
+<div class="line">}</div>
+<div class="ttc" id="agroup__math_html_gafa7f170a2c4415e5c9f4d517b138a489"><div class="ttname"><a href="group__math.html#gafa7f170a2c4415e5c9f4d517b138a489">eu::string_from</a></div><div class="ttdeci">std::string string_from(const An &amp;a)</div></div>
+</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="fmt_2src_2pch_8public_8h_source.html#l00022">22</a> of file <a class="el" href="fmt_2src_2pch_8public_8h_source.html">pch.public.h</a>.</p>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

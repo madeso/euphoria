@@ -23,25 +23,25 @@
                         <path d="M1.75 1A1.75 1.75 0 0 0 0 2.75v10.5C0 14.216.784 15 1.75 15h12.5A1.75 1.75 0 0 0 16 13.25v-8.5A1.75 1.75 0 0 0 14.25 3H7.5a.25.25 0 0 1-.2-.1l-.9-1.2C6.07 1.26 5.55 1 5 1H1.75Z"></path>
                     </svg>
                 </div>
-                <span>./</span>
+                <span>libs/base/src/base/</span>
             </div>
-            <div>File: libs/base/src/base/mat4.h</div>
-            <div>Date: 2025-01-22 07:33:51</div>
+            <div>File: mat4.h</div>
+            <div>Date: 2025-01-22 21:33:39</div>
         </div>
         <div class="col-sm-12 col-lg-3 float-left d-flex flex-column text-right flex-justify-end p-3">
             <div class="d-flex">
                 <div class="mr-2">Lines:</div>
-                <div class="mr-2" style="margin: auto;">5/6</div>
-                <div class="Label--minw"><span class="coverage-medium IssueLabel color-fg-on-emphasis mr-1">83.3%</span></div>
+                <div class="mr-2" style="margin: auto;">5/7</div>
+                <div class="Label--minw"><span class="coverage-low IssueLabel color-fg-on-emphasis mr-1">71.4%</span></div>
             </div>
             <div class="d-flex">
                 <div class="mr-2">Functions:</div>
-                <div class="mr-2" style="margin: auto;">2/3</div>
-                <div class="Label--minw"><span class="coverage-low IssueLabel color-fg-on-emphasis mr-1">66.7%</span></div>
+                <div class="mr-2" style="margin: auto;">2/4</div>
+                <div class="Label--minw"><span class="coverage-low IssueLabel color-fg-on-emphasis mr-1">50.0%</span></div>
             </div>
             <div class="d-flex">
                 <div class="mr-2">Branches:</div>
-                <div class="mr-2" style="margin: auto;">0/2</div>
+                <div class="mr-2" style="margin: auto;">0/6</div>
                 <div class="Label--minw"><span class="coverage-none IssueLabel color-fg-on-emphasis mr-1">0.0%</span></div>
             </div>
         </div>
@@ -62,9 +62,10 @@
       <th>Condition coverage</th>
       <th>Block coverage</th>
     </tr>
-    <tr><td><a href="#l182">auto fmt::v10::formatter&lt;eu::m4, char, void&gt;::format&lt;fmt::v10::basic_format_context&lt;fmt::v10::appender, char&gt; &gt;(eu::m4 const&amp;, fmt::v10::basic_format_context&lt;fmt::v10::appender, char&gt;&amp;) const (line 182)</a></td><td>not called</td><td>0.0%</td><td>0.0%</td><td>-%</td><td>0.0%</td></tr>
+    <tr><td><a href="#l190">auto fmt::v10::formatter&lt;eu::m4, char, void&gt;::format&lt;fmt::v10::basic_format_context&lt;fmt::v10::appender, char&gt; &gt;(eu::m4 const&amp;, fmt::v10::basic_format_context&lt;fmt::v10::appender, char&gt;&amp;) const (line 190)</a></td><td>not called</td><td>0.0%</td><td>0.0%</td><td>-%</td><td>0.0%</td></tr>
     <tr><td><a href="#l28">eu::m4::from_row_major(float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float) (line 28)</a></td><td>called 20 times</td><td>100.0%</td><td>-%</td><td>-%</td><td>100.0%</td></tr>
-    <tr><td><a href="#l154">eu::m4::m4(float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float) (line 154)</a></td><td>called 28 times</td><td>100.0%</td><td>-%</td><td>-%</td><td>100.0%</td></tr>
+    <tr><td><a href="#l160">eu::m4::m4(float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float) (line 160)</a></td><td>called 28 times</td><td>100.0%</td><td>-%</td><td>-%</td><td>100.0%</td></tr>
+    <tr><td><a href="#l187">eu::operator&lt;&lt;(std::ostream&amp;, eu::m4 const&amp;) (line 187)</a></td><td>not called</td><td>0.0%</td><td>0.0%</td><td>-%</td><td>0.0%</td></tr>
   </table>
 </details>
 </div>
@@ -612,49 +613,49 @@
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "><span class="w">        </span><span class="p">[[</span><span class="n">nodiscard</span><span class="p">]]</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">m4</span><span class="w"> </span><span class="n">create_ortho</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">l</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">f</span><span class="p">);</span></td>
+                <td class="src "><span class="w">        </span><span class="c1">/// @param l the left side</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l77" href="#l77">77</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "></td>
+                <td class="src "><span class="w">        </span><span class="c1">/// @param r the right side</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l78" href="#l78">78</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "><span class="w">        </span><span class="c1">/// Create a perspective projection matrix.</span></td>
+                <td class="src "><span class="w">        </span><span class="c1">/// @param t the up side</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l79" href="#l79">79</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "><span class="w">        </span><span class="p">[[</span><span class="n">nodiscard</span><span class="p">]]</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">m4</span><span class="w"> </span><span class="n">create_perspective</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">An</span><span class="w"> </span><span class="o">&amp;</span><span class="n">fov</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">near</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">far</span><span class="p">);</span></td>
+                <td class="src "><span class="w">        </span><span class="c1">/// @param b the down side</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l80" href="#l80">80</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "></td>
+                <td class="src "><span class="w">        </span><span class="c1">/// @param n near</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l81" href="#l81">81</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "><span class="w">        </span><span class="c1">/// Get a direct pointer to the data in column major format, for API integration.</span></td>
+                <td class="src "><span class="w">        </span><span class="c1">/// @param f far</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l82" href="#l82">82</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "><span class="w">        </span><span class="kt">float</span><span class="w"> </span><span class="o">*</span><span class="nf">get_column_major_data_ptr</span><span class="p">();</span></td>
+                <td class="src "><span class="w">        </span><span class="p">[[</span><span class="n">nodiscard</span><span class="p">]]</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">m4</span><span class="w"> </span><span class="n">create_ortho_lrud</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">l</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">f</span><span class="p">);</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l83" href="#l83">83</a></td>
@@ -668,14 +669,14 @@
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "><span class="w">        </span><span class="c1">/// Get a direct pointer to the const data in column major format, for API integration.</span></td>
+                <td class="src "><span class="w">        </span><span class="c1">/// Create a perspective projection matrix.</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l85" href="#l85">85</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "><span class="w">        </span><span class="p">[[</span><span class="n">nodiscard</span><span class="p">]]</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">float</span><span class="o">*</span><span class="w"> </span><span class="n">get_column_major_data_ptr</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span></td>
+                <td class="src "><span class="w">        </span><span class="p">[[</span><span class="n">nodiscard</span><span class="p">]]</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">m4</span><span class="w"> </span><span class="n">create_perspective</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">An</span><span class="w"> </span><span class="o">&amp;</span><span class="n">fov</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">aspect_ratio</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">near</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">far</span><span class="p">);</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l86" href="#l86">86</a></td>
@@ -689,91 +690,91 @@
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "><span class="w">        </span><span class="c1">/// Invert the current matrix.</span></td>
+                <td class="src "><span class="w">        </span><span class="c1">/// Get a direct pointer to the data in column major format, for API integration.</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l88" href="#l88">88</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "><span class="w">        </span><span class="c1">/// @see get_inverted</span></td>
+                <td class="src "><span class="w">        </span><span class="kt">float</span><span class="w"> </span><span class="o">*</span><span class="nf">get_column_major_data_ptr</span><span class="p">();</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l89" href="#l89">89</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "><span class="w">        </span><span class="kt">bool</span><span class="w"> </span><span class="nf">invert</span><span class="p">();</span></td>
+                <td class="src "></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l90" href="#l90">90</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "></td>
+                <td class="src "><span class="w">        </span><span class="c1">/// Get a direct pointer to the const data in column major format, for API integration.</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l91" href="#l91">91</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "><span class="w">        </span><span class="c1">/// Return the inverted matrix</span></td>
+                <td class="src "><span class="w">        </span><span class="p">[[</span><span class="n">nodiscard</span><span class="p">]]</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">float</span><span class="o">*</span><span class="w"> </span><span class="n">get_column_major_data_ptr</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l92" href="#l92">92</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "><span class="w">        </span><span class="c1">/// @see invert</span></td>
+                <td class="src "></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l93" href="#l93">93</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "><span class="w">        </span><span class="p">[[</span><span class="n">nodiscard</span><span class="p">]]</span><span class="w"> </span><span class="n">m4</span><span class="w"> </span><span class="n">get_inverted</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span></td>
+                <td class="src "><span class="w">        </span><span class="c1">/// Invert the current matrix.</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l94" href="#l94">94</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "></td>
+                <td class="src "><span class="w">        </span><span class="c1">/// @see get_inverted</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l95" href="#l95">95</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "><span class="w">        </span><span class="c1">/// Return a single value given a row and column.</span></td>
+                <td class="src "><span class="w">        </span><span class="kt">bool</span><span class="w"> </span><span class="nf">invert</span><span class="p">();</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l96" href="#l96">96</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "><span class="w">        </span><span class="p">[[</span><span class="n">nodiscard</span><span class="p">]]</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">get</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">row</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">col</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span></td>
+                <td class="src "></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l97" href="#l97">97</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "></td>
+                <td class="src "><span class="w">        </span><span class="c1">/// Return the inverted matrix</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l98" href="#l98">98</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "><span class="w">        </span><span class="c1">/// Get a transformed vec4.</span></td>
+                <td class="src "><span class="w">        </span><span class="c1">/// @see invert</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l99" href="#l99">99</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "><span class="w">        </span><span class="p">[[</span><span class="n">nodiscard</span><span class="p">]]</span><span class="w"> </span><span class="n">v4</span><span class="w"> </span><span class="n">get_transformed</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">v4</span><span class="w"> </span><span class="o">&amp;</span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span></td>
+                <td class="src "><span class="w">        </span><span class="p">[[</span><span class="n">nodiscard</span><span class="p">]]</span><span class="w"> </span><span class="n">m4</span><span class="w"> </span><span class="n">get_inverted</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l100" href="#l100">100</a></td>
@@ -787,14 +788,14 @@
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "><span class="w">        </span><span class="c1">/// Get a transformed vec3, using the w component of the vector.</span></td>
+                <td class="src "><span class="w">        </span><span class="c1">/// Return a single value given a row and column.</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l102" href="#l102">102</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "><span class="w">        </span><span class="p">[[</span><span class="n">nodiscard</span><span class="p">]]</span><span class="w"> </span><span class="n">v3</span><span class="w"> </span><span class="n">get_transformed</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">v3</span><span class="w"> </span><span class="o">&amp;</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">w</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span></td>
+                <td class="src "><span class="w">        </span><span class="p">[[</span><span class="n">nodiscard</span><span class="p">]]</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">get</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">row</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">col</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l103" href="#l103">103</a></td>
@@ -808,14 +809,14 @@
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "><span class="w">        </span><span class="c1">/// Get a transformed vec3 assuming it&#39;s a point</span></td>
+                <td class="src "><span class="w">        </span><span class="c1">/// Get a transformed vec4.</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l105" href="#l105">105</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "><span class="w">        </span><span class="p">[[</span><span class="n">nodiscard</span><span class="p">]]</span><span class="w"> </span><span class="n">v3</span><span class="w"> </span><span class="n">get_transformed_point</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">v3</span><span class="w"> </span><span class="o">&amp;</span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span></td>
+                <td class="src "><span class="w">        </span><span class="p">[[</span><span class="n">nodiscard</span><span class="p">]]</span><span class="w"> </span><span class="n">v4</span><span class="w"> </span><span class="n">get_transformed</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">v4</span><span class="w"> </span><span class="o">&amp;</span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l106" href="#l106">106</a></td>
@@ -829,14 +830,14 @@
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "><span class="w">        </span><span class="c1">/// Get a transformed vec3, assuming it&#39;s a normal vector</span></td>
+                <td class="src "><span class="w">        </span><span class="c1">/// Get a transformed vec3, using the w component of the vector.</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l108" href="#l108">108</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "><span class="w">        </span><span class="p">[[</span><span class="n">nodiscard</span><span class="p">]]</span><span class="w"> </span><span class="n">v3</span><span class="w"> </span><span class="n">get_transformed_vec</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">v3</span><span class="w"> </span><span class="o">&amp;</span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span></td>
+                <td class="src "><span class="w">        </span><span class="p">[[</span><span class="n">nodiscard</span><span class="p">]]</span><span class="w"> </span><span class="n">v3</span><span class="w"> </span><span class="n">get_transformed</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">v3</span><span class="w"> </span><span class="o">&amp;</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">w</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l109" href="#l109">109</a></td>
@@ -850,14 +851,14 @@
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "><span class="w">        </span><span class="c1">/// Get a transformed unit3</span></td>
+                <td class="src "><span class="w">        </span><span class="c1">/// Get a transformed vec3 assuming it&#39;s a point</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l111" href="#l111">111</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "><span class="w">        </span><span class="p">[[</span><span class="n">nodiscard</span><span class="p">]]</span><span class="w"> </span><span class="n">n3</span><span class="w"> </span><span class="n">get_transformed_vec</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">n3</span><span class="w"> </span><span class="o">&amp;</span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span></td>
+                <td class="src "><span class="w">        </span><span class="p">[[</span><span class="n">nodiscard</span><span class="p">]]</span><span class="w"> </span><span class="n">v3</span><span class="w"> </span><span class="n">get_transformed_point</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">v3</span><span class="w"> </span><span class="o">&amp;</span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l112" href="#l112">112</a></td>
@@ -871,14 +872,14 @@
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "><span class="w">        </span><span class="c1">/// Get a row as a vec4.</span></td>
+                <td class="src "><span class="w">        </span><span class="c1">/// Get a transformed vec3, assuming it&#39;s a normal vector</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l114" href="#l114">114</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "><span class="w">        </span><span class="p">[[</span><span class="n">nodiscard</span><span class="p">]]</span><span class="w"> </span><span class="n">v4</span><span class="w"> </span><span class="n">get_row</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span></td>
+                <td class="src "><span class="w">        </span><span class="p">[[</span><span class="n">nodiscard</span><span class="p">]]</span><span class="w"> </span><span class="n">v3</span><span class="w"> </span><span class="n">get_transformed_vec</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">v3</span><span class="w"> </span><span class="o">&amp;</span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l115" href="#l115">115</a></td>
@@ -892,14 +893,14 @@
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "><span class="w">        </span><span class="c1">/// Get a column as vec4.</span></td>
+                <td class="src "><span class="w">        </span><span class="c1">/// Get a transformed unit3</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l117" href="#l117">117</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "><span class="w">        </span><span class="p">[[</span><span class="n">nodiscard</span><span class="p">]]</span><span class="w"> </span><span class="n">v4</span><span class="w"> </span><span class="n">get_column</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span></td>
+                <td class="src "><span class="w">        </span><span class="p">[[</span><span class="n">nodiscard</span><span class="p">]]</span><span class="w"> </span><span class="n">n3</span><span class="w"> </span><span class="n">get_transformed_vec</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">n3</span><span class="w"> </span><span class="o">&amp;</span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l118" href="#l118">118</a></td>
@@ -913,14 +914,14 @@
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "><span class="w">        </span><span class="c1">/// Combine this with a translation matrix.</span></td>
+                <td class="src "><span class="w">        </span><span class="c1">/// Get a row as a vec4.</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l120" href="#l120">120</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "><span class="w">        </span><span class="p">[[</span><span class="n">nodiscard</span><span class="p">]]</span><span class="w"> </span><span class="n">m4</span><span class="w"> </span><span class="n">get_translated</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">v3</span><span class="w"> </span><span class="o">&amp;</span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span></td>
+                <td class="src "><span class="w">        </span><span class="p">[[</span><span class="n">nodiscard</span><span class="p">]]</span><span class="w"> </span><span class="n">v4</span><span class="w"> </span><span class="n">get_row</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l121" href="#l121">121</a></td>
@@ -934,35 +935,35 @@
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "><span class="w">        </span><span class="c1">/// Combine this with a rotation matrix.</span></td>
+                <td class="src "><span class="w">        </span><span class="c1">/// Get a column as vec4.</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l123" href="#l123">123</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "><span class="w">        </span><span class="p">[[</span><span class="n">nodiscard</span><span class="p">]]</span><span class="w"> </span><span class="n">m4</span><span class="w"> </span><span class="n">get_rotated</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">AA</span><span class="w"> </span><span class="o">&amp;</span><span class="n">aa</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span></td>
+                <td class="src "><span class="w">        </span><span class="p">[[</span><span class="n">nodiscard</span><span class="p">]]</span><span class="w"> </span><span class="n">v4</span><span class="w"> </span><span class="n">get_column</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l124" href="#l124">124</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "><span class="w">        </span></td>
+                <td class="src "></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l125" href="#l125">125</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "><span class="w">        </span><span class="c1">/// Get the current translation of the transformation matrix.</span></td>
+                <td class="src "><span class="w">        </span><span class="c1">/// Combine this with a translation matrix.</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l126" href="#l126">126</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "><span class="w">        </span><span class="p">[[</span><span class="n">nodiscard</span><span class="p">]]</span><span class="w"> </span><span class="n">v3</span><span class="w"> </span><span class="n">get_translation</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span></td>
+                <td class="src "><span class="w">        </span><span class="p">[[</span><span class="n">nodiscard</span><span class="p">]]</span><span class="w"> </span><span class="n">m4</span><span class="w"> </span><span class="n">get_translated</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">v3</span><span class="w"> </span><span class="o">&amp;</span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l127" href="#l127">127</a></td>
@@ -976,35 +977,35 @@
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "><span class="w">        </span><span class="c1">/// Get the major vector.</span></td>
+                <td class="src "><span class="w">        </span><span class="c1">/// Combine this with a rotation matrix.</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l129" href="#l129">129</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "><span class="w">        </span><span class="p">[[</span><span class="n">nodiscard</span><span class="p">]]</span><span class="w"> </span><span class="n">v4</span><span class="w"> </span><span class="n">get_major</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span></td>
+                <td class="src "><span class="w">        </span><span class="p">[[</span><span class="n">nodiscard</span><span class="p">]]</span><span class="w"> </span><span class="n">m4</span><span class="w"> </span><span class="n">get_rotated</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">AA</span><span class="w"> </span><span class="o">&amp;</span><span class="n">aa</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l130" href="#l130">130</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "></td>
+                <td class="src "><span class="w">        </span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l131" href="#l131">131</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "><span class="w">        </span><span class="c1">/// Get the local X axis.</span></td>
+                <td class="src "><span class="w">        </span><span class="c1">/// Get the current translation of the transformation matrix.</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l132" href="#l132">132</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "><span class="w">        </span><span class="p">[[</span><span class="n">nodiscard</span><span class="p">]]</span><span class="w"> </span><span class="n">n3</span><span class="w"> </span><span class="n">get_x_axis</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span></td>
+                <td class="src "><span class="w">        </span><span class="p">[[</span><span class="n">nodiscard</span><span class="p">]]</span><span class="w"> </span><span class="n">v3</span><span class="w"> </span><span class="n">get_translation</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l133" href="#l133">133</a></td>
@@ -1018,14 +1019,14 @@
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "><span class="w">        </span><span class="c1">/// Get the local Y axis.</span></td>
+                <td class="src "><span class="w">        </span><span class="c1">/// Get the major vector.</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l135" href="#l135">135</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "><span class="w">        </span><span class="p">[[</span><span class="n">nodiscard</span><span class="p">]]</span><span class="w"> </span><span class="n">n3</span><span class="w"> </span><span class="n">get_y_axis</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span></td>
+                <td class="src "><span class="w">        </span><span class="p">[[</span><span class="n">nodiscard</span><span class="p">]]</span><span class="w"> </span><span class="n">v4</span><span class="w"> </span><span class="n">get_major</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l136" href="#l136">136</a></td>
@@ -1039,14 +1040,14 @@
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "><span class="w">        </span><span class="c1">/// Get the local Z azis.</span></td>
+                <td class="src "><span class="w">        </span><span class="c1">/// Get the local X axis.</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l138" href="#l138">138</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "><span class="w">        </span><span class="p">[[</span><span class="n">nodiscard</span><span class="p">]]</span><span class="w"> </span><span class="n">n3</span><span class="w"> </span><span class="n">get_z_axis</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span></td>
+                <td class="src "><span class="w">        </span><span class="p">[[</span><span class="n">nodiscard</span><span class="p">]]</span><span class="w"> </span><span class="n">n3</span><span class="w"> </span><span class="n">get_x_axis</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l139" href="#l139">139</a></td>
@@ -1060,91 +1061,91 @@
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "><span class="w">        </span><span class="c1">/// Gets the transpose of a matrix.</span></td>
+                <td class="src "><span class="w">        </span><span class="c1">/// Get the local Y axis.</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l141" href="#l141">141</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "><span class="w">        </span><span class="c1">/// If the matrix is a rotation matrix, then the transpose is guaranteed to be the inverse of the matrix.</span></td>
+                <td class="src "><span class="w">        </span><span class="p">[[</span><span class="n">nodiscard</span><span class="p">]]</span><span class="w"> </span><span class="n">n3</span><span class="w"> </span><span class="n">get_y_axis</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l142" href="#l142">142</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "><span class="w">        </span><span class="p">[[</span><span class="n">nodiscard</span><span class="p">]]</span><span class="w"> </span><span class="n">m4</span><span class="w"> </span><span class="n">get_transposed</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span></td>
+                <td class="src "></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l143" href="#l143">143</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "><span class="w">        </span></td>
+                <td class="src "><span class="w">        </span><span class="c1">/// Get the local Z azis.</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l144" href="#l144">144</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "></td>
+                <td class="src "><span class="w">        </span><span class="p">[[</span><span class="n">nodiscard</span><span class="p">]]</span><span class="w"> </span><span class="n">n3</span><span class="w"> </span><span class="n">get_z_axis</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l145" href="#l145">145</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "><span class="w">        </span><span class="kt">void</span><span class="w"> </span><span class="n">operator</span><span class="o">+=</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">m4</span><span class="w"> </span><span class="o">&amp;</span><span class="n">rhs</span><span class="p">);</span></td>
+                <td class="src "></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l146" href="#l146">146</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "><span class="w">        </span><span class="kt">void</span><span class="w"> </span><span class="n">operator</span><span class="o">-=</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">m4</span><span class="w"> </span><span class="o">&amp;</span><span class="n">rhs</span><span class="p">);</span></td>
+                <td class="src "><span class="w">        </span><span class="c1">/// Gets the transpose of a matrix.</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l147" href="#l147">147</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "></td>
+                <td class="src "><span class="w">        </span><span class="c1">/// If the matrix is a rotation matrix, then the transpose is guaranteed to be the inverse of the matrix.</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l148" href="#l148">148</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "><span class="w">    </span><span class="n">private</span><span class="o">:</span></td>
+                <td class="src "><span class="w">        </span><span class="p">[[</span><span class="n">nodiscard</span><span class="p">]]</span><span class="w"> </span><span class="n">m4</span><span class="w"> </span><span class="n">get_transposed</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l149" href="#l149">149</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "><span class="w">        </span><span class="c1">/// stored in column major</span></td>
+                <td class="src "><span class="w">        </span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l150" href="#l150">150</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "><span class="w">        </span><span class="kt">float</span><span class="w"> </span><span class="n">data</span><span class="p">[</span><span class="mi">16</span><span class="p">];</span></td>
+                <td class="src "></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l151" href="#l151">151</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "></td>
+                <td class="src "><span class="w">        </span><span class="kt">void</span><span class="w"> </span><span class="n">operator</span><span class="o">+=</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">m4</span><span class="w"> </span><span class="o">&amp;</span><span class="n">rhs</span><span class="p">);</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l152" href="#l152">152</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "><span class="w">        </span><span class="n">m4</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span></td>
+                <td class="src "><span class="w">        </span><span class="kt">void</span><span class="w"> </span><span class="n">operator</span><span class="o">-=</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">m4</span><span class="w"> </span><span class="o">&amp;</span><span class="n">rhs</span><span class="p">);</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l153" href="#l153">153</a></td>
@@ -1157,134 +1158,134 @@
                 <td class="text-right src linenos"><a class="normal" id="l154" href="#l154">154</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
-                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">28</td>
-                <td class="src coveredLine"><span class="w">        </span><span class="n">constexpr</span><span class="w"> </span><span class="nf">m4</span><span class="p">(</span></td>
+                <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
+                <td class="src "><span class="w">    </span><span class="n">private</span><span class="o">:</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l155" href="#l155">155</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "><span class="w">            </span><span class="kt">float</span><span class="w"> </span><span class="n">t00</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">t01</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">t02</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">t03</span><span class="p">,</span></td>
+                <td class="src "><span class="w">        </span><span class="c1">/// stored in column major</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l156" href="#l156">156</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "><span class="w">            </span><span class="kt">float</span><span class="w"> </span><span class="n">t10</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">t11</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">t12</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">t13</span><span class="p">,</span></td>
+                <td class="src "><span class="w">        </span><span class="kt">float</span><span class="w"> </span><span class="n">data</span><span class="p">[</span><span class="mi">16</span><span class="p">];</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l157" href="#l157">157</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "><span class="w">            </span><span class="kt">float</span><span class="w"> </span><span class="n">t20</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">t21</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">t22</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">t23</span><span class="p">,</span></td>
+                <td class="src "></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l158" href="#l158">158</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "><span class="w">            </span><span class="kt">float</span><span class="w"> </span><span class="n">t30</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">t31</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">t32</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">t33</span><span class="p">)</span></td>
+                <td class="src "><span class="w">        </span><span class="n">m4</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l159" href="#l159">159</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
-                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">28</td>
-                <td class="src coveredLine"><span class="w">            </span><span class="o">:</span><span class="w"> </span><span class="n">data</span><span class="p">{</span></td>
+                <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
+                <td class="src "></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l160" href="#l160">160</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
-                <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "><span class="w">                  </span><span class="n">t00</span><span class="p">,</span><span class="w"> </span><span class="n">t01</span><span class="p">,</span><span class="w"> </span><span class="n">t02</span><span class="p">,</span><span class="w"> </span><span class="n">t03</span><span class="p">,</span></td>
+                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">28</td>
+                <td class="src coveredLine"><span class="w">        </span><span class="n">constexpr</span><span class="w"> </span><span class="nf">m4</span><span class="p">(</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l161" href="#l161">161</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "><span class="w">                  </span><span class="n">t10</span><span class="p">,</span><span class="w"> </span><span class="n">t11</span><span class="p">,</span><span class="w"> </span><span class="n">t12</span><span class="p">,</span><span class="w"> </span><span class="n">t13</span><span class="p">,</span></td>
+                <td class="src "><span class="w">            </span><span class="kt">float</span><span class="w"> </span><span class="n">t00</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">t01</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">t02</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">t03</span><span class="p">,</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l162" href="#l162">162</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "><span class="w">                  </span><span class="n">t20</span><span class="p">,</span><span class="w"> </span><span class="n">t21</span><span class="p">,</span><span class="w"> </span><span class="n">t22</span><span class="p">,</span><span class="w"> </span><span class="n">t23</span><span class="p">,</span></td>
+                <td class="src "><span class="w">            </span><span class="kt">float</span><span class="w"> </span><span class="n">t10</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">t11</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">t12</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">t13</span><span class="p">,</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l163" href="#l163">163</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "><span class="w">                  </span><span class="n">t30</span><span class="p">,</span><span class="w"> </span><span class="n">t31</span><span class="p">,</span><span class="w"> </span><span class="n">t32</span><span class="p">,</span><span class="w"> </span><span class="n">t33</span><span class="p">}</span></td>
+                <td class="src "><span class="w">            </span><span class="kt">float</span><span class="w"> </span><span class="n">t20</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">t21</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">t22</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">t23</span><span class="p">,</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l164" href="#l164">164</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "><span class="w">        </span><span class="p">{</span></td>
+                <td class="src "><span class="w">            </span><span class="kt">float</span><span class="w"> </span><span class="n">t30</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">t31</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">t32</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">t33</span><span class="p">)</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l165" href="#l165">165</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">28</td>
-                <td class="src coveredLine"><span class="w">        </span><span class="p">}</span></td>
+                <td class="src coveredLine"><span class="w">            </span><span class="o">:</span><span class="w"> </span><span class="n">data</span><span class="p">{</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l166" href="#l166">166</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "><span class="w">    </span><span class="p">};</span></td>
+                <td class="src "><span class="w">                  </span><span class="n">t00</span><span class="p">,</span><span class="w"> </span><span class="n">t01</span><span class="p">,</span><span class="w"> </span><span class="n">t02</span><span class="p">,</span><span class="w"> </span><span class="n">t03</span><span class="p">,</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l167" href="#l167">167</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "></td>
+                <td class="src "><span class="w">                  </span><span class="n">t10</span><span class="p">,</span><span class="w"> </span><span class="n">t11</span><span class="p">,</span><span class="w"> </span><span class="n">t12</span><span class="p">,</span><span class="w"> </span><span class="n">t13</span><span class="p">,</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l168" href="#l168">168</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "><span class="w">    </span><span class="c1">/// The identity matrix.</span></td>
+                <td class="src "><span class="w">                  </span><span class="n">t20</span><span class="p">,</span><span class="w"> </span><span class="n">t21</span><span class="p">,</span><span class="w"> </span><span class="n">t22</span><span class="p">,</span><span class="w"> </span><span class="n">t23</span><span class="p">,</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l169" href="#l169">169</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "><span class="w">    </span><span class="n">constexpr</span><span class="w"> </span><span class="n">m4</span><span class="w"> </span><span class="n">m4_identity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m4</span><span class="o">::</span><span class="n">from_scalar</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span></td>
+                <td class="src "><span class="w">                  </span><span class="n">t30</span><span class="p">,</span><span class="w"> </span><span class="n">t31</span><span class="p">,</span><span class="w"> </span><span class="n">t32</span><span class="p">,</span><span class="w"> </span><span class="n">t33</span><span class="p">}</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l170" href="#l170">170</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "></td>
+                <td class="src "><span class="w">        </span><span class="p">{</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l171" href="#l171">171</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
-                <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "><span class="w">    </span><span class="c1">/// Convert a matrix to a string representation, prefer fmt.</span></td>
+                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">28</td>
+                <td class="src coveredLine"><span class="w">        </span><span class="p">}</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l172" href="#l172">172</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="nf">string_from</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">m4</span><span class="w"> </span><span class="o">&amp;</span><span class="n">m</span><span class="p">);</span></td>
+                <td class="src "><span class="w">    </span><span class="p">};</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l173" href="#l173">173</a></td>
@@ -1298,66 +1299,122 @@
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "><span class="w">    </span><span class="n">m4</span><span class="w"> </span><span class="n">operator</span><span class="o">+</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">m4</span><span class="w"> </span><span class="o">&amp;</span><span class="n">lhs</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">m4</span><span class="w"> </span><span class="o">&amp;</span><span class="n">rhs</span><span class="p">);</span></td>
+                <td class="src "><span class="w">    </span><span class="c1">/// The identity matrix.</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l175" href="#l175">175</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "><span class="w">    </span><span class="n">m4</span><span class="w"> </span><span class="n">operator</span><span class="o">-</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">m4</span><span class="w"> </span><span class="o">&amp;</span><span class="n">lhs</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">m4</span><span class="w"> </span><span class="o">&amp;</span><span class="n">rhs</span><span class="p">);</span></td>
+                <td class="src "><span class="w">    </span><span class="n">constexpr</span><span class="w"> </span><span class="n">m4</span><span class="w"> </span><span class="n">m4_identity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m4</span><span class="o">::</span><span class="n">from_scalar</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l176" href="#l176">176</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "><span class="w">    </span><span class="n">m4</span><span class="w"> </span><span class="n">operator</span><span class="o">*</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">m4</span><span class="w"> </span><span class="o">&amp;</span><span class="n">lhs</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">m4</span><span class="w"> </span><span class="o">&amp;</span><span class="n">rhs</span><span class="p">);</span></td>
+                <td class="src "></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l177" href="#l177">177</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "><span class="w">    </span><span class="n">v4</span><span class="w"> </span><span class="n">operator</span><span class="o">*</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">m4</span><span class="w"> </span><span class="o">&amp;</span><span class="n">lhs</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">v4</span><span class="w"> </span><span class="o">&amp;</span><span class="n">rhs</span><span class="p">);</span></td>
+                <td class="src "><span class="w">    </span><span class="c1">/// Convert a matrix to a string representation, prefer fmt.</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l178" href="#l178">178</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "></td>
+                <td class="src "><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="nf">string_from</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">m4</span><span class="w"> </span><span class="o">&amp;</span><span class="n">m</span><span class="p">);</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l179" href="#l179">179</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "><span class="w">    </span><span class="cm">/** @}*/</span></td>
+                <td class="src "></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l180" href="#l180">180</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "><span class="p">}</span></td>
+                <td class="src "><span class="w">    </span><span class="n">m4</span><span class="w"> </span><span class="n">operator</span><span class="o">+</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">m4</span><span class="w"> </span><span class="o">&amp;</span><span class="n">lhs</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">m4</span><span class="w"> </span><span class="o">&amp;</span><span class="n">rhs</span><span class="p">);</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l181" href="#l181">181</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "></td>
+                <td class="src "><span class="w">    </span><span class="n">m4</span><span class="w"> </span><span class="n">operator</span><span class="o">-</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">m4</span><span class="w"> </span><span class="o">&amp;</span><span class="n">lhs</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">m4</span><span class="w"> </span><span class="o">&amp;</span><span class="n">rhs</span><span class="p">);</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l182" href="#l182">182</a></td>
+                <td class="text-right src linenos ws-unset">
+                </td>
+                <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
+                <td class="src "><span class="w">    </span><span class="n">m4</span><span class="w"> </span><span class="n">operator</span><span class="o">*</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">m4</span><span class="w"> </span><span class="o">&amp;</span><span class="n">lhs</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">m4</span><span class="w"> </span><span class="o">&amp;</span><span class="n">rhs</span><span class="p">);</span></td>
+            </tr>
+            <tr>
+                <td class="text-right src linenos"><a class="normal" id="l183" href="#l183">183</a></td>
+                <td class="text-right src linenos ws-unset">
+                </td>
+                <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
+                <td class="src "><span class="w">    </span><span class="n">v4</span><span class="w"> </span><span class="n">operator</span><span class="o">*</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">m4</span><span class="w"> </span><span class="o">&amp;</span><span class="n">lhs</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">v4</span><span class="w"> </span><span class="o">&amp;</span><span class="n">rhs</span><span class="p">);</span></td>
+            </tr>
+            <tr>
+                <td class="text-right src linenos"><a class="normal" id="l184" href="#l184">184</a></td>
+                <td class="text-right src linenos ws-unset">
+                </td>
+                <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
+                <td class="src "></td>
+            </tr>
+            <tr>
+                <td class="text-right src linenos"><a class="normal" id="l185" href="#l185">185</a></td>
+                <td class="text-right src linenos ws-unset">
+                </td>
+                <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
+                <td class="src "><span class="w">    </span><span class="cm">/** @}*/</span></td>
+            </tr>
+            <tr>
+                <td class="text-right src linenos"><a class="normal" id="l186" href="#l186">186</a></td>
+                <td class="text-right src linenos ws-unset">
+                </td>
+                <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
+                <td class="src "></td>
+            </tr>
+            <tr>
+                <td class="text-right src linenos"><a class="normal" id="l187" href="#l187">187</a></td>
+                <td class="text-right src linenos ws-unset">
+                </td>
+                <td class="src uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
+                <td class="src uncoveredLine"><span class="w">    </span><span class="n">ADD_CATCH_FORMATTER</span><span class="p">(</span><span class="n">m4</span><span class="p">)</span></td>
+            </tr>
+            <tr>
+                <td class="text-right src linenos"><a class="normal" id="l188" href="#l188">188</a></td>
+                <td class="text-right src linenos ws-unset">
+                </td>
+                <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
+                <td class="src "><span class="p">}</span></td>
+            </tr>
+            <tr>
+                <td class="text-right src linenos"><a class="normal" id="l189" href="#l189">189</a></td>
+                <td class="text-right src linenos ws-unset">
+                </td>
+                <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
+                <td class="src "></td>
+            </tr>
+            <tr>
+                <td class="text-right src linenos"><a class="normal" id="l190" href="#l190">190</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
                 <td class="src uncoveredLine"><span class="n">ADD_DEFAULT_FORMATTER</span><span class="p">(</span><span class="n">eu</span><span class="o">::</span><span class="n">m4</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="n">eu</span><span class="o">::</span><span class="n">string_from</span><span class="p">);</span></td>
             </tr>
             <tr>
-                <td class="text-right src linenos"><a class="normal" id="l183" href="#l183">183</a></td>
+                <td class="text-right src linenos"><a class="normal" id="l191" href="#l191">191</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>

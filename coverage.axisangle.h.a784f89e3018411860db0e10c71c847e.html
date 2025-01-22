@@ -23,25 +23,25 @@
                         <path d="M1.75 1A1.75 1.75 0 0 0 0 2.75v10.5C0 14.216.784 15 1.75 15h12.5A1.75 1.75 0 0 0 16 13.25v-8.5A1.75 1.75 0 0 0 14.25 3H7.5a.25.25 0 0 1-.2-.1l-.9-1.2C6.07 1.26 5.55 1 5 1H1.75Z"></path>
                     </svg>
                 </div>
-                <span>./</span>
+                <span>libs/base/src/base/</span>
             </div>
-            <div>File: libs/base/src/base/axisangle.h</div>
-            <div>Date: 2025-01-22 07:33:51</div>
+            <div>File: axisangle.h</div>
+            <div>Date: 2025-01-22 21:33:39</div>
         </div>
         <div class="col-sm-12 col-lg-3 float-left d-flex flex-column text-right flex-justify-end p-3">
             <div class="d-flex">
                 <div class="mr-2">Lines:</div>
-                <div class="mr-2" style="margin: auto;">0/1</div>
+                <div class="mr-2" style="margin: auto;">0/2</div>
                 <div class="Label--minw"><span class="coverage-none IssueLabel color-fg-on-emphasis mr-1">0.0%</span></div>
             </div>
             <div class="d-flex">
                 <div class="mr-2">Functions:</div>
-                <div class="mr-2" style="margin: auto;">0/1</div>
+                <div class="mr-2" style="margin: auto;">0/2</div>
                 <div class="Label--minw"><span class="coverage-none IssueLabel color-fg-on-emphasis mr-1">0.0%</span></div>
             </div>
             <div class="d-flex">
                 <div class="mr-2">Branches:</div>
-                <div class="mr-2" style="margin: auto;">0/2</div>
+                <div class="mr-2" style="margin: auto;">0/6</div>
                 <div class="Label--minw"><span class="coverage-none IssueLabel color-fg-on-emphasis mr-1">0.0%</span></div>
             </div>
         </div>
@@ -62,7 +62,8 @@
       <th>Condition coverage</th>
       <th>Block coverage</th>
     </tr>
-    <tr><td><a href="#l48">auto fmt::v10::formatter&lt;eu::AA, char, void&gt;::format&lt;fmt::v10::basic_format_context&lt;fmt::v10::appender, char&gt; &gt;(eu::AA const&amp;, fmt::v10::basic_format_context&lt;fmt::v10::appender, char&gt;&amp;) const (line 48)</a></td><td>not called</td><td>0.0%</td><td>0.0%</td><td>-%</td><td>0.0%</td></tr>
+    <tr><td><a href="#l51">auto fmt::v10::formatter&lt;eu::AA, char, void&gt;::format&lt;fmt::v10::basic_format_context&lt;fmt::v10::appender, char&gt; &gt;(eu::AA const&amp;, fmt::v10::basic_format_context&lt;fmt::v10::appender, char&gt;&amp;) const (line 51)</a></td><td>not called</td><td>0.0%</td><td>0.0%</td><td>-%</td><td>0.0%</td></tr>
+    <tr><td><a href="#l47">eu::operator&lt;&lt;(std::ostream&amp;, eu::AA const&amp;) (line 47)</a></td><td>not called</td><td>0.0%</td><td>0.0%</td><td>-%</td><td>0.0%</td></tr>
   </table>
 </details>
 </div>
@@ -400,31 +401,52 @@
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "><span class="p">}</span></td>
+                <td class="src "></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l47" href="#l47">47</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
-                <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "></td>
+                <td class="src uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
+                <td class="src uncoveredLine"><span class="w">    </span><span class="n">ADD_CATCH_FORMATTER</span><span class="p">(</span><span class="n">AA</span><span class="p">)</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l48" href="#l48">48</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
-                <td class="src uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-                <td class="src uncoveredLine"><span class="n">ADD_DEFAULT_FORMATTER</span><span class="p">(</span><span class="n">eu</span><span class="o">::</span><span class="n">AA</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="n">eu</span><span class="o">::</span><span class="n">string_from</span><span class="p">);</span></td>
+                <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
+                <td class="src "><span class="w">    </span><span class="n">ADD_CATCH_FORMATTER</span><span class="p">(</span><span class="n">Ypr</span><span class="p">)</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l49" href="#l49">49</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "><span class="n">ADD_DEFAULT_FORMATTER</span><span class="p">(</span><span class="n">eu</span><span class="o">::</span><span class="n">Ypr</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="n">eu</span><span class="o">::</span><span class="n">string_from</span><span class="p">);</span></td>
+                <td class="src "><span class="p">}</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l50" href="#l50">50</a></td>
+                <td class="text-right src linenos ws-unset">
+                </td>
+                <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
+                <td class="src "></td>
+            </tr>
+            <tr>
+                <td class="text-right src linenos"><a class="normal" id="l51" href="#l51">51</a></td>
+                <td class="text-right src linenos ws-unset">
+                </td>
+                <td class="src uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
+                <td class="src uncoveredLine"><span class="n">ADD_DEFAULT_FORMATTER</span><span class="p">(</span><span class="n">eu</span><span class="o">::</span><span class="n">AA</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="n">eu</span><span class="o">::</span><span class="n">string_from</span><span class="p">);</span></td>
+            </tr>
+            <tr>
+                <td class="text-right src linenos"><a class="normal" id="l52" href="#l52">52</a></td>
+                <td class="text-right src linenos ws-unset">
+                </td>
+                <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
+                <td class="src "><span class="n">ADD_DEFAULT_FORMATTER</span><span class="p">(</span><span class="n">eu</span><span class="o">::</span><span class="n">Ypr</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="n">eu</span><span class="o">::</span><span class="n">string_from</span><span class="p">);</span></td>
+            </tr>
+            <tr>
+                <td class="text-right src linenos"><a class="normal" id="l53" href="#l53">53</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
                 <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
