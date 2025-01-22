@@ -378,7 +378,7 @@ namespace eu
 
     [[nodiscard]]
     m4
-    m4::create_ortho(float l, float r, float b, float t, float n, float f)
+    m4::create_ortho_lrud(float l, float r, float t, float b, float n, float f)
     {
         // http://www.songho.ca/opengl/gl_projectionmatrix.html
         return from_row_major

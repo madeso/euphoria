@@ -73,10 +73,16 @@ namespace eu
         [[nodiscard]] static std::optional<m4> from(const Q& q);
 
         /// Create an orthographic projection matrix.
-        [[nodiscard]] static m4 create_ortho(float l, float r, float b, float t, float n, float f);
+        /// @param l the left side
+        /// @param r the right side
+        /// @param t the up side
+        /// @param b the down side
+        /// @param n near
+        /// @param f far
+        [[nodiscard]] static m4 create_ortho_lrud(float l, float r, float t, float b, float n, float f);
 
         /// Create a perspective projection matrix.
-        [[nodiscard]] static m4 create_perspective(const An &fov, float a, float near, float far);
+        [[nodiscard]] static m4 create_perspective(const An &fov, float aspect_ratio, float near, float far);
 
         /// Get a direct pointer to the data in column major format, for API integration.
         float *get_column_major_data_ptr();
