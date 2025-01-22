@@ -60,15 +60,22 @@
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="ints_8h_source.html">base/ints.h</a>&quot;</code><br />
 <code>#include &lt;string_view&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
 <code>#include &lt;unordered_map&gt;</code><br />
 </div>
 <p><a href="hash_8string_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeu_1_1HashedStringView.html">eu::HashedStringView</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeu_1_1Hsh.html">eu::Hsh</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hash of a non-owning string.  <a href="structeu_1_1Hsh.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structstd_1_1hash_3_01eu_1_1HashedStringView_01_4.html">std::hash&lt; eu::HashedStringView &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeu_1_1HshO.html">eu::HshO</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hash of an owning string.  <a href="structeu_1_1HshO.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structstd_1_1hash_3_01eu_1_1Hsh_01_4.html">std::hash&lt; eu::Hsh &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structstd_1_1hash_3_01eu_1_1HshO_01_4.html">std::hash&lt; eu::HshO &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
@@ -107,10 +114,16 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">    <span class="keyword">constexpr</span> <span class="keywordtype">bool</span> <span class="keyword">operator</span> op(<span class="keyword">const</span> HashedStringView&amp; lhs, <span class="keyword">const</span> HashedStringView&amp; rhs)\</div>
+<b>Value:</b><div class="fragment"><div class="line">    <span class="keyword">constexpr</span> <span class="keywordtype">bool</span> <span class="keyword">operator</span> op(<span class="keyword">const</span> Hsh&amp; lhs, <span class="keyword">const</span> Hsh&amp; rhs)\</div>
+<div class="line">        { <span class="keywordflow">return</span> lhs.hash op rhs.hash; }\</div>
+<div class="line">    <span class="keyword">constexpr</span> <span class="keywordtype">bool</span> <span class="keyword">operator</span> op(<span class="keyword">const</span> HshO&amp; lhs, <span class="keyword">const</span> Hsh&amp; rhs)\</div>
+<div class="line">        { <span class="keywordflow">return</span> lhs.hash op rhs.hash; }\</div>
+<div class="line">    <span class="keyword">constexpr</span> <span class="keywordtype">bool</span> <span class="keyword">operator</span> op(<span class="keyword">const</span> Hsh&amp; lhs, <span class="keyword">const</span> HshO&amp; rhs)\</div>
+<div class="line">        { <span class="keywordflow">return</span> lhs.hash op rhs.hash; }\</div>
+<div class="line">    <span class="keyword">constexpr</span> <span class="keywordtype">bool</span> <span class="keyword">operator</span> op(<span class="keyword">const</span> HshO&amp; lhs, <span class="keyword">const</span> HshO&amp; rhs)\</div>
 <div class="line">        { <span class="keywordflow">return</span> lhs.hash op rhs.hash; }</div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="hash_8string_8h_source.html#l00035">35</a> of file <a class="el" href="hash_8string_8h_source.html">hash.string.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hash_8string_8h_source.html#l00089">89</a> of file <a class="el" href="hash_8string_8h_source.html">hash.string.h</a>.</p>
 
 </div>
 </div>
@@ -126,7 +139,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="hash_8string_8h_source.html#l00010">10</a> of file <a class="el" href="hash_8string_8h_source.html">hash.string.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hash_8string_8h_source.html#l00011">11</a> of file <a class="el" href="hash_8string_8h_source.html">hash.string.h</a>.</p>
 
 </div>
 </div>

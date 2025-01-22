@@ -26,7 +26,7 @@
                 <span>./</span>
             </div>
             <div>File: build/_deps/catch2-src/src/catch2/generators/catch_generators.hpp</div>
-            <div>Date: 2025-01-18 18:30:19</div>
+            <div>Date: 2025-01-22 07:33:51</div>
         </div>
         <div class="col-sm-12 col-lg-3 float-left d-flex flex-column text-right flex-justify-end p-3">
             <div class="d-flex">
@@ -36,8 +36,8 @@
             </div>
             <div class="d-flex">
                 <div class="mr-2">Functions:</div>
-                <div class="mr-2" style="margin: auto;">29/30</div>
-                <div class="Label--minw"><span class="coverage-high IssueLabel color-fg-on-emphasis mr-1">96.7%</span></div>
+                <div class="mr-2" style="margin: auto;">49/51</div>
+                <div class="Label--minw"><span class="coverage-high IssueLabel color-fg-on-emphasis mr-1">96.1%</span></div>
             </div>
             <div class="d-flex">
                 <div class="mr-2">Branches:</div>
@@ -62,35 +62,56 @@
       <th>Condition coverage</th>
       <th>Block coverage</th>
     </tr>
-    <tr><td><a href="#l109">Catch::Generators::GeneratorWrapper&lt;char const*&gt; Catch::Generators::value&lt;char const (&amp;) [11], char const*&gt;(char const (&amp;) [11]) (line 109)</a></td><td>called 1 time</td><td>100%</td><td>-%</td><td>-%</td><td>72.7%</td></tr>
-    <tr><td><a href="#l109">Catch::Generators::GeneratorWrapper&lt;char const*&gt; Catch::Generators::value&lt;char const (&amp;) [37], char const*&gt;(char const (&amp;) [37]) (line 109)</a></td><td>called 1 time</td><td>100%</td><td>-%</td><td>-%</td><td>72.7%</td></tr>
+    <tr><td><a href="#l109">Catch::Generators::GeneratorWrapper&lt;bool&gt; Catch::Generators::value&lt;bool, bool&gt;(bool&amp;&amp;) (line 109)</a></td><td>called 12 times</td><td>100.0%</td><td>-%</td><td>-%</td><td>72.7%</td></tr>
+    <tr><td><a href="#l58">Catch::Generators::GeneratorWrapper&lt;bool&gt;::GeneratorWrapper(Catch::Detail::unique_ptr&lt;Catch::Generators::IGenerator&lt;bool&gt; &gt;) (line 58)</a></td><td>called 12 times</td><td>100.0%</td><td>-%</td><td>-%</td><td>100.0%</td></tr>
+    <tr><td><a href="#l61">Catch::Generators::GeneratorWrapper&lt;bool&gt;::get() const (line 61)</a></td><td>called 16 times</td><td>100.0%</td><td>-%</td><td>-%</td><td>100.0%</td></tr>
+    <tr><td><a href="#l64">Catch::Generators::GeneratorWrapper&lt;bool&gt;::next() (line 64)</a></td><td>called 12 times</td><td>100.0%</td><td>-%</td><td>-%</td><td>100.0%</td></tr>
+    <tr><td><a href="#l109">Catch::Generators::GeneratorWrapper&lt;char const*&gt; Catch::Generators::value&lt;char const (&amp;) [11], char const*&gt;(char const (&amp;) [11]) (line 109)</a></td><td>called 1 time</td><td>100.0%</td><td>-%</td><td>-%</td><td>72.7%</td></tr>
+    <tr><td><a href="#l109">Catch::Generators::GeneratorWrapper&lt;char const*&gt; Catch::Generators::value&lt;char const (&amp;) [37], char const*&gt;(char const (&amp;) [37]) (line 109)</a></td><td>called 1 time</td><td>100.0%</td><td>-%</td><td>-%</td><td>72.7%</td></tr>
     <tr><td><a href="#l109">Catch::Generators::GeneratorWrapper&lt;char const*&gt; Catch::Generators::value&lt;char const*, char const*&gt;(char const*&amp;&amp;) (line 109)</a></td><td>called 6 times</td><td>100.0%</td><td>50.0%</td><td>-%</td><td>72.7%</td></tr>
     <tr><td><a href="#l58">Catch::Generators::GeneratorWrapper&lt;char const*&gt;::GeneratorWrapper(Catch::Detail::unique_ptr&lt;Catch::Generators::IGenerator&lt;char const*&gt; &gt;) (line 58)</a></td><td>called 8 times</td><td>100.0%</td><td>-%</td><td>-%</td><td>100.0%</td></tr>
     <tr><td><a href="#l61">Catch::Generators::GeneratorWrapper&lt;char const*&gt;::get() const (line 61)</a></td><td>called 8 times</td><td>100.0%</td><td>-%</td><td>-%</td><td>100.0%</td></tr>
     <tr><td><a href="#l64">Catch::Generators::GeneratorWrapper&lt;char const*&gt;::next() (line 64)</a></td><td>called 8 times</td><td>100.0%</td><td>-%</td><td>-%</td><td>100.0%</td></tr>
+    <tr><td><a href="#l184">Catch::Generators::Generators&lt;bool&gt; Catch::Generators::makeGenerators&lt;bool, bool&gt;(Catch::Generators::GeneratorWrapper&lt;bool&gt;&amp;&amp;, bool&amp;&amp;) (line 184)</a></td><td>called 6 times</td><td>100.0%</td><td>-%</td><td>-%</td><td>100.0%</td></tr>
+    <tr><td><a href="#l151">Catch::Generators::Generators&lt;bool&gt;::Generators&lt;Catch::Generators::GeneratorWrapper&lt;bool&gt;, bool&gt;(Catch::Generators::GeneratorWrapper&lt;bool&gt;&amp;&amp;, bool&amp;&amp;) (line 151)</a></td><td>called 6 times</td><td>100.0%</td><td>-%</td><td>-%</td><td>66.7%</td></tr>
+    <tr><td><a href="#l124">Catch::Generators::Generators&lt;bool&gt;::add_generator(Catch::Generators::GeneratorWrapper&lt;bool&gt;&amp;&amp;) (line 124)</a></td><td>called 6 times</td><td>100.0%</td><td>-%</td><td>-%</td><td>100.0%</td></tr>
+    <tr><td><a href="#l130">Catch::Generators::Generators&lt;bool&gt;::add_generator(bool&amp;&amp;) (line 130)</a></td><td>called 6 times</td><td>100.0%</td><td>-%</td><td>-%</td><td>71.4%</td></tr>
+    <tr><td><a href="#l156">Catch::Generators::Generators&lt;bool&gt;::get() const (line 156)</a></td><td>called 16 times</td><td>100.0%</td><td>-%</td><td>-%</td><td>100.0%</td></tr>
+    <tr><td><a href="#l160">Catch::Generators::Generators&lt;bool&gt;::next() (line 160)</a></td><td>called 12 times</td><td>100.0%</td><td>-%</td><td>-%</td><td>90.0%</td></tr>
     <tr><td><a href="#l184">Catch::Generators::Generators&lt;char const*&gt; Catch::Generators::makeGenerators&lt;char const*, char const (&amp;) [35]&gt;(Catch::Generators::GeneratorWrapper&lt;char const*&gt;&amp;&amp;, char const (&amp;) [35]) (line 184)</a></td><td>called 1 time</td><td>100.0%</td><td>-%</td><td>-%</td><td>100.0%</td></tr>
-    <tr><td><a href="#l184">Catch::Generators::Generators&lt;char const*&gt; Catch::Generators::makeGenerators&lt;char const*, char const (&amp;) [41], char const (&amp;) [39], char const (&amp;) [37], char const (&amp;) [39], char const (&amp;) [71]&gt;(Catch::Generators::GeneratorWrapper&lt;char const*&gt;&amp;&amp;, char const (&amp;) [41], char const (&amp;) [39], char const (&amp;) [37], char const (&amp;) [39], char const (&amp;) [71]) (line 184)</a></td><td>called 1 time</td><td>100%</td><td>-%</td><td>-%</td><td>100.0%</td></tr>
+    <tr><td><a href="#l184">Catch::Generators::Generators&lt;char const*&gt; Catch::Generators::makeGenerators&lt;char const*, char const (&amp;) [41], char const (&amp;) [39], char const (&amp;) [37], char const (&amp;) [39], char const (&amp;) [71]&gt;(Catch::Generators::GeneratorWrapper&lt;char const*&gt;&amp;&amp;, char const (&amp;) [41], char const (&amp;) [39], char const (&amp;) [37], char const (&amp;) [39], char const (&amp;) [71]) (line 184)</a></td><td>called 1 time</td><td>100.0%</td><td>-%</td><td>-%</td><td>100.0%</td></tr>
     <tr><td><a href="#l151">Catch::Generators::Generators&lt;char const*&gt;::Generators&lt;Catch::Generators::GeneratorWrapper&lt;char const*&gt;, char const (&amp;) [35]&gt;(Catch::Generators::GeneratorWrapper&lt;char const*&gt;&amp;&amp;, char const (&amp;) [35]) (line 151)</a></td><td>called 1 time</td><td>100.0%</td><td>50.0%</td><td>-%</td><td>66.7%</td></tr>
-    <tr><td><a href="#l151">Catch::Generators::Generators&lt;char const*&gt;::Generators&lt;Catch::Generators::GeneratorWrapper&lt;char const*&gt;, char const (&amp;) [41], char const (&amp;) [39], char const (&amp;) [37], char const (&amp;) [39], char const (&amp;) [71]&gt;(Catch::Generators::GeneratorWrapper&lt;char const*&gt;&amp;&amp;, char const (&amp;) [41], char const (&amp;) [39], char const (&amp;) [37], char const (&amp;) [39], char const (&amp;) [71]) (line 151)</a></td><td>called 1 time</td><td>100%</td><td>-%</td><td>-%</td><td>66.7%</td></tr>
+    <tr><td><a href="#l151">Catch::Generators::Generators&lt;char const*&gt;::Generators&lt;Catch::Generators::GeneratorWrapper&lt;char const*&gt;, char const (&amp;) [41], char const (&amp;) [39], char const (&amp;) [37], char const (&amp;) [39], char const (&amp;) [71]&gt;(Catch::Generators::GeneratorWrapper&lt;char const*&gt;&amp;&amp;, char const (&amp;) [41], char const (&amp;) [39], char const (&amp;) [37], char const (&amp;) [39], char const (&amp;) [71]) (line 151)</a></td><td>called 1 time</td><td>100.0%</td><td>-%</td><td>-%</td><td>66.7%</td></tr>
     <tr><td><a href="#l124">Catch::Generators::Generators&lt;char const*&gt;::add_generator(Catch::Generators::GeneratorWrapper&lt;char const*&gt;&amp;&amp;) (line 124)</a></td><td>called 2 times</td><td>100.0%</td><td>-%</td><td>-%</td><td>100.0%</td></tr>
     <tr><td><a href="#l130">Catch::Generators::Generators&lt;char const*&gt;::add_generator(char const*&amp;&amp;) (line 130)</a></td><td>called 6 times</td><td>100.0%</td><td>50.0%</td><td>-%</td><td>71.4%</td></tr>
     <tr><td><a href="#l156">Catch::Generators::Generators&lt;char const*&gt;::get() const (line 156)</a></td><td>called 8 times</td><td>100.0%</td><td>-%</td><td>-%</td><td>100.0%</td></tr>
     <tr><td><a href="#l160">Catch::Generators::Generators&lt;char const*&gt;::next() (line 160)</a></td><td>called 8 times</td><td>85.7%</td><td>50.0%</td><td>-%</td><td>90.0%</td></tr>
+    <tr><td><a href="#l192">Catch::Generators::Generators&lt;std::decay&lt;bool&gt;::type&gt; Catch::Generators::makeGenerators&lt;bool, bool&gt;(bool&amp;&amp;, bool&amp;&amp;) (line 192)</a></td><td>called 6 times</td><td>100.0%</td><td>-%</td><td>-%</td><td>77.8%</td></tr>
     <tr><td><a href="#l192">Catch::Generators::Generators&lt;std::decay&lt;char const (&amp;) [11]&gt;::type&gt; Catch::Generators::makeGenerators&lt;char const (&amp;) [11], char const (&amp;) [35]&gt;(char const (&amp;) [11], char const (&amp;) [35]) (line 192)</a></td><td>called 1 time</td><td>100.0%</td><td>50.0%</td><td>-%</td><td>77.8%</td></tr>
-    <tr><td><a href="#l192">Catch::Generators::Generators&lt;std::decay&lt;char const (&amp;) [37]&gt;::type&gt; Catch::Generators::makeGenerators&lt;char const (&amp;) [37], char const (&amp;) [41], char const (&amp;) [39], char const (&amp;) [37], char const (&amp;) [39], char const (&amp;) [71]&gt;(char const (&amp;) [37], char const (&amp;) [41], char const (&amp;) [39], char const (&amp;) [37], char const (&amp;) [39], char const (&amp;) [71]) (line 192)</a></td><td>called 1 time</td><td>100%</td><td>-%</td><td>-%</td><td>77.8%</td></tr>
+    <tr><td><a href="#l192">Catch::Generators::Generators&lt;std::decay&lt;char const (&amp;) [37]&gt;::type&gt; Catch::Generators::makeGenerators&lt;char const (&amp;) [37], char const (&amp;) [41], char const (&amp;) [39], char const (&amp;) [37], char const (&amp;) [39], char const (&amp;) [71]&gt;(char const (&amp;) [37], char const (&amp;) [41], char const (&amp;) [39], char const (&amp;) [37], char const (&amp;) [39], char const (&amp;) [71]) (line 192)</a></td><td>called 1 time</td><td>100.0%</td><td>-%</td><td>-%</td><td>77.8%</td></tr>
+    <tr><td><a href="#l35">Catch::Generators::IGenerator&lt;bool&gt;::stringifyImpl[abi:cxx11]() const (line 35)</a></td><td>not called</td><td>100.0%</td><td>-%</td><td>-%</td><td>0.0%</td></tr>
     <tr><td><a href="#l35">Catch::Generators::IGenerator&lt;char const*&gt;::stringifyImpl[abi:cxx11]() const (line 35)</a></td><td>not called</td><td>0.0%</td><td>-%</td><td>-%</td><td>0.0%</td></tr>
+    <tr><td><a href="#l77">Catch::Generators::SingleValueGenerator&lt;bool&gt;::SingleValueGenerator(bool&amp;&amp;) (line 77)</a></td><td>called 12 times</td><td>100.0%</td><td>-%</td><td>-%</td><td>100.0%</td></tr>
+    <tr><td><a href="#l81">Catch::Generators::SingleValueGenerator&lt;bool&gt;::get() const (line 81)</a></td><td>called 16 times</td><td>100.0%</td><td>-%</td><td>-%</td><td>100.0%</td></tr>
+    <tr><td><a href="#l84">Catch::Generators::SingleValueGenerator&lt;bool&gt;::next() (line 84)</a></td><td>called 12 times</td><td>100.0%</td><td>-%</td><td>-%</td><td>100.0%</td></tr>
     <tr><td><a href="#l77">Catch::Generators::SingleValueGenerator&lt;char const*&gt;::SingleValueGenerator(char const*&amp;&amp;) (line 77)</a></td><td>called 8 times</td><td>100.0%</td><td>-%</td><td>-%</td><td>100.0%</td></tr>
     <tr><td><a href="#l81">Catch::Generators::SingleValueGenerator&lt;char const*&gt;::get() const (line 81)</a></td><td>called 8 times</td><td>100.0%</td><td>-%</td><td>-%</td><td>100.0%</td></tr>
     <tr><td><a href="#l84">Catch::Generators::SingleValueGenerator&lt;char const*&gt;::next() (line 84)</a></td><td>called 8 times</td><td>100.0%</td><td>-%</td><td>-%</td><td>100.0%</td></tr>
-    <tr><td><a href="#l207">decltype ({parm#3}())::type Catch::Generators::generate&lt;CATCH2_INTERNAL_TEST_0()::{lambda()#1}&gt;(Catch::StringRef, Catch::SourceLineInfo const&amp;, CATCH2_INTERNAL_TEST_0()::{lambda()#1} const&amp;) (line 207)</a></td><td>called 6 times</td><td>100%</td><td>-%</td><td>-%</td><td>66.7%</td></tr>
+    <tr><td><a href="#l207">decltype ({parm#3}())::type Catch::Generators::generate&lt;CATCH2_INTERNAL_TEMPLATE_TEST_14&lt;std::map&lt;eu::HshO, int, std::less&lt;eu::HshO&gt;, std::allocator&lt;std::pair&lt;eu::HshO const, int&gt; &gt; &gt; &gt;()::{lambda()#1}&gt;(Catch::StringRef, Catch::SourceLineInfo const&amp;, CATCH2_INTERNAL_TEMPLATE_TEST_14&lt;std::map&lt;eu::HshO, int, std::less&lt;eu::HshO&gt;, std::allocator&lt;std::pair&lt;eu::HshO const, int&gt; &gt; &gt; &gt;()::{lambda()#1} const&amp;) (line 207)</a></td><td>called 4 times</td><td>100.0%</td><td>-%</td><td>-%</td><td>66.7%</td></tr>
+    <tr><td><a href="#l207">decltype ({parm#3}())::type Catch::Generators::generate&lt;CATCH2_INTERNAL_TEMPLATE_TEST_14&lt;std::map&lt;eu::HshO, int, std::less&lt;eu::HshO&gt;, std::allocator&lt;std::pair&lt;eu::HshO const, int&gt; &gt; &gt; &gt;()::{lambda()#2}&gt;(Catch::StringRef, Catch::SourceLineInfo const&amp;, CATCH2_INTERNAL_TEMPLATE_TEST_14&lt;std::map&lt;eu::HshO, int, std::less&lt;eu::HshO&gt;, std::allocator&lt;std::pair&lt;eu::HshO const, int&gt; &gt; &gt; &gt;()::{lambda()#2} const&amp;) (line 207)</a></td><td>called 4 times</td><td>100.0%</td><td>-%</td><td>-%</td><td>66.7%</td></tr>
+    <tr><td><a href="#l207">decltype ({parm#3}())::type Catch::Generators::generate&lt;CATCH2_INTERNAL_TEMPLATE_TEST_14&lt;std::unordered_map&lt;eu::HshO, int, std::hash&lt;eu::HshO&gt;, std::equal_to&lt;eu::HshO&gt;, std::allocator&lt;std::pair&lt;eu::HshO const, int&gt; &gt; &gt; &gt;()::{lambda()#1}&gt;(Catch::StringRef, Catch::SourceLineInfo const&amp;, CATCH2_INTERNAL_TEMPLATE_TEST_14&lt;std::unordered_map&lt;eu::HshO, int, std::hash&lt;eu::HshO&gt;, std::equal_to&lt;eu::HshO&gt;, std::allocator&lt;std::pair&lt;eu::HshO const, int&gt; &gt; &gt; &gt;()::{lambda()#1} const&amp;) (line 207)</a></td><td>called 4 times</td><td>100.0%</td><td>-%</td><td>-%</td><td>66.7%</td></tr>
+    <tr><td><a href="#l207">decltype ({parm#3}())::type Catch::Generators::generate&lt;CATCH2_INTERNAL_TEMPLATE_TEST_14&lt;std::unordered_map&lt;eu::HshO, int, std::hash&lt;eu::HshO&gt;, std::equal_to&lt;eu::HshO&gt;, std::allocator&lt;std::pair&lt;eu::HshO const, int&gt; &gt; &gt; &gt;()::{lambda()#2}&gt;(Catch::StringRef, Catch::SourceLineInfo const&amp;, CATCH2_INTERNAL_TEMPLATE_TEST_14&lt;std::unordered_map&lt;eu::HshO, int, std::hash&lt;eu::HshO&gt;, std::equal_to&lt;eu::HshO&gt;, std::allocator&lt;std::pair&lt;eu::HshO const, int&gt; &gt; &gt; &gt;()::{lambda()#2} const&amp;) (line 207)</a></td><td>called 4 times</td><td>100.0%</td><td>-%</td><td>-%</td><td>66.7%</td></tr>
+    <tr><td><a href="#l207">decltype ({parm#3}())::type Catch::Generators::generate&lt;CATCH2_INTERNAL_TEST_0()::{lambda()#1}&gt;(Catch::StringRef, Catch::SourceLineInfo const&amp;, CATCH2_INTERNAL_TEST_0()::{lambda()#1} const&amp;) (line 207)</a></td><td>called 6 times</td><td>100.0%</td><td>-%</td><td>-%</td><td>66.7%</td></tr>
     <tr><td><a href="#l207">decltype ({parm#3}())::type Catch::Generators::generate&lt;CATCH2_INTERNAL_TEST_0()::{lambda()#2}&gt;(Catch::StringRef, Catch::SourceLineInfo const&amp;, CATCH2_INTERNAL_TEST_0()::{lambda()#2} const&amp;) (line 207)</a></td><td>called 2 times</td><td>100.0%</td><td>60.0%</td><td>-%</td><td>66.7%</td></tr>
-    <tr><td><a href="#l144">void Catch::Generators::Generators&lt;char const*&gt;::add_generators&lt;Catch::Generators::GeneratorWrapper&lt;char const*&gt;, char const (&amp;) [35]&gt;(Catch::Generators::GeneratorWrapper&lt;char const*&gt;&amp;&amp;, char const (&amp;) [35]) (line 144)</a></td><td>called 1 time</td><td>100%</td><td>-%</td><td>-%</td><td>100.0%</td></tr>
-    <tr><td><a href="#l144">void Catch::Generators::Generators&lt;char const*&gt;::add_generators&lt;Catch::Generators::GeneratorWrapper&lt;char const*&gt;, char const (&amp;) [41], char const (&amp;) [39], char const (&amp;) [37], char const (&amp;) [39], char const (&amp;) [71]&gt;(Catch::Generators::GeneratorWrapper&lt;char const*&gt;&amp;&amp;, char const (&amp;) [41], char const (&amp;) [39], char const (&amp;) [37], char const (&amp;) [39], char const (&amp;) [71]) (line 144)</a></td><td>called 1 time</td><td>100%</td><td>-%</td><td>-%</td><td>100.0%</td></tr>
-    <tr><td><a href="#l139">void Catch::Generators::Generators&lt;char const*&gt;::add_generators&lt;char const (&amp;) [35]&gt;(char const (&amp;) [35]) (line 139)</a></td><td>called 1 time</td><td>100%</td><td>-%</td><td>-%</td><td>100.0%</td></tr>
-    <tr><td><a href="#l144">void Catch::Generators::Generators&lt;char const*&gt;::add_generators&lt;char const (&amp;) [37], char const (&amp;) [39], char const (&amp;) [71]&gt;(char const (&amp;) [37], char const (&amp;) [39], char const (&amp;) [71]) (line 144)</a></td><td>called 1 time</td><td>100%</td><td>-%</td><td>-%</td><td>100.0%</td></tr>
-    <tr><td><a href="#l144">void Catch::Generators::Generators&lt;char const*&gt;::add_generators&lt;char const (&amp;) [39], char const (&amp;) [37], char const (&amp;) [39], char const (&amp;) [71]&gt;(char const (&amp;) [39], char const (&amp;) [37], char const (&amp;) [39], char const (&amp;) [71]) (line 144)</a></td><td>called 1 time</td><td>100%</td><td>-%</td><td>-%</td><td>100.0%</td></tr>
+    <tr><td><a href="#l144">void Catch::Generators::Generators&lt;bool&gt;::add_generators&lt;Catch::Generators::GeneratorWrapper&lt;bool&gt;, bool&gt;(Catch::Generators::GeneratorWrapper&lt;bool&gt;&amp;&amp;, bool&amp;&amp;) (line 144)</a></td><td>called 6 times</td><td>100.0%</td><td>-%</td><td>-%</td><td>100.0%</td></tr>
+    <tr><td><a href="#l139">void Catch::Generators::Generators&lt;bool&gt;::add_generators&lt;bool&gt;(bool&amp;&amp;) (line 139)</a></td><td>called 6 times</td><td>100.0%</td><td>-%</td><td>-%</td><td>100.0%</td></tr>
+    <tr><td><a href="#l144">void Catch::Generators::Generators&lt;char const*&gt;::add_generators&lt;Catch::Generators::GeneratorWrapper&lt;char const*&gt;, char const (&amp;) [35]&gt;(Catch::Generators::GeneratorWrapper&lt;char const*&gt;&amp;&amp;, char const (&amp;) [35]) (line 144)</a></td><td>called 1 time</td><td>100.0%</td><td>-%</td><td>-%</td><td>100.0%</td></tr>
+    <tr><td><a href="#l144">void Catch::Generators::Generators&lt;char const*&gt;::add_generators&lt;Catch::Generators::GeneratorWrapper&lt;char const*&gt;, char const (&amp;) [41], char const (&amp;) [39], char const (&amp;) [37], char const (&amp;) [39], char const (&amp;) [71]&gt;(Catch::Generators::GeneratorWrapper&lt;char const*&gt;&amp;&amp;, char const (&amp;) [41], char const (&amp;) [39], char const (&amp;) [37], char const (&amp;) [39], char const (&amp;) [71]) (line 144)</a></td><td>called 1 time</td><td>100.0%</td><td>-%</td><td>-%</td><td>100.0%</td></tr>
+    <tr><td><a href="#l139">void Catch::Generators::Generators&lt;char const*&gt;::add_generators&lt;char const (&amp;) [35]&gt;(char const (&amp;) [35]) (line 139)</a></td><td>called 1 time</td><td>100.0%</td><td>-%</td><td>-%</td><td>100.0%</td></tr>
+    <tr><td><a href="#l144">void Catch::Generators::Generators&lt;char const*&gt;::add_generators&lt;char const (&amp;) [37], char const (&amp;) [39], char const (&amp;) [71]&gt;(char const (&amp;) [37], char const (&amp;) [39], char const (&amp;) [71]) (line 144)</a></td><td>called 1 time</td><td>100.0%</td><td>-%</td><td>-%</td><td>100.0%</td></tr>
+    <tr><td><a href="#l144">void Catch::Generators::Generators&lt;char const*&gt;::add_generators&lt;char const (&amp;) [39], char const (&amp;) [37], char const (&amp;) [39], char const (&amp;) [71]&gt;(char const (&amp;) [39], char const (&amp;) [37], char const (&amp;) [39], char const (&amp;) [71]) (line 144)</a></td><td>called 1 time</td><td>100.0%</td><td>-%</td><td>-%</td><td>100.0%</td></tr>
     <tr><td><a href="#l144">void Catch::Generators::Generators&lt;char const*&gt;::add_generators&lt;char const (&amp;) [39], char const (&amp;) [71]&gt;(char const (&amp;) [39], char const (&amp;) [71]) (line 144)</a></td><td>called 1 time</td><td>100.0%</td><td>50.0%</td><td>-%</td><td>100.0%</td></tr>
-    <tr><td><a href="#l144">void Catch::Generators::Generators&lt;char const*&gt;::add_generators&lt;char const (&amp;) [41], char const (&amp;) [39], char const (&amp;) [37], char const (&amp;) [39], char const (&amp;) [71]&gt;(char const (&amp;) [41], char const (&amp;) [39], char const (&amp;) [37], char const (&amp;) [39], char const (&amp;) [71]) (line 144)</a></td><td>called 1 time</td><td>100%</td><td>-%</td><td>-%</td><td>100.0%</td></tr>
+    <tr><td><a href="#l144">void Catch::Generators::Generators&lt;char const*&gt;::add_generators&lt;char const (&amp;) [41], char const (&amp;) [39], char const (&amp;) [37], char const (&amp;) [39], char const (&amp;) [71]&gt;(char const (&amp;) [41], char const (&amp;) [39], char const (&amp;) [37], char const (&amp;) [39], char const (&amp;) [71]) (line 144)</a></td><td>called 1 time</td><td>100.0%</td><td>-%</td><td>-%</td><td>100.0%</td></tr>
     <tr><td><a href="#l139">void Catch::Generators::Generators&lt;char const*&gt;::add_generators&lt;char const (&amp;) [71]&gt;(char const (&amp;) [71]) (line 139)</a></td><td>called 1 time</td><td>100.0%</td><td>50.0%</td><td>-%</td><td>100.0%</td></tr>
   </table>
 </details>
@@ -512,14 +533,14 @@
                 <td class="text-right src linenos"><a class="normal" id="l58" href="#l58">58</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
-                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">8</td>
+                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">20</td>
                 <td class="src coveredLine"><span class="w">        </span><span class="n">GeneratorWrapper</span><span class="p">(</span><span class="n">GeneratorPtr</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">generator</span><span class="p">)</span><span class="o">:</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l59" href="#l59">59</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
-                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">8</td>
+                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">20</td>
                 <td class="src coveredLine"><span class="w">            </span><span class="n">m_generator</span><span class="p">(</span><span class="n">CATCH_MOVE</span><span class="p">(</span><span class="n">generator</span><span class="p">))</span><span class="w"> </span><span class="p">{}</span></td>
             </tr>
             <tr>
@@ -533,14 +554,14 @@
                 <td class="text-right src linenos"><a class="normal" id="l61" href="#l61">61</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
-                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">8</td>
+                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">24</td>
                 <td class="src coveredLine"><span class="w">        </span><span class="n">T</span><span class="w"> </span><span class="k">const</span><span class="o">&amp;</span><span class="w"> </span><span class="n">get</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l62" href="#l62">62</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
-                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">8</td>
+                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">24</td>
                 <td class="src coveredLine"><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">m_generator</span><span class="o">-&gt;</span><span class="n">get</span><span class="p">();</span></td>
             </tr>
             <tr>
@@ -554,14 +575,14 @@
                 <td class="text-right src linenos"><a class="normal" id="l64" href="#l64">64</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
-                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">8</td>
+                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">20</td>
                 <td class="src coveredLine"><span class="w">        </span><span class="kt">bool</span><span class="w"> </span><span class="n">next</span><span class="p">()</span><span class="w"> </span><span class="p">{</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l65" href="#l65">65</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
-                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">8</td>
+                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">20</td>
                 <td class="src coveredLine"><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">m_generator</span><span class="o">-&gt;</span><span class="n">countedNext</span><span class="p">();</span></td>
             </tr>
             <tr>
@@ -645,21 +666,21 @@
                 <td class="text-right src linenos"><a class="normal" id="l77" href="#l77">77</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
-                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">8</td>
+                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">20</td>
                 <td class="src coveredLine"><span class="w">        </span><span class="n">SingleValueGenerator</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="o">:</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l78" href="#l78">78</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
-                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">8</td>
+                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">20</td>
                 <td class="src coveredLine"><span class="w">            </span><span class="n">m_value</span><span class="p">(</span><span class="n">CATCH_MOVE</span><span class="p">(</span><span class="n">value</span><span class="p">))</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l79" href="#l79">79</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
-                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">8</td>
+                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">20</td>
                 <td class="src coveredLine"><span class="w">        </span><span class="p">{}</span></td>
             </tr>
             <tr>
@@ -673,14 +694,14 @@
                 <td class="text-right src linenos"><a class="normal" id="l81" href="#l81">81</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
-                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">8</td>
+                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">24</td>
                 <td class="src coveredLine"><span class="w">        </span><span class="n">T</span><span class="w"> </span><span class="k">const</span><span class="o">&amp;</span><span class="w"> </span><span class="n">get</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="p">{</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l82" href="#l82">82</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
-                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">8</td>
+                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">24</td>
                 <td class="src coveredLine"><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">m_value</span><span class="p">;</span></td>
             </tr>
             <tr>
@@ -694,14 +715,14 @@
                 <td class="text-right src linenos"><a class="normal" id="l84" href="#l84">84</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
-                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">8</td>
+                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">20</td>
                 <td class="src coveredLine"><span class="w">        </span><span class="kt">bool</span><span class="w"> </span><span class="n">next</span><span class="p">()</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="p">{</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l85" href="#l85">85</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
-                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">8</td>
+                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">20</td>
                 <td class="src coveredLine"><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span></td>
             </tr>
             <tr>
@@ -869,7 +890,7 @@
                 <td class="text-right src linenos"><a class="normal" id="l109" href="#l109">109</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
-                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">8</td>
+                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">20</td>
                 <td class="src coveredLine"><span class="w">    </span><span class="n">GeneratorWrapper</span><span class="o">&lt;</span><span class="n">DecayedT</span><span class="o">&gt;</span><span class="w"> </span><span class="n">value</span><span class="p">(</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span></td>
             </tr>
             <tr>
@@ -878,12 +899,12 @@
                     <details class="normal details-overlay">
                         <summary>1/2</summary>
                         <div class="text-left position-absolute color-bg-subtle p-3 mt-2" style="z-index: 1;">
-                            <div class="color-taken-branch">&check; Branch 0 taken 8 times.</div>
-                            <div class="color-fg-danger">&cross; Branch 1 not taken.</div>
+                            <div class="color-taken-branch">&check; Branch 0 (3 &rightarrow; 4) taken 20 times.</div>
+                            <div class="color-fg-danger">&cross; Branch 1 (3 &rightarrow; 9) not taken.</div>
                         </div>
                     </details>
                 </td>
-                <td class="src partialCoveredLine pr-2 pl-2 color-fg-muted text-right">16</td>
+                <td class="src partialCoveredLine pr-2 pl-2 color-fg-muted text-right">40</td>
                 <td class="src partialCoveredLine"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">GeneratorWrapper</span><span class="o">&lt;</span><span class="n">DecayedT</span><span class="o">&gt;</span><span class="p">(</span></td>
             </tr>
             <tr>
@@ -892,19 +913,19 @@
                     <details class="normal details-overlay">
                         <summary>1/2</summary>
                         <div class="text-left position-absolute color-bg-subtle p-3 mt-2" style="z-index: 1;">
-                            <div class="color-taken-branch">&check; Branch 0 taken 8 times.</div>
-                            <div class="color-fg-danger">&cross; Branch 1 not taken.</div>
+                            <div class="color-taken-branch">&check; Branch 0 (2 &rightarrow; 3) taken 20 times.</div>
+                            <div class="color-fg-danger">&cross; Branch 1 (2 &rightarrow; 11) not taken.</div>
                         </div>
                     </details>
                 </td>
-                <td class="src partialCoveredLine pr-2 pl-2 color-fg-muted text-right">16</td>
+                <td class="src partialCoveredLine pr-2 pl-2 color-fg-muted text-right">40</td>
                 <td class="src partialCoveredLine"><span class="w">            </span><span class="n">Catch</span><span class="o">::</span><span class="n">Detail</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="n">SingleValueGenerator</span><span class="o">&lt;</span><span class="n">DecayedT</span><span class="o">&gt;&gt;</span><span class="p">(</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l112" href="#l112">112</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
-                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">16</td>
+                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">40</td>
                 <td class="src coveredLine"><span class="w">                </span><span class="n">CATCH_FORWARD</span><span class="p">(</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span></td>
             </tr>
             <tr>
@@ -988,21 +1009,21 @@
                 <td class="text-right src linenos"><a class="normal" id="l124" href="#l124">124</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
-                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">2</td>
+                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">8</td>
                 <td class="src coveredLine"><span class="w">        </span><span class="kt">void</span><span class="w"> </span><span class="nf">add_generator</span><span class="p">(</span><span class="w"> </span><span class="n">GeneratorWrapper</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;&amp;</span><span class="w"> </span><span class="n">generator</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l125" href="#l125">125</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
-                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">2</td>
+                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">8</td>
                 <td class="src coveredLine"><span class="w">            </span><span class="n">m_generators</span><span class="p">.</span><span class="n">emplace_back</span><span class="p">(</span><span class="w"> </span><span class="n">CATCH_MOVE</span><span class="p">(</span><span class="w"> </span><span class="n">generator</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l126" href="#l126">126</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
-                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">2</td>
+                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">8</td>
                 <td class="src coveredLine"><span class="w">        </span><span class="p">}</span></td>
             </tr>
             <tr>
@@ -1030,7 +1051,7 @@
                 <td class="text-right src linenos"><a class="normal" id="l130" href="#l130">130</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
-                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">6</td>
+                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">12</td>
                 <td class="src coveredLine"><span class="w">        </span><span class="kt">void</span><span class="w"> </span><span class="nf">add_generator</span><span class="p">(</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span></td>
             </tr>
             <tr>
@@ -1039,21 +1060,21 @@
                     <details class="normal details-overlay">
                         <summary>2/4</summary>
                         <div class="text-left position-absolute color-bg-subtle p-3 mt-2" style="z-index: 1;">
-                            <div class="color-taken-branch">&check; Branch 0 taken 6 times.</div>
-                            <div class="color-fg-danger">&cross; Branch 1 not taken.</div>
-                            <div class="color-taken-branch">&check; Branch 2 taken 6 times.</div>
-                            <div class="color-fg-danger">&cross; Branch 3 not taken.</div>
+                            <div class="color-taken-branch">&check; Branch 0 (2 &rightarrow; 3) taken 12 times.</div>
+                            <div class="color-fg-danger">&cross; Branch 1 (2 &rightarrow; 8) not taken.</div>
+                            <div class="color-taken-branch">&check; Branch 2 (3 &rightarrow; 4) taken 12 times.</div>
+                            <div class="color-fg-danger">&cross; Branch 3 (3 &rightarrow; 6) not taken.</div>
                         </div>
                     </details>
                 </td>
-                <td class="src partialCoveredLine pr-2 pl-2 color-fg-muted text-right">6</td>
+                <td class="src partialCoveredLine pr-2 pl-2 color-fg-muted text-right">12</td>
                 <td class="src partialCoveredLine"><span class="w">            </span><span class="n">m_generators</span><span class="p">.</span><span class="n">emplace_back</span><span class="p">(</span><span class="w"> </span><span class="n">value</span><span class="p">(</span><span class="w"> </span><span class="n">CATCH_MOVE</span><span class="p">(</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l132" href="#l132">132</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
-                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">6</td>
+                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">12</td>
                 <td class="src coveredLine"><span class="w">        </span><span class="p">}</span></td>
             </tr>
             <tr>
@@ -1102,7 +1123,7 @@
                 <td class="text-right src linenos"><a class="normal" id="l139" href="#l139">139</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
-                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">2</td>
+                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">8</td>
                 <td class="src coveredLine"><span class="w">        </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">U</span><span class="o">&gt;</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">add_generators</span><span class="p">(</span><span class="w"> </span><span class="n">U</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">valueOrGenerator</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span></td>
             </tr>
             <tr>
@@ -1111,19 +1132,19 @@
                     <details class="normal details-overlay">
                         <summary>1/2</summary>
                         <div class="text-left position-absolute color-bg-subtle p-3 mt-2" style="z-index: 1;">
-                            <div class="color-taken-branch">&check; Branch 0 taken 2 times.</div>
-                            <div class="color-fg-danger">&cross; Branch 1 not taken.</div>
+                            <div class="color-taken-branch">&check; Branch 0 (2 &rightarrow; 3) taken 2 times.</div>
+                            <div class="color-fg-danger">&cross; Branch 1 (2 &rightarrow; 4) not taken.</div>
                         </div>
                     </details>
                 </td>
-                <td class="src partialCoveredLine pr-2 pl-2 color-fg-muted text-right">2</td>
+                <td class="src partialCoveredLine pr-2 pl-2 color-fg-muted text-right">8</td>
                 <td class="src partialCoveredLine"><span class="w">            </span><span class="n">add_generator</span><span class="p">(</span><span class="w"> </span><span class="n">CATCH_FORWARD</span><span class="p">(</span><span class="w"> </span><span class="n">valueOrGenerator</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l141" href="#l141">141</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
-                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">2</td>
+                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">8</td>
                 <td class="src coveredLine"><span class="w">        </span><span class="p">}</span></td>
             </tr>
             <tr>
@@ -1144,7 +1165,7 @@
                 <td class="text-right src linenos"><a class="normal" id="l144" href="#l144">144</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
-                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">6</td>
+                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">12</td>
                 <td class="src coveredLine"><span class="w">        </span><span class="kt">void</span><span class="w"> </span><span class="n">add_generators</span><span class="p">(</span><span class="w"> </span><span class="n">U</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">valueOrGenerator</span><span class="p">,</span><span class="w"> </span><span class="n">Gs</span><span class="o">&amp;&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">moreGenerators</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span></td>
             </tr>
             <tr>
@@ -1153,26 +1174,26 @@
                     <details class="normal details-overlay">
                         <summary>1/2</summary>
                         <div class="text-left position-absolute color-bg-subtle p-3 mt-2" style="z-index: 1;">
-                            <div class="color-taken-branch">&check; Branch 0 taken 4 times.</div>
-                            <div class="color-fg-danger">&cross; Branch 1 not taken.</div>
+                            <div class="color-taken-branch">&check; Branch 0 (2 &rightarrow; 3) taken 4 times.</div>
+                            <div class="color-fg-danger">&cross; Branch 1 (2 &rightarrow; 5) not taken.</div>
                         </div>
                     </details>
                 </td>
-                <td class="src partialCoveredLine pr-2 pl-2 color-fg-muted text-right">6</td>
+                <td class="src partialCoveredLine pr-2 pl-2 color-fg-muted text-right">12</td>
                 <td class="src partialCoveredLine"><span class="w">            </span><span class="n">add_generator</span><span class="p">(</span><span class="w"> </span><span class="n">CATCH_FORWARD</span><span class="p">(</span><span class="w"> </span><span class="n">valueOrGenerator</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l146" href="#l146">146</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
-                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">6</td>
+                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">12</td>
                 <td class="src coveredLine"><span class="w">            </span><span class="n">add_generators</span><span class="p">(</span><span class="w"> </span><span class="n">CATCH_FORWARD</span><span class="p">(</span><span class="w"> </span><span class="n">moreGenerators</span><span class="w"> </span><span class="p">)...</span><span class="w"> </span><span class="p">);</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l147" href="#l147">147</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
-                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">6</td>
+                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">12</td>
                 <td class="src coveredLine"><span class="w">        </span><span class="p">}</span></td>
             </tr>
             <tr>
@@ -1200,7 +1221,7 @@
                 <td class="text-right src linenos"><a class="normal" id="l151" href="#l151">151</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
-                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">2</td>
+                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">8</td>
                 <td class="src coveredLine"><span class="w">        </span><span class="n">Generators</span><span class="p">(</span><span class="n">Gs</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">moreGenerators</span><span class="p">)</span><span class="w"> </span><span class="p">{</span></td>
             </tr>
             <tr>
@@ -1209,12 +1230,12 @@
                     <details class="normal details-overlay">
                         <summary>1/2</summary>
                         <div class="text-left position-absolute color-bg-subtle p-3 mt-2" style="z-index: 1;">
-                            <div class="color-taken-branch">&check; Branch 0 taken 2 times.</div>
-                            <div class="color-fg-danger">&cross; Branch 1 not taken.</div>
+                            <div class="color-taken-branch">&check; Branch 0 (4 &rightarrow; 5) taken 8 times.</div>
+                            <div class="color-fg-danger">&cross; Branch 1 (4 &rightarrow; 7) not taken.</div>
                         </div>
                     </details>
                 </td>
-                <td class="src partialCoveredLine pr-2 pl-2 color-fg-muted text-right">2</td>
+                <td class="src partialCoveredLine pr-2 pl-2 color-fg-muted text-right">8</td>
                 <td class="src partialCoveredLine"><span class="w">            </span><span class="n">m_generators</span><span class="p">.</span><span class="n">reserve</span><span class="p">(</span><span class="k">sizeof</span><span class="p">...(</span><span class="n">Gs</span><span class="p">));</span></td>
             </tr>
             <tr>
@@ -1223,19 +1244,19 @@
                     <details class="normal details-overlay">
                         <summary>1/2</summary>
                         <div class="text-left position-absolute color-bg-subtle p-3 mt-2" style="z-index: 1;">
-                            <div class="color-taken-branch">&check; Branch 0 taken 2 times.</div>
-                            <div class="color-fg-danger">&cross; Branch 1 not taken.</div>
+                            <div class="color-taken-branch">&check; Branch 0 (5 &rightarrow; 6) taken 8 times.</div>
+                            <div class="color-fg-danger">&cross; Branch 1 (5 &rightarrow; 7) not taken.</div>
                         </div>
                     </details>
                 </td>
-                <td class="src partialCoveredLine pr-2 pl-2 color-fg-muted text-right">2</td>
+                <td class="src partialCoveredLine pr-2 pl-2 color-fg-muted text-right">8</td>
                 <td class="src partialCoveredLine"><span class="w">            </span><span class="n">add_generators</span><span class="p">(</span><span class="n">CATCH_FORWARD</span><span class="p">(</span><span class="n">moreGenerators</span><span class="p">)...);</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l154" href="#l154">154</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
-                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">2</td>
+                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">8</td>
                 <td class="src coveredLine"><span class="w">        </span><span class="p">}</span></td>
             </tr>
             <tr>
@@ -1249,14 +1270,14 @@
                 <td class="text-right src linenos"><a class="normal" id="l156" href="#l156">156</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
-                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">8</td>
+                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">24</td>
                 <td class="src coveredLine"><span class="w">        </span><span class="n">T</span><span class="w"> </span><span class="k">const</span><span class="o">&amp;</span><span class="w"> </span><span class="n">get</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="p">{</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l157" href="#l157">157</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
-                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">8</td>
+                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">24</td>
                 <td class="src coveredLine"><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">m_generators</span><span class="p">[</span><span class="n">m_current</span><span class="p">].</span><span class="n">get</span><span class="p">();</span></td>
             </tr>
             <tr>
@@ -1277,7 +1298,7 @@
                 <td class="text-right src linenos"><a class="normal" id="l160" href="#l160">160</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
-                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">8</td>
+                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">20</td>
                 <td class="src coveredLine"><span class="w">        </span><span class="kt">bool</span><span class="w"> </span><span class="n">next</span><span class="p">()</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="p">{</span></td>
             </tr>
             <tr>
@@ -1286,12 +1307,12 @@
                     <details class="normal details-overlay">
                         <summary>1/2</summary>
                         <div class="text-left position-absolute color-bg-subtle p-3 mt-2" style="z-index: 1;">
-                            <div class="color-fg-danger">&cross; Branch 0 not taken.</div>
-                            <div class="color-taken-branch">&check; Branch 1 taken 8 times.</div>
+                            <div class="color-fg-danger">&cross; Branch 0 (3 &rightarrow; 4) not taken.</div>
+                            <div class="color-taken-branch">&check; Branch 1 (3 &rightarrow; 5) taken 20 times.</div>
                         </div>
                     </details>
                 </td>
-                <td class="src partialCoveredLine pr-2 pl-2 color-fg-muted text-right">8</td>
+                <td class="src partialCoveredLine pr-2 pl-2 color-fg-muted text-right">20</td>
                 <td class="src partialCoveredLine"><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">m_current</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">m_generators</span><span class="p">.</span><span class="n">size</span><span class="p">())</span><span class="w"> </span><span class="p">{</span></td>
             </tr>
             <tr>
@@ -1312,7 +1333,7 @@
                 <td class="text-right src linenos"><a class="normal" id="l164" href="#l164">164</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
-                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">8</td>
+                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">20</td>
                 <td class="src coveredLine"><span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">current_status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m_generators</span><span class="p">[</span><span class="n">m_current</span><span class="p">].</span><span class="n">next</span><span class="p">();</span></td>
             </tr>
             <tr>
@@ -1321,19 +1342,19 @@
                     <details class="normal details-overlay">
                         <summary>1/2</summary>
                         <div class="text-left position-absolute color-bg-subtle p-3 mt-2" style="z-index: 1;">
-                            <div class="color-taken-branch">&check; Branch 0 taken 8 times.</div>
-                            <div class="color-fg-danger">&cross; Branch 1 not taken.</div>
+                            <div class="color-taken-branch">&check; Branch 0 (7 &rightarrow; 8) taken 20 times.</div>
+                            <div class="color-fg-danger">&cross; Branch 1 (7 &rightarrow; 9) not taken.</div>
                         </div>
                     </details>
                 </td>
-                <td class="src partialCoveredLine pr-2 pl-2 color-fg-muted text-right">8</td>
+                <td class="src partialCoveredLine pr-2 pl-2 color-fg-muted text-right">20</td>
                 <td class="src partialCoveredLine"><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">current_status</span><span class="p">)</span><span class="w"> </span><span class="p">{</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l166" href="#l166">166</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
-                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">8</td>
+                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">20</td>
                 <td class="src coveredLine"><span class="w">                </span><span class="o">++</span><span class="n">m_current</span><span class="p">;</span></td>
             </tr>
             <tr>
@@ -1347,7 +1368,7 @@
                 <td class="text-right src linenos"><a class="normal" id="l168" href="#l168">168</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
-                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">8</td>
+                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">20</td>
                 <td class="src coveredLine"><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">m_current</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">m_generators</span><span class="p">.</span><span class="n">size</span><span class="p">();</span></td>
             </tr>
             <tr>
@@ -1459,14 +1480,14 @@
                 <td class="text-right src linenos"><a class="normal" id="l184" href="#l184">184</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
-                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">2</td>
+                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">8</td>
                 <td class="src coveredLine"><span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">makeGenerators</span><span class="p">(</span><span class="w"> </span><span class="n">GeneratorWrapper</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;&amp;</span><span class="w"> </span><span class="n">generator</span><span class="p">,</span><span class="w"> </span><span class="n">Gs</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">moreGenerators</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Generators</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l185" href="#l185">185</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
-                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">2</td>
+                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">8</td>
                 <td class="src coveredLine"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">Generators</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">CATCH_MOVE</span><span class="p">(</span><span class="n">generator</span><span class="p">),</span><span class="w"> </span><span class="n">CATCH_FORWARD</span><span class="p">(</span><span class="n">moreGenerators</span><span class="p">)...);</span></td>
             </tr>
             <tr>
@@ -1515,7 +1536,7 @@
                 <td class="text-right src linenos"><a class="normal" id="l192" href="#l192">192</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
-                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">2</td>
+                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">8</td>
                 <td class="src coveredLine"><span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">makeGenerators</span><span class="p">(</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">val</span><span class="p">,</span><span class="w"> </span><span class="n">Gs</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">moreGenerators</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Generators</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">decay_t</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">{</span></td>
             </tr>
             <tr>
@@ -1524,14 +1545,14 @@
                     <details class="normal details-overlay">
                         <summary>2/4</summary>
                         <div class="text-left position-absolute color-bg-subtle p-3 mt-2" style="z-index: 1;">
-                            <div class="color-taken-branch">&check; Branch 0 taken 2 times.</div>
-                            <div class="color-fg-danger">&cross; Branch 1 not taken.</div>
-                            <div class="color-taken-branch">&check; Branch 2 taken 2 times.</div>
-                            <div class="color-fg-danger">&cross; Branch 3 not taken.</div>
+                            <div class="color-taken-branch">&check; Branch 0 (2 &rightarrow; 3) taken 8 times.</div>
+                            <div class="color-fg-danger">&cross; Branch 1 (2 &rightarrow; 10) not taken.</div>
+                            <div class="color-taken-branch">&check; Branch 2 (3 &rightarrow; 4) taken 8 times.</div>
+                            <div class="color-fg-danger">&cross; Branch 3 (3 &rightarrow; 8) not taken.</div>
                         </div>
                     </details>
                 </td>
-                <td class="src partialCoveredLine pr-2 pl-2 color-fg-muted text-right">2</td>
+                <td class="src partialCoveredLine pr-2 pl-2 color-fg-muted text-right">8</td>
                 <td class="src partialCoveredLine"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">makeGenerators</span><span class="p">(</span><span class="w"> </span><span class="n">value</span><span class="p">(</span><span class="w"> </span><span class="n">CATCH_FORWARD</span><span class="p">(</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">),</span><span class="w"> </span><span class="n">CATCH_FORWARD</span><span class="p">(</span><span class="w"> </span><span class="n">moreGenerators</span><span class="w"> </span><span class="p">)...</span><span class="w"> </span><span class="p">);</span></td>
             </tr>
             <tr>
@@ -1629,7 +1650,7 @@
                 <td class="text-right src linenos"><a class="normal" id="l207" href="#l207">207</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
-                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">8</td>
+                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">24</td>
                 <td class="src coveredLine"><span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">generate</span><span class="p">(</span><span class="w"> </span><span class="n">StringRef</span><span class="w"> </span><span class="n">generatorName</span><span class="p">,</span><span class="w"> </span><span class="n">SourceLineInfo</span><span class="w"> </span><span class="k">const</span><span class="o">&amp;</span><span class="w"> </span><span class="n">lineInfo</span><span class="p">,</span><span class="w"> </span><span class="n">L</span><span class="w"> </span><span class="k">const</span><span class="o">&amp;</span><span class="w"> </span><span class="n">generatorExpression</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">decltype</span><span class="p">(</span><span class="n">generatorExpression</span><span class="p">())</span><span class="o">::</span><span class="n">type</span><span class="w"> </span><span class="p">{</span></td>
             </tr>
             <tr>
@@ -1650,7 +1671,7 @@
                 <td class="text-right src linenos"><a class="normal" id="l210" href="#l210">210</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
-                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">8</td>
+                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">24</td>
                 <td class="src coveredLine"><span class="w">        </span><span class="n">IGeneratorTracker</span><span class="o">*</span><span class="w"> </span><span class="n">tracker</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">acquireGeneratorTracker</span><span class="p">(</span><span class="w"> </span><span class="n">generatorName</span><span class="p">,</span><span class="w"> </span><span class="n">lineInfo</span><span class="w"> </span><span class="p">);</span></td>
             </tr>
             <tr>
@@ -1673,12 +1694,12 @@
                     <details class="normal details-overlay">
                         <summary>2/2</summary>
                         <div class="text-left position-absolute color-bg-subtle p-3 mt-2" style="z-index: 1;">
-                            <div class="color-taken-branch">&check; Branch 0 taken 2 times.</div>
-                            <div class="color-taken-branch">&check; Branch 1 taken 6 times.</div>
+                            <div class="color-taken-branch">&check; Branch 0 (3 &rightarrow; 4) taken 8 times.</div>
+                            <div class="color-taken-branch">&check; Branch 1 (3 &rightarrow; 12) taken 16 times.</div>
                         </div>
                     </details>
                 </td>
-                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">8</td>
+                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">24</td>
                 <td class="src coveredLine"><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">tracker</span><span class="p">)</span><span class="w"> </span><span class="p">{</span></td>
             </tr>
             <tr>
@@ -1687,14 +1708,14 @@
                     <details class="normal details-overlay">
                         <summary>2/4</summary>
                         <div class="text-left position-absolute color-bg-subtle p-3 mt-2" style="z-index: 1;">
-                            <div class="color-taken-branch">&check; Branch 0 taken 2 times.</div>
-                            <div class="color-fg-danger">&cross; Branch 1 not taken.</div>
-                            <div class="color-taken-branch">&check; Branch 2 taken 2 times.</div>
-                            <div class="color-fg-danger">&cross; Branch 3 not taken.</div>
+                            <div class="color-taken-branch">&check; Branch 0 (6 &rightarrow; 7) taken 8 times.</div>
+                            <div class="color-fg-danger">&cross; Branch 1 (6 &rightarrow; 19) not taken.</div>
+                            <div class="color-taken-branch">&check; Branch 2 (7 &rightarrow; 8) taken 8 times.</div>
+                            <div class="color-fg-danger">&cross; Branch 3 (7 &rightarrow; 17) not taken.</div>
                         </div>
                     </details>
                 </td>
-                <td class="src partialCoveredLine pr-2 pl-2 color-fg-muted text-right">2</td>
+                <td class="src partialCoveredLine pr-2 pl-2 color-fg-muted text-right">8</td>
                 <td class="src partialCoveredLine"><span class="w">            </span><span class="n">tracker</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">createGeneratorTracker</span><span class="p">(</span></td>
             </tr>
             <tr>
@@ -1717,12 +1738,12 @@
                     <details class="normal details-overlay">
                         <summary>1/2</summary>
                         <div class="text-left position-absolute color-bg-subtle p-3 mt-2" style="z-index: 1;">
-                            <div class="color-taken-branch">&check; Branch 0 taken 2 times.</div>
-                            <div class="color-fg-danger">&cross; Branch 1 not taken.</div>
+                            <div class="color-taken-branch">&check; Branch 0 (5 &rightarrow; 6) taken 8 times.</div>
+                            <div class="color-fg-danger">&cross; Branch 1 (5 &rightarrow; 21) not taken.</div>
                         </div>
                     </details>
                 </td>
-                <td class="src partialCoveredLine pr-2 pl-2 color-fg-muted text-right">4</td>
+                <td class="src partialCoveredLine pr-2 pl-2 color-fg-muted text-right">16</td>
                 <td class="src partialCoveredLine"><span class="w">                </span><span class="n">Catch</span><span class="o">::</span><span class="n">Detail</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="n">Generators</span><span class="o">&lt;</span><span class="n">UnderlyingType</span><span class="o">&gt;&gt;</span><span class="p">(</span></td>
             </tr>
             <tr>
@@ -1731,12 +1752,12 @@
                     <details class="normal details-overlay">
                         <summary>1/2</summary>
                         <div class="text-left position-absolute color-bg-subtle p-3 mt-2" style="z-index: 1;">
-                            <div class="color-taken-branch">&check; Branch 0 taken 2 times.</div>
-                            <div class="color-fg-danger">&cross; Branch 1 not taken.</div>
+                            <div class="color-taken-branch">&check; Branch 0 (4 &rightarrow; 5) taken 8 times.</div>
+                            <div class="color-fg-danger">&cross; Branch 1 (4 &rightarrow; 23) not taken.</div>
                         </div>
                     </details>
                 </td>
-                <td class="src partialCoveredLine pr-2 pl-2 color-fg-muted text-right">4</td>
+                <td class="src partialCoveredLine pr-2 pl-2 color-fg-muted text-right">16</td>
                 <td class="src partialCoveredLine"><span class="w">                    </span><span class="n">generatorExpression</span><span class="p">()</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span></td>
             </tr>
             <tr>
@@ -1757,14 +1778,14 @@
                 <td class="text-right src linenos"><a class="normal" id="l221" href="#l221">221</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
-                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">8</td>
+                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">24</td>
                 <td class="src coveredLine"><span class="w">        </span><span class="k">auto</span><span class="w"> </span><span class="k">const</span><span class="o">&amp;</span><span class="w"> </span><span class="n">generator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">IGenerator</span><span class="o">&lt;</span><span class="n">UnderlyingType</span><span class="o">&gt;</span><span class="w"> </span><span class="k">const</span><span class="o">&amp;&gt;</span><span class="p">(</span><span class="w"> </span><span class="o">*</span><span class="n">tracker</span><span class="o">-&gt;</span><span class="n">getGenerator</span><span class="p">()</span><span class="w"> </span><span class="p">);</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l222" href="#l222">222</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
-                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">8</td>
+                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">24</td>
                 <td class="src coveredLine"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">generator</span><span class="p">.</span><span class="n">get</span><span class="p">();</span></td>
             </tr>
             <tr>
@@ -1935,7 +1956,7 @@
           <hr/>
         </main>
         <footer class="text-center">
-          Generated by: <a href="http://gcovr.com/en/8.2">GCOVR (Version 8.2)</a>
+          Generated by: <a href="http://gcovr.com/en/8.3">GCOVR (Version 8.3)</a>
         </footer>
       </div>
     </div>

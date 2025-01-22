@@ -1,0 +1,118 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structeu_1_1HshO" kind="struct" language="C++" prot="public">
+    <compoundname>eu::HshO</compoundname>
+    <includes refid="hash_8string_8h" local="no">hash.string.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1HshO_1a420d0ed1237da74a1594507d3bf4e546" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeu_1ac0b6d77da47da3ce6bb55d66abc897f5" kindref="member">u64</ref></type>
+        <definition>u64 eu::HshO::hash</definition>
+        <argsstring></argsstring>
+        <name>hash</name>
+        <qualifiedname>eu::HshO::hash</qualifiedname>
+        <briefdescription>
+<para>The actual hash. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Prefer to use operators on <ref refid="structeu_1_1HshO" kindref="compound">HshO</ref> instead of accessing this directly. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/hash.string.h" line="56" column="9" bodyfile="libs/base/src/base/hash.string.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1HshO_1a2dbb41ef516344533ae709fc9fabf439" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string eu::HshO::text</definition>
+        <argsstring></argsstring>
+        <name>text</name>
+        <qualifiedname>eu::HshO::text</qualifiedname>
+        <briefdescription>
+<para>Owning storage of the printable string, if enabled. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Please ignore if possible and just print as normal. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/hash.string.h" line="61" column="17" bodyfile="libs/base/src/base/hash.string.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1HshO_1a7cfca6d725abfcae7a3f7a8e706e94d7" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref></type>
+        <definition>constexpr eu::HshO::HshO</definition>
+        <argsstring>(const std::string &amp;s)</argsstring>
+        <name>HshO</name>
+        <qualifiedname>eu::HshO::HshO</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> std::string &amp;</type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+<para>Creates a new hash object and computes the hash at compile time if possible. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/hash.string.h" line="65" column="15" bodyfile="libs/base/src/base/hash.string.h" bodystart="65" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1HshO_1abc710ee7c6b775cb779572038188fe2a" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref></type>
+        <definition>constexpr eu::HshO::HshO</definition>
+        <argsstring>(const std::string_view &amp;s)</argsstring>
+        <name>HshO</name>
+        <qualifiedname>eu::HshO::HshO</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> std::string_view &amp;</type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+<para>Creates a new hash object and computes the hash at compile time if possible. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/hash.string.h" line="73" column="15" bodyfile="libs/base/src/base/hash.string.h" bodystart="73" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1HshO_1a80972476266aa1a936728c0eae2784b1" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref></type>
+        <definition>constexpr eu::HshO::HshO</definition>
+        <argsstring>(const Hsh &amp;o)</argsstring>
+        <name>HshO</name>
+        <qualifiedname>eu::HshO::HshO</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1Hsh" kindref="compound">Hsh</ref> &amp;</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+<para>Copy data from a non-owning hash. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/hash.string.h" line="81" column="15" bodyfile="libs/base/src/base/hash.string.h" bodystart="81" bodyend="86"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Hash of an owning string. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>It will be (pretty) printed as the original string if that is enabled. Treat it as a regular <computeroutput>std::string</computeroutput> but without the string functionality. <simplesect kind="see"><para><ref refid="namespaceeu_1a1314a884697b4470c9c443ec00890b63" kindref="member">hash64</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="structeu_1_1Hsh" kindref="compound">Hsh</ref> </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="libs/base/src/base/hash.string.h" line="52" column="1" bodyfile="libs/base/src/base/hash.string.h" bodystart="53" bodyend="87"/>
+    <listofallmembers>
+      <member refid="structeu_1_1HshO_1a420d0ed1237da74a1594507d3bf4e546" prot="public" virt="non-virtual"><scope>eu::HshO</scope><name>hash</name></member>
+      <member refid="structeu_1_1HshO_1a7cfca6d725abfcae7a3f7a8e706e94d7" prot="public" virt="non-virtual"><scope>eu::HshO</scope><name>HshO</name></member>
+      <member refid="structeu_1_1HshO_1abc710ee7c6b775cb779572038188fe2a" prot="public" virt="non-virtual"><scope>eu::HshO</scope><name>HshO</name></member>
+      <member refid="structeu_1_1HshO_1a80972476266aa1a936728c0eae2784b1" prot="public" virt="non-virtual"><scope>eu::HshO</scope><name>HshO</name></member>
+      <member refid="structeu_1_1HshO_1a2dbb41ef516344533ae709fc9fabf439" prot="public" virt="non-virtual"><scope>eu::HshO</scope><name>text</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

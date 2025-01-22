@@ -56,13 +56,23 @@
     <member refid="structeu_1_1Guid_1ad0a6db57ed177d9ca1cc00a7901856b8" kind="function"><name>Guid</name></member>
     <member refid="structeu_1_1Guid_1a8ef712e40958a0c96ee7bf46140ec0e8" kind="function"><name>generate</name></member>
   </compound>
-  <compound refid="structstd_1_1hash_3_01eu_1_1HashedStringView_01_4" kind="struct"><name>std::hash&lt; eu::HashedStringView &gt;</name>
-    <member refid="structstd_1_1hash_3_01eu_1_1HashedStringView_01_4_1abb31d889c6bc257985b6f09bff9d4beb" kind="function"><name>operator()</name></member>
+  <compound refid="structstd_1_1hash_3_01eu_1_1Hsh_01_4" kind="struct"><name>std::hash&lt; eu::Hsh &gt;</name>
+    <member refid="structstd_1_1hash_3_01eu_1_1Hsh_01_4_1ab5dc4bcc8d4541e11533634e75c211ef" kind="function"><name>operator()</name></member>
   </compound>
-  <compound refid="structeu_1_1HashedStringView" kind="struct"><name>eu::HashedStringView</name>
-    <member refid="structeu_1_1HashedStringView_1ab49042f3482bfd035018c2dd8a493782" kind="variable"><name>hash</name></member>
-    <member refid="structeu_1_1HashedStringView_1abe4e9dc5a8f18fcf564e02067515c9ec" kind="variable"><name>text</name></member>
-    <member refid="structeu_1_1HashedStringView_1a384b8e0aa97f1b3f4425198ae009be52" kind="function"><name>HashedStringView</name></member>
+  <compound refid="structstd_1_1hash_3_01eu_1_1HshO_01_4" kind="struct"><name>std::hash&lt; eu::HshO &gt;</name>
+    <member refid="structstd_1_1hash_3_01eu_1_1HshO_01_4_1a430cd1349f2eeec333f3cbaec373285e" kind="function"><name>operator()</name></member>
+  </compound>
+  <compound refid="structeu_1_1Hsh" kind="struct"><name>eu::Hsh</name>
+    <member refid="structeu_1_1Hsh_1aeb79fcb4cd0e4dd8fc62360d2ff6a219" kind="variable"><name>hash</name></member>
+    <member refid="structeu_1_1Hsh_1aef678c516a853527edb5719fa8ef805c" kind="variable"><name>text</name></member>
+    <member refid="structeu_1_1Hsh_1a7c658893d059b01ff9bcc490efaab3bf" kind="function"><name>Hsh</name></member>
+  </compound>
+  <compound refid="structeu_1_1HshO" kind="struct"><name>eu::HshO</name>
+    <member refid="structeu_1_1HshO_1a420d0ed1237da74a1594507d3bf4e546" kind="variable"><name>hash</name></member>
+    <member refid="structeu_1_1HshO_1a2dbb41ef516344533ae709fc9fabf439" kind="variable"><name>text</name></member>
+    <member refid="structeu_1_1HshO_1a7cfca6d725abfcae7a3f7a8e706e94d7" kind="function"><name>HshO</name></member>
+    <member refid="structeu_1_1HshO_1abc710ee7c6b775cb779572038188fe2a" kind="function"><name>HshO</name></member>
+    <member refid="structeu_1_1HshO_1a80972476266aa1a936728c0eae2784b1" kind="function"><name>HshO</name></member>
   </compound>
   <compound refid="structeu_1_1log_1_1Logger" kind="struct"><name>eu::log::Logger</name>
     <member refid="structeu_1_1log_1_1Logger_1a86a567c61eabb14a1894b05094c49400" kind="function"><name>Logger</name></member>

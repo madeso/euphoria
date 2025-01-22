@@ -4,6 +4,7 @@
     <compoundname>hash.string.h</compoundname>
     <includes refid="ints_8h" local="yes">base/ints.h</includes>
     <includes local="no">string_view</includes>
+    <includes local="no">string</includes>
     <includes local="no">unordered_map</includes>
     <incdepgraph>
       <node id="1">
@@ -15,6 +16,8 @@
         </childnode>
         <childnode refid="5" relation="include">
         </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
       </node>
       <node id="2">
         <label>base/ints.h</label>
@@ -25,15 +28,20 @@
       <node id="3">
         <label>cstdint</label>
       </node>
+      <node id="5">
+        <label>string</label>
+      </node>
       <node id="4">
         <label>string_view</label>
       </node>
-      <node id="5">
+      <node id="6">
         <label>unordered_map</label>
       </node>
     </incdepgraph>
-    <innerclass refid="structeu_1_1HashedStringView" prot="public">eu::HashedStringView</innerclass>
-    <innerclass refid="structstd_1_1hash_3_01eu_1_1HashedStringView_01_4" prot="public">std::hash&lt; eu::HashedStringView &gt;</innerclass>
+    <innerclass refid="structeu_1_1Hsh" prot="public">eu::Hsh</innerclass>
+    <innerclass refid="structeu_1_1HshO" prot="public">eu::HshO</innerclass>
+    <innerclass refid="structstd_1_1hash_3_01eu_1_1Hsh_01_4" prot="public">std::hash&lt; eu::Hsh &gt;</innerclass>
+    <innerclass refid="structstd_1_1hash_3_01eu_1_1HshO_01_4" prot="public">std::hash&lt; eu::HshO &gt;</innerclass>
     <innernamespace refid="namespaceeu">eu</innernamespace>
     <innernamespace refid="namespacestd">std</innernamespace>
     <sectiondef kind="define">
@@ -46,12 +54,18 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/hash.string.h" line="10" column="9" bodyfile="libs/base/src/base/hash.string.h" bodystart="10" bodyend="-1"/>
+        <location file="libs/base/src/base/hash.string.h" line="11" column="9" bodyfile="libs/base/src/base/hash.string.h" bodystart="11" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="hash_8string_8h_1abb6ddc3ad6b4c1ff94de4861474c3e34" prot="public" static="no">
         <name>OP</name>
         <param><defname>op</defname></param>
-        <initializer>    constexpr bool operator op(const HashedStringView&amp; lhs, const HashedStringView&amp; rhs)\
+        <initializer>    constexpr bool operator op(const Hsh&amp; lhs, const Hsh&amp; rhs)\
+        { return lhs.hash op rhs.hash; }\
+    constexpr bool operator op(const HshO&amp; lhs, const Hsh&amp; rhs)\
+        { return lhs.hash op rhs.hash; }\
+    constexpr bool operator op(const Hsh&amp; lhs, const HshO&amp; rhs)\
+        { return lhs.hash op rhs.hash; }\
+    constexpr bool operator op(const HshO&amp; lhs, const HshO&amp; rhs)\
         { return lhs.hash op rhs.hash; }</initializer>
         <briefdescription>
         </briefdescription>
@@ -59,7 +73,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/hash.string.h" line="35" column="9" bodyfile="libs/base/src/base/hash.string.h" bodystart="35" bodyend="37"/>
+        <location file="libs/base/src/base/hash.string.h" line="89" column="9" bodyfile="libs/base/src/base/hash.string.h" bodystart="89" bodyend="97"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
