@@ -73,6 +73,8 @@ namespace eu
         [[nodiscard]] static std::optional<m4> from(const Q& q);
 
         /// Create an orthographic projection matrix.
+        /// Also known as a `clip_from_view` transformation.
+        /// Clip Space is in OpenGL NDC (-1 to +1) z range.
         /// @param l the left side
         /// @param r the right side
         /// @param t the up side

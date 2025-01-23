@@ -347,3 +347,12 @@ TEST_CASE("mat4-TestVec4Multiply", "[mat]")
     REQUIRE(m == approx(eu::v4(110, 390, 670, 950)));
 }
 
+TEST_CASE("mat4-ortho", "[mat]")
+{
+    const auto o = eu::m4::create_ortho_lrud(0.0f, 10.0f, 10.0f, 0.0f, 0.0f, 10.0f);
+    
+    CHECK(o.get_transformed_point({0.0, 0.0, 0.0}) == approx(eu::v3(-1.0f, -1.0f, -1.0f)));
+    CHECK(o.get_transformed_point({10.0, 10.0, -10.0}) == approx(eu::v3(1.0f, 1.0f, 1.0f)));
+    // regarding -10, in lefthanded 10 -> 1, but this is righthanded
+}
+
