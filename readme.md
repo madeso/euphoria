@@ -37,4 +37,6 @@ All names should follow `snake_case`, both for variables, members, functions and
 ## Naming guidelines
 * Prefer to name function after what is returns, not the algorithm (`get_sorted` or `sort_inplace` vs `quicksort`).
 * Prefer to name function after what is does, not how it does it (`add_item` vs `emplace_back_item`).
-* Avoid general names, be specific but don't be too specific.
+* Avoid general names(like `add` and `compile`), be specific (`add_object` and `compile_shader`) but don't be too specific.
+* prefer [`from` functions and maps](https://lesleylai.info/en/from-vs-to/) instead of `to` functions: `let canonical_variable = canonical_var_from_num[num_from_var.get(var).unwrap()];`
+* same applies to [matrix transforms](https://www.sebastiansylvan.com/post/matrix_naming_convention/) and points: `projection_from_object = projection_from_view * view_from_world * world_from_object;` and `world_point`
