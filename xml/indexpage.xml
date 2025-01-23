@@ -47,7 +47,9 @@
 <para><itemizedlist>
 <listitem><para>Prefer to name function after what is returns, not the algorithm (<computeroutput>get_sorted</computeroutput> or <computeroutput>sort_inplace</computeroutput> vs <computeroutput>quicksort</computeroutput>).</para>
 </listitem><listitem><para>Prefer to name function after what is does, not how it does it (<computeroutput>add_item</computeroutput> vs <computeroutput>emplace_back_item</computeroutput>).</para>
-</listitem><listitem><para>Avoid general names, be specific but don&apos;t be too specific. </para>
+</listitem><listitem><para>Avoid general names(like <computeroutput>add</computeroutput> and <computeroutput>compile</computeroutput>), be specific (<computeroutput>add_object</computeroutput> and <computeroutput>compile_shader</computeroutput>) but don&apos;t be too specific.</para>
+</listitem><listitem><para>prefer <ulink url="https://lesleylai.info/en/from-vs-to/"><computeroutput>from</computeroutput> functions and maps</ulink> instead of <computeroutput>to</computeroutput> functions: <computeroutput>let canonical_variable = canonical_var_from_num[num_from_var.get(var).unwrap()];</computeroutput></para>
+</listitem><listitem><para>same applies to <ulink url="https://www.sebastiansylvan.com/post/matrix_naming_convention/">matrix transforms</ulink> and points: <computeroutput>projection_from_object = projection_from_view * view_from_world * world_from_object;</computeroutput> and <computeroutput>world_point</computeroutput> </para>
 </listitem></itemizedlist>
 </para>
 </sect2>

@@ -70,7 +70,9 @@ Naming guidelines</h2>
 <ul>
 <li>Prefer to name function after what is returns, not the algorithm (<code>get_sorted</code> or <code>sort_inplace</code> vs <code>quicksort</code>).</li>
 <li>Prefer to name function after what is does, not how it does it (<code>add_item</code> vs <code>emplace_back_item</code>).</li>
-<li>Avoid general names, be specific but don't be too specific. </li>
+<li>Avoid general names(like <code>add</code> and <code>compile</code>), be specific (<code>add_object</code> and <code>compile_shader</code>) but don't be too specific.</li>
+<li>prefer <a href="https://lesleylai.info/en/from-vs-to/"><code>from</code> functions and maps</a> instead of <code>to</code> functions: <code>let canonical_variable = canonical_var_from_num[num_from_var.get(var).unwrap()];</code></li>
+<li>same applies to <a href="https://www.sebastiansylvan.com/post/matrix_naming_convention/">matrix transforms</a> and points: <code>projection_from_object = projection_from_view * view_from_world * world_from_object;</code> and <code>world_point</code> </li>
 </ul>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
