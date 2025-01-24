@@ -129,12 +129,14 @@ TStream& operator<<(TStream& s, const HshO& hash)
 namespace std
 {
 
+/// \private
 template <> struct hash<eu::Hsh>
 {
     std::size_t operator()(const eu::Hsh& x) const
         { return x.hash; }
 };
 
+/// \private
 template <> struct hash<eu::HshO>
 {
     std::size_t operator()(const eu::HshO& x) const
