@@ -6,7 +6,6 @@
     <innerdir refid="dir_06498c378442102d76a793fbea770c00">libs/base</innerdir>
     <innerdir refid="dir_c48d6870f00bd6cec871dec0a01d8f04">libs/fmt</innerdir>
     <innerdir refid="dir_29a5e1422e0fbab2769746d85f117cd7">libs/log</innerdir>
-    <innerdir refid="dir_88d4f5e9589230f13756167b1d1fbb72">libs/tests</innerdir>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

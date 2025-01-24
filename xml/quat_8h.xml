@@ -7,7 +7,6 @@
     <includes refid="axisangle_8h" local="yes">base/axisangle.h</includes>
     <includes refid="angle_8h" local="yes">base/angle.h</includes>
     <includes refid="mat4_8h" local="yes">base/mat4.h</includes>
-    <includedby refid="approx__equal_8h" local="yes">libs/tests/src/tests/approx_equal.h</includedby>
     <incdepgraph>
       <node id="4">
         <label>assert/assert.h</label>
@@ -107,18 +106,6 @@
         <label>vector</label>
       </node>
     </incdepgraph>
-    <invincdepgraph>
-      <node id="1">
-        <label>libs/base/src/base/quat.h</label>
-        <link refid="quat_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-      </node>
-      <node id="2">
-        <label>libs/tests/src/tests/approx_equal.h</label>
-        <link refid="approx__equal_8h"/>
-      </node>
-    </invincdepgraph>
     <innerclass refid="structeu_1_1Q" prot="public">eu::Q</innerclass>
     <innernamespace refid="namespaceeu">eu</innernamespace>
     <briefdescription>

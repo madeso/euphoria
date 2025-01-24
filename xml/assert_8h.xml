@@ -31,7 +31,7 @@
         </childnode>
         <childnode refid="3" relation="include">
         </childnode>
-        <childnode refid="9" relation="include">
+        <childnode refid="8" relation="include">
         </childnode>
       </node>
       <node id="4">
@@ -41,10 +41,8 @@
         </childnode>
         <childnode refid="6" relation="include">
         </childnode>
-        <childnode refid="7" relation="include">
-        </childnode>
       </node>
-      <node id="8">
+      <node id="7">
         <label>libs/base/src/base/colors.h</label>
         <link refid="colors_8h"/>
       </node>
@@ -57,8 +55,6 @@
       <node id="6">
         <label>libs/base/src/base/quat.h</label>
         <link refid="quat_8h"/>
-        <childnode refid="7" relation="include">
-        </childnode>
       </node>
       <node id="2">
         <label>libs/base/src/base/range.h</label>
@@ -69,51 +65,46 @@
         <link refid="vec3_8h"/>
         <childnode refid="4" relation="include">
         </childnode>
-        <childnode refid="8" relation="include">
+        <childnode refid="7" relation="include">
         </childnode>
         <childnode refid="5" relation="include">
         </childnode>
         <childnode refid="6" relation="include">
         </childnode>
-        <childnode refid="9" relation="include">
-        </childnode>
-        <childnode refid="7" relation="include">
+        <childnode refid="8" relation="include">
         </childnode>
       </node>
-      <node id="9">
+      <node id="8">
         <label>libs/base/src/base/vec4.h</label>
         <link refid="vec4_8h"/>
         <childnode refid="5" relation="include">
         </childnode>
       </node>
-      <node id="7">
-        <label>libs/tests/src/tests/approx_equal.h</label>
-        <link refid="approx__equal_8h"/>
-      </node>
     </invincdepgraph>
-    <innerclass refid="structeu_1_1assertlib_1_1AssertArgumentValue" prot="public">eu::assertlib::AssertArgumentValue</innerclass>
+    <innerclass refid="structeu_1_1assertlib_1_1AssertArgumentValue" prot="private">eu::assertlib::AssertArgumentValue</innerclass>
     <innernamespace refid="namespaceeu">eu</innernamespace>
     <innernamespace refid="namespaceeu_1_1assertlib">eu::assertlib</innernamespace>
     <sectiondef kind="define">
       <memberdef kind="define" id="assert_8h_1a3950e5c477d263585dc2704da469ae98" prot="public" static="no">
         <name>BREAK_IN_DEBUG</name>
         <param></param>
-        <initializer>    do \
-    { \
-    } while(false)</initializer>
         <briefdescription>
+<para>implements a break in debug. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/assert/src/assert/assert.h" line="10" column="10" bodyfile="libs/assert/src/assert/assert.h" bodystart="10" bodyend="13"/>
+        <location file="libs/assert/src/assert/assert.h" line="8" column="9" bodyfile="libs/assert/src/assert/assert.h" bodystart="8" bodyend="11"/>
       </memberdef>
       <memberdef kind="define" id="assert_8h_1aa904224faf8979f062517894af990c6a" prot="public" static="no">
         <name>IMPLEMENT_ASSERT_LIB</name>
         <briefdescription>
+<para>Defines that the assert support library should be implemented. </para>
         </briefdescription>
         <detaileddescription>
+<para><xrefsect id="todo_1_todo000001"><xreftitle>Todo</xreftitle><xrefdescription><para>Expose as as cmake variable instead of looking at the build flag. </para>
+</xrefdescription></xrefsect></para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
@@ -122,96 +113,108 @@
       <memberdef kind="define" id="assert_8h_1aca68c0d4ac8df0838e209fb5300f7be3" prot="public" static="no">
         <name>ASSERT</name>
         <param><defname>x</defname></param>
-        <initializer>    do \
-    { \
-        if(x) \
-        { \
-        } \
-        else \
-        { \
-            if(<ref refid="namespaceeu_1_1assertlib_1a0edb7b21ba4d86e980bd40b0f63a0c2e" kindref="member">::eu::assertlib::is_throwing</ref>() == false) { <ref refid="assert_8h_1a3950e5c477d263585dc2704da469ae98" kindref="member">BREAK_IN_DEBUG</ref>(); } \
-            <ref refid="namespaceeu_1_1assertlib_1adc0b8ea0bf3e97d51c38156ad5484a67" kindref="member">::eu::assertlib::on_assert</ref>( \
-                    #x, \
-                    __LINE__, \
-                    __FILE__, \
-                    &quot;&quot;, \
-                    {}, \
-                    __PRETTY_FUNCTION__); \
-        } \
-    } while(false)</initializer>
         <briefdescription>
+<para>Assert that a value is true. </para>
         </briefdescription>
         <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the value to check. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/assert/src/assert/assert.h" line="29" column="9" bodyfile="libs/assert/src/assert/assert.h" bodystart="29" bodyend="46"/>
+        <location file="libs/assert/src/assert/assert.h" line="32" column="9" bodyfile="libs/assert/src/assert/assert.h" bodystart="32" bodyend="49"/>
       </memberdef>
       <memberdef kind="define" id="assert_8h_1a20d93230446fc0009184336e984ab6b2" prot="public" static="no">
         <name>ASSERTX</name>
         <param><defname>x</defname></param>
         <param><defname>...</defname></param>
-        <initializer>    do \
-    { \
-        if(x) \
-        { \
-        } \
-        else \
-        { \
-            if(<ref refid="namespaceeu_1_1assertlib_1a0edb7b21ba4d86e980bd40b0f63a0c2e" kindref="member">::eu::assertlib::is_throwing</ref>() == false) { <ref refid="assert_8h_1a3950e5c477d263585dc2704da469ae98" kindref="member">BREAK_IN_DEBUG</ref>(); } \
-            <ref refid="namespaceeu_1_1assertlib_1adc0b8ea0bf3e97d51c38156ad5484a67" kindref="member">::eu::assertlib::on_assert</ref>( \
-                    #x, \
-                    __LINE__, \
-                    __FILE__, \
-                    #__VA_ARGS__, \
-                    {__VA_ARGS__}, \
-                    __PRETTY_FUNCTION__); \
-        } \
-    } while(false)</initializer>
         <briefdescription>
+<para>Assert that a value is true. </para>
         </briefdescription>
         <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the value to check. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>...</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>any extra value to attach to the assert message </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/assert/src/assert/assert.h" line="48" column="9" bodyfile="libs/assert/src/assert/assert.h" bodystart="48" bodyend="65"/>
+        <location file="libs/assert/src/assert/assert.h" line="55" column="9" bodyfile="libs/assert/src/assert/assert.h" bodystart="55" bodyend="72"/>
       </memberdef>
       <memberdef kind="define" id="assert_8h_1ae9328389a3cf2705a8a3f35a4a9ceca2" prot="public" static="no">
         <name>DIE</name>
         <param><defname>message</defname></param>
-        <initializer>    <ref refid="namespaceeu_1_1assertlib_1adc0b8ea0bf3e97d51c38156ad5484a67" kindref="member">::eu::assertlib::on_assert</ref>( \
-            message, \
-            __LINE__, \
-            __FILE__, \
-            &quot;&quot;, \
-            {}, \
-            __PRETTY_FUNCTION__)</initializer>
         <briefdescription>
+<para>Assert that something bad has happened. </para>
         </briefdescription>
         <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the reason to fail. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/assert/src/assert/assert.h" line="67" column="9" bodyfile="libs/assert/src/assert/assert.h" bodystart="67" bodyend="74"/>
+        <location file="libs/assert/src/assert/assert.h" line="77" column="9" bodyfile="libs/assert/src/assert/assert.h" bodystart="77" bodyend="84"/>
       </memberdef>
       <memberdef kind="define" id="assert_8h_1ab2792c0e49bcb5df802ae03ffbf859cf" prot="public" static="no">
         <name>DIEX</name>
         <param><defname>message</defname></param>
         <param><defname>...</defname></param>
-        <initializer>    <ref refid="namespaceeu_1_1assertlib_1adc0b8ea0bf3e97d51c38156ad5484a67" kindref="member">::eu::assertlib::on_assert</ref>( \
-            message, \
-            __LINE__, \
-            __FILE__, \
-            #__VA_ARGS__, \
-            {__VA_ARGS__}, \
-            __PRETTY_FUNCTION__)</initializer>
         <briefdescription>
+<para>Assert that something bad has happened. </para>
         </briefdescription>
         <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the reason to fail. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>...</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>any extra value to attach to the assert message </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/assert/src/assert/assert.h" line="76" column="9" bodyfile="libs/assert/src/assert/assert.h" bodystart="76" bodyend="83"/>
+        <location file="libs/assert/src/assert/assert.h" line="90" column="9" bodyfile="libs/assert/src/assert/assert.h" bodystart="90" bodyend="97"/>
       </memberdef>
     </sectiondef>
     <briefdescription>

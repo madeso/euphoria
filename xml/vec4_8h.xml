@@ -70,18 +70,12 @@
       <node id="3">
         <label>libs/base/src/base/quat.h</label>
         <link refid="quat_8h"/>
-        <childnode refid="4" relation="include">
-        </childnode>
       </node>
       <node id="1">
         <label>libs/base/src/base/vec4.h</label>
         <link refid="vec4_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
-      </node>
-      <node id="4">
-        <label>libs/tests/src/tests/approx_equal.h</label>
-        <link refid="approx__equal_8h"/>
       </node>
     </invincdepgraph>
     <innerclass refid="structeu_1_1v4" prot="public">eu::v4</innerclass>

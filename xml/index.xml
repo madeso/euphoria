@@ -26,26 +26,6 @@
     <member refid="structeu_1_1An_1a7ed148d9124c2bdd0a52d6ec18d8b0a9" kind="function"><name>deg_from_rad</name></member>
     <member refid="structeu_1_1An_1a23f9a38776c55638004c7b4095b8242d" kind="function"><name>rad_from_deg</name></member>
   </compound>
-  <compound refid="structeu_1_1tests_1_1custom_1_1Approx" kind="struct"><name>eu::tests::custom::Approx</name>
-    <member refid="structeu_1_1tests_1_1custom_1_1Approx_1afd5b6648547bc4bb76e5f6e3e5186c2f" kind="variable"><name>epsilon</name></member>
-    <member refid="structeu_1_1tests_1_1custom_1_1Approx_1ac3346499e3efe4db2a65619de49a3885" kind="variable"><name>margin</name></member>
-    <member refid="structeu_1_1tests_1_1custom_1_1Approx_1a274b1ff6b6aa40b3367f1581f412cb78" kind="variable"><name>scale</name></member>
-    <member refid="structeu_1_1tests_1_1custom_1_1Approx_1aa11c80373473b24908c5f02af025439e" kind="variable"><name>value</name></member>
-    <member refid="structeu_1_1tests_1_1custom_1_1Approx_1ac9ec24e16b32338da57eda34219888aa" kind="function"><name>Approx</name></member>
-    <member refid="structeu_1_1tests_1_1custom_1_1Approx_1a8e2e5746e6f145cf4fb7178945ef204e" kind="function"><name>set_epsilon</name></member>
-    <member refid="structeu_1_1tests_1_1custom_1_1Approx_1afec0f714567eb9c08271bc2a37866449" kind="function"><name>set_margin</name></member>
-    <member refid="structeu_1_1tests_1_1custom_1_1Approx_1a133352e4b3ebac12407a3084f50b4f65" kind="function"><name>set_scale</name></member>
-    <member refid="structeu_1_1tests_1_1custom_1_1Approx_1a733fee95d9d25fef82996941cc03bc66" kind="function"><name>to_string</name></member>
-    <member refid="structeu_1_1tests_1_1custom_1_1Approx_1ad4e89e4fc9539b3d1cd1087ecfa07985" kind="friend"><name>operator==</name></member>
-    <member refid="structeu_1_1tests_1_1custom_1_1Approx_1a66bc64b9f6ca0ed5c6256a10b59260df" kind="friend"><name>operator==</name></member>
-    <member refid="structeu_1_1tests_1_1custom_1_1Approx_1a98eb1ff7b0e1a2a9f75c35339f7185ea" kind="friend"><name>operator!=</name></member>
-    <member refid="structeu_1_1tests_1_1custom_1_1Approx_1a28a5d2ba6f6162d86c8d6afd3b4618dc" kind="friend"><name>operator!=</name></member>
-  </compound>
-  <compound refid="structeu_1_1tests_1_1ApproxData" kind="struct"><name>eu::tests::ApproxData</name>
-    <member refid="structeu_1_1tests_1_1ApproxData_1a1d90aedc0e488ae7dffddbcd6ebfb202" kind="variable"><name>epsilon</name></member>
-    <member refid="structeu_1_1tests_1_1ApproxData_1a13183a28bdb83823a7f2fa170b978b30" kind="variable"><name>scale</name></member>
-    <member refid="structeu_1_1tests_1_1ApproxData_1a836482cb09b95cec361bb26a6e7eedfb" kind="variable"><name>margin</name></member>
-  </compound>
   <compound refid="structeu_1_1assertlib_1_1AssertArgumentValue" kind="struct"><name>eu::assertlib::AssertArgumentValue</name>
     <member refid="structeu_1_1assertlib_1_1AssertArgumentValue_1a9f425e2dec6e8ffb624790f86001e418" kind="variable"><name>value</name></member>
     <member refid="structeu_1_1assertlib_1_1AssertArgumentValue_1a92e0b7266e3d8677880942e67f775fc9" kind="function"><name>AssertArgumentValue</name></member>
@@ -190,9 +170,6 @@
     <member refid="structeu_1_1log_1_1ScopedLogger_1abf3cd5fa18bcdf1ad2107b3f9782039e" kind="function"><name>operator=</name></member>
     <member refid="structeu_1_1log_1_1ScopedLogger_1a7f1c35c53bd6395becd4603d90f0a2d6" kind="function"><name>operator=</name></member>
   </compound>
-  <compound refid="structCatch_1_1StringMaker_3_01eu_1_1tests_1_1custom_1_1Approx_3_01T_01_4_01_4" kind="struct"><name>Catch::StringMaker&lt; eu::tests::custom::Approx&lt; T &gt; &gt;</name>
-    <member refid="structCatch_1_1StringMaker_3_01eu_1_1tests_1_1custom_1_1Approx_3_01T_01_4_01_4_1a601bd5ba250b68eeb4d92004e2a7ab0f" kind="function"><name>convert</name></member>
-  </compound>
   <compound refid="structeu_1_1v2" kind="struct"><name>eu::v2</name>
     <member refid="structeu_1_1v2_1acde135631a96d1063a8634ce5e692537" kind="variable"><name>x</name></member>
     <member refid="structeu_1_1v2_1a76d7028250e5593bf8cef8432e47b7a1" kind="variable"><name>y</name></member>
@@ -258,8 +235,6 @@
     <member refid="structeu_1_1Ypr_1a876d894be0edc78d9250f3d5df68f7d4" kind="variable"><name>yaw</name></member>
     <member refid="structeu_1_1Ypr_1a19ba5b756baa3ae5baa58d281e791ea2" kind="variable"><name>pitch</name></member>
     <member refid="structeu_1_1Ypr_1ac60be98970716f36245071ef9ef088ac" kind="variable"><name>roll</name></member>
-  </compound>
-  <compound refid="namespaceCatch" kind="namespace"><name>Catch</name>
   </compound>
   <compound refid="namespaceeu" kind="namespace"><name>eu</name>
     <member refid="namespaceeu_1af51071e3961aca6266852501c7229467" kind="typedef"><name>i8</name></member>
@@ -399,21 +374,6 @@
   <compound refid="namespaceeu_1_1log" kind="namespace"><name>eu::log</name>
     <member refid="namespaceeu_1_1log_1a643960e2f05465dc8fbdf5229e4e934d" kind="function"><name>get_global_logger</name></member>
   </compound>
-  <compound refid="namespaceeu_1_1tests" kind="namespace"><name>eu::tests</name>
-    <member refid="namespaceeu_1_1tests_1a429f06a337ab5eca77d8f680617bbb3e" kind="function"><name>is_approximately_equal</name></member>
-    <member refid="namespaceeu_1_1tests_1af345ce71ac050b0e3ecdf61c8bbb060d" kind="function"><name>is_approximately_equal</name></member>
-    <member refid="namespaceeu_1_1tests_1af709b49e5d6bd250c6bc5fadbe98dcaf" kind="function"><name>operator&lt;&lt;</name></member>
-    <member refid="namespaceeu_1_1tests_1a64576baee16640d9d585f9e8508e9ac9" kind="function"><name>approx</name></member>
-    <member refid="namespaceeu_1_1tests_1aa6a9f3d10ed999c310b7754e3fbbed7c" kind="function"><name>is_approximately_equal</name></member>
-    <member refid="namespaceeu_1_1tests_1ae6f8fee0830865aa57bf975d60cb5c50" kind="function"><name>is_approximately_equal</name></member>
-    <member refid="namespaceeu_1_1tests_1a6fc2935563b7eb53a45df4f07fc00ec9" kind="function"><name>is_approximately_equal</name></member>
-    <member refid="namespaceeu_1_1tests_1ad6b9776427e5e68d4a5b5520a9c892c0" kind="function"><name>is_approximately_equal</name></member>
-    <member refid="namespaceeu_1_1tests_1a8625a5c60ac58efeb4f0b35d380eb5e9" kind="function"><name>is_approximately_equal</name></member>
-    <member refid="namespaceeu_1_1tests_1a1d81d87b4c3e1cc42b4788a8e8c49f08" kind="function"><name>is_approximately_equal</name></member>
-    <member refid="namespaceeu_1_1tests_1a8ec13d4ff8a062c1e11223fdae314383" kind="function"><name>is_approximately_equal</name></member>
-  </compound>
-  <compound refid="namespaceeu_1_1tests_1_1custom" kind="namespace"><name>eu::tests::custom</name>
-  </compound>
   <compound refid="namespacestd" kind="namespace"><name>std</name>
   </compound>
   <compound refid="coordinate-system_8md" kind="file"><name>coordinate-system.md</name>
@@ -470,10 +430,6 @@
     <member refid="log_8h_1adc38b8c88c5c45ed801c3625226c394b" kind="define"><name>LOG_INFOS</name></member>
     <member refid="log_8h_1a100d3287a5d5db09dc69f859c2e61d1b" kind="define"><name>LOG_WARNS</name></member>
     <member refid="log_8h_1a3c18fc0250adea37a50322c49a3530fa" kind="define"><name>LOG_ERRORS</name></member>
-  </compound>
-  <compound refid="approx_8h" kind="file"><name>approx.h</name>
-  </compound>
-  <compound refid="approx__equal_8h" kind="file"><name>approx_equal.h</name>
   </compound>
   <compound refid="libs_2readme_8md" kind="file"><name>readme.md</name>
   </compound>
@@ -582,6 +538,8 @@
   </compound>
   <compound refid="md_docs_2markdown_2mesh" kind="page"><name>md_docs_2markdown_2mesh</name>
   </compound>
+  <compound refid="todo" kind="page"><name>todo</name>
+  </compound>
   <compound refid="dir_be4889e00cf19717698d04e08b906024" kind="dir"><name>libs/assert</name>
   </compound>
   <compound refid="dir_a5bb2882ec51963282cdbb111e0c9354" kind="dir"><name>libs/assert/src/assert</name>
@@ -609,12 +567,6 @@
   <compound refid="dir_ccce5c7bfdb575666c322ea4a56d00ce" kind="dir"><name>libs/fmt/src</name>
   </compound>
   <compound refid="dir_5771a0408c28f1ea6597b6610e4f91cc" kind="dir"><name>libs/log/src</name>
-  </compound>
-  <compound refid="dir_ed7bb2dedfc9e161afbec5dafb6f7738" kind="dir"><name>libs/tests/src</name>
-  </compound>
-  <compound refid="dir_88d4f5e9589230f13756167b1d1fbb72" kind="dir"><name>libs/tests</name>
-  </compound>
-  <compound refid="dir_4250b825e2d70c719ce4732ee07efd2e" kind="dir"><name>libs/tests/src/tests</name>
   </compound>
   <compound refid="indexpage" kind="page"><name>index</name>
   </compound>

@@ -171,7 +171,8 @@
     <value><![CDATA[*.ice]]></value>
   </option>
   <option  id='RECURSIVE' default='no' type='bool'><value>YES</value></option>
-  <option  id='EXCLUDE' default='yes' type='stringlist'>
+  <option  id='EXCLUDE' default='no' type='stringlist'>
+    <value><![CDATA[libs/tests]]></value>
   </option>
   <option  id='EXCLUDE_SYMLINKS' default='yes' type='bool'><value>NO</value></option>
   <option  id='EXCLUDE_PATTERNS' default='no' type='stringlist'>

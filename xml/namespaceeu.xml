@@ -21,7 +21,6 @@
     <innernamespace refid="namespaceeu_1_1common">eu::common</innernamespace>
     <innernamespace refid="namespaceeu_1_1convert">eu::convert</innernamespace>
     <innernamespace refid="namespaceeu_1_1log">eu::log</innernamespace>
-    <innernamespace refid="namespaceeu_1_1tests">eu::tests</innernamespace>
     <sectiondef kind="typedef">
       <memberdef kind="typedef" id="namespaceeu_1af51071e3961aca6266852501c7229467" prot="public" static="no">
         <type>std::int8_t</type>
@@ -330,6 +329,6 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/assert/src/assert/assert.h" line="89" column="1"/>
+    <location file="libs/assert/src/assert/assert.h" line="104" column="1"/>
   </compounddef>
 </doxygen>
