@@ -4,11 +4,26 @@
 
 using namespace eu;
 
+
 TEST_CASE("guid-test", "[guid]")
 {
+    SECTION("guid ctor")
+    {
+        CHECK(string_from(Guid{0x12344567, 0xabcd, 0x1234, 0xabba, 0x123456789abc}) == "12344567-abcd-1234-abba-123456789abc");
+        CHECK(string_from(Guid{0xffffffff, 0xffff, 0xffff, 0xffff, 0xffffffffffff}) == "ffffffff-ffff-ffff-ffff-ffffffffffff");
+    }
+    
     SECTION("nil")
     {
         CHECK(string_from(nil_guid) == "00000000-0000-0000-0000-000000000000");
+        CHECK(nil_guid == Guid{0x00000000, 0x0000, 0x0000, 0x0000, 0x000000000000});
+    }
+
+    SECTION("generate does not return nill")
+    {
+        const auto g = Guid::generate();
+        REQUIRE(g);
+        CHECK(*g != nil_guid);
     }
 
     SECTION("parse ok")
@@ -28,6 +43,7 @@ TEST_CASE("guid-test", "[guid]")
         if(parsed)
         {
             CHECK(string_from(*parsed) == "123e4567-e89b-12d3-a456-426614174000");
+            CHECK(*parsed == Guid{0x123e4567, 0xe89b, 0x12d3, 0xa456, 0x426614174000});
         }
     }
 

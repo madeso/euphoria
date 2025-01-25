@@ -51,6 +51,20 @@ namespace eu
     }
 #endif
 
+    bool operator==(const Guid& lhs, const Guid& rhs)
+    {
+        for(int i=0; i<16; i+=1)
+        {
+            if(lhs.data[i] != rhs.data[i]) return false;
+        }
+        return true;
+    }
+
+    bool operator!=(const Guid& lhs, const Guid& rhs)
+    {
+        return !(lhs == rhs);
+    }
+
     struct Parser
     {
         std::string_view str;
