@@ -102,6 +102,9 @@ TEST_CASE("angle-atan", "[angle]")
     REQUIRE(eu::atan(0.0f).as_degrees() == APPROX(0.0f));
     REQUIRE(eu::atan(1.0f).as_degrees() == APPROX(45.0f));
     REQUIRE(eu::atan(eu::sqrt(3.0f)).as_degrees() == APPROX(60.0f));
+
+    REQUIRE(eu::atan2(0.0f, 0.0f).as_degrees() == APPROX(0.0f));
+    REQUIRE(eu::atan2(4.0f, -3.0f).as_radians() == APPROX(2.2143f));
 }
 
 TEST_CASE("angle-tan", "[angle]")
