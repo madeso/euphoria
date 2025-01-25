@@ -110,8 +110,19 @@ TEST_CASE("angle-tan", "[angle]")
     REQUIRE(eu::tan(eu::An::from_degrees(45.0f)) == APPROX(1.0f));
     REQUIRE(eu::tan(eu::An::from_degrees(180.0f)) == APPROX(0.0f));
     REQUIRE(eu::tan(eu::An::from_degrees(225.0f)) == APPROX(1.0f));
-    REQUIRE(eu::tan(eu::An::from_degrees(60.0f))
-            == APPROX(eu::sqrt(3.0f)));
+    REQUIRE(eu::tan(eu::An::from_degrees(60.0f)) == APPROX(eu::sqrt(3.0f)));
+}
+
+TEST_CASE("angle-compare", "[angle]")
+{
+    const auto less = eu::An::from_degrees(0.0f);
+    const auto more = eu::An::from_degrees(45.0f);
+    CHECK(less < more);
+    CHECK(less <= more);
+    CHECK(more <= more);
+    CHECK(more > less);
+    CHECK(more >= less);
+    CHECK(more >= more);
 }
 
 TEST_CASE("angle-Wikipedia constants", "[angle]")
