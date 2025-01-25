@@ -34,6 +34,7 @@
     <member refid="structeu_1_1Guid_1ac9c5c042647a79b26ba31966a708f3fc" kind="variable"><name>data</name></member>
     <member refid="structeu_1_1Guid_1a0a314dc9e3b9e79a4444a1689494d1aa" kind="function"><name>Guid</name></member>
     <member refid="structeu_1_1Guid_1ad0a6db57ed177d9ca1cc00a7901856b8" kind="function"><name>Guid</name></member>
+    <member refid="structeu_1_1Guid_1ace14985038971c105d7e99afc29a060e" kind="function"><name>Guid</name></member>
     <member refid="structeu_1_1Guid_1a8ef712e40958a0c96ee7bf46140ec0e8" kind="function"><name>generate</name></member>
   </compound>
   <compound refid="structstd_1_1hash_3_01eu_1_1Hsh_01_4" kind="struct"><name>std::hash&lt; eu::Hsh &gt;</name>
@@ -278,6 +279,8 @@
     <member refid="group__math_1gae9cc9ff4ed32a327a7e883617b9b7de2" kind="function"><name>right_hand_around</name></member>
     <member refid="group__math_1gaa507848ead7e3929ac34a5631d051638" kind="function"><name>string_from</name></member>
     <member refid="group__math_1gad902ccc075018be926b6d34aa5eb7d92" kind="function"><name>string_from</name></member>
+    <member refid="namespaceeu_1ae1e3eca9a4e909a32f2c16281b5ebfbe" kind="function"><name>operator==</name></member>
+    <member refid="namespaceeu_1a27cc2976c1bd562b82eebdc857c05f50" kind="function"><name>operator!=</name></member>
     <member refid="namespaceeu_1ac922ddcef9eb3a0f85486c218a8cab69" kind="function"><name>guid_from</name></member>
     <member refid="namespaceeu_1a6200e130947527c643d6a88a406fd9c9" kind="function"><name>string_from</name></member>
     <member refid="namespaceeu_1a1314a884697b4470c9c443ec00890b63" kind="function"><name>hash64</name></member>

@@ -6,7 +6,16 @@
     <includes local="no">optional</includes>
     <includes local="no">array</includes>
     <includes refid="ints_8h" local="yes">base/ints.h</includes>
+    <includes refid="assert_8h" local="yes">assert/assert.h</includes>
     <incdepgraph>
+      <node id="7">
+        <label>assert/assert.h</label>
+        <link refid="assert_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
       <node id="1">
         <label>libs/base/src/base/guid.h</label>
         <link refid="guid_8h"/>
@@ -17,6 +26,8 @@
         <childnode refid="4" relation="include">
         </childnode>
         <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
         </childnode>
       </node>
       <node id="5">
@@ -36,6 +47,9 @@
       </node>
       <node id="2">
         <label>string</label>
+      </node>
+      <node id="8">
+        <label>vector</label>
       </node>
     </incdepgraph>
     <innerclass refid="structeu_1_1Guid" prot="public">eu::Guid</innerclass>

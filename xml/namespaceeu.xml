@@ -164,7 +164,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/guid.h" line="37" column="20" bodyfile="libs/base/src/base/guid.h" bodystart="37" bodyend="47"/>
+        <location file="libs/base/src/base/guid.h" line="69" column="20" bodyfile="libs/base/src/base/guid.h" bodystart="69" bodyend="79"/>
       </memberdef>
       <member refid="group__math_1ga5957f0b19a66d6e1123f22d681e726e0" kind="variable"><name>m4_identity</name></member>
       <member refid="group__math_1ga25eb222abfe7c9e7f34d6f19ed40c1a0" kind="variable"><name>pi</name></member>
@@ -196,6 +196,50 @@
       <member refid="group__math_1gae9cc9ff4ed32a327a7e883617b9b7de2" kind="function"><name>right_hand_around</name></member>
       <member refid="group__math_1gaa507848ead7e3929ac34a5631d051638" kind="function"><name>string_from</name></member>
       <member refid="group__math_1gad902ccc075018be926b6d34aa5eb7d92" kind="function"><name>string_from</name></member>
+      <memberdef kind="function" id="namespaceeu_1ae1e3eca9a4e909a32f2c16281b5ebfbe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">bool</ref></type>
+        <definition>bool eu::operator==</definition>
+        <argsstring>(const Guid &amp;lhs, const Guid &amp;rhs)</argsstring>
+        <name>operator==</name>
+        <qualifiedname>eu::operator==</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1Guid" kindref="compound">Guid</ref> &amp;</type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1Guid" kindref="compound">Guid</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/guid.h" line="59" column="10" declfile="libs/base/src/base/guid.h" declline="59" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1a27cc2976c1bd562b82eebdc857c05f50" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">bool</ref></type>
+        <definition>bool eu::operator!=</definition>
+        <argsstring>(const Guid &amp;lhs, const Guid &amp;rhs)</argsstring>
+        <name>operator!=</name>
+        <qualifiedname>eu::operator!=</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1Guid" kindref="compound">Guid</ref> &amp;</type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1Guid" kindref="compound">Guid</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/guid.h" line="60" column="10" declfile="libs/base/src/base/guid.h" declline="60" declcolumn="10"/>
+      </memberdef>
       <memberdef kind="function" id="namespaceeu_1ac922ddcef9eb3a0f85486c218a8cab69" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::optional&lt; <ref refid="structeu_1_1Guid" kindref="compound">Guid</ref> &gt;</type>
         <definition>std::optional&lt; Guid &gt; eu::guid_from</definition>
@@ -213,7 +257,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/guid.h" line="31" column="20" declfile="libs/base/src/base/guid.h" declline="31" declcolumn="20"/>
+        <location file="libs/base/src/base/guid.h" line="63" column="20" declfile="libs/base/src/base/guid.h" declline="63" declcolumn="20"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1a6200e130947527c643d6a88a406fd9c9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -232,7 +276,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/guid.h" line="34" column="18" declfile="libs/base/src/base/guid.h" declline="34" declcolumn="18"/>
+        <location file="libs/base/src/base/guid.h" line="66" column="18" declfile="libs/base/src/base/guid.h" declline="66" declcolumn="18"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1a1314a884697b4470c9c443ec00890b63" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref> <ref refid="namespaceeu_1ac0b6d77da47da3ce6bb55d66abc897f5" kindref="member">u64</ref></type>

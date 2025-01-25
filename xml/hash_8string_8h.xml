@@ -40,8 +40,8 @@
     </incdepgraph>
     <innerclass refid="structeu_1_1Hsh" prot="public">eu::Hsh</innerclass>
     <innerclass refid="structeu_1_1HshO" prot="public">eu::HshO</innerclass>
-    <innerclass refid="structstd_1_1hash_3_01eu_1_1Hsh_01_4" prot="public">std::hash&lt; eu::Hsh &gt;</innerclass>
-    <innerclass refid="structstd_1_1hash_3_01eu_1_1HshO_01_4" prot="public">std::hash&lt; eu::HshO &gt;</innerclass>
+    <innerclass refid="structstd_1_1hash_3_01eu_1_1Hsh_01_4" prot="private">std::hash&lt; eu::Hsh &gt;</innerclass>
+    <innerclass refid="structstd_1_1hash_3_01eu_1_1HshO_01_4" prot="private">std::hash&lt; eu::HshO &gt;</innerclass>
     <innernamespace refid="namespaceeu">eu</innernamespace>
     <innernamespace refid="namespacestd">std</innernamespace>
     <sectiondef kind="define">

@@ -1,8 +1,7 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
-  <compounddef id="structstd_1_1hash_3_01eu_1_1Hsh_01_4" kind="struct" language="C++" prot="public">
+  <compounddef id="structstd_1_1hash_3_01eu_1_1Hsh_01_4" kind="struct" language="C++" prot="private">
     <compoundname>std::hash&lt; eu::Hsh &gt;</compoundname>
-    <includes refid="hash_8string_8h" local="no">hash.string.h</includes>
     <templateparamlist>
     </templateparamlist>
     <sectiondef kind="public-func">
@@ -22,14 +21,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/hash.string.h" line="134" column="17" bodyfile="libs/base/src/base/hash.string.h" bodystart="134" bodyend="135"/>
+        <location file="libs/base/src/base/hash.string.h" line="135" column="17" bodyfile="libs/base/src/base/hash.string.h" bodystart="135" bodyend="136"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/base/src/base/hash.string.h" line="132" column="11" bodyfile="libs/base/src/base/hash.string.h" bodystart="133" bodyend="136"/>
+    <location file="libs/base/src/base/hash.string.h" line="133" column="11" bodyfile="libs/base/src/base/hash.string.h" bodystart="134" bodyend="137"/>
     <listofallmembers>
       <member refid="structstd_1_1hash_3_01eu_1_1Hsh_01_4_1ab5dc4bcc8d4541e11533634e75c211ef" prot="public" virt="non-virtual"><scope>std::hash&lt; eu::Hsh &gt;</scope><name>operator()</name></member>
     </listofallmembers>
