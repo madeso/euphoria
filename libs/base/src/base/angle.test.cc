@@ -174,3 +174,23 @@ TEST_CASE("angle-Wikipedia constants", "[angle]")
         REQUIRE(eu::acos(a).as_degrees() == APPROX(75.0f));
     }
 }
+
+TEST_CASE("angle-print", "[angle]")
+{
+    // todo(Gustav): how reliable are theese tests, switch to regex?
+    SECTION("fmt")
+    {
+        std::string oz = fmt::format("{0}", eu::no_rotation);
+        std::string oh = fmt::format("{0}", eu::half_turn);
+        CHECK(oz == "0 deg");
+        CHECK(oh == "180 deg");
+    }
+
+    SECTION("stream")
+    {
+        std::ostringstream oz; oz << eu::no_rotation;
+        std::ostringstream oh; oh << eu::half_turn;
+        CHECK(oz.str() == "0 deg");
+        CHECK(oh.str() == "180 deg");
+    }
+}
