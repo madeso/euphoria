@@ -26,23 +26,23 @@
                 <span>libs/base/src/base/</span>
             </div>
             <div>File: angle.cc</div>
-            <div>Date: 2025-01-25 21:33:13</div>
+            <div>Date: 2025-01-27 21:12:54</div>
         </div>
         <div class="col-sm-12 col-lg-3 float-left d-flex flex-column text-right flex-justify-end p-3">
             <div class="d-flex">
                 <div class="mr-2">Lines:</div>
-                <div class="mr-2" style="margin: auto;">63/75</div>
-                <div class="Label--minw"><span class="coverage-medium IssueLabel color-fg-on-emphasis mr-1">84.0%</span></div>
+                <div class="mr-2" style="margin: auto;">65/75</div>
+                <div class="Label--minw"><span class="coverage-medium IssueLabel color-fg-on-emphasis mr-1">86.7%</span></div>
             </div>
             <div class="d-flex">
                 <div class="mr-2">Functions:</div>
-                <div class="mr-2" style="margin: auto;">22/25</div>
-                <div class="Label--minw"><span class="coverage-medium IssueLabel color-fg-on-emphasis mr-1">88.0%</span></div>
+                <div class="mr-2" style="margin: auto;">23/25</div>
+                <div class="Label--minw"><span class="coverage-high IssueLabel color-fg-on-emphasis mr-1">92.0%</span></div>
             </div>
             <div class="d-flex">
                 <div class="mr-2">Branches:</div>
-                <div class="mr-2" style="margin: auto;">7/32</div>
-                <div class="Label--minw"><span class="coverage-low IssueLabel color-fg-on-emphasis mr-1">21.9%</span></div>
+                <div class="mr-2" style="margin: auto;">9/32</div>
+                <div class="Label--minw"><span class="coverage-low IssueLabel color-fg-on-emphasis mr-1">28.1%</span></div>
             </div>
         </div>
     </div>
@@ -85,7 +85,7 @@
     <tr><td><a href="#l174">eu::operator&gt;(eu::An const&amp;, eu::An const&amp;) (line 174)</a></td><td>called 1 time</td><td>100.0%</td><td>-%</td><td>-%</td><td>100.0%</td></tr>
     <tr><td><a href="#l181">eu::operator&gt;=(eu::An const&amp;, eu::An const&amp;) (line 181)</a></td><td>called 2 times</td><td>100.0%</td><td>-%</td><td>-%</td><td>100.0%</td></tr>
     <tr><td><a href="#l54">eu::sin(eu::An const&amp;) (line 54)</a></td><td>called 42 times</td><td>100.0%</td><td>-%</td><td>-%</td><td>100.0%</td></tr>
-    <tr><td><a href="#l155">eu::string_from[abi:cxx11](eu::An const&amp;) (line 155)</a></td><td>not called</td><td>0.0%</td><td>0.0%</td><td>-%</td><td>0.0%</td></tr>
+    <tr><td><a href="#l155">eu::string_from[abi:cxx11](eu::An const&amp;) (line 155)</a></td><td>called 4 times</td><td>100.0%</td><td>50.0%</td><td>-%</td><td>100.0%</td></tr>
     <tr><td><a href="#l68">eu::tan(eu::An const&amp;) (line 68)</a></td><td>called 5 times</td><td>100.0%</td><td>-%</td><td>-%</td><td>100.0%</td></tr>
   </table>
 </details>
@@ -1238,15 +1238,24 @@
                 <td class="text-right src linenos"><a class="normal" id="l155" href="#l155">155</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
-                <td class="src uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-                <td class="src uncoveredLine"><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">string_from</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">An</span><span class="o">&amp;</span><span class="w"> </span><span class="n">a</span><span class="p">)</span></td>
+                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">4</td>
+                <td class="src coveredLine"><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">string_from</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">An</span><span class="o">&amp;</span><span class="w"> </span><span class="n">a</span><span class="p">)</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l156" href="#l156">156</a></td>
                 <td class="text-right src linenos ws-unset">
+                    <details class="normal details-overlay">
+                        <summary>2/4</summary>
+                        <div class="text-left position-absolute color-bg-subtle p-3 mt-2" style="z-index: 1;">
+                            <div class="color-taken-branch">&check; Branch 0 (2 &rightarrow; 3) taken 4 times.</div>
+                            <div class="color-fg-danger">&cross; Branch 1 (2 &rightarrow; 8) not taken.</div>
+                            <div class="color-taken-branch">&check; Branch 2 (3 &rightarrow; 4) taken 4 times.</div>
+                            <div class="color-fg-danger">&cross; Branch 3 (3 &rightarrow; 8) not taken.</div>
+                        </div>
+                    </details>
                 </td>
-                <td class="src uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-                <td class="src uncoveredLine"><span class="w">        </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">fmt</span><span class="o">::</span><span class="n">format</span><span class="p">(</span><span class="s">&quot;{} deg&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">as_degrees</span><span class="p">());</span><span class="w"> </span><span class="p">}</span></td>
+                <td class="src partialCoveredLine pr-2 pl-2 color-fg-muted text-right">8</td>
+                <td class="src partialCoveredLine"><span class="w">        </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">fmt</span><span class="o">::</span><span class="n">format</span><span class="p">(</span><span class="s">&quot;{} deg&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">as_degrees</span><span class="p">());</span><span class="w"> </span><span class="p">}</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l157" href="#l157">157</a></td>

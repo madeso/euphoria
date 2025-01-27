@@ -7,77 +7,95 @@
     <innernamespace refid="namespaceeu">eu</innernamespace>
     <innernamespace refid="namespaceeu_1_1log">eu::log</innernamespace>
     <sectiondef kind="define">
-      <memberdef kind="define" id="log_8h_1a378e28bfcb78d17285210d6bbb70a083" prot="public" static="no">
-        <name>LOG_INFO</name>
-        <param><defname>...</defname></param>
-        <initializer><ref refid="namespaceeu_1_1log_1a643960e2f05465dc8fbdf5229e4e934d" kindref="member">eu::log::get_global_logger</ref>()-&gt;info(fmt::format(__VA_ARGS__))</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/log/src/log/log.h" line="7" column="9" bodyfile="libs/log/src/log/log.h" bodystart="7" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="define" id="log_8h_1add82efa459e0af380b68522c29b9fd44" prot="public" static="no">
-        <name>LOG_WARN</name>
-        <param><defname>...</defname></param>
-        <initializer><ref refid="namespaceeu_1_1log_1a643960e2f05465dc8fbdf5229e4e934d" kindref="member">eu::log::get_global_logger</ref>()-&gt;warn(fmt::format(__VA_ARGS__))</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/log/src/log/log.h" line="8" column="9" bodyfile="libs/log/src/log/log.h" bodystart="8" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="define" id="log_8h_1ad4a9117ce894e3319e903142347a0f63" prot="public" static="no">
-        <name>LOG_ERROR</name>
-        <param><defname>...</defname></param>
-        <initializer><ref refid="namespaceeu_1_1log_1a643960e2f05465dc8fbdf5229e4e934d" kindref="member">eu::log::get_global_logger</ref>()-&gt;error(fmt::format(__VA_ARGS__))</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/log/src/log/log.h" line="9" column="9" bodyfile="libs/log/src/log/log.h" bodystart="9" bodyend="-1"/>
-      </memberdef>
       <memberdef kind="define" id="log_8h_1adc38b8c88c5c45ed801c3625226c394b" prot="public" static="no">
         <name>LOG_INFOS</name>
         <param><defname>...</defname></param>
-        <initializer><ref refid="namespaceeu_1_1log_1a643960e2f05465dc8fbdf5229e4e934d" kindref="member">eu::log::get_global_logger</ref>()-&gt;info(__VA_ARGS__)</initializer>
         <briefdescription>
+<para>Writes a plain string to the info log. </para>
         </briefdescription>
         <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="log_8h_1a378e28bfcb78d17285210d6bbb70a083" kindref="member">LOG_INFO</ref> for a fmt info log </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/log/src/log/log.h" line="11" column="9" bodyfile="libs/log/src/log/log.h" bodystart="11" bodyend="-1"/>
+        <location file="libs/log/src/log/log.h" line="10" column="9" bodyfile="libs/log/src/log/log.h" bodystart="10" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="log_8h_1a100d3287a5d5db09dc69f859c2e61d1b" prot="public" static="no">
         <name>LOG_WARNS</name>
         <param><defname>...</defname></param>
-        <initializer><ref refid="namespaceeu_1_1log_1a643960e2f05465dc8fbdf5229e4e934d" kindref="member">eu::log::get_global_logger</ref>()-&gt;warn(__VA_ARGS__)</initializer>
         <briefdescription>
+<para>Writes a plain string to the warning log. </para>
         </briefdescription>
         <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="log_8h_1add82efa459e0af380b68522c29b9fd44" kindref="member">LOG_WARN</ref> for a fmt warning log </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/log/src/log/log.h" line="12" column="9" bodyfile="libs/log/src/log/log.h" bodystart="12" bodyend="-1"/>
+        <location file="libs/log/src/log/log.h" line="15" column="9" bodyfile="libs/log/src/log/log.h" bodystart="15" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="define" id="log_8h_1a3c18fc0250adea37a50322c49a3530fa" prot="public" static="no">
-        <name>LOG_ERRORS</name>
+      <memberdef kind="define" id="log_8h_1a1d84a8ce6eb37627cedf834f28698bdb" prot="public" static="no">
+        <name>LOG_ERRS</name>
         <param><defname>...</defname></param>
-        <initializer><ref refid="namespaceeu_1_1log_1a643960e2f05465dc8fbdf5229e4e934d" kindref="member">eu::log::get_global_logger</ref>()-&gt;error(__VA_ARGS__)</initializer>
         <briefdescription>
+<para>Writes a plain string to the error log. </para>
         </briefdescription>
         <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="log_8h_1ad6db28c61c838c1f7316417e1e4847f2" kindref="member">LOG_ERR</ref> for a fmt error log </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/log/src/log/log.h" line="13" column="9" bodyfile="libs/log/src/log/log.h" bodystart="13" bodyend="-1"/>
+        <location file="libs/log/src/log/log.h" line="20" column="9" bodyfile="libs/log/src/log/log.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="log_8h_1a378e28bfcb78d17285210d6bbb70a083" prot="public" static="no">
+        <name>LOG_INFO</name>
+        <param><defname>...</defname></param>
+        <briefdescription>
+<para>Writes a info log using fmt. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="log_8h_1adc38b8c88c5c45ed801c3625226c394b" kindref="member">LOG_INFOS</ref> for just a plain string info log </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/log/src/log/log.h" line="25" column="9" bodyfile="libs/log/src/log/log.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="log_8h_1add82efa459e0af380b68522c29b9fd44" prot="public" static="no">
+        <name>LOG_WARN</name>
+        <param><defname>...</defname></param>
+        <briefdescription>
+<para>Writes a warning log using fm. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="log_8h_1a100d3287a5d5db09dc69f859c2e61d1b" kindref="member">LOG_WARNS</ref> for a plain string warning log </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/log/src/log/log.h" line="30" column="9" bodyfile="libs/log/src/log/log.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="log_8h_1ad6db28c61c838c1f7316417e1e4847f2" prot="public" static="no">
+        <name>LOG_ERR</name>
+        <param><defname>...</defname></param>
+        <briefdescription>
+<para>Writes a error log using fm. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="log_8h_1a1d84a8ce6eb37627cedf834f28698bdb" kindref="member">LOG_ERRS</ref> for a plain string error log </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/log/src/log/log.h" line="35" column="9" bodyfile="libs/log/src/log/log.h" bodystart="35" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <briefdescription>

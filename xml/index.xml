@@ -427,12 +427,12 @@
   <compound refid="vec4_8h" kind="file"><name>vec4.h</name>
   </compound>
   <compound refid="log_8h" kind="file"><name>log.h</name>
-    <member refid="log_8h_1a378e28bfcb78d17285210d6bbb70a083" kind="define"><name>LOG_INFO</name></member>
-    <member refid="log_8h_1add82efa459e0af380b68522c29b9fd44" kind="define"><name>LOG_WARN</name></member>
-    <member refid="log_8h_1ad4a9117ce894e3319e903142347a0f63" kind="define"><name>LOG_ERROR</name></member>
     <member refid="log_8h_1adc38b8c88c5c45ed801c3625226c394b" kind="define"><name>LOG_INFOS</name></member>
     <member refid="log_8h_1a100d3287a5d5db09dc69f859c2e61d1b" kind="define"><name>LOG_WARNS</name></member>
-    <member refid="log_8h_1a3c18fc0250adea37a50322c49a3530fa" kind="define"><name>LOG_ERRORS</name></member>
+    <member refid="log_8h_1a1d84a8ce6eb37627cedf834f28698bdb" kind="define"><name>LOG_ERRS</name></member>
+    <member refid="log_8h_1a378e28bfcb78d17285210d6bbb70a083" kind="define"><name>LOG_INFO</name></member>
+    <member refid="log_8h_1add82efa459e0af380b68522c29b9fd44" kind="define"><name>LOG_WARN</name></member>
+    <member refid="log_8h_1ad6db28c61c838c1f7316417e1e4847f2" kind="define"><name>LOG_ERR</name></member>
   </compound>
   <compound refid="libs_2readme_8md" kind="file"><name>readme.md</name>
   </compound>

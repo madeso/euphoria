@@ -58,6 +58,9 @@
   <div class="headertitle"><div class="title">eu::log::Logger Struct Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Logger output class.  
+ <a href="structeu_1_1log_1_1Logger.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -74,15 +77,20 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aaeda7ce06bd578f6efa49d3c9863f6d1" id="r_aaeda7ce06bd578f6efa49d3c9863f6d1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeu_1_1R.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeu_1_1log_1_1Logger.html#aaeda7ce06bd578f6efa49d3c9863f6d1">operator=</a> (<a class="el" href="structeu_1_1log_1_1Logger.html">Logger</a> &amp;&amp;)=<a class="el" href="structeu_1_1R.html">delete</a></td></tr>
 <tr class="separator:aaeda7ce06bd578f6efa49d3c9863f6d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad2b67eb49edc11aab5978f306f8e41b5" id="r_ad2b67eb49edc11aab5978f306f8e41b5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeu_1_1R.html">virtual</a> <a class="el" href="structeu_1_1R.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeu_1_1log_1_1Logger.html#ad2b67eb49edc11aab5978f306f8e41b5">info</a> (<a class="el" href="structeu_1_1R.html">const</a> std::string &amp;<a class="el" href="structeu_1_1R.html">str</a>)=0</td></tr>
+<tr class="memdesc:ad2b67eb49edc11aab5978f306f8e41b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when printing a info message.  <br /></td></tr>
 <tr class="separator:ad2b67eb49edc11aab5978f306f8e41b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a06423e395456c121ee759d7569df5907" id="r_a06423e395456c121ee759d7569df5907"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeu_1_1R.html">virtual</a> <a class="el" href="structeu_1_1R.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeu_1_1log_1_1Logger.html#a06423e395456c121ee759d7569df5907">warn</a> (<a class="el" href="structeu_1_1R.html">const</a> std::string &amp;<a class="el" href="structeu_1_1R.html">str</a>)=0</td></tr>
+<tr class="memdesc:a06423e395456c121ee759d7569df5907"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when printing a warning message.  <br /></td></tr>
 <tr class="separator:a06423e395456c121ee759d7569df5907"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afaf5e8f95546857df1e95d8bae6775ef" id="r_afaf5e8f95546857df1e95d8bae6775ef"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeu_1_1R.html">virtual</a> <a class="el" href="structeu_1_1R.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeu_1_1log_1_1Logger.html#afaf5e8f95546857df1e95d8bae6775ef">error</a> (<a class="el" href="structeu_1_1R.html">const</a> std::string &amp;<a class="el" href="structeu_1_1R.html">str</a>)=0</td></tr>
+<tr class="memdesc:afaf5e8f95546857df1e95d8bae6775ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when printing a error message.  <br /></td></tr>
 <tr class="separator:afaf5e8f95546857df1e95d8bae6775ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="log_8h_source.html#l00015">15</a> of file <a class="el" href="log_8h_source.html">log.h</a>.</p>
+<div class="textblock"><p>Logger output class. </p>
+<p>Inherit from this to add a a custom output. </p>
+
+<p class="definition">Definition at line <a class="el" href="log_8h_source.html#l00040">40</a> of file <a class="el" href="log_8h_source.html">log.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a86a567c61eabb14a1894b05094c49400" name="a86a567c61eabb14a1894b05094c49400"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a86a567c61eabb14a1894b05094c49400">&#9670;&#160;</a></span>Logger() <span class="overload">[1/3]</span></h2>
@@ -211,6 +219,8 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Called when printing a error message. </p>
+
 </div>
 </div>
 <a id="ad2b67eb49edc11aab5978f306f8e41b5" name="ad2b67eb49edc11aab5978f306f8e41b5"></a>
@@ -236,6 +246,8 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Called when printing a info message. </p>
 
 </div>
 </div>
@@ -314,6 +326,8 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Called when printing a warning message. </p>
 
 </div>
 </div>

@@ -20,7 +20,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/log/src/log/log.h" line="32" column="18"/>
+        <location file="libs/log/src/log/log.h" line="63" column="18"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1log_1_1ScopedLogger_1a9273d3cbeac047b0d86ed868d64f6543" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -34,7 +34,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/log/src/log/log.h" line="33" column="9"/>
+        <location file="libs/log/src/log/log.h" line="64" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1log_1_1ScopedLogger_1a2ba3d86cf3bfcef8810c68d66aa3d1c3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -51,7 +51,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/log/src/log/log.h" line="35" column="9"/>
+        <location file="libs/log/src/log/log.h" line="66" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1log_1_1ScopedLogger_1a3b6cb64a7c7e6ff9eadc1f929b6b84bc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -68,7 +68,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/log/src/log/log.h" line="36" column="9"/>
+        <location file="libs/log/src/log/log.h" line="67" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1log_1_1ScopedLogger_1abf3cd5fa18bcdf1ad2107b3f9782039e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
@@ -85,7 +85,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/log/src/log/log.h" line="37" column="14"/>
+        <location file="libs/log/src/log/log.h" line="68" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1log_1_1ScopedLogger_1a7f1c35c53bd6395becd4603d90f0a2d6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
@@ -102,14 +102,15 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/log/src/log/log.h" line="38" column="14"/>
+        <location file="libs/log/src/log/log.h" line="69" column="14"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
+<para>RAII handler to change the current <ref refid="structeu_1_1log_1_1Logger" kindref="compound">Logger</ref> class. </para>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/log/src/log/log.h" line="30" column="5" bodyfile="libs/log/src/log/log.h" bodystart="31" bodyend="39"/>
+    <location file="libs/log/src/log/log.h" line="61" column="5" bodyfile="libs/log/src/log/log.h" bodystart="62" bodyend="70"/>
     <listofallmembers>
       <member refid="structeu_1_1log_1_1ScopedLogger_1abf3cd5fa18bcdf1ad2107b3f9782039e" prot="public" virt="non-virtual"><scope>eu::log::ScopedLogger</scope><name>operator=</name></member>
       <member refid="structeu_1_1log_1_1ScopedLogger_1a7f1c35c53bd6395becd4603d90f0a2d6" prot="public" virt="non-virtual"><scope>eu::log::ScopedLogger</scope><name>operator=</name></member>
