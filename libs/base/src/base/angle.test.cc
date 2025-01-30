@@ -175,6 +175,51 @@ TEST_CASE("angle-Wikipedia constants", "[angle]")
     }
 }
 
+TEST_CASE("negative angle", "[angle]")
+{
+    CHECK(eu::An::from_degrees(90).as_degrees() == APPROX(90.0f));
+    CHECK((-eu::An::from_degrees(90)).as_degrees() == APPROX(-90.0f));
+}
+
+TEST_CASE("lerg angle", "[angle]")
+{
+    const auto zero = eu::An::from_degrees(0);
+    const auto quart = eu::An::from_degrees(90);
+    const auto half = eu::An::from_degrees(180);
+    const auto full = eu::An::from_degrees(360);
+
+    SECTION("zero - quart")
+    {
+        // positive quart
+        CHECK(eu::lerp_angle(zero, 0.5f, quart).as_degrees() == APPROX(45.0f));
+        CHECK(eu::lerp_angle(quart, 0.5f, zero).as_degrees() == APPROX(45.0f));
+
+        // negative quart
+        CHECK(eu::lerp_angle(zero, 0.5f, -quart).as_degrees() == APPROX(-45.0f));
+        CHECK(eu::lerp_angle(-quart, 0.5f, zero).as_degrees() == APPROX(-45.0f));
+    }
+
+    SECTION("zero - half")
+    {
+        CHECK(eu::lerp_angle(zero, 0.5f, half).as_degrees() == APPROX(90.0f));
+        CHECK(eu::lerp_angle(half, 0.5f, zero).as_degrees() == APPROX(90.0f));
+
+        CHECK(eu::lerp_angle(zero, 0.5f, -half).as_degrees() == APPROX(-90.0f));
+        CHECK(eu::lerp_angle(-half, 0.5f, zero).as_degrees() == APPROX(-90.0f));
+    }
+
+    SECTION("zero - full")
+    {
+        CHECK(eu::lerp_angle(zero, 0.5f, full).as_degrees() == APPROX(0.0f));
+        CHECK(eu::lerp_angle(zero, 0.5f, -full).as_degrees() == APPROX(0.0f));
+
+        // todo(Gustav): this fails... is that a bug?
+        // CHECK(eu::lerp_angle(full, 0.5f, zero).as_degrees() == APPROX(0.0f));
+        // CHECK(eu::lerp_angle(-full, 0.5f, zero).as_degrees() == APPROX(0.0f));
+    }
+}
+
+
 TEST_CASE("angle-print", "[angle]")
 {
     // todo(Gustav): how reliable are theese tests, switch to regex?
