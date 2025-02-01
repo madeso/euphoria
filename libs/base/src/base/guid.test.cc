@@ -39,15 +39,12 @@ TEST_CASE("guid-test", "[guid]")
         );
         const auto parsed = guid_from(src);
         INFO(src);
-        CHECK(parsed.has_value());
-        if(parsed)
-        {
-            CHECK(string_from(*parsed) == "123e4567-e89b-12d3-a456-426614174000");
-            CHECK(*parsed == Guid{0x123e4567, 0xe89b, 0x12d3, 0xa456, 0x426614174000});
-        }
+        REQUIRE(parsed.has_value());
+        CHECK(string_from(*parsed) == "123e4567-e89b-12d3-a456-426614174000");
+        CHECK(*parsed == Guid{0x123e4567, 0xe89b, 0x12d3, 0xa456, 0x426614174000});
     }
 
-    SECTION("parse ok")
+    SECTION("parse fail")
     {
         const std::string src = GENERATE
         (
