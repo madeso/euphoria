@@ -55,3 +55,26 @@ TEST_CASE("guid-test", "[guid]")
         CHECK_FALSE(parsed.has_value());
     }
 }
+
+TEST_CASE("guid-print", "[guid]")
+{
+    const auto g = Guid{0x123e4567, 0xe89b, 0x12d3, 0xa456, 0x426614174000};
+
+    // todo(Gustav): how reliable are theese tests, switch to regex?
+    SECTION("fmt")
+    {
+        std::string on = fmt::format("{0}", nil_guid);
+        std::string og = fmt::format("{0}", g);
+        CHECK(on == "00000000-0000-0000-0000-000000000000");
+        CHECK(og == "123e4567-e89b-12d3-a456-426614174000");
+    }
+
+    SECTION("stream")
+    {
+        std::ostringstream on; on << nil_guid;
+        std::ostringstream og; og << g;
+        CHECK(on.str() == "00000000-0000-0000-0000-000000000000");
+        CHECK(og.str() == "123e4567-e89b-12d3-a456-426614174000");
+    }
+}
+
