@@ -26,18 +26,18 @@
                 <span>libs/base/src/base/</span>
             </div>
             <div>File: vec3.cc</div>
-            <div>Date: 2025-01-30 22:20:38</div>
+            <div>Date: 2025-02-01 22:14:18</div>
         </div>
         <div class="col-sm-12 col-lg-3 float-left d-flex flex-column text-right flex-justify-end p-3">
             <div class="d-flex">
                 <div class="mr-2">Lines:</div>
-                <div class="mr-2" style="margin: auto;">43/92</div>
-                <div class="Label--minw"><span class="coverage-low IssueLabel color-fg-on-emphasis mr-1">46.7%</span></div>
+                <div class="mr-2" style="margin: auto;">44/92</div>
+                <div class="Label--minw"><span class="coverage-low IssueLabel color-fg-on-emphasis mr-1">47.8%</span></div>
             </div>
             <div class="d-flex">
                 <div class="mr-2">Functions:</div>
-                <div class="mr-2" style="margin: auto;">11/26</div>
-                <div class="Label--minw"><span class="coverage-low IssueLabel color-fg-on-emphasis mr-1">42.3%</span></div>
+                <div class="mr-2" style="margin: auto;">12/26</div>
+                <div class="Label--minw"><span class="coverage-low IssueLabel color-fg-on-emphasis mr-1">46.2%</span></div>
             </div>
             <div class="d-flex">
                 <div class="mr-2">Branches:</div>
@@ -69,7 +69,7 @@
     <tr><td><a href="#l135">eu::operator-(eu::v3 const&amp;, eu::v3 const&amp;) (line 135)</a></td><td>not called</td><td>0.0%</td><td>-%</td><td>-%</td><td>0.0%</td></tr>
     <tr><td><a href="#l157">eu::operator/(eu::v3 const&amp;, float) (line 157)</a></td><td>called 5 times</td><td>100.0%</td><td>-%</td><td>-%</td><td>100.0%</td></tr>
     <tr><td><a href="#l165">eu::operator/(float, eu::v3 const&amp;) (line 165)</a></td><td>not called</td><td>0.0%</td><td>-%</td><td>-%</td><td>0.0%</td></tr>
-    <tr><td><a href="#l206">eu::string_from[abi:cxx11](eu::n3 const&amp;) (line 206)</a></td><td>not called</td><td>0.0%</td><td>-%</td><td>-%</td><td>0.0%</td></tr>
+    <tr><td><a href="#l206">eu::string_from[abi:cxx11](eu::n3 const&amp;) (line 206)</a></td><td>called 4 times</td><td>100.0%</td><td>-%</td><td>-%</td><td>100.0%</td></tr>
     <tr><td><a href="#l205">eu::string_from[abi:cxx11](eu::v3 const&amp;) (line 205)</a></td><td>not called</td><td>0.0%</td><td>-%</td><td>-%</td><td>0.0%</td></tr>
     <tr><td><a href="#l189">eu::v3::cross(eu::v3 const&amp;) const (line 189)</a></td><td>called 5 times</td><td>100.0%</td><td>-%</td><td>-%</td><td>100.0%</td></tr>
     <tr><td><a href="#l183">eu::v3::dot(eu::v3 const&amp;) const (line 183)</a></td><td>called 7 times</td><td>100.0%</td><td>-%</td><td>-%</td><td>100.0%</td></tr>
@@ -1567,8 +1567,8 @@
                 <td class="text-right src linenos"><a class="normal" id="l206" href="#l206">206</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
-                <td class="src uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-                <td class="src uncoveredLine"><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">string_from</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">n3</span><span class="w"> </span><span class="o">&amp;</span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">fmt</span><span class="o">::</span><span class="n">format</span><span class="p">(</span><span class="s">&quot;({}, {}, {})&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="n">z</span><span class="p">);</span><span class="w"> </span><span class="p">}</span></td>
+                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">8</td>
+                <td class="src coveredLine"><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">string_from</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">n3</span><span class="w"> </span><span class="o">&amp;</span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">fmt</span><span class="o">::</span><span class="n">format</span><span class="p">(</span><span class="s">&quot;({}, {}, {})&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="n">z</span><span class="p">);</span><span class="w"> </span><span class="p">}</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l207" href="#l207">207</a></td>

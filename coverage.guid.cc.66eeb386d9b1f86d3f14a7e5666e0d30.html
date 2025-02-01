@@ -26,7 +26,7 @@
                 <span>libs/base/src/base/</span>
             </div>
             <div>File: guid.cc</div>
-            <div>Date: 2025-01-30 22:20:38</div>
+            <div>Date: 2025-02-01 22:14:18</div>
         </div>
         <div class="col-sm-12 col-lg-3 float-left d-flex flex-column text-right flex-justify-end p-3">
             <div class="d-flex">
@@ -74,7 +74,7 @@
     <tr><td><a href="#l132">eu::guid_from(std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt; const&amp;) (line 132)</a></td><td>called 8 times</td><td>100.0%</td><td>65.0%</td><td>-%</td><td>96.2%</td></tr>
     <tr><td><a href="#l63">eu::operator!=(eu::Guid const&amp;, eu::Guid const&amp;) (line 63)</a></td><td>called 1 time</td><td>100.0%</td><td>-%</td><td>-%</td><td>100.0%</td></tr>
     <tr><td><a href="#l54">eu::operator==(eu::Guid const&amp;, eu::Guid const&amp;) (line 54)</a></td><td>called 8 times</td><td>100.0%</td><td>100.0%</td><td>-%</td><td>100.0%</td></tr>
-    <tr><td><a href="#l156">eu::string_from[abi:cxx11](eu::Guid const&amp;) (line 156)</a></td><td>called 9 times</td><td>100.0%</td><td>-%</td><td>-%</td><td>100.0%</td></tr>
+    <tr><td><a href="#l156">eu::string_from[abi:cxx11](eu::Guid const&amp;) (line 156)</a></td><td>called 13 times</td><td>100.0%</td><td>-%</td><td>-%</td><td>100.0%</td></tr>
   </table>
 </details>
 </div>
@@ -1348,7 +1348,7 @@
                 <td class="text-right src linenos"><a class="normal" id="l156" href="#l156">156</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
-                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">9</td>
+                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">13</td>
                 <td class="src coveredLine"><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">string_from</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Guid</span><span class="o">&amp;</span><span class="w"> </span><span class="n">x</span><span class="p">)</span></td>
             </tr>
             <tr>
@@ -1411,42 +1411,42 @@
                 <td class="text-right src linenos"><a class="normal" id="l165" href="#l165">165</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
-                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">9</td>
+                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">13</td>
                 <td class="src coveredLine"><span class="w">            </span><span class="n">x</span><span class="p">.</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">data</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">data</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l166" href="#l166">166</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
-                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">9</td>
+                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">13</td>
                 <td class="src coveredLine"><span class="w">            </span><span class="n">x</span><span class="p">.</span><span class="n">data</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">data</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l167" href="#l167">167</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
-                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">9</td>
+                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">13</td>
                 <td class="src coveredLine"><span class="w">            </span><span class="n">x</span><span class="p">.</span><span class="n">data</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">data</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l168" href="#l168">168</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
-                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">9</td>
+                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">13</td>
                 <td class="src coveredLine"><span class="w">            </span><span class="n">x</span><span class="p">.</span><span class="n">data</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">data</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l169" href="#l169">169</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
-                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">9</td>
+                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">13</td>
                 <td class="src coveredLine"><span class="w">            </span><span class="n">x</span><span class="p">.</span><span class="n">data</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">data</span><span class="p">[</span><span class="mi">11</span><span class="p">],</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">data</span><span class="p">[</span><span class="mi">12</span><span class="p">],</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">data</span><span class="p">[</span><span class="mi">13</span><span class="p">],</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">data</span><span class="p">[</span><span class="mi">14</span><span class="p">],</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">data</span><span class="p">[</span><span class="mi">15</span><span class="p">]</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l170" href="#l170">170</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
-                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">18</td>
+                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">26</td>
                 <td class="src coveredLine"><span class="w">        </span><span class="p">);</span></td>
             </tr>
             <tr>
