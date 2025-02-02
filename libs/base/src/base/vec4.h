@@ -33,6 +33,8 @@ namespace eu
         /// asserts that the w component is what is expected, point=1, vector=0
         [[nodiscard]] v3 to_vec3(float ww) const;
 
+        /// returns a 3d vector using perspective division
+        [[nodiscard]] v3 to_vec3_persp_div() const;
 
         /// returns an array to the data
         float* get_data_ptr();

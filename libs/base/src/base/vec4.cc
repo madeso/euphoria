@@ -24,6 +24,13 @@ namespace eu
         return {x, y, z};
     }
 
+    v3
+    v4::to_vec3_persp_div() const
+    {
+        ASSERTX(is_equal(w, 0.0f) == false, w);
+        return {x/w, y/w, z/w};
+    }
+
     float *
     v4::get_data_ptr()
     {

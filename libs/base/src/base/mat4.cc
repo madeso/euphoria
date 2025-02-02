@@ -59,21 +59,15 @@ namespace eu
     }
 
     v3
-    m4::get_transformed(const v3& p, float w) const
-    {
-        return get_transformed(v4{p, w}).to_vec3(w);
-    }
-
-    v3
     m4::get_transformed_point(const v3& p) const
     {
-        return get_transformed(p, 1);
+        return get_transformed(v4{p, 1.0f}).to_vec3_persp_div();
     }
 
     v3
     m4::get_transformed_vec(const v3& p) const
     {
-        return get_transformed(p, 0);
+        return get_transformed(v4{p, 0.0f}).to_vec3(0.0f);
     }
 
     n3

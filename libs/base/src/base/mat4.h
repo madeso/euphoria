@@ -106,9 +106,6 @@ namespace eu
         /// Get a transformed vec4.
         [[nodiscard]] v4 get_transformed(const v4 &p) const;
 
-        /// Get a transformed vec3, using the w component of the vector.
-        [[nodiscard]] v3 get_transformed(const v3 &p, float w) const;
-
         /// Get a transformed vec3 assuming it's a point
         [[nodiscard]] v3 get_transformed_point(const v3 &p) const;
 
