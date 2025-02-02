@@ -26,18 +26,18 @@
                 <span>libs/base/src/base/</span>
             </div>
             <div>File: axisangle.cc</div>
-            <div>Date: 2025-02-01 22:14:18</div>
+            <div>Date: 2025-02-02 21:04:19</div>
         </div>
         <div class="col-sm-12 col-lg-3 float-left d-flex flex-column text-right flex-justify-end p-3">
             <div class="d-flex">
                 <div class="mr-2">Lines:</div>
-                <div class="mr-2" style="margin: auto;">17/19</div>
-                <div class="Label--minw"><span class="coverage-medium IssueLabel color-fg-on-emphasis mr-1">89.5%</span></div>
+                <div class="mr-2" style="margin: auto;">19/19</div>
+                <div class="Label--minw"><span class="coverage-high IssueLabel color-fg-on-emphasis mr-1">100.0%</span></div>
             </div>
             <div class="d-flex">
                 <div class="mr-2">Functions:</div>
-                <div class="mr-2" style="margin: auto;">4/5</div>
-                <div class="Label--minw"><span class="coverage-medium IssueLabel color-fg-on-emphasis mr-1">80.0%</span></div>
+                <div class="mr-2" style="margin: auto;">5/5</div>
+                <div class="Label--minw"><span class="coverage-high IssueLabel color-fg-on-emphasis mr-1">100.0%</span></div>
             </div>
             <div class="d-flex">
                 <div class="mr-2">Branches:</div>
@@ -66,7 +66,7 @@
     <tr><td><a href="#l16">eu::AA::from(eu::Q const&amp;) (line 16)</a></td><td>called 5 times</td><td>100.0%</td><td>56.2%</td><td>-%</td><td>81.0%</td></tr>
     <tr><td><a href="#l29">eu::right_hand_around(eu::n3 const&amp;, eu::An const&amp;) (line 29)</a></td><td>called 55 times</td><td>100.0%</td><td>37.5%</td><td>-%</td><td>47.4%</td></tr>
     <tr><td><a href="#l36">eu::string_from[abi:cxx11](eu::AA const&amp;) (line 36)</a></td><td>called 4 times</td><td>100.0%</td><td>-%</td><td>-%</td><td>100.0%</td></tr>
-    <tr><td><a href="#l42">eu::string_from[abi:cxx11](eu::Ypr const&amp;) (line 42)</a></td><td>not called</td><td>0.0%</td><td>-%</td><td>-%</td><td>0.0%</td></tr>
+    <tr><td><a href="#l42">eu::string_from[abi:cxx11](eu::Ypr const&amp;) (line 42)</a></td><td>called 2 times</td><td>100.0%</td><td>-%</td><td>-%</td><td>100.0%</td></tr>
   </table>
 </details>
 </div>
@@ -443,8 +443,8 @@
                 <td class="text-right src linenos"><a class="normal" id="l42" href="#l42">42</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
-                <td class="src uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-                <td class="src uncoveredLine"><span class="w">    </span><span class="n">string_from</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Ypr</span><span class="o">&amp;</span><span class="w"> </span><span class="n">x</span><span class="p">)</span></td>
+                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">2</td>
+                <td class="src coveredLine"><span class="w">    </span><span class="n">string_from</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Ypr</span><span class="o">&amp;</span><span class="w"> </span><span class="n">x</span><span class="p">)</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l43" href="#l43">43</a></td>
@@ -457,8 +457,8 @@
                 <td class="text-right src linenos"><a class="normal" id="l44" href="#l44">44</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
-                <td class="src uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-                <td class="src uncoveredLine"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">fmt</span><span class="o">::</span><span class="n">format</span><span class="p">(</span><span class="s">&quot;({} {} {})&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">yaw</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">pitch</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">roll</span><span class="p">);</span></td>
+                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">4</td>
+                <td class="src coveredLine"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">fmt</span><span class="o">::</span><span class="n">format</span><span class="p">(</span><span class="s">&quot;({}, {}, {})&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">yaw</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">pitch</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">roll</span><span class="p">);</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l45" href="#l45">45</a></td>

@@ -86,7 +86,6 @@
     <member refid="structeu_1_1m4_1a7f9269dbbcf3f8dfdae73d470580fe93" kind="function"><name>get_inverted</name></member>
     <member refid="structeu_1_1m4_1a6014565213c198695d0c43f2ffd4f392" kind="function"><name>get</name></member>
     <member refid="structeu_1_1m4_1ac7a76a023788418920fc7df439b77749" kind="function"><name>get_transformed</name></member>
-    <member refid="structeu_1_1m4_1a7409e0ed0428d05b25a914c84749a070" kind="function"><name>get_transformed</name></member>
     <member refid="structeu_1_1m4_1a22ce98de455dd1288dbc11090812f947" kind="function"><name>get_transformed_point</name></member>
     <member refid="structeu_1_1m4_1a4200aff0f233b6cc4d8737b7902d09f6" kind="function"><name>get_transformed_vec</name></member>
     <member refid="structeu_1_1m4_1a1badedce78b896c369dce5bf9fbe2501" kind="function"><name>get_transformed_vec</name></member>
@@ -228,6 +227,7 @@
     <member refid="structeu_1_1v4_1a6effff88eb81631daa99a597909e16de" kind="function"><name>v4</name></member>
     <member refid="structeu_1_1v4_1a79c137d713fadc4d1e0a5c27483bb414" kind="function"><name>v4</name></member>
     <member refid="structeu_1_1v4_1ab810292d5f619656e5b177983fac5a97" kind="function"><name>to_vec3</name></member>
+    <member refid="structeu_1_1v4_1a58e6882ee137f99c3376c628ef974df4" kind="function"><name>to_vec3_persp_div</name></member>
     <member refid="structeu_1_1v4_1a0b06732d5ff02420219fd54b7ab4d034" kind="function"><name>get_data_ptr</name></member>
     <member refid="structeu_1_1v4_1a2fb019e0a58055d149904a5bd8401902" kind="function"><name>get_data_ptr</name></member>
     <member refid="structeu_1_1v4_1aee396ce1c57c13ff3c82fba8ff89c80e" kind="function"><name>operator==</name></member>
@@ -371,6 +371,7 @@
     <member refid="namespaceeu_1_1common_1a57827af741604160c6e925bdc0c32747" kind="variable"><name>out</name></member>
   </compound>
   <compound refid="namespaceeu_1_1convert" kind="namespace"><name>eu::convert</name>
+    <member refid="namespaceeu_1_1convert_1aee672a1fe41692f2005e75389bf34f2c" kind="function"><name>operator&quot;&quot;_deg</name></member>
     <member refid="namespaceeu_1_1convert_1ad9a8ef509475899faebcef9f3cf0e098" kind="function"><name>operator&quot;&quot;_deg</name></member>
     <member refid="namespaceeu_1_1convert_1a8bf275d232d046a033d75f1f072baf7d" kind="function"><name>operator&quot;&quot;_rad</name></member>
   </compound>

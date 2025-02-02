@@ -26,22 +26,22 @@
                 <span>libs/base/src/base/</span>
             </div>
             <div>File: axisangle.h</div>
-            <div>Date: 2025-02-01 22:14:18</div>
+            <div>Date: 2025-02-02 21:04:19</div>
         </div>
         <div class="col-sm-12 col-lg-3 float-left d-flex flex-column text-right flex-justify-end p-3">
             <div class="d-flex">
                 <div class="mr-2">Lines:</div>
-                <div class="mr-2" style="margin: auto;">2/2</div>
+                <div class="mr-2" style="margin: auto;">4/4</div>
                 <div class="Label--minw"><span class="coverage-high IssueLabel color-fg-on-emphasis mr-1">100.0%</span></div>
             </div>
             <div class="d-flex">
                 <div class="mr-2">Functions:</div>
-                <div class="mr-2" style="margin: auto;">2/2</div>
+                <div class="mr-2" style="margin: auto;">4/4</div>
                 <div class="Label--minw"><span class="coverage-high IssueLabel color-fg-on-emphasis mr-1">100.0%</span></div>
             </div>
             <div class="d-flex">
                 <div class="mr-2">Branches:</div>
-                <div class="mr-2" style="margin: auto;">3/6</div>
+                <div class="mr-2" style="margin: auto;">6/12</div>
                 <div class="Label--minw"><span class="coverage-low IssueLabel color-fg-on-emphasis mr-1">50.0%</span></div>
             </div>
         </div>
@@ -63,7 +63,9 @@
       <th>Block coverage</th>
     </tr>
     <tr><td><a href="#l51">auto fmt::v10::formatter&lt;eu::AA, char, void&gt;::format&lt;fmt::v10::basic_format_context&lt;fmt::v10::appender, char&gt; &gt;(eu::AA const&amp;, fmt::v10::basic_format_context&lt;fmt::v10::appender, char&gt;&amp;) const (line 51)</a></td><td>called 2 times</td><td>100.0%</td><td>50.0%</td><td>-%</td><td>58.8%</td></tr>
+    <tr><td><a href="#l52">auto fmt::v10::formatter&lt;eu::Ypr, char, void&gt;::format&lt;fmt::v10::basic_format_context&lt;fmt::v10::appender, char&gt; &gt;(eu::Ypr const&amp;, fmt::v10::basic_format_context&lt;fmt::v10::appender, char&gt;&amp;) const (line 52)</a></td><td>called 1 time</td><td>100.0%</td><td>50.0%</td><td>-%</td><td>58.8%</td></tr>
     <tr><td><a href="#l47">eu::operator&lt;&lt;(std::ostream&amp;, eu::AA const&amp;) (line 47)</a></td><td>called 2 times</td><td>100.0%</td><td>50.0%</td><td>-%</td><td>77.8%</td></tr>
+    <tr><td><a href="#l48">eu::operator&lt;&lt;(std::ostream&amp;, eu::Ypr const&amp;) (line 48)</a></td><td>called 1 time</td><td>100.0%</td><td>50.0%</td><td>-%</td><td>77.8%</td></tr>
   </table>
 </details>
 </div>
@@ -422,9 +424,18 @@
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l48" href="#l48">48</a></td>
                 <td class="text-right src linenos ws-unset">
+                    <details class="normal details-overlay">
+                        <summary>2/4</summary>
+                        <div class="text-left position-absolute color-bg-subtle p-3 mt-2" style="z-index: 1;">
+                            <div class="color-taken-branch">&check; Branch 0 (2 &rightarrow; 3) taken 1 times.</div>
+                            <div class="color-fg-danger">&cross; Branch 1 (2 &rightarrow; 10) not taken.</div>
+                            <div class="color-taken-branch">&check; Branch 2 (3 &rightarrow; 4) taken 1 times.</div>
+                            <div class="color-fg-danger">&cross; Branch 3 (3 &rightarrow; 8) not taken.</div>
+                        </div>
+                    </details>
                 </td>
-                <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "><span class="w">    </span><span class="n">ADD_CATCH_FORMATTER</span><span class="p">(</span><span class="n">Ypr</span><span class="p">)</span></td>
+                <td class="src partialCoveredLine pr-2 pl-2 color-fg-muted text-right">1</td>
+                <td class="src partialCoveredLine"><span class="w">    </span><span class="n">ADD_CATCH_FORMATTER</span><span class="p">(</span><span class="n">Ypr</span><span class="p">)</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l49" href="#l49">49</a></td>
@@ -457,9 +468,16 @@
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l52" href="#l52">52</a></td>
                 <td class="text-right src linenos ws-unset">
+                    <details class="normal details-overlay">
+                        <summary>1/2</summary>
+                        <div class="text-left position-absolute color-bg-subtle p-3 mt-2" style="z-index: 1;">
+                            <div class="color-taken-branch">&check; Branch 0 (2 &rightarrow; 3) taken 1 times.</div>
+                            <div class="color-fg-danger">&cross; Branch 1 (2 &rightarrow; 17) not taken.</div>
+                        </div>
+                    </details>
                 </td>
-                <td class="src  pr-2 pl-2 color-fg-muted text-right"></td>
-                <td class="src "><span class="n">ADD_DEFAULT_FORMATTER</span><span class="p">(</span><span class="n">eu</span><span class="o">::</span><span class="n">Ypr</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="n">eu</span><span class="o">::</span><span class="n">string_from</span><span class="p">);</span></td>
+                <td class="src partialCoveredLine pr-2 pl-2 color-fg-muted text-right">2</td>
+                <td class="src partialCoveredLine"><span class="n">ADD_DEFAULT_FORMATTER</span><span class="p">(</span><span class="n">eu</span><span class="o">::</span><span class="n">Ypr</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="n">eu</span><span class="o">::</span><span class="n">string_from</span><span class="p">);</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l53" href="#l53">53</a></td>
