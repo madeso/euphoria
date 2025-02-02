@@ -60,7 +60,6 @@ TEST_CASE("guid-print", "[guid]")
 {
     const auto g = Guid{0x123e4567, 0xe89b, 0x12d3, 0xa456, 0x426614174000};
 
-    // todo(Gustav): how reliable are theese tests, switch to regex?
     SECTION("fmt")
     {
         std::string on = fmt::format("{0}", nil_guid);
