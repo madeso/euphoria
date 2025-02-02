@@ -41,6 +41,6 @@ namespace eu
     std::string
     string_from(const Ypr& x)
     {
-        return fmt::format("({} {} {})", x.yaw, x.pitch, x.roll);
+        return fmt::format("({}, {}, {})", x.yaw, x.pitch, x.roll);
     }
 }

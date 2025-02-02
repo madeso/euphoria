@@ -38,3 +38,24 @@ TEST_CASE("aa-print", "[aa]")
         CHECK(oz.str() == "((0, 0, 1) 0 deg)");
     }
 }
+
+
+TEST_CASE("ypr-print", "[angle]")
+{
+    using namespace eu::convert;
+    
+    // todo(Gustav): how reliable are theese tests, switch to regex?
+    const auto h = eu::Ypr{0_deg, 45_deg, 90_deg};
+    SECTION("fmt")
+    {
+        std::string oh = fmt::format("{0}", h);
+        CHECK(oh == "(0 deg, 45 deg, 90 deg)");
+    }
+
+    SECTION("stream")
+    {
+        std::ostringstream oh; oh << h;
+        CHECK(oh.str() == "(0 deg, 45 deg, 90 deg)");
+    }
+}
+
