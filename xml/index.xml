@@ -412,11 +412,6 @@
   </compound>
   <compound refid="pch_8private_8h" kind="file"><name>pch.private.h</name>
   </compound>
-  <compound refid="base_2src_2base_2pch_8public_8h" kind="file"><name>pch.public.h</name>
-  </compound>
-  <compound refid="fmt_2src_2pch_8public_8h" kind="file"><name>pch.public.h</name>
-    <member refid="fmt_2src_2pch_8public_8h_1a9c749523ffeb436257593aaa17a923ed" kind="define"><name>ADD_CATCH_FORMATTER</name></member>
-  </compound>
   <compound refid="quat_8h" kind="file"><name>quat.h</name>
   </compound>
   <compound refid="range_8h" kind="file"><name>range.h</name>
@@ -426,6 +421,11 @@
   <compound refid="vec3_8h" kind="file"><name>vec3.h</name>
   </compound>
   <compound refid="vec4_8h" kind="file"><name>vec4.h</name>
+  </compound>
+  <compound refid="base_2src_2base_2pch_8public_8h" kind="file"><name>pch.public.h</name>
+  </compound>
+  <compound refid="fmt_2src_2pch_8public_8h" kind="file"><name>pch.public.h</name>
+    <member refid="fmt_2src_2pch_8public_8h_1a9c749523ffeb436257593aaa17a923ed" kind="define"><name>ADD_CATCH_FORMATTER</name></member>
   </compound>
   <compound refid="log_8h" kind="file"><name>log.h</name>
     <member refid="log_8h_1adc38b8c88c5c45ed801c3625226c394b" kind="define"><name>LOG_INFOS</name></member>
