@@ -1,0 +1,6 @@
+﻿<svg width="81" height="24" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6,0 h33 h6 v24 h-6 h-33 a6,6 0 0 1 -6,-6 v-12 a6,6 0 0 1 6,-6 z" fill="#555" />
+  <path d="M51,0 h24 a6,6 0 0 1 6,6 v12 a6,6 0 0 1 -6,6 h-24 h-6 v-24 h6 z" fill="#9f9f9f" />
+  <text x="5" y="17" fill="#fff" font-family="Verdana" font-size="11" textLength="35">Line</text>
+  <text x="50" y="17" fill="#fff" font-family="Verdana" font-size="11" textLength="26">???</text>
+</svg>
