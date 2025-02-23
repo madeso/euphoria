@@ -1,0 +1,525 @@
+﻿<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+<title>libs/base/src/base/quat.test.cc</title>
+</head>
+<body>
+<h1>libs/base/src/base/quat.test.cc</h1>
+<hr>
+<h3>warning: statement should be inside braces</h3>
+<code>[readability-braces-around-statements]</code>
+<p><i>libs/base/src/base/quat.test.cc 16 : 24</i></p>
+<pre>
+   16 |             if (!value) return "<empty>";
+      |                        ^                 
+      |                         {
+</pre>
+<hr>
+<h3>warning: function 'CATCH2_INTERNAL_TEST_0' declared 'static', move to anonymous namespace instead</h3>
+<code>[misc-use-anonymous-namespace]</code>
+<p><i>libs/base/src/base/quat.test.cc 35 : 1</i></p>
+<pre>
+   35 | TEST_CASE("quat-identity", "[quat]")
+      | ^
+</pre>
+<p>expanded from macro 'TEST_CASE'</p>
+<p><i>build/_deps/catch2-src/src/catch2/catch_test_macros.hpp 144 : 28</i></p>
+<pre>
+  144 |   #define TEST_CASE( ... ) INTERNAL_CATCH_TESTCASE( __VA_ARGS__ )
+      |                            ^
+</pre>
+<p>expanded from macro 'INTERNAL_CATCH_TESTCASE'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_test_registry.hpp 118 : 35</i></p>
+<pre>
+  118 |         INTERNAL_CATCH_TESTCASE2( INTERNAL_CATCH_UNIQUE_NAME( CATCH2_INTERNAL_TEST_ ), __VA_ARGS__ )
+      |                                   ^
+</pre>
+<p>expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_name.hpp 15 : 46</i></p>
+<pre>
+   15 | #  define INTERNAL_CATCH_UNIQUE_NAME( name ) INTERNAL_CATCH_UNIQUE_NAME_LINE( name, __COUNTER__ )
+      |                                              ^
+</pre>
+<p>expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME_LINE'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_name.hpp 13 : 55</i></p>
+<pre>
+   13 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE( name, line ) INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line )
+      |                                                       ^
+</pre>
+<p>expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME_LINE2'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_name.hpp 12 : 56</i></p>
+<pre>
+   12 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line ) name##line
+      |                                                        ^
+</pre>
+<hr>
+<h3>warning: function 'CATCH2_INTERNAL_TEST_2' declared 'static', move to anonymous namespace instead</h3>
+<code>[misc-use-anonymous-namespace]</code>
+<p><i>libs/base/src/base/quat.test.cc 41 : 1</i></p>
+<pre>
+   41 | TEST_CASE("quat-testVecOp", "[quat]")
+      | ^
+</pre>
+<p>expanded from macro 'TEST_CASE'</p>
+<p><i>build/_deps/catch2-src/src/catch2/catch_test_macros.hpp 144 : 28</i></p>
+<pre>
+  144 |   #define TEST_CASE( ... ) INTERNAL_CATCH_TESTCASE( __VA_ARGS__ )
+      |                            ^
+</pre>
+<p>expanded from macro 'INTERNAL_CATCH_TESTCASE'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_test_registry.hpp 118 : 35</i></p>
+<pre>
+  118 |         INTERNAL_CATCH_TESTCASE2( INTERNAL_CATCH_UNIQUE_NAME( CATCH2_INTERNAL_TEST_ ), __VA_ARGS__ )
+      |                                   ^
+</pre>
+<p>expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_name.hpp 15 : 46</i></p>
+<pre>
+   15 | #  define INTERNAL_CATCH_UNIQUE_NAME( name ) INTERNAL_CATCH_UNIQUE_NAME_LINE( name, __COUNTER__ )
+      |                                              ^
+</pre>
+<p>expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME_LINE'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_name.hpp 13 : 55</i></p>
+<pre>
+   13 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE( name, line ) INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line )
+      |                                                       ^
+</pre>
+<p>expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME_LINE2'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_name.hpp 12 : 56</i></p>
+<pre>
+   12 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line ) name##line
+      |                                                        ^
+</pre>
+<hr>
+<h3>warning: function 'CATCH2_INTERNAL_TEST_4' declared 'static', move to anonymous namespace instead</h3>
+<code>[misc-use-anonymous-namespace]</code>
+<p><i>libs/base/src/base/quat.test.cc 48 : 1</i></p>
+<pre>
+   48 | TEST_CASE("quat-testLocalAxis", "[quat]")
+      | ^
+</pre>
+<p>expanded from macro 'TEST_CASE'</p>
+<p><i>build/_deps/catch2-src/src/catch2/catch_test_macros.hpp 144 : 28</i></p>
+<pre>
+  144 |   #define TEST_CASE( ... ) INTERNAL_CATCH_TESTCASE( __VA_ARGS__ )
+      |                            ^
+</pre>
+<p>expanded from macro 'INTERNAL_CATCH_TESTCASE'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_test_registry.hpp 118 : 35</i></p>
+<pre>
+  118 |         INTERNAL_CATCH_TESTCASE2( INTERNAL_CATCH_UNIQUE_NAME( CATCH2_INTERNAL_TEST_ ), __VA_ARGS__ )
+      |                                   ^
+</pre>
+<p>expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_name.hpp 15 : 46</i></p>
+<pre>
+   15 | #  define INTERNAL_CATCH_UNIQUE_NAME( name ) INTERNAL_CATCH_UNIQUE_NAME_LINE( name, __COUNTER__ )
+      |                                              ^
+</pre>
+<p>expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME_LINE'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_name.hpp 13 : 55</i></p>
+<pre>
+   13 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE( name, line ) INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line )
+      |                                                       ^
+</pre>
+<p>expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME_LINE2'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_name.hpp 12 : 56</i></p>
+<pre>
+   12 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line ) name##line
+      |                                                        ^
+</pre>
+<hr>
+<h3>warning: function 'CATCH2_INTERNAL_TEST_10' declared 'static', move to anonymous namespace instead</h3>
+<code>[misc-use-anonymous-namespace]</code>
+<p><i>libs/base/src/base/quat.test.cc 105 : 1</i></p>
+<pre>
+  105 | TEST_CASE("quat-testLook", "[quat]")
+      | ^
+</pre>
+<p>expanded from macro 'TEST_CASE'</p>
+<p><i>build/_deps/catch2-src/src/catch2/catch_test_macros.hpp 144 : 28</i></p>
+<pre>
+  144 |   #define TEST_CASE( ... ) INTERNAL_CATCH_TESTCASE( __VA_ARGS__ )
+      |                            ^
+</pre>
+<p>expanded from macro 'INTERNAL_CATCH_TESTCASE'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_test_registry.hpp 118 : 35</i></p>
+<pre>
+  118 |         INTERNAL_CATCH_TESTCASE2( INTERNAL_CATCH_UNIQUE_NAME( CATCH2_INTERNAL_TEST_ ), __VA_ARGS__ )
+      |                                   ^
+</pre>
+<p>expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_name.hpp 15 : 46</i></p>
+<pre>
+   15 | #  define INTERNAL_CATCH_UNIQUE_NAME( name ) INTERNAL_CATCH_UNIQUE_NAME_LINE( name, __COUNTER__ )
+      |                                              ^
+</pre>
+<p>expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME_LINE'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_name.hpp 13 : 55</i></p>
+<pre>
+   13 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE( name, line ) INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line )
+      |                                                       ^
+</pre>
+<p>expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME_LINE2'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_name.hpp 12 : 56</i></p>
+<pre>
+   12 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line ) name##line
+      |                                                        ^
+</pre>
+<hr>
+<h3>warning: unchecked access to optional value</h3>
+<code>[bugprone-unchecked-optional-access]</code>
+<p><i>libs/base/src/base/quat.test.cc 146 : 22</i></p>
+<pre>
+  146 |                     *eu::v3(0, 0, -9).get_normalized(), eu::common::up));
+      |                      ^
+</pre>
+<hr>
+<h3>warning: unchecked access to optional value</h3>
+<code>[bugprone-unchecked-optional-access]</code>
+<p><i>libs/base/src/base/quat.test.cc 151 : 22</i></p>
+<pre>
+  151 |                     *eu::v3(0, 0, 9).get_normalized(), eu::common::up));
+      |                      ^
+</pre>
+<hr>
+<h3>warning: unchecked access to optional value</h3>
+<code>[bugprone-unchecked-optional-access]</code>
+<p><i>libs/base/src/base/quat.test.cc 156 : 22</i></p>
+<pre>
+  156 |                     *eu::v3(3, 0, 0).get_normalized(), eu::common::up));
+      |                      ^
+</pre>
+<hr>
+<h3>warning: unchecked access to optional value</h3>
+<code>[bugprone-unchecked-optional-access]</code>
+<p><i>libs/base/src/base/quat.test.cc 161 : 22</i></p>
+<pre>
+  161 |                     *eu::v3(-5, 0, 0).get_normalized(), eu::common::up));
+      |                      ^
+</pre>
+<hr>
+<h3>warning: function 'CATCH2_INTERNAL_TEST_12' declared 'static', move to anonymous namespace instead</h3>
+<code>[misc-use-anonymous-namespace]</code>
+<p><i>libs/base/src/base/quat.test.cc 167 : 1</i></p>
+<pre>
+  167 | TEST_CASE("quat-testCombine", "[quat]")
+      | ^
+</pre>
+<p>expanded from macro 'TEST_CASE'</p>
+<p><i>build/_deps/catch2-src/src/catch2/catch_test_macros.hpp 144 : 28</i></p>
+<pre>
+  144 |   #define TEST_CASE( ... ) INTERNAL_CATCH_TESTCASE( __VA_ARGS__ )
+      |                            ^
+</pre>
+<p>expanded from macro 'INTERNAL_CATCH_TESTCASE'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_test_registry.hpp 118 : 35</i></p>
+<pre>
+  118 |         INTERNAL_CATCH_TESTCASE2( INTERNAL_CATCH_UNIQUE_NAME( CATCH2_INTERNAL_TEST_ ), __VA_ARGS__ )
+      |                                   ^
+</pre>
+<p>expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_name.hpp 15 : 46</i></p>
+<pre>
+   15 | #  define INTERNAL_CATCH_UNIQUE_NAME( name ) INTERNAL_CATCH_UNIQUE_NAME_LINE( name, __COUNTER__ )
+      |                                              ^
+</pre>
+<p>expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME_LINE'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_name.hpp 13 : 55</i></p>
+<pre>
+   13 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE( name, line ) INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line )
+      |                                                       ^
+</pre>
+<p>expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME_LINE2'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_name.hpp 12 : 56</i></p>
+<pre>
+   12 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line ) name##line
+      |                                                        ^
+</pre>
+<hr>
+<h3>warning: function 'CATCH2_INTERNAL_TEST_14' declared 'static', move to anonymous namespace instead</h3>
+<code>[misc-use-anonymous-namespace]</code>
+<p><i>libs/base/src/base/quat.test.cc 212 : 1</i></p>
+<pre>
+  212 | TEST_CASE("quat-verifyTestAxisAngle", "[quat]")
+      | ^
+</pre>
+<p>expanded from macro 'TEST_CASE'</p>
+<p><i>build/_deps/catch2-src/src/catch2/catch_test_macros.hpp 144 : 28</i></p>
+<pre>
+  144 |   #define TEST_CASE( ... ) INTERNAL_CATCH_TESTCASE( __VA_ARGS__ )
+      |                            ^
+</pre>
+<p>expanded from macro 'INTERNAL_CATCH_TESTCASE'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_test_registry.hpp 118 : 35</i></p>
+<pre>
+  118 |         INTERNAL_CATCH_TESTCASE2( INTERNAL_CATCH_UNIQUE_NAME( CATCH2_INTERNAL_TEST_ ), __VA_ARGS__ )
+      |                                   ^
+</pre>
+<p>expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_name.hpp 15 : 46</i></p>
+<pre>
+   15 | #  define INTERNAL_CATCH_UNIQUE_NAME( name ) INTERNAL_CATCH_UNIQUE_NAME_LINE( name, __COUNTER__ )
+      |                                              ^
+</pre>
+<p>expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME_LINE'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_name.hpp 13 : 55</i></p>
+<pre>
+   13 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE( name, line ) INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line )
+      |                                                       ^
+</pre>
+<p>expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME_LINE2'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_name.hpp 12 : 56</i></p>
+<pre>
+   12 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line ) name##line
+      |                                                        ^
+</pre>
+<hr>
+<h3>warning: function 'CATCH2_INTERNAL_TEST_16' declared 'static', move to anonymous namespace instead</h3>
+<code>[misc-use-anonymous-namespace]</code>
+<p><i>libs/base/src/base/quat.test.cc 237 : 1</i></p>
+<pre>
+  237 | TEST_CASE("quat-checkAxisAngle", "[quat]")
+      | ^
+</pre>
+<p>expanded from macro 'TEST_CASE'</p>
+<p><i>build/_deps/catch2-src/src/catch2/catch_test_macros.hpp 144 : 28</i></p>
+<pre>
+  144 |   #define TEST_CASE( ... ) INTERNAL_CATCH_TESTCASE( __VA_ARGS__ )
+      |                            ^
+</pre>
+<p>expanded from macro 'INTERNAL_CATCH_TESTCASE'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_test_registry.hpp 118 : 35</i></p>
+<pre>
+  118 |         INTERNAL_CATCH_TESTCASE2( INTERNAL_CATCH_UNIQUE_NAME( CATCH2_INTERNAL_TEST_ ), __VA_ARGS__ )
+      |                                   ^
+</pre>
+<p>expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_name.hpp 15 : 46</i></p>
+<pre>
+   15 | #  define INTERNAL_CATCH_UNIQUE_NAME( name ) INTERNAL_CATCH_UNIQUE_NAME_LINE( name, __COUNTER__ )
+      |                                              ^
+</pre>
+<p>expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME_LINE'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_name.hpp 13 : 55</i></p>
+<pre>
+   13 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE( name, line ) INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line )
+      |                                                       ^
+</pre>
+<p>expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME_LINE2'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_name.hpp 12 : 56</i></p>
+<pre>
+   12 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line ) name##line
+      |                                                        ^
+</pre>
+<hr>
+<h3>warning: function 'CATCH2_INTERNAL_TEST_18' declared 'static', move to anonymous namespace instead</h3>
+<code>[misc-use-anonymous-namespace]</code>
+<p><i>libs/base/src/base/quat.test.cc 277 : 1</i></p>
+<pre>
+  277 | TEST_CASE("quat-checkQuatConjugate", "[quat]")
+      | ^
+</pre>
+<p>expanded from macro 'TEST_CASE'</p>
+<p><i>build/_deps/catch2-src/src/catch2/catch_test_macros.hpp 144 : 28</i></p>
+<pre>
+  144 |   #define TEST_CASE( ... ) INTERNAL_CATCH_TESTCASE( __VA_ARGS__ )
+      |                            ^
+</pre>
+<p>expanded from macro 'INTERNAL_CATCH_TESTCASE'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_test_registry.hpp 118 : 35</i></p>
+<pre>
+  118 |         INTERNAL_CATCH_TESTCASE2( INTERNAL_CATCH_UNIQUE_NAME( CATCH2_INTERNAL_TEST_ ), __VA_ARGS__ )
+      |                                   ^
+</pre>
+<p>expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_name.hpp 15 : 46</i></p>
+<pre>
+   15 | #  define INTERNAL_CATCH_UNIQUE_NAME( name ) INTERNAL_CATCH_UNIQUE_NAME_LINE( name, __COUNTER__ )
+      |                                              ^
+</pre>
+<p>expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME_LINE'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_name.hpp 13 : 55</i></p>
+<pre>
+   13 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE( name, line ) INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line )
+      |                                                       ^
+</pre>
+<p>expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME_LINE2'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_name.hpp 12 : 56</i></p>
+<pre>
+   12 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line ) name##line
+      |                                                        ^
+</pre>
+<!--
+/home/runner/work/euphoria/euphoria/libs/base/src/base/quat.test.cc:16:24: warning: statement should be inside braces [readability-braces-around-statements]
+   16 |             if (!value) return "<empty>";
+      |                        ^                 
+      |                         {
+/home/runner/work/euphoria/euphoria/libs/base/src/base/quat.test.cc:35:1: warning: function 'CATCH2_INTERNAL_TEST_0' declared 'static', move to anonymous namespace instead [misc-use-anonymous-namespace]
+   35 | TEST_CASE("quat-identity", "[quat]")
+      | ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/catch_test_macros.hpp:144:28: note: expanded from macro 'TEST_CASE'
+  144 |   #define TEST_CASE( ... ) INTERNAL_CATCH_TESTCASE( __VA_ARGS__ )
+      |                            ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_test_registry.hpp:118:35: note: expanded from macro 'INTERNAL_CATCH_TESTCASE'
+  118 |         INTERNAL_CATCH_TESTCASE2( INTERNAL_CATCH_UNIQUE_NAME( CATCH2_INTERNAL_TEST_ ), __VA_ARGS__ )
+      |                                   ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_unique_name.hpp:15:46: note: expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME'
+   15 | #  define INTERNAL_CATCH_UNIQUE_NAME( name ) INTERNAL_CATCH_UNIQUE_NAME_LINE( name, __COUNTER__ )
+      |                                              ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_unique_name.hpp:13:55: note: expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME_LINE'
+   13 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE( name, line ) INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line )
+      |                                                       ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_unique_name.hpp:12:56: note: expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME_LINE2'
+   12 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line ) name##line
+      |                                                        ^
+note: expanded from here
+/home/runner/work/euphoria/euphoria/libs/base/src/base/quat.test.cc:41:1: warning: function 'CATCH2_INTERNAL_TEST_2' declared 'static', move to anonymous namespace instead [misc-use-anonymous-namespace]
+   41 | TEST_CASE("quat-testVecOp", "[quat]")
+      | ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/catch_test_macros.hpp:144:28: note: expanded from macro 'TEST_CASE'
+  144 |   #define TEST_CASE( ... ) INTERNAL_CATCH_TESTCASE( __VA_ARGS__ )
+      |                            ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_test_registry.hpp:118:35: note: expanded from macro 'INTERNAL_CATCH_TESTCASE'
+  118 |         INTERNAL_CATCH_TESTCASE2( INTERNAL_CATCH_UNIQUE_NAME( CATCH2_INTERNAL_TEST_ ), __VA_ARGS__ )
+      |                                   ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_unique_name.hpp:15:46: note: expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME'
+   15 | #  define INTERNAL_CATCH_UNIQUE_NAME( name ) INTERNAL_CATCH_UNIQUE_NAME_LINE( name, __COUNTER__ )
+      |                                              ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_unique_name.hpp:13:55: note: expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME_LINE'
+   13 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE( name, line ) INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line )
+      |                                                       ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_unique_name.hpp:12:56: note: expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME_LINE2'
+   12 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line ) name##line
+      |                                                        ^
+note: expanded from here
+/home/runner/work/euphoria/euphoria/libs/base/src/base/quat.test.cc:48:1: warning: function 'CATCH2_INTERNAL_TEST_4' declared 'static', move to anonymous namespace instead [misc-use-anonymous-namespace]
+   48 | TEST_CASE("quat-testLocalAxis", "[quat]")
+      | ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/catch_test_macros.hpp:144:28: note: expanded from macro 'TEST_CASE'
+  144 |   #define TEST_CASE( ... ) INTERNAL_CATCH_TESTCASE( __VA_ARGS__ )
+      |                            ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_test_registry.hpp:118:35: note: expanded from macro 'INTERNAL_CATCH_TESTCASE'
+  118 |         INTERNAL_CATCH_TESTCASE2( INTERNAL_CATCH_UNIQUE_NAME( CATCH2_INTERNAL_TEST_ ), __VA_ARGS__ )
+      |                                   ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_unique_name.hpp:15:46: note: expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME'
+   15 | #  define INTERNAL_CATCH_UNIQUE_NAME( name ) INTERNAL_CATCH_UNIQUE_NAME_LINE( name, __COUNTER__ )
+      |                                              ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_unique_name.hpp:13:55: note: expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME_LINE'
+   13 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE( name, line ) INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line )
+      |                                                       ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_unique_name.hpp:12:56: note: expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME_LINE2'
+   12 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line ) name##line
+      |                                                        ^
+note: expanded from here
+/home/runner/work/euphoria/euphoria/libs/base/src/base/quat.test.cc:105:1: warning: function 'CATCH2_INTERNAL_TEST_10' declared 'static', move to anonymous namespace instead [misc-use-anonymous-namespace]
+  105 | TEST_CASE("quat-testLook", "[quat]")
+      | ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/catch_test_macros.hpp:144:28: note: expanded from macro 'TEST_CASE'
+  144 |   #define TEST_CASE( ... ) INTERNAL_CATCH_TESTCASE( __VA_ARGS__ )
+      |                            ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_test_registry.hpp:118:35: note: expanded from macro 'INTERNAL_CATCH_TESTCASE'
+  118 |         INTERNAL_CATCH_TESTCASE2( INTERNAL_CATCH_UNIQUE_NAME( CATCH2_INTERNAL_TEST_ ), __VA_ARGS__ )
+      |                                   ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_unique_name.hpp:15:46: note: expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME'
+   15 | #  define INTERNAL_CATCH_UNIQUE_NAME( name ) INTERNAL_CATCH_UNIQUE_NAME_LINE( name, __COUNTER__ )
+      |                                              ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_unique_name.hpp:13:55: note: expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME_LINE'
+   13 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE( name, line ) INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line )
+      |                                                       ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_unique_name.hpp:12:56: note: expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME_LINE2'
+   12 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line ) name##line
+      |                                                        ^
+note: expanded from here
+/home/runner/work/euphoria/euphoria/libs/base/src/base/quat.test.cc:146:22: warning: unchecked access to optional value [bugprone-unchecked-optional-access]
+  146 |                     *eu::v3(0, 0, -9).get_normalized(), eu::common::up));
+      |                      ^
+/home/runner/work/euphoria/euphoria/libs/base/src/base/quat.test.cc:151:22: warning: unchecked access to optional value [bugprone-unchecked-optional-access]
+  151 |                     *eu::v3(0, 0, 9).get_normalized(), eu::common::up));
+      |                      ^
+/home/runner/work/euphoria/euphoria/libs/base/src/base/quat.test.cc:156:22: warning: unchecked access to optional value [bugprone-unchecked-optional-access]
+  156 |                     *eu::v3(3, 0, 0).get_normalized(), eu::common::up));
+      |                      ^
+/home/runner/work/euphoria/euphoria/libs/base/src/base/quat.test.cc:161:22: warning: unchecked access to optional value [bugprone-unchecked-optional-access]
+  161 |                     *eu::v3(-5, 0, 0).get_normalized(), eu::common::up));
+      |                      ^
+/home/runner/work/euphoria/euphoria/libs/base/src/base/quat.test.cc:167:1: warning: function 'CATCH2_INTERNAL_TEST_12' declared 'static', move to anonymous namespace instead [misc-use-anonymous-namespace]
+  167 | TEST_CASE("quat-testCombine", "[quat]")
+      | ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/catch_test_macros.hpp:144:28: note: expanded from macro 'TEST_CASE'
+  144 |   #define TEST_CASE( ... ) INTERNAL_CATCH_TESTCASE( __VA_ARGS__ )
+      |                            ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_test_registry.hpp:118:35: note: expanded from macro 'INTERNAL_CATCH_TESTCASE'
+  118 |         INTERNAL_CATCH_TESTCASE2( INTERNAL_CATCH_UNIQUE_NAME( CATCH2_INTERNAL_TEST_ ), __VA_ARGS__ )
+      |                                   ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_unique_name.hpp:15:46: note: expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME'
+   15 | #  define INTERNAL_CATCH_UNIQUE_NAME( name ) INTERNAL_CATCH_UNIQUE_NAME_LINE( name, __COUNTER__ )
+      |                                              ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_unique_name.hpp:13:55: note: expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME_LINE'
+   13 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE( name, line ) INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line )
+      |                                                       ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_unique_name.hpp:12:56: note: expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME_LINE2'
+   12 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line ) name##line
+      |                                                        ^
+note: expanded from here
+/home/runner/work/euphoria/euphoria/libs/base/src/base/quat.test.cc:212:1: warning: function 'CATCH2_INTERNAL_TEST_14' declared 'static', move to anonymous namespace instead [misc-use-anonymous-namespace]
+  212 | TEST_CASE("quat-verifyTestAxisAngle", "[quat]")
+      | ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/catch_test_macros.hpp:144:28: note: expanded from macro 'TEST_CASE'
+  144 |   #define TEST_CASE( ... ) INTERNAL_CATCH_TESTCASE( __VA_ARGS__ )
+      |                            ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_test_registry.hpp:118:35: note: expanded from macro 'INTERNAL_CATCH_TESTCASE'
+  118 |         INTERNAL_CATCH_TESTCASE2( INTERNAL_CATCH_UNIQUE_NAME( CATCH2_INTERNAL_TEST_ ), __VA_ARGS__ )
+      |                                   ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_unique_name.hpp:15:46: note: expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME'
+   15 | #  define INTERNAL_CATCH_UNIQUE_NAME( name ) INTERNAL_CATCH_UNIQUE_NAME_LINE( name, __COUNTER__ )
+      |                                              ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_unique_name.hpp:13:55: note: expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME_LINE'
+   13 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE( name, line ) INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line )
+      |                                                       ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_unique_name.hpp:12:56: note: expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME_LINE2'
+   12 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line ) name##line
+      |                                                        ^
+note: expanded from here
+/home/runner/work/euphoria/euphoria/libs/base/src/base/quat.test.cc:237:1: warning: function 'CATCH2_INTERNAL_TEST_16' declared 'static', move to anonymous namespace instead [misc-use-anonymous-namespace]
+  237 | TEST_CASE("quat-checkAxisAngle", "[quat]")
+      | ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/catch_test_macros.hpp:144:28: note: expanded from macro 'TEST_CASE'
+  144 |   #define TEST_CASE( ... ) INTERNAL_CATCH_TESTCASE( __VA_ARGS__ )
+      |                            ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_test_registry.hpp:118:35: note: expanded from macro 'INTERNAL_CATCH_TESTCASE'
+  118 |         INTERNAL_CATCH_TESTCASE2( INTERNAL_CATCH_UNIQUE_NAME( CATCH2_INTERNAL_TEST_ ), __VA_ARGS__ )
+      |                                   ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_unique_name.hpp:15:46: note: expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME'
+   15 | #  define INTERNAL_CATCH_UNIQUE_NAME( name ) INTERNAL_CATCH_UNIQUE_NAME_LINE( name, __COUNTER__ )
+      |                                              ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_unique_name.hpp:13:55: note: expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME_LINE'
+   13 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE( name, line ) INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line )
+      |                                                       ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_unique_name.hpp:12:56: note: expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME_LINE2'
+   12 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line ) name##line
+      |                                                        ^
+note: expanded from here
+/home/runner/work/euphoria/euphoria/libs/base/src/base/quat.test.cc:277:1: warning: function 'CATCH2_INTERNAL_TEST_18' declared 'static', move to anonymous namespace instead [misc-use-anonymous-namespace]
+  277 | TEST_CASE("quat-checkQuatConjugate", "[quat]")
+      | ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/catch_test_macros.hpp:144:28: note: expanded from macro 'TEST_CASE'
+  144 |   #define TEST_CASE( ... ) INTERNAL_CATCH_TESTCASE( __VA_ARGS__ )
+      |                            ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_test_registry.hpp:118:35: note: expanded from macro 'INTERNAL_CATCH_TESTCASE'
+  118 |         INTERNAL_CATCH_TESTCASE2( INTERNAL_CATCH_UNIQUE_NAME( CATCH2_INTERNAL_TEST_ ), __VA_ARGS__ )
+      |                                   ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_unique_name.hpp:15:46: note: expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME'
+   15 | #  define INTERNAL_CATCH_UNIQUE_NAME( name ) INTERNAL_CATCH_UNIQUE_NAME_LINE( name, __COUNTER__ )
+      |                                              ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_unique_name.hpp:13:55: note: expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME_LINE'
+   13 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE( name, line ) INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line )
+      |                                                       ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_unique_name.hpp:12:56: note: expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME_LINE2'
+   12 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line ) name##line
+      |                                                        ^
+note: expanded from here
+-->
+</body>
+</html>
