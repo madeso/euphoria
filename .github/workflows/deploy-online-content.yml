@@ -83,21 +83,40 @@ jobs:
           run: |
                 ctest -C ${{matrix.build_type}}
 
-        - name: Generate cobertura.xml and coveralls.json
+        - name: Print gcovr version
           shell: bash
           env:
                 COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_PROJECT_TOKEN }}
           working-directory: ${{github.workspace}}/build
-          run: |
-                echo "*** gcovr version ***"
-                gcovr --version
-                echo "*** run gcovr to cobertura***"
-                gcovr -v --root .. --cobertura cobertura.xml .
-                echo "*** run gcovr to coveralls ***"
-                gcovr -v --root ..  --coveralls coveralls.json
-                gcovr -v --root ..  --json-summary-pretty --json-summary json_summary.json
-                echo "*** run gcovr to html ***"
-                gcovr -v --root .. --html-theme github.blue --html-details ../docs/generated/coverage.html
+          run: gcovr --version
+
+        - name: Generate cobertura.xml
+          shell: bash
+          env:
+                COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_PROJECT_TOKEN }}
+          working-directory: ${{github.workspace}}/build
+          run: gcovr -v --root .. --cobertura cobertura.xml .
+
+        - name: Generate coveralls.json
+          shell: bash
+          env:
+                COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_PROJECT_TOKEN }}
+          working-directory: ${{github.workspace}}/build
+          run: gcovr -v --root ..  --coveralls coveralls.json
+
+        - name: Generate coverage summary
+          shell: bash
+          env:
+                COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_PROJECT_TOKEN }}
+          working-directory: ${{github.workspace}}/build
+          run: gcovr -v --root ..  --json-summary-pretty --json-summary json_summary.json
+
+        - name: Generate coverage html
+          shell: bash
+          env:
+                COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_PROJECT_TOKEN }}
+          working-directory: ${{github.workspace}}/build
+          run: gcovr -v --root .. --html-theme github.blue --html-details ../docs/generated/coverage.html
 
 
 
@@ -152,7 +171,9 @@ jobs:
 
         - name: Generate coverage badges
           if: github.ref == 'refs/heads/master' && (success() || failure())
-          run: dotnet run --project ./tools/buildtools/Workbench/ -- badge gcovr build/json_summary.json docs/generated/
+          run: |
+                dotnet run --project ./tools/buildtools/Workbench/ -- ls . --recursive
+                dotnet run --project ./tools/buildtools/Workbench/ -- badge gcovr build/json_summary.json docs/generated/
 
 
 
