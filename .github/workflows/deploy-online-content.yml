@@ -109,7 +109,7 @@ jobs:
           env:
                 COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_PROJECT_TOKEN }}
           working-directory: ${{github.workspace}}/build
-          run: gcovr -v --root ..  --json-summary-pretty --json-summary json_summary.json
+          run: gcovr -v --root ..  --json-summary-pretty --json-summary ../json_summary.json
 
         - name: Generate coverage html
           shell: bash
@@ -172,8 +172,8 @@ jobs:
         - name: Generate coverage badges
           if: github.ref == 'refs/heads/master' && (success() || failure())
           run: |
-                dotnet run --project ./tools/buildtools/Workbench/ -- ls . --recursive
-                dotnet run --project ./tools/buildtools/Workbench/ -- badge gcovr build/json_summary.json docs/generated/
+                dotnet run --project ./tools/buildtools/Workbench/ -- ls .
+                dotnet run --project ./tools/buildtools/Workbench/ -- badge gcovr json_summary.json docs/generated/
 
 
 
