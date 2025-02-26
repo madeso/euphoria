@@ -204,6 +204,7 @@ jobs:
 
         - name: Run Codacy Analysis CLI
           uses: codacy/codacy-analysis-cli-action@master
+          if: github.ref == 'refs/heads/master' && (success() || failure())
           with:
             project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
             upload: true
