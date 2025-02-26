@@ -189,6 +189,7 @@ jobs:
 
         - name: Upload coverage to Codecov
           uses: codecov/codecov-action@v2
+          if: github.ref == 'refs/heads/master' && (success() || failure())
           with:
             flags: ${{ runner.os }}
             name: ${{ runner.os }}-coverage
@@ -196,12 +197,14 @@ jobs:
 
         - name: Upload coverage to codacy
           uses: codacy/codacy-coverage-reporter-action@v1.3.0
+          if: github.ref == 'refs/heads/master' && (success() || failure())
           with:
             project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
             coverage-reports: ${{github.workspace}}/build/cobertura.xml
 
         - name: Upload coverage to coveralls via curl
           working-directory: ${{github.workspace}}/build
+          if: github.ref == 'refs/heads/master' && (success() || failure())
           shell: bash
           run: |
                 curl --form json_file=@coveralls.json https://coveralls.io/api/v1/jobs
