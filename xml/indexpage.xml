@@ -17,8 +17,8 @@
 <para>Euphoria is under heavy development, not ready for prime time, and the final product will be focused on live programming/automatic refresh between computer and target devices (that include computers) with a feature set that lies between love2d (do whatever you like) and fps game creator(restrictive but quick prototyping).</para>
 <sect3 id="index_1autotoc_md0">
 <title>Build status</title>
-<para><ulink url="https://github.com/madeso/euphoria/actions?query=workflow%3Awindows"><image type="html" name="https://github.com/madeso/euphoria/workflows/windows/badge.svg?branch=master" alt="windows" inline="yes"></image>
-</ulink> <ulink url="https://github.com/madeso/euphoria/actions?query=workflow%3Alinux"><image type="html" name="https://github.com/madeso/euphoria/workflows/linux/badge.svg?branch=master" alt="linux" inline="yes"></image>
+<para><ulink url="https://github.com/madeso/euphoria/actions/workflows/windows.yml"><image type="html" name="https://github.com/madeso/euphoria/actions/workflows/windows.yml/badge.svg" alt="windows" inline="yes"></image>
+</ulink> <ulink url="https://github.com/madeso/euphoria/actions/workflows/linux.yml"><image type="html" name="https://github.com/madeso/euphoria/actions/workflows/linux.yml/badge.svg" alt="linux" inline="yes"></image>
 </ulink> <ulink url="https://github.com/madeso/euphoria/actions/workflows/deploy-online-content.yml"><image type="html" name="https://github.com/madeso/euphoria/actions/workflows/deploy-online-content.yml/badge.svg" alt="deploy-online-content" inline="yes"></image>
 </ulink></para>
 </sect3>
@@ -45,7 +45,7 @@
 <para><itemizedlist>
 <listitem><para>There is a <ulink url="https://www.youtube.com/playlist?list=PLLZf3o2GDQ_iTb2AjfPWNMu0IPSetTOhx">youtube playlist here</ulink> that has small sample videos of some parts.</para>
 </listitem><listitem><para>Various screenshots what the engine can generate.</para>
-</listitem><listitem><para>For each commit, theere are a few <ulink url="https://i.madeso.me/euphoria/">html friendly things generated over here</ulink> such as doxygen, some color palettes and smaller tests for collision and debugging tools.</para>
+</listitem><listitem><para>For each commit, theere are a few <ulink url="https://madeso.github.io/euphoria/">html friendly things generated over here</ulink> such as doxygen, some color palettes and smaller tests for collision and debugging tools.</para>
 </listitem></itemizedlist>
 </para>
 </sect2>
