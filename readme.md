@@ -33,7 +33,7 @@ Euphoria is under heavy development, not ready for prime time, and the final pro
 
 * Various [screenshots](data/screenshots.md) what the engine can generate.
 
-* For each commit, theere are a few [html friendly things generated over here](https://i.madeso.me/euphoria/) such as doxygen, some color palettes and smaller tests for collision and debugging tools.
+* For each commit, theere are a few [html friendly things generated over here](https://madeso.github.io/euphoria/) such as doxygen, some color palettes and smaller tests for collision and debugging tools.
 
 
 ## About the code
