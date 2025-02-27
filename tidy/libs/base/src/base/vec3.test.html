@@ -1,0 +1,411 @@
+﻿<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+<title>libs/base/src/base/vec3.test.cc</title>
+</head>
+<body>
+<h1>libs/base/src/base/vec3.test.cc</h1>
+<hr>
+<h3>warning: function 'CATCH2_INTERNAL_TEST_0' declared 'static', move to anonymous namespace instead</h3>
+<code>[misc-use-anonymous-namespace]</code>
+<p><i>libs/base/src/base/vec3.test.cc 9 : 1</i></p>
+<pre>
+    9 | TEST_CASE("vec3-to-unit-test", "[vec3]")
+      | ^
+</pre>
+<p>expanded from macro 'TEST_CASE'</p>
+<p><i>build/_deps/catch2-src/src/catch2/catch_test_macros.hpp 144 : 28</i></p>
+<pre>
+  144 |   #define TEST_CASE( ... ) INTERNAL_CATCH_TESTCASE( __VA_ARGS__ )
+      |                            ^
+</pre>
+<p>expanded from macro 'INTERNAL_CATCH_TESTCASE'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_test_registry.hpp 118 : 35</i></p>
+<pre>
+  118 |         INTERNAL_CATCH_TESTCASE2( INTERNAL_CATCH_UNIQUE_NAME( CATCH2_INTERNAL_TEST_ ), __VA_ARGS__ )
+      |                                   ^
+</pre>
+<p>expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_name.hpp 15 : 46</i></p>
+<pre>
+   15 | #  define INTERNAL_CATCH_UNIQUE_NAME( name ) INTERNAL_CATCH_UNIQUE_NAME_LINE( name, __COUNTER__ )
+      |                                              ^
+</pre>
+<p>expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME_LINE'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_name.hpp 13 : 55</i></p>
+<pre>
+   13 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE( name, line ) INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line )
+      |                                                       ^
+</pre>
+<p>expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME_LINE2'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_name.hpp 12 : 56</i></p>
+<pre>
+   12 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line ) name##line
+      |                                                        ^
+</pre>
+<hr>
+<h3>warning: function 'CATCH2_INTERNAL_TEST_2' declared 'static', move to anonymous namespace instead</h3>
+<code>[misc-use-anonymous-namespace]</code>
+<p><i>libs/base/src/base/vec3.test.cc 16 : 1</i></p>
+<pre>
+   16 | TEST_CASE("vec3-axis_test", "[vec3]")
+      | ^
+</pre>
+<p>expanded from macro 'TEST_CASE'</p>
+<p><i>build/_deps/catch2-src/src/catch2/catch_test_macros.hpp 144 : 28</i></p>
+<pre>
+  144 |   #define TEST_CASE( ... ) INTERNAL_CATCH_TESTCASE( __VA_ARGS__ )
+      |                            ^
+</pre>
+<p>expanded from macro 'INTERNAL_CATCH_TESTCASE'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_test_registry.hpp 118 : 35</i></p>
+<pre>
+  118 |         INTERNAL_CATCH_TESTCASE2( INTERNAL_CATCH_UNIQUE_NAME( CATCH2_INTERNAL_TEST_ ), __VA_ARGS__ )
+      |                                   ^
+</pre>
+<p>expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_name.hpp 15 : 46</i></p>
+<pre>
+   15 | #  define INTERNAL_CATCH_UNIQUE_NAME( name ) INTERNAL_CATCH_UNIQUE_NAME_LINE( name, __COUNTER__ )
+      |                                              ^
+</pre>
+<p>expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME_LINE'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_name.hpp 13 : 55</i></p>
+<pre>
+   13 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE( name, line ) INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line )
+      |                                                       ^
+</pre>
+<p>expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME_LINE2'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_name.hpp 12 : 56</i></p>
+<pre>
+   12 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line ) name##line
+      |                                                        ^
+</pre>
+<hr>
+<h3>warning: function 'CATCH2_INTERNAL_TEST_4' declared 'static', move to anonymous namespace instead</h3>
+<code>[misc-use-anonymous-namespace]</code>
+<p><i>libs/base/src/base/vec3.test.cc 23 : 1</i></p>
+<pre>
+   23 | TEST_CASE("vec3-constructor_same", "[vec3]")
+      | ^
+</pre>
+<p>expanded from macro 'TEST_CASE'</p>
+<p><i>build/_deps/catch2-src/src/catch2/catch_test_macros.hpp 144 : 28</i></p>
+<pre>
+  144 |   #define TEST_CASE( ... ) INTERNAL_CATCH_TESTCASE( __VA_ARGS__ )
+      |                            ^
+</pre>
+<p>expanded from macro 'INTERNAL_CATCH_TESTCASE'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_test_registry.hpp 118 : 35</i></p>
+<pre>
+  118 |         INTERNAL_CATCH_TESTCASE2( INTERNAL_CATCH_UNIQUE_NAME( CATCH2_INTERNAL_TEST_ ), __VA_ARGS__ )
+      |                                   ^
+</pre>
+<p>expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_name.hpp 15 : 46</i></p>
+<pre>
+   15 | #  define INTERNAL_CATCH_UNIQUE_NAME( name ) INTERNAL_CATCH_UNIQUE_NAME_LINE( name, __COUNTER__ )
+      |                                              ^
+</pre>
+<p>expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME_LINE'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_name.hpp 13 : 55</i></p>
+<pre>
+   13 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE( name, line ) INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line )
+      |                                                       ^
+</pre>
+<p>expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME_LINE2'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_name.hpp 12 : 56</i></p>
+<pre>
+   12 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line ) name##line
+      |                                                        ^
+</pre>
+<hr>
+<h3>warning: function 'CATCH2_INTERNAL_TEST_6' declared 'static', move to anonymous namespace instead</h3>
+<code>[misc-use-anonymous-namespace]</code>
+<p><i>libs/base/src/base/vec3.test.cc 31 : 1</i></p>
+<pre>
+   31 | TEST_CASE("vec3-constructor_unique", "[vec3]")
+      | ^
+</pre>
+<p>expanded from macro 'TEST_CASE'</p>
+<p><i>build/_deps/catch2-src/src/catch2/catch_test_macros.hpp 144 : 28</i></p>
+<pre>
+  144 |   #define TEST_CASE( ... ) INTERNAL_CATCH_TESTCASE( __VA_ARGS__ )
+      |                            ^
+</pre>
+<p>expanded from macro 'INTERNAL_CATCH_TESTCASE'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_test_registry.hpp 118 : 35</i></p>
+<pre>
+  118 |         INTERNAL_CATCH_TESTCASE2( INTERNAL_CATCH_UNIQUE_NAME( CATCH2_INTERNAL_TEST_ ), __VA_ARGS__ )
+      |                                   ^
+</pre>
+<p>expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_name.hpp 15 : 46</i></p>
+<pre>
+   15 | #  define INTERNAL_CATCH_UNIQUE_NAME( name ) INTERNAL_CATCH_UNIQUE_NAME_LINE( name, __COUNTER__ )
+      |                                              ^
+</pre>
+<p>expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME_LINE'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_name.hpp 13 : 55</i></p>
+<pre>
+   13 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE( name, line ) INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line )
+      |                                                       ^
+</pre>
+<p>expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME_LINE2'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_name.hpp 12 : 56</i></p>
+<pre>
+   12 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line ) name##line
+      |                                                        ^
+</pre>
+<hr>
+<h3>warning: function 'CATCH2_INTERNAL_TEST_8' declared 'static', move to anonymous namespace instead</h3>
+<code>[misc-use-anonymous-namespace]</code>
+<p><i>libs/base/src/base/vec3.test.cc 39 : 1</i></p>
+<pre>
+   39 | TEST_CASE("vec3-equal", "[vec3]")
+      | ^
+</pre>
+<p>expanded from macro 'TEST_CASE'</p>
+<p><i>build/_deps/catch2-src/src/catch2/catch_test_macros.hpp 144 : 28</i></p>
+<pre>
+  144 |   #define TEST_CASE( ... ) INTERNAL_CATCH_TESTCASE( __VA_ARGS__ )
+      |                            ^
+</pre>
+<p>expanded from macro 'INTERNAL_CATCH_TESTCASE'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_test_registry.hpp 118 : 35</i></p>
+<pre>
+  118 |         INTERNAL_CATCH_TESTCASE2( INTERNAL_CATCH_UNIQUE_NAME( CATCH2_INTERNAL_TEST_ ), __VA_ARGS__ )
+      |                                   ^
+</pre>
+<p>expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_name.hpp 15 : 46</i></p>
+<pre>
+   15 | #  define INTERNAL_CATCH_UNIQUE_NAME( name ) INTERNAL_CATCH_UNIQUE_NAME_LINE( name, __COUNTER__ )
+      |                                              ^
+</pre>
+<p>expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME_LINE'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_name.hpp 13 : 55</i></p>
+<pre>
+   13 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE( name, line ) INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line )
+      |                                                       ^
+</pre>
+<p>expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME_LINE2'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_name.hpp 12 : 56</i></p>
+<pre>
+   12 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line ) name##line
+      |                                                        ^
+</pre>
+<hr>
+<h3>warning: function 'CATCH2_INTERNAL_TEST_10' declared 'static', move to anonymous namespace instead</h3>
+<code>[misc-use-anonymous-namespace]</code>
+<p><i>libs/base/src/base/vec3.test.cc 45 : 1</i></p>
+<pre>
+   45 | TEST_CASE("vec3-neg_test", "[vec3]")
+      | ^
+</pre>
+<p>expanded from macro 'TEST_CASE'</p>
+<p><i>build/_deps/catch2-src/src/catch2/catch_test_macros.hpp 144 : 28</i></p>
+<pre>
+  144 |   #define TEST_CASE( ... ) INTERNAL_CATCH_TESTCASE( __VA_ARGS__ )
+      |                            ^
+</pre>
+<p>expanded from macro 'INTERNAL_CATCH_TESTCASE'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_test_registry.hpp 118 : 35</i></p>
+<pre>
+  118 |         INTERNAL_CATCH_TESTCASE2( INTERNAL_CATCH_UNIQUE_NAME( CATCH2_INTERNAL_TEST_ ), __VA_ARGS__ )
+      |                                   ^
+</pre>
+<p>expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_name.hpp 15 : 46</i></p>
+<pre>
+   15 | #  define INTERNAL_CATCH_UNIQUE_NAME( name ) INTERNAL_CATCH_UNIQUE_NAME_LINE( name, __COUNTER__ )
+      |                                              ^
+</pre>
+<p>expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME_LINE'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_name.hpp 13 : 55</i></p>
+<pre>
+   13 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE( name, line ) INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line )
+      |                                                       ^
+</pre>
+<p>expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME_LINE2'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_name.hpp 12 : 56</i></p>
+<pre>
+   12 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line ) name##line
+      |                                                        ^
+</pre>
+<hr>
+<h3>warning: function 'CATCH2_INTERNAL_TEST_12' declared 'static', move to anonymous namespace instead</h3>
+<code>[misc-use-anonymous-namespace]</code>
+<p><i>libs/base/src/base/vec3.test.cc 52 : 1</i></p>
+<pre>
+   52 | TEST_CASE("vec3-from_to", "[vec3]")
+      | ^
+</pre>
+<p>expanded from macro 'TEST_CASE'</p>
+<p><i>build/_deps/catch2-src/src/catch2/catch_test_macros.hpp 144 : 28</i></p>
+<pre>
+  144 |   #define TEST_CASE( ... ) INTERNAL_CATCH_TESTCASE( __VA_ARGS__ )
+      |                            ^
+</pre>
+<p>expanded from macro 'INTERNAL_CATCH_TESTCASE'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_test_registry.hpp 118 : 35</i></p>
+<pre>
+  118 |         INTERNAL_CATCH_TESTCASE2( INTERNAL_CATCH_UNIQUE_NAME( CATCH2_INTERNAL_TEST_ ), __VA_ARGS__ )
+      |                                   ^
+</pre>
+<p>expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_name.hpp 15 : 46</i></p>
+<pre>
+   15 | #  define INTERNAL_CATCH_UNIQUE_NAME( name ) INTERNAL_CATCH_UNIQUE_NAME_LINE( name, __COUNTER__ )
+      |                                              ^
+</pre>
+<p>expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME_LINE'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_name.hpp 13 : 55</i></p>
+<pre>
+   13 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE( name, line ) INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line )
+      |                                                       ^
+</pre>
+<p>expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME_LINE2'</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_name.hpp 12 : 56</i></p>
+<pre>
+   12 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line ) name##line
+      |                                                        ^
+</pre>
+<!--
+/home/runner/work/euphoria/euphoria/libs/base/src/base/vec3.test.cc:9:1: warning: function 'CATCH2_INTERNAL_TEST_0' declared 'static', move to anonymous namespace instead [misc-use-anonymous-namespace]
+    9 | TEST_CASE("vec3-to-unit-test", "[vec3]")
+      | ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/catch_test_macros.hpp:144:28: note: expanded from macro 'TEST_CASE'
+  144 |   #define TEST_CASE( ... ) INTERNAL_CATCH_TESTCASE( __VA_ARGS__ )
+      |                            ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_test_registry.hpp:118:35: note: expanded from macro 'INTERNAL_CATCH_TESTCASE'
+  118 |         INTERNAL_CATCH_TESTCASE2( INTERNAL_CATCH_UNIQUE_NAME( CATCH2_INTERNAL_TEST_ ), __VA_ARGS__ )
+      |                                   ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_unique_name.hpp:15:46: note: expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME'
+   15 | #  define INTERNAL_CATCH_UNIQUE_NAME( name ) INTERNAL_CATCH_UNIQUE_NAME_LINE( name, __COUNTER__ )
+      |                                              ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_unique_name.hpp:13:55: note: expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME_LINE'
+   13 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE( name, line ) INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line )
+      |                                                       ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_unique_name.hpp:12:56: note: expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME_LINE2'
+   12 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line ) name##line
+      |                                                        ^
+note: expanded from here
+/home/runner/work/euphoria/euphoria/libs/base/src/base/vec3.test.cc:16:1: warning: function 'CATCH2_INTERNAL_TEST_2' declared 'static', move to anonymous namespace instead [misc-use-anonymous-namespace]
+   16 | TEST_CASE("vec3-axis_test", "[vec3]")
+      | ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/catch_test_macros.hpp:144:28: note: expanded from macro 'TEST_CASE'
+  144 |   #define TEST_CASE( ... ) INTERNAL_CATCH_TESTCASE( __VA_ARGS__ )
+      |                            ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_test_registry.hpp:118:35: note: expanded from macro 'INTERNAL_CATCH_TESTCASE'
+  118 |         INTERNAL_CATCH_TESTCASE2( INTERNAL_CATCH_UNIQUE_NAME( CATCH2_INTERNAL_TEST_ ), __VA_ARGS__ )
+      |                                   ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_unique_name.hpp:15:46: note: expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME'
+   15 | #  define INTERNAL_CATCH_UNIQUE_NAME( name ) INTERNAL_CATCH_UNIQUE_NAME_LINE( name, __COUNTER__ )
+      |                                              ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_unique_name.hpp:13:55: note: expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME_LINE'
+   13 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE( name, line ) INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line )
+      |                                                       ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_unique_name.hpp:12:56: note: expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME_LINE2'
+   12 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line ) name##line
+      |                                                        ^
+note: expanded from here
+/home/runner/work/euphoria/euphoria/libs/base/src/base/vec3.test.cc:23:1: warning: function 'CATCH2_INTERNAL_TEST_4' declared 'static', move to anonymous namespace instead [misc-use-anonymous-namespace]
+   23 | TEST_CASE("vec3-constructor_same", "[vec3]")
+      | ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/catch_test_macros.hpp:144:28: note: expanded from macro 'TEST_CASE'
+  144 |   #define TEST_CASE( ... ) INTERNAL_CATCH_TESTCASE( __VA_ARGS__ )
+      |                            ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_test_registry.hpp:118:35: note: expanded from macro 'INTERNAL_CATCH_TESTCASE'
+  118 |         INTERNAL_CATCH_TESTCASE2( INTERNAL_CATCH_UNIQUE_NAME( CATCH2_INTERNAL_TEST_ ), __VA_ARGS__ )
+      |                                   ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_unique_name.hpp:15:46: note: expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME'
+   15 | #  define INTERNAL_CATCH_UNIQUE_NAME( name ) INTERNAL_CATCH_UNIQUE_NAME_LINE( name, __COUNTER__ )
+      |                                              ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_unique_name.hpp:13:55: note: expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME_LINE'
+   13 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE( name, line ) INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line )
+      |                                                       ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_unique_name.hpp:12:56: note: expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME_LINE2'
+   12 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line ) name##line
+      |                                                        ^
+note: expanded from here
+/home/runner/work/euphoria/euphoria/libs/base/src/base/vec3.test.cc:31:1: warning: function 'CATCH2_INTERNAL_TEST_6' declared 'static', move to anonymous namespace instead [misc-use-anonymous-namespace]
+   31 | TEST_CASE("vec3-constructor_unique", "[vec3]")
+      | ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/catch_test_macros.hpp:144:28: note: expanded from macro 'TEST_CASE'
+  144 |   #define TEST_CASE( ... ) INTERNAL_CATCH_TESTCASE( __VA_ARGS__ )
+      |                            ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_test_registry.hpp:118:35: note: expanded from macro 'INTERNAL_CATCH_TESTCASE'
+  118 |         INTERNAL_CATCH_TESTCASE2( INTERNAL_CATCH_UNIQUE_NAME( CATCH2_INTERNAL_TEST_ ), __VA_ARGS__ )
+      |                                   ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_unique_name.hpp:15:46: note: expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME'
+   15 | #  define INTERNAL_CATCH_UNIQUE_NAME( name ) INTERNAL_CATCH_UNIQUE_NAME_LINE( name, __COUNTER__ )
+      |                                              ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_unique_name.hpp:13:55: note: expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME_LINE'
+   13 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE( name, line ) INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line )
+      |                                                       ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_unique_name.hpp:12:56: note: expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME_LINE2'
+   12 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line ) name##line
+      |                                                        ^
+note: expanded from here
+/home/runner/work/euphoria/euphoria/libs/base/src/base/vec3.test.cc:39:1: warning: function 'CATCH2_INTERNAL_TEST_8' declared 'static', move to anonymous namespace instead [misc-use-anonymous-namespace]
+   39 | TEST_CASE("vec3-equal", "[vec3]")
+      | ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/catch_test_macros.hpp:144:28: note: expanded from macro 'TEST_CASE'
+  144 |   #define TEST_CASE( ... ) INTERNAL_CATCH_TESTCASE( __VA_ARGS__ )
+      |                            ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_test_registry.hpp:118:35: note: expanded from macro 'INTERNAL_CATCH_TESTCASE'
+  118 |         INTERNAL_CATCH_TESTCASE2( INTERNAL_CATCH_UNIQUE_NAME( CATCH2_INTERNAL_TEST_ ), __VA_ARGS__ )
+      |                                   ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_unique_name.hpp:15:46: note: expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME'
+   15 | #  define INTERNAL_CATCH_UNIQUE_NAME( name ) INTERNAL_CATCH_UNIQUE_NAME_LINE( name, __COUNTER__ )
+      |                                              ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_unique_name.hpp:13:55: note: expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME_LINE'
+   13 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE( name, line ) INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line )
+      |                                                       ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_unique_name.hpp:12:56: note: expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME_LINE2'
+   12 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line ) name##line
+      |                                                        ^
+note: expanded from here
+/home/runner/work/euphoria/euphoria/libs/base/src/base/vec3.test.cc:45:1: warning: function 'CATCH2_INTERNAL_TEST_10' declared 'static', move to anonymous namespace instead [misc-use-anonymous-namespace]
+   45 | TEST_CASE("vec3-neg_test", "[vec3]")
+      | ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/catch_test_macros.hpp:144:28: note: expanded from macro 'TEST_CASE'
+  144 |   #define TEST_CASE( ... ) INTERNAL_CATCH_TESTCASE( __VA_ARGS__ )
+      |                            ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_test_registry.hpp:118:35: note: expanded from macro 'INTERNAL_CATCH_TESTCASE'
+  118 |         INTERNAL_CATCH_TESTCASE2( INTERNAL_CATCH_UNIQUE_NAME( CATCH2_INTERNAL_TEST_ ), __VA_ARGS__ )
+      |                                   ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_unique_name.hpp:15:46: note: expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME'
+   15 | #  define INTERNAL_CATCH_UNIQUE_NAME( name ) INTERNAL_CATCH_UNIQUE_NAME_LINE( name, __COUNTER__ )
+      |                                              ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_unique_name.hpp:13:55: note: expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME_LINE'
+   13 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE( name, line ) INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line )
+      |                                                       ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_unique_name.hpp:12:56: note: expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME_LINE2'
+   12 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line ) name##line
+      |                                                        ^
+note: expanded from here
+/home/runner/work/euphoria/euphoria/libs/base/src/base/vec3.test.cc:52:1: warning: function 'CATCH2_INTERNAL_TEST_12' declared 'static', move to anonymous namespace instead [misc-use-anonymous-namespace]
+   52 | TEST_CASE("vec3-from_to", "[vec3]")
+      | ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/catch_test_macros.hpp:144:28: note: expanded from macro 'TEST_CASE'
+  144 |   #define TEST_CASE( ... ) INTERNAL_CATCH_TESTCASE( __VA_ARGS__ )
+      |                            ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_test_registry.hpp:118:35: note: expanded from macro 'INTERNAL_CATCH_TESTCASE'
+  118 |         INTERNAL_CATCH_TESTCASE2( INTERNAL_CATCH_UNIQUE_NAME( CATCH2_INTERNAL_TEST_ ), __VA_ARGS__ )
+      |                                   ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_unique_name.hpp:15:46: note: expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME'
+   15 | #  define INTERNAL_CATCH_UNIQUE_NAME( name ) INTERNAL_CATCH_UNIQUE_NAME_LINE( name, __COUNTER__ )
+      |                                              ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_unique_name.hpp:13:55: note: expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME_LINE'
+   13 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE( name, line ) INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line )
+      |                                                       ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_unique_name.hpp:12:56: note: expanded from macro 'INTERNAL_CATCH_UNIQUE_NAME_LINE2'
+   12 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line ) name##line
+      |                                                        ^
+note: expanded from here
+-->
+</body>
+</html>
