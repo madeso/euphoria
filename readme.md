@@ -1,14 +1,24 @@
 ![euphoria logo](data/branding/euphoria-logo-1280.png)
 
+### Build status
 [![windows](https://github.com/madeso/euphoria/workflows/windows/badge.svg?branch=master)](https://github.com/madeso/euphoria/actions?query=workflow%3Awindows)
 [![linux](https://github.com/madeso/euphoria/workflows/linux/badge.svg?branch=master)](https://github.com/madeso/euphoria/actions?query=workflow%3Alinux)
 [![deploy-online-content](https://github.com/madeso/euphoria/actions/workflows/deploy-online-content.yml/badge.svg)](https://github.com/madeso/euphoria/actions/workflows/deploy-online-content.yml)
 
+### Code status
 [![run-style-checks](https://github.com/madeso/euphoria/actions/workflows/run-style-checks.yml/badge.svg)](https://github.com/madeso/euphoria/actions/workflows/run-style-checks.yml)
 [![run-cppcheck](https://github.com/madeso/euphoria/actions/workflows/run-cppcheck.yml/badge.svg)](https://github.com/madeso/euphoria/actions/workflows/run-cppcheck.yml)
 [![run-cpplint](https://github.com/madeso/euphoria/actions/workflows/run-cpplint.yml/badge.svg)](https://github.com/madeso/euphoria/actions/workflows/run-cpplint.yml)
 
-[![codecov](https://codecov.io/gh/madeso/euphoria/branch/master/graph/badge.svg?token=V9K2H0U03G)](https://codecov.io/gh/madeso/euphoria) [![Coverage Status](https://coveralls.io/repos/github/madeso/euphoria/badge.svg?branch=master)](https://coveralls.io/github/madeso/euphoria?branch=master)
+### [Test coverage](https://madeso.github.io/euphoria/coverage.html)
+
+![line coverage in percentage](https://madeso.github.io/euphoria/line_percentage.svg)
+![function coverage in percentage](https://madeso.github.io/euphoria/function_percentage.svg)
+![branch coverage in percentage](https://madeso.github.io/euphoria/branch_percentage.svg)
+
+![line coverage](https://madeso.github.io/euphoria/line.svg)
+![function coverage](https://madeso.github.io/euphoria/function.svg)
+![branch coverage](https://madeso.github.io/euphoria/branch.svg)
 
 Euphoria is a data-driven "game engine". It's in quotes because
 

@@ -59,5 +59,3 @@ docs/generated/tidy/
 docs/generated/coverage.*
 docs/generated/*.svg
 json_summary.json
-coveralls.json
-cobertura.xml
