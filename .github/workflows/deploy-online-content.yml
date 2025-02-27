@@ -195,21 +195,6 @@ jobs:
             name: ${{ runner.os }}-coverage
             files: ${{github.workspace}}/cobertura.xml
 
-        - name: Upload coverage to codacy
-          uses: codacy/codacy-coverage-reporter-action@v1.3.0
-          if: github.ref == 'refs/heads/master' && (success() || failure())
-          with:
-            project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
-            coverage-reports: ${{github.workspace}}/cobertura.xml
-
-        - name: Run Codacy Analysis CLI
-          uses: codacy/codacy-analysis-cli-action@master
-          if: github.ref == 'refs/heads/master' && (success() || failure())
-          with:
-            project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
-            upload: true
-            max-allowed-issues: 2147483647
-
         - name: Upload coverage to coveralls via curl
           working-directory: ${{github.workspace}}/
           if: github.ref == 'refs/heads/master' && (success() || failure())
