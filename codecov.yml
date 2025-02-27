@@ -1,16 +1,5 @@
 {
     "ignore":
     [
-        "apps/",
-        "external/",
-        "libs/assert/",
-        "libs/core/examples/",
-        "libs/files/",
-        "libs/gui/",
-        "libs/io/",
-        "libs/log/",
-        "libs/render/",
-        "libs/tests/",
-        "libs/window/"
     ]
 }
