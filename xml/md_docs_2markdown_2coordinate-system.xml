@@ -6,7 +6,7 @@
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-<para><anchor id="md_docs_2markdown_2coordinate-system_1autotoc_md3"/> Euphoria works accordiing to the following coordinate system</para>
+<para><anchor id="md_docs_2markdown_2coordinate-system_1autotoc_md6"/> Euphoria works accordiing to the following coordinate system</para>
 <para><itemizedlist>
 <listitem><para><computeroutput>(0,0)</computeroutput> is lower left</para>
 </listitem><listitem><para>x-axis is positive right</para>

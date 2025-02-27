@@ -44,28 +44,35 @@
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p><a class="anchor" id="md_readme"></a> <img src="data/branding/euphoria-logo-1280.png" alt="euphoria logo" class="inline"/></p>
-<p><a href="https://github.com/madeso/euphoria/actions?query=workflow%3Awindows"><img src="https://github.com/madeso/euphoria/workflows/windows/badge.svg?branch=master" alt="windows" style="pointer-events: none;" class="inline"/></a> <a href="https://github.com/madeso/euphoria/actions?query=workflow%3Alinux"><img src="https://github.com/madeso/euphoria/workflows/linux/badge.svg?branch=master" alt="linux" style="pointer-events: none;" class="inline"/></a> <a href="https://github.com/madeso/euphoria/actions/workflows/deploy-online-content.yml"><img src="https://github.com/madeso/euphoria/actions/workflows/deploy-online-content.yml/badge.svg" alt="deploy-online-content" style="pointer-events: none;" class="inline"/></a></p>
-<p><a href="https://github.com/madeso/euphoria/actions/workflows/run-style-checks.yml"><img src="https://github.com/madeso/euphoria/actions/workflows/run-style-checks.yml/badge.svg" alt="run-style-checks" style="pointer-events: none;" class="inline"/></a> <a href="https://github.com/madeso/euphoria/actions/workflows/run-cppcheck.yml"><img src="https://github.com/madeso/euphoria/actions/workflows/run-cppcheck.yml/badge.svg" alt="run-cppcheck" style="pointer-events: none;" class="inline"/></a> <a href="https://github.com/madeso/euphoria/actions/workflows/run-cpplint.yml"><img src="https://github.com/madeso/euphoria/actions/workflows/run-cpplint.yml/badge.svg" alt="run-cpplint" style="pointer-events: none;" class="inline"/></a></p>
-<p><a href="https://codecov.io/gh/madeso/euphoria"><img src="https://codecov.io/gh/madeso/euphoria/branch/master/graph/badge.svg?token=V9K2H0U03G" alt="codecov" style="pointer-events: none;" class="inline"/></a> <a href="https://coveralls.io/github/madeso/euphoria?branch=master"><img src="https://coveralls.io/repos/github/madeso/euphoria/badge.svg?branch=master" alt="Coverage Status" style="pointer-events: none;" class="inline"/></a></p>
 <p>Euphoria is a data-driven "game engine". It's in quotes because</p>
 <ol type="1">
 <li>the term "engine" is really vague.</li>
 <li>it also contains other things that aren't related to game engine at all (like csv import and a non-realtime ray tracer)</li>
 </ol>
 <p>Euphoria is under heavy development, not ready for prime time, and the final product will be focused on live programming/automatic refresh between computer and target devices (that include computers) with a feature set that lies between love2d (do whatever you like) and fps game creator(restrictive but quick prototyping).</p>
-<h2><a class="anchor" id="autotoc_md0"></a>
+<h3><a class="anchor" id="autotoc_md0"></a>
+Build status</h3>
+<p><a href="https://github.com/madeso/euphoria/actions?query=workflow%3Awindows"><img src="https://github.com/madeso/euphoria/workflows/windows/badge.svg?branch=master" alt="windows" style="pointer-events: none;" class="inline"/></a> <a href="https://github.com/madeso/euphoria/actions?query=workflow%3Alinux"><img src="https://github.com/madeso/euphoria/workflows/linux/badge.svg?branch=master" alt="linux" style="pointer-events: none;" class="inline"/></a> <a href="https://github.com/madeso/euphoria/actions/workflows/deploy-online-content.yml"><img src="https://github.com/madeso/euphoria/actions/workflows/deploy-online-content.yml/badge.svg" alt="deploy-online-content" style="pointer-events: none;" class="inline"/></a></p>
+<h3><a class="anchor" id="autotoc_md1"></a>
+Code status</h3>
+<p><a href="https://github.com/madeso/euphoria/actions/workflows/run-style-checks.yml"><img src="https://github.com/madeso/euphoria/actions/workflows/run-style-checks.yml/badge.svg" alt="run-style-checks" style="pointer-events: none;" class="inline"/></a> <a href="https://github.com/madeso/euphoria/actions/workflows/run-cppcheck.yml"><img src="https://github.com/madeso/euphoria/actions/workflows/run-cppcheck.yml/badge.svg" alt="run-cppcheck" style="pointer-events: none;" class="inline"/></a> <a href="https://github.com/madeso/euphoria/actions/workflows/run-cpplint.yml"><img src="https://github.com/madeso/euphoria/actions/workflows/run-cpplint.yml/badge.svg" alt="run-cpplint" style="pointer-events: none;" class="inline"/></a></p>
+<h3><a class="anchor" id="autotoc_md2"></a>
+&lt;a href="https://madeso.github.io/euphoria/coverage.html" &gt;Test coverage&lt;/a&gt;</h3>
+<p><img src="https://madeso.github.io/euphoria/line_percentage.svg" alt="line coverage in percentage" style="pointer-events: none;" class="inline"/> <img src="https://madeso.github.io/euphoria/function_percentage.svg" alt="function coverage in percentage" style="pointer-events: none;" class="inline"/> <img src="https://madeso.github.io/euphoria/branch_percentage.svg" alt="branch coverage in percentage" style="pointer-events: none;" class="inline"/></p>
+<p><img src="https://madeso.github.io/euphoria/line.svg" alt="line coverage" style="pointer-events: none;" class="inline"/> <img src="https://madeso.github.io/euphoria/function.svg" alt="function coverage" style="pointer-events: none;" class="inline"/> <img src="https://madeso.github.io/euphoria/branch.svg" alt="branch coverage" style="pointer-events: none;" class="inline"/></p>
+<h2><a class="anchor" id="autotoc_md3"></a>
 Demos</h2>
 <ul>
 <li>There is a <a href="https://www.youtube.com/playlist?list=PLLZf3o2GDQ_iTb2AjfPWNMu0IPSetTOhx">youtube playlist here</a> that has small sample videos of some parts.</li>
 <li>Various screenshots what the engine can generate.</li>
 <li>For each commit, theere are a few <a href="https://i.madeso.me/euphoria/">html friendly things generated over here</a> such as doxygen, some color palettes and smaller tests for collision and debugging tools.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md1"></a>
+<h2><a class="anchor" id="autotoc_md4"></a>
 About the code</h2>
 <p>The folder structure should follow the <a href="https://github.com/vector-of-bool/pitchfork">pitchfork layout</a>. <code>graveyard</code> contains old code that could be brought back to life but should more or less be considered deleted.</p>
 <p><img src="./docs/euphoria.excalidraw.svg" alt="project layout" style="pointer-events: none;" class="inline"/></p>
 <p>All names should follow <code>snake_case</code>, both for variables, members, functions and files. The only exception are C++ macros that should follow <code>SHOUTING_SNAKE_CASE</code> and structs &amp; template arguments that should follow <code>PascalCase</code>.</p>
-<h2><a class="anchor" id="autotoc_md2"></a>
+<h2><a class="anchor" id="autotoc_md5"></a>
 Naming guidelines</h2>
 <ul>
 <li>Prefer to name function after what is returns, not the algorithm (<code>get_sorted</code> or <code>sort_inplace</code> vs <code>quicksort</code>).</li>
