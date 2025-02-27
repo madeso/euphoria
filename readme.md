@@ -1,5 +1,12 @@
 ![euphoria logo](data/branding/euphoria-logo-1280.png)
 
+Euphoria is a data-driven "game engine". It's in quotes because
+
+1. the term "engine" is really vague.
+2. it also contains other things that aren't related to game engine at all (like csv import and a non-realtime ray tracer)
+
+Euphoria is under heavy development, not ready for prime time, and the final product will be focused on live programming/automatic refresh between computer and target devices (that include computers) with a feature set that lies between love2d (do whatever you like) and fps game creator(restrictive but quick prototyping).
+
 ### Build status
 [![windows](https://github.com/madeso/euphoria/workflows/windows/badge.svg?branch=master)](https://github.com/madeso/euphoria/actions?query=workflow%3Awindows)
 [![linux](https://github.com/madeso/euphoria/workflows/linux/badge.svg?branch=master)](https://github.com/madeso/euphoria/actions?query=workflow%3Alinux)
@@ -19,13 +26,6 @@
 ![line coverage](https://madeso.github.io/euphoria/line.svg)
 ![function coverage](https://madeso.github.io/euphoria/function.svg)
 ![branch coverage](https://madeso.github.io/euphoria/branch.svg)
-
-Euphoria is a data-driven "game engine". It's in quotes because
-
-1. the term "engine" is really vague.
-2. it also contains other things that aren't related to game engine at all (like csv import and a non-realtime ray tracer)
-
-Euphoria is under heavy development, not ready for prime time, and the final product will be focused on live programming/automatic refresh between computer and target devices (that include computers) with a feature set that lies between love2d (do whatever you like) and fps game creator(restrictive but quick prototyping).
 
 
 ## Demos
