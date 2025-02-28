@@ -11,13 +11,13 @@
 <code>[readability-avoid-nested-conditional-operator]</code>
 <p><i>libs/base/src/base/angle.cc 194 : 15</i></p>
 <pre>
-  194 |             : dtheta < -half_turn
+  194 |             : dtheta &lt; -half_turn
       |               ^
 </pre>
 <p>parent conditional operator here</p>
 <p><i>libs/base/src/base/angle.cc 192 : 31</i></p>
 <pre>
-  192 |         const auto new_from = dtheta > half_turn
+  192 |         const auto new_from = dtheta &gt; half_turn
       |                               ^
 </pre>
 <!--
