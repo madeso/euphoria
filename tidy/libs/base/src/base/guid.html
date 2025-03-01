@@ -6,18 +6,18 @@
 </head>
 <body>
 <h1>libs/base/src/base/guid.cc</h1>
+<span id='readability-identifier-length'>&nbsp;</span>
 <hr>
 <h3>warning: loop variable name &#39;i&#39; is too short, expected at least 2 characters</h3>
-<span id='readability-identifier-length'>&nbsp;</span>
 <code>[readability-identifier-length]</code>
 <p><i>libs/base/src/base/guid.cc 56 : 17</i></p>
 <pre>
    56 |         for(int i=0; i&lt;16; i+=1)
       |                 ^
 </pre>
+<span id='readability-braces-around-statements'>&nbsp;</span>
 <hr>
 <h3>warning: statement should be inside braces</h3>
-<span id='readability-braces-around-statements'>&nbsp;</span>
 <code>[readability-braces-around-statements]</code>
 <p><i>libs/base/src/base/guid.cc 58 : 43</i></p>
 <pre>
@@ -25,9 +25,9 @@
       |                                           ^             
       |                                            {
 </pre>
+<span id='modernize-use-nodiscard'>&nbsp;</span>
 <hr>
 <h3>warning: function &#39;has_more&#39; should be marked [[nodiscard]]</h3>
-<span id='modernize-use-nodiscard'>&nbsp;</span>
 <code>[modernize-use-nodiscard]</code>
 <p><i>libs/base/src/base/guid.cc 74 : 9</i></p>
 <pre>
@@ -62,18 +62,18 @@
       |                                    ^            
       |                                     {
 </pre>
+<span id='readability-const-return-type'>&nbsp;</span>
 <hr>
 <h3>warning: return type &#39;const std:: optional&lt;uint8_t&gt;&#39; (aka &#39;const optional&lt;unsigned char&gt;&#39;) is &#39;const&#39;-qualified at the top level, which may reduce code readability without improving const correctness</h3>
-<span id='readability-const-return-type'>&nbsp;</span>
 <code>[readability-const-return-type]</code>
 <p><i>libs/base/src/base/guid.cc 114 : 9</i></p>
 <pre>
   114 |         const std::optional&lt;uint8_t&gt; read_hex()
       |         ^~~~~
 </pre>
+<span id='bugprone-optional-value-conversion'>&nbsp;</span>
 <hr>
 <h3>warning: conversion from &#39;std::optional&lt;unsigned char&gt;&#39; into &#39;unsigned char&#39; and back into &#39;std:: optional&lt;unsigned char&gt;&#39;, remove potentially error-prone optional dereference</h3>
-<span id='bugprone-optional-value-conversion'>&nbsp;</span>
 <code>[bugprone-optional-value-conversion]</code>
 <p><i>libs/base/src/base/guid.cc 127 : 24</i></p>
 <pre>

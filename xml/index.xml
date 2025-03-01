@@ -386,6 +386,7 @@
   </compound>
   <compound refid="assert_8h" kind="file"><name>assert.h</name>
     <member refid="assert_8h_1a3950e5c477d263585dc2704da469ae98" kind="define"><name>BREAK_IN_DEBUG</name></member>
+    <member refid="assert_8h_1a9c15fe1e91b07ea3280f5239f9841b67" kind="define"><name>__PRETTY_FUNCTION__</name></member>
     <member refid="assert_8h_1aa904224faf8979f062517894af990c6a" kind="define"><name>IMPLEMENT_ASSERT_LIB</name></member>
     <member refid="assert_8h_1aca68c0d4ac8df0838e209fb5300f7be3" kind="define"><name>ASSERT</name></member>
     <member refid="assert_8h_1a20d93230446fc0009184336e984ab6b2" kind="define"><name>ASSERTX</name></member>
@@ -415,7 +416,8 @@
   <compound refid="base_2src_2base_2pch_8public_8h" kind="file"><name>pch.public.h</name>
   </compound>
   <compound refid="fmt_2src_2pch_8public_8h" kind="file"><name>pch.public.h</name>
-    <member refid="fmt_2src_2pch_8public_8h_1a9c749523ffeb436257593aaa17a923ed" kind="define"><name>ADD_CATCH_FORMATTER</name></member>
+    <member refid="fmt_2src_2pch_8public_8h_1a2a9ccd1834c8052d71fbee493127ef67" kind="define"><name>ADD_CATCH_FORMATTER_DEF</name></member>
+    <member refid="fmt_2src_2pch_8public_8h_1a9d5ac138e60feccdf63aa093ace42af9" kind="define"><name>ADD_CATCH_FORMATTER_IMPL</name></member>
   </compound>
   <compound refid="quat_8h" kind="file"><name>quat.h</name>
   </compound>

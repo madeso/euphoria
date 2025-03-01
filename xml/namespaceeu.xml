@@ -373,6 +373,6 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/assert/src/assert/assert.h" line="104" column="1"/>
+    <location file="libs/assert/src/assert/assert.h" line="108" column="1"/>
   </compounddef>
 </doxygen>

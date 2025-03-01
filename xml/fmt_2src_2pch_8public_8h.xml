@@ -27,10 +27,23 @@
       </node>
     </incdepgraph>
     <sectiondef kind="define">
-      <memberdef kind="define" id="fmt_2src_2pch_8public_8h_1a9c749523ffeb436257593aaa17a923ed" prot="public" static="no">
-        <name>ADD_CATCH_FORMATTER</name>
+      <memberdef kind="define" id="fmt_2src_2pch_8public_8h_1a2a9ccd1834c8052d71fbee493127ef67" prot="public" static="no">
+        <name>ADD_CATCH_FORMATTER_DEF</name>
         <param><defname>TYPE</defname></param>
-        <initializer>constexpr std::ostream&amp; \
+        <initializer>std::ostream&amp; \
+operator&lt;&lt;(std::ostream&amp; stream, const TYPE&amp; v);</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/fmt/src/pch.public.h" line="22" column="9" bodyfile="libs/fmt/src/pch.public.h" bodystart="22" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="define" id="fmt_2src_2pch_8public_8h_1a9d5ac138e60feccdf63aa093ace42af9" prot="public" static="no">
+        <name>ADD_CATCH_FORMATTER_IMPL</name>
+        <param><defname>TYPE</defname></param>
+        <initializer>std::ostream&amp; \
 operator&lt;&lt;(std::ostream&amp; stream, const TYPE&amp; v) \
 { \
     return stream &lt;&lt; <ref refid="group__math_1gafa7f170a2c4415e5c9f4d517b138a489" kindref="member">::eu::string_from</ref>(v); \
@@ -41,7 +54,7 @@ operator&lt;&lt;(std::ostream&amp; stream, const TYPE&amp; v) \
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/fmt/src/pch.public.h" line="22" column="9" bodyfile="libs/fmt/src/pch.public.h" bodystart="22" bodyend="27"/>
+        <location file="libs/fmt/src/pch.public.h" line="26" column="9" bodyfile="libs/fmt/src/pch.public.h" bodystart="26" bodyend="31"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
