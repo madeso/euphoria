@@ -55,7 +55,8 @@ namespace eu
     Q::look_at(const v3& from, const v3& to, const n3& up)
     {
         const auto direction = v3::from_to(from, to).get_normalized();
-        if (direction.has_value() == false) return std::nullopt;
+        if (direction.has_value() == false)
+            { return std::nullopt; }
         return look_in_direction(*direction, up);
     }
 
@@ -140,7 +141,14 @@ namespace eu
         const Q a = *this * pure;
         const Q ret = a * get_conjugate();
         // todo(Gustav): should we normalize here? Can we get a invalid vector?
-        return *ret.get_vec_part().get_normalized();
+        const auto normalized = ret.get_vec_part().get_normalized();
+        if(normalized.has_value() == false)
+        {
+            DIE("invalid rotation vector");
+            return common::up;
+        }
+
+        return *normalized;
     }
 
 
@@ -266,7 +274,7 @@ namespace eu
     Q Q::look_in_direction(const n3& dir, const n3& up)
     {
         const v3 in = common::in;
-        float dot_value = in.dot(dir);
+        const float dot_value = in.dot(dir);
 
         if (abs(dot_value - (-1.0f)) < 0.000001f)
         {
@@ -280,7 +288,11 @@ namespace eu
 
         const auto rot_angle = acos(dot_value);
         const auto rot_axis = in.cross(dir).get_normalized();
-        ASSERT(rot_axis);
+        if(rot_axis.has_value() == false)
+        {
+            DIE("missing rot_axis");
+            return q_identity;
+        }
         return Q::from(right_hand_around(*rot_axis, rot_angle));
     }
 
