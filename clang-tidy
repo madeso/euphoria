@@ -118,6 +118,9 @@ readability-identifier-naming
 # this is better decided on a case by case basis
 -readability-avoid-nested-conditional-operator
 
+# warning from catch implementations, not really relevant for euph
+-misc-use-anonymous-namespace
+
 #################################################################################
 # the checks attribute ends here...
 # just regular (yaml) .clang-tidy settings from now on (with lines starting with // stripped away)
