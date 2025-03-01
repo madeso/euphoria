@@ -6,28 +6,7 @@
 </head>
 <body>
 <h1>libs/base/src/base/angle.cc</h1>
-<span id='readability-avoid-nested-conditional-operator'>&nbsp;</span>
-<hr>
-<h3>warning: conditional operator is used as sub-expression of parent conditional operator, refrain from using nested conditional operators</h3>
-<code>[readability-avoid-nested-conditional-operator]</code>
-<p><i>libs/base/src/base/angle.cc 194 : 15</i></p>
-<pre>
-  194 |             : dtheta &lt; -half_turn
-      |               ^
-</pre>
-<p>parent conditional operator here</p>
-<p><i>libs/base/src/base/angle.cc 192 : 31</i></p>
-<pre>
-  192 |         const auto new_from = dtheta &gt; half_turn
-      |                               ^
-</pre>
 <!--
-/home/runner/work/euphoria/euphoria/libs/base/src/base/angle.cc:194:15: warning: conditional operator is used as sub-expression of parent conditional operator, refrain from using nested conditional operators [readability-avoid-nested-conditional-operator]
-  194 |             : dtheta < -half_turn
-      |               ^
-/home/runner/work/euphoria/euphoria/libs/base/src/base/angle.cc:192:31: note: parent conditional operator here
-  192 |         const auto new_from = dtheta > half_turn
-      |                               ^
 -->
 </body>
 </html>
