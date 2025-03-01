@@ -21,6 +21,10 @@
 
 #else
 
+#if !defined(__PRETTY_FUNCTION__) && !defined(__GNUC__)
+    #define __PRETTY_FUNCTION__ __FUNCSIG__
+#endif
+
 /// Defines that the assert support library should be implemented.
 /// @todo Expose as as cmake variable instead of looking at the build flag.
 #define IMPLEMENT_ASSERT_LIB

@@ -43,4 +43,7 @@ namespace eu
     {
         return fmt::format("({}, {}, {})", x.yaw, x.pitch, x.roll);
     }
+
+    ADD_CATCH_FORMATTER_IMPL(AA)
+    ADD_CATCH_FORMATTER_IMPL(Ypr)
 }

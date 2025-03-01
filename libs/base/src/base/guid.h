@@ -80,7 +80,7 @@ namespace eu
 
     // todo(Gustav): add std::map and std::unoredered map support
 
-    ADD_CATCH_FORMATTER(Guid)
+    ADD_CATCH_FORMATTER_DEF(Guid)
 }
 
 ADD_DEFAULT_FORMATTER(eu::Guid, std::string, eu::string_from);

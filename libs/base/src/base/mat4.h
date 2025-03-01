@@ -183,7 +183,7 @@ namespace eu
 
     /** @}*/
 
-    ADD_CATCH_FORMATTER(m4)
+    ADD_CATCH_FORMATTER_DEF(m4)
 }
 
 ADD_DEFAULT_FORMATTER(eu::m4, std::string, eu::string_from);

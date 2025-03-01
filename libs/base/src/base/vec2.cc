@@ -250,4 +250,7 @@ namespace eu
 
     std::string string_from(const n2& v)
         { return fmt::format("({}, {})", v.x, v.y); }
+
+    ADD_CATCH_FORMATTER_IMPL(v2)
+    ADD_CATCH_FORMATTER_IMPL(n2)
 }

@@ -198,4 +198,6 @@ namespace eu
         
         return from + ( to - new_from ) * v;
     }
+
+    ADD_CATCH_FORMATTER_IMPL(An)
 }

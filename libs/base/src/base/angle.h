@@ -113,7 +113,7 @@ namespace eu
     An lerp_angle(const An& from, float v, const An& to);
 
     /** @}*/
-    ADD_CATCH_FORMATTER(An)
+    ADD_CATCH_FORMATTER_DEF(An)
 }
 
 ADD_DEFAULT_FORMATTER(eu::An, std::string, eu::string_from);

@@ -47,4 +47,6 @@ namespace eu
     {
         return fmt::format("({}, {}, {}, {})", v.x, v.y, v.z, v.w);
     }
+
+    ADD_CATCH_FORMATTER_IMPL(v4)
 }

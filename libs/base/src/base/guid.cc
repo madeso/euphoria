@@ -169,4 +169,6 @@ namespace eu
             x.data[10], x.data[11], x.data[12], x.data[13], x.data[14], x.data[15]
         );
     }
+
+    ADD_CATCH_FORMATTER_IMPL(Guid)
 }

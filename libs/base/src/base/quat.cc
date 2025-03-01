@@ -338,5 +338,7 @@ namespace eu
         r -= lhs;
         return r;
     }
+
+    ADD_CATCH_FORMATTER_IMPL(Q)
 }
 
