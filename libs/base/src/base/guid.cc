@@ -53,9 +53,10 @@ namespace eu
 
     bool operator==(const Guid& lhs, const Guid& rhs)
     {
-        for(int i=0; i<16; i+=1)
+        for(int data_index=0; data_index<16; data_index+=1)
         {
-            if(lhs.data[i] != rhs.data[i]) return false;
+            if (lhs.data[data_index] != rhs.data[data_index])
+                { return false; }
         }
         return true;
     }
@@ -71,22 +72,24 @@ namespace eu
 
         explicit Parser(const std::string_view s) : str(s) {}
 
-        bool has_more() const
+        [[nodiscard]] bool has_more() const
         {
             return str.empty() == false;
         }
 
         char read()
         {
-            if(has_more() == false) return '\0';
+            if(has_more() == false)
+                { return '\0'; }    
             const char r = str[0];
             str = str.substr(1);
             return r;
         }
 
-        char peek() const
+        [[nodiscard]] char peek() const
         {
-            if(has_more() == false) return '\0';
+            if(has_more() == false)
+                { return '\0'; }
             return str[0];
         }
 
@@ -109,9 +112,9 @@ namespace eu
             if ('a' <= c && c <= 'f') { return static_cast<uint8_t>(10 + (c - 'a')); }
             if ('A' <= c && c <= 'F') { return static_cast<uint8_t>(10 + (c - 'A')); }
             return std::nullopt;
-        };
+        }
 
-        const std::optional<uint8_t> read_hex()
+        std::optional<uint8_t> read_hex()
         {
             const auto first = as_hex(read());
             if(first.has_value() == false) { return std::nullopt; }
@@ -124,7 +127,7 @@ namespace eu
             }
             else
             {
-                return *first;
+                return first;
             }
         }
     };
