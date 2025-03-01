@@ -115,6 +115,9 @@ readability-identifier-naming
 # https://github.com/isocpp/CppCoreGuidelines/issues/1681
 -cppcoreguidelines-pro-type-reinterpret-cast
 
+# this is better decided on a case by case basis
+-readability-avoid-nested-conditional-operator
+
 #################################################################################
 # the checks attribute ends here...
 # just regular (yaml) .clang-tidy settings from now on (with lines starting with // stripped away)
