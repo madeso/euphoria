@@ -101,7 +101,7 @@
     <innerclass refid="structeu_1_1v3" prot="public">eu::v3</innerclass>
     <innerclass refid="structeu_1_1n3" prot="public">eu::n3</innerclass>
     <innernamespace refid="namespaceeu">eu</innernamespace>
-    <innernamespace refid="namespaceeu_1_1common">eu::common</innernamespace>
+    <innernamespace refid="namespaceeu_1_1kk">eu::kk</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

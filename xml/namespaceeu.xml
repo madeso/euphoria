@@ -18,8 +18,8 @@
     <innerclass refid="structeu_1_1Ypr" prot="public">eu::Ypr</innerclass>
     <innernamespace refid="namespaceeu_1_1assertlib">eu::assertlib</innernamespace>
     <innernamespace refid="namespaceeu_1_1color">eu::color</innernamespace>
-    <innernamespace refid="namespaceeu_1_1common">eu::common</innernamespace>
     <innernamespace refid="namespaceeu_1_1convert">eu::convert</innernamespace>
+    <innernamespace refid="namespaceeu_1_1kk">eu::kk</innernamespace>
     <innernamespace refid="namespaceeu_1_1log">eu::log</innernamespace>
     <sectiondef kind="typedef">
       <memberdef kind="typedef" id="namespaceeu_1af51071e3961aca6266852501c7229467" prot="public" static="no">

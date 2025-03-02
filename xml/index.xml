@@ -359,21 +359,21 @@
     <member refid="namespaceeu_1_1color_1afb9fb8abe019e7eaad0f4d1c8b95bd20" kind="variable"><name>white</name></member>
     <member refid="namespaceeu_1_1color_1a7c3d531301aa7dade4768761906924c3" kind="variable"><name>black</name></member>
   </compound>
-  <compound refid="namespaceeu_1_1common" kind="namespace"><name>eu::common</name>
-    <member refid="namespaceeu_1_1common_1a7b4164209a2cd93dea08ff276e81ba2a" kind="variable"><name>x_axis</name></member>
-    <member refid="namespaceeu_1_1common_1a552df87dd761337aee02901a332fa235" kind="variable"><name>y_axis</name></member>
-    <member refid="namespaceeu_1_1common_1a366f01d5cec67052e3f2cf64790e98eb" kind="variable"><name>z_axis</name></member>
-    <member refid="namespaceeu_1_1common_1a56f29f3a9ccf0462b1417a0fdd5ad6a9" kind="variable"><name>up</name></member>
-    <member refid="namespaceeu_1_1common_1a59f363dc8534c920f8f3b46f62e45796" kind="variable"><name>down</name></member>
-    <member refid="namespaceeu_1_1common_1ac4ccfd728aac43cc18c0abe58eb1fb89" kind="variable"><name>right</name></member>
-    <member refid="namespaceeu_1_1common_1af8caf75f450a087c5efdacb91fc195b5" kind="variable"><name>left</name></member>
-    <member refid="namespaceeu_1_1common_1a0128e3e490cb760c37f9f47f438f088e" kind="variable"><name>in</name></member>
-    <member refid="namespaceeu_1_1common_1a57827af741604160c6e925bdc0c32747" kind="variable"><name>out</name></member>
-  </compound>
   <compound refid="namespaceeu_1_1convert" kind="namespace"><name>eu::convert</name>
     <member refid="namespaceeu_1_1convert_1aee672a1fe41692f2005e75389bf34f2c" kind="function"><name>operator&quot;&quot;_deg</name></member>
     <member refid="namespaceeu_1_1convert_1ad9a8ef509475899faebcef9f3cf0e098" kind="function"><name>operator&quot;&quot;_deg</name></member>
     <member refid="namespaceeu_1_1convert_1a8bf275d232d046a033d75f1f072baf7d" kind="function"><name>operator&quot;&quot;_rad</name></member>
+  </compound>
+  <compound refid="namespaceeu_1_1kk" kind="namespace"><name>eu::kk</name>
+    <member refid="namespaceeu_1_1kk_1a092a844a36479f5ed40c7f5513387bd2" kind="variable"><name>x_axis</name></member>
+    <member refid="namespaceeu_1_1kk_1a00d8b3e523abd670546a3bc3a79d9c47" kind="variable"><name>y_axis</name></member>
+    <member refid="namespaceeu_1_1kk_1a53b5f139d5966af1696a66cb130d9fde" kind="variable"><name>z_axis</name></member>
+    <member refid="namespaceeu_1_1kk_1ae5f58c058c9172b616ad95c9f562a4ad" kind="variable"><name>up</name></member>
+    <member refid="namespaceeu_1_1kk_1abfabb2c7479e4e377c2aa9a3d8a70c5f" kind="variable"><name>down</name></member>
+    <member refid="namespaceeu_1_1kk_1a18d82846f53b02247d0e1b0a831693ee" kind="variable"><name>right</name></member>
+    <member refid="namespaceeu_1_1kk_1a6e54f67d8cb003752fe8645dacbb1eb6" kind="variable"><name>left</name></member>
+    <member refid="namespaceeu_1_1kk_1a445b3000562a36bb65b64581099c8ebb" kind="variable"><name>in</name></member>
+    <member refid="namespaceeu_1_1kk_1aa3fab5254fb43f0591354fb31cc5bcc9" kind="variable"><name>out</name></member>
   </compound>
   <compound refid="namespaceeu_1_1log" kind="namespace"><name>eu::log</name>
     <member refid="namespaceeu_1_1log_1a643960e2f05465dc8fbdf5229e4e934d" kind="function"><name>get_global_logger</name></member>

@@ -14,7 +14,7 @@
     <innerclass refid="structeu_1_1v3" prot="public">eu::v3</innerclass>
     <innerclass refid="structeu_1_1n3" prot="public">eu::n3</innerclass>
     <innerclass refid="structeu_1_1v4" prot="public">eu::v4</innerclass>
-    <innernamespace refid="namespaceeu_1_1common">eu::common</innernamespace>
+    <innernamespace refid="namespaceeu_1_1kk">eu::kk</innernamespace>
     <sectiondef kind="var">
       <memberdef kind="variable" id="group__math_1gaad753d4f4d3024b2f9b0366738751511" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr An</type>
