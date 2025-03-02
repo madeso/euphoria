@@ -56,7 +56,7 @@ namespace eu
             const int n = ::backtrace
             (
                 static_cast<void**>(addresses),
-                std::extent<decltype(addresses)>::value
+                std::extent_v<decltype(addresses)>
             );
             const std::unique_ptr<char*, decltype(&std::free)> symbols
             (
