@@ -6,66 +6,7 @@
 </head>
 <body>
 <h1>libs/base/src/base/quat.test.cc</h1>
-<span id='readability-braces-around-statements'>&nbsp;</span>
-<hr>
-<h3>warning: statement should be inside braces</h3>
-<code>[readability-braces-around-statements]</code>
-<p><i>libs/base/src/base/quat.test.cc 16 : 24</i></p>
-<pre>
-   16 |             if (!value) return &quot;&lt;empty&gt;&quot;;
-      |                        ^                 
-      |                         {
-</pre>
-<span id='bugprone-unchecked-optional-access'>&nbsp;</span>
-<hr>
-<h3>warning: unchecked access to optional value</h3>
-<code>[bugprone-unchecked-optional-access]</code>
-<p><i>libs/base/src/base/quat.test.cc 146 : 22</i></p>
-<pre>
-  146 |                     *eu::v3(0, 0, -9).get_normalized(), eu::common::up));
-      |                      ^
-</pre>
-<hr>
-<h3>warning: unchecked access to optional value</h3>
-<code>[bugprone-unchecked-optional-access]</code>
-<p><i>libs/base/src/base/quat.test.cc 151 : 22</i></p>
-<pre>
-  151 |                     *eu::v3(0, 0, 9).get_normalized(), eu::common::up));
-      |                      ^
-</pre>
-<hr>
-<h3>warning: unchecked access to optional value</h3>
-<code>[bugprone-unchecked-optional-access]</code>
-<p><i>libs/base/src/base/quat.test.cc 156 : 22</i></p>
-<pre>
-  156 |                     *eu::v3(3, 0, 0).get_normalized(), eu::common::up));
-      |                      ^
-</pre>
-<hr>
-<h3>warning: unchecked access to optional value</h3>
-<code>[bugprone-unchecked-optional-access]</code>
-<p><i>libs/base/src/base/quat.test.cc 161 : 22</i></p>
-<pre>
-  161 |                     *eu::v3(-5, 0, 0).get_normalized(), eu::common::up));
-      |                      ^
-</pre>
 <!--
-/home/runner/work/euphoria/euphoria/libs/base/src/base/quat.test.cc:16:24: warning: statement should be inside braces [readability-braces-around-statements]
-   16 |             if (!value) return "<empty>";
-      |                        ^                 
-      |                         {
-/home/runner/work/euphoria/euphoria/libs/base/src/base/quat.test.cc:146:22: warning: unchecked access to optional value [bugprone-unchecked-optional-access]
-  146 |                     *eu::v3(0, 0, -9).get_normalized(), eu::common::up));
-      |                      ^
-/home/runner/work/euphoria/euphoria/libs/base/src/base/quat.test.cc:151:22: warning: unchecked access to optional value [bugprone-unchecked-optional-access]
-  151 |                     *eu::v3(0, 0, 9).get_normalized(), eu::common::up));
-      |                      ^
-/home/runner/work/euphoria/euphoria/libs/base/src/base/quat.test.cc:156:22: warning: unchecked access to optional value [bugprone-unchecked-optional-access]
-  156 |                     *eu::v3(3, 0, 0).get_normalized(), eu::common::up));
-      |                      ^
-/home/runner/work/euphoria/euphoria/libs/base/src/base/quat.test.cc:161:22: warning: unchecked access to optional value [bugprone-unchecked-optional-access]
-  161 |                     *eu::v3(-5, 0, 0).get_normalized(), eu::common::up));
-      |                      ^
 -->
 </body>
 </html>

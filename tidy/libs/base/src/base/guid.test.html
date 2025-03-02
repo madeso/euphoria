@@ -6,41 +6,7 @@
 </head>
 <body>
 <h1>libs/base/src/base/guid.test.cc</h1>
-<span id='bugprone-unchecked-optional-access'>&nbsp;</span>
-<hr>
-<h3>warning: unchecked access to optional value</h3>
-<code>[bugprone-unchecked-optional-access]</code>
-<p><i>libs/base/src/base/guid.test.cc 26 : 16</i></p>
-<pre>
-   26 |         CHECK(*g != nil_guid);
-      |                ^
-</pre>
-<hr>
-<h3>warning: unchecked access to optional value</h3>
-<code>[bugprone-unchecked-optional-access]</code>
-<p><i>libs/base/src/base/guid.test.cc 43 : 28</i></p>
-<pre>
-   43 |         CHECK(string_from(*parsed) == &quot;123e4567-e89b-12d3-a456-426614174000&quot;);
-      |                            ^
-</pre>
-<hr>
-<h3>warning: unchecked access to optional value</h3>
-<code>[bugprone-unchecked-optional-access]</code>
-<p><i>libs/base/src/base/guid.test.cc 44 : 16</i></p>
-<pre>
-   44 |         CHECK(*parsed == Guid{0x123e4567, 0xe89b, 0x12d3, 0xa456, 0x426614174000});
-      |                ^
-</pre>
 <!--
-/home/runner/work/euphoria/euphoria/libs/base/src/base/guid.test.cc:26:16: warning: unchecked access to optional value [bugprone-unchecked-optional-access]
-   26 |         CHECK(*g != nil_guid);
-      |                ^
-/home/runner/work/euphoria/euphoria/libs/base/src/base/guid.test.cc:43:28: warning: unchecked access to optional value [bugprone-unchecked-optional-access]
-   43 |         CHECK(string_from(*parsed) == "123e4567-e89b-12d3-a456-426614174000");
-      |                            ^
-/home/runner/work/euphoria/euphoria/libs/base/src/base/guid.test.cc:44:16: warning: unchecked access to optional value [bugprone-unchecked-optional-access]
-   44 |         CHECK(*parsed == Guid{0x123e4567, 0xe89b, 0x12d3, 0xa456, 0x426614174000});
-      |                ^
 -->
 </body>
 </html>
