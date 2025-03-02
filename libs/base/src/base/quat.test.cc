@@ -13,7 +13,8 @@ namespace Catch
     {
         static std::string convert(std::optional<T> const& value)
         {
-            if (!value) return "<empty>";
+            if (!value)
+                { return "<empty>"; }
 
             return fmt::to_string(*value);
         }
@@ -143,22 +144,22 @@ TEST_CASE("quat-testLook", "[quat]")
             eu::Q::from(eu::right_hand_around(
                     eu::common::up, eu::no_rotation)),
             eu::Q::look_in_direction(
-                    *eu::v3(0, 0, -9).get_normalized(), eu::common::up));
+                    eu::n3(0, 0, -1), eu::common::up));
     EXPECT_PRED_FORMAT2(
             eu::Q::from(eu::right_hand_around(
                     eu::common::up, eu::An::from_degrees(180))),
             eu::Q::look_in_direction(
-                    *eu::v3(0, 0, 9).get_normalized(), eu::common::up));
+                    eu::n3(0, 0, 1), eu::common::up));
     EXPECT_PRED_FORMAT2(
             eu::Q::from(eu::right_hand_around(
                     eu::common::up, eu::An::from_degrees(-90))),
             eu::Q::look_in_direction(
-                    *eu::v3(3, 0, 0).get_normalized(), eu::common::up));
+                    eu::n3(1, 0, 0), eu::common::up));
     EXPECT_PRED_FORMAT2(
             eu::Q::from(eu::right_hand_around(
                     eu::common::up, eu::An::from_degrees(90))),
             eu::Q::look_in_direction(
-                    *eu::v3(-5, 0, 0).get_normalized(), eu::common::up));
+                    eu::n3(-1, 0, 0), eu::common::up));
 
     // todo(Gustav): add more test where up != up()
 }

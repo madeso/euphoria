@@ -21,7 +21,8 @@ namespace eu
                 sqrt(1.0f - cos_a * cos_a), 1, 0.0005f);
         // todo(Gustav): do we need to normalize here?
         const auto axis = (q.get_vec_part() / sin_a).get_normalized();
-        if (!axis) return std::nullopt;
+        if (!axis)
+            { return std::nullopt; }
         return right_hand_around(*axis, angle);
     }
 

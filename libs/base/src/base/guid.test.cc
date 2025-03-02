@@ -23,7 +23,10 @@ TEST_CASE("guid-test", "[guid]")
     {
         const auto g = Guid::generate();
         REQUIRE(g);
-        CHECK(*g != nil_guid);
+        if(g.has_value())
+        {
+            CHECK(*g != nil_guid);
+        }
     }
 
     SECTION("parse ok")
@@ -40,8 +43,11 @@ TEST_CASE("guid-test", "[guid]")
         const auto parsed = guid_from(src);
         INFO(src);
         REQUIRE(parsed.has_value());
-        CHECK(string_from(*parsed) == "123e4567-e89b-12d3-a456-426614174000");
-        CHECK(*parsed == Guid{0x123e4567, 0xe89b, 0x12d3, 0xa456, 0x426614174000});
+        if(parsed.has_value())
+        {
+            CHECK(string_from(*parsed) == "123e4567-e89b-12d3-a456-426614174000");
+            CHECK(*parsed == Guid{0x123e4567, 0xe89b, 0x12d3, 0xa456, 0x426614174000});
+        }
     }
 
     SECTION("parse fail")

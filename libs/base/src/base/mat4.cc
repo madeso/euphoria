@@ -166,7 +166,8 @@ namespace eu
     m4::from(const Q& q)
     {
         const auto aa = AA::from(q);
-        if (!aa) return std::nullopt;
+        if (!aa)
+            { return std::nullopt; }
         return m4::from(*aa);
     }
 
