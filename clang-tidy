@@ -121,6 +121,9 @@ readability-identifier-naming
 # warning from catch implementations, not really relevant for euph
 -misc-use-anonymous-namespace
 
+# looks neat but why sqrt(2) and not sqrt(6)...?
+-modernize-use-std-numbers
+
 #################################################################################
 # the checks attribute ends here...
 # just regular (yaml) .clang-tidy settings from now on (with lines starting with // stripped away)
