@@ -51,9 +51,9 @@ TEST_CASE("quat-testLocalAxis", "[quat]")
     SECTION("identity")
     {
         const auto q = eu::q_identity;
-        REQUIRE(q.get_local_right() == approx(eu::common::right));
-        REQUIRE(q.get_local_up() == approx(eu::common::up));
-        REQUIRE(q.get_local_in() == approx(eu::common::in));
+        REQUIRE(q.get_local_right() == approx(eu::kk::right));
+        REQUIRE(q.get_local_up() == approx(eu::kk::up));
+        REQUIRE(q.get_local_in() == approx(eu::kk::in));
     }
 
     SECTION("look left")
@@ -62,13 +62,13 @@ TEST_CASE("quat-testLocalAxis", "[quat]")
         (
             eu::right_hand_around
             (
-                eu::common::up,
+                eu::kk::up,
                 eu::An::from_degrees(90)
             )
         );
-        REQUIRE(q.get_local_right() == approx(eu::common::in));
-        REQUIRE(q.get_local_up() == approx(eu::common::up));
-        REQUIRE(q.get_local_in() == approx(eu::common::left));
+        REQUIRE(q.get_local_right() == approx(eu::kk::in));
+        REQUIRE(q.get_local_up() == approx(eu::kk::up));
+        REQUIRE(q.get_local_in() == approx(eu::kk::left));
     }
 
     SECTION("look up")
@@ -77,13 +77,13 @@ TEST_CASE("quat-testLocalAxis", "[quat]")
         (
             eu::right_hand_around
             (
-                eu::common::right,
+                eu::kk::right,
                 eu::An::from_degrees(90)
             )
         );
-        REQUIRE(q.get_local_right() == approx(eu::common::right));
-        REQUIRE(q.get_local_up() == approx(eu::common::out));
-        REQUIRE(q.get_local_in() == approx(eu::common::up));
+        REQUIRE(q.get_local_right() == approx(eu::kk::right));
+        REQUIRE(q.get_local_up() == approx(eu::kk::out));
+        REQUIRE(q.get_local_in() == approx(eu::kk::up));
     }
 
     SECTION("roll right")
@@ -92,13 +92,13 @@ TEST_CASE("quat-testLocalAxis", "[quat]")
         (
             eu::right_hand_around
             (
-                eu::common::in,
+                eu::kk::in,
                 eu::An::from_degrees(90)
             )
         );
-        REQUIRE(q.get_local_right() == approx(eu::common::down));
-        REQUIRE(q.get_local_up() == approx(eu::common::right));
-        REQUIRE(q.get_local_in() == approx(eu::common::in));
+        REQUIRE(q.get_local_right() == approx(eu::kk::down));
+        REQUIRE(q.get_local_up() == approx(eu::kk::right));
+        REQUIRE(q.get_local_in() == approx(eu::kk::in));
     }
 }
 
@@ -111,7 +111,7 @@ TEST_CASE("quat-testLook", "[quat]")
         (
             eu::right_hand_around
             (
-                eu::common::up,
+                eu::kk::up,
                 eu::An::from_degrees(-90)
             )
         ),
@@ -119,47 +119,47 @@ TEST_CASE("quat-testLook", "[quat]")
         (
             eu::v3(0, 0, 0),
             eu::v3(5, 0, 0),
-            eu::common::up
+            eu::kk::up
         )
     );
     EXPECT_PRED_FORMAT2(
             eu::Q::from(eu::right_hand_around(
-                    eu::common::up, eu::An::from_degrees(-90))),
+                    eu::kk::up, eu::An::from_degrees(-90))),
             eu::Q::look_at(
                     eu::v3(0, 0, 0),
                     eu::v3(2, 0, 0),
-                    eu::common::up));
+                    eu::kk::up));
     EXPECT_PRED_FORMAT2(
             eu::Q::from(eu::right_hand_around(
-                    eu::common::up, eu::An::from_degrees(-90))),
+                    eu::kk::up, eu::An::from_degrees(-90))),
             eu::Q::look_at(
                     eu::v3(0, 0, 0),
                     eu::v3(0.25f, 0, 0),
-                    eu::common::up));
+                    eu::kk::up));
 
     // need to pass in a normalized vec3 or it won't compile, hence the
     // .get_normalized() call
     // Z looks reversed, but remember, negative direction is in
     EXPECT_PRED_FORMAT2(
             eu::Q::from(eu::right_hand_around(
-                    eu::common::up, eu::no_rotation)),
+                    eu::kk::up, eu::no_rotation)),
             eu::Q::look_in_direction(
-                    eu::n3(0, 0, -1), eu::common::up));
+                    eu::n3(0, 0, -1), eu::kk::up));
     EXPECT_PRED_FORMAT2(
             eu::Q::from(eu::right_hand_around(
-                    eu::common::up, eu::An::from_degrees(180))),
+                    eu::kk::up, eu::An::from_degrees(180))),
             eu::Q::look_in_direction(
-                    eu::n3(0, 0, 1), eu::common::up));
+                    eu::n3(0, 0, 1), eu::kk::up));
     EXPECT_PRED_FORMAT2(
             eu::Q::from(eu::right_hand_around(
-                    eu::common::up, eu::An::from_degrees(-90))),
+                    eu::kk::up, eu::An::from_degrees(-90))),
             eu::Q::look_in_direction(
-                    eu::n3(1, 0, 0), eu::common::up));
+                    eu::n3(1, 0, 0), eu::kk::up));
     EXPECT_PRED_FORMAT2(
             eu::Q::from(eu::right_hand_around(
-                    eu::common::up, eu::An::from_degrees(90))),
+                    eu::kk::up, eu::An::from_degrees(90))),
             eu::Q::look_in_direction(
-                    eu::n3(-1, 0, 0), eu::common::up));
+                    eu::n3(-1, 0, 0), eu::kk::up));
 
     // todo(Gustav): add more test where up != up()
 }
@@ -169,43 +169,43 @@ TEST_CASE("quat-testCombine", "[quat]")
 {
     EXPECT_PRED_FORMAT2(
             eu::Q::from(eu::right_hand_around(
-                    eu::common::up, eu::An::from_degrees(90))),
+                    eu::kk::up, eu::An::from_degrees(90))),
             eu::q_identity.then_get_rotated(
                     eu::Q::from(eu::right_hand_around(
-                            eu::common::up,
+                            eu::kk::up,
                             eu::An::from_degrees(90)))));
 
     EXPECT_PRED_FORMAT2(
             eu::Q::from(eu::right_hand_around(
-                    eu::common::up, eu::An::from_degrees(90))),
+                    eu::kk::up, eu::An::from_degrees(90))),
             eu::Q::from(
                     eu::right_hand_around(
-                            eu::common::up, eu::An::from_degrees(90)))
+                            eu::kk::up, eu::An::from_degrees(90)))
                     .then_get_rotated(eu::q_identity));
 
     EXPECT_PRED_FORMAT2(
             eu::Q::from(eu::right_hand_around(
-                    eu::common::up, eu::An::from_degrees(90))),
+                    eu::kk::up, eu::An::from_degrees(90))),
             eu::q_identity.then_get_rotated(
                     eu::Q::from(eu::right_hand_around(
-                            eu::common::up,
+                            eu::kk::up,
                             eu::An::from_degrees(90)))));
 
     EXPECT_PRED_FORMAT2(
 
             eu::Q::from(
                     eu::right_hand_around(
-                            eu::common::up, eu::An::from_degrees(-90)))
+                            eu::kk::up, eu::An::from_degrees(-90)))
                     .then_get_rotated(eu::Q::from(
                             eu::right_hand_around(
-                                    eu::common::out,
+                                    eu::kk::out,
                                     eu::An::from_degrees(90)))),
             eu::Q::from(eu::right_hand_around(
-                                               eu::common::right,
+                                               eu::kk::right,
                                                eu::An::from_degrees(90)))
                     .then_get_rotated(eu::Q::from(
                             eu::right_hand_around(
-                                    eu::common::up,
+                                    eu::kk::up,
                                     eu::An::from_degrees(-90)))));
 }
 
@@ -214,25 +214,25 @@ TEST_CASE("quat-verifyTestAxisAngle", "[quat]")
 {
     EXPECT_PRED_FORMAT2(
             eu::right_hand_around(
-                    eu::common::up, eu::no_rotation),
+                    eu::kk::up, eu::no_rotation),
             eu::right_hand_around(
-                    eu::common::up, eu::no_rotation));
+                    eu::kk::up, eu::no_rotation));
     EXPECT_PRED_FORMAT2(
             eu::right_hand_around(
-                    eu::common::right, eu::An::from_degrees(90)),
+                    eu::kk::right, eu::An::from_degrees(90)),
             eu::right_hand_around(
-                    eu::common::right, eu::An::from_degrees(90)));
+                    eu::kk::right, eu::An::from_degrees(90)));
     EXPECT_PRED_FORMAT2(
             eu::right_hand_around(
-                    eu::common::up, eu::An::from_degrees(-45)),
+                    eu::kk::up, eu::An::from_degrees(-45)),
             eu::right_hand_around(
-                    -eu::common::up, eu::An::from_degrees(45)));
+                    -eu::kk::up, eu::An::from_degrees(45)));
     EXPECT_PRED_FORMAT2(
 
             eu::right_hand_around(
-                    eu::common::right, eu::An::from_degrees(90)),
+                    eu::kk::right, eu::An::from_degrees(90)),
             eu::right_hand_around(
-                    -eu::common::right, eu::An::from_degrees(-90)));
+                    -eu::kk::right, eu::An::from_degrees(-90)));
 }
 
 TEST_CASE("quat-checkAxisAngle", "[quat]")
@@ -241,7 +241,7 @@ TEST_CASE("quat-checkAxisAngle", "[quat]")
         std::nullopt == 
         eu::AA::from(
             eu::Q::from(
-                eu::right_hand_around(eu::common::up, eu::no_rotation)
+                eu::right_hand_around(eu::kk::up, eu::no_rotation)
             )
         )
     );
@@ -249,28 +249,28 @@ TEST_CASE("quat-checkAxisAngle", "[quat]")
             std::nullopt == 
         eu::AA::from(eu::Q::from(
                     eu::right_hand_around(
-                            eu::common::right, eu::no_rotation))
+                            eu::kk::right, eu::no_rotation))
                     ));
 
     EXPECT_PRED_FORMAT2(
             eu::right_hand_around(
-                    eu::common::right, eu::An::from_degrees(90)),
+                    eu::kk::right, eu::An::from_degrees(90)),
             eu::AA::from(eu::Q::from(eu::right_hand_around(
-                                               eu::common::right,
+                                               eu::kk::right,
                                                eu::An::from_degrees(90)))
                     ));
     EXPECT_PRED_FORMAT2(
             eu::right_hand_around(
-                    eu::common::up, eu::An::from_degrees(-45)),
+                    eu::kk::up, eu::An::from_degrees(-45)),
         eu::AA::from(eu::Q::from(
                     eu::right_hand_around(
-                            -eu::common::up, eu::An::from_degrees(45)))
+                            -eu::kk::up, eu::An::from_degrees(45)))
                     ));
     EXPECT_PRED_FORMAT2(
             eu::right_hand_around(
-                    eu::common::right, eu::An::from_degrees(90)),
+                    eu::kk::right, eu::An::from_degrees(90)),
             eu::AA::from(eu::Q::from(eu::right_hand_around(
-                                               -eu::common::right,
+                                               -eu::kk::right,
                                                eu::An::from_degrees(-90)))
                     ));
 }
@@ -278,10 +278,10 @@ TEST_CASE("quat-checkAxisAngle", "[quat]")
 TEST_CASE("quat-checkQuatConjugate", "[quat]")
 {
     const auto a = eu::Q::from(eu::right_hand_around(
-            eu::common::up, eu::An::from_degrees(90)));
+            eu::kk::up, eu::An::from_degrees(90)));
     const auto b
             = eu::Q::from(eu::right_hand_around(
-                                                 eu::common::up,
+                                                 eu::kk::up,
                                                  eu::An::from_degrees(-90)))
                       .get_conjugate();
     REQUIRE(b == approx(a));

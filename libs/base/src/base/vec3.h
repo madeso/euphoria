@@ -119,7 +119,7 @@ namespace eu
         }
     };
 
-    namespace common
+    namespace kk
     {
         constexpr n3 x_axis = n3{1.0f, 0.0f, 0.0f};
         constexpr n3 y_axis = n3{0.0f, 1.0f, 0.0f};

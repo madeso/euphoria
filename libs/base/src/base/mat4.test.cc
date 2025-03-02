@@ -224,20 +224,20 @@ TEST_CASE("mat4-TestTransformation", "[mat]")
 
 TEST_CASE("mat4-TestRight", "[mat]")
 {
-    REQUIRE(eu::m4_identity.get_x_axis() == approx(eu::common::x_axis));
+    REQUIRE(eu::m4_identity.get_x_axis() == approx(eu::kk::x_axis));
 }
 
 
 TEST_CASE("mat4-TestUp", "[mat]")
 {
-    REQUIRE(eu::m4_identity.get_y_axis() == approx(eu::common::y_axis));
+    REQUIRE(eu::m4_identity.get_y_axis() == approx(eu::kk::y_axis));
 }
 
 
 
 TEST_CASE("mat4-TestIn", "[mat]")
 {
-    REQUIRE(eu::m4_identity.get_z_axis() == approx(eu::common::z_axis));
+    REQUIRE(eu::m4_identity.get_z_axis() == approx(eu::kk::z_axis));
 }
 
 TEST_CASE("mat4-test", "[mat]")
@@ -245,7 +245,7 @@ TEST_CASE("mat4-test", "[mat]")
     const eu::m4 start = eu::m4_identity;
     const eu::AA aa = eu::right_hand_around
     (
-        eu::common::up,
+        eu::kk::up,
         eu::An::from_degrees(-90)
     );
     const eu::v3 to_transform{0.0f, 0.0f, -5.0f};
@@ -266,7 +266,7 @@ TEST_CASE("mat4-TestCombined_RT", "[mat]")
         (
             eu::right_hand_around
             (
-                eu::common::up,
+                eu::kk::up,
                 eu::An::from_degrees(-90)
             )
         )
@@ -284,7 +284,7 @@ TEST_CASE("mat4-TestCombined2_RT", "[mat]")
         (
             eu::right_hand_around
             (
-                eu::common::up, eu::An::from_degrees(90)
+                eu::kk::up, eu::An::from_degrees(90)
             )
         )
         .get_translated(eu::v3(0, 0, -5))
@@ -301,7 +301,7 @@ TEST_CASE("mat4-TestCombined_TR", "[mat]")
         (
             eu::right_hand_around
             (
-                eu::common::up,
+                eu::kk::up,
                 eu::An::from_degrees(-90)
             )
         )

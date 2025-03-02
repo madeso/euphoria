@@ -125,12 +125,12 @@ namespace eu
     }
 
 
-    n3 Q::get_local_in   () const { return get_rotated(-common::z_axis); }
-    n3 Q::get_local_out  () const { return get_rotated( common::z_axis); }
-    n3 Q::get_local_right() const { return get_rotated( common::x_axis); }
-    n3 Q::get_local_left () const { return get_rotated(-common::x_axis); }
-    n3 Q::get_local_up   () const { return get_rotated( common::y_axis); }
-    n3 Q::get_local_down () const { return get_rotated(-common::y_axis); }
+    n3 Q::get_local_in   () const { return get_rotated(-kk::z_axis); }
+    n3 Q::get_local_out  () const { return get_rotated( kk::z_axis); }
+    n3 Q::get_local_right() const { return get_rotated( kk::x_axis); }
+    n3 Q::get_local_left () const { return get_rotated(-kk::x_axis); }
+    n3 Q::get_local_up   () const { return get_rotated( kk::y_axis); }
+    n3 Q::get_local_down () const { return get_rotated(-kk::y_axis); }
 
 
     n3
@@ -145,7 +145,7 @@ namespace eu
         if(normalized.has_value() == false)
         {
             DIE("invalid rotation vector");
-            return common::up;
+            return kk::up;
         }
 
         return *normalized;
@@ -273,7 +273,7 @@ namespace eu
 
     Q Q::look_in_direction(const n3& dir, const n3& up)
     {
-        const v3 in = common::in;
+        const v3 in = kk::in;
         const float dot_value = in.dot(dir);
 
         if (abs(dot_value - (-1.0f)) < 0.000001f)

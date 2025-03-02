@@ -8,16 +8,16 @@ using namespace eu::tests;
 
 TEST_CASE("vec3-to-unit-test", "[vec3]")
 {
-    REQUIRE(eu::n3{1.0f, 0.0f, 0.0f} == approx(eu::common::x_axis));
-    REQUIRE(eu::n3{0.0f, 1.0f, 0.0f} == approx(eu::common::y_axis));
-    REQUIRE(eu::n3{0.0f, 0.0f, 1.0f} == approx(eu::common::z_axis));
+    REQUIRE(eu::n3{1.0f, 0.0f, 0.0f} == approx(eu::kk::x_axis));
+    REQUIRE(eu::n3{0.0f, 1.0f, 0.0f} == approx(eu::kk::y_axis));
+    REQUIRE(eu::n3{0.0f, 0.0f, 1.0f} == approx(eu::kk::z_axis));
 }
 
 TEST_CASE("vec3-axis_test", "[vec3]")
 {
-    REQUIRE(eu::common::x_axis == approx(eu::v3(1.0f, 0.0f, 0.0f)));
-    REQUIRE(eu::common::y_axis == approx(eu::v3(0.0f, 1.0f, 0.0f)));
-    REQUIRE(eu::common::z_axis == approx(eu::v3(0.0f, 0.0f, 1.0f)));
+    REQUIRE(eu::kk::x_axis == approx(eu::v3(1.0f, 0.0f, 0.0f)));
+    REQUIRE(eu::kk::y_axis == approx(eu::v3(0.0f, 1.0f, 0.0f)));
+    REQUIRE(eu::kk::z_axis == approx(eu::v3(0.0f, 0.0f, 1.0f)));
 }
 
 TEST_CASE("vec3-constructor_same", "[vec3]")

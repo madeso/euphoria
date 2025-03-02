@@ -6,7 +6,7 @@
 
 TEST_CASE("aa-righthand", "[aa]")
 {
-    const auto aa = eu::right_hand_around(eu::common::x_axis, eu::An::from_degrees(12.0f));
+    const auto aa = eu::right_hand_around(eu::kk::x_axis, eu::An::from_degrees(12.0f));
     REQUIRE(aa.angle.as_degrees() == Catch::Approx(12.0f));
 
     // todo(Gustav): replace one require
@@ -18,8 +18,8 @@ TEST_CASE("aa-righthand", "[aa]")
 
 TEST_CASE("aa-print", "[aa]")
 {
-    const auto x45 = eu::right_hand_around(eu::common::x_axis, eu::An::from_degrees(45.0f));
-    const auto z0 = eu::right_hand_around(eu::common::z_axis, eu::An::from_degrees(0.0f));
+    const auto x45 = eu::right_hand_around(eu::kk::x_axis, eu::An::from_degrees(45.0f));
+    const auto z0 = eu::right_hand_around(eu::kk::z_axis, eu::An::from_degrees(0.0f));
 
     // todo(Gustav): how reliable are theese tests, switch to regex?
     SECTION("fmt")

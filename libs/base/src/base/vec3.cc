@@ -99,7 +99,7 @@ namespace eu
         const float l2 = get_length_squared();
         if (is_equal(l2, 0.0f))
         {
-            *this = common::up;
+            *this = kk::up;
             return false;
         }
         else
