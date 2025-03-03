@@ -85,3 +85,41 @@ TEST_CASE("num-close_to_zero", "[numeric]")
     REQUIRE(eu::get_default_if_close_to_zero<float>(-0.09f, 42.0f, 0.1f)
             == Catch::Approx(42.0f));
 }
+
+TEST_CASE("num-floor", "[numeric]")
+{
+    REQUIRE(eu::floor(1.9f) == Catch::Approx(1.0f));
+    REQUIRE(eu::floor(-1.9f) == Catch::Approx(-2.0f));
+}
+
+TEST_CASE("num-ceil", "[numeric]")
+{
+    REQUIRE(eu::ceil(1.1f) == Catch::Approx(2.0f));
+    REQUIRE(eu::ceil(-1.1f) == Catch::Approx(-1.0f));
+}
+
+TEST_CASE("num-floor_to_int", "[numeric]")
+{
+    REQUIRE(eu::floor_to_int(1.9f) == 1);
+    REQUIRE(eu::floor_to_int(-1.9f) == -2);
+}
+
+TEST_CASE("num-ceil_to_int", "[numeric]")
+{
+    REQUIRE(eu::ceil_to_int(1.1f) == 2);
+    REQUIRE(eu::ceil_to_int(-1.1f) == -1);
+}
+
+TEST_CASE("num-get_sign bool", "[numeric]")
+{
+    REQUIRE(eu::get_sign(true) == 1);
+    REQUIRE(eu::get_sign(false) == -1);
+}
+
+TEST_CASE("num-mod", "[numeric]")
+{
+    CHECK(eu::mod(10.0f, 3.0f) == Catch::Approx(1.0f));
+    CHECK(eu::mod(-10.0f, 3.0f) == Catch::Approx(-1.0f));
+    CHECK(eu::mod(10.0f, -3.0f) == Catch::Approx(1.0f));
+    CHECK(eu::mod(-10.0f, -3.0f) == Catch::Approx(-1.0f));
+}
