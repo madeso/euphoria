@@ -454,7 +454,8 @@ namespace eu
     
     std::string string_from(const m4& m)
     {
-        return fmt::format("({}, {}. {}. {})", m.get_row(0), m.get_row(1), m.get_row(2), m.get_row(3));
+        const auto s = [](const v4& v) { return fmt::format("{} {} {} {}", v.x, v.y, v.z, v.w); };
+        return fmt::format("{}\n{}\n{}\n{}", s(m.get_row(0)), s(m.get_row(1)), s(m.get_row(2)), s(m.get_row(3)));
     }
 
     

@@ -116,6 +116,25 @@ TEST_CASE("mat4-transposed", "[mat]")
     ));
 }
 
+TEST_CASE("mat4-get_transposed", "[mat]")
+{
+    const auto m = eu::m4::from_row_major
+    (
+         0.0f,   1.0f,   2.0f,   3.0f,
+         4.0f,   5.0f,   6.0f,   7.0f,
+         8.0f,   9.0f,  10.0f,  11.0f,
+        12.0f,  13.0f,  14.0f,  15.0f
+    );
+    const auto transposed = m.get_transposed();
+    REQUIRE(transposed == approx(eu::m4::from_col_major
+    (
+         0.0f,   1.0f,   2.0f,   3.0f,
+         4.0f,   5.0f,   6.0f,   7.0f,
+         8.0f,   9.0f,  10.0f,  11.0f,
+        12.0f,  13.0f,  14.0f,  15.0f
+    )));
+}
+
 TEST_CASE("mat4-axis", "[mat]")
 {
     const auto m = eu::m4_identity;
@@ -258,6 +277,16 @@ TEST_CASE("mat4-test", "[mat]")
     }
 }
 
+TEST_CASE("mat4-from-axisangle", "[mat]")
+{
+    const auto axis = eu::n3{0.0f, 1.0f, 0.0f};
+    const auto angle = eu::An::from_degrees(90);
+    const auto aa = eu::AA{axis, angle};
+    const auto m = eu::m4::from(aa);
+    const auto v = eu::v3(1.0f, 0.0f, 0.0f);
+    const auto rotated = m.get_transformed_point(v);
+    REQUIRE(rotated == approx(eu::v3(0.0f, 0.0f, -1.0f)));
+}
 
 TEST_CASE("mat4-TestCombined_RT", "[mat]")
 {
@@ -367,3 +396,102 @@ TEST_CASE("mat4-projection-tests", "[mat]")
     }
 }
 
+TEST_CASE("mat4-rotation-x", "[mat]")
+{
+    const auto angle = eu::An::from_degrees(90);
+    const auto m = eu::m4::from_rot_x(angle);
+    const auto v = eu::v3(0.0f, 1.0f, 0.0f);
+    const auto rotated = m.get_transformed_point(v);
+    REQUIRE(rotated == approx(eu::v3(0.0f, 0.0f, 1.0f)));
+}
+
+TEST_CASE("mat4-rotation-y", "[mat]")
+{
+    const auto angle = eu::An::from_degrees(90);
+    const auto m = eu::m4::from_rot_y(angle);
+    const auto v = eu::v3(1.0f, 0.0f, 0.0f);
+    const auto rotated = m.get_transformed_point(v);
+    REQUIRE(rotated == approx(eu::v3(0.0f, 0.0f, -1.0f)));
+}
+
+TEST_CASE("mat4-rotation-z", "[mat]")
+{
+    const auto angle = eu::An::from_degrees(90);
+    const auto m = eu::m4::from_rot_z(angle);
+    const auto v = eu::v3(1.0f, 0.0f, 0.0f);
+    const auto rotated = m.get_transformed_point(v);
+    REQUIRE(rotated == approx(eu::v3(0.0f, 1.0f, 0.0f)));
+}
+
+TEST_CASE("mat4-column_major_data_ptr", "[mat]")
+{
+    const auto m = eu::m4::from_row_major
+    (
+         0.0f,   1.0f,   2.0f,   3.0f,
+         4.0f,   5.0f,   6.0f,   7.0f,
+         8.0f,   9.0f,  10.0f,  11.0f,
+        12.0f,  13.0f,  14.0f,  15.0f
+    );
+    const float* data_ptr = m.get_column_major_data_ptr();
+    REQUIRE(data_ptr[0] == 0.0f);
+    REQUIRE(data_ptr[1] == 4.0f);
+    REQUIRE(data_ptr[2] == 8.0f);
+    REQUIRE(data_ptr[3] == 12.0f);
+    REQUIRE(data_ptr[4] == 1.0f);
+    REQUIRE(data_ptr[5] == 5.0f);
+    REQUIRE(data_ptr[6] == 9.0f);
+    REQUIRE(data_ptr[7] == 13.0f);
+    REQUIRE(data_ptr[8] == 2.0f);
+    REQUIRE(data_ptr[9] == 6.0f);
+    REQUIRE(data_ptr[10] == 10.0f);
+    REQUIRE(data_ptr[11] == 14.0f);
+    REQUIRE(data_ptr[12] == 3.0f);
+    REQUIRE(data_ptr[13] == 7.0f);
+    REQUIRE(data_ptr[14] == 11.0f);
+    REQUIRE(data_ptr[15] == 15.0f);
+}
+
+TEST_CASE("mat4-modify_column_major_data_ptr", "[mat]")
+{
+    auto m = eu::m4::from_row_major
+    (
+         0.0f,   1.0f,   2.0f,   3.0f,
+         4.0f,   5.0f,   6.0f,   7.0f,
+         8.0f,   9.0f,  10.0f,  11.0f,
+        12.0f,  13.0f,  14.0f,  15.0f
+    );
+    float* data_ptr = m.get_column_major_data_ptr();
+    data_ptr[0] = 16.0f;
+    data_ptr[5] = 17.0f;
+    data_ptr[10] = 18.0f;
+    data_ptr[15] = 19.0f;
+
+    REQUIRE(m.get(0, 0) == 16.0f);
+    REQUIRE(m.get(1, 1) == 17.0f);
+    REQUIRE(m.get(2, 2) == 18.0f);
+    REQUIRE(m.get(3, 3) == 19.0f);
+}
+
+TEST_CASE("mat4-print", "[mat]")
+{
+    const auto m = eu::m4::from_row_major
+    (
+         0.0f,   1.0f,   2.0f,   3.0f,
+         4.0f,   5.0f,   6.0f,   7.0f,
+         8.0f,   9.0f,  10.0f,  11.0f,
+        12.0f,  13.0f,  14.0f,  15.0f
+    );
+
+    SECTION("fmt")
+    {
+        std::string str = fmt::format("{0}", m);
+        CHECK(str == "0 1 2 3\n4 5 6 7\n8 9 10 11\n12 13 14 15");
+    }
+
+    SECTION("stream")
+    {
+        std::ostringstream oss;
+        oss << m;
+        CHECK(oss.str() == "0 1 2 3\n4 5 6 7\n8 9 10 11\n12 13 14 15");
+    }
+}
