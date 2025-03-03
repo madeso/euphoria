@@ -26,23 +26,23 @@
                 <span>libs/base/src/base/</span>
             </div>
             <div>File: mat4.h</div>
-            <div>Date: 2025-03-02 17:47:41</div>
+            <div>Date: 2025-03-03 20:02:54</div>
         </div>
         <div class="col-sm-12 col-lg-3 float-left d-flex flex-column text-right flex-justify-end p-3">
             <div class="d-flex">
                 <div class="mr-2">Lines:</div>
-                <div class="mr-2" style="margin: auto;">5/6</div>
-                <div class="Label--minw"><span class="coverage-medium IssueLabel color-fg-on-emphasis mr-1">83.3%</span></div>
+                <div class="mr-2" style="margin: auto;">6/6</div>
+                <div class="Label--minw"><span class="coverage-high IssueLabel color-fg-on-emphasis mr-1">100.0%</span></div>
             </div>
             <div class="d-flex">
                 <div class="mr-2">Functions:</div>
-                <div class="mr-2" style="margin: auto;">2/3</div>
-                <div class="Label--minw"><span class="coverage-low IssueLabel color-fg-on-emphasis mr-1">66.7%</span></div>
+                <div class="mr-2" style="margin: auto;">3/3</div>
+                <div class="Label--minw"><span class="coverage-high IssueLabel color-fg-on-emphasis mr-1">100.0%</span></div>
             </div>
             <div class="d-flex">
                 <div class="mr-2">Branches:</div>
-                <div class="mr-2" style="margin: auto;">0/2</div>
-                <div class="Label--minw"><span class="coverage-none IssueLabel color-fg-on-emphasis mr-1">0.0%</span></div>
+                <div class="mr-2" style="margin: auto;">1/2</div>
+                <div class="Label--minw"><span class="coverage-low IssueLabel color-fg-on-emphasis mr-1">50.0%</span></div>
             </div>
         </div>
     </div>
@@ -62,9 +62,9 @@
       <th>Condition coverage</th>
       <th>Block coverage</th>
     </tr>
-    <tr><td><a href="#l189">auto fmt::v10::formatter&lt;eu::m4, char, void&gt;::format&lt;fmt::v10::basic_format_context&lt;fmt::v10::appender, char&gt; &gt;(eu::m4 const&amp;, fmt::v10::basic_format_context&lt;fmt::v10::appender, char&gt;&amp;) const (line 189)</a></td><td>not called</td><td>0.0%</td><td>0.0%</td><td>-%</td><td>0.0%</td></tr>
-    <tr><td><a href="#l28">eu::m4::from_row_major(float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float) (line 28)</a></td><td>called 22 times</td><td>100.0%</td><td>-%</td><td>-%</td><td>100.0%</td></tr>
-    <tr><td><a href="#l159">eu::m4::m4(float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float) (line 159)</a></td><td>called 30 times</td><td>100.0%</td><td>-%</td><td>-%</td><td>100.0%</td></tr>
+    <tr><td><a href="#l189">auto fmt::v10::formatter&lt;eu::m4, char, void&gt;::format&lt;fmt::v10::basic_format_context&lt;fmt::v10::appender, char&gt; &gt;(eu::m4 const&amp;, fmt::v10::basic_format_context&lt;fmt::v10::appender, char&gt;&amp;) const (line 189)</a></td><td>called 1 time</td><td>100.0%</td><td>50.0%</td><td>-%</td><td>58.8%</td></tr>
+    <tr><td><a href="#l28">eu::m4::from_row_major(float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float) (line 28)</a></td><td>called 25 times</td><td>100.0%</td><td>-%</td><td>-%</td><td>100.0%</td></tr>
+    <tr><td><a href="#l159">eu::m4::m4(float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float) (line 159)</a></td><td>called 36 times</td><td>100.0%</td><td>-%</td><td>-%</td><td>100.0%</td></tr>
   </table>
 </details>
 </div>
@@ -275,7 +275,7 @@
                 <td class="text-right src linenos"><a class="normal" id="l28" href="#l28">28</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
-                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">22</td>
+                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">25</td>
                 <td class="src coveredLine"><span class="w">        </span><span class="p">[[</span><span class="n">nodiscard</span><span class="p">]]</span><span class="w"> </span><span class="n">constexpr</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">m4</span><span class="w"> </span><span class="n">from_row_major</span><span class="p">(</span></td>
             </tr>
             <tr>
@@ -345,7 +345,7 @@
                 <td class="text-right src linenos"><a class="normal" id="l38" href="#l38">38</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
-                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">22</td>
+                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">25</td>
                 <td class="src coveredLine"><span class="w">                </span><span class="n">t30</span><span class="p">,</span><span class="w"> </span><span class="n">t31</span><span class="p">,</span><span class="w"> </span><span class="n">t32</span><span class="p">,</span><span class="w"> </span><span class="n">t33</span><span class="p">};</span></td>
             </tr>
             <tr>
@@ -1192,7 +1192,7 @@
                 <td class="text-right src linenos"><a class="normal" id="l159" href="#l159">159</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
-                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">30</td>
+                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">36</td>
                 <td class="src coveredLine"><span class="w">        </span><span class="n">constexpr</span><span class="w"> </span><span class="nf">m4</span><span class="p">(</span></td>
             </tr>
             <tr>
@@ -1227,7 +1227,7 @@
                 <td class="text-right src linenos"><a class="normal" id="l164" href="#l164">164</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
-                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">30</td>
+                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">36</td>
                 <td class="src coveredLine"><span class="w">            </span><span class="o">:</span><span class="w"> </span><span class="n">data</span><span class="p">{</span></td>
             </tr>
             <tr>
@@ -1269,7 +1269,7 @@
                 <td class="text-right src linenos"><a class="normal" id="l170" href="#l170">170</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
-                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">30</td>
+                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">36</td>
                 <td class="src coveredLine"><span class="w">        </span><span class="p">}</span></td>
             </tr>
             <tr>
@@ -1401,9 +1401,16 @@
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l189" href="#l189">189</a></td>
                 <td class="text-right src linenos ws-unset">
+                    <details class="normal details-overlay">
+                        <summary>1/2</summary>
+                        <div class="text-left position-absolute color-bg-subtle p-3 mt-2" style="z-index: 1;">
+                            <div class="color-taken-branch">&check; Branch 0 (2 &rightarrow; 3) taken 1 times.</div>
+                            <div class="color-fg-danger">&cross; Branch 1 (2 &rightarrow; 17) not taken.</div>
+                        </div>
+                    </details>
                 </td>
-                <td class="src uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-                <td class="src uncoveredLine"><span class="n">ADD_DEFAULT_FORMATTER</span><span class="p">(</span><span class="n">eu</span><span class="o">::</span><span class="n">m4</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="n">eu</span><span class="o">::</span><span class="n">string_from</span><span class="p">);</span></td>
+                <td class="src partialCoveredLine pr-2 pl-2 color-fg-muted text-right">2</td>
+                <td class="src partialCoveredLine"><span class="n">ADD_DEFAULT_FORMATTER</span><span class="p">(</span><span class="n">eu</span><span class="o">::</span><span class="n">m4</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="n">eu</span><span class="o">::</span><span class="n">string_from</span><span class="p">);</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l190" href="#l190">190</a></td>

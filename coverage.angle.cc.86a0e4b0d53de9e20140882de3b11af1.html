@@ -26,7 +26,7 @@
                 <span>libs/base/src/base/</span>
             </div>
             <div>File: angle.cc</div>
-            <div>Date: 2025-03-02 17:47:41</div>
+            <div>Date: 2025-03-03 20:02:54</div>
         </div>
         <div class="col-sm-12 col-lg-3 float-left d-flex flex-column text-right flex-justify-end p-3">
             <div class="d-flex">
@@ -73,7 +73,7 @@
     <tr><td><a href="#l75">eu::asin(float) (line 75)</a></td><td>called 5 times</td><td>100.0%</td><td>25.0%</td><td>-%</td><td>26.1%</td></tr>
     <tr><td><a href="#l93">eu::atan(float) (line 93)</a></td><td>called 3 times</td><td>100.0%</td><td>-%</td><td>-%</td><td>100.0%</td></tr>
     <tr><td><a href="#l100">eu::atan2(float, float) (line 100)</a></td><td>called 2 times</td><td>100.0%</td><td>-%</td><td>-%</td><td>100.0%</td></tr>
-    <tr><td><a href="#l61">eu::cos(eu::An const&amp;) (line 61)</a></td><td>called 47 times</td><td>100.0%</td><td>-%</td><td>-%</td><td>100.0%</td></tr>
+    <tr><td><a href="#l61">eu::cos(eu::An const&amp;) (line 61)</a></td><td>called 51 times</td><td>100.0%</td><td>-%</td><td>-%</td><td>100.0%</td></tr>
     <tr><td><a href="#l187">eu::lerp_angle(eu::An const&amp;, float, eu::An const&amp;) (line 187)</a></td><td>called 10 times</td><td>100.0%</td><td>83.3%</td><td>-%</td><td>93.8%</td></tr>
     <tr><td><a href="#l142">eu::operator*(eu::An const&amp;, float) (line 142)</a></td><td>called 17 times</td><td>100.0%</td><td>-%</td><td>-%</td><td>100.0%</td></tr>
     <tr><td><a href="#l149">eu::operator*(float, eu::An const&amp;) (line 149)</a></td><td>called 1 time</td><td>100.0%</td><td>-%</td><td>-%</td><td>100.0%</td></tr>
@@ -85,7 +85,7 @@
     <tr><td><a href="#l167">eu::operator&lt;=(eu::An const&amp;, eu::An const&amp;) (line 167)</a></td><td>called 2 times</td><td>100.0%</td><td>-%</td><td>-%</td><td>100.0%</td></tr>
     <tr><td><a href="#l174">eu::operator&gt;(eu::An const&amp;, eu::An const&amp;) (line 174)</a></td><td>called 11 times</td><td>100.0%</td><td>-%</td><td>-%</td><td>100.0%</td></tr>
     <tr><td><a href="#l181">eu::operator&gt;=(eu::An const&amp;, eu::An const&amp;) (line 181)</a></td><td>called 2 times</td><td>100.0%</td><td>-%</td><td>-%</td><td>100.0%</td></tr>
-    <tr><td><a href="#l54">eu::sin(eu::An const&amp;) (line 54)</a></td><td>called 42 times</td><td>100.0%</td><td>-%</td><td>-%</td><td>100.0%</td></tr>
+    <tr><td><a href="#l54">eu::sin(eu::An const&amp;) (line 54)</a></td><td>called 46 times</td><td>100.0%</td><td>-%</td><td>-%</td><td>100.0%</td></tr>
     <tr><td><a href="#l155">eu::string_from[abi:cxx11](eu::An const&amp;) (line 155)</a></td><td>called 14 times</td><td>100.0%</td><td>50.0%</td><td>-%</td><td>100.0%</td></tr>
     <tr><td><a href="#l68">eu::tan(eu::An const&amp;) (line 68)</a></td><td>called 6 times</td><td>100.0%</td><td>-%</td><td>-%</td><td>100.0%</td></tr>
   </table>
@@ -489,7 +489,7 @@
                 <td class="text-right src linenos"><a class="normal" id="l54" href="#l54">54</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
-                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">42</td>
+                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">46</td>
                 <td class="src coveredLine"><span class="w">    </span><span class="n">sin</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">An</span><span class="o">&amp;</span><span class="w"> </span><span class="n">ang</span><span class="p">)</span></td>
             </tr>
             <tr>
@@ -503,7 +503,7 @@
                 <td class="text-right src linenos"><a class="normal" id="l56" href="#l56">56</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
-                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">42</td>
+                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">46</td>
                 <td class="src coveredLine"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">sin</span><span class="p">(</span><span class="n">ang</span><span class="p">.</span><span class="n">as_radians</span><span class="p">());</span></td>
             </tr>
             <tr>
@@ -538,7 +538,7 @@
                 <td class="text-right src linenos"><a class="normal" id="l61" href="#l61">61</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
-                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">47</td>
+                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">51</td>
                 <td class="src coveredLine"><span class="w">    </span><span class="n">cos</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">An</span><span class="o">&amp;</span><span class="w"> </span><span class="n">ang</span><span class="p">)</span></td>
             </tr>
             <tr>
@@ -552,7 +552,7 @@
                 <td class="text-right src linenos"><a class="normal" id="l63" href="#l63">63</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
-                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">47</td>
+                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">51</td>
                 <td class="src coveredLine"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cos</span><span class="p">(</span><span class="n">ang</span><span class="p">.</span><span class="n">as_radians</span><span class="p">());</span></td>
             </tr>
             <tr>
