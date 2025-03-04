@@ -37,7 +37,7 @@ namespace eu
     };
 
     [[nodiscard]] AA
-    right_hand_around(const n3& axis, const An& angle);
+    rha(const n3& axis, const An& angle);
 
     std::string string_from(const AA &aa);
     std::string string_from(const Ypr& ypr);

@@ -23,11 +23,11 @@ namespace eu
         const auto axis = (q.get_vec_part() / sin_a).get_normalized();
         if (!axis)
             { return std::nullopt; }
-        return right_hand_around(*axis, angle);
+        return rha(*axis, angle);
     }
 
     AA
-    right_hand_around(const n3 &axis, const An &angle)
+    rha(const n3 &axis, const An &angle)
     {
         ASSERT(axis.is_valid());
         return {axis, An::from_radians(angle.as_radians())};

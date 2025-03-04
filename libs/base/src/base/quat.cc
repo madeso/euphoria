@@ -293,7 +293,7 @@ namespace eu
             DIE("missing rot_axis");
             return q_identity;
         }
-        return Q::from(right_hand_around(*rot_axis, rot_angle));
+        return Q::from(rha(*rot_axis, rot_angle));
     }
 
 
