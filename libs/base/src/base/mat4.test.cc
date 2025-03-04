@@ -209,22 +209,76 @@ TEST_CASE("mat4-math", "[mat]")
     }
 }
 
-TEST_CASE("mat4-inverse", "[mat]")
+TEST_CASE("mat4-get_inverted", "[mat]")
 {
-    const auto m0 = eu::m4::from_col_major
+    const auto m = eu::m4::from_row_major
     (
-        0.6f, 0.2f, 0.3f, 0.4f,
-        0.2f, 0.7f, 0.5f, 0.3f,
-        0.3f, 0.5f, 0.7f, 0.2f,
-        0.4f, 0.3f, 0.2f, 0.6f
+        1.0f, 0.0f, 0.0f, 0.0f,
+        0.0f, 1.0f, 0.0f, 0.0f,
+        0.0f, 0.0f, 1.0f, 0.0f,
+        0.0f, 0.0f, 0.0f, 1.0f
     );
-
-    auto inv0 = m0;
-    REQUIRE(inv0.invert());
-
-    // todo(Gustav): check matrix values
+    const auto inv = m.get_inverted();
+    REQUIRE(inv == approx(eu::m4_identity));
 }
 
+TEST_CASE("mat4-inverse", "[mat]")
+{
+    // example from https://www.youtube.com/watch?v=95dYWsZEXmM
+    const auto m0 = eu::m4::from_col_major
+    (
+        1.0f, 1.0f, 1.0f, 0.0f,
+        0.0f, 3.0f, 1.0f, 2.0f,
+        2.0f, 3.0f, 1.0f, 0.0f,
+        1.0f, 0.0f, 2.0f, 1.0f
+    );
+
+    auto inv = m0;
+    REQUIRE(inv.invert());
+
+    const auto res = eu::m4::from_col_major
+    (
+        -3.0f, -0.5f,   1.5f,   1.0f,
+         1.0f,  0.25f, -0.25f, -0.5f,
+         3.0f,  0.25f, -1.25f, -0.5f,
+        -3.0f,  0.0f,   1.0f,   1.0f
+    );
+    CHECK(inv == approx(res));
+}
+
+TEST_CASE("mat4-from_major", "[mat]")
+{
+    const auto major = eu::v4(1.0f, 2.0f, 3.0f, 4.0f);
+    const auto m = eu::m4::from_major(major);
+    REQUIRE(m.get_major() == approx(major));
+}
+
+
+TEST_CASE("mat4-get_transformed_vec_point", "[mat]")
+{
+    const auto m = eu::m4::from_translation(eu::v3(1.0f, 2.0f, 3.0f));
+    const auto v = eu::v3(4.0f, 5.0f, 6.0f);
+    const auto transformed = m.get_transformed_point(v);
+    REQUIRE(transformed == approx(eu::v3(5.0f, 7.0f, 9.0f)));
+}
+
+TEST_CASE("mat4-get_transformed_vec_normal", "[mat]")
+{
+    const auto m = eu::m4::from_rot_x(eu::An::from_degrees(90));
+    const auto v = eu::n3(0.0f, 1.0f, 0.0f);
+    const auto transformed = m.get_transformed_vec(v);
+    REQUIRE(transformed == approx(eu::n3(0.0f, 0.0f, 1.0f)));
+}
+
+TEST_CASE("mat4-from_quaternion", "[mat]")
+{
+    const auto q = eu::Q::from(eu::AA{eu::n3(0.0f, 1.0f, 0.0f), eu::An::from_degrees(90)});
+    const auto m = eu::m4::from(q);
+    REQUIRE(m.has_value());
+    const auto v = eu::v3(1.0f, 0.0f, 0.0f);
+    const auto transformed = m->get_transformed_point(v);
+    REQUIRE(transformed == approx(eu::v3(0.0f, 0.0f, -1.0f)));
+}
 
 ////////////////////////////////////////////////////////////////////////////////
 
