@@ -558,12 +558,12 @@
         </inbodydescription>
         <location file="libs/base/src/base/angle.h" line="113" column="8" declfile="libs/base/src/base/angle.h" declline="113" declcolumn="8"/>
       </memberdef>
-      <memberdef kind="function" id="group__math_1gae9cc9ff4ed32a327a7e883617b9b7de2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="group__math_1ga1a4ab59cbac3b18a87a0d490dff83143" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>AA</type>
-        <definition>AA eu::right_hand_around</definition>
+        <definition>AA eu::rha</definition>
         <argsstring>(const n3 &amp;axis, const An &amp;angle)</argsstring>
-        <name>right_hand_around</name>
-        <qualifiedname>eu::right_hand_around</qualifiedname>
+        <name>rha</name>
+        <qualifiedname>eu::rha</qualifiedname>
         <param>
           <type>const n3 &amp;</type>
           <declname>axis</declname>

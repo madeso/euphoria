@@ -276,7 +276,7 @@
     <member refid="group__math_1gaa3e88f63b802a9db740a821f312e6556" kind="function"><name>operator&gt;</name></member>
     <member refid="group__math_1gaf8448b714bf16cc794b4a29bfac33e6a" kind="function"><name>operator&gt;=</name></member>
     <member refid="group__math_1ga0bade92aadaac348c9d69c311012401c" kind="function"><name>lerp_angle</name></member>
-    <member refid="group__math_1gae9cc9ff4ed32a327a7e883617b9b7de2" kind="function"><name>right_hand_around</name></member>
+    <member refid="group__math_1ga1a4ab59cbac3b18a87a0d490dff83143" kind="function"><name>rha</name></member>
     <member refid="group__math_1gaa507848ead7e3929ac34a5631d051638" kind="function"><name>string_from</name></member>
     <member refid="group__math_1gad902ccc075018be926b6d34aa5eb7d92" kind="function"><name>string_from</name></member>
     <member refid="namespaceeu_1ae1e3eca9a4e909a32f2c16281b5ebfbe" kind="function"><name>operator==</name></member>
@@ -471,7 +471,7 @@
     <member refid="group__math_1gaa3e88f63b802a9db740a821f312e6556" kind="function"><name>operator&gt;</name></member>
     <member refid="group__math_1gaf8448b714bf16cc794b4a29bfac33e6a" kind="function"><name>operator&gt;=</name></member>
     <member refid="group__math_1ga0bade92aadaac348c9d69c311012401c" kind="function"><name>lerp_angle</name></member>
-    <member refid="group__math_1gae9cc9ff4ed32a327a7e883617b9b7de2" kind="function"><name>right_hand_around</name></member>
+    <member refid="group__math_1ga1a4ab59cbac3b18a87a0d490dff83143" kind="function"><name>rha</name></member>
     <member refid="group__math_1gaa507848ead7e3929ac34a5631d051638" kind="function"><name>string_from</name></member>
     <member refid="group__math_1gad902ccc075018be926b6d34aa5eb7d92" kind="function"><name>string_from</name></member>
     <member refid="group__math_1ga66e1820c967a20b5f47444560e472077" kind="function"><name>string_from</name></member>
