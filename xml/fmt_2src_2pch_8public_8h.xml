@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="fmt_2src_2pch_8public_8h" kind="file" language="C++">
+    <compoundname>pch.public.h</compoundname>
+    <includes local="no">fmt/core.h</includes>
+    <includes local="no">fmt/format.h</includes>
+    <includes local="no">fmt/ranges.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>libs/fmt/src/pch.public.h</label>
+        <link refid="fmt_2src_2pch_8public_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>fmt/core.h</label>
+      </node>
+      <node id="3">
+        <label>fmt/format.h</label>
+      </node>
+      <node id="4">
+        <label>fmt/ranges.h</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="fmt_2src_2pch_8public_8h_1a2a9ccd1834c8052d71fbee493127ef67" prot="public" static="no">
+        <name>ADD_CATCH_FORMATTER_DEF</name>
+        <param><defname>TYPE</defname></param>
+        <initializer>std::ostream&amp; \
+operator&lt;&lt;(std::ostream&amp; stream, const TYPE&amp; v);</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/fmt/src/pch.public.h" line="22" column="9" bodyfile="libs/fmt/src/pch.public.h" bodystart="22" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="define" id="fmt_2src_2pch_8public_8h_1a9d5ac138e60feccdf63aa093ace42af9" prot="public" static="no">
+        <name>ADD_CATCH_FORMATTER_IMPL</name>
+        <param><defname>TYPE</defname></param>
+        <initializer>std::ostream&amp; \
+operator&lt;&lt;(std::ostream&amp; stream, const TYPE&amp; v) \
+{ \
+    return stream &lt;&lt; <ref refid="group__math_1gafa7f170a2c4415e5c9f4d517b138a489" kindref="member">::eu::string_from</ref>(v); \
+}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/fmt/src/pch.public.h" line="26" column="9" bodyfile="libs/fmt/src/pch.public.h" bodystart="26" bodyend="31"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/fmt/src/pch.public.h"/>
+  </compounddef>
+</doxygen>

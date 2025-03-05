@@ -1,0 +1,152 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>CodeCity</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <style>
+            body {
+                background-color: #bfe3dd;
+                color: #000;
+                margin: 0;
+            }
+            a {
+                color: #2983ff;
+            }
+            #info {
+                position: absolute;
+                top: 0px;
+                width: 100%;
+                padding: 10px;
+                box-sizing: border-box;
+                text-align: center;
+                -moz-user-select: none;
+                -webkit-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+                pointer-events: none;
+                z-index: 1;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="container"></div>
+        <div id="info">
+            Hello world
+        </div>
+        <script type="importmap">
+            {
+                "imports": {
+                  "three": "https://unpkg.com/three@0.157.0/build/three.module.js",
+                  "three/addons/": "https://unpkg.com/three@0.157.0/examples/jsm/"
+                }
+            }
+        </script>
+        <script type="module">
+            import * as THREE from 'three';
+            import Stats from 'three/addons/libs/stats.module.js';
+            import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+            const container = document.getElementById( 'container' );
+            const renderer = new THREE.WebGLRenderer( { antialias: true } );
+            renderer.setPixelRatio( window.devicePixelRatio );
+            renderer.setSize( window.innerWidth, window.innerHeight );
+            container.appendChild( renderer.domElement );
+            const scene = new THREE.Scene();
+            const MakeCube = (name, color, sx, sy, sz, x, y, z) => {
+                const geometry = new THREE.BoxGeometry(sx, sy, sz);
+                const material = new THREE.MeshLambertMaterial( { color: color } );
+                const cube = new THREE.Mesh( geometry, material );
+                cube.position.x = x;
+                cube.position.y = y;
+                cube.position.z = z;
+                cube.name = name;
+                scene.add(cube);
+            };
+            scene.background = new THREE.Color( 0xbfe3dd );
+            const camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 10000);
+            camera.position.set(38, 2, 15 );
+            const controls = new OrbitControls( camera, renderer.domElement )
+            controls.target.set(19, 0, 7.5 );
+            const dirLight1 = new THREE.DirectionalLight( 0xffffff, 3 );
+            dirLight1.position.set( 1, 1, 1 );
+            scene.add( dirLight1 );
+            const dirLight2 = new THREE.DirectionalLight( 0x002288, 3 );
+            dirLight2.position.set( - 1, - 1, - 1 );
+            scene.add( dirLight2 );
+            const ambientLight = new THREE.AmbientLight( 0x555555 );
+            scene.add( ambientLight );
+            MakeCube("eu", 0x20dbe1, 34, 4, 15, 17, 2, 7.5);
+            MakeCube("eu::assertlib", 0x40b94d, 5, 4, 5, 3.5, 6, 3.5);
+            MakeCube("eu::assertlib::AssertArgumentValue", 0x6d2ae2, 3, 3, 3, 3.5, 9.5, 3.5);
+            MakeCube("eu::color", 0x59cf40, 2, 4, 2, 7, 6, 2);
+            MakeCube("eu::convert", 0x543e42, 2, 4, 2, 9, 6, 2);
+            MakeCube("eu::kk", 0x0af975, 2, 4, 2, 11, 6, 2);
+            MakeCube("eu::log", 0xaeb756, 4, 4, 6, 14, 6, 4);
+            MakeCube("eu::log::Logger", 0x82e010, 2, 11, 2, 14, 13.5, 3);
+            MakeCube("eu::log::ScopedLogger", 0xae683d, 2, 8, 2, 14, 12, 5);
+            MakeCube("eu::AA", 0x43d8c3, 4, 4, 4, 18, 6, 3);
+            MakeCube("eu::An", 0xb06122, 3, 19, 3, 21.5, 13.5, 2.5);
+            MakeCube("eu::Guid", 0x01d837, 3, 6, 3, 24.5, 7, 2.5);
+            MakeCube("eu::Hsh", 0x3466e4, 4, 3, 4, 28, 5.5, 3);
+            MakeCube("eu::HshO", 0xa84049, 4, 5, 4, 8, 6.5, 5);
+            MakeCube("eu::m4", 0xe5ef71, 3, 37, 3, 31.5, 22.5, 2.5);
+            MakeCube("eu::n2", 0x33e791, 4, 9, 4, 22, 8.5, 6);
+            MakeCube("eu::n3", 0x570872, 2, 7, 2, 11, 7.5, 4);
+            MakeCube("eu::Q", 0x6cd477, 6, 30, 6, 27, 19, 8);
+            MakeCube("eu::R", 0xd089ff, 4, 4, 4, 18, 6, 7);
+            MakeCube("eu::v2", 0xa181e3, 4, 21, 4, 3, 14.5, 8);
+            MakeCube("eu::v3", 0x007c75, 5, 22, 5, 7.5, 15, 9.5);
+            MakeCube("eu::v4", 0xc54ea2, 6, 10, 6, 13, 9, 10);
+            MakeCube("eu::Ypr", 0xd309f1, 5, 2, 5, 18.5, 5, 11.5);
+            MakeCube("std", 0x1ba7ef, 4, 4, 6, 36, 2, 3);
+            MakeCube("std::hash< eu::Hsh >", 0xd55d18, 2, 3, 2, 36, 5.5, 2);
+            MakeCube("std::hash< eu::HshO >", 0x321eec, 2, 3, 2, 36, 5.5, 4);
+            let inter = null;
+            const pointer = new THREE.Vector2();
+            const raycaster = new THREE.Raycaster();
+            function onPointerMove(event) {
+                pointer.x = ( event.clientX / window.innerWidth ) * 2 - 1;
+                pointer.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
+            }
+            document.addEventListener('mousemove', onPointerMove);
+            const intersect = () => {
+                raycaster.setFromCamera( pointer, camera );
+                const intersects = raycaster.intersectObjects( scene.children, false );
+                if (intersects.length > 0)
+                {
+                    const newInter = intersects[0].object;
+                    if (inter != newInter)
+                    {
+                        if (inter) inter.material.emissive.setHex( inter.currentHex );
+                        inter = newInter;
+                        inter.currentHex = inter.material.emissive.getHex();
+                        inter.material.emissive.setHex( 0xff0000 );
+                        info.innerHTML = inter.name
+                    }
+                }
+                else
+                {
+                    if (inter)
+                    {
+                        inter.material.emissive.setHex( inter.currentHex );
+                        info.innerHTML = "";
+                    }
+                    inter = null;
+                }
+            };
+            const clock = new THREE.Clock();
+            window.onresize = function () {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize( window.innerWidth, window.innerHeight );
+            };
+            function animate() {
+                requestAnimationFrame( animate );
+                controls.update();
+                intersect();
+                renderer.render( scene, camera );
+            }
+            animate();
+        </script>
+    </body>
+</html>
