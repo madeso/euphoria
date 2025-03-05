@@ -40,18 +40,18 @@ TEST_CASE("vec3-constructor_tuple", "[vec3]")
 {
     const auto t = std::make_tuple(1.0f, 2.0f, 3.0f);
     const auto v = eu::v3(t);
-    REQUIRE(v.x == Catch::Approx(1.0f));
-    REQUIRE(v.y == Catch::Approx(2.0f));
-    REQUIRE(v.z == Catch::Approx(3.0f));
+    REQUIRE(v.x == approx(1.0f));
+    REQUIRE(v.y == approx(2.0f));
+    REQUIRE(v.z == approx(3.0f));
 }
 
 TEST_CASE("vec3-constructor_float_array", "[vec3]")
 {
     const float arr[3] = {4.0f, 5.0f, 6.0f};
     const auto v = eu::v3(arr);
-    REQUIRE(v.x == Catch::Approx(4.0f));
-    REQUIRE(v.y == Catch::Approx(5.0f));
-    REQUIRE(v.z == Catch::Approx(6.0f));
+    REQUIRE(v.x == approx(4.0f));
+    REQUIRE(v.y == approx(5.0f));
+    REQUIRE(v.z == approx(6.0f));
 }
 
 TEST_CASE("vec3-equal", "[vec3]")
@@ -78,9 +78,9 @@ TEST_CASE("vec3-get_data_ptr", "[vec3]")
 {
     auto v = eu::v3(1.0f, 2.0f, 3.0f);
     float* data_ptr = v.get_data_ptr();
-    REQUIRE(data_ptr[0] == Catch::Approx(1.0f));
-    REQUIRE(data_ptr[1] == Catch::Approx(2.0f));
-    REQUIRE(data_ptr[2] == Catch::Approx(3.0f));
+    REQUIRE(data_ptr[0] == approx(1.0f));
+    REQUIRE(data_ptr[1] == approx(2.0f));
+    REQUIRE(data_ptr[2] == approx(3.0f));
     data_ptr[0] = 10.0f;
     data_ptr[1] = 20.0f;
     data_ptr[2] = 30.0f;
@@ -88,9 +88,9 @@ TEST_CASE("vec3-get_data_ptr", "[vec3]")
 
     const auto cv = eu::v3(4.0f, 5.0f, 6.0f);
     const float* const_data_ptr = cv.get_data_ptr();
-    REQUIRE(const_data_ptr[0] == Catch::Approx(4.0f));
-    REQUIRE(const_data_ptr[1] == Catch::Approx(5.0f));
-    REQUIRE(const_data_ptr[2] == Catch::Approx(6.0f));
+    REQUIRE(const_data_ptr[0] == approx(4.0f));
+    REQUIRE(const_data_ptr[1] == approx(5.0f));
+    REQUIRE(const_data_ptr[2] == approx(6.0f));
 }
 
 TEST_CASE("vec3-from_localspace_rui", "[vec3]")
@@ -103,7 +103,7 @@ TEST_CASE("vec3-from_localspace_rui", "[vec3]")
 TEST_CASE("vec3-get_length", "[vec3]")
 {
     const auto v = eu::v3(1.0f, 2.0f, 2.0f).get_length();
-    REQUIRE(v == Catch::Approx(3.0f));
+    REQUIRE(v == approx(3.0f));
 }
 
 TEST_CASE("vec3-lerp_v3", "[vec3]")

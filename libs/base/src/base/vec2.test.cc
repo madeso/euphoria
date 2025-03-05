@@ -18,14 +18,14 @@ TEST_CASE("vec2-div_assign", "[vec2]")
 TEST_CASE("vec2-length_squared", "[vec2]")
 {
     const auto v = eu::v2(1.0f, 2.0f).get_length_squared();
-    REQUIRE(v == Catch::Approx(5.0f));
+    REQUIRE(v == approx(5.0f));
 }
 
 
 TEST_CASE("vec2-length", "[vec2]")
 {
     const auto v = eu::v2(0.0f, 3.0f).get_length();
-    REQUIRE(v == Catch::Approx(3.0f));
+    REQUIRE(v == approx(3.0f));
 }
 
 
@@ -39,7 +39,7 @@ TEST_CASE("vec2-get_normalized", "[vec2]")
 TEST_CASE("vec2-dot", "[vec2]")
 {
     const auto r = eu::dot(eu::v2(1.0f, 2.0f), eu::v2(3.0f, 4.0f));
-    REQUIRE(r == Catch::Approx(11.0f));
+    REQUIRE(r == approx(11.0f));
 }
 
 
@@ -47,24 +47,24 @@ TEST_CASE("vec2-constructor-tuple", "[vec2]")
 {
     const auto t = std::make_tuple(1.0f, 2.0f);
     const auto v = eu::v2(t);
-    REQUIRE(v.x == Catch::Approx(1.0f));
-    REQUIRE(v.y == Catch::Approx(2.0f));
+    REQUIRE(v.x == approx(1.0f));
+    REQUIRE(v.y == approx(2.0f));
 }
 
 TEST_CASE("vec2-get_data_ptr", "[vec2]")
 {
     auto v = eu::v2(1.0f, 2.0f);
     float* data_ptr = v.get_data_ptr();
-    REQUIRE(data_ptr[0] == Catch::Approx(1.0f));
-    REQUIRE(data_ptr[1] == Catch::Approx(2.0f));
+    REQUIRE(data_ptr[0] == approx(1.0f));
+    REQUIRE(data_ptr[1] == approx(2.0f));
     data_ptr[0] = 10.0f;
     data_ptr[1] = 20.0f;
     REQUIRE(v == approx(eu::v2{10.0, 20.0f}));
 
     const auto cv = eu::v2(3.0f, 4.0f);
     const float* const_data_ptr = cv.get_data_ptr();
-    REQUIRE(const_data_ptr[0] == Catch::Approx(3.0f));
-    REQUIRE(const_data_ptr[1] == Catch::Approx(4.0f));
+    REQUIRE(const_data_ptr[0] == approx(3.0f));
+    REQUIRE(const_data_ptr[1] == approx(4.0f));
 }
 
 TEST_CASE("vec2-get_rotated", "[vec2]")
@@ -98,8 +98,8 @@ TEST_CASE("n2-get_data_ptr", "[vec2]")
 {
     const auto n = eu::n2(1.0f, 0.0f);
     const float* data_ptr = n.get_data_ptr();
-    REQUIRE(data_ptr[0] == Catch::Approx(1.0f));
-    REQUIRE(data_ptr[1] == Catch::Approx(0.0f));
+    REQUIRE(data_ptr[0] == approx(1.0f));
+    REQUIRE(data_ptr[1] == approx(0.0f));
 }
 
 TEST_CASE("n2-get_rotated", "[vec2]")
