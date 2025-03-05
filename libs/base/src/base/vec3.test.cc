@@ -195,7 +195,6 @@ TEST_CASE("vec3-operators", "[vec3]")
 TEST_CASE("n3-operators", "[vec3]")
 {
     const auto n1 = eu::n3(1.0f, 0.0f, 0.0f);
-    const auto n2 = eu::n3(0.0f, 1.0f, 0.0f);
 
     SECTION("multiplication with scalar")
     {
