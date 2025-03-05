@@ -203,7 +203,6 @@ TEST_CASE("vec2-operators", "[vec2]")
 TEST_CASE("n2-operators", "[vec2]")
 {
     const auto n1 = eu::n2(1.0f, 0.0f);
-    const auto n2 = eu::n2(0.0f, 1.0f);
 
     SECTION("multiplication with scalar")
     {
