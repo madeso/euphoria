@@ -99,32 +99,17 @@ struct HshO
 #undef OP
 
 
-template<typename TStream>
-TStream& operator<<(TStream& s, const Hsh& hash)
-{
-    #if USE_HASH_TEXT == 1
-    s << hash.text;
-    #else
-    s << hash.hash;
-    #endif
+std::string string_from(const Hsh h);
+std::string string_from(const HshO& h);
 
-    return s;
+
+ADD_CATCH_FORMATTER_DEF(Hsh)
+ADD_CATCH_FORMATTER_DEF(HshO)
 }
 
-template<typename TStream>
-TStream& operator<<(TStream& s, const HshO& hash)
-{
-#if USE_HASH_TEXT == 1
-    s << hash.text;
-#else
-    s << hash.hash;
-#endif
+ADD_DEFAULT_FORMATTER(eu::Hsh, std::string, eu::string_from);
+ADD_DEFAULT_FORMATTER(eu::HshO, std::string, eu::string_from);
 
-    return s;
-}
-
-
-}
 
 namespace std
 {

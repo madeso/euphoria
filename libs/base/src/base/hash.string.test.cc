@@ -146,3 +146,50 @@ TEMPLATE_TEST_CASE("hs-comparing string views", "[hash]", (std::map<eu::HshO, in
     CHECK(found_test->second == test_value);
     CHECK(found_foo->second == foo_value);
 }
+
+TEST_CASE("Hsh-print", "[hash]")
+{
+    const std::string result =
+#if USE_HASH_TEXT == 1
+        "test"
+#else
+        "0xf9e6e6ef197c2b25"
+#endif
+    ;
+
+    SECTION("Hsh")
+    {
+        const eu::Hsh h("test"sv);
+
+        SECTION("fmt")
+        {
+            std::string str = fmt::format("{0}", h);
+            CHECK(str == result);
+        }
+
+        SECTION("stream")
+        {
+            std::ostringstream oss;
+            oss << h;
+            CHECK(oss.str() == result);
+        }
+    }
+
+    SECTION("HshO")
+    {
+        const eu::HshO h("test"sv);
+
+        SECTION("fmt")
+        {
+            std::string str = fmt::format("{0}", h);
+            CHECK(str == result);
+        }
+
+        SECTION("stream")
+        {
+            std::ostringstream oss;
+            oss << h;
+            CHECK(oss.str() == result);
+        }
+    }
+}
