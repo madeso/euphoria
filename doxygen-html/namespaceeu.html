@@ -190,6 +190,10 @@ Functions</h2></td></tr>
 <tr class="memitem:a1314a884697b4470c9c443ec00890b63" id="r_a1314a884697b4470c9c443ec00890b63"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeu_1_1R.html">constexpr</a> <a class="el" href="namespaceeu.html#ac0b6d77da47da3ce6bb55d66abc897f5">u64</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html#a1314a884697b4470c9c443ec00890b63">hash64</a> (<a class="el" href="structeu_1_1R.html">const</a> std::string_view <a class="el" href="structeu_1_1R.html">str</a>, <a class="el" href="namespaceeu.html#ac0b6d77da47da3ce6bb55d66abc897f5">u64</a> hash=0xcbf29ce484222325)</td></tr>
 <tr class="memdesc:a1314a884697b4470c9c443ec00890b63"><td class="mdescLeft">&#160;</td><td class="mdescRight">fnv-1a hash.  <br /></td></tr>
 <tr class="separator:a1314a884697b4470c9c443ec00890b63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf596ba635e414898f3c5c60260f2faf" id="r_acf596ba635e414898f3c5c60260f2faf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html#acf596ba635e414898f3c5c60260f2faf">OP</a> (==) OP(!</td></tr>
+<tr class="separator:acf596ba635e414898f3c5c60260f2faf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34d2ec62d422fd2938f602143108b9aa" id="r_a34d2ec62d422fd2938f602143108b9aa"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html#a34d2ec62d422fd2938f602143108b9aa">string_from</a> (<a class="el" href="structeu_1_1R.html">const</a> <a class="el" href="structeu_1_1HshO.html">HshO</a> &amp;<a class="el" href="structeu_1_1R.html">h</a>)</td></tr>
+<tr class="separator:a34d2ec62d422fd2938f602143108b9aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga66e1820c967a20b5f47444560e472077" id="r_ga66e1820c967a20b5f47444560e472077"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__math.html#ga66e1820c967a20b5f47444560e472077">string_from</a> (<a class="el" href="structeu_1_1R.html">const</a> <a class="el" href="structeu_1_1m4.html">m4</a> &amp;<a class="el" href="structeu_1_1R.html">m</a>)</td></tr>
 <tr class="memdesc:ga66e1820c967a20b5f47444560e472077"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert a matrix to a string representation, prefer fmt.  <br /></td></tr>
 <tr class="separator:ga66e1820c967a20b5f47444560e472077"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -578,6 +582,23 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="acf596ba635e414898f3c5c60260f2faf" name="acf596ba635e414898f3c5c60260f2faf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf596ba635e414898f3c5c60260f2faf">&#9670;&#160;</a></span>OP()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">eu::OP </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a27cc2976c1bd562b82eebdc857c05f50" name="a27cc2976c1bd562b82eebdc857c05f50"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a27cc2976c1bd562b82eebdc857c05f50">&#9670;&#160;</a></span>operator!=()</h2>
 
@@ -635,7 +656,7 @@ Variables</h2></td></tr>
 </div>
 </div>
 <a id="a6200e130947527c643d6a88a406fd9c9" name="a6200e130947527c643d6a88a406fd9c9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6200e130947527c643d6a88a406fd9c9">&#9670;&#160;</a></span>string_from()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a6200e130947527c643d6a88a406fd9c9">&#9670;&#160;</a></span>string_from() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -651,6 +672,24 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Convert a guid to a string representation, prefer fmt. </p>
+
+</div>
+</div>
+<a id="a34d2ec62d422fd2938f602143108b9aa" name="a34d2ec62d422fd2938f602143108b9aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34d2ec62d422fd2938f602143108b9aa">&#9670;&#160;</a></span>string_from() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string eu::string_from </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structeu_1_1R.html">const</a> <a class="el" href="structeu_1_1HshO.html">HshO</a> &amp;&#160;</td>
+          <td class="paramname"><em>h</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>

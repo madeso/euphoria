@@ -284,6 +284,8 @@
     <member refid="namespaceeu_1ac922ddcef9eb3a0f85486c218a8cab69" kind="function"><name>guid_from</name></member>
     <member refid="namespaceeu_1a6200e130947527c643d6a88a406fd9c9" kind="function"><name>string_from</name></member>
     <member refid="namespaceeu_1a1314a884697b4470c9c443ec00890b63" kind="function"><name>hash64</name></member>
+    <member refid="namespaceeu_1acf596ba635e414898f3c5c60260f2faf" kind="function"><name>OP</name></member>
+    <member refid="namespaceeu_1a34d2ec62d422fd2938f602143108b9aa" kind="function"><name>string_from</name></member>
     <member refid="group__math_1ga66e1820c967a20b5f47444560e472077" kind="function"><name>string_from</name></member>
     <member refid="group__math_1gac6df9508643c5fd4c3492e047e9a932c" kind="function"><name>operator+</name></member>
     <member refid="group__math_1gaf28a2e40d555474d81f7d62a6f02c726" kind="function"><name>operator-</name></member>

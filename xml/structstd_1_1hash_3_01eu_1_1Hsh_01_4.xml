@@ -21,14 +21,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/hash.string.h" line="135" column="17" bodyfile="libs/base/src/base/hash.string.h" bodystart="135" bodyend="136"/>
+        <location file="libs/base/src/base/hash.string.h" line="120" column="17" bodyfile="libs/base/src/base/hash.string.h" bodystart="120" bodyend="121"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/base/src/base/hash.string.h" line="133" column="11" bodyfile="libs/base/src/base/hash.string.h" bodystart="134" bodyend="137"/>
+    <location file="libs/base/src/base/hash.string.h" line="118" column="11" bodyfile="libs/base/src/base/hash.string.h" bodystart="119" bodyend="122"/>
     <listofallmembers>
       <member refid="structstd_1_1hash_3_01eu_1_1Hsh_01_4_1ab5dc4bcc8d4541e11533634e75c211ef" prot="public" virt="non-virtual"><scope>std::hash&lt; eu::Hsh &gt;</scope><name>operator()</name></member>
     </listofallmembers>

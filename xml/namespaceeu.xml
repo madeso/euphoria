@@ -303,6 +303,38 @@
         </inbodydescription>
         <location file="libs/base/src/base/hash.string.h" line="18" column="15" bodyfile="libs/base/src/base/hash.string.h" bodystart="18" bodyend="19"/>
       </memberdef>
+      <memberdef kind="function" id="namespaceeu_1acf596ba635e414898f3c5c60260f2faf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::OP</definition>
+        <argsstring>(==) OP(!</argsstring>
+        <name>OP</name>
+        <qualifiedname>eu::OP</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/hash.string.h" line="98" column="5" declfile="libs/base/src/base/hash.string.h" declline="98" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1a34d2ec62d422fd2938f602143108b9aa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string eu::string_from</definition>
+        <argsstring>(const HshO &amp;h)</argsstring>
+        <name>string_from</name>
+        <qualifiedname>eu::string_from</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1HshO" kindref="compound">HshO</ref> &amp;</type>
+          <declname>h</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/hash.string.h" line="103" column="13" declfile="libs/base/src/base/hash.string.h" declline="103" declcolumn="13"/>
+      </memberdef>
       <member refid="group__math_1ga66e1820c967a20b5f47444560e472077" kind="function"><name>string_from</name></member>
       <member refid="group__math_1gac6df9508643c5fd4c3492e047e9a932c" kind="function"><name>operator+</name></member>
       <member refid="group__math_1gaf28a2e40d555474d81f7d62a6f02c726" kind="function"><name>operator-</name></member>
