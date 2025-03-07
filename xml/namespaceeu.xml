@@ -364,8 +364,6 @@
       <member refid="group__math_1gae99fc2a026a0a7ac61fbc6281d530996" kind="function"><name>operator*</name></member>
       <member refid="group__math_1ga74899d4681ffa6fdccd09f9588ba7661" kind="function"><name>operator*</name></member>
       <member refid="group__math_1ga4dde67115df3f842c8371817f87587d4" kind="function"><name>operator*</name></member>
-      <member refid="group__math_1ga94c89d4216e30fc6ad3711eb540a25fc" kind="function"><name>operator+</name></member>
-      <member refid="group__math_1gae807f257d9b667c1c45602b2d67ceafa" kind="function"><name>operator-</name></member>
       <member refid="group__math_1ga53e78e428a56c4436a3a11a8c747cb4c" kind="function"><name>make_range</name></member>
       <member refid="group__math_1ga572ae747813ec1771667ebd29d4c8144" kind="function"><name>make_range</name></member>
       <member refid="group__math_1ga1d52a91adaa565513eb90b8d2dce2df5" kind="function"><name>from_01f</name></member>

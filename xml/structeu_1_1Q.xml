@@ -323,42 +323,6 @@
         </inbodydescription>
         <location file="libs/base/src/base/quat.h" line="98" column="13"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1Q_1a265b6580ff8614450bb53147732944ea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
-        <definition>void eu::Q::operator+=</definition>
-        <argsstring>(const Q &amp;rhs)</argsstring>
-        <name>operator+=</name>
-        <qualifiedname>eu::Q::operator+=</qualifiedname>
-        <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1Q" kindref="compound">Q</ref> &amp;</type>
-          <declname>rhs</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/base/src/base/quat.h" line="100" column="14"/>
-      </memberdef>
-      <memberdef kind="function" id="structeu_1_1Q_1a3a6307c05c948f7c01a444b30a2d6af2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
-        <definition>void eu::Q::operator-=</definition>
-        <argsstring>(const Q &amp;rhs)</argsstring>
-        <name>operator-=</name>
-        <qualifiedname>eu::Q::operator-=</qualifiedname>
-        <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1Q" kindref="compound">Q</ref> &amp;</type>
-          <declname>rhs</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/base/src/base/quat.h" line="101" column="14"/>
-      </memberdef>
       <memberdef kind="function" id="structeu_1_1Q_1a0d598e8d983468dd130394a0fcab90fa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
         <definition>void eu::Q::operator*=</definition>
@@ -375,7 +339,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/quat.h" line="102" column="14"/>
+        <location file="libs/base/src/base/quat.h" line="100" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1Q_1a5157e607b25efe618c69117897b19daa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
@@ -393,7 +357,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/quat.h" line="103" column="14"/>
+        <location file="libs/base/src/base/quat.h" line="101" column="14"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-static-func">
@@ -537,7 +501,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/quat.h" line="108" column="18"/>
+        <location file="libs/base/src/base/quat.h" line="106" column="18"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1Q_1ade6b9d81f9750befb4d67af5324263a9" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1Q" kindref="compound">Q</ref></type>
@@ -567,7 +531,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/quat.h" line="113" column="18"/>
+        <location file="libs/base/src/base/quat.h" line="111" column="18"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1Q_1a9cd9f45333d77f435568cba66c0be12c" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1Q" kindref="compound">Q</ref></type>
@@ -599,7 +563,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/quat.h" line="119" column="18"/>
+        <location file="libs/base/src/base/quat.h" line="117" column="18"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -607,7 +571,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/base/src/base/quat.h" line="18" column="5" bodyfile="libs/base/src/base/quat.h" bodystart="19" bodyend="120"/>
+    <location file="libs/base/src/base/quat.h" line="18" column="5" bodyfile="libs/base/src/base/quat.h" bodystart="19" bodyend="118"/>
     <listofallmembers>
       <member refid="structeu_1_1Q_1acf38e08247c681bffa8d6e4d3e731f96" prot="public" virt="non-virtual"><scope>eu::Q</scope><name>from</name></member>
       <member refid="structeu_1_1Q_1afaa1c917caaf0a005f39bc0ba222ecac" prot="public" virt="non-virtual"><scope>eu::Q</scope><name>from</name></member>
@@ -631,8 +595,6 @@
       <member refid="structeu_1_1Q_1a92b5e5a95a0ff772e72d89c30cc29c54" prot="public" virt="non-virtual"><scope>eu::Q</scope><name>normalize</name></member>
       <member refid="structeu_1_1Q_1a0d598e8d983468dd130394a0fcab90fa" prot="public" virt="non-virtual"><scope>eu::Q</scope><name>operator*=</name></member>
       <member refid="structeu_1_1Q_1a5157e607b25efe618c69117897b19daa" prot="public" virt="non-virtual"><scope>eu::Q</scope><name>operator*=</name></member>
-      <member refid="structeu_1_1Q_1a265b6580ff8614450bb53147732944ea" prot="public" virt="non-virtual"><scope>eu::Q</scope><name>operator+=</name></member>
-      <member refid="structeu_1_1Q_1a3a6307c05c948f7c01a444b30a2d6af2" prot="public" virt="non-virtual"><scope>eu::Q</scope><name>operator-=</name></member>
       <member refid="structeu_1_1Q_1a4a94b2934844952ebb8fc9b0f51fa41f" prot="public" virt="non-virtual"><scope>eu::Q</scope><name>Q</name></member>
       <member refid="structeu_1_1Q_1a9cd9f45333d77f435568cba66c0be12c" prot="public" virt="non-virtual"><scope>eu::Q</scope><name>slerp</name></member>
       <member refid="structeu_1_1Q_1ade6b9d81f9750befb4d67af5324263a9" prot="public" virt="non-virtual"><scope>eu::Q</scope><name>slerp_fast</name></member>

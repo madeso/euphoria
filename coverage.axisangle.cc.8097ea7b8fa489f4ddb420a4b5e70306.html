@@ -26,7 +26,7 @@
                 <span>libs/base/src/base/</span>
             </div>
             <div>File: axisangle.cc</div>
-            <div>Date: 2025-03-06 16:01:02</div>
+            <div>Date: 2025-03-07 21:57:28</div>
         </div>
         <div class="col-sm-12 col-lg-3 float-left d-flex flex-column text-right flex-justify-end p-3">
             <div class="d-flex">
@@ -62,11 +62,11 @@
       <th>Condition coverage</th>
       <th>Block coverage</th>
     </tr>
-    <tr><td><a href="#l9">eu::AA::AA(eu::n3 const&amp;, eu::An const&amp;) (line 9)</a></td><td>called 58 times</td><td>100.0%</td><td>25.0%</td><td>-%</td><td>33.3%</td></tr>
+    <tr><td><a href="#l9">eu::AA::AA(eu::n3 const&amp;, eu::An const&amp;) (line 9)</a></td><td>called 73 times</td><td>100.0%</td><td>25.0%</td><td>-%</td><td>33.3%</td></tr>
     <tr><td><a href="#l16">eu::AA::from(eu::Q const&amp;) (line 16)</a></td><td>called 6 times</td><td>100.0%</td><td>56.2%</td><td>-%</td><td>81.0%</td></tr>
     <tr><td><a href="#l48">eu::operator&lt;&lt;(std::ostream&amp;, eu::AA const&amp;) (line 48)</a></td><td>called 2 times</td><td>100.0%</td><td>50.0%</td><td>-%</td><td>77.8%</td></tr>
     <tr><td><a href="#l49">eu::operator&lt;&lt;(std::ostream&amp;, eu::Ypr const&amp;) (line 49)</a></td><td>called 1 time</td><td>100.0%</td><td>50.0%</td><td>-%</td><td>77.8%</td></tr>
-    <tr><td><a href="#l30">eu::rha(eu::n3 const&amp;, eu::An const&amp;) (line 30)</a></td><td>called 56 times</td><td>100.0%</td><td>37.5%</td><td>-%</td><td>47.4%</td></tr>
+    <tr><td><a href="#l30">eu::rha(eu::n3 const&amp;, eu::An const&amp;) (line 30)</a></td><td>called 71 times</td><td>100.0%</td><td>37.5%</td><td>-%</td><td>47.4%</td></tr>
     <tr><td><a href="#l37">eu::string_from[abi:cxx11](eu::AA const&amp;) (line 37)</a></td><td>called 4 times</td><td>100.0%</td><td>-%</td><td>-%</td><td>100.0%</td></tr>
     <tr><td><a href="#l43">eu::string_from[abi:cxx11](eu::Ypr const&amp;) (line 43)</a></td><td>called 2 times</td><td>100.0%</td><td>-%</td><td>-%</td><td>100.0%</td></tr>
   </table>
@@ -146,14 +146,14 @@
                 <td class="text-right src linenos"><a class="normal" id="l9" href="#l9">9</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
-                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">58</td>
+                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">73</td>
                 <td class="src coveredLine"><span class="w">    </span><span class="n">AA</span><span class="o">::</span><span class="n">AA</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">n3</span><span class="w"> </span><span class="o">&amp;</span><span class="n">ax</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">An</span><span class="w"> </span><span class="o">&amp;</span><span class="n">ang</span><span class="p">)</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l10" href="#l10">10</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
-                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">58</td>
+                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">73</td>
                 <td class="src coveredLine"><span class="w">        </span><span class="o">:</span><span class="w"> </span><span class="n">axis</span><span class="p">(</span><span class="n">ax</span><span class="p">),</span><span class="w"> </span><span class="n">angle</span><span class="p">(</span><span class="n">ang</span><span class="p">)</span></td>
             </tr>
             <tr>
@@ -170,20 +170,20 @@
                         <summary>1/4</summary>
                         <div class="text-left position-absolute color-bg-subtle p-3 mt-2" style="z-index: 1;">
                             <div class="color-fg-danger">&cross; Branch 0 (3 &rightarrow; 4) not taken.</div>
-                            <div class="color-taken-branch">&check; Branch 1 (3 &rightarrow; 10) taken 58 times.</div>
+                            <div class="color-taken-branch">&check; Branch 1 (3 &rightarrow; 10) taken 73 times.</div>
                             <div class="color-fg-danger">&cross; Branch 2 (7 &rightarrow; 8) not taken.</div>
                             <div class="color-fg-danger">&cross; Branch 3 (7 &rightarrow; 11) not taken.</div>
                         </div>
                     </details>
                 </td>
-                <td class="src partialCoveredLine pr-2 pl-2 color-fg-muted text-right">58</td>
+                <td class="src partialCoveredLine pr-2 pl-2 color-fg-muted text-right">73</td>
                 <td class="src partialCoveredLine"><span class="w">        </span><span class="n">ASSERT</span><span class="p">(</span><span class="n">ax</span><span class="p">.</span><span class="n">is_valid</span><span class="p">());</span></td>
             </tr>
             <tr>
                 <td class="text-right src linenos"><a class="normal" id="l13" href="#l13">13</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
-                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">58</td>
+                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">73</td>
                 <td class="src coveredLine"><span class="w">    </span><span class="p">}</span></td>
             </tr>
             <tr>
@@ -343,7 +343,7 @@
                 <td class="text-right src linenos"><a class="normal" id="l30" href="#l30">30</a></td>
                 <td class="text-right src linenos ws-unset">
                 </td>
-                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">56</td>
+                <td class="src coveredLine pr-2 pl-2 color-fg-muted text-right">71</td>
                 <td class="src coveredLine"><span class="w">    </span><span class="n">rha</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">n3</span><span class="w"> </span><span class="o">&amp;</span><span class="n">axis</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">An</span><span class="w"> </span><span class="o">&amp;</span><span class="n">angle</span><span class="p">)</span></td>
             </tr>
             <tr>
@@ -360,13 +360,13 @@
                         <summary>1/4</summary>
                         <div class="text-left position-absolute color-bg-subtle p-3 mt-2" style="z-index: 1;">
                             <div class="color-fg-danger">&cross; Branch 0 (3 &rightarrow; 4) not taken.</div>
-                            <div class="color-taken-branch">&check; Branch 1 (3 &rightarrow; 10) taken 56 times.</div>
+                            <div class="color-taken-branch">&check; Branch 1 (3 &rightarrow; 10) taken 71 times.</div>
                             <div class="color-fg-danger">&cross; Branch 2 (7 &rightarrow; 8) not taken.</div>
                             <div class="color-fg-danger">&cross; Branch 3 (7 &rightarrow; 16) not taken.</div>
                         </div>
                     </details>
                 </td>
-                <td class="src partialCoveredLine pr-2 pl-2 color-fg-muted text-right">56</td>
+                <td class="src partialCoveredLine pr-2 pl-2 color-fg-muted text-right">71</td>
                 <td class="src partialCoveredLine"><span class="w">        </span><span class="n">ASSERT</span><span class="p">(</span><span class="n">axis</span><span class="p">.</span><span class="n">is_valid</span><span class="p">());</span></td>
             </tr>
             <tr>
@@ -375,14 +375,14 @@
                     <details class="normal details-overlay">
                         <summary>2/4</summary>
                         <div class="text-left position-absolute color-bg-subtle p-3 mt-2" style="z-index: 1;">
-                            <div class="color-taken-branch">&check; Branch 0 (11 &rightarrow; 12) taken 56 times.</div>
+                            <div class="color-taken-branch">&check; Branch 0 (11 &rightarrow; 12) taken 71 times.</div>
                             <div class="color-fg-danger">&cross; Branch 1 (11 &rightarrow; 19) not taken.</div>
-                            <div class="color-taken-branch">&check; Branch 2 (12 &rightarrow; 13) taken 56 times.</div>
+                            <div class="color-taken-branch">&check; Branch 2 (12 &rightarrow; 13) taken 71 times.</div>
                             <div class="color-fg-danger">&cross; Branch 3 (12 &rightarrow; 19) not taken.</div>
                         </div>
                     </details>
                 </td>
-                <td class="src partialCoveredLine pr-2 pl-2 color-fg-muted text-right">56</td>
+                <td class="src partialCoveredLine pr-2 pl-2 color-fg-muted text-right">71</td>
                 <td class="src partialCoveredLine"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="n">axis</span><span class="p">,</span><span class="w"> </span><span class="n">An</span><span class="o">::</span><span class="n">from_radians</span><span class="p">(</span><span class="n">angle</span><span class="p">.</span><span class="n">as_radians</span><span class="p">())};</span></td>
             </tr>
             <tr>
