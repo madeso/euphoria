@@ -97,8 +97,6 @@ namespace eu
         /// Get the local down vector.
         [[nodiscard]] n3 get_local_down() const;
 
-        void operator+=(const Q& rhs);
-        void operator-=(const Q& rhs);
         void operator*=(float rhs);
         void operator*=(const Q& rhs);
 
@@ -130,8 +128,6 @@ namespace eu
     Q operator*(const Q& lhs, const Q& rhs);
     Q operator*(float scale, const Q& q);
     Q operator*(const Q& q, float scale);
-    Q operator+(const Q& lhs, const Q& rhs);
-    Q operator-(const Q& lhs, const Q& rhs);
 
     /** @}*/
     ADD_CATCH_FORMATTER_DEF(Q)

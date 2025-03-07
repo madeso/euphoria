@@ -151,11 +151,18 @@ namespace eu
         return *normalized;
     }
 
+    Q add(const Q& lhs, const Q& rhs)
+    {
+        return { lhs.w + rhs.w, {lhs.x + rhs.x, lhs.y + rhs.y, lhs.z + rhs.z} };
+    }
+
 
     Q
     Q::nlerp(const Q& f, const float scale, const Q& t)
     {
-        return (f * (1 - scale) + t * scale).get_normalized();
+        const auto lhs = f * (1 - scale);
+        const auto rhs = t * scale;
+        return add(lhs, rhs).get_normalized();
     }
 
 
@@ -178,7 +185,7 @@ namespace eu
         {
             // if theta = 180 degrees then result is not fully defined
             // we could rotate around any axis normal to qa or qb
-            const Q qt = qa + qb;
+            const Q qt = add(qa, qb);
             return Q
             {
                 qt.w * 0.5f,
@@ -192,7 +199,7 @@ namespace eu
         }
         const float ratio_a = sin((1 - t) * half_theta) / sin_half_theta;
         const float ratio_b = sin(t * half_theta) / sin_half_theta;
-        return qa * ratio_a + qb * ratio_b;
+        return add(qa * ratio_a, qb * ratio_b);
     }
 
 
@@ -207,26 +214,6 @@ namespace eu
         {
             return slerp_fast(from, scale, to);
         }
-    }
-
-
-    void
-    Q::operator+=(const Q& rhs)
-    {
-        x += rhs.x;
-        y += rhs.y;
-        z += rhs.z;
-        w += rhs.w;
-    }
-
-
-    void
-    Q::operator-=(const Q& rhs)
-    {
-        x -= rhs.x;
-        y -= rhs.y;
-        z -= rhs.z;
-        w -= rhs.w;
     }
 
 
@@ -299,7 +286,7 @@ namespace eu
 
     std::string string_from(const Q& v)
     {
-        return fmt::format("({} ({}, {}, {}))", v.w, v.x, v.y, v.z);
+        return fmt::format("({}, ({}, {}, {}))", v.w, v.x, v.y, v.z);
     }
 
 
@@ -330,24 +317,6 @@ namespace eu
     {
         Q r = q;
         r *= scale;
-        return r;
-    }
-
-
-    Q
-    operator+(const Q& lhs, const Q& rhs)
-    {
-        Q r = rhs;
-        r += lhs;
-        return r;
-    }
-
-
-    Q
-    operator-(const Q& lhs, const Q& rhs)
-    {
-        Q r = rhs;
-        r -= lhs;
         return r;
     }
 

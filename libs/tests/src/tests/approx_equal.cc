@@ -83,7 +83,11 @@ namespace eu::tests
             Q const& rhs,
             const ApproxData& data)
     {
-        return is_approximately_equal(1.0f, dot(lhs, rhs), data);
+        return is_approximately_equal(lhs.x, rhs.x, data)
+            && is_approximately_equal(lhs.y, rhs.y, data)
+            && is_approximately_equal(lhs.z, rhs.z, data)
+            && is_approximately_equal(lhs.w, rhs.w, data)
+            ;
     }
 
     template <>
