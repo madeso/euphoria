@@ -262,3 +262,54 @@ TEST_CASE("quat-operators", "[quat]")
         CHECK(q2 * q1 == approx(eu::Q(-14.0f, eu::v3(2, 3, 4))));
 	}
 }
+
+TEST_CASE("quat-get-local", "[quat]")
+{
+	SECTION("identity")
+	{
+		const auto q = eu::q_identity;
+
+		CHECK(q.get_local_right() == approx(eu::kk::right));
+		CHECK(q.get_local_left() == approx(eu::kk::left));
+		CHECK(q.get_local_up() == approx(eu::kk::up));
+		CHECK(q.get_local_down() == approx(eu::kk::down));
+		CHECK(q.get_local_in() == approx(eu::kk::in));
+		CHECK(q.get_local_out() == approx(eu::kk::out));
+	}
+
+	SECTION("rotated 90 degrees around up")
+	{
+		const auto q = eu::Q::from(eu::rha(eu::kk::up, 90_deg));
+
+		CHECK(q.get_local_right() == approx(eu::kk::in));
+		CHECK(q.get_local_left() == approx(eu::kk::out));
+		CHECK(q.get_local_up() == approx(eu::kk::up));
+		CHECK(q.get_local_down() == approx(eu::kk::down));
+		CHECK(q.get_local_in() == approx(eu::kk::left));
+		CHECK(q.get_local_out() == approx(eu::kk::right));
+	}
+
+	SECTION("rotated 90 degrees around right")
+	{
+		const auto q = eu::Q::from(eu::rha(eu::kk::right, 90_deg));
+
+		CHECK(q.get_local_right() == approx(eu::kk::right));
+		CHECK(q.get_local_left() == approx(eu::kk::left));
+		CHECK(q.get_local_up() == approx(eu::kk::out));
+		CHECK(q.get_local_down() == approx(eu::kk::in));
+		CHECK(q.get_local_in() == approx(eu::kk::up));
+		CHECK(q.get_local_out() == approx(eu::kk::down));
+	}
+
+	SECTION("rotated 90 degrees around in")
+	{
+		const auto q = eu::Q::from(eu::rha(eu::kk::in, 90_deg));
+
+		CHECK(q.get_local_right() == approx(eu::kk::down));
+		CHECK(q.get_local_left() == approx(eu::kk::up));
+		CHECK(q.get_local_up() == approx(eu::kk::right));
+		CHECK(q.get_local_down() == approx(eu::kk::left));
+		CHECK(q.get_local_in() == approx(eu::kk::in));
+		CHECK(q.get_local_out() == approx(eu::kk::out));
+	}
+}
