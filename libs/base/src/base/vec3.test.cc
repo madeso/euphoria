@@ -185,6 +185,12 @@ TEST_CASE("vec3-operators", "[vec3]")
         REQUIRE(result == approx(eu::v3{0.5f, 1.0f, 1.5f}));
     }
 
+    SECTION("division with scalar (reversed)")
+    {
+        const auto result = 2.0f / v1;
+        REQUIRE(result == approx(eu::v3{2.0f, 1.0f, 0.6666667f}));
+    }
+
     SECTION("negation")
     {
         const auto result = -v1;
