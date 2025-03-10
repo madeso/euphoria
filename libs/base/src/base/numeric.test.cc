@@ -26,14 +26,10 @@ TEST_CASE("num-clamp_zero", "[numeric]")
     REQUIRE(clamp_zero(0.000001f) == 0.0f);
     REQUIRE(clamp_zero(12.0f) == 12.0f);
 
-    REQUIRE(clamp_zero(10.0f, 42.0f, 0.1f)
-        == approx(10.0f));
-    REQUIRE(clamp_zero(-10.0f, 42.0f, 0.1f)
-        == approx(-10.0f));
-    REQUIRE(clamp_zero(0.09f, 42.0f, 0.1f)
-        == approx(42.0f));
-    REQUIRE(clamp_zero(-0.09f, 42.0f, 0.1f)
-        == approx(42.0f));
+    REQUIRE(clamp_zero(10.0f, 42.0f, 0.1f) == approx(10.0f));
+    REQUIRE(clamp_zero(-10.0f, 42.0f, 0.1f) == approx(-10.0f));
+    REQUIRE(clamp_zero(0.09f, 42.0f, 0.1f) == approx(42.0f));
+    REQUIRE(clamp_zero(-0.09f, 42.0f, 0.1f) == approx(42.0f));
 }
 
 TEST_CASE("num-sign", "[numeric]")

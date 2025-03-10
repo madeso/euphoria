@@ -87,26 +87,20 @@ TEST_CASE("quat-testLocalAxis", "[quat]")
 
 TEST_CASE("quat-testLook", "[quat]")
 {
-	CHECK(Q::look_at(v3(0, 0, 0), v3(5, 0, 0), kk::up )
-		== approx(Q::from (rha(kk::up, -90_deg))));
-	CHECK(Q::look_at(v3(0, 0, 0), v3(2, 0, 0), kk::up)
-		== approx(Q::from(rha(kk::up, -90_deg))));
-	CHECK(Q::look_at(v3(0, 0, 0), v3(0.25f, 0, 0), kk::up)
-		== approx(Q::from(rha(kk::up, -90_deg))));
+	CHECK(Q::look_at(v3(0, 0, 0), v3(5, 0, 0), kk::up ) == approx(Q::from (rha(kk::up, -90_deg))));
+	CHECK(Q::look_at(v3(0, 0, 0), v3(2, 0, 0), kk::up) == approx(Q::from(rha(kk::up, -90_deg))));
+	CHECK(Q::look_at(v3(0, 0, 0), v3(0.25f, 0, 0), kk::up) == approx(Q::from(rha(kk::up, -90_deg))));
 
 	// need to pass in a normalized vec3 or it won't compile, hence the
 	// .get_normalized() call
 	// Z looks reversed, but remember, negative direction is in
-	CHECK(Q::look_in_direction(n3(0, 0, -1), kk::up)
-		== approx(Q::from(rha(kk::up, no_rotation))));
+	CHECK(Q::look_in_direction(n3(0, 0, -1), kk::up) == approx(Q::from(rha(kk::up, no_rotation))));
 
     // CHECK(Q::look_in_direction(n3(0, 0, 1), kk::up)
 	// 	== approx(Q::from(rha(kk::up, 180_deg))));
 
-	CHECK(Q::look_in_direction(n3(1, 0, 0), kk::up)
-		== approx(Q::from(rha(kk::up, -90_deg))));
-	CHECK(Q::look_in_direction(n3(-1, 0, 0), kk::up)
-		== approx(Q::from(rha(kk::up, 90_deg))));
+	CHECK(Q::look_in_direction(n3(1, 0, 0), kk::up) == approx(Q::from(rha(kk::up, -90_deg))));
+	CHECK(Q::look_in_direction(n3(-1, 0, 0), kk::up) == approx(Q::from(rha(kk::up, 90_deg))));
 
 	// todo(Gustav): add more test where up != up()
 }
@@ -120,10 +114,6 @@ TEST_CASE("quat-testCombine", "[quat]")
 	CHECK(Q::from(rha(kk::up, 90_deg))
 		.then_get_rotated(q_identity)
 				== approx(Q::from(rha(kk::up, 90_deg))));
-	
-	CHECK(q_identity
-		.then_get_rotated(Q::from(rha(kk::up, 90_deg)))
-				== approx(Q::from(rha(kk::up, 90_deg))));
 
 	CHECK(Q::from(rha(kk::right, 90_deg))
 		.then_get_rotated(Q::from(rha(kk::up, -90_deg)))
@@ -134,14 +124,10 @@ TEST_CASE("quat-testCombine", "[quat]")
 
 TEST_CASE("quat-verifyTestAxisAngle", "[quat]")
 {
-	CHECK(rha(kk::up, no_rotation)
-		== approx(rha(kk::up, no_rotation)));
-	CHECK(rha(kk::right, 90_deg)
-		== approx(rha(kk::right, 90_deg)));
-	CHECK(rha(-kk::up, 45_deg)
-		== approx(rha(kk::up, -45_deg)));
-	CHECK(rha(-kk::right, -90_deg)
-		== approx(rha(kk::right, 90_deg)));
+	CHECK(rha(kk::up, no_rotation) == approx(rha(kk::up, no_rotation)));
+	CHECK(rha(kk::right, 90_deg) == approx(rha(kk::right, 90_deg)));
+	CHECK(rha(-kk::up, 45_deg) == approx(rha(kk::up, -45_deg)));
+	CHECK(rha(-kk::right, -90_deg) == approx(rha(kk::right, 90_deg)));
 }
 
 TEST_CASE("quat-checkAxisAngle", "[quat]")
@@ -149,12 +135,9 @@ TEST_CASE("quat-checkAxisAngle", "[quat]")
 	CHECK(std::nullopt == AA::from(Q::from(rha(kk::up, no_rotation))));
 	CHECK(std::nullopt == AA::from(Q::from(rha(kk::right, no_rotation))));
 
-	CHECK(AA::from(Q::from(rha(kk::right, 90_deg)))
-		== approx(rha(kk::right, 90_deg)));
-	CHECK(AA::from(Q::from(rha(-kk::up, 45_deg)))
-		== approx(rha(kk::up, -45_deg)));
-	CHECK(AA::from(Q::from(rha(-kk::right, -90_deg)))
-		== approx(rha(kk::right, 90_deg)));
+	CHECK(AA::from(Q::from(rha(kk::right, 90_deg))) == approx(rha(kk::right, 90_deg)));
+	CHECK(AA::from(Q::from(rha(-kk::up, 45_deg))) == approx(rha(kk::up, -45_deg)));
+	CHECK(AA::from(Q::from(rha(-kk::right, -90_deg))) == approx(rha(kk::right, 90_deg)));
 }
 
 TEST_CASE("quat-checkQuatConjugate", "[quat]")

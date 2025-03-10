@@ -281,9 +281,6 @@ TEST_CASE("mat4-from_quaternion", "[mat]")
     REQUIRE(transformed == approx(v3(0.0f, 0.0f, -1.0f)));
 }
 
-////////////////////////////////////////////////////////////////////////////////
-
-
 
 TEST_CASE("mat4-TestTransformation", "[mat]")
 {
