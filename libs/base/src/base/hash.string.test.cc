@@ -4,41 +4,43 @@
 
 using namespace std::literals;
 
+using namespace eu;
+
 TEST_CASE("hs-hash", "[hash]")
 {
-    constexpr auto h = eu::hash64("test"sv);
+    constexpr auto h = hash64("test"sv);
     REQUIRE(h == 0xf9e6e6ef197c2b25);
 }
 
 TEST_CASE("hash-appendix-c", "[hash]")
 {
     // https://tools.ietf.org/html/draft-eastlake-fnv-07#page-9
-    REQUIRE(eu::hash64("") == 0xcbf29ce484222325);
-    REQUIRE(eu::hash64("a") == 0xaf63dc4c8601ec8c);
-    REQUIRE(eu::hash64("foobar") == 0x85944171f73967e8);
+    REQUIRE(hash64("") == 0xcbf29ce484222325);
+    REQUIRE(hash64("a") == 0xaf63dc4c8601ec8c);
+    REQUIRE(hash64("foobar") == 0x85944171f73967e8);
 }
 
 TEST_CASE("hs-hash generates the same hash as the hash function", "[hash]")
 {
     // basic hash
-    constexpr eu::Hsh h = "test"sv;
+    constexpr Hsh h = "test"sv;
     REQUIRE(h.hash == 0xf9e6e6ef197c2b25);
 
     // from string view
-    const eu::HshO h2 = "test"sv;
+    const HshO h2 = "test"sv;
     REQUIRE(h2.hash == 0xf9e6e6ef197c2b25);
 
     // from std::string
     const std::string test_str = "test";
-    const eu::HshO h3 = test_str;
+    const HshO h3 = test_str;
     REQUIRE(h3.hash == 0xf9e6e6ef197c2b25);
 
     // from existing hash
-    const eu::HshO h4 = h;
+    const HshO h4 = h;
     REQUIRE(h3.hash == 0xf9e6e6ef197c2b25);
 }
 
-TEMPLATE_TEST_CASE("hs-comparing string views", "[hash]", eu::Hsh, eu::HshO)
+TEMPLATE_TEST_CASE("hs-comparing string views", "[hash]", Hsh, HshO)
 {
     using T_hsh = TestType;
 
@@ -105,16 +107,16 @@ TEMPLATE_TEST_CASE("hs-comparing string views", "[hash]", eu::Hsh, eu::HshO)
 }
 
 
-TEMPLATE_TEST_CASE("hs-comparing string views", "[hash]", (std::map<eu::HshO, int>), (std::unordered_map<eu::HshO, int>))
+TEMPLATE_TEST_CASE("hs-comparing string views", "[hash]", (std::map<HshO, int>), (std::unordered_map<HshO, int>))
 {
     using T_map = TestType;
     constexpr int test_value = 2;
     constexpr int foo_value = 4;
 
-    constexpr eu::Hsh test = "test"sv;
-    constexpr eu::Hsh foo = "foobar"sv;
-    const eu::HshO o_test = test;
-    const eu::HshO o_foo = foo;
+    constexpr Hsh test = "test"sv;
+    constexpr Hsh foo = "foobar"sv;
+    const HshO o_test = test;
+    const HshO o_foo = foo;
 
     // hashing should match earlier values
     REQUIRE(test.hash == 0xf9e6e6ef197c2b25);
@@ -159,7 +161,7 @@ TEST_CASE("Hsh-print", "[hash]")
 
     SECTION("Hsh")
     {
-        const eu::Hsh h("test"sv);
+        const Hsh h("test"sv);
 
         SECTION("fmt")
         {
@@ -177,7 +179,7 @@ TEST_CASE("Hsh-print", "[hash]")
 
     SECTION("HshO")
     {
-        const eu::HshO h("test"sv);
+        const HshO h("test"sv);
 
         SECTION("fmt")
         {

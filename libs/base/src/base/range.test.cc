@@ -5,13 +5,14 @@
 #include "base/range.h"
 
 using namespace eu::tests;
+using namespace eu;
 
-#define TO_01(min, v, max) eu::to01(eu::make_range(min, max), v)
-#define FROM_01(min, v, max) eu::from_01(eu::make_range(min, max), v)
-#define GET_360_ANGULAR(min, v, max) eu::get360_angular(eu::make_range(min, max), v)
-#define KEEP_WITHIN(min, v, max) eu::keep_within(eu::make_range(min, max), v)
-#define IS_WITHIN_INCLUSIVE(min, v, max) eu::is_within(eu::make_range(min, max), v)
-#define WRAP(min, v, max) eu::wrap(eu::make_range(min, max), v)
+#define TO_01(min, v, max) to01(make_range(min, max), v)
+#define FROM_01(min, v, max) from_01(make_range(min, max), v)
+#define GET_360_ANGULAR(min, v, max) get360_angular(make_range(min, max), v)
+#define KEEP_WITHIN(min, v, max) keep_within(make_range(min, max), v)
+#define IS_WITHIN_INCLUSIVE(min, v, max) is_within(make_range(min, max), v)
+#define WRAP(min, v, max) wrap(make_range(min, max), v)
 
 TEST_CASE("num-to01", "[numeric]")
 {
@@ -40,9 +41,9 @@ TEST_CASE("num-from_01-int", "[numeric]")
 
 TEST_CASE("num-remap", "[numeric]")
 {
-    REQUIRE(eu::remap_to(
-                    eu::make_range<float>(0, 3),
-                    eu::make_range<float>(0, 2),
+    REQUIRE(remap_to(
+                    make_range<float>(0, 3),
+                    make_range<float>(0, 2),
                     1.5f)
             == approx(1.0f));
 }

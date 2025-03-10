@@ -17,8 +17,7 @@ namespace eu
     {
         const float cos_a = q.w;
         const auto angle = acos(cos_a) * 2;
-        const auto sin_a = get_default_if_close_to_zero<float>(
-                sqrt(1.0f - cos_a * cos_a), 1, 0.0005f);
+        const auto sin_a = clamp_zero(std::sqrt(1.0f - cos_a * cos_a), 1, 0.0005f);
         // todo(Gustav): do we need to normalize here?
         const auto axis = (q.get_vec_part() / sin_a).get_normalized();
         if (!axis)

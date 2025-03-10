@@ -4,11 +4,12 @@
 
 #include "catch2/catch_all.hpp"
 
+using namespace eu;
 using namespace eu::tests;
 
 TEST_CASE("aa-righthand", "[aa]")
 {
-    const auto aa = eu::rha(eu::kk::x_axis, eu::An::from_degrees(12.0f));
+    const auto aa = rha(kk::x_axis, An::from_degrees(12.0f));
     REQUIRE(aa.angle.as_degrees() == approx(12.0f));
 
     // todo(Gustav): replace one require
@@ -20,8 +21,8 @@ TEST_CASE("aa-righthand", "[aa]")
 
 TEST_CASE("aa-print", "[aa]")
 {
-    const auto x45 = eu::rha(eu::kk::x_axis, eu::An::from_degrees(45.0f));
-    const auto z0 = eu::rha(eu::kk::z_axis, eu::An::from_degrees(0.0f));
+    const auto x45 = rha(kk::x_axis, An::from_degrees(45.0f));
+    const auto z0 = rha(kk::z_axis, An::from_degrees(0.0f));
 
     // todo(Gustav): how reliable are theese tests, switch to regex?
     SECTION("fmt")
@@ -44,10 +45,10 @@ TEST_CASE("aa-print", "[aa]")
 
 TEST_CASE("ypr-print", "[angle]")
 {
-    using namespace eu::convert;
+    using namespace convert;
     
     // todo(Gustav): how reliable are theese tests, switch to regex?
-    const auto h = eu::Ypr{0_deg, 45_deg, 90_deg};
+    const auto h = Ypr{0_deg, 45_deg, 90_deg};
     SECTION("fmt")
     {
         std::string oh = fmt::format("{0}", h);

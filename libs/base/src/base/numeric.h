@@ -5,11 +5,15 @@
 
 namespace eu
 {
-    /** \addtogroup math
-     *  @{
-     */
+    namespace kk
+    {
+        constexpr float epsilon = 0.0001f;
+    }
 
-    constexpr float abs(float r)
+    constexpr float pi = 3.1415926535897932384626433832795f;
+    // constexpr float half_pi = pi / 2.0f;
+
+    constexpr float cabs(float r)
     {
         return r >= 0.0f
             ? r
@@ -17,27 +21,19 @@ namespace eu
             ;
     }
 
-
-    constexpr bool is_zero(float r)
+    /** \addtogroup math
+     *  @{
+     */
+    constexpr bool is_zero(float r, float epsilon = kk::epsilon)
     {
-        constexpr float epsilon = 0.0001f;
-        return abs(r) < epsilon;
+        return cabs(r) < epsilon;
     }
 
     constexpr bool
-    is_equal(float lhs, float rhs)
+    is_equal(float lhs, float rhs, float epsilon = kk::epsilon)
     {
-        return is_zero(lhs - rhs);
+        return is_zero(lhs - rhs, epsilon);
     }
-
-    float
-    clamp_zero(float r);
-
-    float
-    floor(float v);
-
-    float
-    ceil(float v);
 
     int
     floor_to_int(float v);
@@ -48,63 +44,47 @@ namespace eu
 
     /** Calculates the sign as a positive or a negative int.
     @returns 1 if r is greater than 0, -1 if not.
-    @see Abs()
     */
-    int
-    get_sign(float r);
+    constexpr int
+    get_sign(float r)
+    {
+        if(r >= 0.0f) { return 1; }
+        else { return -1; }
+    }
 
 
     /// Returns `1` if `true` or -1
-    float
-    get_sign(bool b);
+    constexpr float
+    get_sign(bool b)
+    {
+        if(b) { return  1.0f; }
+        else  { return -1.0f; }
+    }
 
 
-    float
-    lerp_float(float f, float scale, float t);
+    constexpr float
+    lerp_float(float f, float scale, float t)
+    {
+        return f + (t - f) * scale;
+    }
 
     /// Return `r * r`
-    float
-    square(float r);
-
-    float
-    sqrt(float r);
-
+    constexpr float
+    square(float r)
+    {
+        return r * r;
+    }
 
     constexpr float min(float lhs, float rhs) { return lhs < rhs ? lhs : rhs; }
     constexpr float max(float lhs, float rhs) { return lhs > rhs ? lhs : rhs; }
-
-
-    float
-    mod(float numer, float denumer);
-
-    /** Rounds a value to the nearest nice value.
-        If the granularity is 1 the function rounds to the closest integer, at .5 the
-        closest half integer, at 2 even integers etc...
-        @param num the number to round
-        @param gran the granularity
-        */
-    float
-    round(float num, float gran);
-
-    constexpr float pi = 3.1415926535897932384626433832795f;
-    // constexpr float half_pi = pi / 2.0f;
+    
 
     /// If the `value` is close to zero, `def` is returned
-    template <typename T>
-    T
-    get_default_if_close_to_zero(T value, T def, T epsilon)
+    constexpr float
+    clamp_zero(float value, float def = 0.0f, float epsilon = kk::epsilon)
     {
-        if(abs(value) < epsilon) { return def; }
+        if(is_zero(value, epsilon)) { return def; }
         else { return value; }
-    }
-
-    /// returns true for a index each Nth loop. pass zero to always return false
-    /// useful for example adding a newline each 10th or 15th line
-    template <typename I>
-    constexpr bool
-    is_each_nth(I i, I each)
-    {
-        return each && (i % each) == each - 1;
     }
 
     /** @}*/
