@@ -37,7 +37,7 @@ TEST_CASE("num-from_01-float", "[numeric]")
         REQUIRE(FROM_01(0, 0.5f, 100) == 50);
         REQUIRE(FROM_01(0, 1.0f, 100) == 100);
     }
-    #unddf FROM_01
+    #undef FROM_01
 }
 
 TEST_CASE("num-remap", "[numeric]")
