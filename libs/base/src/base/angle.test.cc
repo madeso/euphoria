@@ -103,7 +103,7 @@ TEST_CASE("angle-atan", "[angle]")
 {
     REQUIRE(eu::atan(0.0f).as_degrees() == APPROX(0.0f));
     REQUIRE(eu::atan(1.0f).as_degrees() == APPROX(45.0f));
-    REQUIRE(eu::atan(sqrt(3.0f)).as_degrees() == APPROX(60.0f));
+    REQUIRE(eu::atan(std::sqrt(3.0f)).as_degrees() == APPROX(60.0f));
 
     REQUIRE(eu::atan2(0.0f, 0.0f).as_degrees() == APPROX(0.0f));
     REQUIRE(eu::atan2(4.0f, -3.0f).as_radians() == APPROX(2.2143f));
@@ -115,7 +115,7 @@ TEST_CASE("angle-tan", "[angle]")
     REQUIRE(tan(An::from_degrees(45.0f)) == APPROX(1.0f));
     REQUIRE(tan(An::from_degrees(180.0f)) == APPROX(0.0f));
     REQUIRE(tan(An::from_degrees(225.0f)) == APPROX(1.0f));
-    REQUIRE(tan(An::from_degrees(60.0f)) == APPROX(sqrt(3.0f)));
+    REQUIRE(tan(An::from_degrees(60.0f)) == APPROX(std::sqrt(3.0f)));
 }
 
 TEST_CASE("angle-compare", "[angle]")
@@ -134,8 +134,8 @@ TEST_CASE("angle-Wikipedia constants", "[angle]")
 {
     // https://en.wikipedia.org/wiki/Trigonometric_functions#Explicit_values
     // https://en.wikipedia.org/wiki/Trigonometric_constants_expressed_in_real_radicals#Table_of_some_common_angles
-    const float a = (sqrt(6.0f) - sqrt(2.0f)) / 4.0f;
-    const float b = (sqrt(2.0f) + sqrt(6.0f)) / 4.0f;
+    const float a = (std::sqrt(6.0f) - std::sqrt(2.0f)) / 4.0f;
+    const float b = (std::sqrt(2.0f) + std::sqrt(6.0f)) / 4.0f;
 
     SECTION("sin")
     {

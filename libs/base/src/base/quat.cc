@@ -1,5 +1,7 @@
 #include "base/quat.h"
 
+#include <cmath>
+
 
 namespace eu
 {
@@ -94,7 +96,7 @@ namespace eu
     Q::get_length() const
     {
         const auto l2 = x * x + y * y + z * z + w * w;
-        return sqrt(l2);
+        return std::sqrt(l2);
     }
 
 
@@ -174,14 +176,14 @@ namespace eu
         // Calculate angle between them.
         const float cos_half_theta = qa.w * qb.w + qa.x * qb.x + qa.y * qb.y + qa.z * qb.z;
         // if qa=qb or qa=-qb then theta = 0 and we can return qa
-        if(abs(cos_half_theta) >= 1.0f)
+        if(cabs(cos_half_theta) >= 1.0f)
         {
             return qa;
         }
         // Calculate temporary values.
-        const auto half_theta = acos(cos_half_theta);
-        const auto sin_half_theta = sqrt(1.0f - cos_half_theta * cos_half_theta);
-        if(abs(sin_half_theta) < 0.001f)
+        const auto half_theta = eu::acos(cos_half_theta);
+        const auto sin_half_theta = std::sqrt(1.0f - cos_half_theta * cos_half_theta);
+        if(cabs(sin_half_theta) < 0.001f)
         {
             // if theta = 180 degrees then result is not fully defined
             // we could rotate around any axis normal to qa or qb
@@ -197,8 +199,8 @@ namespace eu
                 }
             };
         }
-        const float ratio_a = sin((1 - t) * half_theta) / sin_half_theta;
-        const float ratio_b = sin(t * half_theta) / sin_half_theta;
+        const float ratio_a = eu::sin((1 - t) * half_theta) / sin_half_theta;
+        const float ratio_b = eu::sin(t * half_theta) / sin_half_theta;
         return add(qa * ratio_a, qb * ratio_b);
     }
 
@@ -263,12 +265,12 @@ namespace eu
         const v3 in = kk::in;
         const float dot_value = in.dot(dir);
 
-        if (abs(dot_value - (-1.0f)) < 0.000001f)
+        if (cabs(dot_value - (-1.0f)) < 0.000001f)
         {
             // todo(Gustav): replace with a constant in general but this line specifically
             return {3.1415926535897932f, up};
         }
-        if (abs(dot_value - (1.0f)) < 0.000001f)
+        if (cabs(dot_value - (1.0f)) < 0.000001f)
         {
             return q_identity;
         }

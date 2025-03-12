@@ -1,5 +1,7 @@
 #include "base/vec2.h"
 
+#include <cmath>
+
 #include "base/angle.h"
 #include "assert/assert.h"
 
@@ -101,7 +103,7 @@ namespace eu
     float
     v2::get_length() const
     {
-        return sqrt(get_length_squared());
+        return std::sqrt(get_length_squared());
     }
 
     bool

@@ -1,5 +1,7 @@
 #include "base/vec3.h"
 
+#include <cmath>
+
 #include "base/quat.h"
 
 namespace eu
@@ -90,7 +92,7 @@ namespace eu
     [[nodiscard]] float
     v3::get_length() const
     {
-        return sqrt(get_length_squared());
+        return std::sqrt(get_length_squared());
     }
 
     bool
@@ -104,7 +106,7 @@ namespace eu
         }
         else
         {
-            *this /= sqrt(l2);
+            *this /= std::sqrt(l2);
             return true;
         }
     }
