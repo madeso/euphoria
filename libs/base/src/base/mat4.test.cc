@@ -276,9 +276,12 @@ TEST_CASE("mat4-from_quaternion", "[mat]")
     const auto q = Q::from(AA{n3(0.0f, 1.0f, 0.0f), An::from_degrees(90)});
     const auto m = m4::from(q);
     REQUIRE(m.has_value());
-    const auto v = v3(1.0f, 0.0f, 0.0f);
-    const auto transformed = m->get_transformed_point(v);
-    REQUIRE(transformed == approx(v3(0.0f, 0.0f, -1.0f)));
+    if(m.has_value())
+    {
+        const auto v = v3(1.0f, 0.0f, 0.0f);
+        const auto transformed = m->get_transformed_point(v);
+        REQUIRE(transformed == approx(v3(0.0f, 0.0f, -1.0f)));
+    }
 }
 
 
