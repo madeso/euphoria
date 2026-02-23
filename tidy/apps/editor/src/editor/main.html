@@ -1,0 +1,53 @@
+﻿<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+<title>apps/editor/src/editor/main.cc</title>
+</head>
+<body>
+<h1>apps/editor/src/editor/main.cc</h1>
+<span id='misc-const-correctness'>&nbsp;</span>
+<hr>
+<h3>warning: variable &#39;window_width&#39; of type &#39;int&#39; can be declared &#39;const&#39;</h3>
+<code>[misc-const-correctness]</code>
+<p><i>apps/editor/src/editor/main.cc 8 : 5</i></p>
+<pre>
+    8 |     int window_width = 1280;
+      |     ^
+      |         const 
+</pre>
+<hr>
+<h3>warning: variable &#39;window_height&#39; of type &#39;int&#39; can be declared &#39;const&#39;</h3>
+<code>[misc-const-correctness]</code>
+<p><i>apps/editor/src/editor/main.cc 9 : 5</i></p>
+<pre>
+    9 |     int window_height = 720;
+      |     ^
+      |         const 
+</pre>
+<span id='readability-implicit-bool-conversion'>&nbsp;</span>
+<hr>
+<h3>warning: implicit conversion &#39;SDL_Window *&#39; -&gt; &#39;bool&#39;</h3>
+<code>[readability-implicit-bool-conversion]</code>
+<p><i>apps/editor/src/editor/main.cc 20 : 11</i></p>
+<pre>
+   20 |     if ( !window ) {
+      |          ~^
+      |                  == nullptr
+</pre>
+<!--
+/home/runner/work/euphoria/euphoria/apps/editor/src/editor/main.cc:8:5: warning: variable 'window_width' of type 'int' can be declared 'const' [misc-const-correctness]
+    8 |     int window_width = 1280;
+      |     ^
+      |         const 
+/home/runner/work/euphoria/euphoria/apps/editor/src/editor/main.cc:9:5: warning: variable 'window_height' of type 'int' can be declared 'const' [misc-const-correctness]
+    9 |     int window_height = 720;
+      |     ^
+      |         const 
+/home/runner/work/euphoria/euphoria/apps/editor/src/editor/main.cc:20:11: warning: implicit conversion 'SDL_Window *' -> 'bool' [readability-implicit-bool-conversion]
+   20 |     if ( !window ) {
+      |          ~^
+      |                  == nullptr
+-->
+</body>
+</html>
