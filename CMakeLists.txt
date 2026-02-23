@@ -146,6 +146,12 @@ add_subdirectory(external)
 add_subdirectory(libs)
 add_subdirectory(apps)
 
+set_target_properties(catch_main PROPERTIES FOLDER "Dependencies/catc2")
+set_target_properties(Catch2 PROPERTIES FOLDER "Dependencies/catc2")
+set_target_properties(Catch2WithMain PROPERTIES FOLDER "Dependencies/catc2")
+set_target_properties(fmt PROPERTIES FOLDER "Dependencies")
+set_target_properties(jsonh PROPERTIES FOLDER "Dependencies")
+
 # run workbench
 add_custom_target(workbench_order_in_file
     ${CMAKE_CURRENT_SOURCE_DIR}/tools/buildtools/Workbench/bin/Debug/net7.0/wb.exe order-in-file check ${CMAKE_CURRENT_SOURCE_DIR}/docs/generated/xml/
@@ -155,3 +161,6 @@ add_custom_target(workbench_check_names
     ${CMAKE_CURRENT_SOURCE_DIR}/tools/buildtools/Workbench/bin/Debug/net7.0/wb.exe check-names check ${CMAKE_CURRENT_SOURCE_DIR}/docs/generated/xml/
     WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
 )
+
+set_target_properties(workbench_order_in_file PROPERTIES FOLDER "_tools")
+set_target_properties(workbench_check_names PROPERTIES FOLDER "_tools")
