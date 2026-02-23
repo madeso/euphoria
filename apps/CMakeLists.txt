@@ -1,4 +1,4 @@
-# add_subdirectory(editor)
+add_subdirectory(editor)
 # add_subdirectory(runner)
 # add_subdirectory(musikmaskin)
 # add_subdirectory(painter)
