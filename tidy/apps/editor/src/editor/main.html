@@ -6,48 +6,442 @@
 </head>
 <body>
 <h1>apps/editor/src/editor/main.cc</h1>
+<span id='readability-identifier-naming'>&nbsp;</span>
+<hr>
+<h3>warning: invalid case style for constexpr variable &#39;MAX_VERTEX_MEMORY&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>apps/editor/src/editor/main.cc 8 : 15</i></p>
+<pre>
+    8 | constexpr int MAX_VERTEX_MEMORY = 512 * 1024;
+      |               ^~~~~~~~~~~~~~~~~
+      |               max_vertex_memory
+</pre>
+<hr>
+<h3>warning: invalid case style for constexpr variable &#39;MAX_ELEMENT_MEMORY&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>apps/editor/src/editor/main.cc 9 : 15</i></p>
+<pre>
+    9 | constexpr int MAX_ELEMENT_MEMORY = 128 * 1024;
+      |               ^~~~~~~~~~~~~~~~~~
+      |               max_element_memory
+</pre>
+<span id='bugprone-suspicious-include'>&nbsp;</span>
+<hr>
+<h3>warning: suspicious #include of file with &#39;.c&#39; extension</h3>
+<code>[bugprone-suspicious-include]</code>
+<p><i>apps/editor/src/editor/main.cc 44 : 11</i></p>
+<pre>
+   44 | #include &quot;demo/overview.c&quot;
+      |           ^
+</pre>
+<span id='readability-avoid-unconditional-preprocessor-if'>&nbsp;</span>
+<hr>
+<h3>warning: preprocessor condition is always &#39;false&#39;, consider removing both the condition and its contents</h3>
+<code>[readability-avoid-unconditional-preprocessor-if]</code>
+<p><i>apps/editor/src/editor/main.cc 53 : 2</i></p>
+<pre>
+   53 | #if 0
+      |  ^
+</pre>
 <span id='misc-const-correctness'>&nbsp;</span>
 <hr>
 <h3>warning: variable &#39;window_width&#39; of type &#39;int&#39; can be declared &#39;const&#39;</h3>
 <code>[misc-const-correctness]</code>
-<p><i>apps/editor/src/editor/main.cc 8 : 5</i></p>
+<p><i>apps/editor/src/editor/main.cc 106 : 5</i></p>
 <pre>
-    8 |     int window_width = 1280;
+  106 |     int window_width = 1280;
       |     ^
       |         const 
 </pre>
 <hr>
 <h3>warning: variable &#39;window_height&#39; of type &#39;int&#39; can be declared &#39;const&#39;</h3>
 <code>[misc-const-correctness]</code>
-<p><i>apps/editor/src/editor/main.cc 9 : 5</i></p>
+<p><i>apps/editor/src/editor/main.cc 107 : 5</i></p>
 <pre>
-    9 |     int window_height = 720;
+  107 |     int window_height = 720;
       |     ^
       |         const 
+</pre>
+<span id='cppcoreguidelines-init-variables'>&nbsp;</span>
+<hr>
+<h3>warning: variable &#39;win&#39; is not initialized</h3>
+<code>[cppcoreguidelines-init-variables]</code>
+<p><i>apps/editor/src/editor/main.cc 109 : 17</i></p>
+<pre>
+  109 |     SDL_Window *win;
+      |                 ^  
+      |                     = nullptr
+</pre>
+<hr>
+<h3>warning: variable &#39;glContext&#39; is not initialized</h3>
+<code>[cppcoreguidelines-init-variables]</code>
+<p><i>apps/editor/src/editor/main.cc 110 : 19</i></p>
+<pre>
+  110 |     SDL_GLContext glContext;
+      |                   ^        
+      |                             = nullptr
+</pre>
+<hr>
+<h3>warning: invalid case style for local pointer &#39;glContext&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>apps/editor/src/editor/main.cc 110 : 19</i></p>
+<pre>
+  110 |     SDL_GLContext glContext;
+      |                   ^~~~~~~~~
+      |                   gl_context
+</pre>
+<span id='readability-isolate-declaration'>&nbsp;</span>
+<hr>
+<h3>warning: multiple declarations in a single statement reduces readability</h3>
+<code>[readability-isolate-declaration]</code>
+<p><i>apps/editor/src/editor/main.cc 111 : 5</i></p>
+<pre>
+  111 |     int win_width, win_height;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
+<hr>
+<h3>warning: variable &#39;win_width&#39; is not initialized</h3>
+<code>[cppcoreguidelines-init-variables]</code>
+<p><i>apps/editor/src/editor/main.cc 111 : 9</i></p>
+<pre>
+  111 |     int win_width, win_height;
+      |         ^
+</pre>
+<hr>
+<h3>warning: variable &#39;win_height&#39; is not initialized</h3>
+<code>[cppcoreguidelines-init-variables]</code>
+<p><i>apps/editor/src/editor/main.cc 111 : 20</i></p>
+<pre>
+  111 |     int win_width, win_height;
+      |                    ^
+</pre>
+<hr>
+<h3>warning: variable &#39;ctx&#39; is not initialized</h3>
+<code>[cppcoreguidelines-init-variables]</code>
+<p><i>apps/editor/src/editor/main.cc 115 : 24</i></p>
+<pre>
+  115 |     struct nk_context *ctx;
+      |                        ^  
+      |                            = nullptr
+</pre>
+<span id='cppcoreguidelines-pro-type-member-init'>&nbsp;</span>
+<hr>
+<h3>warning: uninitialized record type: &#39;bg&#39;</h3>
+<code>[cppcoreguidelines-pro-type-member-init]</code>
+<p><i>apps/editor/src/editor/main.cc 116 : 5</i></p>
+<pre>
+  116 |     struct nk_colorf bg;
+      |     ^                  
+      |                        {}
+</pre>
+<hr>
+<h3>warning: variable &#39;atlas&#39; is not initialized</h3>
+<code>[cppcoreguidelines-init-variables]</code>
+<p><i>apps/editor/src/editor/main.cc 161 : 28</i></p>
+<pre>
+  161 |     {struct nk_font_atlas *atlas;
+      |                            ^    
+      |                                  = nullptr
 </pre>
 <span id='readability-implicit-bool-conversion'>&nbsp;</span>
 <hr>
-<h3>warning: implicit conversion &#39;SDL_Window *&#39; -&gt; &#39;bool&#39;</h3>
+<h3>warning: implicit conversion &#39;int&#39; -&gt; &#39;bool&#39;</h3>
 <code>[readability-implicit-bool-conversion]</code>
-<p><i>apps/editor/src/editor/main.cc 20 : 11</i></p>
+<p><i>apps/editor/src/editor/main.cc 193 : 16</i></p>
 <pre>
-   20 |     if ( !window ) {
-      |          ~^
-      |                  == nullptr
+  193 |         while (SDL_PollEvent(&amp;evt)) {
+      |                ^                  
+      |                                    != 0
+</pre>
+<span id='readability-braces-around-statements'>&nbsp;</span>
+<hr>
+<h3>warning: statement should be inside braces</h3>
+<code>[readability-braces-around-statements]</code>
+<p><i>apps/editor/src/editor/main.cc 194 : 38</i></p>
+<pre>
+  194 |             if (evt.type == SDL_QUIT) running = false;
+      |                                      ^                
+      |                                       {
+</pre>
+<hr>
+<h3>warning: implicit conversion &#39;nk_bool&#39; (aka &#39;int&#39;) -&gt; &#39;bool&#39;</h3>
+<code>[readability-implicit-bool-conversion]</code>
+<p><i>apps/editor/src/editor/main.cc 201 : 13</i></p>
+<pre>
+  201 |         if (nk_begin(ctx, &quot;Demo&quot;, nk_rect(50, 50, 230, 250),
+      |             ^
+  202 |             NK_WINDOW_BORDER|NK_WINDOW_MOVABLE|NK_WINDOW_SCALABLE|
+  203 |             NK_WINDOW_MINIMIZABLE|NK_WINDOW_TITLE))
+      |                                                   
+      |                                                    != 0
+</pre>
+<hr>
+<h3>warning: invalid case style for enum constant &#39;EASY&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>apps/editor/src/editor/main.cc 205 : 19</i></p>
+<pre>
+  205 |             enum {EASY, HARD};
+      |                   ^~~~
+      |                   easy
+  206 |             static int op = EASY;
+      |                             ~~~~
+      |                             easy
+  207 |             static int property = 20;
+  208 | 
+  209 |             nk_layout_row_static(ctx, 30, 80, 1);
+  210 |             if (nk_button_label(ctx, &quot;button&quot;))
+  211 |                 printf(&quot;button pressed!\n&quot;);
+  212 |             nk_layout_row_dynamic(ctx, 30, 2);
+  213 |             if (nk_option_label(ctx, &quot;easy&quot;, op == EASY)) op = EASY;
+      |                                                    ~~~~        ~~~~
+      |                                                    easy        easy
+</pre>
+<hr>
+<h3>warning: invalid case style for enum constant &#39;HARD&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>apps/editor/src/editor/main.cc 205 : 25</i></p>
+<pre>
+  205 |             enum {EASY, HARD};
+      |                         ^~~~
+      |                         hard
+  206 |             static int op = EASY;
+  207 |             static int property = 20;
+  208 | 
+  209 |             nk_layout_row_static(ctx, 30, 80, 1);
+  210 |             if (nk_button_label(ctx, &quot;button&quot;))
+  211 |                 printf(&quot;button pressed!\n&quot;);
+  212 |             nk_layout_row_dynamic(ctx, 30, 2);
+  213 |             if (nk_option_label(ctx, &quot;easy&quot;, op == EASY)) op = EASY;
+  214 |             if (nk_option_label(ctx, &quot;hard&quot;, op == HARD)) op = HARD;
+      |                                                    ~~~~        ~~~~
+      |                                                    hard        hard
+</pre>
+<hr>
+<h3>warning: implicit conversion &#39;nk_bool&#39; (aka &#39;int&#39;) -&gt; &#39;bool&#39;</h3>
+<code>[readability-implicit-bool-conversion]</code>
+<p><i>apps/editor/src/editor/main.cc 210 : 17</i></p>
+<pre>
+  210 |             if (nk_button_label(ctx, &quot;button&quot;))
+      |                 ^                             
+      |                                                != 0
+</pre>
+<span id='google-readability-braces-around-statements'>&nbsp;</span>
+<hr>
+<h3>warning: statement should be inside braces</h3>
+<code>[google-readability-braces-around-statements,readability-braces-around-statements]</code>
+<p><i>apps/editor/src/editor/main.cc 210 : 48</i></p>
+<pre>
+  210 |             if (nk_button_label(ctx, &quot;button&quot;))
+      |                                                ^
+      |                                                 {
+  211 |                 printf(&quot;button pressed!\n&quot;);
+      |                                             
+</pre>
+<hr>
+<h3>warning: implicit conversion &#39;nk_bool&#39; (aka &#39;int&#39;) -&gt; &#39;bool&#39;</h3>
+<code>[readability-implicit-bool-conversion]</code>
+<p><i>apps/editor/src/editor/main.cc 213 : 17</i></p>
+<pre>
+  213 |             if (nk_option_label(ctx, &quot;easy&quot;, op == EASY)) op = EASY;
+      |                 ^                                       
+      |                                                          != 0
+</pre>
+<hr>
+<h3>warning: implicit conversion &#39;bool&#39; -&gt; &#39;nk_bool&#39; (aka &#39;int&#39;)</h3>
+<code>[readability-implicit-bool-conversion]</code>
+<p><i>apps/editor/src/editor/main.cc 213 : 46</i></p>
+<pre>
+  213 |             if (nk_option_label(ctx, &quot;easy&quot;, op == EASY)) op = EASY;
+      |                                              ^         
+      |                                              static_cast&lt;nk_bool&gt;( )
+</pre>
+<hr>
+<h3>warning: statement should be inside braces</h3>
+<code>[readability-braces-around-statements]</code>
+<p><i>apps/editor/src/editor/main.cc 213 : 58</i></p>
+<pre>
+  213 |             if (nk_option_label(ctx, &quot;easy&quot;, op == EASY)) op = EASY;
+      |                                                          ^          
+      |                                                           {
+</pre>
+<hr>
+<h3>warning: implicit conversion &#39;nk_bool&#39; (aka &#39;int&#39;) -&gt; &#39;bool&#39;</h3>
+<code>[readability-implicit-bool-conversion]</code>
+<p><i>apps/editor/src/editor/main.cc 214 : 17</i></p>
+<pre>
+  214 |             if (nk_option_label(ctx, &quot;hard&quot;, op == HARD)) op = HARD;
+      |                 ^                                       
+      |                                                          != 0
+</pre>
+<hr>
+<h3>warning: implicit conversion &#39;bool&#39; -&gt; &#39;nk_bool&#39; (aka &#39;int&#39;)</h3>
+<code>[readability-implicit-bool-conversion]</code>
+<p><i>apps/editor/src/editor/main.cc 214 : 46</i></p>
+<pre>
+  214 |             if (nk_option_label(ctx, &quot;hard&quot;, op == HARD)) op = HARD;
+      |                                              ^         
+      |                                              static_cast&lt;nk_bool&gt;( )
+</pre>
+<hr>
+<h3>warning: statement should be inside braces</h3>
+<code>[readability-braces-around-statements]</code>
+<p><i>apps/editor/src/editor/main.cc 214 : 58</i></p>
+<pre>
+  214 |             if (nk_option_label(ctx, &quot;hard&quot;, op == HARD)) op = HARD;
+      |                                                          ^          
+      |                                                           {
+</pre>
+<hr>
+<h3>warning: implicit conversion &#39;nk_bool&#39; (aka &#39;int&#39;) -&gt; &#39;bool&#39;</h3>
+<code>[readability-implicit-bool-conversion]</code>
+<p><i>apps/editor/src/editor/main.cc 221 : 17</i></p>
+<pre>
+  221 |             if (nk_combo_begin_color(ctx, nk_rgb_cf(bg), nk_vec2(nk_widget_width(ctx),400))) {
+      |                 ^                                                                          
+      |                                                                                             != 0
 </pre>
 <!--
-/home/runner/work/euphoria/euphoria/apps/editor/src/editor/main.cc:8:5: warning: variable 'window_width' of type 'int' can be declared 'const' [misc-const-correctness]
-    8 |     int window_width = 1280;
+/home/runner/work/euphoria/euphoria/apps/editor/src/editor/main.cc:8:15: warning: invalid case style for constexpr variable 'MAX_VERTEX_MEMORY' [readability-identifier-naming]
+    8 | constexpr int MAX_VERTEX_MEMORY = 512 * 1024;
+      |               ^~~~~~~~~~~~~~~~~
+      |               max_vertex_memory
+/home/runner/work/euphoria/euphoria/apps/editor/src/editor/main.cc:9:15: warning: invalid case style for constexpr variable 'MAX_ELEMENT_MEMORY' [readability-identifier-naming]
+    9 | constexpr int MAX_ELEMENT_MEMORY = 128 * 1024;
+      |               ^~~~~~~~~~~~~~~~~~
+      |               max_element_memory
+/home/runner/work/euphoria/euphoria/apps/editor/src/editor/main.cc:44:11: warning: suspicious #include of file with '.c' extension [bugprone-suspicious-include]
+   44 | #include "demo/overview.c"
+      |           ^
+/home/runner/work/euphoria/euphoria/apps/editor/src/editor/main.cc:53:2: warning: preprocessor condition is always 'false', consider removing both the condition and its contents [readability-avoid-unconditional-preprocessor-if]
+   53 | #if 0
+      |  ^
+/home/runner/work/euphoria/euphoria/apps/editor/src/editor/main.cc:106:5: warning: variable 'window_width' of type 'int' can be declared 'const' [misc-const-correctness]
+  106 |     int window_width = 1280;
       |     ^
       |         const 
-/home/runner/work/euphoria/euphoria/apps/editor/src/editor/main.cc:9:5: warning: variable 'window_height' of type 'int' can be declared 'const' [misc-const-correctness]
-    9 |     int window_height = 720;
+/home/runner/work/euphoria/euphoria/apps/editor/src/editor/main.cc:107:5: warning: variable 'window_height' of type 'int' can be declared 'const' [misc-const-correctness]
+  107 |     int window_height = 720;
       |     ^
       |         const 
-/home/runner/work/euphoria/euphoria/apps/editor/src/editor/main.cc:20:11: warning: implicit conversion 'SDL_Window *' -> 'bool' [readability-implicit-bool-conversion]
-   20 |     if ( !window ) {
-      |          ~^
-      |                  == nullptr
+/home/runner/work/euphoria/euphoria/apps/editor/src/editor/main.cc:109:17: warning: variable 'win' is not initialized [cppcoreguidelines-init-variables]
+  109 |     SDL_Window *win;
+      |                 ^  
+      |                     = nullptr
+/home/runner/work/euphoria/euphoria/apps/editor/src/editor/main.cc:110:19: warning: variable 'glContext' is not initialized [cppcoreguidelines-init-variables]
+  110 |     SDL_GLContext glContext;
+      |                   ^        
+      |                             = nullptr
+/home/runner/work/euphoria/euphoria/apps/editor/src/editor/main.cc:110:19: warning: invalid case style for local pointer 'glContext' [readability-identifier-naming]
+  110 |     SDL_GLContext glContext;
+      |                   ^~~~~~~~~
+      |                   gl_context
+/home/runner/work/euphoria/euphoria/apps/editor/src/editor/main.cc:111:5: warning: multiple declarations in a single statement reduces readability [readability-isolate-declaration]
+  111 |     int win_width, win_height;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/runner/work/euphoria/euphoria/apps/editor/src/editor/main.cc:111:9: warning: variable 'win_width' is not initialized [cppcoreguidelines-init-variables]
+  111 |     int win_width, win_height;
+      |         ^
+note: this fix will not be applied because it overlaps with another fix
+/home/runner/work/euphoria/euphoria/apps/editor/src/editor/main.cc:111:20: warning: variable 'win_height' is not initialized [cppcoreguidelines-init-variables]
+  111 |     int win_width, win_height;
+      |                    ^
+note: this fix will not be applied because it overlaps with another fix
+/home/runner/work/euphoria/euphoria/apps/editor/src/editor/main.cc:115:24: warning: variable 'ctx' is not initialized [cppcoreguidelines-init-variables]
+  115 |     struct nk_context *ctx;
+      |                        ^  
+      |                            = nullptr
+/home/runner/work/euphoria/euphoria/apps/editor/src/editor/main.cc:116:5: warning: uninitialized record type: 'bg' [cppcoreguidelines-pro-type-member-init]
+  116 |     struct nk_colorf bg;
+      |     ^                  
+      |                        {}
+/home/runner/work/euphoria/euphoria/apps/editor/src/editor/main.cc:161:28: warning: variable 'atlas' is not initialized [cppcoreguidelines-init-variables]
+  161 |     {struct nk_font_atlas *atlas;
+      |                            ^    
+      |                                  = nullptr
+/home/runner/work/euphoria/euphoria/apps/editor/src/editor/main.cc:193:16: warning: implicit conversion 'int' -> 'bool' [readability-implicit-bool-conversion]
+  193 |         while (SDL_PollEvent(&evt)) {
+      |                ^                  
+      |                                    != 0
+/home/runner/work/euphoria/euphoria/apps/editor/src/editor/main.cc:194:38: warning: statement should be inside braces [readability-braces-around-statements]
+  194 |             if (evt.type == SDL_QUIT) running = false;
+      |                                      ^                
+      |                                       {
+/home/runner/work/euphoria/euphoria/apps/editor/src/editor/main.cc:201:13: warning: implicit conversion 'nk_bool' (aka 'int') -> 'bool' [readability-implicit-bool-conversion]
+  201 |         if (nk_begin(ctx, "Demo", nk_rect(50, 50, 230, 250),
+      |             ^
+  202 |             NK_WINDOW_BORDER|NK_WINDOW_MOVABLE|NK_WINDOW_SCALABLE|
+  203 |             NK_WINDOW_MINIMIZABLE|NK_WINDOW_TITLE))
+      |                                                   
+      |                                                    != 0
+/home/runner/work/euphoria/euphoria/apps/editor/src/editor/main.cc:205:19: warning: invalid case style for enum constant 'EASY' [readability-identifier-naming]
+  205 |             enum {EASY, HARD};
+      |                   ^~~~
+      |                   easy
+  206 |             static int op = EASY;
+      |                             ~~~~
+      |                             easy
+  207 |             static int property = 20;
+  208 | 
+  209 |             nk_layout_row_static(ctx, 30, 80, 1);
+  210 |             if (nk_button_label(ctx, "button"))
+  211 |                 printf("button pressed!\n");
+  212 |             nk_layout_row_dynamic(ctx, 30, 2);
+  213 |             if (nk_option_label(ctx, "easy", op == EASY)) op = EASY;
+      |                                                    ~~~~        ~~~~
+      |                                                    easy        easy
+/home/runner/work/euphoria/euphoria/apps/editor/src/editor/main.cc:205:25: warning: invalid case style for enum constant 'HARD' [readability-identifier-naming]
+  205 |             enum {EASY, HARD};
+      |                         ^~~~
+      |                         hard
+  206 |             static int op = EASY;
+  207 |             static int property = 20;
+  208 | 
+  209 |             nk_layout_row_static(ctx, 30, 80, 1);
+  210 |             if (nk_button_label(ctx, "button"))
+  211 |                 printf("button pressed!\n");
+  212 |             nk_layout_row_dynamic(ctx, 30, 2);
+  213 |             if (nk_option_label(ctx, "easy", op == EASY)) op = EASY;
+  214 |             if (nk_option_label(ctx, "hard", op == HARD)) op = HARD;
+      |                                                    ~~~~        ~~~~
+      |                                                    hard        hard
+/home/runner/work/euphoria/euphoria/apps/editor/src/editor/main.cc:210:17: warning: implicit conversion 'nk_bool' (aka 'int') -> 'bool' [readability-implicit-bool-conversion]
+  210 |             if (nk_button_label(ctx, "button"))
+      |                 ^                             
+      |                                                != 0
+/home/runner/work/euphoria/euphoria/apps/editor/src/editor/main.cc:210:48: warning: statement should be inside braces [google-readability-braces-around-statements,readability-braces-around-statements]
+  210 |             if (nk_button_label(ctx, "button"))
+      |                                                ^
+      |                                                 {
+  211 |                 printf("button pressed!\n");
+      |                                             
+/home/runner/work/euphoria/euphoria/apps/editor/src/editor/main.cc:213:17: warning: implicit conversion 'nk_bool' (aka 'int') -> 'bool' [readability-implicit-bool-conversion]
+  213 |             if (nk_option_label(ctx, "easy", op == EASY)) op = EASY;
+      |                 ^                                       
+      |                                                          != 0
+/home/runner/work/euphoria/euphoria/apps/editor/src/editor/main.cc:213:46: warning: implicit conversion 'bool' -> 'nk_bool' (aka 'int') [readability-implicit-bool-conversion]
+  213 |             if (nk_option_label(ctx, "easy", op == EASY)) op = EASY;
+      |                                              ^         
+      |                                              static_cast<nk_bool>( )
+/home/runner/work/euphoria/euphoria/apps/editor/src/editor/main.cc:213:58: warning: statement should be inside braces [readability-braces-around-statements]
+  213 |             if (nk_option_label(ctx, "easy", op == EASY)) op = EASY;
+      |                                                          ^          
+      |                                                           {
+/home/runner/work/euphoria/euphoria/apps/editor/src/editor/main.cc:214:17: warning: implicit conversion 'nk_bool' (aka 'int') -> 'bool' [readability-implicit-bool-conversion]
+  214 |             if (nk_option_label(ctx, "hard", op == HARD)) op = HARD;
+      |                 ^                                       
+      |                                                          != 0
+/home/runner/work/euphoria/euphoria/apps/editor/src/editor/main.cc:214:46: warning: implicit conversion 'bool' -> 'nk_bool' (aka 'int') [readability-implicit-bool-conversion]
+  214 |             if (nk_option_label(ctx, "hard", op == HARD)) op = HARD;
+      |                                              ^         
+      |                                              static_cast<nk_bool>( )
+/home/runner/work/euphoria/euphoria/apps/editor/src/editor/main.cc:214:58: warning: statement should be inside braces [readability-braces-around-statements]
+  214 |             if (nk_option_label(ctx, "hard", op == HARD)) op = HARD;
+      |                                                          ^          
+      |                                                           {
+/home/runner/work/euphoria/euphoria/apps/editor/src/editor/main.cc:221:17: warning: implicit conversion 'nk_bool' (aka 'int') -> 'bool' [readability-implicit-bool-conversion]
+  221 |             if (nk_combo_begin_color(ctx, nk_rgb_cf(bg), nk_vec2(nk_widget_width(ctx),400))) {
+      |                 ^                                                                          
+      |                                                                                             != 0
 -->
 </body>
 </html>
