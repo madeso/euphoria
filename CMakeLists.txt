@@ -146,9 +146,9 @@ add_subdirectory(external)
 add_subdirectory(libs)
 add_subdirectory(apps)
 
-set_target_properties(catch_main PROPERTIES FOLDER "Dependencies/catc2")
-set_target_properties(Catch2 PROPERTIES FOLDER "Dependencies/catc2")
-set_target_properties(Catch2WithMain PROPERTIES FOLDER "Dependencies/catc2")
+set_target_properties(catch_main PROPERTIES FOLDER "Dependencies/catch2")
+set_target_properties(Catch2 PROPERTIES FOLDER "Dependencies/catch2")
+set_target_properties(Catch2WithMain PROPERTIES FOLDER "Dependencies/catch2")
 set_target_properties(fmt PROPERTIES FOLDER "Dependencies")
 set_target_properties(jsonh PROPERTIES FOLDER "Dependencies")
 
