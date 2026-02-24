@@ -20,5 +20,8 @@ target_link_libraries(editor
         euph::log
         euph::base
         external::sdl2
+        external::nuklear
+        external::opengl
+        external::glad
 )
 

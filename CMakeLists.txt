@@ -19,6 +19,24 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 # for debug builds only...
 set(CMAKE_ENABLE_EXPORTS ON)
 
+# -------------------------------------------------------------------------------------------------
+# get EU_SDL_SOURCE
+set(DEFAULT_EU_SDL_SOURCE "FindLibrary")
+if(WIN32)
+    set(DEFAULT_EU_SDL_SOURCE "FetchContent")
+endif()
+set(EU_SDL_SOURCE "${DEFAULT_EU_SDL_SOURCE}" CACHE STRING "How to get SDL library (FindLibrary or FetchContent)")
+set_property(CACHE EU_SDL_SOURCE PROPERTY STRINGS FindLibrary FetchContent)
+if(EU_SDL_SOURCE STREQUAL "FindLibrary")
+    set(EU_SDL_SOURCE_FETCH OFF)
+    set(EU_SDL_SOURCE_FIND ON)
+elseif(EU_SDL_SOURCE STREQUAL "FetchContent")
+    set(EU_SDL_SOURCE_FETCH ON)
+    set(EU_SDL_SOURCE_FIND OFF)
+else()
+    message(ERROR "invalid EU_SDL_SOURCE (${EU_SDL_SOURCE})")
+endif()
+
 # enable building on all cores
 # https://blog.kitware.com/cmake-building-with-all-your-cores/
 # if(${MSVC})

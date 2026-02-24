@@ -1,99 +1,77 @@
-#include "SDL.h"
-#include "SDL_timer.h"
+/* nuklear - 1.32.0 - public domain */
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdint.h>
+#include <stdarg.h>
+#include <string.h>
+#include <math.h>
+#include <assert.h>
+#include <limits.h>
+#include <time.h>
 
-#include "dependency_nuklear.h"
-#include "dependency_nuklear_impl.h"
-#include "dependency_glad.h"
+#include <GL/glew.h>
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_opengl.h>
 
-constexpr int MAX_VERTEX_MEMORY = 512 * 1024;
-constexpr int MAX_ELEMENT_MEMORY = 128 * 1024;
+#define NK_INCLUDE_FIXED_TYPES
+#define NK_INCLUDE_STANDARD_IO
+#define NK_INCLUDE_STANDARD_VARARGS
+#define NK_INCLUDE_DEFAULT_ALLOCATOR
+#define NK_INCLUDE_VERTEX_BUFFER_OUTPUT
+#define NK_INCLUDE_FONT_BAKING
+#define NK_INCLUDE_DEFAULT_FONT
+#define NK_IMPLEMENTATION
+#define NK_SDL_GL3_IMPLEMENTATION
+#include "../../nuklear.h"
+#include "nuklear_sdl_gl3.h"
 
-#include "log/log.h"
+#define WINDOW_WIDTH 1200
+#define WINDOW_HEIGHT 800
 
+#define MAX_VERTEX_MEMORY 512 * 1024
+#define MAX_ELEMENT_MEMORY 128 * 1024
+
+/* ===============================================================
+ *
+ *                          EXAMPLE
+ *
+ * ===============================================================*/
 /* This are some code examples to provide a small overview of what can be
  * done with this library. To try out an example uncomment the defines */
- /*#define INCLUDE_ALL */
- /*#define INCLUDE_STYLE */
- /*#define INCLUDE_CALCULATOR */
- /*#define INCLUDE_CANVAS */
+/*#define INCLUDE_ALL */
+/*#define INCLUDE_STYLE */
+/*#define INCLUDE_CALCULATOR */
+/*#define INCLUDE_CANVAS */
 #define INCLUDE_OVERVIEW
 /*#define INCLUDE_CONFIGURATOR */
 /*#define INCLUDE_NODE_EDITOR */
 
 #ifdef INCLUDE_ALL
-#define INCLUDE_STYLE
-#define INCLUDE_CALCULATOR
-#define INCLUDE_CANVAS
-#define INCLUDE_OVERVIEW
-#define INCLUDE_CONFIGURATOR
-#define INCLUDE_NODE_EDITOR
+  #define INCLUDE_STYLE
+  #define INCLUDE_CALCULATOR
+  #define INCLUDE_CANVAS
+  #define INCLUDE_OVERVIEW
+  #define INCLUDE_CONFIGURATOR
+  #define INCLUDE_NODE_EDITOR
 #endif
-
-constexpr nk_color nk_white = { 255,255,255,255 };
 
 #ifdef INCLUDE_STYLE
-#include "demo/style.c"
+  #include "../../demo/common/style.c"
 #endif
 #ifdef INCLUDE_CALCULATOR
-#include "demo/calculator.c"
+  #include "../../demo/common/calculator.c"
 #endif
 #ifdef INCLUDE_CANVAS
-#include "demo/canvas.c"
+  #include "../../demo/common/canvas.c"
 #endif
 #ifdef INCLUDE_OVERVIEW
-#include "demo/overview.c"
+  #include "../../demo/common/overview.c"
 #endif
 #ifdef INCLUDE_CONFIGURATOR
-#include "demo/style_configurator.c"
+  #include "../../demo/common/style_configurator.c"
 #endif
 #ifdef INCLUDE_NODE_EDITOR
-#include "demo/node_editor.c"
-#endif
-
-#if 0
-int
-main(int, char**)
-{
-    int window_width = 1280;
-    int window_height = 720;
-
-    if ( SDL_Init( SDL_INIT_EVERYTHING ) < 0 ) {
-		LOG_ERR("Error initializing SDL: {}", SDL_GetError());
-		return -1;
-	} 
-
-	// Create our window
-	SDL_Window* window = SDL_CreateWindow( "Example", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
-        window_width, window_height, SDL_WINDOW_SHOWN);
-
-    if ( !window ) {
-		LOG_ERR("Error creating window: {}", SDL_GetError());
-		return -1;
-	}
-
-    bool running = true;
-
-    LOG_INFO("Editor started");
-    while(running)
-    {
-        SDL_Event e;
-        while(SDL_PollEvent(&e) != 0)
-        {
-            switch(e.type)
-            {
-            case SDL_QUIT: running = false; break;
-            default:
-                // ignore other events
-                break;
-            }
-        }
-    }
-
-    SDL_DestroyWindow( window );
-	SDL_Quit();
-
-    return 0;
-}
+  #include "../../demo/common/node_editor.c"
 #endif
 
 /* ===============================================================
@@ -101,15 +79,13 @@ main(int, char**)
  *                          DEMO
  *
  * ===============================================================*/
-int main(int, char **)
+int main(int argc, char *argv[])
 {
-    int window_width = 1280;
-    int window_height = 720;
-
+    /* Platform */
     SDL_Window *win;
     SDL_GLContext glContext;
     int win_width, win_height;
-    bool running = true;
+    int running = 1;
 
     /* GUI */
     struct nk_context *ctx;
@@ -119,6 +95,9 @@ int main(int, char **)
     static struct nk_color color_table[NK_COLOR_COUNT];
     memcpy(color_table, nk_default_color_style, sizeof(color_table));
     #endif
+
+    NK_UNUSED(argc);
+    NK_UNUSED(argv);
 
     /* SDL setup */
     SDL_SetHint(SDL_HINT_VIDEO_HIGHDPI_DISABLED, "0");
@@ -130,30 +109,17 @@ int main(int, char **)
     SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
     win = SDL_CreateWindow("Demo",
         SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
-        window_width, window_height, SDL_WINDOW_OPENGL|SDL_WINDOW_SHOWN|SDL_WINDOW_ALLOW_HIGHDPI);
+        WINDOW_WIDTH, WINDOW_HEIGHT, SDL_WINDOW_OPENGL|SDL_WINDOW_SHOWN|SDL_WINDOW_ALLOW_HIGHDPI);
     glContext = SDL_GL_CreateContext(win);
     SDL_GetWindowSize(win, &win_width, &win_height);
 
     /* OpenGL setup */
-    const int glad_result = gladLoadGLLoader(SDL_GL_GetProcAddress);
-    if (glad_result == 0)
-    {
-        LOG_ERR("Failed to init glad, error: {0}", glad_result);
-        return -1;
+    glViewport(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
+    glewExperimental = 1;
+    if (glewInit() != GLEW_OK) {
+        fprintf(stderr, "Failed to setup GLEW\n");
+        exit(1);
     }
-
-    {
-        const std::string gl_vendor = reinterpret_cast<const char*>(glGetString(GL_VENDOR));
-        const std::string gl_renderer = reinterpret_cast<const char*>(glGetString(GL_RENDERER));
-        const std::string gl_version = reinterpret_cast<const char*>(glGetString(GL_VERSION));
-        const std::string gl_shading_language_version = reinterpret_cast<const char*>(glGetString(GL_SHADING_LANGUAGE_VERSION));
-
-        LOG_INFO("Vendor:         {0}", gl_vendor);
-        LOG_INFO("Renderer:       {0}", gl_renderer);
-        LOG_INFO("Version OpenGL: {0}", gl_version);
-        LOG_INFO("Version GLSL:   {0}", gl_shading_language_version);
-    }
-    glViewport(0, 0, window_width, window_height);
 
     ctx = nk_sdl_init(win);
     /* Load Fonts: if none of these are loaded a default font will be used  */
@@ -191,7 +157,7 @@ int main(int, char **)
         SDL_Event evt;
         nk_input_begin(ctx);
         while (SDL_PollEvent(&evt)) {
-            if (evt.type == SDL_QUIT) running = false;
+            if (evt.type == SDL_QUIT) goto cleanup;
             nk_sdl_handle_event(&evt);
         }
         nk_sdl_handle_grab(); /* optional grabbing behavior */
@@ -263,11 +229,11 @@ int main(int, char **)
         SDL_GL_SwapWindow(win);
     }
 
+cleanup:
     nk_sdl_shutdown();
     SDL_GL_DeleteContext(glContext);
     SDL_DestroyWindow(win);
     SDL_Quit();
     return 0;
 }
-
 
