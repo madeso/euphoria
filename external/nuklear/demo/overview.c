@@ -141,7 +141,7 @@ overview(struct nk_context *ctx)
             new_theme = nk_combo(ctx, themes, NK_LEN(themes), current_theme, 25, nk_vec2(200, 200));
             if (new_theme != current_theme) {
                 current_theme = new_theme;
-                set_style(ctx, current_theme);
+                set_style(ctx, static_cast<theme>(current_theme));
             }
         }
 #endif

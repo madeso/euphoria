@@ -304,9 +304,9 @@ style_slider(struct nk_context* ctx, struct nk_style_slider* out_style)
 	if (slider.show_buttons) {
 		nk_layout_row_dynamic(ctx, 30, 2);
 		nk_label(ctx, "Inc Symbol:", NK_TEXT_LEFT);
-		slider.inc_symbol = nk_combo(ctx, symbols, NK_SYMBOL_MAX, slider.inc_symbol, 25, nk_vec2(200,200));
+		slider.inc_symbol = static_cast<nk_symbol_type>(nk_combo(ctx, symbols, NK_SYMBOL_MAX, slider.inc_symbol, 25, nk_vec2(200,200)));
 		nk_label(ctx, "Dec Symbol:", NK_TEXT_LEFT);
-		slider.dec_symbol = nk_combo(ctx, symbols, NK_SYMBOL_MAX, slider.dec_symbol, 25, nk_vec2(200,200));
+		slider.dec_symbol = static_cast<nk_symbol_type>(nk_combo(ctx, symbols, NK_SYMBOL_MAX, slider.dec_symbol, 25, nk_vec2(200,200)));
 
 		/* necessary or do tree's always take the whole width? */
 		/* nk_layout_row_dynamic(ctx, 30, 1); */
@@ -385,9 +385,9 @@ style_scrollbars(struct nk_context* ctx, struct nk_style_scrollbar* out_style, s
 	if (scroll.show_buttons) {
 		nk_layout_row_dynamic(ctx, 30, 2);
 		nk_label(ctx, "Inc Symbol:", NK_TEXT_LEFT);
-		scroll.inc_symbol = nk_combo(ctx, symbols, NK_SYMBOL_MAX, scroll.inc_symbol, 25, nk_vec2(200,200));
+		scroll.inc_symbol = static_cast<nk_symbol_type>(nk_combo(ctx, symbols, NK_SYMBOL_MAX, scroll.inc_symbol, 25, nk_vec2(200,200)));
 		nk_label(ctx, "Dec Symbol:", NK_TEXT_LEFT);
-		scroll.dec_symbol = nk_combo(ctx, symbols, NK_SYMBOL_MAX, scroll.dec_symbol, 25, nk_vec2(200,200));
+		scroll.dec_symbol = static_cast<nk_symbol_type>(nk_combo(ctx, symbols, NK_SYMBOL_MAX, scroll.dec_symbol, 25, nk_vec2(200,200)));
 
 		/* nk_layout_row_dynamic(ctx, 30, 1); */
 		if (nk_tree_push(ctx, NK_TREE_TAB, "Scrollbar Buttons", NK_MINIMIZED)) {
@@ -470,9 +470,9 @@ style_property(struct nk_context* ctx, struct nk_style_property* out_style)
 	/* there is no property.show_buttons, they're always there */
 
 	nk_label(ctx, "Left Symbol:", NK_TEXT_LEFT);
-	property.sym_left = nk_combo(ctx, symbols, NK_SYMBOL_MAX, property.sym_left, 25, nk_vec2(200,200));
+	property.sym_left = static_cast<nk_symbol_type>(nk_combo(ctx, symbols, NK_SYMBOL_MAX, property.sym_left, 25, nk_vec2(200,200)));
 	nk_label(ctx, "Right Symbol:", NK_TEXT_LEFT);
-	property.sym_right = nk_combo(ctx, symbols, NK_SYMBOL_MAX, property.sym_right, 25, nk_vec2(200,200));
+	property.sym_right = static_cast<nk_symbol_type>(nk_combo(ctx, symbols, NK_SYMBOL_MAX, property.sym_right, 25, nk_vec2(200,200)));
 
 	if (nk_tree_push(ctx, NK_TREE_TAB, "Property Buttons", NK_MINIMIZED)) {
 		dups[0] = &property.dec_button;
@@ -526,12 +526,11 @@ style_combo(struct nk_context* ctx, struct nk_style_combo* out_style)
 	style_rgb(ctx, "Label Active:", &combo.label_active);
 
 	nk_label(ctx, "Normal Symbol:", NK_TEXT_LEFT);
-	combo.sym_normal = nk_combo(ctx, symbols, NK_SYMBOL_MAX, combo.sym_normal, 25, nk_vec2(200,200));
+	combo.sym_normal = static_cast<nk_symbol_type>(nk_combo(ctx, symbols, NK_SYMBOL_MAX, combo.sym_normal, 25, nk_vec2(200,200)));
 	nk_label(ctx, "Hover Symbol:", NK_TEXT_LEFT);
-	combo.sym_hover = nk_combo(ctx, symbols, NK_SYMBOL_MAX, combo.sym_hover, 25, nk_vec2(200,200));
+	combo.sym_hover = static_cast<nk_symbol_type>(nk_combo(ctx, symbols, NK_SYMBOL_MAX, combo.sym_hover, 25, nk_vec2(200,200)));
 	nk_label(ctx, "Active Symbol:", NK_TEXT_LEFT);
-	combo.sym_active = nk_combo(ctx, symbols, NK_SYMBOL_MAX, combo.sym_active, 25, nk_vec2(200,200));
-
+	combo.sym_active = static_cast<nk_symbol_type>(nk_combo(ctx, symbols, NK_SYMBOL_MAX, combo.sym_active, 25, nk_vec2(200,200)));
 	style_vec2(ctx, "Content Padding:", &combo.content_padding);
 	style_vec2(ctx, "Button Padding:", &combo.button_padding);
 	style_vec2(ctx, "Spacing:", &combo.spacing);
@@ -559,9 +558,9 @@ style_tab(struct nk_context* ctx, struct nk_style_tab* out_style)
 	 * what show in that state, not the button to push to get to that state
 	 */
 	nk_label(ctx, "Minimized Symbol:", NK_TEXT_LEFT);
-	tab.sym_minimize = nk_combo(ctx, symbols, NK_SYMBOL_MAX, tab.sym_minimize, 25, nk_vec2(200,200));
+	tab.sym_minimize = static_cast<nk_symbol_type>(nk_combo(ctx, symbols, NK_SYMBOL_MAX, tab.sym_minimize, 25, nk_vec2(200,200)));
 	nk_label(ctx, "Maxmized Symbol:", NK_TEXT_LEFT);
-	tab.sym_maximize = nk_combo(ctx, symbols, NK_SYMBOL_MAX, tab.sym_maximize, 25, nk_vec2(200,200));
+	tab.sym_maximize = static_cast<nk_symbol_type>(nk_combo(ctx, symbols, NK_SYMBOL_MAX, tab.sym_maximize, 25, nk_vec2(200,200)));
 
 	style_vec2(ctx, "Padding:", &tab.padding);
 	style_vec2(ctx, "Spacing:", &tab.spacing);
@@ -601,17 +600,16 @@ style_window_header(struct nk_context* ctx, struct nk_style_window_header* out_s
 
 	nk_layout_row_dynamic(ctx, 30, 2);
 	nk_label(ctx, "Button Alignment:", NK_TEXT_LEFT);
-	header.align = nk_combo(ctx, alignments, NUM_ALIGNS, header.align, 25, nk_vec2(200,200));
+	header.align = static_cast<nk_style_header_align>(nk_combo(ctx, alignments, NUM_ALIGNS, header.align, 25, nk_vec2(200,200)));
 	}
 #undef NUM_ALIGNS
 
 	nk_label(ctx, "Close Symbol:", NK_TEXT_LEFT);
-	header.close_symbol = nk_combo(ctx, symbols, NK_SYMBOL_MAX, header.close_symbol, 25, nk_vec2(200,200));
+	header.close_symbol = static_cast<nk_symbol_type>(nk_combo(ctx, symbols, NK_SYMBOL_MAX, header.close_symbol, 25, nk_vec2(200,200)));
 	nk_label(ctx, "Minimize Symbol:", NK_TEXT_LEFT);
-	header.minimize_symbol = nk_combo(ctx, symbols, NK_SYMBOL_MAX, header.minimize_symbol, 25, nk_vec2(200,200));
+	header.minimize_symbol = static_cast<nk_symbol_type>(nk_combo(ctx, symbols, NK_SYMBOL_MAX, header.minimize_symbol, 25, nk_vec2(200,200)));
 	nk_label(ctx, "Maximize Symbol:", NK_TEXT_LEFT);
-	header.maximize_symbol = nk_combo(ctx, symbols, NK_SYMBOL_MAX, header.maximize_symbol, 25, nk_vec2(200,200));
-
+	header.maximize_symbol = static_cast<nk_symbol_type>(nk_combo(ctx, symbols, NK_SYMBOL_MAX, header.maximize_symbol, 25, nk_vec2(200,200)));
 	/* necessary or do tree's always take the whole width? */
 	/* nk_layout_row_dynamic(ctx, 30, 1); */
 	if (nk_tree_push(ctx, NK_TREE_TAB, "Close and Minimize Button", NK_MINIMIZED)) {
