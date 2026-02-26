@@ -23,5 +23,6 @@ target_link_libraries(editor
         external::nuklear
         external::opengl
         external::glad
+        external::stb_image
 )
 
