@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="indexpage" kind="page">
+    <compoundname>index</compoundname>
+    <title>Euphoria</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><anchor id="index_1md_readme"/> <image type="html" name="data/branding/euphoria-logo-1280.png" alt="euphoria logo" inline="yes"></image>
+</para>
+<para>Euphoria is a data-driven &quot;game engine&quot;. It&apos;s in quotes because</para>
+<para><orderedlist>
+<listitem><para>the term &quot;engine&quot; is really vague.</para>
+</listitem><listitem><para>it also contains other things that aren&apos;t related to game engine at all (like csv import and a non-realtime ray tracer)</para>
+</listitem></orderedlist>
+</para>
+<para>Euphoria is under heavy development, not ready for prime time, and the final product will be focused on live programming/automatic refresh between computer and target devices (that include computers) with a feature set that lies between love2d (do whatever you like) and fps game creator(restrictive but quick prototyping).</para>
+<sect3 id="index_1autotoc_md0">
+<title>Build status</title>
+<para><ulink url="https://github.com/madeso/euphoria/actions/workflows/windows.yml"><image type="html" name="https://github.com/madeso/euphoria/actions/workflows/windows.yml/badge.svg" alt="windows" inline="yes"></image>
+</ulink> <ulink url="https://github.com/madeso/euphoria/actions/workflows/linux.yml"><image type="html" name="https://github.com/madeso/euphoria/actions/workflows/linux.yml/badge.svg" alt="linux" inline="yes"></image>
+</ulink> <ulink url="https://github.com/madeso/euphoria/actions/workflows/deploy-online-content.yml"><image type="html" name="https://github.com/madeso/euphoria/actions/workflows/deploy-online-content.yml/badge.svg" alt="deploy-online-content" inline="yes"></image>
+</ulink></para>
+</sect3>
+<sect3 id="index_1autotoc_md1">
+<title>Code status</title>
+<para><ulink url="https://github.com/madeso/euphoria/actions/workflows/run-style-checks.yml"><image type="html" name="https://github.com/madeso/euphoria/actions/workflows/run-style-checks.yml/badge.svg" alt="run-style-checks" inline="yes"></image>
+</ulink> <ulink url="https://github.com/madeso/euphoria/actions/workflows/run-cppcheck.yml"><image type="html" name="https://github.com/madeso/euphoria/actions/workflows/run-cppcheck.yml/badge.svg" alt="run-cppcheck" inline="yes"></image>
+</ulink> <ulink url="https://github.com/madeso/euphoria/actions/workflows/run-cpplint.yml"><image type="html" name="https://github.com/madeso/euphoria/actions/workflows/run-cpplint.yml/badge.svg" alt="run-cpplint" inline="yes"></image>
+</ulink></para>
+</sect3>
+<sect3 id="index_1autotoc_md2">
+<title>&lt;a href=&quot;https://madeso.github.io/euphoria/coverage.html&quot; &gt;Test coverage&lt;/a&gt;</title>
+<para><image type="html" name="https://madeso.github.io/euphoria/line_percentage.svg" alt="line coverage in percentage" inline="yes"></image>
+ <image type="html" name="https://madeso.github.io/euphoria/function_percentage.svg" alt="function coverage in percentage" inline="yes"></image>
+ <image type="html" name="https://madeso.github.io/euphoria/branch_percentage.svg" alt="branch coverage in percentage" inline="yes"></image>
+</para>
+<para><image type="html" name="https://madeso.github.io/euphoria/line.svg" alt="line coverage" inline="yes"></image>
+ <image type="html" name="https://madeso.github.io/euphoria/function.svg" alt="function coverage" inline="yes"></image>
+ <image type="html" name="https://madeso.github.io/euphoria/branch.svg" alt="branch coverage" inline="yes"></image>
+</para>
+</sect3>
+<sect2 id="index_1autotoc_md3">
+<title>Demos</title>
+<para><itemizedlist>
+<listitem><para>There is a <ulink url="https://www.youtube.com/playlist?list=PLLZf3o2GDQ_iTb2AjfPWNMu0IPSetTOhx">youtube playlist here</ulink> that has small sample videos of some parts.</para>
+</listitem><listitem><para>Various screenshots what the engine can generate.</para>
+</listitem><listitem><para>For each commit, theere are a few <ulink url="https://madeso.github.io/euphoria/">html friendly things generated over here</ulink> such as doxygen, some color palettes and smaller tests for collision and debugging tools.</para>
+</listitem></itemizedlist>
+</para>
+</sect2>
+<sect2 id="index_1autotoc_md4">
+<title>About the code</title>
+<para>The folder structure should follow the <ulink url="https://github.com/vector-of-bool/pitchfork">pitchfork layout</ulink>. <computeroutput>graveyard</computeroutput> contains old code that could be brought back to life but should more or less be considered deleted.</para>
+<para><image type="html" name="./docs/euphoria.excalidraw.svg" alt="project layout" inline="yes"></image>
+</para>
+<para>All names should follow <computeroutput>snake_case</computeroutput>, both for variables, members, functions and files. The only exception are C++ macros that should follow <computeroutput>SHOUTING_SNAKE_CASE</computeroutput> and structs &amp; template arguments that should follow <computeroutput>PascalCase</computeroutput>.</para>
+</sect2>
+<sect2 id="index_1autotoc_md5">
+<title>Naming guidelines</title>
+<para><itemizedlist>
+<listitem><para>Prefer to name function after what is returns, not the algorithm (<computeroutput>get_sorted</computeroutput> or <computeroutput>sort_inplace</computeroutput> vs <computeroutput>quicksort</computeroutput>).</para>
+</listitem><listitem><para>Prefer to name function after what is does, not how it does it (<computeroutput>add_item</computeroutput> vs <computeroutput>emplace_back_item</computeroutput>).</para>
+</listitem><listitem><para>Avoid general names(like <computeroutput>add</computeroutput> and <computeroutput>compile</computeroutput>), be specific (<computeroutput>add_object</computeroutput> and <computeroutput>compile_shader</computeroutput>) but don&apos;t be too specific.</para>
+</listitem><listitem><para>prefer <ulink url="https://lesleylai.info/en/from-vs-to/"><computeroutput>from</computeroutput> functions and maps</ulink> instead of <computeroutput>to</computeroutput> functions: <computeroutput>let canonical_variable = canonical_var_from_num[num_from_var.get(var).unwrap()];</computeroutput></para>
+</listitem><listitem><para>same applies to <ulink url="https://www.sebastiansylvan.com/post/matrix_naming_convention/">matrix transforms</ulink> and points: <computeroutput>projection_from_object = projection_from_view * view_from_world * world_from_object;</computeroutput> and <computeroutput>world_point</computeroutput> </para>
+</listitem></itemizedlist>
+</para>
+</sect2>
+    </detaileddescription>
+    <location file="readme.md"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,73 @@
+﻿<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+<title>apps/editor/src/editor/main.cc</title>
+</head>
+<body>
+<h1>apps/editor/src/editor/main.cc</h1>
+<span id='readability-avoid-unconditional-preprocessor-if'>&nbsp;</span>
+<hr>
+<h3>warning: preprocessor condition is always &#39;true&#39;, consider removing condition but leaving its contents</h3>
+<code>[readability-avoid-unconditional-preprocessor-if]</code>
+<p><i>apps/editor/src/editor/main.cc 10 : 2</i></p>
+<pre>
+   10 | #if 1
+      |  ^
+</pre>
+<span id='readability-implicit-bool-conversion'>&nbsp;</span>
+<hr>
+<h3>warning: implicit conversion &#39;SDL_Window *&#39; -&gt; &#39;bool&#39;</h3>
+<code>[readability-implicit-bool-conversion]</code>
+<p><i>apps/editor/src/editor/main.cc 30 : 10</i></p>
+<pre>
+   30 |     if (!window) {
+      |         ~^     
+      |                 == nullptr
+</pre>
+<span id='readability-identifier-naming'>&nbsp;</span>
+<hr>
+<h3>warning: invalid case style for local pointer &#39;glContext&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>apps/editor/src/editor/main.cc 35 : 11</i></p>
+<pre>
+   35 |     auto* glContext = SDL_GL_CreateContext(window);
+      |           ^~~~~~~~~
+      |           gl_context
+   36 |     SDL_GetWindowSize(window, &amp;window_width, &amp;window_height);
+   37 |     if (!glContext) {
+      |          ~~~~~~~~~
+      |          gl_context
+</pre>
+<hr>
+<h3>warning: implicit conversion &#39;void *&#39; -&gt; &#39;bool&#39;</h3>
+<code>[readability-implicit-bool-conversion]</code>
+<p><i>apps/editor/src/editor/main.cc 37 : 10</i></p>
+<pre>
+   37 |     if (!glContext) {
+      |         ~^        
+      |                    == nullptr
+</pre>
+<!--
+/home/runner/work/euphoria/euphoria/apps/editor/src/editor/main.cc:10:2: warning: preprocessor condition is always 'true', consider removing condition but leaving its contents [readability-avoid-unconditional-preprocessor-if]
+   10 | #if 1
+      |  ^
+/home/runner/work/euphoria/euphoria/apps/editor/src/editor/main.cc:30:10: warning: implicit conversion 'SDL_Window *' -> 'bool' [readability-implicit-bool-conversion]
+   30 |     if (!window) {
+      |         ~^     
+      |                 == nullptr
+/home/runner/work/euphoria/euphoria/apps/editor/src/editor/main.cc:35:11: warning: invalid case style for local pointer 'glContext' [readability-identifier-naming]
+   35 |     auto* glContext = SDL_GL_CreateContext(window);
+      |           ^~~~~~~~~
+      |           gl_context
+   36 |     SDL_GetWindowSize(window, &window_width, &window_height);
+   37 |     if (!glContext) {
+      |          ~~~~~~~~~
+      |          gl_context
+/home/runner/work/euphoria/euphoria/apps/editor/src/editor/main.cc:37:10: warning: implicit conversion 'void *' -> 'bool' [readability-implicit-bool-conversion]
+   37 |     if (!glContext) {
+      |         ~^        
+      |                    == nullptr
+-->
+</body>
+</html>

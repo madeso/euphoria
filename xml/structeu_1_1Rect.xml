@@ -1,0 +1,950 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structeu_1_1Rect" kind="struct" language="C++" prot="public">
+    <compoundname>eu::Rect</compoundname>
+    <includes refid="rect_8h" local="no">rect.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1Rect_1a9fa0c5d21ff94e2cd503f98c0defd83f" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+        <definition>float eu::Rect::left</definition>
+        <argsstring></argsstring>
+        <name>left</name>
+        <qualifiedname>eu::Rect::left</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="28" column="15" bodyfile="libs/base/src/base/rect.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1Rect_1a98da611a558ca23c19d64a3a8d937102" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+        <definition>float eu::Rect::right</definition>
+        <argsstring></argsstring>
+        <name>right</name>
+        <qualifiedname>eu::Rect::right</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="29" column="15" bodyfile="libs/base/src/base/rect.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1Rect_1a678361b4ef89406701ac6797418da195" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+        <definition>float eu::Rect::top</definition>
+        <argsstring></argsstring>
+        <name>top</name>
+        <qualifiedname>eu::Rect::top</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="30" column="15" bodyfile="libs/base/src/base/rect.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1Rect_1ae7d8322b28874b8ea314f76fe799cd94" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+        <definition>float eu::Rect::bottom</definition>
+        <argsstring></argsstring>
+        <name>bottom</name>
+        <qualifiedname>eu::Rect::bottom</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="31" column="15" bodyfile="libs/base/src/base/rect.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1Rect_1a63b60c39516cf6e4be087b8628b38044" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::Rect::Rect</definition>
+        <argsstring>()</argsstring>
+        <name>Rect</name>
+        <qualifiedname>eu::Rect::Rect</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="33" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rect_1aff54a8814fc2c58841f888d97c820a0c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">bool</ref></type>
+        <definition>bool eu::Rect::operator==</definition>
+        <argsstring>(const Rect &amp;rhs)=delete</argsstring>
+        <name>operator==</name>
+        <qualifiedname>eu::Rect::operator==</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1Rect" kindref="compound">Rect</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="35" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rect_1a822d88039fe24617a4bdd0286ebc49d8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <definition>void eu::Rect::extend</definition>
+        <argsstring>(const Rect &amp;o)</argsstring>
+        <name>extend</name>
+        <qualifiedname>eu::Rect::extend</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1Rect" kindref="compound">Rect</ref> &amp;</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="46" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rect_1a8fcf79ceed039ca1620361a8ac23e72c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <definition>void eu::Rect::translate</definition>
+        <argsstring>(const v2 &amp;v)</argsstring>
+        <name>translate</name>
+        <qualifiedname>eu::Rect::translate</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1v2" kindref="compound">v2</ref> &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="48" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rect_1a7a03d44c0b3d09d76381936d9669a85d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <definition>void eu::Rect::inset</definition>
+        <argsstring>(const Lrtb &amp;lrtb)</argsstring>
+        <name>inset</name>
+        <qualifiedname>eu::Rect::inset</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1Lrtb" kindref="compound">Lrtb</ref> &amp;</type>
+          <declname>lrtb</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="49" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rect_1a1ff513f653792508f5a2d94df8a025a0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <definition>void eu::Rect::set_empty</definition>
+        <argsstring>()</argsstring>
+        <name>set_empty</name>
+        <qualifiedname>eu::Rect::set_empty</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="51" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rect_1a2d875afc0479dff58314c91b04cc6b6b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">bool</ref></type>
+        <definition>bool eu::Rect::contains_exclusive</definition>
+        <argsstring>(const Rect &amp;r) const</argsstring>
+        <name>contains_exclusive</name>
+        <qualifiedname>eu::Rect::contains_exclusive</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1Rect" kindref="compound">Rect</ref> &amp;</type>
+          <declname>r</declname>
+        </param>
+        <briefdescription>
+<para>does this contains the argument? </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="60" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rect_1a858e1d8b62ecc12e96a5e9bedb09d61a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1Rect" kindref="compound">Rect</ref></type>
+        <definition>Rect eu::Rect::with_inset</definition>
+        <argsstring>(const Lrtb &amp;lrtb) const</argsstring>
+        <name>with_inset</name>
+        <qualifiedname>eu::Rect::with_inset</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1Lrtb" kindref="compound">Lrtb</ref> &amp;</type>
+          <declname>lrtb</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="62" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rect_1ab1d2221dcad30bde9bbe3a387ba9b171" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1Rect" kindref="compound">Rect</ref></type>
+        <definition>Rect eu::Rect::with_translate</definition>
+        <argsstring>(const v2 &amp;v) const</argsstring>
+        <name>with_translate</name>
+        <qualifiedname>eu::Rect::with_translate</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1v2" kindref="compound">v2</ref> &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="63" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rect_1acc52e68504c5999e9223effcbfcf619b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1Rect" kindref="compound">Rect</ref></type>
+        <definition>Rect eu::Rect::with_top_left_at</definition>
+        <argsstring>(const v2 &amp;p) const</argsstring>
+        <name>with_top_left_at</name>
+        <qualifiedname>eu::Rect::with_top_left_at</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1v2" kindref="compound">v2</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="64" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rect_1aceacec831d053012ca567e7de438ad72" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1Rect" kindref="compound">Rect</ref></type>
+        <definition>Rect eu::Rect::with_bottom_left_at</definition>
+        <argsstring>(const v2 &amp;p) const</argsstring>
+        <name>with_bottom_left_at</name>
+        <qualifiedname>eu::Rect::with_bottom_left_at</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1v2" kindref="compound">v2</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="65" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rect_1aae42aa2bb46920582103dc9dc1e31330" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1v2" kindref="compound">v2</ref></type>
+        <definition>v2 eu::Rect::get_bottom_left</definition>
+        <argsstring>() const</argsstring>
+        <name>get_bottom_left</name>
+        <qualifiedname>eu::Rect::get_bottom_left</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="67" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rect_1a4b72cc113197ffa6d1bb038dd26ade11" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1v2" kindref="compound">v2</ref></type>
+        <definition>v2 eu::Rect::get_center_pos</definition>
+        <argsstring>() const</argsstring>
+        <name>get_center_pos</name>
+        <qualifiedname>eu::Rect::get_center_pos</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="68" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rect_1ad9824fdead39e8549a1d3d7bcdac5996" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1v2" kindref="compound">v2</ref></type>
+        <definition>v2 eu::Rect::get_relative_center_pos</definition>
+        <argsstring>() const</argsstring>
+        <name>get_relative_center_pos</name>
+        <qualifiedname>eu::Rect::get_relative_center_pos</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="71" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rect_1ac82c43e787ffe74e5f8a8f07dbcb904e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">bool</ref></type>
+        <definition>bool eu::Rect::is_empty</definition>
+        <argsstring>() const</argsstring>
+        <name>is_empty</name>
+        <qualifiedname>eu::Rect::is_empty</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="74" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rect_1a199134d17bc774c5e63e8a8fd4f06caf" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">bool</ref></type>
+        <definition>bool eu::Rect::is_valid</definition>
+        <argsstring>() const</argsstring>
+        <name>is_valid</name>
+        <qualifiedname>eu::Rect::is_valid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="77" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rect_1a8bc0d7fc4fd7b5a81105a24b62fa949f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1v2" kindref="compound">v2</ref></type>
+        <definition>v2 eu::Rect::get_size</definition>
+        <argsstring>() const</argsstring>
+        <name>get_size</name>
+        <qualifiedname>eu::Rect::get_size</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="79" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rect_1a82f07f3f211ad37485d5ccbcfda22360" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">R</ref>&lt; <ref refid="structeu_1_1R" kindref="compound">float</ref> &gt;</type>
+        <definition>R&lt; float &gt; eu::Rect::get_range_y</definition>
+        <argsstring>() const</argsstring>
+        <name>get_range_y</name>
+        <qualifiedname>eu::Rect::get_range_y</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="81" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rect_1a6d253b443269e92cf04bfe72375eeaf7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">R</ref>&lt; <ref refid="structeu_1_1R" kindref="compound">float</ref> &gt;</type>
+        <definition>R&lt; float &gt; eu::Rect::get_range_x</definition>
+        <argsstring>() const</argsstring>
+        <name>get_range_x</name>
+        <qualifiedname>eu::Rect::get_range_x</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="82" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rect_1a6912a7c00d442a6a1887a4c80f437c50" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1v2" kindref="compound">v2</ref></type>
+        <definition>v2 eu::Rect::get_top_left</definition>
+        <argsstring>() const</argsstring>
+        <name>get_top_left</name>
+        <qualifiedname>eu::Rect::get_top_left</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="83" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rect_1a8127cdc138ba533c560214a232bffcae" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1v2" kindref="compound">v2</ref></type>
+        <definition>v2 eu::Rect::get_top_right</definition>
+        <argsstring>() const</argsstring>
+        <name>get_top_right</name>
+        <qualifiedname>eu::Rect::get_top_right</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="84" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rect_1ab3ef9deea35f7f348ba71473878a5cb5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1v2" kindref="compound">v2</ref></type>
+        <definition>v2 eu::Rect::get_bottom_right</definition>
+        <argsstring>() const</argsstring>
+        <name>get_bottom_right</name>
+        <qualifiedname>eu::Rect::get_bottom_right</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="85" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rect_1a6aafed1efd16f9a915ea90c7ea3f2776" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1Rect" kindref="compound">Rect</ref></type>
+        <definition>Rect eu::Rect::cut_left</definition>
+        <argsstring>(float amount, float h_spacing=0.0f)</argsstring>
+        <name>cut_left</name>
+        <qualifiedname>eu::Rect::cut_left</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <declname>amount</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <declname>h_spacing</declname>
+          <defval>0.0f</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="87" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rect_1ab4073102dc4a45f89ba1d62a7d93a2fd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1Rect" kindref="compound">Rect</ref></type>
+        <definition>Rect eu::Rect::cut_right</definition>
+        <argsstring>(float amount, float h_spacing=0.0f)</argsstring>
+        <name>cut_right</name>
+        <qualifiedname>eu::Rect::cut_right</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <declname>amount</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <declname>h_spacing</declname>
+          <defval>0.0f</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="88" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rect_1ae503e06cdc03749dad8d243e73045332" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1Rect" kindref="compound">Rect</ref></type>
+        <definition>Rect eu::Rect::cut_bottom</definition>
+        <argsstring>(float amount, float v_spacing=0.0f)</argsstring>
+        <name>cut_bottom</name>
+        <qualifiedname>eu::Rect::cut_bottom</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <declname>amount</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <declname>v_spacing</declname>
+          <defval>0.0f</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="89" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rect_1ad760740db6603c5ebd34557e93aa8dfd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1Rect" kindref="compound">Rect</ref></type>
+        <definition>Rect eu::Rect::cut_top</definition>
+        <argsstring>(float amount, float v_spacing=0.0f)</argsstring>
+        <name>cut_top</name>
+        <qualifiedname>eu::Rect::cut_top</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <declname>amount</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <declname>v_spacing</declname>
+          <defval>0.0f</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="90" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rect_1a98859f4e527156d350300a08d888eaac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1Rect" kindref="compound">Rect</ref></type>
+        <definition>Rect eu::Rect::cut</definition>
+        <argsstring>(RectCut side, float amount, float spacing=0.0f)</argsstring>
+        <name>cut</name>
+        <qualifiedname>eu::Rect::cut</qualifiedname>
+        <param>
+          <type><ref refid="namespaceeu_1a85307e96edc76ca2a8fdbb1624211c68" kindref="member">RectCut</ref></type>
+          <declname>side</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <declname>amount</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <declname>spacing</declname>
+          <defval>0.0f</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="92" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rect_1af90a8d5272abaaac47c059f617d5be63" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1Rect" kindref="compound">Rect</ref></type>
+        <definition>Rect eu::Rect::get_left</definition>
+        <argsstring>(float amount) const</argsstring>
+        <name>get_left</name>
+        <qualifiedname>eu::Rect::get_left</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <declname>amount</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="96" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rect_1a3682439b40f53955b6bb81dacde07aa8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1Rect" kindref="compound">Rect</ref></type>
+        <definition>Rect eu::Rect::get_right</definition>
+        <argsstring>(float amount) const</argsstring>
+        <name>get_right</name>
+        <qualifiedname>eu::Rect::get_right</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <declname>amount</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="97" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rect_1a6c8eef03f18b7d73903f726832fadd25" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1Rect" kindref="compound">Rect</ref></type>
+        <definition>Rect eu::Rect::get_bottom</definition>
+        <argsstring>(float amount) const</argsstring>
+        <name>get_bottom</name>
+        <qualifiedname>eu::Rect::get_bottom</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <declname>amount</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="98" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rect_1a1caea10315d603a40f485a204e4a9ebb" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1Rect" kindref="compound">Rect</ref></type>
+        <definition>Rect eu::Rect::get_top</definition>
+        <argsstring>(float amount) const</argsstring>
+        <name>get_top</name>
+        <qualifiedname>eu::Rect::get_top</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <declname>amount</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="99" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rect_1a53b9cb564d103ab2e12bdacf7cfeeea0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1Rect" kindref="compound">Rect</ref></type>
+        <definition>Rect eu::Rect::add_left</definition>
+        <argsstring>(float amount) const</argsstring>
+        <name>add_left</name>
+        <qualifiedname>eu::Rect::add_left</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <declname>amount</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="103" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rect_1af1e669d461267f3aba3ddabd21943b16" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1Rect" kindref="compound">Rect</ref></type>
+        <definition>Rect eu::Rect::add_right</definition>
+        <argsstring>(float amount) const</argsstring>
+        <name>add_right</name>
+        <qualifiedname>eu::Rect::add_right</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <declname>amount</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="104" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rect_1ac5b6dd4bb10a11b7b5bc10f947b82937" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1Rect" kindref="compound">Rect</ref></type>
+        <definition>Rect eu::Rect::add_bottom</definition>
+        <argsstring>(float amount) const</argsstring>
+        <name>add_bottom</name>
+        <qualifiedname>eu::Rect::add_bottom</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <declname>amount</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="105" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rect_1abeeab83650422756770a1f473e5ddc19" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1Rect" kindref="compound">Rect</ref></type>
+        <definition>Rect eu::Rect::add_top</definition>
+        <argsstring>(float amount) const</argsstring>
+        <name>add_top</name>
+        <qualifiedname>eu::Rect::add_top</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <declname>amount</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="106" column="14"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="structeu_1_1Rect_1a44e724e5b83fade7cc9439a8216cc800" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1Rect" kindref="compound">Rect</ref></type>
+        <definition>static Rect eu::Rect::from_left_right_bottom_top</definition>
+        <argsstring>(float left_side, float right_side, float bottom_side, float top_side)</argsstring>
+        <name>from_left_right_bottom_top</name>
+        <qualifiedname>eu::Rect::from_left_right_bottom_top</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <declname>left_side</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <declname>right_side</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <declname>bottom_side</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <declname>top_side</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="38" column="22"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rect_1a1c69ca2953de13022c21e04f5e9959de" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1Rect" kindref="compound">Rect</ref></type>
+        <definition>static Rect eu::Rect::from_left_right_top_bottom</definition>
+        <argsstring>(float left_side, float right_side, float top_side, float bottom_side)</argsstring>
+        <name>from_left_right_top_bottom</name>
+        <qualifiedname>eu::Rect::from_left_right_top_bottom</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <declname>left_side</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <declname>right_side</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <declname>top_side</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <declname>bottom_side</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="39" column="22"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rect_1acb48eb3101d3ad50657d7c9fd27f66ed" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1Rect" kindref="compound">Rect</ref></type>
+        <definition>static Rect eu::Rect::from_bottom_left_size</definition>
+        <argsstring>(const v2 &amp;bl, const v2 &amp;size)</argsstring>
+        <name>from_bottom_left_size</name>
+        <qualifiedname>eu::Rect::from_bottom_left_size</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1v2" kindref="compound">v2</ref> &amp;</type>
+          <declname>bl</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1v2" kindref="compound">v2</ref> &amp;</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="40" column="22"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rect_1a9f0f207b63729d5b646a0aca09388167" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1Rect" kindref="compound">Rect</ref></type>
+        <definition>static Rect eu::Rect::from_top_left_size</definition>
+        <argsstring>(const v2 &amp;top_left, const v2 &amp;size)</argsstring>
+        <name>from_top_left_size</name>
+        <qualifiedname>eu::Rect::from_top_left_size</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1v2" kindref="compound">v2</ref> &amp;</type>
+          <declname>top_left</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1v2" kindref="compound">v2</ref> &amp;</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="41" column="22"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rect_1a4813f449e47554090fb8a7716f31c4a4" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1Rect" kindref="compound">Rect</ref></type>
+        <definition>static Rect eu::Rect::from_size</definition>
+        <argsstring>(const v2 &amp;size)</argsstring>
+        <name>from_size</name>
+        <qualifiedname>eu::Rect::from_size</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1v2" kindref="compound">v2</ref> &amp;</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="42" column="22"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rect_1a080cd6dbe8d9c93eaaaf46b30520a3be" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1Rect" kindref="compound">Rect</ref></type>
+        <definition>static Rect eu::Rect::from_point</definition>
+        <argsstring>(const v2 &amp;point)</argsstring>
+        <name>from_point</name>
+        <qualifiedname>eu::Rect::from_point</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1v2" kindref="compound">v2</ref> &amp;</type>
+          <declname>point</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="43" column="22"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rect_1a8b6434638758009365d038adbada4143" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1Rect" kindref="compound">Rect</ref></type>
+        <definition>static Rect eu::Rect::from_center_inside_other</definition>
+        <argsstring>(const Rect &amp;self, const Rect &amp;other)</argsstring>
+        <name>from_center_inside_other</name>
+        <qualifiedname>eu::Rect::from_center_inside_other</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1Rect" kindref="compound">Rect</ref> &amp;</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1Rect" kindref="compound">Rect</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+<para>centers the self rectangle inside the other rectangle </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="54" column="22"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Rect_1a78bc1b7a19106a05c9ecb5c50d2d41f6" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1Rect" kindref="compound">Rect</ref></type>
+        <definition>static Rect eu::Rect::from_scaled</definition>
+        <argsstring>(const Rect &amp;self, float scale)</argsstring>
+        <name>from_scaled</name>
+        <qualifiedname>eu::Rect::from_scaled</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1Rect" kindref="compound">Rect</ref> &amp;</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <declname>scale</declname>
+        </param>
+        <briefdescription>
+<para>scaled copy around rect center </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="57" column="22"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="structeu_1_1Rect_1ac74baa73482b4c2f0edc98869ac30bea" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::Rect::Rect</definition>
+        <argsstring>(float left_side, float right_side, float top_side, float bottom_side)</argsstring>
+        <name>Rect</name>
+        <qualifiedname>eu::Rect::Rect</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <declname>left_side</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <declname>right_side</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <declname>top_side</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <declname>bottom_side</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/rect.h" line="109" column="9"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/base/src/base/rect.h" line="26" column="5" bodyfile="libs/base/src/base/rect.h" bodystart="27" bodyend="110"/>
+    <listofallmembers>
+      <member refid="structeu_1_1Rect_1ac5b6dd4bb10a11b7b5bc10f947b82937" prot="public" virt="non-virtual"><scope>eu::Rect</scope><name>add_bottom</name></member>
+      <member refid="structeu_1_1Rect_1a53b9cb564d103ab2e12bdacf7cfeeea0" prot="public" virt="non-virtual"><scope>eu::Rect</scope><name>add_left</name></member>
+      <member refid="structeu_1_1Rect_1af1e669d461267f3aba3ddabd21943b16" prot="public" virt="non-virtual"><scope>eu::Rect</scope><name>add_right</name></member>
+      <member refid="structeu_1_1Rect_1abeeab83650422756770a1f473e5ddc19" prot="public" virt="non-virtual"><scope>eu::Rect</scope><name>add_top</name></member>
+      <member refid="structeu_1_1Rect_1ae7d8322b28874b8ea314f76fe799cd94" prot="public" virt="non-virtual"><scope>eu::Rect</scope><name>bottom</name></member>
+      <member refid="structeu_1_1Rect_1a2d875afc0479dff58314c91b04cc6b6b" prot="public" virt="non-virtual"><scope>eu::Rect</scope><name>contains_exclusive</name></member>
+      <member refid="structeu_1_1Rect_1a98859f4e527156d350300a08d888eaac" prot="public" virt="non-virtual"><scope>eu::Rect</scope><name>cut</name></member>
+      <member refid="structeu_1_1Rect_1ae503e06cdc03749dad8d243e73045332" prot="public" virt="non-virtual"><scope>eu::Rect</scope><name>cut_bottom</name></member>
+      <member refid="structeu_1_1Rect_1a6aafed1efd16f9a915ea90c7ea3f2776" prot="public" virt="non-virtual"><scope>eu::Rect</scope><name>cut_left</name></member>
+      <member refid="structeu_1_1Rect_1ab4073102dc4a45f89ba1d62a7d93a2fd" prot="public" virt="non-virtual"><scope>eu::Rect</scope><name>cut_right</name></member>
+      <member refid="structeu_1_1Rect_1ad760740db6603c5ebd34557e93aa8dfd" prot="public" virt="non-virtual"><scope>eu::Rect</scope><name>cut_top</name></member>
+      <member refid="structeu_1_1Rect_1a822d88039fe24617a4bdd0286ebc49d8" prot="public" virt="non-virtual"><scope>eu::Rect</scope><name>extend</name></member>
+      <member refid="structeu_1_1Rect_1acb48eb3101d3ad50657d7c9fd27f66ed" prot="public" virt="non-virtual"><scope>eu::Rect</scope><name>from_bottom_left_size</name></member>
+      <member refid="structeu_1_1Rect_1a8b6434638758009365d038adbada4143" prot="public" virt="non-virtual"><scope>eu::Rect</scope><name>from_center_inside_other</name></member>
+      <member refid="structeu_1_1Rect_1a44e724e5b83fade7cc9439a8216cc800" prot="public" virt="non-virtual"><scope>eu::Rect</scope><name>from_left_right_bottom_top</name></member>
+      <member refid="structeu_1_1Rect_1a1c69ca2953de13022c21e04f5e9959de" prot="public" virt="non-virtual"><scope>eu::Rect</scope><name>from_left_right_top_bottom</name></member>
+      <member refid="structeu_1_1Rect_1a080cd6dbe8d9c93eaaaf46b30520a3be" prot="public" virt="non-virtual"><scope>eu::Rect</scope><name>from_point</name></member>
+      <member refid="structeu_1_1Rect_1a78bc1b7a19106a05c9ecb5c50d2d41f6" prot="public" virt="non-virtual"><scope>eu::Rect</scope><name>from_scaled</name></member>
+      <member refid="structeu_1_1Rect_1a4813f449e47554090fb8a7716f31c4a4" prot="public" virt="non-virtual"><scope>eu::Rect</scope><name>from_size</name></member>
+      <member refid="structeu_1_1Rect_1a9f0f207b63729d5b646a0aca09388167" prot="public" virt="non-virtual"><scope>eu::Rect</scope><name>from_top_left_size</name></member>
+      <member refid="structeu_1_1Rect_1a6c8eef03f18b7d73903f726832fadd25" prot="public" virt="non-virtual"><scope>eu::Rect</scope><name>get_bottom</name></member>
+      <member refid="structeu_1_1Rect_1aae42aa2bb46920582103dc9dc1e31330" prot="public" virt="non-virtual"><scope>eu::Rect</scope><name>get_bottom_left</name></member>
+      <member refid="structeu_1_1Rect_1ab3ef9deea35f7f348ba71473878a5cb5" prot="public" virt="non-virtual"><scope>eu::Rect</scope><name>get_bottom_right</name></member>
+      <member refid="structeu_1_1Rect_1a4b72cc113197ffa6d1bb038dd26ade11" prot="public" virt="non-virtual"><scope>eu::Rect</scope><name>get_center_pos</name></member>
+      <member refid="structeu_1_1Rect_1af90a8d5272abaaac47c059f617d5be63" prot="public" virt="non-virtual"><scope>eu::Rect</scope><name>get_left</name></member>
+      <member refid="structeu_1_1Rect_1a6d253b443269e92cf04bfe72375eeaf7" prot="public" virt="non-virtual"><scope>eu::Rect</scope><name>get_range_x</name></member>
+      <member refid="structeu_1_1Rect_1a82f07f3f211ad37485d5ccbcfda22360" prot="public" virt="non-virtual"><scope>eu::Rect</scope><name>get_range_y</name></member>
+      <member refid="structeu_1_1Rect_1ad9824fdead39e8549a1d3d7bcdac5996" prot="public" virt="non-virtual"><scope>eu::Rect</scope><name>get_relative_center_pos</name></member>
+      <member refid="structeu_1_1Rect_1a3682439b40f53955b6bb81dacde07aa8" prot="public" virt="non-virtual"><scope>eu::Rect</scope><name>get_right</name></member>
+      <member refid="structeu_1_1Rect_1a8bc0d7fc4fd7b5a81105a24b62fa949f" prot="public" virt="non-virtual"><scope>eu::Rect</scope><name>get_size</name></member>
+      <member refid="structeu_1_1Rect_1a1caea10315d603a40f485a204e4a9ebb" prot="public" virt="non-virtual"><scope>eu::Rect</scope><name>get_top</name></member>
+      <member refid="structeu_1_1Rect_1a6912a7c00d442a6a1887a4c80f437c50" prot="public" virt="non-virtual"><scope>eu::Rect</scope><name>get_top_left</name></member>
+      <member refid="structeu_1_1Rect_1a8127cdc138ba533c560214a232bffcae" prot="public" virt="non-virtual"><scope>eu::Rect</scope><name>get_top_right</name></member>
+      <member refid="structeu_1_1Rect_1a7a03d44c0b3d09d76381936d9669a85d" prot="public" virt="non-virtual"><scope>eu::Rect</scope><name>inset</name></member>
+      <member refid="structeu_1_1Rect_1ac82c43e787ffe74e5f8a8f07dbcb904e" prot="public" virt="non-virtual"><scope>eu::Rect</scope><name>is_empty</name></member>
+      <member refid="structeu_1_1Rect_1a199134d17bc774c5e63e8a8fd4f06caf" prot="public" virt="non-virtual"><scope>eu::Rect</scope><name>is_valid</name></member>
+      <member refid="structeu_1_1Rect_1a9fa0c5d21ff94e2cd503f98c0defd83f" prot="public" virt="non-virtual"><scope>eu::Rect</scope><name>left</name></member>
+      <member refid="structeu_1_1Rect_1aff54a8814fc2c58841f888d97c820a0c" prot="public" virt="non-virtual"><scope>eu::Rect</scope><name>operator==</name></member>
+      <member refid="structeu_1_1Rect_1a63b60c39516cf6e4be087b8628b38044" prot="public" virt="non-virtual"><scope>eu::Rect</scope><name>Rect</name></member>
+      <member refid="structeu_1_1Rect_1ac74baa73482b4c2f0edc98869ac30bea" prot="private" virt="non-virtual"><scope>eu::Rect</scope><name>Rect</name></member>
+      <member refid="structeu_1_1Rect_1a98da611a558ca23c19d64a3a8d937102" prot="public" virt="non-virtual"><scope>eu::Rect</scope><name>right</name></member>
+      <member refid="structeu_1_1Rect_1a1ff513f653792508f5a2d94df8a025a0" prot="public" virt="non-virtual"><scope>eu::Rect</scope><name>set_empty</name></member>
+      <member refid="structeu_1_1Rect_1a678361b4ef89406701ac6797418da195" prot="public" virt="non-virtual"><scope>eu::Rect</scope><name>top</name></member>
+      <member refid="structeu_1_1Rect_1a8fcf79ceed039ca1620361a8ac23e72c" prot="public" virt="non-virtual"><scope>eu::Rect</scope><name>translate</name></member>
+      <member refid="structeu_1_1Rect_1aceacec831d053012ca567e7de438ad72" prot="public" virt="non-virtual"><scope>eu::Rect</scope><name>with_bottom_left_at</name></member>
+      <member refid="structeu_1_1Rect_1a858e1d8b62ecc12e96a5e9bedb09d61a" prot="public" virt="non-virtual"><scope>eu::Rect</scope><name>with_inset</name></member>
+      <member refid="structeu_1_1Rect_1acc52e68504c5999e9223effcbfcf619b" prot="public" virt="non-virtual"><scope>eu::Rect</scope><name>with_top_left_at</name></member>
+      <member refid="structeu_1_1Rect_1ab1d2221dcad30bde9bbe3a387ba9b171" prot="public" virt="non-virtual"><scope>eu::Rect</scope><name>with_translate</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="namespaceeu_1_1convert" kind="namespace" language="C++">
+    <compoundname>eu::convert</compoundname>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="namespaceeu_1_1convert_1aee672a1fe41692f2005e75389bf34f2c" prot="private" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref> <ref refid="structeu_1_1An" kindref="compound">An</ref></type>
+        <definition>constexpr An eu::convert::operator&quot;&quot;_deg</definition>
+        <argsstring>(unsigned long long d)</argsstring>
+        <name>operator&quot;&quot;_deg</name>
+        <qualifiedname>eu::convert::operator&quot;&quot;_deg</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">unsigned</ref> <ref refid="structeu_1_1R" kindref="compound">long</ref> <ref refid="structeu_1_1R" kindref="compound">long</ref></type>
+          <declname>d</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/angle.h" line="123" column="18" bodyfile="libs/base/src/base/angle.h" bodystart="123" bodyend="126"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1convert_1ad9a8ef509475899faebcef9f3cf0e098" prot="private" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref> <ref refid="structeu_1_1An" kindref="compound">An</ref></type>
+        <definition>constexpr An eu::convert::operator&quot;&quot;_deg</definition>
+        <argsstring>(long double d)</argsstring>
+        <name>operator&quot;&quot;_deg</name>
+        <qualifiedname>eu::convert::operator&quot;&quot;_deg</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">long</ref> <ref refid="structeu_1_1R" kindref="compound">double</ref></type>
+          <declname>d</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/angle.h" line="128" column="18" bodyfile="libs/base/src/base/angle.h" bodystart="128" bodyend="131"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1convert_1a8bf275d232d046a033d75f1f072baf7d" prot="private" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref> <ref refid="structeu_1_1An" kindref="compound">An</ref></type>
+        <definition>constexpr An eu::convert::operator&quot;&quot;_rad</definition>
+        <argsstring>(long double r)</argsstring>
+        <name>operator&quot;&quot;_rad</name>
+        <qualifiedname>eu::convert::operator&quot;&quot;_rad</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">long</ref> <ref refid="structeu_1_1R" kindref="compound">double</ref></type>
+          <declname>r</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/angle.h" line="134" column="18" bodyfile="libs/base/src/base/angle.h" bodystart="134" bodyend="137"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/base/src/base/angle.h" line="121" column="1"/>
+  </compounddef>
+</doxygen>
