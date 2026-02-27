@@ -2,17 +2,108 @@
 #include "SDL_timer.h"
 
 #include <cassert>
+#include "dependency_glad.h"
+#include "stb_image.h"
+
+#include "log/log.h"
+
+#if 1
+int  main(int, char**)
+{
+    int window_width = 1280;
+    int window_height = 720;
+
+    SDL_SetHint(SDL_HINT_VIDEO_HIGHDPI_DISABLED, "0");
+    SDL_GL_SetAttribute(SDL_GL_CONTEXT_FLAGS, SDL_GL_CONTEXT_FORWARD_COMPATIBLE_FLAG);
+    SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
+    SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
+    SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3);
+    SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
+
+    if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_TIMER | SDL_INIT_EVENTS) < 0) {
+        LOG_ERR("Error initializing SDL: {}", SDL_GetError());
+        return -1;
+    }
+
+    SDL_Window* window = SDL_CreateWindow("Euphoria", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
+        window_width, window_height, SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN | SDL_WINDOW_ALLOW_HIGHDPI | SDL_WINDOW_RESIZABLE);
+    if (!window) {
+        LOG_ERR("Error creating window: {}", SDL_GetError());
+        return -1;
+    }
+    
+    auto* glContext = SDL_GL_CreateContext(window);
+    SDL_GetWindowSize(window, &window_width, &window_height);
+    if (!glContext) {
+        LOG_ERR("Error creating gl context: {}", SDL_GetError());
+        return -1;
+    }
+
+    /* OpenGL setup */
+    const int glad_result = gladLoadGLLoader(SDL_GL_GetProcAddress);
+    if (glad_result == 0)
+    {
+        LOG_ERR("Failed to init glad, error: {0}", glad_result);
+        return -1;
+    }
+
+    {
+        const std::string gl_vendor = reinterpret_cast<const char*>(glGetString(GL_VENDOR));
+        const std::string gl_renderer = reinterpret_cast<const char*>(glGetString(GL_RENDERER));
+        const std::string gl_version = reinterpret_cast<const char*>(glGetString(GL_VERSION));
+        const std::string gl_shading_language_version = reinterpret_cast<const char*>(glGetString(GL_SHADING_LANGUAGE_VERSION));
+
+        LOG_INFO("Vendor:         {0}", gl_vendor);
+        LOG_INFO("Renderer:       {0}", gl_renderer);
+        LOG_INFO("Version OpenGL: {0}", gl_version);
+        LOG_INFO("Version GLSL:   {0}", gl_shading_language_version);
+    }
+    
+
+    bool running = true;
+
+    LOG_INFO("Editor started");
+    while (running)
+    {
+        glViewport(0, 0, window_width, window_height);
+        glClear(GL_COLOR_BUFFER_BIT);
+
+        SDL_Event e;
+        while (SDL_PollEvent(&e) != 0)
+        {
+            switch (e.type)
+            {
+            case SDL_WINDOWEVENT:
+                if (e.window.event == SDL_WINDOWEVENT_RESIZED || e.window.event == SDL_WINDOWEVENT_SIZE_CHANGED)
+                {
+                    LOG_INFO("Resized");
+                    SDL_GetWindowSize(window, &window_width, &window_height);
+                }
+                break;
+            case SDL_QUIT: running = false; break;
+            default:
+                // ignore other events
+                break;
+            }
+        }
+    }
+
+    LOG_INFO("Shutting down");
+    SDL_GL_DeleteContext(glContext);
+    SDL_DestroyWindow(window);
+    SDL_Quit();
+
+    return 0;
+}
+
+#else
 
 #include "dependency_nuklear.h"
 #include "dependency_nuklear_impl.h"
-#include "dependency_glad.h"
 
-#include "stb_image.h"
 
 constexpr int MAX_VERTEX_MEMORY = 512 * 1024;
 constexpr int MAX_ELEMENT_MEMORY = 128 * 1024;
-
-#include "log/log.h"
 
 /* This are some code examples to provide a small overview of what can be
  * done with this library. To try out an example uncomment the defines */
@@ -97,53 +188,6 @@ nk_default_color_style[NK_COLOR_COUNT] = {
 #ifdef INCLUDE_NODE_EDITOR
 #include "demo/node_editor.c"
 #endif
-
-#if 0
-int
-main(int, char**)
-{
-    int window_width = 1280;
-    int window_height = 720;
-
-    if ( SDL_Init( SDL_INIT_EVERYTHING ) < 0 ) {
-		LOG_ERR("Error initializing SDL: {}", SDL_GetError());
-		return -1;
-	} 
-
-	// Create our window
-	SDL_Window* window = SDL_CreateWindow( "Example", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
-        window_width, window_height, SDL_WINDOW_SHOWN);
-
-    if ( !window ) {
-		LOG_ERR("Error creating window: {}", SDL_GetError());
-		return -1;
-	}
-
-    bool running = true;
-
-    LOG_INFO("Editor started");
-    while(running)
-    {
-        SDL_Event e;
-        while(SDL_PollEvent(&e) != 0)
-        {
-            switch(e.type)
-            {
-            case SDL_QUIT: running = false; break;
-            default:
-                // ignore other events
-                break;
-            }
-        }
-    }
-
-    SDL_DestroyWindow( window );
-	SDL_Quit();
-
-    return 0;
-}
-#endif
-
 
 struct media {
     GLint skin;
@@ -754,3 +798,4 @@ int main(int, char **)
     SDL_Quit();
     return 0;
 }
+#endif

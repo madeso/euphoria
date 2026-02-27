@@ -2,6 +2,8 @@
 # tests project
 
 set(src
+    src/tests/false_string.cc src/tests/false_string.h
+    src/tests/equaler.cc src/tests/equaler.h
     src/tests/approx.cc src/tests/approx.h
     src/tests/approx_equal.cc src/tests/approx_equal.h
 )

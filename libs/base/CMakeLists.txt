@@ -15,6 +15,7 @@ set(app_src
     src/base/vec4.cc src/base/vec4.h
     src/base/hash.string.cc src/base/hash.string.h
     src/base/guid.cc src/base/guid.h
+    src/base/rect.cc src/base/rect.h
 
     src/base/pch.private.h
     src/base/pch.public.h
@@ -69,6 +70,7 @@ set(test_src
     src/base/vec4.test.cc
     src/base/hash.string.test.cc
     src/base/guid.test.cc
+    src/base/rect.test.cc
 )
 # set(test_main_src test/main.cc)
 source_group("" FILES ${test_src})
