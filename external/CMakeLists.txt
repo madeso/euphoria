@@ -18,8 +18,14 @@ set_target_properties(undef_windows PROPERTIES FOLDER "Dependencies")
 
 
 ###################################################################################################
+## embed
+add_subdirectory(embed)
+
+
+###################################################################################################
 ## json
 add_subdirectory(json)
+set_target_properties(jsonh PROPERTIES FOLDER "Dependencies")
 # set_target_properties(undef_windows PROPERTIES FOLDER "Dependencies")
 
 
@@ -190,6 +196,9 @@ target_link_libraries(catch_main PUBLIC
 add_library(external::catch ALIAS catch_main)
 list(APPEND CMAKE_MODULE_PATH ${catch2_SOURCE_DIR}/extras)
 include(Catch)
+set_target_properties(catch_main PROPERTIES FOLDER "Dependencies/catch2")
+set_target_properties(Catch2 PROPERTIES FOLDER "Dependencies/catch2")
+set_target_properties(Catch2WithMain PROPERTIES FOLDER "Dependencies/catch2")
 
 ###################################################################################################
 ## fmt
@@ -197,7 +206,7 @@ add_subdirectory(fmt-10.1.1)
 add_library(fmt_dep INTERFACE)
 target_link_libraries(fmt_dep INTERFACE fmt::fmt)
 add_library(external::fmt ALIAS fmt_dep)
-
+set_target_properties(fmt PROPERTIES FOLDER "Dependencies")
 
 
 ###################################################################################################

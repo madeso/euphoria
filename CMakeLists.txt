@@ -3,10 +3,46 @@ set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 set_property(GLOBAL PROPERTY PREDEFINED_TARGETS_FOLDER "_cmake")
 project(euphoria C CXX)
 
+set(CMAKE_CXX_EXTENSIONS OFF)
+set(CMAKE_ENABLE_EXPORTS ON) # for debug builds only...
+
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/tools/cmake/modules")
 include(tools/cmake/standard_project_settings.cmake)
 include(tools/cmake/compiler_warnings.cmake)
 
+
+###################################################################################################
+# options
+option(GENERATE_COVERAGE "generate code coverage information" OFF)
+message(STATUS "Generating coverage: ${GENERATE_COVERAGE}")
+
+option(ENABLE_GL_DEBUG "enable opengl debug information" ON)
+message(STATUS "Open GL debug information: ${ENABLE_GL_DEBUG}")
+
+set(DEFAULT_EU_SDL_SOURCE "FindLibrary")
+if(WIN32)
+    set(DEFAULT_EU_SDL_SOURCE "FetchContent")
+endif()
+set(EU_SDL_SOURCE "${DEFAULT_EU_SDL_SOURCE}" CACHE STRING "How to get SDL library (FindLibrary or FetchContent)")
+set_property(CACHE EU_SDL_SOURCE PROPERTY STRINGS FindLibrary FetchContent)
+
+
+###################################################################################################
+# util
+
+function(target_feature_flags TARGET VIS) # ...targets to enable/disable
+    foreach(NAME IN LISTS ARGN)
+        if(${${NAME}})
+            target_compile_definitions(${TARGET} ${VIS} "-D${NAME}=FF_IS_ENABLED")
+        else()
+            target_compile_definitions(${TARGET} ${VIS} "-D${NAME}=FF_IS_DISABLED")
+        endif()
+    endforeach()
+endfunction()
+
+
+###################################################################################################
+## global settings applying to all
 if(WIN32)
     # Error C1128	number of sections exceeded object file format limit: compile with /bigobj
     # https://developercommunity.visualstudio.com/t/Enable-bigobj-by-default/1031214
@@ -14,19 +50,9 @@ if(WIN32)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /bigobj")
 endif()
 
-set(CMAKE_CXX_EXTENSIONS OFF)
 
-# for debug builds only...
-set(CMAKE_ENABLE_EXPORTS ON)
-
-# -------------------------------------------------------------------------------------------------
-# get EU_SDL_SOURCE
-set(DEFAULT_EU_SDL_SOURCE "FindLibrary")
-if(WIN32)
-    set(DEFAULT_EU_SDL_SOURCE "FetchContent")
-endif()
-set(EU_SDL_SOURCE "${DEFAULT_EU_SDL_SOURCE}" CACHE STRING "How to get SDL library (FindLibrary or FetchContent)")
-set_property(CACHE EU_SDL_SOURCE PROPERTY STRINGS FindLibrary FetchContent)
+###################################################################################################
+# Validate EU_SDL_SOURCE
 if(EU_SDL_SOURCE STREQUAL "FindLibrary")
     set(EU_SDL_SOURCE_FETCH OFF)
     set(EU_SDL_SOURCE_FIND ON)
@@ -37,6 +63,8 @@ else()
     message(ERROR "invalid EU_SDL_SOURCE (${EU_SDL_SOURCE})")
 endif()
 
+###################################################################################################
+## Global build
 # enable building on all cores
 # https://blog.kitware.com/cmake-building-with-all-your-cores/
 # if(${MSVC})
@@ -44,20 +72,23 @@ endif()
 #     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} /MP")
 # endif()
 
+
+###################################################################################################
+# root libraries
 add_library(project_options INTERFACE)
-target_compile_features(project_options INTERFACE cxx_std_20)
 add_library(euph::project_options ALIAS project_options)
+target_compile_features(project_options INTERFACE cxx_std_20)
+target_feature_flags(project_options INTERFACE
+    ENABLE_GL_DEBUG
+)
+
 
 add_library(project_warnings INTERFACE)
-set_project_warnings(project_warnings)
 add_library(euph::project_warnings ALIAS project_warnings)
+set_project_warnings(project_warnings)
 
 source_group("_cmake/rules" REGULAR_EXPRESSION "\\.rule$")
 source_group("_cmake" REGULAR_EXPRESSION "CMakeLists\.txt") # is this the correct way to move CMakeLists to a _cmake folder?
-
-
-option(BUILD_ENTITY_DEBUG_COMPONENT "when converting components, (debug) assert of bad casts" OFF)
-option(GENERATE_COVERAGE "generate code coverage information" OFF)
 
 
 if(GENERATE_COVERAGE)
@@ -72,8 +103,6 @@ if(GENERATE_COVERAGE)
         message(FATAL_ERROR "Code coverage results with an optimised (non-Debug) build may be misleading!")
     endif()
 
-    message(STATUS "Coverage enabled")
-
     # based on
     # https://github.com/cpp-best-practices/cpp_starter_project/blob/main/cmake/Sanitizers.cmake#L6
 
@@ -83,22 +112,30 @@ if(GENERATE_COVERAGE)
     target_link_libraries(project_options INTERFACE -lgcov)
 endif()
 
+
+
 set(OpenGL_GL_PREFERENCE "GLVND")
 
 set(MACOSX_BUNDLE_INFO_PLIST "${CMAKE_CURRENT_SOURCE_DIR}/tools/osx-bundle.plist")
-set(Gaf_CUSTOM_ARGUMENTS_FROM_FILE ${CMAKE_CURRENT_SOURCE_DIR}/tools/gaf_options.txt)
 
+
+###################################################################################################
+## Testing
 list(APPEND CMAKE_MODULE_PATH ${catch2_SOURCE_DIR}/extras)
 include(CTest)
-
 enable_testing()
 
+
+###################################################################################################
+## Default folders
 set_target_properties(Continuous PROPERTIES FOLDER "_cmake/tests")
 set_target_properties(Experimental PROPERTIES FOLDER "_cmake/tests")
 set_target_properties(Nightly PROPERTIES FOLDER "_cmake/tests")
 set_target_properties(NightlyMemoryCheck PROPERTIES FOLDER "_cmake/tests")
 
 
+
+###################################################################################################
 # compiler flags
 if(${MSVC})
     target_compile_definitions(project_options
@@ -131,11 +168,10 @@ endif()
 
 
 
-##-----------------------------------------------------------------------------
-## arch detection
+###################################################################################################
+# arch detection
 set(EU_ARCH_64 OFF)
 set(EU_ARCH_32 OFF)
-
 if(CMAKE_SIZEOF_VOID_P EQUAL 8)
     # 64 bits
     set(EU_ARCH_64 ON)
@@ -144,11 +180,10 @@ elseif(CMAKE_SIZEOF_VOID_P EQUAL 4)
 else()
     message(FATAL_ERROR "Unsupported platform: ${CMAKE_SIZEOF_VOID_P}")
 endif()
-##-----------------------------------------------------------------------------
 
 
 
-# todo(Gustav): move to "file" specific config files and not a single global one
+# todo(Gustav): move to "file" specific config files and not a single global one or remove in favor of feature flags macro?
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/tools/config_in.h ${CMAKE_CURRENT_BINARY_DIR}/euph_generated_config.h)
 include_directories(SYSTEM ${CMAKE_CURRENT_BINARY_DIR})
 
@@ -156,29 +191,25 @@ add_definitions(-DIMGUI_USER_CONFIG="imgui_euphoria_config.h")
 add_executable(binary_to_compressed_c external/imgui/imgui/misc/fonts/binary_to_compressed_c.cpp)
 set_target_properties(binary_to_compressed_c PROPERTIES FOLDER "Build")
 
-set(file_types_folder ${CMAKE_CURRENT_SOURCE_DIR}/libs/file_types/src/file_types)
 
-include(tools/cmake/generate-header-test.cmake)
-
+###################################################################################################
+## Add projects
 add_subdirectory(external)
 add_subdirectory(libs)
 add_subdirectory(apps)
 
-set_target_properties(catch_main PROPERTIES FOLDER "Dependencies/catch2")
-set_target_properties(Catch2 PROPERTIES FOLDER "Dependencies/catch2")
-set_target_properties(Catch2WithMain PROPERTIES FOLDER "Dependencies/catch2")
-set_target_properties(fmt PROPERTIES FOLDER "Dependencies")
-set_target_properties(jsonh PROPERTIES FOLDER "Dependencies")
 
-# run workbench
+
+###################################################################################################
+# tools to run workbench
 add_custom_target(workbench_order_in_file
     ${CMAKE_CURRENT_SOURCE_DIR}/tools/buildtools/Workbench/bin/Debug/net7.0/wb.exe order-in-file check ${CMAKE_CURRENT_SOURCE_DIR}/docs/generated/xml/
     WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
 )
+set_target_properties(workbench_order_in_file PROPERTIES FOLDER "_tools")
+
 add_custom_target(workbench_check_names
     ${CMAKE_CURRENT_SOURCE_DIR}/tools/buildtools/Workbench/bin/Debug/net7.0/wb.exe check-names check ${CMAKE_CURRENT_SOURCE_DIR}/docs/generated/xml/
     WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
 )
-
-set_target_properties(workbench_order_in_file PROPERTIES FOLDER "_tools")
 set_target_properties(workbench_check_names PROPERTIES FOLDER "_tools")

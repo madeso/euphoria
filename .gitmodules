@@ -23,3 +23,6 @@
 [submodule "external/json"]
 	path = external/json
 	url = git@github.com:madeso/json.git
+[submodule "external/embed"]
+	path = external/embed
+	url = git@github.com:madeso/embed.git

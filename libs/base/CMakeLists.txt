@@ -16,6 +16,10 @@ set(app_src
     src/base/hash.string.cc src/base/hash.string.h
     src/base/guid.cc src/base/guid.h
     src/base/rect.cc src/base/rect.h
+    src/base/size.cc src/base/size.h
+
+    src/base/feature_flags.h
+    src/base/cint.h
 
     src/base/pch.private.h
     src/base/pch.public.h

@@ -3,6 +3,8 @@
 #include <string>
 #include <vector>
 
+#include "fmt/format.h"
+
 /// implements a break in debug.
 /// \hideinitializer
 #define BREAK_IN_DEBUG() \
