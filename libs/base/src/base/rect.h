@@ -109,7 +109,7 @@ namespace eu
         Rect(float left_side, float right_side, float top_side, float bottom_side);
     };
 
-    [[nodiscard]] v2 to01(const Rect& r, const v2& from);
+    [[nodiscard]] v2 to_01(const Rect& r, const v2& from);
     [[nodiscard]] v2 from_01(const Rect& r, const v2& from);
 
     /// is the point contained within the rect?

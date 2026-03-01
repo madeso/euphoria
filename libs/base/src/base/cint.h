@@ -8,6 +8,11 @@ constexpr float float_from_int(int i)
 	return static_cast<float>(i);
 }
 
+constexpr int int_from_float(float f)
+{
+	return static_cast<int>(f);
+}
+
 constexpr std::size_t sizet_from_int(int i)
 {
 	return static_cast<std::size_t>(i);

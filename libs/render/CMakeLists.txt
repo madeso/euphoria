@@ -9,6 +9,15 @@ set(app_src
     src/render/uniform.cc src/render/uniform.h
     src/render/vertex_layout.cc src/render/vertex_layout.h
     src/render/uniform_buffer.cc src/render/uniform_buffer.h
+    src/render/canvas.cc src/render/canvas.h
+    src/render/opengl_states.cc src/render/opengl_states.h
+    src/render/statechanger.cc src/render/statechanger.h
+    
+    src/render/rendermode.cc src/render/rendermode.h
+    src/render/stencilaction.cc src/render/stencilaction.h
+    src/render/cullface.cc src/render/cullface.h
+    src/render/compare.cc src/render/compare.h
+    src/render/blend.cc src/render/blend.h
 
     src/render/constants.h
 )
