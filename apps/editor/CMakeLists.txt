@@ -20,6 +20,7 @@ target_link_libraries(editor
         euph::project_warnings
         euph::log
         euph::base
+        euph::render
         external::sdl2
         external::nuklear
         external::opengl

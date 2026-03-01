@@ -7,6 +7,9 @@
 
 #include "log/log.h"
 
+#include "render/canvas.h"
+#include "render/opengl_states.h"
+
 #if 1
 int  main(int, char**)
 {
@@ -58,16 +61,16 @@ int  main(int, char**)
         LOG_INFO("Version OpenGL: {0}", gl_version);
         LOG_INFO("Version GLSL:   {0}", gl_shading_language_version);
     }
-    
+
+    eu::render::OpenglStates states;
+    eu::render::Render2 render{ &states };
 
     bool running = true;
 
     LOG_INFO("Editor started");
     while (running)
     {
-        glViewport(0, 0, window_width, window_height);
-        glClear(GL_COLOR_BUFFER_BIT);
-
+        // events
         SDL_Event e;
         while (SDL_PollEvent(&e) != 0)
         {
@@ -86,6 +89,16 @@ int  main(int, char**)
                 break;
             }
         }
+
+        // render
+        {
+            eu::render::RenderCommand cmd {.states = &states, .render = &render, .size = {.width = window_width, .height = window_height} };
+
+            auto layer = eu::render::with_layer2(cmd, eu::render::LayoutData{.style = eu::render::ViewportStyle::extended,
+                                                     .requested_width = 800.0f, .requested_height = 600.0f});
+            layer.batch->quad(std::nullopt, layer.viewport_aabb_in_worldspace.get_bottom(50) , std::nullopt, eu::v4{ 0.1f, 0.18f, 0.24f, 1.0f });
+        }
+        SDL_GL_SwapWindow(window);
     }
 
     LOG_INFO("Shutting down");
