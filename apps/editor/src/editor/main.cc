@@ -121,8 +121,9 @@ int  main(int, char**)
         {
             eu::render::RenderCommand cmd {.states = &states, .render = &render, .size = {.width = window_width, .height = window_height} };
 
+            // todo(Gustav): provide a pixel layout
             const auto screen = eu::render::LayoutData{ .style = eu::render::ViewportStyle::extended,
-                                                     .requested_width = 800.0f, .requested_height = 600.0f };
+                                                     .requested_width = static_cast<float>(window_width), .requested_height = static_cast<float>(window_height) };
 
             cmd.clear(eu::colors::black, screen);
 
@@ -130,7 +131,7 @@ int  main(int, char**)
             layer.batch->quad(std::nullopt, layer.viewport_aabb_in_worldspace.get_bottom(50) , std::nullopt, eu::colors::green_bluish);
 
             const auto mouse = eu::Rect::from_size({ 40, 40 });
-            layer.batch->quad(std::nullopt, mouse.with_top_left_at(layer.mouse_to_world(uistate.mouse)), std::nullopt, uistate.mousedown ? eu::colors::red_vermillion : eu::colors::blue_sky);
+            layer.batch->quad(std::nullopt, mouse.with_top_left_at(uistate.mouse), std::nullopt, uistate.mousedown ? eu::colors::red_vermillion : eu::colors::blue_sky);
         }
         SDL_GL_SwapWindow(window);
     }
