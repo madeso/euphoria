@@ -11,6 +11,16 @@
 #include "render/opengl_states.h"
 
 #if 1
+
+struct UiState
+{
+    eu::v2 mouse = {0,0};
+    bool mousedown = false;
+
+    int hotitem = 0;
+    int activeitem = 0;
+};
+
 int  main(int, char**)
 {
     int window_width = 1280;
@@ -65,6 +75,8 @@ int  main(int, char**)
     eu::render::OpenglStates states;
     eu::render::Render2 render{ &states };
 
+    UiState uistate;
+
     bool running = true;
 
     LOG_INFO("Editor started");
@@ -76,6 +88,21 @@ int  main(int, char**)
         {
             switch (e.type)
             {
+            case SDL_MOUSEMOTION:
+                uistate.mouse = { static_cast<float>(e.motion.x), static_cast<float>(window_height - e.motion.y) };
+                break;
+            case SDL_MOUSEBUTTONDOWN:
+                if (e.button.button == 1)
+                {
+                    uistate.mousedown = true;
+                }
+                break;
+            case SDL_MOUSEBUTTONUP:
+                if (e.button.button == 1)
+                {
+                    uistate.mousedown = false;
+                }
+                break;
             case SDL_WINDOWEVENT:
                 if (e.window.event == SDL_WINDOWEVENT_RESIZED || e.window.event == SDL_WINDOWEVENT_SIZE_CHANGED)
                 {
@@ -94,9 +121,16 @@ int  main(int, char**)
         {
             eu::render::RenderCommand cmd {.states = &states, .render = &render, .size = {.width = window_width, .height = window_height} };
 
-            auto layer = eu::render::with_layer2(cmd, eu::render::LayoutData{.style = eu::render::ViewportStyle::extended,
-                                                     .requested_width = 800.0f, .requested_height = 600.0f});
-            layer.batch->quad(std::nullopt, layer.viewport_aabb_in_worldspace.get_bottom(50) , std::nullopt, eu::colors::blue_sky);
+            const auto screen = eu::render::LayoutData{ .style = eu::render::ViewportStyle::extended,
+                                                     .requested_width = 800.0f, .requested_height = 600.0f };
+
+            cmd.clear(eu::colors::black, screen);
+
+            auto layer = eu::render::with_layer2(cmd, screen);
+            layer.batch->quad(std::nullopt, layer.viewport_aabb_in_worldspace.get_bottom(50) , std::nullopt, eu::colors::green_bluish);
+
+            const auto mouse = eu::Rect::from_size({ 40, 40 });
+            layer.batch->quad(std::nullopt, mouse.with_top_left_at(layer.mouse_to_world(uistate.mouse)), std::nullopt, uistate.mousedown ? eu::colors::red_vermillion : eu::colors::blue_sky);
         }
         SDL_GL_SwapWindow(window);
     }
