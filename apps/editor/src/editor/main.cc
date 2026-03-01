@@ -12,50 +12,110 @@
 
 #if 1
 
+/// djb2 initial hash
+constexpr eu::u32 initial_hash = 5381;
+
+/// djb2 hash function
+eu::u32 hash(unsigned char *str, std::size_t length, eu::u32 seed)
+{
+    eu::u32 hash = seed;
+
+    for(std::size_t index = 0; index < length; index += 1)
+    {
+        auto c = str[index];
+        hash = ((hash << 5) + hash) + c;
+    }
+
+    return hash;
+}
+
+struct IdStack
+{
+    [[nodiscard]] eu::u32 get(const std::string& str) const
+    {
+        return hash(reinterpret_cast<unsigned char*>(const_cast<char*>(str.data())), str.size(), last_id());
+    }
+
+    [[nodiscard]] eu::u32 get(int id) const
+    {
+        return hash(reinterpret_cast<unsigned char*>(&id), sizeof(int), last_id());
+    }
+    void push(const std::string& str)
+    {
+        stack.push_back(get(str));
+    }
+    void push(int id)
+    {
+        stack.push_back(get(id));
+    }
+    void pop()
+    {
+        stack.pop_back();
+    }
+    [[nodiscard]] eu::u32 last_id() const
+    {
+        return stack.empty() ? initial_hash : *stack.rbegin();
+    }
+    std::vector<eu::u32> stack;
+};
+
 struct UiState
 {
     eu::v2 mouse = {0,0};
     bool mousedown = false;
 
-    int hotitem = 0;
-    int activeitem = 0;
+    std::optional<eu::u32> hot_item = std::nullopt;
+
+    std::optional<eu::u32> active_item = std::nullopt;
+    bool active_item_locked = false;
 
     void begin()
     {
-        hotitem = 0;
+        hot_item = std::nullopt;
     }
 
     void end()
     {
-        if (mousedown == 0)
+        if (mousedown)
         {
-            activeitem = 0;
+            if (active_item == std::nullopt)
+            {
+                active_item = std::nullopt;
+                active_item_locked = true;
+            }
         }
         else
         {
-            if (activeitem == 0)
-                activeitem = -1;
+            active_item = std::nullopt;
+            active_item_locked = false;
         }
+    }
+
+    [[nodiscard]] bool is_active_free() const
+    {
+        return active_item_locked == false && active_item.has_value() == false;
     }
 };
 
 // Simple button IMGUI widget
-int button(int id, const eu::Rect& button, UiState& uistate, eu::render::SpriteBatch* batch)
+int button(eu::u32 id, const eu::Rect& button, UiState& uistate, eu::render::SpriteBatch* batch)
 {
     // Check whether the button should be hot
     if (eu::is_within(uistate.mouse, button))
     {
-        uistate.hotitem = id;
-        if (uistate.activeitem == 0 && uistate.mousedown)
-            uistate.activeitem = id;
+        uistate.hot_item = id;
+        if (uistate.is_active_free() && uistate.mousedown)
+        {
+            uistate.active_item = id;
+        }
     }
     
-    // shaddow
+    // shadow
     batch->quad(std::nullopt, button.with_offset({8.0f, -8.0f}), std::nullopt, eu::colors::black);
     
-    if (uistate.hotitem == id)
+    if (uistate.hot_item == id)
     {
-        if (uistate.activeitem == id)
+        if (uistate.active_item == id)
         {
             // Button is both 'hot' and 'active'
             batch->quad(std::nullopt, button.with_offset({ 2.0f, -2.0f }), std::nullopt, eu::colors::white);
@@ -75,9 +135,9 @@ int button(int id, const eu::Rect& button, UiState& uistate, eu::render::SpriteB
 
     // If button is hot and active, but mouse button is not
       // down, the user must have clicked the button.
-    if (uistate.mousedown == 0 &&
-        uistate.hotitem == id &&
-        uistate.activeitem == id)
+    if (uistate.mousedown == false &&
+        uistate.hot_item == id &&
+        uistate.active_item == id)
     {
         return true;
     }
@@ -142,6 +202,7 @@ int  main(int, char**)
     eu::render::Render2 render{ &states };
 
     UiState uistate;
+    IdStack idstack;
 
     bool running = true;
 
@@ -199,10 +260,10 @@ int  main(int, char**)
             const auto button_size = eu::v2{ 64, 64 };
 
             uistate.begin();
-            button(1, eu::Rect::from_bottom_left_size({ 100, 100 }, button_size), uistate, layer.batch);
-            button(2, eu::Rect::from_bottom_left_size({ 200, 100 }, button_size), uistate, layer.batch);
-            button(3, eu::Rect::from_bottom_left_size({ 300, 100 }, button_size), uistate, layer.batch);
-            button(4, eu::Rect::from_bottom_left_size({ 400, 100 }, button_size), uistate, layer.batch);
+            button(idstack.get("a"), eu::Rect::from_bottom_left_size({ 100, 100 }, button_size), uistate, layer.batch);
+            button(idstack.get("b"), eu::Rect::from_bottom_left_size({ 200, 100 }, button_size), uistate, layer.batch);
+            button(idstack.get("c"), eu::Rect::from_bottom_left_size({ 300, 100 }, button_size), uistate, layer.batch);
+            button(idstack.get("d"), eu::Rect::from_bottom_left_size({ 400, 100 }, button_size), uistate, layer.batch);
             uistate.end();
         }
         SDL_GL_SwapWindow(window);
