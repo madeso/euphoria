@@ -63,6 +63,7 @@ namespace eu
         [[nodiscard]] Rect with_translate(const v2& v) const;
         [[nodiscard]] Rect with_top_left_at(const v2& p) const;
         [[nodiscard]] Rect with_bottom_left_at(const v2& p) const;
+        [[nodiscard]] Rect with_offset(const v2& p) const;
 
         [[nodiscard]] v2 get_bottom_left() const;
         [[nodiscard]] v2 get_center_pos() const;
@@ -115,9 +116,6 @@ namespace eu
     /// is the point contained within the rect?
     /// \note on the border is considered within
     bool is_within(const v2& p, const Rect& r);
-
-    // hit test
-    [[nodiscard]] bool is_point_in_rect(const v2& p, const Rect& r);
 
     std::string to_string(const Rect& r);
 }

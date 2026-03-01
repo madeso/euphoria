@@ -19,7 +19,73 @@ struct UiState
 
     int hotitem = 0;
     int activeitem = 0;
+
+    void begin()
+    {
+        hotitem = 0;
+    }
+
+    void end()
+    {
+        if (mousedown == 0)
+        {
+            activeitem = 0;
+        }
+        else
+        {
+            if (activeitem == 0)
+                activeitem = -1;
+        }
+    }
 };
+
+// Simple button IMGUI widget
+int button(int id, const eu::Rect& button, UiState& uistate, eu::render::SpriteBatch* batch)
+{
+    // Check whether the button should be hot
+    if (eu::is_within(uistate.mouse, button))
+    {
+        uistate.hotitem = id;
+        if (uistate.activeitem == 0 && uistate.mousedown)
+            uistate.activeitem = id;
+    }
+    
+    // shaddow
+    batch->quad(std::nullopt, button.with_offset({8.0f, -8.0f}), std::nullopt, eu::colors::black);
+    
+    if (uistate.hotitem == id)
+    {
+        if (uistate.activeitem == id)
+        {
+            // Button is both 'hot' and 'active'
+            batch->quad(std::nullopt, button.with_offset({ 2.0f, -2.0f }), std::nullopt, eu::colors::white);
+        }
+        else
+        {
+            // Button is merely 'hot'
+            batch->quad(std::nullopt, button, std::nullopt, eu::colors::white);
+        }
+    }
+    else
+    {
+        // button is not hot, but it may be active    
+        batch->quad(std::nullopt, button, std::nullopt, eu::colors::orange);
+        // todo(Gustav): add grays
+    }
+
+    // If button is hot and active, but mouse button is not
+      // down, the user must have clicked the button.
+    if (uistate.mousedown == 0 &&
+        uistate.hotitem == id &&
+        uistate.activeitem == id)
+    {
+        return true;
+    }
+
+    // Otherwise, no clicky.
+    return false;
+}
+
 
 int  main(int, char**)
 {
@@ -125,13 +191,19 @@ int  main(int, char**)
             const auto screen = eu::render::LayoutData{ .style = eu::render::ViewportStyle::extended,
                                                      .requested_width = static_cast<float>(window_width), .requested_height = static_cast<float>(window_height) };
 
-            cmd.clear(eu::colors::black, screen);
+            cmd.clear(eu::colors::blue_sky, screen);
 
             auto layer = eu::render::with_layer2(cmd, screen);
             layer.batch->quad(std::nullopt, layer.viewport_aabb_in_worldspace.get_bottom(50) , std::nullopt, eu::colors::green_bluish);
 
-            const auto mouse = eu::Rect::from_size({ 40, 40 });
-            layer.batch->quad(std::nullopt, mouse.with_top_left_at(uistate.mouse), std::nullopt, uistate.mousedown ? eu::colors::red_vermillion : eu::colors::blue_sky);
+            const auto button_size = eu::v2{ 64, 64 };
+
+            uistate.begin();
+            button(1, eu::Rect::from_bottom_left_size({ 100, 100 }, button_size), uistate, layer.batch);
+            button(2, eu::Rect::from_bottom_left_size({ 200, 100 }, button_size), uistate, layer.batch);
+            button(3, eu::Rect::from_bottom_left_size({ 300, 100 }, button_size), uistate, layer.batch);
+            button(4, eu::Rect::from_bottom_left_size({ 400, 100 }, button_size), uistate, layer.batch);
+            uistate.end();
         }
         SDL_GL_SwapWindow(window);
     }

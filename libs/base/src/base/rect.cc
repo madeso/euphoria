@@ -215,6 +215,12 @@ namespace eu
         );
     }
 
+    [[nodiscard]] Rect
+    Rect::with_offset(const v2& p) const
+    {
+        return from_top_left_size(get_top_left() + p, get_size());
+    }
+
 
     void
     Rect::set_empty()
