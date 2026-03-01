@@ -110,10 +110,10 @@ void add_vertex(SpriteBatch* batch, const Vertex2& v)
     batch->data.push_back(v.position.y);
     batch->data.push_back(v.position.z);
 
-    batch->data.push_back(v.color.x);
-    batch->data.push_back(v.color.y);
-    batch->data.push_back(v.color.z);
-    batch->data.push_back(v.color.w);
+    batch->data.push_back(v.color.rgb.r);
+    batch->data.push_back(v.color.rgb.g);
+    batch->data.push_back(v.color.rgb.b);
+    batch->data.push_back(v.color.alpha);
 
     batch->data.push_back(v.texturecoord.x);
     batch->data.push_back(v.texturecoord.y);
@@ -146,7 +146,7 @@ void SpriteBatch::quad(std::optional<Texture2d*> texture_argument, const Vertex2
     add_vertex(this, v3);
 }
 
-void SpriteBatch::quad(std::optional<Texture2d*> texture, const Rect& scr, const std::optional<Rect>& texturecoord, const v4& tint)
+void SpriteBatch::quad(std::optional<Texture2d*> texture, const Rect& scr, const std::optional<Rect>& texturecoord, const Color& tint)
 {
     const auto tc = texturecoord.value_or(Rect::from_size({1.0f, 1.0f}));
     quad
@@ -475,7 +475,7 @@ RenderCommand::clear(const Rgb& color, const LayoutData& ld) const
     else
     {
         auto l = with_layer2(*this, ld);
-        l.batch->quad(std::nullopt, l.viewport_aabb_in_worldspace, std::nullopt, v4{color.r, color.g, color.b, 1.0f});
+        l.batch->quad(std::nullopt, l.viewport_aabb_in_worldspace, std::nullopt, color);
     }
 }
 
@@ -504,7 +504,7 @@ RenderCommand::clear(const Rgb& color, const LerpData& ld) const
     else
     {
         auto l = with_layer2(*this, ld);
-        l.batch->quad(std::nullopt, l.viewport_aabb_in_worldspace, std::nullopt, v4{color.r, color.g, color.b, 1.0f});
+        l.batch->quad(std::nullopt, l.viewport_aabb_in_worldspace, std::nullopt, color);
     }
 }
 

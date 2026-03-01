@@ -96,7 +96,7 @@ int  main(int, char**)
 
             auto layer = eu::render::with_layer2(cmd, eu::render::LayoutData{.style = eu::render::ViewportStyle::extended,
                                                      .requested_width = 800.0f, .requested_height = 600.0f});
-            layer.batch->quad(std::nullopt, layer.viewport_aabb_in_worldspace.get_bottom(50) , std::nullopt, eu::v4{ 0.1f, 0.18f, 0.24f, 1.0f });
+            layer.batch->quad(std::nullopt, layer.viewport_aabb_in_worldspace.get_bottom(50) , std::nullopt, eu::colors::blue_sky);
         }
         SDL_GL_SwapWindow(window);
     }

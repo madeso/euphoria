@@ -30,7 +30,7 @@ enum class ViewportStyle { black_bars, extended};
 struct Vertex2
 {
     v3 position;
-    v4 color;
+    Color color;
     v2 texturecoord;
 };
 
@@ -57,7 +57,7 @@ struct SpriteBatch
     void operator=(SpriteBatch&&) = delete;
 
     void quad(std::optional<Texture2d*> texture, const Vertex2& v0, const Vertex2& v1, const Vertex2& v2, const Vertex2& v3);
-    void quad(std::optional<Texture2d*> texture, const Rect& scr, const std::optional<Rect>& texturecoord, const v4& tint = v4(1.0f, 1.0f, 1.0f, 1.0f));
+    void quad(std::optional<Texture2d*> texture, const Rect& scr, const std::optional<Rect>& texturecoord, const Color& tint = eu::colors::white);
 
     void submit();
 };

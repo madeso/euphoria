@@ -9,7 +9,7 @@ namespace eu
 {
 
 /// Represents color in gamma (non-linear) space (aka sRGB).
-/// @see Lrgb
+/// @see Lin_rgb
 struct Rgb
 {
 	float r;
@@ -24,7 +24,7 @@ struct Rgb
 };
 
 /// Represents a linear sRGB color.
-/// @see Color
+/// @see Rgb
 struct Lin_rgb
 {
     float r; float g; float b;
@@ -68,6 +68,19 @@ struct OkLab
 	float l;
 	float a;
 	float b;
+};
+
+/// Represents a color with an alpha component. The color is stored in gamma (non-linear) space (aka sRGB).
+struct Color
+{
+    Rgb rgb;
+    float alpha;
+
+    constexpr Color(const Rgb& rgb, float alpha = 1.0f)
+        : rgb(rgb)
+        , alpha(alpha)
+    {
+    }
 };
 
 // linear-space gamma-space
