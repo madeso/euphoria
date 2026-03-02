@@ -87,6 +87,21 @@ namespace eu
         else { return value; }
     }
 
+    constexpr float keep_within01(float f)
+    {
+        if (f <= 0)
+        {
+            return 0;
+        }
+
+        if (f >= 1)
+        {
+            return 1;
+        }
+
+        return f;
+    }
+
     /** @}*/
 }
 

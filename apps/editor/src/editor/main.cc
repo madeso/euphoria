@@ -98,10 +98,10 @@ struct UiState
 };
 
 // Simple button IMGUI widget
-int button(eu::u32 id, const eu::Rect& button, UiState& uistate, eu::render::SpriteBatch* batch)
+bool button(eu::u32 id, const eu::Rect& rect, UiState& uistate, eu::render::SpriteBatch* batch)
 {
     // Check whether the button should be hot
-    if (eu::is_within(uistate.mouse, button))
+    if (eu::is_within(uistate.mouse, rect))
     {
         uistate.hot_item = id;
         if (uistate.is_active_free() && uistate.mousedown)
@@ -111,25 +111,25 @@ int button(eu::u32 id, const eu::Rect& button, UiState& uistate, eu::render::Spr
     }
     
     // shadow
-    batch->quad(std::nullopt, button.with_offset({8.0f, -8.0f}), std::nullopt, eu::colors::black);
+    batch->quad(std::nullopt, rect.with_offset({8.0f, -8.0f}), std::nullopt, eu::colors::black);
     
     if (uistate.hot_item == id)
     {
         if (uistate.active_item == id)
         {
             // Button is both 'hot' and 'active'
-            batch->quad(std::nullopt, button.with_offset({ 2.0f, -2.0f }), std::nullopt, eu::colors::white);
+            batch->quad(std::nullopt, rect.with_offset({ 2.0f, -2.0f }), std::nullopt, eu::colors::white);
         }
         else
         {
             // Button is merely 'hot'
-            batch->quad(std::nullopt, button, std::nullopt, eu::colors::white);
+            batch->quad(std::nullopt, rect, std::nullopt, eu::colors::white);
         }
     }
     else
     {
         // button is not hot, but it may be active    
-        batch->quad(std::nullopt, button, std::nullopt, eu::colors::orange);
+        batch->quad(std::nullopt, rect, std::nullopt, eu::colors::orange);
         // todo(Gustav): add grays
     }
 
@@ -146,6 +146,40 @@ int button(eu::u32 id, const eu::Rect& button, UiState& uistate, eu::render::Spr
     return false;
 }
 
+bool slider(eu::u32 id, float* val, const eu::Rect& rect, UiState& uistate, eu::render::SpriteBatch* batch)
+{
+    const auto grab_size = 16.0f;
+    const auto inner = rect.with_inset(eu::Lrtb{ 3.0f });
+    const auto avail = inner.get_size().x - grab_size;
+    const auto pos = avail * *val;
+
+    const auto grabber_rect = eu::Rect::from_size({ grab_size, inner.get_size().y }).with_bottom_left_at({ inner.left + pos, inner.bottom });
+
+    if (eu::is_within(uistate.mouse, inner))
+    {
+        uistate.hot_item = id;
+        if (uistate.is_active_free() && uistate.mousedown)
+        {
+            uistate.active_item = id;
+        }
+    }
+
+    batch->quad(std::nullopt, rect, std::nullopt, eu::colors::orange);
+    batch->quad(std::nullopt, grabber_rect, std::nullopt, uistate.active_item == id && uistate.hot_item == id ? eu::colors::white : eu::colors::green_bluish);
+
+    if (uistate.active_item == id)
+    {
+        const auto new_range = eu::to_01(inner, uistate.mouse);
+        const auto new_value = eu::keep_within01(new_range.x);
+        if (*val != new_value)
+        {
+            *val = new_value;
+            return true;
+        }
+    }
+
+    return false;
+}
 
 int  main(int, char**)
 {
@@ -264,6 +298,12 @@ int  main(int, char**)
             button(idstack.get("b"), eu::Rect::from_bottom_left_size({ 200, 100 }, button_size), uistate, layer.batch);
             button(idstack.get("c"), eu::Rect::from_bottom_left_size({ 300, 100 }, button_size), uistate, layer.batch);
             button(idstack.get("d"), eu::Rect::from_bottom_left_size({ 400, 100 }, button_size), uistate, layer.batch);
+
+            const auto slider_size = eu::v2{ 256, 25 };
+            static float slider_a = 0.5f;
+            static float slider_b = 0.5f;
+            slider(idstack.get("slider_a"), &slider_a, eu::Rect::from_bottom_left_size({ 100, 200 }, slider_size), uistate, layer.batch);
+            slider(idstack.get("slider_b"), &slider_b, eu::Rect::from_bottom_left_size({ 100, 250 }, slider_size), uistate, layer.batch);
             uistate.end();
         }
         SDL_GL_SwapWindow(window);

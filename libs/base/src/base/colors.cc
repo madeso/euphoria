@@ -3,6 +3,8 @@
 #include <algorithm>
 #include <cmath>
 
+#include "base/numeric.h"
+
 namespace eu
 {
 
@@ -777,21 +779,6 @@ OkHsl okhsl_from_srgb(const Rgb& rgb)
 
 	const auto l = toe(big_l);
 	return {.hue = h, .saturation = s, .lightness = l};
-}
-
-float keep_within01(float f)
-{
-	if (f <= 0)
-	{
-		return 0;
-	}
-
-	if (f >= 1)
-	{
-		return 1;
-	}
-	
-	return f;
 }
 
 Lin_rgb keep_within(Lin_rgb c)

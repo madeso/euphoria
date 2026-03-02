@@ -122,7 +122,6 @@ OkHsl okhsl_from_srgb(const Rgb& rgb);
 // srgb from hsl (not ok hsl)
 Rgb srgb_from_hsl(const Hsl& hsl);
 
-float keep_within01(float f);
 Lin_rgb keep_within(Lin_rgb c);
 
 }
