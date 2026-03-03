@@ -222,6 +222,11 @@ namespace eu
     }
 
 
+    [[noconstdiscard]] Rect Rect::with_scale(float hor, float vert) const
+    {
+        return from_left_right_top_bottom(left * hor, right * hor, top * vert, bottom * vert);
+    }
+
     void
     Rect::set_empty()
     {

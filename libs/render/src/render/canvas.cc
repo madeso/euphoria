@@ -119,9 +119,9 @@ void add_vertex(SpriteBatch* batch, const Vertex2& v)
     batch->data.push_back(v.texturecoord.y);
 }
 
-void SpriteBatch::quad(std::optional<Texture2d*> texture_argument, const Vertex2& v0, const Vertex2& v1, const Vertex2& v2, const Vertex2& v3)
+void SpriteBatch::quad(std::optional<const Texture2d*> texture_argument, const Vertex2& v0, const Vertex2& v1, const Vertex2& v2, const Vertex2& v3)
 {
-    Texture2d* texture = texture_argument.value_or(&white_texture);
+    const Texture2d* texture = texture_argument.value_or(&white_texture);
 
     if(quads == max_quads)
     {
@@ -146,7 +146,7 @@ void SpriteBatch::quad(std::optional<Texture2d*> texture_argument, const Vertex2
     add_vertex(this, v3);
 }
 
-void SpriteBatch::quad(std::optional<Texture2d*> texture, const Rect& scr, const std::optional<Rect>& texturecoord, const Color& tint)
+void SpriteBatch::quad(std::optional<const Texture2d*> texture, const Rect& scr, const std::optional<Rect>& texturecoord, const Color& tint)
 {
     const auto tc = texturecoord.value_or(Rect::from_size({1.0f, 1.0f}));
     quad

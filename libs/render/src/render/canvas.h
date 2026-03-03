@@ -41,7 +41,7 @@ struct SpriteBatch
     OpenglStates* states;
     std::vector<float> data;
     int quads = 0;
-    Texture2d* current_texture = nullptr;
+    const Texture2d* current_texture = nullptr;
     u32 va;
     u32 vb;
     u32 ib;
@@ -56,8 +56,8 @@ struct SpriteBatch
     SpriteBatch(SpriteBatch&&) = delete;
     void operator=(SpriteBatch&&) = delete;
 
-    void quad(std::optional<Texture2d*> texture, const Vertex2& v0, const Vertex2& v1, const Vertex2& v2, const Vertex2& v3);
-    void quad(std::optional<Texture2d*> texture, const Rect& scr, const std::optional<Rect>& texturecoord, const Color& tint = eu::colors::white);
+    void quad(std::optional<const Texture2d*> texture, const Vertex2& v0, const Vertex2& v1, const Vertex2& v2, const Vertex2& v3);
+    void quad(std::optional<const Texture2d*> texture, const Rect& scr, const std::optional<Rect>& texturecoord, const Color& tint = eu::colors::white);
 
     void submit();
 };

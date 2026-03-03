@@ -64,6 +64,7 @@ namespace eu
         [[nodiscard]] Rect with_top_left_at(const v2& p) const;
         [[nodiscard]] Rect with_bottom_left_at(const v2& p) const;
         [[nodiscard]] Rect with_offset(const v2& p) const;
+        [[nodiscard]] Rect with_scale(float hor, float vert) const;
 
         [[nodiscard]] v2 get_bottom_left() const;
         [[nodiscard]] v2 get_center_pos() const;

@@ -12,6 +12,11 @@ set(app_src
     src/render/canvas.cc src/render/canvas.h
     src/render/opengl_states.cc src/render/opengl_states.h
     src/render/statechanger.cc src/render/statechanger.h
+
+    src/render/image.cc src/render/image.h
+    src/render/font.cc src/render/font.h
+    src/render/loadedfont.cc src/render/loadedfont.h
+    src/render/utf8.cc src/render/utf8.h
     
     src/render/rendermode.cc src/render/rendermode.h
     src/render/stencilaction.cc src/render/stencilaction.h
