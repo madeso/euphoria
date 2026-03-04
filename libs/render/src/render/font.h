@@ -173,7 +173,7 @@ namespace eu::render
 
         explicit DrawableFont
         (
-            const std::string& font_file
+            const MemoryChunk& font_file
         );
 
         // todo(Gustav): expose background property and move this away from font

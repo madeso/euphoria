@@ -191,7 +191,7 @@ namespace eu::render
     {
         auto f = FontData
         {
-            reinterpret_cast<const unsigned char*>(file_memory.bytes.data()),
+            reinterpret_cast<const unsigned char*>(file_memory.bytes),
             float_from_int(font_size)
         };
 
@@ -244,30 +244,6 @@ namespace eu::render
         }
 
         return fontchars;
-    }
-
-    LoadedFont
-    get_characters_from_font
-    (
-        const std::string& font_file,
-        int font_size,
-        const std::string& chars
-    )
-    {
-        auto file_memory = chunk_from_file(font_file);
-
-        if (file_memory.bytes.empty())
-        {
-            LOG_ERR("Unable to open {0}", font_file);
-            return LoadedFont{};
-        }
-
-        return get_characters_from_font
-        (
-            file_memory,
-            font_size,
-            chars
-        );
     }
 
 #if 0

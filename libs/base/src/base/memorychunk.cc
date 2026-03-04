@@ -5,13 +5,20 @@
 namespace eu
 {
 
-MemoryChunk chunk_from_file(const std::string& full_path)
+MemoryChunkData::operator MemoryChunk() const
+{
+    return {.bytes = bytes.data(), .size = bytes.size() };
+}
+
+
+
+MemoryChunkData chunk_from_file(const std::string& full_path)
 {
     std::ifstream is(full_path, std::ifstream::binary);
     if(!is)
     {
         LOG_ERR("Failed to read real file {}", full_path);
-        return MemoryChunk{};
+        return {};
     }
 
     is.seekg(0, std::ifstream::end);
@@ -21,10 +28,10 @@ MemoryChunk chunk_from_file(const std::string& full_path)
     if(length <= 0)
     {
         LOG_ERR("File empty: {}", full_path);
-        return MemoryChunk{};
+        return {};
     }
 
-    MemoryChunk memory;
+    MemoryChunkData memory;
     memory.bytes.resize(length);
     is.read
     (

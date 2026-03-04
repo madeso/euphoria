@@ -25,6 +25,7 @@
 
 #include "canvas.h"
 #include "dependency_glad.h"
+#include "base/memorychunk.h"
 
 using namespace eu::convert;
 
@@ -98,7 +99,7 @@ namespace eu::render
 
     DrawableFont::DrawableFont
     (
-        const std::string& font_file
+        const MemoryChunk& file_memory
     )
     {
         // todo(Gustav): too long, break up
@@ -111,7 +112,7 @@ namespace eu::render
         (
             get_characters_from_font
             (
-                font_file,
+                file_memory,
                 12,
                 // todo(Gustav): use a range instead
                 "abcdefghijklmnopqrstuwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-=_+[]{}|;:'\",.<>/?`~ "

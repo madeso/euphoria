@@ -3,9 +3,17 @@ namespace eu
 
 struct MemoryChunk
 {
-    std::vector<char> bytes;
+    const char* bytes;
+    std::size_t size;
 };
 
-MemoryChunk chunk_from_file(const std::string& path);
+struct MemoryChunkData
+{
+    std::vector<char> bytes;
+
+    operator MemoryChunk() const;
+};
+
+MemoryChunkData chunk_from_file(const std::string& path);
 
 }

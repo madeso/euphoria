@@ -3,12 +3,15 @@
 
 #include <cassert>
 #include "dependency_glad.h"
+#include "OpenSans-Regular.ttf.h"
 #include "stb_image.h"
 
 #include "log/log.h"
+#include "base/memorychunk.h"
 
 #include "render/canvas.h"
 #include "render/opengl_states.h"
+#include "render/font.h"
 
 #if 1
 
@@ -181,6 +184,11 @@ bool slider(eu::u32 id, float* val, const eu::Rect& rect, UiState& uistate, eu::
     return false;
 }
 
+eu::MemoryChunk chunk_from_embed(const embedded_binary& binary)
+{
+    return { .bytes = reinterpret_cast<const char*>(binary.data), .size = binary.size };
+}
+
 int  main(int, char**)
 {
     int window_width = 1280;
@@ -237,6 +245,11 @@ int  main(int, char**)
 
     UiState uistate;
     IdStack idstack;
+    eu::render::DrawableFont font{chunk_from_embed(OPENSANS_REGULAR_TTF)};
+    eu::render::DrawableText text{&font};
+    text.set_text("Hello world");
+    text.set_size(12);
+    text.compile();
 
     bool running = true;
 
@@ -305,6 +318,8 @@ int  main(int, char**)
             slider(idstack.get("slider_a"), &slider_a, eu::Rect::from_bottom_left_size({ 100, 200 }, slider_size), uistate, layer.batch);
             slider(idstack.get("slider_b"), &slider_b, eu::Rect::from_bottom_left_size({ 100, 250 }, slider_size), uistate, layer.batch);
             uistate.end();
+
+            text.draw(layer.batch, {50, 50}, eu::colors::black, eu::colors::purple_redish);
         }
         SDL_GL_SwapWindow(window);
     }

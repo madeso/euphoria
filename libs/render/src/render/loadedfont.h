@@ -7,6 +7,11 @@
 #include "render/image.h"
 
 
+namespace eu
+{
+    struct MemoryChunk;
+}
+
 namespace eu::render
 {
     // This represents a loaded glyph not yet placed on a texture image
@@ -57,11 +62,10 @@ namespace eu::render
         combine_with(const LoadedFont& fc);
     };
 
-
     LoadedFont
     get_characters_from_font
     (
-        const std::string& font_file,
+        const MemoryChunk& file_memory,
         int font_size,
         const std::string& chars
     );
