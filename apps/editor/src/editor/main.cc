@@ -248,7 +248,7 @@ int  main(int, char**)
     eu::render::DrawableFont font{chunk_from_embed(OPENSANS_REGULAR_TTF)};
     eu::render::DrawableText text{&font};
     text.set_text("Hello world");
-    text.set_size(12);
+    text.set_size(40);
     text.compile();
 
     bool running = true;
@@ -319,7 +319,7 @@ int  main(int, char**)
             slider(idstack.get("slider_b"), &slider_b, eu::Rect::from_bottom_left_size({ 100, 250 }, slider_size), uistate, layer.batch);
             uistate.end();
 
-            text.draw(layer.batch, {50, 50}, eu::colors::black, eu::colors::purple_redish);
+            text.draw(layer.batch, {50, 500}, eu::colors::black, eu::colors::purple_redish);
         }
         SDL_GL_SwapWindow(window);
     }

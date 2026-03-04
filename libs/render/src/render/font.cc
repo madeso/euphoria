@@ -164,13 +164,20 @@ namespace eu::render
                 continue;
             }
             const auto& src_char = fontchars.codepoint_to_glyph[id_to_codepoint[src_rect.id]];
-            paste_image
-            (
-                &image,
-                src_rect.x + half_margin,
-                src_rect.y + half_margin,
-                src_char.image
-            );
+            if (src_char.image.is_valid() == false)
+            {
+                LOG_WARN("Glyph for code point {0} has an invalid image, skipping", src_char.code_point);
+            }
+            else
+            {
+                paste_image
+                (
+                    &image,
+                    src_rect.x + half_margin,
+                    src_rect.y + half_margin,
+                    src_char.image
+                );
+            }
             const auto sprite_and_texture_rects = construct_character_rects
             (
                 src_rect,

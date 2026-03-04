@@ -49,6 +49,8 @@ target_link_libraries(render
         external::opengl
         external::glad
         external::stb_image
+        external::stb_truetype
+        external::stb_rect_pack
         embed::embed
     PRIVATE
         euph::project_options

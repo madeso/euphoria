@@ -34,9 +34,7 @@ target_link_libraries(editor
         euph::base
         euph::render
         external::sdl2
-        external::nuklear
         external::opengl
         external::glad
-        external::stb_image
 )
 
