@@ -310,7 +310,10 @@ int  main(int, char**)
             auto layer = eu::render::with_layer2(cmd, screen);
             layer.batch->quad(std::nullopt, layer.viewport_aabb_in_worldspace.get_bottom(50) , std::nullopt, eu::colors::green_bluish);
 
-            layer.batch->quad(&sample_texture, eu::Rect::from_bottom_left_size({300, 300}, {300, 300}), std::nullopt, eu::colors::white);
+            layer.batch->quad(&sample_texture, eu::Rect::from_bottom_left_size({300, 300}, {300, 300}),
+                // select bottom right of the texture, assuming it is split in 4 smaller rects
+                eu::Rect::from_bottom_left_size({0.5f, 0}, {0.5f, 0.5f}),
+                eu::colors::white);
 
             const auto button_size = eu::v2{ 64, 64 };
 
