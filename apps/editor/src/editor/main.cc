@@ -4,6 +4,7 @@
 #include <cassert>
 #include "dependency_glad.h"
 #include "OpenSans-Regular.ttf.h"
+#include "uv-texture.png.h"
 #include "stb_image.h"
 
 #include "log/log.h"
@@ -12,6 +13,8 @@
 #include "render/canvas.h"
 #include "render/opengl_states.h"
 #include "render/font.h"
+#include "render/opengl_utils.h"
+#include "render/texture.io.h"
 
 #if 1
 
@@ -251,6 +254,9 @@ int  main(int, char**)
     text.set_size(40);
     text.compile();
 
+    const auto sample_texture = eu::render::load_image_from_embedded(SEND_DEBUG_LABEL_MANY("uv-texture.png") UV_TEXTURE_PNG,
+        eu::render::TextureEdge::clamp, eu::render::TextureRenderStyle::linear, eu::render::Transparency::exclude, eu::render::ColorData::color_data);
+
     bool running = true;
 
     LOG_INFO("Editor started");
@@ -303,6 +309,8 @@ int  main(int, char**)
 
             auto layer = eu::render::with_layer2(cmd, screen);
             layer.batch->quad(std::nullopt, layer.viewport_aabb_in_worldspace.get_bottom(50) , std::nullopt, eu::colors::green_bluish);
+
+            layer.batch->quad(&sample_texture, eu::Rect::from_bottom_left_size({300, 300}, {300, 300}), std::nullopt, eu::colors::white);
 
             const auto button_size = eu::v2{ 64, 64 };
 

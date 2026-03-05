@@ -1,21 +1,22 @@
 ###############################################################################
 # editor project
 
-set(fonts
-    src/editor/fonts/OpenSans-Regular.ttf
+set(data
+    src/editor/data/OpenSans-Regular.ttf
+    src/editor/data/uv-texture.png
 )
 
 embed(embedded
     AS_BINARY
-        ${fonts}
+        ${data}
 )
 
 set(src
     src/editor/main.cc
 )
 source_group("" FILES ${src})
-source_group("fonts" FILES ${fonts})
-source_group("fonts/generated" FILES ${embedded})
+source_group("data" FILES ${data})
+source_group("data/generated" FILES ${embedded})
 
 # add_executable(editor WIN32 MACOSX_BUNDLE ${src})
 add_executable(editor ${src} ${embedded})
