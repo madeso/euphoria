@@ -84,7 +84,7 @@ namespace eu::render
             ch.code_point= code_point;
             ch.size = size;
             ch.bearing_x = xoffset;
-            ch.bearing_y = yoffset;
+            ch.bearing_y = -yoffset;
             ch.valid = true;
             {
                 int advance_width = 0;
