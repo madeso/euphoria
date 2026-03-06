@@ -408,7 +408,10 @@ RenderLayer2 create_layer2(const RenderCommand& rc, const ViewportDef& vp)
     set_gl_viewport(vp.screen_rect);
     
     // prepare for 2d rendering
-    StateChanger{rc.states}.depth_test(false).blending(true);
+    StateChanger{rc.states}
+        .depth_test(false)
+        .blend_mode(Blend::src_alpha, Blend::one_minus_src_alpha)
+        .blending(true);
 
     const auto camera = m4_identity;
     const auto projection = m4::create_ortho_lrud(0.0f, vp.virtual_width, vp.virtual_height, 0.0f, -1.0f, 1.0f);
