@@ -70,7 +70,7 @@ void paste_image(Image* dst, int dst_x, int dst_y, const Image& src)
     ASSERT(dst->is_valid());
     ASSERT(src.is_valid());
 
-    for (int local_y = 0; local_y < src.height; ++local_y)
+    for (int local_y = 0; local_y < src.height; local_y += 1)
     {
         const auto y = dst_y + local_y;
         if (y < 0 || y >= dst->height)
@@ -79,7 +79,7 @@ void paste_image(Image* dst, int dst_x, int dst_y, const Image& src)
             continue;
         }
 
-        for (int local_x = 0; local_x < src.width; ++local_x)
+        for (int local_x = 0; local_x < src.width; local_x += 1)
         {
             const auto x = dst_x + local_x;
             if (x < 0 || x >= dst->width)
