@@ -113,7 +113,7 @@ namespace eu::render
             get_characters_from_font
             (
                 file_memory,
-                12,
+                48,
                 // todo(Gustav): use a range instead
                 "abcdefghijklmnopqrstuwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-=_+[]{}|;:'\",.<>/?`~ "
             )
