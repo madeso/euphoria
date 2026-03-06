@@ -283,7 +283,7 @@ int  main(int, char**)
     eu::render::DrawableFont font{chunk_from_embed(OPENSANS_REGULAR_TTF)};
     eu::render::DrawableText text{&font};
     text.set_text("Hello world");
-    text.set_size(40);
+    text.set_size(60);
     text.compile();
 
     const auto sample_texture = eu::render::load_image_from_embedded(SEND_DEBUG_LABEL_MANY("uv-texture.png") UV_TEXTURE_PNG,
@@ -362,7 +362,7 @@ int  main(int, char**)
             slider(idstack.get("slider_b"), &slider_b, eu::Rect::from_bottom_left_size({ 100, 250 }, slider_size), uistate, layer.batch);
             uistate.end();
 
-            text.draw(layer.batch, {50, 500}, eu::colors::black, eu::colors::purple_redish);
+            text.draw(layer.batch, {50, 500}, eu::colors::black, eu::colors::white);
         }
         SDL_GL_SwapWindow(window);
     }
