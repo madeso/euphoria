@@ -25,6 +25,7 @@ set(app_src
     src/render/blend.cc src/render/blend.h
 
     src/render/constants.h
+    src/render/enable_high_performance_graphics.h
 )
 
 source_group("" FILES ${app_src})

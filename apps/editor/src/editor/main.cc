@@ -15,6 +15,9 @@
 #include "render/font.h"
 #include "render/opengl_utils.h"
 #include "render/texture.io.h"
+#include "render/enable_high_performance_graphics.h"
+
+ENABLE_HIGH_PERFORMANCE_GRAPHICS
 
 #if 1
 
