@@ -103,11 +103,12 @@ namespace eu::render
                 {
                     for(int x = 0; x < ch.image.width; x += 1)
                     {
+                        const auto alpha = bitmap[ch.image.width * y + x];
                         ch.image.set_pixel
                         (
                             x, ch.image.height-y-1,
                             255, 255, 255,
-                            bitmap[ch.image.width * y + x]
+                            alpha
                         );
                     }
                 }
