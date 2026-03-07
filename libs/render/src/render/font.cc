@@ -53,18 +53,20 @@ namespace eu::render
         const stbrp_rect& src_rect,
         const LoadedGlyph& src_char,
         int image_width,
-        int image_height
+        int image_height,
+        int half_margin
     )
     {
+        // Account for half_margin offset
         const int vert_left = src_char.bearing_x;
         const int vert_right = vert_left + src_char.image.width;
         const int vert_top = src_char.bearing_y;
         const int vert_bottom = vert_top - std::max(1, src_char.image.height);
 
-        const stbrp_coord uv_left = src_rect.x;
-        const stbrp_coord uv_right = uv_left + src_rect.w;
-        const stbrp_coord uv_bottom = src_rect.y;
-        const stbrp_coord uv_top = uv_bottom + std::max<int>(1, src_rect.h);
+        const stbrp_coord uv_left = src_rect.x + half_margin;
+        const stbrp_coord uv_right = uv_left + src_rect.w - half_margin * 2;
+        const stbrp_coord uv_bottom = src_rect.y + half_margin;
+        const stbrp_coord uv_top = uv_bottom + std::max<int>(1, src_rect.h - half_margin * 2);
 
         // todo(Gustav): add ability to be a quad for tighter fit
         ASSERTX(vert_top > vert_bottom, vert_top, vert_bottom, src_char.code_point);
@@ -183,7 +185,8 @@ namespace eu::render
                 src_rect,
                 src_char,
                 texture_width,
-                texture_height
+                texture_height,
+                half_margin
             );
 
             std::shared_ptr<Glyph> dest
