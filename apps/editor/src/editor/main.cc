@@ -362,7 +362,7 @@ int  main(int, char**)
             slider(idstack.get("slider_b"), &slider_b, eu::Rect::from_bottom_left_size({ 100, 250 }, slider_size), uistate, layer.batch);
             uistate.end();
 
-            text.draw(layer.batch, {50, 500}, eu::colors::black, eu::colors::white);
+            text.draw(layer.batch, {200*slider_a, 400 + 200*slider_b}, eu::colors::black, eu::colors::white);
         }
         SDL_GL_SwapWindow(window);
     }
