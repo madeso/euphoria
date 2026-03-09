@@ -50,27 +50,26 @@ namespace eu::render
     std::pair<Rect, Rect>
     construct_character_rects
     (
-        const stbrp_rect& src_rect,
-        const LoadedGlyph& src_char,
+        const stbrp_rect& packed_rect,
+        const LoadedGlyph& glyph,
         int image_width,
         int image_height,
         int half_margin
     )
     {
-        // Account for half_margin offset
-        const int vert_left = src_char.bearing_x;
-        const int vert_right = vert_left + src_char.image.width;
-        const int vert_top = src_char.bearing_y;
-        const int vert_bottom = vert_top - std::max(1, src_char.image.height);
+        const int vert_left = glyph.bearing_x;
+        const int vert_right = vert_left + glyph.image.width;
+        const int vert_top = glyph.bearing_y;
+        const int vert_bottom = vert_top - std::max(1, glyph.image.height);
 
-        const stbrp_coord uv_left = src_rect.x + half_margin;
-        const stbrp_coord uv_right = uv_left + src_rect.w - half_margin * 2;
-        const stbrp_coord uv_bottom = src_rect.y + half_margin;
-        const stbrp_coord uv_top = uv_bottom + std::max<int>(1, src_rect.h - half_margin * 2);
+        const stbrp_coord uv_left = packed_rect.x + half_margin;
+        const stbrp_coord uv_right = uv_left + packed_rect.w - half_margin * 2;
+        const stbrp_coord uv_bottom = packed_rect.y + half_margin;
+        const stbrp_coord uv_top = uv_bottom + std::max<int>(1, packed_rect.h - half_margin * 2);
 
         // todo(Gustav): add ability to be a quad for tighter fit
-        ASSERTX(vert_top > vert_bottom, vert_top, vert_bottom, src_char.code_point);
-        ASSERTX(uv_top > uv_bottom, uv_top, uv_bottom, src_char.code_point);
+        ASSERTX(vert_top > vert_bottom, vert_top, vert_bottom, glyph.code_point);
+        ASSERTX(uv_top > uv_bottom, uv_top, uv_bottom, glyph.code_point);
 
         const auto iw = float_from_int(image_width);
         const auto ih = float_from_int(image_height);
@@ -91,7 +90,7 @@ namespace eu::render
         );
 
         // scale to make sure bake resolution is separate from rendering size
-        const float scale = 1.0f / src_char.size;
+        const float scale = 1.0f / glyph.size;
         return std::make_pair(sprite.with_scale(scale, scale), texture);
     }
 
