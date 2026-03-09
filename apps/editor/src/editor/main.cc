@@ -68,15 +68,23 @@ struct IdStack
     std::vector<eu::u32> stack;
 };
 
+struct KeyboardInput
+{
+    SDL_Keycode key;
+    eu::u16 mod;
+};
+
 struct UiState
 {
     eu::v2 mouse = {0,0};
     bool mousedown = false;
-
     std::optional<eu::u32> hot_item = std::nullopt;
-
     std::optional<eu::u32> active_item = std::nullopt;
     bool active_item_locked = false;
+
+    std::optional<eu::u32> kbd_item = std::nullopt;
+    std::optional<eu::u32> last_widget = std::nullopt;
+    std::optional<KeyboardInput> key = std::nullopt; // todo(Gustav): change to a vector
 
     void begin()
     {
@@ -98,6 +106,12 @@ struct UiState
             active_item = std::nullopt;
             active_item_locked = false;
         }
+
+        if (key && key->key == SDLK_TAB)
+        {
+            kbd_item = std::nullopt;
+        }
+        key = std::nullopt;
     }
 
     [[nodiscard]] bool is_active_free() const
@@ -109,7 +123,6 @@ struct UiState
 // Simple button IMGUI widget
 bool button(eu::u32 id, const eu::Rect& rect, UiState& uistate, eu::render::SpriteBatch* batch)
 {
-    // Check whether the button should be hot
     if (eu::is_within(uistate.mouse, rect))
     {
         uistate.hot_item = id;
@@ -117,6 +130,16 @@ bool button(eu::u32 id, const eu::Rect& rect, UiState& uistate, eu::render::Spri
         {
             uistate.active_item = id;
         }
+    }
+
+    if (uistate.kbd_item == std::nullopt)
+    {
+        uistate.kbd_item = id;
+    }
+
+    if (uistate.kbd_item == id)
+    {
+        batch->quad(std::nullopt, rect.with_inset(eu::Lrtb{ -4 }).with_offset({8, -8}), std::nullopt, eu::colors::red_vermillion);
     }
     
     // shadow
@@ -141,6 +164,28 @@ bool button(eu::u32 id, const eu::Rect& rect, UiState& uistate, eu::render::Spri
         batch->quad(std::nullopt, rect, std::nullopt, eu::colors::orange);
         // todo(Gustav): add grays
     }
+
+    // keyboard interaction
+    if (uistate.kbd_item == id)
+    {
+        if(uistate.key.has_value())
+        {
+            const auto k = *uistate.key;
+            uistate.key = std::nullopt;
+            switch (k.key)
+            {
+            case SDLK_TAB:
+                uistate.kbd_item = std::nullopt;
+                if (k.mod & KMOD_SHIFT)
+                    uistate.kbd_item = uistate.last_widget;
+                break;
+            case SDLK_RETURN:
+                return true;
+            }
+        }
+    }
+
+    uistate.last_widget = id;
 
     // If button is hot and active, but mouse button is not
       // down, the user must have clicked the button.
@@ -173,8 +218,55 @@ bool slider(eu::u32 id, float* val, const eu::Rect& rect, UiState& uistate, eu::
         }
     }
 
+    if (uistate.kbd_item == std::nullopt)
+    {
+        uistate.kbd_item = id;
+    }
+
+    if (uistate.kbd_item == id)
+    {
+        batch->quad(std::nullopt, rect.with_inset(eu::Lrtb{ -6 }), std::nullopt, eu::colors::red_vermillion);
+    }
+
     batch->quad(std::nullopt, rect, std::nullopt, eu::colors::orange);
     batch->quad(std::nullopt, grabber_rect, std::nullopt, uistate.active_item == id && uistate.hot_item == id ? eu::colors::white : eu::colors::green_bluish);
+
+    if (uistate.kbd_item == id)
+    {
+        if (uistate.key.has_value())
+        {
+            const auto k = *uistate.key;
+            uistate.key = std::nullopt;
+            constexpr float change = 0.1f;
+
+            switch (k.key)
+            {
+            case SDLK_TAB:
+                uistate.kbd_item = std::nullopt;
+                if (k.mod & KMOD_SHIFT)
+                {
+                    uistate.kbd_item = uistate.last_widget;
+                }
+                break;
+            case SDLK_LEFT:
+                if (*val > 0)
+                {
+                    *val = std::max(0.0f, *val - change);
+                    return true;
+                }
+                break;
+            case SDLK_RIGHT:
+                if (*val < 1)
+                {
+                    *val = std::min(1.0f, *val + change);
+                    return true;
+                }
+                break;
+            }
+        }
+    }
+
+    uistate.last_widget = id;
 
     if (uistate.active_item == id)
     {
@@ -321,6 +413,9 @@ int  main(int, char**)
                     LOG_INFO("Resized");
                     SDL_GetWindowSize(window, &window_width, &window_height);
                 }
+                break;
+            case SDL_KEYDOWN:
+                uistate.key = KeyboardInput {.key = e.key.keysym.sym, .mod = e.key.keysym.mod };
                 break;
             case SDL_QUIT: running = false; break;
             default:
