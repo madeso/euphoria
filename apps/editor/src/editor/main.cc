@@ -287,6 +287,15 @@ eu::MemoryChunk chunk_from_embed(const embedded_binary& binary)
     return { .bytes = reinterpret_cast<const char*>(binary.data), .size = binary.size };
 }
 
+void draw_text(eu::render::DrawableFont* font, const std::string& str, float size, eu::render::SpriteBatch* batch, const eu::v2& pos, const eu::Rgb& color)
+{
+    eu::render::DrawableText text{ font };
+    text.set_text(str);
+    text.set_size(size);
+    text.compile();
+    text.draw(batch, pos, color, color);
+}
+
 int  main(int, char**)
 {
     int window_width = 1280;
@@ -373,10 +382,6 @@ int  main(int, char**)
     UiState uistate;
     IdStack idstack;
     eu::render::DrawableFont font{chunk_from_embed(OPENSANS_REGULAR_TTF)};
-    eu::render::DrawableText text{&font};
-    text.set_text("Hello world");
-    text.set_size(60);
-    text.compile();
 
     const auto sample_texture = eu::render::load_image_from_embedded(SEND_DEBUG_LABEL_MANY("uv-texture.png") UV_TEXTURE_PNG,
         eu::render::TextureEdge::clamp, eu::render::TextureRenderStyle::linear, eu::render::Transparency::exclude, eu::render::ColorData::color_data);
@@ -457,7 +462,12 @@ int  main(int, char**)
             slider(idstack.get("slider_b"), &slider_b, eu::Rect::from_bottom_left_size({ 100, 250 }, slider_size), uistate, layer.batch);
             uistate.end();
 
-            text.draw(layer.batch, {200*slider_a, 400 + 200*slider_b}, eu::colors::black, eu::colors::white);
+            // eu::render::DrawableText text{ &font };
+            // text.set_text("Hello world");
+            // text.set_size(60);
+            // text.compile();
+            // text.draw(layer.batch, {200*slider_a, 400 + 200*slider_b}, eu::colors::black, eu::colors::white);
+            draw_text(&font, "Hello world", 60, layer.batch, {200*slider_a, 400 + 200*slider_b}, eu::colors::black);
         }
         SDL_GL_SwapWindow(window);
     }
