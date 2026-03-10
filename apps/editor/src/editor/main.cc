@@ -287,7 +287,7 @@ eu::MemoryChunk chunk_from_embed(const embedded_binary& binary)
     return { .bytes = reinterpret_cast<const char*>(binary.data), .size = binary.size };
 }
 
-void draw_text(eu::render::DrawableFont* font, const std::string& str, float size, eu::render::SpriteBatch* batch, const eu::v2& pos, const eu::Rgb& color)
+void draw_text(eu::render::SpriteBatch* batch, eu::render::DrawableFont* font, const std::string& str, float size, const eu::v2& pos, const eu::Rgb& color)
 {
     eu::render::DrawableText text{ font };
     text.set_text(str);
@@ -462,12 +462,7 @@ int  main(int, char**)
             slider(idstack.get("slider_b"), &slider_b, eu::Rect::from_bottom_left_size({ 100, 250 }, slider_size), uistate, layer.batch);
             uistate.end();
 
-            // eu::render::DrawableText text{ &font };
-            // text.set_text("Hello world");
-            // text.set_size(60);
-            // text.compile();
-            // text.draw(layer.batch, {200*slider_a, 400 + 200*slider_b}, eu::colors::black, eu::colors::white);
-            draw_text(&font, "Hello world", 60, layer.batch, {200*slider_a, 400 + 200*slider_b}, eu::colors::black);
+            draw_text(layer.batch, &font, "Hello world", 60, {200*slider_a, 400 + 200*slider_b}, eu::colors::black);
         }
         SDL_GL_SwapWindow(window);
     }
