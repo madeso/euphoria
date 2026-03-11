@@ -85,6 +85,7 @@ struct UiState
     std::optional<eu::u32> kbd_item = std::nullopt;
     std::optional<eu::u32> last_widget = std::nullopt;
     std::optional<KeyboardInput> key = std::nullopt; // todo(Gustav): change to a vector
+    std::optional<char> keychar = std::nullopt; // todo(Gustav): change to a vector
 
     void begin()
     {
@@ -112,6 +113,7 @@ struct UiState
             kbd_item = std::nullopt;
         }
         key = std::nullopt;
+        keychar = std::nullopt;
     }
 
     [[nodiscard]] bool is_active_free() const
@@ -282,10 +284,6 @@ bool slider(eu::u32 id, float* val, const eu::Rect& rect, UiState& uistate, eu::
     return false;
 }
 
-eu::MemoryChunk chunk_from_embed(const embedded_binary& binary)
-{
-    return { .bytes = reinterpret_cast<const char*>(binary.data), .size = binary.size };
-}
 
 void draw_text(eu::render::SpriteBatch* batch, eu::render::DrawableFont* font, const std::string& str, float size, const eu::v2& pos, const eu::Rgb& color)
 {
@@ -294,6 +292,93 @@ void draw_text(eu::render::SpriteBatch* batch, eu::render::DrawableFont* font, c
     text.set_size(size);
     text.compile();
     text.draw(batch, pos, color, color);
+}
+
+bool textfield(eu::u32 id, std::string* val, eu::render::DrawableFont* font, float size, const eu::v2& pos, UiState& uistate, eu::render::SpriteBatch* batch)
+{
+    // todo(Gustav): update to use stb textinput?
+
+    const auto len = val->length();
+    bool changed = false;
+
+    eu::render::DrawableText text{ font };
+    text.set_text(*val);
+    text.set_size(size);
+    text.compile();
+
+    const auto rect = text.get_extents().with_offset(pos).with_inset(eu::Lrtb{-6});
+
+    if (eu::is_within(uistate.mouse, rect))
+    {
+        uistate.hot_item = id;
+        if (uistate.active_item == std::nullopt && uistate.mousedown)
+            uistate.active_item = id;
+    }
+
+    if (uistate.kbd_item == std::nullopt)
+        uistate.kbd_item = id;
+
+    if (uistate.kbd_item == id)
+    {
+        batch->quad(std::nullopt, rect.with_inset(eu::Lrtb{ -6 }), std::nullopt, eu::colors::red_vermillion);
+    }
+
+    if (uistate.active_item == id || uistate.hot_item == id)
+    {
+        batch->quad(std::nullopt, rect.with_inset(eu::Lrtb{ -6 }), std::nullopt, eu::colors::white);
+    }
+    else
+    {
+        batch->quad(std::nullopt, rect.with_inset(eu::Lrtb{ -6 }), std::nullopt, eu::colors::green_bluish);
+    }
+
+    text.draw(batch, pos, eu::colors::black, eu::colors::black);
+
+    const auto is_cursor_blink_visible = (SDL_GetTicks() >> 8) & 1;
+    if (uistate.kbd_item == id && is_cursor_blink_visible)
+    {
+        const auto cursor = eu::v2{ rect.right, pos.y };
+        draw_text(batch, font, "_", size, cursor, eu::colors::black);
+    }
+
+    if (uistate.kbd_item == id && uistate.key.has_value())
+    {
+        switch (uistate.key->key)
+        {
+        case SDLK_TAB:
+            uistate.kbd_item = std::nullopt;
+            if (uistate.key->mod & KMOD_SHIFT)
+                uistate.kbd_item = uistate.last_widget;
+            uistate.key = std::nullopt;
+            break;
+        case SDLK_BACKSPACE:
+            if (len > 0)
+            {
+                val->pop_back();
+                changed = true;
+            }
+            break;
+        }
+        if (uistate.keychar >= 32 && uistate.keychar < 127 && len < 30)
+        {
+            val->push_back(*uistate.keychar);
+            changed = true;
+        }
+    }
+
+    if (uistate.mousedown == false &&
+        uistate.hot_item == id &&
+        uistate.active_item == id)
+        uistate.kbd_item = id;
+
+    uistate.last_widget = id;
+
+    return changed;
+}
+
+eu::MemoryChunk chunk_from_embed(const embedded_binary& binary)
+{
+    return { .bytes = reinterpret_cast<const char*>(binary.data), .size = binary.size };
 }
 
 int  main(int, char**)
@@ -387,6 +472,7 @@ int  main(int, char**)
         eu::render::TextureEdge::clamp, eu::render::TextureRenderStyle::linear, eu::render::Transparency::exclude, eu::render::ColorData::color_data);
 
     bool running = true;
+    std::string editable_text = "Editable text";
 
     LOG_INFO("Editor started");
     while (running)
@@ -421,6 +507,14 @@ int  main(int, char**)
                 break;
             case SDL_KEYDOWN:
                 uistate.key = KeyboardInput {.key = e.key.keysym.sym, .mod = e.key.keysym.mod };
+                break;
+            case SDL_TEXTINPUT:
+                {
+                // todo(Gustav): handle unicode
+                char c = e.text.text[0];
+                if ((c & 0xFF80) == 0)
+                    uistate.keychar = static_cast<char>(c & 0x7f);
+                }
                 break;
             case SDL_QUIT: running = false; break;
             default:
@@ -460,6 +554,7 @@ int  main(int, char**)
             static float slider_b = 0.5f;
             slider(idstack.get("slider_a"), &slider_a, eu::Rect::from_bottom_left_size({ 100, 200 }, slider_size), uistate, layer.batch);
             slider(idstack.get("slider_b"), &slider_b, eu::Rect::from_bottom_left_size({ 100, 250 }, slider_size), uistate, layer.batch);
+            textfield(idstack.get("textfield"), &editable_text, &font, 20, {100, 300}, uistate, layer.batch);
             uistate.end();
 
             draw_text(layer.batch, &font, "Hello world", 60, {200*slider_a, 400 + 200*slider_b}, eu::colors::black);
