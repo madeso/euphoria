@@ -5,7 +5,7 @@
 
 #include <map>
 
-#include "stb_truetype.h"
+#include "eustb_truetype.h"
 
 #include "log/log.h"
 #include "assert/assert.h"

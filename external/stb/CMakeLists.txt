@@ -1,5 +1,5 @@
 function(add_stb_library STB_NAME)
-    add_library(stb_${STB_NAME} STATIC ${STB_NAME}/stb_${STB_NAME}.cc)
+    add_library(stb_${STB_NAME} STATIC ${STB_NAME}/eustb_${STB_NAME}.cc)
     set_target_properties(stb_${STB_NAME} PROPERTIES FOLDER "Dependencies")
     target_include_directories(stb_${STB_NAME} SYSTEM
         PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/${STB_NAME}

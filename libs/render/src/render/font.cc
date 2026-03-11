@@ -6,7 +6,7 @@
 #include <algorithm>
 #include <iostream>
 
-#include "stb_rect_pack.h"
+#include "eustb_rect_pack.h"
 
 #include "base/cint.h"
 #include "log/log.h"

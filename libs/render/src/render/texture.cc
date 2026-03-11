@@ -15,7 +15,7 @@
 
 #include "dependency_glad.h"
 
-#include "stb_image.h"
+#include "eustb_image.h"
 
 #include <ranges>
 #include <algorithm>

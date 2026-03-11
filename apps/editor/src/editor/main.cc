@@ -5,7 +5,7 @@
 #include "dependency_glad.h"
 #include "OpenSans-Regular.ttf.h"
 #include "uv-texture.png.h"
-#include "stb_image.h"
+#include "eustb_image.h"
 
 #include "log/log.h"
 #include "base/memorychunk.h"
