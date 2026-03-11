@@ -22,6 +22,17 @@ set_target_properties(undef_windows PROPERTIES FOLDER "Dependencies")
 add_subdirectory(embed)
 
 
+
+
+
+###################################################################################################
+## stb
+add_subdirectory(stb)
+
+
+
+
+
 ###################################################################################################
 ## json
 add_subdirectory(json)
@@ -44,49 +55,6 @@ else()
     target_link_libraries(guid INTERFACE ${UUID_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT})
 endif()
 add_library(external::guid ALIAS guid)
-
-
-
-###################################################################################################
-## stb
-# stb image
-add_library(stb_image STATIC stb_image.cc)
-set_target_properties(stb_image PROPERTIES FOLDER "Dependencies")
-target_include_directories(stb_image SYSTEM
-    PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/stb
-)
-add_library(external::stb_image ALIAS stb_image)
-
-
-# stb image write
-add_library(stb_image_write STATIC stb_image_write.cc)
-set_target_properties(stb_image_write PROPERTIES FOLDER "Dependencies")
-target_include_directories(stb_image_write SYSTEM
-    PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/stb
-)
-add_library(external::stb_image_write ALIAS stb_image_write)
-
-
-# stb rect pack
-add_library(stb_rect_pack STATIC stb_rect_pack.cc)
-set_target_properties(stb_rect_pack PROPERTIES FOLDER "Dependencies")
-target_compile_definitions(stb_rect_pack
-    # required for using int in packing
-    PUBLIC STBRP_LARGE_RECTS
-)
-target_include_directories(stb_rect_pack SYSTEM
-    PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/stb
-)
-add_library(external::stb_rect_pack ALIAS stb_rect_pack)
-
-
-# stb true type
-add_library(stb_truetype STATIC stb_truetype.cc)
-set_target_properties(stb_truetype PROPERTIES FOLDER "Dependencies")
-target_include_directories(stb_truetype SYSTEM
-    PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/stb
-)
-add_library(external::stb_truetype ALIAS stb_truetype)
 
 
 
