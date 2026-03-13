@@ -4,12 +4,12 @@
 #include <map>
 #include <memory>
 
-#include "render/loadedfont.h"
 #include "base/vec2.h"
 #include "base/vec3.h"
 #include "base/colors.h"
 #include "base/rect.h"
 
+#include "core/loadedfont.h"
 // #include "core/ui_text.h"
 
 #include "render/texture.h"
@@ -168,7 +168,7 @@ namespace eu::render
         float line_height = 1;
         std::unique_ptr<Texture2d> texture;
         CharToGlyphMap char_to_glyph;
-        KerningMap kernings;
+        core::KerningMap kernings;
         std::map<std::string, int> private_use_aliases;
 
         explicit DrawableFont

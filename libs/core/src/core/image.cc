@@ -1,8 +1,8 @@
-#include "render/image.h"
+#include "core/image.h"
 
 #include "assert/assert.h"
 
-namespace eu::render
+namespace eu::core
 {
 
 

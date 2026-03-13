@@ -11,9 +11,9 @@
 #include "base/cint.h"
 #include "log/log.h"
 // #include "core/image_draw.h"
-#include "render/utf8.h"
+#include "core/utf8.h"
 #include "assert/assert.h"
-#include "render/image.h"
+#include "core/image.h"
 // #include "render/stdutils.h"
 // #include "base/stringmerger.h"
 
@@ -51,7 +51,7 @@ namespace eu::render
     construct_character_rects
     (
         const stbrp_rect& packed_rect,
-        const LoadedGlyph& glyph,
+        const core::LoadedGlyph& glyph,
         int image_width,
         int image_height,
         int half_margin
@@ -107,11 +107,11 @@ namespace eu::render
         const int texture_width = 512;
         const int texture_height = 512;
 
-        LoadedFont fontchars;
+        core::LoadedFont fontchars;
 
         fontchars.combine_with
         (
-            get_characters_from_font
+            core::get_characters_from_font
             (
                 file_memory,
                 48,
@@ -154,7 +154,7 @@ namespace eu::render
         stbrp_pack_rects(&context, packed_rects.data(), num_rects);
 
         CharToGlyphMap map;
-        Image image;
+        core::Image image;
         image.setup_with_alpha_support(texture_width, texture_height);
         for(int rect_index = 0; rect_index < num_rects; rect_index += 1)
         {
@@ -310,7 +310,7 @@ namespace eu::render
         void
         on_text(const std::string& text)// override
         {
-            calc_utf8_to_codepoints
+            core::calc_utf8_to_codepoints
             (
                 text,
                 [this](int cp)

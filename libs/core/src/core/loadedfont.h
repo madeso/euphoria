@@ -4,7 +4,7 @@
 
 #include <map>
 
-#include "render/image.h"
+#include "core/image.h"
 
 
 namespace eu
@@ -12,7 +12,7 @@ namespace eu
     struct MemoryChunk;
 }
 
-namespace eu::render
+namespace eu::core
 {
     // This represents a loaded glyph not yet placed on a texture image
     struct LoadedGlyph

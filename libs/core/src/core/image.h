@@ -1,6 +1,6 @@
 #pragma once
 
-namespace eu::render
+namespace eu::core
 {
 
 

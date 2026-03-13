@@ -1,20 +1,23 @@
-#include "render/loadedfont.h"
+#include "core/loadedfont.h"
 
 #include <set>
 #include <optional>
-
 #include <map>
 
 #include "eustb_truetype.h"
 
 #include "log/log.h"
+
 #include "assert/assert.h"
-#include "render/utf8.h"
+
 #include "base/cint.h"
 #include "base/memorychunk.h"
 
+#include "core/utf8.h"
 
-namespace eu::render
+
+
+namespace eu::core
 {
     struct FontData
     {

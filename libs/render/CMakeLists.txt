@@ -1,7 +1,7 @@
 ###############################################################################
 # render project
 
-set(app_src
+set(render_src
     src/render/shader.cc src/render/shader.h
     src/render/opengl_labels.cc src/render/opengl_labels.h
     src/render/opengl_utils.cc src/render/opengl_utils.h
@@ -13,10 +13,7 @@ set(app_src
     src/render/opengl_states.cc src/render/opengl_states.h
     src/render/statechanger.cc src/render/statechanger.h
 
-    src/render/image.cc src/render/image.h
     src/render/font.cc src/render/font.h
-    src/render/loadedfont.cc src/render/loadedfont.h
-    src/render/utf8.cc src/render/utf8.h
     
     src/render/rendermode.cc src/render/rendermode.h
     src/render/stencilaction.cc src/render/stencilaction.h
@@ -28,10 +25,10 @@ set(app_src
     src/render/enable_high_performance_graphics.h
 )
 
-source_group("" FILES ${app_src})
+source_group("" FILES ${render_src})
 
 set(src
-    ${app_src}
+    ${render_src}
 )
 
 add_library(render STATIC ${src})
@@ -47,10 +44,10 @@ target_link_libraries(render
     PUBLIC
         euph::assert
         euph::base
+        euph::core
         external::opengl
         external::glad
         external::stb_image
-        external::stb_truetype
         external::stb_rect_pack
         embed::embed
     PRIVATE
