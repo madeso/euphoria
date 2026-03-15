@@ -146,10 +146,10 @@ void SpriteBatch::quad(std::optional<const Texture2d*> texture_argument, const V
     add_vertex(this, v3);
 }
 
-void SpriteBatch::quad(std::optional<const Texture2d*> texture, const Rect& scr, const std::optional<Rect>& texturecoord, const Color& tint)
+void Quad::draw(SpriteBatch* batch, const Rect& scr)
 {
     const auto tc = texturecoord.value_or(Rect::from_size({1.0f, 1.0f}));
-    quad
+    batch->quad
     (
         texture,
         {.position = {scr.left, scr.bottom, 0.0f}, .color = tint, .texturecoord = {tc.left, tc.bottom}},
@@ -478,7 +478,7 @@ RenderCommand::clear(const Rgb& color, const LayoutData& ld) const
     else
     {
         auto l = with_layer2(*this, ld);
-        l.batch->quad(std::nullopt, l.viewport_aabb_in_worldspace, std::nullopt, color);
+        Quad{ .tint = color }.draw(l.batch, l.viewport_aabb_in_worldspace);
     }
 }
 
@@ -507,7 +507,7 @@ RenderCommand::clear(const Rgb& color, const LerpData& ld) const
     else
     {
         auto l = with_layer2(*this, ld);
-        l.batch->quad(std::nullopt, l.viewport_aabb_in_worldspace, std::nullopt, color);
+        Quad{ .tint = color }.draw(l.batch, l.viewport_aabb_in_worldspace);
     }
 }
 

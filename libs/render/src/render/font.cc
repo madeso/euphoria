@@ -222,13 +222,7 @@ namespace eu::render
         const Rect& where
     ) const
     {
-        renderer->quad
-        (
-            std::nullopt,
-            where,
-            std::nullopt,
-            Color{eu::colors::black, alpha}
-        );
+        Quad{ .tint = Color{eu::colors::black, alpha} }.draw(renderer, where);
     }
 
 
@@ -272,13 +266,11 @@ namespace eu::render
         for(const auto& cmd: commands)
         {
             const auto tint = cmd.hi ? hi_color : base_color;
-            renderer->quad
-            (
-                cmd.texture,
-                cmd.sprite_rect.with_translate(start_position),
-                cmd.texture_rect,
-                Color{tint}
-            );
+            Quad{
+                .texture = cmd.texture,
+                .texturecoord = cmd.texture_rect,
+                .tint = Color{tint}
+            }.draw(renderer, cmd.sprite_rect.with_translate(start_position));
         }
     }
 

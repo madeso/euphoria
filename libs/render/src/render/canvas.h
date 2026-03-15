@@ -34,6 +34,15 @@ struct Vertex2
     v2 texturecoord;
 };
 
+struct Quad
+{
+    std::optional<const Texture2d*> texture;
+    std::optional<Rect> texturecoord;
+    Color tint = eu::colors::white;
+
+    void draw(SpriteBatch* batch, const Rect& screen);
+};
+
 struct SpriteBatch
 {
     static constexpr int max_quads = 100;
@@ -57,7 +66,6 @@ struct SpriteBatch
     void operator=(SpriteBatch&&) = delete;
 
     void quad(std::optional<const Texture2d*> texture, const Vertex2& v0, const Vertex2& v1, const Vertex2& v2, const Vertex2& v3);
-    void quad(std::optional<const Texture2d*> texture, const Rect& scr, const std::optional<Rect>& texturecoord, const Color& tint = eu::colors::white);
 
     void submit();
 };

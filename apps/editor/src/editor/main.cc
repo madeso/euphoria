@@ -140,29 +140,33 @@ bool button(eu::u32 id, const eu::Rect& rect, UiState& uistate, eu::render::Spri
 
     if (uistate.kbd_item == id)
     {
-        batch->quad(std::nullopt, rect.with_inset(eu::Lrtb{ -4 }).with_offset({8, -8}), std::nullopt, eu::colors::red_vermillion);
+        eu::render::Quad{
+            .tint  = eu::colors::red_vermillion
+        }.draw(batch, rect.with_inset(eu::Lrtb{ -4 }).with_offset({8, -8}));
     }
     
     // shadow
-    batch->quad(std::nullopt, rect.with_offset({8.0f, -8.0f}), std::nullopt, eu::colors::black);
+    eu::render::Quad{
+        .tint = eu::colors::black
+    }.draw(batch, rect.with_offset({8.0f, -8.0f}));
     
     if (uistate.hot_item == id)
     {
         if (uistate.active_item == id)
         {
             // Button is both 'hot' and 'active'
-            batch->quad(std::nullopt, rect.with_offset({ 2.0f, -2.0f }), std::nullopt, eu::colors::white);
+            eu::render::Quad{.tint = eu::colors::white}.draw(batch, rect.with_offset({ 2.0f, -2.0f }));
         }
         else
         {
             // Button is merely 'hot'
-            batch->quad(std::nullopt, rect, std::nullopt, eu::colors::white);
+            eu::render::Quad{ .tint = eu::colors::white }.draw(batch, rect);
         }
     }
     else
     {
         // button is not hot, but it may be active    
-        batch->quad(std::nullopt, rect, std::nullopt, eu::colors::orange);
+        eu::render::Quad{ .tint = eu::colors::orange }.draw(batch, rect);
         // todo(Gustav): add grays
     }
 
@@ -226,12 +230,11 @@ bool slider(eu::u32 id, float* val, const eu::Rect& rect, UiState& uistate, eu::
 
     if (uistate.kbd_item == id)
     {
-        batch->quad(std::nullopt, rect.with_inset(eu::Lrtb{ -6 }), std::nullopt, eu::colors::red_vermillion);
+        eu::render::Quad{ .tint = eu::colors::red_vermillion }.draw(batch, rect.with_inset(eu::Lrtb{ -6 }));
     }
 
-    batch->quad(std::nullopt, rect, std::nullopt, eu::colors::orange);
-    batch->quad(std::nullopt, grabber_rect, std::nullopt, uistate.active_item == id && uistate.hot_item == id ? eu::colors::white : eu::colors::green_bluish);
-
+    eu::render::Quad{ .tint = eu::colors::orange }.draw(batch, rect);
+    eu::render::Quad{ .tint = uistate.active_item == id && uistate.hot_item == id ? eu::colors::white : eu::colors::green_bluish }.draw(batch, grabber_rect);
     if (uistate.kbd_item == id)
     {
         if (uistate.key.has_value())
@@ -319,16 +322,16 @@ bool textfield(eu::u32 id, std::string* val, eu::render::DrawableFont* font, flo
 
     if (uistate.kbd_item == id)
     {
-        batch->quad(std::nullopt, rect.with_inset(eu::Lrtb{ -6 }), std::nullopt, eu::colors::red_vermillion);
+        eu::render::Quad{ .tint = eu::colors::red_vermillion }.draw(batch, rect.with_inset(eu::Lrtb{ -6 }));
     }
 
     if (uistate.active_item == id || uistate.hot_item == id)
     {
-        batch->quad(std::nullopt, rect.with_inset(eu::Lrtb{ -6 }), std::nullopt, eu::colors::white);
+        eu::render::Quad{ .tint = eu::colors::white }.draw(batch, rect.with_inset(eu::Lrtb{ -6 }));
     }
     else
     {
-        batch->quad(std::nullopt, rect.with_inset(eu::Lrtb{ -6 }), std::nullopt, eu::colors::green_bluish);
+        eu::render::Quad{ .tint = eu::colors::green_bluish }.draw(batch, rect.with_inset(eu::Lrtb{ -6 }));
     }
 
     text.draw(batch, pos, eu::colors::black, eu::colors::black);
@@ -533,12 +536,13 @@ int  main(int, char**)
             cmd.clear(eu::colors::blue_sky, screen);
 
             auto layer = eu::render::with_layer2(cmd, screen);
-            layer.batch->quad(std::nullopt, layer.viewport_aabb_in_worldspace.get_bottom(50) , std::nullopt, eu::colors::green_bluish);
+            eu::render::Quad{ .tint = eu::colors::green_bluish }.draw(layer.batch, layer.viewport_aabb_in_worldspace.get_bottom(50));
 
-            layer.batch->quad(&sample_texture, eu::Rect::from_bottom_left_size({300, 300}, {300, 300}),
+            eu::render::Quad{
+                .texture = &sample_texture,
                 // select bottom right of the texture, assuming it is split in 4 smaller rects
-                eu::Rect::from_bottom_left_size({0.5f, 0}, {0.5f, 0.5f}),
-                eu::colors::white);
+                .texturecoord = eu::Rect::from_bottom_left_size({0.5f, 0}, {0.5f, 0.5f})
+            }.draw(layer.batch, eu::Rect::from_bottom_left_size({ 300, 300 }, { 300, 300 }));
 
             const auto button_size = eu::v2{ 64, 64 };
 
