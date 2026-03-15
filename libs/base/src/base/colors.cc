@@ -2,6 +2,7 @@
 
 #include <algorithm>
 #include <cmath>
+#include  <limits>
 
 #include "base/numeric.h"
 
@@ -259,9 +260,9 @@ float find_gamut_intersection(float a, float b, float big_l1, float big_c1, floa
 		const auto u_b = b1 / (b1 * b1 - 0.5f * b0 * b2);
 		auto t_b = -b0 * u_b;
 
-		t_r = u_r >= 0.f ? t_r : FLT_MAX;
-		t_g = u_g >= 0.f ? t_g : FLT_MAX;
-		t_b = u_b >= 0.f ? t_b : FLT_MAX;
+		t_r = u_r >= 0.f ? t_r : std::numeric_limits<float>::max();
+		t_g = u_g >= 0.f ? t_g : std::numeric_limits<float>::max();
+		t_b = u_b >= 0.f ? t_b : std::numeric_limits<float>::max();
 
 		t += std::min({t_r, t_g, t_b});
 	}
