@@ -1,6 +1,6 @@
 #include "render/texture.h"
 
-#include "ASSERT/ASSERT.h"
+#include "assert/assert.h"
 
 #include "log/log.h"
 
