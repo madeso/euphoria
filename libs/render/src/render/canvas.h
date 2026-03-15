@@ -36,8 +36,8 @@ struct Vertex2
 
 struct Quad
 {
-    std::optional<const Texture2d*> texture;
-    std::optional<Rect> texturecoord;
+    std::optional<const Texture2d*> texture = std::nullopt;
+    std::optional<Rect> texturecoord = std::nullopt;
     Color tint = eu::colors::white;
 
     void draw(SpriteBatch* batch, const Rect& screen);
