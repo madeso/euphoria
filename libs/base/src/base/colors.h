@@ -76,9 +76,9 @@ struct Color
     Rgb rgb;
     float alpha;
 
-    constexpr Color(const Rgb& rgb, float alpha = 1.0f)
-        : rgb(rgb)
-        , alpha(alpha)
+    constexpr Color(const Rgb& a_rgb, float a_alpha = 1.0f)
+        : rgb(a_rgb)
+        , alpha(a_alpha)
     {
     }
 };
