@@ -1,0 +1,51 @@
+﻿<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+<title>libs/core/src/core/loadedfont.cc</title>
+</head>
+<body>
+<h1>libs/core/src/core/loadedfont.cc</h1>
+<span id='misc-const-correctness'>&nbsp;</span>
+<hr>
+<h3>warning: variable &#39;cc&#39; of type &#39;LoadedGlyph&#39; can be declared &#39;const&#39;</h3>
+<code>[misc-const-correctness]</code>
+<p><i>libs/core/src/core/loadedfont.cc 214 : 13</i></p>
+<pre>
+  214 |             LoadedGlyph cc = f.load_glyph(code_point);
+      |             ^
+      |                         const 
+</pre>
+<hr>
+<h3>warning: variable &#39;cp&#39; of type &#39;int&#39; can be declared &#39;const&#39;</h3>
+<code>[misc-const-correctness]</code>
+<p><i>libs/core/src/core/loadedfont.cc 227 : 13</i></p>
+<pre>
+  227 |         for(int cp: code_points)
+      |             ^
+      |                 const 
+</pre>
+<span id='readability-avoid-unconditional-preprocessor-if'>&nbsp;</span>
+<hr>
+<h3>warning: preprocessor condition is always &#39;false&#39;, consider removing both the condition and its contents</h3>
+<code>[readability-avoid-unconditional-preprocessor-if]</code>
+<p><i>libs/core/src/core/loadedfont.cc 253 : 2</i></p>
+<pre>
+  253 | #if 0
+      |  ^
+</pre>
+<!--
+/home/runner/work/euphoria/euphoria/libs/core/src/core/loadedfont.cc:214:13: warning: variable 'cc' of type 'LoadedGlyph' can be declared 'const' [misc-const-correctness]
+  214 |             LoadedGlyph cc = f.load_glyph(code_point);
+      |             ^
+      |                         const 
+/home/runner/work/euphoria/euphoria/libs/core/src/core/loadedfont.cc:227:13: warning: variable 'cp' of type 'int' can be declared 'const' [misc-const-correctness]
+  227 |         for(int cp: code_points)
+      |             ^
+      |                 const 
+/home/runner/work/euphoria/euphoria/libs/core/src/core/loadedfont.cc:253:2: warning: preprocessor condition is always 'false', consider removing both the condition and its contents [readability-avoid-unconditional-preprocessor-if]
+  253 | #if 0
+      |  ^
+-->
+</body>
+</html>

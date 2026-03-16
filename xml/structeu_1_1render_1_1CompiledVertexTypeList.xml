@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structeu_1_1render_1_1CompiledVertexTypeList" kind="struct" language="C++" prot="public">
+    <compoundname>eu::render::CompiledVertexTypeList</compoundname>
+    <includes refid="vertex__layout_8h" local="no">vertex_layout.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1render_1_1CompiledVertexTypeList_1a633f4c1ab78a874ef2e2c69c8241eddb" prot="public" static="no" mutable="no">
+        <type>std::map&lt; <ref refid="group__vertex-layout_1gac45dc005a83f6afdda19dbb70f82945b" kindref="member">VertexType</ref>, <ref refid="structeu_1_1R" kindref="compound">int</ref> &gt;</type>
+        <definition>std::map&lt;VertexType, int&gt; eu::render::CompiledVertexTypeList::indices</definition>
+        <argsstring></argsstring>
+        <name>indices</name>
+        <qualifiedname>eu::render::CompiledVertexTypeList::indices</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/vertex_layout.h" line="88" column="10" bodyfile="libs/render/src/render/vertex_layout.h" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1CompiledVertexTypeList_1a4c88f580cf2f041163ab80e510fa3908" prot="public" static="no" mutable="no">
+        <type><ref refid="group__vertex-layout_1gac4a839089284fbf22fb44e23c621c658" kindref="member">VertexTypes</ref></type>
+        <definition>VertexTypes eu::render::CompiledVertexTypeList::debug_types</definition>
+        <argsstring></argsstring>
+        <name>debug_types</name>
+        <qualifiedname>eu::render::CompiledVertexTypeList::debug_types</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/vertex_layout.h" line="89" column="13" bodyfile="libs/render/src/render/vertex_layout.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1CompiledVertexTypeList_1a0176cfde01e88d5ddf452a6c71673368" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+        <definition>int eu::render::CompiledVertexTypeList::next_index</definition>
+        <argsstring></argsstring>
+        <name>next_index</name>
+        <qualifiedname>eu::render::CompiledVertexTypeList::next_index</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/vertex_layout.h" line="90" column="5" bodyfile="libs/render/src/render/vertex_layout.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>A mapping of the vertex type (position...) to the actual shader id (for more than one shader) </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/render/src/render/vertex_layout.h" line="86" column="1" bodyfile="libs/render/src/render/vertex_layout.h" bodystart="87" bodyend="91"/>
+    <listofallmembers>
+      <member refid="structeu_1_1render_1_1CompiledVertexTypeList_1a4c88f580cf2f041163ab80e510fa3908" prot="public" virt="non-virtual"><scope>eu::render::CompiledVertexTypeList</scope><name>debug_types</name></member>
+      <member refid="structeu_1_1render_1_1CompiledVertexTypeList_1a633f4c1ab78a874ef2e2c69c8241eddb" prot="public" virt="non-virtual"><scope>eu::render::CompiledVertexTypeList</scope><name>indices</name></member>
+      <member refid="structeu_1_1render_1_1CompiledVertexTypeList_1a0176cfde01e88d5ddf452a6c71673368" prot="public" virt="non-virtual"><scope>eu::render::CompiledVertexTypeList</scope><name>next_index</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

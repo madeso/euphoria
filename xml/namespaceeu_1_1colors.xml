@@ -1,0 +1,204 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="namespaceeu_1_1colors" kind="namespace" language="C++">
+    <compoundname>eu::colors</compoundname>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="namespaceeu_1_1colors_1a409fef5830a03ee6928a8ef041c7dbec" prot="public" static="no" constexpr="yes" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref> <ref refid="structeu_1_1R" kindref="compound">auto</ref></type>
+        <definition>constexpr auto eu::colors::white</definition>
+        <argsstring></argsstring>
+        <name>white</name>
+        <qualifiedname>eu::colors::white</qualifiedname>
+        <initializer>= <ref refid="structeu_1_1Rgb" kindref="compound">eu::Rgb</ref>{1.0f, 1.0f, 1.0f}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/colors.h" line="156" column="16" bodyfile="libs/base/src/base/colors.h" bodystart="156" bodyend="156"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceeu_1_1colors_1ad95d234c8c92dd943bb14befc3ee0952" prot="public" static="no" constexpr="yes" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref> <ref refid="structeu_1_1R" kindref="compound">auto</ref></type>
+        <definition>constexpr auto eu::colors::black</definition>
+        <argsstring></argsstring>
+        <name>black</name>
+        <qualifiedname>eu::colors::black</qualifiedname>
+        <initializer>= <ref refid="structeu_1_1Rgb" kindref="compound">eu::Rgb</ref>{0.0f, 0.0f, 0.0f}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/colors.h" line="157" column="16" bodyfile="libs/base/src/base/colors.h" bodystart="157" bodyend="157"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceeu_1_1colors_1a6a4d39ecf077061736469a0f7bdb6ef6" prot="public" static="no" constexpr="yes" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref> <ref refid="structeu_1_1Rgb" kindref="compound">eu::Rgb</ref></type>
+        <definition>constexpr eu::Rgb eu::colors::orange</definition>
+        <argsstring></argsstring>
+        <name>orange</name>
+        <qualifiedname>eu::colors::orange</qualifiedname>
+        <initializer>= <ref refid="namespaceeu_1_1colors_1acd825bedd25795da4b2d0d03fc0ce56a" kindref="member">rgb</ref>(230, 159, 0)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/colors.h" line="160" column="19" bodyfile="libs/base/src/base/colors.h" bodystart="160" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceeu_1_1colors_1a3ceeafbb9d242558bf70c4b087ec1947" prot="public" static="no" constexpr="yes" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref> <ref refid="structeu_1_1Rgb" kindref="compound">eu::Rgb</ref></type>
+        <definition>constexpr eu::Rgb eu::colors::blue_sky</definition>
+        <argsstring></argsstring>
+        <name>blue_sky</name>
+        <qualifiedname>eu::colors::blue_sky</qualifiedname>
+        <initializer>= <ref refid="namespaceeu_1_1colors_1acd825bedd25795da4b2d0d03fc0ce56a" kindref="member">rgb</ref>(86, 180, 233)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/colors.h" line="161" column="19" bodyfile="libs/base/src/base/colors.h" bodystart="161" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceeu_1_1colors_1aafc309d873f988dc715217d2eec4d613" prot="public" static="no" constexpr="yes" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref> <ref refid="structeu_1_1Rgb" kindref="compound">eu::Rgb</ref></type>
+        <definition>constexpr eu::Rgb eu::colors::green_bluish</definition>
+        <argsstring></argsstring>
+        <name>green_bluish</name>
+        <qualifiedname>eu::colors::green_bluish</qualifiedname>
+        <initializer>= <ref refid="namespaceeu_1_1colors_1acd825bedd25795da4b2d0d03fc0ce56a" kindref="member">rgb</ref>(0, 158, 115)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/colors.h" line="162" column="19" bodyfile="libs/base/src/base/colors.h" bodystart="162" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceeu_1_1colors_1a1c1889a8b06a1698f2fd217591c81cc3" prot="public" static="no" constexpr="yes" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref> <ref refid="structeu_1_1Rgb" kindref="compound">eu::Rgb</ref></type>
+        <definition>constexpr eu::Rgb eu::colors::yellow</definition>
+        <argsstring></argsstring>
+        <name>yellow</name>
+        <qualifiedname>eu::colors::yellow</qualifiedname>
+        <initializer>= <ref refid="namespaceeu_1_1colors_1acd825bedd25795da4b2d0d03fc0ce56a" kindref="member">rgb</ref>(240, 228, 66)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/colors.h" line="163" column="19" bodyfile="libs/base/src/base/colors.h" bodystart="163" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceeu_1_1colors_1afc7e463665a48798e286691cf8ee1366" prot="public" static="no" constexpr="yes" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref> <ref refid="structeu_1_1Rgb" kindref="compound">eu::Rgb</ref></type>
+        <definition>constexpr eu::Rgb eu::colors::blue</definition>
+        <argsstring></argsstring>
+        <name>blue</name>
+        <qualifiedname>eu::colors::blue</qualifiedname>
+        <initializer>= <ref refid="namespaceeu_1_1colors_1acd825bedd25795da4b2d0d03fc0ce56a" kindref="member">rgb</ref>(0, 114, 178)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/colors.h" line="164" column="19" bodyfile="libs/base/src/base/colors.h" bodystart="164" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceeu_1_1colors_1a38277f0b4d57e4928c6ecbee94892273" prot="public" static="no" constexpr="yes" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref> <ref refid="structeu_1_1Rgb" kindref="compound">eu::Rgb</ref></type>
+        <definition>constexpr eu::Rgb eu::colors::red_vermillion</definition>
+        <argsstring></argsstring>
+        <name>red_vermillion</name>
+        <qualifiedname>eu::colors::red_vermillion</qualifiedname>
+        <initializer>= <ref refid="namespaceeu_1_1colors_1acd825bedd25795da4b2d0d03fc0ce56a" kindref="member">rgb</ref>(213, 94, 0)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/colors.h" line="165" column="19" bodyfile="libs/base/src/base/colors.h" bodystart="165" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceeu_1_1colors_1af661c11b085276a57f80dc9a210ba373" prot="public" static="no" constexpr="yes" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref> <ref refid="structeu_1_1Rgb" kindref="compound">eu::Rgb</ref></type>
+        <definition>constexpr eu::Rgb eu::colors::purple_redish</definition>
+        <argsstring></argsstring>
+        <name>purple_redish</name>
+        <qualifiedname>eu::colors::purple_redish</qualifiedname>
+        <initializer>= <ref refid="namespaceeu_1_1colors_1acd825bedd25795da4b2d0d03fc0ce56a" kindref="member">rgb</ref>(204, 121, 167)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/colors.h" line="166" column="19" bodyfile="libs/base/src/base/colors.h" bodystart="166" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="namespaceeu_1_1colors_1acd825bedd25795da4b2d0d03fc0ce56a" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref> <ref refid="structeu_1_1Rgb" kindref="compound">eu::Rgb</ref></type>
+        <definition>constexpr eu::Rgb eu::colors::rgb</definition>
+        <argsstring>(int r, int g, int b)</argsstring>
+        <name>rgb</name>
+        <qualifiedname>eu::colors::rgb</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+          <declname>r</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+          <declname>g</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+<para>helper function to create a rgb color with code similar to css causing some editors to display a color box </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/colors.h" line="145" column="19" bodyfile="libs/base/src/base/colors.h" bodystart="145" bodyend="148"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1colors_1af60a655e76c03881937d741243dc7d66" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref> <ref refid="structeu_1_1Hsl" kindref="compound">Hsl</ref></type>
+        <definition>constexpr Hsl eu::colors::hsl</definition>
+        <argsstring>(int deg, float s, float l)</argsstring>
+        <name>hsl</name>
+        <qualifiedname>eu::colors::hsl</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+          <declname>deg</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <declname>s</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <declname>l</declname>
+        </param>
+        <briefdescription>
+<para>helper function to create a hsl color with code similar to css causing some editors to display a color box </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/colors.h" line="151" column="15" bodyfile="libs/base/src/base/colors.h" bodystart="151" bodyend="154"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/base/src/base/colors.h" line="141" column="1"/>
+  </compounddef>
+</doxygen>

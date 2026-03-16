@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structeu_1_1render_1_1UniformBufferCompiler" kind="struct" language="C++" prot="public">
+    <compoundname>eu::render::UniformBufferCompiler</compoundname>
+    <includes refid="uniform__buffer_8h" local="no">uniform_buffer.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1render_1_1UniformBufferCompiler_1aed3058aa2014d7b39cf52375abf79ffd" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structeu_1_1render_1_1UniformProp" kindref="compound">UniformProp</ref> &gt;</type>
+        <definition>std::vector&lt;UniformProp&gt; eu::render::UniformBufferCompiler::props</definition>
+        <argsstring></argsstring>
+        <name>props</name>
+        <qualifiedname>eu::render::UniformBufferCompiler::props</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/uniform_buffer.h" line="62" column="13" bodyfile="libs/render/src/render/uniform_buffer.h" bodystart="62" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1render_1_1UniformBufferCompiler_1afa349055eed7580697ecee33bff6eb12" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <definition>void eu::render::UniformBufferCompiler::add</definition>
+        <argsstring>(CompiledUniformProp *target, UniformType type, const std::string &amp;name, int array_count=1)</argsstring>
+        <name>add</name>
+        <qualifiedname>eu::render::UniformBufferCompiler::add</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1render_1_1CompiledUniformProp" kindref="compound">CompiledUniformProp</ref> *</type>
+          <declname>target</declname>
+        </param>
+        <param>
+          <type><ref refid="group__render_1ga7687cc8a71098e792bfd48daabb7622a" kindref="member">UniformType</ref></type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+          <declname>array_count</declname>
+          <defval>1</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/uniform_buffer.h" line="57" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1UniformBufferCompiler_1a2bfd46ee4bc796daf5d8bde779790ddf" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1render_1_1UniformBufferSetup" kindref="compound">UniformBufferSetup</ref></type>
+        <definition>UniformBufferSetup eu::render::UniformBufferCompiler::compile</definition>
+        <argsstring>(const std::string &amp;name, int binding_point) const</argsstring>
+        <name>compile</name>
+        <qualifiedname>eu::render::UniformBufferCompiler::compile</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+          <declname>binding_point</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/uniform_buffer.h" line="60" column="20"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/render/src/render/uniform_buffer.h" line="55" column="1" bodyfile="libs/render/src/render/uniform_buffer.h" bodystart="56" bodyend="63"/>
+    <listofallmembers>
+      <member refid="structeu_1_1render_1_1UniformBufferCompiler_1afa349055eed7580697ecee33bff6eb12" prot="public" virt="non-virtual"><scope>eu::render::UniformBufferCompiler</scope><name>add</name></member>
+      <member refid="structeu_1_1render_1_1UniformBufferCompiler_1a2bfd46ee4bc796daf5d8bde779790ddf" prot="public" virt="non-virtual"><scope>eu::render::UniformBufferCompiler</scope><name>compile</name></member>
+      <member refid="structeu_1_1render_1_1UniformBufferCompiler_1aed3058aa2014d7b39cf52375abf79ffd" prot="public" virt="non-virtual"><scope>eu::render::UniformBufferCompiler</scope><name>props</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

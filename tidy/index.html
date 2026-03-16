@@ -1,0 +1,443 @@
+﻿<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+<title>Tidy report</title>
+</head>
+<body>
+<h1>Tidy report</h1>
+<h2>Summary</h2>
+<p>56 warnings in 55 files</p>
+<ul>
+<li>15x <code>misc-const-correctness</code></li>
+<ul>
+<li><a href="apps/editor/src/editor/main.html#misc-const-correctness">apps/editor/src/editor/main.cc</a></li>
+<li><a href="libs/render/src/render/font.html#misc-const-correctness">libs/render/src/render/font.cc</a></li>
+<li><a href="libs/core/src/core/loadedfont.html#misc-const-correctness">libs/core/src/core/loadedfont.cc</a></li>
+<li><a href="libs/base/src/base/rect.html#misc-const-correctness">libs/base/src/base/rect.cc</a></li>
+</ul>
+<li>6x <code>readability-implicit-bool-conversion</code></li>
+<ul>
+<li><a href="apps/editor/src/editor/main.html#readability-implicit-bool-conversion">apps/editor/src/editor/main.cc</a></li>
+</ul>
+<li>6x <code>google-readability-braces-around-statements</code></li>
+<ul>
+<li><a href="apps/editor/src/editor/main.html#google-readability-braces-around-statements">apps/editor/src/editor/main.cc</a></li>
+</ul>
+<li>6x <code>readability-braces-around-statements</code></li>
+<ul>
+<li><a href="apps/editor/src/editor/main.html#readability-braces-around-statements">apps/editor/src/editor/main.cc</a></li>
+</ul>
+<li>5x <code>readability-avoid-unconditional-preprocessor-if</code></li>
+<ul>
+<li><a href="apps/editor/src/editor/main.html#readability-avoid-unconditional-preprocessor-if">apps/editor/src/editor/main.cc</a></li>
+<li><a href="libs/tests/src/tests/equaler.html#readability-avoid-unconditional-preprocessor-if">libs/tests/src/tests/equaler.cc</a></li>
+<li><a href="libs/render/src/render/font.html#readability-avoid-unconditional-preprocessor-if">libs/render/src/render/font.cc</a></li>
+<li><a href="libs/core/src/core/loadedfont.html#readability-avoid-unconditional-preprocessor-if">libs/core/src/core/loadedfont.cc</a></li>
+</ul>
+<li>4x <code>bugprone-unchecked-optional-access</code></li>
+<ul>
+<li><a href="apps/editor/src/editor/main.html#bugprone-unchecked-optional-access">apps/editor/src/editor/main.cc</a></li>
+<li><a href="libs/tests/src/tests/false_string.html#bugprone-unchecked-optional-access">libs/tests/src/tests/false_string.cc</a></li>
+</ul>
+<li>3x <code>bugprone-switch-missing-default-case</code></li>
+<ul>
+<li><a href="apps/editor/src/editor/main.html#bugprone-switch-missing-default-case">apps/editor/src/editor/main.cc</a></li>
+</ul>
+<li>2x <code>readability-identifier-naming</code></li>
+<ul>
+<li><a href="apps/editor/src/editor/main.html#readability-identifier-naming">apps/editor/src/editor/main.cc</a></li>
+<li><a href="libs/render/src/render/canvas.html#readability-identifier-naming">libs/render/src/render/canvas.cc</a></li>
+</ul>
+<li>1x <code>readability-non-const-parameter</code></li>
+<ul>
+<li><a href="apps/editor/src/editor/main.html#readability-non-const-parameter">apps/editor/src/editor/main.cc</a></li>
+</ul>
+<li>1x <code>cppcoreguidelines-pro-type-const-cast</code></li>
+<ul>
+<li><a href="apps/editor/src/editor/main.html#cppcoreguidelines-pro-type-const-cast">apps/editor/src/editor/main.cc</a></li>
+</ul>
+<li>1x <code>cppcoreguidelines-pro-type-member-init</code></li>
+<ul>
+<li><a href="libs/render/src/render/canvas.html#cppcoreguidelines-pro-type-member-init">libs/render/src/render/canvas.cc</a></li>
+</ul>
+<li>1x <code>readability-convert-member-functions-to-static</code></li>
+<ul>
+<li><a href="libs/render/src/render/font.html#readability-convert-member-functions-to-static">libs/render/src/render/font.cc</a></li>
+</ul>
+<li>1x <code>cppcoreguidelines-avoid-const-or-ref-data-members</code></li>
+<ul>
+<li><a href="libs/render/src/render/font.html#cppcoreguidelines-avoid-const-or-ref-data-members">libs/render/src/render/font.cc</a></li>
+</ul>
+<li>1x <code>bugprone-misplaced-widening-cast</code></li>
+<ul>
+<li><a href="libs/core/src/core/image.html#bugprone-misplaced-widening-cast">libs/core/src/core/image.cc</a></li>
+</ul>
+<li>1x <code>bugprone-implicit-widening-of-multiplication-result</code></li>
+<ul>
+<li><a href="libs/core/src/core/image.html#bugprone-implicit-widening-of-multiplication-result">libs/core/src/core/image.cc</a></li>
+</ul>
+<li>1x <code>readability-redundant-string-cstr</code></li>
+<ul>
+<li><a href="libs/render/src/render/opengl_utils.html#readability-redundant-string-cstr">libs/render/src/render/opengl_utils.cc</a></li>
+</ul>
+<li>1x <code>readability-use-anyofallof</code></li>
+<ul>
+<li><a href="libs/render/src/render/shader.html#readability-use-anyofallof">libs/render/src/render/shader.cc</a></li>
+</ul>
+</ul>
+<h2>All files</h2>
+<table style="width: 100%">
+<colgroup>
+<col span="1" style="width: 55%;">
+<col span="1" style="width: 15%;">
+<col span="1" style="width: 15%;">
+<col span="1" style="width: 15%;">
+</colgroup>
+<thead>
+<tr>
+<th>File</th>
+<th style="text-align: end">Categories</th>
+<th style="text-align: end">Totals</th>
+<th style="text-align: end">Time</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href=apps/editor/src/editor/main.html>apps/editor/src/editor/main.cc</a></td>
+<td style="text-align: end">9</td>
+<td style="text-align: end">24</td>
+<td style="text-align: end">52.3s</td>
+</tr>
+<tr>
+<td><a href=libs/base/src/base/rect.html>libs/base/src/base/rect.cc</a></td>
+<td style="text-align: end">1</td>
+<td style="text-align: end">8</td>
+<td style="text-align: end">9.1s</td>
+</tr>
+<tr>
+<td><a href=libs/render/src/render/font.html>libs/render/src/render/font.cc</a></td>
+<td style="text-align: end">4</td>
+<td style="text-align: end">5</td>
+<td style="text-align: end">12.7s</td>
+</tr>
+<tr>
+<td><a href=libs/tests/src/tests/false_string.html>libs/tests/src/tests/false_string.cc</a></td>
+<td style="text-align: end">1</td>
+<td style="text-align: end">3</td>
+<td style="text-align: end">5.9s</td>
+</tr>
+<tr>
+<td><a href=libs/core/src/core/loadedfont.html>libs/core/src/core/loadedfont.cc</a></td>
+<td style="text-align: end">2</td>
+<td style="text-align: end">3</td>
+<td style="text-align: end">9.5s</td>
+</tr>
+<tr>
+<td><a href=libs/render/src/render/canvas.html>libs/render/src/render/canvas.cc</a></td>
+<td style="text-align: end">2</td>
+<td style="text-align: end">2</td>
+<td style="text-align: end">9.3s</td>
+</tr>
+<tr>
+<td><a href=libs/core/src/core/image.html>libs/core/src/core/image.cc</a></td>
+<td style="text-align: end">2</td>
+<td style="text-align: end">2</td>
+<td style="text-align: end">6.6s</td>
+</tr>
+<tr>
+<td><a href=libs/tests/src/tests/equaler.html>libs/tests/src/tests/equaler.cc</a></td>
+<td style="text-align: end">1</td>
+<td style="text-align: end">1</td>
+<td style="text-align: end">8.7s</td>
+</tr>
+<tr>
+<td><a href=libs/render/src/render/opengl_utils.html>libs/render/src/render/opengl_utils.cc</a></td>
+<td style="text-align: end">1</td>
+<td style="text-align: end">1</td>
+<td style="text-align: end">8.3s</td>
+</tr>
+<tr>
+<td><a href=libs/render/src/render/shader.html>libs/render/src/render/shader.cc</a></td>
+<td style="text-align: end">1</td>
+<td style="text-align: end">1</td>
+<td style="text-align: end">10.0s</td>
+</tr>
+<tr>
+<td><a href=libs/base/src/base/angle.html>libs/base/src/base/angle.cc</a></td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">10.0s</td>
+</tr>
+<tr>
+<td><a href=libs/base/src/base/angle.test.html>libs/base/src/base/angle.test.cc</a></td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">14.5s</td>
+</tr>
+<tr>
+<td><a href=libs/tests/src/tests/approx.html>libs/tests/src/tests/approx.cc</a></td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">12.3s</td>
+</tr>
+<tr>
+<td><a href=libs/tests/src/tests/approx_equal.html>libs/tests/src/tests/approx_equal.cc</a></td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">18.7s</td>
+</tr>
+<tr>
+<td><a href=libs/assert/src/assert/assert.html>libs/assert/src/assert/assert.cc</a></td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">5.6s</td>
+</tr>
+<tr>
+<td><a href=libs/base/src/base/axisangle.html>libs/base/src/base/axisangle.cc</a></td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">7.8s</td>
+</tr>
+<tr>
+<td><a href=libs/render/src/render/blend.html>libs/render/src/render/blend.cc</a></td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">7.2s</td>
+</tr>
+<tr>
+<td><a href=libs/base/src/base/axisangle.test.html>libs/base/src/base/axisangle.test.cc</a></td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">13.0s</td>
+</tr>
+<tr>
+<td><a href=libs/base/src/base/colors.html>libs/base/src/base/colors.cc</a></td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">5.5s</td>
+</tr>
+<tr>
+<td><a href=libs/render/src/render/cullface.html>libs/render/src/render/cullface.cc</a></td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">5.1s</td>
+</tr>
+<tr>
+<td><a href=libs/render/src/render/compare.html>libs/render/src/render/compare.cc</a></td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">7.3s</td>
+</tr>
+<tr>
+<td><a href=libs/fmt/src/fmt.html>libs/fmt/src/fmt.cc</a></td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">5.4s</td>
+</tr>
+<tr>
+<td><a href=libs/base/src/base/guid.html>libs/base/src/base/guid.cc</a></td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">7.1s</td>
+</tr>
+<tr>
+<td><a href=libs/base/src/base/hash.string.html>libs/base/src/base/hash.string.cc</a></td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">6.9s</td>
+</tr>
+<tr>
+<td><a href=libs/base/src/base/guid.test.html>libs/base/src/base/guid.test.cc</a></td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">14.8s</td>
+</tr>
+<tr>
+<td><a href=libs/base/src/base/ints.html>libs/base/src/base/ints.cc</a></td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">7.7s</td>
+</tr>
+<tr>
+<td><a href=libs/base/src/base/hash.string.test.html>libs/base/src/base/hash.string.test.cc</a></td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">15.2s</td>
+</tr>
+<tr>
+<td><a href=libs/log/src/log/log.html>libs/log/src/log/log.cc</a></td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">7.3s</td>
+</tr>
+<tr>
+<td><a href=libs/base/src/base/mat4.html>libs/base/src/base/mat4.cc</a></td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">6.3s</td>
+</tr>
+<tr>
+<td><a href=libs/base/src/base/memorychunk.html>libs/base/src/base/memorychunk.cc</a></td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">6.9s</td>
+</tr>
+<tr>
+<td><a href=libs/base/src/base/numeric.html>libs/base/src/base/numeric.cc</a></td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">8.0s</td>
+</tr>
+<tr>
+<td><a href=libs/base/src/base/mat4.test.html>libs/base/src/base/mat4.test.cc</a></td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">14.2s</td>
+</tr>
+<tr>
+<td><a href=libs/render/src/render/opengl_labels.html>libs/render/src/render/opengl_labels.cc</a></td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">7.7s</td>
+</tr>
+<tr>
+<td><a href=libs/render/src/render/opengl_states.html>libs/render/src/render/opengl_states.cc</a></td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">5.4s</td>
+</tr>
+<tr>
+<td><a href=libs/base/src/base/quat.html>libs/base/src/base/quat.cc</a></td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">5.2s</td>
+</tr>
+<tr>
+<td><a href=libs/base/src/base/numeric.test.html>libs/base/src/base/numeric.test.cc</a></td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">19.4s</td>
+</tr>
+<tr>
+<td><a href=libs/base/src/base/range.html>libs/base/src/base/range.cc</a></td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">8.8s</td>
+</tr>
+<tr>
+<td><a href=libs/base/src/base/quat.test.html>libs/base/src/base/quat.test.cc</a></td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">15.1s</td>
+</tr>
+<tr>
+<td><a href=libs/base/src/base/range.test.html>libs/base/src/base/range.test.cc</a></td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">18.1s</td>
+</tr>
+<tr>
+<td><a href=libs/render/src/render/rendermode.html>libs/render/src/render/rendermode.cc</a></td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">6.1s</td>
+</tr>
+<tr>
+<td><a href=libs/base/src/base/rect.test.html>libs/base/src/base/rect.test.cc</a></td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">14.5s</td>
+</tr>
+<tr>
+<td><a href=libs/base/src/base/size.html>libs/base/src/base/size.cc</a></td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">7.2s</td>
+</tr>
+<tr>
+<td><a href=libs/render/src/render/statechanger.html>libs/render/src/render/statechanger.cc</a></td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">7.0s</td>
+</tr>
+<tr>
+<td><a href=libs/render/src/render/stencilaction.html>libs/render/src/render/stencilaction.cc</a></td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">6.8s</td>
+</tr>
+<tr>
+<td><a href=libs/render/src/render/texture.html>libs/render/src/render/texture.cc</a></td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">7.7s</td>
+</tr>
+<tr>
+<td><a href=libs/render/src/render/uniform.html>libs/render/src/render/uniform.cc</a></td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">7.7s</td>
+</tr>
+<tr>
+<td><a href=libs/render/src/render/uniform_buffer.html>libs/render/src/render/uniform_buffer.cc</a></td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">8.4s</td>
+</tr>
+<tr>
+<td><a href=libs/core/src/core/utf8.html>libs/core/src/core/utf8.cc</a></td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">5.2s</td>
+</tr>
+<tr>
+<td><a href=libs/base/src/base/vec2.html>libs/base/src/base/vec2.cc</a></td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">5.3s</td>
+</tr>
+<tr>
+<td><a href=libs/base/src/base/vec3.html>libs/base/src/base/vec3.cc</a></td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">8.4s</td>
+</tr>
+<tr>
+<td><a href=libs/base/src/base/vec2.test.html>libs/base/src/base/vec2.test.cc</a></td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">16.4s</td>
+</tr>
+<tr>
+<td><a href=libs/base/src/base/vec4.html>libs/base/src/base/vec4.cc</a></td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">8.9s</td>
+</tr>
+<tr>
+<td><a href=libs/base/src/base/vec3.test.html>libs/base/src/base/vec3.test.cc</a></td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">16.3s</td>
+</tr>
+<tr>
+<td><a href=libs/render/src/render/vertex_layout.html>libs/render/src/render/vertex_layout.cc</a></td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">7.1s</td>
+</tr>
+<tr>
+<td><a href=libs/base/src/base/vec4.test.html>libs/base/src/base/vec4.test.cc</a></td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">0</td>
+<td style="text-align: end">13.5s</td>
+</tr>
+</tbody>
+</table>
+<h3>Timings</h3>
+<p><b>average</b>: 10.3s</p>
+<p><b>max</b>: 52.3s for <a href="apps/editor/src/editor/main.html">apps/editor/src/editor/main.cc</a></p>
+<p><b>min</b>: 5.1s for <a href="libs/render/src/render/cullface.html">libs/render/src/render/cullface.cc</a></p>
+</body>
+</html>

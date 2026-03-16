@@ -1,0 +1,186 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structeu_1_1render_1_1RenderCommand" kind="struct" language="C++" prot="public">
+    <compoundname>eu::render::RenderCommand</compoundname>
+    <includes refid="canvas_8h" local="no">canvas.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1render_1_1RenderCommand_1afd66f0f9754c7d8e6126955d3f847cd6" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1render_1_1OpenglStates" kindref="compound">OpenglStates</ref> *</type>
+        <definition>OpenglStates* eu::render::RenderCommand::states</definition>
+        <argsstring></argsstring>
+        <name>states</name>
+        <qualifiedname>eu::render::RenderCommand::states</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/canvas.h" line="132" column="18" bodyfile="libs/render/src/render/canvas.h" bodystart="132" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1RenderCommand_1afc7c30f52b0d269e5de6735b67ca3aaf" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1render_1_1Render2" kindref="compound">Render2</ref> *</type>
+        <definition>Render2* eu::render::RenderCommand::render</definition>
+        <argsstring></argsstring>
+        <name>render</name>
+        <qualifiedname>eu::render::RenderCommand::render</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/canvas.h" line="133" column="13" bodyfile="libs/render/src/render/canvas.h" bodystart="133" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1RenderCommand_1a3554b76148440b46a88fafd070e27528" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1Size" kindref="compound">Size</ref></type>
+        <definition>Size eu::render::RenderCommand::size</definition>
+        <argsstring></argsstring>
+        <name>size</name>
+        <qualifiedname>eu::render::RenderCommand::size</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/canvas.h" line="134" column="10" bodyfile="libs/render/src/render/canvas.h" bodystart="134" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1render_1_1RenderCommand_1a33bb6a36d510497c116f4c675c25c15c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <definition>void eu::render::RenderCommand::clear</definition>
+        <argsstring>(const Rgb &amp;color, const LayoutData &amp;ld) const</argsstring>
+        <name>clear</name>
+        <qualifiedname>eu::render::RenderCommand::clear</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1Rgb" kindref="compound">Rgb</ref> &amp;</type>
+          <declname>color</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1LayoutData" kindref="compound">LayoutData</ref> &amp;</type>
+          <declname>ld</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/canvas.h" line="137" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1RenderCommand_1a6c7aa5e683b18ac22b23ba8979e6053e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <definition>void eu::render::RenderCommand::clear</definition>
+        <argsstring>(const Rgb &amp;color, const LerpData &amp;ld) const</argsstring>
+        <name>clear</name>
+        <qualifiedname>eu::render::RenderCommand::clear</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1Rgb" kindref="compound">Rgb</ref> &amp;</type>
+          <declname>color</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1LerpData" kindref="compound">LerpData</ref> &amp;</type>
+          <declname>ld</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/canvas.h" line="138" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="10">
+        <label>eu::Size</label>
+        <link refid="structeu_1_1Size"/>
+      </node>
+      <node id="9">
+        <label>eu::render::BaseTexture</label>
+        <link refid="structeu_1_1render_1_1BaseTexture"/>
+      </node>
+      <node id="4">
+        <label>eu::render::CompiledShaderVertexAttributes</label>
+        <link refid="structeu_1_1render_1_1CompiledShaderVertexAttributes"/>
+      </node>
+      <node id="2">
+        <label>eu::render::OpenglStates</label>
+        <link refid="structeu_1_1render_1_1OpenglStates"/>
+      </node>
+      <node id="3">
+        <label>eu::render::Render2</label>
+        <link refid="structeu_1_1render_1_1Render2"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>quad_layout</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>quad_shader</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>texture_uniform</edgelabel>
+          <edgelabel>transform_uniform</edgelabel>
+          <edgelabel>view_projection_uniform</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>batch</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>eu::render::RenderCommand</label>
+        <link refid="structeu_1_1render_1_1RenderCommand"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>states</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>render</edgelabel>
+        </childnode>
+        <childnode refid="10" relation="usage">
+          <edgelabel>size</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>eu::render::ShaderProgram</label>
+        <link refid="structeu_1_1render_1_1ShaderProgram"/>
+      </node>
+      <node id="7">
+        <label>eu::render::SpriteBatch</label>
+        <link refid="structeu_1_1render_1_1SpriteBatch"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>states</edgelabel>
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>current_texture</edgelabel>
+          <edgelabel>white_texture</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>render</edgelabel>
+        </childnode>
+      </node>
+      <node id="8">
+        <label>eu::render::Texture2d</label>
+        <link refid="structeu_1_1render_1_1Texture2d"/>
+        <childnode refid="9" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>eu::render::Uniform</label>
+        <link refid="structeu_1_1render_1_1Uniform"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/render/src/render/canvas.h" line="130" column="1" bodyfile="libs/render/src/render/canvas.h" bodystart="131" bodyend="139"/>
+    <listofallmembers>
+      <member refid="structeu_1_1render_1_1RenderCommand_1a33bb6a36d510497c116f4c675c25c15c" prot="public" virt="non-virtual"><scope>eu::render::RenderCommand</scope><name>clear</name></member>
+      <member refid="structeu_1_1render_1_1RenderCommand_1a6c7aa5e683b18ac22b23ba8979e6053e" prot="public" virt="non-virtual"><scope>eu::render::RenderCommand</scope><name>clear</name></member>
+      <member refid="structeu_1_1render_1_1RenderCommand_1afc7c30f52b0d269e5de6735b67ca3aaf" prot="public" virt="non-virtual"><scope>eu::render::RenderCommand</scope><name>render</name></member>
+      <member refid="structeu_1_1render_1_1RenderCommand_1a3554b76148440b46a88fafd070e27528" prot="public" virt="non-virtual"><scope>eu::render::RenderCommand</scope><name>size</name></member>
+      <member refid="structeu_1_1render_1_1RenderCommand_1afd66f0f9754c7d8e6126955d3f847cd6" prot="public" virt="non-virtual"><scope>eu::render::RenderCommand</scope><name>states</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

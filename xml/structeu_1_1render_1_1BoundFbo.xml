@@ -1,0 +1,140 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structeu_1_1render_1_1BoundFbo" kind="struct" language="C++" prot="public">
+    <compoundname>eu::render::BoundFbo</compoundname>
+    <includes refid="texture_8h" local="no">texture.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1render_1_1BoundFbo_1a5b05a5794bcd4322fdfc30e9486ba96f" prot="public" static="no" mutable="no">
+        <type>std::shared_ptr&lt; <ref refid="structeu_1_1render_1_1FrameBuffer" kindref="compound">FrameBuffer</ref> &gt;</type>
+        <definition>std::shared_ptr&lt;FrameBuffer&gt; eu::render::BoundFbo::fbo</definition>
+        <argsstring></argsstring>
+        <name>fbo</name>
+        <qualifiedname>eu::render::BoundFbo::fbo</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/texture.h" line="202" column="17" bodyfile="libs/render/src/render/texture.h" bodystart="202" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1render_1_1BoundFbo_1a0eadc42045e50376b2ebaa49e59a615c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::BoundFbo::BoundFbo</definition>
+        <argsstring>(const BoundFbo &amp;)=delete</argsstring>
+        <name>BoundFbo</name>
+        <qualifiedname>eu::render::BoundFbo::BoundFbo</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1BoundFbo" kindref="compound">BoundFbo</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/texture.h" line="204" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1BoundFbo_1a1244c70139643e8847ac1fa09ec2c022" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::BoundFbo::BoundFbo</definition>
+        <argsstring>(BoundFbo &amp;&amp;)=delete</argsstring>
+        <name>BoundFbo</name>
+        <qualifiedname>eu::render::BoundFbo::BoundFbo</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1render_1_1BoundFbo" kindref="compound">BoundFbo</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/texture.h" line="205" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1BoundFbo_1ac3265333256501dff4c1baa88e88fb91" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <definition>void eu::render::BoundFbo::operator=</definition>
+        <argsstring>(const BoundFbo &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <qualifiedname>eu::render::BoundFbo::operator=</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1BoundFbo" kindref="compound">BoundFbo</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/texture.h" line="206" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1BoundFbo_1a333f268df83f8b510f7ffb6d6c850a82" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <definition>void eu::render::BoundFbo::operator=</definition>
+        <argsstring>(BoundFbo &amp;&amp;)=delete</argsstring>
+        <name>operator=</name>
+        <qualifiedname>eu::render::BoundFbo::operator=</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1render_1_1BoundFbo" kindref="compound">BoundFbo</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/texture.h" line="207" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1BoundFbo_1ae531df0c33a130c04e15b833e6746db3" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::BoundFbo::BoundFbo</definition>
+        <argsstring>(std::shared_ptr&lt; FrameBuffer &gt; f)</argsstring>
+        <name>BoundFbo</name>
+        <qualifiedname>eu::render::BoundFbo::BoundFbo</qualifiedname>
+        <param>
+          <type>std::shared_ptr&lt; <ref refid="structeu_1_1render_1_1FrameBuffer" kindref="compound">FrameBuffer</ref> &gt;</type>
+          <declname>f</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/texture.h" line="209" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1BoundFbo_1a52860488b61177e007c33c32aa35dd14" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::BoundFbo::~BoundFbo</definition>
+        <argsstring>()</argsstring>
+        <name>~BoundFbo</name>
+        <qualifiedname>eu::render::BoundFbo::~BoundFbo</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/texture.h" line="210" column="1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>raii class to render to a FrameBuffer </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/render/src/render/texture.h" line="200" column="1" bodyfile="libs/render/src/render/texture.h" bodystart="201" bodyend="211"/>
+    <listofallmembers>
+      <member refid="structeu_1_1render_1_1BoundFbo_1a0eadc42045e50376b2ebaa49e59a615c" prot="public" virt="non-virtual"><scope>eu::render::BoundFbo</scope><name>BoundFbo</name></member>
+      <member refid="structeu_1_1render_1_1BoundFbo_1a1244c70139643e8847ac1fa09ec2c022" prot="public" virt="non-virtual"><scope>eu::render::BoundFbo</scope><name>BoundFbo</name></member>
+      <member refid="structeu_1_1render_1_1BoundFbo_1ae531df0c33a130c04e15b833e6746db3" prot="public" virt="non-virtual"><scope>eu::render::BoundFbo</scope><name>BoundFbo</name></member>
+      <member refid="structeu_1_1render_1_1BoundFbo_1a5b05a5794bcd4322fdfc30e9486ba96f" prot="public" virt="non-virtual"><scope>eu::render::BoundFbo</scope><name>fbo</name></member>
+      <member refid="structeu_1_1render_1_1BoundFbo_1ac3265333256501dff4c1baa88e88fb91" prot="public" virt="non-virtual"><scope>eu::render::BoundFbo</scope><name>operator=</name></member>
+      <member refid="structeu_1_1render_1_1BoundFbo_1a333f268df83f8b510f7ffb6d6c850a82" prot="public" virt="non-virtual"><scope>eu::render::BoundFbo</scope><name>operator=</name></member>
+      <member refid="structeu_1_1render_1_1BoundFbo_1a52860488b61177e007c33c32aa35dd14" prot="public" virt="non-virtual"><scope>eu::render::BoundFbo</scope><name>~BoundFbo</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

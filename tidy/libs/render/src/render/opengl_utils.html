@@ -1,0 +1,35 @@
+﻿<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+<title>libs/render/src/render/opengl_utils.cc</title>
+</head>
+<body>
+<h1>libs/render/src/render/opengl_utils.cc</h1>
+<span id='readability-redundant-string-cstr'>&nbsp;</span>
+<hr>
+<h3>warning: redundant call to &#39;c_str&#39;</h3>
+<code>[readability-redundant-string-cstr]</code>
+<p><i>libs/render/src/render/opengl_utils.cc 130 : 12</i></p>
+<pre>
+  130 |                 LOG_ERRS(to_out.c_str());
+      |                          ^~~~~~~~~~~~~~
+      |                          to_out
+</pre>
+<p>expanded from macro &#39;LOG_ERRS&#39;</p>
+<p><i>libs/log/src/log/log.h 20 : 59</i></p>
+<pre>
+   20 | #define LOG_ERRS(...) eu::log::get_global_logger()-&gt;error(__VA_ARGS__)
+      |                                                           ^
+</pre>
+<!--
+/home/runner/work/euphoria/euphoria/libs/render/src/render/opengl_utils.cc:130:12: warning: redundant call to 'c_str' [readability-redundant-string-cstr]
+  130 |                 LOG_ERRS(to_out.c_str());
+      |                          ^~~~~~~~~~~~~~
+      |                          to_out
+/home/runner/work/euphoria/euphoria/libs/log/src/log/log.h:20:59: note: expanded from macro 'LOG_ERRS'
+   20 | #define LOG_ERRS(...) eu::log::get_global_logger()->error(__VA_ARGS__)
+      |                                                           ^
+-->
+</body>
+</html>

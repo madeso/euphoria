@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structeu_1_1render_1_1VertexElementDescription" kind="struct" language="C++" prot="public">
+    <compoundname>eu::render::VertexElementDescription</compoundname>
+    <includes refid="vertex__layout_8h" local="no">vertex_layout.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1render_1_1VertexElementDescription_1a7218e4dfab94b3add54d159adbfd43cd" prot="public" static="no" mutable="no">
+        <type><ref refid="group__vertex-layout_1gac45dc005a83f6afdda19dbb70f82945b" kindref="member">VertexType</ref></type>
+        <definition>VertexType eu::render::VertexElementDescription::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <qualifiedname>eu::render::VertexElementDescription::type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/vertex_layout.h" line="44" column="12" bodyfile="libs/render/src/render/vertex_layout.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1VertexElementDescription_1ae35a4cb1c38290b02c8f6b873b43ab95" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string eu::render::VertexElementDescription::name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <qualifiedname>eu::render::VertexElementDescription::name</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/vertex_layout.h" line="45" column="13" bodyfile="libs/render/src/render/vertex_layout.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>A not-yet-realised binding to a shader variable like <computeroutput>vec3 position</computeroutput> </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/render/src/render/vertex_layout.h" line="42" column="1" bodyfile="libs/render/src/render/vertex_layout.h" bodystart="43" bodyend="46"/>
+    <listofallmembers>
+      <member refid="structeu_1_1render_1_1VertexElementDescription_1ae35a4cb1c38290b02c8f6b873b43ab95" prot="public" virt="non-virtual"><scope>eu::render::VertexElementDescription</scope><name>name</name></member>
+      <member refid="structeu_1_1render_1_1VertexElementDescription_1a7218e4dfab94b3add54d159adbfd43cd" prot="public" virt="non-virtual"><scope>eu::render::VertexElementDescription</scope><name>type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

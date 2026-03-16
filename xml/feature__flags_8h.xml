@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="feature__flags_8h" kind="file" language="C++">
+    <compoundname>feature_flags.h</compoundname>
+    <includedby refid="base_2src_2base_2pch_8public_8h" local="yes">libs/base/src/base/pch.public.h</includedby>
+    <invincdepgraph>
+      <node id="1">
+        <label>libs/base/src/base/feature_flags.h</label>
+        <link refid="feature__flags_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>libs/base/src/base/pch.public.h</label>
+        <link refid="base_2src_2base_2pch_8public_8h"/>
+      </node>
+    </invincdepgraph>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="feature__flags_8h_1a96ef6c9c3b50c598dde1d994fb97277a" prot="public" static="no">
+        <name>FF_IS_ENABLED</name>
+        <initializer>+</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/feature_flags.h" line="6" column="9" bodyfile="libs/base/src/base/feature_flags.h" bodystart="6" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="feature__flags_8h_1aa51567ca42a2c68bccf67ed6c875b9eb" prot="public" static="no">
+        <name>FF_IS_DISABLED</name>
+        <initializer>-</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/feature_flags.h" line="7" column="9" bodyfile="libs/base/src/base/feature_flags.h" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="feature__flags_8h_1a3aff7fe2c32285f262b9184ac9fcf6e2" prot="public" static="no">
+        <name>FF_HAS</name>
+        <param><defname>x</defname></param>
+        <initializer>(1 x 1)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/feature_flags.h" line="8" column="9" bodyfile="libs/base/src/base/feature_flags.h" bodystart="8" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/base/src/base/feature_flags.h"/>
+  </compounddef>
+</doxygen>

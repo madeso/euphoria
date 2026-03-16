@@ -1,0 +1,142 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structeu_1_1render_1_1Uniform" kind="struct" language="C++" prot="public">
+    <compoundname>eu::render::Uniform</compoundname>
+    <includes refid="uniform_8h" local="no">uniform.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1render_1_1Uniform_1a9cce5d1b7b60e1901c99a26365ba5c05" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string eu::render::Uniform::name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <qualifiedname>eu::render::Uniform::name</qualifiedname>
+        <initializer>= &quot;&lt;unknown&gt;&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/uniform.h" line="10" column="13" bodyfile="libs/render/src/render/uniform.h" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1Uniform_1a69c255ad9fb665a5f3b89823ad3af1a2" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+        <definition>int eu::render::Uniform::location</definition>
+        <argsstring></argsstring>
+        <name>location</name>
+        <qualifiedname>eu::render::Uniform::location</qualifiedname>
+        <initializer>= -1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/uniform.h" line="11" column="5" bodyfile="libs/render/src/render/uniform.h" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1Uniform_1a673d2eabbed16cddf77d7f4f9dd7f634" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">unsigned</ref> <ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+        <definition>unsigned int eu::render::Uniform::debug_shader_program</definition>
+        <argsstring></argsstring>
+        <name>debug_shader_program</name>
+        <qualifiedname>eu::render::Uniform::debug_shader_program</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/uniform.h" line="12" column="14" bodyfile="libs/render/src/render/uniform.h" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1Uniform_1a96f07d04819873231d1139c9ef591651" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+        <definition>int eu::render::Uniform::texture</definition>
+        <argsstring></argsstring>
+        <name>texture</name>
+        <qualifiedname>eu::render::Uniform::texture</qualifiedname>
+        <initializer>= -1</initializer>
+        <briefdescription>
+<para>The value is &gt;=0 if this is uniform maps to a texture. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/uniform.h" line="13" column="5" bodyfile="libs/render/src/render/uniform.h" bodystart="13" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1render_1_1Uniform_1a880ac8ad79b2d334b8c1ace643ee3be0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::Uniform::Uniform</definition>
+        <argsstring>()=default</argsstring>
+        <name>Uniform</name>
+        <qualifiedname>eu::render::Uniform::Uniform</qualifiedname>
+        <briefdescription>
+<para>Creates a invalid uniform. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/uniform.h" line="16" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1Uniform_1a260af553ff46621d75bf55fce4bec306" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::Uniform::Uniform</definition>
+        <argsstring>(std::string n, int l, unsigned int sp)</argsstring>
+        <name>Uniform</name>
+        <qualifiedname>eu::render::Uniform::Uniform</qualifiedname>
+        <param>
+          <type>std::string</type>
+          <declname>n</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+          <declname>l</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">unsigned</ref> <ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+          <declname>sp</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/uniform.h" line="18" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1Uniform_1a227f71e8bb38b860200b4ed0593a63c5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">bool</ref></type>
+        <definition>bool eu::render::Uniform::is_valid</definition>
+        <argsstring>() const</argsstring>
+        <name>is_valid</name>
+        <qualifiedname>eu::render::Uniform::is_valid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/uniform.h" line="20" column="7"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Represents a found shader uniform and created via ShaderProgram::GetUniform() </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/render/src/render/uniform.h" line="8" column="1" bodyfile="libs/render/src/render/uniform.h" bodystart="9" bodyend="21"/>
+    <listofallmembers>
+      <member refid="structeu_1_1render_1_1Uniform_1a673d2eabbed16cddf77d7f4f9dd7f634" prot="public" virt="non-virtual"><scope>eu::render::Uniform</scope><name>debug_shader_program</name></member>
+      <member refid="structeu_1_1render_1_1Uniform_1a227f71e8bb38b860200b4ed0593a63c5" prot="public" virt="non-virtual"><scope>eu::render::Uniform</scope><name>is_valid</name></member>
+      <member refid="structeu_1_1render_1_1Uniform_1a69c255ad9fb665a5f3b89823ad3af1a2" prot="public" virt="non-virtual"><scope>eu::render::Uniform</scope><name>location</name></member>
+      <member refid="structeu_1_1render_1_1Uniform_1a9cce5d1b7b60e1901c99a26365ba5c05" prot="public" virt="non-virtual"><scope>eu::render::Uniform</scope><name>name</name></member>
+      <member refid="structeu_1_1render_1_1Uniform_1a96f07d04819873231d1139c9ef591651" prot="public" virt="non-virtual"><scope>eu::render::Uniform</scope><name>texture</name></member>
+      <member refid="structeu_1_1render_1_1Uniform_1a880ac8ad79b2d334b8c1ace643ee3be0" prot="public" virt="non-virtual"><scope>eu::render::Uniform</scope><name>Uniform</name></member>
+      <member refid="structeu_1_1render_1_1Uniform_1a260af553ff46621d75bf55fce4bec306" prot="public" virt="non-virtual"><scope>eu::render::Uniform</scope><name>Uniform</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

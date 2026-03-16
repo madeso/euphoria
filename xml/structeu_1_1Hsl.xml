@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structeu_1_1Hsl" kind="struct" language="C++" prot="public">
+    <compoundname>eu::Hsl</compoundname>
+    <includes refid="colors_8h" local="no">colors.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1Hsl_1a59cbd70ce1780e883edf830c63ae8459" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1An" kindref="compound">An</ref></type>
+        <definition>An eu::Hsl::hue</definition>
+        <argsstring></argsstring>
+        <name>hue</name>
+        <qualifiedname>eu::Hsl::hue</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/colors.h" line="52" column="4" bodyfile="libs/base/src/base/colors.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1Hsl_1ac54998ecee51afe36db2917b6226296f" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+        <definition>float eu::Hsl::saturation</definition>
+        <argsstring></argsstring>
+        <name>saturation</name>
+        <qualifiedname>eu::Hsl::saturation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/colors.h" line="53" column="7" bodyfile="libs/base/src/base/colors.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1Hsl_1a1085f1902c0a2704bb8526bc03b4ea6a" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+        <definition>float eu::Hsl::lightness</definition>
+        <argsstring></argsstring>
+        <name>lightness</name>
+        <qualifiedname>eu::Hsl::lightness</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/colors.h" line="54" column="7" bodyfile="libs/base/src/base/colors.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Represents a color in the sRGB color space. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>eu::An</label>
+        <link refid="structeu_1_1An"/>
+      </node>
+      <node id="1">
+        <label>eu::Hsl</label>
+        <link refid="structeu_1_1Hsl"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>hue</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="libs/base/src/base/colors.h" line="50" column="1" bodyfile="libs/base/src/base/colors.h" bodystart="51" bodyend="55"/>
+    <listofallmembers>
+      <member refid="structeu_1_1Hsl_1a59cbd70ce1780e883edf830c63ae8459" prot="public" virt="non-virtual"><scope>eu::Hsl</scope><name>hue</name></member>
+      <member refid="structeu_1_1Hsl_1a1085f1902c0a2704bb8526bc03b4ea6a" prot="public" virt="non-virtual"><scope>eu::Hsl</scope><name>lightness</name></member>
+      <member refid="structeu_1_1Hsl_1ac54998ecee51afe36db2917b6226296f" prot="public" virt="non-virtual"><scope>eu::Hsl</scope><name>saturation</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

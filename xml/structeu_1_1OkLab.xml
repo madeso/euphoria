@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structeu_1_1OkLab" kind="struct" language="C++" prot="public">
+    <compoundname>eu::OkLab</compoundname>
+    <includes refid="colors_8h" local="no">colors.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1OkLab_1a935a39be4bb9e1acd3d315cee1e8a5ed" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+        <definition>float eu::OkLab::l</definition>
+        <argsstring></argsstring>
+        <name>l</name>
+        <qualifiedname>eu::OkLab::l</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/colors.h" line="68" column="7" bodyfile="libs/base/src/base/colors.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1OkLab_1aa4eaf0af2a143c3957a9f48c22441917" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+        <definition>float eu::OkLab::a</definition>
+        <argsstring></argsstring>
+        <name>a</name>
+        <qualifiedname>eu::OkLab::a</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/colors.h" line="69" column="7" bodyfile="libs/base/src/base/colors.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1OkLab_1a7d07e25b20c8101c4d205cdad41a935c" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+        <definition>float eu::OkLab::b</definition>
+        <argsstring></argsstring>
+        <name>b</name>
+        <qualifiedname>eu::OkLab::b</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/colors.h" line="70" column="7" bodyfile="libs/base/src/base/colors.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Represents a color in the OKlab color space. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/base/src/base/colors.h" line="66" column="1" bodyfile="libs/base/src/base/colors.h" bodystart="67" bodyend="71"/>
+    <listofallmembers>
+      <member refid="structeu_1_1OkLab_1aa4eaf0af2a143c3957a9f48c22441917" prot="public" virt="non-virtual"><scope>eu::OkLab</scope><name>a</name></member>
+      <member refid="structeu_1_1OkLab_1a7d07e25b20c8101c4d205cdad41a935c" prot="public" virt="non-virtual"><scope>eu::OkLab</scope><name>b</name></member>
+      <member refid="structeu_1_1OkLab_1a935a39be4bb9e1acd3d315cee1e8a5ed" prot="public" virt="non-virtual"><scope>eu::OkLab</scope><name>l</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

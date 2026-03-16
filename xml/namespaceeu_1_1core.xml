@@ -1,0 +1,230 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="namespaceeu_1_1core" kind="namespace" language="C++">
+    <compoundname>eu::core</compoundname>
+    <innerclass refid="structeu_1_1core_1_1Image" prot="public">eu::core::Image</innerclass>
+    <innerclass refid="structeu_1_1core_1_1LoadedFont" prot="public">eu::core::LoadedFont</innerclass>
+    <innerclass refid="structeu_1_1core_1_1LoadedGlyph" prot="public">eu::core::LoadedGlyph</innerclass>
+    <innerclass refid="structeu_1_1core_1_1PixelColor" prot="public">eu::core::PixelColor</innerclass>
+    <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="namespaceeu_1_1core_1a6a77bbc36ff85d2391bee78c34b1b2c4" prot="public" static="no">
+        <type>std::map&lt; std::pair&lt; <ref refid="structeu_1_1R" kindref="compound">int</ref>, <ref refid="structeu_1_1R" kindref="compound">int</ref> &gt;, <ref refid="structeu_1_1R" kindref="compound">float</ref> &gt;</type>
+        <definition>using eu::core::KerningMap = typedef std::map&lt;std::pair&lt;int, int&gt;, float&gt;</definition>
+        <argsstring></argsstring>
+        <name>KerningMap</name>
+        <qualifiedname>eu::core::KerningMap</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/loadedfont.h" line="45" column="5" bodyfile="libs/core/src/core/loadedfont.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="namespaceeu_1_1core_1ab5a041b170ca16c0ddda499e604b2f32" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <definition>void eu::core::paste_image</definition>
+        <argsstring>(Image *dst, int dst_x, int dst_y, const Image &amp;src)</argsstring>
+        <name>paste_image</name>
+        <qualifiedname>eu::core::paste_image</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1Image" kindref="compound">Image</ref> *</type>
+          <declname>dst</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+          <declname>dst_x</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+          <declname>dst_y</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1core_1_1Image" kindref="compound">Image</ref> &amp;</type>
+          <declname>src</declname>
+        </param>
+        <briefdescription>
+<para>Copies pixel data from a source image to a destination image at specified coordinates. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Sometimes called blit. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dst</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The destination image. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>dst_x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The x-coordinate in the destination image where the source image will be pasted. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>dst_y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The y-coordinate in the destination image where the source image will be pasted. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>src</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The source image. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/image.h" line="62" column="6" declfile="libs/core/src/core/image.h" declline="62" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1core_1a020137b9a835454d87ceef8650f76e72" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1LoadedFont" kindref="compound">LoadedFont</ref></type>
+        <definition>LoadedFont eu::core::get_characters_from_font</definition>
+        <argsstring>(const MemoryChunk &amp;file_memory, int font_size, const std::string &amp;chars)</argsstring>
+        <name>get_characters_from_font</name>
+        <qualifiedname>eu::core::get_characters_from_font</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1MemoryChunk" kindref="compound">MemoryChunk</ref> &amp;</type>
+          <declname>file_memory</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+          <declname>font_size</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> std::string &amp;</type>
+          <declname>chars</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/loadedfont.h" line="66" column="5" declfile="libs/core/src/core/loadedfont.h" declline="66" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1core_1aa3fd6f79a15211ba7648e232eefd0e7a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1LoadedFont" kindref="compound">LoadedFont</ref></type>
+        <definition>LoadedFont eu::core::get_characters_from_single_image</definition>
+        <argsstring>(const std::string &amp;image_file, const std::string &amp;image_alias, float image_scale, float image_bearing_x, float image_bearing_y, float image_advance)</argsstring>
+        <name>get_characters_from_single_image</name>
+        <qualifiedname>eu::core::get_characters_from_single_image</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> std::string &amp;</type>
+          <declname>image_file</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> std::string &amp;</type>
+          <declname>image_alias</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <declname>image_scale</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <declname>image_bearing_x</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <declname>image_bearing_y</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <declname>image_advance</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/loadedfont.h" line="74" column="5" declfile="libs/core/src/core/loadedfont.h" declline="74" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1core_1a231fd032185cf76f955c5941bcfe0414" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1LoadedFont" kindref="compound">LoadedFont</ref></type>
+        <definition>LoadedFont eu::core::get_characters_from_single_image</definition>
+        <argsstring>(const Image &amp;image, const std::string &amp;image_alias, float image_scale, float image_bearing_x, float image_bearing_y, float image_advance)</argsstring>
+        <name>get_characters_from_single_image</name>
+        <qualifiedname>eu::core::get_characters_from_single_image</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1core_1_1Image" kindref="compound">Image</ref> &amp;</type>
+          <declname>image</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> std::string &amp;</type>
+          <declname>image_alias</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <declname>image_scale</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <declname>image_bearing_x</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <declname>image_bearing_y</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <declname>image_advance</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/loadedfont.h" line="85" column="5" declfile="libs/core/src/core/loadedfont.h" declline="85" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1core_1a41ad1633e55b198e905a26b9dd2493d4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename TString</type>
+          </param>
+          <param>
+            <type>typename TOnCodepointFunc</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="structeu_1_1R" kindref="compound">bool</ref></type>
+        <definition>bool eu::core::calc_utf8_to_codepoints</definition>
+        <argsstring>(const TString &amp;string, TOnCodepointFunc on_codepoint)</argsstring>
+        <name>calc_utf8_to_codepoints</name>
+        <qualifiedname>eu::core::calc_utf8_to_codepoints</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1R" kindref="compound">TString</ref> &amp;</type>
+          <declname>string</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">TOnCodepointFunc</ref></type>
+          <declname>on_codepoint</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/utf8.h" line="11" column="10" bodyfile="libs/core/src/core/utf8.h" bodystart="11" bodyend="111"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/image.h" line="3" column="1"/>
+  </compounddef>
+</doxygen>

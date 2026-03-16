@@ -1,0 +1,210 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>CodeCity</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <style>
+            body {
+                background-color: #bfe3dd;
+                color: #000;
+                margin: 0;
+            }
+            a {
+                color: #2983ff;
+            }
+            #info {
+                position: absolute;
+                top: 0px;
+                width: 100%;
+                padding: 10px;
+                box-sizing: border-box;
+                text-align: center;
+                -moz-user-select: none;
+                -webkit-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+                pointer-events: none;
+                z-index: 1;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="container"></div>
+        <div id="info">
+            Hello world
+        </div>
+        <script type="importmap">
+            {
+                "imports": {
+                  "three": "https://unpkg.com/three@0.157.0/build/three.module.js",
+                  "three/addons/": "https://unpkg.com/three@0.157.0/examples/jsm/"
+                }
+            }
+        </script>
+        <script type="module">
+            import * as THREE from 'three';
+            import Stats from 'three/addons/libs/stats.module.js';
+            import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+            const container = document.getElementById( 'container' );
+            const renderer = new THREE.WebGLRenderer( { antialias: true } );
+            renderer.setPixelRatio( window.devicePixelRatio );
+            renderer.setSize( window.innerWidth, window.innerHeight );
+            container.appendChild( renderer.domElement );
+            const scene = new THREE.Scene();
+            const MakeCube = (name, color, sx, sy, sz, x, y, z) => {
+                const geometry = new THREE.BoxGeometry(sx, sy, sz);
+                const material = new THREE.MeshLambertMaterial( { color: color } );
+                const cube = new THREE.Mesh( geometry, material );
+                cube.position.x = x;
+                cube.position.y = y;
+                cube.position.z = z;
+                cube.name = name;
+                scene.add(cube);
+            };
+            scene.background = new THREE.Color( 0xbfe3dd );
+            const camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 10000);
+            camera.position.set(134, 2, 28 );
+            const controls = new OrbitControls( camera, renderer.domElement )
+            controls.target.set(67, 0, 14 );
+            const dirLight1 = new THREE.DirectionalLight( 0xffffff, 3 );
+            dirLight1.position.set( 1, 1, 1 );
+            scene.add( dirLight1 );
+            const dirLight2 = new THREE.DirectionalLight( 0x002288, 3 );
+            dirLight2.position.set( - 1, - 1, - 1 );
+            scene.add( dirLight2 );
+            const ambientLight = new THREE.AmbientLight( 0x555555 );
+            scene.add( ambientLight );
+            MakeCube("eu", 0x1af470, 130, 4, 28, 65, 2, 14);
+            MakeCube("eu::assertlib", 0x008600, 5, 4, 5, 3.5, 6, 3.5);
+            MakeCube("eu::assertlib::AssertArgumentValue", 0x243acf, 3, 3, 3, 3.5, 9.5, 3.5);
+            MakeCube("eu::colors", 0x49e8a0, 2, 4, 2, 7, 6, 2);
+            MakeCube("eu::convert", 0x44df6d, 2, 4, 2, 9, 6, 2);
+            MakeCube("eu::core", 0x01fb1b, 17, 4, 18, 18.5, 6, 10);
+            MakeCube("eu::core::Image", 0xf26f4a, 5, 9, 5, 13.5, 12.5, 4.5);
+            MakeCube("eu::core::LoadedFont", 0xa3ce63, 7, 4, 7, 19.5, 10, 5.5);
+            MakeCube("eu::core::LoadedGlyph", 0x11b5c2, 9, 2, 9, 15.5, 9, 13.5);
+            MakeCube("eu::core::PixelColor", 0xb19944, 6, 2, 6, 23, 9, 12);
+            MakeCube("eu::hues", 0xc3aed0, 2, 4, 2, 28, 6, 2);
+            MakeCube("eu::kk", 0x1bd179, 2, 4, 2, 30, 6, 2);
+            MakeCube("eu::log", 0x838666, 4, 4, 6, 33, 6, 4);
+            MakeCube("eu::log::Logger", 0xb96e37, 2, 11, 2, 33, 13.5, 3);
+            MakeCube("eu::log::ScopedLogger", 0x10389c, 2, 8, 2, 33, 12, 5);
+            MakeCube("eu::render", 0x3c5c85, 66, 4, 26, 68, 6, 14);
+            MakeCube("eu::render::BaseTexture", 0x823198, 3, 9, 3, 37.5, 12.5, 3.5);
+            MakeCube("eu::render::BoundFbo", 0x51a166, 3, 8, 3, 40.5, 12, 3.5);
+            MakeCube("eu::render::BoundUniformBuffer", 0xc70baf, 3, 8, 3, 43.5, 12, 3.5);
+            MakeCube("eu::render::CompiledGeomVertexAttributes", 0x99b724, 4, 2, 4, 47, 9, 4);
+            MakeCube("eu::render::CompiledShaderVertexAttributes", 0x5b888c, 4, 2, 4, 51, 9, 4);
+            MakeCube("eu::render::CompiledUniformProp", 0x5449ca, 5, 2, 5, 55.5, 9, 4.5);
+            MakeCube("eu::render::CompiledVertexElement", 0x058591, 5, 2, 5, 60.5, 9, 4.5);
+            MakeCube("eu::render::CompiledVertexElementNoName", 0x2b999f, 4, 2, 4, 65, 9, 4);
+            MakeCube("eu::render::CompiledVertexTypeList", 0xce9ac3, 5, 2, 5, 69.5, 9, 4.5);
+            MakeCube("eu::render::DrawableFont", 0x079f56, 7, 5, 7, 75.5, 10.5, 5.5);
+            MakeCube("eu::render::DrawableText", 0xbf3a19, 10, 16, 10, 84, 16, 7);
+            MakeCube("eu::render::FrameBuffer", 0x658cb9, 6, 8, 6, 92, 12, 5);
+            MakeCube("eu::render::Glyph", 0x3f2359, 6, 3, 6, 39, 9.5, 8);
+            MakeCube("eu::render::InputCommand", 0xa9a368, 3, 2, 3, 96.5, 9, 3.5);
+            MakeCube("eu::render::InstanceProp", 0x3edfdc, 4, 2, 4, 97, 9, 7);
+            MakeCube("eu::render::Layer", 0x4fc404, 4, 3, 4, 44, 9.5, 8);
+            MakeCube("eu::render::LayoutData", 0x1c2c6c, 5, 2, 5, 48.5, 9, 8.5);
+            MakeCube("eu::render::LerpData", 0x3ee4b9, 5, 2, 5, 53.5, 9, 9.5);
+            MakeCube("eu::render::ListOfTextDrawCommands", 0x20d59e, 3, 5, 3, 64.5, 10.5, 7.5);
+            MakeCube("eu::render::OpenglStates", 0xeb93a5, 16, 2, 16, 64, 9, 17);
+            MakeCube("eu::render::Quad", 0x424c5a, 5, 3, 5, 91.5, 9.5, 10.5);
+            MakeCube("eu::render::Render2", 0xef9b58, 9, 3, 9, 40.5, 9.5, 15.5);
+            MakeCube("eu::render::RenderCommand", 0xe82b67, 5, 4, 5, 74.5, 10, 11.5);
+            MakeCube("eu::render::RenderLayer2", 0x21d9ee, 3, 4, 3, 95.5, 10, 10.5);
+            MakeCube("eu::render::RenderLayer3", 0x505b54, 2, 3, 2, 78, 9.5, 10);
+            MakeCube("eu::render::ShaderProgram", 0x780771, 4, 23, 4, 47, 19.5, 13);
+            MakeCube("eu::render::SpriteBatch", 0x17f544, 12, 10, 12, 83, 13, 18);
+            MakeCube("eu::render::StateChanger", 0x1e0d01, 3, 18, 3, 98.5, 17, 10.5);
+            MakeCube("eu::render::TextDrawCommand", 0xc56bdd, 6, 3, 6, 52, 9.5, 15);
+            MakeCube("eu::render::Texture2d", 0x616971, 2, 4, 2, 95, 10, 13);
+            MakeCube("eu::render::TextureCubemap", 0x500ffc, 2, 4, 2, 97, 10, 13);
+            MakeCube("eu::render::Uniform", 0xf21062, 6, 5, 6, 92, 10.5, 17);
+            MakeCube("eu::render::UniformBuffer", 0x533009, 3, 10, 3, 73.5, 13, 15.5);
+            MakeCube("eu::render::UniformBufferCompiler", 0xd8f0c9, 3, 4, 3, 96.5, 10, 15.5);
+            MakeCube("eu::render::UniformBufferSetup", 0xe8f90a, 6, 2, 6, 48, 9, 21);
+            MakeCube("eu::render::UniformProp", 0x143d0d, 6, 2, 6, 39, 9, 23);
+            MakeCube("eu::render::Vertex2", 0x29d8e1, 5, 2, 5, 74.5, 9, 19.5);
+            MakeCube("eu::render::VertexElementDescription", 0xc689e7, 4, 2, 4, 97, 9, 19);
+            MakeCube("eu::AA", 0x022b8d, 4, 4, 4, 103, 6, 3);
+            MakeCube("eu::An", 0x5d6328, 3, 19, 3, 106.5, 13.5, 2.5);
+            MakeCube("eu::Color", 0xf89497, 4, 3, 4, 110, 5.5, 3);
+            MakeCube("eu::Guid", 0x8542f6, 3, 6, 3, 113.5, 7, 2.5);
+            MakeCube("eu::Hsh", 0x2bce5f, 4, 3, 4, 117, 5.5, 3);
+            MakeCube("eu::HshO", 0x011c57, 4, 5, 4, 121, 6.5, 3);
+            MakeCube("eu::Hsl", 0x2c6ed7, 5, 2, 5, 125.5, 5, 3.5);
+            MakeCube("eu::Lin_rgb", 0x980350, 5, 2, 5, 103.5, 5, 7.5);
+            MakeCube("eu::Lrtb", 0x1251b0, 6, 5, 6, 109, 6.5, 8);
+            MakeCube("eu::m4", 0x960c90, 3, 37, 3, 7.5, 22.5, 4.5);
+            MakeCube("eu::MemoryChunk", 0x3da4e7, 4, 2, 4, 29, 5, 5);
+            MakeCube("eu::MemoryChunkData", 0x40208d, 3, 3, 3, 113.5, 5.5, 5.5);
+            MakeCube("eu::n2", 0x3a40ef, 4, 9, 4, 117, 8.5, 7);
+            MakeCube("eu::n3", 0xc74438, 2, 7, 2, 120, 7.5, 6);
+            MakeCube("eu::OkHsl", 0xf37b9c, 5, 2, 5, 3.5, 5, 8.5);
+            MakeCube("eu::OkHsv", 0xe75ec4, 5, 2, 5, 123.5, 5, 8.5);
+            MakeCube("eu::OkLab", 0x42c0fa, 5, 2, 5, 29.5, 5, 9.5);
+            MakeCube("eu::OkLch", 0x323c29, 5, 2, 5, 114.5, 5, 11.5);
+            MakeCube("eu::Q", 0x221e23, 6, 28, 6, 4, 18, 14);
+            MakeCube("eu::R", 0x8d8feb, 4, 4, 4, 119, 6, 11);
+            MakeCube("eu::Rect", 0x88a323, 6, 48, 6, 104, 28, 14);
+            MakeCube("eu::Rgb", 0xb7bc17, 5, 3, 5, 109.5, 5.5, 13.5);
+            MakeCube("eu::Size", 0x2148c1, 4, 2, 4, 123, 5, 13);
+            MakeCube("eu::v2", 0x3e0309, 4, 21, 4, 127, 14.5, 13);
+            MakeCube("eu::v3", 0x17ac80, 5, 22, 5, 29.5, 15, 14.5);
+            MakeCube("eu::v4", 0x930ad2, 6, 10, 6, 115, 9, 17);
+            MakeCube("eu::Ypr", 0x85426e, 5, 2, 5, 120.5, 5, 17.5);
+            MakeCube("std", 0xf31725, 4, 4, 6, 132, 2, 3);
+            MakeCube("std::hash< eu::Hsh >", 0x3b2959, 2, 3, 2, 132, 5.5, 2);
+            MakeCube("std::hash< eu::HshO >", 0x40bf3f, 2, 3, 2, 132, 5.5, 4);
+            let inter = null;
+            const pointer = new THREE.Vector2();
+            const raycaster = new THREE.Raycaster();
+            function onPointerMove(event) {
+                pointer.x = ( event.clientX / window.innerWidth ) * 2 - 1;
+                pointer.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
+            }
+            document.addEventListener('mousemove', onPointerMove);
+            const intersect = () => {
+                raycaster.setFromCamera( pointer, camera );
+                const intersects = raycaster.intersectObjects( scene.children, false );
+                if (intersects.length > 0)
+                {
+                    const newInter = intersects[0].object;
+                    if (inter != newInter)
+                    {
+                        if (inter) inter.material.emissive.setHex( inter.currentHex );
+                        inter = newInter;
+                        inter.currentHex = inter.material.emissive.getHex();
+                        inter.material.emissive.setHex( 0xff0000 );
+                        info.innerHTML = inter.name
+                    }
+                }
+                else
+                {
+                    if (inter)
+                    {
+                        inter.material.emissive.setHex( inter.currentHex );
+                        info.innerHTML = "";
+                    }
+                    inter = null;
+                }
+            };
+            const clock = new THREE.Clock();
+            window.onresize = function () {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize( window.innerWidth, window.innerHeight );
+            };
+            function animate() {
+                requestAnimationFrame( animate );
+                controls.update();
+                intersect();
+                renderer.render( scene, camera );
+            }
+            animate();
+        </script>
+    </body>
+</html>

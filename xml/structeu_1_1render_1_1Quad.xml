@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structeu_1_1render_1_1Quad" kind="struct" language="C++" prot="public">
+    <compoundname>eu::render::Quad</compoundname>
+    <includes refid="canvas_8h" local="no">canvas.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1render_1_1Quad_1a0171a5fc672dc116efdb234a24f62d8d" prot="public" static="no" mutable="no">
+        <type>std::optional&lt; <ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1Texture2d" kindref="compound">Texture2d</ref> * &gt;</type>
+        <definition>std::optional&lt;const Texture2d*&gt; eu::render::Quad::texture</definition>
+        <argsstring></argsstring>
+        <name>texture</name>
+        <qualifiedname>eu::render::Quad::texture</qualifiedname>
+        <initializer>= std::nullopt</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/canvas.h" line="39" column="19" bodyfile="libs/render/src/render/canvas.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1Quad_1a76211c98828b692875b9f72162ef8141" prot="public" static="no" mutable="no">
+        <type>std::optional&lt; <ref refid="structeu_1_1Rect" kindref="compound">Rect</ref> &gt;</type>
+        <definition>std::optional&lt;Rect&gt; eu::render::Quad::texturecoord</definition>
+        <argsstring></argsstring>
+        <name>texturecoord</name>
+        <qualifiedname>eu::render::Quad::texturecoord</qualifiedname>
+        <initializer>= std::nullopt</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/canvas.h" line="40" column="19" bodyfile="libs/render/src/render/canvas.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1Quad_1a4e2507c0948829e938592f62e54b48dc" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1Color" kindref="compound">Color</ref></type>
+        <definition>Color eu::render::Quad::tint</definition>
+        <argsstring></argsstring>
+        <name>tint</name>
+        <qualifiedname>eu::render::Quad::tint</qualifiedname>
+        <initializer>= <ref refid="namespaceeu_1_1colors_1a409fef5830a03ee6928a8ef041c7dbec" kindref="member">eu::colors::white</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/canvas.h" line="41" column="11" bodyfile="libs/render/src/render/canvas.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1render_1_1Quad_1a920e6d1673116d957f50ef03d0738aa5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <definition>void eu::render::Quad::draw</definition>
+        <argsstring>(SpriteBatch *batch, const Rect &amp;screen)</argsstring>
+        <name>draw</name>
+        <qualifiedname>eu::render::Quad::draw</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1render_1_1SpriteBatch" kindref="compound">SpriteBatch</ref> *</type>
+          <declname>batch</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1Rect" kindref="compound">Rect</ref> &amp;</type>
+          <declname>screen</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/canvas.h" line="43" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>eu::Color</label>
+        <link refid="structeu_1_1Color"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>rgb</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>eu::Rgb</label>
+        <link refid="structeu_1_1Rgb"/>
+      </node>
+      <node id="1">
+        <label>eu::render::Quad</label>
+        <link refid="structeu_1_1render_1_1Quad"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>tint</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="libs/render/src/render/canvas.h" line="37" column="1" bodyfile="libs/render/src/render/canvas.h" bodystart="38" bodyend="44"/>
+    <listofallmembers>
+      <member refid="structeu_1_1render_1_1Quad_1a920e6d1673116d957f50ef03d0738aa5" prot="public" virt="non-virtual"><scope>eu::render::Quad</scope><name>draw</name></member>
+      <member refid="structeu_1_1render_1_1Quad_1a0171a5fc672dc116efdb234a24f62d8d" prot="public" virt="non-virtual"><scope>eu::render::Quad</scope><name>texture</name></member>
+      <member refid="structeu_1_1render_1_1Quad_1a76211c98828b692875b9f72162ef8141" prot="public" virt="non-virtual"><scope>eu::render::Quad</scope><name>texturecoord</name></member>
+      <member refid="structeu_1_1render_1_1Quad_1a4e2507c0948829e938592f62e54b48dc" prot="public" virt="non-virtual"><scope>eu::render::Quad</scope><name>tint</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

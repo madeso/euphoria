@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structeu_1_1core_1_1PixelColor" kind="struct" language="C++" prot="public">
+    <compoundname>eu::core::PixelColor</compoundname>
+    <includes refid="image_8h" local="no">image.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1core_1_1PixelColor_1ab1ee6ccded502c1c127d40feb12646e9" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">unsigned</ref> <ref refid="structeu_1_1R" kindref="compound">char</ref></type>
+        <definition>unsigned char eu::core::PixelColor::r</definition>
+        <argsstring></argsstring>
+        <name>r</name>
+        <qualifiedname>eu::core::PixelColor::r</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/image.h" line="10" column="19" bodyfile="libs/core/src/core/image.h" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1PixelColor_1a9795f5529319253ef77eba656e161777" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">unsigned</ref> <ref refid="structeu_1_1R" kindref="compound">char</ref></type>
+        <definition>unsigned char eu::core::PixelColor::g</definition>
+        <argsstring></argsstring>
+        <name>g</name>
+        <qualifiedname>eu::core::PixelColor::g</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/image.h" line="11" column="19" bodyfile="libs/core/src/core/image.h" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1PixelColor_1a51c640a71f44270c608ef2afb4c7b7e5" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">unsigned</ref> <ref refid="structeu_1_1R" kindref="compound">char</ref></type>
+        <definition>unsigned char eu::core::PixelColor::b</definition>
+        <argsstring></argsstring>
+        <name>b</name>
+        <qualifiedname>eu::core::PixelColor::b</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/image.h" line="12" column="19" bodyfile="libs/core/src/core/image.h" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1PixelColor_1a8f5255ef191c7d6036d068827d5aff17" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">unsigned</ref> <ref refid="structeu_1_1R" kindref="compound">char</ref></type>
+        <definition>unsigned char eu::core::PixelColor::a</definition>
+        <argsstring></argsstring>
+        <name>a</name>
+        <qualifiedname>eu::core::PixelColor::a</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/image.h" line="13" column="19" bodyfile="libs/core/src/core/image.h" bodystart="13" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>A simple integer sRGBA color. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>unline <simplesect kind="see"><para>Rgb or </para>
+</simplesect>
+<simplesect kind="see"><para>Color that are floats, this is &quot;integer&quot; based, with values from 0 to 255. </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="libs/core/src/core/image.h" line="9" column="1" bodyfile="libs/core/src/core/image.h" bodystart="9" bodyend="14"/>
+    <listofallmembers>
+      <member refid="structeu_1_1core_1_1PixelColor_1a8f5255ef191c7d6036d068827d5aff17" prot="public" virt="non-virtual"><scope>eu::core::PixelColor</scope><name>a</name></member>
+      <member refid="structeu_1_1core_1_1PixelColor_1a51c640a71f44270c608ef2afb4c7b7e5" prot="public" virt="non-virtual"><scope>eu::core::PixelColor</scope><name>b</name></member>
+      <member refid="structeu_1_1core_1_1PixelColor_1a9795f5529319253ef77eba656e161777" prot="public" virt="non-virtual"><scope>eu::core::PixelColor</scope><name>g</name></member>
+      <member refid="structeu_1_1core_1_1PixelColor_1ab1ee6ccded502c1c127d40feb12646e9" prot="public" virt="non-virtual"><scope>eu::core::PixelColor</scope><name>r</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

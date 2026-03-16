@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structeu_1_1render_1_1InputCommand" kind="struct" language="C++" prot="public">
+    <compoundname>eu::render::InputCommand</compoundname>
+    <includes refid="canvas_8h" local="no">canvas.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1render_1_1InputCommand_1af5e83da22fe90615b2915486a5b95769" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1Size" kindref="compound">Size</ref></type>
+        <definition>Size eu::render::InputCommand::size</definition>
+        <argsstring></argsstring>
+        <name>size</name>
+        <qualifiedname>eu::render::InputCommand::size</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/canvas.h" line="127" column="10" bodyfile="libs/render/src/render/canvas.h" bodystart="127" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>eu::Size</label>
+        <link refid="structeu_1_1Size"/>
+      </node>
+      <node id="1">
+        <label>eu::render::InputCommand</label>
+        <link refid="structeu_1_1render_1_1InputCommand"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>size</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="libs/render/src/render/canvas.h" line="125" column="1" bodyfile="libs/render/src/render/canvas.h" bodystart="126" bodyend="128"/>
+    <listofallmembers>
+      <member refid="structeu_1_1render_1_1InputCommand_1af5e83da22fe90615b2915486a5b95769" prot="public" virt="non-virtual"><scope>eu::render::InputCommand</scope><name>size</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

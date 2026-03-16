@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structeu_1_1render_1_1LerpData" kind="struct" language="C++" prot="public">
+    <compoundname>eu::render::LerpData</compoundname>
+    <includes refid="canvas_8h" local="no">canvas.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1render_1_1LerpData_1a7af6514c73c7f834210fce43be3e67d6" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1render_1_1LayoutData" kindref="compound">LayoutData</ref></type>
+        <definition>LayoutData eu::render::LerpData::lhs</definition>
+        <argsstring></argsstring>
+        <name>lhs</name>
+        <qualifiedname>eu::render::LerpData::lhs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/canvas.h" line="119" column="16" bodyfile="libs/render/src/render/canvas.h" bodystart="119" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1LerpData_1a5b399e3ab7c9e814cf4d5f880bca4f02" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1render_1_1LayoutData" kindref="compound">LayoutData</ref></type>
+        <definition>LayoutData eu::render::LerpData::rhs</definition>
+        <argsstring></argsstring>
+        <name>rhs</name>
+        <qualifiedname>eu::render::LerpData::rhs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/canvas.h" line="120" column="16" bodyfile="libs/render/src/render/canvas.h" bodystart="120" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1LerpData_1aa98e17a636894185b4f4adc5d4f7c431" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+        <definition>float eu::render::LerpData::t</definition>
+        <argsstring></argsstring>
+        <name>t</name>
+        <qualifiedname>eu::render::LerpData::t</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/canvas.h" line="121" column="11" bodyfile="libs/render/src/render/canvas.h" bodystart="121" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>eu::render::LayoutData</label>
+        <link refid="structeu_1_1render_1_1LayoutData"/>
+      </node>
+      <node id="1">
+        <label>eu::render::LerpData</label>
+        <link refid="structeu_1_1render_1_1LerpData"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>lhs</edgelabel>
+          <edgelabel>rhs</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="libs/render/src/render/canvas.h" line="117" column="1" bodyfile="libs/render/src/render/canvas.h" bodystart="118" bodyend="122"/>
+    <listofallmembers>
+      <member refid="structeu_1_1render_1_1LerpData_1a7af6514c73c7f834210fce43be3e67d6" prot="public" virt="non-virtual"><scope>eu::render::LerpData</scope><name>lhs</name></member>
+      <member refid="structeu_1_1render_1_1LerpData_1a5b399e3ab7c9e814cf4d5f880bca4f02" prot="public" virt="non-virtual"><scope>eu::render::LerpData</scope><name>rhs</name></member>
+      <member refid="structeu_1_1render_1_1LerpData_1aa98e17a636894185b4f4adc5d4f7c431" prot="public" virt="non-virtual"><scope>eu::render::LerpData</scope><name>t</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

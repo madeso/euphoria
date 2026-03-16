@@ -1,0 +1,564 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="group__texture" kind="group">
+    <compoundname>texture</compoundname>
+    <title>Texture</title>
+    <innerclass refid="structeu_1_1render_1_1BaseTexture" prot="public">eu::render::BaseTexture</innerclass>
+    <innerclass refid="structeu_1_1render_1_1Texture2d" prot="public">eu::render::Texture2d</innerclass>
+    <innerclass refid="structeu_1_1render_1_1TextureCubemap" prot="public">eu::render::TextureCubemap</innerclass>
+    <innerclass refid="structeu_1_1render_1_1FrameBuffer" prot="public">eu::render::FrameBuffer</innerclass>
+    <innerclass refid="structeu_1_1render_1_1BoundFbo" prot="public">eu::render::BoundFbo</innerclass>
+    <sectiondef kind="enum">
+      <memberdef kind="enum" id="group__texture_1gabe62780d98ba206d6fabc6fe5233d1a3" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>TextureEdge</name>
+        <qualifiedname>eu::render::TextureEdge</qualifiedname>
+        <enumvalue id="group__texture_1ggabe62780d98ba206d6fabc6fe5233d1a3aa597a055c00d084069e4bb23dc789ac9" prot="public">
+          <name>clamp</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__texture_1ggabe62780d98ba206d6fabc6fe5233d1a3a32cf6da134a8b268cf4ab6b79a9a5ad9" prot="public">
+          <name>repeat</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/texture.h" line="16" column="1" bodyfile="libs/render/src/render/texture.h" bodystart="17" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__texture_1gad077a05d0224820dd5e1c6ffb797fa79" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>TextureRenderStyle</name>
+        <qualifiedname>eu::render::TextureRenderStyle</qualifiedname>
+        <enumvalue id="group__texture_1ggad077a05d0224820dd5e1c6ffb797fa79aab4086ecd47c568d5ba5739d4078988f" prot="public">
+          <name>pixel</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__texture_1ggad077a05d0224820dd5e1c6ffb797fa79a9967d91df6ff379185f57d9a31b7c782" prot="public">
+          <name>mipmap</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__texture_1ggad077a05d0224820dd5e1c6ffb797fa79a9a932b3cb396238423eb2f33ec17d6aa" prot="public">
+          <name>linear</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/texture.h" line="23" column="1" bodyfile="libs/render/src/render/texture.h" bodystart="24" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__texture_1ga5b945431a3e7a9568374b883c85565d7" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>Transparency</name>
+        <qualifiedname>eu::render::Transparency</qualifiedname>
+        <enumvalue id="group__texture_1gga5b945431a3e7a9568374b883c85565d7ad436eb0fd9de10b54a828ce6435f7e81" prot="public">
+          <name>include</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__texture_1gga5b945431a3e7a9568374b883c85565d7a18acedb191d664dc01b71835ae33caef" prot="public">
+          <name>exclude</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/texture.h" line="31" column="1" bodyfile="libs/render/src/render/texture.h" bodystart="32" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__texture_1ga4c49cf44c6f0f36c25cc3fd17be1dda5" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>ColorData</name>
+        <qualifiedname>eu::render::ColorData</qualifiedname>
+        <enumvalue id="group__texture_1gga4c49cf44c6f0f36c25cc3fd17be1dda5a87e5906f8e7e87a41a1632fbb9897103" prot="public">
+          <name>color_data</name>
+          <briefdescription>
+<para>Apply transformations to the color data. Texture is a diffuse/albedo map, created with human eyes on a monitor in sRGB space. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__texture_1gga4c49cf44c6f0f36c25cc3fd17be1dda5a305f7fe2fe08b4d3c0244267c8428bfc" prot="public">
+          <name>non_color_data</name>
+          <briefdescription>
+<para>Don&apos;t apply transformations to the color data. Texture is a normal/roughness/ao/specular map or similar and created by a software in linear space. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__texture_1gga4c49cf44c6f0f36c25cc3fd17be1dda5abe7bbe0cf3947e795861f1fa966bab58" prot="public">
+          <name>dont_care</name>
+          <briefdescription>
+<para>Explicitly don&apos;t care about the color data but same as <ref refid="group__texture_1gga4c49cf44c6f0f36c25cc3fd17be1dda5a305f7fe2fe08b4d3c0244267c8428bfc" kindref="member">non_color_data</ref>. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/texture.h" line="37" column="1" bodyfile="libs/render/src/render/texture.h" bodystart="38" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__texture_1ga9478b29b3d621e6b511b12507935040d" prot="public" static="no" strong="yes">
+        <type>std::uint32_t</type>
+        <name>SingleColor</name>
+        <qualifiedname>eu::render::SingleColor</qualifiedname>
+        <briefdescription>
+<para>A single color in a format to load directly into open gl texture(ABGR on little endian). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="group__texture_1gafc11dff76d8c8dfa670191949ab8495d" kindref="member">color_from_rgba</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/texture.h" line="53" column="1" bodyfile="libs/render/src/render/texture.h" bodystart="53" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__texture_1gac052096755747d49a7e0954123286623" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>DepthBits</name>
+        <qualifiedname>eu::render::DepthBits</qualifiedname>
+        <enumvalue id="group__texture_1ggac052096755747d49a7e0954123286623a6ad0a3981fb0e65854a9ef656e3beac4" prot="public">
+          <name>use_none</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__texture_1ggac052096755747d49a7e0954123286623a2b8128f893f047b799dcef08274808e4" prot="public">
+          <name>use_16</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__texture_1ggac052096755747d49a7e0954123286623ab33abfcb724dd7b2af41c9c87c2a947e" prot="public">
+          <name>use_24</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__texture_1ggac052096755747d49a7e0954123286623ab58da2c01fd2c34c8f79d446758f5253" prot="public">
+          <name>use_32</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>The number of bits to use for the depth buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/texture.h" line="138" column="1" bodyfile="libs/render/src/render/texture.h" bodystart="139" bodyend="142"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__texture_1gaa48ab79573cf3af6eae3ba0201a0c6a5" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>ColorBitsPerPixel</name>
+        <qualifiedname>eu::render::ColorBitsPerPixel</qualifiedname>
+        <enumvalue id="group__texture_1ggaa48ab79573cf3af6eae3ba0201a0c6a5a925803c00853ca6aea99f12ad20f47c8" prot="public">
+          <name>use_depth</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__texture_1ggaa48ab79573cf3af6eae3ba0201a0c6a5a9b898fcf422b2b9616148b3f3d1fa101" prot="public">
+          <name>use_8</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__texture_1ggaa48ab79573cf3af6eae3ba0201a0c6a5a2b8128f893f047b799dcef08274808e4" prot="public">
+          <name>use_16</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__texture_1ggaa48ab79573cf3af6eae3ba0201a0c6a5ab58da2c01fd2c34c8f79d446758f5253" prot="public">
+          <name>use_32</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>The number of bits/pixel to use for the color buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/texture.h" line="145" column="1" bodyfile="libs/render/src/render/texture.h" bodystart="146" bodyend="149"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="group__texture_1gac79b1d9294cd27d6bd858386a5d3b0b9" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr std::size_t</type>
+        <definition>constexpr std::size_t eu::render::cubemap_size</definition>
+        <argsstring></argsstring>
+        <name>cubemap_size</name>
+        <qualifiedname>eu::render::cubemap_size</qualifiedname>
+        <initializer>= 6</initializer>
+        <briefdescription>
+<para>0=right(x+), 1=left(x-), 2=top(y+), 3=bottom(y-), 4=front(z+), 5=back(z-) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/texture.h" line="100" column="23" bodyfile="libs/render/src/render/texture.h" bodystart="100" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="group__texture_1gafc11dff76d8c8dfa670191949ab8495d" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>constexpr SingleColor</type>
+        <definition>constexpr SingleColor eu::render::color_from_rgba</definition>
+        <argsstring>(uint8_t r, uint8_t g, uint8_t b, uint8_t a)</argsstring>
+        <name>color_from_rgba</name>
+        <qualifiedname>eu::render::color_from_rgba</qualifiedname>
+        <param>
+          <type>uint8_t</type>
+          <declname>r</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>g</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>b</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>a</declname>
+        </param>
+        <briefdescription>
+<para>Constructs a <ref refid="group__texture_1ga9478b29b3d621e6b511b12507935040d" kindref="member">SingleColor</ref> value from individual red, green, blue, and alpha components. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>r</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The red component of the color (0x00 - 0xFF). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>g</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The green component of the color (0x00 - 0xFF). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The blue component of the color (0x00 - 0xFF). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The alpha (opacity) component of the color (0x00 - 0xFF). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A <ref refid="group__texture_1ga9478b29b3d621e6b511b12507935040d" kindref="member">SingleColor</ref> value representing the color composed of the specified RGBA components. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/texture.h" line="61" column="23" bodyfile="libs/render/src/render/texture.h" bodystart="61" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="group__texture_1gaff22666806e24a26d00fc230d473513a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Texture2d</type>
+        <definition>Texture2d eu::render::load_image_from_color</definition>
+        <argsstring>(DEBUG_LABEL_ARG_MANY SingleColor pixel, TextureEdge te, TextureRenderStyle trs, Transparency t, ColorData cd)</argsstring>
+        <name>load_image_from_color</name>
+        <qualifiedname>eu::render::load_image_from_color</qualifiedname>
+        <param>
+          <type><ref refid="group__debug_1gabd34c805e47ae972bc6f5b1e406e921d" kindref="member">DEBUG_LABEL_ARG_MANY</ref> SingleColor</type>
+          <declname>pixel</declname>
+        </param>
+        <param>
+          <type>TextureEdge</type>
+          <declname>te</declname>
+        </param>
+        <param>
+          <type>TextureRenderStyle</type>
+          <declname>trs</declname>
+        </param>
+        <param>
+          <type>Transparency</type>
+          <declname>t</declname>
+        </param>
+        <param>
+          <type>ColorData</type>
+          <declname>cd</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/texture.h" line="96" column="11" declfile="libs/render/src/render/texture.h" declline="96" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group__texture_1gabcbbd9e458cbc63ae88183ab0ab51c6c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>TextureCubemap</type>
+        <definition>TextureCubemap eu::render::load_cubemap_from_color</definition>
+        <argsstring>(DEBUG_LABEL_ARG_MANY SingleColor pixel, ColorData cd)</argsstring>
+        <name>load_cubemap_from_color</name>
+        <qualifiedname>eu::render::load_cubemap_from_color</qualifiedname>
+        <param>
+          <type><ref refid="group__debug_1gabd34c805e47ae972bc6f5b1e406e921d" kindref="member">DEBUG_LABEL_ARG_MANY</ref> SingleColor</type>
+          <declname>pixel</declname>
+        </param>
+        <param>
+          <type>ColorData</type>
+          <declname>cd</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/texture.h" line="111" column="16" declfile="libs/render/src/render/texture.h" declline="111" declcolumn="16"/>
+      </memberdef>
+      <memberdef kind="function" id="group__texture_1ga1e6e831737209f381f2f34fd68b360d8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; FrameBuffer &gt;</type>
+        <definition>std::shared_ptr&lt; FrameBuffer &gt; eu::render::build_simple_framebuffer</definition>
+        <argsstring>(DEBUG_LABEL_ARG_MANY const Size &amp;size)</argsstring>
+        <name>build_simple_framebuffer</name>
+        <qualifiedname>eu::render::build_simple_framebuffer</qualifiedname>
+        <param>
+          <type><ref refid="group__debug_1gabd34c805e47ae972bc6f5b1e406e921d" kindref="member">DEBUG_LABEL_ARG_MANY</ref> const Size &amp;</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+<para>Build a simple LDR frame buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This is mostly used for post-processing.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The size of the framebuffer. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The created <ref refid="structeu_1_1render_1_1FrameBuffer" kindref="compound">FrameBuffer</ref>. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/texture.h" line="161" column="17" declfile="libs/render/src/render/texture.h" declline="161" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="group__texture_1ga0e72b05730d7520b132ee620dcb86679" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; FrameBuffer &gt;</type>
+        <definition>std::shared_ptr&lt; FrameBuffer &gt; eu::render::build_msaa_framebuffer</definition>
+        <argsstring>(DEBUG_LABEL_ARG_MANY const Size &amp;size, int msaa_samples, ColorBitsPerPixel bits_per_pixel)</argsstring>
+        <name>build_msaa_framebuffer</name>
+        <qualifiedname>eu::render::build_msaa_framebuffer</qualifiedname>
+        <param>
+          <type><ref refid="group__debug_1gabd34c805e47ae972bc6f5b1e406e921d" kindref="member">DEBUG_LABEL_ARG_MANY</ref> const Size &amp;</type>
+          <declname>size</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>msaa_samples</declname>
+        </param>
+        <param>
+          <type>ColorBitsPerPixel</type>
+          <declname>bits_per_pixel</declname>
+        </param>
+        <briefdescription>
+<para>Builds a multisample anti-aliasing (MSAA) framebuffer for high-quality rendering. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function creates a framebuffer object (FBO) with multisample support, allowing for smoother edges and reduced aliasing artifacts in rendered images.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The dimensions (width, height) of the framebuffer in pixels. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>msaa_samples</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of MSAA samples to use. Higher values provide better anti-aliasing but may impact performance. Typical values are 2, 4, or 8. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bits_per_pixel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The color buffer precision. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The created <ref refid="structeu_1_1render_1_1FrameBuffer" kindref="compound">FrameBuffer</ref> object with MSAA enabled. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/texture.h" line="175" column="17" declfile="libs/render/src/render/texture.h" declline="175" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="group__texture_1ga9efcced06a1a5e0309b34e1a40fcc1b9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; FrameBuffer &gt;</type>
+        <definition>std::shared_ptr&lt; FrameBuffer &gt; eu::render::build_hdr_floating_framebuffer</definition>
+        <argsstring>(DEBUG_LABEL_ARG_MANY const Size &amp;size, ColorBitsPerPixel bits_per_pixel)</argsstring>
+        <name>build_hdr_floating_framebuffer</name>
+        <qualifiedname>eu::render::build_hdr_floating_framebuffer</qualifiedname>
+        <param>
+          <type><ref refid="group__debug_1gabd34c805e47ae972bc6f5b1e406e921d" kindref="member">DEBUG_LABEL_ARG_MANY</ref> const Size &amp;</type>
+          <declname>size</declname>
+        </param>
+        <param>
+          <type>ColorBitsPerPixel</type>
+          <declname>bits_per_pixel</declname>
+        </param>
+        <briefdescription>
+<para>Build a HDR frame buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The resolution in pixels. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bits_per_pixel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>How many bits per pixel to use </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The created <ref refid="structeu_1_1render_1_1FrameBuffer" kindref="compound">FrameBuffer</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/texture.h" line="186" column="17" declfile="libs/render/src/render/texture.h" declline="186" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="group__texture_1gaa85e9db1b15d0ec62079995fc80cda5a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; FrameBuffer &gt;</type>
+        <definition>std::shared_ptr&lt; FrameBuffer &gt; eu::render::build_shadow_framebuffer</definition>
+        <argsstring>(DEBUG_LABEL_ARG_MANY const Size &amp;size)</argsstring>
+        <name>build_shadow_framebuffer</name>
+        <qualifiedname>eu::render::build_shadow_framebuffer</qualifiedname>
+        <param>
+          <type><ref refid="group__debug_1gabd34c805e47ae972bc6f5b1e406e921d" kindref="member">DEBUG_LABEL_ARG_MANY</ref> const Size &amp;</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+<para>Create a depth-only framebuffer for shadow rendering. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The resolution in pixels. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The created <ref refid="structeu_1_1render_1_1FrameBuffer" kindref="compound">FrameBuffer</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/texture.h" line="196" column="17" declfile="libs/render/src/render/texture.h" declline="196" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="group__texture_1ga7a077b1e09486b602076085519b63003" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::render::resolve_multisampled_buffer</definition>
+        <argsstring>(const FrameBuffer &amp;src, FrameBuffer *dst)</argsstring>
+        <name>resolve_multisampled_buffer</name>
+        <qualifiedname>eu::render::resolve_multisampled_buffer</qualifiedname>
+        <param>
+          <type>const FrameBuffer &amp;</type>
+          <declname>src</declname>
+        </param>
+        <param>
+          <type>FrameBuffer *</type>
+          <declname>dst</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/texture.h" line="213" column="6" declfile="libs/render/src/render/texture.h" declline="213" declcolumn="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

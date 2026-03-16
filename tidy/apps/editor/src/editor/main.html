@@ -1,0 +1,352 @@
+﻿<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+<title>apps/editor/src/editor/main.cc</title>
+</head>
+<body>
+<h1>apps/editor/src/editor/main.cc</h1>
+<span id='readability-avoid-unconditional-preprocessor-if'>&nbsp;</span>
+<hr>
+<h3>warning: preprocessor condition is always &#39;true&#39;, consider removing condition but leaving its contents</h3>
+<code>[readability-avoid-unconditional-preprocessor-if]</code>
+<p><i>apps/editor/src/editor/main.cc 21 : 2</i></p>
+<pre>
+   21 | #if 1
+      |  ^
+</pre>
+<span id='readability-non-const-parameter'>&nbsp;</span>
+<hr>
+<h3>warning: pointer parameter &#39;str&#39; can be pointer to const</h3>
+<code>[readability-non-const-parameter]</code>
+<p><i>apps/editor/src/editor/main.cc 27 : 29</i></p>
+<pre>
+   27 | eu::u32 hash(unsigned char *str, std::size_t length, eu::u32 seed)
+      |                             ^
+      |              const 
+</pre>
+<span id='cppcoreguidelines-pro-type-const-cast'>&nbsp;</span>
+<hr>
+<h3>warning: do not use const_cast to remove const qualifier</h3>
+<code>[cppcoreguidelines-pro-type-const-cast]</code>
+<p><i>apps/editor/src/editor/main.cc 44 : 54</i></p>
+<pre>
+   44 |         return hash(reinterpret_cast&lt;unsigned char*&gt;(const_cast&lt;char*&gt;(str.data())), str.size(), last_id());
+      |                                                      ^
+</pre>
+<span id='bugprone-switch-missing-default-case'>&nbsp;</span>
+<hr>
+<h3>warning: switching on non-enum value without default case may not cover all cases</h3>
+<code>[bugprone-switch-missing-default-case]</code>
+<p><i>apps/editor/src/editor/main.cc 180 : 13</i></p>
+<pre>
+  180 |             switch (k.key)
+      |             ^
+</pre>
+<span id='readability-implicit-bool-conversion'>&nbsp;</span>
+<hr>
+<h3>warning: implicit conversion &#39;int&#39; -&gt; &#39;bool&#39;</h3>
+<code>[readability-implicit-bool-conversion]</code>
+<p><i>apps/editor/src/editor/main.cc 184 : 21</i></p>
+<pre>
+  184 |                 if (k.mod &amp; KMOD_SHIFT)
+      |                     ^                 
+      |                     (                 ) != 0
+</pre>
+<span id='google-readability-braces-around-statements'>&nbsp;</span>
+<span id='readability-braces-around-statements'>&nbsp;</span>
+<hr>
+<h3>warning: statement should be inside braces</h3>
+<code>[google-readability-braces-around-statements,readability-braces-around-statements]</code>
+<p><i>apps/editor/src/editor/main.cc 184 : 40</i></p>
+<pre>
+  184 |                 if (k.mod &amp; KMOD_SHIFT)
+      |                                        ^
+      |                                         {
+  185 |                     uistate.kbd_item = uistate.last_widget;
+      |                                                            
+</pre>
+<hr>
+<h3>warning: switching on non-enum value without default case may not cover all cases</h3>
+<code>[bugprone-switch-missing-default-case]</code>
+<p><i>apps/editor/src/editor/main.cc 246 : 13</i></p>
+<pre>
+  246 |             switch (k.key)
+      |             ^
+</pre>
+<hr>
+<h3>warning: implicit conversion &#39;int&#39; -&gt; &#39;bool&#39;</h3>
+<code>[readability-implicit-bool-conversion]</code>
+<p><i>apps/editor/src/editor/main.cc 250 : 21</i></p>
+<pre>
+  250 |                 if (k.mod &amp; KMOD_SHIFT)
+      |                     ^                 
+      |                     (                 ) != 0
+</pre>
+<hr>
+<h3>warning: statement should be inside braces</h3>
+<code>[google-readability-braces-around-statements,readability-braces-around-statements]</code>
+<p><i>apps/editor/src/editor/main.cc 316 : 70</i></p>
+<pre>
+  316 |         if (uistate.active_item == std::nullopt &amp;&amp; uistate.mousedown)
+      |                                                                      ^
+      |                                                                       {
+  317 |             uistate.active_item = id;
+      |                                      
+</pre>
+<hr>
+<h3>warning: statement should be inside braces</h3>
+<code>[google-readability-braces-around-statements,readability-braces-around-statements]</code>
+<p><i>apps/editor/src/editor/main.cc 320 : 42</i></p>
+<pre>
+  320 |     if (uistate.kbd_item == std::nullopt)
+      |                                          ^
+      |                                           {
+  321 |         uistate.kbd_item = id;
+      |                               
+</pre>
+<hr>
+<h3>warning: implicit conversion &#39;Uint32&#39; (aka &#39;unsigned int&#39;) -&gt; &#39;bool&#39;</h3>
+<code>[readability-implicit-bool-conversion]</code>
+<p><i>apps/editor/src/editor/main.cc 340 : 35</i></p>
+<pre>
+  340 |     if (uistate.kbd_item == id &amp;&amp; is_cursor_blink_visible)
+      |                                   ^                      
+      |                                   (                       != 0u)
+</pre>
+<hr>
+<h3>warning: switching on non-enum value without default case may not cover all cases</h3>
+<code>[bugprone-switch-missing-default-case]</code>
+<p><i>apps/editor/src/editor/main.cc 348 : 9</i></p>
+<pre>
+  348 |         switch (uistate.key-&gt;key)
+      |         ^
+</pre>
+<hr>
+<h3>warning: implicit conversion &#39;int&#39; -&gt; &#39;bool&#39;</h3>
+<code>[readability-implicit-bool-conversion]</code>
+<p><i>apps/editor/src/editor/main.cc 352 : 17</i></p>
+<pre>
+  352 |             if (uistate.key-&gt;mod &amp; KMOD_SHIFT)
+      |                 ^                            
+      |                 (                            ) != 0
+</pre>
+<hr>
+<h3>warning: statement should be inside braces</h3>
+<code>[google-readability-braces-around-statements,readability-braces-around-statements]</code>
+<p><i>apps/editor/src/editor/main.cc 352 : 47</i></p>
+<pre>
+  352 |             if (uistate.key-&gt;mod &amp; KMOD_SHIFT)
+      |                                               ^
+      |                                                {
+  353 |                 uistate.kbd_item = uistate.last_widget;
+      |                                                        
+</pre>
+<span id='bugprone-unchecked-optional-access'>&nbsp;</span>
+<hr>
+<h3>warning: unchecked access to optional value</h3>
+<code>[bugprone-unchecked-optional-access]</code>
+<p><i>apps/editor/src/editor/main.cc 366 : 29</i></p>
+<pre>
+  366 |             val-&gt;push_back(*uistate.keychar);
+      |                             ^
+</pre>
+<hr>
+<h3>warning: statement should be inside braces</h3>
+<code>[google-readability-braces-around-statements,readability-braces-around-statements]</code>
+<p><i>apps/editor/src/editor/main.cc 373 : 35</i></p>
+<pre>
+  373 |         uistate.active_item == id)
+      |                                   ^
+      |                                    {
+  374 |         uistate.kbd_item = id;
+      |                               
+</pre>
+<hr>
+<h3>warning: preprocessor condition is always &#39;false&#39;, consider removing both the condition and its contents</h3>
+<code>[readability-avoid-unconditional-preprocessor-if]</code>
+<p><i>apps/editor/src/editor/main.cc 396 : 2</i></p>
+<pre>
+  396 | #if 0
+      |  ^
+</pre>
+<hr>
+<h3>warning: implicit conversion &#39;SDL_Window *&#39; -&gt; &#39;bool&#39;</h3>
+<code>[readability-implicit-bool-conversion]</code>
+<p><i>apps/editor/src/editor/main.cc 434 : 10</i></p>
+<pre>
+  434 |     if (!window) {
+      |         ~^     
+      |                 == nullptr
+</pre>
+<span id='readability-identifier-naming'>&nbsp;</span>
+<hr>
+<h3>warning: invalid case style for local pointer &#39;glContext&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>apps/editor/src/editor/main.cc 439 : 11</i></p>
+<pre>
+  439 |     auto* glContext = SDL_GL_CreateContext(window);
+      |           ^~~~~~~~~
+      |           gl_context
+  440 |     SDL_GetWindowSize(window, &amp;window_width, &amp;window_height);
+  441 |     if (!glContext) {
+      |          ~~~~~~~~~
+      |          gl_context
+</pre>
+<hr>
+<h3>warning: implicit conversion &#39;void *&#39; -&gt; &#39;bool&#39;</h3>
+<code>[readability-implicit-bool-conversion]</code>
+<p><i>apps/editor/src/editor/main.cc 441 : 10</i></p>
+<pre>
+  441 |     if (!glContext) {
+      |         ~^        
+      |                    == nullptr
+</pre>
+<span id='misc-const-correctness'>&nbsp;</span>
+<hr>
+<h3>warning: variable &#39;idstack&#39; of type &#39;IdStack&#39; can be declared &#39;const&#39;</h3>
+<code>[misc-const-correctness]</code>
+<p><i>apps/editor/src/editor/main.cc 470 : 5</i></p>
+<pre>
+  470 |     IdStack idstack;
+      |     ^
+      |             const 
+</pre>
+<hr>
+<h3>warning: variable &#39;c&#39; of type &#39;char&#39; can be declared &#39;const&#39;</h3>
+<code>[misc-const-correctness]</code>
+<p><i>apps/editor/src/editor/main.cc 516 : 17</i></p>
+<pre>
+  516 |                 char c = e.text.text[0];
+      |                 ^
+      |                      const 
+</pre>
+<hr>
+<h3>warning: statement should be inside braces</h3>
+<code>[google-readability-braces-around-statements,readability-braces-around-statements]</code>
+<p><i>apps/editor/src/editor/main.cc 517 : 39</i></p>
+<pre>
+  517 |                 if ((c &amp; 0xFF80) == 0)
+      |                                       ^
+      |                                        {
+  518 |                     uistate.keychar = static_cast&lt;char&gt;(c &amp; 0x7f);
+      |                                                                   
+</pre>
+<hr>
+<h3>warning: variable &#39;cmd&#39; of type &#39;eu::render:: RenderCommand&#39; can be declared &#39;const&#39;</h3>
+<code>[misc-const-correctness]</code>
+<p><i>apps/editor/src/editor/main.cc 530 : 13</i></p>
+<pre>
+  530 |             eu::render::RenderCommand cmd {.states = &amp;states, .render = &amp;render, .size = {.width = window_width, .height = window_height} };
+      |             ^
+      |                                       const 
+</pre>
+<!--
+/home/runner/work/euphoria/euphoria/apps/editor/src/editor/main.cc:21:2: warning: preprocessor condition is always 'true', consider removing condition but leaving its contents [readability-avoid-unconditional-preprocessor-if]
+   21 | #if 1
+      |  ^
+/home/runner/work/euphoria/euphoria/apps/editor/src/editor/main.cc:27:29: warning: pointer parameter 'str' can be pointer to const [readability-non-const-parameter]
+   27 | eu::u32 hash(unsigned char *str, std::size_t length, eu::u32 seed)
+      |                             ^
+      |              const 
+/home/runner/work/euphoria/euphoria/apps/editor/src/editor/main.cc:44:54: warning: do not use const_cast to remove const qualifier [cppcoreguidelines-pro-type-const-cast]
+   44 |         return hash(reinterpret_cast<unsigned char*>(const_cast<char*>(str.data())), str.size(), last_id());
+      |                                                      ^
+/home/runner/work/euphoria/euphoria/apps/editor/src/editor/main.cc:180:13: warning: switching on non-enum value without default case may not cover all cases [bugprone-switch-missing-default-case]
+  180 |             switch (k.key)
+      |             ^
+/home/runner/work/euphoria/euphoria/apps/editor/src/editor/main.cc:184:21: warning: implicit conversion 'int' -> 'bool' [readability-implicit-bool-conversion]
+  184 |                 if (k.mod & KMOD_SHIFT)
+      |                     ^                 
+      |                     (                 ) != 0
+/home/runner/work/euphoria/euphoria/apps/editor/src/editor/main.cc:184:40: warning: statement should be inside braces [google-readability-braces-around-statements,readability-braces-around-statements]
+  184 |                 if (k.mod & KMOD_SHIFT)
+      |                                        ^
+      |                                         {
+  185 |                     uistate.kbd_item = uistate.last_widget;
+      |                                                            
+/home/runner/work/euphoria/euphoria/apps/editor/src/editor/main.cc:246:13: warning: switching on non-enum value without default case may not cover all cases [bugprone-switch-missing-default-case]
+  246 |             switch (k.key)
+      |             ^
+/home/runner/work/euphoria/euphoria/apps/editor/src/editor/main.cc:250:21: warning: implicit conversion 'int' -> 'bool' [readability-implicit-bool-conversion]
+  250 |                 if (k.mod & KMOD_SHIFT)
+      |                     ^                 
+      |                     (                 ) != 0
+/home/runner/work/euphoria/euphoria/apps/editor/src/editor/main.cc:316:70: warning: statement should be inside braces [google-readability-braces-around-statements,readability-braces-around-statements]
+  316 |         if (uistate.active_item == std::nullopt && uistate.mousedown)
+      |                                                                      ^
+      |                                                                       {
+  317 |             uistate.active_item = id;
+      |                                      
+/home/runner/work/euphoria/euphoria/apps/editor/src/editor/main.cc:320:42: warning: statement should be inside braces [google-readability-braces-around-statements,readability-braces-around-statements]
+  320 |     if (uistate.kbd_item == std::nullopt)
+      |                                          ^
+      |                                           {
+  321 |         uistate.kbd_item = id;
+      |                               
+/home/runner/work/euphoria/euphoria/apps/editor/src/editor/main.cc:340:35: warning: implicit conversion 'Uint32' (aka 'unsigned int') -> 'bool' [readability-implicit-bool-conversion]
+  340 |     if (uistate.kbd_item == id && is_cursor_blink_visible)
+      |                                   ^                      
+      |                                   (                       != 0u)
+/home/runner/work/euphoria/euphoria/apps/editor/src/editor/main.cc:348:9: warning: switching on non-enum value without default case may not cover all cases [bugprone-switch-missing-default-case]
+  348 |         switch (uistate.key->key)
+      |         ^
+/home/runner/work/euphoria/euphoria/apps/editor/src/editor/main.cc:352:17: warning: implicit conversion 'int' -> 'bool' [readability-implicit-bool-conversion]
+  352 |             if (uistate.key->mod & KMOD_SHIFT)
+      |                 ^                            
+      |                 (                            ) != 0
+/home/runner/work/euphoria/euphoria/apps/editor/src/editor/main.cc:352:47: warning: statement should be inside braces [google-readability-braces-around-statements,readability-braces-around-statements]
+  352 |             if (uistate.key->mod & KMOD_SHIFT)
+      |                                               ^
+      |                                                {
+  353 |                 uistate.kbd_item = uistate.last_widget;
+      |                                                        
+/home/runner/work/euphoria/euphoria/apps/editor/src/editor/main.cc:366:29: warning: unchecked access to optional value [bugprone-unchecked-optional-access]
+  366 |             val->push_back(*uistate.keychar);
+      |                             ^
+/home/runner/work/euphoria/euphoria/apps/editor/src/editor/main.cc:373:35: warning: statement should be inside braces [google-readability-braces-around-statements,readability-braces-around-statements]
+  373 |         uistate.active_item == id)
+      |                                   ^
+      |                                    {
+  374 |         uistate.kbd_item = id;
+      |                               
+/home/runner/work/euphoria/euphoria/apps/editor/src/editor/main.cc:396:2: warning: preprocessor condition is always 'false', consider removing both the condition and its contents [readability-avoid-unconditional-preprocessor-if]
+  396 | #if 0
+      |  ^
+/home/runner/work/euphoria/euphoria/apps/editor/src/editor/main.cc:434:10: warning: implicit conversion 'SDL_Window *' -> 'bool' [readability-implicit-bool-conversion]
+  434 |     if (!window) {
+      |         ~^     
+      |                 == nullptr
+/home/runner/work/euphoria/euphoria/apps/editor/src/editor/main.cc:439:11: warning: invalid case style for local pointer 'glContext' [readability-identifier-naming]
+  439 |     auto* glContext = SDL_GL_CreateContext(window);
+      |           ^~~~~~~~~
+      |           gl_context
+  440 |     SDL_GetWindowSize(window, &window_width, &window_height);
+  441 |     if (!glContext) {
+      |          ~~~~~~~~~
+      |          gl_context
+/home/runner/work/euphoria/euphoria/apps/editor/src/editor/main.cc:441:10: warning: implicit conversion 'void *' -> 'bool' [readability-implicit-bool-conversion]
+  441 |     if (!glContext) {
+      |         ~^        
+      |                    == nullptr
+/home/runner/work/euphoria/euphoria/apps/editor/src/editor/main.cc:470:5: warning: variable 'idstack' of type 'IdStack' can be declared 'const' [misc-const-correctness]
+  470 |     IdStack idstack;
+      |     ^
+      |             const 
+/home/runner/work/euphoria/euphoria/apps/editor/src/editor/main.cc:516:17: warning: variable 'c' of type 'char' can be declared 'const' [misc-const-correctness]
+  516 |                 char c = e.text.text[0];
+      |                 ^
+      |                      const 
+/home/runner/work/euphoria/euphoria/apps/editor/src/editor/main.cc:517:39: warning: statement should be inside braces [google-readability-braces-around-statements,readability-braces-around-statements]
+  517 |                 if ((c & 0xFF80) == 0)
+      |                                       ^
+      |                                        {
+  518 |                     uistate.keychar = static_cast<char>(c & 0x7f);
+      |                                                                   
+/home/runner/work/euphoria/euphoria/apps/editor/src/editor/main.cc:530:13: warning: variable 'cmd' of type 'eu::render::RenderCommand' can be declared 'const' [misc-const-correctness]
+  530 |             eu::render::RenderCommand cmd {.states = &states, .render = &render, .size = {.width = window_width, .height = window_height} };
+      |             ^
+      |                                       const 
+-->
+</body>
+</html>

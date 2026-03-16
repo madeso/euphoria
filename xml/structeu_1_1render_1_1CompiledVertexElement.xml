@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structeu_1_1render_1_1CompiledVertexElement" kind="struct" language="C++" prot="public">
+    <compoundname>eu::render::CompiledVertexElement</compoundname>
+    <includes refid="vertex__layout_8h" local="no">vertex_layout.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1render_1_1CompiledVertexElement_1a86abe6c7e71601333f270c0b31799493" prot="public" static="no" mutable="no">
+        <type><ref refid="group__vertex-layout_1gac45dc005a83f6afdda19dbb70f82945b" kindref="member">VertexType</ref></type>
+        <definition>VertexType eu::render::CompiledVertexElement::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <qualifiedname>eu::render::CompiledVertexElement::type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/vertex_layout.h" line="57" column="12" bodyfile="libs/render/src/render/vertex_layout.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1CompiledVertexElement_1ac97823d40f3020296d8a16f7a1bdb58c" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string eu::render::CompiledVertexElement::name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <qualifiedname>eu::render::CompiledVertexElement::name</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/vertex_layout.h" line="58" column="13" bodyfile="libs/render/src/render/vertex_layout.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1CompiledVertexElement_1abf37cd651dd6c2ad30c7ff99263fe1de" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+        <definition>int eu::render::CompiledVertexElement::index</definition>
+        <argsstring></argsstring>
+        <name>index</name>
+        <qualifiedname>eu::render::CompiledVertexElement::index</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/vertex_layout.h" line="59" column="5" bodyfile="libs/render/src/render/vertex_layout.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>A realized VertexElementDescription like <computeroutput>vec3 position</computeroutput> at gl shader position 3. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/render/src/render/vertex_layout.h" line="55" column="1" bodyfile="libs/render/src/render/vertex_layout.h" bodystart="56" bodyend="60"/>
+    <listofallmembers>
+      <member refid="structeu_1_1render_1_1CompiledVertexElement_1abf37cd651dd6c2ad30c7ff99263fe1de" prot="public" virt="non-virtual"><scope>eu::render::CompiledVertexElement</scope><name>index</name></member>
+      <member refid="structeu_1_1render_1_1CompiledVertexElement_1ac97823d40f3020296d8a16f7a1bdb58c" prot="public" virt="non-virtual"><scope>eu::render::CompiledVertexElement</scope><name>name</name></member>
+      <member refid="structeu_1_1render_1_1CompiledVertexElement_1a86abe6c7e71601333f270c0b31799493" prot="public" virt="non-virtual"><scope>eu::render::CompiledVertexElement</scope><name>type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

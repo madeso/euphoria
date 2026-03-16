@@ -1,0 +1,574 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="group__render" kind="group">
+    <compoundname>render</compoundname>
+    <title>Renderer</title>
+    <innerclass refid="structeu_1_1render_1_1OpenglStates" prot="public">eu::render::OpenglStates</innerclass>
+    <innerclass refid="structeu_1_1render_1_1StateChanger" prot="public">eu::render::StateChanger</innerclass>
+    <innerclass refid="structeu_1_1render_1_1UniformBufferSetup" prot="public">eu::render::UniformBufferSetup</innerclass>
+    <innerclass refid="structeu_1_1render_1_1CompiledUniformProp" prot="public">eu::render::CompiledUniformProp</innerclass>
+    <innerclass refid="structeu_1_1render_1_1UniformProp" prot="public">eu::render::UniformProp</innerclass>
+    <innerclass refid="structeu_1_1render_1_1UniformBufferCompiler" prot="public">eu::render::UniformBufferCompiler</innerclass>
+    <innerclass refid="structeu_1_1render_1_1UniformBuffer" prot="public">eu::render::UniformBuffer</innerclass>
+    <innerclass refid="structeu_1_1render_1_1BoundUniformBuffer" prot="public">eu::render::BoundUniformBuffer</innerclass>
+    <sectiondef kind="enum">
+      <memberdef kind="enum" id="group__render_1ga974f78d25ec60e8dc6e560769f474d41" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>Blend</name>
+        <qualifiedname>eu::render::Blend</qualifiedname>
+        <enumvalue id="group__render_1gga974f78d25ec60e8dc6e560769f474d41ad02c4c4cde7ae76252540d116a40f23a" prot="public">
+          <name>zero</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__render_1gga974f78d25ec60e8dc6e560769f474d41af97c5d29941bfb1b2fdab0874906ab82" prot="public">
+          <name>one</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__render_1gga974f78d25ec60e8dc6e560769f474d41a3bbfc559ec491c8f1c2e45bb87255cf2" prot="public">
+          <name>src_color</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__render_1gga974f78d25ec60e8dc6e560769f474d41ab41ddc54ca846edeec43f65983a0f8ae" prot="public">
+          <name>one_minus_src_color</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__render_1gga974f78d25ec60e8dc6e560769f474d41aeadd61e269579f1d602a06d9ae0972e3" prot="public">
+          <name>dst_color</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__render_1gga974f78d25ec60e8dc6e560769f474d41a10b63c6bd5f63fd9a592ebf3f6103ff3" prot="public">
+          <name>one_minus_dst_color</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__render_1gga974f78d25ec60e8dc6e560769f474d41aff175e9d424fcb3eef837a773872fb9e" prot="public">
+          <name>src_alpha</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__render_1gga974f78d25ec60e8dc6e560769f474d41aa415ef353601f5e5d8a3e5ac06683703" prot="public">
+          <name>one_minus_src_alpha</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__render_1gga974f78d25ec60e8dc6e560769f474d41ab71b79d6bf971b9dd2ee1d43565ab344" prot="public">
+          <name>dst_alpha</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__render_1gga974f78d25ec60e8dc6e560769f474d41a8d3a4c2d0c55b1041c69d3fdd7ed55e1" prot="public">
+          <name>one_minus_dst_alpha</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__render_1gga974f78d25ec60e8dc6e560769f474d41aec5574dc954581793a5dcbdf0e358ae1" prot="public">
+          <name>constant_color</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__render_1gga974f78d25ec60e8dc6e560769f474d41a645421b2fe9a762542bf70220d9eae9c" prot="public">
+          <name>one_minus_constant_color</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__render_1gga974f78d25ec60e8dc6e560769f474d41a9831f8a00f48f451286ea6c16cd2f55e" prot="public">
+          <name>constant_alpha</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__render_1gga974f78d25ec60e8dc6e560769f474d41ae984532432604da975ecbe092f88091c" prot="public">
+          <name>one_minus_constant_alpha</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__render_1gga974f78d25ec60e8dc6e560769f474d41a4ca927a00bbb81ed85f09169e3280e4f" prot="public">
+          <name>src_alpha_saturate</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__render_1gga974f78d25ec60e8dc6e560769f474d41ab0d68a99473c977a3817fedc7d08f0e2" prot="public">
+          <name>src1_color</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__render_1gga974f78d25ec60e8dc6e560769f474d41adfdd9575355e1f8bf7a8ac999b80aec5" prot="public">
+          <name>one_minus_src1_color</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__render_1gga974f78d25ec60e8dc6e560769f474d41a0617538b9cf7a4e498eb780836a56839" prot="public">
+          <name>src1_alpha</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__render_1gga974f78d25ec60e8dc6e560769f474d41a0f5e5ae7cbb93bf3f4e223b2e967aedf" prot="public">
+          <name>one_minus_src1_alpha</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/blend.h" line="10" column="1" bodyfile="libs/render/src/render/blend.h" bodystart="11" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__render_1gafdedc77ac04d69fa6e6b99c5a79f4ed4" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>Compare</name>
+        <qualifiedname>eu::render::Compare</qualifiedname>
+        <enumvalue id="group__render_1ggafdedc77ac04d69fa6e6b99c5a79f4ed4af9f90eeaf400d228facde6bc48da5cfb" prot="public">
+          <name>always</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__render_1ggafdedc77ac04d69fa6e6b99c5a79f4ed4ac7561db7a418dd39b2201dfe110ab4a4" prot="public">
+          <name>never</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__render_1ggafdedc77ac04d69fa6e6b99c5a79f4ed4ae37e8d912e8f7b8f9b5ef9452ba47ff1" prot="public">
+          <name>less</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__render_1ggafdedc77ac04d69fa6e6b99c5a79f4ed4a465289687a70db7aa7217cc240c29f0f" prot="public">
+          <name>equal</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__render_1ggafdedc77ac04d69fa6e6b99c5a79f4ed4a77932225fb35fc4b74dc8fabf0992dac" prot="public">
+          <name>less_equal</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__render_1ggafdedc77ac04d69fa6e6b99c5a79f4ed4a7b8dc4fb0fb55fc8eb69ff080c45ed7e" prot="public">
+          <name>greater</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__render_1ggafdedc77ac04d69fa6e6b99c5a79f4ed4a96ee5c0e2a7149613e7fd0b83316486e" prot="public">
+          <name>not_equal</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__render_1ggafdedc77ac04d69fa6e6b99c5a79f4ed4a5675102b0e596d9d43bbb0e0f8ea07e2" prot="public">
+          <name>greater_equal</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/compare.h" line="10" column="1" bodyfile="libs/render/src/render/compare.h" bodystart="11" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__render_1ga2a476d1716c1cbf4ac750f6f7941af87" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>CullFace</name>
+        <qualifiedname>eu::render::CullFace</qualifiedname>
+        <enumvalue id="group__render_1gga2a476d1716c1cbf4ac750f6f7941af87ae6ec529ba185279aa0adcf93e645c7cd" prot="public">
+          <name>front</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__render_1gga2a476d1716c1cbf4ac750f6f7941af87a469bba0a564235dfceede42db14f17b0" prot="public">
+          <name>back</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__render_1gga2a476d1716c1cbf4ac750f6f7941af87ad46b3c78f91c7d43349252714bf07404" prot="public">
+          <name>front_and_back</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/cullface.h" line="10" column="1" bodyfile="libs/render/src/render/cullface.h" bodystart="11" bodyend="15"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__render_1ga3b342a9576b9003ba20553d4c3dbacb0" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>RenderMode</name>
+        <qualifiedname>eu::render::RenderMode</qualifiedname>
+        <enumvalue id="group__render_1gga3b342a9576b9003ba20553d4c3dbacb0aa552c74784b3a82177bca6c8adde0efb" prot="public">
+          <name>fill</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__render_1gga3b342a9576b9003ba20553d4c3dbacb0a6438c669e0d0de98e6929c2cc0fac474" prot="public">
+          <name>line</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__render_1gga3b342a9576b9003ba20553d4c3dbacb0a78ee54aa8f813885fe2fe20d232518b9" prot="public">
+          <name>point</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/rendermode.h" line="10" column="1" bodyfile="libs/render/src/render/rendermode.h" bodystart="11" bodyend="15"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__render_1ga0f6dcc02ac356d7f5db8177ab779e66b" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>StencilAction</name>
+        <qualifiedname>eu::render::StencilAction</qualifiedname>
+        <enumvalue id="group__render_1gga0f6dcc02ac356d7f5db8177ab779e66ba18ccf61d533b600bbf5a963359223fe4" prot="public">
+          <name>keep</name>
+          <briefdescription>
+<para>The currently stored stencil value is kept. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__render_1gga0f6dcc02ac356d7f5db8177ab779e66bad02c4c4cde7ae76252540d116a40f23a" prot="public">
+          <name>zero</name>
+          <briefdescription>
+<para>The stencil value is set to 0. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__render_1gga0f6dcc02ac356d7f5db8177ab779e66ba9dde360102c103867bd2f45872f1129c" prot="public">
+          <name>replace</name>
+          <briefdescription>
+<para>The stencil value is replaced with the reference value set with stencil_func. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__render_1gga0f6dcc02ac356d7f5db8177ab779e66ba11198b294adbcf089f9d27990258fd22" prot="public">
+          <name>increase</name>
+          <briefdescription>
+<para>The stencil value is increased by 1 if it is lower than the maximum value. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__render_1gga0f6dcc02ac356d7f5db8177ab779e66bad064962a2816754e5a85ff6f3ea93d98" prot="public">
+          <name>increase_wrap</name>
+          <briefdescription>
+<para>Same as increase, but wraps it back to 0 as soon as the maximum value is exceeded. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__render_1gga0f6dcc02ac356d7f5db8177ab779e66bab0fe2606af48e49fd3746844798eb6a0" prot="public">
+          <name>decrease</name>
+          <briefdescription>
+<para>The stencil value is decreased by 1 if it is higher than the minimum value. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__render_1gga0f6dcc02ac356d7f5db8177ab779e66baeea8162fd4103d6d9864b893f79150f1" prot="public">
+          <name>decrease_wrap</name>
+          <briefdescription>
+<para>Same as decrease, but wraps it to the maximum value if it ends up lower than 0. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__render_1gga0f6dcc02ac356d7f5db8177ab779e66ba20e57f32ba12b9cd13ebe9ef5e32d949" prot="public">
+          <name>invert</name>
+          <briefdescription>
+<para>Bitwise inverts the current stencil buffer value. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/stencilaction.h" line="11" column="1" bodyfile="libs/render/src/render/stencilaction.h" bodystart="12" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__render_1ga7687cc8a71098e792bfd48daabb7622a" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>UniformType</name>
+        <qualifiedname>eu::render::UniformType</qualifiedname>
+        <enumvalue id="group__render_1gga7687cc8a71098e792bfd48daabb7622aafedb2d84cafe20862cb4399751a8a7e3" prot="public">
+          <name>invalid</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__render_1gga7687cc8a71098e792bfd48daabb7622aa5c3e61d27b2bdaf4ddb98aadc356e863" prot="public">
+          <name>bool_type</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__render_1gga7687cc8a71098e792bfd48daabb7622aa06d324fffd90570dc177e7d1aabcb4dd" prot="public">
+          <name>int_type</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__render_1gga7687cc8a71098e792bfd48daabb7622aafd7170216efb2a7d32648e80919fb0ff" prot="public">
+          <name>float_type</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__render_1gga7687cc8a71098e792bfd48daabb7622aa87c214e1e77f5e0644a224f3df50fae7" prot="public">
+          <name>vec2</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__render_1gga7687cc8a71098e792bfd48daabb7622aa97ade28e93c0de60adc075bdbe07ca36" prot="public">
+          <name>vec3</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__render_1gga7687cc8a71098e792bfd48daabb7622aa1a9028fd802c481a99491a418ca2fe86" prot="public">
+          <name>vec4</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__render_1gga7687cc8a71098e792bfd48daabb7622aabe14b41eb96410ea28b32bc138d885ae" prot="public">
+          <name>mat4</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/uniform_buffer.h" line="17" column="1" bodyfile="libs/render/src/render/uniform_buffer.h" bodystart="18" bodyend="27"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="group__render_1gaf20743f7c4f35277d1d278d8ac20368d" prot="public" static="no">
+        <type>std::tuple&lt; Blend, Blend &gt;</type>
+        <definition>using eu::render::BlendMode = typedef std::tuple&lt;Blend, Blend&gt;</definition>
+        <argsstring></argsstring>
+        <name>BlendMode</name>
+        <qualifiedname>eu::render::BlendMode</qualifiedname>
+        <briefdescription>
+<para>Blend mode state consisting of src and dst blend functions. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/opengl_states.h" line="21" column="1" bodyfile="libs/render/src/render/opengl_states.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="group__render_1gad0035b261e0f761ea8db04d8b5de2ef5" prot="public" static="no">
+        <type>std::tuple&lt; Compare, i32, u32 &gt;</type>
+        <definition>using eu::render::StencilFunc = typedef std::tuple&lt;Compare, i32, u32&gt;</definition>
+        <argsstring></argsstring>
+        <name>StencilFunc</name>
+        <qualifiedname>eu::render::StencilFunc</qualifiedname>
+        <briefdescription>
+<para>Stencil function state consisiting of the compare function, the ref and the state. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="structeu_1_1render_1_1StateChanger_1a85fab734d9b123838197ccaa338bab9a" kindref="member">StateChanger::stencil_func</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/opengl_states.h" line="25" column="1" bodyfile="libs/render/src/render/opengl_states.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="group__render_1ga90cb5bd57c88feb4e3d017558200ced1" prot="public" static="no">
+        <type>std::tuple&lt; StencilAction, StencilAction, StencilAction &gt;</type>
+        <definition>using eu::render::StencilOp = typedef std::tuple&lt;StencilAction, StencilAction, StencilAction&gt;</definition>
+        <argsstring></argsstring>
+        <name>StencilOp</name>
+        <qualifiedname>eu::render::StencilOp</qualifiedname>
+        <briefdescription>
+<para>Stencil operation state consisting of the stencil fail, depth fail and the pass action. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/opengl_states.h" line="28" column="1" bodyfile="libs/render/src/render/opengl_states.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="group__render_1ga2cc951e13f245b624dacdb8c56e4406f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::render::bind_texture_2d</definition>
+        <argsstring>(OpenglStates *states, const Uniform &amp;uniform, const Texture2d &amp;texture)</argsstring>
+        <name>bind_texture_2d</name>
+        <qualifiedname>eu::render::bind_texture_2d</qualifiedname>
+        <param>
+          <type>OpenglStates *</type>
+          <declname>states</declname>
+        </param>
+        <param>
+          <type>const Uniform &amp;</type>
+          <declname>uniform</declname>
+        </param>
+        <param>
+          <type>const Texture2d &amp;</type>
+          <declname>texture</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/statechanger.h" line="60" column="6" declfile="libs/render/src/render/statechanger.h" declline="60" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__render_1ga7d819c261dcbeb0e99ed64fb59efeb34" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::render::bind_texture_2d</definition>
+        <argsstring>(OpenglStates *states, const Uniform &amp;uniform, const FrameBuffer &amp;texture)</argsstring>
+        <name>bind_texture_2d</name>
+        <qualifiedname>eu::render::bind_texture_2d</qualifiedname>
+        <param>
+          <type>OpenglStates *</type>
+          <declname>states</declname>
+        </param>
+        <param>
+          <type>const Uniform &amp;</type>
+          <declname>uniform</declname>
+        </param>
+        <param>
+          <type>const FrameBuffer &amp;</type>
+          <declname>texture</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/statechanger.h" line="61" column="6" declfile="libs/render/src/render/statechanger.h" declline="61" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__render_1gae31a880e7b9c2112e82beefbeacea9b8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::render::bind_texture_cubemap</definition>
+        <argsstring>(OpenglStates *states, const Uniform &amp;uniform, const TextureCubemap &amp;texture)</argsstring>
+        <name>bind_texture_cubemap</name>
+        <qualifiedname>eu::render::bind_texture_cubemap</qualifiedname>
+        <param>
+          <type>OpenglStates *</type>
+          <declname>states</declname>
+        </param>
+        <param>
+          <type>const Uniform &amp;</type>
+          <declname>uniform</declname>
+        </param>
+        <param>
+          <type>const TextureCubemap &amp;</type>
+          <declname>texture</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/statechanger.h" line="62" column="6" declfile="libs/render/src/render/statechanger.h" declline="62" declcolumn="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structeu_1_1render_1_1UniformBufferSetup" kind="struct" language="C++" prot="public">
+    <compoundname>eu::render::UniformBufferSetup</compoundname>
+    <includes refid="uniform__buffer_8h" local="no">uniform_buffer.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1render_1_1UniformBufferSetup_1abb2dc27a815f49d3299ad119a8604b23" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+        <definition>int eu::render::UniformBufferSetup::size</definition>
+        <argsstring></argsstring>
+        <name>size</name>
+        <qualifiedname>eu::render::UniformBufferSetup::size</qualifiedname>
+        <initializer>= 512</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/uniform_buffer.h" line="31" column="5" bodyfile="libs/render/src/render/uniform_buffer.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1UniformBufferSetup_1a1460e001022a8725302829d344b13329" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+        <definition>int eu::render::UniformBufferSetup::binding_point</definition>
+        <argsstring></argsstring>
+        <name>binding_point</name>
+        <qualifiedname>eu::render::UniformBufferSetup::binding_point</qualifiedname>
+        <initializer>= 1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/uniform_buffer.h" line="32" column="5" bodyfile="libs/render/src/render/uniform_buffer.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1UniformBufferSetup_1ad93a8c3776a4f45e8a1a9e1f95d2b3fc" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string eu::render::UniformBufferSetup::name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <qualifiedname>eu::render::UniformBufferSetup::name</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/uniform_buffer.h" line="33" column="13" bodyfile="libs/render/src/render/uniform_buffer.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1UniformBufferSetup_1af5d889c4220c89a346fc8ad78bbf39c9" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string eu::render::UniformBufferSetup::source</definition>
+        <argsstring></argsstring>
+        <name>source</name>
+        <qualifiedname>eu::render::UniformBufferSetup::source</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/uniform_buffer.h" line="34" column="13" bodyfile="libs/render/src/render/uniform_buffer.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/render/src/render/uniform_buffer.h" line="29" column="1" bodyfile="libs/render/src/render/uniform_buffer.h" bodystart="30" bodyend="35"/>
+    <listofallmembers>
+      <member refid="structeu_1_1render_1_1UniformBufferSetup_1a1460e001022a8725302829d344b13329" prot="public" virt="non-virtual"><scope>eu::render::UniformBufferSetup</scope><name>binding_point</name></member>
+      <member refid="structeu_1_1render_1_1UniformBufferSetup_1ad93a8c3776a4f45e8a1a9e1f95d2b3fc" prot="public" virt="non-virtual"><scope>eu::render::UniformBufferSetup</scope><name>name</name></member>
+      <member refid="structeu_1_1render_1_1UniformBufferSetup_1abb2dc27a815f49d3299ad119a8604b23" prot="public" virt="non-virtual"><scope>eu::render::UniformBufferSetup</scope><name>size</name></member>
+      <member refid="structeu_1_1render_1_1UniformBufferSetup_1af5d889c4220c89a346fc8ad78bbf39c9" prot="public" virt="non-virtual"><scope>eu::render::UniformBufferSetup</scope><name>source</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

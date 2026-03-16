@@ -1,0 +1,253 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structeu_1_1render_1_1FrameBuffer" kind="struct" language="C++" prot="public">
+    <compoundname>eu::render::FrameBuffer</compoundname>
+    <basecompoundref refid="structeu_1_1render_1_1BaseTexture" prot="public" virt="non-virtual">eu::render::BaseTexture</basecompoundref>
+    <includes refid="texture_8h" local="no">texture.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1render_1_1FrameBuffer_1a8dcaf7e7c4de65a365610d6aacccd320" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1Size" kindref="compound">Size</ref></type>
+        <definition>Size eu::render::FrameBuffer::size</definition>
+        <argsstring></argsstring>
+        <name>size</name>
+        <qualifiedname>eu::render::FrameBuffer::size</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/texture.h" line="129" column="6" bodyfile="libs/render/src/render/texture.h" bodystart="129" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1FrameBuffer_1ab12db0dc79dcd8cde2abf78d3f8a9007" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">unsigned</ref> <ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+        <definition>unsigned int eu::render::FrameBuffer::fbo</definition>
+        <argsstring></argsstring>
+        <name>fbo</name>
+        <qualifiedname>eu::render::FrameBuffer::fbo</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/texture.h" line="131" column="14" bodyfile="libs/render/src/render/texture.h" bodystart="131" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1FrameBuffer_1a179ba2a87b9c8d3aee4fed5b6d050991" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">unsigned</ref> <ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+        <definition>unsigned int eu::render::FrameBuffer::rbo</definition>
+        <argsstring></argsstring>
+        <name>rbo</name>
+        <qualifiedname>eu::render::FrameBuffer::rbo</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/texture.h" line="132" column="14" bodyfile="libs/render/src/render/texture.h" bodystart="132" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1FrameBuffer_1a77a9a6d0c6862f9f97c228949244c02e" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">bool</ref></type>
+        <definition>bool eu::render::FrameBuffer::debug_is_msaa</definition>
+        <argsstring></argsstring>
+        <name>debug_is_msaa</name>
+        <qualifiedname>eu::render::FrameBuffer::debug_is_msaa</qualifiedname>
+        <initializer>= <ref refid="structeu_1_1R" kindref="compound">false</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/texture.h" line="134" column="6" bodyfile="libs/render/src/render/texture.h" bodystart="134" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1render_1_1FrameBuffer_1aabe9d11ca6515275286ab1fdcb01a361" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::FrameBuffer::FrameBuffer</definition>
+        <argsstring>(unsigned int f, const Size &amp;s)</argsstring>
+        <name>FrameBuffer</name>
+        <qualifiedname>eu::render::FrameBuffer::FrameBuffer</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">unsigned</ref> <ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+          <declname>f</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1Size" kindref="compound">Size</ref> &amp;</type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>f</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The FBO handle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>s</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the texture size </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/texture.h" line="121" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1FrameBuffer_1a398768c60fc9092867d7606cbbf15cd0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::FrameBuffer::~FrameBuffer</definition>
+        <argsstring>()</argsstring>
+        <name>~FrameBuffer</name>
+        <qualifiedname>eu::render::FrameBuffer::~FrameBuffer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/texture.h" line="122" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1FrameBuffer_1a9b2ccb98b5d162a5a503360133603862" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::FrameBuffer::FrameBuffer</definition>
+        <argsstring>(const FrameBuffer &amp;)=delete</argsstring>
+        <name>FrameBuffer</name>
+        <qualifiedname>eu::render::FrameBuffer::FrameBuffer</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1FrameBuffer" kindref="compound">FrameBuffer</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/texture.h" line="124" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1FrameBuffer_1ab522fef2607ab4ded48f87536790f80a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::FrameBuffer::FrameBuffer</definition>
+        <argsstring>(FrameBuffer &amp;&amp;)=delete</argsstring>
+        <name>FrameBuffer</name>
+        <qualifiedname>eu::render::FrameBuffer::FrameBuffer</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1render_1_1FrameBuffer" kindref="compound">FrameBuffer</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/texture.h" line="125" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1FrameBuffer_1ade39c8bcd0a192c158913a1d1ab78750" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <definition>void eu::render::FrameBuffer::operator=</definition>
+        <argsstring>(const FrameBuffer &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <qualifiedname>eu::render::FrameBuffer::operator=</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1FrameBuffer" kindref="compound">FrameBuffer</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/texture.h" line="126" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1FrameBuffer_1ac6720e295b60a1a9710f904ebb3fa7b0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <definition>void eu::render::FrameBuffer::operator=</definition>
+        <argsstring>(FrameBuffer &amp;&amp;)=delete</argsstring>
+        <name>operator=</name>
+        <qualifiedname>eu::render::FrameBuffer::operator=</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1render_1_1FrameBuffer" kindref="compound">FrameBuffer</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/texture.h" line="127" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>&quot;render to texture&quot; feature </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="see"><para>create-framebuffer </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>eu::render::BaseTexture</label>
+        <link refid="structeu_1_1render_1_1BaseTexture"/>
+      </node>
+      <node id="1">
+        <label>eu::render::FrameBuffer</label>
+        <link refid="structeu_1_1render_1_1FrameBuffer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>eu::Size</label>
+        <link refid="structeu_1_1Size"/>
+      </node>
+      <node id="2">
+        <label>eu::render::BaseTexture</label>
+        <link refid="structeu_1_1render_1_1BaseTexture"/>
+      </node>
+      <node id="1">
+        <label>eu::render::FrameBuffer</label>
+        <link refid="structeu_1_1render_1_1FrameBuffer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>size</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="libs/render/src/render/texture.h" line="117" column="1" bodyfile="libs/render/src/render/texture.h" bodystart="118" bodyend="135"/>
+    <listofallmembers>
+      <member refid="structeu_1_1render_1_1BaseTexture_1a4f8bf634470e48be913dac919fd688c7" prot="public" virt="non-virtual"><scope>eu::render::FrameBuffer</scope><name>BaseTexture</name></member>
+      <member refid="structeu_1_1render_1_1BaseTexture_1a08ea1db1ea08e6d38f9b9f85fc228f9e" prot="public" virt="non-virtual"><scope>eu::render::FrameBuffer</scope><name>BaseTexture</name></member>
+      <member refid="structeu_1_1render_1_1BaseTexture_1a7888eaf78c11d8bf441fca0a5113530b" prot="public" virt="non-virtual"><scope>eu::render::FrameBuffer</scope><name>BaseTexture</name></member>
+      <member refid="structeu_1_1render_1_1FrameBuffer_1a77a9a6d0c6862f9f97c228949244c02e" prot="public" virt="non-virtual"><scope>eu::render::FrameBuffer</scope><name>debug_is_msaa</name></member>
+      <member refid="structeu_1_1render_1_1FrameBuffer_1ab12db0dc79dcd8cde2abf78d3f8a9007" prot="public" virt="non-virtual"><scope>eu::render::FrameBuffer</scope><name>fbo</name></member>
+      <member refid="structeu_1_1render_1_1FrameBuffer_1aabe9d11ca6515275286ab1fdcb01a361" prot="public" virt="non-virtual"><scope>eu::render::FrameBuffer</scope><name>FrameBuffer</name></member>
+      <member refid="structeu_1_1render_1_1FrameBuffer_1a9b2ccb98b5d162a5a503360133603862" prot="public" virt="non-virtual"><scope>eu::render::FrameBuffer</scope><name>FrameBuffer</name></member>
+      <member refid="structeu_1_1render_1_1FrameBuffer_1ab522fef2607ab4ded48f87536790f80a" prot="public" virt="non-virtual"><scope>eu::render::FrameBuffer</scope><name>FrameBuffer</name></member>
+      <member refid="structeu_1_1render_1_1BaseTexture_1a1ad500ed909568d7d3d7042170b9e6dd" prot="public" virt="non-virtual"><scope>eu::render::FrameBuffer</scope><name>id</name></member>
+      <member refid="structeu_1_1render_1_1FrameBuffer_1ade39c8bcd0a192c158913a1d1ab78750" prot="public" virt="non-virtual"><scope>eu::render::FrameBuffer</scope><name>operator=</name></member>
+      <member refid="structeu_1_1render_1_1FrameBuffer_1ac6720e295b60a1a9710f904ebb3fa7b0" prot="public" virt="non-virtual"><scope>eu::render::FrameBuffer</scope><name>operator=</name></member>
+      <member refid="structeu_1_1render_1_1BaseTexture_1a80d0ca15ad4e96b0e1903be4f37b3450" prot="public" virt="non-virtual" ambiguityscope="eu::render::BaseTexture::"><scope>eu::render::FrameBuffer</scope><name>operator=</name></member>
+      <member refid="structeu_1_1render_1_1BaseTexture_1aeb794f4887900ce084b91d8a0305cdbd" prot="public" virt="non-virtual" ambiguityscope="eu::render::BaseTexture::"><scope>eu::render::FrameBuffer</scope><name>operator=</name></member>
+      <member refid="structeu_1_1render_1_1FrameBuffer_1a179ba2a87b9c8d3aee4fed5b6d050991" prot="public" virt="non-virtual"><scope>eu::render::FrameBuffer</scope><name>rbo</name></member>
+      <member refid="structeu_1_1render_1_1FrameBuffer_1a8dcaf7e7c4de65a365610d6aacccd320" prot="public" virt="non-virtual"><scope>eu::render::FrameBuffer</scope><name>size</name></member>
+      <member refid="structeu_1_1render_1_1BaseTexture_1abe95020af353f26dfc963ac6a8d1cc75" prot="public" virt="non-virtual"><scope>eu::render::FrameBuffer</scope><name>unload</name></member>
+      <member refid="structeu_1_1render_1_1BaseTexture_1a7f422024d5ac229c2dbebf4f17f2dd86" prot="public" virt="non-virtual"><scope>eu::render::FrameBuffer</scope><name>~BaseTexture</name></member>
+      <member refid="structeu_1_1render_1_1FrameBuffer_1a398768c60fc9092867d7606cbbf15cd0" prot="public" virt="non-virtual"><scope>eu::render::FrameBuffer</scope><name>~FrameBuffer</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

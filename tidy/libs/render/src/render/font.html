@@ -1,0 +1,87 @@
+﻿<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+<title>libs/render/src/render/font.cc</title>
+</head>
+<body>
+<h1>libs/render/src/render/font.cc</h1>
+<span id='misc-const-correctness'>&nbsp;</span>
+<hr>
+<h3>warning: variable &#39;dest&#39; of type &#39;std:: shared_ptr&lt;Glyph&gt;&#39; can be declared &#39;const&#39;</h3>
+<code>[misc-const-correctness]</code>
+<p><i>libs/render/src/render/font.cc 191 : 13</i></p>
+<pre>
+  191 |             std::shared_ptr&lt;Glyph&gt; dest
+      |             ^
+      |                                    const 
+</pre>
+<span id='readability-convert-member-functions-to-static'>&nbsp;</span>
+<hr>
+<h3>warning: method &#39;draw_background&#39; can be made static</h3>
+<code>[readability-convert-member-functions-to-static]</code>
+<p><i>libs/render/src/render/font.cc 218 : 19</i></p>
+<pre>
+  218 |     DrawableFont::draw_background
+      |                   ^
+  219 |     (
+  220 |         SpriteBatch* renderer,
+  221 |         float alpha,
+  222 |         const Rect&amp; where
+  223 |     ) const
+      |       ~~~~~
+</pre>
+<span id='cppcoreguidelines-avoid-const-or-ref-data-members'>&nbsp;</span>
+<hr>
+<h3>warning: member &#39;font&#39; of type &#39;const DrawableFont &amp;&#39; is a reference</h3>
+<code>[cppcoreguidelines-avoid-const-or-ref-data-members]</code>
+<p><i>libs/render/src/render/font.cc 280 : 29</i></p>
+<pre>
+  280 |         const DrawableFont&amp; font;
+      |                             ^
+</pre>
+<span id='readability-avoid-unconditional-preprocessor-if'>&nbsp;</span>
+<hr>
+<h3>warning: preprocessor condition is always &#39;false&#39;, consider removing both the condition and its contents</h3>
+<code>[readability-avoid-unconditional-preprocessor-if]</code>
+<p><i>libs/render/src/render/font.cc 315 : 2</i></p>
+<pre>
+  315 | #if 0
+      |  ^
+</pre>
+<hr>
+<h3>warning: variable &#39;ch&#39; of type &#39;std:: shared_ptr&lt;Glyph&gt;&#39; can be declared &#39;const&#39;</h3>
+<code>[misc-const-correctness]</code>
+<p><i>libs/render/src/render/font.cc 366 : 17</i></p>
+<pre>
+  366 |                 std::shared_ptr&lt;Glyph&gt; ch = it-&gt;second;
+      |                 ^
+      |                                        const 
+</pre>
+<!--
+/home/runner/work/euphoria/euphoria/libs/render/src/render/font.cc:191:13: warning: variable 'dest' of type 'std::shared_ptr<Glyph>' can be declared 'const' [misc-const-correctness]
+  191 |             std::shared_ptr<Glyph> dest
+      |             ^
+      |                                    const 
+/home/runner/work/euphoria/euphoria/libs/render/src/render/font.cc:218:19: warning: method 'draw_background' can be made static [readability-convert-member-functions-to-static]
+  218 |     DrawableFont::draw_background
+      |                   ^
+  219 |     (
+  220 |         SpriteBatch* renderer,
+  221 |         float alpha,
+  222 |         const Rect& where
+  223 |     ) const
+      |       ~~~~~
+/home/runner/work/euphoria/euphoria/libs/render/src/render/font.cc:280:29: warning: member 'font' of type 'const DrawableFont &' is a reference [cppcoreguidelines-avoid-const-or-ref-data-members]
+  280 |         const DrawableFont& font;
+      |                             ^
+/home/runner/work/euphoria/euphoria/libs/render/src/render/font.cc:315:2: warning: preprocessor condition is always 'false', consider removing both the condition and its contents [readability-avoid-unconditional-preprocessor-if]
+  315 | #if 0
+      |  ^
+/home/runner/work/euphoria/euphoria/libs/render/src/render/font.cc:366:17: warning: variable 'ch' of type 'std::shared_ptr<Glyph>' can be declared 'const' [misc-const-correctness]
+  366 |                 std::shared_ptr<Glyph> ch = it->second;
+      |                 ^
+      |                                        const 
+-->
+</body>
+</html>

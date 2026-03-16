@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="image_8h" kind="file" language="C++">
+    <compoundname>image.h</compoundname>
+    <includedby refid="loadedfont_8h" local="yes">libs/core/src/core/loadedfont.h</includedby>
+    <invincdepgraph>
+      <node id="1">
+        <label>libs/core/src/core/image.h</label>
+        <link refid="image_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>libs/core/src/core/loadedfont.h</label>
+        <link refid="loadedfont_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>libs/render/src/render/font.h</label>
+        <link refid="font_8h"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structeu_1_1core_1_1PixelColor" prot="public">eu::core::PixelColor</innerclass>
+    <innerclass refid="structeu_1_1core_1_1Image" prot="public">eu::core::Image</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/image.h"/>
+  </compounddef>
+</doxygen>

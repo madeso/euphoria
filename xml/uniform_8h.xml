@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="uniform_8h" kind="file" language="C++">
+    <compoundname>uniform.h</compoundname>
+    <includedby refid="shader_8h" local="yes">libs/render/src/render/shader.h</includedby>
+    <invincdepgraph>
+      <node id="3">
+        <label>libs/render/src/render/canvas.h</label>
+        <link refid="canvas_8h"/>
+      </node>
+      <node id="2">
+        <label>libs/render/src/render/shader.h</label>
+        <link refid="shader_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>libs/render/src/render/uniform.h</label>
+        <link refid="uniform_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structeu_1_1render_1_1Uniform" prot="public">eu::render::Uniform</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1render">eu::render</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/render/src/render/uniform.h"/>
+  </compounddef>
+</doxygen>

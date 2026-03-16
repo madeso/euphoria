@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structeu_1_1render_1_1CompiledVertexElementNoName" kind="struct" language="C++" prot="public">
+    <compoundname>eu::render::CompiledVertexElementNoName</compoundname>
+    <includes refid="vertex__layout_8h" local="no">vertex_layout.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1render_1_1CompiledVertexElementNoName_1a26f7c0e4c808b978c99604812b7c15e1" prot="public" static="no" mutable="no">
+        <type><ref refid="group__vertex-layout_1gac45dc005a83f6afdda19dbb70f82945b" kindref="member">VertexType</ref></type>
+        <definition>VertexType eu::render::CompiledVertexElementNoName::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <qualifiedname>eu::render::CompiledVertexElementNoName::type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/vertex_layout.h" line="65" column="12" bodyfile="libs/render/src/render/vertex_layout.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1CompiledVertexElementNoName_1a618c08e5120608378e3433f1dc8d1545" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+        <definition>int eu::render::CompiledVertexElementNoName::index</definition>
+        <argsstring></argsstring>
+        <name>index</name>
+        <qualifiedname>eu::render::CompiledVertexElementNoName::index</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/vertex_layout.h" line="66" column="5" bodyfile="libs/render/src/render/vertex_layout.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>A realized VertexElementDescription without name like <computeroutput>vec3</computeroutput> at gl shader position 3. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/render/src/render/vertex_layout.h" line="63" column="1" bodyfile="libs/render/src/render/vertex_layout.h" bodystart="64" bodyend="67"/>
+    <listofallmembers>
+      <member refid="structeu_1_1render_1_1CompiledVertexElementNoName_1a618c08e5120608378e3433f1dc8d1545" prot="public" virt="non-virtual"><scope>eu::render::CompiledVertexElementNoName</scope><name>index</name></member>
+      <member refid="structeu_1_1render_1_1CompiledVertexElementNoName_1a26f7c0e4c808b978c99604812b7c15e1" prot="public" virt="non-virtual"><scope>eu::render::CompiledVertexElementNoName</scope><name>type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

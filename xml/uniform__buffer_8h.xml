@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="uniform__buffer_8h" kind="file" language="C++">
+    <compoundname>uniform_buffer.h</compoundname>
+    <includes refid="opengl__labels_8h" local="yes">render/opengl_labels.h</includes>
+    <incdepgraph>
+      <node id="2">
+        <label>render/opengl_labels.h</label>
+        <link refid="opengl__labels_8h"/>
+      </node>
+      <node id="1">
+        <label>libs/render/src/render/uniform_buffer.h</label>
+        <link refid="uniform__buffer_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <innerclass refid="structeu_1_1render_1_1UniformBufferSetup" prot="public">eu::render::UniformBufferSetup</innerclass>
+    <innerclass refid="structeu_1_1render_1_1CompiledUniformProp" prot="public">eu::render::CompiledUniformProp</innerclass>
+    <innerclass refid="structeu_1_1render_1_1UniformProp" prot="public">eu::render::UniformProp</innerclass>
+    <innerclass refid="structeu_1_1render_1_1UniformBufferCompiler" prot="public">eu::render::UniformBufferCompiler</innerclass>
+    <innerclass refid="structeu_1_1render_1_1UniformBuffer" prot="public">eu::render::UniformBuffer</innerclass>
+    <innerclass refid="structeu_1_1render_1_1BoundUniformBuffer" prot="public">eu::render::BoundUniformBuffer</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1render">eu::render</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/render/src/render/uniform_buffer.h"/>
+  </compounddef>
+</doxygen>

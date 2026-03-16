@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_146da238a240638cdf54363209817292" kind="dir">
+    <compoundname>libs/render/src/render</compoundname>
+    <innerfile refid="blend_8h">blend.h</innerfile>
+    <innerfile refid="canvas_8h">canvas.h</innerfile>
+    <innerfile refid="compare_8h">compare.h</innerfile>
+    <innerfile refid="constants_8h">constants.h</innerfile>
+    <innerfile refid="cullface_8h">cullface.h</innerfile>
+    <innerfile refid="enable__high__performance__graphics_8h">enable_high_performance_graphics.h</innerfile>
+    <innerfile refid="font_8h">font.h</innerfile>
+    <innerfile refid="opengl__labels_8h">opengl_labels.h</innerfile>
+    <innerfile refid="opengl__states_8h">opengl_states.h</innerfile>
+    <innerfile refid="opengl__utils_8h">opengl_utils.h</innerfile>
+    <innerfile refid="rendermode_8h">rendermode.h</innerfile>
+    <innerfile refid="shader_8h">shader.h</innerfile>
+    <innerfile refid="statechanger_8h">statechanger.h</innerfile>
+    <innerfile refid="stencilaction_8h">stencilaction.h</innerfile>
+    <innerfile refid="texture_8h">texture.h</innerfile>
+    <innerfile refid="texture_8io_8h">texture.io.h</innerfile>
+    <innerfile refid="uniform_8h">uniform.h</innerfile>
+    <innerfile refid="uniform__buffer_8h">uniform_buffer.h</innerfile>
+    <innerfile refid="vertex__layout_8h">vertex_layout.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/render/src/render/"/>
+  </compounddef>
+</doxygen>

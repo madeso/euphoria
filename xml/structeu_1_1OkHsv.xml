@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structeu_1_1OkHsv" kind="struct" language="C++" prot="public">
+    <compoundname>eu::OkHsv</compoundname>
+    <includes refid="colors_8h" local="no">colors.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1OkHsv_1a7dfa637224ba4c1c4a6c93ce2bca2ea9" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1An" kindref="compound">An</ref></type>
+        <definition>An eu::OkHsv::hue</definition>
+        <argsstring></argsstring>
+        <name>hue</name>
+        <qualifiedname>eu::OkHsv::hue</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/colors.h" line="36" column="4" bodyfile="libs/base/src/base/colors.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1OkHsv_1a48bb204edf9676c2351c114ee041dc2f" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+        <definition>float eu::OkHsv::saturation</definition>
+        <argsstring></argsstring>
+        <name>saturation</name>
+        <qualifiedname>eu::OkHsv::saturation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/colors.h" line="37" column="7" bodyfile="libs/base/src/base/colors.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1OkHsv_1ad57875fb17fa0e9bb8dd4f509eca9428" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+        <definition>float eu::OkHsv::value</definition>
+        <argsstring></argsstring>
+        <name>value</name>
+        <qualifiedname>eu::OkHsv::value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/colors.h" line="38" column="7" bodyfile="libs/base/src/base/colors.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Represents a color in the OKhsv color space. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>eu::An</label>
+        <link refid="structeu_1_1An"/>
+      </node>
+      <node id="1">
+        <label>eu::OkHsv</label>
+        <link refid="structeu_1_1OkHsv"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>hue</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="libs/base/src/base/colors.h" line="34" column="1" bodyfile="libs/base/src/base/colors.h" bodystart="35" bodyend="39"/>
+    <listofallmembers>
+      <member refid="structeu_1_1OkHsv_1a7dfa637224ba4c1c4a6c93ce2bca2ea9" prot="public" virt="non-virtual"><scope>eu::OkHsv</scope><name>hue</name></member>
+      <member refid="structeu_1_1OkHsv_1a48bb204edf9676c2351c114ee041dc2f" prot="public" virt="non-virtual"><scope>eu::OkHsv</scope><name>saturation</name></member>
+      <member refid="structeu_1_1OkHsv_1ad57875fb17fa0e9bb8dd4f509eca9428" prot="public" virt="non-virtual"><scope>eu::OkHsv</scope><name>value</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structeu_1_1render_1_1Layer" kind="struct" language="C++" prot="public">
+    <compoundname>eu::render::Layer</compoundname>
+    <derivedcompoundref refid="structeu_1_1render_1_1RenderLayer2" prot="public" virt="non-virtual">eu::render::RenderLayer2</derivedcompoundref>
+    <derivedcompoundref refid="structeu_1_1render_1_1RenderLayer3" prot="public" virt="non-virtual">eu::render::RenderLayer3</derivedcompoundref>
+    <includes refid="canvas_8h" local="no">canvas.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1render_1_1Layer_1a7c89993da5c98c4c33005592aa910ecf" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1Rect" kindref="compound">Rect</ref></type>
+        <definition>Rect eu::render::Layer::viewport_aabb_in_worldspace</definition>
+        <argsstring></argsstring>
+        <name>viewport_aabb_in_worldspace</name>
+        <qualifiedname>eu::render::Layer::viewport_aabb_in_worldspace</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/canvas.h" line="89" column="10" bodyfile="libs/render/src/render/canvas.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1Layer_1a43998af14c83059bc86fda1d01b0b7f5" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1Rect" kindref="compound">Rect</ref></type>
+        <definition>Rect eu::render::Layer::screen</definition>
+        <argsstring></argsstring>
+        <name>screen</name>
+        <qualifiedname>eu::render::Layer::screen</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/canvas.h" line="90" column="10" bodyfile="libs/render/src/render/canvas.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1render_1_1Layer_1aeb8b243abd94f3b72e4fbc8169bf52b2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1v2" kindref="compound">v2</ref></type>
+        <definition>v2 eu::render::Layer::mouse_to_world</definition>
+        <argsstring>(const v2 &amp;p) const</argsstring>
+        <name>mouse_to_world</name>
+        <qualifiedname>eu::render::Layer::mouse_to_world</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1v2" kindref="compound">v2</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/canvas.h" line="92" column="8"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>eu::render::Layer</label>
+        <link refid="structeu_1_1render_1_1Layer"/>
+      </node>
+      <node id="2">
+        <label>eu::render::RenderLayer2</label>
+        <link refid="structeu_1_1render_1_1RenderLayer2"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>eu::render::RenderLayer3</label>
+        <link refid="structeu_1_1render_1_1RenderLayer3"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>eu::Rect</label>
+        <link refid="structeu_1_1Rect"/>
+      </node>
+      <node id="1">
+        <label>eu::render::Layer</label>
+        <link refid="structeu_1_1render_1_1Layer"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>screen</edgelabel>
+          <edgelabel>viewport_aabb_in_worldspace</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="libs/render/src/render/canvas.h" line="87" column="1" bodyfile="libs/render/src/render/canvas.h" bodystart="88" bodyend="93"/>
+    <listofallmembers>
+      <member refid="structeu_1_1render_1_1Layer_1aeb8b243abd94f3b72e4fbc8169bf52b2" prot="public" virt="non-virtual"><scope>eu::render::Layer</scope><name>mouse_to_world</name></member>
+      <member refid="structeu_1_1render_1_1Layer_1a43998af14c83059bc86fda1d01b0b7f5" prot="public" virt="non-virtual"><scope>eu::render::Layer</scope><name>screen</name></member>
+      <member refid="structeu_1_1render_1_1Layer_1a7c89993da5c98c4c33005592aa910ecf" prot="public" virt="non-virtual"><scope>eu::render::Layer</scope><name>viewport_aabb_in_worldspace</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

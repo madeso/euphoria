@@ -1,0 +1,738 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="namespaceeu_1_1render" kind="namespace" language="C++">
+    <compoundname>eu::render</compoundname>
+    <innerclass refid="structeu_1_1render_1_1BaseTexture" prot="public">eu::render::BaseTexture</innerclass>
+    <innerclass refid="structeu_1_1render_1_1BoundFbo" prot="public">eu::render::BoundFbo</innerclass>
+    <innerclass refid="structeu_1_1render_1_1BoundUniformBuffer" prot="public">eu::render::BoundUniformBuffer</innerclass>
+    <innerclass refid="structeu_1_1render_1_1CompiledGeomVertexAttributes" prot="public">eu::render::CompiledGeomVertexAttributes</innerclass>
+    <innerclass refid="structeu_1_1render_1_1CompiledShaderVertexAttributes" prot="public">eu::render::CompiledShaderVertexAttributes</innerclass>
+    <innerclass refid="structeu_1_1render_1_1CompiledUniformProp" prot="public">eu::render::CompiledUniformProp</innerclass>
+    <innerclass refid="structeu_1_1render_1_1CompiledVertexElement" prot="public">eu::render::CompiledVertexElement</innerclass>
+    <innerclass refid="structeu_1_1render_1_1CompiledVertexElementNoName" prot="public">eu::render::CompiledVertexElementNoName</innerclass>
+    <innerclass refid="structeu_1_1render_1_1CompiledVertexTypeList" prot="public">eu::render::CompiledVertexTypeList</innerclass>
+    <innerclass refid="structeu_1_1render_1_1DrawableFont" prot="public">eu::render::DrawableFont</innerclass>
+    <innerclass refid="structeu_1_1render_1_1DrawableText" prot="public">eu::render::DrawableText</innerclass>
+    <innerclass refid="structeu_1_1render_1_1FrameBuffer" prot="public">eu::render::FrameBuffer</innerclass>
+    <innerclass refid="structeu_1_1render_1_1Glyph" prot="public">eu::render::Glyph</innerclass>
+    <innerclass refid="structeu_1_1render_1_1InputCommand" prot="public">eu::render::InputCommand</innerclass>
+    <innerclass refid="structeu_1_1render_1_1InstanceProp" prot="public">eu::render::InstanceProp</innerclass>
+    <innerclass refid="structeu_1_1render_1_1Layer" prot="public">eu::render::Layer</innerclass>
+    <innerclass refid="structeu_1_1render_1_1LayoutData" prot="public">eu::render::LayoutData</innerclass>
+    <innerclass refid="structeu_1_1render_1_1LerpData" prot="public">eu::render::LerpData</innerclass>
+    <innerclass refid="structeu_1_1render_1_1ListOfTextDrawCommands" prot="public">eu::render::ListOfTextDrawCommands</innerclass>
+    <innerclass refid="structeu_1_1render_1_1OpenglStates" prot="public">eu::render::OpenglStates</innerclass>
+    <innerclass refid="structeu_1_1render_1_1Quad" prot="public">eu::render::Quad</innerclass>
+    <innerclass refid="structeu_1_1render_1_1Render2" prot="public">eu::render::Render2</innerclass>
+    <innerclass refid="structeu_1_1render_1_1RenderCommand" prot="public">eu::render::RenderCommand</innerclass>
+    <innerclass refid="structeu_1_1render_1_1RenderLayer2" prot="public">eu::render::RenderLayer2</innerclass>
+    <innerclass refid="structeu_1_1render_1_1RenderLayer3" prot="public">eu::render::RenderLayer3</innerclass>
+    <innerclass refid="structeu_1_1render_1_1ShaderProgram" prot="public">eu::render::ShaderProgram</innerclass>
+    <innerclass refid="structeu_1_1render_1_1SpriteBatch" prot="public">eu::render::SpriteBatch</innerclass>
+    <innerclass refid="structeu_1_1render_1_1StateChanger" prot="public">eu::render::StateChanger</innerclass>
+    <innerclass refid="structeu_1_1render_1_1TextDrawCommand" prot="public">eu::render::TextDrawCommand</innerclass>
+    <innerclass refid="structeu_1_1render_1_1Texture2d" prot="public">eu::render::Texture2d</innerclass>
+    <innerclass refid="structeu_1_1render_1_1TextureCubemap" prot="public">eu::render::TextureCubemap</innerclass>
+    <innerclass refid="structeu_1_1render_1_1Uniform" prot="public">eu::render::Uniform</innerclass>
+    <innerclass refid="structeu_1_1render_1_1UniformBuffer" prot="public">eu::render::UniformBuffer</innerclass>
+    <innerclass refid="structeu_1_1render_1_1UniformBufferCompiler" prot="public">eu::render::UniformBufferCompiler</innerclass>
+    <innerclass refid="structeu_1_1render_1_1UniformBufferSetup" prot="public">eu::render::UniformBufferSetup</innerclass>
+    <innerclass refid="structeu_1_1render_1_1UniformProp" prot="public">eu::render::UniformProp</innerclass>
+    <innerclass refid="structeu_1_1render_1_1Vertex2" prot="public">eu::render::Vertex2</innerclass>
+    <innerclass refid="structeu_1_1render_1_1VertexElementDescription" prot="public">eu::render::VertexElementDescription</innerclass>
+    <sectiondef kind="enum">
+      <member refid="group__render_1ga974f78d25ec60e8dc6e560769f474d41" kind="enum"><name>Blend</name></member>
+      <memberdef kind="enum" id="namespaceeu_1_1render_1a710e23a3fd65289cad2cbea3aafb2a97" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>ViewportStyle</name>
+        <qualifiedname>eu::render::ViewportStyle</qualifiedname>
+        <enumvalue id="namespaceeu_1_1render_1a710e23a3fd65289cad2cbea3aafb2a97a7173167764af0807c3780c7db0a4ecd0" prot="public">
+          <name>black_bars</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeu_1_1render_1a710e23a3fd65289cad2cbea3aafb2a97ad3e78e3d3b68cb0fbd9f66dcaef93cea" prot="public">
+          <name>extended</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/canvas.h" line="27" column="1" bodyfile="libs/render/src/render/canvas.h" bodystart="27" bodyend="27"/>
+      </memberdef>
+      <member refid="group__render_1gafdedc77ac04d69fa6e6b99c5a79f4ed4" kind="enum"><name>Compare</name></member>
+      <member refid="group__render_1ga2a476d1716c1cbf4ac750f6f7941af87" kind="enum"><name>CullFace</name></member>
+      <memberdef kind="enum" id="namespaceeu_1_1render_1aaf6adcd14a4e060d8a9b6433438be51c" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>Align</name>
+        <qualifiedname>eu::render::Align</qualifiedname>
+        <enumvalue id="namespaceeu_1_1render_1aaf6adcd14a4e060d8a9b6433438be51ca46d3836487c2110c695e52750c5d76e4" prot="public">
+          <name>top_left</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeu_1_1render_1aaf6adcd14a4e060d8a9b6433438be51ca153dda402a237b8b093c3c418b66df5d" prot="public">
+          <name>top_center</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeu_1_1render_1aaf6adcd14a4e060d8a9b6433438be51caf12ea736b05cb6002f1ebf1b8c052676" prot="public">
+          <name>top_right</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeu_1_1render_1aaf6adcd14a4e060d8a9b6433438be51ca7d331b3c6c74eddb88c099b96315bda3" prot="public">
+          <name>baseline_left</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeu_1_1render_1aaf6adcd14a4e060d8a9b6433438be51ca2ff91840b31caa27afa34748541c7ac2" prot="public">
+          <name>baseline_center</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeu_1_1render_1aaf6adcd14a4e060d8a9b6433438be51caea7a172d6c64b5a81f1c9b8d35295130" prot="public">
+          <name>baseline_right</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeu_1_1render_1aaf6adcd14a4e060d8a9b6433438be51ca369408ec984d94fb270ae125c6de1a5b" prot="public">
+          <name>bottom_left</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeu_1_1render_1aaf6adcd14a4e060d8a9b6433438be51ca1afb532afb8fb97068fa335cfdc02bb8" prot="public">
+          <name>bottom_center</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeu_1_1render_1aaf6adcd14a4e060d8a9b6433438be51cab88b8c9790136e01b8dfce869959cea3" prot="public">
+          <name>bottom_right</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/font.h" line="44" column="5" bodyfile="libs/render/src/render/font.h" bodystart="45" bodyend="55"/>
+      </memberdef>
+      <member refid="group__render_1ga3b342a9576b9003ba20553d4c3dbacb0" kind="enum"><name>RenderMode</name></member>
+      <member refid="group__render_1ga0f6dcc02ac356d7f5db8177ab779e66b" kind="enum"><name>StencilAction</name></member>
+      <member refid="group__texture_1gabe62780d98ba206d6fabc6fe5233d1a3" kind="enum"><name>TextureEdge</name></member>
+      <member refid="group__texture_1gad077a05d0224820dd5e1c6ffb797fa79" kind="enum"><name>TextureRenderStyle</name></member>
+      <member refid="group__texture_1ga5b945431a3e7a9568374b883c85565d7" kind="enum"><name>Transparency</name></member>
+      <member refid="group__texture_1ga4c49cf44c6f0f36c25cc3fd17be1dda5" kind="enum"><name>ColorData</name></member>
+      <member refid="group__texture_1ga9478b29b3d621e6b511b12507935040d" kind="enum"><name>SingleColor</name></member>
+      <member refid="group__texture_1gac052096755747d49a7e0954123286623" kind="enum"><name>DepthBits</name></member>
+      <member refid="group__texture_1gaa48ab79573cf3af6eae3ba0201a0c6a5" kind="enum"><name>ColorBitsPerPixel</name></member>
+      <member refid="group__render_1ga7687cc8a71098e792bfd48daabb7622a" kind="enum"><name>UniformType</name></member>
+      <member refid="group__vertex-layout_1gac45dc005a83f6afdda19dbb70f82945b" kind="enum"><name>VertexType</name></member>
+    </sectiondef>
+    <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="namespaceeu_1_1render_1a5aeac7365cdec1f55003519311b6e690" prot="public" static="no">
+        <type>std::map&lt; <ref refid="structeu_1_1R" kindref="compound">int</ref>, std::shared_ptr&lt; <ref refid="structeu_1_1render_1_1Glyph" kindref="compound">Glyph</ref> &gt; &gt;</type>
+        <definition>using eu::render::CharToGlyphMap = typedef std::map&lt;int, std::shared_ptr&lt;Glyph&gt; &gt;</definition>
+        <argsstring></argsstring>
+        <name>CharToGlyphMap</name>
+        <qualifiedname>eu::render::CharToGlyphMap</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/font.h" line="40" column="5" bodyfile="libs/render/src/render/font.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <member refid="group__render_1gaf20743f7c4f35277d1d278d8ac20368d" kind="typedef"><name>BlendMode</name></member>
+      <member refid="group__render_1gad0035b261e0f761ea8db04d8b5de2ef5" kind="typedef"><name>StencilFunc</name></member>
+      <member refid="group__render_1ga90cb5bd57c88feb4e3d017558200ced1" kind="typedef"><name>StencilOp</name></member>
+      <member refid="group__vertex-layout_1gaef85979686acf31b66be407fb4f7966e" kind="typedef"><name>ShaderVertexAttributes</name></member>
+      <member refid="group__vertex-layout_1gac4a839089284fbf22fb44e23c621c658" kind="typedef"><name>VertexTypes</name></member>
+    </sectiondef>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="namespaceeu_1_1render_1ad1e3a302bde920dcc4d7714570d5838d" prot="public" static="no" constexpr="yes" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref> std::size_t</type>
+        <definition>constexpr std::size_t eu::render::MAX_TEXTURES_SUPPORTED</definition>
+        <argsstring></argsstring>
+        <name>MAX_TEXTURES_SUPPORTED</name>
+        <qualifiedname>eu::render::MAX_TEXTURES_SUPPORTED</qualifiedname>
+        <initializer>= 16</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/constants.h" line="7" column="23" bodyfile="libs/render/src/render/constants.h" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      <member refid="group__texture_1gac79b1d9294cd27d6bd858386a5d3b0b9" kind="variable"><name>cubemap_size</name></member>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="namespaceeu_1_1render_1a6e910204afc6a0b69ecb82c32c9ffad6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1render_1_1RenderLayer2" kindref="compound">RenderLayer2</ref></type>
+        <definition>RenderLayer2 eu::render::with_layer2</definition>
+        <argsstring>(const RenderCommand &amp;rc, const LayoutData &amp;ld)</argsstring>
+        <name>with_layer2</name>
+        <qualifiedname>eu::render::with_layer2</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1RenderCommand" kindref="compound">RenderCommand</ref> &amp;</type>
+          <declname>rc</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1LayoutData" kindref="compound">LayoutData</ref> &amp;</type>
+          <declname>ld</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/canvas.h" line="149" column="14" declfile="libs/render/src/render/canvas.h" declline="149" declcolumn="14"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1render_1ae247cae0f80ca3530679bc0e2d1029e0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1render_1_1RenderLayer3" kindref="compound">RenderLayer3</ref></type>
+        <definition>RenderLayer3 eu::render::with_layer3</definition>
+        <argsstring>(const RenderCommand &amp;rc, const LayoutData &amp;ld)</argsstring>
+        <name>with_layer3</name>
+        <qualifiedname>eu::render::with_layer3</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1RenderCommand" kindref="compound">RenderCommand</ref> &amp;</type>
+          <declname>rc</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1LayoutData" kindref="compound">LayoutData</ref> &amp;</type>
+          <declname>ld</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/canvas.h" line="150" column="14" declfile="libs/render/src/render/canvas.h" declline="150" declcolumn="14"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1render_1ab1e912efe3db44511600992ea7927c54" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1render_1_1Layer" kindref="compound">Layer</ref></type>
+        <definition>Layer eu::render::with_layer</definition>
+        <argsstring>(const InputCommand &amp;rc, const LayoutData &amp;ld)</argsstring>
+        <name>with_layer</name>
+        <qualifiedname>eu::render::with_layer</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1InputCommand" kindref="compound">InputCommand</ref> &amp;</type>
+          <declname>rc</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1LayoutData" kindref="compound">LayoutData</ref> &amp;</type>
+          <declname>ld</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/canvas.h" line="151" column="7" declfile="libs/render/src/render/canvas.h" declline="151" declcolumn="7"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1render_1a316fe11add3c979a7c29ddda7dc1496f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1render_1_1RenderLayer2" kindref="compound">RenderLayer2</ref></type>
+        <definition>RenderLayer2 eu::render::with_layer2</definition>
+        <argsstring>(const RenderCommand &amp;rc, const LerpData &amp;ld)</argsstring>
+        <name>with_layer2</name>
+        <qualifiedname>eu::render::with_layer2</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1RenderCommand" kindref="compound">RenderCommand</ref> &amp;</type>
+          <declname>rc</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1LerpData" kindref="compound">LerpData</ref> &amp;</type>
+          <declname>ld</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/canvas.h" line="153" column="14" declfile="libs/render/src/render/canvas.h" declline="153" declcolumn="14"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1render_1a806f6ea26afb7507dba8baad30622628" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1render_1_1RenderLayer3" kindref="compound">RenderLayer3</ref></type>
+        <definition>RenderLayer3 eu::render::with_layer3</definition>
+        <argsstring>(const RenderCommand &amp;rc, const LerpData &amp;ld)</argsstring>
+        <name>with_layer3</name>
+        <qualifiedname>eu::render::with_layer3</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1RenderCommand" kindref="compound">RenderCommand</ref> &amp;</type>
+          <declname>rc</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1LerpData" kindref="compound">LerpData</ref> &amp;</type>
+          <declname>ld</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/canvas.h" line="154" column="14" declfile="libs/render/src/render/canvas.h" declline="154" declcolumn="14"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1render_1ac5ad467a0e1aca4c0c59105d5c11eea3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1render_1_1Layer" kindref="compound">Layer</ref></type>
+        <definition>Layer eu::render::with_layer</definition>
+        <argsstring>(const InputCommand &amp;rc, const LerpData &amp;ld)</argsstring>
+        <name>with_layer</name>
+        <qualifiedname>eu::render::with_layer</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1InputCommand" kindref="compound">InputCommand</ref> &amp;</type>
+          <declname>rc</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1LerpData" kindref="compound">LerpData</ref> &amp;</type>
+          <declname>ld</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/canvas.h" line="155" column="7" declfile="libs/render/src/render/canvas.h" declline="155" declcolumn="7"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1render_1a0945d522074468a28e1880ff48ed34a4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <definition>void eu::render::setup_opengl_debug</definition>
+        <argsstring>()</argsstring>
+        <name>setup_opengl_debug</name>
+        <qualifiedname>eu::render::setup_opengl_debug</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/opengl_utils.h" line="10" column="6" declfile="libs/render/src/render/opengl_utils.h" declline="10" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1render_1af60cc727ff3b2f9996aca8907c0db7b9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">GLenum</ref></type>
+        <definition>GLenum eu::render::glenum_from_int</definition>
+        <argsstring>(int i)</argsstring>
+        <name>glenum_from_int</name>
+        <qualifiedname>eu::render::glenum_from_int</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/opengl_utils.h" line="12" column="8" declfile="libs/render/src/render/opengl_utils.h" declline="12" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1render_1a32bf505b2351f8f41e9bb5abcd08dd6d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">GLuint</ref></type>
+        <definition>GLuint eu::render::gluint_from_int</definition>
+        <argsstring>(int i)</argsstring>
+        <name>gluint_from_int</name>
+        <qualifiedname>eu::render::gluint_from_int</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/opengl_utils.h" line="13" column="8" declfile="libs/render/src/render/opengl_utils.h" declline="13" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1render_1a55a94e6a3442258ebb57cae06edf994a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">GLsizeiptr</ref></type>
+        <definition>GLsizeiptr eu::render::glsizeiptr_from_sizet</definition>
+        <argsstring>(std::size_t t)</argsstring>
+        <name>glsizeiptr_from_sizet</name>
+        <qualifiedname>eu::render::glsizeiptr_from_sizet</qualifiedname>
+        <param>
+          <type>std::size_t</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/opengl_utils.h" line="14" column="12" declfile="libs/render/src/render/opengl_utils.h" declline="14" declcolumn="12"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1render_1a331cf76573062d374dae5925194b074f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">GLsizei</ref></type>
+        <definition>GLsizei eu::render::glsizei_from_sizet</definition>
+        <argsstring>(std::size_t t)</argsstring>
+        <name>glsizei_from_sizet</name>
+        <qualifiedname>eu::render::glsizei_from_sizet</qualifiedname>
+        <param>
+          <type>std::size_t</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/opengl_utils.h" line="15" column="9" declfile="libs/render/src/render/opengl_utils.h" declline="15" declcolumn="9"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1render_1a1147fc461475fdaf906627e9e796ef83" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespaceeu_1a19661e9cf09bb33310545fe2b4c4f90c" kindref="member">u32</ref></type>
+        <definition>u32 eu::render::create_buffer</definition>
+        <argsstring>()</argsstring>
+        <name>create_buffer</name>
+        <qualifiedname>eu::render::create_buffer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/opengl_utils.h" line="17" column="5" declfile="libs/render/src/render/opengl_utils.h" declline="17" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1render_1a411c3962f83629dd1ca67e37949d8e9a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <definition>void eu::render::destroy_buffer</definition>
+        <argsstring>(u32 vbo)</argsstring>
+        <name>destroy_buffer</name>
+        <qualifiedname>eu::render::destroy_buffer</qualifiedname>
+        <param>
+          <type><ref refid="namespaceeu_1a19661e9cf09bb33310545fe2b4c4f90c" kindref="member">u32</ref></type>
+          <declname>vbo</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/opengl_utils.h" line="18" column="6" declfile="libs/render/src/render/opengl_utils.h" declline="18" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1render_1ab99e35fd9a9a1c22609b3fa5b64d3f8f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespaceeu_1a19661e9cf09bb33310545fe2b4c4f90c" kindref="member">u32</ref></type>
+        <definition>u32 eu::render::create_vertex_array</definition>
+        <argsstring>()</argsstring>
+        <name>create_vertex_array</name>
+        <qualifiedname>eu::render::create_vertex_array</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/opengl_utils.h" line="20" column="5" declfile="libs/render/src/render/opengl_utils.h" declline="20" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1render_1a29e6142e1c7993d9357f0ef4fc6d7768" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <definition>void eu::render::destroy_vertex_array</definition>
+        <argsstring>(u32 vao)</argsstring>
+        <name>destroy_vertex_array</name>
+        <qualifiedname>eu::render::destroy_vertex_array</qualifiedname>
+        <param>
+          <type><ref refid="namespaceeu_1a19661e9cf09bb33310545fe2b4c4f90c" kindref="member">u32</ref></type>
+          <declname>vao</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/opengl_utils.h" line="21" column="6" declfile="libs/render/src/render/opengl_utils.h" declline="21" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1render_1a380ed9ed787e08140243b14107af8a88" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <definition>void eu::render::set_gl_viewport</definition>
+        <argsstring>(const Size &amp;sz)</argsstring>
+        <name>set_gl_viewport</name>
+        <qualifiedname>eu::render::set_gl_viewport</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1Size" kindref="compound">Size</ref> &amp;</type>
+          <declname>sz</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/opengl_utils.h" line="23" column="6" declfile="libs/render/src/render/opengl_utils.h" declline="23" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1render_1afcd9dd2cfd8f7b184d3fe3e492fd06c6" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref> <ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <definition>constexpr void eu::render::opengl_nop</definition>
+        <argsstring>()</argsstring>
+        <name>opengl_nop</name>
+        <qualifiedname>eu::render::opengl_nop</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/opengl_utils.h" line="67" column="16" bodyfile="libs/render/src/render/opengl_utils.h" bodystart="67" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1render_1aa326a1bc3f0a3a85564b5954e00d1cc9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <definition>void eu::render::setup_textures</definition>
+        <argsstring>(ShaderProgram *shader, const std::vector&lt; Uniform * &gt; &amp;uniform_list)</argsstring>
+        <name>setup_textures</name>
+        <qualifiedname>eu::render::setup_textures</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1render_1_1ShaderProgram" kindref="compound">ShaderProgram</ref> *</type>
+          <declname>shader</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> std::vector&lt; <ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref> * &gt; &amp;</type>
+          <declname>uniform_list</declname>
+        </param>
+        <briefdescription>
+<para>Sets up textures for a shader program. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>shader</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the shader to use </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>uniform_list</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the uniforms to associate with texture units </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>The shader must be bound before calling this function. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/shader.h" line="178" column="6" declfile="libs/render/src/render/shader.h" declline="178" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1render_1a593ff3408c3a9a7a485e71835e0e2978" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">bool</ref></type>
+        <definition>bool eu::render::is_bound_for_shader</definition>
+        <argsstring>(const std::unordered_set&lt; VertexType &gt; &amp;debug_geom_shader_types)</argsstring>
+        <name>is_bound_for_shader</name>
+        <qualifiedname>eu::render::is_bound_for_shader</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> std::unordered_set&lt; <ref refid="group__vertex-layout_1gac45dc005a83f6afdda19dbb70f82945b" kindref="member">VertexType</ref> &gt; &amp;</type>
+          <declname>debug_geom_shader_types</declname>
+        </param>
+        <briefdescription>
+<para>Verifies if the current shader matches the required vertex types. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>debug_geom_shader_types</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Required set of vertex types </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>true</computeroutput> if all required types are present; otherwise, <computeroutput>false</computeroutput>. </para>
+</simplesect>
+<simplesect kind="note"><para>The shader must be bound before calling this function. </para>
+</simplesect>
+<simplesect kind="note"><para>Internal function, should only be available in debug builds </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/shader.h" line="186" column="6" declfile="libs/render/src/render/shader.h" declline="186" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1render_1ab380e7a18ed48ab702d7d0ad993c4798" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">bool</ref></type>
+        <definition>bool eu::render::is_shader_bound</definition>
+        <argsstring>(unsigned int program)</argsstring>
+        <name>is_shader_bound</name>
+        <qualifiedname>eu::render::is_shader_bound</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">unsigned</ref> <ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+          <declname>program</declname>
+        </param>
+        <briefdescription>
+<para>Checks if a specific shader program is currently active. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>program</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the id of the shader program to check </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>true</computeroutput> if the program is active; otherwise, <computeroutput>false</computeroutput>. </para>
+</simplesect>
+<simplesect kind="note"><para>Internal function, should only be available in debug builds </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/shader.h" line="193" column="6" declfile="libs/render/src/render/shader.h" declline="193" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1render_1a2e782eecefa90980ac1d7ca2c82237b3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <definition>void eu::render::clear_shader_program</definition>
+        <argsstring>()</argsstring>
+        <name>clear_shader_program</name>
+        <qualifiedname>eu::render::clear_shader_program</qualifiedname>
+        <briefdescription>
+<para>Clears the current open gl shader program binding. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/shader.h" line="197" column="6" declfile="libs/render/src/render/shader.h" declline="197" declcolumn="6"/>
+      </memberdef>
+      <member refid="group__render_1ga2cc951e13f245b624dacdb8c56e4406f" kind="function"><name>bind_texture_2d</name></member>
+      <member refid="group__render_1ga7d819c261dcbeb0e99ed64fb59efeb34" kind="function"><name>bind_texture_2d</name></member>
+      <member refid="group__render_1gae31a880e7b9c2112e82beefbeacea9b8" kind="function"><name>bind_texture_cubemap</name></member>
+      <member refid="group__texture_1gafc11dff76d8c8dfa670191949ab8495d" kind="function"><name>color_from_rgba</name></member>
+      <member refid="group__texture_1gaff22666806e24a26d00fc230d473513a" kind="function"><name>load_image_from_color</name></member>
+      <member refid="group__texture_1gabcbbd9e458cbc63ae88183ab0ab51c6c" kind="function"><name>load_cubemap_from_color</name></member>
+      <member refid="group__texture_1ga1e6e831737209f381f2f34fd68b360d8" kind="function"><name>build_simple_framebuffer</name></member>
+      <member refid="group__texture_1ga0e72b05730d7520b132ee620dcb86679" kind="function"><name>build_msaa_framebuffer</name></member>
+      <member refid="group__texture_1ga9efcced06a1a5e0309b34e1a40fcc1b9" kind="function"><name>build_hdr_floating_framebuffer</name></member>
+      <member refid="group__texture_1gaa85e9db1b15d0ec62079995fc80cda5a" kind="function"><name>build_shadow_framebuffer</name></member>
+      <member refid="group__texture_1ga7a077b1e09486b602076085519b63003" kind="function"><name>resolve_multisampled_buffer</name></member>
+      <memberdef kind="function" id="namespaceeu_1_1render_1ad71e1c0c60b9375103f39d79bf8e9848" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1render_1_1Texture2d" kindref="compound">Texture2d</ref></type>
+        <definition>Texture2d eu::render::load_image_from_embedded</definition>
+        <argsstring>(DEBUG_LABEL_ARG_MANY const embedded_binary &amp;image_binary, TextureEdge te, TextureRenderStyle trs, Transparency t, ColorData cd)</argsstring>
+        <name>load_image_from_embedded</name>
+        <qualifiedname>eu::render::load_image_from_embedded</qualifiedname>
+        <param>
+          <type><ref refid="group__debug_1gabd34c805e47ae972bc6f5b1e406e921d" kindref="member">DEBUG_LABEL_ARG_MANY</ref> <ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1R" kindref="compound">embedded_binary</ref> &amp;</type>
+          <declname>image_binary</declname>
+        </param>
+        <param>
+          <type><ref refid="group__texture_1gabe62780d98ba206d6fabc6fe5233d1a3" kindref="member">TextureEdge</ref></type>
+          <declname>te</declname>
+        </param>
+        <param>
+          <type><ref refid="group__texture_1gad077a05d0224820dd5e1c6ffb797fa79" kindref="member">TextureRenderStyle</ref></type>
+          <declname>trs</declname>
+        </param>
+        <param>
+          <type><ref refid="group__texture_1ga5b945431a3e7a9568374b883c85565d7" kindref="member">Transparency</ref></type>
+          <declname>t</declname>
+        </param>
+        <param>
+          <type><ref refid="group__texture_1ga4c49cf44c6f0f36c25cc3fd17be1dda5" kindref="member">ColorData</ref></type>
+          <declname>cd</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/texture.io.h" line="11" column="11" declfile="libs/render/src/render/texture.io.h" declline="11" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1render_1ae1df3a1b1999a6ae30c484ed7cdb8e11" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1render_1_1TextureCubemap" kindref="compound">TextureCubemap</ref></type>
+        <definition>TextureCubemap eu::render::load_cubemap_from_embedded</definition>
+        <argsstring>(DEBUG_LABEL_ARG_MANY const std::array&lt; embedded_binary, cubemap_size &gt; &amp;images, ColorData cd)</argsstring>
+        <name>load_cubemap_from_embedded</name>
+        <qualifiedname>eu::render::load_cubemap_from_embedded</qualifiedname>
+        <param>
+          <type><ref refid="group__debug_1gabd34c805e47ae972bc6f5b1e406e921d" kindref="member">DEBUG_LABEL_ARG_MANY</ref> <ref refid="structeu_1_1R" kindref="compound">const</ref> std::array&lt; <ref refid="structeu_1_1R" kindref="compound">embedded_binary</ref>, <ref refid="group__texture_1gac79b1d9294cd27d6bd858386a5d3b0b9" kindref="member">cubemap_size</ref> &gt; &amp;</type>
+          <declname>images</declname>
+        </param>
+        <param>
+          <type><ref refid="group__texture_1ga4c49cf44c6f0f36c25cc3fd17be1dda5" kindref="member">ColorData</ref></type>
+          <declname>cd</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>images</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>images in the following order: right, left, top, bottom, back and front </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>cd</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>How to load/interpret the color from the image </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/texture.io.h" line="21" column="16" declfile="libs/render/src/render/texture.io.h" declline="21" declcolumn="16"/>
+      </memberdef>
+      <member refid="group__vertex-layout_1ga9b8e6d336be4f26a8781ea4dd876dd1b" kind="function"><name>is_instance_based</name></member>
+      <member refid="group__vertex-layout_1ga66a5a499b9444118d051a8b9311f2468" kind="function"><name>find_duplicates</name></member>
+      <member refid="group__vertex-layout_1ga91f679c373c3a37d4f3a4f3a95e2b8f0" kind="function"><name>compile_shader_layout</name></member>
+      <member refid="group__vertex-layout_1ga7b5c63354916fda54e5c278e54da1085" kind="function"><name>get_geom_layout</name></member>
+      <member refid="group__vertex-layout_1ga0fe31f5cd904d1b6632029d0967265d9" kind="function"><name>compile_attribute_layouts</name></member>
+      <member refid="group__vertex-layout_1ga3dbb6787a2805a3bc2e4b7681b64a177" kind="function"><name>compile_attribute_layouts</name></member>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/render/src/render/blend.h" line="3" column="1"/>
+  </compounddef>
+</doxygen>

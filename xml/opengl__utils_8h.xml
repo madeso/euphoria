@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="opengl__utils_8h" kind="file" language="C++">
+    <compoundname>opengl_utils.h</compoundname>
+    <includes local="yes">dependency_glad.h</includes>
+    <includes refid="size_8h" local="yes">base/size.h</includes>
+    <incdepgraph>
+      <node id="3">
+        <label>base/size.h</label>
+        <link refid="size_8h"/>
+      </node>
+      <node id="1">
+        <label>libs/render/src/render/opengl_utils.h</label>
+        <link refid="opengl__utils_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>dependency_glad.h</label>
+      </node>
+    </incdepgraph>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1render">eu::render</innernamespace>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="opengl__utils_8h_1a3bc128ee3dd125d5880c96123bd94b57" prot="public" static="no">
+        <name>SET_DEBUG_LABEL</name>
+        <param><defname>ID</defname></param>
+        <param><defname>FOR</defname></param>
+        <initializer>opengl_nop()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/opengl_utils.h" line="71" column="10" bodyfile="libs/render/src/render/opengl_utils.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="opengl__utils_8h_1a1ad1aec82d9e68a43fd2638eec356cfb" prot="public" static="no">
+        <name>SET_DEBUG_LABEL_NAMED</name>
+        <param><defname>ID</defname></param>
+        <param><defname>FOR</defname></param>
+        <param><defname>NAME</defname></param>
+        <initializer>opengl_nop()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/opengl_utils.h" line="72" column="10" bodyfile="libs/render/src/render/opengl_utils.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="opengl__utils_8h_1ad393331531471e5c2b9629a03cb4a3d3" prot="public" static="no">
+        <name>SCOPED_DEBUG_GROUP</name>
+        <param><defname>TEXT</defname></param>
+        <initializer>opengl_nop()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/opengl_utils.h" line="74" column="10" bodyfile="libs/render/src/render/opengl_utils.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/render/src/render/opengl_utils.h"/>
+  </compounddef>
+</doxygen>

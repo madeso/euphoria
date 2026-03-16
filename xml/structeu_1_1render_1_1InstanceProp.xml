@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structeu_1_1render_1_1InstanceProp" kind="struct" language="C++" prot="public">
+    <compoundname>eu::render::InstanceProp</compoundname>
+    <includes refid="vertex__layout_8h" local="no">vertex_layout.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1render_1_1InstanceProp_1a295745def35afd52e64ea54d59138234" prot="public" static="no" mutable="no">
+        <type><ref refid="group__vertex-layout_1gac45dc005a83f6afdda19dbb70f82945b" kindref="member">VertexType</ref></type>
+        <definition>VertexType eu::render::InstanceProp::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <qualifiedname>eu::render::InstanceProp::type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/vertex_layout.h" line="97" column="12" bodyfile="libs/render/src/render/vertex_layout.h" bodystart="97" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1InstanceProp_1a9a9a43e430ff1c82c3595bde64ba7b00" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string eu::render::InstanceProp::name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <qualifiedname>eu::render::InstanceProp::name</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/vertex_layout.h" line="98" column="13" bodyfile="libs/render/src/render/vertex_layout.h" bodystart="98" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>A property for a shader used in instanced rendering. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="group__vertex-layout_1ga91f679c373c3a37d4f3a4f3a95e2b8f0" kindref="member">compile_shader_layout</ref> </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="libs/render/src/render/vertex_layout.h" line="95" column="1" bodyfile="libs/render/src/render/vertex_layout.h" bodystart="96" bodyend="99"/>
+    <listofallmembers>
+      <member refid="structeu_1_1render_1_1InstanceProp_1a9a9a43e430ff1c82c3595bde64ba7b00" prot="public" virt="non-virtual"><scope>eu::render::InstanceProp</scope><name>name</name></member>
+      <member refid="structeu_1_1render_1_1InstanceProp_1a295745def35afd52e64ea54d59138234" prot="public" virt="non-virtual"><scope>eu::render::InstanceProp</scope><name>type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

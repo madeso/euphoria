@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structeu_1_1render_1_1Texture2d" kind="struct" language="C++" prot="public">
+    <compoundname>eu::render::Texture2d</compoundname>
+    <basecompoundref refid="structeu_1_1render_1_1BaseTexture" prot="public" virt="non-virtual">eu::render::BaseTexture</basecompoundref>
+    <includes refid="texture_8h" local="no">texture.h</includes>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1render_1_1Texture2d_1a87d2614b9541813b7c546eaa8fef23bd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::Texture2d::Texture2d</definition>
+        <argsstring>()=delete</argsstring>
+        <name>Texture2d</name>
+        <qualifiedname>eu::render::Texture2d::Texture2d</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/texture.h" line="90" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1Texture2d_1a4a4ffcc7b908c12fe6fc4c8ebb7b1ab9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::Texture2d::Texture2d</definition>
+        <argsstring>(DEBUG_LABEL_ARG_MANY const void *pixel_data, unsigned int pixel_format, int w, int h, TextureEdge te, TextureRenderStyle trs, Transparency t, ColorData cd)</argsstring>
+        <name>Texture2d</name>
+        <qualifiedname>eu::render::Texture2d::Texture2d</qualifiedname>
+        <param>
+          <type><ref refid="group__debug_1gabd34c805e47ae972bc6f5b1e406e921d" kindref="member">DEBUG_LABEL_ARG_MANY</ref> <ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1R" kindref="compound">void</ref> *</type>
+          <declname>pixel_data</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">unsigned</ref> <ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+          <declname>pixel_format</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+          <declname>w</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+          <declname>h</declname>
+        </param>
+        <param>
+          <type><ref refid="group__texture_1gabe62780d98ba206d6fabc6fe5233d1a3" kindref="member">TextureEdge</ref></type>
+          <declname>te</declname>
+        </param>
+        <param>
+          <type><ref refid="group__texture_1gad077a05d0224820dd5e1c6ffb797fa79" kindref="member">TextureRenderStyle</ref></type>
+          <declname>trs</declname>
+        </param>
+        <param>
+          <type><ref refid="group__texture_1ga5b945431a3e7a9568374b883c85565d7" kindref="member">Transparency</ref></type>
+          <declname>t</declname>
+        </param>
+        <param>
+          <type><ref refid="group__texture_1ga4c49cf44c6f0f36c25cc3fd17be1dda5" kindref="member">ColorData</ref></type>
+          <declname>cd</declname>
+        </param>
+        <briefdescription>
+<para>&quot;internal&quot; </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/texture.h" line="93" column="1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>A 2d image texture. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>eu::render::BaseTexture</label>
+        <link refid="structeu_1_1render_1_1BaseTexture"/>
+      </node>
+      <node id="1">
+        <label>eu::render::Texture2d</label>
+        <link refid="structeu_1_1render_1_1Texture2d"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>eu::render::BaseTexture</label>
+        <link refid="structeu_1_1render_1_1BaseTexture"/>
+      </node>
+      <node id="1">
+        <label>eu::render::Texture2d</label>
+        <link refid="structeu_1_1render_1_1Texture2d"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="libs/render/src/render/texture.h" line="88" column="1" bodyfile="libs/render/src/render/texture.h" bodystart="89" bodyend="94"/>
+    <listofallmembers>
+      <member refid="structeu_1_1render_1_1BaseTexture_1a4f8bf634470e48be913dac919fd688c7" prot="public" virt="non-virtual"><scope>eu::render::Texture2d</scope><name>BaseTexture</name></member>
+      <member refid="structeu_1_1render_1_1BaseTexture_1a08ea1db1ea08e6d38f9b9f85fc228f9e" prot="public" virt="non-virtual"><scope>eu::render::Texture2d</scope><name>BaseTexture</name></member>
+      <member refid="structeu_1_1render_1_1BaseTexture_1a7888eaf78c11d8bf441fca0a5113530b" prot="public" virt="non-virtual"><scope>eu::render::Texture2d</scope><name>BaseTexture</name></member>
+      <member refid="structeu_1_1render_1_1BaseTexture_1a1ad500ed909568d7d3d7042170b9e6dd" prot="public" virt="non-virtual"><scope>eu::render::Texture2d</scope><name>id</name></member>
+      <member refid="structeu_1_1render_1_1BaseTexture_1a80d0ca15ad4e96b0e1903be4f37b3450" prot="public" virt="non-virtual"><scope>eu::render::Texture2d</scope><name>operator=</name></member>
+      <member refid="structeu_1_1render_1_1BaseTexture_1aeb794f4887900ce084b91d8a0305cdbd" prot="public" virt="non-virtual"><scope>eu::render::Texture2d</scope><name>operator=</name></member>
+      <member refid="structeu_1_1render_1_1Texture2d_1a87d2614b9541813b7c546eaa8fef23bd" prot="public" virt="non-virtual"><scope>eu::render::Texture2d</scope><name>Texture2d</name></member>
+      <member refid="structeu_1_1render_1_1Texture2d_1a4a4ffcc7b908c12fe6fc4c8ebb7b1ab9" prot="public" virt="non-virtual"><scope>eu::render::Texture2d</scope><name>Texture2d</name></member>
+      <member refid="structeu_1_1render_1_1BaseTexture_1abe95020af353f26dfc963ac6a8d1cc75" prot="public" virt="non-virtual"><scope>eu::render::Texture2d</scope><name>unload</name></member>
+      <member refid="structeu_1_1render_1_1BaseTexture_1a7f422024d5ac229c2dbebf4f17f2dd86" prot="public" virt="non-virtual"><scope>eu::render::Texture2d</scope><name>~BaseTexture</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

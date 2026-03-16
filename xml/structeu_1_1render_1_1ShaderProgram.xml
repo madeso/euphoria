@@ -1,0 +1,838 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structeu_1_1render_1_1ShaderProgram" kind="struct" language="C++" prot="public">
+    <compoundname>eu::render::ShaderProgram</compoundname>
+    <includes refid="shader_8h" local="no">shader.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1render_1_1ShaderProgram_1adb3f8720b56841120d321445fa3bc470" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">unsigned</ref> <ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+        <definition>unsigned int eu::render::ShaderProgram::shader_program</definition>
+        <argsstring></argsstring>
+        <name>shader_program</name>
+        <qualifiedname>eu::render::ShaderProgram::shader_program</qualifiedname>
+        <briefdescription>
+<para>The id of the shader program. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/shader.h" line="169" column="14" bodyfile="libs/render/src/render/shader.h" bodystart="169" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1ShaderProgram_1ab319b25ac809d2e6a6ff2b808047c334" prot="public" static="no" mutable="no">
+        <type><ref refid="group__vertex-layout_1gac4a839089284fbf22fb44e23c621c658" kindref="member">VertexTypes</ref></type>
+        <definition>VertexTypes eu::render::ShaderProgram::debug_vertex_types</definition>
+        <argsstring></argsstring>
+        <name>debug_vertex_types</name>
+        <qualifiedname>eu::render::ShaderProgram::debug_vertex_types</qualifiedname>
+        <briefdescription>
+<para>The debug information describing the vertex layout that this shader expects. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/shader.h" line="170" column="13" bodyfile="libs/render/src/render/shader.h" bodystart="170" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1render_1_1ShaderProgram_1a8a336b3be1963e2b3d54708f6eab27b8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::ShaderProgram::ShaderProgram</definition>
+        <argsstring>(DEBUG_LABEL_ARG_MANY const std::string &amp;vertex_source, const std::string &amp;fragment_source, const CompiledShaderVertexAttributes &amp;layout)</argsstring>
+        <name>ShaderProgram</name>
+        <qualifiedname>eu::render::ShaderProgram::ShaderProgram</qualifiedname>
+        <param>
+          <type><ref refid="group__debug_1gabd34c805e47ae972bc6f5b1e406e921d" kindref="member">DEBUG_LABEL_ARG_MANY</ref> <ref refid="structeu_1_1R" kindref="compound">const</ref> std::string &amp;</type>
+          <declname>vertex_source</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> std::string &amp;</type>
+          <declname>fragment_source</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1CompiledShaderVertexAttributes" kindref="compound">CompiledShaderVertexAttributes</ref> &amp;</type>
+          <declname>layout</declname>
+        </param>
+        <briefdescription>
+<para>Compile and link a shader. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If there are any errors, they are logged and a zombie object is created instead. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>vertex_source</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>glsl code for the vertex shader </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fragment_source</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>glsl code for the fragment shader </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>layout</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the vertex layout to use </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/shader.h" line="32" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1ShaderProgram_1a87ed631f5bcb44706628bc6c8dc0af33" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::ShaderProgram::~ShaderProgram</definition>
+        <argsstring>()</argsstring>
+        <name>~ShaderProgram</name>
+        <qualifiedname>eu::render::ShaderProgram::~ShaderProgram</qualifiedname>
+        <briefdescription>
+<para>Destroy the shader if it&apos;s loaded. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="structeu_1_1render_1_1ShaderProgram_1a784dde4259806a8cc0f9a50a8b551643" kindref="member">clear</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/shader.h" line="42" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1ShaderProgram_1a16643894fcccfacadf2be12ae5b89c40" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::ShaderProgram::ShaderProgram</definition>
+        <argsstring>(const ShaderProgram &amp;)=delete</argsstring>
+        <name>ShaderProgram</name>
+        <qualifiedname>eu::render::ShaderProgram::ShaderProgram</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1ShaderProgram" kindref="compound">ShaderProgram</ref> &amp;</type>
+        </param>
+        <briefdescription>
+<para>Copying is not allowed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/shader.h" line="45" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1ShaderProgram_1af51d53d47ad66306d9d46c44497fcc1c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <definition>void eu::render::ShaderProgram::operator=</definition>
+        <argsstring>(const ShaderProgram &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <qualifiedname>eu::render::ShaderProgram::operator=</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1ShaderProgram" kindref="compound">ShaderProgram</ref> &amp;</type>
+        </param>
+        <briefdescription>
+<para>Copying is not allowed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/shader.h" line="48" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1ShaderProgram_1ae45ef6c1815f0603c41622f05b0d61eb" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::ShaderProgram::ShaderProgram</definition>
+        <argsstring>(ShaderProgram &amp;&amp;other) noexcept</argsstring>
+        <name>ShaderProgram</name>
+        <qualifiedname>eu::render::ShaderProgram::ShaderProgram</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1render_1_1ShaderProgram" kindref="compound">ShaderProgram</ref> &amp;&amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+<para>Take ownership of another shader. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>other</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the shader to take ownership from </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/shader.h" line="53" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1ShaderProgram_1ad8eb5528cf51d4b0254822861fe0cd63" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type><ref refid="structeu_1_1render_1_1ShaderProgram" kindref="compound">ShaderProgram</ref> &amp;</type>
+        <definition>ShaderProgram &amp; eu::render::ShaderProgram::operator=</definition>
+        <argsstring>(ShaderProgram &amp;&amp;rhs) noexcept</argsstring>
+        <name>operator=</name>
+        <qualifiedname>eu::render::ShaderProgram::operator=</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1render_1_1ShaderProgram" kindref="compound">ShaderProgram</ref> &amp;&amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+<para>Take ownership of another shader. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>rhs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the shader to take ownership from </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/shader.h" line="58" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1ShaderProgram_1a784dde4259806a8cc0f9a50a8b551643" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <definition>void eu::render::ShaderProgram::clear</definition>
+        <argsstring>()</argsstring>
+        <name>clear</name>
+        <qualifiedname>eu::render::ShaderProgram::clear</qualifiedname>
+        <briefdescription>
+<para>Turn this object into a zombie by destroying it. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>Does nothing if it already is a zombie </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/shader.h" line="63" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1ShaderProgram_1ada1e5517af13916bf529baa1d77f58b2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">bool</ref></type>
+        <definition>bool eu::render::ShaderProgram::is_loaded</definition>
+        <argsstring>() const</argsstring>
+        <name>is_loaded</name>
+        <qualifiedname>eu::render::ShaderProgram::is_loaded</qualifiedname>
+        <briefdescription>
+<para>Checks if the ShaderProgram is loaded and valid. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para><computeroutput>true</computeroutput> if the program is valid; otherwise, <computeroutput>false</computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/shader.h" line="68" column="7"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1ShaderProgram_1a9ff1aff950f23ae3f24f431e8d114bd4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <definition>void eu::render::ShaderProgram::use</definition>
+        <argsstring>() const</argsstring>
+        <name>use</name>
+        <qualifiedname>eu::render::ShaderProgram::use</qualifiedname>
+        <briefdescription>
+<para>Activates the ShaderProgram for rendering. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/shader.h" line="72" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1ShaderProgram_1acf8c26b90d4ce65f4ccd225e904f93af" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref></type>
+        <definition>Uniform eu::render::ShaderProgram::get_uniform</definition>
+        <argsstring>(const std::string &amp;name) const</argsstring>
+        <name>get_uniform</name>
+        <qualifiedname>eu::render::ShaderProgram::get_uniform</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+<para>Get a uniform by name. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the name of the uniform in the shader program </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Uniform object representing the location or a zombie if not found </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/shader.h" line="78" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1ShaderProgram_1a7d3bfb7c2f9b1c5c4444eea2046dacd1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <definition>void eu::render::ShaderProgram::set_float</definition>
+        <argsstring>(const Uniform &amp;uniform, float value)</argsstring>
+        <name>set_float</name>
+        <qualifiedname>eu::render::ShaderProgram::set_float</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref> &amp;</type>
+          <declname>uniform</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Sets a uniform float value. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Does nothing if the uniform is a zombie. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>uniform</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the target uniform </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the value </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>The shader must be bound before calling this method </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/shader.h" line="86" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1ShaderProgram_1ac4fbb5c5948a8b4518e4d31372038421" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <definition>void eu::render::ShaderProgram::set_bool</definition>
+        <argsstring>(const Uniform &amp;uniform, bool value)</argsstring>
+        <name>set_bool</name>
+        <qualifiedname>eu::render::ShaderProgram::set_bool</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref> &amp;</type>
+          <declname>uniform</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">bool</ref></type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Sets a uniform boolean value. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>uniform</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the target uniform </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the value </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>The shader must be bound before calling this method </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/shader.h" line="94" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1ShaderProgram_1aae0219a80c03b90f67c61a5450642d50" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <definition>void eu::render::ShaderProgram::set_vec2</definition>
+        <argsstring>(const Uniform &amp;uniform, float x, float y)</argsstring>
+        <name>set_vec2</name>
+        <qualifiedname>eu::render::ShaderProgram::set_vec2</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref> &amp;</type>
+          <declname>uniform</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+<para>Sets a uniform 2d vector. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Does nothing if the uniform is a zombie. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>uniform</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the target uniform </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the x value of the vector </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the y value of the vector </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>The shader must be bound before calling this method. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/shader.h" line="103" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1ShaderProgram_1aa2d508ecd20a1111478063b568905e25" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <definition>void eu::render::ShaderProgram::set_vec2</definition>
+        <argsstring>(const Uniform &amp;uniform, const v2 &amp;v)</argsstring>
+        <name>set_vec2</name>
+        <qualifiedname>eu::render::ShaderProgram::set_vec2</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref> &amp;</type>
+          <declname>uniform</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1v2" kindref="compound">v2</ref> &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+<para>Sets a uniform 2d vector. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Does nothing if the uniform is a zombie. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>uniform</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the target uniform </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>v</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the value </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>The shader must be bound before calling this method. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/shader.h" line="111" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1ShaderProgram_1a5a0610b8c5a24272e375d9e3e055220c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <definition>void eu::render::ShaderProgram::set_vec3</definition>
+        <argsstring>(const Uniform &amp;uniform, float x, float y, float z)</argsstring>
+        <name>set_vec3</name>
+        <qualifiedname>eu::render::ShaderProgram::set_vec3</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref> &amp;</type>
+          <declname>uniform</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <declname>z</declname>
+        </param>
+        <briefdescription>
+<para>Sets a uniform 3d vector. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Does nothing if the uniform is a zombie. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>uniform</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the target uniform </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the x value of the vector </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the y value of the vector </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>z</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the z value of the vector </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>The shader must be bound before calling this method. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/shader.h" line="121" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1ShaderProgram_1a0cf9ad0795eb3bdce899ac65acf8062e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <definition>void eu::render::ShaderProgram::set_vec3</definition>
+        <argsstring>(const Uniform &amp;uniform, const v3 &amp;v)</argsstring>
+        <name>set_vec3</name>
+        <qualifiedname>eu::render::ShaderProgram::set_vec3</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref> &amp;</type>
+          <declname>uniform</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1v3" kindref="compound">v3</ref> &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+<para>Sets a uniform 3d vector. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Does nothing if the uniform is a zombie. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>uniform</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the target uniform </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>v</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the vector </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>The shader must be bound before calling this method. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/shader.h" line="129" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1ShaderProgram_1ad739e87b5a45af182d5e2d8d1ef86c36" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <definition>void eu::render::ShaderProgram::set_vec4</definition>
+        <argsstring>(const Uniform &amp;uniform, float x, float y, float z, float w)</argsstring>
+        <name>set_vec4</name>
+        <qualifiedname>eu::render::ShaderProgram::set_vec4</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref> &amp;</type>
+          <declname>uniform</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <declname>z</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <declname>w</declname>
+        </param>
+        <briefdescription>
+<para>Sets a uniform 4d vector. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Does nothing if the uniform is a zombie. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>uniform</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the target uniform </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the x value of the vector </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the y value of the vector </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>z</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the z value of the vector </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>w</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the w value of the vector </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>The shader must be bound before calling this method. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/shader.h" line="140" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1ShaderProgram_1a4de44a44468269b57ac8d7462c4d7b3a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <definition>void eu::render::ShaderProgram::set_vec4</definition>
+        <argsstring>(const Uniform &amp;uniform, const v4 &amp;v)</argsstring>
+        <name>set_vec4</name>
+        <qualifiedname>eu::render::ShaderProgram::set_vec4</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref> &amp;</type>
+          <declname>uniform</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1v4" kindref="compound">v4</ref> &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+<para>Sets a uniform 4d vector. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Does nothing if the uniform is a zombie. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>uniform</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the target uniform </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>v</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the vector </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>The shader must be bound before calling this method. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/shader.h" line="148" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1ShaderProgram_1aa2f95cf1e8246179c689220b473a8c7e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <definition>void eu::render::ShaderProgram::set_texture</definition>
+        <argsstring>(const Uniform &amp;uniform)</argsstring>
+        <name>set_texture</name>
+        <qualifiedname>eu::render::ShaderProgram::set_texture</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref> &amp;</type>
+          <declname>uniform</declname>
+        </param>
+        <briefdescription>
+<para>Sets a texture for a uniform. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Does nothing if the uniform is a zombie. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>uniform</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the target uniform (must be a texture uniform) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>The shader must be bound before calling this method. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/shader.h" line="155" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1ShaderProgram_1ab5b5bfe65481e8b67003bea40885c5c2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <definition>void eu::render::ShaderProgram::set_mat</definition>
+        <argsstring>(const Uniform &amp;uniform, const m4 &amp;mat)</argsstring>
+        <name>set_mat</name>
+        <qualifiedname>eu::render::ShaderProgram::set_mat</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref> &amp;</type>
+          <declname>uniform</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1m4" kindref="compound">m4</ref> &amp;</type>
+          <declname>mat</declname>
+        </param>
+        <briefdescription>
+<para>Sets a uniform 4x4 matrix. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>uniform</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the target uniform </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>mat</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the matrix data </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>The shader must be bound before calling this method. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/shader.h" line="162" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1ShaderProgram_1a98fd2d0e91b008f3ab2d7232c926d99d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <definition>void eu::render::ShaderProgram::setup_uniform_block</definition>
+        <argsstring>(const UniformBufferSetup &amp;setup)</argsstring>
+        <name>setup_uniform_block</name>
+        <qualifiedname>eu::render::ShaderProgram::setup_uniform_block</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1UniformBufferSetup" kindref="compound">UniformBufferSetup</ref> &amp;</type>
+          <declname>setup</declname>
+        </param>
+        <briefdescription>
+<para>Configures a uniform block binding for the shader. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>setup</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the information about the uniform block setup </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/shader.h" line="167" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>RAII representation of a open gl shader program. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/render/src/render/shader.h" line="24" column="1" bodyfile="libs/render/src/render/shader.h" bodystart="25" bodyend="171"/>
+    <listofallmembers>
+      <member refid="structeu_1_1render_1_1ShaderProgram_1a784dde4259806a8cc0f9a50a8b551643" prot="public" virt="non-virtual"><scope>eu::render::ShaderProgram</scope><name>clear</name></member>
+      <member refid="structeu_1_1render_1_1ShaderProgram_1ab319b25ac809d2e6a6ff2b808047c334" prot="public" virt="non-virtual"><scope>eu::render::ShaderProgram</scope><name>debug_vertex_types</name></member>
+      <member refid="structeu_1_1render_1_1ShaderProgram_1acf8c26b90d4ce65f4ccd225e904f93af" prot="public" virt="non-virtual"><scope>eu::render::ShaderProgram</scope><name>get_uniform</name></member>
+      <member refid="structeu_1_1render_1_1ShaderProgram_1ada1e5517af13916bf529baa1d77f58b2" prot="public" virt="non-virtual"><scope>eu::render::ShaderProgram</scope><name>is_loaded</name></member>
+      <member refid="structeu_1_1render_1_1ShaderProgram_1af51d53d47ad66306d9d46c44497fcc1c" prot="public" virt="non-virtual"><scope>eu::render::ShaderProgram</scope><name>operator=</name></member>
+      <member refid="structeu_1_1render_1_1ShaderProgram_1ad8eb5528cf51d4b0254822861fe0cd63" prot="public" virt="non-virtual"><scope>eu::render::ShaderProgram</scope><name>operator=</name></member>
+      <member refid="structeu_1_1render_1_1ShaderProgram_1ac4fbb5c5948a8b4518e4d31372038421" prot="public" virt="non-virtual"><scope>eu::render::ShaderProgram</scope><name>set_bool</name></member>
+      <member refid="structeu_1_1render_1_1ShaderProgram_1a7d3bfb7c2f9b1c5c4444eea2046dacd1" prot="public" virt="non-virtual"><scope>eu::render::ShaderProgram</scope><name>set_float</name></member>
+      <member refid="structeu_1_1render_1_1ShaderProgram_1ab5b5bfe65481e8b67003bea40885c5c2" prot="public" virt="non-virtual"><scope>eu::render::ShaderProgram</scope><name>set_mat</name></member>
+      <member refid="structeu_1_1render_1_1ShaderProgram_1aa2f95cf1e8246179c689220b473a8c7e" prot="public" virt="non-virtual"><scope>eu::render::ShaderProgram</scope><name>set_texture</name></member>
+      <member refid="structeu_1_1render_1_1ShaderProgram_1aae0219a80c03b90f67c61a5450642d50" prot="public" virt="non-virtual"><scope>eu::render::ShaderProgram</scope><name>set_vec2</name></member>
+      <member refid="structeu_1_1render_1_1ShaderProgram_1aa2d508ecd20a1111478063b568905e25" prot="public" virt="non-virtual"><scope>eu::render::ShaderProgram</scope><name>set_vec2</name></member>
+      <member refid="structeu_1_1render_1_1ShaderProgram_1a5a0610b8c5a24272e375d9e3e055220c" prot="public" virt="non-virtual"><scope>eu::render::ShaderProgram</scope><name>set_vec3</name></member>
+      <member refid="structeu_1_1render_1_1ShaderProgram_1a0cf9ad0795eb3bdce899ac65acf8062e" prot="public" virt="non-virtual"><scope>eu::render::ShaderProgram</scope><name>set_vec3</name></member>
+      <member refid="structeu_1_1render_1_1ShaderProgram_1ad739e87b5a45af182d5e2d8d1ef86c36" prot="public" virt="non-virtual"><scope>eu::render::ShaderProgram</scope><name>set_vec4</name></member>
+      <member refid="structeu_1_1render_1_1ShaderProgram_1a4de44a44468269b57ac8d7462c4d7b3a" prot="public" virt="non-virtual"><scope>eu::render::ShaderProgram</scope><name>set_vec4</name></member>
+      <member refid="structeu_1_1render_1_1ShaderProgram_1a98fd2d0e91b008f3ab2d7232c926d99d" prot="public" virt="non-virtual"><scope>eu::render::ShaderProgram</scope><name>setup_uniform_block</name></member>
+      <member refid="structeu_1_1render_1_1ShaderProgram_1adb3f8720b56841120d321445fa3bc470" prot="public" virt="non-virtual"><scope>eu::render::ShaderProgram</scope><name>shader_program</name></member>
+      <member refid="structeu_1_1render_1_1ShaderProgram_1a8a336b3be1963e2b3d54708f6eab27b8" prot="public" virt="non-virtual"><scope>eu::render::ShaderProgram</scope><name>ShaderProgram</name></member>
+      <member refid="structeu_1_1render_1_1ShaderProgram_1a16643894fcccfacadf2be12ae5b89c40" prot="public" virt="non-virtual"><scope>eu::render::ShaderProgram</scope><name>ShaderProgram</name></member>
+      <member refid="structeu_1_1render_1_1ShaderProgram_1ae45ef6c1815f0603c41622f05b0d61eb" prot="public" virt="non-virtual"><scope>eu::render::ShaderProgram</scope><name>ShaderProgram</name></member>
+      <member refid="structeu_1_1render_1_1ShaderProgram_1a9ff1aff950f23ae3f24f431e8d114bd4" prot="public" virt="non-virtual"><scope>eu::render::ShaderProgram</scope><name>use</name></member>
+      <member refid="structeu_1_1render_1_1ShaderProgram_1a87ed631f5bcb44706628bc6c8dc0af33" prot="public" virt="non-virtual"><scope>eu::render::ShaderProgram</scope><name>~ShaderProgram</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

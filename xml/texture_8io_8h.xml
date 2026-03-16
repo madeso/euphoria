@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="texture_8io_8h" kind="file" language="C++">
+    <compoundname>texture.io.h</compoundname>
+    <includes refid="texture_8h" local="yes">render/texture.h</includes>
+    <includes local="yes">embed/types.h</includes>
+    <incdepgraph>
+      <node id="3">
+        <label>base/size.h</label>
+        <link refid="size_8h"/>
+      </node>
+      <node id="4">
+        <label>render/opengl_labels.h</label>
+        <link refid="opengl__labels_8h"/>
+      </node>
+      <node id="2">
+        <label>render/texture.h</label>
+        <link refid="texture_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>libs/render/src/render/texture.io.h</label>
+        <link refid="texture_8io_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>cstdint</label>
+      </node>
+      <node id="6">
+        <label>embed/types.h</label>
+      </node>
+    </incdepgraph>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1render">eu::render</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/render/src/render/texture.io.h"/>
+  </compounddef>
+</doxygen>

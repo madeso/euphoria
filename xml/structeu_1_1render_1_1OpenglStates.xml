@@ -1,0 +1,227 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structeu_1_1render_1_1OpenglStates" kind="struct" language="C++" prot="public">
+    <compoundname>eu::render::OpenglStates</compoundname>
+    <includes refid="opengl__states_8h" local="no">opengl_states.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1render_1_1OpenglStates_1ad17f0f577623a8305670e0299099b681" prot="public" static="no" mutable="no">
+        <type>std::optional&lt; <ref refid="structeu_1_1R" kindref="compound">bool</ref> &gt;</type>
+        <definition>std::optional&lt;bool&gt; eu::render::OpenglStates::cull_face</definition>
+        <argsstring></argsstring>
+        <name>cull_face</name>
+        <qualifiedname>eu::render::OpenglStates::cull_face</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/opengl_states.h" line="33" column="15" bodyfile="libs/render/src/render/opengl_states.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1OpenglStates_1a027721cdf4f8852ef1e5a194375e57ba" prot="public" static="no" mutable="no">
+        <type>std::optional&lt; <ref refid="group__render_1ga2a476d1716c1cbf4ac750f6f7941af87" kindref="member">CullFace</ref> &gt;</type>
+        <definition>std::optional&lt;CullFace&gt; eu::render::OpenglStates::cull_face_mode</definition>
+        <argsstring></argsstring>
+        <name>cull_face_mode</name>
+        <qualifiedname>eu::render::OpenglStates::cull_face_mode</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/opengl_states.h" line="34" column="15" bodyfile="libs/render/src/render/opengl_states.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1OpenglStates_1a74d617f71e73922fc2714dbdf3203d91" prot="public" static="no" mutable="no">
+        <type>std::optional&lt; <ref refid="structeu_1_1R" kindref="compound">bool</ref> &gt;</type>
+        <definition>std::optional&lt;bool&gt; eu::render::OpenglStates::blending</definition>
+        <argsstring></argsstring>
+        <name>blending</name>
+        <qualifiedname>eu::render::OpenglStates::blending</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/opengl_states.h" line="36" column="15" bodyfile="libs/render/src/render/opengl_states.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1OpenglStates_1a123a9d0c2071f744b1e96db64636f022" prot="public" static="no" mutable="no">
+        <type>std::optional&lt; <ref refid="group__render_1gaf20743f7c4f35277d1d278d8ac20368d" kindref="member">BlendMode</ref> &gt;</type>
+        <definition>std::optional&lt;BlendMode&gt; eu::render::OpenglStates::blend_mode</definition>
+        <argsstring></argsstring>
+        <name>blend_mode</name>
+        <qualifiedname>eu::render::OpenglStates::blend_mode</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/opengl_states.h" line="37" column="15" bodyfile="libs/render/src/render/opengl_states.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1OpenglStates_1a20e0c7b782e0eabc7ee4a5d9af39b2bb" prot="public" static="no" mutable="no">
+        <type>std::optional&lt; <ref refid="structeu_1_1R" kindref="compound">bool</ref> &gt;</type>
+        <definition>std::optional&lt;bool&gt; eu::render::OpenglStates::depth_test</definition>
+        <argsstring></argsstring>
+        <name>depth_test</name>
+        <qualifiedname>eu::render::OpenglStates::depth_test</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/opengl_states.h" line="39" column="15" bodyfile="libs/render/src/render/opengl_states.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1OpenglStates_1a309caf37e995a5e81682126c5467fe3c" prot="public" static="no" mutable="no">
+        <type>std::optional&lt; <ref refid="structeu_1_1R" kindref="compound">bool</ref> &gt;</type>
+        <definition>std::optional&lt;bool&gt; eu::render::OpenglStates::depth_mask</definition>
+        <argsstring></argsstring>
+        <name>depth_mask</name>
+        <qualifiedname>eu::render::OpenglStates::depth_mask</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/opengl_states.h" line="40" column="15" bodyfile="libs/render/src/render/opengl_states.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1OpenglStates_1a7d1e06f75befd1d88b11c6db0a846720" prot="public" static="no" mutable="no">
+        <type>std::optional&lt; <ref refid="group__render_1gafdedc77ac04d69fa6e6b99c5a79f4ed4" kindref="member">Compare</ref> &gt;</type>
+        <definition>std::optional&lt;Compare&gt; eu::render::OpenglStates::depth_func</definition>
+        <argsstring></argsstring>
+        <name>depth_func</name>
+        <qualifiedname>eu::render::OpenglStates::depth_func</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/opengl_states.h" line="41" column="15" bodyfile="libs/render/src/render/opengl_states.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1OpenglStates_1ab832395dabf9ef31ffb6fd1c7ff3f3a4" prot="public" static="no" mutable="no">
+        <type>std::optional&lt; <ref refid="structeu_1_1R" kindref="compound">bool</ref> &gt;</type>
+        <definition>std::optional&lt;bool&gt; eu::render::OpenglStates::stencil_test</definition>
+        <argsstring></argsstring>
+        <name>stencil_test</name>
+        <qualifiedname>eu::render::OpenglStates::stencil_test</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/opengl_states.h" line="43" column="15" bodyfile="libs/render/src/render/opengl_states.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1OpenglStates_1ac4eee4322c90c6ff6c975d5050192df8" prot="public" static="no" mutable="no">
+        <type>std::optional&lt; <ref refid="namespaceeu_1a19661e9cf09bb33310545fe2b4c4f90c" kindref="member">u32</ref> &gt;</type>
+        <definition>std::optional&lt;u32&gt; eu::render::OpenglStates::stencil_mask</definition>
+        <argsstring></argsstring>
+        <name>stencil_mask</name>
+        <qualifiedname>eu::render::OpenglStates::stencil_mask</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/opengl_states.h" line="44" column="15" bodyfile="libs/render/src/render/opengl_states.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1OpenglStates_1a946c9d0fd26b051da395f4d254c9a7e4" prot="public" static="no" mutable="no">
+        <type>std::optional&lt; <ref refid="group__render_1ga3b342a9576b9003ba20553d4c3dbacb0" kindref="member">RenderMode</ref> &gt;</type>
+        <definition>std::optional&lt;RenderMode&gt; eu::render::OpenglStates::render_mode</definition>
+        <argsstring></argsstring>
+        <name>render_mode</name>
+        <qualifiedname>eu::render::OpenglStates::render_mode</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/opengl_states.h" line="46" column="15" bodyfile="libs/render/src/render/opengl_states.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1OpenglStates_1a55e7ffaed6d5006fadf7aa54c593b149" prot="public" static="no" mutable="no">
+        <type>std::optional&lt; <ref refid="group__render_1gad0035b261e0f761ea8db04d8b5de2ef5" kindref="member">StencilFunc</ref> &gt;</type>
+        <definition>std::optional&lt;StencilFunc&gt; eu::render::OpenglStates::stencil_func</definition>
+        <argsstring></argsstring>
+        <name>stencil_func</name>
+        <qualifiedname>eu::render::OpenglStates::stencil_func</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/opengl_states.h" line="47" column="15" bodyfile="libs/render/src/render/opengl_states.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1OpenglStates_1a30c83152a08abae5d918b86d1f00d88d" prot="public" static="no" mutable="no">
+        <type>std::optional&lt; <ref refid="group__render_1ga90cb5bd57c88feb4e3d017558200ced1" kindref="member">StencilOp</ref> &gt;</type>
+        <definition>std::optional&lt;StencilOp&gt; eu::render::OpenglStates::stencil_op</definition>
+        <argsstring></argsstring>
+        <name>stencil_op</name>
+        <qualifiedname>eu::render::OpenglStates::stencil_op</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/opengl_states.h" line="48" column="15" bodyfile="libs/render/src/render/opengl_states.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1OpenglStates_1a329c987faeb255962f2337752c9440f2" prot="public" static="no" mutable="no">
+        <type>std::optional&lt; <ref refid="structeu_1_1R" kindref="compound">int</ref> &gt;</type>
+        <definition>std::optional&lt;int&gt; eu::render::OpenglStates::active_texture</definition>
+        <argsstring></argsstring>
+        <name>active_texture</name>
+        <qualifiedname>eu::render::OpenglStates::active_texture</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/opengl_states.h" line="50" column="15" bodyfile="libs/render/src/render/opengl_states.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1OpenglStates_1a098c509a1893d5cf39722a540ef1fed5" prot="public" static="no" mutable="no">
+        <type>std::array&lt; std::optional&lt; <ref refid="structeu_1_1R" kindref="compound">unsigned</ref> <ref refid="structeu_1_1R" kindref="compound">int</ref> &gt;, <ref refid="namespaceeu_1_1render_1ad1e3a302bde920dcc4d7714570d5838d" kindref="member">MAX_TEXTURES_SUPPORTED</ref> &gt;</type>
+        <definition>std::array&lt;std::optional&lt;unsigned int&gt;, MAX_TEXTURES_SUPPORTED&gt; eu::render::OpenglStates::texture_bound</definition>
+        <argsstring></argsstring>
+        <name>texture_bound</name>
+        <qualifiedname>eu::render::OpenglStates::texture_bound</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/opengl_states.h" line="51" column="12" bodyfile="libs/render/src/render/opengl_states.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>A &quot;cache&quot; for the current open gl state. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/render/src/render/opengl_states.h" line="31" column="1" bodyfile="libs/render/src/render/opengl_states.h" bodystart="32" bodyend="52"/>
+    <listofallmembers>
+      <member refid="structeu_1_1render_1_1OpenglStates_1a329c987faeb255962f2337752c9440f2" prot="public" virt="non-virtual"><scope>eu::render::OpenglStates</scope><name>active_texture</name></member>
+      <member refid="structeu_1_1render_1_1OpenglStates_1a123a9d0c2071f744b1e96db64636f022" prot="public" virt="non-virtual"><scope>eu::render::OpenglStates</scope><name>blend_mode</name></member>
+      <member refid="structeu_1_1render_1_1OpenglStates_1a74d617f71e73922fc2714dbdf3203d91" prot="public" virt="non-virtual"><scope>eu::render::OpenglStates</scope><name>blending</name></member>
+      <member refid="structeu_1_1render_1_1OpenglStates_1ad17f0f577623a8305670e0299099b681" prot="public" virt="non-virtual"><scope>eu::render::OpenglStates</scope><name>cull_face</name></member>
+      <member refid="structeu_1_1render_1_1OpenglStates_1a027721cdf4f8852ef1e5a194375e57ba" prot="public" virt="non-virtual"><scope>eu::render::OpenglStates</scope><name>cull_face_mode</name></member>
+      <member refid="structeu_1_1render_1_1OpenglStates_1a7d1e06f75befd1d88b11c6db0a846720" prot="public" virt="non-virtual"><scope>eu::render::OpenglStates</scope><name>depth_func</name></member>
+      <member refid="structeu_1_1render_1_1OpenglStates_1a309caf37e995a5e81682126c5467fe3c" prot="public" virt="non-virtual"><scope>eu::render::OpenglStates</scope><name>depth_mask</name></member>
+      <member refid="structeu_1_1render_1_1OpenglStates_1a20e0c7b782e0eabc7ee4a5d9af39b2bb" prot="public" virt="non-virtual"><scope>eu::render::OpenglStates</scope><name>depth_test</name></member>
+      <member refid="structeu_1_1render_1_1OpenglStates_1a946c9d0fd26b051da395f4d254c9a7e4" prot="public" virt="non-virtual"><scope>eu::render::OpenglStates</scope><name>render_mode</name></member>
+      <member refid="structeu_1_1render_1_1OpenglStates_1a55e7ffaed6d5006fadf7aa54c593b149" prot="public" virt="non-virtual"><scope>eu::render::OpenglStates</scope><name>stencil_func</name></member>
+      <member refid="structeu_1_1render_1_1OpenglStates_1ac4eee4322c90c6ff6c975d5050192df8" prot="public" virt="non-virtual"><scope>eu::render::OpenglStates</scope><name>stencil_mask</name></member>
+      <member refid="structeu_1_1render_1_1OpenglStates_1a30c83152a08abae5d918b86d1f00d88d" prot="public" virt="non-virtual"><scope>eu::render::OpenglStates</scope><name>stencil_op</name></member>
+      <member refid="structeu_1_1render_1_1OpenglStates_1ab832395dabf9ef31ffb6fd1c7ff3f3a4" prot="public" virt="non-virtual"><scope>eu::render::OpenglStates</scope><name>stencil_test</name></member>
+      <member refid="structeu_1_1render_1_1OpenglStates_1a098c509a1893d5cf39722a540ef1fed5" prot="public" virt="non-virtual"><scope>eu::render::OpenglStates</scope><name>texture_bound</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

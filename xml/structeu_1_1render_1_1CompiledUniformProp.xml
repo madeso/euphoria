@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structeu_1_1render_1_1CompiledUniformProp" kind="struct" language="C++" prot="public">
+    <compoundname>eu::render::CompiledUniformProp</compoundname>
+    <includes refid="uniform__buffer_8h" local="no">uniform_buffer.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1render_1_1CompiledUniformProp_1a6a99fd8ab66180fc36e5c95ed1584362" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+        <definition>int eu::render::CompiledUniformProp::offset</definition>
+        <argsstring></argsstring>
+        <name>offset</name>
+        <qualifiedname>eu::render::CompiledUniformProp::offset</qualifiedname>
+        <initializer>= -1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/uniform_buffer.h" line="40" column="5" bodyfile="libs/render/src/render/uniform_buffer.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1CompiledUniformProp_1aa0c0b5c41b71d031abcfca8f19905c12" prot="public" static="no" mutable="no">
+        <type><ref refid="group__render_1ga7687cc8a71098e792bfd48daabb7622a" kindref="member">UniformType</ref></type>
+        <definition>UniformType eu::render::CompiledUniformProp::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <qualifiedname>eu::render::CompiledUniformProp::type</qualifiedname>
+        <initializer>= <ref refid="group__render_1gga7687cc8a71098e792bfd48daabb7622aafedb2d84cafe20862cb4399751a8a7e3" kindref="member">UniformType::invalid</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/uniform_buffer.h" line="41" column="13" bodyfile="libs/render/src/render/uniform_buffer.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1CompiledUniformProp_1a692631173b2cf6da1281607634ac53c8" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+        <definition>int eu::render::CompiledUniformProp::array_count</definition>
+        <argsstring></argsstring>
+        <name>array_count</name>
+        <qualifiedname>eu::render::CompiledUniformProp::array_count</qualifiedname>
+        <initializer>= -1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/uniform_buffer.h" line="42" column="5" bodyfile="libs/render/src/render/uniform_buffer.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>A compiled uniform buffer property that can be used in a shader. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/render/src/render/uniform_buffer.h" line="38" column="1" bodyfile="libs/render/src/render/uniform_buffer.h" bodystart="39" bodyend="43"/>
+    <listofallmembers>
+      <member refid="structeu_1_1render_1_1CompiledUniformProp_1a692631173b2cf6da1281607634ac53c8" prot="public" virt="non-virtual"><scope>eu::render::CompiledUniformProp</scope><name>array_count</name></member>
+      <member refid="structeu_1_1render_1_1CompiledUniformProp_1a6a99fd8ab66180fc36e5c95ed1584362" prot="public" virt="non-virtual"><scope>eu::render::CompiledUniformProp</scope><name>offset</name></member>
+      <member refid="structeu_1_1render_1_1CompiledUniformProp_1aa0c0b5c41b71d031abcfca8f19905c12" prot="public" virt="non-virtual"><scope>eu::render::CompiledUniformProp</scope><name>type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="shader_8h" kind="file" language="C++">
+    <compoundname>shader.h</compoundname>
+    <includes local="no">unordered_set</includes>
+    <includes refid="opengl__labels_8h" local="yes">render/opengl_labels.h</includes>
+    <includes refid="uniform_8h" local="yes">render/uniform.h</includes>
+    <includes refid="vertex__layout_8h" local="yes">render/vertex_layout.h</includes>
+    <includedby refid="canvas_8h" local="yes">libs/render/src/render/canvas.h</includedby>
+    <incdepgraph>
+      <node id="3">
+        <label>render/opengl_labels.h</label>
+        <link refid="opengl__labels_8h"/>
+      </node>
+      <node id="1">
+        <label>libs/render/src/render/shader.h</label>
+        <link refid="shader_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>render/uniform.h</label>
+        <link refid="uniform_8h"/>
+      </node>
+      <node id="5">
+        <label>render/vertex_layout.h</label>
+        <link refid="vertex__layout_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>map</label>
+      </node>
+      <node id="8">
+        <label>optional</label>
+      </node>
+      <node id="7">
+        <label>set</label>
+      </node>
+      <node id="2">
+        <label>unordered_set</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>libs/render/src/render/canvas.h</label>
+        <link refid="canvas_8h"/>
+      </node>
+      <node id="1">
+        <label>libs/render/src/render/shader.h</label>
+        <link refid="shader_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structeu_1_1render_1_1ShaderProgram" prot="public">eu::render::ShaderProgram</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1render">eu::render</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/render/src/render/shader.h"/>
+  </compounddef>
+</doxygen>

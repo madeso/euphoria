@@ -1,0 +1,58 @@
+﻿<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+<title>libs/core/src/core/image.cc</title>
+</head>
+<body>
+<h1>libs/core/src/core/image.cc</h1>
+<span id='bugprone-misplaced-widening-cast'>&nbsp;</span>
+<hr>
+<h3>warning: either cast from &#39;int&#39; to &#39;size_t&#39; (aka &#39;unsigned long&#39;) is ineffective, or there is loss of precision before the conversion</h3>
+<code>[bugprone-misplaced-widening-cast]</code>
+<p><i>libs/core/src/core/image.cc 14 : 54</i></p>
+<pre>
+   14 |     return width &gt; 0 &amp;&amp; height &gt; 0 &amp;&amp; data.size() == static_cast&lt;size_t&gt;(width * height * 4);
+      |                                                      ^
+</pre>
+<span id='bugprone-implicit-widening-of-multiplication-result'>&nbsp;</span>
+<hr>
+<h3>warning: performing an implicit widening conversion to type &#39;size_type&#39; (aka &#39;unsigned long&#39;) of a multiplication performed in type &#39;int&#39;</h3>
+<code>[bugprone-implicit-widening-of-multiplication-result]</code>
+<p><i>libs/core/src/core/image.cc 23 : 17</i></p>
+<pre>
+   23 |     data.resize(width * height * 4, 0);
+      |                 ^
+</pre>
+<p>make conversion explicit to silence this warning</p>
+<p><i>libs/core/src/core/image.cc 23 : 17</i></p>
+<pre>
+    2 |     data.resize(width * height * 4, 0);
+      |                 ^~~~~~~~~~~~~~~~~~
+      |                 static_cast&lt;size_type&gt;( )
+</pre>
+<p>perform multiplication in a wider type</p>
+<p><i>libs/core/src/core/image.cc 23 : 17</i></p>
+<pre>
+   23 |     data.resize(width * height * 4, 0);
+      |                 ^~~~~~~~~~~~~~
+      |                 static_cast&lt;long&gt;( )
+</pre>
+<!--
+/home/runner/work/euphoria/euphoria/libs/core/src/core/image.cc:14:54: warning: either cast from 'int' to 'size_t' (aka 'unsigned long') is ineffective, or there is loss of precision before the conversion [bugprone-misplaced-widening-cast]
+   14 |     return width > 0 && height > 0 && data.size() == static_cast<size_t>(width * height * 4);
+      |                                                      ^
+/home/runner/work/euphoria/euphoria/libs/core/src/core/image.cc:23:17: warning: performing an implicit widening conversion to type 'size_type' (aka 'unsigned long') of a multiplication performed in type 'int' [bugprone-implicit-widening-of-multiplication-result]
+   23 |     data.resize(width * height * 4, 0);
+      |                 ^
+/home/runner/work/euphoria/euphoria/libs/core/src/core/image.cc:23:17: note: make conversion explicit to silence this warning
+    2 |     data.resize(width * height * 4, 0);
+      |                 ^~~~~~~~~~~~~~~~~~
+      |                 static_cast<size_type>( )
+/home/runner/work/euphoria/euphoria/libs/core/src/core/image.cc:23:17: note: perform multiplication in a wider type
+   23 |     data.resize(width * height * 4, 0);
+      |                 ^~~~~~~~~~~~~~
+      |                 static_cast<long>( )
+-->
+</body>
+</html>

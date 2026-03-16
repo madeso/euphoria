@@ -1,0 +1,152 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structeu_1_1render_1_1BoundUniformBuffer" kind="struct" language="C++" prot="public">
+    <compoundname>eu::render::BoundUniformBuffer</compoundname>
+    <includes refid="uniform__buffer_8h" local="no">uniform_buffer.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1render_1_1BoundUniformBuffer_1a0bf1b9d5b661c4b8c67eaa2016bbf8ff" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1render_1_1UniformBuffer" kindref="compound">UniformBuffer</ref> *</type>
+        <definition>UniformBuffer* eu::render::BoundUniformBuffer::buffer</definition>
+        <argsstring></argsstring>
+        <name>buffer</name>
+        <qualifiedname>eu::render::BoundUniformBuffer::buffer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/uniform_buffer.h" line="94" column="15" bodyfile="libs/render/src/render/uniform_buffer.h" bodystart="94" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1render_1_1BoundUniformBuffer_1ae8a1859b2dc775163469d96a13428860" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::BoundUniformBuffer::BoundUniformBuffer</definition>
+        <argsstring>(UniformBuffer *b)</argsstring>
+        <name>BoundUniformBuffer</name>
+        <qualifiedname>eu::render::BoundUniformBuffer::BoundUniformBuffer</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1render_1_1UniformBuffer" kindref="compound">UniformBuffer</ref> *</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/uniform_buffer.h" line="86" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1BoundUniformBuffer_1a6a0304e7287c98f38b815c0b2868f574" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::BoundUniformBuffer::~BoundUniformBuffer</definition>
+        <argsstring>()</argsstring>
+        <name>~BoundUniformBuffer</name>
+        <qualifiedname>eu::render::BoundUniformBuffer::~BoundUniformBuffer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/uniform_buffer.h" line="87" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1BoundUniformBuffer_1a89ac9291918593cdae01984333115e3b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::BoundUniformBuffer::BoundUniformBuffer</definition>
+        <argsstring>(const BoundUniformBuffer &amp;)=delete</argsstring>
+        <name>BoundUniformBuffer</name>
+        <qualifiedname>eu::render::BoundUniformBuffer::BoundUniformBuffer</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1BoundUniformBuffer" kindref="compound">BoundUniformBuffer</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/uniform_buffer.h" line="89" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1BoundUniformBuffer_1a05506b97632081dd25c42d5d4d65b72c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::BoundUniformBuffer::BoundUniformBuffer</definition>
+        <argsstring>(BoundUniformBuffer &amp;&amp;)=delete</argsstring>
+        <name>BoundUniformBuffer</name>
+        <qualifiedname>eu::render::BoundUniformBuffer::BoundUniformBuffer</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1render_1_1BoundUniformBuffer" kindref="compound">BoundUniformBuffer</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/uniform_buffer.h" line="90" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1BoundUniformBuffer_1a39d989440cc51aeaae06de4bf4e559dc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <definition>void eu::render::BoundUniformBuffer::operator=</definition>
+        <argsstring>(const BoundUniformBuffer &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <qualifiedname>eu::render::BoundUniformBuffer::operator=</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1BoundUniformBuffer" kindref="compound">BoundUniformBuffer</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/uniform_buffer.h" line="91" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1BoundUniformBuffer_1a982cb96850558e2b0b1796479688f5cd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <definition>void eu::render::BoundUniformBuffer::operator=</definition>
+        <argsstring>(BoundUniformBuffer &amp;&amp;)=delete</argsstring>
+        <name>operator=</name>
+        <qualifiedname>eu::render::BoundUniformBuffer::operator=</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1render_1_1BoundUniformBuffer" kindref="compound">BoundUniformBuffer</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/uniform_buffer.h" line="92" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>eu::render::BoundUniformBuffer</label>
+        <link refid="structeu_1_1render_1_1BoundUniformBuffer"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>buffer</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>eu::render::UniformBuffer</label>
+        <link refid="structeu_1_1render_1_1UniformBuffer"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/render/src/render/uniform_buffer.h" line="84" column="1" bodyfile="libs/render/src/render/uniform_buffer.h" bodystart="85" bodyend="95"/>
+    <listofallmembers>
+      <member refid="structeu_1_1render_1_1BoundUniformBuffer_1ae8a1859b2dc775163469d96a13428860" prot="public" virt="non-virtual"><scope>eu::render::BoundUniformBuffer</scope><name>BoundUniformBuffer</name></member>
+      <member refid="structeu_1_1render_1_1BoundUniformBuffer_1a89ac9291918593cdae01984333115e3b" prot="public" virt="non-virtual"><scope>eu::render::BoundUniformBuffer</scope><name>BoundUniformBuffer</name></member>
+      <member refid="structeu_1_1render_1_1BoundUniformBuffer_1a05506b97632081dd25c42d5d4d65b72c" prot="public" virt="non-virtual"><scope>eu::render::BoundUniformBuffer</scope><name>BoundUniformBuffer</name></member>
+      <member refid="structeu_1_1render_1_1BoundUniformBuffer_1a0bf1b9d5b661c4b8c67eaa2016bbf8ff" prot="public" virt="non-virtual"><scope>eu::render::BoundUniformBuffer</scope><name>buffer</name></member>
+      <member refid="structeu_1_1render_1_1BoundUniformBuffer_1a39d989440cc51aeaae06de4bf4e559dc" prot="public" virt="non-virtual"><scope>eu::render::BoundUniformBuffer</scope><name>operator=</name></member>
+      <member refid="structeu_1_1render_1_1BoundUniformBuffer_1a982cb96850558e2b0b1796479688f5cd" prot="public" virt="non-virtual"><scope>eu::render::BoundUniformBuffer</scope><name>operator=</name></member>
+      <member refid="structeu_1_1render_1_1BoundUniformBuffer_1a6a0304e7287c98f38b815c0b2868f574" prot="public" virt="non-virtual"><scope>eu::render::BoundUniformBuffer</scope><name>~BoundUniformBuffer</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

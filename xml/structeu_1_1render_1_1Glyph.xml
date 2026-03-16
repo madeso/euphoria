@@ -1,0 +1,123 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structeu_1_1render_1_1Glyph" kind="struct" language="C++" prot="public">
+    <compoundname>eu::render::Glyph</compoundname>
+    <includes refid="font_8h" local="no">font.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1render_1_1Glyph_1a734364cac70b24d4fc9d2c1e8c2546b0" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1Rect" kindref="compound">Rect</ref></type>
+        <definition>Rect eu::render::Glyph::sprite_rect</definition>
+        <argsstring></argsstring>
+        <name>sprite_rect</name>
+        <qualifiedname>eu::render::Glyph::sprite_rect</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/font.h" line="26" column="14" bodyfile="libs/render/src/render/font.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1Glyph_1a9a329ccf73ad451b62bdf18fdd349dfc" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1Rect" kindref="compound">Rect</ref></type>
+        <definition>Rect eu::render::Glyph::texture_rect</definition>
+        <argsstring></argsstring>
+        <name>texture_rect</name>
+        <qualifiedname>eu::render::Glyph::texture_rect</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/font.h" line="27" column="14" bodyfile="libs/render/src/render/font.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1Glyph_1ade8dc7c2f9d754f3101a6abbb5dba068" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+        <definition>int eu::render::Glyph::code_point</definition>
+        <argsstring></argsstring>
+        <name>code_point</name>
+        <qualifiedname>eu::render::Glyph::code_point</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/font.h" line="28" column="13" bodyfile="libs/render/src/render/font.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1Glyph_1a80efefa93e462fae34af5c7c3f3efefb" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+        <definition>float eu::render::Glyph::advance</definition>
+        <argsstring></argsstring>
+        <name>advance</name>
+        <qualifiedname>eu::render::Glyph::advance</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/font.h" line="29" column="15" bodyfile="libs/render/src/render/font.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1render_1_1Glyph_1abea2fd957c596f05015dcfa9cdba9669" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::Glyph::Glyph</definition>
+        <argsstring>(const Rect &amp;sprite, const Rect &amp;texture, int ch, float ad)</argsstring>
+        <name>Glyph</name>
+        <qualifiedname>eu::render::Glyph::Glyph</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1Rect" kindref="compound">Rect</ref> &amp;</type>
+          <declname>sprite</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1Rect" kindref="compound">Rect</ref> &amp;</type>
+          <declname>texture</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+          <declname>ch</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <declname>ad</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/font.h" line="31" column="9"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>eu::Rect</label>
+        <link refid="structeu_1_1Rect"/>
+      </node>
+      <node id="1">
+        <label>eu::render::Glyph</label>
+        <link refid="structeu_1_1render_1_1Glyph"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>sprite_rect</edgelabel>
+          <edgelabel>texture_rect</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="libs/render/src/render/font.h" line="24" column="5" bodyfile="libs/render/src/render/font.h" bodystart="25" bodyend="38"/>
+    <listofallmembers>
+      <member refid="structeu_1_1render_1_1Glyph_1a80efefa93e462fae34af5c7c3f3efefb" prot="public" virt="non-virtual"><scope>eu::render::Glyph</scope><name>advance</name></member>
+      <member refid="structeu_1_1render_1_1Glyph_1ade8dc7c2f9d754f3101a6abbb5dba068" prot="public" virt="non-virtual"><scope>eu::render::Glyph</scope><name>code_point</name></member>
+      <member refid="structeu_1_1render_1_1Glyph_1abea2fd957c596f05015dcfa9cdba9669" prot="public" virt="non-virtual"><scope>eu::render::Glyph</scope><name>Glyph</name></member>
+      <member refid="structeu_1_1render_1_1Glyph_1a734364cac70b24d4fc9d2c1e8c2546b0" prot="public" virt="non-virtual"><scope>eu::render::Glyph</scope><name>sprite_rect</name></member>
+      <member refid="structeu_1_1render_1_1Glyph_1a9a329ccf73ad451b62bdf18fdd349dfc" prot="public" virt="non-virtual"><scope>eu::render::Glyph</scope><name>texture_rect</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

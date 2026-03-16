@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structeu_1_1render_1_1RenderLayer3" kind="struct" language="C++" prot="public">
+    <compoundname>eu::render::RenderLayer3</compoundname>
+    <basecompoundref refid="structeu_1_1render_1_1Layer" prot="public" virt="non-virtual">eu::render::Layer</basecompoundref>
+    <includes refid="canvas_8h" local="no">canvas.h</includes>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1render_1_1RenderLayer3_1a9fd528a4e8e93daab05c38ad73a0d958" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::RenderLayer3::RenderLayer3</definition>
+        <argsstring>(const Layer &amp;l)</argsstring>
+        <name>RenderLayer3</name>
+        <qualifiedname>eu::render::RenderLayer3::RenderLayer3</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1Layer" kindref="compound">Layer</ref> &amp;</type>
+          <declname>l</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/canvas.h" line="106" column="5"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>eu::render::Layer</label>
+        <link refid="structeu_1_1render_1_1Layer"/>
+      </node>
+      <node id="1">
+        <label>eu::render::RenderLayer3</label>
+        <link refid="structeu_1_1render_1_1RenderLayer3"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>eu::Rect</label>
+        <link refid="structeu_1_1Rect"/>
+      </node>
+      <node id="2">
+        <label>eu::render::Layer</label>
+        <link refid="structeu_1_1render_1_1Layer"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>screen</edgelabel>
+          <edgelabel>viewport_aabb_in_worldspace</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>eu::render::RenderLayer3</label>
+        <link refid="structeu_1_1render_1_1RenderLayer3"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="libs/render/src/render/canvas.h" line="104" column="1" bodyfile="libs/render/src/render/canvas.h" bodystart="105" bodyend="107"/>
+    <listofallmembers>
+      <member refid="structeu_1_1render_1_1Layer_1aeb8b243abd94f3b72e4fbc8169bf52b2" prot="public" virt="non-virtual"><scope>eu::render::RenderLayer3</scope><name>mouse_to_world</name></member>
+      <member refid="structeu_1_1render_1_1RenderLayer3_1a9fd528a4e8e93daab05c38ad73a0d958" prot="public" virt="non-virtual"><scope>eu::render::RenderLayer3</scope><name>RenderLayer3</name></member>
+      <member refid="structeu_1_1render_1_1Layer_1a43998af14c83059bc86fda1d01b0b7f5" prot="public" virt="non-virtual"><scope>eu::render::RenderLayer3</scope><name>screen</name></member>
+      <member refid="structeu_1_1render_1_1Layer_1a7c89993da5c98c4c33005592aa910ecf" prot="public" virt="non-virtual"><scope>eu::render::RenderLayer3</scope><name>viewport_aabb_in_worldspace</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="group__debug" kind="group">
+    <compoundname>debug</compoundname>
+    <title>Debug</title>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="group__debug_1gabd34c805e47ae972bc6f5b1e406e921d" prot="public" static="no">
+        <name>DEBUG_LABEL_ARG_MANY</name>
+        <briefdescription>
+<para>first debug label argument of many </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/opengl_labels.h" line="18" column="11" bodyfile="libs/render/src/render/opengl_labels.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__debug_1gac4e97bba900f55acf1783edf276a4374" prot="public" static="no">
+        <name>DEBUG_LABEL_ARG_SINGLE</name>
+        <briefdescription>
+<para>the only debug label argument (the function doesn&apos;t take any more rguments) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/opengl_labels.h" line="19" column="10" bodyfile="libs/render/src/render/opengl_labels.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__debug_1gafed7fc3411aca190c75d04eaba304acf" prot="public" static="no">
+        <name>DEBUG_LABEL_EXPLICIT_MANY</name>
+        <initializer>explicit</initializer>
+        <briefdescription>
+<para>optional explicit for when the constructor only takes one more argument and needs to be explicit if the label is removed </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/opengl_labels.h" line="20" column="10" bodyfile="libs/render/src/render/opengl_labels.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__debug_1ga95a4f5aaa37968ac667c14fbb3a0e05f" prot="public" static="no">
+        <name>SEND_DEBUG_LABEL_MANY</name>
+        <param><defname>X</defname></param>
+        <briefdescription>
+<para>forwards a label when there is more than one argument </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>X</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The label to forward </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/opengl_labels.h" line="21" column="10" bodyfile="libs/render/src/render/opengl_labels.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__debug_1ga10eb5091115388a6d2525316155779f8" prot="public" static="no">
+        <name>USE_DEBUG_LABEL</name>
+        <param><defname>name</defname></param>
+        <briefdescription>
+<para>use this label and there are no more arguments </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the label </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/opengl_labels.h" line="23" column="10" bodyfile="libs/render/src/render/opengl_labels.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__debug_1ga29b5fd80a12ba3e8016e12479c06e495" prot="public" static="no">
+        <name>USE_DEBUG_LABEL_MANY</name>
+        <param><defname>name</defname></param>
+        <briefdescription>
+<para>use this label and there are more arguments besides this one </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the label </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/opengl_labels.h" line="24" column="10" bodyfile="libs/render/src/render/opengl_labels.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

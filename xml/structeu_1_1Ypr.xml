@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structeu_1_1Ypr" kind="struct" language="C++" prot="public">
+    <compoundname>eu::Ypr</compoundname>
+    <includes refid="axisangle_8h" local="no">axisangle.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1Ypr_1a876d894be0edc78d9250f3d5df68f7d4" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1An" kindref="compound">An</ref></type>
+        <definition>An eu::Ypr::yaw</definition>
+        <argsstring></argsstring>
+        <name>yaw</name>
+        <qualifiedname>eu::Ypr::yaw</qualifiedname>
+        <initializer>= <ref refid="group__math_1ga22905decd86a4bf45c79c109119f2b6f" kindref="member">no_rotation</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/axisangle.h" line="34" column="12" bodyfile="libs/base/src/base/axisangle.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1Ypr_1a19ba5b756baa3ae5baa58d281e791ea2" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1An" kindref="compound">An</ref></type>
+        <definition>An eu::Ypr::pitch</definition>
+        <argsstring></argsstring>
+        <name>pitch</name>
+        <qualifiedname>eu::Ypr::pitch</qualifiedname>
+        <initializer>= <ref refid="group__math_1ga22905decd86a4bf45c79c109119f2b6f" kindref="member">no_rotation</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/axisangle.h" line="35" column="12" bodyfile="libs/base/src/base/axisangle.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1Ypr_1ac60be98970716f36245071ef9ef088ac" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1An" kindref="compound">An</ref></type>
+        <definition>An eu::Ypr::roll</definition>
+        <argsstring></argsstring>
+        <name>roll</name>
+        <qualifiedname>eu::Ypr::roll</qualifiedname>
+        <initializer>= <ref refid="group__math_1ga22905decd86a4bf45c79c109119f2b6f" kindref="member">no_rotation</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/axisangle.h" line="36" column="12" bodyfile="libs/base/src/base/axisangle.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>yaw + pitch + roll </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>eu::An</label>
+        <link refid="structeu_1_1An"/>
+      </node>
+      <node id="1">
+        <label>eu::Ypr</label>
+        <link refid="structeu_1_1Ypr"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>pitch</edgelabel>
+          <edgelabel>roll</edgelabel>
+          <edgelabel>yaw</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="libs/base/src/base/axisangle.h" line="32" column="5" bodyfile="libs/base/src/base/axisangle.h" bodystart="33" bodyend="37"/>
+    <listofallmembers>
+      <member refid="structeu_1_1Ypr_1a19ba5b756baa3ae5baa58d281e791ea2" prot="public" virt="non-virtual"><scope>eu::Ypr</scope><name>pitch</name></member>
+      <member refid="structeu_1_1Ypr_1ac60be98970716f36245071ef9ef088ac" prot="public" virt="non-virtual"><scope>eu::Ypr</scope><name>roll</name></member>
+      <member refid="structeu_1_1Ypr_1a876d894be0edc78d9250f3d5df68f7d4" prot="public" virt="non-virtual"><scope>eu::Ypr</scope><name>yaw</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

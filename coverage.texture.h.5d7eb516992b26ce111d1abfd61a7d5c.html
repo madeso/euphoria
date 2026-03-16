@@ -1,0 +1,1659 @@
+<!DOCTYPE html>
+<html class="theme-blue">
+
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>libs/render/src/render/texture.h - GCC Code Coverage Report</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="coverage.css"/>
+    <script src="coverage.js"></script>
+  </head>
+
+  <body>
+    <div class="Layout-main">
+      <div class="Layout-main-centered-lg" style="max-width: 1280px;">
+        <div class="d-flex flex-justify-center">
+          <h1>GCC Code Coverage Report</h1>
+        </div>
+        <hr class="block-separator"/>
+        <header>
+<div id="summary-coverage.texture.h.5d7eb516992b26ce111d1abfd61a7d5c.html">
+  <div class="containter-xl clearfix">
+    <div class="col-sm-12 col-lg-9 float-left d-flex flex-column p-3">
+      <div class="d-flex">
+        <div class="mr-2 color-fg-accent transy-2">
+          <svg aria-label="Directory" aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-file-directory-fill hx_color-icon-directory">
+            <path d="M1.75 1A1.75 1.75 0 0 0 0 2.75v10.5C0 14.216.784 15 1.75 15h12.5A1.75 1.75 0 0 0 16 13.25v-8.5A1.75 1.75 0 0 0 14.25 3H7.5a.25.25 0 0 1-.2-.1l-.9-1.2C6.07 1.26 5.55 1 5 1H1.75Z"></path>
+          </svg>
+        </div>
+        <span>./</span>
+      </div>
+      <div class="d-flex flex-wrap" style="margin-bottom: 2px;">
+        <div class="mr-2" style="min-width: 70px;">Coverage:</div>
+        <div class="IssueLabel coverage-low color-fg-on-emphasis mr-1">low: &ge; 0%</div>
+        <div class="IssueLabel coverage-medium color-fg-on-emphasis mr-1">medium: &ge; 75.0%</div>
+        <div class="IssueLabel coverage-high color-fg-on-emphasis mr-1">high: &ge; 90.0%</div>
+      </div>
+    </div>
+    <div class="col-sm-12 col-lg-3 float-left d-flex flex-column text-right flex-justify-end p-3">
+      <div class="d-flex">
+        <div class="mr-2">Lines:</div>
+        <div class="mr-2" style="margin: auto;">0 of 5, 0 excluded</div>
+        <div class="Label--minw"><span class="coverage-none IssueLabel color-fg-on-emphasis mr-1">0.0%</span></div>
+      </div>
+      <div class="d-flex">
+        <div class="mr-2">Functions:</div>
+        <div class="mr-2" style="margin: auto;">0 of 1, 0 excluded</div>
+        <div class="Label--minw"><span class="coverage-none IssueLabel color-fg-on-emphasis mr-1">0.0%</span></div>
+      </div>
+      <div class="d-flex">
+        <div class="mr-2">Branches:</div>
+        <div class="mr-2" style="margin: auto;">0 of 0, 0 excluded</div>
+        <div class="Label--minw"><span class="coverage-unknown IssueLabel color-fg-on-emphasis mr-1">-%</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+        </header>
+        <hr/>
+        <nav>
+<div class="m-3">
+  <details>
+    <summary>List of functions</summary>
+<div class="Box m-3 functionslist">
+  <div class="Box-header py-2 d-flex sticky">
+    <div role="rowheader" class="color-fg-muted flex-auto min-width-0 col-md-2">Function (File:Line)</div>
+    <div role="rowheader" class="color-fg-muted flex-auto min-width-0 d-flex flex-justify-end flex-wrap flex-items-baseline">Calls</div>
+    <div role="rowheader" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">Lines</div>
+    <div role="rowheader" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">Branches</div>
+    <div role="rowheader" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">Blocks</div>
+  </div>
+  <div class="Box-row Box-row--focus-gray py-2 d-flex">
+    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 col-md-2"><a href="#l61">eu::render::color_from_rgba(unsigned char, unsigned char, unsigned char, unsigned char) (libs/render/src/render/texture.h:61)</a>    </div>
+    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 d-flex flex-justify-end flex-wrap flex-items-baseline" data-sort="0">not called</div>
+    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
+    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">-%</div>
+    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
+  </div>
+</div>  </details>
+</div>
+
+        </nav>
+        <main>
+<div class="Box m-3">
+  <div class="Box-header d-flex flex-space-between sticky">
+    libs/render/src/render/texture.h
+    <div class="toggle-buttons">
+      <button type="button" class="button_toggle_coveredLine show_coveredLine" value="coveredLine" title="Toggle covered lines">0 covered</button>
+      <button type="button" class="button_toggle_uncoveredLine show_uncoveredLine" value="uncoveredLine" title="Toggle uncovered lines">5 uncovered</button>
+      <button type="button" class="button_toggle_partialCoveredLine show_partialCoveredLine" value="partialCoveredLine" title="Toggle partial covered lines">0 partial covered</button>
+      <button type="button" class="button_toggle_excludedLine show_excludedLine" value="excludedLine" title="Toggle excluded lines">0 excluded</button>
+    </div>
+    <div class="nav">
+      <a class="nav prev" href="coverage.texture.cc.2023e4b6a405735fb6f9e20af986b0db.html"></a>
+      <a class="nav index" href="coverage.html"></a>
+      <a class="nav next" href="coverage.uniform.cc.3a62c596d5e1f443c13aa40b0c1ecfc5.html"></a>
+    </div>
+  </div>
+  <div class="source-table-container">
+    <table class="text-mono text-small" style="width:100%;">
+      <tr>
+        <th class="p-2">Line</th>
+        <th class="p-2">Branch</th>
+        <th class="p-2">Exec</th>
+        <th class="p-2 text-left" style="width: 100%;">Source</th>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l1" href="#l1">1</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="cp">#pragma once</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l2" href="#l2">2</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l3" href="#l3">3</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;base/size.h&quot;</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l4" href="#l4">4</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l5" href="#l5">5</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;render/opengl_labels.h&quot;</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l6" href="#l6">6</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l7" href="#l7">7</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cstdint&gt;</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l8" href="#l8">8</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l9" href="#l9">9</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="n">namespace</span><span class="w"> </span><span class="n">eu</span><span class="o">::</span><span class="n">render</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l10" href="#l10">10</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="p">{</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l11" href="#l11">11</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l12" href="#l12">12</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="cm">/** \addtogroup texture</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l13" href="#l13">13</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="cm"> *  @{</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l14" href="#l14">14</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="cm">*/</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l15" href="#l15">15</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l16" href="#l16">16</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="k">enum</span><span class="w"> </span><span class="n">class</span><span class="w"> </span><span class="n">TextureEdge</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l17" href="#l17">17</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="p">{</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l18" href="#l18">18</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">	</span><span class="n">clamp</span><span class="p">,</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l19" href="#l19">19</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">	</span><span class="n">repeat</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l20" href="#l20">20</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="p">};</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l21" href="#l21">21</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l22" href="#l22">22</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l23" href="#l23">23</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="k">enum</span><span class="w"> </span><span class="n">class</span><span class="w"> </span><span class="n">TextureRenderStyle</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l24" href="#l24">24</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="p">{</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l25" href="#l25">25</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">	</span><span class="n">pixel</span><span class="p">,</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l26" href="#l26">26</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">	</span><span class="n">mipmap</span><span class="p">,</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l27" href="#l27">27</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">	</span><span class="n">linear</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l28" href="#l28">28</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="p">};</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l29" href="#l29">29</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l30" href="#l30">30</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l31" href="#l31">31</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="k">enum</span><span class="w"> </span><span class="n">class</span><span class="w"> </span><span class="n">Transparency</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l32" href="#l32">32</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="p">{</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l33" href="#l33">33</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">	</span><span class="n">include</span><span class="p">,</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l34" href="#l34">34</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">	</span><span class="n">exclude</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l35" href="#l35">35</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="p">};</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l36" href="#l36">36</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l37" href="#l37">37</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="k">enum</span><span class="w"> </span><span class="n">class</span><span class="w"> </span><span class="n">ColorData</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l38" href="#l38">38</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="p">{</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l39" href="#l39">39</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">	</span><span class="c1">/// Apply transformations to the color data. Texture is a diffuse/albedo map, created with human eyes on a monitor in sRGB space.</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l40" href="#l40">40</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">	</span><span class="n">color_data</span><span class="p">,</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l41" href="#l41">41</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l42" href="#l42">42</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">	</span><span class="c1">// todo(Gustav): should this be more specific so we could define better default colors if the load fails?</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l43" href="#l43">43</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">	</span><span class="c1">/// Don&#39;t apply transformations to the color data. Texture is a normal/roughness/ao/specular map or similar and created by a software in linear space.</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l44" href="#l44">44</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">	</span><span class="n">non_color_data</span><span class="p">,</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l45" href="#l45">45</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l46" href="#l46">46</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">	</span><span class="c1">/// Explicitly don&#39;t care about the color data but same as \ref non_color_data.</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l47" href="#l47">47</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">	</span><span class="n">dont_care</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l48" href="#l48">48</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="p">};</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l49" href="#l49">49</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l50" href="#l50">50</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="c1">// todo(Gustav): move to colors.h?</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l51" href="#l51">51</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="c1">/// A single color in a format to load directly into open gl texture(ABGR on little endian).</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l52" href="#l52">52</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="c1">/// @see \ref color_from_rgba</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l53" href="#l53">53</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="k">enum</span><span class="w"> </span><span class="n">class</span><span class="w"> </span><span class="n">SingleColor</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">uint32_t</span><span class="w"> </span><span class="p">{};</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l54" href="#l54">54</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l55" href="#l55">55</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="c1">/// Constructs a \ref SingleColor value from individual red, green, blue, and alpha components.</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l56" href="#l56">56</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="c1">/// @param r The red component of the color (0x00 - 0xFF).</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l57" href="#l57">57</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="c1">/// @param g The green component of the color (0x00 - 0xFF).</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l58" href="#l58">58</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="c1">/// @param b The blue component of the color (0x00 - 0xFF).</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l59" href="#l59">59</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="c1">/// @param a The alpha (opacity) component of the color (0x00 - 0xFF).</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l60" href="#l60">60</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="c1">/// @return A \ref SingleColor value representing the color composed of the specified RGBA components.</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l61" href="#l61">61</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="n">constexpr</span><span class="w"> </span><span class="n">SingleColor</span><span class="w"> </span><span class="n">color_from_rgba</span><span class="p">(</span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="p">{</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l62" href="#l62">62</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="n">static_cast</span><span class="o">&lt;</span><span class="n">SingleColor</span><span class="o">&gt;</span><span class="p">((</span><span class="n">static_cast</span><span class="o">&lt;</span><span class="kt">uint32_t</span><span class="o">&gt;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">24</span><span class="p">)</span><span class="w"> </span><span class="o">|</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l63" href="#l63">63</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">		   </span><span class="p">(</span><span class="n">static_cast</span><span class="o">&lt;</span><span class="kt">uint32_t</span><span class="o">&gt;</span><span class="p">(</span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">16</span><span class="p">)</span><span class="w"> </span><span class="o">|</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l64" href="#l64">64</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">		   </span><span class="p">(</span><span class="n">static_cast</span><span class="o">&lt;</span><span class="kt">uint32_t</span><span class="o">&gt;</span><span class="p">(</span><span class="n">g</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">8</span><span class="p">)</span><span class="w">  </span><span class="o">|</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l65" href="#l65">65</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">		   </span><span class="p">(</span><span class="n">static_cast</span><span class="o">&lt;</span><span class="kt">uint32_t</span><span class="o">&gt;</span><span class="p">(</span><span class="n">r</span><span class="p">)));</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l66" href="#l66">66</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="p">}</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l67" href="#l67">67</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l68" href="#l68">68</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="c1">// todo(Gustav): this doesn&#39;t do anything except allow code reuse, remove?</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l69" href="#l69">69</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="c1">/// Base class for all textures, but only exist due to code reuse and can easily be inlined.</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l70" href="#l70">70</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="k">struct</span><span class="w"> </span><span class="nc">BaseTexture</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l71" href="#l71">71</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="p">{</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l72" href="#l72">72</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">	</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">id</span><span class="p">;</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l73" href="#l73">73</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l74" href="#l74">74</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">	</span><span class="n">BaseTexture</span><span class="p">();</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l75" href="#l75">75</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">	</span><span class="o">~</span><span class="n">BaseTexture</span><span class="p">();</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l76" href="#l76">76</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l77" href="#l77">77</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">	</span><span class="n">BaseTexture</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">BaseTexture</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">delete</span><span class="p">;</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l78" href="#l78">78</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">	</span><span class="kt">void</span><span class="w"> </span><span class="n">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">BaseTexture</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">delete</span><span class="p">;</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l79" href="#l79">79</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l80" href="#l80">80</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">	</span><span class="n">BaseTexture</span><span class="p">(</span><span class="n">BaseTexture</span><span class="o">&amp;&amp;</span><span class="p">)</span><span class="w"> </span><span class="n">noexcept</span><span class="p">;</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l81" href="#l81">81</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">	</span><span class="n">BaseTexture</span><span class="o">&amp;</span><span class="w"> </span><span class="n">operator</span><span class="o">=</span><span class="p">(</span><span class="n">BaseTexture</span><span class="o">&amp;&amp;</span><span class="p">)</span><span class="w"> </span><span class="n">noexcept</span><span class="p">;</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l82" href="#l82">82</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l83" href="#l83">83</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">	</span><span class="c1">/// clears the loaded texture to a invalid texture</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l84" href="#l84">84</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">	</span><span class="kt">void</span><span class="w"> </span><span class="nf">unload</span><span class="p">();</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l85" href="#l85">85</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="p">};</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l86" href="#l86">86</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l87" href="#l87">87</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="c1">/// A 2d image texture.</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l88" href="#l88">88</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="k">struct</span><span class="w"> </span><span class="nc">Texture2d</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">BaseTexture</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l89" href="#l89">89</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="p">{</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l90" href="#l90">90</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">	</span><span class="n">Texture2d</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">delete</span><span class="p">;</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l91" href="#l91">91</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l92" href="#l92">92</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">	</span><span class="c1">/// &quot;internal&quot;</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l93" href="#l93">93</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">	</span><span class="n">Texture2d</span><span class="p">(</span><span class="n">DEBUG_LABEL_ARG_MANY</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="o">*</span><span class="w"> </span><span class="n">pixel_data</span><span class="p">,</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">pixel_format</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">w</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">h</span><span class="p">,</span><span class="w"> </span><span class="n">TextureEdge</span><span class="w"> </span><span class="n">te</span><span class="p">,</span><span class="w"> </span><span class="n">TextureRenderStyle</span><span class="w"> </span><span class="n">trs</span><span class="p">,</span><span class="w"> </span><span class="n">Transparency</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">ColorData</span><span class="w"> </span><span class="n">cd</span><span class="p">);</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l94" href="#l94">94</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="p">};</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l95" href="#l95">95</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l96" href="#l96">96</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="n">Texture2d</span><span class="w"> </span><span class="nf">load_image_from_color</span><span class="p">(</span><span class="n">DEBUG_LABEL_ARG_MANY</span><span class="w"> </span><span class="n">SingleColor</span><span class="w"> </span><span class="n">pixel</span><span class="p">,</span><span class="w"> </span><span class="n">TextureEdge</span><span class="w"> </span><span class="n">te</span><span class="p">,</span><span class="w"> </span><span class="n">TextureRenderStyle</span><span class="w"> </span><span class="n">trs</span><span class="p">,</span><span class="w"> </span><span class="n">Transparency</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">ColorData</span><span class="w"> </span><span class="n">cd</span><span class="p">);</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l97" href="#l97">97</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l98" href="#l98">98</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="c1">// todo(Gustav): turn into an enum?</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l99" href="#l99">99</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="c1">/// 0=right(x+), 1=left(x-), 2=top(y+), 3=bottom(y-), 4=front(z+), 5=back(z-)</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l100" href="#l100">100</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="n">constexpr</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">cubemap_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6</span><span class="p">;</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l101" href="#l101">101</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l102" href="#l102">102</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="c1">/// A cubemap texture.</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l103" href="#l103">103</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="c1">/// Useful for skybox rendering or faking reflections from a (static) scene.</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l104" href="#l104">104</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="k">struct</span><span class="w"> </span><span class="nc">TextureCubemap</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">BaseTexture</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l105" href="#l105">105</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="p">{</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l106" href="#l106">106</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">	</span><span class="n">TextureCubemap</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">delete</span><span class="p">;</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l107" href="#l107">107</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l108" href="#l108">108</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">	</span><span class="n">TextureCubemap</span><span class="p">(</span><span class="n">DEBUG_LABEL_ARG_MANY</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n">cubemap_size</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">pixel_data</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">width</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">height</span><span class="p">,</span><span class="w"> </span><span class="n">ColorData</span><span class="w"> </span><span class="n">cd</span><span class="p">);</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l109" href="#l109">109</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="p">};</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l110" href="#l110">110</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l111" href="#l111">111</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="n">TextureCubemap</span><span class="w"> </span><span class="nf">load_cubemap_from_color</span><span class="p">(</span><span class="n">DEBUG_LABEL_ARG_MANY</span><span class="w"> </span><span class="n">SingleColor</span><span class="w"> </span><span class="n">pixel</span><span class="p">,</span><span class="w"> </span><span class="n">ColorData</span><span class="w"> </span><span class="n">cd</span><span class="p">);</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l112" href="#l112">112</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l113" href="#l113">113</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l114" href="#l114">114</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l115" href="#l115">115</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="c1">/// &quot;render to texture&quot; feature</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l116" href="#l116">116</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="c1">///	@see \ref create-framebuffer</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l117" href="#l117">117</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="k">struct</span><span class="w"> </span><span class="nc">FrameBuffer</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">BaseTexture</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l118" href="#l118">118</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="p">{</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l119" href="#l119">119</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">	</span><span class="c1">/// @param f The FBO handle</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l120" href="#l120">120</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">	</span><span class="c1">/// @param s the texture size</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l121" href="#l121">121</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">	</span><span class="n">FrameBuffer</span><span class="p">(</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Size</span><span class="o">&amp;</span><span class="w"> </span><span class="n">s</span><span class="p">);</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l122" href="#l122">122</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">	</span><span class="o">~</span><span class="n">FrameBuffer</span><span class="p">();</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l123" href="#l123">123</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l124" href="#l124">124</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">	</span><span class="n">FrameBuffer</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">FrameBuffer</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">delete</span><span class="p">;</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l125" href="#l125">125</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">	</span><span class="n">FrameBuffer</span><span class="p">(</span><span class="n">FrameBuffer</span><span class="o">&amp;&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">delete</span><span class="p">;</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l126" href="#l126">126</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">	</span><span class="kt">void</span><span class="w"> </span><span class="n">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">FrameBuffer</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">delete</span><span class="p">;</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l127" href="#l127">127</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">	</span><span class="kt">void</span><span class="w"> </span><span class="n">operator</span><span class="o">=</span><span class="p">(</span><span class="n">FrameBuffer</span><span class="o">&amp;&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">delete</span><span class="p">;</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l128" href="#l128">128</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l129" href="#l129">129</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">	</span><span class="n">Size</span><span class="w"> </span><span class="n">size</span><span class="p">;</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l130" href="#l130">130</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l131" href="#l131">131</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">	</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">fbo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l132" href="#l132">132</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">	</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">rbo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l133" href="#l133">133</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l134" href="#l134">134</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">	</span><span class="kt">bool</span><span class="w"> </span><span class="n">debug_is_msaa</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l135" href="#l135">135</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="p">};</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l136" href="#l136">136</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l137" href="#l137">137</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="c1">/// The number of bits to use for the depth buffer.</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l138" href="#l138">138</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="k">enum</span><span class="w"> </span><span class="n">class</span><span class="w"> </span><span class="n">DepthBits</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l139" href="#l139">139</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="p">{</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l140" href="#l140">140</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">	</span><span class="n">use_none</span><span class="p">,</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l141" href="#l141">141</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">	</span><span class="n">use_16</span><span class="p">,</span><span class="w"> </span><span class="n">use_24</span><span class="p">,</span><span class="w"> </span><span class="n">use_32</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l142" href="#l142">142</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="p">};</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l143" href="#l143">143</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l144" href="#l144">144</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="c1">/// The number of bits/pixel to use for the color buffer.</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l145" href="#l145">145</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="k">enum</span><span class="w"> </span><span class="n">class</span><span class="w"> </span><span class="n">ColorBitsPerPixel</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l146" href="#l146">146</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="p">{</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l147" href="#l147">147</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">	</span><span class="n">use_depth</span><span class="p">,</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l148" href="#l148">148</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">	</span><span class="n">use_8</span><span class="p">,</span><span class="w"> </span><span class="n">use_16</span><span class="p">,</span><span class="w"> </span><span class="n">use_32</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l149" href="#l149">149</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="p">};</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l150" href="#l150">150</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l151" href="#l151">151</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l152" href="#l152">152</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="cm">/** Build a simple LDR frame buffer.</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l153" href="#l153">153</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="cm"> * </span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l154" href="#l154">154</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="cm"> * This is mostly used for post-processing.</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l155" href="#l155">155</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="cm"> * </span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l156" href="#l156">156</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="cm"> * \ingroup create-framebuffer</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l157" href="#l157">157</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="cm"> * </span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l158" href="#l158">158</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="cm"> * @param size The size of the framebuffer.</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l159" href="#l159">159</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="cm"> * @return The created \ref FrameBuffer.</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l160" href="#l160">160</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="cm"> */</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l161" href="#l161">161</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">FrameBuffer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">build_simple_framebuffer</span><span class="p">(</span><span class="n">DEBUG_LABEL_ARG_MANY</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Size</span><span class="o">&amp;</span><span class="w"> </span><span class="n">size</span><span class="p">);</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l162" href="#l162">162</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l163" href="#l163">163</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l164" href="#l164">164</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="cm">/** Builds a multisample anti-aliasing (MSAA) framebuffer for high-quality rendering.</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l165" href="#l165">165</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="cm"> *</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l166" href="#l166">166</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="cm"> * This function creates a framebuffer object (FBO) with multisample support, allowing for smoother edges and reduced aliasing artifacts in rendered images.</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l167" href="#l167">167</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="cm"> * </span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l168" href="#l168">168</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="cm"> * \ingroup create-framebuffer</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l169" href="#l169">169</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="cm"> *</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l170" href="#l170">170</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="cm"> * @param size The dimensions (width, height) of the framebuffer in pixels.</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l171" href="#l171">171</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="cm"> * @param msaa_samples The number of MSAA samples to use. Higher values provide better anti-aliasing but may impact performance. Typical values are 2, 4, or 8.</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l172" href="#l172">172</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="cm"> * @param bits_per_pixel The color buffer precision.</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l173" href="#l173">173</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="cm"> * @return The created \ref FrameBuffer object with MSAA enabled.</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l174" href="#l174">174</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="cm"> */</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l175" href="#l175">175</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">FrameBuffer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">build_msaa_framebuffer</span><span class="p">(</span><span class="n">DEBUG_LABEL_ARG_MANY</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Size</span><span class="o">&amp;</span><span class="w"> </span><span class="n">size</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">msaa_samples</span><span class="p">,</span><span class="w"> </span><span class="n">ColorBitsPerPixel</span><span class="w"> </span><span class="n">bits_per_pixel</span><span class="p">);</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l176" href="#l176">176</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l177" href="#l177">177</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l178" href="#l178">178</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="cm">/** Build a HDR frame buffer.</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l179" href="#l179">179</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="cm"> * </span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l180" href="#l180">180</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="cm"> * \ingroup create-framebuffer</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l181" href="#l181">181</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="cm"> * </span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l182" href="#l182">182</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="cm"> * @param size The resolution in pixels.</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l183" href="#l183">183</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="cm"> * @param bits_per_pixel How many bits per pixel to use</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l184" href="#l184">184</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="cm"> * @return The created \ref FrameBuffer</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l185" href="#l185">185</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="cm"> */</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l186" href="#l186">186</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">FrameBuffer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">build_hdr_floating_framebuffer</span><span class="p">(</span><span class="n">DEBUG_LABEL_ARG_MANY</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Size</span><span class="o">&amp;</span><span class="w"> </span><span class="n">size</span><span class="p">,</span><span class="w"> </span><span class="n">ColorBitsPerPixel</span><span class="w"> </span><span class="n">bits_per_pixel</span><span class="p">);</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l187" href="#l187">187</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l188" href="#l188">188</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l189" href="#l189">189</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="cm">/** Create a depth-only framebuffer for shadow rendering.</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l190" href="#l190">190</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="cm"> * </span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l191" href="#l191">191</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="cm"> * \ingroup create-framebuffer</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l192" href="#l192">192</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="cm"> * </span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l193" href="#l193">193</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="cm"> * @param size The resolution in pixels.</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l194" href="#l194">194</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="cm"> * @return The created \ref FrameBuffer</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l195" href="#l195">195</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="cm"> */</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l196" href="#l196">196</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">FrameBuffer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">build_shadow_framebuffer</span><span class="p">(</span><span class="n">DEBUG_LABEL_ARG_MANY</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Size</span><span class="o">&amp;</span><span class="w"> </span><span class="n">size</span><span class="p">);</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l197" href="#l197">197</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l198" href="#l198">198</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l199" href="#l199">199</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="c1">/// raii class to render to a FrameBuffer</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l200" href="#l200">200</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="k">struct</span><span class="w"> </span><span class="nc">BoundFbo</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l201" href="#l201">201</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="p">{</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l202" href="#l202">202</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">FrameBuffer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">fbo</span><span class="p">;</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l203" href="#l203">203</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l204" href="#l204">204</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">	</span><span class="n">BoundFbo</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">BoundFbo</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">delete</span><span class="p">;</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l205" href="#l205">205</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">	</span><span class="n">BoundFbo</span><span class="p">(</span><span class="n">BoundFbo</span><span class="o">&amp;&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">delete</span><span class="p">;</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l206" href="#l206">206</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">	</span><span class="kt">void</span><span class="w"> </span><span class="n">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">BoundFbo</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">delete</span><span class="p">;</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l207" href="#l207">207</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">	</span><span class="kt">void</span><span class="w"> </span><span class="n">operator</span><span class="o">=</span><span class="p">(</span><span class="n">BoundFbo</span><span class="o">&amp;&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">delete</span><span class="p">;</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l208" href="#l208">208</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l209" href="#l209">209</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">	</span><span class="n">explicit</span><span class="w"> </span><span class="nf">BoundFbo</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">FrameBuffer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">f</span><span class="p">);</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l210" href="#l210">210</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">	</span><span class="o">~</span><span class="n">BoundFbo</span><span class="p">();</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l211" href="#l211">211</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="p">};</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l212" href="#l212">212</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l213" href="#l213">213</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="kt">void</span><span class="w"> </span><span class="nf">resolve_multisampled_buffer</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">FrameBuffer</span><span class="o">&amp;</span><span class="w"> </span><span class="n">src</span><span class="p">,</span><span class="w"> </span><span class="n">FrameBuffer</span><span class="o">*</span><span class="w"> </span><span class="n">dst</span><span class="p">);</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l214" href="#l214">214</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l215" href="#l215">215</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="cm">/**</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l216" href="#l216">216</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="cm"> * @}</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l217" href="#l217">217</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="cm">*/</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l218" href="#l218">218</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l219" href="#l219">219</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="p">}</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l220" href="#l220">220</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"></td>
+      </tr>
+    </table>
+  </div>
+</div>
+        </main>
+        <hr class="block-separator"/>
+        <footer class="text-center">
+          Created using <a href="http://gcovr.com/en/8.6">GCOVR (Version 8.6)</a>
+          at 2026-03-16 15:16:16
+        </footer>
+      </div>
+    </div>
+  </body>
+
+</html>

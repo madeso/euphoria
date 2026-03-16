@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="vertex__layout_8h" kind="file" language="C++">
+    <compoundname>vertex_layout.h</compoundname>
+    <includes local="no">map</includes>
+    <includes local="no">set</includes>
+    <includes local="no">optional</includes>
+    <includedby refid="shader_8h" local="yes">libs/render/src/render/shader.h</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>libs/render/src/render/vertex_layout.h</label>
+        <link refid="vertex__layout_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>map</label>
+      </node>
+      <node id="4">
+        <label>optional</label>
+      </node>
+      <node id="3">
+        <label>set</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="3">
+        <label>libs/render/src/render/canvas.h</label>
+        <link refid="canvas_8h"/>
+      </node>
+      <node id="2">
+        <label>libs/render/src/render/shader.h</label>
+        <link refid="shader_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>libs/render/src/render/vertex_layout.h</label>
+        <link refid="vertex__layout_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structeu_1_1render_1_1VertexElementDescription" prot="public">eu::render::VertexElementDescription</innerclass>
+    <innerclass refid="structeu_1_1render_1_1CompiledVertexElement" prot="public">eu::render::CompiledVertexElement</innerclass>
+    <innerclass refid="structeu_1_1render_1_1CompiledVertexElementNoName" prot="public">eu::render::CompiledVertexElementNoName</innerclass>
+    <innerclass refid="structeu_1_1render_1_1CompiledShaderVertexAttributes" prot="public">eu::render::CompiledShaderVertexAttributes</innerclass>
+    <innerclass refid="structeu_1_1render_1_1CompiledGeomVertexAttributes" prot="public">eu::render::CompiledGeomVertexAttributes</innerclass>
+    <innerclass refid="structeu_1_1render_1_1CompiledVertexTypeList" prot="public">eu::render::CompiledVertexTypeList</innerclass>
+    <innerclass refid="structeu_1_1render_1_1InstanceProp" prot="public">eu::render::InstanceProp</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1render">eu::render</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/render/src/render/vertex_layout.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="opengl__states_8h" kind="file" language="C++">
+    <compoundname>opengl_states.h</compoundname>
+    <includes refid="blend_8h" local="yes">render/blend.h</includes>
+    <includes refid="compare_8h" local="yes">render/compare.h</includes>
+    <includes refid="constants_8h" local="yes">render/constants.h</includes>
+    <includes refid="cullface_8h" local="yes">render/cullface.h</includes>
+    <includes refid="rendermode_8h" local="yes">render/rendermode.h</includes>
+    <includes refid="stencilaction_8h" local="yes">render/stencilaction.h</includes>
+    <includes local="no">optional</includes>
+    <includes local="no">array</includes>
+    <incdepgraph>
+      <node id="2">
+        <label>render/blend.h</label>
+        <link refid="blend_8h"/>
+      </node>
+      <node id="3">
+        <label>render/compare.h</label>
+        <link refid="compare_8h"/>
+      </node>
+      <node id="4">
+        <label>render/constants.h</label>
+        <link refid="constants_8h"/>
+      </node>
+      <node id="5">
+        <label>render/cullface.h</label>
+        <link refid="cullface_8h"/>
+      </node>
+      <node id="1">
+        <label>libs/render/src/render/opengl_states.h</label>
+        <link refid="opengl__states_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>render/rendermode.h</label>
+        <link refid="rendermode_8h"/>
+      </node>
+      <node id="7">
+        <label>render/stencilaction.h</label>
+        <link refid="stencilaction_8h"/>
+      </node>
+      <node id="9">
+        <label>array</label>
+      </node>
+      <node id="8">
+        <label>optional</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="structeu_1_1render_1_1OpenglStates" prot="public">eu::render::OpenglStates</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1render">eu::render</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/render/src/render/opengl_states.h"/>
+  </compounddef>
+</doxygen>

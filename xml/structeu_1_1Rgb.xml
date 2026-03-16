@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structeu_1_1Rgb" kind="struct" language="C++" prot="public">
+    <compoundname>eu::Rgb</compoundname>
+    <includes refid="colors_8h" local="no">colors.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1Rgb_1ad237426dd480df0ee3cfcc119c3c58c9" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+        <definition>float eu::Rgb::r</definition>
+        <argsstring></argsstring>
+        <name>r</name>
+        <qualifiedname>eu::Rgb::r</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/colors.h" line="15" column="7" bodyfile="libs/base/src/base/colors.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1Rgb_1a870a7ea9fbc66587defec9b387282c02" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+        <definition>float eu::Rgb::g</definition>
+        <argsstring></argsstring>
+        <name>g</name>
+        <qualifiedname>eu::Rgb::g</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/colors.h" line="16" column="7" bodyfile="libs/base/src/base/colors.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1Rgb_1a5a3096e70bfaa073b8370ce7591f2ed9" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+        <definition>float eu::Rgb::b</definition>
+        <argsstring></argsstring>
+        <name>b</name>
+        <qualifiedname>eu::Rgb::b</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/colors.h" line="17" column="7" bodyfile="libs/base/src/base/colors.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1Rgb_1a2b20919317fd0941a796cc06eb6afadb" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref></type>
+        <definition>constexpr eu::Rgb::Rgb</definition>
+        <argsstring>(float red, float green, float blue)</argsstring>
+        <name>Rgb</name>
+        <qualifiedname>eu::Rgb::Rgb</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <declname>red</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <declname>green</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <declname>blue</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/colors.h" line="19" column="11" bodyfile="libs/base/src/base/colors.h" bodystart="19" bodyend="23"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Represents color in gamma (non-linear) space (aka sRGB). </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="see"><para>Lin_rgb </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="libs/base/src/base/colors.h" line="13" column="1" bodyfile="libs/base/src/base/colors.h" bodystart="14" bodyend="24"/>
+    <listofallmembers>
+      <member refid="structeu_1_1Rgb_1a5a3096e70bfaa073b8370ce7591f2ed9" prot="public" virt="non-virtual"><scope>eu::Rgb</scope><name>b</name></member>
+      <member refid="structeu_1_1Rgb_1a870a7ea9fbc66587defec9b387282c02" prot="public" virt="non-virtual"><scope>eu::Rgb</scope><name>g</name></member>
+      <member refid="structeu_1_1Rgb_1ad237426dd480df0ee3cfcc119c3c58c9" prot="public" virt="non-virtual"><scope>eu::Rgb</scope><name>r</name></member>
+      <member refid="structeu_1_1Rgb_1a2b20919317fd0941a796cc06eb6afadb" prot="public" virt="non-virtual"><scope>eu::Rgb</scope><name>Rgb</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

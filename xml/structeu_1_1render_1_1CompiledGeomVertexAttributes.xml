@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structeu_1_1render_1_1CompiledGeomVertexAttributes" kind="struct" language="C++" prot="public">
+    <compoundname>eu::render::CompiledGeomVertexAttributes</compoundname>
+    <includes refid="vertex__layout_8h" local="no">vertex_layout.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1render_1_1CompiledGeomVertexAttributes_1ab2b07efcf58c8063ffa4ca52e6c95a76" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structeu_1_1render_1_1CompiledVertexElementNoName" kindref="compound">CompiledVertexElementNoName</ref> &gt;</type>
+        <definition>std::vector&lt;CompiledVertexElementNoName&gt; eu::render::CompiledGeomVertexAttributes::elements</definition>
+        <argsstring></argsstring>
+        <name>elements</name>
+        <qualifiedname>eu::render::CompiledGeomVertexAttributes::elements</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/vertex_layout.h" line="81" column="13" bodyfile="libs/render/src/render/vertex_layout.h" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1CompiledGeomVertexAttributes_1afb3bfcb379d033b979aa4aaef8c6b1c9" prot="public" static="no" mutable="no">
+        <type><ref refid="group__vertex-layout_1gac4a839089284fbf22fb44e23c621c658" kindref="member">VertexTypes</ref></type>
+        <definition>VertexTypes eu::render::CompiledGeomVertexAttributes::debug_types</definition>
+        <argsstring></argsstring>
+        <name>debug_types</name>
+        <qualifiedname>eu::render::CompiledGeomVertexAttributes::debug_types</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/vertex_layout.h" line="82" column="13" bodyfile="libs/render/src/render/vertex_layout.h" bodystart="82" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>A list of CompiledVertexLayoutNoNameList (for geom) </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/render/src/render/vertex_layout.h" line="79" column="1" bodyfile="libs/render/src/render/vertex_layout.h" bodystart="80" bodyend="83"/>
+    <listofallmembers>
+      <member refid="structeu_1_1render_1_1CompiledGeomVertexAttributes_1afb3bfcb379d033b979aa4aaef8c6b1c9" prot="public" virt="non-virtual"><scope>eu::render::CompiledGeomVertexAttributes</scope><name>debug_types</name></member>
+      <member refid="structeu_1_1render_1_1CompiledGeomVertexAttributes_1ab2b07efcf58c8063ffa4ca52e6c95a76" prot="public" virt="non-virtual"><scope>eu::render::CompiledGeomVertexAttributes</scope><name>elements</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

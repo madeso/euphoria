@@ -1,0 +1,179 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structeu_1_1render_1_1BaseTexture" kind="struct" language="C++" prot="public">
+    <compoundname>eu::render::BaseTexture</compoundname>
+    <derivedcompoundref refid="structeu_1_1render_1_1FrameBuffer" prot="public" virt="non-virtual">eu::render::FrameBuffer</derivedcompoundref>
+    <derivedcompoundref refid="structeu_1_1render_1_1Texture2d" prot="public" virt="non-virtual">eu::render::Texture2d</derivedcompoundref>
+    <derivedcompoundref refid="structeu_1_1render_1_1TextureCubemap" prot="public" virt="non-virtual">eu::render::TextureCubemap</derivedcompoundref>
+    <includes refid="texture_8h" local="no">texture.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1render_1_1BaseTexture_1a1ad500ed909568d7d3d7042170b9e6dd" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">unsigned</ref> <ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+        <definition>unsigned int eu::render::BaseTexture::id</definition>
+        <argsstring></argsstring>
+        <name>id</name>
+        <qualifiedname>eu::render::BaseTexture::id</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/texture.h" line="72" column="14" bodyfile="libs/render/src/render/texture.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1render_1_1BaseTexture_1a4f8bf634470e48be913dac919fd688c7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::BaseTexture::BaseTexture</definition>
+        <argsstring>()</argsstring>
+        <name>BaseTexture</name>
+        <qualifiedname>eu::render::BaseTexture::BaseTexture</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/texture.h" line="74" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1BaseTexture_1a7f422024d5ac229c2dbebf4f17f2dd86" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::BaseTexture::~BaseTexture</definition>
+        <argsstring>()</argsstring>
+        <name>~BaseTexture</name>
+        <qualifiedname>eu::render::BaseTexture::~BaseTexture</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/texture.h" line="75" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1BaseTexture_1a08ea1db1ea08e6d38f9b9f85fc228f9e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::BaseTexture::BaseTexture</definition>
+        <argsstring>(const BaseTexture &amp;)=delete</argsstring>
+        <name>BaseTexture</name>
+        <qualifiedname>eu::render::BaseTexture::BaseTexture</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1BaseTexture" kindref="compound">BaseTexture</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/texture.h" line="77" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1BaseTexture_1a80d0ca15ad4e96b0e1903be4f37b3450" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <definition>void eu::render::BaseTexture::operator=</definition>
+        <argsstring>(const BaseTexture &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <qualifiedname>eu::render::BaseTexture::operator=</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1BaseTexture" kindref="compound">BaseTexture</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/texture.h" line="78" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1BaseTexture_1a7888eaf78c11d8bf441fca0a5113530b" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::BaseTexture::BaseTexture</definition>
+        <argsstring>(BaseTexture &amp;&amp;) noexcept</argsstring>
+        <name>BaseTexture</name>
+        <qualifiedname>eu::render::BaseTexture::BaseTexture</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1render_1_1BaseTexture" kindref="compound">BaseTexture</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/texture.h" line="80" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1BaseTexture_1aeb794f4887900ce084b91d8a0305cdbd" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type><ref refid="structeu_1_1render_1_1BaseTexture" kindref="compound">BaseTexture</ref> &amp;</type>
+        <definition>BaseTexture &amp; eu::render::BaseTexture::operator=</definition>
+        <argsstring>(BaseTexture &amp;&amp;) noexcept</argsstring>
+        <name>operator=</name>
+        <qualifiedname>eu::render::BaseTexture::operator=</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1render_1_1BaseTexture" kindref="compound">BaseTexture</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/texture.h" line="81" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1BaseTexture_1abe95020af353f26dfc963ac6a8d1cc75" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <definition>void eu::render::BaseTexture::unload</definition>
+        <argsstring>()</argsstring>
+        <name>unload</name>
+        <qualifiedname>eu::render::BaseTexture::unload</qualifiedname>
+        <briefdescription>
+<para>clears the loaded texture to a invalid texture </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/texture.h" line="84" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Base class for all textures, but only exist due to code reuse and can easily be inlined. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>eu::render::BaseTexture</label>
+        <link refid="structeu_1_1render_1_1BaseTexture"/>
+      </node>
+      <node id="2">
+        <label>eu::render::FrameBuffer</label>
+        <link refid="structeu_1_1render_1_1FrameBuffer"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>eu::render::Texture2d</label>
+        <link refid="structeu_1_1render_1_1Texture2d"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>eu::render::TextureCubemap</label>
+        <link refid="structeu_1_1render_1_1TextureCubemap"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="libs/render/src/render/texture.h" line="70" column="1" bodyfile="libs/render/src/render/texture.h" bodystart="71" bodyend="85"/>
+    <listofallmembers>
+      <member refid="structeu_1_1render_1_1BaseTexture_1a4f8bf634470e48be913dac919fd688c7" prot="public" virt="non-virtual"><scope>eu::render::BaseTexture</scope><name>BaseTexture</name></member>
+      <member refid="structeu_1_1render_1_1BaseTexture_1a08ea1db1ea08e6d38f9b9f85fc228f9e" prot="public" virt="non-virtual"><scope>eu::render::BaseTexture</scope><name>BaseTexture</name></member>
+      <member refid="structeu_1_1render_1_1BaseTexture_1a7888eaf78c11d8bf441fca0a5113530b" prot="public" virt="non-virtual"><scope>eu::render::BaseTexture</scope><name>BaseTexture</name></member>
+      <member refid="structeu_1_1render_1_1BaseTexture_1a1ad500ed909568d7d3d7042170b9e6dd" prot="public" virt="non-virtual"><scope>eu::render::BaseTexture</scope><name>id</name></member>
+      <member refid="structeu_1_1render_1_1BaseTexture_1a80d0ca15ad4e96b0e1903be4f37b3450" prot="public" virt="non-virtual"><scope>eu::render::BaseTexture</scope><name>operator=</name></member>
+      <member refid="structeu_1_1render_1_1BaseTexture_1aeb794f4887900ce084b91d8a0305cdbd" prot="public" virt="non-virtual"><scope>eu::render::BaseTexture</scope><name>operator=</name></member>
+      <member refid="structeu_1_1render_1_1BaseTexture_1abe95020af353f26dfc963ac6a8d1cc75" prot="public" virt="non-virtual"><scope>eu::render::BaseTexture</scope><name>unload</name></member>
+      <member refid="structeu_1_1render_1_1BaseTexture_1a7f422024d5ac229c2dbebf4f17f2dd86" prot="public" virt="non-virtual"><scope>eu::render::BaseTexture</scope><name>~BaseTexture</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

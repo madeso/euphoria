@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structeu_1_1render_1_1TextureCubemap" kind="struct" language="C++" prot="public">
+    <compoundname>eu::render::TextureCubemap</compoundname>
+    <basecompoundref refid="structeu_1_1render_1_1BaseTexture" prot="public" virt="non-virtual">eu::render::BaseTexture</basecompoundref>
+    <includes refid="texture_8h" local="no">texture.h</includes>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1render_1_1TextureCubemap_1a67653658229e71da839de2fd1513519b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::TextureCubemap::TextureCubemap</definition>
+        <argsstring>()=delete</argsstring>
+        <name>TextureCubemap</name>
+        <qualifiedname>eu::render::TextureCubemap::TextureCubemap</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/texture.h" line="106" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1TextureCubemap_1acf20a8271d6fff69d45ce0eff1adb358" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::TextureCubemap::TextureCubemap</definition>
+        <argsstring>(DEBUG_LABEL_ARG_MANY const std::array&lt; void *, cubemap_size &gt; &amp;pixel_data, int width, int height, ColorData cd)</argsstring>
+        <name>TextureCubemap</name>
+        <qualifiedname>eu::render::TextureCubemap::TextureCubemap</qualifiedname>
+        <param>
+          <type><ref refid="group__debug_1gabd34c805e47ae972bc6f5b1e406e921d" kindref="member">DEBUG_LABEL_ARG_MANY</ref> <ref refid="structeu_1_1R" kindref="compound">const</ref> std::array&lt; <ref refid="structeu_1_1R" kindref="compound">void</ref> *, <ref refid="group__texture_1gac79b1d9294cd27d6bd858386a5d3b0b9" kindref="member">cubemap_size</ref> &gt; &amp;</type>
+          <declname>pixel_data</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+          <declname>width</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+          <declname>height</declname>
+        </param>
+        <param>
+          <type><ref refid="group__texture_1ga4c49cf44c6f0f36c25cc3fd17be1dda5" kindref="member">ColorData</ref></type>
+          <declname>cd</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/texture.h" line="108" column="1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>A cubemap texture. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Useful for skybox rendering or faking reflections from a (static) scene. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>eu::render::BaseTexture</label>
+        <link refid="structeu_1_1render_1_1BaseTexture"/>
+      </node>
+      <node id="1">
+        <label>eu::render::TextureCubemap</label>
+        <link refid="structeu_1_1render_1_1TextureCubemap"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>eu::render::BaseTexture</label>
+        <link refid="structeu_1_1render_1_1BaseTexture"/>
+      </node>
+      <node id="1">
+        <label>eu::render::TextureCubemap</label>
+        <link refid="structeu_1_1render_1_1TextureCubemap"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="libs/render/src/render/texture.h" line="104" column="1" bodyfile="libs/render/src/render/texture.h" bodystart="105" bodyend="109"/>
+    <listofallmembers>
+      <member refid="structeu_1_1render_1_1BaseTexture_1a4f8bf634470e48be913dac919fd688c7" prot="public" virt="non-virtual"><scope>eu::render::TextureCubemap</scope><name>BaseTexture</name></member>
+      <member refid="structeu_1_1render_1_1BaseTexture_1a08ea1db1ea08e6d38f9b9f85fc228f9e" prot="public" virt="non-virtual"><scope>eu::render::TextureCubemap</scope><name>BaseTexture</name></member>
+      <member refid="structeu_1_1render_1_1BaseTexture_1a7888eaf78c11d8bf441fca0a5113530b" prot="public" virt="non-virtual"><scope>eu::render::TextureCubemap</scope><name>BaseTexture</name></member>
+      <member refid="structeu_1_1render_1_1BaseTexture_1a1ad500ed909568d7d3d7042170b9e6dd" prot="public" virt="non-virtual"><scope>eu::render::TextureCubemap</scope><name>id</name></member>
+      <member refid="structeu_1_1render_1_1BaseTexture_1a80d0ca15ad4e96b0e1903be4f37b3450" prot="public" virt="non-virtual"><scope>eu::render::TextureCubemap</scope><name>operator=</name></member>
+      <member refid="structeu_1_1render_1_1BaseTexture_1aeb794f4887900ce084b91d8a0305cdbd" prot="public" virt="non-virtual"><scope>eu::render::TextureCubemap</scope><name>operator=</name></member>
+      <member refid="structeu_1_1render_1_1TextureCubemap_1a67653658229e71da839de2fd1513519b" prot="public" virt="non-virtual"><scope>eu::render::TextureCubemap</scope><name>TextureCubemap</name></member>
+      <member refid="structeu_1_1render_1_1TextureCubemap_1acf20a8271d6fff69d45ce0eff1adb358" prot="public" virt="non-virtual"><scope>eu::render::TextureCubemap</scope><name>TextureCubemap</name></member>
+      <member refid="structeu_1_1render_1_1BaseTexture_1abe95020af353f26dfc963ac6a8d1cc75" prot="public" virt="non-virtual"><scope>eu::render::TextureCubemap</scope><name>unload</name></member>
+      <member refid="structeu_1_1render_1_1BaseTexture_1a7f422024d5ac229c2dbebf4f17f2dd86" prot="public" virt="non-virtual"><scope>eu::render::TextureCubemap</scope><name>~BaseTexture</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

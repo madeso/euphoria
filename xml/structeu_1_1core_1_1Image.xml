@@ -1,0 +1,319 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structeu_1_1core_1_1Image" kind="struct" language="C++" prot="public">
+    <compoundname>eu::core::Image</compoundname>
+    <includes refid="image_8h" local="no">image.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1core_1_1Image_1a67db02d88bdba3beb12ed6272b745620" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+        <definition>int eu::core::Image::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>eu::core::Image::width</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/image.h" line="19" column="9" bodyfile="libs/core/src/core/image.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1Image_1afc6653cf3aa6acf8a78f71786cf9b89b" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+        <definition>int eu::core::Image::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>eu::core::Image::height</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/image.h" line="20" column="9" bodyfile="libs/core/src/core/image.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1Image_1a266ae0846c7c5cedf6686ddda5246327" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structeu_1_1R" kindref="compound">unsigned</ref> <ref refid="structeu_1_1R" kindref="compound">char</ref> &gt;</type>
+        <definition>std::vector&lt;unsigned char&gt; eu::core::Image::data</definition>
+        <argsstring></argsstring>
+        <name>data</name>
+        <qualifiedname>eu::core::Image::data</qualifiedname>
+        <briefdescription>
+<para>The data is stored in row-major order, with 4 bytes per pixel RGB(A) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/image.h" line="21" column="17" bodyfile="libs/core/src/core/image.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1Image_1abe839d22b6a3765bfdd0da8e31477e5e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::core::Image::Image</definition>
+        <argsstring>()</argsstring>
+        <name>Image</name>
+        <qualifiedname>eu::core::Image::Image</qualifiedname>
+        <briefdescription>
+<para>Default constructor initializes an empty (invalid) image. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/image.h" line="24" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1Image_1a6144fe013dbe81adc6d71622a4baf21f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">bool</ref></type>
+        <definition>bool eu::core::Image::is_valid</definition>
+        <argsstring>() const</argsstring>
+        <name>is_valid</name>
+        <qualifiedname>eu::core::Image::is_valid</qualifiedname>
+        <briefdescription>
+<para>Returns true if the image has valid dimensions and data. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/image.h" line="27" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1Image_1a5e47e29c4c120109e84b7db26cba0e48" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <definition>void eu::core::Image::setup_with_alpha_support</definition>
+        <argsstring>(int w, int h)</argsstring>
+        <name>setup_with_alpha_support</name>
+        <qualifiedname>eu::core::Image::setup_with_alpha_support</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+          <declname>w</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+          <declname>h</declname>
+        </param>
+        <briefdescription>
+<para>Initializes the image with the specified dimensions and alpha support. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>w</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The width of the image. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>h</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The height of the image. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/image.h" line="32" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1Image_1adda383d7383d74975b1424f69dc74199" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <definition>void eu::core::Image::make_invalid</definition>
+        <argsstring>()</argsstring>
+        <name>make_invalid</name>
+        <qualifiedname>eu::core::Image::make_invalid</qualifiedname>
+        <briefdescription>
+<para>Marks the image as invalid by resetting its dimensions and clearing its data. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/image.h" line="35" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1Image_1a0e6c3305f1979346e3fe03d1464b2394" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <definition>void eu::core::Image::set_pixel</definition>
+        <argsstring>(int x, int y, int r, unsigned char g, unsigned char b, unsigned char a)</argsstring>
+        <name>set_pixel</name>
+        <qualifiedname>eu::core::Image::set_pixel</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+          <declname>r</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">unsigned</ref> <ref refid="structeu_1_1R" kindref="compound">char</ref></type>
+          <declname>g</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">unsigned</ref> <ref refid="structeu_1_1R" kindref="compound">char</ref></type>
+          <declname>b</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">unsigned</ref> <ref refid="structeu_1_1R" kindref="compound">char</ref></type>
+          <declname>a</declname>
+        </param>
+        <briefdescription>
+<para>Sets the color of a pixel at the specified coordinates in an image buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The x-coordinate of the pixel. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The y-coordinate of the pixel. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>r</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The red color component (0-255). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>g</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The green color component (0-255). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The blue color component (0-255). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The alpha (transparency) component (0-255). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/image.h" line="44" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1Image_1aa9b33a4fc7457638e78d501515cfc0d7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <definition>void eu::core::Image::set_pixel</definition>
+        <argsstring>(int x, int y, const PixelColor &amp;color)</argsstring>
+        <name>set_pixel</name>
+        <qualifiedname>eu::core::Image::set_pixel</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1core_1_1PixelColor" kindref="compound">PixelColor</ref> &amp;</type>
+          <declname>color</declname>
+        </param>
+        <briefdescription>
+<para>Overload: Sets the color of a pixel using a PixelColor struct. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/image.h" line="47" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1Image_1a1932a15141a0e3fbd3dcb3595a75b8d4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1core_1_1PixelColor" kindref="compound">PixelColor</ref></type>
+        <definition>PixelColor eu::core::Image::get_pixel</definition>
+        <argsstring>(int x, int y) const</argsstring>
+        <name>get_pixel</name>
+        <qualifiedname>eu::core::Image::get_pixel</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+<para>Gets the color of a pixel at the specified coordinates. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The x-coordinate of the pixel. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The y-coordinate of the pixel. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The color at the pixel as a PixelColor struct. If out of bounds, returns {0,0,0,0}. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/image.h" line="53" column="16"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>A simple sRGB(A) image. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/image.h" line="17" column="1" bodyfile="libs/core/src/core/image.h" bodystart="18" bodyend="54"/>
+    <listofallmembers>
+      <member refid="structeu_1_1core_1_1Image_1a266ae0846c7c5cedf6686ddda5246327" prot="public" virt="non-virtual"><scope>eu::core::Image</scope><name>data</name></member>
+      <member refid="structeu_1_1core_1_1Image_1a1932a15141a0e3fbd3dcb3595a75b8d4" prot="public" virt="non-virtual"><scope>eu::core::Image</scope><name>get_pixel</name></member>
+      <member refid="structeu_1_1core_1_1Image_1afc6653cf3aa6acf8a78f71786cf9b89b" prot="public" virt="non-virtual"><scope>eu::core::Image</scope><name>height</name></member>
+      <member refid="structeu_1_1core_1_1Image_1abe839d22b6a3765bfdd0da8e31477e5e" prot="public" virt="non-virtual"><scope>eu::core::Image</scope><name>Image</name></member>
+      <member refid="structeu_1_1core_1_1Image_1a6144fe013dbe81adc6d71622a4baf21f" prot="public" virt="non-virtual"><scope>eu::core::Image</scope><name>is_valid</name></member>
+      <member refid="structeu_1_1core_1_1Image_1adda383d7383d74975b1424f69dc74199" prot="public" virt="non-virtual"><scope>eu::core::Image</scope><name>make_invalid</name></member>
+      <member refid="structeu_1_1core_1_1Image_1a0e6c3305f1979346e3fe03d1464b2394" prot="public" virt="non-virtual"><scope>eu::core::Image</scope><name>set_pixel</name></member>
+      <member refid="structeu_1_1core_1_1Image_1aa9b33a4fc7457638e78d501515cfc0d7" prot="public" virt="non-virtual"><scope>eu::core::Image</scope><name>set_pixel</name></member>
+      <member refid="structeu_1_1core_1_1Image_1a5e47e29c4c120109e84b7db26cba0e48" prot="public" virt="non-virtual"><scope>eu::core::Image</scope><name>setup_with_alpha_support</name></member>
+      <member refid="structeu_1_1core_1_1Image_1a67db02d88bdba3beb12ed6272b745620" prot="public" virt="non-virtual"><scope>eu::core::Image</scope><name>width</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

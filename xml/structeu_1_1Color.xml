@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structeu_1_1Color" kind="struct" language="C++" prot="public">
+    <compoundname>eu::Color</compoundname>
+    <includes refid="colors_8h" local="no">colors.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1Color_1ab4344265a109a2542325d310c908b805" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1Rgb" kindref="compound">Rgb</ref></type>
+        <definition>Rgb eu::Color::rgb</definition>
+        <argsstring></argsstring>
+        <name>rgb</name>
+        <qualifiedname>eu::Color::rgb</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/colors.h" line="76" column="9" bodyfile="libs/base/src/base/colors.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1Color_1a663b595718889e0cc1a263c4f99520c6" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+        <definition>float eu::Color::alpha</definition>
+        <argsstring></argsstring>
+        <name>alpha</name>
+        <qualifiedname>eu::Color::alpha</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/colors.h" line="77" column="11" bodyfile="libs/base/src/base/colors.h" bodystart="77" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1Color_1a7be0a5394af231dca098d154232ef430" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref></type>
+        <definition>constexpr eu::Color::Color</definition>
+        <argsstring>(const Rgb &amp;a_rgb, float a_alpha=1.0f)</argsstring>
+        <name>Color</name>
+        <qualifiedname>eu::Color::Color</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1Rgb" kindref="compound">Rgb</ref> &amp;</type>
+          <declname>a_rgb</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <declname>a_alpha</declname>
+          <defval>1.0f</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/colors.h" line="79" column="15" bodyfile="libs/base/src/base/colors.h" bodystart="79" bodyend="83"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Represents a color with an alpha component. The color is stored in gamma (non-linear) space (aka sRGB). </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>eu::Color</label>
+        <link refid="structeu_1_1Color"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>rgb</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>eu::Rgb</label>
+        <link refid="structeu_1_1Rgb"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/base/src/base/colors.h" line="74" column="1" bodyfile="libs/base/src/base/colors.h" bodystart="75" bodyend="84"/>
+    <listofallmembers>
+      <member refid="structeu_1_1Color_1a663b595718889e0cc1a263c4f99520c6" prot="public" virt="non-virtual"><scope>eu::Color</scope><name>alpha</name></member>
+      <member refid="structeu_1_1Color_1a7be0a5394af231dca098d154232ef430" prot="public" virt="non-virtual"><scope>eu::Color</scope><name>Color</name></member>
+      <member refid="structeu_1_1Color_1ab4344265a109a2542325d310c908b805" prot="public" virt="non-virtual"><scope>eu::Color</scope><name>rgb</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,252 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="group__vertex-layout" kind="group">
+    <compoundname>vertex-layout</compoundname>
+    <title>Vertex layout</title>
+    <innerclass refid="structeu_1_1render_1_1VertexElementDescription" prot="public">eu::render::VertexElementDescription</innerclass>
+    <innerclass refid="structeu_1_1render_1_1CompiledVertexElement" prot="public">eu::render::CompiledVertexElement</innerclass>
+    <innerclass refid="structeu_1_1render_1_1CompiledVertexElementNoName" prot="public">eu::render::CompiledVertexElementNoName</innerclass>
+    <innerclass refid="structeu_1_1render_1_1CompiledShaderVertexAttributes" prot="public">eu::render::CompiledShaderVertexAttributes</innerclass>
+    <innerclass refid="structeu_1_1render_1_1CompiledGeomVertexAttributes" prot="public">eu::render::CompiledGeomVertexAttributes</innerclass>
+    <innerclass refid="structeu_1_1render_1_1CompiledVertexTypeList" prot="public">eu::render::CompiledVertexTypeList</innerclass>
+    <innerclass refid="structeu_1_1render_1_1InstanceProp" prot="public">eu::render::InstanceProp</innerclass>
+    <sectiondef kind="enum">
+      <memberdef kind="enum" id="group__vertex-layout_1gac45dc005a83f6afdda19dbb70f82945b" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>VertexType</name>
+        <qualifiedname>eu::render::VertexType</qualifiedname>
+        <enumvalue id="group__vertex-layout_1ggac45dc005a83f6afdda19dbb70f82945bad89672577ba90f2913b82fee460953ca" prot="public">
+          <name>position2xy</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__vertex-layout_1ggac45dc005a83f6afdda19dbb70f82945baf6f586f283d00cd73955404d7b7f859a" prot="public">
+          <name>position2xz</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__vertex-layout_1ggac45dc005a83f6afdda19dbb70f82945bab6876faed120c8b5f3518d8a5af753f7" prot="public">
+          <name>position3</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__vertex-layout_1ggac45dc005a83f6afdda19dbb70f82945ba9242975236b4b61786a418b79cd39ac1" prot="public">
+          <name>normal3</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__vertex-layout_1ggac45dc005a83f6afdda19dbb70f82945ba79139957320cd67b3fa6be3f429dafc5" prot="public">
+          <name>color3</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__vertex-layout_1ggac45dc005a83f6afdda19dbb70f82945baa2fa857196bdc299240294b055f5c9ee" prot="public">
+          <name>color4</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__vertex-layout_1ggac45dc005a83f6afdda19dbb70f82945bab500aaa6137a6357d8d9c5f5e09165cd" prot="public">
+          <name>texture2</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__vertex-layout_1ggac45dc005a83f6afdda19dbb70f82945ba6dacc621672a82305301e95d9c6b020e" prot="public">
+          <name>instance_transform</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Vertex source type, position, normal etc. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><xrefsect id="todo_1_todo000002"><xreftitle>Todo</xreftitle><xrefdescription><para>change to include other texture coordinates and custom types that are created from scripts </para>
+</xrefdescription></xrefsect></para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/vertex_layout.h" line="17" column="1" bodyfile="libs/render/src/render/vertex_layout.h" bodystart="18" bodyend="30"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="group__vertex-layout_1gaef85979686acf31b66be407fb4f7966e" prot="public" static="no">
+        <type>std::vector&lt; VertexElementDescription &gt;</type>
+        <definition>using eu::render::ShaderVertexAttributes = typedef std::vector&lt;VertexElementDescription&gt;</definition>
+        <argsstring></argsstring>
+        <name>ShaderVertexAttributes</name>
+        <qualifiedname>eu::render::ShaderVertexAttributes</qualifiedname>
+        <briefdescription>
+<para>Describes all vertex inputs a shader requires like <computeroutput>[vec3 position, vec3 normal, vec2 uv]</computeroutput> </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>It&apos;s invalid for this to contain duplicates, use <ref refid="group__vertex-layout_1ga66a5a499b9444118d051a8b9311f2468" kindref="member">find_duplicates</ref> to find duplicates </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/vertex_layout.h" line="50" column="1" bodyfile="libs/render/src/render/vertex_layout.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="group__vertex-layout_1gac4a839089284fbf22fb44e23c621c658" prot="public" static="no">
+        <type>std::vector&lt; VertexType &gt;</type>
+        <definition>using eu::render::VertexTypes = typedef std::vector&lt;VertexType&gt;</definition>
+        <argsstring></argsstring>
+        <name>VertexTypes</name>
+        <qualifiedname>eu::render::VertexTypes</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/vertex_layout.h" line="69" column="1" bodyfile="libs/render/src/render/vertex_layout.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="group__vertex-layout_1ga9b8e6d336be4f26a8781ea4dd876dd1b" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>constexpr bool</type>
+        <definition>constexpr bool eu::render::is_instance_based</definition>
+        <argsstring>(VertexType v)</argsstring>
+        <name>is_instance_based</name>
+        <qualifiedname>eu::render::is_instance_based</qualifiedname>
+        <param>
+          <type>VertexType</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/vertex_layout.h" line="32" column="16" bodyfile="libs/render/src/render/vertex_layout.h" bodystart="32" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="group__vertex-layout_1ga66a5a499b9444118d051a8b9311f2468" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; VertexType &gt;</type>
+        <definition>std::vector&lt; VertexType &gt; eu::render::find_duplicates</definition>
+        <argsstring>(const ShaderVertexAttributes &amp;items)</argsstring>
+        <name>find_duplicates</name>
+        <qualifiedname>eu::render::find_duplicates</qualifiedname>
+        <param>
+          <type>const ShaderVertexAttributes &amp;</type>
+          <declname>items</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/vertex_layout.h" line="52" column="13" declfile="libs/render/src/render/vertex_layout.h" declline="52" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="group__vertex-layout_1ga91f679c373c3a37d4f3a4f3a95e2b8f0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>CompiledShaderVertexAttributes</type>
+        <definition>CompiledShaderVertexAttributes eu::render::compile_shader_layout</definition>
+        <argsstring>(const CompiledVertexTypeList &amp;l, const ShaderVertexAttributes &amp;elements, std::optional&lt; InstanceProp &gt; instance_prop, std::optional&lt; int &gt; start_index)</argsstring>
+        <name>compile_shader_layout</name>
+        <qualifiedname>eu::render::compile_shader_layout</qualifiedname>
+        <param>
+          <type>const CompiledVertexTypeList &amp;</type>
+          <declname>l</declname>
+        </param>
+        <param>
+          <type>const ShaderVertexAttributes &amp;</type>
+          <declname>elements</declname>
+        </param>
+        <param>
+          <type>std::optional&lt; InstanceProp &gt;</type>
+          <declname>instance_prop</declname>
+        </param>
+        <param>
+          <type>std::optional&lt; int &gt;</type>
+          <declname>start_index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/vertex_layout.h" line="102" column="32" declfile="libs/render/src/render/vertex_layout.h" declline="102" declcolumn="32"/>
+      </memberdef>
+      <memberdef kind="function" id="group__vertex-layout_1ga7b5c63354916fda54e5c278e54da1085" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>CompiledGeomVertexAttributes</type>
+        <definition>CompiledGeomVertexAttributes eu::render::get_geom_layout</definition>
+        <argsstring>(const CompiledVertexTypeList &amp;l)</argsstring>
+        <name>get_geom_layout</name>
+        <qualifiedname>eu::render::get_geom_layout</qualifiedname>
+        <param>
+          <type>const CompiledVertexTypeList &amp;</type>
+          <declname>l</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/vertex_layout.h" line="110" column="30" declfile="libs/render/src/render/vertex_layout.h" declline="110" declcolumn="30"/>
+      </memberdef>
+      <memberdef kind="function" id="group__vertex-layout_1ga0fe31f5cd904d1b6632029d0967265d9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>CompiledVertexTypeList</type>
+        <definition>CompiledVertexTypeList eu::render::compile_attribute_layouts</definition>
+        <argsstring>(const std::vector&lt; VertexType &gt; &amp;base_layout, const std::vector&lt; ShaderVertexAttributes &gt; &amp;descriptions)</argsstring>
+        <name>compile_attribute_layouts</name>
+        <qualifiedname>eu::render::compile_attribute_layouts</qualifiedname>
+        <param>
+          <type>const std::vector&lt; VertexType &gt; &amp;</type>
+          <declname>base_layout</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; ShaderVertexAttributes &gt; &amp;</type>
+          <declname>descriptions</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/vertex_layout.h" line="112" column="24" declfile="libs/render/src/render/vertex_layout.h" declline="112" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__vertex-layout_1ga3dbb6787a2805a3bc2e4b7681b64a177" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>CompiledVertexTypeList</type>
+        <definition>CompiledVertexTypeList eu::render::compile_attribute_layouts</definition>
+        <argsstring>(const std::vector&lt; ShaderVertexAttributes &gt; &amp;descriptions)</argsstring>
+        <name>compile_attribute_layouts</name>
+        <qualifiedname>eu::render::compile_attribute_layouts</qualifiedname>
+        <param>
+          <type>const std::vector&lt; ShaderVertexAttributes &gt; &amp;</type>
+          <declname>descriptions</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/vertex_layout.h" line="116" column="24" declfile="libs/render/src/render/vertex_layout.h" declline="116" declcolumn="24"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Functions and types related to transforming generic mesh data to renderable data used by shaders. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>
