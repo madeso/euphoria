@@ -19,8 +19,8 @@ using namespace std::literals;
 namespace eu::render
 {
 
-SpriteBatch::SpriteBatch(OpenglStates* states, ShaderProgram* quad_shader, Render2* r)
-    : states(states)
+SpriteBatch::SpriteBatch(OpenglStates* the_states, ShaderProgram* quad_shader, Render2* r)
+    : states(the_states)
     , render(r)
     , white_texture
     (
