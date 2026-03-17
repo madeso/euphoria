@@ -398,6 +398,7 @@
     <member refid="structeu_1_1render_1_1Quad_1a0171a5fc672dc116efdb234a24f62d8d" kind="variable"><name>texture</name></member>
     <member refid="structeu_1_1render_1_1Quad_1a76211c98828b692875b9f72162ef8141" kind="variable"><name>texturecoord</name></member>
     <member refid="structeu_1_1render_1_1Quad_1a4e2507c0948829e938592f62e54b48dc" kind="variable"><name>tint</name></member>
+    <member refid="structeu_1_1render_1_1Quad_1ae385f8cb7cc63696488fe3432a9dda8f" kind="variable"><name>rotation</name></member>
     <member refid="structeu_1_1render_1_1Quad_1a920e6d1673116d957f50ef03d0738aa5" kind="function"><name>draw</name></member>
   </compound>
   <compound refid="structeu_1_1R" kind="struct"><name>eu::R</name>
@@ -488,6 +489,10 @@
     <member refid="structeu_1_1Rgb_1a870a7ea9fbc66587defec9b387282c02" kind="variable"><name>g</name></member>
     <member refid="structeu_1_1Rgb_1a5a3096e70bfaa073b8370ce7591f2ed9" kind="variable"><name>b</name></member>
     <member refid="structeu_1_1Rgb_1a2b20919317fd0941a796cc06eb6afadb" kind="function"><name>Rgb</name></member>
+  </compound>
+  <compound refid="structeu_1_1render_1_1RotateQuad" kind="struct"><name>eu::render::RotateQuad</name>
+    <member refid="structeu_1_1render_1_1RotateQuad_1aae78b7011a22b8f2bf94839db1a661f5" kind="variable"><name>angle</name></member>
+    <member refid="structeu_1_1render_1_1RotateQuad_1a2e295552472896cdff75a5e2531ab441" kind="variable"><name>center</name></member>
   </compound>
   <compound refid="structeu_1_1log_1_1ScopedLogger" kind="struct"><name>eu::log::ScopedLogger</name>
     <member refid="structeu_1_1log_1_1ScopedLogger_1a9268bca1b3ab62f4c0cf04fd293268d2" kind="function"><name>ScopedLogger</name></member>
@@ -637,6 +642,7 @@
     <member refid="structeu_1_1v2_1ae0b3e570e0a08b96e4afce5ee47515a6" kind="function"><name>operator-</name></member>
     <member refid="structeu_1_1v2_1a0affead99e4d96ac25467ffc792e4404" kind="function"><name>operator/=</name></member>
     <member refid="structeu_1_1v2_1a12dc1a1ad25853a224cfb4a99b3370ea" kind="function"><name>operator*=</name></member>
+    <member refid="structeu_1_1v2_1af21c6b9a049357f363d51e3d6e65ad8a" kind="function"><name>operator*=</name></member>
     <member refid="structeu_1_1v2_1abb813dccdd6fa86a5b27a46b71d6d3a8" kind="function"><name>from_to</name></member>
     <member refid="structeu_1_1v2_1ae6784a3af47155b3bcd9769f63b5a01b" kind="function"><name>from</name></member>
   </compound>
@@ -818,6 +824,7 @@
     <member refid="group__math_1ga4800a7b85e537456b232d20a822b9cf6" kind="function"><name>operator+</name></member>
     <member refid="group__math_1ga8b04e3baf0731fe2189eedcc198802ed" kind="function"><name>operator-</name></member>
     <member refid="group__math_1gacb026ebe78d1da4dc0644d1910db7637" kind="function"><name>operator*</name></member>
+    <member refid="group__math_1gaf854dc363d5058b409bc11678c4a6dce" kind="function"><name>operator*</name></member>
     <member refid="group__math_1ga1e39be8c6248cb595c1352d7461d00e4" kind="function"><name>operator*</name></member>
     <member refid="group__math_1ga57f4cd9af77a018eab90cbae9f5a1695" kind="function"><name>operator*</name></member>
     <member refid="group__math_1gaadf6165530c925eecfb176b285482e1b" kind="function"><name>operator*</name></member>
@@ -1190,6 +1197,7 @@
     <member refid="group__math_1ga4800a7b85e537456b232d20a822b9cf6" kind="function"><name>operator+</name></member>
     <member refid="group__math_1ga8b04e3baf0731fe2189eedcc198802ed" kind="function"><name>operator-</name></member>
     <member refid="group__math_1gacb026ebe78d1da4dc0644d1910db7637" kind="function"><name>operator*</name></member>
+    <member refid="group__math_1gaf854dc363d5058b409bc11678c4a6dce" kind="function"><name>operator*</name></member>
     <member refid="group__math_1ga1e39be8c6248cb595c1352d7461d00e4" kind="function"><name>operator*</name></member>
     <member refid="group__math_1ga57f4cd9af77a018eab90cbae9f5a1695" kind="function"><name>operator*</name></member>
     <member refid="group__math_1gaadf6165530c925eecfb176b285482e1b" kind="function"><name>operator*</name></member>

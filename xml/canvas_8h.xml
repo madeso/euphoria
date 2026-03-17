@@ -186,6 +186,7 @@
       </node>
     </incdepgraph>
     <innerclass refid="structeu_1_1render_1_1Vertex2" prot="public">eu::render::Vertex2</innerclass>
+    <innerclass refid="structeu_1_1render_1_1RotateQuad" prot="public">eu::render::RotateQuad</innerclass>
     <innerclass refid="structeu_1_1render_1_1Quad" prot="public">eu::render::Quad</innerclass>
     <innerclass refid="structeu_1_1render_1_1SpriteBatch" prot="public">eu::render::SpriteBatch</innerclass>
     <innerclass refid="structeu_1_1render_1_1Render2" prot="public">eu::render::Render2</innerclass>

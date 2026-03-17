@@ -320,6 +320,24 @@
         </inbodydescription>
         <location file="libs/base/src/base/vec2.h" line="67" column="14"/>
       </memberdef>
+      <memberdef kind="function" id="structeu_1_1v2_1af21c6b9a049357f363d51e3d6e65ad8a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <definition>void eu::v2::operator*=</definition>
+        <argsstring>(const v2 &amp;rhs)</argsstring>
+        <name>operator*=</name>
+        <qualifiedname>eu::v2::operator*=</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1v2" kindref="compound">v2</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/base/vec2.h" line="68" column="14"/>
+      </memberdef>
     </sectiondef>
     <sectiondef kind="public-static-func">
       <memberdef kind="function" id="structeu_1_1v2_1abb813dccdd6fa86a5b27a46b71d6d3a8" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
@@ -368,7 +386,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/base/src/base/vec2.h" line="16" column="5" bodyfile="libs/base/src/base/vec2.h" bodystart="17" bodyend="68"/>
+    <location file="libs/base/src/base/vec2.h" line="16" column="5" bodyfile="libs/base/src/base/vec2.h" bodystart="17" bodyend="69"/>
     <listofallmembers>
       <member refid="structeu_1_1v2_1ae6784a3af47155b3bcd9769f63b5a01b" prot="public" virt="non-virtual"><scope>eu::v2</scope><name>from</name></member>
       <member refid="structeu_1_1v2_1abb813dccdd6fa86a5b27a46b71d6d3a8" prot="public" virt="non-virtual"><scope>eu::v2</scope><name>from_to</name></member>
@@ -381,6 +399,7 @@
       <member refid="structeu_1_1v2_1ac1da047ccf55da4f3760dbeb91ac2aac" prot="public" virt="non-virtual"><scope>eu::v2</scope><name>get_rotated</name></member>
       <member refid="structeu_1_1v2_1afdf408c357b32adbfa08e68cfa300d3f" prot="public" virt="non-virtual"><scope>eu::v2</scope><name>normalize</name></member>
       <member refid="structeu_1_1v2_1a12dc1a1ad25853a224cfb4a99b3370ea" prot="public" virt="non-virtual"><scope>eu::v2</scope><name>operator*=</name></member>
+      <member refid="structeu_1_1v2_1af21c6b9a049357f363d51e3d6e65ad8a" prot="public" virt="non-virtual"><scope>eu::v2</scope><name>operator*=</name></member>
       <member refid="structeu_1_1v2_1aaeeb1af4d226caf949d1d5f961497612" prot="public" virt="non-virtual"><scope>eu::v2</scope><name>operator+=</name></member>
       <member refid="structeu_1_1v2_1ae0b3e570e0a08b96e4afce5ee47515a6" prot="public" virt="non-virtual"><scope>eu::v2</scope><name>operator-</name></member>
       <member refid="structeu_1_1v2_1a4f9ce2d2077380bbdfe71b8ce5b8b068" prot="public" virt="non-virtual"><scope>eu::v2</scope><name>operator-=</name></member>

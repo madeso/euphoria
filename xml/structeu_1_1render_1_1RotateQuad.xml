@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structeu_1_1render_1_1RotateQuad" kind="struct" language="C++" prot="public">
+    <compoundname>eu::render::RotateQuad</compoundname>
+    <includes refid="canvas_8h" local="no">canvas.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1render_1_1RotateQuad_1aae78b7011a22b8f2bf94839db1a661f5" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1An" kindref="compound">An</ref></type>
+        <definition>An eu::render::RotateQuad::angle</definition>
+        <argsstring></argsstring>
+        <name>angle</name>
+        <qualifiedname>eu::render::RotateQuad::angle</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/canvas.h" line="39" column="8" bodyfile="libs/render/src/render/canvas.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1RotateQuad_1a2e295552472896cdff75a5e2531ab441" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1v2" kindref="compound">v2</ref></type>
+        <definition>v2 eu::render::RotateQuad::center</definition>
+        <argsstring></argsstring>
+        <name>center</name>
+        <qualifiedname>eu::render::RotateQuad::center</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/canvas.h" line="40" column="8" bodyfile="libs/render/src/render/canvas.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>eu::An</label>
+        <link refid="structeu_1_1An"/>
+      </node>
+      <node id="1">
+        <label>eu::render::RotateQuad</label>
+        <link refid="structeu_1_1render_1_1RotateQuad"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>angle</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>center</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>eu::v2</label>
+        <link refid="structeu_1_1v2"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/render/src/render/canvas.h" line="37" column="1" bodyfile="libs/render/src/render/canvas.h" bodystart="38" bodyend="41"/>
+    <listofallmembers>
+      <member refid="structeu_1_1render_1_1RotateQuad_1aae78b7011a22b8f2bf94839db1a661f5" prot="public" virt="non-virtual"><scope>eu::render::RotateQuad</scope><name>angle</name></member>
+      <member refid="structeu_1_1render_1_1RotateQuad_1a2e295552472896cdff75a5e2531ab441" prot="public" virt="non-virtual"><scope>eu::render::RotateQuad</scope><name>center</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

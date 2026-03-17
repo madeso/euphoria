@@ -17,7 +17,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/canvas.h" line="39" column="19" bodyfile="libs/render/src/render/canvas.h" bodystart="39" bodyend="-1"/>
+        <location file="libs/render/src/render/canvas.h" line="45" column="19" bodyfile="libs/render/src/render/canvas.h" bodystart="45" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1Quad_1a76211c98828b692875b9f72162ef8141" prot="public" static="no" mutable="no">
         <type>std::optional&lt; <ref refid="structeu_1_1Rect" kindref="compound">Rect</ref> &gt;</type>
@@ -32,7 +32,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/canvas.h" line="40" column="19" bodyfile="libs/render/src/render/canvas.h" bodystart="40" bodyend="-1"/>
+        <location file="libs/render/src/render/canvas.h" line="46" column="19" bodyfile="libs/render/src/render/canvas.h" bodystart="46" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1Quad_1a4e2507c0948829e938592f62e54b48dc" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1Color" kindref="compound">Color</ref></type>
@@ -47,7 +47,22 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/canvas.h" line="41" column="11" bodyfile="libs/render/src/render/canvas.h" bodystart="41" bodyend="-1"/>
+        <location file="libs/render/src/render/canvas.h" line="47" column="11" bodyfile="libs/render/src/render/canvas.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1Quad_1ae385f8cb7cc63696488fe3432a9dda8f" prot="public" static="no" mutable="no">
+        <type>std::optional&lt; <ref refid="structeu_1_1render_1_1RotateQuad" kindref="compound">RotateQuad</ref> &gt;</type>
+        <definition>std::optional&lt;RotateQuad&gt; eu::render::Quad::rotation</definition>
+        <argsstring></argsstring>
+        <name>rotation</name>
+        <qualifiedname>eu::render::Quad::rotation</qualifiedname>
+        <initializer>= std::nullopt</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/canvas.h" line="48" column="19" bodyfile="libs/render/src/render/canvas.h" bodystart="48" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
@@ -71,7 +86,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/canvas.h" line="43" column="10"/>
+        <location file="libs/render/src/render/canvas.h" line="50" column="10"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -98,9 +113,10 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="libs/render/src/render/canvas.h" line="37" column="1" bodyfile="libs/render/src/render/canvas.h" bodystart="38" bodyend="44"/>
+    <location file="libs/render/src/render/canvas.h" line="43" column="1" bodyfile="libs/render/src/render/canvas.h" bodystart="44" bodyend="51"/>
     <listofallmembers>
       <member refid="structeu_1_1render_1_1Quad_1a920e6d1673116d957f50ef03d0738aa5" prot="public" virt="non-virtual"><scope>eu::render::Quad</scope><name>draw</name></member>
+      <member refid="structeu_1_1render_1_1Quad_1ae385f8cb7cc63696488fe3432a9dda8f" prot="public" virt="non-virtual"><scope>eu::render::Quad</scope><name>rotation</name></member>
       <member refid="structeu_1_1render_1_1Quad_1a0171a5fc672dc116efdb234a24f62d8d" prot="public" virt="non-virtual"><scope>eu::render::Quad</scope><name>texture</name></member>
       <member refid="structeu_1_1render_1_1Quad_1a76211c98828b692875b9f72162ef8141" prot="public" virt="non-virtual"><scope>eu::render::Quad</scope><name>texturecoord</name></member>
       <member refid="structeu_1_1render_1_1Quad_1a4e2507c0948829e938592f62e54b48dc" prot="public" virt="non-virtual"><scope>eu::render::Quad</scope><name>tint</name></member>

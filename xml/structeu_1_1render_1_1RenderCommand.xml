@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/canvas.h" line="132" column="18" bodyfile="libs/render/src/render/canvas.h" bodystart="132" bodyend="-1"/>
+        <location file="libs/render/src/render/canvas.h" line="139" column="18" bodyfile="libs/render/src/render/canvas.h" bodystart="139" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1RenderCommand_1afc7c30f52b0d269e5de6735b67ca3aaf" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1render_1_1Render2" kindref="compound">Render2</ref> *</type>
@@ -30,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/canvas.h" line="133" column="13" bodyfile="libs/render/src/render/canvas.h" bodystart="133" bodyend="-1"/>
+        <location file="libs/render/src/render/canvas.h" line="140" column="13" bodyfile="libs/render/src/render/canvas.h" bodystart="140" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1RenderCommand_1a3554b76148440b46a88fafd070e27528" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1Size" kindref="compound">Size</ref></type>
@@ -44,7 +44,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/canvas.h" line="134" column="10" bodyfile="libs/render/src/render/canvas.h" bodystart="134" bodyend="-1"/>
+        <location file="libs/render/src/render/canvas.h" line="141" column="10" bodyfile="libs/render/src/render/canvas.h" bodystart="141" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
@@ -68,7 +68,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/canvas.h" line="137" column="10"/>
+        <location file="libs/render/src/render/canvas.h" line="144" column="10"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1RenderCommand_1a6c7aa5e683b18ac22b23ba8979e6053e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
@@ -90,7 +90,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/canvas.h" line="138" column="10"/>
+        <location file="libs/render/src/render/canvas.h" line="145" column="10"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -174,7 +174,7 @@
         <link refid="structeu_1_1render_1_1Uniform"/>
       </node>
     </collaborationgraph>
-    <location file="libs/render/src/render/canvas.h" line="130" column="1" bodyfile="libs/render/src/render/canvas.h" bodystart="131" bodyend="139"/>
+    <location file="libs/render/src/render/canvas.h" line="137" column="1" bodyfile="libs/render/src/render/canvas.h" bodystart="138" bodyend="146"/>
     <listofallmembers>
       <member refid="structeu_1_1render_1_1RenderCommand_1a33bb6a36d510497c116f4c675c25c15c" prot="public" virt="non-virtual"><scope>eu::render::RenderCommand</scope><name>clear</name></member>
       <member refid="structeu_1_1render_1_1RenderCommand_1a6c7aa5e683b18ac22b23ba8979e6053e" prot="public" virt="non-virtual"><scope>eu::render::RenderCommand</scope><name>clear</name></member>

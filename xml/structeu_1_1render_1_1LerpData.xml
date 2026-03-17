@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/canvas.h" line="119" column="16" bodyfile="libs/render/src/render/canvas.h" bodystart="119" bodyend="-1"/>
+        <location file="libs/render/src/render/canvas.h" line="126" column="16" bodyfile="libs/render/src/render/canvas.h" bodystart="126" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1LerpData_1a5b399e3ab7c9e814cf4d5f880bca4f02" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1render_1_1LayoutData" kindref="compound">LayoutData</ref></type>
@@ -30,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/canvas.h" line="120" column="16" bodyfile="libs/render/src/render/canvas.h" bodystart="120" bodyend="-1"/>
+        <location file="libs/render/src/render/canvas.h" line="127" column="16" bodyfile="libs/render/src/render/canvas.h" bodystart="127" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1LerpData_1aa98e17a636894185b4f4adc5d4f7c431" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
@@ -44,7 +44,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/canvas.h" line="121" column="11" bodyfile="libs/render/src/render/canvas.h" bodystart="121" bodyend="-1"/>
+        <location file="libs/render/src/render/canvas.h" line="128" column="11" bodyfile="libs/render/src/render/canvas.h" bodystart="128" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -65,7 +65,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="libs/render/src/render/canvas.h" line="117" column="1" bodyfile="libs/render/src/render/canvas.h" bodystart="118" bodyend="122"/>
+    <location file="libs/render/src/render/canvas.h" line="124" column="1" bodyfile="libs/render/src/render/canvas.h" bodystart="125" bodyend="129"/>
     <listofallmembers>
       <member refid="structeu_1_1render_1_1LerpData_1a7af6514c73c7f834210fce43be3e67d6" prot="public" virt="non-virtual"><scope>eu::render::LerpData</scope><name>lhs</name></member>
       <member refid="structeu_1_1render_1_1LerpData_1a5b399e3ab7c9e814cf4d5f880bca4f02" prot="public" virt="non-virtual"><scope>eu::render::LerpData</scope><name>rhs</name></member>

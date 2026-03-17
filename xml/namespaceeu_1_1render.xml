@@ -27,6 +27,7 @@
     <innerclass refid="structeu_1_1render_1_1RenderCommand" prot="public">eu::render::RenderCommand</innerclass>
     <innerclass refid="structeu_1_1render_1_1RenderLayer2" prot="public">eu::render::RenderLayer2</innerclass>
     <innerclass refid="structeu_1_1render_1_1RenderLayer3" prot="public">eu::render::RenderLayer3</innerclass>
+    <innerclass refid="structeu_1_1render_1_1RotateQuad" prot="public">eu::render::RotateQuad</innerclass>
     <innerclass refid="structeu_1_1render_1_1ShaderProgram" prot="public">eu::render::ShaderProgram</innerclass>
     <innerclass refid="structeu_1_1render_1_1SpriteBatch" prot="public">eu::render::SpriteBatch</innerclass>
     <innerclass refid="structeu_1_1render_1_1StateChanger" prot="public">eu::render::StateChanger</innerclass>
@@ -217,7 +218,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/canvas.h" line="149" column="14" declfile="libs/render/src/render/canvas.h" declline="149" declcolumn="14"/>
+        <location file="libs/render/src/render/canvas.h" line="156" column="14" declfile="libs/render/src/render/canvas.h" declline="156" declcolumn="14"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1render_1ae247cae0f80ca3530679bc0e2d1029e0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1render_1_1RenderLayer3" kindref="compound">RenderLayer3</ref></type>
@@ -239,7 +240,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/canvas.h" line="150" column="14" declfile="libs/render/src/render/canvas.h" declline="150" declcolumn="14"/>
+        <location file="libs/render/src/render/canvas.h" line="157" column="14" declfile="libs/render/src/render/canvas.h" declline="157" declcolumn="14"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1render_1ab1e912efe3db44511600992ea7927c54" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1render_1_1Layer" kindref="compound">Layer</ref></type>
@@ -261,7 +262,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/canvas.h" line="151" column="7" declfile="libs/render/src/render/canvas.h" declline="151" declcolumn="7"/>
+        <location file="libs/render/src/render/canvas.h" line="158" column="7" declfile="libs/render/src/render/canvas.h" declline="158" declcolumn="7"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1render_1a316fe11add3c979a7c29ddda7dc1496f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1render_1_1RenderLayer2" kindref="compound">RenderLayer2</ref></type>
@@ -283,7 +284,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/canvas.h" line="153" column="14" declfile="libs/render/src/render/canvas.h" declline="153" declcolumn="14"/>
+        <location file="libs/render/src/render/canvas.h" line="160" column="14" declfile="libs/render/src/render/canvas.h" declline="160" declcolumn="14"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1render_1a806f6ea26afb7507dba8baad30622628" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1render_1_1RenderLayer3" kindref="compound">RenderLayer3</ref></type>
@@ -305,7 +306,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/canvas.h" line="154" column="14" declfile="libs/render/src/render/canvas.h" declline="154" declcolumn="14"/>
+        <location file="libs/render/src/render/canvas.h" line="161" column="14" declfile="libs/render/src/render/canvas.h" declline="161" declcolumn="14"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1render_1ac5ad467a0e1aca4c0c59105d5c11eea3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1render_1_1Layer" kindref="compound">Layer</ref></type>
@@ -327,7 +328,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/canvas.h" line="155" column="7" declfile="libs/render/src/render/canvas.h" declline="155" declcolumn="7"/>
+        <location file="libs/render/src/render/canvas.h" line="162" column="7" declfile="libs/render/src/render/canvas.h" declline="162" declcolumn="7"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1render_1a0945d522074468a28e1880ff48ed34a4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>

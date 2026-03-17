@@ -17,7 +17,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/canvas.h" line="97" column="17" bodyfile="libs/render/src/render/canvas.h" bodystart="97" bodyend="-1"/>
+        <location file="libs/render/src/render/canvas.h" line="104" column="17" bodyfile="libs/render/src/render/canvas.h" bodystart="104" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
@@ -41,7 +41,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/canvas.h" line="99" column="5"/>
+        <location file="libs/render/src/render/canvas.h" line="106" column="5"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1RenderLayer2_1aed677563090903c6dce3e7590eba3aee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -55,7 +55,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/canvas.h" line="101" column="5"/>
+        <location file="libs/render/src/render/canvas.h" line="108" column="5"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -155,7 +155,7 @@
         <link refid="structeu_1_1render_1_1Uniform"/>
       </node>
     </collaborationgraph>
-    <location file="libs/render/src/render/canvas.h" line="95" column="1" bodyfile="libs/render/src/render/canvas.h" bodystart="96" bodyend="102"/>
+    <location file="libs/render/src/render/canvas.h" line="102" column="1" bodyfile="libs/render/src/render/canvas.h" bodystart="103" bodyend="109"/>
     <listofallmembers>
       <member refid="structeu_1_1render_1_1RenderLayer2_1a24e23416081e947b84ce62063c85879d" prot="public" virt="non-virtual"><scope>eu::render::RenderLayer2</scope><name>batch</name></member>
       <member refid="structeu_1_1render_1_1Layer_1aeb8b243abd94f3b72e4fbc8169bf52b2" prot="public" virt="non-virtual"><scope>eu::render::RenderLayer2</scope><name>mouse_to_world</name></member>

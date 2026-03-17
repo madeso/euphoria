@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/canvas.h" line="77" column="28" bodyfile="libs/render/src/render/canvas.h" bodystart="77" bodyend="-1"/>
+        <location file="libs/render/src/render/canvas.h" line="84" column="28" bodyfile="libs/render/src/render/canvas.h" bodystart="84" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1Render2_1a67acbd217d4fbb73a1aee95da16ae4a7" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1render_1_1CompiledShaderVertexAttributes" kindref="compound">CompiledShaderVertexAttributes</ref></type>
@@ -30,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/canvas.h" line="78" column="36" bodyfile="libs/render/src/render/canvas.h" bodystart="78" bodyend="-1"/>
+        <location file="libs/render/src/render/canvas.h" line="85" column="36" bodyfile="libs/render/src/render/canvas.h" bodystart="85" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1Render2_1a95a09ddccf72df1ba21473516b7254c8" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1render_1_1ShaderProgram" kindref="compound">ShaderProgram</ref></type>
@@ -44,7 +44,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/canvas.h" line="79" column="19" bodyfile="libs/render/src/render/canvas.h" bodystart="79" bodyend="-1"/>
+        <location file="libs/render/src/render/canvas.h" line="86" column="19" bodyfile="libs/render/src/render/canvas.h" bodystart="86" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1Render2_1a7d4ae1d90484c6a3de17dc45aa36c5e1" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref></type>
@@ -58,7 +58,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/canvas.h" line="80" column="13" bodyfile="libs/render/src/render/canvas.h" bodystart="80" bodyend="-1"/>
+        <location file="libs/render/src/render/canvas.h" line="87" column="13" bodyfile="libs/render/src/render/canvas.h" bodystart="87" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1Render2_1af47de40a6e3014c3dfe932386e0d1436" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref></type>
@@ -72,7 +72,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/canvas.h" line="81" column="13" bodyfile="libs/render/src/render/canvas.h" bodystart="81" bodyend="-1"/>
+        <location file="libs/render/src/render/canvas.h" line="88" column="13" bodyfile="libs/render/src/render/canvas.h" bodystart="88" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1Render2_1ab42b3880fbe9f90b83806f93a76efbfb" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref></type>
@@ -86,7 +86,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/canvas.h" line="82" column="13" bodyfile="libs/render/src/render/canvas.h" bodystart="82" bodyend="-1"/>
+        <location file="libs/render/src/render/canvas.h" line="89" column="13" bodyfile="libs/render/src/render/canvas.h" bodystart="89" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1Render2_1af8b62e45e4ceb44757e07466aa32e3df" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1render_1_1SpriteBatch" kindref="compound">SpriteBatch</ref></type>
@@ -100,7 +100,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/canvas.h" line="84" column="17" bodyfile="libs/render/src/render/canvas.h" bodystart="84" bodyend="-1"/>
+        <location file="libs/render/src/render/canvas.h" line="91" column="17" bodyfile="libs/render/src/render/canvas.h" bodystart="91" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
@@ -120,7 +120,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/canvas.h" line="75" column="14"/>
+        <location file="libs/render/src/render/canvas.h" line="82" column="14"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -187,7 +187,7 @@
         <link refid="structeu_1_1render_1_1Uniform"/>
       </node>
     </collaborationgraph>
-    <location file="libs/render/src/render/canvas.h" line="73" column="1" bodyfile="libs/render/src/render/canvas.h" bodystart="74" bodyend="85"/>
+    <location file="libs/render/src/render/canvas.h" line="80" column="1" bodyfile="libs/render/src/render/canvas.h" bodystart="81" bodyend="92"/>
     <listofallmembers>
       <member refid="structeu_1_1render_1_1Render2_1af8b62e45e4ceb44757e07466aa32e3df" prot="public" virt="non-virtual"><scope>eu::render::Render2</scope><name>batch</name></member>
       <member refid="structeu_1_1render_1_1Render2_1a9dbed6b0ad40579fba3f0ed8e80d3a04" prot="public" virt="non-virtual"><scope>eu::render::Render2</scope><name>quad_description</name></member>
