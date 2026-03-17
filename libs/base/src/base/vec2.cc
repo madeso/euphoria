@@ -100,6 +100,13 @@ namespace eu
         y = y * rhs;
     }
 
+    void
+    v2::operator*=(const v2& rhs)
+    {
+        x = x * rhs.x;
+        y = y * rhs.y;
+    }
+
     float
     v2::get_length() const
     {
@@ -190,6 +197,13 @@ namespace eu
     {
         v2 r = lhs;
         r -= rhs;
+        return r;
+    }
+
+    v2 operator*(const v2& lhs, const v2& rhs)
+    {
+        v2 r = lhs;
+        r *= rhs;
         return r;
     }
 

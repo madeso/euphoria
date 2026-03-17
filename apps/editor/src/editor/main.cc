@@ -538,29 +538,41 @@ int  main(int, char**)
             auto layer = eu::render::with_layer2(cmd, screen);
             eu::render::Quad{ .tint = eu::colors::green_bluish }.draw(layer.batch, layer.viewport_aabb_in_worldspace.get_bottom(50));
 
+            static eu::An rotation = eu::no_rotation;
+            static float slider_a = 0.5f;
+            static float slider_b = 0.5f;
+
             eu::render::Quad{
                 .texture = &sample_texture,
                 // select bottom right of the texture, assuming it is split in 4 smaller rects
-                .texturecoord = eu::Rect::from_bottom_left_size({0.5f, 0}, {0.5f, 0.5f})
+                .texturecoord = eu::Rect::from_bottom_left_size({0.5f, 0}, {0.5f, 0.5f}),
+                .rotation = eu::render::RotateQuad{.angle = rotation, .center = {slider_a, slider_b} }
             }.draw(layer.batch, eu::Rect::from_bottom_left_size({ 300, 300 }, { 300, 300 }));
 
             const auto button_size = eu::v2{ 64, 64 };
 
             uistate.begin();
-            button(idstack.get("a"), eu::Rect::from_bottom_left_size({ 100, 100 }, button_size), uistate, layer.batch);
-            button(idstack.get("b"), eu::Rect::from_bottom_left_size({ 200, 100 }, button_size), uistate, layer.batch);
-            button(idstack.get("c"), eu::Rect::from_bottom_left_size({ 300, 100 }, button_size), uistate, layer.batch);
+            if (button(idstack.get("a"), eu::Rect::from_bottom_left_size({ 100, 100 }, button_size), uistate, layer.batch))
+            {
+                rotation -= eu::An::from_degrees(15.0f);
+            }
+            if (button(idstack.get("b"), eu::Rect::from_bottom_left_size({ 200, 100 }, button_size), uistate, layer.batch))
+            {
+                rotation += eu::An::from_degrees(15.0f);
+            }
+            if (button(idstack.get("c"), eu::Rect::from_bottom_left_size({ 300, 100 }, button_size), uistate, layer.batch))
+            {
+                rotation = eu::no_rotation;
+            }
             button(idstack.get("d"), eu::Rect::from_bottom_left_size({ 400, 100 }, button_size), uistate, layer.batch);
 
             const auto slider_size = eu::v2{ 256, 25 };
-            static float slider_a = 0.5f;
-            static float slider_b = 0.5f;
             slider(idstack.get("slider_a"), &slider_a, eu::Rect::from_bottom_left_size({ 100, 200 }, slider_size), uistate, layer.batch);
             slider(idstack.get("slider_b"), &slider_b, eu::Rect::from_bottom_left_size({ 100, 250 }, slider_size), uistate, layer.batch);
             textfield(idstack.get("textfield"), &editable_text, &font, 20, {100, 300}, uistate, layer.batch);
             uistate.end();
 
-            draw_text(layer.batch, &font, "Hello world", 60, {200*slider_a, 400 + 200*slider_b}, eu::colors::black);
+            draw_text(layer.batch, &font, "Hello world", 60, {200, 400 + 200}, eu::colors::black);
         }
         SDL_GL_SwapWindow(window);
     }

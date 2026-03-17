@@ -149,13 +149,29 @@ void SpriteBatch::quad(std::optional<const Texture2d*> texture_argument, const V
 void Quad::draw(SpriteBatch* batch, const Rect& scr)
 {
     const auto tc = texturecoord.value_or(Rect::from_size({1.0f, 1.0f}));
+    const auto size = scr.get_size();
+    const auto local_offset =  size * (rotation ? rotation->center : v2{0.5f, 0.5f});
+    const auto offset = scr.get_bottom_left() + local_offset;
+
+    const auto rotate = [&](const v2& p)
+    {
+        if (rotation.has_value() == false)
+        {
+            return v3{ p.x, p.y, 0.0f };
+        }
+        const auto local = p - offset;
+        const auto trans = local.get_rotated(rotation->angle);
+        const auto rotated = trans + offset;
+        return v3{ rotated.x, rotated.y, 0.0f };
+    };
+
     batch->quad
     (
         texture,
-        {.position = {scr.left, scr.bottom, 0.0f}, .color = tint, .texturecoord = {tc.left, tc.bottom}},
-        {.position = {scr.right, scr.bottom, 0.0f}, .color = tint, .texturecoord = {tc.right, tc.bottom}},
-        {.position = {scr.right, scr.top, 0.0f}, .color = tint, .texturecoord = {tc.right, tc.top}},
-        {.position = {scr.left, scr.top, 0.0f}, .color = tint, .texturecoord = {tc.left, tc.top}}
+        {.position = rotate({scr.left, scr.bottom}), .color = tint, .texturecoord = {tc.left, tc.bottom}},
+        {.position = rotate({scr.right, scr.bottom}), .color = tint, .texturecoord = {tc.right, tc.bottom}},
+        {.position = rotate({scr.right, scr.top}), .color = tint, .texturecoord = {tc.right, tc.top}},
+        {.position = rotate({scr.left, scr.top}), .color = tint, .texturecoord = {tc.left, tc.top}}
     );
 }
 

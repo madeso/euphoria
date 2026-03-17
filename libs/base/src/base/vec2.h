@@ -65,6 +65,7 @@ namespace eu
         v2 operator-() const;
         void operator/=(float rhs);
         void operator*=(float rhs);
+        void operator*=(const v2& rhs);
     };
 
     constexpr v2 zero2f = v2{ 0, 0 };
@@ -100,6 +101,7 @@ namespace eu
     v2 operator+(const v2& lhs, const v2& rhs);
     v2 operator-(const v2& lhs, const v2& rhs);
     v2 operator*(const v2& lhs, float rhs);
+    v2 operator*(const v2& lhs, const v2& rhs);
     v2 operator*(float lhs, const v2& rhs);
     v2 operator*(const n2& lhs, float rhs);
     v2 operator*(float lhs, const n2& rhs);

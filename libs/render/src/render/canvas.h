@@ -34,11 +34,18 @@ struct Vertex2
     v2 texturecoord;
 };
 
+struct RotateQuad
+{
+    An angle;
+    v2 center;
+};
+
 struct Quad
 {
     std::optional<const Texture2d*> texture = std::nullopt;
     std::optional<Rect> texturecoord = std::nullopt;
     Color tint = eu::colors::white;
+    std::optional<RotateQuad> rotation = std::nullopt;
 
     void draw(SpriteBatch* batch, const Rect& screen);
 };
