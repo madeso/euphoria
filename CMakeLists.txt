@@ -74,9 +74,23 @@ endif()
 
 
 ###################################################################################################
+# helper libraries
+
+add_library(edit_and_continue INTERFACE)
+if(MSVC)
+    # ZI = add debug information with edit and continue support to the target
+    # Zi = same with edit and continue disabled
+    target_compile_options(edit_and_continue INTERFACE "/ZI")
+    target_link_options(edit_and_continue INTERFACE "/INCREMENTAL")
+endif()
+add_library(euph::edit_and_continue ALIAS edit_and_continue)
+
+
+###################################################################################################
 # root libraries
 add_library(project_options INTERFACE)
 add_library(euph::project_options ALIAS project_options)
+target_link_libraries(project_options INTERFACE euph::edit_and_continue)
 target_compile_features(project_options INTERFACE cxx_std_20)
 target_feature_flags(project_options INTERFACE
     ENABLE_GL_DEBUG
