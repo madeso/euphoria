@@ -5,6 +5,8 @@ set(core_src
     src/core/image.cc src/core/image.h
     src/core/loadedfont.cc src/core/loadedfont.h
     src/core/utf8.cc src/core/utf8.h
+
+    src/core/pch.private.h
 )
 
 source_group("" FILES ${core_src})
@@ -14,7 +16,9 @@ set(src
 )
 
 add_library(core STATIC ${src})
-target_precompile_headers(core REUSE_FROM base)
+target_precompile_headers(core
+    PRIVATE src/core/pch.private.h
+)
 
 add_library(euph::core ALIAS core)
 set_target_properties(core PROPERTIES FOLDER "Libraries")

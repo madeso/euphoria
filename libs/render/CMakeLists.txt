@@ -23,6 +23,8 @@ set(render_src
 
     src/render/constants.h
     src/render/enable_high_performance_graphics.h
+
+    src/render/pch.private.h
 )
 
 source_group("" FILES ${render_src})
@@ -32,7 +34,9 @@ set(src
 )
 
 add_library(render STATIC ${src})
-target_precompile_headers(render REUSE_FROM base)
+target_precompile_headers(render
+    PRIVATE src/render/pch.private.h
+)
 
 add_library(euph::render ALIAS render)
 set_target_properties(render PROPERTIES FOLDER "Libraries")
