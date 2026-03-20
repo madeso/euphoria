@@ -4,6 +4,7 @@
 set(core_src
     src/core/image.cc src/core/image.h
     src/core/loadedfont.cc src/core/loadedfont.h
+    src/core/tablelayout.cc src/core/tablelayout.h
     src/core/utf8.cc src/core/utf8.h
 
     src/core/pch.private.h
@@ -36,3 +37,21 @@ target_link_libraries(core
         euph::project_options
         euph::project_warnings
 )
+
+###############################################################################
+# test project
+
+set(test_src
+    src/core/tablelayout.test.cc
+)
+source_group("" FILES ${test_src})
+add_executable(core_test ${test_src} ${test_main_src})
+set_target_properties(core_test PROPERTIES FOLDER "Tests")
+target_link_libraries(core_test
+    PRIVATE
+        euph::project_options
+        euph::project_warnings
+        euph::core
+        euph::tests
+)
+catch_discover_tests(core_test)
