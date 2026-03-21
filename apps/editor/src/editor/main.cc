@@ -122,7 +122,7 @@ struct UiState
 };
 
 // Simple button IMGUI widget
-bool button(eu::u32 id, const eu::Rect& rect, UiState& uistate, eu::render::SpriteBatch* batch)
+bool button_logic(eu::u32 id, const eu::Rect& rect, UiState& uistate)
 {
     if (eu::is_within(uistate.mouse, rect))
     {
@@ -136,38 +136,6 @@ bool button(eu::u32 id, const eu::Rect& rect, UiState& uistate, eu::render::Spri
     if (uistate.kbd_item == std::nullopt)
     {
         uistate.kbd_item = id;
-    }
-
-    if (uistate.kbd_item == id)
-    {
-        eu::render::Quad{
-            .tint  = eu::colors::red_vermillion
-        }.draw(batch, rect.with_inset(eu::Lrtb{ -4 }).with_offset({8, -8}));
-    }
-    
-    // shadow
-    eu::render::Quad{
-        .tint = eu::colors::black
-    }.draw(batch, rect.with_offset({8.0f, -8.0f}));
-    
-    if (uistate.hot_item == id)
-    {
-        if (uistate.active_item == id)
-        {
-            // Button is both 'hot' and 'active'
-            eu::render::Quad{.tint = eu::colors::white}.draw(batch, rect.with_offset({ 2.0f, -2.0f }));
-        }
-        else
-        {
-            // Button is merely 'hot'
-            eu::render::Quad{ .tint = eu::colors::white }.draw(batch, rect);
-        }
-    }
-    else
-    {
-        // button is not hot, but it may be active    
-        eu::render::Quad{ .tint = eu::colors::orange }.draw(batch, rect);
-        // todo(Gustav): add grays
     }
 
     // keyboard interaction
@@ -203,6 +171,45 @@ bool button(eu::u32 id, const eu::Rect& rect, UiState& uistate, eu::render::Spri
 
     // Otherwise, no clicky.
     return false;
+}
+
+bool basic_button(eu::u32 id, const eu::Rect& rect, UiState& uistate, eu::render::SpriteBatch* batch)
+{
+    const auto ret = button_logic(id, rect, uistate);
+
+    if (uistate.kbd_item == id)
+    {
+        eu::render::Quad{
+            .tint = eu::colors::red_vermillion
+        }.draw(batch, rect.with_inset(eu::Lrtb{ -4 }).with_offset({ 8, -8 }));
+    }
+
+    // shadow
+    eu::render::Quad{
+        .tint = eu::colors::black
+    }.draw(batch, rect.with_offset({ 8.0f, -8.0f }));
+
+    if (uistate.hot_item == id)
+    {
+        if (uistate.active_item == id)
+        {
+            // Button is both 'hot' and 'active'
+            eu::render::Quad{ .tint = eu::colors::white }.draw(batch, rect.with_offset({ 2.0f, -2.0f }));
+        }
+        else
+        {
+            // Button is merely 'hot'
+            eu::render::Quad{ .tint = eu::colors::white }.draw(batch, rect);
+        }
+    }
+    else
+    {
+        // button is not hot, but it may be active    
+        eu::render::Quad{ .tint = eu::colors::orange }.draw(batch, rect);
+        // todo(Gustav): add grays
+    }
+
+    return ret;
 }
 
 bool slider(eu::u32 id, float* val, const eu::Rect& rect, UiState& uistate, eu::render::SpriteBatch* batch)
@@ -552,19 +559,19 @@ int  main(int, char**)
             const auto button_size = eu::v2{ 64, 64 };
 
             uistate.begin();
-            if (button(idstack.get("a"), eu::Rect::from_bottom_left_size({ 100, 100 }, button_size), uistate, layer.batch))
+            if (basic_button(idstack.get("a"), eu::Rect::from_bottom_left_size({ 100, 100 }, button_size), uistate, layer.batch))
             {
                 rotation -= eu::An::from_degrees(15.0f);
             }
-            if (button(idstack.get("b"), eu::Rect::from_bottom_left_size({ 200, 100 }, button_size), uistate, layer.batch))
+            if (basic_button(idstack.get("b"), eu::Rect::from_bottom_left_size({ 200, 100 }, button_size), uistate, layer.batch))
             {
                 rotation += eu::An::from_degrees(15.0f);
             }
-            if (button(idstack.get("c"), eu::Rect::from_bottom_left_size({ 300, 100 }, button_size), uistate, layer.batch))
+            if (basic_button(idstack.get("c"), eu::Rect::from_bottom_left_size({ 300, 100 }, button_size), uistate, layer.batch))
             {
                 rotation = eu::no_rotation;
             }
-            button(idstack.get("d"), eu::Rect::from_bottom_left_size({ 400, 100 }, button_size), uistate, layer.batch);
+            basic_button(idstack.get("d"), eu::Rect::from_bottom_left_size({ 400, 100 }, button_size), uistate, layer.batch);
 
             const auto slider_size = eu::v2{ 256, 25 };
             slider(idstack.get("slider_a"), &slider_a, eu::Rect::from_bottom_left_size({ 100, 200 }, slider_size), uistate, layer.batch);
