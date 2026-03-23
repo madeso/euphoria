@@ -4,6 +4,7 @@
 set(data
     src/editor/data/OpenSans-Regular.ttf
     src/editor/data/uv-texture.png
+    src/editor/data/spritesheet.png
 )
 
 embed(embedded
@@ -12,6 +13,7 @@ embed(embedded
 )
 
 set(src
+    src/editor/data/spritesheet.h
     src/editor/main.cc
     src/editor/pch.private.h
 )

@@ -11,23 +11,6 @@ namespace eu
     {
     }
 
-    
-    Rect::Rect(float left_side, float right_side, float top_side, float bottom_side)
-        : left(left_side)
-        , right(right_side)
-        , top(top_side)
-        , bottom(bottom_side)
-    {
-    }
-
-    [[nodiscard]] Rect
-    Rect::from_left_right_bottom_top(float left_side, float right_side, float bottom_side, float top_side)
-    {
-        ASSERTX(left_side <= right_side, left_side, right_side);
-        ASSERTX(top_side >= bottom_side, top_side, bottom_side);
-        return {left_side, right_side, top_side, bottom_side};
-    }
-
     [[nodiscard]] Rect
     Rect::from_left_right_top_bottom(float left_side, float right_side, float top_side, float bottom_side)
     {

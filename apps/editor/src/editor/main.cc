@@ -5,6 +5,7 @@
 #include "dependency_glad.h"
 #include "OpenSans-Regular.ttf.h"
 #include "uv-texture.png.h"
+#include "spritesheet.png.h"
 
 #include "log/log.h"
 #include "base/memorychunk.h"
@@ -15,6 +16,8 @@
 #include "render/opengl_utils.h"
 #include "render/texture.io.h"
 #include "render/enable_high_performance_graphics.h"
+
+#include "data/spritesheet.h"
 
 ENABLE_HIGH_PERFORMANCE_GRAPHICS
 
@@ -206,6 +209,41 @@ bool basic_button(eu::u32 id, const eu::Rect& rect, UiState& uistate, eu::render
     {
         // button is not hot, but it may be active    
         eu::render::Quad{ .tint = eu::colors::orange }.draw(batch, rect);
+        // todo(Gustav): add grays
+    }
+
+    return ret;
+}
+
+bool button_texture(eu::u32 id, const eu::Rect& rect, UiState& uistate, eu::render::SpriteBatch* batch, const eu::render::Texture2d* texture, const eu::Rect& active, const eu::Rect& hot, const eu::Rect& normal)
+{
+    const auto ret = button_logic(id, rect, uistate);
+
+    if (uistate.kbd_item == id)
+    {
+        // keep?
+        eu::render::Quad{
+            .tint = eu::colors::red_vermillion
+        }.draw(batch, rect.with_inset(eu::Lrtb{ -4 }).with_offset({ 8, -8 }));
+    }
+
+    if (uistate.hot_item == id)
+    {
+        if (uistate.active_item == id)
+        {
+            // Button is both 'hot' and 'active'
+            eu::render::Quad{ .texture = texture, .texturecoord = active }.draw(batch, rect);
+        }
+        else
+        {
+            // Button is merely 'hot'
+            eu::render::Quad{ .texture = texture, .texturecoord = hot }.draw(batch, rect);
+        }
+    }
+    else
+    {
+        // button is not hot, but it may be active    
+        eu::render::Quad{ .texture = texture, .texturecoord = normal }.draw(batch, rect);
         // todo(Gustav): add grays
     }
 
@@ -480,6 +518,9 @@ int  main(int, char**)
     const auto sample_texture = eu::render::load_image_from_embedded(SEND_DEBUG_LABEL_MANY("uv-texture.png") UV_TEXTURE_PNG,
         eu::render::TextureEdge::clamp, eu::render::TextureRenderStyle::linear, eu::render::Transparency::exclude, eu::render::ColorData::color_data);
 
+    const auto spritesheet = eu::render::load_image_from_embedded(SEND_DEBUG_LABEL_MANY("spritesheet.png") SPRITESHEET_PNG,
+        eu::render::TextureEdge::repeat, eu::render::TextureRenderStyle::linear, eu::render::Transparency::include, eu::render::ColorData::color_data);
+
     bool running = true;
     std::string editable_text = "Editable text";
 
@@ -571,7 +612,11 @@ int  main(int, char**)
             {
                 rotation = eu::no_rotation;
             }
-            basic_button(idstack.get("d"), eu::Rect::from_bottom_left_size({ 400, 100 }, button_size), uistate, layer.batch);
+            button_texture(idstack.get("d"), eu::Rect::from_bottom_left_size({ 400, 100 }, button_size), uistate, layer.batch, &spritesheet,
+                ::spritesheet::button_square_flat,
+                ::spritesheet::button_square_depth_flat,
+                ::spritesheet::button_square_depth_gradient
+            );
 
             const auto slider_size = eu::v2{ 256, 25 };
             slider(idstack.get("slider_a"), &slider_a, eu::Rect::from_bottom_left_size({ 100, 200 }, slider_size), uistate, layer.batch);

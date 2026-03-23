@@ -35,7 +35,13 @@ namespace eu
         bool operator==(const Rect& rhs) = delete;
     
 
-        [[nodiscard]] static Rect from_left_right_bottom_top(float left_side, float right_side, float bottom_side, float top_side);
+        [[nodiscard]] static constexpr Rect from_left_right_bottom_top(float left_side, float right_side, float bottom_side, float top_side)
+        {
+            ASSERTX(left_side <= right_side, left_side, right_side);
+            ASSERTX(top_side >= bottom_side, top_side, bottom_side);
+            return { left_side, right_side, top_side, bottom_side };
+        }
+
         [[nodiscard]] static Rect from_left_right_top_bottom(float left_side, float right_side, float top_side, float bottom_side);
         [[nodiscard]] static Rect from_bottom_left_size(const v2& bl, const v2& size);
         [[nodiscard]] static Rect from_top_left_size(const v2& top_left, const v2& size);
@@ -108,7 +114,13 @@ namespace eu
         Rect add_top(float amount) const;
 
     private:
-        Rect(float left_side, float right_side, float top_side, float bottom_side);
+        constexpr Rect(float left_side, float right_side, float top_side, float bottom_side)
+            : left(left_side)
+            , right(right_side)
+            , top(top_side)
+            , bottom(bottom_side)
+        {
+        }
     };
 
     [[nodiscard]] v2 to_01(const Rect& r, const v2& from);
