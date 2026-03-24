@@ -85,12 +85,6 @@ struct KeyboardInput
     eu::u16 mod;
 };
 
-struct TextFieldState {
-    TextEditState state;
-};
-
-static std::unordered_map<uint32_t, TextFieldState> g_textfield_states;
-
 struct UiState
 {
     eu::v2 mouse = {0,0};
@@ -103,6 +97,8 @@ struct UiState
     std::optional<eu::u32> last_widget = std::nullopt;
     std::optional<KeyboardInput> key = std::nullopt; // todo(Gustav): change to a vector
     std::optional<char> keychar = std::nullopt; // todo(Gustav): change to a vector
+
+    TextEditState text_state;
 
     void begin()
     {
@@ -360,7 +356,8 @@ bool textfield(eu::u32 id, std::string* val, eu::render::DrawableFont* font, flo
 {
     using namespace std;
     bool changed = false;
-    auto& tfstate = g_textfield_states[id];
+
+    auto& text_state = uistate.text_state;
 
     // Layout
     eu::render::DrawableText text{ font };
@@ -374,7 +371,7 @@ bool textfield(eu::u32 id, std::string* val, eu::render::DrawableFont* font, flo
         if (uistate.active_item == std::nullopt && uistate.mousedown)
         {
             uistate.active_item = id;
-            tfstate.state.focus(val);
+            text_state.focus(val);
         }
     }
     if (uistate.kbd_item == std::nullopt)
@@ -395,12 +392,12 @@ bool textfield(eu::u32 id, std::string* val, eu::render::DrawableFont* font, flo
             auto k = uistate.key.value();
             const auto shift = k.mod & KMOD_SHIFT;
             switch (k.key) {
-                case SDLK_LEFT: tfstate.state.onKeyLeft(shift, val); changed = true; break;
-                case SDLK_RIGHT: tfstate.state.onKeyRight(shift, val); changed = true; break;
-                case SDLK_HOME: tfstate.state.onKeyLineStart(shift, val); changed = true; break;
-                case SDLK_END: tfstate.state.onKeyLineEnd(shift, val); changed = true; break;
-                case SDLK_BACKSPACE: tfstate.state.onKeyBackspace(shift, val); changed = true; break;
-                case SDLK_DELETE: tfstate.state.onKeyDelete(shift, val); changed = true; break;
+                case SDLK_LEFT: text_state.onKeyLeft(shift, val); changed = true; break;
+                case SDLK_RIGHT: text_state.onKeyRight(shift, val); changed = true; break;
+                case SDLK_HOME: text_state.onKeyLineStart(shift, val); changed = true; break;
+                case SDLK_END: text_state.onKeyLineEnd(shift, val); changed = true; break;
+                case SDLK_BACKSPACE: text_state.onKeyBackspace(shift, val); changed = true; break;
+                case SDLK_DELETE: text_state.onKeyDelete(shift, val); changed = true; break;
                 case SDLK_RETURN: // ignore
                 case SDLK_TAB:
                     uistate.kbd_item = std::nullopt;
@@ -413,7 +410,7 @@ bool textfield(eu::u32 id, std::string* val, eu::render::DrawableFont* font, flo
         }
         if (uistate.keychar.has_value() && *uistate.keychar >= 32 && *uistate.keychar < 127) {
             char c = *uistate.keychar;
-            tfstate.state.onChar(c, val);
+            text_state.onChar(c, val);
             changed = true;
         }
     }
@@ -421,7 +418,7 @@ bool textfield(eu::u32 id, std::string* val, eu::render::DrawableFont* font, flo
     // Mouse click to set cursor
     if (uistate.mousedown == false && uistate.hot_item == id && uistate.active_item == id) {
         // Map mouse x to character index
-        tfstate.state.click(val, uistate.mouse.x - rect.left, uistate.mouse.y - rect.top);
+        text_state.click(val, uistate.mouse.x - rect.left, uistate.mouse.y - rect.top);
         uistate.kbd_item = id;
     }
 
@@ -436,8 +433,8 @@ bool textfield(eu::u32 id, std::string* val, eu::render::DrawableFont* font, flo
         if (is_cursor_blink_visible) {
             // Compute cursor x
             float cursor_x = rect.left;
-            if (tfstate.state.state.cursor > 0 && tfstate.state.state.cursor <= (int)val->size()) {
-                std::string substr = val->substr(0, tfstate.state.state.cursor);
+            if (text_state.state.cursor > 0 && text_state.state.cursor <= (int)val->size()) {
+                std::string substr = val->substr(0, text_state.state.cursor);
                 eu::render::DrawableText t{ font };
                 t.set_text(substr);
                 t.set_size(size);
