@@ -42,5 +42,6 @@ target_link_libraries(editor
         external::sdl2
         external::opengl
         external::glad
+        external::stb_textedit
 )
 

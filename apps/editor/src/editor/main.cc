@@ -2,6 +2,15 @@
 #include "SDL_timer.h"
 
 #include <cassert>
+#include <optional>
+#include <vector>
+#include <unordered_map>
+#include <string>
+#include <algorithm>
+#include <cstdint>
+
+#include "eustb_textedit_string.h"
+
 #include "dependency_glad.h"
 #include "OpenSans-Regular.ttf.h"
 #include "uv-texture.png.h"
@@ -75,6 +84,12 @@ struct KeyboardInput
     SDL_Keycode key;
     eu::u16 mod;
 };
+
+struct TextFieldState {
+    TextEditState state;
+};
+
+static std::unordered_map<uint32_t, TextFieldState> g_textfield_states;
 
 struct UiState
 {
@@ -343,82 +358,95 @@ void draw_text(eu::render::SpriteBatch* batch, eu::render::DrawableFont* font, c
 
 bool textfield(eu::u32 id, std::string* val, eu::render::DrawableFont* font, float size, const eu::v2& pos, UiState& uistate, eu::render::SpriteBatch* batch)
 {
-    // todo(Gustav): update to use stb textinput?
-
-    const auto len = val->length();
+    using namespace std;
     bool changed = false;
+    auto& tfstate = g_textfield_states[id];
 
+    // Layout
     eu::render::DrawableText text{ font };
     text.set_text(*val);
     text.set_size(size);
     text.compile();
-
     const auto rect = text.get_extents().with_offset(pos).with_inset(eu::Lrtb{-6});
 
-    if (eu::is_within(uistate.mouse, rect))
-    {
+    if (eu::is_within(uistate.mouse, rect)) {
         uistate.hot_item = id;
         if (uistate.active_item == std::nullopt && uistate.mousedown)
+        {
             uistate.active_item = id;
+            tfstate.state.focus(val);
+        }
     }
-
     if (uistate.kbd_item == std::nullopt)
         uistate.kbd_item = id;
 
-    if (uistate.kbd_item == id)
-    {
+    if (uistate.kbd_item == id) {
         eu::render::Quad{ .tint = eu::colors::red_vermillion }.draw(batch, rect.with_inset(eu::Lrtb{ -6 }));
     }
-
-    if (uistate.active_item == id || uistate.hot_item == id)
-    {
+    if (uistate.active_item == id || uistate.hot_item == id) {
         eu::render::Quad{ .tint = eu::colors::white }.draw(batch, rect.with_inset(eu::Lrtb{ -6 }));
-    }
-    else
-    {
+    } else {
         eu::render::Quad{ .tint = eu::colors::green_bluish }.draw(batch, rect.with_inset(eu::Lrtb{ -6 }));
     }
 
-    text.draw(batch, pos, eu::colors::black, eu::colors::black);
-
-    const auto is_cursor_blink_visible = (SDL_GetTicks() >> 8) & 1;
-    if (uistate.kbd_item == id && is_cursor_blink_visible)
-    {
-        const auto cursor = eu::v2{ rect.right, pos.y };
-        draw_text(batch, font, "_", size, cursor, eu::colors::black);
-    }
-
-    if (uistate.kbd_item == id && uistate.key.has_value())
-    {
-        switch (uistate.key->key)
-        {
-        case SDLK_TAB:
-            uistate.kbd_item = std::nullopt;
-            if (uistate.key->mod & KMOD_SHIFT)
-                uistate.kbd_item = uistate.last_widget;
-            uistate.key = std::nullopt;
-            break;
-        case SDLK_BACKSPACE:
-            if (len > 0)
-            {
-                val->pop_back();
-                changed = true;
+    // Handle input
+    if (uistate.kbd_item == id) {
+        if (uistate.key.has_value()) {
+            auto k = uistate.key.value();
+            const auto shift = k.mod & KMOD_SHIFT;
+            switch (k.key) {
+                case SDLK_LEFT: tfstate.state.onKeyLeft(shift, val); changed = true; break;
+                case SDLK_RIGHT: tfstate.state.onKeyRight(shift, val); changed = true; break;
+                case SDLK_HOME: tfstate.state.onKeyLineStart(shift, val); changed = true; break;
+                case SDLK_END: tfstate.state.onKeyLineEnd(shift, val); changed = true; break;
+                case SDLK_BACKSPACE: tfstate.state.onKeyBackspace(shift, val); changed = true; break;
+                case SDLK_DELETE: tfstate.state.onKeyDelete(shift, val); changed = true; break;
+                case SDLK_RETURN: // ignore
+                case SDLK_TAB:
+                    uistate.kbd_item = std::nullopt;
+                    if (shift)
+                        uistate.kbd_item = uistate.last_widget;
+                    uistate.key = std::nullopt;
+                    break;
+                default: break;
             }
-            break;
         }
-        if (uistate.keychar >= 32 && uistate.keychar < 127 && len < 30)
-        {
-            val->push_back(*uistate.keychar);
+        if (uistate.keychar.has_value() && *uistate.keychar >= 32 && *uistate.keychar < 127) {
+            char c = *uistate.keychar;
+            tfstate.state.onChar(c, val);
             changed = true;
         }
     }
 
-    if (uistate.mousedown == false &&
-        uistate.hot_item == id &&
-        uistate.active_item == id)
+    // Mouse click to set cursor
+    if (uistate.mousedown == false && uistate.hot_item == id && uistate.active_item == id) {
+        // Map mouse x to character index
+        tfstate.state.click(val, uistate.mouse.x - rect.left, uistate.mouse.y - rect.top);
         uistate.kbd_item = id;
+    }
 
     uistate.last_widget = id;
+
+    // Draw text
+    text.draw(batch, pos, eu::colors::black, eu::colors::black);
+
+    // Draw cursor
+    if (uistate.kbd_item == id) {
+        const auto is_cursor_blink_visible = (SDL_GetTicks() >> 8) & 1;
+        if (is_cursor_blink_visible) {
+            // Compute cursor x
+            float cursor_x = rect.left;
+            if (tfstate.state.state.cursor > 0 && tfstate.state.state.cursor <= (int)val->size()) {
+                std::string substr = val->substr(0, tfstate.state.state.cursor);
+                eu::render::DrawableText t{ font };
+                t.set_text(substr);
+                t.set_size(size);
+                t.compile();
+                cursor_x = rect.left + t.get_extents().get_size().x;
+            }
+            draw_text(batch, font, "_", size, {cursor_x, pos.y}, eu::colors::black);
+        }
+    }
 
     return changed;
 }

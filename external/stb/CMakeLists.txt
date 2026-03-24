@@ -12,3 +12,11 @@ add_stb_library(image)
 add_stb_library(image_write)
 add_stb_library(rect_pack)
 add_stb_library(truetype)
+
+
+add_library(stb_textedit STATIC textedit/eustb_textedit.cc textedit/eustb_textedit.h textedit/eustb_textedit_string.h)
+set_target_properties(stb_textedit PROPERTIES FOLDER "Dependencies")
+target_include_directories(stb_textedit SYSTEM
+    PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/textedit
+)
+add_library(external::stb_textedit ALIAS stb_textedit)
