@@ -122,22 +122,6 @@ add_library(external::glad ALIAS glad)
 
 
 ###################################################################################################
-## nuklear
-add_library(nuklear STATIC nuklear/dependency_nuklear.cc)
-target_include_directories(nuklear SYSTEM
-    PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/nuklear
-)
-target_link_libraries(nuklear PUBLIC
-    external::opengl
-    external::sdl2
-    external::glad
-)
-set_target_properties(nuklear PROPERTIES FOLDER "Dependencies")
-add_library(external::nuklear ALIAS nuklear)
-
-
-
-###################################################################################################
 ## icon font cpp headers
 add_library(icon_font_cpp_headers INTERFACE)
 target_include_directories(icon_font_cpp_headers SYSTEM
