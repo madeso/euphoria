@@ -439,7 +439,8 @@ bool textfield(eu::u32 id, std::string* val, eu::render::DrawableFont* font, flo
                 t.compile();
                 cursor_x = rect.left + t.get_extents().get_size().x;
             }
-            draw_text(batch, font, "_", size, {cursor_x, pos.y}, eu::colors::black);
+            // draw_text(batch, font, "_", size, {cursor_x, pos.y}, eu::colors::black);
+            eu::render::Quad{ .tint = eu::colors::black }.draw(batch, eu::Rect::from_size({ 1, font->line_height * size }).with_bottom_left_at({ cursor_x, pos.y }));
         }
     }
 
