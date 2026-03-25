@@ -210,7 +210,7 @@ namespace eu::render
         char_to_glyph = map;
         texture = std::make_unique<Texture2d>(SEND_DEBUG_LABEL_MANY("FONT TEXTURE") image.data.data(), GL_RGBA, texture_width, texture_height,
             TextureEdge::clamp, TextureRenderStyle::linear, Transparency::include, ColorData::color_data);
-        line_height = static_cast<float>(fontchars.line_height);
+        line_height = fontchars.line_height;
     }
 
 

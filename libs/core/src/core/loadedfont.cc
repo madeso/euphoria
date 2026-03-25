@@ -24,7 +24,7 @@ namespace eu::core
         stbtt_fontinfo font;
         float size;
         bool was_loaded;
-        int line_height = 0;
+        float line_height = 0.0f;
         std::vector<stbtt_kerningentry> kernings;
         std::map<int, int> index_to_unicode;
 
@@ -43,7 +43,8 @@ namespace eu::core
             int descent = 0;
             int line_gap = 0;
             stbtt_GetFontVMetrics(&font, &ascent, &descent, &line_gap);
-            line_height = ascent - descent + line_gap;
+            const float scale = stbtt_ScaleForPixelHeight(&font, size);
+            line_height = float_from_int(ascent - descent + line_gap) * scale;
         }
 
         void define_codepoint(int cp)
@@ -220,9 +221,9 @@ namespace eu::core
             fontchars.codepoint_to_glyph[code_point] = cc;
         }
 
-        fontchars.line_height = f.line_height;
-
         const float scale = 1 / static_cast<float>(font_size);
+
+        fontchars.line_height = f.line_height * scale;
 
         for(int cp: code_points)
         {

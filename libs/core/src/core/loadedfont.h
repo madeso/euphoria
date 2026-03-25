@@ -53,7 +53,7 @@ namespace eu::core
         KerningMap kerning;
         std::map<std::string, int> private_use_aliases;
         int next_private_use = 0xE000;
-        int line_height = -1;
+        float line_height = -1.0f;
 
         int
         generate_new_index_from_private_use(const std::string& alias);
