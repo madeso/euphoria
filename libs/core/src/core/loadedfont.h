@@ -53,22 +53,21 @@ namespace eu::core
         KerningMap kerning;
         std::map<std::string, int> private_use_aliases;
         int next_private_use = 0xE000;
-        float line_height = -1.0f;
+        float ascent = 0.0f;
+        float descent = 0.0f;
+        float line_gap = 0.0f;
 
         int
         generate_new_index_from_private_use(const std::string& alias);
-
-        void
-        combine_with(const LoadedFont& fc);
+        
+        bool
+        load_characters_from_font
+        (
+            const MemoryChunk& file_memory,
+            int font_size,
+            const std::string& chars
+        );
     };
-
-    LoadedFont
-    get_characters_from_font
-    (
-        const MemoryChunk& file_memory,
-        int font_size,
-        const std::string& chars
-    );
 
     LoadedFont
     get_characters_from_single_image

@@ -109,15 +109,12 @@ namespace eu::render
 
         core::LoadedFont fontchars;
 
-        fontchars.combine_with
+        fontchars.load_characters_from_font
         (
-            core::get_characters_from_font
-            (
-                file_memory,
-                48,
-                // todo(Gustav): use a range instead
-                "abcdefghijklmnopqrstuwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-=_+[]{}|;:'\",.<>/?`~ "
-            )
+            file_memory,
+            48,
+            // todo(Gustav): use a range instead
+            "abcdefghijklmnopqrstuwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-=_+[]{}|;:'\",.<>/?`~ "
         );
         
         
@@ -210,7 +207,9 @@ namespace eu::render
         char_to_glyph = map;
         texture = std::make_unique<Texture2d>(SEND_DEBUG_LABEL_MANY("FONT TEXTURE") image.data.data(), GL_RGBA, texture_width, texture_height,
             TextureEdge::clamp, TextureRenderStyle::linear, Transparency::include, ColorData::color_data);
-        line_height = fontchars.line_height;
+        ascent = fontchars.ascent;
+        descent = fontchars.descent;
+        line_gap = fontchars.line_gap;
     }
 
 
@@ -353,7 +352,7 @@ namespace eu::render
             if(code_point == '\n')
             {
                 position.x = 0;
-                position.y -= size*font.line_height;
+                position.y -= size*font.get_line_height();
             }
             else
             {

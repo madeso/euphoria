@@ -165,7 +165,14 @@ namespace eu::render
 
     struct DrawableFont
     {
-        float line_height = 1;
+        float ascent = 0;
+        float descent = 0;
+        float line_gap = 0;
+        constexpr float get_line_height() const
+        {
+            return ascent - descent + line_gap;
+        }
+
         std::unique_ptr<Texture2d> texture;
         CharToGlyphMap char_to_glyph;
         core::KerningMap kernings;

@@ -24,7 +24,10 @@ namespace eu::core
         stbtt_fontinfo font;
         float size;
         bool was_loaded;
-        float line_height = 0.0f;
+        float ascent_in_pixels = 0.0f;
+        float descent_in_pixels = 0.0f;
+        float line_gap_in_pixels = 0.0f;
+
         std::vector<stbtt_kerningentry> kernings;
         std::map<int, int> index_to_unicode;
 
@@ -39,12 +42,14 @@ namespace eu::core
             kernings.reserve(count);
             stbtt_GetKerningTable(&font, kernings.data(), count);
             
-            int ascent = 0;
-            int descent = 0;
-            int line_gap = 0;
-            stbtt_GetFontVMetrics(&font, &ascent, &descent, &line_gap);
-            const float scale = stbtt_ScaleForPixelHeight(&font, size);
-            line_height = float_from_int(ascent - descent + line_gap) * scale;
+            int ascent_in_points = 0;
+            int descent_in_points = 0;
+            int line_gap_in_points = 0;
+            stbtt_GetFontVMetrics(&font, &ascent_in_points, &descent_in_points, &line_gap_in_points);
+            const float points_to_pixels = stbtt_ScaleForPixelHeight(&font, size);
+            ascent_in_pixels = float_from_int(ascent_in_points) * points_to_pixels;
+            descent_in_pixels = float_from_int(descent_in_points) * points_to_pixels;
+            line_gap_in_pixels = float_from_int(line_gap_in_points) * points_to_pixels;
         }
 
         void define_codepoint(int cp)
@@ -139,55 +144,7 @@ namespace eu::core
     }
 
 
-    void
-    LoadedFont::combine_with(const LoadedFont& fc)
-    {
-        std::map<int, int> pus;
-        for(const auto& [alias, id]: fc.private_use_aliases)
-        {
-            pus[id] = generate_new_index_from_private_use(alias);
-        }
-
-        for(const auto& glyph_iterator: fc.codepoint_to_glyph)
-        {
-            auto code_point = glyph_iterator.first;
-            auto found_pus = pus.find(code_point);
-            if(found_pus != pus.end())
-            {
-                // private use: move to new private use to avoid collisions
-                code_point = found_pus->second;
-            }
-
-            const auto found = codepoint_to_glyph.find(code_point);
-            if(found == codepoint_to_glyph.end())
-            {
-                codepoint_to_glyph[code_point] = glyph_iterator.second;
-            }
-            else
-            {
-                LOG_ERR("Multiple codepoints for {0} found when trying to combine", code_point);
-            }
-        }
-
-        for(const auto& e: fc.kerning)
-        {
-            const auto found = kerning.find(e.first);
-            if(found == kerning.end())
-            {
-                kerning.insert(e);
-            }
-            else
-            {
-                LOG_ERR("Multiple kernings found when trying to combine");
-            }
-        }
-
-        line_height = std::max(line_height, fc.line_height);
-    }
-
-
-    LoadedFont
-    get_characters_from_font
+    bool LoadedFont::load_characters_from_font
     (
         const MemoryChunk& file_memory,
         int font_size,
@@ -200,7 +157,7 @@ namespace eu::core
             float_from_int(font_size)
         };
 
-        if(f.was_loaded == false) { return LoadedFont{}; }
+        if(f.was_loaded == false) { return false; }
 
         std::vector<int> code_points;
         calc_utf8_to_codepoints
@@ -209,7 +166,6 @@ namespace eu::core
             [&](int cp){code_points.emplace_back(cp);}
         );
 
-        LoadedFont fontchars {};
         for(int code_point: code_points)
         {
             LoadedGlyph cc = f.load_glyph(code_point);
@@ -218,12 +174,14 @@ namespace eu::core
                 LOG_INFO("Invalid codepoint {0}", code_point);
                 continue;
             }
-            fontchars.codepoint_to_glyph[code_point] = cc;
+            this->codepoint_to_glyph[code_point] = cc;
         }
 
-        const float scale = 1 / static_cast<float>(font_size);
+        const float pixels_to_units = 1 / static_cast<float>(font_size);
 
-        fontchars.line_height = f.line_height * scale;
+        this->ascent = f.ascent_in_pixels * pixels_to_units;
+        this->descent= f.descent_in_pixels * pixels_to_units;
+        this->line_gap = f.line_gap_in_pixels * pixels_to_units;
 
         for(int cp: code_points)
         {
@@ -237,18 +195,18 @@ namespace eu::core
             const int dx = info.advance;
             if(previous && current)
             {
-                fontchars.kerning.insert
+                this->kerning.insert
                 (
                     KerningMap::value_type
                     (
                         KerningMap::key_type(*previous, *current),
-                        static_cast<float>(dx) * scale
+                        static_cast<float>(dx) * pixels_to_units
                     )
                 );
             }
         }
 
-        return fontchars;
+        return true;
     }
 
 #if 0
