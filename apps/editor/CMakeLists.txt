@@ -39,9 +39,9 @@ target_link_libraries(editor
         euph::log
         euph::base
         euph::render
+        euph::mrgui
         external::sdl2
         external::opengl
         external::glad
-        external::stb_textedit
 )
 
