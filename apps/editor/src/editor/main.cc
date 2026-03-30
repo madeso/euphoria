@@ -108,6 +108,16 @@ int  main(int, char**)
         LOG_INFO("Version GLSL:   {0}", gl_shading_language_version);
     }
 
+    ImFontConfig config;
+    config.FontDataOwnedByAtlas = false;
+    ImFont* font = io.Fonts->AddFontFromMemoryTTF(
+        const_cast<void*>(static_cast<const void*>(OPENSANS_REGULAR_TTF_data)),
+        OPENSANS_REGULAR_TTF_size,
+        18.0f,
+        &config
+    );
+    IM_ASSERT(font != nullptr);
+
     eu::render::OpenglStates states;
     eu::render::Render2 render{ &states };
 
