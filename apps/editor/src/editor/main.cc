@@ -1,7 +1,6 @@
 #include "SDL.h"
 
 #include <cassert>
-#include <optional>
 #include <string>
 
 #include "OpenSans-Regular.ttf.h"
@@ -14,7 +13,12 @@
 #include "render/font.h"
 #include "render/opengl_utils.h"
 #include "render/texture.io.h"
+
 #include "render/enable_high_performance_graphics.h"
+
+#include "imgui/imgui.h"
+#include "imgui/backends/imgui_impl_sdl.h"
+#include "imgui/backends/imgui_impl_opengl3.h"
 
 ENABLE_HIGH_PERFORMANCE_GRAPHICS
 
@@ -27,6 +31,7 @@ int  main(int, char**)
 {
     int window_width = 1280;
     int window_height = 720;
+    const char* glsl_version = "#version 130";
 
     if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_TIMER | SDL_INIT_EVENTS) < 0) {
         LOG_ERR("Error initializing SDL: {}", SDL_GetError());
@@ -82,6 +87,15 @@ int  main(int, char**)
         return -1;
     }
 
+    IMGUI_CHECKVERSION();
+    ImGui::CreateContext();
+    ImGuiIO& io = ImGui::GetIO(); (void)io;
+    ImGui::StyleColorsDark();
+    ImGui_ImplSDL2_InitForOpenGL(window, glContext);
+    ImGui_ImplOpenGL3_Init(glsl_version);
+
+    bool show_demo_window = true;
+
     {
         const std::string gl_vendor = reinterpret_cast<const char*>(glGetString(GL_VENDOR));
         const std::string gl_renderer = reinterpret_cast<const char*>(glGetString(GL_RENDERER));
@@ -102,10 +116,10 @@ int  main(int, char**)
     LOG_INFO("Editor started");
     while (running)
     {
-        // events
         SDL_Event e;
         while (SDL_PollEvent(&e) != 0)
         {
+            ImGui_ImplSDL2_ProcessEvent(&e);
             switch (e.type)
             {
             case SDL_WINDOWEVENT:
@@ -122,7 +136,15 @@ int  main(int, char**)
             }
         }
 
-        // render
+        ImGui_ImplOpenGL3_NewFrame();
+        ImGui_ImplSDL2_NewFrame();
+        ImGui::NewFrame();
+
+        if (show_demo_window)
+        {
+            ImGui::ShowDemoWindow(&show_demo_window);
+        }
+
         {
             eu::render::RenderCommand cmd {.states = &states, .render = &render, .size = {.width = window_width, .height = window_height} };
 
@@ -134,10 +156,16 @@ int  main(int, char**)
 
             auto layer = eu::render::with_layer2(cmd, screen);
             eu::render::Quad{ .tint = eu::colors::green_bluish }.draw(layer.batch, layer.viewport_aabb_in_worldspace.get_bottom(50));
-
         }
+
+        ImGui::Render();
+        ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
         SDL_GL_SwapWindow(window);
     }
+
+    ImGui_ImplOpenGL3_Shutdown();
+    ImGui_ImplSDL2_Shutdown();
+    ImGui::DestroyContext();
 
     LOG_INFO("Shutting down");
     SDL_GL_DeleteContext(glContext);
