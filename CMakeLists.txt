@@ -208,6 +208,9 @@ set_target_properties(binary_to_compressed_c PROPERTIES FOLDER "Build")
 
 ###################################################################################################
 ## Add projects
+
+set(EUPH_FONTS ${CMAKE_CURRENT_SOURCE_DIR}/data/fonts/)
+
 add_subdirectory(external)
 add_subdirectory(libs)
 add_subdirectory(apps)

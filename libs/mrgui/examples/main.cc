@@ -1,10 +1,18 @@
 #include "SDL.h"
+#include "SDL_timer.h"
 
 #include <cassert>
 #include <optional>
+#include <vector>
+#include <unordered_map>
 #include <string>
+#include <algorithm>
+#include <cstdint>
 
+#include "dependency_glad.h"
 #include "OpenSans-Regular.ttf.h"
+#include "uv-texture.png.h"
+#include "spritesheet.png.h"
 
 #include "log/log.h"
 #include "base/memorychunk.h"
@@ -15,6 +23,12 @@
 #include "render/opengl_utils.h"
 #include "render/texture.io.h"
 #include "render/enable_high_performance_graphics.h"
+
+#include "data/spritesheet.h"
+
+#include "mrgui/widgets.h"
+
+using namespace eu::mrgui;
 
 ENABLE_HIGH_PERFORMANCE_GRAPHICS
 
@@ -32,6 +46,7 @@ int  main(int, char**)
         LOG_ERR("Error initializing SDL: {}", SDL_GetError());
         return -1;
     }
+
 
 #if defined(__APPLE__)
     // GL 3.2 Core + GLSL 150
@@ -60,7 +75,7 @@ int  main(int, char**)
     SDL_GL_SetAttribute(SDL_GL_BLUE_SIZE, 8);
     SDL_GL_SetAttribute(SDL_GL_ALPHA_SIZE, 8);
 
-    SDL_Window* window = SDL_CreateWindow("Editor sample", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
+    SDL_Window* window = SDL_CreateWindow("mrgui sample", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
         window_width, window_height, SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN | SDL_WINDOW_ALLOW_HIGHDPI | SDL_WINDOW_RESIZABLE);
     if (!window) {
         LOG_ERR("Error creating window: {}", SDL_GetError());
@@ -97,9 +112,20 @@ int  main(int, char**)
     eu::render::OpenglStates states;
     eu::render::Render2 render{ &states };
 
+    UiState uistate;
+    IdStack idstack;
+    eu::render::DrawableFont font{chunk_from_embed(OPENSANS_REGULAR_TTF)};
+
+    const auto sample_texture = eu::render::load_image_from_embedded(SEND_DEBUG_LABEL_MANY("uv-texture.png") UV_TEXTURE_PNG,
+        eu::render::TextureEdge::clamp, eu::render::TextureRenderStyle::linear, eu::render::Transparency::exclude, eu::render::ColorData::color_data);
+
+    const auto spritesheet = eu::render::load_image_from_embedded(SEND_DEBUG_LABEL_MANY("spritesheet.png") SPRITESHEET_PNG,
+        eu::render::TextureEdge::repeat, eu::render::TextureRenderStyle::linear, eu::render::Transparency::include, eu::render::ColorData::color_data);
+
     bool running = true;
-    
-    LOG_INFO("Editor started");
+    std::string editable_text = "Editable text";
+
+    LOG_INFO("Mrgui sample started");
     while (running)
     {
         // events
@@ -108,11 +134,37 @@ int  main(int, char**)
         {
             switch (e.type)
             {
+            case SDL_MOUSEMOTION:
+                uistate.mouse = { static_cast<float>(e.motion.x), static_cast<float>(window_height - e.motion.y) };
+                break;
+            case SDL_MOUSEBUTTONDOWN:
+                if (e.button.button == 1)
+                {
+                    uistate.mousedown = true;
+                }
+                break;
+            case SDL_MOUSEBUTTONUP:
+                if (e.button.button == 1)
+                {
+                    uistate.mousedown = false;
+                }
+                break;
             case SDL_WINDOWEVENT:
                 if (e.window.event == SDL_WINDOWEVENT_RESIZED || e.window.event == SDL_WINDOWEVENT_SIZE_CHANGED)
                 {
                     LOG_INFO("Resized");
                     SDL_GetWindowSize(window, &window_width, &window_height);
+                }
+                break;
+            case SDL_KEYDOWN:
+                uistate.key = KeyboardInput {.key = e.key.keysym.sym, .mod = e.key.keysym.mod };
+                break;
+            case SDL_TEXTINPUT:
+                {
+                // todo(Gustav): handle unicode
+                char c = e.text.text[0];
+                if ((c & 0xFF80) == 0)
+                    uistate.keychar = static_cast<char>(c & 0x7f);
                 }
                 break;
             case SDL_QUIT: running = false; break;
@@ -135,6 +187,45 @@ int  main(int, char**)
             auto layer = eu::render::with_layer2(cmd, screen);
             eu::render::Quad{ .tint = eu::colors::green_bluish }.draw(layer.batch, layer.viewport_aabb_in_worldspace.get_bottom(50));
 
+            static eu::An rotation = eu::no_rotation;
+            static float slider_a = 0.5f;
+            static float slider_b = 0.5f;
+
+            eu::render::Quad{
+                .texture = &sample_texture,
+                // select bottom right of the texture, assuming it is split in 4 smaller rects
+                .texturecoord = eu::Rect::from_bottom_left_size({0.5f, 0}, {0.5f, 0.5f}),
+                .rotation = eu::render::RotateQuad{.angle = rotation, .center = {slider_a, slider_b} }
+            }.draw(layer.batch, eu::Rect::from_bottom_left_size({ 300, 300 }, { 300, 300 }));
+
+            const auto button_size = eu::v2{ 64, 64 };
+
+            uistate.begin();
+            if (basic_button(idstack.get("a"), eu::Rect::from_bottom_left_size({ 100, 100 }, button_size), uistate, layer.batch))
+            {
+                rotation -= eu::An::from_degrees(15.0f);
+            }
+            if (basic_button(idstack.get("b"), eu::Rect::from_bottom_left_size({ 200, 100 }, button_size), uistate, layer.batch))
+            {
+                rotation += eu::An::from_degrees(15.0f);
+            }
+            if (basic_button(idstack.get("c"), eu::Rect::from_bottom_left_size({ 300, 100 }, button_size), uistate, layer.batch))
+            {
+                rotation = eu::no_rotation;
+            }
+            button_texture(idstack.get("d"), eu::Rect::from_bottom_left_size({ 400, 100 }, button_size), uistate, layer.batch, &spritesheet,
+                ::spritesheet::button_square_flat,
+                ::spritesheet::button_square_depth_flat,
+                ::spritesheet::button_square_depth_gradient
+            );
+
+            const auto slider_size = eu::v2{ 256, 25 };
+            slider(idstack.get("slider_a"), &slider_a, eu::Rect::from_bottom_left_size({ 100, 200 }, slider_size), uistate, layer.batch);
+            slider(idstack.get("slider_b"), &slider_b, eu::Rect::from_bottom_left_size({ 100, 250 }, slider_size), uistate, layer.batch);
+            textfield(idstack.get("textfield"), &editable_text, &font, 20, {100, 300}, uistate, layer.batch);
+            uistate.end();
+
+            draw_text(layer.batch, &font, "Hello world", 60, {200, 400 + 200}, eu::colors::black);
         }
         SDL_GL_SwapWindow(window);
     }

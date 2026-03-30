@@ -38,3 +38,39 @@ target_link_libraries(mrgui
         euph::project_options
         euph::project_warnings
 )
+
+
+set(data
+    ${EUPH_FONTS}/OpenSans-Regular.ttf
+    examples/data/uv-texture.png
+    examples/data/spritesheet.png
+)
+
+embed(embedded
+    AS_BINARY
+        ${data}
+)
+
+set(src
+    examples/data/spritesheet.h
+    examples/main.cc
+    examples/pch.private.h
+)
+
+add_executable(mrgui_demo ${src} ${embedded})
+source_group("" FILES ${src})
+source_group("data" FILES ${data})
+source_group("data/generated" FILES ${embedded})
+target_include_directories(mrgui_demo PRIVATE ${CMAKE_CURRENT_BINARY_DIR})
+set_target_properties(mrgui_demo PROPERTIES FOLDER "Examples/")
+target_link_libraries(mrgui_demo PRIVATE euph::project_options
+    euph::project_options
+    euph::project_warnings
+    euph::log
+    euph::base
+    euph::render
+    euph::mrgui
+    external::sdl2
+    external::opengl
+    external::glad
+)

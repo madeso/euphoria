@@ -2,9 +2,7 @@
 # editor project
 
 set(data
-    src/editor/data/OpenSans-Regular.ttf
-    src/editor/data/uv-texture.png
-    src/editor/data/spritesheet.png
+    ${EUPH_FONTS}/OpenSans-Regular.ttf
 )
 
 embed(embedded
@@ -13,7 +11,6 @@ embed(embedded
 )
 
 set(src
-    src/editor/data/spritesheet.h
     src/editor/main.cc
     src/editor/pch.private.h
 )
@@ -39,7 +36,7 @@ target_link_libraries(editor
         euph::log
         euph::base
         euph::render
-        euph::mrgui
+        external::imgui
         external::sdl2
         external::opengl
         external::glad
