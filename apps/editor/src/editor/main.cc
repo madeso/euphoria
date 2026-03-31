@@ -17,10 +17,44 @@
 #include "render/enable_high_performance_graphics.h"
 
 #include "imgui/imgui.h"
+#include "imgui/imgui_internal.h"
 #include "imgui/backends/imgui_impl_sdl.h"
 #include "imgui/backends/imgui_impl_opengl3.h"
 
 ENABLE_HIGH_PERFORMANCE_GRAPHICS
+
+namespace imgui
+{
+    void Label(const char* label)
+    {
+        ImGuiWindow* window = ImGui::GetCurrentWindow();
+        float fullWidth = ImGui::GetContentRegionAvail().x;
+        float itemWidth = fullWidth * 0.6f;
+        ImVec2 textSize = ImGui::CalcTextSize(label);
+        ImRect textRect;
+        textRect.Min = ImGui::GetCursorScreenPos();
+        textRect.Max = textRect.Min;
+        textRect.Max.x += fullWidth - itemWidth;
+        textRect.Max.y += textSize.y;
+
+        ImGui::AlignTextToFramePadding();
+        textRect.Min.y += window->DC.CurrLineTextBaseOffset;
+        textRect.Max.y += window->DC.CurrLineTextBaseOffset;
+
+        ImGui::ItemSize(textRect);
+        if (ImGui::ItemAdd(textRect, window->GetID(label)))
+        {
+            const float ellipsis_max = 3.0f;
+            ImGui::RenderTextEllipsis(ImGui::GetWindowDrawList(), textRect.Min, textRect.Max, textRect.Max.x, ellipsis_max, label, nullptr, &textSize);
+
+            if (textRect.GetWidth() < textSize.x && ImGui::IsItemHovered())
+                ImGui::SetTooltip("%s", label);
+        }
+        ImGui::SameLine();
+        ImGui::SetNextItemWidth(-1);
+    }
+
+}
 
 eu::MemoryChunk chunk_from_embed(const embedded_binary& binary)
 {
@@ -154,6 +188,23 @@ int  main(int, char**)
         {
             ImGui::ShowDemoWindow(&show_demo_window);
         }
+
+        if (ImGui::Begin("Properties"))
+        {
+            static eu::v3 pos = {0,0,0};
+            static eu::v3 rot = {0, 0, 0};
+            static eu::v3 scale = {1, 1, 1};
+
+            imgui::Label("Position");
+            ImGui::DragFloat3("##Position", pos.get_data_ptr());
+
+            imgui::Label("Rotation");
+            ImGui::DragFloat3("##Rotation", rot.get_data_ptr());
+
+            imgui::Label("Scale");
+            ImGui::DragFloat3("##Scale", scale.get_data_ptr());
+        }
+        ImGui::End();
 
         {
             eu::render::RenderCommand cmd {.states = &states, .render = &render, .size = {.width = window_width, .height = window_height} };
