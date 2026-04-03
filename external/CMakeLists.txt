@@ -270,7 +270,7 @@ endif()
 
 # todo(Gustav): investigate enabling ImGui_ImplWin32_EnableDpiAwareness
 
-add_library(imgui STATIC
+set(dear_imgui_src
     imgui/imgui/imconfig.h
     imgui/imgui/imgui_demo.cpp
     imgui/imgui/imgui_draw.cpp
@@ -279,23 +279,19 @@ add_library(imgui STATIC
     imgui/imgui/imgui_widgets.cpp
     imgui/imgui/imgui.cpp
     imgui/imgui/imgui.h
-    # todo: look into how different stb libs work together
     imgui/imgui/imstb_rectpack.h
     imgui/imgui/imstb_textedit.h
     imgui/imgui/imstb_truetype.h
 
-    imgui/imgui/misc/cpp/imgui_stdlib.cpp
-    imgui/imgui/misc/cpp/imgui_stdlib.h
-
-    imgui/imgui/backends/imgui_impl_sdl.cpp
-    imgui/imgui/backends/imgui_impl_sdl.h
+    imgui/imgui/backends/imgui_impl_sdl2.cpp
+    imgui/imgui/backends/imgui_impl_sdl2.h
     imgui/imgui/backends/imgui_impl_opengl3.cpp
     imgui/imgui/backends/imgui_impl_opengl3.h
-
-    imgui/imgui/backends/imgui_impl_opengl3_loader.h # 1.84
 )
-set_target_properties(imgui PROPERTIES FOLDER "Dependencies")
-target_include_directories(imgui SYSTEM
+add_library(dear_imgui STATIC ${dear_imgui_src})
+set_target_properties(dear_imgui PROPERTIES FOLDER "Dependencies")
+source_group("" FILES ${dear_imgui_src})
+target_include_directories(dear_imgui SYSTEM
     PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}/imgui/
     ${CMAKE_CURRENT_SOURCE_DIR}/imgui/imgui/misc/cpp/
@@ -304,15 +300,7 @@ target_include_directories(imgui SYSTEM
     # and it include imgui the 'imgui way'
     ${CMAKE_CURRENT_SOURCE_DIR}/imgui/fake/
 )
-target_compile_definitions(imgui
-    PRIVATE
-        -DIMGUI_IMPL_OPENGL_LOADER_GLAD
-    PUBLIC
-        -DIMGUI_DISABLE_OBSOLETE_FUNCTIONS
-        # this does not switch to utf-32, this only extends dear imgui to support more fonts 32
-        -DIMGUI_USE_WCHAR32
-)
-target_link_libraries(imgui
+target_link_libraries(dear_imgui
     PUBLIC
         external::sdl2
         external::glad
@@ -320,26 +308,35 @@ target_link_libraries(imgui
         euph::assert
         euph::project_options
 )
-add_library(external::imgui ALIAS imgui)
+target_compile_definitions(dear_imgui
+    PRIVATE
+        -DIMGUI_IMPL_OPENGL_LOADER_GLAD
+    PUBLIC
+        -DIMGUI_DISABLE_OBSOLETE_FUNCTIONS
+        -DIMGUI_DEFINE_MATH_OPERATORS
+        # this does not switch to utf-32, this only extends dear imgui to support more fonts 32
+        -DIMGUI_USE_WCHAR32
+)
+add_library(external::imgui ALIAS dear_imgui)
 
 
 
 ###################################################################################################
 ## imguizmo
-add_library(imguizmo STATIC
-    imguizmo/imguizmo/ImGuizmo.cpp
-    imguizmo/imguizmo/ImGuizmo.h
-)
-set_target_properties(imguizmo PROPERTIES FOLDER "Dependencies")
-target_include_directories(imguizmo SYSTEM
-    PUBLIC
-        imguizmo
-)
-target_link_libraries(imguizmo
-    PUBLIC
-        external::imgui
-)
-add_library(external::imguizmo ALIAS imguizmo)
+# add_library(imguizmo STATIC
+#     imguizmo/imguizmo/ImGuizmo.cpp
+#     imguizmo/imguizmo/ImGuizmo.h
+# )
+# set_target_properties(imguizmo PROPERTIES FOLDER "Dependencies")
+# target_include_directories(imguizmo SYSTEM
+#     PUBLIC
+#         imguizmo
+# )
+# target_link_libraries(imguizmo
+#     PUBLIC
+#         external::dear_imgui
+# )
+# add_library(external::imguizmo ALIAS imguizmo)
 
 
 
