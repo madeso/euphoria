@@ -8,7 +8,6 @@
 #define APPROX custom::Approx<float>
 
 
-using namespace eu::convert;
 using namespace eu::tests;
 using namespace eu;
 

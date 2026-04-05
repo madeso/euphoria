@@ -32,7 +32,6 @@ namespace Catch
 }
 
 
-using namespace eu::convert;
 using namespace eu::tests;
 using namespace eu;
 

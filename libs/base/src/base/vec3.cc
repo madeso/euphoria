@@ -196,6 +196,12 @@ namespace eu
             (x * u.y) - (y * u.x)};
     }
 
+    [[nodiscard]] std::optional<n3>
+    v3::cross_norm(const v3 &u) const
+    {
+        return cross(u).get_normalized();
+    }
+
     ////////////////////////////////////////////////////////////////////////////////
     /// Transformations
 

@@ -1,5 +1,7 @@
 #pragma once
 
+#include <string>
+
 // todo(Gustav): move logging to app layer and use sdl as log base, with fmt formatting instead
 
 namespace eu::log

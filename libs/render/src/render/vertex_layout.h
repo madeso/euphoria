@@ -118,4 +118,4 @@ CompiledVertexTypeList compile_attribute_layouts(const std::vector<ShaderVertexA
 /** @}
 */
 
-}  //  namespace klotter
+}  //  namespace eu::render

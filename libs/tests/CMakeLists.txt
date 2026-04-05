@@ -3,6 +3,8 @@
 
 set(src
     src/tests/false_string.cc src/tests/false_string.h
+    src/tests/vectorequals.h
+    src/tests/vectortostring.h
     src/tests/equaler.cc src/tests/equaler.h
     src/tests/approx.cc src/tests/approx.h
     src/tests/approx_equal.cc src/tests/approx_equal.h
@@ -16,6 +18,7 @@ target_include_directories(tests
     PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}/src
 )
+target_precompile_headers(tests PRIVATE src/tests/pch.private.h)
 target_link_libraries(tests
     PUBLIC
         external::catch

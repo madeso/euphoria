@@ -1,7 +1,7 @@
 #include "render/opengl_utils.h"
 
 #include "assert/assert.h"
-// #include "klotter/str.h"
+// 
 #include "dependency_glad.h"
 
 

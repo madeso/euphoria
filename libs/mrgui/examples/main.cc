@@ -18,7 +18,7 @@
 #include "base/memorychunk.h"
 
 #include "render/canvas.h"
-#include "render/opengl_states.h"
+#include "render/state.h"
 #include "render/font.h"
 #include "render/opengl_utils.h"
 #include "render/texture.io.h"
@@ -109,7 +109,7 @@ int  main(int, char**)
         LOG_INFO("Version GLSL:   {0}", gl_shading_language_version);
     }
 
-    eu::render::OpenglStates states;
+    eu::render::State states;
     eu::render::Render2 render{ &states };
 
     UiState uistate;

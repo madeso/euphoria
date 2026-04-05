@@ -1,16 +1,8 @@
 // public header file for the precompiled header
-
-// todo(Gustav): why is ostream and sstream part of the pch?
-#include <ostream>
-#include <sstream>
-
-// todo(Gustav): add unordered map?
-#include <string>
-#include <vector>
-#include <optional>
-
+#include "fmt/pch.public.h"
 #include "log/log.h"
 #include "assert/assert.h"
 
-#include "base/feature_flags.h"
-#include "base/ints.h"
+#include "base/std.h"
+
+#include "base/base.h"

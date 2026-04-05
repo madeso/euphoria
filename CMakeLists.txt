@@ -94,6 +94,7 @@ target_link_libraries(project_options INTERFACE euph::edit_and_continue)
 target_compile_features(project_options INTERFACE cxx_std_20)
 target_feature_flags(project_options INTERFACE
     ENABLE_GL_DEBUG
+    BLUR_USE_GAUSS
 )
 
 

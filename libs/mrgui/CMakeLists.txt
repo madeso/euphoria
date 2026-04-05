@@ -14,9 +14,7 @@ set(src
 )
 
 add_library(mrgui STATIC ${src})
-target_precompile_headers(mrgui
-    PRIVATE src/mrgui/pch.private.h
-)
+target_precompile_headers(mrgui PRIVATE src/mrgui/pch.private.h )
 
 add_library(euph::mrgui ALIAS mrgui)
 set_target_properties(mrgui PROPERTIES FOLDER "Libraries")
@@ -61,6 +59,7 @@ add_executable(mrgui_demo ${src} ${embedded})
 source_group("" FILES ${src})
 source_group("data" FILES ${data})
 source_group("data/generated" FILES ${embedded})
+target_precompile_headers(mrgui_demo PRIVATE src/mrgui/pch.private.h )
 target_include_directories(mrgui_demo PRIVATE ${CMAKE_CURRENT_BINARY_DIR})
 set_target_properties(mrgui_demo PROPERTIES FOLDER "Examples/")
 target_link_libraries(mrgui_demo PRIVATE euph::project_options

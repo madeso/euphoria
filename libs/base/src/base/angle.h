@@ -118,7 +118,7 @@ namespace eu
 
 ADD_DEFAULT_FORMATTER(eu::An, std::string, eu::string_from);
 
-namespace eu::convert
+namespace eu
 {
     constexpr An operator""_deg(unsigned long long d)
     {

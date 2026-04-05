@@ -54,6 +54,9 @@ namespace eu
                 z, z, z, scalar);
         }
 
+        [[nodiscard]] static m4 from_basis(const n3& a, const n3& b, const n3& c);
+        [[nodiscard]] static m4 from_scale(const v3& s);
+        
         /// Create a translation matrix.
         [[nodiscard]] static m4 from_translation(const v3 &v);
 

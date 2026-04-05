@@ -98,4 +98,4 @@ struct BoundUniformBuffer
  * @}
 */
 
-}  //  namespace klotter
+}  //  namespace eu::render

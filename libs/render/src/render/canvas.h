@@ -19,7 +19,7 @@ namespace eu::render
 {
 
 struct SpriteBatch;
-struct OpenglStates;
+struct State;
 struct ShaderProgram;
 struct Render2;
 
@@ -54,7 +54,7 @@ struct SpriteBatch
 {
     static constexpr int max_quads = 100;
 
-    OpenglStates* states;
+    State* states;
     std::vector<float> data;
     int quads = 0;
     const Texture2d* current_texture = nullptr;
@@ -64,7 +64,7 @@ struct SpriteBatch
     Render2* render;
     Texture2d white_texture;
 
-    SpriteBatch(OpenglStates* states, ShaderProgram* shader, Render2* r);
+    SpriteBatch(State* states, ShaderProgram* shader, Render2* r);
     ~SpriteBatch();
 
     SpriteBatch(const SpriteBatch&) = delete;
@@ -79,7 +79,7 @@ struct SpriteBatch
 
 struct Render2
 {
-    explicit Render2(OpenglStates* states);
+    explicit Render2(State* states);
 
     ShaderVertexAttributes quad_description;
     CompiledShaderVertexAttributes quad_layout;
@@ -136,7 +136,7 @@ struct InputCommand
 
 struct RenderCommand
 {
-    OpenglStates* states;
+    State* states;
     Render2* render;
     Size size;
 

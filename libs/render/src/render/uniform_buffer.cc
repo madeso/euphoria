@@ -173,4 +173,4 @@ void UniformBuffer::set_mat4(const CompiledUniformProp& prop, const m4& m) // NO
 	glBufferSubData(GL_UNIFORM_BUFFER, prop.offset, 16 * sizeof(float), m.get_column_major_data_ptr());
 }
 
-}  //  namespace klotter
+}  //  namespace eu::render

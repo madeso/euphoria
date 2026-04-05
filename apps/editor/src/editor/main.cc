@@ -9,7 +9,7 @@
 #include "base/memorychunk.h"
 
 #include "render/canvas.h"
-#include "render/opengl_states.h"
+#include "render/state.h"
 #include "render/font.h"
 #include "render/opengl_utils.h"
 #include "render/texture.io.h"
@@ -18,7 +18,8 @@
 
 #include "imgui/imgui.h"
 #include "imgui/imgui_internal.h"
-#include "imgui/backends/imgui_impl_sdl.h"
+
+#include "imgui/backends/imgui_impl_sdl2.h"
 #include "imgui/backends/imgui_impl_opengl3.h"
 
 ENABLE_HIGH_PERFORMANCE_GRAPHICS
@@ -45,7 +46,7 @@ namespace imgui
         if (ImGui::ItemAdd(textRect, window->GetID(label)))
         {
             const float ellipsis_max = 3.0f;
-            ImGui::RenderTextEllipsis(ImGui::GetWindowDrawList(), textRect.Min, textRect.Max, textRect.Max.x, ellipsis_max, label, nullptr, &textSize);
+            ImGui::RenderTextEllipsis(ImGui::GetWindowDrawList(), textRect.Min, textRect.Max, ellipsis_max, label, nullptr, &textSize);
 
             if (textRect.GetWidth() < textSize.x && ImGui::IsItemHovered())
                 ImGui::SetTooltip("%s", label);
@@ -152,7 +153,7 @@ int  main(int, char**)
     );
     IM_ASSERT(font != nullptr);
 
-    eu::render::OpenglStates states;
+    eu::render::State states;
     eu::render::Render2 render{ &states };
 
     bool running = true;

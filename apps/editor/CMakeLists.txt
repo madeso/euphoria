@@ -21,9 +21,7 @@ source_group("data/generated" FILES ${embedded})
 # add_executable(editor WIN32 MACOSX_BUNDLE ${src})
 add_executable(editor ${src} ${embedded})
 target_include_directories(editor PRIVATE ${CMAKE_CURRENT_BINARY_DIR})
-target_precompile_headers(editor
-    PRIVATE src/editor/pch.private.h
-)
+target_precompile_headers(editor PRIVATE src/editor/pch.private.h)
 set_target_properties(editor PROPERTIES FOLDER "Applications")
 target_include_directories(editor
     PUBLIC
@@ -36,7 +34,7 @@ target_link_libraries(editor
         euph::log
         euph::base
         euph::render
-        external::imgui
+        external::dear_imgui
         external::sdl2
         external::opengl
         external::glad

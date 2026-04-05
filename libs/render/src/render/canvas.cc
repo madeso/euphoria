@@ -10,7 +10,7 @@
 #include "render/shader.h"
 #include "render/texture.h"
 #include "render/opengl_utils.h"
-#include "render/statechanger.h"
+#include "render/state.h"
 
 
 using namespace std::literals;
@@ -19,7 +19,7 @@ using namespace std::literals;
 namespace eu::render
 {
 
-SpriteBatch::SpriteBatch(OpenglStates* the_states, ShaderProgram* quad_shader, Render2* r)
+SpriteBatch::SpriteBatch(State* the_states, ShaderProgram* quad_shader, Render2* r)
     : states(the_states)
     , render(r)
     , white_texture
@@ -201,7 +201,7 @@ void SpriteBatch::submit()
 }
 
 
-Render2::Render2(OpenglStates* states)
+Render2::Render2(State* states)
     // todo(Gustav): move quad_description and quad_layout to a separate setup
     : quad_description
     (

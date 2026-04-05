@@ -80,6 +80,8 @@ namespace eu
         /// if the length is zero, `nullopt` is returend
         [[nodiscard]] std::optional<n3> get_normalized() const;
 
+        [[nodiscard]] std::optional<n3> cross_norm(const v3 &u) const;
+
         bool operator==(const v3 &rhs) = delete;
     };
 

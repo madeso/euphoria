@@ -317,7 +317,7 @@ target_compile_definitions(dear_imgui
         # this does not switch to utf-32, this only extends dear imgui to support more fonts 32
         -DIMGUI_USE_WCHAR32
 )
-add_library(external::imgui ALIAS dear_imgui)
+add_library(external::dear_imgui ALIAS dear_imgui)
 
 
 
@@ -386,3 +386,16 @@ target_include_directories(lua SYSTEM
         lua/src
 )
 add_library(external::lua ALIAS lua)
+
+
+
+
+###################################################################################################
+# mustache
+add_library(mustache INTERFACE)
+target_include_directories(mustache SYSTEM
+    INTERFACE
+        mustache
+)
+add_library(external::mustache ALIAS mustache)
+

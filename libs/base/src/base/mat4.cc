@@ -37,6 +37,22 @@ namespace eu
         );
     }
 
+    [[nodiscard]] m4 m4::from_basis(const n3& a, const n3& b, const n3& c)
+    {
+        return from_row_major
+        (
+            a.x, a.y, a.z, 0,
+            b.x, b.y, b.z, 0,
+            c.x, c.y, c.z, 0,
+            0, 0, 0, 1
+        );
+    }
+
+    [[nodiscard]] m4 m4::from_scale(const v3& s)
+    {
+        return from_major({s, 1.0f});
+    }
+
     [[nodiscard]]
     m4
     m4::from_translation(const v3& v)

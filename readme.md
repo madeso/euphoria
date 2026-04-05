@@ -44,6 +44,8 @@ The folder structure should follow the [pitchfork layout](https://github.com/vec
 
 All names should follow `snake_case`, both for variables, members, functions and files. The only exception are C++ macros that should follow `SHOUTING_SNAKE_CASE` and structs & template arguments that should follow `PascalCase`.
 
+Don't use `REUSE_FROM` in pch, it seems to result in lot of rebuilds due to "error C2859: file.idb is not the idb file that was used when this precompiled header was created, recreate the precompiled header."
+
 ## Naming guidelines
 * Prefer to name function after what is returns, not the algorithm (`get_sorted` or `sort_inplace` vs `quicksort`).
 * Prefer to name function after what is does, not how it does it (`add_item` vs `emplace_back_item`).

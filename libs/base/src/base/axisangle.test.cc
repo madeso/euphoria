@@ -44,9 +44,7 @@ TEST_CASE("aa-print", "[aa]")
 
 
 TEST_CASE("ypr-print", "[angle]")
-{
-    using namespace convert;
-    
+{   
     // todo(Gustav): how reliable are theese tests, switch to regex?
     const auto h = Ypr{0_deg, 45_deg, 90_deg};
     SECTION("fmt")

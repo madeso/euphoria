@@ -21,6 +21,7 @@ set(app_src
 
     src/base/feature_flags.h
     src/base/cint.h
+    src/base/cpp.h
 
     src/base/pch.private.h
     src/base/pch.public.h
@@ -33,10 +34,7 @@ set(src
 )
 
 add_library(base STATIC ${src})
-target_precompile_headers(base
-    PUBLIC src/base/pch.public.h
-    PRIVATE src/base/pch.private.h
-)
+target_precompile_headers(base PRIVATE src/base/pch.private.h)
 
 
 add_library(euph::base ALIAS base)
@@ -81,6 +79,7 @@ set(test_src
 source_group("" FILES ${test_src})
 # source_group("main" FILES ${test_main_src})
 add_executable(base_test ${test_src} ${test_main_src})
+target_precompile_headers(base_test PRIVATE src/base/pch.private.h)
 set_target_properties(base_test PROPERTIES FOLDER "Tests")
 target_link_libraries(base_test
     PRIVATE

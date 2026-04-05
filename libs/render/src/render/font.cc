@@ -27,8 +27,6 @@
 #include "dependency_glad.h"
 #include "base/memorychunk.h"
 
-using namespace eu::convert;
-
 
 namespace eu::render
 {
