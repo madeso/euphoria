@@ -11,8 +11,8 @@ embed(embedded
 )
 
 set(src
-    src/editor/main.cc
-    src/editor/pch.private.h
+    src/eu/editor/main.cc
+    src/eu/editor/pch.private.h
 )
 source_group("" FILES ${src})
 source_group("data" FILES ${data})
@@ -21,7 +21,7 @@ source_group("data/generated" FILES ${embedded})
 # add_executable(editor WIN32 MACOSX_BUNDLE ${src})
 add_executable(editor ${src} ${embedded})
 target_include_directories(editor PRIVATE ${CMAKE_CURRENT_BINARY_DIR})
-target_precompile_headers(editor PRIVATE src/editor/pch.private.h)
+target_precompile_headers(editor PRIVATE src/eu/editor/pch.private.h)
 set_target_properties(editor PROPERTIES FOLDER "Applications")
 target_include_directories(editor
     PUBLIC

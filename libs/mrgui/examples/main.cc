@@ -14,19 +14,19 @@
 #include "uv-texture.png.h"
 #include "spritesheet.png.h"
 
-#include "log/log.h"
-#include "base/memorychunk.h"
+#include "eu/log/log.h"
+#include "eu/base/memorychunk.h"
 
-#include "render/canvas.h"
-#include "render/state.h"
-#include "render/font.h"
-#include "render/opengl_utils.h"
-#include "render/texture.io.h"
-#include "render/enable_high_performance_graphics.h"
+#include "eu/render/canvas.h"
+#include "eu/render/state.h"
+#include "eu/render/font.h"
+#include "eu/render/opengl_utils.h"
+#include "eu/render/texture.io.h"
+#include "eu/render/enable_high_performance_graphics.h"
 
 #include "data/spritesheet.h"
 
-#include "mrgui/widgets.h"
+#include "eu/mrgui/widgets.h"
 
 using namespace eu::mrgui;
 

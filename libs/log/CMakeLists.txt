@@ -2,7 +2,7 @@
 # log project
 
 set(app_src
-    src/log/log.cc src/log/log.h
+    src/eu/log/log.cc src/eu/log/log.h
 )
 
 source_group("" FILES ${app_src})

@@ -2,10 +2,10 @@
 # imgui_extra project
 
 set(imgui_src
-    src/imgui/scurve.cc src/imgui/scurve.h
-    src/imgui/ui.cc src/imgui/ui.h
+    src/eu/imgui/scurve.cc src/eu/imgui/scurve.h
+    src/eu/imgui/ui.cc src/eu/imgui/ui.h
 
-    src/imgui/pch.private.h
+    src/eu/imgui/pch.private.h
 )
 
 source_group("" FILES ${imgui_src})
@@ -15,7 +15,7 @@ set(src
 )
 
 add_library(imgui_extra STATIC ${src})
-target_precompile_headers(imgui_extra PRIVATE src/imgui/pch.private.h)
+target_precompile_headers(imgui_extra PRIVATE src/eu/imgui/pch.private.h)
 
 add_library(euph::imgui ALIAS imgui_extra)
 set_target_properties(imgui_extra PROPERTIES FOLDER "Libraries")

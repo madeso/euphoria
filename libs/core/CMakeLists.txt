@@ -2,16 +2,16 @@
 # core project
 
 set(core_src
-    src/core/image.cc src/core/image.h
-    src/core/loadedfont.cc src/core/loadedfont.h
-    src/core/tablelayout.cc src/core/tablelayout.h
-    src/core/utf8.cc src/core/utf8.h
-    src/core/scurve.cc src/core/scurve.h
-    src/core/ui.cc src/core/ui.h
+    src/eu/core/image.cc src/eu/core/image.h
+    src/eu/core/loadedfont.cc src/eu/core/loadedfont.h
+    src/eu/core/tablelayout.cc src/eu/core/tablelayout.h
+    src/eu/core/utf8.cc src/eu/core/utf8.h
+    src/eu/core/scurve.cc src/eu/core/scurve.h
+    src/eu/core/ui.cc src/eu/core/ui.h
 
-    src/core/hash.h
+    src/eu/core/hash.h
 
-    src/core/pch.private.h
+    src/eu/core/pch.private.h
 )
 
 source_group("" FILES ${core_src})
@@ -21,7 +21,7 @@ set(src
 )
 
 add_library(core STATIC ${src})
-target_precompile_headers(core PRIVATE src/core/pch.private.h)
+target_precompile_headers(core PRIVATE src/eu/core/pch.private.h)
 
 add_library(euph::core ALIAS core)
 set_target_properties(core PROPERTIES FOLDER "Libraries")
@@ -44,13 +44,13 @@ target_link_libraries(core
 # test project
 
 set(test_src
-    src/core/tablelayout.test.cc
-    src/core/scurve.test.cc
-    src/core/ui.test.cc
+    src/eu/core/tablelayout.test.cc
+    src/eu/core/scurve.test.cc
+    src/eu/core/ui.test.cc
 )
 source_group("" FILES ${test_src})
 add_executable(core_test ${test_src} ${test_main_src})
-target_precompile_headers(core_test PRIVATE src/core/pch.private.h)
+target_precompile_headers(core_test PRIVATE src/eu/core/pch.private.h)
 set_target_properties(core_test PROPERTIES FOLDER "Tests")
 target_link_libraries(core_test
     PRIVATE

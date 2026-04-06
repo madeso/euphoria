@@ -1,6 +1,6 @@
 #include "catch2/catch_session.hpp"
 
-#include "assert/assert.h"
+#include "eu/assert/assert.h"
 
 int
 main(int argc, char** argv)

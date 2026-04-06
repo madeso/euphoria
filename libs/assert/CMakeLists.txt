@@ -2,7 +2,7 @@
 # assert project
 
 set(app_src
-    src/assert/assert.cc src/assert/assert.h
+    src/eu/assert/assert.cc src/eu/assert/assert.h
 )
 
 source_group("" FILES ${app_src})

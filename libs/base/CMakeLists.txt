@@ -2,29 +2,29 @@
 # base project
 
 set(app_src
-    src/base/numeric.cc src/base/numeric.h
-    src/base/range.cc src/base/range.h
-    src/base/angle.cc src/base/angle.h
-    src/base/axisangle.cc src/base/axisangle.h
-    src/base/colors.cc src/base/colors.h
-    src/base/ints.cc src/base/ints.h
-    src/base/mat4.cc src/base/mat4.h
-    src/base/quat.cc src/base/quat.h
-    src/base/vec2.cc src/base/vec2.h
-    src/base/vec3.cc src/base/vec3.h
-    src/base/vec4.cc src/base/vec4.h
-    src/base/hash.string.cc src/base/hash.string.h
-    src/base/guid.cc src/base/guid.h
-    src/base/rect.cc src/base/rect.h
-    src/base/size.cc src/base/size.h
-    src/base/memorychunk.cc src/base/memorychunk.h
+    src/eu/base/numeric.cc src/eu/base/numeric.h
+    src/eu/base/range.cc src/eu/base/range.h
+    src/eu/base/angle.cc src/eu/base/angle.h
+    src/eu/base/axisangle.cc src/eu/base/axisangle.h
+    src/eu/base/colors.cc src/eu/base/colors.h
+    src/eu/base/ints.cc src/eu/base/ints.h
+    src/eu/base/mat4.cc src/eu/base/mat4.h
+    src/eu/base/quat.cc src/eu/base/quat.h
+    src/eu/base/vec2.cc src/eu/base/vec2.h
+    src/eu/base/vec3.cc src/eu/base/vec3.h
+    src/eu/base/vec4.cc src/eu/base/vec4.h
+    src/eu/base/hash.string.cc src/eu/base/hash.string.h
+    src/eu/base/guid.cc src/eu/base/guid.h
+    src/eu/base/rect.cc src/eu/base/rect.h
+    src/eu/base/size.cc src/eu/base/size.h
+    src/eu/base/memorychunk.cc src/eu/base/memorychunk.h
 
-    src/base/feature_flags.h
-    src/base/cint.h
-    src/base/cpp.h
+    src/eu/base/feature_flags.h
+    src/eu/base/cint.h
+    src/eu/base/cpp.h
 
-    src/base/pch.private.h
-    src/base/pch.public.h
+    src/eu/base/pch.private.h
+    src/eu/base/pch.public.h
 )
 
 source_group("" FILES ${app_src})
@@ -34,7 +34,7 @@ set(src
 )
 
 add_library(base STATIC ${src})
-target_precompile_headers(base PRIVATE src/base/pch.private.h)
+target_precompile_headers(base PRIVATE src/eu/base/pch.private.h)
 
 
 add_library(euph::base ALIAS base)
@@ -62,24 +62,24 @@ target_link_libraries(base
 # test project
 
 set(test_src
-    src/base/numeric.test.cc
-    src/base/angle.test.cc
-    src/base/range.test.cc
-    src/base/axisangle.test.cc
-    src/base/mat4.test.cc
-    src/base/quat.test.cc
-    src/base/vec2.test.cc
-    src/base/vec3.test.cc
-    src/base/vec4.test.cc
-    src/base/hash.string.test.cc
-    src/base/guid.test.cc
-    src/base/rect.test.cc
+    src/eu/base/numeric.test.cc
+    src/eu/base/angle.test.cc
+    src/eu/base/range.test.cc
+    src/eu/base/axisangle.test.cc
+    src/eu/base/mat4.test.cc
+    src/eu/base/quat.test.cc
+    src/eu/base/vec2.test.cc
+    src/eu/base/vec3.test.cc
+    src/eu/base/vec4.test.cc
+    src/eu/base/hash.string.test.cc
+    src/eu/base/guid.test.cc
+    src/eu/base/rect.test.cc
 )
 # set(test_main_src test/main.cc)
 source_group("" FILES ${test_src})
 # source_group("main" FILES ${test_main_src})
 add_executable(base_test ${test_src} ${test_main_src})
-target_precompile_headers(base_test PRIVATE src/base/pch.private.h)
+target_precompile_headers(base_test PRIVATE src/eu/base/pch.private.h)
 set_target_properties(base_test PROPERTIES FOLDER "Tests")
 target_link_libraries(base_test
     PRIVATE
