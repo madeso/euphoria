@@ -117,17 +117,32 @@ int main(int, char**)
             }
         }
 
+        eu::render::RenderCommand cmd{ .states = &states, .render = &render, .size = {.width = window_width, .height = window_height} };
+
+        // clear
         {
-            eu::render::RenderCommand cmd {.states = &states, .render = &render, .size = {.width = window_width, .height = window_height} };
+            {
+                const auto screen = eu::render::LayoutData{ .style = eu::render::ViewportStyle::extended,
+                                        .requested_width = 800, .requested_height = 600 };
+                cmd.clear(eu::colors::black, screen);
+            }
+        }
 
-            // todo(Gustav): provide a pixel layout
-            const auto screen = eu::render::LayoutData{ .style = eu::render::ViewportStyle::extended,
-                                                     .requested_width = static_cast<float>(window_width), .requested_height = static_cast<float>(window_height) };
-
+        // render 3d world
+        {
+            const auto screen = eu::render::LayoutData{ .style = eu::render::ViewportStyle::black_bars,
+                                    .requested_width = 800, .requested_height = 600 };
             cmd.clear(eu::colors::blue_sky, screen);
+        }
+
+        // render hud
+        {
+            const auto screen = eu::render::LayoutData{ .style = eu::render::ViewportStyle::black_bars,
+                                                     .requested_width = 1280, .requested_height = 720 };
 
             auto layer = eu::render::with_layer2(cmd, screen);
-            eu::render::Quad{ .tint = eu::colors::green_bluish }.draw(layer.batch, layer.viewport_aabb_in_worldspace.get_bottom(50));
+            const float hud_size = 100.0f;
+            eu::render::Quad{ .tint = eu::colors::green_bluish }.draw(layer.batch, layer.viewport_aabb_in_worldspace.get_bottom(hud_size).get_right(hud_size).with_inset(eu::Lrtb{5.0f}));
         }
 
         SDL_GL_SwapWindow(window);
