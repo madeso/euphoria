@@ -271,34 +271,34 @@ endif()
 # todo(Gustav): investigate enabling ImGui_ImplWin32_EnableDpiAwareness
 
 set(dear_imgui_src
-    imgui/imgui/imconfig.h
-    imgui/imgui/imgui_demo.cpp
-    imgui/imgui/imgui_draw.cpp
-    imgui/imgui/imgui_internal.h
-    imgui/imgui/imgui_tables.cpp
-    imgui/imgui/imgui_widgets.cpp
-    imgui/imgui/imgui.cpp
-    imgui/imgui/imgui.h
-    imgui/imgui/imstb_rectpack.h
-    imgui/imgui/imstb_textedit.h
-    imgui/imgui/imstb_truetype.h
+    dear_imgui/dear_imgui/imconfig.h
+    dear_imgui/dear_imgui/imgui_demo.cpp
+    dear_imgui/dear_imgui/imgui_draw.cpp
+    dear_imgui/dear_imgui/imgui_internal.h
+    dear_imgui/dear_imgui/imgui_tables.cpp
+    dear_imgui/dear_imgui/imgui_widgets.cpp
+    dear_imgui/dear_imgui/imgui.cpp
+    dear_imgui/dear_imgui/imgui.h
+    dear_imgui/dear_imgui/imstb_rectpack.h
+    dear_imgui/dear_imgui/imstb_textedit.h
+    dear_imgui/dear_imgui/imstb_truetype.h
 
-    imgui/imgui/backends/imgui_impl_sdl2.cpp
-    imgui/imgui/backends/imgui_impl_sdl2.h
-    imgui/imgui/backends/imgui_impl_opengl3.cpp
-    imgui/imgui/backends/imgui_impl_opengl3.h
+    dear_imgui/dear_imgui/backends/imgui_impl_sdl2.cpp
+    dear_imgui/dear_imgui/backends/imgui_impl_sdl2.h
+    dear_imgui/dear_imgui/backends/imgui_impl_opengl3.cpp
+    dear_imgui/dear_imgui/backends/imgui_impl_opengl3.h
 )
 add_library(dear_imgui STATIC ${dear_imgui_src})
 set_target_properties(dear_imgui PROPERTIES FOLDER "Dependencies")
 source_group("" FILES ${dear_imgui_src})
 target_include_directories(dear_imgui SYSTEM
     PUBLIC
-    ${CMAKE_CURRENT_SOURCE_DIR}/imgui/
-    ${CMAKE_CURRENT_SOURCE_DIR}/imgui/imgui/misc/cpp/
-    ${CMAKE_CURRENT_SOURCE_DIR}/imgui/imgui/backends
+    ${CMAKE_CURRENT_SOURCE_DIR}/dear_imgui/
+    ${CMAKE_CURRENT_SOURCE_DIR}/dear_imgui/dear_imgui/misc/cpp/
+    ${CMAKE_CURRENT_SOURCE_DIR}/dear_imgui/dear_imgui/backends
     # we want this to be private but we currently include the sdl loader
-    # and it include imgui the 'imgui way'
-    ${CMAKE_CURRENT_SOURCE_DIR}/imgui/fake/
+    # and it include dear_imgui the 'imgui way'
+    ${CMAKE_CURRENT_SOURCE_DIR}/dear_imgui/fake/
 )
 target_link_libraries(dear_imgui
     PUBLIC

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "imgui.h"
+#include "dear_imgui/imgui.h"
 
 namespace eu::core
 {

@@ -16,11 +16,11 @@
 
 #include "render/enable_high_performance_graphics.h"
 
-#include "imgui/imgui.h"
-#include "imgui/imgui_internal.h"
+#include "dear_imgui/imgui.h"
+#include "dear_imgui/imgui_internal.h"
 
-#include "imgui/backends/imgui_impl_sdl2.h"
-#include "imgui/backends/imgui_impl_opengl3.h"
+#include "dear_imgui/backends/imgui_impl_sdl2.h"
+#include "dear_imgui/backends/imgui_impl_opengl3.h"
 
 ENABLE_HIGH_PERFORMANCE_GRAPHICS
 

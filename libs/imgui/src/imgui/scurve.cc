@@ -5,7 +5,7 @@
 
 #include "imgui/ui.h"
 
-#include "imgui.h"
+#include "dear_imgui/imgui.h"
 
 #include <cmath>
 

@@ -203,7 +203,7 @@ configure_file(${CMAKE_CURRENT_SOURCE_DIR}/tools/config_in.h ${CMAKE_CURRENT_BIN
 include_directories(SYSTEM ${CMAKE_CURRENT_BINARY_DIR})
 
 add_definitions(-DIMGUI_USER_CONFIG="imgui_euphoria_config.h")
-add_executable(binary_to_compressed_c external/imgui/imgui/misc/fonts/binary_to_compressed_c.cpp)
+add_executable(binary_to_compressed_c external/dear_imgui/dear_imgui/misc/fonts/binary_to_compressed_c.cpp)
 set_target_properties(binary_to_compressed_c PROPERTIES FOLDER "Build")
 
 

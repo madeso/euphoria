@@ -1,5 +1,5 @@
 [submodule "external/imgui/imgui"]
-	path = external/imgui/imgui
+	path = external/dear_imgui/dear_imgui
 	url = git@github.com:ocornut/imgui.git
 	branch = origin/v1.51
 [submodule "external/IconFontCppHeaders"]
