@@ -1,4 +1,4 @@
-#include "imgui_extra/ui.h"
+#include "imgui/ui.h"
 
 // #include "klotter/cint.h"
 
@@ -8,7 +8,7 @@
 
 #include <iostream>
 
-namespace eu::imgui_extra
+namespace eu::imgui
 {
 
 // opengl code copied from the imgui opengl3 backend with minor modifications

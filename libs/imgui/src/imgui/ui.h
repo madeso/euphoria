@@ -6,7 +6,7 @@ namespace eu::render
     struct FrameBuffer;
 }
 
-namespace eu::imgui_extra
+namespace eu::imgui
 {
 
 struct ImguiShaderProgram

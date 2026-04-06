@@ -1,9 +1,9 @@
-#include "imgui_extra/scurve.h"
+#include "imgui/scurve.h"
 
 #include "assert/assert.h"
 #include "base/cint.h"
 
-#include "imgui_extra/ui.h"
+#include "imgui/ui.h"
 
 #include "imgui.h"
 
@@ -11,7 +11,7 @@
 
 #include "core/scurve.h"
 
-namespace eu::imgui_extra
+namespace eu::imgui
 {
 
 SCurveGuiState::SCurveGuiState(float x, float y)

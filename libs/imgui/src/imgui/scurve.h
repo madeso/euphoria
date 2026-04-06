@@ -7,7 +7,7 @@ namespace eu::core
     struct SCurve;
 }
 
-namespace eu::imgui_extra
+namespace eu::imgui
 {
 
 /// Represents the GUI state for an S-curve.
