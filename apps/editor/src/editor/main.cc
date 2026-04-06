@@ -26,7 +26,7 @@ ENABLE_HIGH_PERFORMANCE_GRAPHICS
 
 namespace imgui
 {
-    void Label(const char* label)
+    void label(const char* label)
     {
         ImGuiWindow* window = ImGui::GetCurrentWindow();
         float fullWidth = ImGui::GetContentRegionAvail().x;
@@ -55,6 +55,16 @@ namespace imgui
         ImGui::SetNextItemWidth(-1);
     }
 
+    bool centered_button(const char* label)
+    {
+        const auto window_width = ImGui::GetContentRegionAvail().x;
+        const auto text_width = ImGui::CalcTextSize(label).x;
+        const auto padding_hor = ImGui::GetStyle().FramePadding.x * 2; // padding on both sides
+        const auto whitespace = window_width - text_width - padding_hor;
+        const float x = whitespace * 0.5f;
+        ImGui::SetCursorPosX(x);
+        return ImGui::Button(label);
+    }
 }
 
 eu::MemoryChunk chunk_from_embed(const embedded_binary& binary)
@@ -196,14 +206,16 @@ int  main(int, char**)
             static eu::v3 rot = {0, 0, 0};
             static eu::v3 scale = {1, 1, 1};
 
-            imgui::Label("Position");
+            imgui::label("Position");
             ImGui::DragFloat3("##Position", pos.get_data_ptr());
 
-            imgui::Label("Rotation");
+            imgui::label("Rotation");
             ImGui::DragFloat3("##Rotation", rot.get_data_ptr());
 
-            imgui::Label("Scale");
+            imgui::label("Scale");
             ImGui::DragFloat3("##Scale", scale.get_data_ptr());
+
+            imgui::centered_button("Add component");
         }
         ImGui::End();
 

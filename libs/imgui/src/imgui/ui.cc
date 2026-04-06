@@ -8,6 +8,8 @@
 
 #include <iostream>
 
+#include "imgui.h"
+
 namespace eu::imgui
 {
 
