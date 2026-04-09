@@ -61,7 +61,7 @@ void UnlitMaterial::bind_textures(const RenderContext& rc, State* states, Assets
 	std::shared_ptr<Texture2d> t = texture;
 	if (t == nullptr)
 	{
-		t = assets->get_white();
+		t = assets->white;
 	}
 
 	bind_texture_2d(states, shader_from_container(*shader_container, rc).tex_diffuse_uniform, *t);
@@ -108,7 +108,7 @@ std::shared_ptr<Texture2d> get_or_white(Assets* assets, std::shared_ptr<Texture2
 {
 	if (t == nullptr)
 	{
-		return assets->get_white();
+		return assets->white;
 	}
 	else
 	{
@@ -120,7 +120,7 @@ std::shared_ptr<Texture2d> get_or_black(Assets* assets, std::shared_ptr<Texture2
 {
 	if (t == nullptr)
 	{
-		return assets->get_black();
+		return assets->black;
 	}
 	else
 	{
@@ -217,7 +217,7 @@ void DefaultMaterial::apply_lights(
 	}
 	else
 	{
-		bind_texture_2d(states, shader.tex_directional_light_depth_uni, *assets->get_white());
+		bind_texture_2d(states, shader.tex_directional_light_depth_uni, *assets->white);
 	}
 
 	const auto directional_shadow_clip_from_world

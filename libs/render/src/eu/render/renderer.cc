@@ -19,7 +19,7 @@ namespace eu::render
 Renderer::Renderer(Assets* default_assets, const RenderSettings& set)
 	: assets(default_assets)
     , settings(set)
-	, pimpl(std::make_unique<RendererPimpl>(set, FullScreenGeom{}))
+	, pimpl(std::make_unique<RendererPimpl>(*assets, set, FullScreenGeom{}))
 {
 }
 

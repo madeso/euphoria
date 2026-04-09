@@ -2,6 +2,7 @@
 
 // #include "eu/render/color.h"
 #include "eu/render/texture.h"
+#include "eu/render/assets.h"
 
 #include <memory>
 #include <optional>
@@ -22,13 +23,6 @@ struct State;
 /// All loaded/known shaders
 struct ShaderResource;
 struct RenderContext;
-
-struct Assets
-{
-    // todo(Gustav): some default assets?
-    std::shared_ptr<Texture2d> get_white() const;
-    std::shared_ptr<Texture2d> get_black() const;
-};
 
 /// Base class for all materials
 struct Material

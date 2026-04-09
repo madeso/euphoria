@@ -12,7 +12,8 @@ set(render_src
     src/eu/render/canvas.cc src/eu/render/canvas.h
 
     src/eu/render/font.cc src/eu/render/font.h
-
+    
+    src/eu/render/assets.cc src/eu/render/assets.h
     src/eu/render/camera.cc src/eu/render/camera.h
     src/eu/render/debug.cc src/eu/render/debug.h
     src/eu/render/geom.h

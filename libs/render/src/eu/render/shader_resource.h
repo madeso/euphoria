@@ -12,6 +12,7 @@ struct CompiledGeomVertexAttributes;
 struct ShaderProgram;
 struct CompiledCamera;
 struct ShadowContext;
+struct Assets;
 
 /** \addtogroup render Renderer
  *  @{
@@ -291,7 +292,7 @@ struct ShaderResource
 	[[nodiscard]] bool is_loaded() const;
 };
 
-ShaderResource load_shaders(const CameraUniformBuffer& desc, const RenderSettings& settings, const FullScreenGeom& full_screen);
+ShaderResource load_shaders(const Assets& assets, const CameraUniformBuffer& desc, const RenderSettings& settings, const FullScreenGeom& full_screen);
 
 /**
  * @}

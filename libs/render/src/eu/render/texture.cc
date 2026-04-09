@@ -510,7 +510,7 @@ std::shared_ptr<FrameBuffer> FrameBufferBuilder::build(DEBUG_LABEL_ARG_SINGLE) c
 
 	const bool is_msaa = msaa_samples > 0;
 
-	LOG_INFO("Creating frame buffer %d %d", size.width, size.height);
+	LOG_INFO("Creating frame buffer {} {}", size.width, size.height);
 	auto fbo = std::make_shared<FrameBuffer>(create_fbo(), size);
 	ASSERT(fbo->id > 0);
 

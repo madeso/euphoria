@@ -21,7 +21,7 @@ struct RendererPimpl
 	LineDrawer debug_drawer;
 	std::shared_ptr<CompiledGeom> full_screen_geom;
 
-	RendererPimpl(const RenderSettings& set, const FullScreenGeom& full_screen);
+	RendererPimpl(const Assets& assets, const RenderSettings& set, const FullScreenGeom& full_screen);
 };
 
 /**

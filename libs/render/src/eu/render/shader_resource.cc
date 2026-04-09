@@ -361,11 +361,10 @@ LoadedShader load_shader(DEBUG_LABEL_ARG_MANY const BaseShaderData& base_layout,
 
 
 
-ShaderResource load_shaders(const CameraUniformBuffer& desc, const RenderSettings& settings, const FullScreenGeom& full_screen)
+ShaderResource load_shaders(const Assets& assets, const CameraUniformBuffer& desc, const RenderSettings& settings, const FullScreenGeom& full_screen)
 {
-    // todo(Gustav): load from file or pakwad
-    const ShaderSource default_shader_source = {.vertex = "", .fragment = ""};
-    const ShaderSource skybox_shader_source = {.vertex = "", .fragment = "" };
+    const auto& default_shader_source = assets.default_shader_source;
+    const auto& skybox_shader_source = assets.skybox_shader_source;
 
 	const auto single_color_shader = load_shader_source(default_shader_source, {}, desc.setup.source);
 
@@ -483,11 +482,10 @@ ShaderResource load_shaders(const CameraUniformBuffer& desc, const RenderSetting
 	);
 #endif
 
-    // todo(Gustav): load shaders from file or pakwad
-    constexpr auto PP_VERT_GLSL = ""sv;
-    constexpr auto PP_REALIZE_FRAG_GLSL = ""sv;
-    constexpr auto PP_EXTRACT_FRAG_GLSL = ""sv;
-    constexpr auto PP_PING_PONG_BLUR_FRAG_GLSL = ""sv;
+    const auto& PP_VERT_GLSL = assets.pp_vert_glsl;
+    const auto& PP_REALIZE_FRAG_GLSL = assets.pp_realize_frag_glsl;
+    const auto& PP_EXTRACT_FRAG_GLSL = assets.pp_extract_frag_glsl;
+    const auto& PP_PING_PONG_BLUR_FRAG_GLSL = assets.pp_ping_pong_blur_frag_glsl;
 
 	auto pp_realize = RealizeShader{std::make_shared<ShaderProgram>(
 			USE_DEBUG_LABEL_MANY("pp realize")

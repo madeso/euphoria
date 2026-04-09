@@ -2,9 +2,11 @@
 
 #include <cassert>
 #include <string>
+#include <fstream>
 
 #include "eu/log/log.h"
 #include "eu/base/memorychunk.h"
+#include "eu/render/camera.h"
 
 #include "eu/render/canvas.h"
 #include "eu/render/state.h"
@@ -13,9 +15,49 @@
 #include "eu/render/texture.io.h"
 
 #include "eu/render/enable_high_performance_graphics.h"
+#include "eu/render/postproc.h"
+#include "eu/render/renderer.h"
+#include "eu/render/world.h"
 
 
 ENABLE_HIGH_PERFORMANCE_GRAPHICS
+
+std::string read_to_string(std::istream& handle)
+{
+    // https://stackoverflow.com/questions/2602013/read-whole-ascii-file-into-c-stdstring/2602258
+    std::string line;
+    std::ostringstream ss;
+    while (std::getline(handle, line))
+    {
+        ss << line << '\n';
+    }
+    return ss.str();
+}
+
+std::string load_file(const std::string& path)
+{
+    std::ifstream handle(path);
+    if (handle.good() == false)
+    {
+        LOG_ERR("Unable to open file '{}'", path);
+        return "";
+    }
+
+    return read_to_string(handle);
+}
+eu::render::ShaderSource load_shader(const std::string& name)
+{
+    return {
+        .vertex = load_file(name + ".vert.glsl"),
+        .fragment = load_file(name + ".frag.glsl")
+    };
+}
+
+eu::Size size_from_v2(const eu::v2& v)
+{
+    return eu::Size{ .width = eu::int_from_float(v.x), .height = eu::int_from_float(v.y) };
+}
+
 
 
 int main(int, char**)
@@ -94,6 +136,25 @@ int main(int, char**)
     eu::render::Render2 render{ &states };
 
     bool running = true;
+
+    eu::render::Assets assets;
+
+    assets.default_shader_source = load_shader("default_shader_source");
+    assets.skybox_shader_source = load_shader("skybox_shader_source");
+
+    assets.pp_vert_glsl = load_file("pp.vert.glsl");
+    assets.pp_realize_frag_glsl = load_file("pp_realize.frag.glsl");
+    assets.pp_extract_frag_glsl = load_file("pp_extract.frag.glsl");
+    assets.pp_ping_pong_blur_frag_glsl = load_file("pp_ping_pong_blur.frag.glsl");
+
+    eu::render::Renderer renderer{ &assets, eu::render::RenderSettings{} };
+    if (renderer.is_loaded() == false)
+    {
+        return -1;
+    }
+
+    eu::render::World world;
+    eu::render::EffectStack effects;
     
     LOG_INFO("Runner started");
     while (running)
@@ -133,6 +194,14 @@ int main(int, char**)
             const auto screen = eu::render::LayoutData{ .style = eu::render::ViewportStyle::black_bars,
                                     .requested_width = 800, .requested_height = 600 };
             cmd.clear(eu::colors::blue_sky, screen);
+            auto layer = eu::render::with_layer3(cmd, screen);
+            eu::render::Camera camera;
+            effects.render(eu::render::PostProcArg{
+                .world = &world,
+                .window_size = size_from_v2(layer.screen.get_size()),
+                .camera = &camera,
+                .renderer = &renderer
+            });
         }
 
         // render hud

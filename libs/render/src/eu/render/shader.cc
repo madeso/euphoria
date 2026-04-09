@@ -88,7 +88,7 @@ void log_source(const std::string& src)
 	int index = 1;
 	while (std::getline(ss, line))
 	{
-		LOG_INFO("%d: %s", index, line.c_str());
+		LOG_INFO("{}: {}", index, line);
 		index += 1;
 	}
 }
@@ -321,7 +321,7 @@ void ShaderProgram::setup_uniform_block(const UniformBufferSetup& setup) // NOLI
 	const unsigned int shader_block_index = glGetUniformBlockIndex(shader_program, setup.name.c_str());
 	if (shader_block_index == GL_INVALID_INDEX)
 	{
-		LOG_ERR("Shader missing uniform block %s", setup.name.c_str());
+		LOG_ERR("Shader missing uniform block {}", setup.name.c_str());
 		return;
 	}
 	glUniformBlockBinding(shader_program, shader_block_index, gluint_from_int(setup.binding_point));
