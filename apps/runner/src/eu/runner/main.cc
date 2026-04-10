@@ -139,10 +139,10 @@ int main(int, char**)
 
     eu::render::Assets assets;
 
-    assets.default_shader_source = load_shader("default_shader_source");
-    assets.skybox_shader_source = load_shader("skybox_shader_source");
+    assets.default_shader_source = load_shader("default_shader");
+    assets.skybox_shader_source = load_shader("skybox");
 
-    assets.pp_vert_glsl = load_file("pp.vert.glsl");
+    assets.pp_vert_glsl = load_file("pp_vert.glsl");
     assets.pp_realize_frag_glsl = load_file("pp_realize.frag.glsl");
     assets.pp_extract_frag_glsl = load_file("pp_extract.frag.glsl");
     assets.pp_ping_pong_blur_frag_glsl = load_file("pp_ping_pong_blur.frag.glsl");
