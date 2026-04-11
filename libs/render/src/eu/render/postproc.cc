@@ -96,13 +96,16 @@ void RenderWorld::update(const PostProcArg& arg)
 		}
 	}
 
-	const auto compiled_shadow_camera = compile_the_shadow_camera(
-		*arg.camera, window_size, arg.world->lights.directional_lights[0], arg.renderer->settings, *arg.world
-	);
+    std::optional<CompiledCamera> opt_compiled_shadow_camera;
 
 	if (arg.world->lights.directional_lights.empty() == false)
 	{
 		SCOPED_DEBUG_GROUP("render shadow buffer"sv);
+
+        const auto compiled_shadow_camera = compile_the_shadow_camera(
+            *arg.camera, window_size, arg.world->lights.directional_lights[0], arg.renderer->settings, *arg.world
+        );
+
 		auto bound = BoundFbo{shadow_buffer};
 		set_gl_viewport({shadow_buffer->size.width, shadow_buffer->size.height});
 		arg.renderer->render_shadows(shadow_size, *arg.world, compiled_shadow_camera);
@@ -112,9 +115,12 @@ void RenderWorld::update(const PostProcArg& arg)
 	{
 		SCOPED_DEBUG_GROUP("rendering into msaa buffer"sv);
 
-		const auto shadow_context = ShadowContext{
+		const ShadowContext shadow_context = opt_compiled_shadow_camera ? ShadowContext{
 			.directional_shadow_map = shadow_buffer.get(),
-			.directional_shadow_clip_from_world = compiled_shadow_camera.clip_from_view * compiled_shadow_camera.view_from_world
+			.directional_shadow_clip_from_world = opt_compiled_shadow_camera->clip_from_view * opt_compiled_shadow_camera->view_from_world
+		} : ShadowContext{
+            .directional_shadow_map = nullptr,
+            .directional_shadow_clip_from_world = m4_identity
 		};
 
 		auto bound = BoundFbo{msaa_buffer};
