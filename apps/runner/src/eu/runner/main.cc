@@ -15,6 +15,8 @@
 #include "eu/render/texture.io.h"
 
 #include "eu/render/enable_high_performance_graphics.h"
+#include "eu/render/geom.builder.h"
+#include "eu/render/geom.h"
 #include "eu/render/postproc.h"
 #include "eu/render/renderer.h"
 #include "eu/render/world.h"
@@ -56,6 +58,36 @@ eu::render::ShaderSource load_shader(const std::string& name)
 eu::Size size_from_v2(const eu::v2& v)
 {
     return eu::Size{ .width = eu::int_from_float(v.x), .height = eu::int_from_float(v.y) };
+}
+
+std::vector<uint8_t> read_file(const std::string& path)
+{
+    std::ifstream stream(path, std::ios::in | std::ios::binary);
+    if (stream.good() == false)
+    {
+        LOG_ERR("Unable to open file '{}'", path);
+        return {};
+    }
+    std::vector<uint8_t> contents((std::istreambuf_iterator<char>(stream)), std::istreambuf_iterator<char>());
+    return contents;
+}
+
+
+std::shared_ptr<eu::render::Texture2d> load_texture(const std::string& path, eu::render::ColorData cd,
+    eu::render::TextureEdge texture_edge = eu::render::TextureEdge::repeat,
+    eu::render::Transparency transparency = eu::render::Transparency::exclude)
+{
+    const auto bin = read_file(path);
+    return std::make_shared<eu::render::Texture2d>(
+        load_image_from_embedded(SEND_DEBUG_LABEL_MANY(path) embedded_binary{reinterpret_cast<const unsigned int*>(bin.data()), static_cast<unsigned int>(bin.size())}, texture_edge, eu::render::TextureRenderStyle::mipmap, transparency, cd)
+    );
+}
+
+std::shared_ptr<eu::render::Texture2d> create_texture(DEBUG_LABEL_ARG_MANY eu::render::SingleColor pixel_color, eu::render::ColorData cd)
+{
+    return std::make_shared<eu::render::Texture2d>(
+        load_image_from_color(SEND_DEBUG_LABEL_MANY(debug_label) pixel_color, eu::render::TextureEdge::repeat, eu::render::TextureRenderStyle::pixel, eu::render::Transparency::exclude, cd)
+    );
 }
 
 
@@ -139,6 +171,9 @@ int main(int, char**)
 
     eu::render::Assets assets;
 
+    assets.black = create_texture(SEND_DEBUG_LABEL_MANY("black") eu::render::color_from_rgba(0, 0, 0, 255), eu::render::ColorData::dont_care);
+    assets.white = create_texture(SEND_DEBUG_LABEL_MANY("white") eu::render::color_from_rgba(255, 255, 255, 255), eu::render::ColorData::dont_care);
+
     assets.default_shader_source = load_shader("default_shader");
     assets.skybox_shader_source = load_shader("skybox");
 
@@ -155,6 +190,24 @@ int main(int, char**)
 
     eu::render::World world;
     eu::render::EffectStack effects;
+
+    // add demo world
+    {
+        constexpr auto PLANE_SIZE = 100.0f;
+        auto plane_geom = compile_geom(
+            USE_DEBUG_LABEL_MANY("plane")
+            eu::render::geom::create_xz_plane(PLANE_SIZE, PLANE_SIZE, false).to_geom(),
+            renderer.default_geom_layout()
+        );
+
+        auto material = renderer.make_default_material();
+        material->diffuse = load_texture("sprites/smoke.png", eu::render::ColorData::dont_care);
+        material->specular = assets.white;
+
+        auto plane = make_mesh_instance(plane_geom, material);
+        world.meshes.emplace_back(plane);
+        plane->world_position = { 0.0f, -3.0f, 0.0f };
+    }
     
     LOG_INFO("Runner started");
     while (running)
