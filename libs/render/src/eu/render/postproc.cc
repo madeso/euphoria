@@ -414,7 +414,7 @@ void EffectStack::render(const PostProcArg& arg)
 	// render the final image to the screen
 	{
 		SCOPED_DEBUG_GROUP("rendering postproc to screen"sv);
-		set_gl_viewport(arg.window_size);
+		set_gl_viewport(arg.final_rect);
 		compiled.last_source->render(arg);
 	}
 }

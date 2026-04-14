@@ -252,6 +252,7 @@ int main(int, char**)
             effects.render(eu::render::PostProcArg{
                 .world = &world,
                 .window_size = size_from_v2(layer.screen.get_size()),
+                .final_rect = layer.screen,
                 .camera = &camera,
                 .renderer = &renderer
             });

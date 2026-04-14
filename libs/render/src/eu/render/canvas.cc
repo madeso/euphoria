@@ -387,14 +387,6 @@ lerp
 }
 
 
-
-void set_gl_viewport(const Rect& r)
-{
-    const auto s = r.get_size();
-    glViewport(int_from_float(r.left), int_from_float(r.bottom), int_from_float(s.x), int_from_float(s.y));
-}
-
-
 RenderLayer2::~RenderLayer2()
 {
     batch->submit();
@@ -442,10 +434,10 @@ RenderLayer2 create_layer2(const RenderCommand& rc, const ViewportDef& vp)
 
 RenderLayer3 create_layer3(const RenderCommand& rc, const ViewportDef& vp)
 {
-    set_gl_viewport(vp.screen_rect);
+    // set_gl_viewport(vp.screen_rect);
     
     // todo(Gustav): prepare states for 3d rendering
-    StateChanger{rc.states}.depth_test(true).blending(false);
+    // StateChanger{rc.states}.depth_test(true).blending(false);
 
     return RenderLayer3{create_layer(vp)};
 }

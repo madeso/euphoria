@@ -21,6 +21,7 @@ struct PostProcArg
 {
 	const World* world;
 	Size window_size;
+    Rect final_rect;
 	const Camera* camera;
 	Renderer* renderer;
 };

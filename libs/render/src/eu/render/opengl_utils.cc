@@ -208,6 +208,11 @@ void set_gl_viewport(const Size& sz)
 {
 	glViewport(0, 0, sz.width, sz.height);
 }
+void set_gl_viewport(const Rect& r)
+{
+    const auto s = r.get_size();
+    glViewport(int_from_float(r.left), int_from_float(r.bottom), int_from_float(s.x), int_from_float(s.y));
+}
 
 #if FF_HAS(ENABLE_GL_DEBUG)
 GLenum glenum_from_object_type(DebugLabelFor type)

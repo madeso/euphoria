@@ -21,6 +21,7 @@ u32 create_vertex_array();
 void destroy_vertex_array(u32 vao);
 
 void set_gl_viewport(const Size& sz);
+void set_gl_viewport(const Rect& r);
 
 #if FF_HAS(ENABLE_GL_DEBUG)
 
