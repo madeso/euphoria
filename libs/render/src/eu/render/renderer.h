@@ -34,7 +34,7 @@ struct Renderer
 
 	std::unique_ptr<RendererPimpl> pimpl;
 
-	Renderer(Assets* default_assets, const RenderSettings& settings);
+	Renderer(State* states, Assets* default_assets, const RenderSettings& settings);
 	~Renderer();
 
 	Renderer(const Renderer&) = delete;

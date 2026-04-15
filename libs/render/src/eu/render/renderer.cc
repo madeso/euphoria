@@ -16,10 +16,10 @@
 namespace eu::render
 {
 
-Renderer::Renderer(Assets* default_assets, const RenderSettings& set)
+Renderer::Renderer(State* states, Assets* default_assets, const RenderSettings& set)
 	: assets(default_assets)
     , settings(set)
-	, pimpl(std::make_unique<RendererPimpl>(*assets, set, FullScreenGeom{}))
+	, pimpl(std::make_unique<RendererPimpl>(states, *assets, set, FullScreenGeom{}))
 {
 }
 
@@ -155,7 +155,7 @@ void Renderer::render_world(const Size& window_size, const World& world, const C
 	const auto has_outlined_meshes = std::ranges::any_of(world.meshes,
 		[](const auto& mesh) { return mesh->outline.has_value(); }
 	);
-	StateChanger{&pimpl->states}
+	StateChanger{pimpl->states}
 		.cull_face(true)
 		.cull_face_mode(CullFace::back)
 		.stencil_mask(0xFF)
@@ -195,7 +195,7 @@ void Renderer::render_world(const Size& window_size, const World& world, const C
 
 					continue;
 				}
-				StateChanger{&pimpl->states}
+				StateChanger{pimpl->states}
 					.depth_test(true)
 					.depth_mask(true)
 					.depth_func(Compare::less)
@@ -205,14 +205,14 @@ void Renderer::render_world(const Size& window_size, const World& world, const C
 
 				if (mesh->outline)
 				{
-					StateChanger{&pimpl->states}.stencil_func(Compare::always, 1, 0xFF).stencil_mask(0xFF);
+					StateChanger{pimpl->states}.stencil_func(Compare::always, 1, 0xFF).stencil_mask(0xFF);
 				}
 				mesh->material->use_shader(not_transparent_context);
 				mesh->material->set_uniforms(
 					not_transparent_context, compiled_camera, calc_world_from_local(mesh, compiled_camera)
 				);
-				mesh->material->bind_textures(not_transparent_context, &pimpl->states, assets);
-				mesh->material->apply_lights(not_transparent_context, world.lights, settings, &pimpl->states, assets);
+				mesh->material->bind_textures(not_transparent_context, pimpl->states, assets);
+				mesh->material->apply_lights(not_transparent_context, world.lights, settings, pimpl->states, assets);
 
 				render_geom(*mesh->geom);
 			}
@@ -225,7 +225,7 @@ void Renderer::render_world(const Size& window_size, const World& world, const C
 			{
 				const auto not_transparent_context = RenderContext{TransformSource::Instanced_mat4, UseTransparency::no, settings.gamma, &shadow_context};
 
-				StateChanger{&pimpl->states}
+				StateChanger{pimpl->states}
 					.depth_test(true)
 					.depth_mask(true)
 					.depth_func(Compare::less)
@@ -239,9 +239,9 @@ void Renderer::render_world(const Size& window_size, const World& world, const C
 					compiled_camera,
 					std::nullopt
 				);
-				instance->material->bind_textures(not_transparent_context, &pimpl->states, assets);
+				instance->material->bind_textures(not_transparent_context, pimpl->states, assets);
 				instance->material->apply_lights(
-					not_transparent_context, world.lights, settings, &pimpl->states, assets
+					not_transparent_context, world.lights, settings, pimpl->states, assets
 				);
 
 				render_geom_instanced(*instance);
@@ -252,7 +252,7 @@ void Renderer::render_world(const Size& window_size, const World& world, const C
 		{
 			SCOPED_DEBUG_GROUP("render debug lines"sv);
 			render_debug_lines(
-				debug.lines, &pimpl->states, &pimpl->debug_drawer, compiled_camera, window_size, settings.gamma
+				debug.lines, pimpl->states, &pimpl->debug_drawer, compiled_camera, window_size, settings.gamma
 			);
 		}
 	}
@@ -264,7 +264,7 @@ void Renderer::render_world(const Size& window_size, const World& world, const C
 	if (world.skybox && world.skybox->cubemap != nullptr && world.skybox->geom != nullptr)
 	{
 		SCOPED_DEBUG_GROUP("render skybox"sv);
-		StateChanger{&pimpl->states}
+		StateChanger{pimpl->states}
 			.depth_test(true)
 			.depth_mask(false)
 			.depth_func(Compare::less_equal)
@@ -275,7 +275,7 @@ void Renderer::render_world(const Size& window_size, const World& world, const C
 		auto& shader = pimpl->shaders_resources.skybox_shader;
 
 		shader.program->use();
-		bind_texture_cubemap(&pimpl->states, shader.tex_skybox_uniform, *world.skybox->cubemap);
+		bind_texture_cubemap(pimpl->states, shader.tex_skybox_uniform, *world.skybox->cubemap);
 
 		render_geom(*world.skybox->geom);
 	}
@@ -294,7 +294,7 @@ void Renderer::render_world(const Size& window_size, const World& world, const C
 			const auto transparent_context = RenderContext{TransformSource::Uniform, UseTransparency::yes, settings.gamma, &shadow_context};
 
 			const auto& mesh = transparent_mesh.mesh;
-			StateChanger{&pimpl->states}
+			StateChanger{pimpl->states}
 				.depth_test(true)
 				.depth_mask(true)
 				.depth_func(Compare::less)
@@ -304,12 +304,12 @@ void Renderer::render_world(const Size& window_size, const World& world, const C
 
 			if (mesh->outline)
 			{
-				StateChanger{&pimpl->states}.stencil_func(Compare::always, 1, 0xFF).stencil_mask(0xFF);
+				StateChanger{pimpl->states}.stencil_func(Compare::always, 1, 0xFF).stencil_mask(0xFF);
 			}
 			mesh->material->use_shader(transparent_context);
 			mesh->material->set_uniforms(transparent_context, compiled_camera, calc_world_from_local(mesh, compiled_camera));
-			mesh->material->bind_textures(transparent_context, &pimpl->states, assets);
-			mesh->material->apply_lights(transparent_context, world.lights, settings, &pimpl->states, assets);
+			mesh->material->bind_textures(transparent_context, pimpl->states, assets);
+			mesh->material->apply_lights(transparent_context, world.lights, settings, pimpl->states, assets);
 
 			render_geom(*mesh->geom);
 		}
@@ -323,7 +323,7 @@ void Renderer::render_world(const Size& window_size, const World& world, const C
 		{
 			if (const auto& mesh_outline = mesh->outline)
 			{
-				StateChanger{&pimpl->states}
+				StateChanger{pimpl->states}
 					.stencil_func(Compare::not_equal, 1, 0xFF)
 					.stencil_mask(0x00)
 					.depth_test(false);
@@ -345,7 +345,7 @@ void Renderer::render_shadows(const Size& window_size, const World& world, const
 {
 	// todo(Gustav): bind less colors and use depth only shaders
 	SCOPED_DEBUG_GROUP("render shadows call"sv);
-	StateChanger{&pimpl->states}
+	StateChanger{pimpl->states}
 		.cull_face(true)
 		.cull_face_mode(CullFace::back)
 		.depth_test(true)
@@ -358,7 +358,7 @@ void Renderer::render_shadows(const Size& window_size, const World& world, const
 
 	// todo(Gustav): change shader to something that doesn't write color
 
-	StateChanger{&pimpl->states}
+	StateChanger{pimpl->states}
 		.depth_test(true)
 		.depth_mask(true)
 		.depth_func(Compare::less)
@@ -413,7 +413,7 @@ void Renderer::render_shadows(const Size& window_size, const World& world, const
 		{
 			SCOPED_DEBUG_GROUP("render debug lines"sv);
 			render_debug_lines(
-				debug.lines, &pimpl->states, &pimpl->debug_drawer, compiled_camera, window_size, settings.gamma
+				debug.lines, pimpl->states, &pimpl->debug_drawer, compiled_camera, window_size, settings.gamma
 			);
 		}
 	}

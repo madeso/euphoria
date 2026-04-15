@@ -15,13 +15,13 @@ namespace eu::render
 /// Internal state of the renderer.
 struct RendererPimpl
 {
+    State* states;
 	CameraUniformBuffer camera_uniform_buffer;
 	ShaderResource shaders_resources;
-	State states;
 	LineDrawer debug_drawer;
 	std::shared_ptr<CompiledGeom> full_screen_geom;
 
-	RendererPimpl(const Assets& assets, const RenderSettings& set, const FullScreenGeom& full_screen);
+	RendererPimpl(State* states, const Assets& assets, const RenderSettings& set, const FullScreenGeom& full_screen);
 };
 
 /**

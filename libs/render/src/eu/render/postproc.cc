@@ -140,7 +140,7 @@ void RenderWorld::update(const PostProcArg& arg)
 		// extract overexposed pixels
 		{
 			SCOPED_DEBUG_GROUP("extracting to overexposed buffer"sv);
-			StateChanger{&arg.renderer->pimpl->states}
+			StateChanger{arg.renderer->pimpl->states}
 				.cull_face(false)
 				.stencil_test(false)
 				.depth_test(false)
@@ -160,7 +160,7 @@ void RenderWorld::update(const PostProcArg& arg)
 				program->use();
 				program->set_float(container->cutoff_uniform, arg.renderer->settings.bloom_cutoff);
 				program->set_float(container->softness_uniform, arg.renderer->settings.bloom_softness);
-				bind_texture_2d(&arg.renderer->pimpl->states, shader->tex_input_uniform, *realized_buffer);
+				bind_texture_2d(arg.renderer->pimpl->states, shader->tex_input_uniform, *realized_buffer);
 
 				render_geom(*arg.renderer->pimpl->full_screen_geom);
 			}
@@ -185,7 +185,7 @@ void RenderWorld::update(const PostProcArg& arg)
                         (is_first_iteration ? "first" : "after"))
 				);
 				auto bound = BoundFbo{bloom_render->ping_pong_buffer[target_index]};
-				StateChanger{&arg.renderer->pimpl->states}
+				StateChanger{arg.renderer->pimpl->states}
 					.cull_face(false)
 					.stencil_test(false)
 					.depth_test(false)
@@ -204,7 +204,7 @@ void RenderWorld::update(const PostProcArg& arg)
 
 					auto& src_texture = is_first_iteration ? bloom_render->bloom_buffer
 												  : bloom_render->ping_pong_buffer[source_index];
-					bind_texture_2d(&arg.renderer->pimpl->states, shader->tex_input_uniform, *src_texture);
+					bind_texture_2d(arg.renderer->pimpl->states, shader->tex_input_uniform, *src_texture);
 
 					render_geom(*arg.renderer->pimpl->full_screen_geom);
 				}
@@ -221,7 +221,7 @@ void RenderWorld::render(const PostProcArg& arg)
 {
 	// render realized (with shader)
 	SCOPED_DEBUG_GROUP("render realized msaa buffer"sv);
-	StateChanger{&arg.renderer->pimpl->states}
+	StateChanger{arg.renderer->pimpl->states}
 		.cull_face(false)
 		.stencil_test(false)
 		.depth_test(false)
@@ -241,10 +241,10 @@ void RenderWorld::render(const PostProcArg& arg)
 		program->set_float(container->gamma_uniform, arg.renderer->settings.gamma);
 		program->set_float(container->exposure_uniform, *use_hdr ? *exposure : -1.0f);
 		program->set_bool(container->use_blur_uniform, bloom_render.has_value());
-		bind_texture_2d(&arg.renderer->pimpl->states, container->tex_input_uniform, *realized_buffer);
+		bind_texture_2d(arg.renderer->pimpl->states, container->tex_input_uniform, *realized_buffer);
 		if (bloom_render.has_value())
 		{
-			bind_texture_2d(&arg.renderer->pimpl->states, container->tex_blurred_bloom_uniform, *bloom_render->ping_pong_buffer[last_bloom_blur_index]);
+			bind_texture_2d(arg.renderer->pimpl->states, container->tex_blurred_bloom_uniform, *bloom_render->ping_pong_buffer[last_bloom_blur_index]);
 		}
 	
 		render_geom(*arg.renderer->pimpl->full_screen_geom);
@@ -286,7 +286,7 @@ void RenderTextureWithShader::render(const PostProcArg& arg)
 
 	SCOPED_DEBUG_GROUP(fmt::format("Rendering task {}", name));
 
-	StateChanger{&arg.renderer->pimpl->states}
+	StateChanger{arg.renderer->pimpl->states}
 		.cull_face(false)
 		.stencil_test(false)
 		.depth_test(false)
@@ -596,7 +596,7 @@ void SimpleEffect::use_shader(const PostProcArg& a, const FrameBuffer& t)
 	{
 		p->use(a, *shader->program);
 	}
-	bind_texture_2d(&a.renderer->pimpl->states, shader->tex_input_uniform, t);
+	bind_texture_2d(a.renderer->pimpl->states, shader->tex_input_uniform, t);
 }
 
 void SimpleEffect::build(const BuildArg& arg)
@@ -705,7 +705,7 @@ void BlurEffect::use_vert_shader(const PostProcArg& a, const FrameBuffer& t) con
 #if FF_HAS(BLUR_USE_GAUSS)
 	vert->program->set_float(std_dev_v, std_dev);
 #endif
-	bind_texture_2d(&a.renderer->pimpl->states, vert->tex_input_uniform, t);
+	bind_texture_2d(a.renderer->pimpl->states, vert->tex_input_uniform, t);
 }
 
 void BlurEffect::use_hori_shader(const PostProcArg& a, const FrameBuffer& t)
@@ -728,7 +728,7 @@ void BlurEffect::use_hori_shader(const PostProcArg& a, const FrameBuffer& t)
 #if FF_HAS(BLUR_USE_GAUSS)
 	hori->program->set_float(std_dev_h, std_dev);
 #endif
-	bind_texture_2d(&a.renderer->pimpl->states, hori->tex_input_uniform, t);
+	bind_texture_2d(a.renderer->pimpl->states, hori->tex_input_uniform, t);
 }
 
 void BlurEffect::build(const BuildArg& arg)

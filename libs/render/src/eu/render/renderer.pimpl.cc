@@ -31,8 +31,9 @@ CameraUniformBuffer make_camera_uniform_buffer_desc()
 	return camera_uniform_buffer;
 }
 
-RendererPimpl::RendererPimpl(const Assets& assets, const RenderSettings& set, const FullScreenGeom& full_screen)
-	: camera_uniform_buffer(make_camera_uniform_buffer_desc())
+RendererPimpl::RendererPimpl(State* new_states, const Assets& assets, const RenderSettings& set, const FullScreenGeom& full_screen)
+	: states(new_states)
+    , camera_uniform_buffer(make_camera_uniform_buffer_desc())
 	, shaders_resources(load_shaders(assets, camera_uniform_buffer, set, full_screen))
 	, full_screen_geom(full_screen.geom)
 {

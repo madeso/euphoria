@@ -182,7 +182,7 @@ int main(int, char**)
     assets.pp_extract_frag_glsl = load_file("pp_extract.frag.glsl");
     assets.pp_ping_pong_blur_frag_glsl = load_file("pp_ping_pong_blur.frag.glsl");
 
-    eu::render::Renderer renderer{ &assets, eu::render::RenderSettings{} };
+    eu::render::Renderer renderer{&states, &assets, eu::render::RenderSettings{} };
     if (renderer.is_loaded() == false)
     {
         return -1;
@@ -265,7 +265,7 @@ int main(int, char**)
 
             auto layer = eu::render::with_layer2(cmd, screen);
             const float hud_size = 100.0f;
-            eu::render::Quad{ .tint = eu::colors::green_bluish }.draw(layer.batch, layer.viewport_aabb_in_worldspace.get_bottom(hud_size).get_right(hud_size).with_inset(eu::Lrtb{5.0f}));
+            eu::render::Quad{ .tint = eu::colors::blue_sky }.draw(layer.batch, layer.viewport_aabb_in_worldspace.get_bottom(hud_size).get_right(hud_size).with_inset(eu::Lrtb{5.0f}));
         }
 
         SDL_GL_SwapWindow(window);
