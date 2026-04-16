@@ -28,6 +28,7 @@ set(app_src
 )
 
 source_group("" FILES ${app_src})
+cmake_source_group()
 
 set(src
     ${app_src}
@@ -78,6 +79,7 @@ set(test_src
 # set(test_main_src test/main.cc)
 source_group("" FILES ${test_src})
 # source_group("main" FILES ${test_main_src})
+cmake_source_group()
 add_executable(base_test ${test_src} ${test_main_src})
 target_precompile_headers(base_test PRIVATE src/eu/base/pch.private.h)
 set_target_properties(base_test PROPERTIES FOLDER "Tests")

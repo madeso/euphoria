@@ -17,6 +17,7 @@ set(src
 source_group("" FILES ${src})
 source_group("data" FILES ${data})
 source_group("data/generated" FILES ${embedded})
+cmake_source_group()
 
 # add_executable(editor WIN32 MACOSX_BUNDLE ${src})
 add_executable(editor ${src} ${embedded})

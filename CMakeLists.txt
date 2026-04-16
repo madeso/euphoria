@@ -28,7 +28,12 @@ set_property(CACHE EU_SDL_SOURCE PROPERTY STRINGS FindLibrary FetchContent)
 
 
 ###################################################################################################
-# util
+# util functions
+function(cmake_source_group)
+    source_group("_cmake/pch" REGULAR_EXPRESSION "cmake_pch.[ch]xx$")
+    source_group("_cmake/rules" REGULAR_EXPRESSION "\.rule$")
+    source_group("_cmake" REGULAR_EXPRESSION "CMakeLists\.txt")
+endfunction()
 
 function(target_feature_flags TARGET VIS) # ...targets to enable/disable
     foreach(NAME IN LISTS ARGN)

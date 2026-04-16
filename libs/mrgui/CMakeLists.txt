@@ -8,6 +8,7 @@ set(mrgui_src
 )
 
 source_group("" FILES ${mrgui_src})
+cmake_source_group()
 
 set(src
     ${mrgui_src}
@@ -59,6 +60,8 @@ add_executable(mrgui_demo ${src} ${embedded})
 source_group("" FILES ${src})
 source_group("data" FILES ${data})
 source_group("data/generated" FILES ${embedded})
+cmake_source_group()
+
 target_precompile_headers(mrgui_demo PRIVATE src/eu/mrgui/pch.private.h )
 target_include_directories(mrgui_demo PRIVATE ${CMAKE_CURRENT_BINARY_DIR})
 set_target_properties(mrgui_demo PROPERTIES FOLDER "Examples/")

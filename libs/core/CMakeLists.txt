@@ -15,6 +15,7 @@ set(core_src
 )
 
 source_group("" FILES ${core_src})
+cmake_source_group()
 
 set(src
     ${core_src}
@@ -49,6 +50,7 @@ set(test_src
     src/eu/core/ui.test.cc
 )
 source_group("" FILES ${test_src})
+cmake_source_group()
 add_executable(core_test ${test_src} ${test_main_src})
 target_precompile_headers(core_test PRIVATE src/eu/core/pch.private.h)
 set_target_properties(core_test PROPERTIES FOLDER "Tests")

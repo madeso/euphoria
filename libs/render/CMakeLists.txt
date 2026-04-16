@@ -41,6 +41,7 @@ set(render_src
 )
 
 source_group("" FILES ${render_src})
+cmake_source_group()
 
 set(src
     ${render_src}
@@ -81,6 +82,7 @@ set(test_src
 )
 # set(test_main_src test/main.cc)
 source_group("" FILES ${test_src})
+cmake_source_group()
 add_executable(render_test ${test_src} ${test_main_src})
 target_precompile_headers(render_test PRIVATE src/eu/render/pch.private.h)
 set_target_properties(render_test PROPERTIES FOLDER "Tests")

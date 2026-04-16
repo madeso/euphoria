@@ -5,6 +5,7 @@ set(src
     src/eu/runner/pch.private.h
 )
 source_group("" FILES ${src})
+cmake_source_group()
 
 # add_executable(runner WIN32 MACOSX_BUNDLE ${src})
 add_executable(runner ${src})

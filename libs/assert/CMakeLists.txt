@@ -6,6 +6,7 @@ set(app_src
 )
 
 source_group("" FILES ${app_src})
+cmake_source_group()
 
 set(src
     ${app_src}

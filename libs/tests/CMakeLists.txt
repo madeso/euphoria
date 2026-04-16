@@ -10,6 +10,7 @@ set(src
     src/eu/tests/approx_equal.cc src/eu/tests/approx_equal.h
 )
 source_group("" FILES ${src})
+cmake_source_group()
 
 add_library(tests STATIC ${src})
 add_library(euph::tests ALIAS tests)

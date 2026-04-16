@@ -9,6 +9,7 @@ set(imgui_src
 )
 
 source_group("" FILES ${imgui_src})
+cmake_source_group()
 
 set(src
     ${imgui_src}
