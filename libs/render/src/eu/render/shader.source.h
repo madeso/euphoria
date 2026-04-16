@@ -1,6 +1,6 @@
 #pragma once
 
-#include "eu/render/vertex_layout.h"
+#include "eu/core/vertex_layout.h"
 
 namespace eu::render
 {
@@ -30,7 +30,7 @@ struct ShaderOptions
 /// @see \ref ShaderSource
 struct ShaderSource_withLayout
 {
-	ShaderVertexAttributes layout;
+    core::ShaderVertexAttributes layout;
 	std::string vertex;
 	std::string fragment;
 };

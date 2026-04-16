@@ -4,7 +4,7 @@
 
 #include "eu/render/opengl_labels.h"
 #include "eu/render/uniform.h"
-#include "eu/render/vertex_layout.h"
+#include "eu/core/vertex_layout.h"
 
 namespace eu
 {
@@ -33,7 +33,7 @@ struct ShaderProgram
 		DEBUG_LABEL_ARG_MANY
 		const std::string& vertex_source,
 		const std::string& fragment_source,
-		const CompiledShaderVertexAttributes& layout
+		const core::CompiledShaderVertexAttributes& layout
 	);
 
 	/** Destroy the shader if it's loaded.
@@ -167,7 +167,7 @@ struct ShaderProgram
 	void setup_uniform_block(const UniformBufferSetup& setup);
 
 	unsigned int shader_program;  ///< The id of the shader program.
-	VertexTypes debug_vertex_types;	 ///< The debug information describing the vertex layout that this shader expects.
+    core::VertexTypes debug_vertex_types;	 ///< The debug information describing the vertex layout that this shader expects.
 };
 
 /** Sets up textures for a shader program.
@@ -183,7 +183,7 @@ void setup_textures(ShaderProgram* shader, const std::vector<Uniform*>& uniform_
  * @note The shader must be bound before calling this function.
  * @note Internal function, should only be available in debug builds
  */
-bool is_bound_for_shader(const std::unordered_set<VertexType>& debug_geom_shader_types);
+bool is_bound_for_shader(const std::unordered_set<core::VertexType>& debug_geom_shader_types);
 
 /** Checks if a specific shader program is currently active.
  * @param program the id of the shader program to check

@@ -1,10 +1,10 @@
-#include "eu/render/vertex_layout.h"
+#include "eu/core/vertex_layout.h"
 
 #include <algorithm>
 
 #include "eu/assert/assert.h"
 
-namespace eu::render
+namespace eu::core
 {
 
 
@@ -149,4 +149,4 @@ CompiledVertexTypeList compile_attribute_layouts(const std::vector<ShaderVertexA
 	return compile_attribute_layouts({}, descriptions);
 }
 
-}  //  namespace eu::render
+}  //  namespace eu::core

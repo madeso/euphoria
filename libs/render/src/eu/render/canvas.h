@@ -81,8 +81,8 @@ struct Render2
 {
     explicit Render2(State* states);
 
-    ShaderVertexAttributes quad_description;
-    CompiledShaderVertexAttributes quad_layout;
+    core::ShaderVertexAttributes quad_description;
+    core::CompiledShaderVertexAttributes quad_layout;
     ShaderProgram quad_shader;
     Uniform view_projection_uniform;
     Uniform transform_uniform;

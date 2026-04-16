@@ -87,16 +87,16 @@ std::string generate(std::string_view str, const std::string& uniform_buffer_sou
 
 ShaderSource_withLayout load_shader_source(const ShaderSource& source, const ShaderOptions& options, const std::string& uniform_buffer_source)
 {
-	auto layout = ShaderVertexAttributes{{VertexType::position3, "a_position"}, {VertexType::color3, "a_color"}};
+	auto layout = core::ShaderVertexAttributes{{core::VertexType::position3, "a_position"}, {core::VertexType::color3, "a_color"}};
 
 	if (options.use_texture)
 	{
-		layout.emplace_back(VertexElementDescription{VertexType::texture2, "a_tex_coord"});
+		layout.emplace_back(core::VertexElementDescription{core::VertexType::texture2, "a_tex_coord"});
 	}
 
 	if (options.use_lights)
 	{
-		layout.emplace_back(VertexElementDescription{VertexType::normal3, "a_normal"});
+		layout.emplace_back(core::VertexElementDescription{core::VertexType::normal3, "a_normal"});
 	}
 
 	return ShaderSource_withLayout{

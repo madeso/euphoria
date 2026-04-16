@@ -11,6 +11,11 @@ set(core_src
 
     src/eu/core/hash.h
 
+    src/eu/core/geom.h
+    src/eu/core/geom.builder.cc src/eu/core/geom.builder.h
+    src/eu/core/geom.extract.cc src/eu/core/geom.extract.h
+    src/eu/core/vertex_layout.cc src/eu/core/vertex_layout.h
+
     src/eu/core/pch.private.h
 )
 
@@ -48,6 +53,7 @@ set(test_src
     src/eu/core/tablelayout.test.cc
     src/eu/core/scurve.test.cc
     src/eu/core/ui.test.cc
+    src/eu/core/vertex_layout.test.cc
 )
 source_group("" FILES ${test_src})
 cmake_source_group()

@@ -206,14 +206,14 @@ Render2::Render2(State* states)
     : quad_description
     (
         {
-            {.type = VertexType::position2xy, .name = "position"},
-            {.type = VertexType::color4, .name = "color"},
-            {.type = VertexType::texture2, .name = "uv"}
+            {.type = core::VertexType::position2xy, .name = "position"},
+            {.type = core::VertexType::color4, .name = "color"},
+            {.type = core::VertexType::texture2, .name = "uv"}
         }
     )
     , quad_layout
     (
-        compile_shader_layout(compile_attribute_layouts({quad_description}), quad_description, std::nullopt, std::nullopt)
+        compile_shader_layout(core::compile_attribute_layouts({quad_description}), quad_description, std::nullopt, std::nullopt)
     )
     , quad_shader
     (

@@ -1,14 +1,14 @@
-﻿#include "eu/render/geom.h"
+﻿#include "eu/core/geom.h"
 
 #include "eu/assert/assert.h"
 #include "eu/base/cint.h"
 
-#include "eu/render/geom.extract.h"
-#include "eu/render/vertex_layout.h"
+#include "eu/core/geom.extract.h"
+#include "eu/core/vertex_layout.h"
 
 #include <numeric>
 
-namespace eu::render
+namespace eu::core
 {
 
 using ByteBuffer = std::vector<char>;
@@ -135,4 +135,4 @@ ExtractedGeom extract_geom(const Geom& geom, const CompiledGeomVertexAttributes&
 	return {vertices, bytes_per_vertex, attribute_descriptions.attributes, indices, face_size};
 }
 
-}  //  namespace eu::render
+}  //  namespace eu::core

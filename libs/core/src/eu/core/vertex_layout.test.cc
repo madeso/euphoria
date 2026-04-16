@@ -1,5 +1,5 @@
 
-#include "eu/render/vertex_layout.h"
+#include "eu/core/vertex_layout.h"
 
 #include "catch2/catch_test_macros.hpp"
 #include "catch2/generators/catch_generators.hpp"
@@ -9,7 +9,7 @@
 
 #include "eu/tests/vectorequals.h"
 
-using namespace eu::render;
+using namespace eu::core;
 using namespace eu::tests;
 
 template<>

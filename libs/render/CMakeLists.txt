@@ -7,7 +7,6 @@ set(render_src
     src/eu/render/opengl_utils.cc src/eu/render/opengl_utils.h
     src/eu/render/texture.cc src/eu/render/texture.h src/eu/render/texture.io.h
     src/eu/render/uniform.cc src/eu/render/uniform.h
-    src/eu/render/vertex_layout.cc src/eu/render/vertex_layout.h
     src/eu/render/uniform_buffer.cc src/eu/render/uniform_buffer.h
     src/eu/render/canvas.cc src/eu/render/canvas.h
 
@@ -16,10 +15,7 @@ set(render_src
     src/eu/render/assets.cc src/eu/render/assets.h
     src/eu/render/camera.cc src/eu/render/camera.h
     src/eu/render/debug.cc src/eu/render/debug.h
-    src/eu/render/geom.h
     src/eu/render/fullscreen.cc src/eu/render/fullscreen.h
-    src/eu/render/geom.builder.cc src/eu/render/geom.builder.h
-    src/eu/render/geom.extract.cc src/eu/render/geom.extract.h
     src/eu/render/linebatch.cc src/eu/render/linebatch.h
     src/eu/render/material.cc src/eu/render/material.h
     src/eu/render/postproc.cc src/eu/render/postproc.h
@@ -78,7 +74,6 @@ target_link_libraries(render
 set(test_src
     src/eu/render/texture.test.cc
     src/eu/render/uniform_buffer.test.cc
-    src/eu/render/vertex_layout.test.cc
 )
 # set(test_main_src test/main.cc)
 source_group("" FILES ${test_src})

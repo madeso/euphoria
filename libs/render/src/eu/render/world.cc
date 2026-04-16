@@ -3,17 +3,17 @@
 #include "eu/assert/assert.h"
 
 
-#include "eu/render/geom.extract.h"
+#include "eu/core/geom.extract.h"
 #include "eu/render/opengl_utils.h"
 #include "eu/render/shader.h"
-#include "eu/render/vertex_layout.h"
+#include "eu/core/vertex_layout.h"
 
 #include <utility>
 
 namespace eu::render
 {
 
-CompiledGeom::CompiledGeom(u32 b, u32 a, u32 e, const CompiledGeomVertexAttributes& att, i32 tc)
+CompiledGeom::CompiledGeom(u32 b, u32 a, u32 e, const core::CompiledGeomVertexAttributes& att, i32 tc)
 	: vbo(b)
 	, vao(a)
 	, ebo(e)
@@ -24,7 +24,7 @@ CompiledGeom::CompiledGeom(u32 b, u32 a, u32 e, const CompiledGeomVertexAttribut
 }
 
 CompiledGeom_TransformInstance::CompiledGeom_TransformInstance(
-	u32 iv, std::size_t mi, u32 b, u32 a, u32 e, const CompiledGeomVertexAttributes& att, i32 tc
+	u32 iv, std::size_t mi, u32 b, u32 a, u32 e, const core::CompiledGeomVertexAttributes& att, i32 tc
 )
 	: instance_vbo(iv)
 	, max_instances(mi)
@@ -55,7 +55,7 @@ std::shared_ptr<MeshInstance_TransformInstanced> make_mesh_instance(
 	return instance;
 }
 
-std::shared_ptr<CompiledGeom> compile_geom(DEBUG_LABEL_ARG_MANY const Geom& geom, const CompiledGeomVertexAttributes& geom_layout)
+std::shared_ptr<CompiledGeom> compile_geom(DEBUG_LABEL_ARG_MANY const core::Geom& geom, const core::CompiledGeomVertexAttributes& geom_layout)
 {
 	const auto ex = extract_geom(geom, geom_layout);
 
@@ -68,11 +68,11 @@ std::shared_ptr<CompiledGeom> compile_geom(DEBUG_LABEL_ARG_MANY const Geom& geom
 	SET_DEBUG_LABEL_NAMED(vbo, DebugLabelFor::Buffer, fmt::format("ARR BUF {}", debug_label));
 	glBufferData(GL_ARRAY_BUFFER, glsizeiptr_from_sizet(ex.data.size()), ex.data.data(), GL_STATIC_DRAW);
 
-	const auto get_type = [](const ExtractedAttribute& extracted) -> GLenum
+	const auto get_type = [](const core::ExtractedAttribute& extracted) -> GLenum
 	{
 		switch (extracted.type)
 		{
-		case ExtractedAttributeType::Float: return GL_FLOAT;
+		case core::ExtractedAttributeType::Float: return GL_FLOAT;
 		default: DIE("invalid extracted attribute"); return GL_FLOAT;
 		}
 	};
@@ -126,7 +126,7 @@ CompiledGeom::~CompiledGeom()
 
 std::shared_ptr<CompiledGeom_TransformInstance> compile_geom_with_transform_instance(
 	DEBUG_LABEL_ARG_MANY
-	const Geom& geom, const CompiledGeomVertexAttributes& geom_layout, std::size_t max_instances
+	const core::Geom& geom, const core::CompiledGeomVertexAttributes& geom_layout, std::size_t max_instances
 )
 {
 	const auto ex = extract_geom(geom, geom_layout);
@@ -140,11 +140,11 @@ std::shared_ptr<CompiledGeom_TransformInstance> compile_geom_with_transform_inst
 	SET_DEBUG_LABEL_NAMED(vbo, DebugLabelFor::Buffer, fmt::format("ARR BUF (in) {}", debug_label));
 	glBufferData(GL_ARRAY_BUFFER, glsizeiptr_from_sizet(ex.data.size()), ex.data.data(), GL_STATIC_DRAW);
 
-	const auto get_type = [](const ExtractedAttribute& extracted) -> GLenum
+	const auto get_type = [](const core::ExtractedAttribute& extracted) -> GLenum
 	{
 		switch (extracted.type)
 		{
-		case ExtractedAttributeType::Float: return GL_FLOAT;
+		case core::ExtractedAttributeType::Float: return GL_FLOAT;
 		default: DIE("invalid extracted attribute"); return GL_FLOAT;
 		}
 	};

@@ -1,15 +1,15 @@
-#include "eu/render/geom.h"
+#include "eu/core/geom.h"
 
 #include "eu/assert/assert.h"
 #include "eu/base/cint.h"
 #include "eu/core/hash.h"
 
-#include "eu/render/geom.builder.h"
+#include "eu/core/geom.builder.h"
 
 #include <fstream>
 #include <map>
 
-namespace eu::render::geom
+namespace eu::core::geom
 {
 
 struct Combo
@@ -34,16 +34,16 @@ bool operator==(const Combo& lhs, const Combo& rhs)
 		&& lhs.color == rhs.color;
 }
 
-}  //  namespace eu::render::geom
+}  //  namespace eu::core::geom
 
-HASH_DEF_BEGIN(eu::render::geom::Combo)
+HASH_DEF_BEGIN(eu::core::geom::Combo)
 HASH_DEF(position)
 HASH_DEF(texture)
 HASH_DEF(normal)
 HASH_DEF(color)
 HASH_DEF_END()
 
-namespace eu::render::geom
+namespace eu::core::geom
 {
 
 Vertex::Vertex(Index pnt, Index clr)
@@ -228,8 +228,8 @@ Geom Builder::to_geom() const
 	std::unordered_map<Combo, u32> combinations;
 
 	// foreach triangle
-	std::vector<eu::render::Vertex> final_vertices;
-	std::vector<eu::render::Face> final_tris;
+	std::vector<eu::core::Vertex> final_vertices;
+	std::vector<eu::core::Face> final_tris;
 
 	auto convert_vert = [&](const Vertex& vert) -> u32
 	{
@@ -249,7 +249,7 @@ Geom Builder::to_geom() const
 			const v3 col = lin_colors.empty() ? v3{missing_color.r, missing_color.g, missing_color.b} : lin_colors[c.color];
 			const v3 normal = normals.empty() == false ? normals[c.normal] : v3(1, 0, 0);
 			const auto ind = final_vertices.size();
-			final_vertices.emplace_back(eu::render::Vertex{pos, normal, text, col});
+			final_vertices.emplace_back(eu::core::Vertex{pos, normal, text, col});
 			combinations.insert({c, u32_from_sizet(ind)});
 			return u32_from_sizet(ind);
 		}
@@ -592,4 +592,4 @@ Builder create_uv_sphere(float diameter, int longitude_count, int latitude_count
 }
 
 
-}  //  namespace eu::render::geom
+}  //  namespace eu::core::geom

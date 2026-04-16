@@ -14,8 +14,8 @@ struct LineDrawer
 {
 	static constexpr int max_lines = 100;
 
-	ShaderVertexAttributes description;
-	CompiledShaderVertexAttributes layout;
+    core::ShaderVertexAttributes description;
+    core::CompiledShaderVertexAttributes layout;
 	ShaderProgram shader;
 	Uniform clip_from_view_uni;
 	Uniform view_from_world_uni;

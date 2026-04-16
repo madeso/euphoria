@@ -1,6 +1,6 @@
 #pragma once
 
-namespace eu::render
+namespace eu::core
 {
 
 /** \addtogroup geom Geom
@@ -36,4 +36,4 @@ struct Geom
  * @}
 */
 
-}  //  namespace eu::render
+}  //  namespace eu::core

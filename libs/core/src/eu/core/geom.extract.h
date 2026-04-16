@@ -1,12 +1,12 @@
 #pragma once
 
-namespace eu::render
+namespace eu::core
 {
 struct Geom;
 struct CompiledGeomVertexAttributes;
-}  //  namespace eu::render
+}  //  namespace eu::core
 
-namespace eu::render
+namespace eu::core
 {
 
 /** \addtogroup geom-builder
@@ -44,4 +44,4 @@ ExtractedGeom extract_geom(const Geom& geom, const CompiledGeomVertexAttributes&
  * @}
 */
 
-}  //  namespace eu::render
+}  //  namespace eu::core

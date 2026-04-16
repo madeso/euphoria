@@ -15,8 +15,8 @@
 #include "eu/render/texture.io.h"
 
 #include "eu/render/enable_high_performance_graphics.h"
-#include "eu/render/geom.builder.h"
-#include "eu/render/geom.h"
+#include "eu/core/geom.builder.h"
+#include "eu/core/geom.h"
 #include "eu/render/postproc.h"
 #include "eu/render/renderer.h"
 #include "eu/render/world.h"
@@ -194,9 +194,9 @@ int main(int, char**)
     // add demo world
     {
         constexpr auto PLANE_SIZE = 100.0f;
-        auto plane_geom = compile_geom(
+        auto plane_geom = eu::render::compile_geom(
             USE_DEBUG_LABEL_MANY("plane")
-            eu::render::geom::create_xz_plane(PLANE_SIZE, PLANE_SIZE, false).to_geom(),
+            eu::core::geom::create_xz_plane(PLANE_SIZE, PLANE_SIZE, false).to_geom(),
             renderer.default_geom_layout()
         );
 

@@ -6,8 +6,8 @@
 
 #include "eu/render/camera.h"
 #include "eu/render/fullscreen.h"
-#include "eu/render/geom.builder.h"
-#include "eu/render/geom.h"
+#include "eu/core/geom.builder.h"
+#include "eu/core/geom.h"
 #include "eu/render/opengl_utils.h"
 #include "eu/render/renderer.pimpl.h"
 #include "eu/render/state.h"
@@ -31,7 +31,7 @@ Skybox Renderer::make_skybox(std::shared_ptr<TextureCubemap> texture) const
 
 	const auto layout = pimpl->shaders_resources.skybox_shader.geom_layout;
 
-	const auto triangle = geom::create_box(size, size, size, geom::NormalsFacing::In, colors::white).to_geom();
+	const auto triangle = core::geom::create_box(size, size, size, core::geom::NormalsFacing::In, colors::white).to_geom();
 	auto geom = compile_geom(USE_DEBUG_LABEL_MANY("skybox") triangle, layout);
 
 	LOG_INFO("Created skybox");
@@ -54,12 +54,12 @@ std::shared_ptr<DefaultMaterial> Renderer::make_default_material() const
 	return std::make_shared<DefaultMaterial>(pimpl->shaders_resources);
 }
 
-CompiledGeomVertexAttributes Renderer::unlit_geom_layout() const
+core::CompiledGeomVertexAttributes Renderer::unlit_geom_layout() const
 {
 	return pimpl->shaders_resources.unlit_shader_container.geom_layout;
 }
 
-CompiledGeomVertexAttributes Renderer::default_geom_layout() const
+core::CompiledGeomVertexAttributes Renderer::default_geom_layout() const
 {
 	return pimpl->shaders_resources.default_shader_container.geom_layout;
 }

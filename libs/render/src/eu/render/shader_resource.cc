@@ -26,7 +26,7 @@ void CameraUniformBuffer::set_props(const CompiledCamera& cc) // NOLINT(readabil
 
 
 LoadedShader_SingleColor::LoadedShader_SingleColor(
-	std::shared_ptr<ShaderProgram> p, CompiledGeomVertexAttributes l, const CameraUniformBuffer& desc
+	std::shared_ptr<ShaderProgram> p, core::CompiledGeomVertexAttributes l, const CameraUniformBuffer& desc
 )
 	: program(std::move(p))
 	, geom_layout(std::move(l))
@@ -39,7 +39,7 @@ LoadedShader_SingleColor::LoadedShader_SingleColor(
 
 
 LoadedShader_Skybox::LoadedShader_Skybox(
-	std::shared_ptr<ShaderProgram> p, CompiledGeomVertexAttributes l, const CameraUniformBuffer& desc
+	std::shared_ptr<ShaderProgram> p, core::CompiledGeomVertexAttributes l, const CameraUniformBuffer& desc
 )
 	: program(std::move(p))
 	, geom_layout(std::move(l))
@@ -52,7 +52,7 @@ LoadedShader_Skybox::LoadedShader_Skybox(
 LoadedShader_OnlyDepth::LoadedShader_OnlyDepth(
 	TransformSource model_source,
 	std::shared_ptr<ShaderProgram> p,
-	CompiledGeomVertexAttributes l,
+    core::CompiledGeomVertexAttributes l,
 	const CameraUniformBuffer& desc
 )
 	: program(std::move(p))
@@ -279,14 +279,14 @@ bool ShaderResource::is_loaded() const
 
 
 
-using BaseShaderData = std::vector<VertexType>;
+using BaseShaderData = std::vector<core::VertexType>;
 
 
 
 template<std::size_t count>
-BaseShaderData get_vertex_types(const std::array<const ShaderVertexAttributes*, count>& vas)
+BaseShaderData get_vertex_types(const std::array<const core::ShaderVertexAttributes*, count>& vas)
 {
-	std::set<VertexType> unique_types;
+	std::set<core::VertexType> unique_types;
 	auto ret = BaseShaderData{};
 	for (const auto& va: vas)
 	{
@@ -307,13 +307,13 @@ BaseShaderData get_vertex_types(const std::array<const ShaderVertexAttributes*, 
 // todo(Gustav): should this be a tuple instead? this way the members are named
 struct LoadedShader
 {
-	LoadedShader(std::shared_ptr<ShaderProgram> p, CompiledGeomVertexAttributes l)
+	LoadedShader(std::shared_ptr<ShaderProgram> p, core::CompiledGeomVertexAttributes l)
 		: program(std::move(p))
 		, geom_layout(std::move(l))
 	{}
 
 	std::shared_ptr<ShaderProgram> program;
-	CompiledGeomVertexAttributes geom_layout;
+    core::CompiledGeomVertexAttributes geom_layout;
 };
 
 std::optional<int> get_instance_start_index(const LoadedShader* shader)
@@ -323,7 +323,7 @@ std::optional<int> get_instance_start_index(const LoadedShader* shader)
 		return std::nullopt;
 	}
 
-	const CompiledGeomVertexAttributes& layout = shader->geom_layout;
+	const core::CompiledGeomVertexAttributes& layout = shader->geom_layout;
 
 	int max = 0;
 
@@ -340,12 +340,12 @@ LoadedShader load_shader(DEBUG_LABEL_ARG_MANY const BaseShaderData& base_layout,
 	auto layout_compiler = compile_attribute_layouts(base_layout, {source.layout});
 	const auto geom_layout = get_geom_layout(layout_compiler);
 
-	std::optional<InstanceProp> instance_prop = std::nullopt;
+	std::optional<core::InstanceProp> instance_prop = std::nullopt;
 	std::optional<int> start_index = std::nullopt;
 	switch (model_source)
 	{
 	case TransformSource::Instanced_mat4:
-		instance_prop = InstanceProp{VertexType::instance_transform, "u_world_from_local"};
+		instance_prop = core::InstanceProp{core::VertexType::instance_transform, "u_world_from_local"};
 		start_index = get_instance_start_index(instance_base);
 		break;
 	case TransformSource::Uniform: break;
@@ -375,7 +375,7 @@ ShaderResource load_shaders(const Assets& assets, const CameraUniformBuffer& des
 
 	const auto skybox_source = load_skybox_source(skybox_shader_source, desc.setup.source);
 	const auto skybox_shader = ShaderSource_withLayout{
-		ShaderVertexAttributes{{VertexType::position3, "a_position"}}, skybox_source.vertex, skybox_source.fragment
+        core::ShaderVertexAttributes{{core::VertexType::position3, "a_position"}}, skybox_source.vertex, skybox_source.fragment
 	};
 
 	const BaseShaderData global_shader_data = get_vertex_types<3>

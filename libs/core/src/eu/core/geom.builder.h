@@ -2,12 +2,12 @@
 
 // #include "eu/render/color.h"
 
-namespace eu::render
+namespace eu::core
 {
 struct Geom;
 }
 
-namespace eu::render::geom
+namespace eu::core::geom
 {
 
 /** \addtogroup geom-builder
@@ -124,4 +124,4 @@ Builder create_uv_sphere(
  * @}
 */
 
-}  //  namespace eu::render::geom
+}  //  namespace eu::core::geom

@@ -4,7 +4,7 @@
 #include <set>
 #include <optional>
 
-namespace eu::render
+namespace eu::core
 {
 
 /** \defgroup vertex-layout Vertex layout
@@ -118,4 +118,4 @@ CompiledVertexTypeList compile_attribute_layouts(const std::vector<ShaderVertexA
 /** @}
 */
 
-}  //  namespace eu::render
+}  //  namespace eu::core

@@ -14,7 +14,7 @@ namespace eu::render
 struct FullScreenGeom
 {
 	std::shared_ptr<CompiledGeom> geom;
-	CompiledShaderVertexAttributes layout;
+    core::CompiledShaderVertexAttributes layout;
 
 	FullScreenGeom();
 };

@@ -2,13 +2,17 @@
 
 #include "eu/render/uniform.h"
 #include "eu/render/uniform_buffer.h"
-#include "eu/render/vertex_layout.h"
+#include "eu/core/vertex_layout.h"
+
+namespace eu::core
+{
+	struct CompiledGeomVertexAttributes;
+}
 
 namespace eu::render
 {
 struct FullScreenGeom;
 struct RenderSettings;
-struct CompiledGeomVertexAttributes;
 struct ShaderProgram;
 struct CompiledCamera;
 struct ShadowContext;
@@ -46,11 +50,11 @@ struct CameraUniformBuffer
 struct LoadedShader_SingleColor
 {
 	LoadedShader_SingleColor(
-		std::shared_ptr<ShaderProgram> p, CompiledGeomVertexAttributes l, const CameraUniformBuffer& desc
+		std::shared_ptr<ShaderProgram> p, core::CompiledGeomVertexAttributes l, const CameraUniformBuffer& desc
 	);
 
 	std::shared_ptr<ShaderProgram> program;
-	CompiledGeomVertexAttributes geom_layout;
+    core::CompiledGeomVertexAttributes geom_layout;
 	Uniform tint_color_uni;
 	Uniform world_from_local_uni;
 };
@@ -61,11 +65,11 @@ struct LoadedShader_OnlyDepth
 {
 	LoadedShader_OnlyDepth(
 		TransformSource model_source,
-		std::shared_ptr<ShaderProgram> p, CompiledGeomVertexAttributes l, const CameraUniformBuffer& desc
+		std::shared_ptr<ShaderProgram> p, core::CompiledGeomVertexAttributes l, const CameraUniformBuffer& desc
 	);
 
 	std::shared_ptr<ShaderProgram> program;
-	CompiledGeomVertexAttributes geom_layout;
+    core::CompiledGeomVertexAttributes geom_layout;
 
 	std::optional<Uniform> world_from_local_uni;
 };
@@ -74,11 +78,11 @@ struct LoadedShader_OnlyDepth
 struct LoadedShader_Skybox
 {
 	LoadedShader_Skybox(
-		std::shared_ptr<ShaderProgram> p, CompiledGeomVertexAttributes l, const CameraUniformBuffer& desc
+		std::shared_ptr<ShaderProgram> p, core::CompiledGeomVertexAttributes l, const CameraUniformBuffer& desc
 	);
 
 	std::shared_ptr<ShaderProgram> program;
-	CompiledGeomVertexAttributes geom_layout;
+    core::CompiledGeomVertexAttributes geom_layout;
 	Uniform tex_skybox_uniform;
 };
 
@@ -212,7 +216,7 @@ struct RenderContext
 /// A unlit shader.
 struct LoadedShader_Unlit_Container
 {
-	CompiledGeomVertexAttributes geom_layout;
+    core::CompiledGeomVertexAttributes geom_layout;
 
 	LoadedShader_Unlit default_shader;
 	LoadedShader_Unlit transparency_shader;
@@ -223,7 +227,7 @@ struct LoadedShader_Unlit_Container
 /// A default shader
 struct LoadedShader_Default_Container
 {
-	CompiledGeomVertexAttributes geom_layout;
+    core::CompiledGeomVertexAttributes geom_layout;
 
 	LoadedShader_Default default_shader;
 	LoadedShader_Default transparency_shader;

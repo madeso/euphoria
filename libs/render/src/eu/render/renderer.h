@@ -1,10 +1,11 @@
 #pragma once
 
+#include "eu/core/vertex_layout.h"
+
 #include "eu/render/debug.h"
 #include "eu/render/postproc.h"
 #include "eu/render/material.h"
 #include "eu/render/render_settings.h"
-#include "eu/render/vertex_layout.h"
 #include "eu/render/world.h"
 
 namespace eu::render
@@ -45,8 +46,8 @@ struct Renderer
 	std::shared_ptr<UnlitMaterial> make_unlit_material() const;
 	std::shared_ptr<DefaultMaterial> make_default_material() const;
 
-	[[nodiscard]] CompiledGeomVertexAttributes unlit_geom_layout() const;
-	[[nodiscard]] CompiledGeomVertexAttributes default_geom_layout() const;
+	[[nodiscard]] core::CompiledGeomVertexAttributes unlit_geom_layout() const;
+	[[nodiscard]] core::CompiledGeomVertexAttributes default_geom_layout() const;
 
 	std::shared_ptr<FactorEffect> make_invert_effect() const;
 	std::shared_ptr<FactorEffect> make_grayscale_effect() const;

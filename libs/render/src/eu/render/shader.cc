@@ -12,7 +12,7 @@ namespace eu::render
 {
 
 // internal "header", defined later
-void set_shader_program(unsigned int new_program, const VertexTypes& types);
+void set_shader_program(unsigned int new_program, const core::VertexTypes& types);
 
 constexpr GLsizei max_log_length = 1024;
 
@@ -60,7 +60,7 @@ void upload_shader_source(unsigned int shader, std::string_view source)
 	glShaderSource(shader, 1, &s, &length);
 }
 
-void bind_shader_attribute_location(unsigned int shader_program, const CompiledShaderVertexAttributes& layout)
+void bind_shader_attribute_location(unsigned int shader_program, const core::CompiledShaderVertexAttributes& layout)
 {
 	for (const auto& b: layout.elements)
 	{
@@ -68,7 +68,7 @@ void bind_shader_attribute_location(unsigned int shader_program, const CompiledS
 	}
 }
 
-void verify_shader_attribute_location(unsigned int shader_program, const CompiledShaderVertexAttributes& layout)
+void verify_shader_attribute_location(unsigned int shader_program, const core::CompiledShaderVertexAttributes& layout)
 {
 	for (const auto& b: layout.elements)
 	{
@@ -98,7 +98,7 @@ void load_shader_source(
 	ShaderProgram* self,
 	const std::string& vertex_source,
 	const std::string& fragment_source,
-	const CompiledShaderVertexAttributes& layout
+	const core::CompiledShaderVertexAttributes& layout
 )
 {
 	const auto vertex_shader = glCreateShader(GL_VERTEX_SHADER);
@@ -148,7 +148,7 @@ void load_shader_source(
 }
 
 ShaderProgram::ShaderProgram(
-	DEBUG_LABEL_ARG_MANY const std::string& vertex_source, const std::string& fragment_source, const CompiledShaderVertexAttributes& layout
+	DEBUG_LABEL_ARG_MANY const std::string& vertex_source, const std::string& fragment_source, const core::CompiledShaderVertexAttributes& layout
 )
 	: shader_program(glCreateProgram())
 	, debug_vertex_types(layout.debug_types)
@@ -344,18 +344,18 @@ void setup_textures(ShaderProgram* shader, const std::vector<Uniform*>& uniform_
 
 namespace
 {
-	VertexTypes debug_current_shader_types;
+    core::VertexTypes debug_current_shader_types;
 	unsigned int debug_current_shader_program = 0;
 }  //  namespace
 
-void set_shader_program(unsigned int new_program, const VertexTypes& types)
+void set_shader_program(unsigned int new_program, const core::VertexTypes& types)
 {
 	debug_current_shader_program = new_program;
 	debug_current_shader_types = types;
 	glUseProgram(new_program);
 }
 
-bool is_bound_for_shader(const std::unordered_set<VertexType>& debug_geom_shader_types)
+bool is_bound_for_shader(const std::unordered_set<core::VertexType>& debug_geom_shader_types)
 {
 	for (auto t: debug_current_shader_types)
 	{

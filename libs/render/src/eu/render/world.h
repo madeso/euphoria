@@ -2,14 +2,18 @@
 #include "eu/core/scurve.h"
 
 #include "eu/render/material.h"
-#include "eu/render/vertex_layout.h"
+#include "eu/core/vertex_layout.h"
 #include "eu/render/space.h"
 
 #include <unordered_set>
 
+namespace eu::core
+{
+    struct Geom;
+}
+
 namespace eu::render
 {
-struct Geom;
 
 /** \addtogroup render Renderer
  *  @{
@@ -23,9 +27,9 @@ struct CompiledGeom
 	u32 vao;
 	u32 ebo;
 	i32 number_of_triangles;
-	std::unordered_set<VertexType> debug_types;
+	std::unordered_set<core::VertexType> debug_types;
 
-	explicit CompiledGeom(u32, u32, u32, const CompiledGeomVertexAttributes&, i32);
+	explicit CompiledGeom(u32, u32, u32, const core::CompiledGeomVertexAttributes&, i32);
 	~CompiledGeom();
 
 	CompiledGeom(const CompiledGeom&) = delete;
@@ -44,9 +48,9 @@ struct CompiledGeom_TransformInstance
 	u32 vao;
 	u32 ebo;
 	i32 number_of_triangles;
-	std::unordered_set<VertexType> debug_types;
+	std::unordered_set<core::VertexType> debug_types;
 
-	explicit CompiledGeom_TransformInstance(u32, std::size_t, u32, u32, u32, const CompiledGeomVertexAttributes&, i32);
+	explicit CompiledGeom_TransformInstance(u32, std::size_t, u32, u32, u32, const core::CompiledGeomVertexAttributes&, i32);
 	~CompiledGeom_TransformInstance();
 
 	CompiledGeom_TransformInstance(const CompiledGeom_TransformInstance&) = delete;
@@ -55,10 +59,10 @@ struct CompiledGeom_TransformInstance
 	void operator=(CompiledGeom_TransformInstance&&) = delete;
 };
 
-std::shared_ptr<CompiledGeom> compile_geom(DEBUG_LABEL_ARG_MANY const Geom&, const CompiledGeomVertexAttributes& layout);
+std::shared_ptr<CompiledGeom> compile_geom(DEBUG_LABEL_ARG_MANY const core::Geom&, const core::CompiledGeomVertexAttributes& layout);
 std::shared_ptr<CompiledGeom_TransformInstance> compile_geom_with_transform_instance(
 	DEBUG_LABEL_ARG_MANY
-	const Geom&, const CompiledGeomVertexAttributes& layout, std::size_t max_instances
+	const core::Geom&, const core::CompiledGeomVertexAttributes& layout, std::size_t max_instances
 );
 
 // todo(Gustav): merge with CameraVectors... this has a better name
