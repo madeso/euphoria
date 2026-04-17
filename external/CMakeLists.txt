@@ -399,3 +399,24 @@ target_include_directories(mustache SYSTEM
 )
 add_library(external::mustache ALIAS mustache)
 
+
+###################################################################################################
+# cgltf
+set(cgltf_src
+    cgltf/cgltf.impl.cc
+    cgltf/cgltf/cgltf.h
+)
+add_library(cgltf STATIC
+    ${cgltf_src}
+)
+source_group("" FILEs $(cgltf_src))
+cmake_source_group()
+
+set_target_properties(cgltf PROPERTIES FOLDER "Dependencies")
+target_include_directories(cgltf SYSTEM
+    PUBLIC
+        cgltf/cgltf
+)
+add_library(external::cgltf ALIAS cgltf)
+
+
