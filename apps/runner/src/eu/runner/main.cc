@@ -4,19 +4,20 @@
 
 #include "eu/log/log.h"
 #include "eu/base/memorychunk.h"
-#include "eu/render/camera.h"
+
+#include "eu/core/geom.builder.h"
+#include "eu/core/geom.h"
 
 #include "eu/io/file.h"
+#include "eu/io/mesh.h"
 
 #include "eu/render/canvas.h"
 #include "eu/render/state.h"
 #include "eu/render/font.h"
 #include "eu/render/opengl_utils.h"
 #include "eu/render/texture.io.h"
-
+#include "eu/render/camera.h"
 #include "eu/render/enable_high_performance_graphics.h"
-#include "eu/core/geom.builder.h"
-#include "eu/core/geom.h"
 #include "eu/render/postproc.h"
 #include "eu/render/renderer.h"
 #include "eu/render/world.h"
@@ -173,6 +174,25 @@ int main(int, char**)
         world.meshes.emplace_back(plane);
         plane->world_position = { 0.0f, -3.0f, 0.0f };
     }
+
+    // add demo mesh
+    {
+        const auto geom = eu::io::geom_from_file("models/vehicle-truck-purple.glb");
+        // const auto geom = eu::core::geom::create_box(1.0f, 1.0f, 1.0f, eu::core::geom::NormalsFacing::Out).to_geom();
+        auto compiled_geom = eu::render::compile_geom(
+            USE_DEBUG_LABEL_MANY("truck")
+            geom,
+            renderer.default_geom_layout()
+        );
+
+        auto material = renderer.make_default_material();
+        material->diffuse = load_texture("models/textures/colormap.png", eu::render::ColorData::color_data);
+        material->specular = assets.white;
+
+        auto instance = make_mesh_instance(compiled_geom, material);
+        world.meshes.emplace_back(instance);
+        instance->world_position = { 0.0f, 0.0f, -10.0f };
+    }
     
     LOG_INFO("Runner started");
     while (running)
@@ -214,6 +234,7 @@ int main(int, char**)
             cmd.clear(eu::colors::blue_sky, screen);
             auto layer = eu::render::with_layer3(cmd, screen);
             eu::render::Camera camera;
+            camera.position = { 0.0f, 0.0f, 0.0f };
             effects.render(eu::render::PostProcArg{
                 .world = &world,
                 .window_size = size_from_v2(layer.screen.get_size()),
