@@ -51,7 +51,7 @@
         else \
         { \
             if(::eu::assertlib::is_throwing() == false) { BREAK_IN_DEBUG(); } \
-            ::eu::assertlib::on_assert( \
+            else ::eu::assertlib::on_assert( \
                     #x, \
                     __LINE__, \
                     __FILE__, \
