@@ -1,12 +1,12 @@
 #include "SDL.h"
 
-#include <cassert>
-#include <string>
-#include <fstream>
+// #include <string>
 
 #include "eu/log/log.h"
 #include "eu/base/memorychunk.h"
 #include "eu/render/camera.h"
+
+#include "eu/io/file.h"
 
 #include "eu/render/canvas.h"
 #include "eu/render/state.h"
@@ -24,34 +24,12 @@
 
 ENABLE_HIGH_PERFORMANCE_GRAPHICS
 
-std::string read_to_string(std::istream& handle)
-{
-    // https://stackoverflow.com/questions/2602013/read-whole-ascii-file-into-c-stdstring/2602258
-    std::string line;
-    std::ostringstream ss;
-    while (std::getline(handle, line))
-    {
-        ss << line << '\n';
-    }
-    return ss.str();
-}
-
-std::string load_file(const std::string& path)
-{
-    std::ifstream handle(path);
-    if (handle.good() == false)
-    {
-        LOG_ERR("Unable to open file '{}'", path);
-        return "";
-    }
-
-    return read_to_string(handle);
-}
+// todo(Gustav): move to io
 eu::render::ShaderSource load_shader(const std::string& name)
 {
     return {
-        .vertex = load_file(name + ".vert.glsl"),
-        .fragment = load_file(name + ".frag.glsl")
+        .vertex = eu::io::string_from_file(name + ".vert.glsl"),
+        .fragment = eu::io::string_from_file(name + ".frag.glsl")
     };
 }
 
@@ -60,24 +38,11 @@ eu::Size size_from_v2(const eu::v2& v)
     return eu::Size{ .width = eu::int_from_float(v.x), .height = eu::int_from_float(v.y) };
 }
 
-std::vector<uint8_t> read_file(const std::string& path)
-{
-    std::ifstream stream(path, std::ios::in | std::ios::binary);
-    if (stream.good() == false)
-    {
-        LOG_ERR("Unable to open file '{}'", path);
-        return {};
-    }
-    std::vector<uint8_t> contents((std::istreambuf_iterator<char>(stream)), std::istreambuf_iterator<char>());
-    return contents;
-}
-
-
 std::shared_ptr<eu::render::Texture2d> load_texture(const std::string& path, eu::render::ColorData cd,
     eu::render::TextureEdge texture_edge = eu::render::TextureEdge::repeat,
     eu::render::Transparency transparency = eu::render::Transparency::exclude)
 {
-    const auto bin = read_file(path);
+    const auto bin = eu::io::bytes_from_file(path);
     return std::make_shared<eu::render::Texture2d>(
         load_image_from_embedded(SEND_DEBUG_LABEL_MANY(path) embedded_binary{reinterpret_cast<const unsigned int*>(bin.data()), static_cast<unsigned int>(bin.size())}, texture_edge, eu::render::TextureRenderStyle::mipmap, transparency, cd)
     );
@@ -177,10 +142,10 @@ int main(int, char**)
     assets.default_shader_source = load_shader("default_shader");
     assets.skybox_shader_source = load_shader("skybox");
 
-    assets.pp_vert_glsl = load_file("pp_vert.glsl");
-    assets.pp_realize_frag_glsl = load_file("pp_realize.frag.glsl");
-    assets.pp_extract_frag_glsl = load_file("pp_extract.frag.glsl");
-    assets.pp_ping_pong_blur_frag_glsl = load_file("pp_ping_pong_blur.frag.glsl");
+    assets.pp_vert_glsl = eu::io::string_from_file("pp_vert.glsl");
+    assets.pp_realize_frag_glsl = eu::io::string_from_file("pp_realize.frag.glsl");
+    assets.pp_extract_frag_glsl = eu::io::string_from_file("pp_extract.frag.glsl");
+    assets.pp_ping_pong_blur_frag_glsl = eu::io::string_from_file("pp_ping_pong_blur.frag.glsl");
 
     eu::render::Renderer renderer{&states, &assets, eu::render::RenderSettings{} };
     if (renderer.is_loaded() == false)

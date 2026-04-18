@@ -21,6 +21,7 @@ target_link_libraries(runner
         euph::project_warnings
         euph::log
         euph::base
+        euph::io
         euph::render
         external::sdl2
         external::opengl

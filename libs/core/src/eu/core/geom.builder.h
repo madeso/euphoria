@@ -55,18 +55,22 @@ struct Triangle
 	Triangle(const Vertex& a, const Vertex& b, const Vertex& c);
 };
 
+using Influence4 = std::array<std::size_t, 4>;
+
 /// A helper utility to create a Geom
 struct Builder
 {
 	Index add_text_coord(const v2& tc);
 	Index add_position(const v3& pos);
-	Index add_normal(const v3& norm);
+	Index add_normal(const n3& norm);
 	Index add_color(const Lin_rgb& color);
+    void add_weight(const v4& weight);
+    void add_influence(const Influence4& weight);
 
 	// find or add
 	Index foa_text_coord(const v2& v, float max_diff);
 	Index foa_position(const v3& pos, float max_diff);
-	Index foa_normal(const v3& norm, float max_diff);
+	Index foa_normal(const n3& norm, float max_diff);
 	Index foa_color(const Lin_rgb& color, float max_diff);
 
 	Builder& add_triangle(const Triangle& t);
@@ -81,11 +85,13 @@ struct Builder
 
 	Builder& write_obj(const std::string& path);
 
-	std::vector<std::vector<Vertex>> faces; // each face needs to have 3 or more vertices
+    std::vector<std::vector<Vertex>> faces; // each face needs to have 3 or more vertices
 	std::vector<v3> positions;
-	std::vector<v3> normals;
+	std::vector<n3> normals;
 	std::vector<v2> texcoords;
 	std::vector<v3> lin_colors; ///< in linear space
+    std::vector<v4> weights;
+    std::vector<Influence4> influences;
 };
 
 

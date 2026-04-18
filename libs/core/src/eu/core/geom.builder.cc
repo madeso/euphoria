@@ -129,7 +129,7 @@ Index Builder::add_position(const v3& pos)
 	return add_vec(&positions, pos);
 }
 
-Index Builder::add_normal(const v3& norm)
+Index Builder::add_normal(const n3& norm)
 {
 	return add_vec(&normals, norm);
 }
@@ -137,6 +137,17 @@ Index Builder::add_normal(const v3& norm)
 Index Builder::add_color(const Lin_rgb& c)
 {
 	return add_vec(&lin_colors, { c.r, c.g, c.b });
+}
+
+Builder& Builder::add_triangle(const Triangle& t)
+{
+    add_face(std::vector{ t.v0, t.v1, t.v2 });
+    return *this;
+}
+
+void Builder::add_influence(const Influence4& influence)
+{
+    influences.emplace_back(influence);
 }
 
 Index Builder::foa_text_coord(const v2& v, float max_diff)
@@ -149,7 +160,7 @@ Index Builder::foa_position(const v3& pos, float max_diff)
 	return find_or_add_vec(&positions, pos, max_diff);
 }
 
-Index Builder::foa_normal(const v3& norm, float max_diff)
+Index Builder::foa_normal(const n3& norm, float max_diff)
 {
 	return find_or_add_vec(&normals, norm, max_diff);
 }
@@ -159,11 +170,6 @@ Index Builder::foa_color(const Lin_rgb& c, float max_diff)
     return find_or_add_vec(&lin_colors, { c.r, c.g, c.b }, max_diff);
 }
 
-Builder& Builder::add_triangle(const Triangle& t)
-{
-	add_face(std::vector{t.v0, t.v1, t.v2});
-	return *this;
-}
 
 Builder& Builder::add_quad(bool ccw, const Vertex& v0, const Vertex& v1, const Vertex& v2, const Vertex& v3)
 {
@@ -218,6 +224,11 @@ Builder& Builder::add_face(const std::vector<Vertex>& vertices)
 	return *this;
 }
 
+void Builder::add_weight(const v4& weight)
+{
+    weights.emplace_back(weight);
+}
+
 v3 from_to(const v3& f, const v3& t)
 {
 	return v3::from_to(f, t);
@@ -226,6 +237,20 @@ v3 from_to(const v3& f, const v3& t)
 Geom Builder::to_geom() const
 {
 	std::unordered_map<Combo, u32> combinations;
+
+    // skeleton warning
+	{
+        const auto has_influences = influences.empty() == false;
+        const auto has_weights = weights.empty() == false;
+
+        const std::string influence_message = has_influences ? "has influences" : "has no influences";
+        const std::string weight_message = has_weights ? "has weights" : "has no weights";
+
+        if (has_influences || has_weights)
+        {
+            LOG_WARN("Mesh has skeleton data, but it is currently ignored when converting to Geom. The mesh {} and {}.", influence_message, weight_message);
+        }
+	}
 
 	// foreach triangle
 	std::vector<eu::core::Vertex> final_vertices;
@@ -247,9 +272,9 @@ Geom Builder::to_geom() const
 			const v3 pos = positions[c.position];
 			const v2 text = texcoords.empty() ? v2(0, 0) : texcoords[c.texture];
 			const v3 col = lin_colors.empty() ? v3{missing_color.r, missing_color.g, missing_color.b} : lin_colors[c.color];
-			const v3 normal = normals.empty() == false ? normals[c.normal] : v3(1, 0, 0);
+			const n3 normal = normals.empty() == false ? normals[c.normal] : kk::up;
 			const auto ind = final_vertices.size();
-			final_vertices.emplace_back(eu::core::Vertex{pos, normal, text, col});
+			final_vertices.emplace_back(core::Vertex{.position = pos, .normal = normal, .uv = text, .color = col});
 			combinations.insert({c, u32_from_sizet(ind)});
 			return u32_from_sizet(ind);
 		}
@@ -340,7 +365,7 @@ namespace
 		v2 tex;
 	};
 
-	void add_quad_to_builder(Builder& b, bool invert, const Rgb& color, v3 normal, const std::array<Pt, 4>& p)
+	void add_quad_to_builder(Builder& b, bool invert, const Rgb& color, n3 normal, const std::array<Pt, 4>& p)
 	{
 		constexpr float pd = 0.1f;
 		constexpr float td = 0.01f;
