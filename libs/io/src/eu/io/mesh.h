@@ -6,7 +6,7 @@
 namespace eu::io
 {
 
-core::Geom gom_from_file(const std::string& file);
+core::Geom geom_from_file(const std::string& file);
 
 }
 

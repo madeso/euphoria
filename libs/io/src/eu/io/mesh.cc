@@ -29,10 +29,10 @@ struct GltfFile
         cgltf_options options = {};
         data = nullptr;
 
-        const auto bytes = bytes_from_file(path);
+        // const auto bytes = bytes_from_file(path);
 
-        // cgltf_result result = cgltf_parse_file(&options, path, &data);
-        cgltf_result result = cgltf_parse(&options, bytes.data(), bytes.size(), &data);
+        cgltf_result result = cgltf_parse_file(&options, path.c_str(), &data);
+        // cgltf_result result = cgltf_parse(&options, bytes.data(), bytes.size(), &data);
         if (result != cgltf_result_success)
         {
             clear();
@@ -142,17 +142,22 @@ void extract_mesh_from_attribute(
         break;
         case cgltf_attribute_type_joints:
         {
-            // These indices are skin relative. This function has no information about the
-            // skin that is being parsed. Add +0.5f to round, since we can't read ints
-            const auto joint_at = [&](std::size_t ii) -> std::size_t
+            if (skin != nullptr)
             {
-                const auto found = static_cast<int>(values[index + 0] + 0.5f);
-                const auto ret = static_cast<int>(std::max<std::size_t>(
-                    0, find_node_index(skin->joints[found], nodes, nodeCount).value_or(0)
-                ));
-                return ret;
-            };
-            outMesh.add_influence({joint_at(0), joint_at(1), joint_at(2), joint_at(3)});
+                const auto joint_at = [&](std::size_t ii) -> std::size_t
+                {
+                    const auto found = static_cast<int>(values[index + 0] + 0.5f);
+                    const auto ret = static_cast<int>(std::max<std::size_t>(
+                        0, find_node_index(skin->joints[found], nodes, nodeCount).value_or(0)
+                    ));
+                    return ret;
+                };
+                outMesh.add_influence({joint_at(0), joint_at(1), joint_at(2), joint_at(3)});
+            }
+            else
+            {
+                LOG_WARN("Mesh has joints but is missing skin");
+            }
         }
         break;
         default:
@@ -176,10 +181,13 @@ std::vector<core::geom::Builder> extract_meshes_from_gltf(cgltf_data* data)
     for (std::size_t i = 0; i < nodeCount; ++i)
     {
         cgltf_node* node = &nodes[i];
-        if (node->mesh == nullptr || node->skin == nullptr)
+        if (node->mesh == nullptr)
         {
             continue;
         }
+
+        // mesh.name = node->mesh->name != nullptr ? node->mesh->name : "unnamed_mesh";
+
         const auto numPrims = node->mesh->primitives_count;
         for (std::size_t j = 0; j < numPrims; ++j)
         {
@@ -220,7 +228,7 @@ core::Geom unable_to_load_geom()
     return eu::core::geom::create_box(1.0f, 1.0f, 1.0f, core::geom::NormalsFacing::Out).to_geom();
 }
 
-core::Geom gom_from_file(const std::string& file)
+core::Geom geom_from_file(const std::string& file)
 {
     GltfFile gltf;
     if (gltf.load_gltf_file(file) == false)
@@ -242,7 +250,7 @@ core::Geom gom_from_file(const std::string& file)
     const auto ret = meshes[0].to_geom();
     if (ret.faces.empty() || ret.vertices.empty())
     {
-        LOG_ERR("Mesh has mesh data in gltf file: {}", file);
+        LOG_ERR("Mesh has no mesh data in gltf file: {}", file);
         return unable_to_load_geom();
     }
     return ret;
