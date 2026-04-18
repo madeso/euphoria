@@ -9,6 +9,13 @@ namespace
     {
         return (lhs + margin >= rhs) && (rhs + margin >= lhs);
     }
+
+    bool is_bad(float num)
+    {
+        if (std::isnan(num)) return true;
+        if (std::isinf(num)) return true;
+        return false;
+    }
 }
 
 
@@ -23,6 +30,9 @@ namespace eu::tests
         const ApproxData& data
     )
     {
+        if (is_bad(lhs)) return false;
+        if (is_bad(rhs)) return false;
+
         const auto m_value = lhs;
         const auto other = rhs;
         const auto m_epsilon = data.epsilon;
@@ -44,4 +54,9 @@ namespace eu::tests
             )
             ;
     }
+}
+
+namespace eu::tests::custom
+{
+    
 }
