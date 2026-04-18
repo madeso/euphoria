@@ -7,11 +7,18 @@
 
 /// implements a break in debug.
 /// \hideinitializer
+#ifdef _WIN32
+    #define BREAK_IN_DEBUG() \
+        do \
+        { \
+            __debugbreak(); \
+        } while(false)
+#else
 #define BREAK_IN_DEBUG() \
     do \
     { \
     } while(false)
-
+#endif
 
 #ifdef RELEASE
 
