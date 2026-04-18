@@ -107,6 +107,17 @@ TEST_CASE("vec3-get_length", "[vec3]")
     REQUIRE(v == approx(3.0f));
 }
 
+TEST_CASE("vec3-large length", "[vec3]")
+{
+    const auto big = v3(-431602080.f, -431602080.f, -4.22016832e+37f);
+    const auto len = big.get_length();
+    CHECK(std::isinf(len));
+
+    auto copy = v3{ big };
+    const auto was_normalized = copy.normalize();
+    CHECK_FALSE(was_normalized);
+}
+
 TEST_CASE("vec3-lerp_v3", "[vec3]")
 {
     const auto from = v3(1.0f, 2.0f, 3.0f);

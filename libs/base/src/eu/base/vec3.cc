@@ -99,7 +99,7 @@ namespace eu
     v3::normalize()
     {
         const float l2 = get_length_squared();
-        if (is_equal(l2, 0.0f))
+        if (is_equal(l2, 0.0f) || std::isinf(l2))
         {
             *this = kk::up;
             return false;
