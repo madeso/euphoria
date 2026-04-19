@@ -91,12 +91,14 @@ struct MeshInstance
 
 	std::optional<Rgb> outline;
 
-	v3 world_position = v3{0.0f};
-	Ypr rotation = {0.0_rad, 0.0_rad, 0.0_rad};  ///< yaw pitch roll
+    m4 transform = m4_identity;
 	Billboarding billboarding = Billboarding::none;	 ///< if not none, rotation is ignored
 
 	LocalAxis get_local_axis() const;
 };
+
+m4 transform_from_rotation(const v3& position, const Ypr& ypr);
+m4 transform_from_billboard(const v3& position, Billboarding billboarding, const CompiledCamera& cc);
 
 std::shared_ptr<MeshInstance> make_mesh_instance(std::shared_ptr<CompiledGeom> geom, std::shared_ptr<Material> mat);
 

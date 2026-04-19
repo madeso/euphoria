@@ -209,11 +209,11 @@ std::shared_ptr<CompiledGeom_TransformInstance> compile_geom_with_transform_inst
 
 LocalAxis MeshInstance::get_local_axis() const
 {
-	const auto m = m4::from(Q::from(rotation)).value_or(m4_identity);
+    // todo(Gustav): this this work with the matrix now including both rotation ADN translation? is it used anymore?
 	return {
-        .x = m.get_transformed_vec(v3{1, 0, 0}),
-        .y = m.get_transformed_vec(v3{0, 1, 0}),
-        .z = m.get_transformed_vec(v3{0, 0, 1})
+        .x = transform.get_transformed_vec(v3{1, 0, 0}),
+        .y = transform.get_transformed_vec(v3{0, 1, 0}),
+        .z = transform.get_transformed_vec(v3{0, 0, 1})
 	};
 }
 

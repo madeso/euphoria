@@ -69,8 +69,13 @@ bool Renderer::is_loaded() const
 	return pimpl->shaders_resources.is_loaded() && pimpl->debug_drawer.is_loaded();
 }
 
-// todo(Gustav): should functions take shared_ptr?
-m4 calc_world_from_local(std::shared_ptr<MeshInstance> m, const CompiledCamera& cc)
+m4 transform_from_rotation(const v3& position, const Ypr& ypr)
+{
+    const auto translation = m4::from_translation(position);
+    const auto rotation = m4::from(Q::from(ypr)).value_or(m4_identity);
+    return translation * rotation;
+}
+m4 transform_from_billboard(const v3& position, Billboarding billboarding, const CompiledCamera& cc)
 {
 	const auto calc_fixed_right = [](const n3& normal, const n3& up)
 	{
@@ -86,14 +91,14 @@ m4 calc_world_from_local(std::shared_ptr<MeshInstance> m, const CompiledCamera& 
 		return m4::from_basis(right, up, new_normal);
 	};
 
-	const auto translation = m4::from_translation(m->world_position);
+	const auto translation = m4::from_translation(position);
 
 	// todo(Gustav): verify that the billboards are oriented correctly, grass in example 3 is twosided...
-	switch (m->billboarding)
+	switch (billboarding)
 	{
 	case Billboarding::screen:
 		{
-			const auto rotation = calc_fixed_right(v3::from_to(cc.position, m->world_position).get_normalized().value_or(kk::in), kk::up);
+			const auto rotation = calc_fixed_right(v3::from_to(cc.position, position).get_normalized().value_or(kk::in), kk::up);
 			return translation * rotation;
 		}
 	case Billboarding::screen_fast:
@@ -104,7 +109,7 @@ m4 calc_world_from_local(std::shared_ptr<MeshInstance> m, const CompiledCamera& 
 		}
 	case Billboarding::axial_y:
 		{
-			const auto rotation = calc_fixed_up(v3::from_to(cc.position, m->world_position).get_normalized().value_or(kk::in), kk::up);
+			const auto rotation = calc_fixed_up(v3::from_to(cc.position, position).get_normalized().value_or(kk::in), kk::up);
 			return translation * rotation;
 		}
 	case Billboarding::axial_y_fast:
@@ -115,9 +120,11 @@ m4 calc_world_from_local(std::shared_ptr<MeshInstance> m, const CompiledCamera& 
 		}
 	default:
 		{
-			const auto rotation = m4::from(Q::from(m->rotation)).value_or(m4_identity);
-			return translation * rotation;
+        DIE("invalid billboarding");
+        const auto rotation = calc_fixed_up(cc.in, kk::up);
+        return translation * rotation;
 		}
+
 	}
 };
 
@@ -189,7 +196,7 @@ void Renderer::render_world(const Size& window_size, const World& world, const C
 					transparent_meshes.emplace_back(
 						TransparentMesh{
 						    .mesh = mesh,
-                            .squared_distance_to_camera = v3::from_to(compiled_camera.position, mesh->world_position).get_length_squared()
+                            .squared_distance_to_camera = v3::from_to(compiled_camera.position, mesh->transform.get_translation()).get_length_squared()
 						}
 					);
 
@@ -209,7 +216,7 @@ void Renderer::render_world(const Size& window_size, const World& world, const C
 				}
 				mesh->material->use_shader(not_transparent_context);
 				mesh->material->set_uniforms(
-					not_transparent_context, compiled_camera, calc_world_from_local(mesh, compiled_camera)
+					not_transparent_context, compiled_camera, mesh->transform
 				);
 				mesh->material->bind_textures(not_transparent_context, pimpl->states, assets);
 				mesh->material->apply_lights(not_transparent_context, world.lights, settings, pimpl->states, assets);
@@ -307,7 +314,7 @@ void Renderer::render_world(const Size& window_size, const World& world, const C
 				StateChanger{pimpl->states}.stencil_func(Compare::always, 1, 0xFF).stencil_mask(0xFF);
 			}
 			mesh->material->use_shader(transparent_context);
-			mesh->material->set_uniforms(transparent_context, compiled_camera, calc_world_from_local(mesh, compiled_camera));
+			mesh->material->set_uniforms(transparent_context, compiled_camera, mesh->transform);
 			mesh->material->bind_textures(transparent_context, pimpl->states, assets);
 			mesh->material->apply_lights(transparent_context, world.lights, settings, pimpl->states, assets);
 
@@ -333,7 +340,7 @@ void Renderer::render_world(const Size& window_size, const World& world, const C
 				shader.program->use();
 				shader.program->set_vec4(shader.tint_color_uni, v4{vec_from_lin(linear_from_srgb(*mesh_outline, settings.gamma)), 1});
 
-				shader.program->set_mat(shader.world_from_local_uni, calc_world_from_local(mesh, compiled_camera) * small_scale_mat);
+				shader.program->set_mat(shader.world_from_local_uni, mesh->transform * small_scale_mat);
 
 				render_geom(*mesh->geom);
 			}
@@ -385,7 +392,7 @@ void Renderer::render_shadows(const Size& window_size, const World& world, const
 				ASSERT(shader.world_from_local_uni.has_value());
 				if (shader.world_from_local_uni)
 				{
-					shader.program->set_mat(*shader.world_from_local_uni, calc_world_from_local(mesh, compiled_camera));
+					shader.program->set_mat(*shader.world_from_local_uni, mesh->transform);
 				}
 
 				if (mesh->billboarding != Billboarding::none)

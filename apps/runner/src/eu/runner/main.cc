@@ -25,6 +25,8 @@
 
 ENABLE_HIGH_PERFORMANCE_GRAPHICS
 
+using namespace eu;
+
 // todo(Gustav): move to io
 eu::render::ShaderSource load_shader(const std::string& name)
 {
@@ -172,26 +174,35 @@ int main(int, char**)
 
         auto plane = make_mesh_instance(plane_geom, material);
         world.meshes.emplace_back(plane);
-        plane->world_position = { 0.0f, -3.0f, 0.0f };
+        plane->transform = eu::m4::from_translation({ 0.0f, -3.0f, 0.0f });
+
+        world.lights.point_lights.emplace_back();
     }
 
     // add demo mesh
     {
-        const auto geom = eu::io::geom_from_file("models/vehicle-truck-purple.glb");
-        // const auto geom = eu::core::geom::create_box(1.0f, 1.0f, 1.0f, eu::core::geom::NormalsFacing::Out).to_geom();
-        auto compiled_geom = eu::render::compile_geom(
-            USE_DEBUG_LABEL_MANY("truck")
-            geom,
-            renderer.default_geom_layout()
-        );
+        const auto mesh = eu::io::mesh_from_file("models/vehicle-truck-purple.glb");
 
         auto material = renderer.make_default_material();
         material->diffuse = load_texture("models/textures/colormap.png", eu::render::ColorData::color_data);
         material->specular = assets.white;
 
-        auto instance = make_mesh_instance(compiled_geom, material);
-        world.meshes.emplace_back(instance);
-        instance->world_position = { 0.0f, 0.0f, -10.0f };
+        for (const auto& trans: mesh.meshes) {
+            for (const auto& geom: trans.geoms) {
+                // const auto geom = eu::core::geom::create_box(1.0f, 1.0f, 1.0f, eu::core::geom::NormalsFacing::Out).to_geom();
+                auto compiled_geom = eu::render::compile_geom(
+                    USE_DEBUG_LABEL_MANY("truck")
+                    geom.geom,
+                    renderer.default_geom_layout()
+                );
+
+                auto instance = make_mesh_instance(compiled_geom, material);
+                world.meshes.emplace_back(instance);
+                instance->transform = eu::render::transform_from_rotation(
+                    { 0.0f, -1.8f, -10.0f },
+                    {.yaw = 30.0_deg, .pitch = 30.0_deg, .roll = 30.0_deg}) * trans.transform;
+            }
+        }
     }
     
     LOG_INFO("Runner started");

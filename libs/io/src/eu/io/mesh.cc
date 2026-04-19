@@ -173,63 +173,104 @@ core::geom::Vertex vert(std::size_t index)
     return core::geom::Vertex{index, index};
 }
 
-std::vector<core::geom::Builder> extract_meshes_from_gltf(cgltf_data* data)
+core::Geom create_geom_from_gltf_primitive(const cgltf_data& data, const cgltf_node& node, const cgltf_primitive& prim)
 {
-    std::vector<core::geom::Builder> result;
-    cgltf_node* nodes = data->nodes;
-    const auto nodeCount = data->nodes_count;
+    core::geom::Builder mesh;
 
-    for (std::size_t i = 0; i < nodeCount; ++i)
+    cgltf_node* nodes = data.nodes;
+    const auto nodeCount = data.nodes_count;
+    const auto numAttributes = prim.attributes_count;
+    for (unsigned int k = 0; k < numAttributes; ++k)
     {
-        cgltf_node* node = &nodes[i];
-        if (node->mesh == nullptr)
+        cgltf_attribute* attribute = &prim.attributes[k];
+        extract_mesh_from_attribute(
+            mesh, *attribute, node.skin, nodes, static_cast<unsigned int>(nodeCount)
+        );
+    }
+    if (prim.indices != nullptr)
+    {
+        mesh.faces.reserve(prim.indices->count / 3);
+        const auto indexCount = prim.indices->count;
+
+        for (std::size_t k = 0; k < indexCount; k += 3)
+        {
+            const auto a1 = cgltf_accessor_read_index(prim.indices, k);
+            const auto b2 = cgltf_accessor_read_index(prim.indices, k + 1);
+            const auto c3 = cgltf_accessor_read_index(prim.indices, k + 2);
+            mesh.add_face({ vert(a1), vert(b2), vert(c3) });
+        }
+    }
+
+    return mesh.to_geom();
+}
+
+m4 transform_from_node_rec(const cgltf_node& node)
+{
+    const m4 parent = node.parent ? transform_from_node_rec(*node.parent) : m4_identity;
+    const m4 translate = node.has_translation ? m4::from_translation(v3(node.translation)) : m4_identity;
+    const m4 rotate = node.has_rotation ? m4::from(Q(node.rotation)).value_or(m4_identity) : m4_identity;
+    const m4 scale = node.has_scale ? m4::from_scale(v3(node.scale)) : m4_identity;
+
+    const auto transform = translate * rotate * scale;
+    return parent * transform;
+}
+
+core::Mesh extract_meshes_from_gltf(const cgltf_data& data, const std::string& file)
+{
+    core::Mesh result;
+
+    for (std::size_t i = 0; i < data.nodes_count; ++i)
+    {
+        const cgltf_node& node = data.nodes[i];
+        if (node.mesh == nullptr)
         {
             continue;
         }
 
-        // mesh.name = node->mesh->name != nullptr ? node->mesh->name : "unnamed_mesh";
+        core::TransformedMesh transform;
+        transform.name = node.mesh->name != nullptr ? node.mesh->name : "unnamed_mesh";
+        transform.transform = transform_from_node_rec(node);
 
-        const auto numPrims = node->mesh->primitives_count;
-        for (std::size_t j = 0; j < numPrims; ++j)
+        for (std::size_t primtive_index = 0; primtive_index < node.mesh->primitives_count; ++primtive_index)
         {
-            result.emplace_back();
-            auto& mesh = result[result.size() - 1];
-
-            cgltf_primitive* primitive = &node->mesh->primitives[j];
-
-            const auto numAttributes = primitive->attributes_count;
-            for (unsigned int k = 0; k < numAttributes; ++k)
+            const auto mesh = create_geom_from_gltf_primitive(data, node, node.mesh->primitives[primtive_index]);
+            if (mesh.faces.empty() || mesh.vertices.empty())
             {
-                cgltf_attribute* attribute = &primitive->attributes[k];
-                extract_mesh_from_attribute(
-                    mesh, *attribute, node->skin, nodes, static_cast<unsigned int>(nodeCount)
-                );
+                LOG_WARN("Mesh has no mesh data in gltf file: {}", file);
             }
-            if (primitive->indices != nullptr)
+            else
             {
-                mesh.faces.reserve(primitive->indices->count / 3);
-                const auto indexCount = primitive->indices->count;
-
-                for (std::size_t k = 0; k < indexCount; k+=3)
-                {
-                    const auto a1 = cgltf_accessor_read_index(primitive->indices, k);
-                    const auto b2 = cgltf_accessor_read_index(primitive->indices, k + 1);
-                    const auto c3 = cgltf_accessor_read_index(primitive->indices, k + 2);
-                    mesh.add_face({vert(a1), vert(b2), vert(c3)});
-                }
+                transform.geoms.emplace_back(mesh);
             }
         }
+
+        result.meshes.emplace_back(std::move(transform));
     }
 
     return result;
 }
 
-core::Geom unable_to_load_geom()
+core::Mesh unable_to_load_geom()
 {
-    return eu::core::geom::create_box(1.0f, 1.0f, 1.0f, core::geom::NormalsFacing::Out).to_geom();
+    return
+    {
+        .meshes = {
+            core::TransformedMesh
+            {
+                .name = "unable_to_load_geom",
+                .transform = m4_identity,
+                .geoms = {
+                    core::MeshGeom
+                    {
+                        .geom = eu::core::geom::create_box(1.0f, 1.0f, 1.0f, core::geom::NormalsFacing::Out).to_geom()
+                    }
+                }
+            }
+        }
+    };
 }
 
-core::Geom geom_from_file(const std::string& file)
+core::Mesh mesh_from_file(const std::string& file)
 {
     GltfFile gltf;
     if (gltf.load_gltf_file(file) == false)
@@ -238,22 +279,13 @@ core::Geom geom_from_file(const std::string& file)
         return unable_to_load_geom();
     }
 
-    const auto meshes = extract_meshes_from_gltf(gltf.data);
-    if (meshes.empty())
+    const auto ret = extract_meshes_from_gltf(*gltf.data, file);
+    if (ret.meshes.empty())
     {
         LOG_ERR("No meshes found in gltf file: {}", file);
         return unable_to_load_geom();
     }
-    if (meshes.size() != 1)
-    {
-        LOG_WARN("Expected exactly one mesh in gltf file: {} but found {}", file, meshes.size());
-    }
-    const auto ret = meshes[0].to_geom();
-    if (ret.faces.empty() || ret.vertices.empty())
-    {
-        LOG_ERR("Mesh has no mesh data in gltf file: {}", file);
-        return unable_to_load_geom();
-    }
+    
     return ret;
 }
 

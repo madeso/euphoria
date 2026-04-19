@@ -1,12 +1,12 @@
 #pragma once
 
-#include "eu/core/geom.h"
+#include "eu/core/mesh.h"
 
 
 namespace eu::io
 {
 
-core::Geom geom_from_file(const std::string& file);
+core::Mesh mesh_from_file(const std::string& file);
 
 }
 
