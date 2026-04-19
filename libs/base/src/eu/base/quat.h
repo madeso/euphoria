@@ -30,6 +30,14 @@ namespace eu
         {
         }
 
+        constexpr Q(const float* arr)
+            : w(arr[0])
+            , x(arr[1])
+            , y(arr[2])
+            , z(arr[3])
+        {
+        }
+
         /// Create a quaternion from an axis angle
         [[nodiscard]] static Q from(const AA& aa);
 
