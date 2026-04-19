@@ -129,7 +129,8 @@ void extract_mesh_from_attribute(
             );
             break;
         case cgltf_attribute_type_texcoord:
-            outMesh.add_text_coord(v2(values[index + 0], values[index + 1]));
+            // note: eu 2d coordinate system is bottom left going up, gltf is top left going down, `1-y` fixes this
+            outMesh.add_text_coord(v2(values[index + 0], 1-values[index + 1]));
             break;
         case cgltf_attribute_type_weights:
             outMesh.add_weight(v4(values[index + 0], values[index + 1], values[index + 2], values[index + 3]));
