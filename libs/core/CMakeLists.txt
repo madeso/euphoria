@@ -11,7 +11,8 @@ set(core_src
 
     src/eu/core/hash.h
 
-    src/eu/core/geom.h
+    src/eu/core/geom.h src/eu/core/geom.cc
+    src/eu/core/mesh.h src/eu/core/mesh.cc
     src/eu/core/geom.builder.cc src/eu/core/geom.builder.h
     src/eu/core/geom.extract.cc src/eu/core/geom.extract.h
     src/eu/core/vertex_layout.cc src/eu/core/vertex_layout.h
