@@ -316,7 +316,7 @@ void ShaderProgram::set_mat(const Uniform& uniform, const m4& mat) // NOLINT(rea
 	glUniformMatrix4fv(uniform.location, 1, GL_FALSE, mat.get_column_major_data_ptr());
 }
 
-void ShaderProgram::setup_uniform_block(const UniformBufferSetup& setup) // NOLINT(readability-make-member-function-const)
+void ShaderProgram::setup_uniform_block(const core::UniformBufferSetup& setup) // NOLINT(readability-make-member-function-const)
 {
 	const unsigned int shader_block_index = glGetUniformBlockIndex(shader_program, setup.name.c_str());
 	if (shader_block_index == GL_INVALID_INDEX)

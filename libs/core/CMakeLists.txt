@@ -3,6 +3,8 @@
 
 set(core_src
     src/eu/core/image.cc src/eu/core/image.h
+    src/eu/core/color.cc src/eu/core/color.h
+    src/eu/core/uniform_buffer.cc src/eu/core/uniform_buffer.h
     src/eu/core/loadedfont.cc src/eu/core/loadedfont.h
     src/eu/core/tablelayout.cc src/eu/core/tablelayout.h
     src/eu/core/utf8.cc src/eu/core/utf8.h
@@ -55,6 +57,8 @@ set(test_src
     src/eu/core/scurve.test.cc
     src/eu/core/ui.test.cc
     src/eu/core/vertex_layout.test.cc
+    src/eu/core/color.test.cc
+    src/eu/core/uniform_buffer.test.cc
 )
 source_group("" FILES ${test_src})
 cmake_source_group()

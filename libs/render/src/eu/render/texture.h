@@ -4,7 +4,7 @@
 
 #include "eu/render/opengl_labels.h"
 
-#include <cstdint>
+#include "eu/core/color.h"
 
 namespace eu::render
 {
@@ -47,23 +47,6 @@ enum class ColorData
 	dont_care
 };
 
-// todo(Gustav): move to colors.h?
-/// A single color in a format to load directly into open gl texture(ABGR on little endian).
-/// @see \ref color_from_rgba
-enum class SingleColor : std::uint32_t {};
-
-/// Constructs a \ref SingleColor value from individual red, green, blue, and alpha components.
-/// @param r The red component of the color (0x00 - 0xFF).
-/// @param g The green component of the color (0x00 - 0xFF).
-/// @param b The blue component of the color (0x00 - 0xFF).
-/// @param a The alpha (opacity) component of the color (0x00 - 0xFF).
-/// @return A \ref SingleColor value representing the color composed of the specified RGBA components.
-constexpr SingleColor color_from_rgba(uint8_t r, uint8_t g, uint8_t b, uint8_t a) {
-	return static_cast<SingleColor>((static_cast<uint32_t>(a) << 24) |
-		   (static_cast<uint32_t>(b) << 16) |
-		   (static_cast<uint32_t>(g) << 8)  |
-		   (static_cast<uint32_t>(r)));
-}
 
 // todo(Gustav): this doesn't do anything except allow code reuse, remove?
 /// Base class for all textures, but only exist due to code reuse and can easily be inlined.
@@ -93,7 +76,7 @@ struct Texture2d : BaseTexture
 	Texture2d(DEBUG_LABEL_ARG_MANY const void* pixel_data, unsigned int pixel_format, int w, int h, TextureEdge te, TextureRenderStyle trs, Transparency t, ColorData cd);
 };
 
-Texture2d load_image_from_color(DEBUG_LABEL_ARG_MANY SingleColor pixel, TextureEdge te, TextureRenderStyle trs, Transparency t, ColorData cd);
+Texture2d load_image_from_color(DEBUG_LABEL_ARG_MANY core::SingleColor pixel, TextureEdge te, TextureRenderStyle trs, Transparency t, ColorData cd);
 
 // todo(Gustav): turn into an enum?
 /// 0=right(x+), 1=left(x-), 2=top(y+), 3=bottom(y-), 4=front(z+), 5=back(z-)
@@ -108,7 +91,7 @@ struct TextureCubemap : BaseTexture
 	TextureCubemap(DEBUG_LABEL_ARG_MANY const std::array<void*, cubemap_size>& pixel_data, int width, int height, ColorData cd);
 };
 
-TextureCubemap load_cubemap_from_color(DEBUG_LABEL_ARG_MANY SingleColor pixel, ColorData cd);
+TextureCubemap load_cubemap_from_color(DEBUG_LABEL_ARG_MANY core::SingleColor pixel, ColorData cd);
 
 
 

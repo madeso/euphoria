@@ -32,7 +32,7 @@ namespace eu::render
 namespace
 {
 	/// the color of an image that failed to load, html hot-pink
-	constexpr SingleColor image_load_failure_color = color_from_rgba(0xFF, 0x69, 0xB4, 0xFF);
+	constexpr core::SingleColor image_load_failure_color = core::color_from_rgba(0xFF, 0x69, 0xB4, 0xFF);
 
 	constexpr unsigned int invalid_id = 0;
 
@@ -226,7 +226,7 @@ Texture2d load_image_from_embedded(
 }
 
 [[nodiscard]]
-Texture2d load_image_from_color(DEBUG_LABEL_ARG_MANY SingleColor pixel, TextureEdge te, TextureRenderStyle trs, Transparency t, ColorData cd)
+Texture2d load_image_from_color(DEBUG_LABEL_ARG_MANY core::SingleColor pixel, TextureEdge te, TextureRenderStyle trs, Transparency t, ColorData cd)
 {
 	return {SEND_DEBUG_LABEL_MANY(debug_label) & pixel, GL_RGBA, 1, 1, te, trs, t, cd};
 }
@@ -263,7 +263,7 @@ TextureCubemap::TextureCubemap(DEBUG_LABEL_ARG_MANY const std::array<void*, cube
 }
 
 [[nodiscard]]
-TextureCubemap load_cubemap_from_color(DEBUG_LABEL_ARG_MANY SingleColor pixel, ColorData cd)
+TextureCubemap load_cubemap_from_color(DEBUG_LABEL_ARG_MANY core::SingleColor pixel, ColorData cd)
 {
 	return {SEND_DEBUG_LABEL_MANY(debug_label) {&pixel, &pixel, &pixel, &pixel, &pixel, &pixel}, 1, 1, cd};
 }

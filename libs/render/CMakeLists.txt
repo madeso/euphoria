@@ -68,24 +68,11 @@ target_link_libraries(render
         euph::project_warnings
 )
 
+if(EU_DEBUG_RUNNER)
+    target_link_libraries(render
+        PRIVATE
+            euph::imgui
+            external::dear_imgui
+    )
+endif()
 
-###############################################################################
-# test project
-set(test_src
-    src/eu/render/texture.test.cc
-    src/eu/render/uniform_buffer.test.cc
-)
-# set(test_main_src test/main.cc)
-source_group("" FILES ${test_src})
-cmake_source_group()
-add_executable(render_test ${test_src} ${test_main_src})
-target_precompile_headers(render_test PRIVATE src/eu/render/pch.private.h)
-set_target_properties(render_test PROPERTIES FOLDER "Tests")
-target_link_libraries(render_test
-    PRIVATE
-        euph::project_options
-        euph::project_warnings
-        euph::render
-        euph::tests
-)
-catch_discover_tests(render_test)

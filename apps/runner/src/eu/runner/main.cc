@@ -51,7 +51,7 @@ std::shared_ptr<eu::render::Texture2d> load_texture(const std::string& path, eu:
     );
 }
 
-std::shared_ptr<eu::render::Texture2d> create_texture(DEBUG_LABEL_ARG_MANY eu::render::SingleColor pixel_color, eu::render::ColorData cd)
+std::shared_ptr<eu::render::Texture2d> create_texture(DEBUG_LABEL_ARG_MANY eu::core::SingleColor pixel_color, eu::render::ColorData cd)
 {
     return std::make_shared<eu::render::Texture2d>(
         load_image_from_color(SEND_DEBUG_LABEL_MANY(debug_label) pixel_color, eu::render::TextureEdge::repeat, eu::render::TextureRenderStyle::pixel, eu::render::Transparency::exclude, cd)
@@ -139,8 +139,8 @@ int main(int, char**)
 
     eu::render::Assets assets;
 
-    assets.black = create_texture(SEND_DEBUG_LABEL_MANY("black") eu::render::color_from_rgba(0, 0, 0, 255), eu::render::ColorData::dont_care);
-    assets.white = create_texture(SEND_DEBUG_LABEL_MANY("white") eu::render::color_from_rgba(255, 255, 255, 255), eu::render::ColorData::dont_care);
+    assets.black = create_texture(SEND_DEBUG_LABEL_MANY("black") eu::core::color_from_rgba(0, 0, 0, 255), eu::render::ColorData::dont_care);
+    assets.white = create_texture(SEND_DEBUG_LABEL_MANY("white") eu::core::color_from_rgba(255, 255, 255, 255), eu::render::ColorData::dont_care);
 
     assets.default_shader_source = load_shader("default_shader");
     assets.skybox_shader_source = load_shader("skybox");

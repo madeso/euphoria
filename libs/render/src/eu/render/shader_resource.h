@@ -35,10 +35,10 @@ enum class TransformSource
 /// "Global state" for the shaders describing the state of the camera.
 struct CameraUniformBuffer
 {
-	UniformBufferSetup setup;
+    core::UniformBufferSetup setup;
 
-	CompiledUniformProp clip_from_view_uni;
-	CompiledUniformProp view_from_world_uni;
+    core::CompiledUniformProp clip_from_view_uni;
+    core::CompiledUniformProp view_from_world_uni;
 
 	std::unique_ptr<UniformBuffer> buffer;
 

@@ -1,9 +1,9 @@
-#include "eu/render/uniform_buffer.h"
+#include "eu/core/uniform_buffer.h"
 
 #include "catch2/catch_test_macros.hpp"
 
 
-using namespace eu::render;
+using namespace eu::core;
 
 TEST_CASE("uniform_buffer_test_simple", "[uniform_buffer]")
 {

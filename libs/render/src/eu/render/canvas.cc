@@ -27,7 +27,7 @@ SpriteBatch::SpriteBatch(State* the_states, ShaderProgram* quad_shader, Render2*
         load_image_from_color
         (
             SEND_DEBUG_LABEL_MANY("white_texture")
-            color_from_rgba(255, 255, 255, 255),
+            core::color_from_rgba(255, 255, 255, 255),
             TextureEdge::clamp,
             TextureRenderStyle::pixel,
             Transparency::include,

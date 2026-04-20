@@ -20,9 +20,9 @@ CameraUniformBuffer make_camera_uniform_buffer_desc()
 	CameraUniformBuffer camera_uniform_buffer;
 
 	{
-		UniformBufferCompiler compiler;
-		compiler.add(&camera_uniform_buffer.clip_from_view_uni, UniformType::mat4, "u_clip_from_view");
-		compiler.add(&camera_uniform_buffer.view_from_world_uni, UniformType::mat4, "u_view_from_world");
+        core::UniformBufferCompiler compiler;
+		compiler.add(&camera_uniform_buffer.clip_from_view_uni, core::UniformType::mat4, "u_clip_from_view");
+		compiler.add(&camera_uniform_buffer.view_from_world_uni, core::UniformType::mat4, "u_view_from_world");
 		camera_uniform_buffer.setup = compiler.compile("Camera", 0);
 	}
 

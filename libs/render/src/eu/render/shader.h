@@ -14,10 +14,13 @@ namespace eu
     struct v4;
 }
 
+namespace eu::core
+{
+    struct UniformBufferSetup;
+}
+
 namespace eu::render
 {
-
-struct UniformBufferSetup;
 
 /** RAII representation of a open gl shader program.
  */
@@ -164,7 +167,7 @@ struct ShaderProgram
 	/** Configures a uniform block binding for the shader.
      * @param setup the information about the uniform block setup
      */
-	void setup_uniform_block(const UniformBufferSetup& setup);
+	void setup_uniform_block(const core::UniformBufferSetup& setup);
 
 	unsigned int shader_program;  ///< The id of the shader program.
     core::VertexTypes debug_vertex_types;	 ///< The debug information describing the vertex layout that this shader expects.
