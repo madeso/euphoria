@@ -147,7 +147,7 @@ void extract_mesh_from_attribute(
             {
                 const auto joint_at = [&](std::size_t ii) -> std::size_t
                 {
-                    const auto found = static_cast<int>(values[index + 0] + 0.5f);
+                    const auto found = static_cast<int>(values[index + ii] + 0.5f);
                     const auto ret = static_cast<int>(std::max<std::size_t>(
                         0, find_node_index(skin->joints[found], nodes, nodeCount).value_or(0)
                     ));
