@@ -5,15 +5,9 @@
 namespace eu::render
 {
 
-// todo(Gustav): replace create_view_mat when we have test rendering
+// todo(Gustav): this bit is weird, build a matrix directly and extract the in vector from it
 
-// todo(Gustav): is this wrapper needed?
-CameraVectors create_vectors(const Camera& cam)
-{
-	return create_vectors(cam.rotation);
-}
-
-m4 create_view_from_world_mat(const v3& pos, const CameraVectors& cv)
+m4 create_view_from_world_mat(const v3&, const CameraVectors& cv)
 {
 	return m4::from(Q::look_in_direction(cv.front, kk::up)).value_or(m4_identity);
 }
@@ -24,10 +18,15 @@ CompiledCamera compile(const Camera& cam, const Size& window_size)
 	const float aspect = static_cast<float>(window_size.width) / static_cast<float>(window_size.height);
 	const auto clip_from_view = m4::create_perspective(cam.fov, aspect, cam.near, cam.far);
 
-	const auto camera_space = create_vectors(cam);
+	const auto camera_space = create_vectors(cam.rotation);
 	const auto view_from_world = create_view_from_world_mat(cam.position, camera_space);
 
-	return CompiledCamera{clip_from_view, view_from_world, cam.position, camera_space.front};
+	return CompiledCamera{
+	    .clip_from_view = clip_from_view,
+        .view_from_world = view_from_world,
+        .position = cam.position,
+        .in = camera_space.front
+	};
 }
 
 CompiledCamera compile(const OrthoCamera& cam, const Size& window_size)
@@ -42,7 +41,12 @@ CompiledCamera compile(const OrthoCamera& cam, const Size& window_size)
 	const auto camera_space = create_vectors(cam.rotation);
 	const auto view_from_world = create_view_from_world_mat(cam.position, camera_space);
 
-	return CompiledCamera{clip_from_view, view_from_world, cam.position, camera_space.front};
+	return CompiledCamera{
+	    .clip_from_view = clip_from_view,
+        .view_from_world = view_from_world,
+        .position = cam.position,
+        .in = camera_space.front
+	};
 }
 
 /** Convert from -1..1 to 0..1
