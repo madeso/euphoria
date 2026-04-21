@@ -432,7 +432,7 @@ RenderLayer2 create_layer2(const RenderCommand& rc, const ViewportDef& vp)
     return RenderLayer2{create_layer(vp), &rc.render->batch};
 }
 
-RenderLayer3 create_layer3(const RenderCommand& rc, const ViewportDef& vp)
+RenderLayer3 create_layer3(const RenderCommand&, const ViewportDef& vp)
 {
     // set_gl_viewport(vp.screen_rect);
     
