@@ -61,3 +61,6 @@ docs/generated/tidy/
 docs/generated/coverage.*
 docs/generated/*.svg
 json_summary.json
+
+
+data/dist/racer/imgui.ini

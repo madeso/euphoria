@@ -2,6 +2,11 @@
 
 #include "eu/render/texture.h"
 
+namespace eu::imgui
+{
+    struct ImguiShaderCache;
+}
+
 namespace eu::render
 {
 struct Texture2d;
@@ -9,7 +14,6 @@ struct Renderer;
 struct Camera;
 struct World;
 struct RenderWorld;
-struct ImguiShaderCache;
 
 /** \addtogroup postproc Post Processing
  * \brief A basic framework for applying post-processing effects and rendering the \ref World.
@@ -164,7 +168,7 @@ struct EffectStack
 	/// rebuilds stack if dirty, update all targets, then render the last_source
 	void render(const PostProcArg& arg);
 	void update(float dt) const;
-	void gui(ImguiShaderCache* cache);
+	void gui(imgui::ImguiShaderCache* cache);
 };
 
 /**

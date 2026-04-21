@@ -28,3 +28,10 @@ target_link_libraries(runner
         external::glad
 )
 
+if(EU_DEBUG_RUNNER)
+    target_link_libraries(runner
+        PRIVATE
+            euph::imgui
+            external::dear_imgui
+    )
+endif()

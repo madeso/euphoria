@@ -19,6 +19,9 @@ message(STATUS "Generating coverage: ${GENERATE_COVERAGE}")
 option(ENABLE_GL_DEBUG "enable opengl debug information" ON)
 message(STATUS "Open GL debug information: ${ENABLE_GL_DEBUG}")
 
+option(EU_DEBUG_RUNNER "enable runner debugging with a gui" ON)
+message(STATUS "Open Runner debug ui: ${EU_DEBUG_RUNNER}")
+
 set(DEFAULT_EU_SDL_SOURCE "FindLibrary")
 if(WIN32)
     set(DEFAULT_EU_SDL_SOURCE "FetchContent")
@@ -100,6 +103,7 @@ target_compile_features(project_options INTERFACE cxx_std_20)
 target_feature_flags(project_options INTERFACE
     ENABLE_GL_DEBUG
     BLUR_USE_GAUSS
+    EU_DEBUG_RUNNER
 )
 
 

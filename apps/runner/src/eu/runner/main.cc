@@ -23,6 +23,20 @@
 #include "eu/render/world.h"
 
 
+#if FF_HAS(EU_DEBUG_RUNNER)
+#include "eu/imgui/ui.h"
+
+#include "dear_imgui/imgui.h"
+#include "dear_imgui/backends/imgui_impl_sdl2.h"
+#include "dear_imgui/backends/imgui_impl_opengl3.h"
+
+static void imgui_color(const char* const label, eu::Rgb* color)
+{
+    ImGui::ColorEdit3(label, &color->r);
+}
+#endif
+
+
 ENABLE_HIGH_PERFORMANCE_GRAPHICS
 
 using namespace eu;
@@ -47,7 +61,7 @@ std::shared_ptr<eu::render::Texture2d> load_texture(const std::string& path, eu:
 {
     const auto bin = eu::io::bytes_from_file(path);
     return std::make_shared<eu::render::Texture2d>(
-        load_image_from_embedded(SEND_DEBUG_LABEL_MANY(path) embedded_binary{reinterpret_cast<const unsigned int*>(bin.data()), static_cast<unsigned int>(bin.size())}, texture_edge, eu::render::TextureRenderStyle::mipmap, transparency, cd)
+        load_image_from_embedded(SEND_DEBUG_LABEL_MANY(path) embedded_binary { reinterpret_cast<const unsigned int*>(bin.data()), static_cast<unsigned int>(bin.size()) }, texture_edge, eu::render::TextureRenderStyle::mipmap, transparency, cd)
     );
 }
 
@@ -104,7 +118,7 @@ int main(int, char**)
         LOG_ERR("Error creating window: {}", SDL_GetError());
         return -1;
     }
-    
+
     auto* glContext = SDL_GL_CreateContext(window);
     SDL_GetWindowSize(window, &window_width, &window_height);
     if (!glContext) {
@@ -119,6 +133,17 @@ int main(int, char**)
         LOG_ERR("Failed to init glad, error: {0}", glad_result);
         return -1;
     }
+
+#if FF_HAS(EU_DEBUG_RUNNER)
+    IMGUI_CHECKVERSION();
+    ImGui::CreateContext();
+    ImGuiIO& io = ImGui::GetIO(); (void)io;
+    ImGui::StyleColorsDark();
+    ImGui_ImplSDL2_InitForOpenGL(window, glContext);
+    ImGui_ImplOpenGL3_Init(glsl_version);
+
+    bool show_demo_window = true;
+#endif
 
     {
         const std::string gl_vendor = reinterpret_cast<const char*>(glGetString(GL_VENDOR));
@@ -150,7 +175,7 @@ int main(int, char**)
     assets.pp_extract_frag_glsl = eu::io::string_from_file("pp_extract.frag.glsl");
     assets.pp_ping_pong_blur_frag_glsl = eu::io::string_from_file("pp_ping_pong_blur.frag.glsl");
 
-    eu::render::Renderer renderer{&states, &assets, eu::render::RenderSettings{} };
+    eu::render::Renderer renderer{ &states, &assets, eu::render::RenderSettings{} };
     if (renderer.is_loaded() == false)
     {
         return -1;
@@ -158,6 +183,10 @@ int main(int, char**)
 
     eu::render::World world;
     eu::render::EffectStack effects;
+
+#if FF_HAS(EU_DEBUG_RUNNER)
+    imgui::ImguiShaderCache imgui_shader_cache;
+#endif
 
     // add demo world
     {
@@ -187,8 +216,8 @@ int main(int, char**)
         material->diffuse = load_texture("models/textures/colormap.png", eu::render::ColorData::color_data);
         material->specular = assets.white;
 
-        for (const auto& trans: mesh.meshes) {
-            for (const auto& geom: trans.geoms) {
+        for (const auto& trans : mesh.meshes) {
+            for (const auto& geom : trans.geoms) {
                 // const auto geom = eu::core::geom::create_box(1.0f, 1.0f, 1.0f, eu::core::geom::NormalsFacing::Out).to_geom();
                 auto compiled_geom = eu::render::compile_geom(
                     USE_DEBUG_LABEL_MANY("truck")
@@ -200,17 +229,21 @@ int main(int, char**)
                 world.meshes.emplace_back(instance);
                 instance->transform = eu::render::transform_from_rotation(
                     { 0.0f, -1.8f, -10.0f },
-                    {.yaw = 30.0_deg, .pitch = 30.0_deg, .roll = 30.0_deg}) * trans.transform;
+                    { .yaw = 30.0_deg, .pitch = 30.0_deg, .roll = 30.0_deg }) * trans.transform;
             }
         }
     }
-    
+
     LOG_INFO("Runner started");
     while (running)
     {
         SDL_Event e;
         while (SDL_PollEvent(&e) != 0)
         {
+#if FF_HAS(EU_DEBUG_RUNNER)
+            ImGui_ImplSDL2_ProcessEvent(&e);
+#endif
+
             switch (e.type)
             {
             case SDL_WINDOWEVENT:
@@ -226,6 +259,29 @@ int main(int, char**)
                 break;
             }
         }
+
+#if FF_HAS(EU_DEBUG_RUNNER)
+        ImGui_ImplOpenGL3_NewFrame();
+        ImGui_ImplSDL2_NewFrame();
+        ImGui::NewFrame();
+
+        if (show_demo_window)
+        {
+            ImGui::ShowDemoWindow(&show_demo_window);
+        }
+
+        if (ImGui::Begin("Renderer"))
+        {
+            imgui_color("Clear color", &world.clear_color);
+            eu::imgui::simple_gamma_slider("Gamma/Brightness", &renderer.settings.gamma, -1.0f);
+            ImGui::Checkbox("Use bloom", &renderer.settings.use_bloom);
+            ImGui::DragFloat("Bloom cutoff", &renderer.settings.bloom_cutoff, 0.001f);
+            ImGui::SliderFloat("Softness", &renderer.settings.bloom_softness, 0.0f, 1.0f);
+            ImGui::DragInt("Bloom blur steps", &renderer.settings.bloom_blur_steps);
+            effects.gui(&imgui_shader_cache);
+        }
+        ImGui::End();
+#endif
 
         eu::render::RenderCommand cmd{ .states = &states, .render = &render, .size = {.width = window_width, .height = window_height} };
 
@@ -262,11 +318,21 @@ int main(int, char**)
 
             auto layer = eu::render::with_layer2(cmd, screen);
             const float hud_size = 100.0f;
-            eu::render::Quad{ .tint = eu::colors::blue_sky }.draw(layer.batch, layer.viewport_aabb_in_worldspace.get_bottom(hud_size).get_right(hud_size).with_inset(eu::Lrtb{5.0f}));
+            eu::render::Quad{ .tint = eu::colors::blue_sky }.draw(layer.batch, layer.viewport_aabb_in_worldspace.get_bottom(hud_size).get_right(hud_size).with_inset(eu::Lrtb{ 5.0f }));
         }
 
+#if FF_HAS(EU_DEBUG_RUNNER)
+        ImGui::Render();
+        ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+#endif
         SDL_GL_SwapWindow(window);
     }
+
+#if FF_HAS(EU_DEBUG_RUNNER)
+    ImGui_ImplOpenGL3_Shutdown();
+    ImGui_ImplSDL2_Shutdown();
+    ImGui::DestroyContext();
+#endif
 
     LOG_INFO("Shutting down");
     SDL_GL_DeleteContext(glContext);

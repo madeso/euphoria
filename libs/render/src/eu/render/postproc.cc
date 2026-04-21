@@ -4,7 +4,6 @@
 
 #include "eu/log/log.h"
 
-
 #include "eu/render/opengl_utils.h"
 #include "eu/render/postproc.internal.h"
 #include "eu/render/renderer.h"
@@ -12,11 +11,13 @@
 #include "eu/render/shader_resource.h"
 #include "eu/render/shader.h"
 #include "eu/render/state.h"
-// #include "eu/render/ui.h"
 #include "eu/render/camera.h"
 #include "eu/render/shadow.h"
 
-// #include "imgui.h"
+#if FF_HAS(EU_DEBUG_RUNNER)
+#include "eu/imgui/ui.h"
+#include "dear_imgui/imgui.h"
+#endif
 
 
 namespace eu::render
@@ -253,16 +254,16 @@ void RenderWorld::render(const PostProcArg& arg)
 
 
 
-void RenderWorld::gui(ImguiShaderCache* cache)
+void RenderWorld::gui(imgui::ImguiShaderCache* cache)
 {
     // todo(Gustav): refactor
-#ifdef FX_GUI
+#if FF_HAS(EU_DEBUG_RUNNER)
 	if (bloom_render && bloom_render->bloom_buffer)
 	{
-		imgui_image("bloom buffer", *bloom_render->bloom_buffer, cache, ImageShader::TonemapAndGamma);
+        imgui::imgui_image("bloom buffer", *bloom_render->bloom_buffer, cache, imgui::ImageShader::TonemapAndGamma);
 
-		imgui_image("ping-pong A", *bloom_render->ping_pong_buffer[0], cache, ImageShader::TonemapAndGamma);
-		imgui_image("ping-pong B", *bloom_render->ping_pong_buffer[1], cache, ImageShader::TonemapAndGamma);
+        imgui::imgui_image("ping-pong A", *bloom_render->ping_pong_buffer[0], cache, imgui::ImageShader::TonemapAndGamma);
+        imgui::imgui_image("ping-pong B", *bloom_render->ping_pong_buffer[1], cache, imgui::ImageShader::TonemapAndGamma);
 	}
 #endif
 }
@@ -419,9 +420,9 @@ void EffectStack::render(const PostProcArg& arg)
 	}
 }
 
-void EffectStack::gui(ImguiShaderCache* cache)
+void EffectStack::gui(imgui::ImguiShaderCache* cache)
 {
-#ifdef FX_GUI
+#if FF_HAS(EU_DEBUG_RUNNER)
 	ImGui::Checkbox("HDR", &use_hdr);
 	ImGui::SliderFloat("Exposure", &exposure, 0.01f, 20.0f);
 
@@ -481,7 +482,7 @@ void FloatDragShaderProp::use(const PostProcArg&, ShaderProgram& shader)
 
 void FloatDragShaderProp::gui()
 {
-#ifdef FX_GUI
+#if FF_HAS(EU_DEBUG_RUNNER)
 	ImGui::DragFloat(name.c_str(), &value, speed);
 #endif
 }
@@ -509,7 +510,7 @@ void FloatSliderShaderProp::use(const PostProcArg&, ShaderProgram& shader)
 
 void FloatSliderShaderProp::gui()
 {
-#ifdef FX_GUI
+#if FF_HAS(EU_DEBUG_RUNNER)
 	ImGui::SliderFloat(name.c_str(), &value, min, max);
 #endif
 }
@@ -537,7 +538,7 @@ void SimpleEffect::add_float_slider_prop(const std::string& prop_name, float val
 
 void SimpleEffect::gui()
 {
-#ifdef FX_GUI
+#if FF_HAS(EU_DEBUG_RUNNER)
 	if (properties.empty())
 	{
 		return;
@@ -671,7 +672,7 @@ BlurEffect::BlurEffect(std::string n, std::shared_ptr<LoadedPostProcShader> v, s
 
 void BlurEffect::gui()
 {
-#ifdef FX_GUI
+#if FF_HAS(EU_DEBUG_RUNNER)
 	if (ImGui::TreeNode(name.c_str()) == false)
 	{
 		return;
