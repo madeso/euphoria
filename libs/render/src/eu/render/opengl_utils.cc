@@ -127,7 +127,7 @@ void APIENTRY on_opengl_debug_output(
 	}
 	else
 	{
-		LOG_ERRS(to_out.c_str());
+		LOG_ERRS(to_out);
 	}
 
 	if (is_important)

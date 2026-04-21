@@ -58,9 +58,9 @@ struct SpriteBatch
     std::vector<float> data;
     int quads = 0;
     const Texture2d* current_texture = nullptr;
-    u32 va;
-    u32 vb;
-    u32 ib;
+    u32 va = 0;
+    u32 vb = 0;
+    u32 ib = 0;
     Render2* render;
     Texture2d white_texture;
 

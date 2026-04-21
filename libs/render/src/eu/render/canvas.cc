@@ -308,7 +308,7 @@ fit_with_black_bars
 
 
 float
-DetermineExtendScale(float scale, float height, int window_height)
+determine_extend_scale(float scale, float height, int window_height)
 {
     const auto scaled_height = height * scale;
     const auto s = static_cast<float>(window_height) / scaled_height;
@@ -334,12 +334,12 @@ extended_viewport
     const auto r = Rect::from_size({float_from_int(window_width), float_from_int(window_height)}).with_bottom_left_at({ 0, 0 });
     if(w < h)
     {
-        const auto s = DetermineExtendScale(w, height, window_height);
+        const auto s = determine_extend_scale(w, height, window_height);
         return ViewportDef {.screen_rect = r, .virtual_width = width, .virtual_height = height * s};
     }
     else
     {
-        const auto s = DetermineExtendScale(h, width, window_width);
+        const auto s = determine_extend_scale(h, width, window_width);
         return ViewportDef {.screen_rect = r, .virtual_width = width * s, .virtual_height = height};
     }
 }

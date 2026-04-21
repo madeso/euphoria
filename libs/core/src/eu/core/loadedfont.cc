@@ -168,7 +168,7 @@ namespace eu::core
 
         for(int code_point: code_points)
         {
-            LoadedGlyph cc = f.load_glyph(code_point);
+            const LoadedGlyph cc = f.load_glyph(code_point);
             if(!cc.valid)
             {
                 LOG_INFO("Invalid codepoint {0}", code_point);
@@ -183,7 +183,7 @@ namespace eu::core
         this->descent= f.descent_in_pixels * pixels_to_units;
         this->line_gap = f.line_gap_in_pixels * pixels_to_units;
 
-        for(int cp: code_points)
+        for(const auto& cp: code_points)
         {
             f.define_codepoint(cp);
         }
