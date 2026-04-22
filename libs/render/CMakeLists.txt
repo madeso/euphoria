@@ -29,6 +29,7 @@ set(render_src
     src/eu/render/space.cc src/eu/render/space.h
     src/eu/render/state.cc src/eu/render/state.h
     src/eu/render/world.cc src/eu/render/world.h
+    src/eu/render/compiledmesh.cc src/eu/render/compiledmesh.h
 
     src/eu/render/constants.h
     src/eu/render/enable_high_performance_graphics.h

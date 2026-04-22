@@ -17,6 +17,7 @@
 #include "eu/render/opengl_utils.h"
 #include "eu/render/texture.io.h"
 #include "eu/render/camera.h"
+#include "eu/render/compiledmesh.h"
 #include "eu/render/enable_high_performance_graphics.h"
 #include "eu/render/postproc.h"
 #include "eu/render/renderer.h"
@@ -209,29 +210,21 @@ int main(int, char**)
     }
 
     // add demo mesh
+    render::CompiledMesh carmesh;
+    render::MeshInWorld car;
+    eu::v3 position = { 0.0f, -1.8f, -10.0f };
+    eu::Ypr rotation = { .yaw = 30.0_deg, .pitch = 30.0_deg, .roll = 30.0_deg };
     {
         const auto mesh = eu::io::mesh_from_file("models/vehicle-truck-purple.glb");
+        carmesh = eu::render::compile_mesh(USE_DEBUG_LABEL_MANY("truck") mesh, renderer.default_geom_layout());
+        
 
         auto material = renderer.make_default_material();
         material->diffuse = load_texture("models/textures/colormap.png", eu::render::ColorData::color_data);
         material->specular = assets.white;
 
-        for (const auto& trans : mesh.meshes) {
-            for (const auto& geom : trans.geoms) {
-                // const auto geom = eu::core::geom::create_box(1.0f, 1.0f, 1.0f, eu::core::geom::NormalsFacing::Out).to_geom();
-                auto compiled_geom = eu::render::compile_geom(
-                    USE_DEBUG_LABEL_MANY("truck")
-                    geom.geom,
-                    renderer.default_geom_layout()
-                );
-
-                auto instance = make_mesh_instance(compiled_geom, material);
-                world.meshes.emplace_back(instance);
-                instance->transform = eu::render::transform_from_rotation(
-                    { 0.0f, -1.8f, -10.0f },
-                    { .yaw = 30.0_deg, .pitch = 30.0_deg, .roll = 30.0_deg }) * trans.transform;
-            }
-        }
+        car.add_to_world(&carmesh, &world, material);
+        car.set_transform(eu::render::transform_from_rotation(position, rotation));
     }
 
     LOG_INFO("Runner started");
@@ -281,7 +274,16 @@ int main(int, char**)
             effects.gui(&imgui_shader_cache);
         }
         ImGui::End();
+
+        if (ImGui::Begin("Demo"))
+        {
+            imgui::drag("Position", &position);
+            imgui::drag("Rotation", &rotation);
+        }
+        ImGui::End();
 #endif
+
+        car.set_transform(eu::render::transform_from_rotation(position, rotation));
 
         eu::render::RenderCommand cmd{ .states = &states, .render = &render, .size = {.width = window_width, .height = window_height} };
 

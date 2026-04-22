@@ -366,6 +366,31 @@ bool simple_gamma_slider(const char* label, float* gamma, float curve, float min
 }
 
 
+bool drag(const char* const label, v3* drag)
+{
+    return ImGui::DragFloat3(label, drag->get_data_ptr());
+}
+
+bool drag(const char* const label, Ypr* drag)
+{
+    float angles[3] = {
+        drag->yaw.as_degrees(),
+        drag->pitch.as_degrees(),
+        drag->roll.as_degrees()
+    };
+
+    const auto changed = ImGui::DragFloat3(label, angles, 1.0f, -360.0f, 360.0f);
+    
+    if (changed)
+    {
+        drag->yaw = An::from_degrees(angles[0]);
+        drag->pitch = An::from_degrees(angles[1]);
+        drag->roll = An::from_degrees(angles[2]);
+    }
+
+    return changed;
+}
+
 
 }
 
