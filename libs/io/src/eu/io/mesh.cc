@@ -179,6 +179,7 @@ core::Geom create_geom_from_gltf_primitive(const cgltf_data& data, const cgltf_n
 
     cgltf_node* nodes = data.nodes;
     const auto nodeCount = data.nodes_count;
+
     const auto numAttributes = prim.attributes_count;
     for (unsigned int k = 0; k < numAttributes; ++k)
     {

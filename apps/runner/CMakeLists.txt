@@ -26,6 +26,7 @@ target_link_libraries(runner
         external::sdl2
         external::opengl
         external::glad
+        external::kdlpp
 )
 
 if(EU_DEBUG_RUNNER)

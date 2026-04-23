@@ -23,6 +23,8 @@
 #include "eu/render/renderer.h"
 #include "eu/render/world.h"
 
+#include "kdlpp.h"
+
 
 #if FF_HAS(EU_DEBUG_RUNNER)
 #include "eu/imgui/ui.h"
@@ -73,6 +75,63 @@ std::shared_ptr<eu::render::Texture2d> create_texture(DEBUG_LABEL_ARG_MANY eu::c
     );
 }
 
+struct Level
+{
+    std::unordered_map<std::string, std::unique_ptr<eu::render::CompiledMesh>> meshes;
+    std::vector<std::unique_ptr<render::MeshInWorld>> instances;
+
+    void load(const std::string& path, render::World* world, std::shared_ptr<render::DefaultMaterial> material, const core::CompiledGeomVertexAttributes& layout)
+    {
+        // todo(Gustav): this is very hacky but just something so we can play a level
+        v3 size = { 1.0f, 1.0f, 1.0f };
+
+        const auto doc = kdl::parse(eu::io::u8string_from_file(path));
+        for (const auto& node: doc)
+        {
+            if (node.name() == u8"mesh")
+            {
+                const auto key = node.args()[0].as<std::string>();
+                const auto file = node.args()[1].as<std::string>();
+
+                const auto mesh = eu::io::mesh_from_file(file);
+                auto compiled = eu::render::compile_mesh(USE_DEBUG_LABEL_MANY(file) mesh, layout);
+
+                meshes[key] = std::make_unique<eu::render::CompiledMesh>(compiled);
+            }
+            else if (node.name() == u8"cell_size")
+            {
+                const auto x = node.args()[0].as<float>();
+                const auto y = node.args()[1].as<float>();
+                const auto z = node.args()[2].as<float>();
+                size = {x, y, z};
+            }
+            else if (node.name() == u8"item")
+            {
+                const auto x = node.args()[0].as<float>();
+                const auto y = node.args()[1].as<float>();
+                const auto z = node.args()[2].as<float>();
+                const v3 pos = { x*size.x, y*size.y, z*size.z };
+                const auto item = node.properties().at(u8"item").as<std::string>();
+                const auto found = meshes.find(item);
+                if (found != meshes.end())
+                {
+                    render::MeshInWorld car;
+                    car.add_to_world(found->second.get(), world, material);
+                    car.set_transform(eu::render::transform_from_rotation(pos, Ypr{0_deg, 0_deg, 0_deg}));
+                }
+                else
+                {
+                    LOG_WARN("Mesh '{}' not found for item in level file", item);
+                }
+            }
+            else
+            {
+                // todo(Gustav): add better printing with node name
+                LOG_WARN("Unknown node in level file");
+            }
+        }
+    }
+};
 
 
 int main(int, char**)
@@ -217,7 +276,6 @@ int main(int, char**)
     {
         const auto mesh = eu::io::mesh_from_file("models/vehicle-truck-purple.glb");
         carmesh = eu::render::compile_mesh(USE_DEBUG_LABEL_MANY("truck") mesh, renderer.default_geom_layout());
-        
 
         auto material = renderer.make_default_material();
         material->diffuse = load_texture("models/textures/colormap.png", eu::render::ColorData::color_data);
@@ -225,6 +283,9 @@ int main(int, char**)
 
         car.add_to_world(&carmesh, &world, material);
         car.set_transform(eu::render::transform_from_rotation(position, rotation));
+
+        Level level;
+        level.load("level.kdl", &world, material, renderer.default_geom_layout());
     }
 
     LOG_INFO("Runner started");
