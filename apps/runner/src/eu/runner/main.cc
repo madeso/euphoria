@@ -23,7 +23,7 @@
 #include "eu/render/renderer.h"
 #include "eu/render/world.h"
 
-#include "kdlpp.h"
+#include "eu/kdl/kdl.h"
 
 
 #if FF_HAS(EU_DEBUG_RUNNER)

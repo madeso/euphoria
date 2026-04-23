@@ -1,19 +1,4 @@
-#ifndef KDLPP_H_
-#define KDLPP_H_
-
-#if defined(_WIN32)
-#    if defined(KDLPP_STATIC_LIB)
-#        define KDLPP_EXPORT
-#    elif defined(BUILDING_KDLPP)
-#        define KDLPP_EXPORT __declspec(dllexport)
-#    else
-#        define KDLPP_EXPORT __declspec(dllimport)
-#    endif
-#elif defined(__GNUC__) && __GNUC__ >= 4
-#    define KDLPP_EXPORT __attribute__((visibility("default")))
-#else
-#    define KDLPP_EXPORT
-#endif
+#pragma once
 
 #include <functional>
 #include <map>
@@ -31,7 +16,7 @@ typedef struct kdl_number kdl_number;
 typedef struct kdl_value kdl_value;
 typedef struct _kdl_parser kdl_parser;
 
-namespace kdl {
+namespace eu::kdl {
 
 enum class KdlVersion {
     Kdl_1,
@@ -51,7 +36,7 @@ public:
 };
 
 // Exception thrown on regular KDL parsing errors
-class KDLPP_EXPORT ParseError : public std::exception {
+class ParseError : public std::exception {
     std::string m_msg;
 
 public:
@@ -79,7 +64,7 @@ enum NumberRepresentation {
 
 // A KDL number: could be a long long, a double, or a string
 // Analogous to kdl_number
-class KDLPP_EXPORT Number {
+class Number {
     std::variant<long long, double, std::u8string> m_value;
 
 public:
@@ -159,7 +144,7 @@ enum class Type {
 
 // A KDL value, possibly including a type annotation
 // Analogous to kdl_value
-class KDLPP_EXPORT Value : public HasTypeAnnotation {
+class Value : public HasTypeAnnotation {
     std::variant<std::monostate, bool, Number, std::u8string> m_value;
 
 public:
@@ -328,7 +313,7 @@ public:
 };
 
 // A KDL document - consisting of several nodes.
-class KDLPP_EXPORT Document {
+class Document {
     std::vector<Node> m_nodes;
 
 public:
@@ -356,9 +341,7 @@ public:
 };
 
 // Load a KDL document from string
-KDLPP_EXPORT Document parse(std::u8string_view kdl_text);
-KDLPP_EXPORT Document parse(std::u8string_view kdl_text, KdlVersion version);
+Document parse(std::u8string_view kdl_text);
+Document parse(std::u8string_view kdl_text, KdlVersion version);
 
 } // namespace kdl
-
-#endif // KDLPP_H_

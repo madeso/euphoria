@@ -1,7 +1,8 @@
-#include <kdl/kdl.h>
-#include <kdlpp.h>
+#include "eu/kdl/kdl.h"
 
-namespace kdl {
+#include <kdl/kdl.h>
+
+namespace eu::kdl {
 
 // internal helper functions
 namespace {
