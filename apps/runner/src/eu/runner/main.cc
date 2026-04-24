@@ -83,6 +83,7 @@ struct Level
     void load(const std::string& path, render::World* world, std::shared_ptr<render::DefaultMaterial> material, const core::CompiledGeomVertexAttributes& layout)
     {
         // todo(Gustav): this is very hacky but just something so we can play a level
+        v3 offset = { 0.0f, 0.0f, 0.0f };
         v3 size = { 1.0f, 1.0f, 1.0f };
 
         const auto doc = kdl::parse(eu::io::string_from_file(path));
@@ -97,6 +98,13 @@ struct Level
                 auto compiled = eu::render::compile_mesh(USE_DEBUG_LABEL_MANY(file) mesh, layout);
 
                 meshes[key] = std::make_unique<eu::render::CompiledMesh>(compiled);
+            }
+            else if (node.name() == "offset")
+            {
+                const auto x = node.args()[0].as_number().as<float>();
+                const auto y = node.args()[1].as_number().as<float>();
+                const auto z = node.args()[2].as_number().as<float>();
+                offset = { x, y, z };
             }
             else if (node.name() == "cell_size")
             {
@@ -117,7 +125,7 @@ struct Level
                 {
                     render::MeshInWorld car;
                     car.add_to_world(found->second.get(), world, material);
-                    car.set_transform(eu::render::transform_from_rotation(pos, Ypr{0_deg, 0_deg, 0_deg}));
+                    car.set_transform(eu::render::transform_from_rotation(offset + pos, Ypr{0_deg, 0_deg, 0_deg}));
                 }
                 else
                 {
