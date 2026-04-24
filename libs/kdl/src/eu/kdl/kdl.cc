@@ -6,17 +6,17 @@ namespace eu::kdl {
 
 // internal helper functions
 namespace {
-    std::u8string_view to_u8string_view(kdl_str const& s)
+    std::string_view to_u8string_view(kdl_str const& s)
     {
-        return std::u8string_view{reinterpret_cast<char8_t const*>(s.data), s.len};
+        return std::string_view{reinterpret_cast<char const*>(s.data), s.len};
     }
 
-    kdl_str to_kdl_str(std::u8string_view s)
+    kdl_str to_kdl_str(std::string_view s)
     {
         return kdl_str{reinterpret_cast<char const*>(s.data()), s.size()};
     }
 
-    std::variant<long long, double, std::u8string> kdl_number_to_variant(kdl_number const& n)
+    std::variant<long long, double, std::string> kdl_number_to_variant(kdl_number const& n)
     {
         switch (n.type) {
         case KDL_NUMBER_TYPE_INTEGER:
@@ -24,13 +24,13 @@ namespace {
         case KDL_NUMBER_TYPE_FLOATING_POINT:
             return n.floating_point;
         case KDL_NUMBER_TYPE_STRING_ENCODED:
-            return std::u8string{to_u8string_view(n.string)};
+            return std::string{to_u8string_view(n.string)};
         default:
             throw std::logic_error("invalid kdl_number");
         }
     }
 
-    std::variant<std::monostate, bool, Number, std::u8string> kdl_value_to_variant(kdl_value const& val)
+    std::variant<std::monostate, bool, Number, std::string> kdl_value_to_variant(kdl_value const& val)
     {
         switch (val.type) {
         case KDL_TYPE_NULL:
@@ -40,7 +40,7 @@ namespace {
         case KDL_TYPE_NUMBER:
             return Number{val.number};
         case KDL_TYPE_STRING:
-            return std::u8string{to_u8string_view(val.string)};
+            return std::string{to_u8string_view(val.string)};
         default:
             throw std::logic_error("invalid kdl_value");
         }
@@ -93,7 +93,7 @@ Number::operator kdl_number() const
             } else if constexpr (std::is_same_v<T, double>) {
                 result.type = KDL_NUMBER_TYPE_FLOATING_POINT;
                 result.floating_point = n;
-            } else if constexpr (std::is_same_v<T, std::u8string>) {
+            } else if constexpr (std::is_same_v<T, std::string>) {
                 result.type = KDL_NUMBER_TYPE_STRING_ENCODED;
                 result.string = to_kdl_str(n);
             } else {
@@ -111,9 +111,9 @@ Value::Value(kdl_value const& val) : m_value(kdl_value_to_variant(val))
     }
 }
 
-Value Value::from_string(std::u8string_view s)
+Value Value::from_string(std::string_view s)
 {
-    std::u8string doc_text = u8"- ";
+    std::string doc_text = "- ";
     doc_text.append(s);
     auto doc = parse(doc_text);
     if (doc.nodes().size() == 1) {
@@ -137,7 +137,7 @@ Value::operator kdl_value() const
             } else if constexpr (std::is_same_v<T, Number>) {
                 result.type = KDL_TYPE_NUMBER;
                 result.number = (kdl_number)v;
-            } else if constexpr (std::is_same_v<T, std::u8string>) {
+            } else if constexpr (std::is_same_v<T, std::string>) {
                 result.type = KDL_TYPE_STRING;
                 result.string = to_kdl_str(v);
             } else {
@@ -194,7 +194,7 @@ Document Document::read_from(kdl_parser* parser)
             current_node->args().emplace_back(Value{ev->value});
             break;
         case KDL_EVENT_PROPERTY:
-            current_node->properties()[std::u8string{to_u8string_view(ev->name)}] = Value{ev->value};
+            current_node->properties()[std::string{to_u8string_view(ev->name)}] = Value{ev->value};
             break;
         default:
             throw std::logic_error("Invalid event from kdl_parser");
@@ -202,9 +202,9 @@ Document Document::read_from(kdl_parser* parser)
     }
 }
 
-std::u8string Document::to_string() const { return to_string(KdlVersion::Kdl_1); }
+std::string Document::to_string() const { return to_string(KdlVersion::Kdl_1); }
 
-std::u8string Document::to_string(KdlVersion version) const
+std::string Document::to_string(KdlVersion version) const
 {
     kdl_emitter_options opts = KDL_DEFAULT_EMITTER_OPTIONS;
 
@@ -214,14 +214,14 @@ std::u8string Document::to_string(KdlVersion version) const
     kdl_emitter* emitter = kdl_create_buffering_emitter(&opts);
     if (emitter == nullptr) throw EmitterError{"Error initializing the KDL emitter"};
     emit_nodes(emitter, m_nodes);
-    auto result = std::u8string{to_u8string_view(kdl_get_emitter_buffer(emitter))};
+    auto result = std::string{to_u8string_view(kdl_get_emitter_buffer(emitter))};
     kdl_destroy_emitter(emitter);
     return result;
 }
 
-Document parse(std::u8string_view kdl_text) { return parse(kdl_text, KdlVersion::Any); }
+Document parse(std::string_view kdl_text) { return parse(kdl_text, KdlVersion::Any); }
 
-Document parse(std::u8string_view kdl_text, KdlVersion version)
+Document parse(std::string_view kdl_text, KdlVersion version)
 {
     kdl_parse_option opts = KDL_DEFAULTS;
     if (version == KdlVersion::Kdl_1) opts = KDL_READ_VERSION_1;

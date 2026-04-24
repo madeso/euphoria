@@ -85,10 +85,10 @@ struct Level
         // todo(Gustav): this is very hacky but just something so we can play a level
         v3 size = { 1.0f, 1.0f, 1.0f };
 
-        const auto doc = kdl::parse(eu::io::u8string_from_file(path));
+        const auto doc = kdl::parse(eu::io::string_from_file(path));
         for (const auto& node: doc)
         {
-            if (node.name() == u8"mesh")
+            if (node.name() == "mesh")
             {
                 const auto key = node.args()[0].as<std::string>();
                 const auto file = node.args()[1].as<std::string>();
@@ -98,20 +98,20 @@ struct Level
 
                 meshes[key] = std::make_unique<eu::render::CompiledMesh>(compiled);
             }
-            else if (node.name() == u8"cell_size")
+            else if (node.name() == "cell_size")
             {
                 const auto x = node.args()[0].as<float>();
                 const auto y = node.args()[1].as<float>();
                 const auto z = node.args()[2].as<float>();
                 size = {x, y, z};
             }
-            else if (node.name() == u8"item")
+            else if (node.name() == "item")
             {
                 const auto x = node.args()[0].as<float>();
                 const auto y = node.args()[1].as<float>();
                 const auto z = node.args()[2].as<float>();
                 const v3 pos = { x*size.x, y*size.y, z*size.z };
-                const auto item = node.properties().at(u8"item").as<std::string>();
+                const auto item = node.properties().at("item").as<std::string>();
                 const auto found = meshes.find(item);
                 if (found != meshes.end())
                 {
@@ -126,8 +126,7 @@ struct Level
             }
             else
             {
-                // todo(Gustav): add better printing with node name
-                LOG_WARN("Unknown node in level file");
+                LOG_WARN("Unknown node in level file: '{}'", node.name());
             }
         }
     }

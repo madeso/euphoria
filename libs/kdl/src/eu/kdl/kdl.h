@@ -65,7 +65,7 @@ enum NumberRepresentation {
 // A KDL number: could be a long long, a double, or a string
 // Analogous to kdl_number
 class Number {
-    std::variant<long long, double, std::u8string> m_value;
+    std::variant<long long, double, std::string> m_value;
 
 public:
     Number() : m_value{0ll} {}
@@ -114,18 +114,18 @@ template <typename T> concept _into_number = requires(T t) { Number{t}; };
 
 // Mixin
 class HasTypeAnnotation {
-    std::optional<std::u8string> m_type_annotation;
+    std::optional<std::string> m_type_annotation;
 
 protected:
     HasTypeAnnotation() = default;
-    HasTypeAnnotation(std::u8string_view t) : m_type_annotation{t} {}
+    HasTypeAnnotation(std::string_view t) : m_type_annotation{t} {}
 
 public:
-    const std::optional<std::u8string>& type_annotation() const { return m_type_annotation; }
+    const std::optional<std::string>& type_annotation() const { return m_type_annotation; }
 
-    void set_type_annotation(std::u8string_view type_annotation)
+    void set_type_annotation(std::string_view type_annotation)
     {
-        m_type_annotation = std::u8string{type_annotation};
+        m_type_annotation = std::string{type_annotation};
     }
 
     void remove_type_annotation() { m_type_annotation.reset(); }
@@ -145,42 +145,42 @@ enum class Type {
 // A KDL value, possibly including a type annotation
 // Analogous to kdl_value
 class Value : public HasTypeAnnotation {
-    std::variant<std::monostate, bool, Number, std::u8string> m_value;
+    std::variant<std::monostate, bool, Number, std::string> m_value;
 
 public:
     Value() = default;
     Value(bool b) : m_value{b} {}
-    Value(std::u8string_view s) : m_value{std::u8string{s}} {}
-    Value(std::u8string s) : m_value{std::move(s)} {}
-    Value(char8_t const* s) : m_value{std::u8string{s}} {}
+    Value(std::string_view s) : m_value{std::string{s}} {}
+    Value(std::string s) : m_value{std::move(s)} {}
+    Value(char const* s) : m_value{std::string{s}} {}
 
     Value(Number n) : m_value{std::move(n)} {}
     Value(_into_number auto n) : m_value{Number{n}} {}
 
-    Value(std::u8string_view type_annotation, bool b) : HasTypeAnnotation{type_annotation}, m_value{b} {}
-    Value(std::u8string_view type_annotation, std::u8string_view s)
+    Value(std::string_view type_annotation, bool b) : HasTypeAnnotation{type_annotation}, m_value{b} {}
+    Value(std::string_view type_annotation, std::string_view s)
         : HasTypeAnnotation{type_annotation},
-          m_value{std::u8string{s}}
+          m_value{std::string{s}}
     {
     }
-    Value(std::u8string_view type_annotation, std::u8string s)
+    Value(std::string_view type_annotation, std::string s)
         : HasTypeAnnotation{type_annotation},
           m_value{std::move(s)}
     {
     }
-    Value(std::u8string_view type_annotation, Number n)
+    Value(std::string_view type_annotation, Number n)
         : HasTypeAnnotation{type_annotation},
           m_value{std::move(n)}
     {
     }
-    Value(std::u8string_view type_annotation, _into_number auto n)
+    Value(std::string_view type_annotation, _into_number auto n)
         : HasTypeAnnotation{type_annotation},
           m_value{std::move(n)}
     {
     }
 
     Value(kdl_value const& val);
-    [[nodiscard]] static Value from_string(std::u8string_view s);
+    [[nodiscard]] static Value from_string(std::string_view s);
 
     Value(Value const&) = default;
     Value(Value&&) = default;
@@ -193,13 +193,13 @@ public:
         return *this;
     }
 
-    Value& operator=(std::u8string_view s)
+    Value& operator=(std::string_view s)
     {
-        m_value = std::u8string{s};
+        m_value = std::string{s};
         return *this;
     }
 
-    Value& operator=(std::u8string s)
+    Value& operator=(std::string s)
     {
         m_value = std::move(s);
         return *this;
@@ -230,7 +230,7 @@ public:
 
     Type type() const noexcept { return static_cast<Type>(m_value.index()); }
 
-    // Return the content as a fundamental type, u8string, or u8string_view,
+    // Return the content as a fundamental type, string, or string_view,
     // if this object contains the right type.
     template <typename T>
     T as() const
@@ -244,8 +244,8 @@ public:
                     return v;
                 } else if constexpr (std::is_arithmetic_v<T> && std::is_same_v<V, Number>) {
                     return v.template as<T>();
-                } else if constexpr (std::is_same_v<T, std::u8string_view>
-                    && std::is_same_v<V, std::u8string>) {
+                } else if constexpr (std::is_same_v<T, std::string_view>
+                    && std::is_same_v<V, std::string>) {
                     return T{v};
                 } else {
                     throw TypeError("incompatible types");
@@ -259,25 +259,25 @@ public:
 
 // A node with all its contents
 class Node : public HasTypeAnnotation {
-    std::optional<std::u8string> m_type_annotation;
-    std::u8string m_name;
+    std::optional<std::string> m_type_annotation;
+    std::string m_name;
     std::vector<Value> m_args;
-    std::map<std::u8string, Value, std::less<>> m_properties;
+    std::map<std::string, Value, std::less<>> m_properties;
     std::vector<Node> m_children;
 
 public:
     Node() = default;
     Node(Node const&) = default;
     Node(Node&&) = default;
-    Node(std::u8string_view name) : m_name{name} {}
-    Node(std::u8string_view type_annotation, std::u8string_view name)
+    Node(std::string_view name) : m_name{name} {}
+    Node(std::string_view type_annotation, std::string_view name)
         : HasTypeAnnotation{type_annotation},
           m_name{name}
     {
     }
-    Node(std::u8string_view name,
+    Node(std::string_view name,
         std::vector<Value> args,
-        std::map<std::u8string, Value, std::less<>> properties,
+        std::map<std::string, Value, std::less<>> properties,
         std::vector<Node> children)
         : m_name{name},
           m_args{std::move(args)},
@@ -285,10 +285,10 @@ public:
           m_children{std::move(children)}
     {
     }
-    Node(std::u8string_view type_annotation,
-        std::u8string_view name,
+    Node(std::string_view type_annotation,
+        std::string_view name,
         std::vector<Value> args,
-        std::map<std::u8string, Value, std::less<>> properties,
+        std::map<std::string, Value, std::less<>> properties,
         std::vector<Node> children)
         : HasTypeAnnotation{type_annotation},
           m_name{name},
@@ -301,13 +301,13 @@ public:
     Node& operator=(Node const&) = default;
     Node& operator=(Node&&) = default;
 
-    std::u8string const& name() const { return m_name; }
-    void set_name(std::u8string_view name) { m_name = std::u8string{name}; }
+    std::string const& name() const { return m_name; }
+    void set_name(std::string_view name) { m_name = std::string{name}; }
 
     const std::vector<Value>& args() const { return m_args; }
     std::vector<Value>& args() { return m_args; }
-    const std::map<std::u8string, Value, std::less<>>& properties() const { return m_properties; }
-    std::map<std::u8string, Value, std::less<>>& properties() { return m_properties; }
+    const std::map<std::string, Value, std::less<>>& properties() const { return m_properties; }
+    std::map<std::string, Value, std::less<>>& properties() { return m_properties; }
     const std::vector<Node>& children() const { return m_children; }
     std::vector<Node>& children() { return m_children; }
 };
@@ -336,12 +336,12 @@ public:
     auto end() const { return m_nodes.end(); }
     auto end() { return m_nodes.end(); }
 
-    std::u8string to_string() const;
-    std::u8string to_string(KdlVersion version) const;
+    std::string to_string() const;
+    std::string to_string(KdlVersion version) const;
 };
 
 // Load a KDL document from string
-Document parse(std::u8string_view kdl_text);
-Document parse(std::u8string_view kdl_text, KdlVersion version);
+Document parse(std::string_view kdl_text);
+Document parse(std::string_view kdl_text, KdlVersion version);
 
 } // namespace kdl

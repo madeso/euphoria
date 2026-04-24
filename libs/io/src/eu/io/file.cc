@@ -31,11 +31,6 @@ std::basic_string<TChar> tstring_from_file(const std::string& path, std::basic_s
     return tstring_from_stream<TChar>(handle);
 }
 
-std::u8string u8string_from_file(const std::string& path)
-{
-    return tstring_from_file<char8_t>(path, u8"");
-}
-
 std::string string_from_file(const std::string& path)
 {
     return tstring_from_file<char>(path, "");
