@@ -90,8 +90,8 @@ struct Level
         {
             if (node.name() == "mesh")
             {
-                const auto key = node.args()[0].as<std::string>();
-                const auto file = node.args()[1].as<std::string>();
+                const auto key = node.args()[0].as_string();
+                const auto file = node.args()[1].as_string();
 
                 const auto mesh = eu::io::mesh_from_file(file);
                 auto compiled = eu::render::compile_mesh(USE_DEBUG_LABEL_MANY(file) mesh, layout);
@@ -100,18 +100,18 @@ struct Level
             }
             else if (node.name() == "cell_size")
             {
-                const auto x = node.args()[0].as<float>();
-                const auto y = node.args()[1].as<float>();
-                const auto z = node.args()[2].as<float>();
+                const auto x = node.args()[0].as_number().as<float>();
+                const auto y = node.args()[1].as_number().as<float>();
+                const auto z = node.args()[2].as_number().as<float>();
                 size = {x, y, z};
             }
             else if (node.name() == "item")
             {
-                const auto x = node.args()[0].as<float>();
-                const auto y = node.args()[1].as<float>();
-                const auto z = node.args()[2].as<float>();
+                const auto x = node.args()[0].as_number().as<float>();
+                const auto y = node.args()[1].as_number().as<float>();
+                const auto z = node.args()[2].as_number().as<float>();
                 const v3 pos = { x*size.x, y*size.y, z*size.z };
-                const auto item = node.properties().at("item").as<std::string>();
+                const auto item = node.properties().at("item").as_string();
                 const auto found = meshes.find(item);
                 if (found != meshes.end())
                 {

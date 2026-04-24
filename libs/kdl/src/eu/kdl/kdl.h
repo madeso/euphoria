@@ -230,28 +230,36 @@ public:
 
     Type type() const noexcept { return static_cast<Type>(m_value.index()); }
 
-    // Return the content as a fundamental type, string, or string_view,
-    // if this object contains the right type.
-    template <typename T>
-    T as() const
+    const Number& as_number() const
     {
-        return std::visit(
-            [](auto const& v) -> T {
-                using V = std::decay_t<decltype(v)>;
-                if constexpr (std::is_same_v<V, T>) {
-                    return v;
-                } else if constexpr (std::is_same_v<V const&, T>) {
-                    return v;
-                } else if constexpr (std::is_arithmetic_v<T> && std::is_same_v<V, Number>) {
-                    return v.template as<T>();
-                } else if constexpr (std::is_same_v<T, std::string_view>
-                    && std::is_same_v<V, std::string>) {
-                    return T{v};
-                } else {
-                    throw TypeError("incompatible types");
-                }
-            },
-            m_value);
+        if (std::holds_alternative<Number>(m_value)) {
+            return std::get<Number>(m_value);
+        } else {
+            throw TypeError{"Value is not a number"};
+        }
+    }
+
+    const std::string& as_string() const
+    {
+        if (std::holds_alternative<std::string>(m_value)) {
+            return std::get<std::string>(m_value);
+        } else {
+            throw TypeError{"Value is not a string"};
+        }
+    }
+
+    bool as_bool() const
+    {
+        if (std::holds_alternative<bool>(m_value)) {
+            return std::get<bool>(m_value);
+        } else {
+            throw TypeError{"Value is not a boolean"};
+        }
+    }
+
+    bool is_null() const
+    {
+        return std::holds_alternative<std::monostate>(m_value);
     }
 
     explicit operator kdl_value() const;
