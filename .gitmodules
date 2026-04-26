@@ -23,3 +23,6 @@
 [submodule "external/embed"]
 	path = external/embed
 	url = git@github.com:madeso/embed.git
+[submodule "external/lax"]
+	path = external/lax
+	url = git@github.com:madeso/lax.git
