@@ -26,6 +26,16 @@ add_subdirectory(embed)
 
 
 ###################################################################################################
+## lax
+add_subdirectory(lax)
+set_target_properties(lax PROPERTIES FOLDER "Dependencies/lax")
+set_target_properties(liblax PROPERTIES FOLDER "Dependencies/lax")
+set_target_properties(generate_ast PROPERTIES FOLDER "Dependencies/lax")
+
+
+
+
+###################################################################################################
 ## kdl
 add_subdirectory(kdl)
 

@@ -25,6 +25,9 @@
 
 #include "eu/kdl/kdl.h"
 
+#include "lax/lax.h"
+#include "lax/printhandler.h"
+
 
 #if FF_HAS(EU_DEBUG_RUNNER)
 #include "eu/imgui/ui.h"
@@ -140,6 +143,14 @@ struct Level
     }
 };
 
+struct PrintLaxError : lax::PrintHandler
+{
+    void on_line(std::string_view line) override
+    {
+        LOG_ERR("> {0}", line);
+    }
+};
+
 
 int main(int, char**)
 {
@@ -227,8 +238,6 @@ int main(int, char**)
     eu::render::State states;
     eu::render::Render2 render{ &states };
 
-    bool running = true;
-
     eu::render::Assets assets;
 
     assets.black = create_texture(SEND_DEBUG_LABEL_MANY("black") eu::core::color_from_rgba(0, 0, 0, 255), eu::render::ColorData::dont_care);
@@ -245,6 +254,14 @@ int main(int, char**)
     eu::render::Renderer renderer{ &states, &assets, eu::render::RenderSettings{} };
     if (renderer.is_loaded() == false)
     {
+        return -1;
+    }
+
+    lax::Lax lax(std::make_unique<PrintLaxError>(), [](const std::string& str) { LOG_INFO("> {0}", str); });
+
+    if (false == lax.run_string(io::string_from_file("main.lax")))
+    {
+        LOG_ERR("Failed to run lax code");
         return -1;
     }
 
@@ -296,6 +313,7 @@ int main(int, char**)
     }
 
     LOG_INFO("Runner started");
+    bool running = true;
     while (running)
     {
         SDL_Event e;
