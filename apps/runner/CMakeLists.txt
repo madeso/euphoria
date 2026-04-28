@@ -2,6 +2,7 @@
 # runner project
 set(src
     src/eu/runner/main.cc
+    src/eu/runner/script.cc src/eu/runner/script.h
     src/eu/runner/pch.private.h
 )
 source_group("" FILES ${src})

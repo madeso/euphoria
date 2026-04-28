@@ -23,10 +23,9 @@
 #include "eu/render/renderer.h"
 #include "eu/render/world.h"
 
-#include "eu/kdl/kdl.h"
+#include "eu/runner/script.h"
 
-#include "lax/lax.h"
-#include "lax/printhandler.h"
+#include "eu/kdl/kdl.h"
 
 
 #if FF_HAS(EU_DEBUG_RUNNER)
@@ -143,14 +142,6 @@ struct Level
     }
 };
 
-struct PrintLaxError : lax::PrintHandler
-{
-    void on_line(std::string_view line) override
-    {
-        LOG_ERR("> {0}", line);
-    }
-};
-
 
 int main(int, char**)
 {
@@ -257,11 +248,10 @@ int main(int, char**)
         return -1;
     }
 
-    lax::Lax lax(std::make_unique<PrintLaxError>(), [](const std::string& str) { LOG_INFO("> {0}", str); });
+    eu::runner::Script script;
 
-    if (false == lax.run_string(io::string_from_file("main.lax")))
+    if (false == script.run_file("main.lax"))
     {
-        LOG_ERR("Failed to run lax code");
         return -1;
     }
 
