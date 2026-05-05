@@ -24,6 +24,7 @@
 #include "eu/render/world.h"
 
 #include "eu/runner/script.h"
+#include "eu/runner/input.h"
 
 #include "eu/kdl/kdl.h"
 
@@ -248,8 +249,13 @@ int main(int, char**)
         return -1;
     }
 
-    eu::runner::Script script;
+    eu::runner::Input input;
+    if (false == input.load_from_file("input.kdl"))
+    {
+        return -1;
+    }
 
+    eu::runner::Script script;
     if (false == script.run_file("main.lax"))
     {
         return -1;
@@ -307,6 +313,8 @@ int main(int, char**)
     while (running)
     {
         SDL_Event e;
+
+        input.update();
         while (SDL_PollEvent(&e) != 0)
         {
 #if FF_HAS(EU_DEBUG_RUNNER)
@@ -315,6 +323,10 @@ int main(int, char**)
 
             switch (e.type)
             {
+            case SDL_KEYDOWN:
+            case SDL_KEYUP:
+                input.on_key(e.key.keysym.sym, e.type == SDL_KEYDOWN);
+                break;
             case SDL_WINDOWEVENT:
                 if (e.window.event == SDL_WINDOWEVENT_RESIZED || e.window.event == SDL_WINDOWEVENT_SIZE_CHANGED)
                 {

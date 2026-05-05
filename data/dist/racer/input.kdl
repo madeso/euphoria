@@ -1,0 +1,9 @@
+action turn_left
+action turn_right
+action accelerate
+action brake
+
+key turn_left a
+key turn_right d
+key accelerate w
+key brake s
