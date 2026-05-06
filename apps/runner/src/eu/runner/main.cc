@@ -144,6 +144,25 @@ struct Level
 };
 
 
+struct Time
+{
+    Uint64 now = SDL_GetPerformanceCounter();
+    Uint64 last = 0;
+    
+
+    float calculate()
+    {
+        last = now;
+        now = SDL_GetPerformanceCounter();
+
+        const auto diff = static_cast<float>(now - last);
+        const auto pfc = static_cast<float>(SDL_GetPerformanceFrequency());
+        return diff / pfc;
+    }
+
+};
+
+
 int main(int, char**)
 {
     int window_width = 1280;
@@ -310,8 +329,11 @@ int main(int, char**)
 
     LOG_INFO("Runner started");
     bool running = true;
+    Time time;
+    eu::render::Camera camera;
     while (running)
     {
+        const auto dt = time.calculate();
         SDL_Event e;
 
         input.update();
@@ -339,6 +361,11 @@ int main(int, char**)
                 // ignore other events
                 break;
             }
+        }
+
+        if (input.get_current_frame().binds[0].current > 0.5f)
+        {
+            position += kk::in * dt;
         }
 
 #if FF_HAS(EU_DEBUG_RUNNER)
@@ -390,8 +417,8 @@ int main(int, char**)
                                     .requested_width = 800, .requested_height = 600 };
             cmd.clear(eu::colors::blue_sky, screen);
             auto layer = eu::render::with_layer3(cmd, screen);
-            eu::render::Camera camera;
-            camera.position = { 0.0f, 0.0f, 0.0f };
+            camera.position = position + kk::out * 3;
+            effects.update(dt);
             effects.render(eu::render::PostProcArg{
                 .world = &world,
                 .window_size = size_from_v2(layer.screen.get_size()),

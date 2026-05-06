@@ -5,11 +5,13 @@
 namespace eu::render
 {
 
-// todo(Gustav): this bit is weird, build a matrix directly and extract the in vector from it
+// todo(Gustav): this bit is weird, build a matrix directly and extract the in vector from it is probably better
 
-m4 create_view_from_world_mat(const v3&, const CameraVectors& cv)
+m4 create_view_from_world_mat(const v3& pos, const CameraVectors& cv)
 {
-	return m4::from(Q::look_in_direction(cv.front, kk::up)).value_or(m4_identity);
+    const auto trans = m4::from_translation(-pos);
+    const auto rot = m4::from(Q::look_in_direction(cv.front, kk::up)).value_or(m4_identity);
+	return trans * rot;
 }
 
 CompiledCamera compile(const Camera& cam, const Size& window_size)
