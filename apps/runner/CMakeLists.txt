@@ -2,6 +2,7 @@
 # runner project
 set(src
     src/eu/runner/main.cc
+    src/eu/runner/entity.cc src/eu/runner/entity.h
     src/eu/runner/input.cc src/eu/runner/input.h
     src/eu/runner/script.cc src/eu/runner/script.h
     src/eu/runner/script.base.cc src/eu/runner/script.base.h
