@@ -223,28 +223,46 @@ int main(int, char**)
         return -1;
     }
 
+    {
+        if (GLAD_GL_VERSION_1_0) {
+            const std::string gl_vendor = reinterpret_cast<const char*>(glGetString(GL_VENDOR));
+            const std::string gl_renderer = reinterpret_cast<const char*>(glGetString(GL_RENDERER));
+            const std::string gl_version = reinterpret_cast<const char*>(glGetString(GL_VERSION));
+            LOG_INFO("OpenGL Vendor:   {0}", gl_vendor);
+            LOG_INFO("OpenGL Renderer: {0}", gl_renderer);
+            LOG_INFO("OpenGL Version:  {0}", gl_version);
+        }
+
+        if (GLAD_GL_VERSION_2_0) {
+            const std::string gl_shading_language_version = reinterpret_cast<const char*>(glGetString(GL_SHADING_LANGUAGE_VERSION));
+            LOG_INFO("Version GLSL:   {0}", gl_shading_language_version);
+        }
+    }
+
+    if (!GLAD_GL_VERSION_4_3)
+    {
+        LOG_ERR("OpenGL 4.3 not supported ({0}.{1} detected), aborting...", GLVersion.major, GLVersion.minor);
+        return -1;
+    }
+
 #if FF_HAS(EU_DEBUG_RUNNER)
     IMGUI_CHECKVERSION();
     ImGui::CreateContext();
     ImGuiIO& io = ImGui::GetIO(); (void)io;
     ImGui::StyleColorsDark();
-    ImGui_ImplSDL2_InitForOpenGL(window, glContext);
-    ImGui_ImplOpenGL3_Init(glsl_version);
+    if (false == ImGui_ImplSDL2_InitForOpenGL(window, glContext))
+    {
+        LOG_ERR("Failed to init ImGui SDL2 backend");
+        return -1;
+    }
+    if (false == ImGui_ImplOpenGL3_Init(glsl_version))
+    {
+        LOG_ERR("Failed to init ImGui OpenGL3 backend");
+        return -1;
+    }
 
     bool show_demo_window = true;
 #endif
-
-    {
-        const std::string gl_vendor = reinterpret_cast<const char*>(glGetString(GL_VENDOR));
-        const std::string gl_renderer = reinterpret_cast<const char*>(glGetString(GL_RENDERER));
-        const std::string gl_version = reinterpret_cast<const char*>(glGetString(GL_VERSION));
-        const std::string gl_shading_language_version = reinterpret_cast<const char*>(glGetString(GL_SHADING_LANGUAGE_VERSION));
-
-        LOG_INFO("Vendor:         {0}", gl_vendor);
-        LOG_INFO("Renderer:       {0}", gl_renderer);
-        LOG_INFO("Version OpenGL: {0}", gl_version);
-        LOG_INFO("Version GLSL:   {0}", gl_shading_language_version);
-    }
 
     eu::render::State states;
     eu::render::Render2 render{ &states };
