@@ -318,9 +318,11 @@ struct Component
 
 struct ComponentType
 {
+    virtual ~ComponentType() = default;
+
     core::HashedStringView name;
     
-    /// can the enttity have many components of this type
+    /// can the entity have many components of this type
     bool max_one_per_entity;
 
     virtual Component* create() = 0;
@@ -424,6 +426,8 @@ struct RequestedComponents
  */
 struct EntitySystem
 {
+    virtual ~EntitySystem() = default;
+
     /// get requested components
     /// @todo move to a entity sytem type
     virtual RequestedComponents get_component_requests() = 0;
@@ -493,6 +497,7 @@ private:
 */
 struct WorldSystem
 {
+    virtual ~WorldSystem() = default;
     virtual void register_updates(WorldSystemUpdate* updates) = 0;
 
     /*
