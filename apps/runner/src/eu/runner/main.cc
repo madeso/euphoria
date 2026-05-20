@@ -331,7 +331,8 @@ int main(int, char**)
     eu::v3 position = { 0.0f, -1.8f, -10.0f };
     eu::Ypr rotation = { .yaw = 30.0_deg, .pitch = 30.0_deg, .roll = 30.0_deg };
     {
-        const auto mesh = eu::io::mesh_from_file("models/vehicle-truck-purple.glb");
+        const auto mesh = eu::io::mesh_from_file("debug/axis-transform-yup.glb");
+        // const auto mesh = eu::io::mesh_from_file("models/vehicle-truck-purple.glb");
         carmesh = eu::render::compile_mesh(USE_DEBUG_LABEL_MANY("truck") mesh, renderer.default_geom_layout());
 
         auto material = renderer.make_default_material();
