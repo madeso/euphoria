@@ -25,23 +25,11 @@ namespace eu
     [[nodiscard]] Q
     Q::from(const Ypr& ypr)
     {
-        // Abbreviations for the various angular functions
-        const auto cy = cos(ypr.yaw * 0.5);
-        const auto sy = sin(ypr.yaw * 0.5);
-        const auto cp = cos(ypr.pitch * 0.5);
-        const auto sp = sin(ypr.pitch * 0.5);
-        const auto cr = cos(ypr.roll * 0.5);
-        const auto sr = sin(ypr.roll * 0.5);
-
-        return
-        {
-            cr * cp * cy + sr * sp * sy,
-            {
-                sr * cp * cy - cr * sp * sy,
-                cr * sp * cy + sr * cp * sy,
-                cr * cp * sy - sr * sp * cy
-            }
-        };
+        const auto yaw = Q::from(AA{kk::y_axis, ypr.yaw});
+        const auto pitch = Q::from(AA{ kk::x_axis, ypr.pitch});
+        const auto yp = pitch.then_get_rotated(yaw);
+        const auto roll = Q::from(AA{ yp.get_local_out(), ypr.roll });
+        return yp.then_get_rotated(roll);
     }
 
 
