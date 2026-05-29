@@ -25,8 +25,8 @@ namespace eu
     [[nodiscard]] Q
     Q::from(const Ypr& ypr)
     {
-        const auto yaw = Q::from(AA{kk::y_axis, ypr.yaw});
-        const auto pitch = Q::from(AA{ kk::x_axis, ypr.pitch});
+        const auto yaw = Q::from(AA{kk::y_axis, -ypr.yaw});
+        const auto pitch = Q::from(AA{ kk::x_axis, -ypr.pitch});
         const auto yp = pitch.then_get_rotated(yaw);
         const auto roll = Q::from(AA{ yp.get_local_out(), ypr.roll });
         return yp.then_get_rotated(roll);
