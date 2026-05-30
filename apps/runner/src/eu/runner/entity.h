@@ -385,13 +385,13 @@ public:
 
 private:
     /// non-inclusive bounds in local space
-    core::Obb local_bounds;
+    // core::Obb local_bounds;
 
     /// non-inclusive bounds in world space
-    core::Obb world_bounds;
+    // core::Obb world_bounds;
 
     // parent spatial components + socket attachment
-    Entity* parent;
+    // Entity* parent;
 
     /// can reference other spatial components: https://youtu.be/jjEsB611kxs?t=6639
     /// @todo find out if this can reference entities in other components or not
