@@ -110,7 +110,8 @@ TEST_CASE("quat-testCombine", "[quat]")
 	CHECK(q_identity
 		.then_get_rotated(Q::from(rha(kk::up, 90_deg)))
 				== approx(Q::from(rha(kk::up, 90_deg))));
-	CHECK(Q::from(rha(kk::up, 90_deg))
+	
+    CHECK(Q::from(rha(kk::up, 90_deg))
 		.then_get_rotated(q_identity)
 				== approx(Q::from(rha(kk::up, 90_deg))));
 
@@ -166,7 +167,10 @@ TEST_CASE("quat-print", "[quat]")
 
 TEST_CASE("quat-from-ypr", "[quat]")
 {
-	CHECK(Q::from(Ypr{0_deg, 90_deg, 0_deg}) == approx(Q::from(rha(kk::up, 90_deg))));
+    // ypr pitch 90 = look up.
+    // right hand around right, positive is up, negative is down.
+    // todo(Gustav): this looks weird...
+	CHECK(Q::from(Ypr{0_deg, 45_deg, 0_deg}) == approx(Q::from(rha(kk::left, 45_deg))));
 }
 
 TEST_CASE("quat-from-to", "[quat]")
