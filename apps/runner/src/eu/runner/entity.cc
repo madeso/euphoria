@@ -166,7 +166,7 @@ namespace eu::runner
     // ------------------------------------------------------------------------
     // SpatialComponent
 
-    void attach(World* world, Entity* parent, Entity* child)
+    void attach(World*, Entity* parent, Entity* child)
     {
         assert(parent->is_spatial_entity() && child->is_spatial_entity());
         // todo(Gustav): implement attachments
