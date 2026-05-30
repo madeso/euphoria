@@ -1,7 +1,5 @@
 #include "eu/runner/script.h"
 
-#pragma once
-
 #include "eu/io/file.h"
 
 #include "lax/lax.h"
