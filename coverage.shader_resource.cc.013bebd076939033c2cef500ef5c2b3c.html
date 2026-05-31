@@ -38,7 +38,7 @@
     <div class="col-sm-12 col-lg-3 float-left d-flex flex-column text-right flex-justify-end p-3">
       <div class="d-flex">
         <div class="mr-2">Lines:</div>
-        <div class="mr-2" style="margin: auto;">0 of 264, 0 excluded</div>
+        <div class="mr-2" style="margin: auto;">0 of 260, 0 excluded</div>
         <div class="Label--minw"><span class="coverage-none IssueLabel color-fg-on-emphasis mr-1">0.0%</span></div>
       </div>
       <div class="d-flex">
@@ -48,7 +48,7 @@
       </div>
       <div class="d-flex">
         <div class="mr-2">Branches:</div>
-        <div class="mr-2" style="margin: auto;">0 of 574, 0 excluded</div>
+        <div class="mr-2" style="margin: auto;">0 of 562, 0 excluded</div>
         <div class="Label--minw"><span class="coverage-none IssueLabel color-fg-on-emphasis mr-1">0.0%</span></div>
       </div>
     </div>
@@ -253,7 +253,7 @@
     libs/render/src/eu/render/shader_resource.cc
     <div class="toggle-buttons">
       <button type="button" class="button_toggle_coveredLine show_coveredLine" value="coveredLine" title="Toggle covered lines">0 covered</button>
-      <button type="button" class="button_toggle_uncoveredLine show_uncoveredLine" value="uncoveredLine" title="Toggle uncovered lines">264 uncovered</button>
+      <button type="button" class="button_toggle_uncoveredLine show_uncoveredLine" value="uncoveredLine" title="Toggle uncovered lines">260 uncovered</button>
       <button type="button" class="button_toggle_partialCoveredLine show_partialCoveredLine" value="partialCoveredLine" title="Toggle partial covered lines">0 partial covered</button>
       <button type="button" class="button_toggle_excludedLine show_excludedLine" value="excludedLine" title="Toggle excluded lines">0 excluded</button>
     </div>
@@ -3664,556 +3664,521 @@
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">PP_VERT_GLSL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">assets</span><span class="p">.</span><span class="n">pp_vert_glsl</span><span class="p">;</span></td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">pp_realize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RealizeShader</span><span class="p">{</span><span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">ShaderProgram</span><span class="o">&gt;</span><span class="p">(</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l486" href="#l486">486</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">PP_REALIZE_FRAG_GLSL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">assets</span><span class="p">.</span><span class="n">pp_realize_frag_glsl</span><span class="p">;</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l487" href="#l487">487</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">PP_EXTRACT_FRAG_GLSL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">assets</span><span class="p">.</span><span class="n">pp_extract_frag_glsl</span><span class="p">;</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l488" href="#l488">488</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">PP_PING_PONG_BLUR_FRAG_GLSL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">assets</span><span class="p">.</span><span class="n">pp_ping_pong_blur_frag_glsl</span><span class="p">;</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l489" href="#l489">489</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l490" href="#l490">490</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">	</span><span class="k">auto</span><span class="w"> </span><span class="n">pp_realize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RealizeShader</span><span class="p">{</span><span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">ShaderProgram</span><span class="o">&gt;</span><span class="p">(</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l491" href="#l491">491</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
         <td class="src"><span class="w">			</span><span class="n">USE_DEBUG_LABEL_MANY</span><span class="p">(</span><span class="s">&quot;pp realize&quot;</span><span class="p">)</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l492" href="#l492">492</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l487" href="#l487">487</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">			</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">{</span><span class="n">PP_VERT_GLSL</span><span class="p">},</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">{</span><span class="n">PP_REALIZE_FRAG_GLSL</span><span class="p">},</span><span class="w"> </span><span class="n">full_screen</span><span class="p">.</span><span class="n">layout</span></td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">			</span><span class="n">assets</span><span class="p">.</span><span class="n">pp_vert_glsl</span><span class="p">,</span><span class="w"> </span><span class="n">assets</span><span class="p">.</span><span class="n">pp_realize_frag_glsl</span><span class="p">,</span><span class="w"> </span><span class="n">full_screen</span><span class="p">.</span><span class="n">layout</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l493" href="#l493">493</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l488" href="#l488">488</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
         <td class="src uncoveredLine show_uncoveredLine"><span class="w">		</span><span class="p">)};</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l494" href="#l494">494</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l489" href="#l489">489</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
         <td class="src uncoveredLine show_uncoveredLine"><span class="w">	</span><span class="k">auto</span><span class="w"> </span><span class="n">pp_extract</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ExtractShader</span><span class="p">{</span><span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">LoadedPostProcShader</span><span class="o">&gt;</span><span class="p">(</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l495" href="#l495">495</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l490" href="#l490">490</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
         <td class="src uncoveredLine show_uncoveredLine"><span class="w">		</span><span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">ShaderProgram</span><span class="o">&gt;</span><span class="p">(</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l491" href="#l491">491</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">			</span><span class="n">USE_DEBUG_LABEL_MANY</span><span class="p">(</span><span class="s">&quot;pp extract&quot;</span><span class="p">)</span><span class="w"> </span><span class="n">assets</span><span class="p">.</span><span class="n">pp_vert_glsl</span><span class="p">,</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l492" href="#l492">492</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">			</span><span class="n">assets</span><span class="p">.</span><span class="n">pp_extract_frag_glsl</span><span class="p">,</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l493" href="#l493">493</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">			</span><span class="n">full_screen</span><span class="p">.</span><span class="n">layout</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l494" href="#l494">494</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">		</span><span class="p">),</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l495" href="#l495">495</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">		</span><span class="n">PostProcSetup</span><span class="o">::</span><span class="n">none</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l496" href="#l496">496</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">			</span><span class="n">USE_DEBUG_LABEL_MANY</span><span class="p">(</span><span class="s">&quot;pp extract&quot;</span><span class="p">)</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">{</span><span class="n">PP_VERT_GLSL</span><span class="p">},</span></td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">	</span><span class="p">)};</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l497" href="#l497">497</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">			</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">{</span><span class="n">PP_EXTRACT_FRAG_GLSL</span><span class="p">},</span></td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">	</span><span class="k">auto</span><span class="w"> </span><span class="n">pp_ping</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PingPongBlurShader</span><span class="p">{</span><span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">LoadedPostProcShader</span><span class="o">&gt;</span><span class="p">(</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l498" href="#l498">498</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">			</span><span class="n">full_screen</span><span class="p">.</span><span class="n">layout</span></td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">		</span><span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">ShaderProgram</span><span class="o">&gt;</span><span class="p">(</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l499" href="#l499">499</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">		</span><span class="p">),</span></td>
+        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">			</span><span class="n">USE_DEBUG_LABEL_MANY</span><span class="p">(</span><span class="s">&quot;pp ping-pong&quot;</span><span class="p">)</span><span class="w"> </span><span class="n">assets</span><span class="p">.</span><span class="n">pp_vert_glsl</span><span class="p">,</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l500" href="#l500">500</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">		</span><span class="n">PostProcSetup</span><span class="o">::</span><span class="n">none</span></td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">			</span><span class="n">assets</span><span class="p">.</span><span class="n">pp_ping_pong_blur_frag_glsl</span><span class="p">,</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l501" href="#l501">501</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">	</span><span class="p">)};</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l502" href="#l502">502</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">	</span><span class="k">auto</span><span class="w"> </span><span class="n">pp_ping</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PingPongBlurShader</span><span class="p">{</span><span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">LoadedPostProcShader</span><span class="o">&gt;</span><span class="p">(</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l503" href="#l503">503</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">		</span><span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">ShaderProgram</span><span class="o">&gt;</span><span class="p">(</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l504" href="#l504">504</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">			</span><span class="n">USE_DEBUG_LABEL_MANY</span><span class="p">(</span><span class="s">&quot;pp ping-pong&quot;</span><span class="p">)</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">{</span><span class="n">PP_VERT_GLSL</span><span class="p">},</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l505" href="#l505">505</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">			</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">{</span><span class="n">PP_PING_PONG_BLUR_FRAG_GLSL</span><span class="p">},</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l506" href="#l506">506</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
         <td class="src uncoveredLine show_uncoveredLine"><span class="w">			</span><span class="n">full_screen</span><span class="p">.</span><span class="n">layout</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l507" href="#l507">507</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l502" href="#l502">502</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
         <td class="src"><span class="w">		</span><span class="p">),</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l508" href="#l508">508</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l503" href="#l503">503</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
         <td class="src uncoveredLine show_uncoveredLine"><span class="w">		</span><span class="n">PostProcSetup</span><span class="o">::</span><span class="n">none</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l509" href="#l509">509</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l504" href="#l504">504</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
         <td class="src uncoveredLine show_uncoveredLine"><span class="w">	</span><span class="p">)};</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l510" href="#l510">510</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l505" href="#l505">505</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
         <td class="src"></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l511" href="#l511">511</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l506" href="#l506">506</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
         <td class="src uncoveredLine show_uncoveredLine"><span class="w">	</span><span class="k">auto</span><span class="w"> </span><span class="n">loaded_single_color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">load_shader</span><span class="p">(</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l512" href="#l512">512</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l507" href="#l507">507</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
         <td class="src"><span class="w">		</span><span class="n">USE_DEBUG_LABEL_MANY</span><span class="p">(</span><span class="s">&quot;single color&quot;</span><span class="p">)</span><span class="w"> </span><span class="n">global_shader_data</span><span class="p">,</span><span class="w"> </span><span class="n">single_color_shader</span><span class="p">,</span><span class="w"> </span><span class="n">TransformSource</span><span class="o">::</span><span class="n">Uniform</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l513" href="#l513">513</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l508" href="#l508">508</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
         <td class="src uncoveredLine show_uncoveredLine"><span class="w">	</span><span class="p">);</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l514" href="#l514">514</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l509" href="#l509">509</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
         <td class="src uncoveredLine show_uncoveredLine"><span class="w">	</span><span class="k">auto</span><span class="w"> </span><span class="n">loaded_depth_transform_uniform</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">load_shader</span><span class="p">(</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l515" href="#l515">515</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l510" href="#l510">510</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
         <td class="src"><span class="w">		</span><span class="n">USE_DEBUG_LABEL_MANY</span><span class="p">(</span><span class="s">&quot;depth transform uniform&quot;</span><span class="p">)</span><span class="w"> </span><span class="n">global_shader_data</span><span class="p">,</span><span class="w"> </span><span class="n">depth_transform_uniform</span><span class="p">,</span><span class="w"> </span><span class="n">TransformSource</span><span class="o">::</span><span class="n">Uniform</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l516" href="#l516">516</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l511" href="#l511">511</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
         <td class="src uncoveredLine show_uncoveredLine"><span class="w">	</span><span class="p">);</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l517" href="#l517">517</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l512" href="#l512">512</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
         <td class="src uncoveredLine show_uncoveredLine"><span class="w">	</span><span class="k">auto</span><span class="w"> </span><span class="n">loaded_depth_transform_instanced_mat4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">load_shader</span><span class="p">(</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l518" href="#l518">518</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l513" href="#l513">513</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
         <td class="src"><span class="w">		</span><span class="n">USE_DEBUG_LABEL_MANY</span><span class="p">(</span><span class="s">&quot;depth transform instanced&quot;</span><span class="p">)</span><span class="w"> </span><span class="n">global_shader_data</span><span class="p">,</span><span class="w"> </span><span class="n">depth_transform_instanced_mat4</span><span class="p">,</span><span class="w"> </span><span class="n">TransformSource</span><span class="o">::</span><span class="n">Instanced_mat4</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">loaded_default_instanced</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l519" href="#l519">519</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l514" href="#l514">514</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
         <td class="src uncoveredLine show_uncoveredLine"><span class="w">	</span><span class="p">);</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l520" href="#l520">520</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l515" href="#l515">515</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
         <td class="src"><span class="w">	</span><span class="k">auto</span><span class="w"> </span><span class="n">loaded_skybox_shader</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l521" href="#l521">521</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l516" href="#l516">516</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
         <td class="src uncoveredLine show_uncoveredLine"><span class="w">		</span><span class="o">=</span><span class="w"> </span><span class="n">load_shader</span><span class="p">(</span><span class="n">USE_DEBUG_LABEL_MANY</span><span class="p">(</span><span class="s">&quot;skybox&quot;</span><span class="p">){},</span><span class="w"> </span><span class="n">skybox_shader</span><span class="p">,</span><span class="w"> </span><span class="n">TransformSource</span><span class="o">::</span><span class="n">Uniform</span><span class="p">);</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l522" href="#l522">522</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l517" href="#l517">517</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
         <td class="src"></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l523" href="#l523">523</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l518" href="#l518">518</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
         <td class="src"></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l524" href="#l524">524</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l519" href="#l519">519</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
         <td class="src uncoveredLine show_uncoveredLine"><span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="n">ShaderResource</span><span class="p">{</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l525" href="#l525">525</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l520" href="#l520">520</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
         <td class="src"><span class="w">		</span><span class="c1">// todo(Gustav): not really happy with sending &quot;the same&quot; argument twice, loaded_X.program and loaded_X.geom_layout</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l526" href="#l526">526</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l521" href="#l521">521</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
         <td class="src uncoveredLine show_uncoveredLine"><span class="w">		</span><span class="p">.</span><span class="n">single_color_shader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LoadedShader_SingleColor</span><span class="p">{</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">loaded_single_color</span><span class="p">.</span><span class="n">program</span><span class="p">),</span><span class="w"> </span><span class="n">loaded_single_color</span><span class="p">.</span><span class="n">geom_layout</span><span class="p">,</span><span class="w"> </span><span class="n">desc</span><span class="p">},</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l527" href="#l527">527</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l522" href="#l522">522</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
         <td class="src"><span class="w">		</span><span class="p">.</span><span class="n">depth_transform_uniform</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LoadedShader_OnlyDepth</span><span class="p">{</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l528" href="#l528">528</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l523" href="#l523">523</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
         <td class="src uncoveredLine show_uncoveredLine"><span class="w">			</span><span class="n">TransformSource</span><span class="o">::</span><span class="n">Uniform</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">loaded_depth_transform_uniform</span><span class="p">.</span><span class="n">program</span><span class="p">),</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l529" href="#l529">529</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l524" href="#l524">524</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
         <td class="src"><span class="w">			</span><span class="n">loaded_depth_transform_uniform</span><span class="p">.</span><span class="n">geom_layout</span><span class="p">,</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l530" href="#l530">530</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l525" href="#l525">525</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
         <td class="src"><span class="w">			</span><span class="n">desc</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l531" href="#l531">531</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l526" href="#l526">526</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
         <td class="src uncoveredLine show_uncoveredLine"><span class="w">		</span><span class="p">},</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l532" href="#l532">532</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l527" href="#l527">527</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
         <td class="src"><span class="w">		</span><span class="p">.</span><span class="n">depth_transform_instanced_mat4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LoadedShader_OnlyDepth</span><span class="p">{</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l533" href="#l533">533</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l528" href="#l528">528</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
         <td class="src"><span class="w">			</span><span class="n">TransformSource</span><span class="o">::</span><span class="n">Instanced_mat4</span><span class="p">,</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l534" href="#l534">534</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l529" href="#l529">529</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
         <td class="src uncoveredLine show_uncoveredLine"><span class="w">			</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">loaded_depth_transform_instanced_mat4</span><span class="p">.</span><span class="n">program</span><span class="p">),</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l535" href="#l535">535</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l530" href="#l530">530</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
         <td class="src"><span class="w">			</span><span class="n">loaded_depth_transform_instanced_mat4</span><span class="p">.</span><span class="n">geom_layout</span><span class="p">,</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l536" href="#l536">536</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l531" href="#l531">531</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
         <td class="src"><span class="w">			</span><span class="n">desc</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l537" href="#l537">537</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l532" href="#l532">532</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
         <td class="src uncoveredLine show_uncoveredLine"><span class="w">		</span><span class="p">},</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l538" href="#l538">538</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l533" href="#l533">533</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
         <td class="src uncoveredLine show_uncoveredLine"><span class="w">		</span><span class="p">.</span><span class="n">skybox_shader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LoadedShader_Skybox</span><span class="p">{</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">loaded_skybox_shader</span><span class="p">.</span><span class="n">program</span><span class="p">),</span><span class="w"> </span><span class="n">loaded_skybox_shader</span><span class="p">.</span><span class="n">geom_layout</span><span class="p">,</span><span class="w"> </span><span class="n">desc</span><span class="p">},</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l539" href="#l539">539</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l534" href="#l534">534</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
         <td class="src"><span class="w">		</span><span class="p">.</span><span class="n">unlit_shader_container</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LoadedShader_Unlit_Container</span><span class="p">{</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l540" href="#l540">540</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l535" href="#l535">535</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
         <td class="src"><span class="w">			</span><span class="n">loaded_unlit</span><span class="p">.</span><span class="n">geom_layout</span><span class="p">,</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l541" href="#l541">541</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l536" href="#l536">536</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
         <td class="src uncoveredLine show_uncoveredLine"><span class="w">			</span><span class="n">LoadedShader_Unlit</span><span class="p">{</span><span class="n">TransformSource</span><span class="o">::</span><span class="n">Uniform</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">loaded_unlit</span><span class="p">.</span><span class="n">program</span><span class="p">),</span><span class="w"> </span><span class="n">desc</span><span class="p">},</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l542" href="#l542">542</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l537" href="#l537">537</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
         <td class="src uncoveredLine show_uncoveredLine"><span class="w">			</span><span class="n">LoadedShader_Unlit</span><span class="p">{</span><span class="n">TransformSource</span><span class="o">::</span><span class="n">Uniform</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">loaded_unlit_transparency</span><span class="p">.</span><span class="n">program</span><span class="p">),</span><span class="w"> </span><span class="n">desc</span><span class="p">}</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l543" href="#l543">543</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l538" href="#l538">538</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
         <td class="src"><span class="w">		</span><span class="p">},</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l544" href="#l544">544</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l539" href="#l539">539</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
         <td class="src"><span class="w">		</span><span class="p">.</span><span class="n">default_shader_container</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LoadedShader_Default_Container</span><span class="p">{</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l545" href="#l545">545</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l540" href="#l540">540</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
         <td class="src"><span class="w">			</span><span class="n">loaded_default</span><span class="p">.</span><span class="n">geom_layout</span><span class="p">,</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l546" href="#l546">546</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l541" href="#l541">541</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
         <td class="src uncoveredLine show_uncoveredLine"><span class="w">			</span><span class="n">LoadedShader_Default</span><span class="p">{</span><span class="n">TransformSource</span><span class="o">::</span><span class="n">Uniform</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">loaded_default</span><span class="p">.</span><span class="n">program</span><span class="p">),</span><span class="w"> </span><span class="n">settings</span><span class="p">,</span><span class="w"> </span><span class="n">desc</span><span class="p">},</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l547" href="#l547">547</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l542" href="#l542">542</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
         <td class="src uncoveredLine show_uncoveredLine"><span class="w">			</span><span class="n">LoadedShader_Default</span><span class="p">{</span><span class="n">TransformSource</span><span class="o">::</span><span class="n">Uniform</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">loaded_default_transparency</span><span class="p">.</span><span class="n">program</span><span class="p">),</span><span class="w"> </span><span class="n">settings</span><span class="p">,</span><span class="w"> </span><span class="n">desc</span><span class="p">},</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l548" href="#l548">548</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l543" href="#l543">543</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
         <td class="src uncoveredLine show_uncoveredLine"><span class="w">			</span><span class="n">LoadedShader_Default</span><span class="p">{</span><span class="n">TransformSource</span><span class="o">::</span><span class="n">Instanced_mat4</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">loaded_default_instanced</span><span class="p">.</span><span class="n">program</span><span class="p">),</span><span class="w"> </span><span class="n">settings</span><span class="p">,</span><span class="w"> </span><span class="n">desc</span><span class="p">}</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l549" href="#l549">549</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l544" href="#l544">544</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
         <td class="src"><span class="w">		</span><span class="p">},</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l550" href="#l550">550</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l545" href="#l545">545</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
         <td class="src"><span class="w">		</span><span class="c1">// .pp_invert = pp_invert,</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l551" href="#l551">551</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l546" href="#l546">546</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
         <td class="src"><span class="w">		</span><span class="c1">// .pp_grayscale = pp_grayscale,</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l552" href="#l552">552</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l547" href="#l547">547</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
         <td class="src"><span class="w">		</span><span class="c1">// .pp_damage = pp_damage,</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l553" href="#l553">553</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l548" href="#l548">548</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
         <td class="src"><span class="w">		</span><span class="c1">// .pp_blurv = pp_blurv,</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l554" href="#l554">554</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l549" href="#l549">549</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
         <td class="src"><span class="w">		</span><span class="c1">// .pp_blurh = pp_blurh,</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l555" href="#l555">555</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l550" href="#l550">550</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
         <td class="src"><span class="w">		</span><span class="p">.</span><span class="n">pp_realize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pp_realize</span><span class="p">,</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l556" href="#l556">556</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l551" href="#l551">551</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
         <td class="src"><span class="w">		</span><span class="p">.</span><span class="n">pp_extract</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pp_extract</span><span class="p">,</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l557" href="#l557">557</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l552" href="#l552">552</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
         <td class="src"><span class="w">		</span><span class="p">.</span><span class="n">pp_ping</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pp_ping</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l558" href="#l558">558</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l553" href="#l553">553</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
         <td class="src uncoveredLine show_uncoveredLine"><span class="w">	</span><span class="p">};</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l559" href="#l559">559</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l554" href="#l554">554</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
         <td class="src uncoveredLine show_uncoveredLine"><span class="p">}</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l560" href="#l560">560</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l555" href="#l555">555</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
         <td class="src"></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l561" href="#l561">561</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l556" href="#l556">556</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
         <td class="src"></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l562" href="#l562">562</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l557" href="#l557">557</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
         <td class="src"></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l563" href="#l563">563</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l558" href="#l558">558</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
         <td class="src"><span class="p">}</span><span class="w">  </span><span class="c1">//  namespace eu::render</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l564" href="#l564">564</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l559" href="#l559">559</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
@@ -4226,7 +4191,7 @@
         <hr class="block-separator"/>
         <footer class="text-center">
           Created using <a href="http://gcovr.com/en/8.6">GCOVR (Version 8.6)</a>
-          at 2026-05-31 09:40:10
+          at 2026-05-31 12:47:52
         </footer>
       </div>
     </div>
