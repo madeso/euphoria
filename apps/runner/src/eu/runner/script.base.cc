@@ -23,7 +23,8 @@ void bind_binary(lax::ClassAdder<T>* k, lax::Lax* lax, const char* const name, F
 namespace eu::runner
 {
 // todo(Gustav): add option to switch lax from double to float, or just switch to float and stop caring about doubles
-float fl(double d) { return static_cast<float>(d); }
+float fl(lax::Tf d) { return static_cast<float>(d); }
+lax::Tf lf(float f) { return static_cast<lax::Tf>(f); }
 
 void register_vec3(lax::Lax* lax, lax::Scope* pkg)
 {
@@ -39,16 +40,16 @@ void register_vec3(lax::Lax* lax, lax::Scope* pkg)
         return v3{ x, y, z };
     });
     k.add_property<lax::Tf>("x",
-        [](const auto& v) -> lax::Tf{ return v.x; },
-        [](auto& v, lax::Tf value) { v.x = value; }
+        [](const v3& v) -> lax::Tf{ return lf(v.x); },
+        [](auto& v, lax::Tf value) { v.x = fl(value); }
     );
     k.add_property<lax::Tf>("y",
-        [](const auto& v) -> lax::Tf{ return v.y; },
-        [](auto& v, lax::Tf value) { v.y = value; }
+        [](const v3& v) -> lax::Tf{ return lf(v.y); },
+        [](auto& v, lax::Tf value) { v.y = fl(value); }
     );
     k.add_property<lax::Tf>("z",
-        [](const auto& v) -> lax::Tf{ return v.z; },
-        [](auto& v, lax::Tf value) { v.z = value; }
+        [](const v3& v) -> lax::Tf{ return lf(v.z); },
+        [](auto& v, lax::Tf value) { v.z = fl(value); }
     );
     bind_binary(&k, lax, lax::named::functions::add, [](const v3& lhs, const v3& rhs) { return lhs + rhs; });
     bind_binary(&k, lax, lax::named::functions::sub, [](const v3& lhs, const v3& rhs) { return lhs - rhs; });
